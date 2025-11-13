@@ -1,0 +1,38 @@
+name: Windows
+
+on:
+  pull_request:
+  push:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-2022, windows-2025, ubuntu-latest]
+        arch: [x64, arm64]
+
+    runs-on: ${{ matrix.os }}
+
+    concurrency:
+        group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.os }}-${{ matrix.arch }}-Windows
+        cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # WyriHaximus/github-action-get-previous-tag@master need it
+          fetch-depth: 0
+          submodules: true
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          # this is not supported, use dev branch instead
+          # xmake-version: local#
+          xmake-version: branch@dev
+
+      - name: Build
+        run: |
+          xmake f -c
+          xmake
+
+      
