@@ -7,3 +7,4 @@
 #    define AST_CORE_API A_DECL_IMPORT
 #endif
 
+#define AST_CORE_CAPI extern "C" AST_CORE_API

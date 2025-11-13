@@ -1,5 +1,7 @@
 ﻿#include "AstCore/MathOperator.hpp"
+#include "AstCore/Vector.hpp"
 #include "AstTest/AstTestMacro.h"
+#include "AstTypesForward.h"
 #include <vector>
 #include <array>
 #include <stdio.h>
@@ -33,7 +35,12 @@ int main()
         printf("norm: %lf\n", retval);
         ASSERT_NEAR(retval, 5, 1e-15);
     }
-
+    {
+        Vector3d a{3,4,5};
+        double retval = norm(a);
+        printf("norm: %lf\n", retval);
+        ASSERT_NEAR(retval, expect, 1e-15);
+    }
     // cross
     {
         double arr1[3]{ 1,2,3 };
@@ -66,6 +73,11 @@ int main()
         std::array<double, 3> arr2{ 4,5,6 };
         auto ret = cross(arr1, arr2);
         printf("");
+    }
+    {
+        Vector3d a{3,4,5};
+        double b[3]{1,2,3};
+        auto ret = cross(a, b);
     }
     // dot
     {
