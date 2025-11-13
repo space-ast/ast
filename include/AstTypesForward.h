@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "AstMacro.h"
+#include <stddef.h>
 
 typedef int err_t;
 
