@@ -1,5 +1,5 @@
-#pragma once
-#include "AstCoreExport.h"
+﻿#pragma once
+#include "AstCore/AstCoreExport.h"
 #include "AstTypesForward.h"
 #include <string>
 
