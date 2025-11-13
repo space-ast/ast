@@ -8,16 +8,17 @@
 
 AST_NAMESPACE_BEGIN
 
+using std::size;  // use function size in stdlib
 
 // dot
 
 template<typename Vector3D1, typename Vector3D2>
 inline double dot(const Vector3D1& arr1, const Vector3D2& arr2)
 {
-    assert (arr1.size() == arr2.size());
+    assert (size(arr1) == size(arr2));
     double retval = 0;
-    size_t size = arr1.size();
-    for (size_t i = 0; i < size; i++)
+    size_t s = size(arr2);
+    for (size_t i = 0; i < s; i++)
     {
         retval += arr1[i] * arr2[i];
     }
@@ -60,7 +61,7 @@ template<typename Vector3D1, typename Vector3D2>
 inline auto cross(const Vector3D1& arr1, const Vector3D2& arr2)
     -> std::enable_if_t<!std::is_pointer<Vector3D1>::value && !std::is_pointer<Vector3D2>::value, Vector3D1>
 {
-    assert (arr1.size() >= 3 && arr2.size() >= 3);
+    assert (size(arr1) >= 3 && size(arr2) >= 3);
 
     return Vector3D1{
         arr1[1] * arr2[2] - arr1[2] * arr2[1],
