@@ -3,13 +3,23 @@
 #include "AstTypesForward.h"
 #include <string>
 
-class AClass;
 
-class AST_CORE_API AObject
+AST_NAMESPACE_BEGIN
+
+class Class;
+
+class AST_CORE_API Object
 {
 public:
-    AObject();
+    Object();
 protected:
     err_t getAttrString(const std::string& path, std::string& value) const;
 
 };
+
+
+AST_NAMESPACE_END
+
+AST_DECL_TYPE_ALIAS(Object)
+
+

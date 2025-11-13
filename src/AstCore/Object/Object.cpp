@@ -1,10 +1,20 @@
-#include "Object.hpp"
+﻿#include "Object.hpp"
 
-AObject::AObject()
+AST_NAMESPACE_BEGIN
+
+Object::Object()
 {
 }
 
-err_t AObject::getAttrString(const std::string &path, std::string &value) const
+err_t Object::getAttrString(const std::string &path, std::string &value) const
 {
     return err_t();
 }
+
+Object::Object()
+{
+
+}
+
+
+AST_NAMESPACE_END
