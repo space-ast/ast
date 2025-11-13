@@ -13,7 +13,7 @@
 #   define A_DECL_EXPORT __declspec(dllexport)
 #   define A_DECL_IMPORT __declspec(dllimport)
 #else
-#   defien A_DECL_EXPORT __attribute__((visibility("default")))
-#   defien A_DECL_IMPORT __attribute__((visibility("default")))
+#   define A_DECL_EXPORT __attribute__((visibility("default")))
+#   define A_DECL_IMPORT __attribute__((visibility("default")))
 #endif
 
