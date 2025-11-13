@@ -17,3 +17,8 @@
 #   define A_DECL_IMPORT __attribute__((visibility("default")))
 #endif
 
+#define AST_NAMESPACE_BEGIN namespace ast{
+#define AST_NAMESPACE_END   };
+#define AST_USING_NAMESPACE using namespace ast;
+
+

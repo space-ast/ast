@@ -41,10 +41,12 @@ def clean_header(incroot):
             lines = len(content.split("\n"))
             if lines>1:
                 continue
-            relpath = content.split('"')[1]
-            dstpath = os.path.join(root, relpath)
-            if not os.path.exists(dstpath):
-                os.remove(filepath)
+            res = content.split('"')
+            if len(res) == 2:
+                relpath = [1]
+                dstpath = os.path.join(root, relpath)
+                if not os.path.exists(dstpath):
+                    os.remove(filepath)
 
 if __name__ == "__main__":
     

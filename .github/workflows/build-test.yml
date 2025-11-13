@@ -32,7 +32,10 @@ jobs:
 
       - name: Build
         run: |
-          xmake f -c
+          xmake f -c --with_test=y
           xmake
 
-      
+      - name: Test
+        run: |
+          xmake test
+          
