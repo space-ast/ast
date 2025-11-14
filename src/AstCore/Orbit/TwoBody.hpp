@@ -25,9 +25,9 @@ AST_NAMESPACE_BEGIN
  
 
 
-err_t aTwoBodyProp(double duration, double gm, Vector3d& r, Vector3d& v);
+AST_CORE_CAPI err_t aTwoBodyProp(double duration, double gm, Vector3d& r, Vector3d& v);
 
-  
+
 
 AST_NAMESPACE_END
  
