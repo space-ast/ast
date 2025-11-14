@@ -174,7 +174,7 @@ inline double norm(double* vec, size_t N)
 
 template<typename Vector>
 inline auto norm(const Vector& vec)
-    -> std::enable_if_t<!std::is_pointer<Vector>::value, double>
+    -> typename std::enable_if<!std::is_pointer<Vector>::value, double>::type
 {
     double sum = 0.0;
     for (const auto& val : vec) {
@@ -214,7 +214,7 @@ inline void normalize(double* vec, size_t N)
 
 template<typename Vector>
 inline auto normalize(const Vector& vec)
--> std::enable_if_t<!std::is_pointer<Vector>::value, void>
+-> typename std::enable_if<!std::is_pointer<Vector>::value, void>::type
 {
     double mag = norm(vec);
     if (mag == 0)
@@ -241,32 +241,77 @@ inline void normalize(double (&vec)[N])
 
 /// + - * /
 
-template<typename Scalar, typename Vector>
-inline Vector operator *(Scalar scalar, const Vector& vec)
-{
-    Vector retval{ vec };
-    size_t s = size(vec);
-    for (size_t i = 0; i < s; i++)
-    {
-        retval[i] *= scalar;
-    }
-    return retval;
+#define _AST_DEF_OP_SV(OP)                                                   \
+template<typename Scalar, typename Vector>                                   \
+inline auto operator OP(Scalar scalar, const Vector& vec)                    \
+-> typename std::enable_if<std::is_arithmetic<Scalar>::value, Vector>::type  \
+{                                                                            \
+    Vector retval{ vec };                                                    \
+    size_t s = size(vec);                                                    \
+    for (size_t i = 0; i < s; i++)                                           \
+    {                                                                        \
+        retval[i] OP= scalar;                                                \
+    }                                                                        \
+    return retval;                                                           \
 }
 
-template<typename Vector1, typename Vector2>
-inline Vector1 operator +(const Vector1& vec1, const Vector2& vec2)
-{
-    assert(size(vec1) == size(vec2));
-    Vector1 retval{ vec1 };
-    size_t s = size(vec1);
-    for (size_t i = 0; i < s; i++)
-    {
-        retval[i] += vec2[i];
-    }
-    return retval;
+
+#define _AST_DEF_OP_VS(OP)                                                   \
+template<typename Vector, typename Scalar>                                   \
+inline auto operator OP(const Vector& vec, Scalar scalar)                    \
+-> typename std::enable_if<std::is_arithmetic<Scalar>::value, Vector>::type  \
+{                                                                            \
+    Vector retval{ vec };                                                    \
+    size_t s = size(vec);                                                    \
+    for (size_t i = 0; i < s; i++)                                           \
+    {                                                                        \
+        retval[i] OP= scalar;                                                \
+    }                                                                        \
+    return retval;                                                           \
+} 
+
+
+#define _AST_DEF_OP_VV(OP)                                          \
+template<typename Vector1, typename Vector2>                        \
+inline Vector1 operator OP(const Vector1& vec1, const Vector2& vec2)\
+{                                                                   \
+    assert(size(vec1) == size(vec2));                               \
+    Vector1 retval{ vec1 };                                         \
+    size_t s = size(vec1);                                          \
+    for (size_t i = 0; i < s; i++)                                  \
+    {                                                               \
+        retval[i] OP= vec2[i];                                      \
+    }                                                               \
+    return retval;                                                  \
 }
 
-/// @fixme: 这个模板无法起作用，可能受限于c++语言机制，无法为原生数组类型直接定义运算符重载
+
+#define _AST_DEF_OP(OP) \
+_AST_DEF_OP_SV(OP)      \
+_AST_DEF_OP_VS(OP)      \
+_AST_DEF_OP_VV(OP)      \
+
+
+
+_AST_DEF_OP(+)
+_AST_DEF_OP(-)
+
+
+_AST_DEF_OP_SV(*)
+_AST_DEF_OP_SV(/)
+
+_AST_DEF_OP_VS(*)
+_AST_DEF_OP_VS(/)
+
+// 乘除运算对于向量不应该是按元素运算，不启用以避免歧义
+// _AST_DEF_OP_VV(*) 
+// _AST_DEF_OP_VV(/) 
+
+
+
+
+#if 0
+/// @fixme: 这个模板无法起作用，受限于c++语言机制，无法为原生数组类型直接定义运算符重载
 template<size_t N1, size_t N2>
 inline std::array<double, N1> operator+(const double (&vec1)[N1], const double (&vec2)[N2])
 {
@@ -278,6 +323,6 @@ inline std::array<double, N1> operator+(const double (&vec1)[N1], const double (
     }
     return retval;
 }
-
+#endif
 
 AST_NAMESPACE_END
