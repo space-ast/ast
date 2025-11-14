@@ -6,7 +6,8 @@
 #include <stdio.h>
 
 
-int main()
+
+int testMathFunction()
 {
     AST_USING_NAMESPACE
     const double expect = sqrt(9+16+25);
@@ -90,4 +91,31 @@ int main()
         double r = dot(a, b);
     }
     return 0;
+}
+
+
+int testMathOperator()
+{
+    AST_USING_NAMESPACE
+    {
+        std::array<double,3> a{1,2,3};
+        double b[3]{ 4,5,6 };
+        auto ret = a + b;
+        nothing();
+    }
+    {
+        Vector3d vec1{ 1,2,3 };
+        Vector3d vec2{ 1,2,-3 };
+        auto ret = vec1 + vec2;
+        nothing();
+    }
+    return 0;
+}
+
+int main()
+{
+    int rc = 0;
+    rc |= testMathFunction();
+    rc |= testMathOperator();
+    return rc;
 }
