@@ -9,6 +9,8 @@
 
 *Precise as the stars, born for aerospace simulation*
 
+[中文文档](README_zh.md)
+
 ## 🌟 Project Introduction
 
 **ast** (/æst/) is an algorithm library focused on the aerospace simulation domain, providing modern C++ implementations of core algorithms including orbital mechanics, attitude control, and trajectory planning.

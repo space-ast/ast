@@ -1,0 +1,1 @@
+#include "../../src/AstCore/Attitude/AttitudeConvert.hpp"

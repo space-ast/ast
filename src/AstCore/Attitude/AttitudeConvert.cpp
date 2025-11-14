@@ -1,12 +1,10 @@
-﻿///
-/// @file      Quaternion.hpp
+﻿/// @file      AttitudeConvert.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
 /// @date      15.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
-///
-/// ast项目（https://github.com/space-ast/ast）
+
 /// 根据 Apache 许可证 2.0 版本（"许可证"）授权；
 /// 除非符合许可证，否则不得使用此文件。
 /// 您可以在以下网址获取许可证副本：
@@ -17,33 +15,12 @@
 /// 没有任何明示或暗示的担保或条件。
 /// 请参阅许可证了解特定语言的权限和限制。
  
-#pragma once
+#include "AttitudeConvert.hpp"
  
-#include "AstGlobal.hpp"
  
 AST_NAMESPACE_BEGIN
-
-
-/// @brief 四元数
-class Quaternion
-{
-public:
-	double* data() const noexcept{return (double*)this; }
-	double qs() const{return m_qs;}
-	double qx() const{return m_qx;}
-	double qy() const{return m_qy;}
-	double qz() const{return m_qz;}
-
-public:
-	// 设置为public仅为实现聚合初始化，不要直接访问成员变量
-	double m_qs;
-	double m_qx;
-	double m_qy;
-	double m_qz;
-};
-
-
+ 
+  
 AST_NAMESPACE_END
+ 
 
-
-AST_DECL_TYPE_ALIAS(Quaternion)
