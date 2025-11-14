@@ -1,7 +1,6 @@
 ﻿#include "AstCore/MathOperator.hpp"
 #include "AstCore/Vector.hpp"
 #include "AstTest/AstTestMacro.h"
-#include "AstTypesForward.h"
 #include <vector>
 #include <array>
 #include <stdio.h>
@@ -46,7 +45,7 @@ int main()
         double arr1[3]{ 1,2,3 };
         double arr2[3]{ 4,5, 6};
         auto arr = cross(arr1, arr2);
-        printf("");
+        nothing();
     }
     {
         double arr1[3]{ 1,2,3 };
@@ -54,25 +53,25 @@ int main()
         double arr3[3]{};
         double* a= arr1, *b = arr2;
         cross(arr3, a, b);
-        printf("");
+        nothing();
     }
     {
         std::vector<double> arr1{1,2, 3};
         std::vector<double> arr2{4,5,6};
         auto ret = cross(arr1, arr2);
-        printf("");
+        nothing();
     }
     {
         std::array<double,3> arr1{ 1,2,3 };
         std::array<double,3> arr2{ 4,5,6 };
         auto ret = cross(arr1, arr2);
-        printf("");
+        nothing();
     }
     {
         std::vector<double> arr1{ 1,2,3 };
         std::array<double, 3> arr2{ 4,5,6 };
         auto ret = cross(arr1, arr2);
-        printf("");
+        nothing();
     }
     {
         Vector3d a{3,4,5};
