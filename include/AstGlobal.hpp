@@ -45,7 +45,7 @@
 
 #define AST_NAMESPACE ast
 #define AST_NAMESPACE_BEGIN namespace AST_NAMESPACE{
-#define AST_NAMESPACE_END   };
+#define AST_NAMESPACE_END   }
 #define AST_USING_NAMESPACE using namespace AST_NAMESPACE;
 #define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
 
@@ -62,6 +62,13 @@
 
 #define AST_CORE_CAPI extern "C" AST_CORE_API
 
+
+/// ast项目公共枚举
+
+enum EError
+{
+	eNoError = 0,   // 没有错误
+};
 
 /// ast项目类型前置声明
 
