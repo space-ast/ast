@@ -2,12 +2,13 @@ set_group("test")
 
 add_deps("AstCore")
 
-local files = os.files("**/test*.cpp")
+local files = os.files("**/test*.c*")
 
 for _, file in ipairs(files) do
-    local targetname = file:gsub("\\", "-"):gsub("%.[^.]*$", "")
+    local targetname = file:gsub("\\", "_"):gsub("%.[^.]*$", "")
     target(targetname)
         add_files(file)
         set_kind("binary")
         add_tests("test")
+        add_extrafiles("xmake.lua")
 end

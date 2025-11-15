@@ -9,8 +9,8 @@ option("with_test")
     set_default(false)
 option_end()
 
--- 设置语言规范
-set_languages("c++11")
+-- 设置c代码标准：c99， c++代码标准：c++11
+set_languages("cxx11", "c89")
 
 -- 添加包含目录
 add_includedirs("include")

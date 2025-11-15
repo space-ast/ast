@@ -41,16 +41,29 @@
 #   define A_DECL_IMPORT __attribute__((visibility("default")))
 #endif
 
+#ifdef __cplusplus
+#   define A_DECL_EXTERN_C extern "C"
+#else
+#   define A_DECL_EXTERN_C
+#endif
 
 /// ast项目专用宏
+#ifdef __cplusplus
+#	define AST_NAMESPACE ast
+#	define AST_NAMESPACE_BEGIN namespace AST_NAMESPACE{
+#	define AST_NAMESPACE_END   }
+#	define AST_USING_NAMESPACE using namespace AST_NAMESPACE;
+#	define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
+#	define AST_DECL_TYPE_ALIAS(name) typedef AST_PREPEND_NAMESPACE(name) A##name;
+#else
+#	define AST_NAMESPACE 
+#	define AST_NAMESPACE_BEGIN 
+#	define AST_NAMESPACE_END   
+#	define AST_USING_NAMESPACE 
+#	define AST_PREPEND_NAMESPACE(name) name
+#	define AST_DECL_TYPE_ALIAS(name)
+#endif
 
-#define AST_NAMESPACE ast
-#define AST_NAMESPACE_BEGIN namespace AST_NAMESPACE{
-#define AST_NAMESPACE_END   }
-#define AST_USING_NAMESPACE using namespace AST_NAMESPACE;
-#define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
-
-#define AST_DECL_TYPE_ALIAS(name) typedef AST_PREPEND_NAMESPACE(name) A##name;
 
 
 /// ast项目模块导出声明
@@ -61,20 +74,20 @@
 #    define AST_CORE_API A_DECL_IMPORT
 #endif
 
-#define AST_CORE_CAPI extern "C" AST_CORE_API
-
-
-/// ast项目公共枚举
-
-enum EError
-{
-	eNoError = 0,   // 没有错误
-};
-
-/// ast项目类型前置声明
+#define AST_CORE_CAPI A_DECL_EXTERN_C AST_CORE_API
 
 AST_NAMESPACE_BEGIN
 
+/// ast项目公共枚举
+
+typedef enum EError
+{
+	eNoError = 0,   // 没有错误
+} AEError;
+
+/// ast项目类型前置声明
+
+#ifdef __cplusplus
 template<typename Scalar, size_t N>
 class VectorN;
 
@@ -90,8 +103,14 @@ class Quaternion;
 
 class Euler;
 
+#endif
+
 typedef int err_t;
+
 
 inline void nothing(){}
 
 AST_NAMESPACE_END
+
+
+AST_DECL_TYPE_ALIAS(Vector3d)

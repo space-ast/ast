@@ -23,27 +23,55 @@
 #include "AstGlobal.hpp"
  
 AST_NAMESPACE_BEGIN
- 
 
-template<typename Scalar, size_t N>
+template<typename _Scalar, size_t N>
+class VectorN;
+
+
+#define _AST_DEF_VECTOR_METHOD(Scalar, N)                                               \
+    size_t size() const{return N;}                                                      \
+    const Scalar* data() const {return (Scalar*)this;}                                  \
+    Scalar* data() {return (Scalar*)this;}                                              \
+    Scalar operator[](size_t idx) const{return data()[idx];}                            \
+    Scalar& operator[](size_t idx) {return data()[idx];}                                \
+    Scalar operator()(size_t idx) const{return data()[idx];}                            \
+    Scalar& operator()(size_t idx) {return data()[idx];}                                \
+    Scalar* begin() noexcept{ return data(); }                                          \
+    Scalar* end() noexcept{ return data() + size(); }                                   \
+    const Scalar* begin() const noexcept{ return data(); }                              \
+    const Scalar* end() const noexcept{ return data() + size(); }                       \
+    const Scalar* cbegin() const noexcept{ return data(); }                             \
+    const Scalar* cend() const noexcept{ return data() + size(); }                      \
+    Scalar& x() {return data()[0];}                                                     \
+    Scalar& y() {return data()[1];}                                                     \
+    Scalar& z() {return data()[2];}                                                     \
+    Scalar x() const {return data()[0];}                                                \
+    Scalar y() const {return data()[1];}                                                \
+    Scalar z() const {return data()[2];}                                                \
+
+
+
+template<typename _Scalar, size_t N>
 class VectorN
 {
 public:
-    constexpr const Scalar* data() const {return m_data;}
-    constexpr Scalar* data() {return m_data;}
-    constexpr size_t size() const{return N;}
-    Scalar operator[](size_t idx) const{return m_data[idx];}
-    Scalar& operator[](size_t idx) {return m_data[idx];}
-
-    // 支持基于范围的for循环
-    Scalar* begin() noexcept{ return m_data; }
-    Scalar* end() noexcept{ return m_data + N; }
-    const Scalar* begin() const noexcept{ return m_data; }
-    const Scalar* end() const noexcept{ return m_data + N; }
-    const Scalar* cbegin() const noexcept{ return m_data; }
-    const Scalar* cend() const noexcept{ return m_data + N; }
+    typedef _Scalar Scalar;
+    enum {Dimension = N};
+    _AST_DEF_VECTOR_METHOD(Scalar, Dimension);
 public:
     Scalar m_data[N]; // 不要直接访问m_data，设为public仅为了实现聚合初始化
+};
+
+
+template<typename _Scalar>
+class VectorN<_Scalar, 3>
+{
+public:
+    typedef _Scalar Scalar;
+    enum {Dimension = 3};
+    _AST_DEF_VECTOR_METHOD(Scalar, Dimension);
+public:
+    double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化
 };
 
 

@@ -18,8 +18,9 @@
  
 #include "AttitudeConvert.hpp"
 #include "AstCore/Matrix.hpp"
-#include "AstCore/Vector.hpp"
 #include "AstCore/Euler.hpp"
+#include "AstCore/Quaternion.hpp"
+#include "AstCore/Vector.hpp"
 #include "AstCore/MathOperator.hpp"
 #include "AstCore/Constants.h"
 
@@ -31,6 +32,31 @@
 
 AST_NAMESPACE_BEGIN
  
+
+void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
+{
+	double xy = quat.qx() * quat.qy();
+	double yz = quat.qy() * quat.qz();
+	double zx = quat.qz() * quat.qx();
+	double sx = quat.qs() * quat.qx();
+	double sy = quat.qs() * quat.qy();
+	double sz = quat.qs() * quat.qz();
+	double xx = quat.qx() * quat.qx();
+	double yy = quat.qy() * quat.qy();
+	double zz = quat.qz() * quat.qz();
+
+	m(0,0) = 1.0 - 2.0 * (yy + zz);	m(0,1) = 2.0 * (xy + sz);		m(0,2) = 2.0 * (zx - sy);
+	m(1,0) = 2.0 * (xy - sz);		m(1,1) = 1.0 - 2.0 * (xx + zz);	m(1,2) = 2.0 * (yz + sx);
+	m(2,0) = 2.0 * (zx + sy);		m(2,1) = 2.0 * (yz - sx);		m(2,2) = 1.0 - 2.0 * (xx + yy);
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (m(i) > 1.0)
+			m(i) = 1;
+		else if (m(i) < -1.0)
+			m(i) = -1;
+	}
+}
 
 /// mtx to euler
 void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler)

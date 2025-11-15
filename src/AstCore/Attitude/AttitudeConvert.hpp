@@ -24,10 +24,22 @@
  
 AST_NAMESPACE_BEGIN
 
+/// @brief 四元数转矩阵
+/// @param quat 
+/// @param mtx 
 void aQuatToMatrix(const Quaternion& quat, Matrix3d& mtx);
+
+
+/// @brief 矩阵转四元数
+/// @param mtx 
+/// @param quat 
 void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat);
 
 
+/// @brief 矩阵转欧拉角
+/// @param mtx 矩阵
+/// @param seq 转序
+/// @param euler 欧拉角
 void aMatrixToEuler(const Matrix3d&mtx, int seq, Euler& euler);
 void aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
 
