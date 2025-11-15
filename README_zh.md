@@ -120,7 +120,7 @@ const kEps15 = 1e-15;
 - AstOpt:    非线性规划接口库
 - AstOCP:    最优控制问题求解
 
-下面的模块将通过AI辅助进行开发，此README也是AI(https://www.deepseek.com/)辅助生成的
+下面的模块将通过AI辅助进行开发，此README也是AI辅助生成的
 
 - AstScript: 脚本系统
 - AstInterp: 交互式控制台

@@ -9,23 +9,26 @@ option("with_test")
     set_default(false)
 option_end()
 
--- 包含目录
+-- 设置语言规范
+set_languages("c++11")
+
+-- 添加包含目录
 add_includedirs("include")
 
--- 编译规则
+-- 添加编译规则
 add_rules("mode.debug", "mode.release")
 
--- 包含子目录
+-- 导入子目录配置
 includes("3rdparty")
 includes("src")
 includes("projects")
 
--- 测试
+-- 导入测试配置
 if has_config("with_test") then
     includes("test")
 end
 
--- 打包
+-- 导入打包配置
 includes("@builtin/xpack")
 if xpack then
     includes("xpack.lua")
