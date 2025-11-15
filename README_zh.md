@@ -10,7 +10,7 @@
 
 *像星辰般精准，为航天仿真而生*
 
-[中文文档](README_zh.md)
+[中文版项目简介](README_zh.md)
 
 ## 🌟 项目简介
 
@@ -32,7 +32,7 @@
 ### 环境要求
 
 - C++11兼容编译器 (GCC 5+, MSVC 2015+)
-- [xmake 2.7+](https://xmake.io/)
+- [xmake 2.9+](https://xmake.io/)
 
 
 ### 构建项目

@@ -47,6 +47,20 @@
 #   define A_DECL_EXTERN_C
 #endif
 
+#define A_DEF_POD_ITERABLE(Scalar)                                      \
+    size_t size() noexcept{ return (sizeof(*this)/sizeof(Scalar)) ;}    \
+    double* data() noexcept{return (Scalar*)this;}                      \
+    const double* data() const{return (Scalar*)this;}                   \
+    Scalar* begin() noexcept{ return data(); }                          \
+    Scalar* end() noexcept{ return (Scalar*)(this+1); }                 \
+    const Scalar* begin() const noexcept{ return data(); }              \
+    const Scalar* end() const noexcept{ return (Scalar*)(this+1); }     \
+    const Scalar* cbegin() const noexcept{ return data(); }             \
+    const Scalar* cend() const noexcept{ return (Scalar*)(this+1); }    \
+    Scalar operator[](size_t idx) const noexcept{return data()[idx];}   \
+    Scalar& operator[](size_t idx) noexcept{return data()[idx];}        \
+
+
 /// ast项目专用宏
 #ifdef __cplusplus
 #	define AST_NAMESPACE ast

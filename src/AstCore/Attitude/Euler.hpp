@@ -31,6 +31,9 @@ public:
     // 欧拉角转序
     enum ERotationOrder
     {
+        eX = 1,
+        eY = 2,
+        eZ = 3,
         eXYZ = 123,
         eXZY = 132,
         eYXZ = 213,
@@ -52,19 +55,21 @@ public:
 	void fromAxisAngle(Vector3d& axis, double& angle, int seqFlag);
 	void fromMatrix(const Matrix3d& mtx, int seqFlag);
     
-    double* data() {return &m_angle1;}
-    const double* data() const{return &m_angle1;}
-    double angle1() const{return m_angle1;}
-    double angle2() const{return m_angle2;}
-    double angle3() const{return m_angle3;}
-    double& angle1(){return m_angle1;}
-    double& angle2(){return m_angle2;}
-    double& angle3(){return m_angle3;}
+
+    double angle1() const{return angle1_;}
+    double angle2() const{return angle2_;}
+    double angle3() const{return angle3_;}
+    double& angle1(){return angle1_;}
+    double& angle2(){return angle2_;}
+    double& angle3(){return angle3_;}
+    
+    A_DEF_POD_ITERABLE(double)
+
 public:
     // 设置为public只是为了聚合初始化，不要直接访问成员变量
-	double	m_angle1;	///< 第一个角
-	double	m_angle2;	///< 第二个角
-	double	m_angle3;	///< 第三个角
+	double	angle1_;	///< 第一个角
+	double	angle2_;	///< 第二个角
+	double	angle3_;	///< 第三个角
 };
 
 
