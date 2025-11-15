@@ -30,7 +30,7 @@
 ### Requirements
 
 - C++11 compatible compiler (GCC 5+, MSVC 2015+)
-- [xmake 2.7+](https://xmake.io/)
+- [xmake 2.9+](https://xmake.io/)
 
 ### Building the Project
 
