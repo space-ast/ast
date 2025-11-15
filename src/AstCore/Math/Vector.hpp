@@ -28,20 +28,10 @@ template<typename _Scalar, size_t N>
 class VectorN;
 
 
-#define _AST_DEF_VECTOR_METHOD(Scalar, N)                                               \
-    size_t size() const{return N;}                                                      \
-    const Scalar* data() const {return (Scalar*)this;}                                  \
-    Scalar* data() {return (Scalar*)this;}                                              \
-    Scalar operator[](size_t idx) const{return data()[idx];}                            \
-    Scalar& operator[](size_t idx) {return data()[idx];}                                \
+#define _AST_DEF_VECTOR_METHOD(Scalar)                                                  \
+    A_DEF_POD_ITERABLE(Scalar)                                                          \
     Scalar operator()(size_t idx) const{return data()[idx];}                            \
     Scalar& operator()(size_t idx) {return data()[idx];}                                \
-    Scalar* begin() noexcept{ return data(); }                                          \
-    Scalar* end() noexcept{ return data() + size(); }                                   \
-    const Scalar* begin() const noexcept{ return data(); }                              \
-    const Scalar* end() const noexcept{ return data() + size(); }                       \
-    const Scalar* cbegin() const noexcept{ return data(); }                             \
-    const Scalar* cend() const noexcept{ return data() + size(); }                      \
     Scalar& x() {return data()[0];}                                                     \
     Scalar& y() {return data()[1];}                                                     \
     Scalar& z() {return data()[2];}                                                     \
@@ -57,7 +47,7 @@ class VectorN
 public:
     typedef _Scalar Scalar;
     enum {Dimension = N};
-    _AST_DEF_VECTOR_METHOD(Scalar, Dimension);
+    _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     Scalar m_data[N]; // 不要直接访问m_data，设为public仅为了实现聚合初始化
 };
@@ -69,7 +59,7 @@ class VectorN<_Scalar, 3>
 public:
     typedef _Scalar Scalar;
     enum {Dimension = 3};
-    _AST_DEF_VECTOR_METHOD(Scalar, Dimension);
+    _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化
 };

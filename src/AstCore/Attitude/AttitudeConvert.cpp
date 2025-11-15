@@ -31,6 +31,37 @@
 
 
 AST_NAMESPACE_BEGIN
+
+namespace
+{
+
+	void aEulerToMatrix(double angle, int axis, Matrix3d& mtx)
+	{
+		assert(Euler::eX <= axis && axis <= Euler::eZ);
+
+		double c = cos(angle);
+		double s = sin(angle);
+		switch (axis)
+		{
+			case Euler::eX:
+				mtx(0, 0) = 1.0;	mtx(0, 1) = 0.0;	mtx(0, 2) = 0.0;
+				mtx(1, 0) = 0.0;	mtx(1, 1) = c;		mtx(1, 2) = s;
+				mtx(2, 0) = 0.0;	mtx(2, 1) = -s;		mtx(2, 2) = c;
+				break;
+			case Euler::eY:
+				mtx(0, 0) = c;		mtx(0, 1) = 0.0;	mtx(0, 2) = -s;
+				mtx(1, 0) = 0.0;	mtx(1, 1) = 1.0;	mtx(1, 2) = 0.0;
+				mtx(2, 0) = s;		mtx(2, 1) = 0.0;	mtx(2, 2) = c;
+				break;
+			case Euler::eZ:
+				mtx(0, 0) = c;		mtx(0, 1) = s;		mtx(0, 2) = 0.0;
+				mtx(1, 0) = -s;		mtx(1, 1) = c;		mtx(1, 2) = 0.0;
+				mtx(2, 0) = 0.0;	mtx(2, 1) = 0.0;	mtx(2, 2) = 1.0;
+				break;
+		}
+	}
+};
+// namespace end
  
 
 void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
@@ -49,13 +80,39 @@ void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 	m(1,0) = 2.0 * (xy - sz);		m(1,1) = 1.0 - 2.0 * (xx + zz);	m(1,2) = 2.0 * (yz + sx);
 	m(2,0) = 2.0 * (zx + sy);		m(2,1) = 2.0 * (yz - sx);		m(2,2) = 1.0 - 2.0 * (xx + yy);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 9; i++)
 	{
 		if (m(i) > 1.0)
 			m(i) = 1;
 		else if (m(i) < -1.0)
 			m(i) = -1;
 	}
+}
+
+void aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
+{
+
+	return void();
+}
+
+void aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx)
+{
+#if 0
+	int axis;
+	Matrix3d mat;
+
+	axis = seq / 100;
+	aEulerToMatrix(euler.angle1(), axis, mtx);
+
+	seq = seq - axis * 100;
+	axis = seq / 10;
+	aEulerToMatrix(euler.angle2(), axis, mat);
+	mtx = mat * mtx;
+
+	seq = seq - axis * 10;
+	aEulerToMatrix(euler.angle3(), seq, mat);
+	mtx = mat * mtx;
+#endif
 }
 
 /// mtx to euler

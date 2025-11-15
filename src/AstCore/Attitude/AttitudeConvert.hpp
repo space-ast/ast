@@ -27,33 +27,33 @@ AST_NAMESPACE_BEGIN
 /// @brief 四元数转矩阵
 /// @param quat 
 /// @param mtx 
-void aQuatToMatrix(const Quaternion& quat, Matrix3d& mtx);
+AST_CORE_CAPI void aQuatToMatrix(const Quaternion& quat, Matrix3d& mtx);
 
 
 /// @brief 矩阵转四元数
 /// @param mtx 
 /// @param quat 
-void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat);
+AST_CORE_CAPI void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat);
 
 
 /// @brief 矩阵转欧拉角
 /// @param mtx 矩阵
 /// @param seq 转序
 /// @param euler 欧拉角
-void aMatrixToEuler(const Matrix3d&mtx, int seq, Euler& euler);
-void aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
+AST_CORE_CAPI void aMatrixToEuler(const Matrix3d&mtx, int seq, Euler& euler);
+AST_CORE_CAPI void aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
 
-void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler132(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler213(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler231(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler312(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler321(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler121(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler131(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler212(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler232(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler313(const Matrix3d& mtx, Euler& euler);
-void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler132(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler213(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler231(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler312(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler321(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler121(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler131(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler212(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler232(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler313(const Matrix3d& mtx, Euler& euler);
+AST_CORE_CAPI void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler);
 
 AST_NAMESPACE_END
