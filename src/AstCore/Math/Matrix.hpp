@@ -59,13 +59,15 @@ public:
     constexpr size_t size() const{return Row*Col;}
     constexpr size_t row() const{return Row;}
     constexpr size_t col() const{return Col;}
-    constexpr Scalar* data() const{return m_data[0];}
-    Scalar operator[](size_t idx) const{return m_data[0][idx];}
-    Scalar operator()(size_t row, size_t col) const {return m_data[row][col]; }
-    Scalar& operator()(size_t row, size_t col) {return m_data[row][col]; }
+    constexpr Scalar* data() const{return data_[0];}
+    Scalar operator[](size_t idx) const{return data_[0][idx];}
+    Scalar operator()(size_t idx) const {return data_[0][idx]; }
+    Scalar& operator()(size_t idx)  {return data_[0][idx]; }
+    Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
+    Scalar& operator()(size_t row, size_t col) {return data_[row][col]; }
 
-protected:
-    Scalar m_data[Row][Col];
+public:
+    Scalar data_[Row][Col];
 };
 
 
