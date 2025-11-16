@@ -20,7 +20,9 @@
  
 #include "NLPProblem.hpp"
 #include "AstCore/MathOperator.hpp"
-#include <memory>	 // for std::shared_ptr
+#include <memory>			// for std::shared_ptr
+#include <algorithm>		// for std::copy_n std::fill_n
+#include <stdio.h>			// for printf
 
 #define INFBND 1.1e20
 
@@ -172,8 +174,57 @@ err_t NLPProblem::evalFitness(const NLPInput& input, NLPOutput& output) const
 	return m_problem->evalFitness(input, output);
 }
 
+std::vector<double> NLPProblem::evalFitness(const std::vector<double>& x) const
+{
+	std::vector<double> f;
+	err_t err = this->evalFitness(x, f);
+	return std::move(f);
+}
+
+err_t NLPProblem::evalFitness(const std::vector<double>& x, std::vector<double>& f) const
+{
+	// @todo: check input
+
+	f.resize(m_probInfo.getNumObjConstr());
+	double* constraint = f.data();
+	
+	NLPInput input{};
+	NLPOutput output{};
+	input.variable.size = x.size();
+	input.variable.value = (double*)x.data();
+
+	output.objective.size = m_probInfo.getNumObjective();
+	output.objective.value = constraint;
+	constraint += output.objective.size;
+
+	output.constraintEq.size = m_probInfo.getNumConstraintEq();
+	output.constraintEq.value = constraint;
+	constraint += output.constraintEq.size;
+
+	output.constraintIneq.size = m_probInfo.getNumConstraintIneq();
+	output.constraintIneq.value = constraint + output.constraintEq.size;
+
+	return evalFitness(input, output);
+}
+
+std::vector<double> NLPProblem::evalConstraint(const std::vector<double>& variable) const
+{
+	std::vector<double> c;
+	err_t err = this->evalConstraint(variable, c);
+	return std::move(c);
+}
+
+err_t NLPProblem::evalConstraint(const std::vector<double>& variable, std::vector<double>& constraint) const
+{
+	int numConstraint = m_probInfo.getNumConstraint();
+	constraint.resize(numConstraint);
+	return this->evalConstraint(variable.size(), variable.data(), numConstraint, constraint.data());
+}
+
 err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int numConstraint, double* constraint) const
 {
+	// @todo check input and output
+
 	NLPInput input{};
 	NLPOutput output{};
 	input.variable.size = numVariable;
@@ -190,6 +241,8 @@ err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int nu
 
 err_t NLPProblem::evalObjective(int numVariable, const double* variable, int numObjective, double* objective) const
 {
+	// @todo check input and output
+
 	NLPInput input{};
 	NLPOutput output{};
 	input.variable.size = numVariable;
