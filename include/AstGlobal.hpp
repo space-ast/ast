@@ -47,7 +47,7 @@
 #   define A_DECL_EXTERN_C
 #endif
 
-
+/// 为类型定义迭代器标准函数
 #define A_DEF_ITERABLE(Scalar, Data, Size)                              \
     size_t size() const noexcept{ return (Size) ;}                      \
     Scalar* data() noexcept{return (Data);}                             \
@@ -61,6 +61,8 @@
     Scalar operator[](size_t idx) const noexcept{return data()[idx];}   \
     Scalar& operator[](size_t idx) noexcept{return data()[idx];}        \
 
+
+/// 为POD类型定义迭代器标准函数
 #define A_DEF_POD_ITERABLE(Scalar)                                      \
     A_DEF_ITERABLE(Scalar, (Scalar*)this, sizeof(*this)/sizeof(Scalar))
 
@@ -108,14 +110,24 @@
 
 #ifdef AST_BUILD_LIB_CORE
 #    define AST_CORE_API A_DECL_EXPORT
-#    define AST_OPT_API  A_DECL_EXPORT
 #else
 #    define AST_CORE_API A_DECL_IMPORT
-#    define AST_OPT_API  A_DECL_IMPORT
 #endif
-
 #define AST_CORE_CAPI A_DECL_EXTERN_C AST_CORE_API
+
+#ifdef AST_BUILD_LIB_OPT
+#    define AST_OPT_API A_DECL_EXPORT
+#else
+#    define AST_OPT_API A_DECL_IMPORT
+#endif
 #define AST_OPT_CAPI  A_DECL_EXTERN_C AST_OPT_API
+
+#ifdef AST_BUILD_LIB_UTIL
+#    define AST_UTIL_API A_DECL_EXPORT
+#else
+#    define AST_UTIL_API A_DECL_IMPORT
+#endif
+#define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
 
 AST_NAMESPACE_BEGIN
@@ -124,7 +136,8 @@ AST_NAMESPACE_BEGIN
 
 typedef enum EError
 {
-	eNoError = 0,   // 没有错误
+	eNoError = 0,       // 没有错误
+    eErrorNullInput,    // 输入参数是空指针
 } AEError;
 
 /// ast项目类型前置声明

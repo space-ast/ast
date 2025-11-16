@@ -144,7 +144,7 @@ inline double dot3(const double* vec1, const double* vec2)
 
 template<typename Vector3D1, typename Vector3D2>
 inline auto cross(const Vector3D1& vec1, const Vector3D2& vec2)
-    -> std::enable_if_t<!std::is_pointer<Vector3D1>::value && !std::is_pointer<Vector3D2>::value, Vector3D1>
+    -> typename std::enable_if<!std::is_pointer<Vector3D1>::value && !std::is_pointer<Vector3D2>::value, Vector3D1>::type
 {
     assert (size(vec1) >= 3 && size(vec2) >= 3);
 
