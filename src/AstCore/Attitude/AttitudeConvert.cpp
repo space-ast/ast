@@ -89,6 +89,11 @@ void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 	}
 }
 
+void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat)
+{
+	return void();
+}
+
 void aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
 {
 

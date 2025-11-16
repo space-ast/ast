@@ -1,4 +1,4 @@
-﻿/// @file      Attitude.cpp
+﻿/// @file      NLEMinpackSolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -18,10 +18,18 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
  
-#include "Attitude.hpp"
- 
-AST_NAMESPACE_BEGIN
+#include "NLEMinpackSolver.hpp"
 
  
-AST_NAMESPACE_END
+AST_NAMESPACE_BEGIN
  
+ 
+ 
+
+
+err_t CNLEMinpackSolver::solve(NLPProblem& problem, std::vector<double>& xopt)
+{
+    return err_t();
+}
+
+AST_NAMESPACE_END

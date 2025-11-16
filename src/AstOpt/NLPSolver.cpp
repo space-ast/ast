@@ -1,4 +1,4 @@
-﻿/// @file      Attitude.cpp
+﻿/// @file      NLPSolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -18,10 +18,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
  
-#include "Attitude.hpp"
+#include "NLPSolver.hpp"
  
 AST_NAMESPACE_BEGIN
-
+ 
  
 AST_NAMESPACE_END
  
