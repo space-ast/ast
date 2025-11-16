@@ -20,7 +20,7 @@
  
 #include "NLPProblem.hpp"
 #include "AstCore/MathOperator.hpp"
-#include <memory>
+#include <memory>	 // for std::shared_ptr
 
 #define INFBND 1.1e20
 
@@ -95,7 +95,9 @@ void aPrintSparityPatternCOO(int nnz, int* iFun, int* jVar, int idx_style)
 NLPProblem::NLPProblem(INLPProblem* problem)
 	:m_problem{problem}
 {
-
+	assert(problem != nullptr);
+	// 1. 获取非线性问题的维度
+	this->getInfo(m_probInfo);
 }
 
 NLPProblem::~NLPProblem()
@@ -106,7 +108,7 @@ NLPProblem::~NLPProblem()
 
 err_t NLPProblem::getInfo(NLPInfo& info) const
 {
-	return err_t();
+	return m_problem->getInfo(info);
 }
 
 err_t NLPProblem::getJacInfo(NLPJacInfo& info) const
@@ -136,32 +138,73 @@ err_t NLPProblem::getJacInfo(NLPJacInfo& info) const
 
 err_t NLPProblem::getBounds(NLPBounds& bounds) const
 {
-	err_t err;
-	NLPInfo info;
-	err = this->getInfo(info);
-	if (err) return err;
-	
+	// 1. 先设置默认值
+
+	if (bounds.variable.size > 0)
+	{
+		// 变量的默认值：-∞ <= variable <= +∞
+		assert(bounds.variable.lower);
+		assert(bounds.variable.upper);
+		std::fill_n(bounds.variable.lower, bounds.variable.size, -INFBND);
+		std::fill_n(bounds.variable.upper, bounds.variable.size, +INFBND);
+	}
+	if (bounds.constraintEq.size > 0)
+	{
+		// 等式约束的默认值： 0
+		assert(bounds.constraintEq.value);
+		std::fill_n(bounds.constraintEq.value, bounds.constraintEq.size, 0);
+	}
+	if (bounds.constraintIneq.size > 0)
+	{
+		// 等式约束的默认值： -∞ <= constrIneq <= 0
+		assert(bounds.constraintIneq.lower);
+		assert(bounds.constraintIneq.upper);
+		std::fill_n(bounds.constraintIneq.lower, bounds.constraintIneq.size, -INFBND);
+		std::fill_n(bounds.constraintIneq.upper, bounds.constraintIneq.size, 0);
+	}
+
+	// 2. 然后调用算法接口覆盖上面的默认值
+	return m_problem->getBounds(bounds);
 }
 
 err_t NLPProblem::evalFitness(const NLPInput& input, NLPOutput& output) const
 {
-	return err_t();
+	return m_problem->evalFitness(input, output);
 }
 
-err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int numConstraint, double* contraint) const
+err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int numConstraint, double* constraint) const
 {
 	NLPInput input{};
 	NLPOutput output{};
 	input.variable.size = numVariable;
 	input.variable.value = (double*)variable;
 
+	output.constraintEq.size = m_probInfo.getNumConstraintEq();
+	output.constraintEq.value = constraint;
+
+	output.constraintIneq.size = m_probInfo.getNumConstraintIneq();
+	output.constraintIneq.value = constraint + output.constraintEq.size;
+
 	return evalFitness(input, output);
 }
 
 err_t NLPProblem::evalObjective(int numVariable, const double* variable, int numObjective, double* objective) const
 {
-	objective = 0;
-	return 0;
+	NLPInput input{};
+	NLPOutput output{};
+	input.variable.size = numVariable;
+	input.variable.value = (double*)variable;
+
+	output.objective.value = objective;
+	output.objective.size = numObjective;
+
+	return evalFitness(input, output);
+}
+
+
+err_t NLPProblem::evalObjective(int numVariable, const double* variable, double& objective) const
+{
+	return evalObjective(numVariable, variable, 1, &objective);
 }
 
 
@@ -238,10 +281,6 @@ err_t NLPProblem::evalNLEJacobiCCSFD(double ustep, int ndim, const double* x_inp
 }
 
 
-err_t NLPProblem::evalObjective(int numVariable, const double* variable, double& objective) const
-{
-	return err_t();
-}
 
 err_t NLPProblem::evalGradientCD(double ustep, int n, const double* x_input, double* grad) const
 {
