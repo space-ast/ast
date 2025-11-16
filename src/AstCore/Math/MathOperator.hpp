@@ -43,18 +43,31 @@ AST_NAMESPACE_BEGIN
 
 /// size
 
+
+inline double eps(double t)
+{
+    if (t == 0)
+        //return pow(2.0, -1074.0);
+        return pow(2.0, -1075.0);
+    else
+        //return pow(2.0, -52.0 + floor(log(fabs(t)) / log(2.0)));
+        return pow(2.0, -53.0 + floor(log(fabs(t)) / log(2.0)));
+}
+
+
 template <typename Container>
-auto size(const Container& vec) noexcept(noexcept(vec.size())) /* strengthened */
+auto size(const Container& vec) noexcept
     -> decltype(vec.size())
 {
     return vec.size();
 }
 
 template <class Scalar, size_t N>
-size_t size(const Scalar (&)[N]) noexcept
+constexpr size_t size(const Scalar (&)[N]) noexcept
 {
     return N;
 }
+
 
 
 /// sign
@@ -297,7 +310,7 @@ inline Vector1 operator OP(const Vector1& vec1, const Vector2& vec2)\
     size_t s = size(vec1);                                          \
     for (size_t i = 0; i < s; i++)                                  \
     {                                                               \
-        retval[i] OP##= vec2[i];                                      \
+        retval[i] OP##= vec2[i];                                    \
     }                                                               \
     return retval;                                                  \
 }
@@ -350,8 +363,8 @@ class MatrixMN;
 
 template<typename Scalar, size_t I, size_t J, size_t K>
 MatrixMN<Scalar, I, K> operator* (
-    const MatrixMN<Scalar, I, J>& mtx1, 
-    const MatrixMN<Scalar, J, K>& mtx2
+    const MatrixMN<Scalar, I, J>& left,
+    const MatrixMN<Scalar, J, K>& right
 )
 {
     MatrixMN<Scalar, I, K> retval;
@@ -361,9 +374,9 @@ MatrixMN<Scalar, I, K> operator* (
             double value = 0;
             for (int k = 0; k < K; ++k)
             {
-                value += this->mtx[i][k] * right.mtx[k][j];
+                value += left(i, k) * right(k, j);
             }
-            retval.mtx[i][j] = value;
+            retval(i, j) = value;
         }
     }
     return retval;
@@ -372,8 +385,8 @@ MatrixMN<Scalar, I, K> operator* (
 
 template<typename Scalar, size_t I, size_t J, size_t K>
 std::array<std::array<Scalar, K>, I> mtimes(
-    const Scalar(&mtx1)[I][J],
-    const Scalar(&mtx2)[J][K]
+    const Scalar(&left)[I][J],
+    const Scalar(&right)[J][K]
 )
 {
     std::array<std::array<Scalar, K>, I> retval;
@@ -383,9 +396,9 @@ std::array<std::array<Scalar, K>, I> mtimes(
             double value = 0;
             for (int k = 0; k < K; ++k)
             {
-                value += this->mtx[i][k] * right.mtx[k][j];
+                value += left[i][k] * right[k][j];
             }
-            retval.mtx[i][j] = value;
+            retval[i][j] = value;
         }
     }
     return retval;

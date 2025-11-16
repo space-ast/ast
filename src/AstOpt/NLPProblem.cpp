@@ -1,0 +1,589 @@
+﻿/// @file      NLPProblem.cpp
+/// @brief     
+/// @details   ~
+/// @author    jinke18
+/// @date      16.11.2025
+/// @copyright 版权所有 (C) 2025-present, ast项目.
+
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+ 
+ 
+#include "NLPProblem.hpp"
+#include "AstCore/MathOperator.hpp"
+#include <memory>
+
+#define INFBND 1.1e20
+
+ 
+AST_NAMESPACE_BEGIN
+ 
+ 
+
+
+/// @brief 检测浮点模式中特殊值行为是否符合IEEE754规范
+/// @return 
+bool aCheckFloatingBehaviorIEEE754()
+{
+	float gf0 = -0.0;
+	float f1 = INFINITY;
+	float f2 = NAN;
+	float f3 = -INFINITY;
+	bool a, b;
+	float c, d, e;
+	a = (f1 == f1);
+	b = (f2 == f2);
+	c = (f1 - f1);
+	d = (f2 - f2);
+	e = (gf0 / f3);
+	// printf("INFINITY == INFINITY : %d\n", a);
+	// printf("NAN == NAN           : %d\n", b);
+	// printf("INFINITY - INFINITY  : %f\n", c);
+	// printf("NAN - NAN            : %f\n", d);
+	// printf("std::signbit(-0.0/-INFINITY): %d\n", std::signbit(e));
+	if (a && !b && std::isnan(c) && std::isnan(d) && std::signbit(e) == 0)
+		return true;
+	//if ((INFINITY == INFINITY) && !(NAN == NAN) && std::isnan(INFINITY - INFINITY) && std::isnan(NAN - NAN) && std::signbit(-0.0 / -INFINITY) == 0)
+	//	return true;
+	return 0;
+}
+
+/// @brief 打印稀疏模式，零元素用 * 表示，0-nnz表示非零元素的内存排序
+/// @tparam T 整数类型: int/long
+/// @param nnz 非零元素个数
+/// @param iFun 行 T[nnz]
+/// @param jVar 列 T[nnz]
+/// @param idx_style 行列索引从idx_style开始
+void aPrintSparityPatternCOO(int nnz, int* iFun, int* jVar, int idx_style)
+{
+	int row = 0, col = 0;
+	for (int i = 0; i < nnz; i++) {
+		if (iFun[i] + 1 - idx_style > row) {
+			row = iFun[i] + 1 - idx_style;
+		}
+		if (jVar[i] + 1 - idx_style > col) {
+			col = jVar[i] + 1 - idx_style;
+		}
+	}
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			bool found = false;
+			for (int idx = 0; idx < nnz; idx++) {
+				if ((iFun[idx] == i - idx_style) && (jVar[idx] == j - idx_style)) {
+					printf("%d\t", idx);
+					found = true;
+					break;
+				}
+			}
+			if (!found) {
+				printf("*\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+NLPProblem::NLPProblem(INLPProblem* problem)
+	:m_problem{problem}
+{
+
+}
+
+NLPProblem::~NLPProblem()
+{
+	if(m_problem)
+		delete m_problem;
+}
+
+err_t NLPProblem::getInfo(NLPInfo& info) const
+{
+	return err_t();
+}
+
+err_t NLPProblem::getJacInfo(NLPJacInfo& info) const
+{
+	// 这里的默认实现简单认为雅可比矩阵为稠密矩阵
+
+	NLPInfo probinfo;
+	this->getInfo(probinfo);
+	int numConstraint = probinfo.getNumConstraint();	// 约束维度
+	int numVariable = probinfo.getNumVariable();		// 变量维度
+
+	int len = numConstraint * numVariable;
+	info.idxConstraint.resize(len);
+	info.idxVariable.resize(len);
+	int idx = 0;
+	for (int j = 0; j < numConstraint; j++)
+	{
+		for (int i = 0; i < numVariable; i++)
+		{
+			info.idxConstraint[idx] = j;
+			info.idxVariable[idx] = i;
+			idx ++;
+		}
+	}
+	return 0;
+}
+
+err_t NLPProblem::getBounds(NLPBounds& bounds) const
+{
+	err_t err;
+	NLPInfo info;
+	err = this->getInfo(info);
+	if (err) return err;
+	
+}
+
+err_t NLPProblem::evalFitness(const NLPInput& input, NLPOutput& output) const
+{
+	return err_t();
+}
+
+err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int numConstraint, double* contraint) const
+{
+	NLPInput input{};
+	NLPOutput output{};
+	input.variable.size = numVariable;
+	input.variable.value = (double*)variable;
+
+	return evalFitness(input, output);
+}
+
+err_t NLPProblem::evalObjective(int numVariable, const double* variable, int numObjective, double* objective) const
+{
+	objective = 0;
+	return 0;
+}
+
+
+err_t NLPProblem::evalJacobi(int ndim, const double* x_input, int numConstraint, int numJacobiElem, double* nzElemjacobi) const
+{
+	// printf("EvalJacobi(...) method is not overridden\n");
+	return evalNLEJacobiCD(0.1, ndim, x_input, numConstraint, nzElemjacobi);
+}
+
+err_t NLPProblem::evalGradient(int numVariable, const double* variable, double* grad) const
+{
+	return evalGradientCD(0.1, numVariable, variable, grad);
+}
+
+err_t NLPProblem::getInitialGuess(int numVariable, double *variable) const
+{
+	// 这里的实现：简单取变量初值为变量上下界的平均值
+	err_t err;
+	
+	// NLPInfo info;
+	// err = this->getInfo(info);
+	// if(err) return err;
+	// int numVariable = info.getNumVariable();
+
+	std::vector<double> lb(numVariable), ub(numVariable);
+	NLPBounds bounds{};
+	bounds.variable.size = numVariable;
+	bounds.variable.lower = lb.data();
+	bounds.variable.upper = ub.data();
+
+	err = this->getBounds(bounds);
+	if (err) return err;
+	for (int i = 0; i < numVariable; i ++)
+	{
+		variable[i] = (lb[i] + ub[i]) / 2;
+	}
+    return err;
+}
+
+err_t NLPProblem::evalNLEJacobiCCSFD(double ustep, int ndim, const double* x_input, int m, const int* iFuncRow, const int* idxNNZElem, double* jacobi_sparse_value) const
+{
+	COHEAD_LOCAL_BUFFER(double, fvec, 3 * ndim);
+	double* x = fvec + ndim;
+	double* fvecnew = x + ndim;
+	std::copy_n(x_input, ndim, x);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	// 考虑数值舍入误差，最小的步长理论上是eps(x)约等于x*eps(1) > eps(x)
+	// 在minpack，默认的步长为x*sqrt(eps(1)) > x*eps(1) > eps(x)
+	double temp, h;
+	err_t err;
+	err = evalConstraint(ndim, x_input, m, fvec);
+	if (err) {
+		return err;
+	}
+
+	for (int jCol = 0; jCol < ndim; jCol++) {
+		temp = x_input[jCol];
+		h = ustep * (1 + fabs(temp));
+		x[jCol] = temp + h;
+		err = evalConstraint(ndim, x,  m, fvecnew);
+		if (err) {
+			return err;
+		}
+		for (int idx = idxNNZElem[jCol]; idx < idxNNZElem[jCol + 1]; idx++)
+		{
+			int iRow = iFuncRow[idx];
+			jacobi_sparse_value[idx] = (fvecnew[iRow] - fvec[iRow]) / h;
+		}
+		x[jCol] = temp;
+	}
+	return 0;
+}
+
+
+err_t NLPProblem::evalObjective(int numVariable, const double* variable, double& objective) const
+{
+	return err_t();
+}
+
+err_t NLPProblem::evalGradientCD(double ustep, int n, const double* x_input, double* grad) const
+{
+	COHEAD_LOCAL_BUFFER(double, x1, 3 * n);
+	double* x2 = x1 + n;
+
+	std::copy_n(x_input, n, x1);
+	std::copy_n(x_input, n, x2);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	// 考虑数值舍入误差，最小的步长理论上是eps(x)约等于x*eps(1) > eps(x)
+	// 在minpack，默认的步长为x*sqrt(eps(1)) > x*eps(1) > eps(x)
+	double temp, h;
+	err_t err;
+	double f_new1;
+	double f_new2;
+	for (int j = 0; j < n; ++j) {
+		temp = x1[j];
+		h = ustep * (1 + fabs(temp));
+		x1[j] = temp - h / 2;
+		x2[j] = temp + h / 2;
+		err = evalObjective(n, x1, f_new1);
+		if (err) {
+			return err;
+		}
+		err = evalObjective(n, x2, f_new2);
+		if (err) {
+			return err;
+		}
+		x1[j] = temp;
+		x2[j] = temp;
+		grad[j] = (f_new2 - f_new1) / h;
+	}
+	return 0;
+}
+
+
+err_t NLPProblem::evalGradientFD(double ustep, int n, const double* x_input, double* grad) const
+{
+	COHEAD_LOCAL_BUFFER(double, x, n);
+	std::copy_n(x_input, n, x);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	double f;
+	double f_new;
+	double temp, h;
+	err_t err;
+	err = evalObjective(n, x_input, f);
+	if (err) {
+		return err;
+	}
+	for (int j = 0; j < n; ++j) {
+		temp = x[j];
+		h = ustep * (1 + fabs(temp));
+
+		x[j] = temp + h;
+		err = evalObjective(n, x, f_new);
+		if (err) {
+			return err;
+		}
+		x[j] = temp;
+		grad[j] = (f_new - f) / h;
+	}
+	return 0;
+}
+
+
+err_t NLPProblem::evalGradientBD(double ustep, int n, const double* x_input, double* grad) const
+{
+	COHEAD_LOCAL_BUFFER(double, x, n);
+	std::copy_n(x_input, n, x);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	double f;
+	double f_new;
+	double temp, h;
+	err_t err;
+	err = evalObjective(n, x_input, f);
+	if (err) {
+		return err;
+	}
+	for (int j = 0; j < n; ++j) {
+		temp = x[j];
+		h = -ustep * (1 + fabs(temp));
+
+		x[j] = temp + h;
+		err = evalObjective(n, x, f_new);
+		if (err) {
+			return err;
+		}
+		x[j] = temp;
+		grad[j] = (f_new - f) / h;
+	}
+	return 0;
+}
+
+err_t NLPProblem::evalNLEJacobiFD( double ustep, int n, const double* x_input, int m, double* colmaj_jacobi) const
+{
+	COHEAD_LOCAL_BUFFER(double, fvec, 3*n);
+	double* x       = fvec + n;
+	double* fvecnew = x + n;
+	std::copy_n(x_input, n, x);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	// 考虑数值舍入误差，最小的步长理论上是eps(x)约等于x*eps(1) > eps(x)
+	// 在minpack，默认的步长为x*sqrt(eps(1)) > x*eps(1) > eps(x)
+	double temp, h;
+	err_t err;
+	err = evalConstraint(n, x_input, m, fvec);
+	if (err) {
+		return err;
+	}
+	for (int j = 0; j < n; ++j) {
+		temp = x[j];
+		h = ustep * (1 + fabs(temp));
+
+		x[j] = temp + h;
+		err = evalConstraint(n, x, m, fvecnew);
+		if (err) {
+			return err;
+		}
+		x[j] = temp;
+		for (int i = 0; i < m; ++i) {
+			colmaj_jacobi[i + j * m] = (fvecnew[i] - fvec[i]) / h;
+		}
+	}
+	return 0;
+}
+
+err_t NLPProblem::evalNLEJacobiBD(double ustep, int n, const double* x_input, int m, double* colmaj_jacobi) const
+{
+	COHEAD_LOCAL_BUFFER(double, fvec, 3 * n);
+	double* x = fvec + n;
+	double* fvecnew = x + n;
+	std::copy_n(x_input, n, x);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	// 考虑数值舍入误差，最小的步长理论上是eps(x)约等于x*eps(1) > eps(x)
+	// 在minpack，默认的步长为x*sqrt(eps(1)) > x*eps(1) > eps(x)
+	double temp, h;
+	err_t err;
+	err = evalConstraint(n, x_input, m, fvec);
+	if (err) {
+		return err;
+	}
+	for (int j = 0; j < n; ++j) {
+		temp = x[j];
+		h = -ustep * (1 + fabs(temp));
+		x[j] = temp + h;
+		err = evalConstraint(n, x, m, fvecnew);
+		if (err) {
+			return err;
+		}
+		x[j] = temp;
+		for (int i = 0; i < m; ++i) {
+			colmaj_jacobi[i + j * m] = (fvecnew[i] - fvec[i]) / h;
+		}
+	}
+	return 0;
+}
+
+
+err_t NLPProblem::evalNLEJacobiCD(double ustep, int n, const double* x_input, int m, double* colmaj_jacobi) const
+{
+	COHEAD_LOCAL_BUFFER(double, x1, 5 * n);
+	double* x2 = x1 + n;
+	double* fvecnew1 = x2 + n;
+	double* fvecnew2 = fvecnew1 + n;
+	std::copy_n(x_input, n, x1);
+	std::copy_n(x_input, n, x2);
+	if (ustep == 0) {
+		ustep = sqrt(eps(1));
+	}
+	// 考虑数值舍入误差，最小的步长理论上是eps(x)约等于x*eps(1) > eps(x)
+	// 在minpack，默认的步长为x*sqrt(eps(1)) > x*eps(1) > eps(x)
+	double temp, h;
+	err_t err;
+	for (int j = 0; j < n; ++j) {
+		temp = x1[j];
+		h = ustep * (1 + fabs(temp));
+		x1[j] = temp - h / 2;
+		x2[j] = temp + h / 2;
+		err = evalConstraint(n, x1, m, fvecnew1);
+		if (err) {
+			return err;
+		}
+		err = evalConstraint(n, x2, m, fvecnew2);
+		if (err) {
+			return err;
+		}
+		x1[j] = temp;
+		x2[j] = temp;
+		for (int i = 0; i < m; ++i) {
+			colmaj_jacobi[i + j * m] = (fvecnew2[i] - fvecnew1[i]) / h;
+		}
+	}
+	return 0;
+}
+
+err_t NLPProblem::evalNLENNZJacCCSNan(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& idxNNZElem) const
+{
+	bool iflag;
+	iflag = aCheckFloatingBehaviorIEEE754();
+	if (!iflag) {
+		printf("[error]: Compiling EvalNLENNZJacCCSNan method with floating-point behavior satisfying IEEE754 \n");
+		return -1;
+	}
+	COHEAD_LOCAL_BUFFER(double, x, 2 * ndim);
+	double* fvec = x + ndim;
+	std::copy_n(x_initguess, ndim, x);
+	double temp;
+
+	iFunRow.clear();
+	idxNNZElem.clear();
+	for (int j = 0; j < ndim; j++)
+	{
+		temp = x[j];
+		x[j] = NAN;
+		err_t err = evalConstraint(ndim, x, m, fvec);
+		if (err) {
+			return err;
+		}
+		idxNNZElem.push_back(iFunRow.size());
+		for (int i = 0; i < m; i++) {
+			if (std::isnan(fvec[i])) {
+				iFunRow.push_back(i);
+			}
+		}
+		x[j] = temp;
+	}
+	idxNNZElem.push_back(iFunRow.size());
+	return 0;
+}
+
+err_t NLPProblem::evalNLENNZJacNan(int ndim, const double* x_initguess, int m, int& nnz_jac) const
+{
+	std::vector<int> t1, t2;
+	return evalNLENNZJacCOONan(ndim, x_initguess, m, t1, t2);
+	nnz_jac = t1.size();
+}
+
+err_t NLPProblem::evalNLENNZJacCOONan(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol) const
+{
+	COHEAD_LOCAL_BUFFER(double, x, 2 * ndim);
+	double* fvec = x + ndim;
+	std::copy_n(x_initguess, ndim, x);
+	double temp;
+	err_t err;
+	iFunRow.clear();
+	jVarCol.clear();
+	for (int j = 0; j < ndim; j++)
+	{
+		temp = x[j];
+		x[j] = NAN;
+		err = evalConstraint(ndim, x, m, fvec);
+		if (err) {
+			return err;
+		}
+		for (int i = 0; i < ndim; i++) {
+			if (std::isnan(fvec[i])) {
+				iFunRow.push_back(i);
+				jVarCol.push_back(j);
+			}
+		}
+		x[j] = temp;
+	}
+	return 0;
+}
+
+
+
+
+void aParternCOOToCCS(
+	const std::vector<int>& iRow, const std::vector<int>& jCol,
+	std::vector<int>& ptr2fnz, std::vector<int>& indexRow)
+{
+	// 检查输入有效性
+	if (iRow.size() != jCol.size()) {
+		ptr2fnz = { 0 };
+		printf("COO格式的行列索引数组大小必须相同");
+	}
+
+	if (iRow.empty()) {
+		ptr2fnz.clear();
+		// CCS格式的列指针数组至少有一个元素0
+		ptr2fnz = { 0 };
+		return;
+	}
+
+	// 获取矩阵的列数
+	int maxCol = *std::max_element(jCol.begin(), jCol.end());
+	int numCols = maxCol + 1;
+
+	// 临时存储每列的非零元素信息
+	std::vector<std::vector<int>> colData(numCols);
+
+	// 按列分组存储行索引
+	for (size_t i = 0; i < iRow.size(); ++i) {
+		int col = jCol[i];
+		int row = iRow[i];
+		colData[col].push_back(row);
+	}
+
+	// 构建CCS格式的输出
+	ptr2fnz.clear();
+	indexRow.clear();
+	ptr2fnz.push_back(0); // 第一列起始位置为0
+
+	// 按列顺序填充数据
+	for (int col = 0; col < numCols; ++col) {
+		// 对每列的行索引排序（CCS通常按行索引排序）
+		std::sort(colData[col].begin(), colData[col].end());
+
+		// 添加到行索引数组
+		indexRow.insert(indexRow.end(), colData[col].begin(), colData[col].end());
+
+		// 更新列指针
+		ptr2fnz.push_back(static_cast<int>(indexRow.size()));
+	}
+}
+
+void aParternCCSToCOO(
+	const std::vector<int>&ptr2fnz, const std::vector<int>&indexRow, 
+	std::vector<int>&iFunRow, std::vector<int>&jVarCol)
+{
+	jVarCol.clear();
+	iFunRow.clear();
+	auto ncols = ptr2fnz.size() - 1;
+	for (int _c = 0; _c < ncols; _c++) {
+		for (size_t i = ptr2fnz[_c]; i < ptr2fnz[_c + 1]; i++)
+		{
+			int _r = indexRow[i];
+			iFunRow.push_back(_r);
+			jVarCol.push_back(_c);
+		}
+	}
+}
+
+
+AST_NAMESPACE_END

@@ -65,8 +65,68 @@ public:
 };
 
 
+template<typename _Scalar>
+class VectorX
+{
+public:
+    VectorX();
+    VectorX(size_t size);
+    ~VectorX();
+
+    void resize(size_t size);
+    A_DEF_ITERABLE(_Scalar, data_, size_)
+public:
+    _Scalar* data_;
+    size_t   size_;
+};
+
+
+/// inlines
+
+
+template<typename _Scalar>
+inline VectorX<_Scalar>::VectorX()
+    : size_{0}
+    , data_{nullptr}
+{
+}
+
+template<typename _Scalar>
+inline VectorX<_Scalar>::VectorX(size_t size)
+    : size_{ size }
+    , data_((_Scalar*)malloc(sizeof(_Scalar)* size))
+{
+
+}
+
+
+template<typename _Scalar>
+inline VectorX<_Scalar>::~VectorX()
+{
+    if(data_)
+        free(data_);
+}
+
+template<typename _Scalar>
+inline void VectorX<_Scalar>::resize(size_t size)
+{
+    if (size > size_)
+    {
+        if(data_)
+            free(data_);
+        data_ = (_Scalar*)malloc(sizeof(_Scalar) * size);
+    }
+    size_ = size;
+}
+
+
+
+typedef VectorX<double> VectorXd;
+
 
 AST_NAMESPACE_END
 
 
 AST_DECL_TYPE_ALIAS(Vector3d)
+AST_DECL_TYPE_ALIAS(VectorXd)
+

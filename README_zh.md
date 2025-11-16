@@ -137,6 +137,28 @@ const kEps15 = 1e-15;
 - 🐛 问题报告: [GitHub Issues](https://github.com/space-ast/ast/issues)
 
 
+## 参考资料
+
+ast项目的开发参考和使用了很多资料与工具，感谢所有开源社区贡献者的辛勤工作，以及航天仿真领域研究人员的理论贡献，这些宝贵的资源为ast项目的开发提供了坚实的基础。
+
+### 开源代码
+
+- [AstroLib](https://gitee.com/wanghmail/AstroLib): 航天/卫星建模与仿真算法库AstroLib
+- [GMAT](https://gmat.atlassian.net/): 通用任务分析工具，NASA开源的航天任务分析软件
+- [Orekit](https://www.orekit.org/): Java语言编写的航天动力学库，提供丰富的轨道和姿态算法
+- [Pagmo2](https://esa.github.io/pagmo2/): 欧洲空间局开发的并行全局优化库
+- [PyGMO2](https://esa.github.io/pygmo2/): Pagmo2的Python绑定，用于科学计算的优化工具
+- [PyKEP](https://esa.github.io/pykep/): 欧洲空间局的航天动力学Python库，专注于轨道优化
+- [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
+- [GNU Octave](https://octave.org/): 开源数值计算软件，提供与MATLAB兼容的语法
+- [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
+- [Python](https://www.python.org/): 流行的通用编程语言，在科学计算领域广泛应用
+
+### 工具链与第三方库
+
+- [Xmake](https://xmake.io/): 基于Lua的现代化C/C++构建工具
+
+
 ## 🌌 项目名称灵感
 
 **ast** 这个名字蕴含着多重深意，每一层都呼应着航天仿真的本质：

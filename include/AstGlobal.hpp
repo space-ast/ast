@@ -47,18 +47,42 @@
 #   define A_DECL_EXTERN_C
 #endif
 
-#define A_DEF_POD_ITERABLE(Scalar)                                      \
-    size_t size() noexcept{ return (sizeof(*this)/sizeof(Scalar)) ;}    \
-    double* data() noexcept{return (Scalar*)this;}                      \
-    const double* data() const{return (Scalar*)this;}                   \
+
+#define A_DEF_ITERABLE(Scalar, Data, Size)                              \
+    size_t size() const noexcept{ return (Size) ;}                      \
+    Scalar* data() noexcept{return (Data);}                             \
+    const Scalar* data() const{return (Data);}                          \
     Scalar* begin() noexcept{ return data(); }                          \
-    Scalar* end() noexcept{ return (Scalar*)(this+1); }                 \
+    Scalar* end() noexcept{ return (Data) + (Size); }                   \
     const Scalar* begin() const noexcept{ return data(); }              \
-    const Scalar* end() const noexcept{ return (Scalar*)(this+1); }     \
+    const Scalar* end() const noexcept{ return (Data) + (Size); }       \
     const Scalar* cbegin() const noexcept{ return data(); }             \
-    const Scalar* cend() const noexcept{ return (Scalar*)(this+1); }    \
+    const Scalar* cend() const noexcept{ return (Data) + (Size); }      \
     Scalar operator[](size_t idx) const noexcept{return data()[idx];}   \
     Scalar& operator[](size_t idx) noexcept{return data()[idx];}        \
+
+#define A_DEF_POD_ITERABLE(Scalar)                                      \
+    A_DEF_ITERABLE(Scalar, (Scalar*)this, sizeof(*this)/sizeof(Scalar))
+
+
+
+#if __cplusplus >= 201402L
+
+#define COHEAD_LOCAL_BUFFER(T, buf, size)                               \
+  auto __cohead_local_buffer_ ## buf = std::make_unique<T []> (size);     \
+  T *buf = __cohead_local_buffer_ ## buf.get ();            
+
+#else
+
+#define COHEAD_LOCAL_BUFFER(T, buf, size)                                 \
+  std::unique_ptr<T []> __cohead_local_buffer_ ## buf { new T [size] };   \
+  T *buf = __cohead_local_buffer_ ## buf.get ();
+
+#endif
+
+#define COHEAD_LOCAL_BUFFER_INIT(T, buf, size, value)                   \
+  COHEAD_LOCAL_BUFFER (T, buf, size);                                   \
+  std::fill_n (buf, size, value);
 
 
 /// ast项目专用宏
@@ -84,11 +108,15 @@
 
 #ifdef AST_BUILD_LIB_CORE
 #    define AST_CORE_API A_DECL_EXPORT
+#    define AST_OPT_API  A_DECL_EXPORT
 #else
 #    define AST_CORE_API A_DECL_IMPORT
+#    define AST_OPT_API  A_DECL_IMPORT
 #endif
 
 #define AST_CORE_CAPI A_DECL_EXTERN_C AST_CORE_API
+#define AST_OPT_CAPI  A_DECL_EXTERN_C AST_OPT_API
+
 
 AST_NAMESPACE_BEGIN
 
