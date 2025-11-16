@@ -67,11 +67,39 @@ public:
     /// @brief 获取问题的设计变量与约束的上下界
     err_t getBounds(NLPBounds& bounds) const;
 
-
     /// @biref 计算目标函数和约束
     err_t evalFitness(const NLPInput& input, NLPOutput& output) const;
 
+    /// @brief 计算目标函数与约束
+    /// @param x 设计变量
+    /// @return 目标函数 + 等式约束 + 不等式约束
+    std::vector<double> evalFitness(const std::vector<double>& x) const;
+
+
+    /// @brief 计算目标函数与约束
+    /// @param x 设计变量
+    /// @param f 目标函数 + 等式约束 + 不等式约束
+    /// @return 错误码
+    err_t evalFitness(const std::vector<double>& x, std::vector<double>& f) const;
     
+
+    /// @brief 计算目标函数与约束
+    /// @param numVariable 
+    /// @param varialble 
+    /// @param numObjective 
+    /// @param objective 
+    /// @param numConstrEq 
+    /// @param constrEq 
+    /// @param numConstrIneq 
+    /// @param constrIneq 
+    /// @return 
+    err_t evalFitness(
+        int numVariable, double* varialble,
+        int numObjective, double* objective,
+        int numConstrEq, double* constrEq,
+        int numConstrIneq, double* constrIneq
+    ) const;
+
     /// @brief 计算非线性方程的解析(数值)Jacobi矩阵
     /// @param ndim          维度   
     /// @param x_input       变量
@@ -91,14 +119,17 @@ public:
 
 
 public:
+    /// @brief 计算约束
+    /// @param variable 设计变量 
+    /// @return 不等式约束 + 等式约束
+    std::vector<double> evalConstraint(const std::vector<double>& variable) const;
     
-    err_t evalFitness(
-        int numVariable,   double* varialble,
-        int numObjective,  double* objective,
-        int numConstrEq,   double* constrEq,
-        int numConstrIneq, double* constrIneq
-    ) const;
-    
+    /// @brief 计算约束
+    /// @param variable 设计变量
+    /// @param constraint 不等式约束 + 等式约束
+    /// @return 
+    err_t evalConstraint(const std::vector<double>& variable, std::vector<double>& constraint) const;
+
     /// @brief 计算约束
     err_t evalConstraint(int numVariable, const double* variable, int numConstraint, double* contraint) const;
     
