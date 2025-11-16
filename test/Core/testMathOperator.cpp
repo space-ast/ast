@@ -21,6 +21,7 @@
 
 #include "AstCore/MathOperator.hpp"
 #include "AstCore/Vector.hpp"
+#include "AstCore/Matrix.hpp"
 #include "AstTest/AstTestMacro.h"
 #include <vector>
 #include <array>
@@ -28,7 +29,7 @@
 
 
 
-int testMathFunction()
+int testVectorFunction()
 {
     AST_USING_NAMESPACE
     const double expect = sqrt(9+16+25);
@@ -115,7 +116,7 @@ int testMathFunction()
 }
 
 
-int testMathOperator()
+int testVectorOperator()
 {
     AST_USING_NAMESPACE
     {
@@ -148,10 +149,30 @@ int testMathOperator()
     return 0;
 }
 
+int testMatrixOperator()
+{
+    AST_USING_NAMESPACE
+
+    {
+        double a[3][3]{};
+        double b[3][3]{};
+        auto c = mtimes(a,b);
+    }
+    {
+        Matrix3d mtx1{};
+        Matrix3d mtx2{};
+        auto mtx2 = mtx1 * mtx2;
+    }
+    
+
+    return 0;
+}
+
 int main()
 {
     int rc = 0;
-    rc |= testMathFunction();
-    rc |= testMathOperator();
+    rc |= testVectorFunction();
+    rc |= testVectorOperator();
+    rc |= testMatrixOperator();
     return rc;
 }

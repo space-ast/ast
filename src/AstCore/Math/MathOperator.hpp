@@ -38,8 +38,24 @@ AST_NAMESPACE_BEGIN
  * 
  * */
 
- 
-using std::size;  // use function size in stdlib
+
+// using std::size;  // use function size in stdlib
+
+/// size
+
+template <typename Container>
+auto size(const Container& vec) noexcept(noexcept(vec.size())) /* strengthened */
+    -> decltype(vec.size())
+{
+    return vec.size();
+}
+
+template <class Scalar, size_t N>
+size_t size(const Scalar (&)[N]) noexcept
+{
+    return N;
+}
+
 
 /// sign
 
@@ -325,5 +341,58 @@ inline std::array<double, N1> operator+(const double (&vec1)[N1], const double (
     return retval;
 }
 #endif
+
+
+/// 矩阵乘法
+
+template<typename Scalar, size_t Row, size_t Col>
+class MatrixMN;
+
+template<typename Scalar, size_t I, size_t J, size_t K>
+MatrixMN<Scalar, I, K> operator* (
+    const MatrixMN<Scalar, I, J>& mtx1, 
+    const MatrixMN<Scalar, J, K>& mtx2
+)
+{
+    MatrixMN<Scalar, I, K> retval;
+    for (int i = 0; i < I; i++)
+    {
+        for (int j = 0; j < J; j++) {
+            double value = 0;
+            for (int k = 0; k < K; ++k)
+            {
+                value += this->mtx[i][k] * right.mtx[k][j];
+            }
+            retval.mtx[i][j] = value;
+        }
+    }
+    return retval;
+}
+
+
+template<typename Scalar, size_t I, size_t J, size_t K>
+std::array<std::array<Scalar, K>, I> mtimes(
+    const Scalar(&mtx1)[I][J],
+    const Scalar(&mtx2)[J][K]
+)
+{
+    std::array<std::array<Scalar, K>, I> retval;
+    for (int i = 0; i < I; i++)
+    {
+        for (int j = 0; j < J; j++) {
+            double value = 0;
+            for (int k = 0; k < K; ++k)
+            {
+                value += this->mtx[i][k] * right.mtx[k][j];
+            }
+            retval.mtx[i][j] = value;
+        }
+    }
+    return retval;
+}
+
+
+
+
 
 AST_NAMESPACE_END
