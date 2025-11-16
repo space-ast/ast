@@ -97,7 +97,6 @@ void aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
 
 void aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx)
 {
-#if 0
 	int axis;
 	Matrix3d mat;
 
@@ -112,7 +111,6 @@ void aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx)
 	seq = seq - axis * 10;
 	aEulerToMatrix(euler.angle3(), seq, mat);
 	mtx = mat * mtx;
-#endif
 }
 
 /// mtx to euler
