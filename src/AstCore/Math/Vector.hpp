@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.hpp"
+#include <stdlib.h>    // for malloc
  
 AST_NAMESPACE_BEGIN
 
