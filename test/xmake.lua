@@ -1,6 +1,6 @@
-set_group("test")
+﻿set_group("test")
 
-add_deps("AstCore")
+add_deps("AstCore", "AstUtil")
 
 local files = os.files("**/test*.c*")
 

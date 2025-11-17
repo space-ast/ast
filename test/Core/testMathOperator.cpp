@@ -161,7 +161,7 @@ int testMatrixOperator()
     {
         Matrix3d mtx1{};
         Matrix3d mtx2{};
-        auto mtx2 = mtx1 * mtx2;
+        auto mtx3 = mtx1 * mtx2;
     }
     
 
