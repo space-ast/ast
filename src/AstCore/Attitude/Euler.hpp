@@ -21,7 +21,8 @@
 #pragma once
  
 #include "AstGlobal.hpp"
- 
+#include "AstCore/AttitudeConvert.hpp"
+
 AST_NAMESPACE_BEGIN
  
   
@@ -48,13 +49,10 @@ public:
         eZYZ = 323
     };
     
-	void toMatrix(int seqFlag, Matrix3d& mtx) const;
-	void toQuat(int seqFlag, Quaternion& quat) const;
-	void toAxisAngle(int seqFlag, Vector3d& axis, double& angle);
-    void fromQuat(const Quaternion& quat, int seqFlag);
-	void fromAxisAngle(Vector3d& axis, double& angle, int seqFlag);
-	void fromMatrix(const Matrix3d& mtx, int seqFlag);
-    
+	err_t toMatrix(int seq, Matrix3d& mtx) const{return aEulerToMatrix(*this, seq,mtx); }
+    err_t toQuat(int seq, Quaternion& quat) const{return aEulerToQuat(*this, seq, quat); }
+    err_t fromMatrix(const Matrix3d& mtx, int seq){return aMatrixToEuler(mtx, seq, *this); }
+    err_t fromQuat(const Quaternion& quat, int seq){return aQuatToEuler(quat, seq, *this); }
 
     double angle1() const{return angle1_;}
     double angle2() const{return angle2_;}

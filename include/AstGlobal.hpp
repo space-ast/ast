@@ -89,6 +89,7 @@
 
 /// ast项目专用宏
 #ifdef __cplusplus
+#   define _AST ::ast:: 
 #	define AST_NAMESPACE ast
 #	define AST_NAMESPACE_BEGIN namespace AST_NAMESPACE{
 #	define AST_NAMESPACE_END   }
@@ -96,6 +97,7 @@
 #	define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
 #	define AST_DECL_TYPE_ALIAS(name) typedef AST_PREPEND_NAMESPACE(name) A##name;
 #else
+#   define _AST
 #	define AST_NAMESPACE 
 #	define AST_NAMESPACE_BEGIN 
 #	define AST_NAMESPACE_END   

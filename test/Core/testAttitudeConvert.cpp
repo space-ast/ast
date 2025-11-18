@@ -121,10 +121,138 @@ int testEulerAndMatrix()
     return rc;
 }
 
+int testExample1()
+{
+    // 创建四元数 (绕Z轴旋转90度)
+    Quaternion quat = { 0.707, 0, 0, 0.707 };
+
+    // 四元数转旋转矩阵
+    Matrix3d matrix;
+    aQuatToMatrix(quat, matrix);
+
+    std::cout << "四元数转矩阵成功" << std::endl;
+
+    // 旋转矩阵转欧拉角 (ZYX顺序)
+    Euler euler;
+    aMatrixToEuler(matrix, Euler::eZYX, euler);
+
+    std::cout << "欧拉角: " << euler.angle1() << ", "
+        << euler.angle2() << ", " << euler.angle3() << std::endl;
+
+    return 0;
+}
+
+
+int testExample2()
+{
+    {
+        // 创建欧拉角 (弧度) - 滚转10°, 俯仰20°, 偏航30°
+        Euler euler{ 0.1745, 0.3491, 0.5236 };
+
+        // 转换为旋转矩阵 (ZYX顺序)
+        Matrix3d rot_mat;
+        euler.toMatrix(Euler::eZYX, rot_mat);
+
+        std::cout << "欧拉角转矩阵完成" << std::endl;
+    }
+
+    {
+        // 另一个作用域：转换为四元数
+        Euler euler{ 0.1745, 0.3491, 0.5236 };
+        Quaternion quat;
+        euler.toQuat(Euler::eZYX, quat);
+
+        std::cout << "四元数: " << quat.qs() << ", " << quat.qx()
+            << ", " << quat.qy() << ", " << quat.qz() << std::endl;
+    }
+
+    return 0;
+}
+
+
+int testExample3()
+{
+    {
+        Quaternion q = { 0.5, 0.5, 0.5, 0.5 };
+
+        // 归一化
+        q.normalize();
+
+        std::cout << "归一化后范数: " << q.norm() << std::endl;
+    }
+
+    {
+        // 获取归一化副本
+        Quaternion q = { 1.0, 2.0, 3.0, 4.0 };
+        Quaternion q_normalized = q.normalized();
+
+        std::cout << "归一化副本范数: " << q_normalized.norm() << std::endl;
+    }
+
+    {
+        // 设置为单位四元数
+        Quaternion q;
+        q.setIdentity();
+
+        std::cout << "单位四元数: " << q.qs() << ", " << q.qx()
+            << ", " << q.qy() << ", " << q.qz() << std::endl;
+    }
+
+    return 0;
+}
+
+int testExample4()
+{
+    // 初始欧拉角 (滚转, 俯仰, 偏航)
+    Euler initial_euler{ 0.3, 0.2, 0.1 };
+    std::cout << "初始欧拉角: " << initial_euler.angle1() << ", "
+        << initial_euler.angle2() << ", " << initial_euler.angle3() << std::endl;
+
+    {
+        // 欧拉角 -> 四元数
+        Quaternion quat;
+        initial_euler.toQuat(Euler::eZYX, quat);
+        std::cout << "转换后的四元数: " << quat.qs() << ", " << quat.qx()
+            << ", " << quat.qy() << ", " << quat.qz() << std::endl;
+    }
+
+    {
+        // 四元数 -> 矩阵
+        Quaternion quat;
+        initial_euler.toQuat(Euler::eZYX, quat);
+
+        Matrix3d matrix;
+        aQuatToMatrix(quat, matrix);
+        std::cout << "转换到矩阵完成" << std::endl;
+    }
+
+    {
+        // 矩阵 -> 欧拉角 (完整循环)
+        Quaternion quat;
+        initial_euler.toQuat(Euler::eZYX, quat);
+
+        Matrix3d matrix;
+        aQuatToMatrix(quat, matrix);
+
+        Euler final_euler;
+        aMatrixToEuler(matrix, Euler::eZYX, final_euler);
+
+        std::cout << "最终欧拉角: " << final_euler.angle1() << ", "
+            << final_euler.angle2() << ", " << final_euler.angle3() << std::endl;
+    }
+
+    return 0;
+}
+
 int main()
 {
     int rc = 0;
     rc |= testQuatAndMatrix();
     rc |= testEulerAndMatrix();
+    rc |= testExample1();
+    rc |= testExample2();
+    rc |= testExample3();
+    rc |= testExample4();
+
     return rc;
 }

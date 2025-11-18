@@ -564,6 +564,21 @@ void aEuler323ToMatrix(const Euler& euler, Matrix3d& mtx)
 	};
 }
 
+err_t aEulerToQuat(const Euler& euler, int seq, Quaternion& quat)
+{
+	Matrix3d mtx;
+	err_t rc = aEulerToMatrix(euler, seq, mtx);
+	aMatrixToQuat(mtx, quat);
+	return rc;
+}
+
+err_t aQuatToEuler(const Quaternion& quat, int seq, Euler& euler)
+{
+	Matrix3d mtx;
+	aQuatToMatrix(quat, mtx);
+	return aMatrixToEuler(mtx, seq, euler);
+}
+
 
 void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler)
 {

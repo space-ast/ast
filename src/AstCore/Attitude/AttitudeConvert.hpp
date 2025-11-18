@@ -39,8 +39,17 @@ AST_CORE_CAPI void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat);
 /// @brief 矩阵转欧拉角
 /// @param mtx 矩阵
 /// @param seq 转序
-/// @param euler 欧拉角
+/// @param euler 欧拉角 	
+/// 如果旋转顺序为ABC，angle2在区间[-PI/2, PI/2]，其他两个角在区间[-PI,PI]
+///	如果旋转顺序为ABA，angle2在区间[0, PI]，其他两个角在区间[-PI,PI]
+/// @return
 AST_CORE_CAPI err_t aMatrixToEuler(const Matrix3d&mtx, int seq, Euler& euler);
+
+/// @brief 欧拉角转矩阵
+/// @param euler 
+/// @param seq 
+/// @param mtx 
+/// @return 
 AST_CORE_CAPI err_t aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
 AST_CORE_CAPI err_t _aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx);
 
@@ -70,5 +79,10 @@ AST_CORE_CAPI void aEuler212ToMatrix(const Euler& euler, Matrix3d& mtx);
 AST_CORE_CAPI void aEuler232ToMatrix(const Euler& euler, Matrix3d& mtx);
 AST_CORE_CAPI void aEuler313ToMatrix(const Euler& euler, Matrix3d& mtx);
 AST_CORE_CAPI void aEuler323ToMatrix(const Euler& euler, Matrix3d& mtx);
+
+
+AST_CORE_CAPI err_t aEulerToQuat(const Euler& euler, int seq, Quaternion& quat);
+AST_CORE_CAPI err_t aQuatToEuler(const Quaternion& quat, int seq, Euler& euler);
+
 
 AST_NAMESPACE_END
