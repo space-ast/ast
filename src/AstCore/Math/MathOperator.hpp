@@ -24,7 +24,7 @@
 #include <assert.h>     // for assert
 #include <type_traits>  // for std::is_pointer
 #include <array>        // for std::array
-
+#include <iterator>     // for std::size in C++17
  
 AST_NAMESPACE_BEGIN
 
@@ -39,9 +39,6 @@ AST_NAMESPACE_BEGIN
  * */
 
 
-// using std::size;  // use function size in stdlib
-
-/// size
 
 
 inline double eps(double t)
@@ -54,6 +51,12 @@ inline double eps(double t)
         return pow(2.0, -53.0 + floor(log(fabs(t)) / log(2.0)));
 }
 
+// msvc has std::size for vc2015+
+#if defined _MSC_VER || __cplusplus >= 201703L
+
+using std::size;  // use std::size in stdlib
+
+#else
 
 template <typename Container>
 auto size(const Container& vec) noexcept
@@ -67,7 +70,7 @@ constexpr size_t size(const _Scalar (&)[N]) noexcept
 {
     return N;
 }
-
+#endif
 
 
 /// sign
@@ -358,7 +361,8 @@ inline auto operator OP(const Vector& vec, Scalar scalar)                    \
 
 #define _AST_DEF_OP_VV(OP)                                          \
 template<typename Vector1, typename Vector2>                        \
-inline Vector1 operator OP(const Vector1& vec1, const Vector2& vec2)\
+inline auto operator OP(const Vector1& vec1, const Vector2& vec2)\
+-> typename std::enable_if<!std::is_arithmetic<Vector1>::value && !std::is_arithmetic<Vector2>::value, Vector1>::type  \
 {                                                                   \
     assert(size(vec1) == size(vec2));                               \
     Vector1 retval{ vec1 };                                         \

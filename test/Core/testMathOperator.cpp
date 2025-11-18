@@ -184,11 +184,59 @@ int testMatrixOperator()
     return 0;
 }
 
+int testExample1()
+{
+    using namespace AST_NAMESPACE;
+
+    {
+        // 使用 std::vector
+        std::vector<double> v1 = { 1, 2, 3 };
+        std::vector<double> v2 = { 4, 5, 6 };
+
+        double dot_product = dot(v1, v2);           // 点积
+        auto cross_product = cross(v1, v2);         // 叉积
+        double magnitude = norm(v1);                // 范数
+        auto normalized_v = normalized(v1);         // 归一化
+    }
+
+    {
+        // 使用原生数组
+        double arr1[3] = { 1, 2, 3 };
+        double arr2[3] = { 4, 5, 6 };
+
+        auto dot_product = dot(arr1, arr2);
+        auto cross_product = cross(arr1, arr2);
+    }
+
+    {
+        std::vector<double> v = { 1, 2, 3 };
+
+        // 标量运算
+        auto v2 = 2.0 * v;      // {2, 4, 6}
+        auto v3 = v + v;        // {2, 4, 6}
+        auto v4 = v - 1.0;      // {0, 1, 2}
+    }
+    {
+        // 使用 MatrixMN 类
+        MatrixMN<double, 2, 3> A = {  };
+        MatrixMN<double, 3, 2> B = {  };
+        auto C = A * B;  // 2x2 矩阵
+    }
+    {
+        // 使用原生数组
+        double A[2][3] = { {1,2,3}, {4,5,6} };
+        double B[3][2] = { {7,8}, {9,10}, {11,12} };
+        auto C = mtimes(A, B);  // 2x2 矩阵
+    }
+    return 0;
+}
+
 int main()
 {
     int rc = 0;
     rc |= testVectorFunction();
     rc |= testVectorOperator();
     rc |= testMatrixOperator();
+    rc |= testExample1();
     return rc;
 }
