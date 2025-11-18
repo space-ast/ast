@@ -1,5 +1,5 @@
 ﻿///
-/// @file      LogMessage.hpp
+/// @file      Logger.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
