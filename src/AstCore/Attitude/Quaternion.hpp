@@ -21,7 +21,8 @@
 #pragma once
  
 #include "AstGlobal.hpp"
- 
+#include "AstCore/MathOperator.hpp"
+
 AST_NAMESPACE_BEGIN
 
 
@@ -29,12 +30,23 @@ AST_NAMESPACE_BEGIN
 class Quaternion
 {
 public:
-	double* data() const noexcept{return (double*)this; }
+	/// @brief 创建单位四元数
+	static Quaternion Identity(){return Quaternion{1,0,0,0};}
+	
+	double norm() const{return AST_PREPEND_NAMESPACE(norm)(*this); }
+	void normalize(){ AST_PREPEND_NAMESPACE(normalize)(*this); }
+	Quaternion normalized() const{return AST_PREPEND_NAMESPACE(normalized)(*this);}
+	void setIdentity(){ *this = {1,0,0,0};}
 	double qs() const{return m_qs;}
 	double qx() const{return m_qx;}
 	double qy() const{return m_qy;}
 	double qz() const{return m_qz;}
+	double& qs(){return m_qs;}
+	double& qx(){return m_qx;}
+	double& qy(){return m_qy;}
+	double& qz(){return m_qz;}
 
+	A_DEF_POD_ITERABLE(double)
 public:
 	// 设置为public仅为实现聚合初始化，不要直接访问成员变量
 	double m_qs;

@@ -143,10 +143,10 @@ typedef enum EError
 /// ast项目类型前置声明
 
 #ifdef __cplusplus
-template<typename Scalar, size_t N>
+template<typename _Scalar, size_t N>
 class VectorN;
 
-template<typename Scalar, size_t M, size_t N>
+template<typename _Scalar, size_t M, size_t N>
 class MatrixMN;
 
 typedef VectorN<double, 3> Vector3d;

@@ -62,8 +62,8 @@ auto size(const Container& vec) noexcept
     return vec.size();
 }
 
-template <class Scalar, size_t N>
-constexpr size_t size(const Scalar (&)[N]) noexcept
+template <class _Scalar, size_t N>
+constexpr size_t size(const _Scalar (&)[N]) noexcept
 {
     return N;
 }
@@ -72,8 +72,8 @@ constexpr size_t size(const Scalar (&)[N]) noexcept
 
 /// sign
 
-template<typename Scalar>
-int sign(Scalar val)
+template<typename _Scalar>
+int sign(_Scalar val)
 {
     if(val > 0)
         return 1;
@@ -243,7 +243,7 @@ inline void normalize(double* vec, size_t N)
 
 
 template<typename Vector>
-inline auto normalize(const Vector& vec)
+inline auto normalize(Vector& vec)
 -> typename std::enable_if<!std::is_pointer<Vector>::value, void>::type
 {
     double mag = norm(vec);
@@ -268,6 +268,61 @@ inline void normalize(double (&vec)[N])
     }
 }
 
+
+/// normalized
+
+
+template<typename Vector>
+inline auto normalized(const Vector& vec)
+-> typename std::enable_if<!std::is_pointer<Vector>::value, Vector>::type
+{
+    double mag = norm(vec);
+    if (mag == 0)
+        return vec;
+    Vector retval{ vec };
+    normalize(retval);
+    return retval;
+}
+
+
+
+template <size_t N>
+inline std::array<double, N> normalized(double (&vec)[N])
+{
+    std::array<double, N> retval;
+    double mag = norm(vec);
+    if (mag == 0) {
+        for (size_t i = 0; i < N; i++) {
+            retval[i] = vec[i];
+        }
+    }
+    else {
+        for (size_t i = 0; i < N; i++)
+        {
+            retval[i] = vec[i] / mag;
+        }
+    }
+    return retval;
+}
+
+template <size_t N>
+inline std::array<double, N> normalized(double* vec)
+{
+    std::array<double, N> retval;
+    double mag = norm(vec);
+    if (mag == 0) {
+        for (size_t i = 0; i < N; i++) {
+            retval[i] = vec[i];
+        }
+    }
+    else {
+        for (size_t i = 0; i < N; i++)
+        {
+            retval[i] = vec[i] / mag;
+        }
+    }
+    return retval;
+}
 
 /// + - * /
 
@@ -358,16 +413,16 @@ inline std::array<double, N1> operator+(const double (&vec1)[N1], const double (
 
 /// 矩阵乘法
 
-template<typename Scalar, size_t Row, size_t Col>
+template<typename _Scalar, size_t Row, size_t Col>
 class MatrixMN;
 
-template<typename Scalar, size_t I, size_t J, size_t K>
-MatrixMN<Scalar, I, K> operator* (
-    const MatrixMN<Scalar, I, J>& left,
-    const MatrixMN<Scalar, J, K>& right
+template<typename _Scalar, size_t I, size_t J, size_t K>
+MatrixMN<_Scalar, I, K> operator* (
+    const MatrixMN<_Scalar, I, J>& left,
+    const MatrixMN<_Scalar, J, K>& right
 )
 {
-    MatrixMN<Scalar, I, K> retval;
+    MatrixMN<_Scalar, I, K> retval;
     for (int i = 0; i < I; i++)
     {
         for (int j = 0; j < J; j++) {
@@ -383,13 +438,13 @@ MatrixMN<Scalar, I, K> operator* (
 }
 
 
-template<typename Scalar, size_t I, size_t J, size_t K>
-std::array<std::array<Scalar, K>, I> mtimes(
-    const Scalar(&left)[I][J],
-    const Scalar(&right)[J][K]
+template<typename _Scalar, size_t I, size_t J, size_t K>
+std::array<std::array<_Scalar, K>, I> mtimes(
+    const _Scalar(&left)[I][J],
+    const _Scalar(&right)[J][K]
 )
 {
-    std::array<std::array<Scalar, K>, I> retval;
+    std::array<std::array<_Scalar, K>, I> retval;
     for (int i = 0; i < I; i++)
     {
         for (int j = 0; j < J; j++) {
