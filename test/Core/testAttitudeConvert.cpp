@@ -70,10 +70,61 @@ int testQuatAndMatrix()
     return 0;
 }
 
+
+int testEulerAndMatrix(int seq, const Euler& eulerInput)
+{
+    Euler euler = eulerInput;
+    Euler euler2;
+    Matrix3d mtx, mtx2;
+    aEulerToMatrix(euler, seq, mtx);
+    _aEulerToMatrix(euler, seq, mtx2);
+    aMatrixToEuler(mtx, seq, euler2);
+    for (int i = 0; i < 9; i++)
+    {
+        ASSERT_NEAR(mtx(i), mtx2(i), 1e-14);
+    }
+    for (int i = 0; i < size(euler); i++)
+    {
+        ASSERT_NEAR(euler[i], euler2[i], 1e-14);
+    }
+    return 0;
+}
+
+int testEulerAndMatrix(const Euler& eulerInput)
+{
+    int rc = 0;
+    rc |= testEulerAndMatrix(123, eulerInput);
+    rc |= testEulerAndMatrix(132, eulerInput);
+    rc |= testEulerAndMatrix(213, eulerInput);
+    rc |= testEulerAndMatrix(231, eulerInput);
+    rc |= testEulerAndMatrix(312, eulerInput);
+    rc |= testEulerAndMatrix(321, eulerInput);
+    rc |= testEulerAndMatrix(121, eulerInput);
+    rc |= testEulerAndMatrix(131, eulerInput);
+    rc |= testEulerAndMatrix(212, eulerInput);
+    rc |= testEulerAndMatrix(232, eulerInput);
+    rc |= testEulerAndMatrix(313, eulerInput);
+    rc |= testEulerAndMatrix(323, eulerInput);
+    return rc;
+}
+
+
+int testEulerAndMatrix()
+{
+    int rc = 0;
+    rc = testEulerAndMatrix({ 0,0,0 });
+    rc = testEulerAndMatrix({ 1,0,0 });
+    rc = testEulerAndMatrix({ 1,1.2,3 });
+    rc = testEulerAndMatrix({ -1,1.1,3 });
+    rc = testEulerAndMatrix({ -1,1.2,-2 });
+    rc = testEulerAndMatrix({ -0.4,0.1,-2 });
+    return rc;
+}
+
 int main()
 {
     int rc = 0;
     rc |= testQuatAndMatrix();
-
+    rc |= testEulerAndMatrix();
     return rc;
 }

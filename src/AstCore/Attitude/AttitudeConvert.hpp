@@ -40,8 +40,10 @@ AST_CORE_CAPI void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat);
 /// @param mtx 矩阵
 /// @param seq 转序
 /// @param euler 欧拉角
-AST_CORE_CAPI void aMatrixToEuler(const Matrix3d&mtx, int seq, Euler& euler);
-AST_CORE_CAPI void aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
+AST_CORE_CAPI err_t aMatrixToEuler(const Matrix3d&mtx, int seq, Euler& euler);
+AST_CORE_CAPI err_t aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
+AST_CORE_CAPI err_t _aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx);
+
 
 AST_CORE_CAPI void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler);
 AST_CORE_CAPI void aMatrixToEuler132(const Matrix3d& mtx, Euler& euler);
@@ -55,5 +57,18 @@ AST_CORE_CAPI void aMatrixToEuler212(const Matrix3d& mtx, Euler& euler);
 AST_CORE_CAPI void aMatrixToEuler232(const Matrix3d& mtx, Euler& euler);
 AST_CORE_CAPI void aMatrixToEuler313(const Matrix3d& mtx, Euler& euler);
 AST_CORE_CAPI void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler);
+
+AST_CORE_CAPI void aEuler123ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler132ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler213ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler231ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler312ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler321ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler121ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler131ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler212ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler232ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler313ToMatrix(const Euler& euler, Matrix3d& mtx);
+AST_CORE_CAPI void aEuler323ToMatrix(const Euler& euler, Matrix3d& mtx);
 
 AST_NAMESPACE_END

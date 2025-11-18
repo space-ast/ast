@@ -178,32 +178,44 @@ public:
         : m_context{file, line, function}
     {}
     template<typename ...Args>
-    void debug(const char* msg, Args&& ...args) const
+    inline void debug(const char* msg, Args&& ...args) const
     {
         aLogMessage(eDebug, m_context, msg, std::forward<Args>(args)...);
     };
     template<typename ...Args>
-    void noDebug(const char*, Args&& ...args) const{}
+    inline void noDebug(const char*, Args&& ...args) const{}
     template<typename ...Args>
     void info(const char* msg, Args&& ...args) const
     {
         aLogMessage(eInfo, m_context, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
-    void warning(const char* msg, Args&& ...args) const
+    inline void warning(const char* msg, Args&& ...args) const
     {
         aLogMessage(eWarning, m_context, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
-    void critical(const char* msg, Args&& ...args) const
+    inline void error(const char* msg, Args&& ...args) const
+    {
+        aLogMessage(eError, m_context, msg, std::forward<Args>(args)...);
+    }
+    template<typename ...Args>
+    inline void critical(const char* msg, Args&& ...args) const
     {
         aLogMessage(eCritical, m_context, msg, std::forward<Args>(args)...);
     }
-    LoggerStream debug() const{return LoggerStream(eDebug, m_context); }
-    NoopStream   noDebug() const{ return NoopStream(); }
-    LoggerStream info() const{return LoggerStream(eInfo, m_context); }
-    LoggerStream warning() const{return LoggerStream(eWarning, m_context);}
-    LoggerStream critical() const{return LoggerStream(eCritical, m_context); };
+    template<typename ...Args>
+    inline void fatal(const char* msg, Args&& ...args) const
+    {
+        aLogMessage(eFatal, m_context, msg, std::forward<Args>(args)...);
+    }
+    inline LoggerStream debug() const{return LoggerStream(eDebug, m_context); }
+    inline NoopStream   noDebug() const{ return NoopStream(); }
+    inline LoggerStream info() const{return LoggerStream(eInfo, m_context); }
+    inline LoggerStream warning() const{return LoggerStream(eWarning, m_context);}
+    inline LoggerStream error() const{return LoggerStream(eError, m_context);}
+    inline LoggerStream critical() const{return LoggerStream(eCritical, m_context); };
+    inline LoggerStream fatal() const{return LoggerStream(eFatal, m_context); };
 private:
     MessageLogContext m_context;
 };
