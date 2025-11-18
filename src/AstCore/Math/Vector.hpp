@@ -58,8 +58,15 @@ template<typename _Scalar>
 class VectorN<_Scalar, 3>
 {
 public:
+    typedef VectorN<_Scalar, 3> Self;
     typedef _Scalar Scalar;
     enum {Dimension = 3};
+    
+    static Self Zero(){return Self{0,0,0}; }
+    static Self UnitX() {return Self{1,0,0}; }
+    static Self UnitY() {return Self{0,1,0}; }
+    static Self UnitZ() {return Self{0,0,1}; }
+
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化

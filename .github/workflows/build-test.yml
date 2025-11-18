@@ -37,5 +37,6 @@ jobs:
 
       - name: Test
         run: |
+          xmake test -v
           xmake test
           

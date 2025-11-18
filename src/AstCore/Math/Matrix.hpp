@@ -25,7 +25,7 @@
 AST_NAMESPACE_BEGIN
  
 
-template<typename Scalar>
+template<typename _Scalar>
 class Matrix
 {
 public:
@@ -34,28 +34,47 @@ public:
         , m_col{0}
         , m_data{nullptr}
     {}
-    size_t size() const{
-        return m_row * m_col;
-    }
-    size_t row() const{
-        return m_row;
-    }
-    size_t col() const{
-        return m_col;
-    }
-    Scalar* data() const{
-        return m_data;
-    }
+    size_t size() const{return m_row * m_col;}
+    size_t row() const{return m_row;}
+    size_t col() const{return m_col;}
+    _Scalar* data() const{return m_data;}
 protected:
     size_t m_row;
     size_t m_col;
-    Scalar* m_data;
+    _Scalar* m_data;
 };
 
-template<typename Scalar, size_t Row, size_t Col>
+template<typename _Scalar, size_t Row, size_t Col>
 class MatrixMN
 {
 public:
+    typedef MatrixMN< _Scalar, Row, Col> Self;
+    typedef _Scalar Scalar;
+
+    constexpr size_t size() const{return Row*Col;}
+    constexpr size_t row() const{return Row;}
+    constexpr size_t col() const{return Col;}
+    constexpr Scalar* data() const{return data_[0];}
+    Scalar operator[](size_t idx) const{return data_[0][idx];}
+    Scalar operator()(size_t idx) const {return data_[0][idx]; }
+    Scalar& operator()(size_t idx)  {return data_[0][idx]; }
+    Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
+    Scalar& operator()(size_t row, size_t col) {return data_[row][col]; }
+
+public:
+    Scalar data_[Row][Col];
+};
+
+
+template<typename _Scalar>
+class MatrixMN<_Scalar, 3, 3>
+{
+public:
+    enum {Row = 3, Col = 3};
+    typedef MatrixMN< _Scalar, 3, 3> Self;
+    typedef _Scalar Scalar;
+    static Self Identify(){return Self{1,0,0,0,1,0,0,0,1};}
+
     constexpr size_t size() const{return Row*Col;}
     constexpr size_t row() const{return Row;}
     constexpr size_t col() const{return Col;}

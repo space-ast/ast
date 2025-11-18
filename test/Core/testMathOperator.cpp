@@ -32,6 +32,7 @@
 int testVectorFunction()
 {
     AST_USING_NAMESPACE
+    // norm
     const double expect = sqrt(9+16+25);
     {
         std::vector<double> a{ 3, 4, 5 };
@@ -63,6 +64,7 @@ int testVectorFunction()
         printf("norm: %lf\n", retval);
         ASSERT_NEAR(retval, expect, 1e-15);
     }
+
     // cross
     {
         double arr1[3]{ 1,2,3 };
@@ -101,6 +103,7 @@ int testVectorFunction()
         double b[3]{1,2,3};
         auto ret = cross(a, b);
     }
+
     // dot
     {
         double a[3]{1,2,3};
@@ -111,6 +114,19 @@ int testVectorFunction()
         std::vector<double> a{1,2,3};
         std::vector<double> b{1,2,3};
         double r = dot(a, b);
+    }
+    
+    // normlized
+    {
+        double a[3]{1,2,3};
+        auto ret = normalized(a);
+        nothing();
+    }
+    {
+        double a[3]{1,2,3};
+        double* b = a;
+        auto ret = normalized<3>(b);
+        nothing();
     }
     return 0;
 }

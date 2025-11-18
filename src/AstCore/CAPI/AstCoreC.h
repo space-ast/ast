@@ -1,6 +1,6 @@
 ﻿///
 /// @file      AstCoreC.h
-/// @brief     
+/// @brief     AstCore的C语言接口，确保与C++的实现二进制兼容
 /// @details   ~
 /// @author    jinke18
 /// @date      15.11.2025

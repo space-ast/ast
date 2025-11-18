@@ -91,7 +91,12 @@ void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 
 void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat)
 {
-	return void();
+	double w = 1.0 + mtx(0, 0) + mtx(1,1) + mtx(2,2);
+	quat.qs() = sqrt(w) * 0.5;
+	double tempdbl = 4.0 * quat.qs();
+	quat.qx() = (mtx(1,2) - mtx(2,1)) / tempdbl;
+	quat.qy() = (mtx(2,0) - mtx(0,2)) / tempdbl;
+	quat.qz() = (mtx(0,1) - mtx(1,0)) / tempdbl;
 }
 
 void aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)

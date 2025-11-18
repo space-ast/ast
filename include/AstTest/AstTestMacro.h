@@ -35,3 +35,6 @@ if( fabs((val1) - (val2)) > fabs(eps))  \
 return -1;                              \
 
 
+#define ASSERT_FALSE(val)\
+if((val))return -1;
+
