@@ -309,7 +309,7 @@ template <size_t N>
 inline std::array<double, N> normalized(double* vec)
 {
     std::array<double, N> retval;
-    double mag = norm(vec);
+    double mag = norm(vec, N);
     if (mag == 0) {
         for (size_t i = 0; i < N; i++) {
             retval[i] = vec[i];

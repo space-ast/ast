@@ -21,20 +21,37 @@
 #pragma once
  
 #include "AstGlobal.hpp"
-#include <math.h>
- 
+#include <math.h>	// for fabs
+#include <stdio.h>	// for printf
+#include <iostream> // for std::cout 
 
 
-#define ASSERT_EQ(val1, val2)   \
-if((val1) != (val2))            \
-return -1;                      \
+#define ASSERT_EQ(val1, val2)\
+if((val1) != (val2))\
+{\
+	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
+	std::cout<< "val1" << #val1 << " = " << val1 << std::endl;\
+	std::cout<< "val2" << #val2 << " = " << val2 << std::endl;\
+	return -1;\
+}
 
 
-#define ASSERT_NEAR(val1, val2, eps)    \
-if( fabs((val1) - (val2)) > fabs(eps))  \
-return -1;                              \
-
+#define ASSERT_NEAR(val1, val2, eps)\
+if( fabs((val1) - (val2)) > fabs(eps))\
+{\
+	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
+	std::cout<< "val1 " << #val1 << " = " << val1 << std::endl;\
+	std::cout<< "val2 " << #val2 << " = " << val2 << std::endl;\
+	std::cout<< "eps" << #eps << " = " << eps << std::endl;\
+	std::cout<< "delta" << " = " << fabs(val1 - val2) << std::endl;\
+	return -1;\
+}
 
 #define ASSERT_FALSE(val)\
-if((val))return -1;
+if((val))\
+{\
+	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
+	std::cout<< "val " << #val << " = " << val << std::endl;\
+	return -1;\
+}
 

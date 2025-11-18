@@ -138,6 +138,7 @@ typedef enum EError
 {
 	eNoError = 0,       // 没有错误
     eErrorNullInput,    // 输入参数是空指针
+    eErrorInvalidParam, // 非法输入参数
 } AEError;
 
 /// ast项目类型前置声明

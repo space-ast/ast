@@ -3,3 +3,4 @@ build/
 .vs
 vs20*
 vsxmake*
+*.asv
