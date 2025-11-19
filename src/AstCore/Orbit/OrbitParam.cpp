@@ -21,6 +21,7 @@
 #include "OrbitParam.hpp" 
 #include "AstCore/MathOperator.hpp"
 #include "AstCore/Constants.h"
+#include "AstUtil/Logger.hpp"
 #include <math.h>
 
 #define PI kPI
@@ -30,8 +31,8 @@ AST_NAMESPACE_BEGIN
 
 
 
-#define INVALID_PARAM(val) val
-//#define INVALID_PARAM(val) NAN
+// #define INVALID_PARAM(val) val
+#define INVALID_PARAM(val) NAN
 
 double aApoAltToApoRad(double apogeeAlt, double cbRadius)
 {
@@ -113,10 +114,10 @@ double	aEccToMean(double E, double e)
     }
     else if (e > 1.0)       //双曲线轨道
         M = e * sinh(E) - E;
-    else              //(abs(e-1.0)<epsilon)抛物线轨道   @todo: 是否需要对抛物线e进行容差处理??
+    else
     {
         // E = tan(f/2);
-        M = E + E * E * E / 3;
+        M = E/2 + E * E * E / 6;
     }
     return M;
 }
@@ -134,10 +135,9 @@ double	aEccToTrue(double E, double e)
     }
     else if (e > 1.0)    //双曲线轨道
         f = 2.0 * atan(sqrt((e + 1.0) / (e - 1.0)) * tanh(0.5 * E));
-    else // (abs(e-1.0)<epsilon) 抛物线轨道  @todo: 是否需要对抛物线e进行容差处理??
+    else // 抛物线轨道
     {
-        f = atan(E) * 2;  // 
-        //COHEAD_LOG_DEBUG(抛物线轨道没有偏近点角，在此将真近点角的值置为E)
+        f = atan(E) * 2; 
     }
     return f;
 }
@@ -201,8 +201,8 @@ double	aMeanMotnToSMajAx(double meanMotn, double gm)
 
 double	aMeanToEcc(double M, double e, double eps, int maxIter)
 {
-    //static double eps = 1e-14;
-    //static int maxIter = 100;
+    // static double eps = 1e-14;
+    // static int maxIter = 100;
     if (e < 0.0) {
         return M;
     }
@@ -250,14 +250,16 @@ double	aMeanToEcc(double M, double e, double eps, int maxIter)
             N = N + 1;
         }
     }
-    else //(abs(e-1.0)<epsilon)抛物线轨道  // @todo
+    else // 抛物线轨道 
     {
-        // @todo
-        E = M;
+        // 巴克方程
+        double B = 3 * M;
+        double temp = pow(B + sqrt(B*B + 1), 1./3.);
+        E = temp - 1 / temp;
     }
     if (((e >= 0.0 && e < 1.0) || (e > 1.0)) && fabs(Delta3) >= 5.0 * eps && N >= maxIter)
     {
-        //COHEAD_LOG(mean2ecc迭代不收敛，请降低精度epsilon或增加迭代次数限制)
+        aError("mean2ecc迭代不收敛，请降低精度epsilon或增加迭代次数限制.");
         return M;
     }
     return E;
@@ -457,18 +459,17 @@ double	aTrueToEcc(double f, double e)
     }
     else if (e > 1.0)//双曲线轨道
     {
-        // if (f > PI - acos(1.0 / e) || f < -PI + acos(1.0 / e))
-        // {
-        //     //COHEAD_LOG_DEBUG(不可能达到的双曲轨道)
-        //     return INVALID_PARAM(f);
-        // }
-        // else
-        E = 2.0 * atanh(sqrt((e - 1.0) / (1.0 + e)) * tan(0.5 * f));
+        if (f > PI - acos(1.0 / e) || f < -PI + acos(1.0 / e))
+        {
+            aError("不可能达到的双曲轨道.");
+            return INVALID_PARAM(f);
+        }
+        else
+            E = 2.0 * atanh(sqrt((e - 1.0) / (1.0 + e)) * tan(0.5 * f));
     }
-    else//if(abs(e-1.0)<epsilon)抛物线轨道
+    else // 抛物线轨道
     {
-        E = f;
-        //COHEAD_LOG_DEBUG(抛物线轨道没有偏近点角，在此将偏近点角的值置为f)
+        E = tan(f/2);
     }
     return E;
 }
