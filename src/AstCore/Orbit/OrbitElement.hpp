@@ -39,7 +39,7 @@ class OrbElem
 {
 public:
     double	a;          ///< 长半轴 
-    double	e;          ///< 偏心率 y
+    double	e;          ///< 偏心率
     double	inc;        ///< 轨道倾角 
     double	raan;       ///< 升交点赤经 
     double	argper;     ///< 近拱点角
@@ -79,7 +79,7 @@ public:
     double g;        ///< g = e*sin(argper+RAAN)
     double h;        ///< h = tan(i/2)cos(RAAN)
     double k;        ///< k = tan(i/2)sin(RAAN)
-    double L;        ///< L = RAAN + argper + f
+    double L;        ///< L = RAAN + argper + trueA
 };
 
 

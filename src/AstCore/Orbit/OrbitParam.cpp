@@ -94,6 +94,7 @@ double	aApoRadToPeriod(double apogeeRad, double eccentricity, double gm)
 
 double	aApoRadToPeriRad(double apogeeRad, double eccentricity)
 {
+    assert(eccentricity >=0);
     return apogeeRad * (1 - eccentricity) / (1 + eccentricity);
 }
 double	aApoRadToSMajAx(double apogeeRad, double eccentricity)
