@@ -4,7 +4,7 @@
 
 ## 模块概述
 
-OrbitParam模块提供了航天仿真中常用的轨道参数计算和转换功能，支持各种轨道元素之间的相互转换、轨道特性计算等。该模块是航天动力学仿真的基础组件，为轨道分析、任务设计提供必要的计算支持。
+OrbitParam模块提供各种轨道参数之间的转换函数，支持近地点/远地点高度/半径、周期、平均角速度、偏心率等参数的相互转换，以及近点角（真近点角、偏近点角、平近点角）之间的转换。
 
 ## 核心概念
 
@@ -21,7 +21,6 @@ OrbitParam模块提供了航天仿真中常用的轨道参数计算和转换功�
    - 真近点角（True Anomaly）
    - 偏近点角（Eccentric Anomaly）
    - 平近点角（Mean Anomaly）
-   - 平近点角的时间导数
 
 3. **轨道几何参数**
    - 长半轴
@@ -36,11 +35,12 @@ OrbitParam模块提供了航天仿真中常用的轨道参数计算和转换功�
    - 幅角
    - 真近点经度
 
-## 关键常数
+### 关键常数
 
-- 地球平均半径（用于高度和半径转换）
-- 迭代计算的精度参数（通常为1e-15）
-- 最大迭代次数（确保数值方法收敛）
+- 所有长度单位默认使用米（m）
+- 所有角度单位默认使用弧度（rad）
+- 所有时间单位默认使用秒（s）
+- 迭代函数默认精度为1e-14，最大迭代次数为100次
 
 ## 用法示例
 
@@ -56,25 +56,29 @@ double earthRadius = 6371000.0;
 
 // 近地点高度转半径
 double perigeeAlt = 300000.0; // 300 km
-double perigeeRadius = aPerigeeAltToRadius(perigeeAlt, earthRadius);
+double perigeeRadius = aPeriAltToPeriRad(perigeeAlt, earthRadius);
 
 // 远地点半径转高度
 double apogeeRadius = 42164000.0; // 地球同步轨道半径
-double apogeeAlt = aApogeeRadiusToAlt(apogeeRadius, earthRadius);
+double apogeeAlt = aApoRadToApoAlt(apogeeRadius, earthRadius);
 ```
 
 ### 2. 轨道周期与角速度计算
 
+以下示例展示如何计算轨道周期和平均角速度：
+
 ```cpp
 #include "AstCore/OrbitParam.hpp"
 
-// 计算轨道周期
-double semiMajorAxis = 7000000.0; // 7000 km
-double gm = 398600441800000.0; // 地球引力常数 (m³/s²)
-double period = aSemiMajorAxisToPeriod(semiMajorAxis, gm);
+// 地球引力参数 (m^3/s^2)
+double gmEarth = 3.986004418e14;
 
-// 计算平均角速度
-double meanAngularVelocity = aSemiMajorAxisToMeanAngularVelocity(semiMajorAxis, gm);
+// 从长半轴计算轨道周期
+double semiMajorAxis = 42164000.0; // 地球同步轨道长半轴
+double period = aSMajAxToPeriod(semiMajorAxis, gmEarth);
+
+// 从轨道周期计算平均角速度
+double meanMotion = aPeriodToMeanMotn(period);
 ```
 
 ### 3. 近点角转换
@@ -85,15 +89,15 @@ double meanAngularVelocity = aSemiMajorAxisToMeanAngularVelocity(semiMajorAxis, 
 // 真近点角转偏近点角
 double trueAnomaly = 30.0 * AST_DEG_TO_RAD;
 double eccentricity = 0.1;
-double eccentricAnomaly = aTrueAnomalyToEccentricAnomaly(trueAnomaly, eccentricity);
+double eccentricAnomaly = aTrueToEcc(trueAnomaly, eccentricity);
 
 // 偏近点角转平近点角
-double meanAnomaly = aEccentricAnomalyToMeanAnomaly(eccentricAnomaly, eccentricity);
+double meanAnomaly = aEccToMean(eccentricAnomaly, eccentricity);
 
 // 反向转换 - 平近点角转真近点角（迭代求解）
 double tolerance = 1e-15;
 int maxIter = 50;
-double trueAnomalyReconverted = aMeanAnomalyToTrueAnomaly(meanAnomaly, eccentricity, tolerance, maxIter);
+double trueAnomalyReconverted = aMeanToTrue(meanAnomaly, eccentricity, tolerance, maxIter);
 ```
 
 ### 4. 完整轨道分析
@@ -101,22 +105,20 @@ double trueAnomalyReconverted = aMeanAnomalyToTrueAnomaly(meanAnomaly, eccentric
 ```cpp
 #include "AstCore/OrbitParam.hpp"
 
-// 已知近地点和远地点高度，计算完整轨道参数
-double perigeeAlt = 300000.0; // 300 km
-double apogeeAlt = 35786000.0; // 地球同步轨道高度
+// 地球参数
 double earthRadius = 6371000.0;
-double gm = 398600441800000.0;
+double gmEarth = 3.986004418e14;
 
-// 计算半径
-double perigeeRadius = aPerigeeAltToRadius(perigeeAlt, earthRadius);
-double apogeeRadius = aApogeeAltToRadius(apogeeAlt, earthRadius);
+// 已知近地点高度和偏心率
+double perigeeAlt = 200000.0; // 200 km
+double eccentricity = 0.01;
 
-// 计算长半轴和偏心率
-double semiMajorAxis = aPerigeeApogeeRadiusToSemiMajorAxis(perigeeRadius, apogeeRadius);
-double eccentricity = aPerigeeApogeeRadiusToEccentricity(perigeeRadius, apogeeRadius);
-
-// 计算轨道周期
-double period = aSemiMajorAxisToPeriod(semiMajorAxis, gm);
+// 计算其他轨道参数
+double perigeeRad = aPeriAltToPeriRad(perigeeAlt, earthRadius);
+double apogeeAlt = aPeriAltToApoAlt(perigeeAlt, eccentricity, earthRadius);
+double semiMajorAxis = aPeriRadToSMajAx(perigeeRad, eccentricity);
+double period = aPeriRadToPeriod(perigeeRad, eccentricity, gmEarth);
+double meanMotion = aSMajAxToMeanMotn(semiMajorAxis, gmEarth);
 ```
 
 ## API 参考
@@ -127,15 +129,24 @@ double period = aSemiMajorAxisToPeriod(semiMajorAxis, gm);
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aPerigeeAltToRadius` | 近地点高度转半径 | alt: 近地点高度 (m)<br>centralBodyRadius: 中心天体半径 (m) | 近地点半径 (m) |
-| `aPerigeeRadiusToAlt` | 近地点半径转高度 | radius: 近地点半径 (m)<br>centralBodyRadius: 中心天体半径 (m) | 近地点高度 (m) |
+| `aPeriAltToPeriRad` | 近地点高度转半径 | perigeeAlt: 近地点高度 (m)<br>cbRadius: 中心天体半径 (m) | 近地点半径 (m) |
+| `aPeriRadToPeriAlt` | 近地点半径转高度 | perigeeRad: 近地点半径 (m)<br>cbRadius: 中心天体半径 (m) | 近地点高度 (m) |
 
 #### 远地点高度与半径转换
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aApogeeAltToRadius` | 远地点高度转半径 | alt: 远地点高度 (m)<br>centralBodyRadius: 中心天体半径 (m) | 远地点半径 (m) |
-| `aApogeeRadiusToAlt` | 远地点半径转高度 | radius: 远地点半径 (m)<br>centralBodyRadius: 中心天体半径 (m) | 远地点高度 (m) |
+| `aApoAltToApoRad` | 远地点高度转半径 | apogeeAlt: 远地点高度 (m)<br>cbRadius: 中心天体半径 (m) | 远地点半径 (m) |
+| `aApoRadToApoAlt` | 远地点半径转高度 | apogeeRad: 远地点半径 (m)<br>cbRadius: 中心天体半径 (m) | 远地点高度 (m) |
+
+#### 近地点与远地点之间的转换
+
+| 函数名 | 说明 | 参数 | 返回值 |
+|--------|------|------|--------|
+| `aPeriAltToApoAlt` | 近地点高度转远地点高度 | perigeeAlt: 近地点高度 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 远地点高度 (m) |
+| `aPeriAltToApoRad` | 近地点高度转远地点半径 | perigeeAlt: 近地点高度 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 远地点半径 (m) |
+| `aApoAltToPeriAlt` | 远地点高度转近地点高度 | apogeeAlt: 远地点高度 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 近地点高度 (m) |
+| `aApoAltToPeriRad` | 远地点高度转近地点半径 | apogeeAlt: 远地点高度 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 近地点半径 (m) |
 
 ### 近点角转换
 
@@ -143,59 +154,70 @@ double period = aSemiMajorAxisToPeriod(semiMajorAxis, gm);
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aTrueAnomalyToEccentricAnomaly` | 真近点角转偏近点角 | trueAnomaly: 真近点角 (rad)<br>eccentricity: 偏心率 | 偏近点角 (rad) |
-| `aEccentricAnomalyToTrueAnomaly` | 偏近点角转真近点角 | eccentricAnomaly: 偏近点角 (rad)<br>eccentricity: 偏心率 | 真近点角 (rad) |
+| `aTrueToEcc` | 真近点角转偏近点角 | trueAnomaly: 真近点角 (rad)<br>eccentricity: 偏心率 | 偏近点角 (rad) |
+| `aEccToTrue` | 偏近点角转真近点角 | eccentricAnomaly: 偏近点角 (rad)<br>eccentricity: 偏心率 | 真近点角 (rad) |
 
 #### 偏近点角与平近点角转换
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aEccentricAnomalyToMeanAnomaly` | 偏近点角转平近点角 | eccentricAnomaly: 偏近点角 (rad)<br>eccentricity: 偏心率 | 平近点角 (rad) |
-| `aMeanAnomalyToEccentricAnomaly` | 平近点角转偏近点角 | meanAnomaly: 平近点角 (rad)<br>eccentricity: 偏心率<br>tolerance: 迭代精度<br>maxIter: 最大迭代次数 | 偏近点角 (rad) |
+| `aEccToMean` | 偏近点角转平近点角 | eccentricAnomaly: 偏近点角 (rad)<br>eccentricity: 偏心率 | 平近点角 (rad) |
+| `aMeanToEcc` | 平近点角转偏近点角 | meanAnomaly: 平近点角 (rad)<br>eccentricity: 偏心率<br>eps: 迭代精度 (默认1e-14)<br>maxIter: 最大迭代次数 (默认100) | 偏近点角 (rad) |
 
 #### 平近点角与真近点角转换
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aTrueAnomalyToMeanAnomaly` | 真近点角转平近点角 | trueAnomaly: 真近点角 (rad)<br>eccentricity: 偏心率 | 平近点角 (rad) |
-| `aMeanAnomalyToTrueAnomaly` | 平近点角转真近点角 | meanAnomaly: 平近点角 (rad)<br>eccentricity: 偏心率<br>tolerance: 迭代精度<br>maxIter: 最大迭代次数 | 真近点角 (rad) |
+| `aTrueToMean` | 真近点角转平近点角 | trueAnomaly: 真近点角 (rad)<br>eccentricity: 偏心率 | 平近点角 (rad) |
+| `aMeanToTrue` | 平近点角转真近点角 | meanAnomaly: 平近点角 (rad)<br>eccentricity: 偏心率<br>eps: 迭代精度 (默认1e-14)<br>maxIter: 最大迭代次数 (默认100) | 真近点角 (rad) |
 
-### 轨道周期与角速度
-
-| 函数名 | 说明 | 参数 | 返回值 |
-|--------|------|------|--------|
-| `aSemiMajorAxisToPeriod` | 长半轴转轨道周期 | semiMajorAxis: 长半轴 (m)<br>gm: 引力常数 (m³/s²) | 轨道周期 (s) |
-| `aPeriodToSemiMajorAxis` | 轨道周期转长半轴 | period: 轨道周期 (s)<br>gm: 引力常数 (m³/s²) | 长半轴 (m) |
-| `aSemiMajorAxisToMeanAngularVelocity` | 长半轴转平均角速度 | semiMajorAxis: 长半轴 (m)<br>gm: 引力常数 (m³/s²) | 平均角速度 (rad/s) |
-| `aMeanAngularVelocityToSemiMajorAxis` | 平均角速度转长半轴 | meanAngularVelocity: 平均角速度 (rad/s)<br>gm: 引力常数 (m³/s²) | 长半轴 (m) |
-
-### 偏心率计算
+### 轨道周期与平均角速度
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aPerigeeApogeeRadiusToEccentricity` | 近地点远地点半径计算偏心率 | perigeeRadius: 近地点半径 (m)<br>apogeeRadius: 远地点半径 (m) | 偏心率 |
-| `aSemiMajorAxisPerigeeRadiusToEccentricity` | 长半轴和近地点半径计算偏心率 | semiMajorAxis: 长半轴 (m)<br>perigeeRadius: 近地点半径 (m) | 偏心率 |
-| `aSemiMajorAxisApogeeRadiusToEccentricity` | 长半轴和远地点半径计算偏心率 | semiMajorAxis: 长半轴 (m)<br>apogeeRadius: 远地点半径 (m) | 偏心率 |
+| `aPeriodToMeanMotn` | 轨道周期转平均角速度 | period: 轨道周期 (s) | 平均角速度 (rad/s) |
+| `aMeanMotnToPeriod` | 平均角速度转轨道周期 | meanMotn: 平均角速度 (rad/s) | 轨道周期 (s) |
 
-### 角度关系计算
-
-| 函数名 | 说明 | 参数 | 返回值 |
-|--------|------|------|--------|
-| `aTrueAnomalyToArgument` | 真近点角转幅角 | trueAnomaly: 真近点角 (rad)<br>argumentOfPerigee: 近地点幅角 (rad) | 幅角 (rad) |
-| `aArgumentToTrueAnomaly` | 幅角转真近点角 | argument: 幅角 (rad)<br>argumentOfPerigee: 近地点幅角 (rad) | 真近点角 (rad) |
-| `aTrueAnomalyToTrueLongitude` | 真近点角转真近点经度 | trueAnomaly: 真近点角 (rad)<br>argumentOfPerigee: 近地点幅角 (rad)<br>longitudeOfAscendingNode: 升交点赤经 (rad) | 真近点经度 (rad) |
-| `aTrueLongitudeToTrueAnomaly` | 真近点经度转真近点角 | trueLongitude: 真近点经度 (rad)<br>argumentOfPerigee: 近地点幅角 (rad)<br>longitudeOfAscendingNode: 升交点赤经 (rad) | 真近点角 (rad) |
-| `aArgumentOfPerigeeToLongitudeOfPerigee` | 近地点幅角转近地点经度 | argumentOfPerigee: 近地点幅角 (rad)<br>longitudeOfAscendingNode: 升交点赤经 (rad) | 近地点经度 (rad) |
-| `aLongitudeOfPerigeeToArgumentOfPerigee` | 近地点经度转近地点幅角 | longitudeOfPerigee: 近地点经度 (rad)<br>longitudeOfAscendingNode: 升交点赤经 (rad) | 近地点幅角 (rad) |
-
-### 其他轨道特性计算
+### 长半轴相关转换
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `aPerigeeApogeeRadiusToSemiMajorAxis` | 近地点远地点半径计算长半轴 | perigeeRadius: 近地点半径 (m)<br>apogeeRadius: 远地点半径 (m) | 长半轴 (m) |
-| `aEccentricityToFlattening` | 偏心率转扁平率 | eccentricity: 偏心率 | 扁平率 |
-| `aFlatteningToEccentricity` | 扁平率转偏心率 | flattening: 扁平率 | 偏心率 |
-| `aCalculateSemiMajorAxisForGroundTrackRepeat` | 计算地面轨迹重复的长半轴 | centralBodyRadius: 中心天体半径 (m)<br>centralBodyAngularVelocity: 中心天体自转角速度 (rad/s)<br>numOrbits: 重复周期内的轨道数<br>numDays: 重复周期的天数<br>gm: 引力常数 (m³/s²) | 长半轴 (m) |
+| `aPeriAltToSMajAx` | 近地点高度转长半轴 | perigeeAlt: 近地点高度 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 长半轴 (m) |
+| `aPeriRadToSMajAx` | 近地点半径转长半轴 | perigeeRad: 近地点半径 (m)<br>eccentricity: 偏心率 | 长半轴 (m) |
+| `aApoAltToSMajAx` | 远地点高度转长半轴 | apogeeAlt: 远地点高度 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 长半轴 (m) |
+| `aApoRadToSMajAx` | 远地点半径转长半轴 | apogeeRad: 远地点半径 (m)<br>eccentricity: 偏心率 | 长半轴 (m) |
+| `aSMajAxToPeriRad` | 长半轴转近地点半径 | semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率 | 近地点半径 (m) |
+| `aSMajAxToApoRad` | 长半轴转远地点半径 | semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率 | 远地点半径 (m) |
+| `aSMajAxToPeriAlt` | 长半轴转近地点高度 | semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 近地点高度 (m) |
+| `aSMajAxToApoAlt` | 长半轴转远地点高度 | semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>cbRadius: 中心天体半径 (m) | 远地点高度 (m) |
+| `aSMajAxToPeriod` | 长半轴转轨道周期 | semiMajorAxis: 长半轴 (m)<br>gm: 引力参数 (m^3/s^2) | 轨道周期 (s) |
+| `aSMajAxToMeanMotn` | 长半轴转平均角速度 | semiMajorAxis: 长半轴 (m)<br>gm: 引力参数 (m^3/s^2) | 平均角速度 (rad/s) |
+| `aPeriodToSMajAx` | 轨道周期转长半轴 | period: 轨道周期 (s)<br>gm: 引力参数 (m^3/s^2) | 长半轴 (m) |
+
+### 其他轨道参数计算
+
+| 函数名 | 说明 | 参数 | 返回值 |
+|--------|------|------|--------|
+| `aRadiiToEcc` | 根据近地点和远地点半径计算偏心率 | perigeeRad: 近地点半径 (m)<br>apogeeRad: 远地点半径 (m) | 偏心率 |
+| `aSMinAxToSMajAx` | 短半轴转长半轴 | semiminorAxis: 短半轴 (m)<br>eccentricity: 偏心率 | 长半轴 (m) |
+
+### 时间相关转换
+
+| 函数名 | 说明 | 参数 | 返回值 |
+|--------|------|------|--------|
+| `aTPANToEcc` | 近地点幅角时刻转偏近点角 | TPAN: 近地点幅角时刻 (s)<br>argPeri: 近地点幅角 (rad)<br>semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>gm: 引力参数 (m^3/s^2)<br>eps: 迭代精度 (默认1e-14)<br>maxIter: 最大迭代次数 (默认100) | 偏近点角 (rad) |
+| `aTPANToMean` | 近地点幅角时刻转平近点角 | TPAN: 近地点幅角时刻 (s)<br>argPeri: 近地点幅角 (rad)<br>semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>gm: 引力参数 (m^3/s^2) | 平近点角 (rad) |
+| `aTPPToTrue` | 近地点通过时刻转真近点角 | TPP: 近地点通过时刻 (s)<br>semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>gm: 引力参数 (m^3/s^2)<br>eps: 迭代精度 (默认1e-14)<br>maxIter: 最大迭代次数 (默认100) | 真近点角 (rad) |
+| `aTrueToTPAN` | 真近点角转近地点幅角时刻 | trueAnomaly: 真近点角 (rad)<br>argPeri: 近地点幅角 (rad)<br>semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>gm: 引力参数 (m^3/s^2) | 近地点幅角时刻 (s) |
+| `aTrueToTPP` | 真近点角转近地点通过时刻 | trueAnomaly: 真近点角 (rad)<br>semiMajorAxis: 长半轴 (m)<br>eccentricity: 偏心率<br>gm: 引力参数 (m^3/s^2) | 近地点通过时刻 (s) |
+
+### 角度关系转换
+
+| 函数名 | 说明 | 参数 | 返回值 |
+|--------|------|------|--------|
+| `aTrueToArgLat` | 真近点角转幅角 | trueAnomaly: 真近点角 (rad)<br>argPeri: 近地点幅角 (rad) | 幅角 (rad) |
+| `aTrueToTrueLong` | 真近点角转真近点经度 | trueAnomaly: 真近点角 (rad)<br>argPeri: 近地点幅角 (rad)<br>raan: 升交点赤经 (rad) | 真近点经度 (rad) |
+| `aArgPeriToLongPeri` | 近地点幅角转近地点经度 | argPeri: 近地点幅角 (rad)<br>raan: 升交点赤经 (rad) | 近地点经度 (rad) |
 
 ## 依赖关系
 
