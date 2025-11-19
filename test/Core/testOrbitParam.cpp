@@ -197,6 +197,54 @@ int testSpecificScenarios()
     return 0;
 }
 
+
+// 测试抛物线
+int testParabola()
+{
+    double e = 1;
+    // mean and ecc
+    {
+        double meanA = 0.2;
+        double eccA = aMeanToEcc(meanA, e);
+        double meanA2 = aEccToMean(eccA, e);
+        ASSERT_NEAR(meanA, meanA2, 1e-14);
+    }
+    {
+        double meanA = 1.4;
+        double eccA = aMeanToEcc(meanA, e);
+        double meanA2 = aEccToMean(eccA, e);
+        ASSERT_NEAR(meanA, meanA2, 1e-14);
+    }
+    // ecc and true
+    {
+        double eccA = 0.2;
+        double trueA = aEccToTrue(eccA, e);
+        double eccA2 = aTrueToEcc(trueA, e);
+        ASSERT_NEAR(eccA, eccA2, 1e-14);
+    }
+    {
+        double eccA = 1.7;
+        double trueA = aEccToTrue(eccA, e);
+        double eccA2 = aTrueToEcc(trueA, e);
+        ASSERT_NEAR(eccA, eccA2, 1e-14);
+    }
+
+    // true and mean
+    {
+        double meanA = 0.2;
+        double trueA = aMeanToTrue(meanA, e);
+        double meanA2 = aTrueToMean(trueA, e);
+        ASSERT_NEAR(meanA, meanA2, 1e-14);
+    }
+    {
+        double meanA = 1.6;
+        double trueA = aMeanToTrue(meanA, e);
+        double meanA2 = aTrueToMean(trueA, e);
+        ASSERT_NEAR(meanA, meanA2, 1e-14);
+    }
+    return 0;
+}
+
 int main()
 {
     printf("开始轨道参数转换往返测试...\n");
@@ -207,7 +255,8 @@ int main()
     rc |= testOrbitalElementConversion();
     rc |= testOtherConversions();
     rc |= testSpecificScenarios();
-    
+    rc |= testParabola();
+
     if (rc == 0) {
         printf("所有往返测试完成，全部通过！\n");
     } else {
