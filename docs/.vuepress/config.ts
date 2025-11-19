@@ -7,12 +7,12 @@ export default defineUserConfig({
   lang:"zh-CN",
 
   locales: {
-    "/": {
+    "/en/": {
       lang: "en-US",
       title: "ast docs",
       description: "docs for ast project",
     },
-    "/zh/": {
+    "/": {
       lang: "zh-CN",
       title: "ast文档",
       description: "ast 项目的文档主页",
