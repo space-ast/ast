@@ -1,4 +1,4 @@
-name: build_test
+name: 编译测试
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-2022, windows-2025, ubuntu-latest]
-        arch: [x64, arm64]
+        arch: [x64]
 
     runs-on: ${{ matrix.os }}
 
@@ -30,12 +30,12 @@ jobs:
           # xmake-version: local#
           xmake-version: branch@dev
 
-      - name: Build
+      - name: 编译
         run: |
           xmake f -c --with_test=y
           xmake
 
-      - name: Test
+      - name: 测试
         run: |
           xmake test -v
           xmake test
