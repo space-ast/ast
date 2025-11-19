@@ -1,6 +1,8 @@
 build/
+.vscode
 .xmake
 .vs
 vs20*
 vsxmake*
 *.asv
+node_modules

@@ -27,11 +27,13 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: docs/package-lock.json
 
       - name: 安装依赖
         run: |
           corepack enable
           npm ci
+        working-directory: docs
 
       - name: 构建文档
         env:
@@ -39,10 +41,11 @@ jobs:
         run: |-
           npm run docs:build
           > .vuepress/dist/.nojekyll
+        working-directory: docs
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           # 部署文档
           branch: gh-pages
-          folder: .vuepress/dist
+          folder: docs/.vuepress/dist

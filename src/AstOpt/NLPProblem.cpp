@@ -23,6 +23,7 @@
 #include <memory>			// for std::shared_ptr
 #include <algorithm>		// for std::copy_n std::fill_n
 #include <stdio.h>			// for printf
+#include <cmath>			// for std::isnan
 
 #define INFBND 1.1e20
 
@@ -618,7 +619,7 @@ void aParternCOOToCCS(
 	// 检查输入有效性
 	if (iRow.size() != jCol.size()) {
 		ptr2fnz = { 0 };
-		printf("COO格式的行列索引数组大小必须相同");
+		// printf("COO格式的行列索引数组大小必须相同"); // COO格式的行列索引数组大小必须相同
 	}
 
 	if (iRow.empty()) {

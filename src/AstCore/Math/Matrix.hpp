@@ -54,10 +54,10 @@ public:
     constexpr size_t size() const{return Row*Col;}
     constexpr size_t row() const{return Row;}
     constexpr size_t col() const{return Col;}
-    constexpr Scalar* data() const{return data_[0];}
-    Scalar operator[](size_t idx) const{return data_[0][idx];}
-    Scalar operator()(size_t idx) const {return data_[0][idx]; }
-    Scalar& operator()(size_t idx)  {return data_[0][idx]; }
+    constexpr Scalar* data() const{return (Scalar*)this;}
+    Scalar operator[](size_t idx) const{return data()[idx];}
+    Scalar operator()(size_t idx) const {return data()[idx]; }
+    Scalar& operator()(size_t idx)  {return data()[idx]; }
     Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
     Scalar& operator()(size_t row, size_t col) {return data_[row][col]; }
 
@@ -78,10 +78,10 @@ public:
     constexpr size_t size() const{return Row*Col;}
     constexpr size_t row() const{return Row;}
     constexpr size_t col() const{return Col;}
-    constexpr Scalar* data() const{return data_[0];}
-    Scalar operator[](size_t idx) const{return data_[0][idx];}
-    Scalar operator()(size_t idx) const {return data_[0][idx]; }
-    Scalar& operator()(size_t idx)  {return data_[0][idx]; }
+    constexpr Scalar* data() const{return (Scalar*)this;}
+    Scalar operator[](size_t idx) const{return data()[idx];}
+    Scalar operator()(size_t idx) const {return data()[idx]; }
+    Scalar& operator()(size_t idx)  {return data()[idx]; }
     Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
     Scalar& operator()(size_t row, size_t col) {return data_[row][col]; }
 

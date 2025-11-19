@@ -18,6 +18,10 @@ add_includedirs("include")
 -- 添加编译规则
 add_rules("mode.debug", "mode.release")
 
+if is_plat("linux") then
+    add_rpathdirs("$ORIGIN")
+end
+
 -- 导入子目录配置
 includes("3rdparty")
 includes("src")
