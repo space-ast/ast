@@ -18,14 +18,14 @@ export default hopeTheme({
   docsDir: "docs",
 
   locales: {
-    "/": {
+    "/en/": {
       // navbar
       navbar: enNavbar,
 
       // sidebar
       sidebar: enSidebar,
 
-      footer: "Default footer",
+      footer: "ast project",
 
       displayFooter: true,
 
@@ -37,14 +37,14 @@ export default hopeTheme({
     /**
      * Chinese locale config
      */
-    "/zh/": {
+    "/": {
       // navbar
       navbar: zhNavbar,
 
       // sidebar
       sidebar: zhSidebar,
 
-      footer: "默认页脚",
+      footer: "ast 项目",
 
       displayFooter: true,
 

@@ -55,3 +55,12 @@ if((val))\
 	return -1;\
 }
 
+
+#define ASSERT_TRUE(val)\
+if(!(val))\
+{\
+	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
+	std::cout<< "val " << #val << " = " << (val) << std::endl;\
+	return -1;\
+}
+
