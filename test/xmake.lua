@@ -5,7 +5,7 @@ add_deps("AstCore", "AstUtil")
 local files = os.files("**/test*.c*")
 
 for _, file in ipairs(files) do
-    local targetname = file:gsub("\\", "_"):gsub("%.[^.]*$", "")
+    local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
     target(targetname)
         add_files(file)
         set_kind("binary")

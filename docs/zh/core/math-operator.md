@@ -1,4 +1,4 @@
-# MathOperator 文档
+# MathOperator 数学运算功能
 
 *说明：本文档旨在帮助理解模块功能，具体API和行为请查阅源代码。*
 
