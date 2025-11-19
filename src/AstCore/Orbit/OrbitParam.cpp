@@ -43,7 +43,7 @@ double aApoAltToMeanMotn(double apogeeAlt, double eccentricity, double cbRadius,
 {
     double apoRad = apogeeAlt + cbRadius;
     double smajAx = apoRad / (1 + eccentricity);
-    return sqrt(gm / pow(smajAx, 3));
+    return sqrt(gm / (smajAx * smajAx * smajAx));
 }
 
 double aApoAltToPeriAlt(double apogeeAlt, double eccentricity, double cbRadius)
@@ -60,7 +60,7 @@ double aApoAltToPeriod(double apogeeAlt, double eccentricity, double cbRadius, d
 {
     double apoRad = apogeeAlt + cbRadius;
     double smajAx = apoRad / (1 + eccentricity);
-    return  kTwoPI * sqrt(pow(smajAx, 3) / gm);
+    return  kTwoPI * sqrt((smajAx * smajAx * smajAx) / gm);
 }
 
 double aApoAltToSMajAx(double apogeeAlt, double eccentricity, double cbRadius)
@@ -77,7 +77,7 @@ double aApoRadToApoAlt(double apogeeRad, double cbRadius)
 double aApoRadToMeanMotn(double apogeeRad, double eccentricity, double gm)
 {
     double smajAx = apogeeRad / (1 + eccentricity);
-    return sqrt(gm / pow(smajAx, 3));
+    return sqrt(gm / (smajAx * smajAx * smajAx));
 }
 
 double aApoRadToPeriAlt(double apogeeRad, double eccentricity, double cbRadius)
@@ -89,7 +89,7 @@ double aApoRadToPeriAlt(double apogeeRad, double eccentricity, double cbRadius)
 double	aApoRadToPeriod(double apogeeRad, double eccentricity, double gm)
 {
     double smajAx = apogeeRad / (1 + eccentricity);
-    return  kTwoPI * sqrt(pow(smajAx, 3) / gm);
+    return  kTwoPI * sqrt((smajAx * smajAx * smajAx) / gm);
 }
 
 double	aApoRadToPeriRad(double apogeeRad, double eccentricity)
@@ -155,7 +155,7 @@ double	aEccToTPP(double E, double semiMajorAxis, double e, double gm)
     if (e >= 0 && e < 1) {
         double M = E - e * sin(E);
         //return M / sqrt(gm / pow(semiMajorAxis, 3));
-        return M * sqrt(pow(semiMajorAxis, 3) / gm);
+        return M * sqrt((semiMajorAxis * semiMajorAxis * semiMajorAxis) / gm);
     }
     else if (e > 1.) {
         double M = e * sinh(E) - E;
@@ -169,24 +169,24 @@ double	aEccToTPP(double E, double semiMajorAxis, double e, double gm)
 
 double	aMeanMotnToApoAlt(double meanMotion, double eccentricity, double cbRadius, double gm)
 {
-    double smjax = pow(gm / (meanMotion * meanMotion), 1. / 3.);
+    double smjax = cbrt(gm / (meanMotion * meanMotion));
     return smjax * (1 + eccentricity) - cbRadius;
 }
 
 double	aMeanMotnToApoRad(double meanMotion, double eccentricity, double gm)
 {
-    double smjax = pow(gm / (meanMotion * meanMotion), 1. / 3.);
+    double smjax = cbrt(gm / (meanMotion * meanMotion));
     return smjax * (1 + eccentricity);
 }
 double	aMeanMotnToPeriAlt(double meanMotion, double eccentricity, double cbRadius, double gm)
 {
-    double smjax = pow(gm / (meanMotion * meanMotion), 1. / 3.);
+    double smjax = cbrt(gm / (meanMotion * meanMotion));
     return smjax * (1 - eccentricity) - cbRadius;
 }
 
 double	aMeanMotnToPeriRad(double meanMotion, double eccentricity, double gm)
 {
-    double smjax = pow(gm / (meanMotion * meanMotion), 1. / 3.);
+    double smjax = cbrt(gm / (meanMotion * meanMotion));
     return smjax * (1 - eccentricity);
 }
 double	aMeanMotnToPeriod(double meanMotn)
@@ -195,7 +195,7 @@ double	aMeanMotnToPeriod(double meanMotn)
 }
 double	aMeanMotnToSMajAx(double meanMotn, double gm)
 {
-    return pow(gm / (meanMotn * meanMotn), 1. / 3.);
+    return cbrt(gm / (meanMotn * meanMotn));
 }
 
 
@@ -254,7 +254,7 @@ double	aMeanToEcc(double M, double e, double eps, int maxIter)
     {
         // 巴克方程
         double B = 3 * M;
-        double temp = pow(B + sqrt(B*B + 1), 1./3.);
+        double temp = cbrt(B + sqrt(B*B + 1));
         E = temp - 1 / temp;
     }
     if (((e >= 0.0 && e < 1.0) || (e > 1.0)) && fabs(Delta3) >= 5.0 * eps && N >= maxIter)
@@ -288,7 +288,7 @@ double	aPeriAltToApoRad(double perigeeAlt, double eccentricity, double cbRadius)
 double	aPeriAltToMeanMotn(double perigeeAlt, double eccentricity, double cbRadius, double gm)
 {
     double smjax = (perigeeAlt + cbRadius) / (1 - eccentricity);
-    return sqrt(gm / pow(smjax, 3));
+    return sqrt(gm / (smjax * smjax * smjax));
 }
 double	aPeriAltToPeriRad(double perigeeAlt, double cbRadius)
 {
@@ -296,8 +296,8 @@ double	aPeriAltToPeriRad(double perigeeAlt, double cbRadius)
 }
 double	aPeriAltToPeriod(double perigeeAlt, double eccentricity, double cbRadius, double gm)
 {
-    double smajax = (perigeeAlt + cbRadius) / (1 - eccentricity);
-    return PI2 * sqrt(pow(smajax, 3) / gm);
+    double smjax = (perigeeAlt + cbRadius) / (1 - eccentricity);
+    return PI2 * sqrt((smjax * smjax * smjax) / gm);
 }
 double	aPeriAltToSMajAx(double perigeeAlt, double eccentricity, double cbRadius)
 {
@@ -315,7 +315,7 @@ double	aPeriRadToApoRad(double perigeeRad, double eccentricity)
 double	aPeriRadToMeanMotn(double perigeeRad, double eccentricity, double gm)
 {
     double smjax = perigeeRad / (1 - eccentricity);
-    return sqrt(gm / pow(smjax, 3));
+    return sqrt(gm / (smjax * smjax * smjax));
 }
 double	aPeriRadToPeriAlt(double perigeeRad, double cbRadius)
 {
@@ -323,8 +323,8 @@ double	aPeriRadToPeriAlt(double perigeeRad, double cbRadius)
 }
 double	aPeriRadToPeriod(double perigeeRad, double eccentricity, double gm)
 {
-    double smajax = perigeeRad / (1 - eccentricity);
-    return PI2 * sqrt(pow(smajax, 3) / gm);
+    double smjax = perigeeRad / (1 - eccentricity);
+    return PI2 * sqrt((smjax * smjax * smjax) / gm);
 }
 double	aPeriRadToSMajAx(double perigeeRad, double eccentricity)
 {
@@ -372,7 +372,7 @@ double	aSMajAxToApoRad(double semiMajorAxis, double eccentricity)
 }
 double	aSMajAxToMeanMotn(double semiMajorAxis, double gm)
 {
-    return sqrt(gm / pow(semiMajorAxis, 3));
+    return sqrt(gm / (semiMajorAxis * semiMajorAxis * semiMajorAxis));
 }
 double	aSMajAxToPeriAlt(double semiMajorAxis, double eccentricity, double cbRadius)
 {
@@ -384,7 +384,7 @@ double	aSMajAxToPeriRad(double semiMajorAxis, double eccentricity)
 }
 double	aSMajAxToPeriod(double semiMajorAxis, double gm)
 {
-    return PI2 * sqrt(pow(semiMajorAxis, 3) / gm);
+    return PI2 * sqrt((semiMajorAxis * semiMajorAxis * semiMajorAxis) / gm);
 }
 // 半短轴
 double	aSMajAxToSMinAx(double semiMajorAxis, double eccentricity)
