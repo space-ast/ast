@@ -22,18 +22,31 @@
  
 #include "AstGlobal.hpp"
 #include <string>
+#include <stdint.h>     // for uint32_t
 
 AST_NAMESPACE_BEGIN
  
-class Class;
+class Type;
 
 class AST_CORE_API Object
 {
 public:
-    Object();
-protected:
+    Object(Type* tp)
+        :m_type{tp}
+        ,m_refcnt{0}
+        ,m_weakrefcnt{1}
+    {}
+    virtual ~Object(){}
+    
     err_t getAttrString(const std::string& path, std::string& value) const;
+    
+    uint32_t refCount() const{return m_refcnt;}
+    uint32_t weakRefCount() const{return m_weakrefcnt;}
 
+protected:
+    Type*       m_type;                 ///< 类型元信息
+    uint32_t    m_refcnt;               ///< 强引用计数
+    uint32_t    m_weakrefcnt;           ///< 弱引用计数
 };
 
 

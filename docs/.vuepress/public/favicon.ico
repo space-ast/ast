@@ -1,0 +1,21 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="64" cy="64" r="60" fill="#1a365d" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- 轨道环 -->
+  <circle cx="64" cy="64" r="45" fill="none" stroke="#4299e1" stroke-width="2" stroke-dasharray="3,3"/>
+  <circle cx="64" cy="64" r="35" fill="none" stroke="#48bb78" stroke-width="2" stroke-dasharray="2,2"/>
+  
+  <!-- 中心卫星/航天器 -->
+  <circle cx="64" cy="64" r="12" fill="#e53e3e"/>
+  <rect x="60" y="52" width="8" height="24" fill="#ed8936"/>
+  
+  <!-- 数学符号 -->
+  <text x="64" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">A</text>
+  
+  <!-- 星星 -->
+  <circle cx="40" cy="40" r="1.5" fill="white"/>
+  <circle cx="90" cy="50" r="1" fill="white"/>
+  <circle cx="50" cy="85" r="1" fill="white"/>
+  <circle cx="85" cy="80" r="1.5" fill="white"/>
+</svg>
