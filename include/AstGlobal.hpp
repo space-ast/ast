@@ -132,6 +132,8 @@
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 
+// 定义访问函数
+#define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
 
 
 /// ast项目模块导出声明
@@ -157,6 +159,16 @@
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
+#ifdef __cplusplus
+
+// std::array 前置声明
+namespace std
+{
+    template<typename T, std::size_t N>
+    struct array;
+}
+
+#endif
 
 AST_NAMESPACE_BEGIN
 
@@ -181,6 +193,9 @@ class MatrixMN;
 typedef VectorN<double, 3> Vector3d;
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
+
+typedef std::array<double, 3> array3d;
+typedef std::array<double, 6> array6d;
 
 
 class Quaternion;
