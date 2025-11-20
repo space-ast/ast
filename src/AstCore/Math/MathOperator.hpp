@@ -85,6 +85,32 @@ int sign(_Scalar val)
     return 0;
 }
 
+template<typename T>
+inline 
+typename std::enable_if<std::is_arithmetic<T>::value, T>::type
+rem(T x, T y)
+{
+    return x - int(x / y) * y;
+}
+
+
+template<typename T>
+inline typename std::enable_if<std::is_floating_point<T>::value, T>::type
+mod(T x, T y)
+{
+    if (y == 0) return x;
+    return x - floor(x / y) * y;
+}
+
+
+template<typename T>
+inline
+typename std::enable_if<std::is_arithmetic<T>::value, T>::type
+fix(T x)
+{
+    return (int)x;
+}
+
 
 /// cot acot
 
@@ -194,7 +220,7 @@ inline std::array<double, 3> cross3(const double* vec1, const double* vec2)
 
 /// norm
 
-inline double norm(double* vec, size_t N)
+inline double norm(const double* vec, size_t N)
 {
     double sum = 0;
     for (size_t i = 0; i < N; i++)
@@ -309,7 +335,7 @@ inline std::array<double, N> normalized(double (&vec)[N])
 }
 
 template <size_t N>
-inline std::array<double, N> normalized(double* vec)
+inline std::array<double, N> normalized(const double* vec)
 {
     std::array<double, N> retval;
     double mag = norm(vec, N);
