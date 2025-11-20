@@ -57,6 +57,13 @@ public:
         }
         return *this;
     }
+    WeakPtr& operator=(const WeakPtr& ptr)
+    {
+        if (this != &ptr) {
+            this->operator=(ptr.m_object);
+        }
+        return *this;
+    }
     _Object* lock() const
     {
         return m_object;
