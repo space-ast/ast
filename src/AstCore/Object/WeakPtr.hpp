@@ -66,7 +66,7 @@ public:
     }
     _Object* lock() const
     {
-        return m_object;
+        return get();
     }
     _Object* get() const
     {
