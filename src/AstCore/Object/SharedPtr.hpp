@@ -61,7 +61,7 @@ public:
         }
         return *this;
     }
-    operator _Object*() const
+    explicit operator _Object*() const
     {
         return m_object;
     }
