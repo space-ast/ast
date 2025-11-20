@@ -28,6 +28,11 @@
  
 AST_NAMESPACE_BEGIN
 
+
+typedef std::array<double, 3> array3d;
+typedef std::array<double, 6> array6d;
+
+
 /*
  * @note
  * 采用模板函数实现向量运算，只要类型支持标准化的接口即可使用这些函数

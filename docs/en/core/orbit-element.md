@@ -45,7 +45,7 @@ The module defines several key orbital element types:
    - lambda = mean longitude = M + raan + argper
 
 5. **Modified Equinoctial Elements (ModEquinElem)**
-   - Semi-parameter (rp = p = a(1-e^2))
+   - Semi-parameter (p = a(1-e^2))
    - f = e*cos(argper+RAAN)
    - g = e*sin(argper+RAAN)
    - h = tan(i/2)cos(RAAN)
@@ -221,7 +221,7 @@ public:
 ```cpp
 class ModOrbElem {
 public:
-    double rp_;         ///< Perigee radius 
+    double p_;         ///< Perigee radius 
     double e_;          ///< Eccentricity 
     double i_;          ///< Inclination
     double raan_;       ///< Right ascension of ascending node
@@ -229,7 +229,7 @@ public:
     double trueA_;      ///< True anomaly
 public:
     A_DEF_POD_ITERABLE(double)
-    AST_DEF_ACCESS_METHOD(double, rp)
+    AST_DEF_ACCESS_METHOD(double, p)
     AST_DEF_ACCESS_METHOD(double, e)
     AST_DEF_ACCESS_METHOD(double, i)
     AST_DEF_ACCESS_METHOD(double, raan)
@@ -244,11 +244,11 @@ public:
 class EquinElem {
 public:
     double a_;          ///< Semimajor axis length
-    double h_;          ///< e*sin(periArg + raan)   omegabar=periArg + raan
-    double k_;          ///< e*cos(periArg + raan)
+    double h_;          ///< e*sin(argper + raan)   omegabar=argper + raan
+    double k_;          ///< e*cos(argper + raan)
     double p_;          ///< tan(i/2)*sin(raan)
     double q_;          ///< tan(i/2)*cos(raan)
-    double lambda_;     ///< Mean longitude = M + raan + periArg
+    double lambda_;     ///< Mean longitude = M + raan + argper
 public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, a)

@@ -88,11 +88,11 @@ class EquinElem
 {
 public:
     double a_;          ///< semimajor axis length
-    double h_;          ///< e*sin(periArg + raan)   omegabar=periArg + raan
-    double k_;          ///< e*cos(periArg + raan)
+    double h_;          ///< e*sin(argper + raan)   omegabar=argper + raan
+    double k_;          ///< e*cos(argper + raan)
     double p_;          ///< tan(i/2)*sin(raan)
     double q_;          ///< tan(i/2)*cos(raan)
-    double lambda_;     ///< mean longitude = M + raan + periArg
+    double lambda_;     ///< mean longitude = M + raan + argper
 public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, a)
@@ -107,7 +107,7 @@ public:
 class ModEquinElem
 {
 public:
-    double rp_;       ///< p = a(1-e^2) 半通径
+    double p_;       ///< p = a(1-e^2) 半通径
     double f_;        ///< f = e*cos(argper+RAAN)
     double g_;        ///< g = e*sin(argper+RAAN)
     double h_;        ///< h = tan(i/2)cos(RAAN)
@@ -115,7 +115,7 @@ public:
     double L_;        ///< L = RAAN + argper + trueA
 public:
     A_DEF_POD_ITERABLE(double)
-    AST_DEF_ACCESS_METHOD(double, rp)
+    AST_DEF_ACCESS_METHOD(double, p)
     AST_DEF_ACCESS_METHOD(double, f)
     AST_DEF_ACCESS_METHOD(double, g)
     AST_DEF_ACCESS_METHOD(double, h)
@@ -205,7 +205,7 @@ AST_CORE_CAPI err_t moe2ee(const double* moe, double* ee);
 /// @brief 修正轨道根数转换为经典轨道根数
 /// @param moe 修正轨道根数 [近拱点半径, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
 /// @param coe 输出经典轨道根数 [长半轴, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
-AST_CORE_CAPI void moe2coe(const double* moe, double* coe);
+AST_CORE_CAPI err_t moe2coe(const double* moe, double* coe);
 
 /// @brief 经典轨道根数转换为修正轨道根数
 /// @param coe 经典轨道根数 [长半轴, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
@@ -217,7 +217,7 @@ AST_CORE_CAPI void coe2moe(const double* coe, double* moe);
 /// @param gm 引力参数 [m^3/s^2]
 /// @param pos 输出位置矢量 [m]
 /// @param vel 输出速度矢量 [m/s]
-AST_CORE_CAPI void moe2rv(const double* moe, double gm, double* pos, double* vel);
+AST_CORE_CAPI err_t moe2rv(const double* moe, double gm, double* pos, double* vel);
 
 /// @brief 修正轨道根数转换为改进春分点轨道根数
 /// @param moe 修正轨道根数 [近拱点半径, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
@@ -345,7 +345,7 @@ err_t aModOrbToEquinElem (
 /// @param pos 输出位置矢量 [m]
 /// @param vel 输出速度矢量 [m/s]
 AST_CORE_CAPI
-void aModOrbElemToCart  (
+err_t aModOrbElemToCart  (
     const ModOrbElem& modOrb,
     double gm,
     Vector3d& pos,

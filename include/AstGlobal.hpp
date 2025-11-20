@@ -159,16 +159,7 @@
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
-#ifdef __cplusplus
 
-// std::array 前置声明
-namespace std
-{
-    template<typename T, std::size_t N>
-    struct array;
-}
-
-#endif
 
 AST_NAMESPACE_BEGIN
 
@@ -193,9 +184,6 @@ class MatrixMN;
 typedef VectorN<double, 3> Vector3d;
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
-
-typedef std::array<double, 3> array3d;
-typedef std::array<double, 6> array6d;
 
 
 class Quaternion;
