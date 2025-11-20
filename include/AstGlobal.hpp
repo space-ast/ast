@@ -132,6 +132,8 @@
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 
+// 定义访问函数
+#define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
 
 
 /// ast项目模块导出声明
@@ -156,6 +158,7 @@
 #    define AST_UTIL_API A_DECL_IMPORT
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
+
 
 
 AST_NAMESPACE_BEGIN

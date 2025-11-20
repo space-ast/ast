@@ -28,6 +28,11 @@
  
 AST_NAMESPACE_BEGIN
 
+
+typedef std::array<double, 3> array3d;
+typedef std::array<double, 6> array6d;
+
+
 /*
  * @note
  * 采用模板函数实现向量运算，只要类型支持标准化的接口即可使用这些函数
@@ -83,6 +88,32 @@ int sign(_Scalar val)
     else if(val < 0)
         return -1;
     return 0;
+}
+
+template<typename T>
+inline 
+typename std::enable_if<std::is_arithmetic<T>::value, T>::type
+rem(T x, T y)
+{
+    return x - int(x / y) * y;
+}
+
+
+template<typename T>
+inline typename std::enable_if<std::is_floating_point<T>::value, T>::type
+mod(T x, T y)
+{
+    if (y == 0) return x;
+    return x - floor(x / y) * y;
+}
+
+
+template<typename T>
+inline
+typename std::enable_if<std::is_arithmetic<T>::value, T>::type
+fix(T x)
+{
+    return (int)x;
 }
 
 
@@ -194,7 +225,7 @@ inline std::array<double, 3> cross3(const double* vec1, const double* vec2)
 
 /// norm
 
-inline double norm(double* vec, size_t N)
+inline double norm(const double* vec, size_t N)
 {
     double sum = 0;
     for (size_t i = 0; i < N; i++)
@@ -309,7 +340,7 @@ inline std::array<double, N> normalized(double (&vec)[N])
 }
 
 template <size_t N>
-inline std::array<double, N> normalized(double* vec)
+inline std::array<double, N> normalized(const double* vec)
 {
     std::array<double, N> retval;
     double mag = norm(vec, N);
