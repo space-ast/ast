@@ -23,7 +23,7 @@
 AST_NAMESPACE_BEGIN
  
 
-static_assert(sizeof(Object) == sizeof(void*) * 3, "size not correct");
+static_assert(sizeof(Object) == sizeof(void*) * 2 + sizeof(uint32_t) * 2, "size not correct");
 
 err_t Object::getAttrString(const std::string &path, std::string &value) const
 {
