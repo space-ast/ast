@@ -38,8 +38,8 @@ The module defines several key orbital element types:
 
 4. **Equinoctial Elements (EquinElem)**
    - Semi-major axis (a)
-   - h = e*sin(omega + raan)
-   - k = e*cos(omega + raan)
+   - h = e*sin(argper + raan)
+   - k = e*cos(argper + raan)
    - p = tan(i/2)*sin(raan)
    - q = tan(i/2)*cos(raan)
    - lambda = mean longitude = M + raan + argper
@@ -221,7 +221,7 @@ public:
 ```cpp
 class ModOrbElem {
 public:
-    double p_;         ///< Perigee radius 
+    double rp_;         ///< Perigee radius 
     double e_;          ///< Eccentricity 
     double i_;          ///< Inclination
     double raan_;       ///< Right ascension of ascending node
@@ -229,7 +229,7 @@ public:
     double trueA_;      ///< True anomaly
 public:
     A_DEF_POD_ITERABLE(double)
-    AST_DEF_ACCESS_METHOD(double, p)
+    AST_DEF_ACCESS_METHOD(double, rp)
     AST_DEF_ACCESS_METHOD(double, e)
     AST_DEF_ACCESS_METHOD(double, i)
     AST_DEF_ACCESS_METHOD(double, raan)
@@ -265,7 +265,7 @@ public:
 ```cpp
 class ModEquinElem {
 public:
-    double rp_;       ///< p = a(1-e^2) Semi-parameter
+    double p_;       ///< p = a(1-e^2) Semi-parameter
     double f_;        ///< f = e*cos(argper+RAAN)
     double g_;        ///< g = e*sin(argper+RAAN)
     double h_;        ///< h = tan(i/2)cos(RAAN)
@@ -273,7 +273,7 @@ public:
     double L_;        ///< L = RAAN + argper + trueA
 public:
     A_DEF_POD_ITERABLE(double)
-    AST_DEF_ACCESS_METHOD(double, rp)
+    AST_DEF_ACCESS_METHOD(double, p)
     AST_DEF_ACCESS_METHOD(double, f)
     AST_DEF_ACCESS_METHOD(double, g)
     AST_DEF_ACCESS_METHOD(double, h)

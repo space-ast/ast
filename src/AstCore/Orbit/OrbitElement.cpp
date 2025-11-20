@@ -27,7 +27,6 @@
 
 #define PI kPI
 #define PI2 kTwoPI
-#define pi2  kTwoPI
  
 AST_NAMESPACE_BEGIN
  
@@ -358,7 +357,7 @@ void rv2ee(const double* pos, const double* vel, double gm, double* ee)
     // true anomaly
     double tanom = xlambdat - raan - argper;
     double manom = aTrueToMean(tanom, eccm);
-    meanlon = mod(manom + argper + raan, pi2);
+    meanlon = mod(manom + argper + raan, PI2);
 }
 
 err_t rv2moe(const double* pos, const double* vel, double gm, double* moe)
@@ -412,16 +411,16 @@ err_t rv2moe(const double* pos, const double* vel, double gm, double* moe)
     double xlambdat = atan2(y1, x1);
     // check for equatorial orbit
     if (inc > 0.00000001)
-        raan = mod(atan2(p, q), pi2);
+        raan = mod(atan2(p, q), PI2);
     else
         raan = 0.0;
     // check for circular orbit
     if (eccm > 0.00000001)
-        argper = mod(atan2(h, xk) - raan, pi2);
+        argper = mod(atan2(h, xk) - raan, PI2);
     else
         argper = 0.0;
     // true anomaly
-    tanom = mod(xlambdat - raan - argper, pi2);
+    tanom = mod(xlambdat - raan - argper, PI2);
     return eNoError;
 }
 
@@ -495,17 +494,17 @@ err_t rv2coe(const double* pos, const double* vel, double gm, double* coe)
     double xlambdat = atan2(y1, x1);
     // check for equatorial orbit
     if (inc > 0.00000001)
-        raan = mod(atan2(p, q), pi2);
+        raan = mod(atan2(p, q), PI2);
     else
         raan = 0.0;
     // check for circular orbit
     if (eccm > 0.00000001)
-        argper = mod(atan2(h, xk) - raan, pi2);
+        argper = mod(atan2(h, xk) - raan, PI2);
 
     else
         argper = 0.0;
     // true anomaly
-    tanom = mod(xlambdat - raan - argper, pi2);
+    tanom = mod(xlambdat - raan - argper, PI2);
     return eNoError;
 }
 
@@ -817,7 +816,7 @@ void ee2mee(const double* ee, double* mee)
     }
     else {
         double perlon = atan2(ee_h, ee_k);
-        L = mod(aMeanToTrue(meanlon - perlon, ecc) + perlon, pi2);
+        L = mod(aMeanToTrue(meanlon - perlon, ecc) + perlon, PI2);
     }
 }
 
@@ -836,7 +835,7 @@ void mee2ee(const double* mee, double* ee)
     }
     else {
         double perlon = atan2(mee_g, mee_f);
-        meanlon = mod(aTrueToMean(L - perlon, ecc) + perlon, pi2);
+        meanlon = mod(aTrueToMean(L - perlon, ecc) + perlon, PI2);
     }
 }
 

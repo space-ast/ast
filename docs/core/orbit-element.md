@@ -34,8 +34,8 @@ OrbitElement模块提供各种轨道根数（直角坐标、经典轨道根数�
 
 4. **春分点根数 (EquinElem)**
    - 长半轴 (a)
-   - h = e*sin(omega + raan)
-   - k = e*cos(omega + raan)
+   - h = e*sin(argper + raan)
+   - k = e*cos(argper + raan)
    - p = tan(i/2)*sin(raan)
    - q = tan(i/2)*cos(raan)
    - lambda = 平经度 = M + raan + argper
@@ -107,8 +107,8 @@ int main() {
     double gmEarth = 3.986004418e14;
     
     // 定义位置和速度向量
-    Vector3d pos(6778137.0, 0.0, 0.0);  // 地球同步轨道位置
-    Vector3d vel(0.0, 7726.0, 0.0);      // 地球同步轨道速度
+    Vector3d pos(6778137.0, 0.0, 0.0);  // 近地轨道位置
+    Vector3d vel(0.0, 7726.0, 0.0);      // 近地轨道速度
     
     // 转换为经典轨道根数
     OrbElem elem;
@@ -269,7 +269,7 @@ public:
     double L_;        ///< L = RAAN + argper + trueA
 public:
     A_DEF_POD_ITERABLE(double)
-    AST_DEF_ACCESS_METHOD(double, rp)
+    AST_DEF_ACCESS_METHOD(double, p)
     AST_DEF_ACCESS_METHOD(double, f)
     AST_DEF_ACCESS_METHOD(double, g)
     AST_DEF_ACCESS_METHOD(double, h)
@@ -296,7 +296,7 @@ public:
 
 | 函数名 | 说明 | 参数 | 返回值 |
 |--------|------|------|--------|
-| `moe2rv` | 修正轨道根数转换为直角坐标 | moe: 修正轨道根数数组<br>gm: 引力参数 [m³/s²]<br>pos: 输出位置矢量 [m]<br>vel: 输出速度矢量 [m/s] | 无返回值 |
+| `moe2rv` | 修正轨道根数转换为直角坐标 | moe: 修正轨道根数数组<br>gm: 引力参数 [m³/s²]<br>pos: 输出位置矢量 [m]<br>vel: 输出速度矢量 [m/s] | 错误码，成功返回eNoError |
 | `rv2moe` | 直角坐标转换为修正轨道根数 | pos: 位置矢量 [m]<br>vel: 速度矢量 [m/s]<br>gm: 引力参数 [m³/s²]<br>moe: 输出修正轨道根数 | 错误码，成功返回eNoError |
 | `moe2ee` | 修正轨道根数转换为春分点根数 | moe: 修正轨道根数数组<br>ee: 输出春分点根数 | 错误码，成功返回eNoError |
 | `ee2moe` | 春分点根数转换为修正轨道根数 | ee: 春分点根数数组<br>moe: 输出修正轨道根数 | 错误码，成功返回eNoError |
