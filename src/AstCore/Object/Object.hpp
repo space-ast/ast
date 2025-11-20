@@ -24,6 +24,7 @@
 #include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
 #include <assert.h>     // for assert
+#include <atomic>       // for std::atomic
 
 AST_NAMESPACE_BEGIN
  
@@ -31,7 +32,7 @@ class Type;
 
 
 /// @brief 对象基类，实现运行时元信息、强弱引用计数
-class Object
+class AST_CORE_API Object
 {
 public:
     Object(Type* tp)
@@ -57,9 +58,9 @@ protected:
     virtual ~Object(){}
 
 protected:
-    Type*       m_type;                 ///< 类型元信息，同时用于标识对象是否被析构
-    uint32_t    m_refcnt;               ///< 强引用计数，给SharedPtr使用
-    uint32_t    m_weakrefcnt;           ///< 弱引用计数，给WeakPtr使用
+    Type*                    m_type;                 ///< 类型元信息，同时用于标识对象是否被析构
+    std::atomic<uint32_t>    m_refcnt;               ///< 强引用计数，给SharedPtr使用
+    std::atomic<uint32_t>    m_weakrefcnt;           ///< 弱引用计数，给WeakPtr使用
 };
 
 inline void Object::destruct() 
@@ -70,34 +71,32 @@ inline void Object::destruct()
 
 inline uint32_t Object::incWeakRef()
 {
-    m_weakrefcnt ++;
-    return m_weakrefcnt;
+    return ++m_weakrefcnt;
 }
 
 inline uint32_t Object::decWeakRef()
 {
     if (m_weakrefcnt == 1) {
         operator delete(this);
+        return 0;
     }
     else {
-        m_weakrefcnt--;
+        return --m_weakrefcnt;
     }
-    return m_weakrefcnt;
 }
 
 inline uint32_t Object::incRef()
 {
-    m_refcnt ++;
-    return m_refcnt;
+    return ++m_refcnt;
 }
 
 inline uint32_t Object::decRef()
 {
-    m_refcnt --;
-    if (m_refcnt == 0) {
+    if (m_refcnt == 1) {
         this->_destruct();
+        return 0;
     }
-    return m_refcnt;
+    return --m_refcnt;
 }
 
 inline void Object::_destruct()
