@@ -163,6 +163,7 @@ double	aEccToTPP(double E, double semiMajorAxis, double e, double gm)
         return M * sqrt(pow(abs(semiMajorAxis), 3) / gm);  // 双曲线a<0
     }
     else {
+        aError("暂不支持抛物线轨道.");
         // @todo
         return NAN;
     }

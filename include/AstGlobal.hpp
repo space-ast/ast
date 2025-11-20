@@ -20,7 +20,9 @@
  
 #pragma once
 
-#include <stddef.h>
+#include <stddef.h>         // for size_t
+#include <memory>           // for memory
+#include <algorithm>        // for std::fill_n
 
 /*
  * 宏命名规范：
@@ -32,6 +34,27 @@
 
 
 /// 通用宏
+
+
+#if __cplusplus >= 201402L
+
+#define A_LOCAL_BUFFER(T, buf, size)\
+  auto octave_local_buffer_ ## buf = std::make_unique<T []> (size);\
+  T *buf = octave_local_buffer_ ## buf.get ()
+
+#else
+
+#define A_LOCAL_BUFFER(T, buf, size)\
+  std::unique_ptr<T []> octave_local_buffer_ ## buf { new T [size] };\
+  T *buf = octave_local_buffer_ ## buf.get ()
+
+#endif
+
+#define A_LOCAL_BUFFER_INIT(T, buf, size, value)\
+  A_LOCAL_BUFFER (T, buf, size); \
+  std::fill_n (buf, size, value)
+
+
 
 #ifdef _WIN32
 #   define A_DECL_EXPORT __declspec(dllexport)

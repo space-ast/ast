@@ -1,7 +1,7 @@
 ﻿///
 /// @file      AstCoreC.h
 /// @brief     AstCore的C语言接口，确保与C++的实现二进制兼容
-/// @details   ~
+/// @details   因为CAPI使用较少，该文件不会包含所有功能，只会按需增加
 /// @author    jinke18
 /// @date      15.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
