@@ -21,11 +21,12 @@
 #pragma once
  
 #include "AstGlobal.hpp"
- 
+#include <type_traits>    // for std::enable_if
+
 AST_NAMESPACE_BEGIN
 
 
-template<typename T>
+template<typename T, typename = void>
 struct ScopedPtrDeleter
 {
     static void cleanup(T* ptr)
@@ -34,16 +35,16 @@ struct ScopedPtrDeleter
     }
 };
 
-class Object;
-
-template<>
-struct ScopedPtrDeleter<Object>
+template<typename T>
+struct ScopedPtrDeleter<T, typename std::enable_if<std::is_base_of<Object, T>::value>::type>
 {
-    static void cleanup(Object* ptr)
+    static void cleanup(T* ptr)
     {
         ptr->destruct();
     }
 };
+
+
 
 template<typename T>
 class ScopedPtr
