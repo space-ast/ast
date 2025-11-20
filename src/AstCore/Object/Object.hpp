@@ -21,33 +21,92 @@
 #pragma once
  
 #include "AstGlobal.hpp"
-#include <string>
+#include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
+#include <assert.h>     // for assert
 
 AST_NAMESPACE_BEGIN
  
 class Type;
 
-class AST_CORE_API Object
+
+/// @brief 对象基类，实现运行时元信息、强弱引用计数
+class Object
 {
 public:
     Object(Type* tp)
         :m_type{tp}
         ,m_refcnt{0}
         ,m_weakrefcnt{1}
-    {}
-    virtual ~Object(){}
-    
+    {
+        assert(tp);
+    }
     err_t getAttrString(const std::string& path, std::string& value) const;
     
     uint32_t refCount() const{return m_refcnt;}
     uint32_t weakRefCount() const{return m_weakrefcnt;}
+    bool     isDestructed() const{return m_type ==nullptr;}
+    void     destruct() ;
+    uint32_t incWeakRef();
+    uint32_t decWeakRef();
+    uint32_t incRef();
+    uint32_t decRef(); 
+private:
+    void    _destruct();
+protected:
+    virtual ~Object(){}
 
 protected:
-    Type*       m_type;                 ///< 类型元信息
-    uint32_t    m_refcnt;               ///< 强引用计数
-    uint32_t    m_weakrefcnt;           ///< 弱引用计数
+    Type*       m_type;                 ///< 类型元信息，同时用于标识对象是否被析构
+    uint32_t    m_refcnt;               ///< 强引用计数，给SharedPtr使用
+    uint32_t    m_weakrefcnt;           ///< 弱引用计数，给WeakPtr使用
 };
+
+inline void Object::destruct() 
+{
+    assert(m_refcnt == 0);  // 只能直接删除不采用共享引用计数管理的对象
+    this->_destruct();
+}
+
+inline uint32_t Object::incWeakRef()
+{
+    m_weakrefcnt ++;
+    return m_weakrefcnt;
+}
+
+inline uint32_t Object::decWeakRef()
+{
+    if (m_weakrefcnt == 1) {
+        operator delete(this);
+    }
+    else {
+        m_weakrefcnt--;
+    }
+    return m_weakrefcnt;
+}
+
+inline uint32_t Object::incRef()
+{
+    m_refcnt ++;
+    return m_refcnt;
+}
+
+inline uint32_t Object::decRef()
+{
+    m_refcnt --;
+    if (m_refcnt == 0) {
+        this->_destruct();
+    }
+    return m_refcnt;
+}
+
+inline void Object::_destruct()
+{
+    this->~Object();
+    this->m_type = nullptr; // 标识对象是否被析构. bit mask indicate whether object is destructed.
+    this->decWeakRef();
+}
+
 
 
 AST_NAMESPACE_END
