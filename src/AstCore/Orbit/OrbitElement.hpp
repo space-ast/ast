@@ -67,7 +67,7 @@ public:
     double k;          ///< e*cos(periArg + raan)
     double p;          ///< tan(i/2)*sin(raan)
     double q;          ///< tan(i/2)*cos(raan)
-    double MeanLon;    ///< mean longitude = M + raan + periArg
+    double meanLon;    ///< mean longitude = M + raan + periArg
 };
 
 /// @brief 改进春分点轨道根数, 180度奇异
@@ -87,3 +87,4 @@ public:
  
 AST_NAMESPACE_END
  
+AST_DECL_TYPE_ALIAS(CartState)
