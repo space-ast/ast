@@ -134,7 +134,7 @@ int testModEquinElemCartConversion()
         ASSERT_EQ(err, eNoError);
         
         // 验证转换精度
-        ASSERT_NEAR(mee1.rp(), mee1_back.rp(), EPS);
+        ASSERT_NEAR(mee1.p(), mee1_back.p(), EPS);
         ASSERT_NEAR(mee1.f(), mee1_back.f(), EPS);
         ASSERT_NEAR(mee1.g(), mee1_back.g(), EPS);
         ASSERT_NEAR(mee1.h(), mee1_back.h(), EPS);

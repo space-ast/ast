@@ -41,7 +41,7 @@ OrbitElement模块提供各种轨道根数（直角坐标、经典轨道根数�
    - lambda = 平经度 = M + raan + argper
 
 5. **改进春分点轨道根数 (ModEquinElem)**
-   - 半通径 (rp = p = a(1-e^2))
+   - 半通径 (p = a(1-e^2))
    - f = e*cos(argper+RAAN)
    - g = e*sin(argper+RAAN)
    - h = tan(i/2)cos(RAAN)
@@ -240,11 +240,11 @@ public:
 class EquinElem {
 public:
     double a_;          ///< semimajor axis length
-    double h_;          ///< e*sin(periArg + raan)   omegabar=periArg + raan
-    double k_;          ///< e*cos(periArg + raan)
+    double h_;          ///< e*sin(argper + raan)   omegabar=argper + raan
+    double k_;          ///< e*cos(argper + raan)
     double p_;          ///< tan(i/2)*sin(raan)
     double q_;          ///< tan(i/2)*cos(raan)
-    double lambda_;     ///< mean longitude = M + raan + periArg
+    double lambda_;     ///< mean longitude = M + raan + argper
 public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, a)
@@ -261,7 +261,7 @@ public:
 ```cpp
 class ModEquinElem {
 public:
-    double rp_;       ///< p = a(1-e^2) 半通径
+    double p_;        ///< p = a(1-e^2) 半通径
     double f_;        ///< f = e*cos(argper+RAAN)
     double g_;        ///< g = e*sin(argper+RAAN)
     double h_;        ///< h = tan(i/2)cos(RAAN)

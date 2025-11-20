@@ -96,11 +96,11 @@ void ee2rv(const double* ee, double gm, double* pos, double* vel)
     /*
      // ee
      double	m_SMajAx;	///< semimajor axis length
-     double	m_h;		///< e*sin(periArg + raan)   perlon = periArg + raan
-     double	m_k;		///< e*cos(periArg + raan)
+     double	m_h;		///< e*sin(argper + raan)   perlon = argper + raan
+     double	m_k;		///< e*cos(argper + raan)
      double	m_p;		///< tan(i/2)*sin(raan)
      double	m_q;		///< tan(i/2)*cos(raan)
-     double	m_MeanLon;	///< mean longitude = M + raan + periArg
+     double	m_MeanLon;	///< mean longitude = M + raan + argper
      bool	m_Dir;		///< Retrograde=false, Posigrade=true
      // mee
      double m_p;        // p = a(1-e^2)
@@ -111,7 +111,9 @@ void ee2rv(const double* ee, double gm, double* pos, double* vel)
      double m_L;	    // L = RAAN + argper + f
     */
     // 从ee中读取mee数据
-    double sma = ee[0], g = ee[1], f = ee[2], k = ee[3], h = ee[4], meanlon = ee[5];  // 取值防止覆盖
+    double sma = ee[0], mee_g = ee[1], mee_f = ee[2], k = ee[3], h = ee[4], meanlon = ee[5];  // 取值防止覆盖
+    double f = mee_f;
+    double g = mee_g;
 
     double ecc = sqrt(f * f + g * g);
     double L;
@@ -168,8 +170,8 @@ void mee2rv(const double* mee, double gm, double* pos, double* vel)
 
 err_t rv2mee(const double* pos_, const double* vel_, double gm, double* mee)
 {
-    array3d& vel = (array3d&) * vel_;
-    array3d& pos = (array3d&) * pos_;
+    const array3d& vel = *reinterpret_cast<const array3d*>(vel_);
+    const array3d& pos = *reinterpret_cast<const array3d*>(pos_);
 
 
     double& p = mee[0], & f = mee[1], & g = mee[2], & h_ = mee[3], & k = mee[4], & L = mee[5];
@@ -285,7 +287,7 @@ err_t mee2coe(const double* mee, double* coe)
         else if (trueAnom < -PI + acos(1.0 / e))
             trueAnom += PI2;
     }
-    if (e == 1) {
+    if (fabs(e - 1.0) < 1e-15) {
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -428,23 +430,23 @@ err_t rv2coe(const double* pos, const double* vel, double gm, double* coe)
 
     /*
       // ee
-      double	m_SMajAx;	///< semimajor axis length
-      double	m_h;		///< e*sin(periArg + raan)   omegabar=periArg + raan
-      double	m_k;		///< e*cos(periArg + raan)
-      double	m_p;		///< tan(i/2)*sin(raan)
-      double	m_q;		///< tan(i/2)*cos(raan)
-      double	m_MeanLon;	///< mean longitude = M + raan + periArg
-      bool	m_Dir;		///< Retrograde=false, Posigrade=true
+      double	SMajAx;	    ///< semimajor axis length
+      double	h;		    ///< e*sin(argper + raan)   omegabar=argper + raan
+      double	k;		    ///< e*cos(argper + raan)
+      double	p;		    ///< tan(i/2)*sin(raan)
+      double	q;		    ///< tan(i/2)*cos(raan)
+      double	MeanLon;	///< mean longitude = M + raan + argper
+      bool	    Dir;		///< Retrograde=false, Posigrade=true
       // mee
-      double m_p;        // p = a(1-e^2)
-      double m_f;        // f = e*cos(argper+RAAN)
-      double m_g;        // g = e*sin(argper+RAAN)
-      double m_h;        // h = tan(i/2)cos(RAAN)
-      double m_k;	    // g = tan(i/2)sin(RAAN)
-      double m_L;	    // L = RAAN + argper + f
+      double p;             // p = a(1-e^2)
+      double f;             // f = e*cos(argper+RAAN)
+      double g;             // g = e*sin(argper+RAAN)
+      double h;             // h = tan(i/2)cos(RAAN)
+      double k;	            // g = tan(i/2)sin(RAAN)
+      double L;	            // L = RAAN + argper + f
      */
-    array3d& r = (array3d&)*pos;
-    array3d& v = (array3d&)*vel;
+    const array3d& r = *reinterpret_cast<const array3d*>(pos);
+    const array3d& v = *reinterpret_cast<const array3d*>(vel);
 
     double& sma = coe[0], & eccm = coe[1], & inc = coe[2], & raan = coe[3], & argper = coe[4], & tanom = coe[5];
 
@@ -515,20 +517,20 @@ err_t ee2moe(const double* ee, double* moe)
     perirad = sma * (1 - ecc);        // @todo: a<0, 同时e>1如何处理？
     /*
      // ee
-     double	m_SMajAx;	///< semimajor axis length
-     double	m_h;		///< e*sin(periArg + raan)   omegabar=periArg + raan
-     double	m_k;		///< e*cos(periArg + raan)
-     double	m_p;		///< tan(i/2)*sin(raan)
-     double	m_q;		///< tan(i/2)*cos(raan)
-     double	m_MeanLon;	///< mean longitude = M + raan + periArg
-     bool	m_Dir;		///< Retrograde=false, Posigrade=true
+     double	SMajAx;	    ///< semimajor axis length
+     double	h;		    ///< e*sin(argper + raan)   omegabar=argper + raan
+     double	k;		    ///< e*cos(argper + raan)
+     double	p;		    ///< tan(i/2)*sin(raan)
+     double	q;		    ///< tan(i/2)*cos(raan)
+     double	MeanLon;	///< mean longitude = M + raan + argper
+     bool	Dir;		///< Retrograde=false, Posigrade=true
      // mee
-     double m_p;        // p = a(1-e^2)
-     double m_f;        // f = e*cos(argper+RAAN)
-     double m_g;        // g = e*sin(argper+RAAN)
-     double m_h;        // h = tan(i/2)cos(RAAN)
-     double m_k;	    // g = tan(i/2)sin(RAAN)
-     double m_L;	    // L = RAAN + argper + f
+     double p;          // p = a(1-e^2)
+     double f;          // f = e*cos(argper+RAAN)
+     double g;          // g = e*sin(argper+RAAN)
+     double h;          // h = tan(i/2)cos(RAAN)
+     double k;	        // g = tan(i/2)sin(RAAN)
+     double L;	        // L = RAAN + argper + f
     */
 
     double temp = sqrt(p * p + q * q);
@@ -587,20 +589,20 @@ err_t ee2moe(const double* ee, double* moe)
 err_t moe2ee(const double* moe, double* ee)
 {
     /*
-     double	m_SMajAx;	///< semimajor axis length
-     double	m_h;		///< e*sin(periArg+-raan)   omegabar=periArg+-raan
-     double	m_k;		///< e*cos(periArg+-raan)
-     double	m_p;		///< tan(i/2)*sin(raan)
-     double	m_q;		///< tan(i/2)*cos(raan)
-     double	m_MeanLon;	///< mean longitude = M + raan + periArg
-     bool	m_Dir;		///< Retrograde=false, Posigrade=true
+     double	SMajAx;	    ///< semimajor axis length
+     double	h;		    ///< e*sin(argper+-raan)   omegabar=argper+-raan
+     double	k;		    ///< e*cos(argper+-raan)
+     double	p;		    ///< tan(i/2)*sin(raan)
+     double	q;		    ///< tan(i/2)*cos(raan)
+     double	MeanLon;	///< mean longitude = M + raan + argper
+     bool	Dir;		///< Retrograde=false, Posigrade=true
 
-     double m_p;        // p = a(1-e^2)
-     double m_f;        // f = e*cos(argper+RAAN)
-     double m_g;        // g = e*sin(argper+RAAN)
-     double m_h;        // h = tan(i/2)cos(RAAN)
-     double m_k;	    // g = tan(i/2)sin(RAAN)
-     double m_L;	    // L = RAAN + argper + f
+     double p;          // p = a(1-e^2)
+     double f;          // f = e*cos(argper+RAAN)
+     double g;          // g = e*sin(argper+RAAN)
+     double h;          // h = tan(i/2)cos(RAAN)
+     double k;	        // g = tan(i/2)sin(RAAN)
+     double L;	        // L = RAAN + argper + f
     */
     double perirad = moe[0], ecc = moe[1], inc = moe[2], raan = moe[3], argper = moe[4], tanom = moe[5];
     double& sma = ee[0], & h = ee[1], & k = ee[2], & p = ee[3], & q = ee[4], & meanlon = ee[5];
@@ -618,15 +620,18 @@ err_t moe2ee(const double* moe, double* ee)
     meanlon = mod(raan + argper + manom, PI2);
     return eNoError;
 }
-void moe2coe(const double* moe_, double* coe_)
+err_t moe2coe(const double* moe_, double* coe_)
 {
     const array6d& moe = (const array6d&) *moe_;
     array6d& coe = (array6d&)*coe_;
 
     double perirad = moe[0], ecc = moe[1], inc = moe[2], raan = moe[3], argper = moe[4], tanom = moe[5];
     double& a = coe[0];
+    if(ecc == 1)
+        return eErrorInvalidParam; //抛物线轨道
     coe = moe;
     a = perirad / (1 - ecc);
+    return eNoError;
 }
 void coe2moe(const double* coe_, double* moe_)
 {
@@ -639,10 +644,12 @@ void coe2moe(const double* coe_, double* moe_)
     perirad = a * (1 - e);
 }
 
-void moe2rv(const double* moe, double gm, double* pos, double* vel)
+err_t moe2rv(const double* moe, double gm, double* pos, double* vel)
 {
     double perirad = moe[0], ecc = moe[1], inc = moe[2], raan = moe[3], argper = moe[4], tanom = moe[5];
 
+    if(ecc == 1)
+        return eErrorInvalidParam;
     double slr = perirad * (1 + ecc);         // p  semi-latus rectum  // perirad = p/(1+e) = a (1-e)
     double rm = slr / (1 + ecc * cos(tanom));  // 当前距离
     double arglat = argper + tanom;           // 纬度辐角
@@ -668,6 +675,7 @@ void moe2rv(const double* moe, double gm, double* pos, double* vel)
     vel[0] = -c4 * (craan * c6 + sraan * cinc * c5);
     vel[1] = -c4 * (sraan * c6 - craan * cinc * c5);
     vel[2] = c4 * c5 * sinc;
+    return eNoError;
 }
 void moe2mee(const double* moe, double* mee)
 {
@@ -713,11 +721,11 @@ void ee2coe(const double* ee, double* coe)
     /*
      // ee
      double	m_SMajAx;	///< semimajor axis length
-     double	m_h;		///< e*sin(periArg + raan)   omegabar=periArg + raan
-     double	m_k;		///< e*cos(periArg + raan)
+     double	m_h;		///< e*sin(argper + raan)   omegabar=argper + raan
+     double	m_k;		///< e*cos(argper + raan)
      double	m_p;		///< tan(i/2)*sin(raan)
      double	m_q;		///< tan(i/2)*cos(raan)
-     double	m_MeanLon;	///< mean longitude = M + raan + periArg
+     double	m_MeanLon;	///< mean longitude = M + raan + argper
      bool	m_Dir;		///< Retrograde=false, Posigrade=true
      // mee
      double m_p;        // p = a(1-e^2)
@@ -784,11 +792,11 @@ void ee2mee(const double* ee, double* mee)
     /*
     // ee
     double	m_SMajAx;	///< semimajor axis length
-    double	m_h;		///< e*sin(periArg + raan)   omegabar=periArg + raan
-    double	m_k;		///< e*cos(periArg + raan)
+    double	m_h;		///< e*sin(argper + raan)   omegabar=argper + raan
+    double	m_k;		///< e*cos(argper + raan)
     double	m_p;		///< tan(i/2)*sin(raan)
     double	m_q;		///< tan(i/2)*cos(raan)
-    double	m_MeanLon;	///< mean longitude = M + raan + periArg
+    double	m_MeanLon;	///< mean longitude = M + raan + argper
     bool	m_Dir;		///< Retrograde=false, Posigrade=true
     // mee
     double m_p;        // p = a(1-e^2)
@@ -973,7 +981,7 @@ err_t aModOrbToEquinElem (
 
 
 
-void aModOrbElemToCart  (
+err_t aModOrbElemToCart  (
     const ModOrbElem& modOrb,
     double gm,
     Vector3d& pos,
