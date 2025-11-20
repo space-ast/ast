@@ -48,7 +48,7 @@ public:
     }
     SharedPtr& operator=(const SharedPtr& ptr)
     {
-        this->operator=(ptr.get())
+        this->operator=(ptr.get());
     }
 
     SharedPtr& operator=(_Object* obj)

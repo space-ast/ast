@@ -85,7 +85,7 @@ int testWeakPtr()
 
 int testScopedPtr()
 {
-    ScopedPtr<double> ptr = new double{1.0};
+    ScopedPtr<double> ptr{new double{1.0}};
     ptr = nullptr;
     Type* type = (Type*)1; // only for test
     Object *obj = new Object{type};
