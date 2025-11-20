@@ -427,11 +427,11 @@ MatrixMN<_Scalar, I, K> operator* (
 )
 {
     MatrixMN<_Scalar, I, K> retval;
-    for (int i = 0; i < I; i++)
+    for (size_t i = 0; i < I; i++)
     {
-        for (int k = 0; k < K; k++) {
+        for (size_t k = 0; k < K; k++) {
             _Scalar value = 0;
-            for (int j = 0; j < J; j++)
+            for (size_t j = 0; j < J; j++)
             {
                 value += left(i, j) * right(j, k);
             }
@@ -449,15 +449,15 @@ std::array<std::array<_Scalar, K>, I> mtimes(
 )
 {
     std::array<std::array<_Scalar, K>, I> retval;
-    for (int i = 0; i < I; i++)
+    for (size_t i = 0; i < I; i++)
     {
-        for (int j = 0; j < J; j++) {
-            double value = 0;
-            for (int k = 0; k < K; ++k)
+        for (size_t k = 0; k < K ; k++) {
+            _Scalar value = 0;
+            for (size_t j = 0; j < J; j++)
             {
-                value += left[i][k] * right[k][j];
+                value += left[i][j] * right[j][k];
             }
-            retval[i][j] = value;
+            retval[i][k] = value;
         }
     }
     return retval;
