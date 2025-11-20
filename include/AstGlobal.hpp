@@ -21,7 +21,9 @@
 #pragma once
 
 #include <stddef.h>         // for size_t
-#include <memory>           // for memory
+#ifdef __cplusplus 
+#include <memory>           // for std::unique_ptr
+#endif
 #include <algorithm>        // for std::fill_n
 
 /*
@@ -35,7 +37,7 @@
 
 /// 通用宏
 
-
+#ifdef __cplusplus
 #if __cplusplus >= 201402L
 
 #define A_LOCAL_BUFFER(T, buf, size)\
@@ -53,7 +55,7 @@
 #define A_LOCAL_BUFFER_INIT(T, buf, size, value)\
   A_LOCAL_BUFFER (T, buf, size); \
   std::fill_n (buf, size, value)
-
+#endif
 
 
 #ifdef _WIN32
