@@ -1,5 +1,5 @@
 ﻿///
-/// @file      CelestialBody.hpp
+/// @file      Duration.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -21,21 +21,38 @@
 #pragma once
  
 #include "AstGlobal.hpp"
-#include "AstCore/Object.hpp"
+#include <stdint.h>     // for int64_t
  
 AST_NAMESPACE_BEGIN
+ 
 
-
-/// @brief 天体
-class CelestialBody : public Object
+/// @brief 短时长
+class ShorDuration
 {
-    AST_OBJECT(CelestialBody)
 public:
     
+public:
+    double second_;         // 秒数
 };
 
 
+/// @brief 长时长
+class LongDuration
+{
+public:
+    int64_t integer_;       // 整数秒部分
+    double  fractional_;    // 小数秒部分
+};
+
+
+/// @brief 天+秒时长（也能解决长时长问题）
+class DaySecDuration
+{
+public:
+    int    day_;            // 天数部分
+    double second_;         // 秒数部分
+};
+
+ 
 AST_NAMESPACE_END
  
-
-
