@@ -14,7 +14,7 @@ def gen_header(srcdir, incdir):
             dstpath = os.path.join(root, file)
             headerpath = os.path.join(incdir, file)
             relpath = os.path.relpath(dstpath, incdir).replace("\\", "/")
-            content = f'#include "{relpath}"'
+            content = f'#include "{relpath}"\n'
             with open(headerpath, "w") as f:
                 f.write(content)
 
@@ -39,7 +39,7 @@ def clean_header(incroot):
                 with open(filepath, "r", encoding="utf8") as f:
                     content = f.read()
             lines = len(content.split("\n"))
-            if lines>1:
+            if lines>2:
                 continue
             res = content.split('"')
             if len(res) == 2:
