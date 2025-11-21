@@ -1,9 +1,9 @@
 ﻿///
-/// @file      TimeAbs.hpp
+/// @file      TimeScale.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
-/// @date      15.11.2025
+/// @date      21.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,29 +21,44 @@
 #pragma once
  
 #include "AstGlobal.hpp"
-
+ 
 AST_NAMESPACE_BEGIN
 
 
-class TimeAbs
+/// @brief 时间尺度，例如TT TDB TAI UTC 等
+class TimeScale
 {
 public:
-    TimeAbs()
+    enum ETimeScale
     {
-
-    }
-    double epoch() const
-    {
-        return m_epoch;
-    }
-    double second() const
-    {
-        return m_second;
-    }
-
-protected:
-    double m_epoch;
-    double m_second;
+        eTT,
+        eTAI,
+        eUTC,
+        eTDB
+    };
 };
-  
+
+
+class TAIScale
+{
+public:
+    
+};
+
+class UTCScale
+{
+public:
+    
+};
+
+
+class TDBScale
+{
+public:
+    
+};
+
+
+ 
 AST_NAMESPACE_END
+ 
