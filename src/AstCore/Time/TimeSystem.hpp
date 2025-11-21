@@ -1,5 +1,5 @@
 ﻿///
-/// @file      CelestialBody.hpp
+/// @file      TimeSystem.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -21,21 +21,11 @@
 #pragma once
  
 #include "AstGlobal.hpp"
-#include "AstCore/Object.hpp"
+#include "AstCore/Constants.h"
  
 AST_NAMESPACE_BEGIN
 
 
-/// @brief 天体
-class CelestialBody : public Object
-{
-    AST_OBJECT(CelestialBody)
-public:
-    
-};
-
 
 AST_NAMESPACE_END
  
-
-

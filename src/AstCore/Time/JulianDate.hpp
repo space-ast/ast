@@ -1,5 +1,5 @@
 ﻿///
-/// @file      CelestialBody.hpp
+/// @file      JulianDate.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -21,21 +21,25 @@
 #pragma once
  
 #include "AstGlobal.hpp"
-#include "AstCore/Object.hpp"
  
 AST_NAMESPACE_BEGIN
 
 
-/// @brief 天体
-class CelestialBody : public Object
+/// @brief 儒略日
+class JulianDate
 {
-    AST_OBJECT(CelestialBody)
 public:
     
+    double impreciseValue() const{return day_ + second_ /86400.;}
+    double day() const{return day_;}
+    double& day(){return day_;}
+    double second() const {return second_;}
+    double& second(){return second_;}
+
+public:
+    double day_;     // 天数部分 day part of julian date
+    double second_;  // 秒数部分 second part of julia date
 };
-
-
+ 
 AST_NAMESPACE_END
  
-
-
