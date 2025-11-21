@@ -22,15 +22,11 @@
 
 #include <stddef.h>         // for size_t
 
-#ifdef __cplusplus 
-#   include <memory>           // for std::unique_ptr
-#   include <algorithm>        // for std::fill_n
-#endif
 
 /*
  * 宏命名规范：
  * 
- * A_   开头：通用宏
+ * A_   开头：通用宏，也能用于其他工程
  * AST_ 开头：ast项目专用宏、ast模块相关、ast功能相关宏
  * 
  * */
@@ -38,24 +34,61 @@
 
 /// 通用宏
 
-#ifdef __cplusplus
-#   if __cplusplus >= 201402L
+// 判断是否是 Microsoft Visual C++
+#if defined(_MSC_VER)
+#    define A_COMP_MSVC _MSC_VER
+#else
+#    define A_COMP_MSVC 0
+#endif
 
-#   define A_LOCAL_BUFFER(T, buf, size)\
-     auto octave_local_buffer_ ## buf = std::make_unique<T []> (size);\
-     T *buf = octave_local_buffer_ ## buf.get ()
+// 判断是否是Intel icc compiler
+#if defined(__INTEL_COMPILER)
+#    define A_COMP_ICC __INTEL_COMPILER
+#else
+#    define A_COMP_ICC 0
+#endif
 
-#   else
+// 判断编译器是否是与GCC兼容
+#ifdef __GNUC__
+#    define A_COMP_GNUC (__GNUC__*10+__GNUC_MINOR__)
+#else
+#    define A_COMP_GNUC 0
+#endif
 
-#   define A_LOCAL_BUFFER(T, buf, size)\
-     std::unique_ptr<T []> octave_local_buffer_ ## buf { new T [size] };\
-     T *buf = octave_local_buffer_ ## buf.get ()
+#if defined(__clang__)
+#define A_COMP_CLANG (__clang_major__*100+__clang_minor__)
+#else
+#define A_COMP_CLANG 0
+#endif
 
-#   endif
+#if defined(__MINGW32__)
+#define A_COMP_MINGW 1
+#else
+#define A_COMP_MINGW 0
+#endif
 
-#   define A_LOCAL_BUFFER_INIT(T, buf, size, value)\
-     A_LOCAL_BUFFER (T, buf, size); \
-     std::fill_n (buf, size, value)
+// deprecated c++17特性
+#if _HAS_CXX17 || __cplusplus>201402L
+#define A_DEPRECATED [[deprecated]] // 废弃函数
+#else
+#define A_DEPRECATED // 废弃函数
+#endif
+
+
+// __forceinline
+#ifndef A_STRONG_INLINE
+#if A_COMP_MSVC || A_COMP_ICC
+#define A_STRONG_INLINE __forceinline
+#else
+#define A_STRONG_INLINE inline
+#endif
+#endif
+
+// __attribute__((always_inline)) __forceinline
+#if A_COMP_GNUC
+#define A_ALWAYS_INLINE __attribute__((always_inline)) inline
+#else
+#define A_ALWAYS_INLINE A_STRONG_INLINE
 #endif
 
 
@@ -94,24 +127,6 @@
 
 
 
-#if __cplusplus >= 201402L
-
-#define COHEAD_LOCAL_BUFFER(T, buf, size)                               \
-  auto __cohead_local_buffer_ ## buf = std::make_unique<T []> (size);     \
-  T *buf = __cohead_local_buffer_ ## buf.get ();            
-
-#else
-
-#define COHEAD_LOCAL_BUFFER(T, buf, size)                                 \
-  std::unique_ptr<T []> __cohead_local_buffer_ ## buf { new T [size] };   \
-  T *buf = __cohead_local_buffer_ ## buf.get ();
-
-#endif
-
-#define COHEAD_LOCAL_BUFFER_INIT(T, buf, size, value)                   \
-  COHEAD_LOCAL_BUFFER (T, buf, size);                                   \
-  std::fill_n (buf, size, value);
-
 
 /// ast项目专用宏
 #ifdef __cplusplus
@@ -135,6 +150,9 @@
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
 
+
+// AST 对象运行时元信息
+#define AST_OBJECT(TYPE) // @todo
 
 /// ast项目模块导出声明
 
@@ -167,9 +185,9 @@ AST_NAMESPACE_BEGIN
 
 typedef enum EError
 {
-	eNoError = 0,       // 没有错误
-    eErrorNullInput,    // 输入参数是空指针
-    eErrorInvalidParam, // 非法输入参数
+	eNoError = 0,       ///< 没有错误
+    eErrorNullInput,    ///< 输入参数是空指针
+    eErrorInvalidParam, ///< 非法输入参数
 } AEError;
 
 /// ast项目类型前置声明
