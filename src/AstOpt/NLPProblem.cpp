@@ -20,6 +20,7 @@
  
 #include "NLPProblem.hpp"
 #include "AstCore/MathOperator.hpp"
+#include "AstUtil/LocalBuffer.hpp"
 #include <memory>			// for std::shared_ptr
 #include <algorithm>		// for std::copy_n std::fill_n
 #include <stdio.h>			// for printf
@@ -300,7 +301,7 @@ err_t NLPProblem::getInitialGuess(int numVariable, double *variable) const
 
 err_t NLPProblem::evalNLEJacobiCCSFD(double ustep, int ndim, const double* x_input, int m, const int* iFuncRow, const int* idxNNZElem, double* jacobi_sparse_value) const
 {
-	COHEAD_LOCAL_BUFFER(double, fvec, 3 * ndim);
+	A_LOCAL_BUFFER(double, fvec, 3 * ndim);
 	double* x = fvec + ndim;
 	double* fvecnew = x + ndim;
 	std::copy_n(x_input, ndim, x);
@@ -338,7 +339,7 @@ err_t NLPProblem::evalNLEJacobiCCSFD(double ustep, int ndim, const double* x_inp
 
 err_t NLPProblem::evalGradientCD(double ustep, int n, const double* x_input, double* grad) const
 {
-	COHEAD_LOCAL_BUFFER(double, x1, 3 * n);
+	A_LOCAL_BUFFER(double, x1, 3 * n);
 	double* x2 = x1 + n;
 
 	std::copy_n(x_input, n, x1);
@@ -375,7 +376,7 @@ err_t NLPProblem::evalGradientCD(double ustep, int n, const double* x_input, dou
 
 err_t NLPProblem::evalGradientFD(double ustep, int n, const double* x_input, double* grad) const
 {
-	COHEAD_LOCAL_BUFFER(double, x, n);
+	A_LOCAL_BUFFER(double, x, n);
 	std::copy_n(x_input, n, x);
 	if (ustep == 0) {
 		ustep = sqrt(eps(1));
@@ -406,7 +407,7 @@ err_t NLPProblem::evalGradientFD(double ustep, int n, const double* x_input, dou
 
 err_t NLPProblem::evalGradientBD(double ustep, int n, const double* x_input, double* grad) const
 {
-	COHEAD_LOCAL_BUFFER(double, x, n);
+	A_LOCAL_BUFFER(double, x, n);
 	std::copy_n(x_input, n, x);
 	if (ustep == 0) {
 		ustep = sqrt(eps(1));
@@ -436,7 +437,7 @@ err_t NLPProblem::evalGradientBD(double ustep, int n, const double* x_input, dou
 
 err_t NLPProblem::evalNLEJacobiFD( double ustep, int n, const double* x_input, int m, double* colmaj_jacobi) const
 {
-	COHEAD_LOCAL_BUFFER(double, fvec, 3*n);
+	A_LOCAL_BUFFER(double, fvec, 3*n);
 	double* x       = fvec + n;
 	double* fvecnew = x + n;
 	std::copy_n(x_input, n, x);
@@ -470,7 +471,7 @@ err_t NLPProblem::evalNLEJacobiFD( double ustep, int n, const double* x_input, i
 
 err_t NLPProblem::evalNLEJacobiBD(double ustep, int n, const double* x_input, int m, double* colmaj_jacobi) const
 {
-	COHEAD_LOCAL_BUFFER(double, fvec, 3 * n);
+	A_LOCAL_BUFFER(double, fvec, 3 * n);
 	double* x = fvec + n;
 	double* fvecnew = x + n;
 	std::copy_n(x_input, n, x);
@@ -504,7 +505,7 @@ err_t NLPProblem::evalNLEJacobiBD(double ustep, int n, const double* x_input, in
 
 err_t NLPProblem::evalNLEJacobiCD(double ustep, int n, const double* x_input, int m, double* colmaj_jacobi) const
 {
-	COHEAD_LOCAL_BUFFER(double, x1, 5 * n);
+	A_LOCAL_BUFFER(double, x1, 5 * n);
 	double* x2 = x1 + n;
 	double* fvecnew1 = x2 + n;
 	double* fvecnew2 = fvecnew1 + n;
@@ -547,7 +548,7 @@ err_t NLPProblem::evalNLENNZJacCCSNan(int ndim, const double* x_initguess, int m
 		printf("[error]: Compiling EvalNLENNZJacCCSNan method with floating-point behavior satisfying IEEE754 \n");
 		return -1;
 	}
-	COHEAD_LOCAL_BUFFER(double, x, 2 * ndim);
+	A_LOCAL_BUFFER(double, x, 2 * ndim);
 	double* fvec = x + ndim;
 	std::copy_n(x_initguess, ndim, x);
 	double temp;
@@ -583,7 +584,7 @@ err_t NLPProblem::evalNLENNZJacNan(int ndim, const double* x_initguess, int m, i
 
 err_t NLPProblem::evalNLENNZJacCOONan(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol) const
 {
-	COHEAD_LOCAL_BUFFER(double, x, 2 * ndim);
+	A_LOCAL_BUFFER(double, x, 2 * ndim);
 	double* fvec = x + ndim;
 	std::copy_n(x_initguess, ndim, x);
 	double temp;
