@@ -208,6 +208,15 @@ class Quaternion;
 
 class Euler;
 
+class Object;
+class Type;
+
+class AbsTime;
+
+class System;
+class Axes;
+class Point;
+
 #endif
 
 typedef int err_t;
