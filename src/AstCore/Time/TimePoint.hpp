@@ -56,7 +56,7 @@ public:
 // typedef TimePoint<UTCScale, LongDuration> UTCTime;
 typedef TimePoint<TAIScale, LongDuration> TAITime;
 
-typedef TAITime AbsTime;
+// typedef TAITime AbsTime;
 typedef TAITime AstTime;
 
   
