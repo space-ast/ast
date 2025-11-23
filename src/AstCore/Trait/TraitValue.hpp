@@ -43,17 +43,17 @@ public:
         :Base{ obj }
     {}
     ImplFor(const T& obj)
-        :Base{ &obj }
+        :Base{ (void*) & obj}
     {}
     Type* type() const override
     {
         return T::staticType();
     }
-    err_t getPosIn(System* system, const AbsTime& time, Vector3d& pos) const = 0
+    err_t getPosIn(System* system, const AbsTime& time, Vector3d& pos) const override
     {
         return get()->getPosIn(system, time, pos);
     }
-    err_t getPosVelIn(System* system, const AbsTime& time, Vector3d& pos, Vector3d& vel) const = 0
+    err_t getPosVelIn(System* system, const AbsTime& time, Vector3d& pos, Vector3d& vel) const override
     {
         return get()->getPosVelIn(system, time, pos);
     }

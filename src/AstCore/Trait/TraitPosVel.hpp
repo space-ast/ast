@@ -50,13 +50,13 @@ public:
         :Base{ obj }
     {}
     ImplFor(const T& obj)
-        :Base{&obj}
+        :Base{(void*) & obj}
     {}
     Type* type() const override
     {
         return T::staticType(); 
     }
-    err_t getValue(const AbsTime& time, double& value) const = 0
+    err_t getValue(const AbsTime& time, double& value) const override
     {
         return get()->getValue(time, value);
     }
