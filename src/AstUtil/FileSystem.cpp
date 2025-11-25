@@ -25,6 +25,8 @@
 #include <windows.h>
 #else
 #include <dlfcn.h>
+#include <limits.h>     // for PATH_MAX
+#include <unistd.h>     // for readlink
 #endif
 
 AST_NAMESPACE_BEGIN
