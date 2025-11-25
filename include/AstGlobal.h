@@ -166,7 +166,7 @@
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 
-#define AST_ENV_DATA_DIR "AST_DATA_DIR"
+
 
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
@@ -209,6 +209,7 @@ typedef enum EError
 	eNoError = 0,       ///< 没有错误
     eErrorNullInput,    ///< 输入参数是空指针
     eErrorInvalidParam, ///< 非法输入参数
+    eErrorNotInit,      ///< 没有初始化
 } AEError;
 
 /// ast项目类型前置声明

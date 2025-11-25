@@ -211,10 +211,10 @@ namespace simple_fs
 
     public:
         directory_entry() = default;
-        explicit directory_entry(const path& p) : path_(p)
+        explicit directory_entry(const _AST_FS path& p) : path_(p)
         {}
 
-        const path& path() const
+        const _AST_FS path& path() const
         {
             return path_;
         }
