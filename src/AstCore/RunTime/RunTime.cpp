@@ -20,6 +20,8 @@
  
 #include "RunTime.hpp"
 #include "GlobalContext.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/Logger.hpp"
 #include <assert.h>
 
 
@@ -33,30 +35,91 @@ A_THREAD_LOCAL GlobalContext* t_currentGlobalContext = nullptr;
 
 err_t aInitialize()
 {
-    return 0;
+    if (!aGlobalContext_GetCurrent())
+    {
+        aGlobalContext_SetCurrent(aGlobalContext_New());
+    }
+    else {
+        aWarning("AstCore library has already been initialized");
+    }
+    return eNoError;
 }
 
 
 std::string aDataDirGet()
 {
-    return "";
+    auto context = aGlobalContext_GetCurrent();
+    if (context) {
+        return context->dataDir();
+    }
+    aError("global context is nullptr, please call `aInitialize` in the first.");
+    return std::string();
 }
 
 err_t aDataDirSet(const std::string& dirpath)
 {
-    return 0;
+    if (!fs::is_directory(dirpath)) {
+        aError("dirpath is not a directory.");
+        return eErrorInvalidParam;
+    }
+    auto context = aGlobalContext_GetCurrent();
+    if (context) {
+        context->setDataDir(dirpath);
+        return eNoError;
+    }
+    else {
+        aError("global context is nullptr, please call `aInitialize` in the first.");
+        return eErrorNotInit;
+    }
 }
 
 std::string aDataDirGetDefault()
 {
-    const char* datadir = getenv(AST_ENV_DATA_DIR);
-    if (datadir)
-        return datadir;
+    // 1. 检查AST_DATA_DIR环境变量
+    try {
+        const char* datadir = getenv(AST_ENV_DATA_DIR);
+        if (datadir && fs::is_directory(datadir))
+            return datadir;
+    }
+    catch (...)
+    {
+        // 忽略可能的异常
+    }
 
-    return "";
+    // 2. 检查动态库目录的data文件夹
+    try {
+        fs::path datadir = fs::path(aLibDir()) / AST_DATA_DIR_NAME;
+        if (fs::is_directory(datadir))
+            return datadir.string();
+    }
+    catch (...) {
+        // 忽略可能的异常
+    }
+    
+    // 3. 检查可执行文件目录的data文件夹
+    try {
+        fs::path datadir = fs::path(aExeDir()) / AST_DATA_DIR_NAME;
+        if (fs::is_directory(datadir))
+            return datadir.string();
+    }
+    catch (...) {
+        // 忽略可能的异常
+    }
+    
+    // 4. 检查当前运行目录的data文件夹
+    try {
+        fs::path currentdir = fs::current_path() / AST_DATA_DIR_NAME;
+        if (fs::is_directory(currentdir))
+            return currentdir.string();
+    }
+    catch (...) {
+        // 忽略可能的异常
+    }
+
+    aError("data dir not found");
+    // 如果所有路径都不存在，返回默认的相对路径
+    return AST_DATA_DIR_NAME;
 }
-
-
 
 
 GlobalContext* aGlobalContext_GetCurrent()
@@ -78,4 +141,3 @@ GlobalContext* aGlobalContext_New()
 
  
 AST_NAMESPACE_END
- 

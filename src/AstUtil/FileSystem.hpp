@@ -62,8 +62,25 @@ namespace filesystem = simple_fs;
 namespace fs = filesystem;
 
 
+/// @brief 获取当前的AstUtil动态库所在目录
+/// @return 
+AST_UTIL_API std::string aLibDir();
 
 
- 
+/// @brief 获取当前的可执行文件所在目录
+/// @return 
+AST_UTIL_API std::string aExeDir();
+
+
+/// @brief 获取当前的AstUtil动态库的名称
+/// @return 
+AST_UTIL_API std::string aLibPath();
+
+
+/// @brief 获取当前的可执行文件路径
+/// @return 
+AST_UTIL_API std::string aExePath();
+
+
 AST_NAMESPACE_END
  
