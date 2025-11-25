@@ -6,5 +6,5 @@
     add_headerfiles("**.h")
     add_headerfiles("../../(include/AstGlobal.hpp)")
     add_defines("AST_BUILD_LIB_CORE")
-    add_extrafiles("xmake.lua")    
+    -- add_extrafiles("xmake.lua")    
     add_deps("AstUtil")

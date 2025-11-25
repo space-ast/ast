@@ -35,6 +35,7 @@
 #   include <filesystem>
 #   define _A_STD_FILESYSTEM std::filesystem
 #elif defined _A_STD_FILESYSTEM_USE_EXPERIMENTAL
+#   define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 #   if defined _MSC_VER
 #      include <experimental/filesystem>
 #      define _A_STD_FILESYSTEM std::experimental::filesystem

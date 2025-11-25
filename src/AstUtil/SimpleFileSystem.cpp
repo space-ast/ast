@@ -11,6 +11,7 @@
 #else
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/statvfs.h>
 #include <dirent.h>
 #include <unistd.h>
 #endif
