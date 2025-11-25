@@ -40,6 +40,8 @@ AST_CORE_CAPI void _aANSIToWide(const char* ansi, std::wstring& wide);
 AST_CORE_CAPI void _aWideToANSI(const wchar_t* wide, std::string& ansi);
 #endif
 
+#define _AST_FS _AST simple_fs::
+
 namespace simple_fs
 {
     // 定义平台相关的字符串类型
@@ -206,8 +208,7 @@ namespace simple_fs
     // 目录条目
     class directory_entry
     {
-    private:
-        path path_;
+
     public:
         directory_entry() = default;
         explicit directory_entry(const path& p) : path_(p)
@@ -218,6 +219,8 @@ namespace simple_fs
             return path_;
         }
         file_status status() const;
+    private:
+        _AST_FS path path_;
     };
 
     // 目录迭代器
