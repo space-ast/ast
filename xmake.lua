@@ -18,6 +18,10 @@ add_includedirs("include")
 -- 添加编译规则
 add_rules("mode.debug", "mode.release")
 
+-- 设置编译策略
+set_policy("build.progress_style", "multirow")
+
+-- linux平台添加rpath
 if is_plat("linux") then
     add_rpathdirs("$ORIGIN")
 end
