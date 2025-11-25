@@ -31,9 +31,9 @@ const double EPS = 1e-7;            // 精度要求
 /// @brief 测试远地点/近地点高度与半径转换
 int testAltitudeRadiusConversion()
 {
-    printf("测试: 远地点/近地点高度 ↔ 半径\n");
+    printf("测试: 远地点/近地点高度 ←→ 半径\n");
     
-    // 测试远地点高度 ↔ 远地点半径
+    // 测试远地点高度 ←→ 远地点半径
     {
         double apogeeAlt = 42164000.0; // 地球同步轨道高度
         double apogeeRad = aApoAltToApoRad(apogeeAlt, CB_RADIUS);
@@ -41,7 +41,7 @@ int testAltitudeRadiusConversion()
         ASSERT_NEAR(apogeeAlt, apogeeAltBack, EPS);
     }
     
-    // 测试近地点高度 ↔ 近地点半径
+    // 测试近地点高度 ←→ 近地点半径
     {
         double perigeeAlt = 200000.0; // 低轨道近地点高度
         double perigeeRad = aPeriAltToPeriRad(perigeeAlt, CB_RADIUS);
@@ -69,7 +69,7 @@ int testAnomalyConversion()
     
     double eccentricity = 0.01;
     
-    // 测试偏近点角 ↔ 平近点角
+    // 测试偏近点角 ←→ 平近点角
     {
         double eccAnomaly = 1.0;      // 偏近点角 [rad]
         double meanAnomaly = aEccToMean(eccAnomaly, eccentricity);
@@ -77,7 +77,7 @@ int testAnomalyConversion()
         ASSERT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
     }
     
-    // 测试偏近点角 ↔ 真近点角
+    // 测试偏近点角 ←→ 真近点角
     {
         double eccAnomaly = 1.0;      // 偏近点角 [rad]
         double trueAnomaly = aEccToTrue(eccAnomaly, eccentricity);
@@ -85,7 +85,7 @@ int testAnomalyConversion()
         ASSERT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
     }
     
-    // 测试真近点角 ↔ 平近点角
+    // 测试真近点角 ←→ 平近点角
     {
         double trueAnomaly = 1.0;     // 真近点角 [rad]
         double meanAnomaly = aTrueToMean(trueAnomaly, eccentricity);
@@ -101,7 +101,7 @@ int testOrbitalElementConversion()
 {
     printf("测试: 轨道要素转换\n");
     
-    // 测试长半轴 ↔ 平均角速度
+    // 测试长半轴 ←→ 平均角速度
     {
         double semiMajorAxis = 42164000.0 + CB_RADIUS; // 地球同步轨道长半轴
         double meanMotion = aSMajAxToMeanMotn(semiMajorAxis, GM);
@@ -109,7 +109,7 @@ int testOrbitalElementConversion()
         ASSERT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
     }
     
-    // 测试长半轴 ↔ 轨道周期
+    // 测试长半轴 ←→ 轨道周期
     {
         double semiMajorAxis = 42164000.0 + CB_RADIUS; // 地球同步轨道长半轴
         double period = aSMajAxToPeriod(semiMajorAxis, GM);
@@ -117,7 +117,7 @@ int testOrbitalElementConversion()
         ASSERT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
     }
     
-    // 测试平均角速度 ↔ 轨道周期
+    // 测试平均角速度 ←→ 轨道周期
     {
         double meanMotion = 7.2921158553e-5; // 地球自转角速度
         double period = aMeanMotnToPeriod(meanMotion);
@@ -125,7 +125,7 @@ int testOrbitalElementConversion()
         ASSERT_NEAR(meanMotion, meanMotionBack, EPS);
     }
     
-    // 测试近地点/远地点高度 ↔ 长半轴
+    // 测试近地点/远地点高度 ←→ 长半轴
     {
         double perigeeAlt = 200000.0;  // 近地点高度
         double eccentricity = 0.05;    // 偏心率
@@ -148,7 +148,7 @@ int testOtherConversions()
 {
     printf("测试: 其他转换\n");
     
-    // 测试偏心率 ↔ 扁平率
+    // 测试偏心率 ←→ 扁平率
     {
         double eccentricity = 0.08;    // 偏心率
         double flatFactor = aEccToFlat(eccentricity);
@@ -156,7 +156,7 @@ int testOtherConversions()
         ASSERT_NEAR(eccentricity, eccentricityBack, EPS);
     }
     
-    // 测试近地点幅角 ↔ 近地点经度
+    // 测试近地点幅角 ←→ 近地点经度
     {
         double argPeri = 1.5;  // 近地点幅角 [rad]
         double raan = 0.8;     // 升交点赤经 [rad]

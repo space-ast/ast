@@ -36,8 +36,8 @@ int testParabolaOrbit()
     printf("测试: 抛物线轨道 (e = 1.0)\n");
     double eccentricity = 1.0;
     
-    // 测试平近点角 ↔ 偏近点角转换
-    printf("  测试平近点角 ↔ 偏近点角转换...\n");
+    // 测试平近点角 ←→ 偏近点角转换
+    printf("  测试平近点角 ←→ 偏近点角转换...\n");
     {
         // 测试不同的平近点角值
         double meanAnomalies[] = {0.0, 0.1, 0.5, 1.0, 2.0, 5.0};
@@ -51,8 +51,8 @@ int testParabolaOrbit()
         }
     }
     
-    // 测试偏近点角 ↔ 真近点角转换
-    printf("  测试偏近点角 ↔ 真近点角转换...\n");
+    // 测试偏近点角 ←→ 真近点角转换
+    printf("  测试偏近点角 ←→ 真近点角转换...\n");
     {
         // 测试不同的偏近点角值
         double eccAnomalies[] = {0.0, 0.1, 0.5, 1.0, 2.0, 5.0};
@@ -66,8 +66,8 @@ int testParabolaOrbit()
         }
     }
     
-    // 测试真近点角 ↔ 平近点角转换
-    printf("  测试真近点角 ↔ 平近点角转换...\n");
+    // 测试真近点角 ←→ 平近点角转换
+    printf("  测试真近点角 ←→ 平近点角转换...\n");
     {
         // 测试不同的真近点角值（注意抛物线轨道的真近点角范围）
         double trueAnomalies[] = {-kPI/2, -kPI/4, 0.0, kPI/4, kPI/2, kPI-0.1};
@@ -108,8 +108,8 @@ int testHyperbolaOrbit()
         double eccentricity = eccentricities[e_idx];
         printf("  测试偏心率 e = %.2f\n", eccentricity);
         
-        // 测试平近点角 ↔ 偏近点角转换
-        printf("    测试平近点角 ↔ 偏近点角转换...\n");
+        // 测试平近点角 ←→ 偏近点角转换
+        printf("    测试平近点角 ←→ 偏近点角转换...\n");
         {
             // 双曲线轨道的平近点角范围
             double meanAnomalies[] = {0.0, 0.5, 1.0, 2.0, 5.0};
@@ -123,8 +123,8 @@ int testHyperbolaOrbit()
             }
         }
         
-        // 测试偏近点角 ↔ 真近点角转换
-        printf("    测试偏近点角 ↔ 真近点角转换...\n");
+        // 测试偏近点角 ←→ 真近点角转换
+        printf("    测试偏近点角 ←→ 真近点角转换...\n");
         {
             // 测试不同的偏近点角值
             double eccAnomalies[] = {0.1, 0.5, 1.0, 2.0};
@@ -144,8 +144,8 @@ int testHyperbolaOrbit()
             }
         }
         
-        // 测试真近点角 ↔ 平近点角转换
-        printf("    测试真近点角 ↔ 平近点角转换...\n");
+        // 测试真近点角 ←→ 平近点角转换
+        printf("    测试真近点角 ←→ 平近点角转换...\n");
         {
             // 测试双曲线轨道有效范围内的真近点角
             double maxTrueAnomaly = kPI - acos(1.0 / eccentricity);

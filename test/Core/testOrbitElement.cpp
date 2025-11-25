@@ -36,7 +36,7 @@ const double ANGLE_EPS = 1e-9;       // 角度精度要求（弧度）
 /// @brief 测试经典轨道根数与直角坐标之间的转换
 int testOrbElemCartConversion()
 {
-    printf("测试: 经典轨道根数 ↔ 直角坐标\n");
+    printf("测试: 经典轨道根数 ←→ 直角坐标\n");
     
     // 测试用例1：低地球轨道
     {
@@ -110,7 +110,7 @@ int testOrbElemCartConversion()
 /// @brief 测试改进春分点轨道根数与直角坐标之间的转换
 int testModEquinElemCartConversion()
 {
-    printf("测试: 改进春分点轨道根数 ↔ 直角坐标\n");
+    printf("测试: 改进春分点轨道根数 ←→ 直角坐标\n");
     
     // 测试用例：从改进春分点轨道根数到直角坐标再返回
     {
@@ -152,7 +152,7 @@ int testModEquinElemCartConversion()
 /// @brief 测试修正轨道根数与直角坐标之间的转换
 int testModOrbElemCartConversion()
 {
-    printf("测试: 修正轨道根数 ↔ 直角坐标\n");
+    printf("测试: 修正轨道根数 ←→ 直角坐标\n");
     
     // 测试用例
     {
@@ -200,7 +200,7 @@ int testModOrbElemCartConversion()
 /// @brief 测试春分点根数与直角坐标之间的转换
 int testEquinElemCartConversion()
 {
-    printf("测试: 春分点根数 ↔ 直角坐标\n");
+    printf("测试: 春分点根数 ←→ 直角坐标\n");
     
     // 测试用例
     {
