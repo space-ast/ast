@@ -58,14 +58,6 @@ protected:
 };
 
 
-/// @brief 获取当前全局上下文
-GlobalContext* aGlobalContext_GetCurrent();
-
-/// @brief 设置当前全局上下文
-void aGlobalContext_SetCurrent(GlobalContext* context);
-
-/// @brief 创建一个新的全局上下文
-GlobalContext* aGlobalContext_New();
 
  
 AST_NAMESPACE_END

@@ -62,16 +62,6 @@ namespace filesystem = simple_fs;
 namespace fs = filesystem;
 
 
-/// @brief 获取数据文件夹
-AST_UTIL_API std::string aDataDirGet();
-
-AST_UTIL_API err_t aDataDirSet(const std::string& dirpath);
-
-AST_UTIL_API std::string aDataDirGetDefault();
-
-
-
-
 
 
  

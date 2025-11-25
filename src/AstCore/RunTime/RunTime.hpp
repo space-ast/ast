@@ -21,14 +21,31 @@
 #pragma once
  
 #include "AstGlobal.h"
- 
+#include <string>
  
 AST_NAMESPACE_BEGIN
 
+class GlobalContext;
 
 AST_CORE_CAPI err_t aInitialize();
 
  
+/// @brief 获取数据文件夹
+AST_CORE_API std::string aDataDirGet();
+
+AST_CORE_CAPI err_t aDataDirSet(const std::string& dirpath);
+
+AST_CORE_API std::string aDataDirGetDefault();
+
+/// @brief 获取当前全局上下文
+GlobalContext* aGlobalContext_GetCurrent();
+
+/// @brief 设置当前全局上下文
+void aGlobalContext_SetCurrent(GlobalContext* context);
+
+/// @brief 创建一个新的全局上下文
+GlobalContext* aGlobalContext_New();
+
  
 AST_NAMESPACE_END
  
