@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <stdlib.h>    // for malloc
  
 AST_NAMESPACE_BEGIN

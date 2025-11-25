@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <string>
  
 AST_NAMESPACE_BEGIN
@@ -35,7 +35,7 @@ class LeapSecondData;
 class GlobalContext
 {
 public:
-	/// @brief 太阳系
+	/// @brief 太阳系数据
 	SolarSystem* solarSystem() const{return m_solarSystem;}
 
 	/// @brief 地球指向数据
@@ -44,9 +44,11 @@ public:
 	/// @brief 闰秒数据
 	LeapSecondData* leapSecondData() const{return m_leapSecondData;}
 
+	/// @brief 数据目录
     std::string& dataDir() {return m_dataDir;}
-    const std::string& dataDir() const{return m_dataDir;}
-
+    
+	/// @brief 设置数据目录
+	void setDataDir(const std::string& dir){m_dataDir = dir;}
 
 protected:
 	SolarSystem*    m_solarSystem{ nullptr };
@@ -55,6 +57,15 @@ protected:
     std::string     m_dataDir;
 };
 
+
+/// @brief 获取当前全局上下文
+GlobalContext* aGlobalContext_GetCurrent();
+
+/// @brief 设置当前全局上下文
+void aGlobalContext_SetCurrent(GlobalContext* context);
+
+/// @brief 创建一个新的全局上下文
+GlobalContext* aGlobalContext_New();
 
  
 AST_NAMESPACE_END

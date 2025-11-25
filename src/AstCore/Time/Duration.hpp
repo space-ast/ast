@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <stdint.h>     // for int64_t
  
 AST_NAMESPACE_BEGIN
