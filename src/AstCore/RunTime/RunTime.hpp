@@ -1,9 +1,9 @@
 ﻿///
-/// @file      CelestialBody.hpp
+/// @file      RunTime.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
-/// @date      21.11.2025
+/// @date      25.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,21 +21,14 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "AstCore/Object.hpp"
+ 
  
 AST_NAMESPACE_BEGIN
 
 
-/// @brief 天体
-class CelestialBody : public Object
-{
-    AST_OBJECT(CelestialBody)
-public:
-    
-};
+AST_CORE_CAPI err_t aInitialize();
 
-
+ 
+ 
 AST_NAMESPACE_END
  
-
-

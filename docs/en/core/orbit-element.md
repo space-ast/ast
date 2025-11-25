@@ -380,7 +380,7 @@ void aEquinElemToCart(const EquinElem& equinElem, double gm, Vector3d& pos, Vect
 
 ## Dependencies
 
-- `AstGlobal.hpp`: Project global definitions
+- `AstGlobal.h`: Project global definitions
 - `AstCore/Vector.hpp`: Vector class support
 
 ## Notes

@@ -217,7 +217,7 @@ std::array<std::array<_Scalar, K>, I> mtimes(const _Scalar(&left)[I][J],
 
 ## 依赖关系
 
-- `AstGlobal.hpp`: 项目全局定义
+- `AstGlobal.h`: 项目全局定义
 - `math.h`: 数学函数
 - `assert.h`: 断言检查
 - `type_traits`: 类型特征

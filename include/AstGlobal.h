@@ -1,5 +1,5 @@
 ﻿///
-/// @file      AstGlobal.hpp
+/// @file      AstGlobal.h
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -91,6 +91,7 @@
 #define A_ALWAYS_INLINE A_STRONG_INLINE
 #endif
 
+// DLL 导出导入
 
 #ifdef _WIN32
 #   define A_DECL_EXPORT __declspec(dllexport)
@@ -100,11 +101,29 @@
 #   define A_DECL_IMPORT __attribute__((visibility("default")))
 #endif
 
+
+// extern "C"
+
 #ifdef __cplusplus
 #   define A_DECL_EXTERN_C extern "C"
 #else
 #   define A_DECL_EXTERN_C
 #endif
+
+
+// thread local storage
+
+#ifdef thread_local
+#  define A_THREAD_LOCAL thread_local
+#elif __STDC_VERSION__ >= 201112L && !defined(__STDC_NO_THREADS__)
+#  define A_THREAD_LOCAL _Thread_local
+#elif defined(_MSC_VER)  
+#  define A_THREAD_LOCAL __declspec(thread)
+#elif defined(__GNUC__) 
+#  define A_THREAD_LOCAL __thread
+#endif
+
+
 
 /// 为类型定义迭代器标准函数
 #define A_DEF_ITERABLE(Scalar, Data, Size)                              \
