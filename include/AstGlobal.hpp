@@ -147,6 +147,8 @@
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 
+#define AST_ENV_DATA_DIR "AST_DATA_DIR"
+
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
 
