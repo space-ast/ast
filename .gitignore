@@ -6,3 +6,5 @@ vs20*
 vsxmake*
 *.asv
 node_modules
+coverage.info
+*.gcov
