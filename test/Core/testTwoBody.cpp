@@ -25,7 +25,7 @@
 #include "AstTest/AstTestMacro.h"
 
 
-int main()
+TEST(TwoBodyTest, Prop)
 {
 	AST_USING_NAMESPACE
 	{
@@ -49,8 +49,10 @@ int main()
 
 		for (int i = 0; i < 3; i++)
 		{
-			ASSERT_NEAR(pos[i], posExpect[i], 1e-5);
-			ASSERT_NEAR(vel[i], velExpect[i], 1e-5);
+			EXPECT_NEAR(pos[i], posExpect[i], 1e-5);
+			EXPECT_NEAR(vel[i], velExpect[i], 1e-5);
 		}
 	}
 }
+
+GTEST_MAIN()

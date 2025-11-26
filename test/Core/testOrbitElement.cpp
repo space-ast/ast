@@ -34,7 +34,7 @@ const double VEL_EPS = 1e-3;         // 速度精度要求（米/秒）
 const double ANGLE_EPS = 1e-9;       // 角度精度要求（弧度）
 
 /// @brief 测试经典轨道根数与直角坐标之间的转换
-int testOrbElemCartConversion()
+TEST(OrbitElement, CartConversion)
 {
     printf("测试: 经典轨道根数 ←→ 直角坐标\n");
     
@@ -53,30 +53,30 @@ int testOrbElemCartConversion()
         // 转换到直角坐标
         Vector3d pos1, vel1;
         err_t err = aOrbElemToCart(coe1, GM, pos1, vel1);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 转换回经典轨道根数
         OrbElem coe1_back;
         err = aCartToOrbElem(pos1, vel1, GM, coe1_back);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 验证转换精度
-        ASSERT_NEAR(coe1.a(), coe1_back.a(), EPS);
-        ASSERT_NEAR(coe1.e(), coe1_back.e(), EPS);
-        ASSERT_NEAR(coe1.i(), coe1_back.i(), ANGLE_EPS);
+        EXPECT_NEAR(coe1.a(), coe1_back.a(), EPS);
+        EXPECT_NEAR(coe1.e(), coe1_back.e(), EPS);
+        EXPECT_NEAR(coe1.i(), coe1_back.i(), ANGLE_EPS);
         
         // 角度参数需要考虑模2π的情况
         double raan_diff = fabs(coe1.raan() - coe1_back.raan());
         if (raan_diff > kPI) raan_diff = 2 * kPI - raan_diff;
-        ASSERT_NEAR(raan_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(raan_diff, 0.0, ANGLE_EPS);
         
         double argper_diff = fabs(coe1.argper() - coe1_back.argper());
         if (argper_diff > kPI) argper_diff = 2 * kPI - argper_diff;
-        ASSERT_NEAR(argper_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(argper_diff, 0.0, ANGLE_EPS);
         
         double trueA_diff = fabs(coe1.trueA() - coe1_back.trueA());
         if (trueA_diff > kPI) trueA_diff = 2 * kPI - trueA_diff;
-        ASSERT_NEAR(trueA_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(trueA_diff, 0.0, ANGLE_EPS);
     }
     
     // 测试用例2：同步轨道
@@ -88,27 +88,26 @@ int testOrbElemCartConversion()
         // 转换到经典轨道根数
         OrbElem coe2;
         err_t err = aCartToOrbElem(pos2, vel2, GM, coe2);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 转换回直角坐标
         Vector3d pos2_back, vel2_back;
         err = aOrbElemToCart(coe2, GM, pos2_back, vel2_back);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 验证转换精度
-        ASSERT_NEAR(pos2.x(), pos2_back.x(), POS_EPS);
-        ASSERT_NEAR(pos2.y(), pos2_back.y(), POS_EPS);
-        ASSERT_NEAR(pos2.z(), pos2_back.z(), POS_EPS);
-        ASSERT_NEAR(vel2.x(), vel2_back.x(), VEL_EPS);
-        ASSERT_NEAR(vel2.y(), vel2_back.y(), VEL_EPS);
-        ASSERT_NEAR(vel2.z(), vel2_back.z(), VEL_EPS);
+        EXPECT_NEAR(pos2.x(), pos2_back.x(), POS_EPS);
+        EXPECT_NEAR(pos2.y(), pos2_back.y(), POS_EPS);
+        EXPECT_NEAR(pos2.z(), pos2_back.z(), POS_EPS);
+        EXPECT_NEAR(vel2.x(), vel2_back.x(), VEL_EPS);
+        EXPECT_NEAR(vel2.y(), vel2_back.y(), VEL_EPS);
+        EXPECT_NEAR(vel2.z(), vel2_back.z(), VEL_EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试改进春分点轨道根数与直角坐标之间的转换
-int testModEquinElemCartConversion()
+TEST(OrbitElement, ModEquinElemCartConversion)
 {
     printf("测试: 改进春分点轨道根数 ←→ 直角坐标\n");
     
@@ -131,26 +130,25 @@ int testModEquinElemCartConversion()
         // 转换回改进春分点轨道根数
         ModEquinElem mee1_back;
         err_t err = aCartToModEquinElem(pos1, vel1, GM, mee1_back);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 验证转换精度
-        ASSERT_NEAR(mee1.p(), mee1_back.p(), EPS);
-        ASSERT_NEAR(mee1.f(), mee1_back.f(), EPS);
-        ASSERT_NEAR(mee1.g(), mee1_back.g(), EPS);
-        ASSERT_NEAR(mee1.h(), mee1_back.h(), EPS);
-        ASSERT_NEAR(mee1.k(), mee1_back.k(), EPS);
+        EXPECT_NEAR(mee1.p(), mee1_back.p(), EPS);
+        EXPECT_NEAR(mee1.f(), mee1_back.f(), EPS);
+        EXPECT_NEAR(mee1.g(), mee1_back.g(), EPS);
+        EXPECT_NEAR(mee1.h(), mee1_back.h(), EPS);
+        EXPECT_NEAR(mee1.k(), mee1_back.k(), EPS);
         
         // L需要考虑模2π的情况
         double L_diff = fabs(mee1.L() - mee1_back.L());
         if (L_diff > kPI) L_diff = 2 * kPI - L_diff;
-        ASSERT_NEAR(L_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(L_diff, 0.0, ANGLE_EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试修正轨道根数与直角坐标之间的转换
-int testModOrbElemCartConversion()
+TEST(OrbitElement, ModOrbElemCartConversion)
 {
     printf("测试: 修正轨道根数 ←→ 直角坐标\n");
     
@@ -173,32 +171,31 @@ int testModOrbElemCartConversion()
         // 转换回修正轨道根数
         ModOrbElem moe1_back;
         err_t err = aCartToModOrbElem(pos1, vel1, GM, moe1_back);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 验证转换精度
-        ASSERT_NEAR(moe1.rp(), moe1_back.rp(), EPS);
-        ASSERT_NEAR(moe1.e(), moe1_back.e(), EPS);
-        ASSERT_NEAR(moe1.i(), moe1_back.i(), ANGLE_EPS);
+        EXPECT_NEAR(moe1.rp(), moe1_back.rp(), EPS);
+        EXPECT_NEAR(moe1.e(), moe1_back.e(), EPS);
+        EXPECT_NEAR(moe1.i(), moe1_back.i(), ANGLE_EPS);
         
         // 角度参数需要考虑模2π的情况
         double raan_diff = fabs(moe1.raan() - moe1_back.raan());
         if (raan_diff > kPI) raan_diff = 2 * kPI - raan_diff;
-        ASSERT_NEAR(raan_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(raan_diff, 0.0, ANGLE_EPS);
         
         double argper_diff = fabs(moe1.argper() - moe1_back.argper());
         if (argper_diff > kPI) argper_diff = 2 * kPI - argper_diff;
-        ASSERT_NEAR(argper_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(argper_diff, 0.0, ANGLE_EPS);
         
         double trueA_diff = fabs(moe1.trueA() - moe1_back.trueA());
         if (trueA_diff > kPI) trueA_diff = 2 * kPI - trueA_diff;
-        ASSERT_NEAR(trueA_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(trueA_diff, 0.0, ANGLE_EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试春分点根数与直角坐标之间的转换
-int testEquinElemCartConversion()
+TEST(OrbitElement, EquinElemCartConversion)
 {
     printf("测试: 春分点根数 ←→ 直角坐标\n");
     
@@ -223,23 +220,22 @@ int testEquinElemCartConversion()
         aCartToEquinElem(pos1, vel1, GM, ee1_back);
         
         // 验证转换精度
-        ASSERT_NEAR(ee1.a(), ee1_back.a(), EPS);
-        ASSERT_NEAR(ee1.h(), ee1_back.h(), EPS);
-        ASSERT_NEAR(ee1.k(), ee1_back.k(), EPS);
-        ASSERT_NEAR(ee1.p(), ee1_back.p(), EPS);
-        ASSERT_NEAR(ee1.q(), ee1_back.q(), EPS);
+        EXPECT_NEAR(ee1.a(), ee1_back.a(), EPS);
+        EXPECT_NEAR(ee1.h(), ee1_back.h(), EPS);
+        EXPECT_NEAR(ee1.k(), ee1_back.k(), EPS);
+        EXPECT_NEAR(ee1.p(), ee1_back.p(), EPS);
+        EXPECT_NEAR(ee1.q(), ee1_back.q(), EPS);
         
         // lambda需要考虑模2π的情况
         double lambda_diff = fabs(ee1.lambda() - ee1_back.lambda());
         if (lambda_diff > kPI) lambda_diff = 2 * kPI - lambda_diff;
-        ASSERT_NEAR(lambda_diff, 0.0, ANGLE_EPS);
+        EXPECT_NEAR(lambda_diff, 0.0, ANGLE_EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试各种轨道根数之间的相互转换
-int testElementInterconversion()
+TEST(OrbitElement, ElementInterconversion)
 {
     printf("测试: 各种轨道根数之间的相互转换\n");
     
@@ -257,16 +253,16 @@ int testElementInterconversion()
     {
         ModEquinElem mee;
         err_t err = aOrbElemToModEquinElem(coe_original, mee);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         OrbElem coe_back;
         err = aModEquinElemToOrbElem(mee, coe_back);
-        ASSERT_EQ(err, eNoError);
+        EXPECT_EQ(err, eNoError);
         
         // 验证转换精度
-        ASSERT_NEAR(coe_original.a(), coe_back.a(), EPS);
-        ASSERT_NEAR(coe_original.e(), coe_back.e(), EPS);
-        ASSERT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
+        EXPECT_NEAR(coe_original.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_original.e(), coe_back.e(), EPS);
+        EXPECT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
     }
     
     // 经典轨道根数 -> 春分点根数 -> 经典轨道根数
@@ -278,9 +274,9 @@ int testElementInterconversion()
         ee2coe(ee.data(), coe_back.data());
         
         // 验证转换精度
-        ASSERT_NEAR(coe_original.a(), coe_back.a(), EPS);
-        ASSERT_NEAR(coe_original.e(), coe_back.e(), EPS);
-        ASSERT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
+        EXPECT_NEAR(coe_original.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_original.e(), coe_back.e(), EPS);
+        EXPECT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
     }
     
     // 经典轨道根数 -> 修正轨道根数 -> 经典轨道根数
@@ -292,41 +288,11 @@ int testElementInterconversion()
         moe2coe(moe.data(), coe_back.data());
         
         // 验证转换精度
-        ASSERT_NEAR(coe_original.a(), coe_back.a(), EPS);
-        ASSERT_NEAR(coe_original.e(), coe_back.e(), EPS);
-        ASSERT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
+        EXPECT_NEAR(coe_original.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_original.e(), coe_back.e(), EPS);
+        EXPECT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
     }
     
-    return 0;
 }
 
-int main()
-{
-    printf("开始轨道根数转换往返测试...\n\n");
-    
-    int rc = 0;
-    
-    rc |= testOrbElemCartConversion();
-    printf("\n");
-    
-    rc |= testModEquinElemCartConversion();
-    printf("\n");
-    
-    rc |= testModOrbElemCartConversion();
-    printf("\n");
-    
-    rc |= testEquinElemCartConversion();
-    printf("\n");
-    
-    rc |= testElementInterconversion();
-    printf("\n");
-    
-    if (rc == 0) {
-        printf("所有轨道根数转换测试完成，全部通过！\n");
-    } else {
-        printf("轨道根数转换测试完成，但有失败项！\n");
-    }
-    
-    return rc;
-}
-
+GTEST_MAIN()

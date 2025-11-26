@@ -29,7 +29,7 @@
 
 
 
-int testVectorFunction()
+TEST(MathOperatorTest, VectorFunction)
 {
     AST_USING_NAMESPACE
     // norm
@@ -38,31 +38,31 @@ int testVectorFunction()
         std::vector<double> a{ 3, 4, 5 };
         double retval = norm(a);
         printf("norm: %lf\n", retval);
-        ASSERT_NEAR(retval, expect, 1e-15);
+        EXPECT_NEAR(retval, expect, 1e-15);
     }
     {
         std::array<double, 3> a{3, 4, 5};
         double retval = norm(a);
         printf("norm: %lf\n", retval);
-        ASSERT_NEAR(retval, expect, 1e-15);
+        EXPECT_NEAR(retval, expect, 1e-15);
     }
     {
         double a[3]{3,4,5};
         double retval = norm(a);
         printf("norm: %lf\n", retval);
-        ASSERT_NEAR(retval, expect, 1e-15);
+        EXPECT_NEAR(retval, expect, 1e-15);
     }
     {
         std::vector<double> a{ 3, 4 };
         double retval = norm(a);
         printf("norm: %lf\n", retval);
-        ASSERT_NEAR(retval, 5, 1e-15);
+        EXPECT_NEAR(retval, 5, 1e-15);
     }
     {
         Vector3d a{3,4,5};
         double retval = norm(a);
         printf("norm: %lf\n", retval);
-        ASSERT_NEAR(retval, expect, 1e-15);
+        EXPECT_NEAR(retval, expect, 1e-15);
     }
 
     // cross
@@ -128,11 +128,10 @@ int testVectorFunction()
         auto ret = normalized<3>(b);
         nothing();
     }
-    return 0;
 }
 
 
-int testVectorOperator()
+TEST(MathOperatorTest, VectorOperator)
 {
     AST_USING_NAMESPACE
     {
@@ -162,10 +161,9 @@ int testVectorOperator()
         auto c = a - b;
         nothing();
     }
-    return 0;
 }
 
-int testMatrixOperator()
+TEST(MathOperatorTest, MatrixOperator)
 {
     AST_USING_NAMESPACE
 
@@ -180,11 +178,9 @@ int testMatrixOperator()
         auto mtx3 = mtx1 * mtx2;
     }
     
-
-    return 0;
 }
 
-int testExample1()
+TEST(MathOperatorTest, Example1)
 {
     using namespace AST_NAMESPACE;
 
@@ -228,15 +224,6 @@ int testExample1()
         double B[3][2] = { {7,8}, {9,10}, {11,12} };
         auto C = mtimes(A, B);  // 2x2 矩阵
     }
-    return 0;
 }
 
-int main()
-{
-    int rc = 0;
-    rc |= testVectorFunction();
-    rc |= testVectorOperator();
-    rc |= testMatrixOperator();
-    rc |= testExample1();
-    return rc;
-}
+GTEST_MAIN()
