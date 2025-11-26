@@ -167,15 +167,10 @@ namespace simple_fs
             return *this;
         }
 
-        bool operator==(const path& other) const
-        {
-            return path_ == other.path_;
+        operator string_type() const
+        {	
+            return (path_);
         }
-        bool operator!=(const path& other) const
-        {
-            return path_ != other.path_;
-        }
-
     private:
         string_type path_;
     };
@@ -303,7 +298,14 @@ namespace simple_fs
         uintmax_t free;
         uintmax_t available;
     };
-
+    inline bool operator==(const path& left, const path& right) 
+    {	
+        return (left.native() == right.native());
+    }
+    inline bool operator!=(const path& left, const path& right)
+    {
+        return (left.native() != right.native());
+    }
     AST_UTIL_API space_info space(const path& p);
 
     // 最后修改时间（简化版，返回time_t）

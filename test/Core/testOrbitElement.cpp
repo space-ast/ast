@@ -295,4 +295,300 @@ TEST(OrbitElement, ElementInterconversion)
     
 }
 
+/// @brief 测试特殊轨道情况下的轨道根数转换
+TEST(OrbitElement, SpecialOrbitalCases) {
+    printf("测试: 特殊轨道情况\n");
+    
+    // 测试用例1: 近圆形轨道（偏心率接近0）
+    {
+        OrbElem coe_circular = {
+            7000000.0,  // 长半轴 [m]
+            1e-7,       // 接近0的偏心率
+            0.1,        // 轨道倾角 [rad]
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 转换到直角坐标
+        Vector3d pos, vel;
+        err_t err = aOrbElemToCart(coe_circular, GM, pos, vel);
+        EXPECT_EQ(err, eNoError);
+        
+        // 转换回经典轨道根数
+        OrbElem coe_back;
+        err = aCartToOrbElem(pos, vel, GM, coe_back);
+        EXPECT_EQ(err, eNoError);
+        
+        // 验证转换精度（对于近圆轨道，近拱点角可能不准确，但其他参数应保持一致）
+        EXPECT_NEAR(coe_circular.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_circular.e(), coe_back.e(), 1e-6); // 放宽偏心率精度要求
+        EXPECT_NEAR(coe_circular.i(), coe_back.i(), ANGLE_EPS);
+    }
+    
+    // 测试用例2: 零倾角轨道
+    {
+        OrbElem coe_zero_inc = {
+            7000000.0,  // 长半轴 [m]
+            0.01,       // 偏心率
+            0.0,        // 零轨道倾角
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 转换到直角坐标
+        Vector3d pos, vel;
+        err_t err = aOrbElemToCart(coe_zero_inc, GM, pos, vel);
+        EXPECT_EQ(err, eNoError);
+        
+        // 转换回经典轨道根数
+        OrbElem coe_back;
+        err = aCartToOrbElem(pos, vel, GM, coe_back);
+        EXPECT_EQ(err, eNoError);
+        
+        // 验证转换精度（对于零倾角轨道，升交点赤经可能不准确）
+        EXPECT_NEAR(coe_zero_inc.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_zero_inc.e(), coe_back.e(), EPS);
+        EXPECT_NEAR(coe_zero_inc.i(), coe_back.i(), ANGLE_EPS);
+    }
+    
+    // 测试用例3: 临界情况 - 抛物线轨道检测
+    {
+        ModOrbElem moe_parabolic = {
+            6800000.0,  // 近拱点半径 [m]
+            1.0,        // 抛物线轨道偏心率 = 1.0
+            0.1,        // 轨道倾角 [rad]
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 测试错误处理
+        Vector3d pos, vel;
+        err_t err = aModOrbElemToCart(moe_parabolic, GM, pos, vel);
+        EXPECT_NE(err, eNoError); // 应该返回错误
+    }
+}
+
+/// @brief 测试轨道根数之间的直接转换函数
+TEST(OrbitElement, DirectConversionFunctions) {
+    printf("测试: 直接转换函数\n");
+    
+    // 测试用例1: 春分点根数 <-> 修正轨道根数
+    {
+        // 初始春分点根数
+        EquinElem ee_original = {
+            7000000.0,  // 长半轴 [m]
+            0.005,      // h
+            0.008,      // k
+            0.01,       // p
+            0.02,       // q
+            0.5         // lambda [rad]
+        };
+        
+        // 转换到修正轨道根数
+        ModOrbElem moe;
+        err_t err = aEquinElemToModOrb(ee_original, moe);
+        EXPECT_EQ(err, eNoError);
+        
+        // 转换回春分点根数
+        EquinElem ee_back;
+        err = aModOrbToEquinElem(moe, ee_back);
+        EXPECT_EQ(err, eNoError);
+        
+        // 验证转换精度
+        EXPECT_NEAR(ee_original.a(), ee_back.a(), EPS);
+        EXPECT_NEAR(ee_original.h(), ee_back.h(), EPS);
+        EXPECT_NEAR(ee_original.k(), ee_back.k(), EPS);
+        EXPECT_NEAR(ee_original.p(), ee_back.p(), EPS);
+        EXPECT_NEAR(ee_original.q(), ee_back.q(), EPS);
+        
+        // lambda需要考虑模2π的情况
+        double lambda_diff = fabs(ee_original.lambda() - ee_back.lambda());
+        if (lambda_diff > kPI) lambda_diff = 2 * kPI - lambda_diff;
+        EXPECT_NEAR(lambda_diff, 0.0, ANGLE_EPS);
+    }
+    
+    // 测试用例2: 改进春分点轨道根数 <-> 修正轨道根数
+    {
+        // 初始改进春分点轨道根数
+        ModEquinElem mee_original = {
+            6930000.0,  // 半通径 [m]
+            0.005,      // f
+            0.008,      // g
+            0.01,       // h
+            0.02,       // k
+            0.5         // L [rad]
+        };
+        
+        // 转换到修正轨道根数 (通过中间步骤)
+        ModOrbElem moe;
+        mee2moe(mee_original.data(), moe.data());
+        
+        // 转换回改进春分点轨道根数
+        ModEquinElem mee_back;
+        moe2mee(moe.data(), mee_back.data());
+        
+        // 验证转换精度
+        EXPECT_NEAR(mee_original.p(), mee_back.p(), EPS);
+        EXPECT_NEAR(mee_original.f(), mee_back.f(), EPS);
+        EXPECT_NEAR(mee_original.g(), mee_back.g(), EPS);
+        EXPECT_NEAR(mee_original.h(), mee_back.h(), EPS);
+        EXPECT_NEAR(mee_original.k(), mee_back.k(), EPS);
+        
+        // L需要考虑模2π的情况
+        double L_diff = fabs(mee_original.L() - mee_back.L());
+        if (L_diff > kPI) L_diff = 2 * kPI - L_diff;
+        EXPECT_NEAR(L_diff, 0.0, ANGLE_EPS);
+    }
+    
+    // 测试用例3: 春分点根数 <-> 改进春分点轨道根数
+    {
+        // 初始春分点根数
+        EquinElem ee_original = {
+            7000000.0,  // 长半轴 [m]
+            0.005,      // h
+            0.008,      // k
+            0.01,       // p
+            0.02,       // q
+            0.5         // lambda [rad]
+        };
+        
+        // 转换到改进春分点轨道根数
+        ModEquinElem mee;
+        ee2mee(ee_original.data(), mee.data());
+        
+        // 转换回春分点根数
+        EquinElem ee_back;
+        mee2ee(mee.data(), ee_back.data());
+        
+        // 验证转换精度
+        EXPECT_NEAR(ee_original.a(), ee_back.a(), EPS);
+        EXPECT_NEAR(ee_original.h(), ee_back.h(), EPS);
+        EXPECT_NEAR(ee_original.k(), ee_back.k(), EPS);
+        EXPECT_NEAR(ee_original.p(), ee_back.p(), EPS);
+        EXPECT_NEAR(ee_original.q(), ee_back.q(), EPS);
+        
+        // lambda需要考虑模2π的情况
+        double lambda_diff = fabs(ee_original.lambda() - ee_back.lambda());
+        if (lambda_diff > kPI) lambda_diff = 2 * kPI - lambda_diff;
+        EXPECT_NEAR(lambda_diff, 0.0, ANGLE_EPS);
+    }
+}
+
+/// @brief 测试错误处理
+TEST(OrbitElement, ErrorHandling) {
+    printf("测试: 错误处理\n");
+    
+    // 测试用例1: 抛物线轨道错误处理 (e=1)
+    {
+        ModOrbElem moe_parabolic = {
+            6800000.0,  // 近拱点半径 [m]
+            1.0,        // 抛物线轨道偏心率 = 1.0
+            0.1,        // 轨道倾角 [rad]
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 测试moe2rv函数的错误处理
+        Vector3d pos, vel;
+        err_t err = moe2rv(moe_parabolic.data(), GM, pos.data(), vel.data());
+        EXPECT_EQ(err, eErrorInvalidParam);
+        
+        // 测试moe2coe函数的错误处理
+        OrbElem coe;
+        err = moe2coe(moe_parabolic.data(), coe.data());
+        EXPECT_EQ(err, eErrorInvalidParam);
+        
+        // 测试ee2moe函数的错误处理
+        EquinElem ee;
+        err = ee2moe(ee.data(), moe_parabolic.data());
+        // 这里假设当输入无效时应返回错误
+        if (ee[1] * ee[2] < -1.0) { // 检查条件
+            EXPECT_NE(err, eNoError);
+        }
+    }
+    
+    // 测试用例2: 临界角错误处理 (inc=π)
+    {
+        // 创建一个临界情况的输入
+        double moe_data[6] = {
+            6800000.0,  // 近拱点半径 [m]
+            0.01,       // 偏心率
+            kPI,        // 轨道倾角 = π (180度)
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        EquinElem ee;
+        err_t err = moe2ee(moe_data, ee.data());
+        EXPECT_EQ(err, eErrorInvalidParam);
+    }
+}
+
+/// @brief 测试多种轨道类型的一致性
+TEST(OrbitElement, OrbitalConsistency) {
+    printf("测试: 多种轨道类型的一致性\n");
+    
+    // 测试用例: 从同一起始点转换到不同轨道根数，再转回直角坐标，验证结果一致性
+    {
+        // 初始直角坐标
+        Vector3d pos_original = {6778137.0, 0.0, 0.0};  // 低地球轨道位置
+        Vector3d vel_original = {0.0, 7726.0, 0.0};      // 低地球轨道速度
+        
+        // 转换到不同的轨道根数表示
+        OrbElem coe;
+        ModOrbElem moe;
+        EquinElem ee;
+        ModEquinElem mee;
+        
+        err_t err = aCartToOrbElem(pos_original, vel_original, GM, coe);
+        EXPECT_EQ(err, eNoError);
+        
+        err = aCartToModOrbElem(pos_original, vel_original, GM, moe);
+        EXPECT_EQ(err, eNoError);
+        
+        aCartToEquinElem(pos_original, vel_original, GM, ee);
+        
+        err = aCartToModEquinElem(pos_original, vel_original, GM, mee);
+        EXPECT_EQ(err, eNoError);
+        
+        // 从不同轨道根数转回直角坐标
+        Vector3d pos_coe, vel_coe;
+        Vector3d pos_moe, vel_moe;
+        Vector3d pos_ee, vel_ee;
+        Vector3d pos_mee, vel_mee;
+        
+        aOrbElemToCart(coe, GM, pos_coe, vel_coe);
+        aModOrbElemToCart(moe, GM, pos_moe, vel_moe);
+        aEquinElemToCart(ee, GM, pos_ee, vel_ee);
+        aModEquinElemToCart(mee, GM, pos_mee, vel_mee);
+        
+        // 验证所有转换结果一致性
+        EXPECT_NEAR(pos_coe.x(), pos_moe.x(), POS_EPS);
+        EXPECT_NEAR(pos_coe.y(), pos_moe.y(), POS_EPS);
+        EXPECT_NEAR(pos_coe.z(), pos_moe.z(), POS_EPS);
+        EXPECT_NEAR(vel_coe.x(), vel_moe.x(), VEL_EPS);
+        EXPECT_NEAR(vel_coe.y(), vel_moe.y(), VEL_EPS);
+        EXPECT_NEAR(vel_coe.z(), vel_moe.z(), VEL_EPS);
+        
+        EXPECT_NEAR(pos_coe.x(), pos_ee.x(), POS_EPS);
+        EXPECT_NEAR(pos_coe.y(), pos_ee.y(), POS_EPS);
+        EXPECT_NEAR(pos_coe.z(), pos_ee.z(), POS_EPS);
+        EXPECT_NEAR(vel_coe.x(), vel_ee.x(), VEL_EPS);
+        EXPECT_NEAR(vel_coe.y(), vel_ee.y(), VEL_EPS);
+        EXPECT_NEAR(vel_coe.z(), vel_ee.z(), VEL_EPS);
+        
+        EXPECT_NEAR(pos_coe.x(), pos_mee.x(), POS_EPS);
+        EXPECT_NEAR(pos_coe.y(), pos_mee.y(), POS_EPS);
+        EXPECT_NEAR(pos_coe.z(), pos_mee.z(), POS_EPS);
+        EXPECT_NEAR(vel_coe.x(), vel_mee.x(), VEL_EPS);
+        EXPECT_NEAR(vel_coe.y(), vel_mee.y(), VEL_EPS);
+        EXPECT_NEAR(vel_coe.z(), vel_mee.z(), VEL_EPS);
+    }
+}
+
 GTEST_MAIN()
