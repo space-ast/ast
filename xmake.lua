@@ -33,6 +33,7 @@ includes("projects")
 
 -- 导入测试配置
 if has_config("with_test") then
+    add_requires("gtest", {optional = true})
     includes("test")
 end
 
