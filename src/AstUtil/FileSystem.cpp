@@ -27,8 +27,18 @@
 #include <dlfcn.h>
 #include <limits.h>     // for PATH_MAX
 #include <unistd.h>     // for readlink
+
+#ifdef __APPLE__
+#include <mach-o/dyld.h>   // for _NSGetExecutablePath
+#include <stdlib.h>       // for realpath
 #endif
 
+#ifdef __FreeBSD__
+#include <sys/types.h>
+#include <sys/sysctl.h>
+#endif
+
+#endif
 AST_NAMESPACE_BEGIN
 
 // 移除文件名，只保留目录路径
@@ -113,13 +123,39 @@ std::string aExePath()
     else {
         aError("failed to call GetModuleFileNameA");
     }
+#elif defined(__APPLE__)
+    // macOS平台实现
+    char buffer[PATH_MAX] = { 0 };
+    uint32_t size = sizeof(buffer);
+    if (_NSGetExecutablePath(buffer, &size) == 0) {
+        // 解析符号链接，如果是链接
+        char resolvedPath[PATH_MAX] = { 0 };
+        if (realpath(buffer, resolvedPath) != nullptr) {
+            return resolvedPath;
+        }
+        return buffer;
+    }
+    else {
+        aError("failed to call _NSGetExecutablePath");
+    }
+#elif defined(__FreeBSD__)
+    // FreeBSD平台实现
+    char buffer[PATH_MAX] = { 0 };
+    int mib[4] = {CTL_KERN, KERN_PROC, KERN_PROC_PATHNAME, -1};
+    size_t size = sizeof(buffer);
+    if (sysctl(mib, 4, buffer, &size, NULL, 0) == 0) {
+        return buffer;
+    }
+    else {
+        aError("failed to call sysctl");
+    }
 #else
-    // Unix-like系统获取可执行文件路径的方法
+    // Linux及其他Unix-like系统实现
     char buffer[PATH_MAX] = { 0 };
     ssize_t len = readlink("/proc/self/exe", buffer, sizeof(buffer) - 1);
     if (len != -1) {
         buffer[len] = '\0';
-        return (buffer);
+        return buffer;
     }
     else {
         aError("failed to read /proc/self/exe");
