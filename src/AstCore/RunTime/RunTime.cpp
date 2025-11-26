@@ -59,12 +59,8 @@ err_t aUninitialize()
 
 std::string aDataDirGet()
 {
-    auto context = aGlobalContext_GetCurrent();
-    if (context) {
-        return context->dataDir();
-    }
-    aError("global context is nullptr, please call `aInitialize` in the first.");
-    return std::string();
+    auto context = aGlobalContext_Ensure();
+    return context->dataDir();
 }
 
 err_t aDataDirSet(const std::string& dirpath)
@@ -74,14 +70,8 @@ err_t aDataDirSet(const std::string& dirpath)
         return eErrorInvalidParam;
     }
     auto context = aGlobalContext_Ensure();
-    if (context) {
-        context->setDataDir(dirpath);
-        return eNoError;
-    }
-    else {
-        aError("global context is nullptr, please call `aInitialize` in the first.");
-        return eErrorNotInit;
-    }
+    context->setDataDir(dirpath);
+    return eNoError;
 }
 
 std::string aDataDirGetDefault()
