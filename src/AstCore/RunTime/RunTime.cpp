@@ -46,6 +46,16 @@ err_t aInitialize()
     return aInitialize(context);
 }
 
+err_t aUninitialize()
+{
+    if (g_defaultGlobalContext) {
+        delete g_defaultGlobalContext;
+        g_defaultGlobalContext = nullptr;
+    }
+    // 线程局部变量 t_currentGlobalContext 通常不需要在此处显式删除，
+    // 因为它指向的是 g_defaultGlobalContext，并且会在线程退出时自动销毁。
+    return eNoError;
+}
 
 std::string aDataDirGet()
 {
@@ -63,7 +73,7 @@ err_t aDataDirSet(const std::string& dirpath)
         aError("dirpath is not a directory.");
         return eErrorInvalidParam;
     }
-    auto context = aGlobalContext_GetCurrent();
+    auto context = aGlobalContext_Ensure();
     if (context) {
         context->setDataDir(dirpath);
         return eNoError;

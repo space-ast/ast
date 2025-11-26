@@ -35,6 +35,9 @@ class GlobalContext;
 /// @brief 初始化
 AST_CORE_CAPI err_t aInitialize();
 
+/// @brief 反初始化
+AST_CORE_CAPI err_t aUninitialize();
+
  
 /// @brief 获取数据文件夹
 AST_CORE_API std::string aDataDirGet();
@@ -56,9 +59,12 @@ AST_CORE_API std::string aDataDirGetDefault();
 AST_CORE_CAPI GlobalContext* aGlobalContext_GetCurrent();
 
 
+/// @brief 获取默认全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_GetDefault();
 
-
+/// @brief 确保当前全局上下文存在
+/// 如果当前全局上下文不存在，则创建一个新的全局上下文。
+/// @return 
 AST_CORE_CAPI GlobalContext* aGlobalContext_Ensure();
 
 /// @brief 设置当前全局上下文
