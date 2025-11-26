@@ -55,6 +55,12 @@ AST_CORE_API std::string aDataDirGetDefault();
 /// @brief 获取当前全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_GetCurrent();
 
+
+AST_CORE_CAPI GlobalContext* aGlobalContext_GetDefault();
+
+
+AST_CORE_CAPI GlobalContext* aGlobalContext_Ensure();
+
 /// @brief 设置当前全局上下文
 AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
 
