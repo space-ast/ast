@@ -31,18 +31,19 @@ AST_NAMESPACE_BEGIN
 
 // 线程本地存储的当前全局上下文指针
 A_THREAD_LOCAL GlobalContext* t_currentGlobalContext = nullptr;
+GlobalContext* g_defaultGlobalContext = nullptr;
+
+
+err_t aInitialize(GlobalContext* context)
+{
+    return eNoError;
+}
 
 
 err_t aInitialize()
 {
-    if (!aGlobalContext_GetCurrent())
-    {
-        aGlobalContext_SetCurrent(aGlobalContext_New());
-    }
-    else {
-        aWarning("AstCore library has already been initialized");
-    }
-    return eNoError;
+    auto context = aGlobalContext_Ensure();
+    return aInitialize(context);
 }
 
 
@@ -125,6 +126,23 @@ std::string aDataDirGetDefault()
 GlobalContext* aGlobalContext_GetCurrent()
 {
     assert(t_currentGlobalContext && "Current GlobalContext is null!");
+    return t_currentGlobalContext;
+}
+
+GlobalContext* aGlobalContext_GetDefault()
+{
+    if (!g_defaultGlobalContext) {
+        g_defaultGlobalContext = aGlobalContext_New();
+    }
+    return g_defaultGlobalContext;
+}
+
+GlobalContext* aGlobalContext_Ensure()
+{
+    if (!t_currentGlobalContext)
+    {
+        aGlobalContext_SetCurrent(aGlobalContext_GetDefault());
+    }
     return t_currentGlobalContext;
 }
 
