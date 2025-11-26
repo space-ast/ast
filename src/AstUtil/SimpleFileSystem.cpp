@@ -370,6 +370,8 @@ namespace simple_fs
     }
 
     // 文件操作实现
+    // 在非Windows平台上使用Linux系统调用
+    // 文件操作实现
     bool copy_file(const path& from, const path& to)
     {
     #ifdef _WIN32
@@ -378,9 +380,53 @@ namespace simple_fs
         _aUTF8ToWide(to.c_str(), wide_to);      // 转换为宽字符
         return CopyFileW(wide_from.c_str(), wide_to.c_str(), FALSE) != 0;
     #else
-        // 简化实现：使用系统命令
-        std::string cmd = "cp \"" + from.string() + "\" \"" + to.string() + "\"";
-        return system(cmd.c_str()) == 0;
+        // 使用Linux系统调用实现文件复制
+        int source_fd = -1, dest_fd = -1;
+        const size_t buffer_size = 8192;  // 8KB缓冲区
+        char buffer[buffer_size];
+        ssize_t bytes_read, bytes_written;
+        bool success = false;
+        
+        // 打开源文件，只读模式
+        source_fd = open(from.c_str(), O_RDONLY);
+        if (source_fd < 0) {
+            return false;  // 源文件打开失败
+        }
+        
+        // 创建或截断目标文件，读写模式
+        // O_WRONLY | O_CREAT | O_TRUNC：只写模式，文件不存在则创建，存在则截断
+        // 0644：文件权限 - 所有者读写，其他用户只读
+        dest_fd = open(to.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+        if (dest_fd < 0) {
+            close(source_fd);
+            return false;  // 目标文件创建失败
+        }
+        
+        // 循环读取源文件内容并写入目标文件
+        while ((bytes_read = read(source_fd, buffer, buffer_size)) > 0) {
+            bytes_written = write(dest_fd, buffer, bytes_read);
+            
+            // 检查写入是否成功，且写入的字节数与读取的字节数相同
+            if (bytes_written != bytes_read) {
+                goto cleanup;  // 写入失败，跳转到清理代码
+            }
+        }
+        
+        // 检查读取过程是否正常结束
+        if (bytes_read == 0) {
+            success = true;  // 复制成功
+        }
+        
+    cleanup:
+        // 关闭文件描述符
+        if (source_fd >= 0) {
+            close(source_fd);
+        }
+        if (dest_fd >= 0) {
+            close(dest_fd);
+        }
+        
+        return success;
     #endif
     }
 
