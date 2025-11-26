@@ -83,7 +83,7 @@ namespace simple_fs
                 _aWideToUTF8(impl_->data.cFileName, utf8_name);  // 转换为UTF8
                 entry_ = directory_entry(path(utf8_name));
                 // 跳过 "." 和 ".."
-                while (!impl_->is_end) {
+                while (impl_ && !impl_->is_end) {
                     std::string current_name;
                     _aWideToUTF8(impl_->data.cFileName, current_name);
                     if (current_name != "." && current_name != "..") {
