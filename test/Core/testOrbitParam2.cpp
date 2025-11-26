@@ -31,7 +31,7 @@ const double EPS = 1e-7;            // 一般精度要求
 const double HIGH_EPS = 1e-14;      // 高精度要求（用于近点角转换）
 
 /// @brief 测试抛物线轨道 (e = 1.0) 参数转换
-int testParabolaOrbit()
+TEST(OrbitParam, ParabolaOrbit)
 {
     printf("测试: 抛物线轨道 (e = 1.0)\n");
     double eccentricity = 1.0;
@@ -47,7 +47,7 @@ int testParabolaOrbit()
             double M = meanAnomalies[i];
             double E = aMeanToEcc(M, eccentricity);
             double M_back = aEccToMean(E, eccentricity);
-            ASSERT_NEAR(M, M_back, HIGH_EPS);
+            EXPECT_NEAR(M, M_back, HIGH_EPS);
         }
     }
     
@@ -62,7 +62,7 @@ int testParabolaOrbit()
             double E = eccAnomalies[i];
             double f = aEccToTrue(E, eccentricity);
             double E_back = aTrueToEcc(f, eccentricity);
-            ASSERT_NEAR(E, E_back, HIGH_EPS);
+            EXPECT_NEAR(E, E_back, HIGH_EPS);
         }
     }
     
@@ -77,7 +77,7 @@ int testParabolaOrbit()
             double f = trueAnomalies[i];
             double M = aTrueToMean(f, eccentricity);
             double f_back = aMeanToTrue(M, eccentricity);
-            ASSERT_NEAR(f, f_back, HIGH_EPS);
+            EXPECT_NEAR(f, f_back, HIGH_EPS);
         }
     }
     
@@ -92,11 +92,10 @@ int testParabolaOrbit()
         // 注意：由于实现中可能没有特殊处理抛物线轨道的周期计算，这里只检查结果是否合理
     }
     
-    return 0;
 }
 
 /// @brief 测试双曲线轨道 (e > 1.0) 参数转换
-int testHyperbolaOrbit()
+TEST(OrbitParam, HyperbolaOrbit)
 {
     printf("测试: 双曲线轨道 (e > 1.0)\n");
     
@@ -119,7 +118,7 @@ int testHyperbolaOrbit()
                 double M = meanAnomalies[i];
                 double E = aMeanToEcc(M, eccentricity);
                 double M_back = aEccToMean(E, eccentricity);
-                ASSERT_NEAR(M, M_back, HIGH_EPS);
+                EXPECT_NEAR(M, M_back, HIGH_EPS);
             }
         }
         
@@ -136,11 +135,11 @@ int testHyperbolaOrbit()
                 
                 // 验证真近点角在有效范围内
                 double maxTrueAnomaly = kPI - acos(1.0 / eccentricity);
-                ASSERT_TRUE(f < maxTrueAnomaly && f > -maxTrueAnomaly);
+                EXPECT_TRUE(f < maxTrueAnomaly && f > -maxTrueAnomaly);
                 
                 // 验证往返转换
                 double E_back = aTrueToEcc(f, eccentricity);
-                ASSERT_NEAR(E, E_back, HIGH_EPS);
+                EXPECT_NEAR(E, E_back, HIGH_EPS);
             }
         }
         
@@ -156,7 +155,7 @@ int testHyperbolaOrbit()
                 double f = trueAnomalies[i];
                 double M = aTrueToMean(f, eccentricity);
                 double f_back = aMeanToTrue(M, eccentricity);
-                ASSERT_NEAR(f, f_back, HIGH_EPS);
+                EXPECT_NEAR(f, f_back, HIGH_EPS);
             }
         }
         
@@ -167,7 +166,7 @@ int testHyperbolaOrbit()
             double invalidTrueAnomaly = kPI - acos(1.0 / eccentricity) + 0.1;
             double E = aTrueToEcc(invalidTrueAnomaly, eccentricity);
             // 检查是否返回了无效值
-            ASSERT_TRUE(isnan(E));
+            EXPECT_TRUE(isnan(E));
         }
         
         // 测试双曲线轨道的长半轴和半径关系
@@ -180,15 +179,14 @@ int testHyperbolaOrbit()
             double semiMajorAxisBack = aPeriRadToSMajAx(periRad, eccentricity);
             
             // 验证往返转换
-            ASSERT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
+            EXPECT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
         }
     }
     
-    return 0;
 }
 
 /// @brief 测试接近边界的情况
-int testBoundaryConditions()
+TEST(OrbitParam, BoundaryConditions)
 {
     printf("测试: 边界条件\n");
     
@@ -201,11 +199,11 @@ int testBoundaryConditions()
         // 测试近点角转换
         double E = aMeanToEcc(meanAnomaly, eccentricity);
         double M_back = aEccToMean(E, eccentricity);
-        ASSERT_NEAR(meanAnomaly, M_back, HIGH_EPS);
+        EXPECT_NEAR(meanAnomaly, M_back, HIGH_EPS);
         
         double f = aEccToTrue(E, eccentricity);
         double E_back = aTrueToEcc(f, eccentricity);
-        ASSERT_NEAR(E, E_back, HIGH_EPS);
+        EXPECT_NEAR(E, E_back, HIGH_EPS);
     }
     
     // 测试接近抛物线的双曲线轨道 (e 接近但大于 1.0)
@@ -217,11 +215,11 @@ int testBoundaryConditions()
         // 测试近点角转换
         double E = aMeanToEcc(meanAnomaly, eccentricity);
         double M_back = aEccToMean(E, eccentricity);
-        ASSERT_NEAR(meanAnomaly, M_back, HIGH_EPS);
+        EXPECT_NEAR(meanAnomaly, M_back, HIGH_EPS);
         
         double f = aEccToTrue(E, eccentricity);
         double E_back = aTrueToEcc(f, eccentricity);
-        ASSERT_NEAR(E, E_back, HIGH_EPS);
+        EXPECT_NEAR(E, E_back, HIGH_EPS);
     }
     
     // 测试极端椭圆轨道 (e 接近 1.0 但小于 1.0)
@@ -235,7 +233,7 @@ int testBoundaryConditions()
         double perigeeAltBack = aApoAltToPeriAlt(apogeeAlt, eccentricity, CB_RADIUS);
         
         // 验证往返转换
-        ASSERT_NEAR(perigeeAlt, perigeeAltBack, EPS);
+        EXPECT_NEAR(perigeeAlt, perigeeAltBack, EPS);
     }
     
     // 测试负偏心率的处理（应该返回无效值）
@@ -246,17 +244,16 @@ int testBoundaryConditions()
         
         // 测试负偏心率的处理
         double meanAnomaly = aEccToMean(eccAnomaly, negativeEcc);
-        ASSERT_TRUE(isnan(meanAnomaly));
+        EXPECT_TRUE(isnan(meanAnomaly));
         
         double trueAnomaly = aEccToTrue(eccAnomaly, negativeEcc);
-        ASSERT_TRUE(isnan(trueAnomaly));
+        EXPECT_TRUE(isnan(trueAnomaly));
     }
     
-    return 0;
 }
 
 /// @brief 测试迭代函数的收敛性
-int testConvergence()
+TEST(OrbitParam, Convergence)
 {
     printf("测试: 迭代函数收敛性\n");
     
@@ -278,7 +275,7 @@ int testConvergence()
             double M_back = aEccToMean(E, eccentricity);
             
             // 验证结果满足精度要求
-            ASSERT_TRUE(fabs(meanAnomaly - M_back) < eps * 10); // 允许10倍精度误差作为安全边界
+            EXPECT_TRUE(fabs(meanAnomaly - M_back) < eps * 10); // 允许10倍精度误差作为安全边界
         }
     }
     
@@ -290,37 +287,9 @@ int testConvergence()
         
         double E = aMeanToEcc(M, highEcc, 1e-12, 200);
         double M_back = aEccToMean(E, highEcc);
-        ASSERT_NEAR(M, M_back, 1e-10);
+        EXPECT_NEAR(M, M_back, 1e-10);
     }
     
-    return 0;
 }
 
-int main()
-{
-    printf("开始轨道参数特殊情况测试...\n\n");
-    
-    int rc = 0;
-    
-    // 运行所有特殊情况测试
-    rc |= testParabolaOrbit();
-    printf("\n");
-    
-    rc |= testHyperbolaOrbit();
-    printf("\n");
-    
-    rc |= testBoundaryConditions();
-    printf("\n");
-    
-    rc |= testConvergence();
-    printf("\n");
-    
-    // 输出测试结果
-    if (rc == 0) {
-        printf("所有特殊情况测试完成，全部通过！\n");
-    } else {
-        printf("特殊情况测试完成，但有失败项！\n");
-    }
-    
-    return rc;
-}
+GTEST_MAIN()

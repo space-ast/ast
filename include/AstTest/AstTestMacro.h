@@ -24,6 +24,18 @@
 #include <math.h>	// for fabs
 #include <stdio.h>	// for printf
 #include <iostream> // for std::cout 
+#include <gtest/gtest.h>
+
+
+#define GTEST_MAIN() \
+int main(int argc, char **argv) { \
+  printf("Running main() from %s\n", __FILE__); \
+  testing::InitGoogleTest(&argc, argv); \
+  return RUN_ALL_TESTS(); \
+}
+
+
+#if !defined GTEST_API_ && 0
 
 
 #define ASSERT_EQ(val1, val2)\
@@ -63,4 +75,6 @@ if(!(val))\
 	std::cout<< "val " << #val << " = " << (val) << std::endl;\
 	return -1;\
 }
+
+#endif
 

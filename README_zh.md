@@ -1,5 +1,6 @@
 # ast - 航天仿真算法库
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dad4615cdda145a5a4a3ed6681b66ed9)](https://app.codacy.com/gh/space-ast/ast/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![build](https://img.shields.io/github/actions/workflow/status/space-ast/ast/build-test.yml?branch=master&style=flat-square&logo=windows)
 ![C++](https://img.shields.io/badge/C++-11+-blue.svg)
 ![License](https://img.shields.io/badge/License-Apache2.0-green.svg)

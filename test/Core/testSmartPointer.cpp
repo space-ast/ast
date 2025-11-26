@@ -27,42 +27,41 @@
 
 AST_USING_NAMESPACE
 
-int testSharedPtr()
+TEST(SmartPointer, SharedPtr)
 {
     Type* type = (Type*) 1; // only for test
     auto obj = new Object{ type };
     {
         SharedPtr<Object> ptr = obj;
-        ASSERT_EQ(ptr->refCount(), 1);
+        EXPECT_EQ(ptr->refCount(), 1);
         {
             auto ptr2 = ptr;
-            ASSERT_EQ(ptr2->refCount(), 2);
+            EXPECT_EQ(ptr2->refCount(), 2);
         }
-        ASSERT_EQ(ptr->refCount(), 1);
+        EXPECT_EQ(ptr->refCount(), 1);
     }
-    return 0;
 }
 
-int testWeakPtr()
+TEST(SmartPointer, WeakPtr)
 {
     Type* type = (Type*)1; // only for test
     {
         auto obj = new Object{ type };
         WeakPtr<Object> ptrweak = obj;
-        ASSERT_EQ(obj->weakRefCount(), 2);
+        EXPECT_EQ(obj->weakRefCount(), 2);
         obj->destruct();
-        ASSERT_TRUE(ptrweak.get() == nullptr);
-        ASSERT_EQ(obj->weakRefCount(), 1);
+        EXPECT_TRUE(ptrweak.get() == nullptr);
+        EXPECT_EQ(obj->weakRefCount(), 1);
     }
     {
         WeakPtr<Object> ptrweak;
         {
             auto obj = new Object{ type };
             ptrweak = obj;
-            ASSERT_EQ(obj->weakRefCount(), 2);
+            EXPECT_EQ(obj->weakRefCount(), 2);
             obj->destruct();
-            ASSERT_TRUE(ptrweak.get() == nullptr);
-            ASSERT_EQ(obj->weakRefCount(), 1);
+            EXPECT_TRUE(ptrweak.get() == nullptr);
+            EXPECT_EQ(obj->weakRefCount(), 1);
         }
     }
     {
@@ -70,20 +69,19 @@ int testWeakPtr()
         {
             auto obj = new Object{ type };
             ptrweak = obj;
-            ASSERT_EQ(obj->weakRefCount(), 2);
+            EXPECT_EQ(obj->weakRefCount(), 2);
             auto ptrweak2 = ptrweak;
-            ASSERT_EQ(obj->weakRefCount(), 3);
+            EXPECT_EQ(obj->weakRefCount(), 3);
             ptrweak2 = nullptr;
             obj->destruct();
-            ASSERT_TRUE(ptrweak.get() == nullptr);
-            ASSERT_EQ(obj->weakRefCount(), 1);
+            EXPECT_TRUE(ptrweak.get() == nullptr);
+            EXPECT_EQ(obj->weakRefCount(), 1);
         }
     }
-    return 0;
 }
 
 
-int testScopedPtr()
+TEST(SmartPointer, ScopedPtr)
 {
     ScopedPtr<double> ptr{new double{1.0}};
     ptr = nullptr;
@@ -92,16 +90,7 @@ int testScopedPtr()
     {
         ScopedPtr<Object> ptr{obj};
     }
-    return 0;
 }
 
-int main()
-{
-    int rc = 0 ;
-    rc |= testSharedPtr();
-    rc |= testScopedPtr();
-    rc |= testWeakPtr();
-    return rc;
-}
- 
+GTEST_MAIN()
  
