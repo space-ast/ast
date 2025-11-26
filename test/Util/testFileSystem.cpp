@@ -43,21 +43,21 @@ void listDirectory(const fs::path& path)
 }
  
 
-int main()
+TEST(FileSystem, CurrentPath)
 {
     namespace fs = _AST filesystem;
     {
         std::string filepath = u8"新建文件夹";
         fs::path current_path = filepath;
         bool same = filepath == current_path.string();
-        ASSERT_TRUE(same);
+        EXPECT_TRUE(same);
     }
     {
         fs::path current_path = fs::current_path();
         printf("current_path: %s\n", current_path.string().c_str());
 		listDirectory(current_path);
     }
-    
-    return 0;
 }
  
+
+GTEST_MAIN()

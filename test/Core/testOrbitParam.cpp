@@ -29,7 +29,7 @@ const double GM = 3.986004418e14;    // 地球引力参数 [m^3/s^2]
 const double EPS = 1e-7;            // 精度要求
 
 /// @brief 测试远地点/近地点高度与半径转换
-int testAltitudeRadiusConversion()
+TEST(OrbitParam, AltitudeRadiusConversion)
 {
     printf("测试: 远地点/近地点高度 ←→ 半径\n");
     
@@ -38,7 +38,7 @@ int testAltitudeRadiusConversion()
         double apogeeAlt = 42164000.0; // 地球同步轨道高度
         double apogeeRad = aApoAltToApoRad(apogeeAlt, CB_RADIUS);
         double apogeeAltBack = aApoRadToApoAlt(apogeeRad, CB_RADIUS);
-        ASSERT_NEAR(apogeeAlt, apogeeAltBack, EPS);
+        EXPECT_NEAR(apogeeAlt, apogeeAltBack, EPS);
     }
     
     // 测试近地点高度 ←→ 近地点半径
@@ -46,7 +46,7 @@ int testAltitudeRadiusConversion()
         double perigeeAlt = 200000.0; // 低轨道近地点高度
         double perigeeRad = aPeriAltToPeriRad(perigeeAlt, CB_RADIUS);
         double perigeeAltBack = aPeriRadToPeriAlt(perigeeRad, CB_RADIUS);
-        ASSERT_NEAR(perigeeAlt, perigeeAltBack, EPS);
+        EXPECT_NEAR(perigeeAlt, perigeeAltBack, EPS);
     }
     
     // 测试近地点/远地点高度与半径互转
@@ -56,14 +56,13 @@ int testAltitudeRadiusConversion()
         
         double apogeeAlt = aPeriAltToApoAlt(perigeeAlt, eccentricity, CB_RADIUS);
         double perigeeAltBack = aApoAltToPeriAlt(apogeeAlt, eccentricity, CB_RADIUS);
-        ASSERT_NEAR(perigeeAlt, perigeeAltBack, EPS);
+        EXPECT_NEAR(perigeeAlt, perigeeAltBack, EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试近点角转换
-int testAnomalyConversion()
+TEST(OrbitParam, AnomalyConversion)
 {
     printf("测试: 近点角转换\n");
     
@@ -74,7 +73,7 @@ int testAnomalyConversion()
         double eccAnomaly = 1.0;      // 偏近点角 [rad]
         double meanAnomaly = aEccToMean(eccAnomaly, eccentricity);
         double eccAnomalyBack = aMeanToEcc(meanAnomaly, eccentricity);
-        ASSERT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
+        EXPECT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
     }
     
     // 测试偏近点角 ←→ 真近点角
@@ -82,7 +81,7 @@ int testAnomalyConversion()
         double eccAnomaly = 1.0;      // 偏近点角 [rad]
         double trueAnomaly = aEccToTrue(eccAnomaly, eccentricity);
         double eccAnomalyBack = aTrueToEcc(trueAnomaly, eccentricity);
-        ASSERT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
+        EXPECT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
     }
     
     // 测试真近点角 ←→ 平近点角
@@ -90,14 +89,13 @@ int testAnomalyConversion()
         double trueAnomaly = 1.0;     // 真近点角 [rad]
         double meanAnomaly = aTrueToMean(trueAnomaly, eccentricity);
         double trueAnomalyBack = aMeanToTrue(meanAnomaly, eccentricity);
-        ASSERT_NEAR(trueAnomaly, trueAnomalyBack, EPS);
+        EXPECT_NEAR(trueAnomaly, trueAnomalyBack, EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试轨道要素转换
-int testOrbitalElementConversion()
+TEST(OrbitParam, OrbitalElementConversion)
 {
     printf("测试: 轨道要素转换\n");
     
@@ -106,7 +104,7 @@ int testOrbitalElementConversion()
         double semiMajorAxis = 42164000.0 + CB_RADIUS; // 地球同步轨道长半轴
         double meanMotion = aSMajAxToMeanMotn(semiMajorAxis, GM);
         double semiMajorAxisBack = aMeanMotnToSMajAx(meanMotion, GM);
-        ASSERT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
+        EXPECT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
     }
     
     // 测试长半轴 ←→ 轨道周期
@@ -114,7 +112,7 @@ int testOrbitalElementConversion()
         double semiMajorAxis = 42164000.0 + CB_RADIUS; // 地球同步轨道长半轴
         double period = aSMajAxToPeriod(semiMajorAxis, GM);
         double semiMajorAxisBack = aPeriodToSMajAx(period, GM);
-        ASSERT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
+        EXPECT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
     }
     
     // 测试平均角速度 ←→ 轨道周期
@@ -122,7 +120,7 @@ int testOrbitalElementConversion()
         double meanMotion = 7.2921158553e-5; // 地球自转角速度
         double period = aMeanMotnToPeriod(meanMotion);
         double meanMotionBack = aPeriodToMeanMotn(period);
-        ASSERT_NEAR(meanMotion, meanMotionBack, EPS);
+        EXPECT_NEAR(meanMotion, meanMotionBack, EPS);
     }
     
     // 测试近地点/远地点高度 ←→ 长半轴
@@ -132,19 +130,18 @@ int testOrbitalElementConversion()
         
         double semiMajorAxis = aPeriAltToSMajAx(perigeeAlt, eccentricity, CB_RADIUS);
         double perigeeAltBack = aSMajAxToPeriAlt(semiMajorAxis, eccentricity, CB_RADIUS);
-        ASSERT_NEAR(perigeeAlt, perigeeAltBack, EPS);
+        EXPECT_NEAR(perigeeAlt, perigeeAltBack, EPS);
         
         double apogeeAlt = aPeriAltToApoAlt(perigeeAlt, eccentricity, CB_RADIUS);
         double semiMajorAxisFromApo = aApoAltToSMajAx(apogeeAlt, eccentricity, CB_RADIUS);
         double apogeeAltBack = aSMajAxToApoAlt(semiMajorAxisFromApo, eccentricity, CB_RADIUS);
-        ASSERT_NEAR(apogeeAlt, apogeeAltBack, EPS);
+        EXPECT_NEAR(apogeeAlt, apogeeAltBack, EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试其他转换
-int testOtherConversions()
+TEST(OrbitParam, OtherConversions)
 {
     printf("测试: 其他转换\n");
     
@@ -153,7 +150,7 @@ int testOtherConversions()
         double eccentricity = 0.08;    // 偏心率
         double flatFactor = aEccToFlat(eccentricity);
         double eccentricityBack = aFlatToEcc(flatFactor);
-        ASSERT_NEAR(eccentricity, eccentricityBack, EPS);
+        EXPECT_NEAR(eccentricity, eccentricityBack, EPS);
     }
     
     // 测试近地点幅角 ←→ 近地点经度
@@ -163,14 +160,13 @@ int testOtherConversions()
         
         double longPeri = aArgPeriToLongPeri(argPeri, raan);
         // 注意：由于缺少直接从近地点经度转回的函数，这里只验证计算结果的合理性
-        ASSERT_NEAR(longPeri, argPeri + raan, EPS);
+        EXPECT_NEAR(longPeri, argPeri + raan, EPS);
     }
     
-    return 0;
 }
 
 /// @brief 测试特定转换场景
-int testSpecificScenarios()
+TEST(OrbitParam, SpecificScenarios)
 {
     printf("测试: 特定转换场景\n");
     
@@ -181,25 +177,24 @@ int testSpecificScenarios()
         
         double period = aSMajAxToPeriod(semiMajorAxis, GM);
         double expectedPeriod = 23 * 3600 + 56 * 60 + 4.0916; // 恒星日
-        ASSERT_NEAR(period, expectedPeriod, 1.0); // 允许1秒误差
+        EXPECT_NEAR(period, expectedPeriod, 1.0); // 允许1秒误差
     }
     
     // 测试偏心率和扁率的边界情况
     {
         double eccentricity = 0.0; // 圆轨道
         double flatFactor = aEccToFlat(eccentricity);
-        ASSERT_NEAR(flatFactor, 0.0, EPS);
+        EXPECT_NEAR(flatFactor, 0.0, EPS);
         
         double eccentricityBack = aFlatToEcc(flatFactor);
-        ASSERT_NEAR(eccentricity, eccentricityBack, EPS);
+        EXPECT_NEAR(eccentricity, eccentricityBack, EPS);
     }
     
-    return 0;
 }
 
 
 // 测试抛物线
-int testParabola()
+TEST(OrbitParam, Parabola)
 {
     double e = 1;
     // mean and ecc
@@ -207,26 +202,26 @@ int testParabola()
         double meanA = 0.2;
         double eccA = aMeanToEcc(meanA, e);
         double meanA2 = aEccToMean(eccA, e);
-        ASSERT_NEAR(meanA, meanA2, 1e-14);
+        EXPECT_NEAR(meanA, meanA2, 1e-14);
     }
     {
         double meanA = 1.4;
         double eccA = aMeanToEcc(meanA, e);
         double meanA2 = aEccToMean(eccA, e);
-        ASSERT_NEAR(meanA, meanA2, 1e-14);
+        EXPECT_NEAR(meanA, meanA2, 1e-14);
     }
     // ecc and true
     {
         double eccA = 0.2;
         double trueA = aEccToTrue(eccA, e);
         double eccA2 = aTrueToEcc(trueA, e);
-        ASSERT_NEAR(eccA, eccA2, 1e-14);
+        EXPECT_NEAR(eccA, eccA2, 1e-14);
     }
     {
         double eccA = 1.7;
         double trueA = aEccToTrue(eccA, e);
         double eccA2 = aTrueToEcc(trueA, e);
-        ASSERT_NEAR(eccA, eccA2, 1e-14);
+        EXPECT_NEAR(eccA, eccA2, 1e-14);
     }
 
     // true and mean
@@ -234,34 +229,15 @@ int testParabola()
         double meanA = 0.2;
         double trueA = aMeanToTrue(meanA, e);
         double meanA2 = aTrueToMean(trueA, e);
-        ASSERT_NEAR(meanA, meanA2, 1e-14);
+        EXPECT_NEAR(meanA, meanA2, 1e-14);
     }
     {
         double meanA = 1.6;
         double trueA = aMeanToTrue(meanA, e);
         double meanA2 = aTrueToMean(trueA, e);
-        ASSERT_NEAR(meanA, meanA2, 1e-14);
+        EXPECT_NEAR(meanA, meanA2, 1e-14);
     }
-    return 0;
 }
 
-int main()
-{
-    printf("开始轨道参数转换往返测试...\n");
-    
-    int rc = 0;
-    rc |= testAltitudeRadiusConversion();
-    rc |= testAnomalyConversion();
-    rc |= testOrbitalElementConversion();
-    rc |= testOtherConversions();
-    rc |= testSpecificScenarios();
-    rc |= testParabola();
 
-    if (rc == 0) {
-        printf("所有往返测试完成，全部通过！\n");
-    } else {
-        printf("测试完成，但有失败项！\n");
-    }
-    
-    return rc;
-}
+GTEST_MAIN()

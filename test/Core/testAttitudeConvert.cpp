@@ -27,7 +27,7 @@
 AST_USING_NAMESPACE
 
 
-int testQuatAnsMatrix(const Quaternion& quatInput)
+void testQuatAnsMatrix(const Quaternion& quatInput)
 {
     Quaternion quat2, quat = quatInput;
     quat.normalize();
@@ -36,12 +36,11 @@ int testQuatAnsMatrix(const Quaternion& quatInput)
     aMatrixToQuat(mtx, quat2);
     for (size_t i = 0; i < size(quat2); i++)
     {
-        ASSERT_NEAR(quat[i], quat2[i], 1e-14);
+        EXPECT_NEAR(quat[i], quat2[i], 1e-14);
     }
-    return 0;
 }
 
-int testQuatAndMatrix()
+TEST(AttitudeConvertTest, QuatAndMatrix)
 {
     {
         Matrix3d mtx = Matrix3d::Identify();
@@ -49,29 +48,28 @@ int testQuatAndMatrix()
         Quaternion quat;
         aMatrixToQuat(mtx, quat);
         aQuatToMatrix(quat, mtx2);
-        ASSERT_EQ(quat.qs(), 1);
-        ASSERT_EQ(quat.qx(), 0);
-        ASSERT_EQ(quat.qy(), 0);
-        ASSERT_EQ(quat.qz(), 0);
+        EXPECT_EQ(quat.qs(), 1);
+        EXPECT_EQ(quat.qx(), 0);
+        EXPECT_EQ(quat.qy(), 0);
+        EXPECT_EQ(quat.qz(), 0);
         for (size_t i = 0; i < 3; i++)
         {
             for (size_t j = 0; j < 3; j++)
             {
-                ASSERT_EQ(mtx(i,j), mtx2(i,j));
+                EXPECT_EQ(mtx(i,j), mtx2(i,j));
             }
         }
 
     }
 
-    ASSERT_FALSE(testQuatAnsMatrix({ 1,0,0,0 }));
-    ASSERT_FALSE(testQuatAnsMatrix({ 1,2,3,4 }));
-    ASSERT_FALSE(testQuatAnsMatrix({ 2,-2,-1,2 }));
+    testQuatAnsMatrix({ 1,0,0,0 });
+    testQuatAnsMatrix({ 1,2,3,4 });
+    testQuatAnsMatrix({ 2,-2,-1,2 });
 
-    return 0;
 }
 
 
-int testEulerAndMatrix(int seq, const Euler& eulerInput)
+void testEulerAndMatrix(int seq, const Euler& eulerInput)
 {
     Euler euler = eulerInput;
     Euler euler2;
@@ -81,47 +79,42 @@ int testEulerAndMatrix(int seq, const Euler& eulerInput)
     aMatrixToEuler(mtx, seq, euler2);
     for (int i = 0; i < 9; i++)
     {
-        ASSERT_NEAR(mtx(i), mtx2(i), 1e-14);
+        EXPECT_NEAR(mtx(i), mtx2(i), 1e-14);
     }
     for (int i = 0; i < size(euler); i++)
     {
-        ASSERT_NEAR(euler[i], euler2[i], 1e-14);
+        EXPECT_NEAR(euler[i], euler2[i], 1e-14);
     }
-    return 0;
 }
 
-int testEulerAndMatrix(const Euler& eulerInput)
+void testEulerAndMatrix(const Euler& eulerInput)
 {
-    int rc = 0;
-    rc |= testEulerAndMatrix(123, eulerInput);
-    rc |= testEulerAndMatrix(132, eulerInput);
-    rc |= testEulerAndMatrix(213, eulerInput);
-    rc |= testEulerAndMatrix(231, eulerInput);
-    rc |= testEulerAndMatrix(312, eulerInput);
-    rc |= testEulerAndMatrix(321, eulerInput);
-    rc |= testEulerAndMatrix(121, eulerInput);
-    rc |= testEulerAndMatrix(131, eulerInput);
-    rc |= testEulerAndMatrix(212, eulerInput);
-    rc |= testEulerAndMatrix(232, eulerInput);
-    rc |= testEulerAndMatrix(313, eulerInput);
-    rc |= testEulerAndMatrix(323, eulerInput);
-    return rc;
+    testEulerAndMatrix(123, eulerInput);
+    testEulerAndMatrix(132, eulerInput);
+    testEulerAndMatrix(213, eulerInput);
+    testEulerAndMatrix(231, eulerInput);
+    testEulerAndMatrix(312, eulerInput);
+    testEulerAndMatrix(321, eulerInput);
+    testEulerAndMatrix(121, eulerInput);
+    testEulerAndMatrix(131, eulerInput);
+    testEulerAndMatrix(212, eulerInput);
+    testEulerAndMatrix(232, eulerInput);
+    testEulerAndMatrix(313, eulerInput);
+    testEulerAndMatrix(323, eulerInput);
 }
 
 
-int testEulerAndMatrix()
+TEST(AttitudeConvertTest, EulerAndMatrix)
 {
-    int rc = 0;
-    rc = testEulerAndMatrix({ 0,0,0 });
-    rc = testEulerAndMatrix({ 1,0,0 });
-    rc = testEulerAndMatrix({ 1,1.2,3 });
-    rc = testEulerAndMatrix({ -1,1.1,3 });
-    rc = testEulerAndMatrix({ -1,1.2,-2 });
-    rc = testEulerAndMatrix({ -0.4,0.1,-2 });
-    return rc;
+    testEulerAndMatrix({ 0,0,0 });
+    testEulerAndMatrix({ 1,0,0 });
+    testEulerAndMatrix({ 1,1.2,3 });
+    testEulerAndMatrix({ -1,1.1,3 });
+    testEulerAndMatrix({ -1,1.2,-2 });
+    testEulerAndMatrix({ -0.4,0.1,-2 });
 }
 
-int testExample1()
+TEST(AttitudeConvertTest, Example1)
 {
     // 创建四元数 (绕Z轴旋转90度)
     Quaternion quat = { 0.707, 0, 0, 0.707 };
@@ -139,11 +132,10 @@ int testExample1()
     std::cout << "欧拉角: " << euler.angle1() << ", "
         << euler.angle2() << ", " << euler.angle3() << std::endl;
 
-    return 0;
 }
 
 
-int testExample2()
+TEST(AttitudeConvertTest, Example2)
 {
     {
         // 创建欧拉角 (弧度) - 滚转10°, 俯仰20°, 偏航30°
@@ -166,11 +158,10 @@ int testExample2()
             << ", " << quat.qy() << ", " << quat.qz() << std::endl;
     }
 
-    return 0;
 }
 
 
-int testExample3()
+TEST(AttitudeConvertTest, Example3)
 {
     {
         Quaternion q = { 0.5, 0.5, 0.5, 0.5 };
@@ -198,10 +189,9 @@ int testExample3()
             << ", " << q.qy() << ", " << q.qz() << std::endl;
     }
 
-    return 0;
 }
 
-int testExample4()
+TEST(AttitudeConvertTest, Example4)
 {
     // 初始欧拉角 (滚转, 俯仰, 偏航)
     Euler initial_euler{ 0.3, 0.2, 0.1 };
@@ -241,18 +231,6 @@ int testExample4()
             << final_euler.angle2() << ", " << final_euler.angle3() << std::endl;
     }
 
-    return 0;
 }
 
-int main()
-{
-    int rc = 0;
-    rc |= testQuatAndMatrix();
-    rc |= testEulerAndMatrix();
-    rc |= testExample1();
-    rc |= testExample2();
-    rc |= testExample3();
-    rc |= testExample4();
-
-    return rc;
-}
+GTEST_MAIN()
