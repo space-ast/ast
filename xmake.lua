@@ -16,7 +16,7 @@ option_end()
 add_includedirs("include")
 
 -- 添加编译规则
-add_rules("mode.debug", "mode.release")
+add_rules("mode.debug", "mode.release", "mode.coverage")
 add_rules("plugin.vsxmake.autoupdate")
 
 -- 设置编译策略

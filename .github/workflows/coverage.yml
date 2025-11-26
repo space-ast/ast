@@ -1,0 +1,41 @@
+﻿name: 测试覆盖率
+
+on: [push, pull_request]
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # WyriHaximus/github-action-get-previous-tag@master need it
+          fetch-depth: 0
+          submodules: true      
+      
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          # this is not supported, use dev branch instead
+          # xmake-version: local#
+          xmake-version: branch@dev
+
+      - name: 安装依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lcov
+      
+      - name: 编译测试
+        run: |
+          xmake f -cy -m coverage --with_test=y
+          xmake
+      
+      - name: 生成覆盖率报告
+        run: |
+          lcov --directory . --zerocounters
+          xmake test
+          lcov --directory . --capture --include */src/* --output-file coverage.info 
+      
+      - name: 上传到 Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: space-ast/ast
