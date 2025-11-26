@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <type_traits>    // for std::enable_if
 
 AST_NAMESPACE_BEGIN
