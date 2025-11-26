@@ -222,7 +222,7 @@ std::array<std::array<_Scalar, K>, I> mtimes(const _Scalar(&left)[I][J],
 
 ## Dependencies
 
-- `AstGlobal.hpp`: Project global definitions
+- `AstGlobal.h`: Project global definitions
 - `math.h`: Mathematical functions
 - `assert.h`: Assertion checking
 - `type_traits`: Type traits

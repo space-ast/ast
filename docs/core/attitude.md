@@ -282,6 +282,6 @@ class Quaternion {
 
 ## 依赖关系
 
-- `AstGlobal.hpp`: 项目全局定义
+- `AstGlobal.h`: 项目全局定义
 - `MathOperator.hpp`: 数学运算功能
 - `Matrix3d`, `Vector3d`: 矩阵和向量类型

@@ -376,7 +376,7 @@ void aEquinElemToCart(const EquinElem& equinElem, double gm, Vector3d& pos, Vect
 
 ## 依赖关系
 
-- `AstGlobal.hpp`: 项目全局定义
+- `AstGlobal.h`: 项目全局定义
 - `AstCore/Vector.hpp`: 向量类支持
 
 ## 注意事项

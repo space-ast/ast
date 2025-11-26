@@ -266,6 +266,6 @@ Conversion functions return `err_t` type indicating operation status. Callers sh
 
 ## Dependencies
 
-- `AstGlobal.hpp`: Project global definitions
+- `AstGlobal.h`: Project global definitions
 - `MathOperator.hpp`: Mathematical operations functionality
 - `Matrix3d`, `Vector3d`: Matrix and vector types

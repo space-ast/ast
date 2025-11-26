@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <iostream>     // for std::cout
 #include <sstream>      // for std::ostringstream
 #include <stdarg.h>     // for va_list

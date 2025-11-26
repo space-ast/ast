@@ -19,7 +19,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <math.h>       // for sqrt
 #include <assert.h>     // for assert
 #include <type_traits>  // for std::is_pointer

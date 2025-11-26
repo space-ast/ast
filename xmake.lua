@@ -10,13 +10,14 @@ option("with_test")
 option_end()
 
 -- 设置c代码标准：c99， c++代码标准：c++11
-set_languages("cxx11", "c99")
+-- set_languages("cxx11", "c99")
 
 -- 添加包含目录
 add_includedirs("include")
 
 -- 添加编译规则
 add_rules("mode.debug", "mode.release")
+add_rules("plugin.vsxmake.autoupdate")
 
 -- 设置编译策略
 set_policy("build.progress_style", "multirow")

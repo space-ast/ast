@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include "INLPProblem.hpp"
 
 AST_NAMESPACE_BEGIN

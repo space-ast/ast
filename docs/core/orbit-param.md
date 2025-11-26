@@ -221,7 +221,7 @@ double meanMotion = aSMajAxToMeanMotn(semiMajorAxis, gmEarth);
 
 ## 依赖关系
 
-- `AstGlobal.hpp`: 项目全局定义
+- `AstGlobal.h`: 项目全局定义
 - `math.h`: 数学函数支持
 - 相关数学运算模块
 
