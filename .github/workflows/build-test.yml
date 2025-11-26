@@ -32,7 +32,7 @@ jobs:
 
       - name: 编译
         run: |
-          xmake f -c --with_test=y
+          xmake f -cy --with_test=y
           xmake
 
       - name: 测试
