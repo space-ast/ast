@@ -82,8 +82,14 @@ std::string aDataDirGetDefault()
         if (datadir && fs::is_directory(datadir))
             return datadir;
     }
+    catch (const std::exception& e)
+    {
+        // 忽略可能的异常, 或者记录下来
+        aWarning("Exception while searching for data directory: %s", e.what());
+    }
     catch (...)
     {
+        aWarning("Exception while searching for data directory");
         // 忽略可能的异常
     }
 
@@ -93,7 +99,14 @@ std::string aDataDirGetDefault()
         if (fs::is_directory(datadir))
             return datadir.string();
     }
-    catch (...) {
+    catch (const std::exception& e)
+    {
+        // 忽略可能的异常, 或者记录下来
+        aWarning("Exception while searching for data directory: %s", e.what());
+    }
+    catch (...)
+    {
+        aWarning("Exception while searching for data directory");
         // 忽略可能的异常
     }
     
@@ -103,7 +116,14 @@ std::string aDataDirGetDefault()
         if (fs::is_directory(datadir))
             return datadir.string();
     }
-    catch (...) {
+    catch (const std::exception& e)
+    {
+        // 忽略可能的异常, 或者记录下来
+        aWarning("Exception while searching for data directory: %s", e.what());
+    }
+    catch (...)
+    {
+        aWarning("Exception while searching for data directory");
         // 忽略可能的异常
     }
     
@@ -113,7 +133,14 @@ std::string aDataDirGetDefault()
         if (fs::is_directory(currentdir))
             return currentdir.string();
     }
-    catch (...) {
+    catch (const std::exception& e)
+    {
+        // 忽略可能的异常, 或者记录下来
+        aWarning("Exception while searching for data directory: %s", e.what());
+    }
+    catch (...)
+    {
+        aWarning("Exception while searching for data directory");
         // 忽略可能的异常
     }
 
