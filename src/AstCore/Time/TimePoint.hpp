@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include "AstCore/Constants.h"      // for kJ2000XXXX
 #include <stdint.h>                 // for int64_t
 

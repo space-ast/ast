@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <math.h>	// for fabs
 #include <stdio.h>	// for printf
 #include <iostream> // for std::cout 

@@ -11,5 +11,5 @@ for _, file in ipairs(files) do
         add_files(file)
         set_kind("binary")
         add_tests("test")
-        add_extrafiles("xmake.lua")
+        -- add_extrafiles("xmake.lua")
 end

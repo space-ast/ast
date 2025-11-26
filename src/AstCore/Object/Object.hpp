@@ -20,7 +20,7 @@
  
 #pragma once
  
-#include "AstGlobal.hpp"
+#include "AstGlobal.h"
 #include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
 #include <assert.h>     // for assert
