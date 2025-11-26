@@ -25,7 +25,7 @@
 #include "AstTest/AstTestMacro.h"
 
 
-int main()
+TEST(TwoBodyTest, Prop)
 {
 	AST_USING_NAMESPACE
 	{
@@ -54,3 +54,5 @@ int main()
 		}
 	}
 }
+
+GTEST_MAIN()
