@@ -12,8 +12,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/statvfs.h>
+#include <fcntl.h>   // 用于 open 和相关标志
 #include <dirent.h>
-#include <unistd.h>
+#include <unistd.h>  // 用于 read, write, close
 #endif
 
 
