@@ -1,5 +1,7 @@
 # ast - Aerospace Simulation Algorithm Library
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/63fc4c1e82724ad78667eef625e3805e)](https://app.codacy.com/gh/space-ast/ast?utm_source=github.com&utm_medium=referral&utm_content=space-ast/ast&utm_campaign=Badge_Grade)
+
 ![build](https://img.shields.io/github/actions/workflow/status/space-ast/ast/build-test.yml?branch=master&style=flat-square&logo=windows)
 ![C++](https://img.shields.io/badge/C++-11+-blue.svg)
 ![License](https://img.shields.io/badge/License-Apache2.0-green.svg)
