@@ -30,14 +30,18 @@
 #include <ctime>
 #include <algorithm>
 #include <cstring>
+#include <memory>
 
  
 AST_NAMESPACE_BEGIN
  
 #ifdef _WIN32   
 
-AST_CORE_CAPI void _aANSIToWide(const char* ansi, std::wstring& wide);
-AST_CORE_CAPI void _aWideToANSI(const wchar_t* wide, std::string& ansi);
+AST_UTIL_CAPI void _aANSIToWide(const char* ansi, std::wstring& wide);
+AST_UTIL_CAPI void _aUTF8ToWide(const char* utf8, std::wstring& wide);
+AST_UTIL_CAPI void _aWideToANSI(const wchar_t* wide, std::string& ansi);
+AST_UTIL_CAPI void _aWideToUTF8(const wchar_t* wide, std::string& utf8);
+
 #endif
 
 #define _AST_FS _AST simple_fs::
@@ -224,17 +228,16 @@ namespace simple_fs
     };
 
     // 目录迭代器
-    class directory_iterator
+    class AST_UTIL_API directory_iterator
     {
     public:
         directory_iterator() : impl_(nullptr)
         {}
         explicit directory_iterator(const path& p);
-        ~directory_iterator();
+        ~directory_iterator() = default;
 
-        // 禁用拷贝，允许移动
-        directory_iterator(const directory_iterator&) = delete;
-        directory_iterator& operator=(const directory_iterator&) = delete;
+        directory_iterator(const directory_iterator&);
+        directory_iterator& operator=(const directory_iterator&);
         directory_iterator(directory_iterator&& other) noexcept;
         directory_iterator& operator=(directory_iterator&& other) noexcept;
 
@@ -260,28 +263,28 @@ namespace simple_fs
 
     private:
         struct impl;
-        impl* impl_;
+        std::shared_ptr<impl> impl_;
         directory_entry entry_;
 
         void read_next_entry();
     };
 
     // 基础文件操作
-    bool exists(const path& p);
-    bool is_directory(const path& p);
-    bool is_regular_file(const path& p);
-    uintmax_t file_size(const path& p);
-    file_status status(const path& p);
+    AST_UTIL_API bool exists(const path& p);
+    AST_UTIL_API bool is_directory(const path& p);
+    AST_UTIL_API bool is_regular_file(const path& p);
+    AST_UTIL_API uintmax_t file_size(const path& p);
+    AST_UTIL_API file_status status(const path& p);
 
     // 目录操作
-    bool create_directory(const path& p);
-    bool create_directories(const path& p);
-    bool remove(const path& p);
-    uintmax_t remove_all(const path& p);
+    AST_UTIL_API bool create_directory(const path& p);
+    AST_UTIL_API bool create_directories(const path& p);
+    AST_UTIL_API bool remove(const path& p);
+    AST_UTIL_API uintmax_t remove_all(const path& p);
 
     // 文件操作
-    bool copy_file(const path& from, const path& to);
-    bool rename(const path& old_p, const path& new_p);
+    AST_UTIL_API bool copy_file(const path& from, const path& to);
+    AST_UTIL_API bool rename(const path& old_p, const path& new_p);
 
     // 目录迭代器相关
     inline directory_iterator begin(directory_iterator iter) noexcept
@@ -301,10 +304,10 @@ namespace simple_fs
         uintmax_t available;
     };
 
-    space_info space(const path& p);
+    AST_UTIL_API space_info space(const path& p);
 
     // 最后修改时间（简化版，返回time_t）
-    std::time_t last_write_time(const path& p);
+    AST_UTIL_API std::time_t last_write_time(const path& p);
 
     // 当前路径相关函数
     AST_UTIL_API path current_path();

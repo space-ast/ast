@@ -27,14 +27,16 @@ namespace simple_fs
     struct directory_iterator::impl
     {
         HANDLE handle;
-        WIN32_FIND_DATAA data;  // 使用宽字符版本
+        WIN32_FIND_DATAW data;  // 修改为宽字符版本
         bool is_end;
 
         impl(const path& p) : handle(INVALID_HANDLE_VALUE), is_end(false)
         {
             // 使用平台相关的字符串类型
             string_type search_path = (p / "*").native();
-            handle = FindFirstFileA(search_path.c_str(), &data);
+            std::wstring wide_path;
+            _aUTF8ToWide(search_path.c_str(), wide_path);  // 转换为宽字符
+            handle = FindFirstFileW(wide_path.c_str(), &data);
             if (handle == INVALID_HANDLE_VALUE) {
                 is_end = true;
             }
@@ -76,11 +78,16 @@ namespace simple_fs
         #ifdef _WIN32
             if (!impl_->is_end) {
                 // 使用宽字符文件名创建path对象
-                entry_ = directory_entry(path(impl_->data.cFileName));
+                std::string utf8_name;
+                _aWideToUTF8(impl_->data.cFileName, utf8_name);  // 转换为UTF8
+                entry_ = directory_entry(path(utf8_name));
                 // 跳过 "." 和 ".."
-                while (!impl_->is_end &&
-                    (strcmp(impl_->data.cFileName, ".") == 0 ||
-                        strcmp(impl_->data.cFileName, "..") == 0)) {
+                while (!impl_->is_end) {
+                    std::string current_name;
+                    _aWideToUTF8(impl_->data.cFileName, current_name);
+                    if (current_name != "." && current_name != "..") {
+                        break;
+                    }
                     read_next_entry();
                 }
             }
@@ -98,9 +105,18 @@ namespace simple_fs
         }
     }
 
-    directory_iterator::~directory_iterator()
+
+    directory_iterator::directory_iterator(const directory_iterator& other)
+		: impl_(other.impl_), entry_(other.entry_)
+    {}
+
+    directory_iterator& directory_iterator::operator=(const directory_iterator& other)
     {
-        delete impl_;
+        if (&other != this) {
+            this->impl_ = other.impl_;
+            this->entry_ = other.entry_;
+        }
+        return *this;
     }
 
     directory_iterator::directory_iterator(directory_iterator&& other) noexcept
@@ -112,7 +128,7 @@ namespace simple_fs
     directory_iterator& directory_iterator::operator=(directory_iterator&& other) noexcept
     {
         if (this != &other) {
-            delete impl_;
+            // delete impl_;
             impl_ = other.impl_;
             entry_ = std::move(other.entry_);
             other.impl_ = nullptr;
@@ -124,12 +140,15 @@ namespace simple_fs
     {
     #ifdef _WIN32
         if (impl_ && !impl_->is_end) {
-            if (FindNextFileA(impl_->handle, &impl_->data)) {
-                entry_ = directory_entry(path(impl_->data.cFileName));
+            if (FindNextFileW(impl_->handle, &impl_->data)) {
+                std::string utf8_name;
+                _aWideToUTF8(impl_->data.cFileName, utf8_name);  // 转换为UTF8
+                entry_ = directory_entry(path(utf8_name));
             }
             else {
                 impl_->is_end = true;
                 entry_ = directory_entry();
+                impl_ = nullptr;
             }
         }
     #else
@@ -140,6 +159,7 @@ namespace simple_fs
             }
             else {
                 entry_ = directory_entry();
+                impl_ = nullptr;
             }
         }
     #endif
@@ -149,11 +169,16 @@ namespace simple_fs
     {
         if (impl_) {
             read_next_entry();
+        }
+        if(impl_){
         #ifdef _WIN32
             // 在Windows上跳过 "." 和 ".."
-            while (!impl_->is_end &&
-                (strcmp(impl_->data.cFileName, ".") == 0 ||
-                    strcmp(impl_->data.cFileName, "..") == 0)) {
+            while (!impl_->is_end) {
+                std::string current_name;
+                _aWideToUTF8(impl_->data.cFileName, current_name);
+                if (current_name != "." && current_name != "..") {
+                    break;
+                }
                 read_next_entry();
             }
         #else
@@ -178,7 +203,9 @@ namespace simple_fs
     bool exists(const path& p)
     {
     #ifdef _WIN32
-        DWORD attrs = GetFileAttributesA(p.c_str());
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        DWORD attrs = GetFileAttributesW(wide_path.c_str());
         return (attrs != INVALID_FILE_ATTRIBUTES);
     #else
         struct stat sb;
@@ -189,7 +216,9 @@ namespace simple_fs
     bool is_directory(const path& p)
     {
     #ifdef _WIN32
-        DWORD attrs = GetFileAttributesA(p.c_str());
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        DWORD attrs = GetFileAttributesW(wide_path.c_str());
         return (attrs != INVALID_FILE_ATTRIBUTES) && (attrs & FILE_ATTRIBUTE_DIRECTORY);
     #else
         struct stat sb;
@@ -203,7 +232,9 @@ namespace simple_fs
     bool is_regular_file(const path& p)
     {
     #ifdef _WIN32
-        DWORD attrs = GetFileAttributesA(p.c_str());
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        DWORD attrs = GetFileAttributesW(wide_path.c_str());
         return (attrs != INVALID_FILE_ATTRIBUTES) && !(attrs & FILE_ATTRIBUTE_DIRECTORY);
     #else
         struct stat sb;
@@ -217,7 +248,9 @@ namespace simple_fs
     uintmax_t file_size(const path& p)
     {
     #ifdef _WIN32
-        HANDLE hFile = CreateFileA(p.c_str(), GENERIC_READ, FILE_SHARE_READ,
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        HANDLE hFile = CreateFileW(wide_path.c_str(), GENERIC_READ, FILE_SHARE_READ,
             NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile == INVALID_HANDLE_VALUE) {
             return static_cast<uintmax_t>(-1);
@@ -262,7 +295,9 @@ namespace simple_fs
     bool create_directory(const path& p)
     {
     #ifdef _WIN32
-        return CreateDirectoryA(p.c_str(), NULL) != 0;
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        return CreateDirectoryW(wide_path.c_str(), NULL) != 0;
     #else
         return mkdir(p.c_str(), 0755) == 0;
     #endif
@@ -290,11 +325,13 @@ namespace simple_fs
     bool remove(const path& p)
     {
     #ifdef _WIN32
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         if (is_directory(p)) {
-            return RemoveDirectoryA(p.c_str()) != 0;
+            return RemoveDirectoryW(wide_path.c_str()) != 0;
         }
         else {
-            return DeleteFileA(p.c_str()) != 0;
+            return DeleteFileW(wide_path.c_str()) != 0;
         }
     #else
         if (is_directory(p)) {
@@ -336,7 +373,10 @@ namespace simple_fs
     bool copy_file(const path& from, const path& to)
     {
     #ifdef _WIN32
-        return CopyFileA(from.c_str(), to.c_str(), FALSE) != 0;
+        std::wstring wide_from, wide_to;
+        _aUTF8ToWide(from.c_str(), wide_from);  // 转换为宽字符
+        _aUTF8ToWide(to.c_str(), wide_to);      // 转换为宽字符
+        return CopyFileW(wide_from.c_str(), wide_to.c_str(), FALSE) != 0;
     #else
         // 简化实现：使用系统命令
         std::string cmd = "cp \"" + from.string() + "\" \"" + to.string() + "\"";
@@ -347,7 +387,10 @@ namespace simple_fs
     bool rename(const path& old_p, const path& new_p)
     {
     #ifdef _WIN32
-        return MoveFileA(old_p.c_str(), new_p.c_str()) != 0;
+        std::wstring wide_old, wide_new;
+        _aUTF8ToWide(old_p.c_str(), wide_old);  // 转换为宽字符
+        _aUTF8ToWide(new_p.c_str(), wide_new);  // 转换为宽字符
+        return MoveFileW(wide_old.c_str(), wide_new.c_str()) != 0;
     #else
         return ::rename(old_p.c_str(), new_p.c_str()) == 0;
     #endif
@@ -359,8 +402,10 @@ namespace simple_fs
         space_info info{};
 
     #ifdef _WIN32
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         ULARGE_INTEGER free, total, avail;
-        if (GetDiskFreeSpaceExA(p.c_str(), &avail, &total, &free)) {
+        if (GetDiskFreeSpaceExW(wide_path.c_str(), &avail, &total, &free)) {
             info.capacity = total.QuadPart;
             info.free = free.QuadPart;
             info.available = avail.QuadPart;
@@ -381,7 +426,9 @@ namespace simple_fs
     std::time_t last_write_time(const path& p)
     {
     #ifdef _WIN32
-        HANDLE hFile = CreateFileA(p.c_str(), GENERIC_READ, FILE_SHARE_READ,
+        std::wstring wide_path;
+        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        HANDLE hFile = CreateFileW(wide_path.c_str(), GENERIC_READ, FILE_SHARE_READ,
             NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile == INVALID_HANDLE_VALUE) {
             return static_cast<std::time_t>(-1);
@@ -413,19 +460,21 @@ namespace simple_fs
     path current_path()
     {
     #ifdef _WIN32
-        // Windows 实现 - 直接使用宽字符 API
-        DWORD size = GetCurrentDirectoryA(0, nullptr);
+        // Windows 实现 - 使用宽字符 API
+        DWORD size = GetCurrentDirectoryW(0, nullptr);
         if (size == 0) {
             throw filesystem_error("Failed to get current directory size");
         }
 
-        std::vector<char> buffer(size);
-        DWORD result = GetCurrentDirectoryA(size, buffer.data());
+        std::vector<wchar_t> buffer(size);
+        DWORD result = GetCurrentDirectoryW(size, buffer.data());
         if (result == 0 || result > size) {
             throw filesystem_error("Failed to get current directory");
         }
 
-        return path(buffer.data());
+        std::string utf8_path;
+        _aWideToUTF8(buffer.data(), utf8_path);  // 转换为UTF8
+        return path(utf8_path);
     #else
         // POSIX 实现
         char buffer[PATH_MAX];
@@ -455,7 +504,9 @@ namespace simple_fs
     void current_path(const path& new_path)
     {
     #ifdef _WIN32
-        if (!SetCurrentDirectoryA(new_path.c_str())) {
+        std::wstring wide_path;
+        _aUTF8ToWide(new_path.c_str(), wide_path);  // 转换为宽字符
+        if (!SetCurrentDirectoryW(wide_path.c_str())) {
             throw filesystem_error("Failed to set current directory");
         }
     #else
@@ -494,6 +545,17 @@ void _aANSIToWide(const char* ansi, std::wstring& wide)
     }
 }
 
+void _aUTF8ToWide(const char* utf8, std::wstring& wide)
+{
+	int len = MultiByteToWideChar(CP_UTF8, 0, utf8, -1, nullptr, 0);
+    if (len > 0)
+    {
+        std::vector<wchar_t> buffer(len);
+        MultiByteToWideChar(CP_UTF8, 0, utf8, -1, buffer.data(), len);
+        wide = buffer.data();
+	}
+}
+
 void _aWideToANSI(const wchar_t* wide, std::string& ansi)
 {
     int len = WideCharToMultiByte(CP_ACP, 0, wide, -1, nullptr, 0, nullptr, nullptr);
@@ -504,9 +566,19 @@ void _aWideToANSI(const wchar_t* wide, std::string& ansi)
         ansi = buffer.data();
     }
 }
+void _aWideToUTF8(const wchar_t* wide, std::string& utf8)
+{
+    int len = WideCharToMultiByte(CP_UTF8, 0, wide, -1, nullptr, 0, nullptr, nullptr);
+    if (len > 0)
+    {
+        std::vector<char> buffer(len);
+        WideCharToMultiByte(CP_UTF8, 0, wide, -1, buffer.data(), len, nullptr, nullptr);
+        utf8 = buffer.data();
+	}
+}
+
 #endif
 
 
 
 AST_NAMESPACE_END
-
