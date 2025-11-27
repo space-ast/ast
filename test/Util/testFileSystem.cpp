@@ -18,6 +18,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 // #define _A_STD_FILESYSTEM_USE_EXPERIMENTAL
+// #define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+// #include <experimental/filesystem>
+
 #include "AstUtil/FileSystem.hpp"
 #include "AstTest/AstTestMacro.h"
 #include <iostream>
@@ -25,25 +28,6 @@
 
 AST_USING_NAMESPACE
 
- 
-void listDirectory(const fs::path& path)
-{
-    if (!fs::exists(path)) {
-        std::cout << "路径不存在: " << path.string() << std::endl;
-        return;
-    }
-
-    try {
-        for (const auto& entry : fs::directory_iterator(path)) {
-			std::string filename = entry.path().filename().string();
-            std::cout << "filename: " << filename << std::endl;
-        }
-    }
-    catch (const fs::filesystem_error& e) {
-        std::cout << "文件系统错误: " << e.what() << std::endl;
-    }
-}
- 
 
 TEST(FileSystem, CurrentPath)
 {
@@ -57,8 +41,26 @@ TEST(FileSystem, CurrentPath)
     {
         fs::path current_path = fs::current_path();
         printf("current_path: %s\n", current_path.string().c_str());
-		listDirectory(current_path);
+        for (const auto& entry : fs::directory_iterator(current_path)) {
+            std::string filepath = entry.path().string();
+            std::string filename = entry.path().filename().string();
+            std::cout << "filepath: " << filepath << std::endl;
+            std::cout << "filename: " << filename << std::endl;
+        }
     }
+    // printf("-----------------------------------\n");
+    // {
+    //     namespace fs = std::experimental::filesystem;
+    //     fs::path current_path = fs::current_path();
+    //     printf("current_path: %s\n", current_path.string().c_str());
+    //     for (const auto& entry : fs::directory_iterator(current_path)) {
+    //         std::string filepath = entry.path().string();
+    //         std::string filename = entry.path().filename().string();
+    //         std::cout << "filepath: " << filepath << std::endl;
+    //         std::cout << "filename: " << filename << std::endl;
+    //     }
+    // 
+    // }
 }
  
 
