@@ -263,12 +263,12 @@ err_t NLPProblem::evalObjective(int numVariable, const double* variable, double&
 }
 
 
-err_t NLPProblem::evalFitness(int numVariable, double* varialble, int numObjective, double* objective, int numConstrEq, double* constrEq, int numConstrIneq, double* constrIneq) const
+err_t NLPProblem::evalFitness(int numVariable, double* variable, int numObjective, double* objective, int numConstrEq, double* constrEq, int numConstrIneq, double* constrIneq) const
 {
 	NLPInput input{};
 	NLPOutput output{};
 	input.variable.size = numVariable;
-	input.variable.value = varialble;
+	input.variable.value = variable;
 
 	output.objective.value = objective;
 	output.objective.size = numObjective;

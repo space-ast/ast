@@ -20,29 +20,44 @@
 
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Logger.hpp"
+#include <mutex>
 #include "SnoptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
+#include <mutex>
+
+// ...
+
 static SnoptCAPI s_snoptAPI{};
+static void* s_snoptLibHandle = nullptr;
+static std::once_flag s_snoptLoadFlag;
 
 SnoptCAPI* aLoadSnoptCAPI(const char* sharedLibPath)
 {
-    auto sharedLib = aLoadLibrary(sharedLibPath);
-    if (sharedLib) {
-        s_snoptAPI.snopta = decltype(&snopta_)(aGetProcAddress(sharedLib, A_STR(snopta_)));
-        s_snoptAPI.snmema = decltype(&snmema_)(aGetProcAddress(sharedLib, A_STR(snmema_)));
-        s_snoptAPI.snjac = decltype(&snjac_)(aGetProcAddress(sharedLib, A_STR(snjac_)));
-        for (auto func : s_snoptAPI) {
-            if(func == nullptr)
-                return nullptr;
-        }
-        return &s_snoptAPI;
-    }
-    return nullptr;
-}
+    std::call_once(s_snoptLoadFlag, [sharedLibPath]()
+    {
+        s_snoptLibHandle = aLoadLibrary(sharedLibPath);
+        if (s_snoptLibHandle) {
+            s_snoptAPI.snopta = decltype(&snopta_)(aGetProcAddress(s_snoptLibHandle, A_STR(snopta_)));
+            s_snoptAPI.snmema = decltype(&snmema_)(aGetProcAddress(s_snoptLibHandle, A_STR(snmema_)));
+            s_snoptAPI.snjac = decltype(&snjac_)(aGetProcAddress(s_snoptLibHandle, A_STR(snjac_)));
 
+            for (auto func : s_snoptAPI) {
+                if (func == nullptr) {
+                    // 如果有任何一个函数加载失败，则认为整个加载失败
+                    aFreeLibrary(s_snoptLibHandle);
+                    s_snoptLibHandle = nullptr;
+                    s_snoptAPI = {}; // 清空函数指针
+                    return;
+                }
+            }
+        }
+    });
+
+    return s_snoptLibHandle ? &s_snoptAPI : nullptr;
+}
 
 AST_NAMESPACE_END
  
