@@ -18,6 +18,7 @@ comment:                  #this is a top-level key
 ignore:
   # These libraries are external imports and should not count towards coverage stats
   - "3rdparty"
+  - "thirdparty"
   - "test"
   - "projects"
 
