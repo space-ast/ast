@@ -28,7 +28,7 @@ if is_plat("linux") then
 end
 
 -- 导入子目录配置
-includes("3rdparty")
+includes("thirdparty")
 includes("src")
 includes("projects")
 

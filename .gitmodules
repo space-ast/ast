@@ -1,0 +1,3 @@
+[submodule "thirdparty/thirdparty/cminpack"]
+	path = thirdparty/thirdparty/cminpack
+	url = https://github.com/devernay/cminpack

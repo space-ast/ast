@@ -124,20 +124,22 @@
 #endif
 
 
+#define A_STR(S) #S
+
 
 /// 为类型定义迭代器标准函数
-#define A_DEF_ITERABLE(Scalar, Data, Size)                              \
-    size_t size() const noexcept{ return (Size) ;}                      \
-    Scalar* data() noexcept{return (Data);}                             \
-    const Scalar* data() const{return (Data);}                          \
-    Scalar* begin() noexcept{ return data(); }                          \
-    Scalar* end() noexcept{ return (Data) + (Size); }                   \
-    const Scalar* begin() const noexcept{ return data(); }              \
-    const Scalar* end() const noexcept{ return (Data) + (Size); }       \
-    const Scalar* cbegin() const noexcept{ return data(); }             \
-    const Scalar* cend() const noexcept{ return (Data) + (Size); }      \
-    Scalar operator[](size_t idx) const noexcept{return data()[idx];}   \
-    Scalar& operator[](size_t idx) noexcept{return data()[idx];}        \
+#define A_DEF_ITERABLE(Scalar, Data, Size)                                      \
+    size_t size() const noexcept{ return (Size) ;}                              \
+    Scalar* data() noexcept{return (Data);}                                     \
+    const Scalar* data() const{return (Data);}                                  \
+    Scalar* begin() noexcept{ return data(); }                                  \
+    Scalar* end() noexcept{ return (Data) + (Size); }                           \
+    const Scalar* begin() const noexcept{ return data(); }                      \
+    const Scalar* end() const noexcept{ return (Data) + (Size); }               \
+    const Scalar* cbegin() const noexcept{ return data(); }                     \
+    const Scalar* cend() const noexcept{ return (Data) + (Size); }              \
+    const Scalar operator[](size_t idx) const noexcept{return data()[idx];}     \
+    Scalar& operator[](size_t idx) noexcept{return data()[idx];}                \
 
 
 /// 为POD类型定义迭代器标准函数

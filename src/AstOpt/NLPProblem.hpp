@@ -136,6 +136,7 @@ public:
     /// @brief 计算目标函数
     err_t evalObjective(int numVariable, const double* variable, int numObjective, double* objective) const;
 
+    /// @brief 计算目标函数
     err_t evalObjective(int numVariable, const double* variable, double& objective) const;
 
 
