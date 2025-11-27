@@ -19,6 +19,7 @@
 
 #include "AstCore/OrbitParam.hpp"
 #include "AstTest/AstTestMacro.h"
+#include "AstUtil/Constants.h"
 #include <cstdio>
 
 AST_USING_NAMESPACE
@@ -239,5 +240,224 @@ TEST(OrbitParam, Parabola)
     }
 }
 
+
+/// @brief 测试时间相关转换函数
+TEST(OrbitParam, TimeConversions)
+{
+    printf("测试: 时间相关转换函数\n");
+    
+    double eccentricity = 0.01; // 小偏心率椭圆轨道
+    double semiMajorAxis = 7000000.0; // 长半轴
+    double argPeri = 1.0; // 近地点幅角
+    
+    // 测试平近点角 ←→ 过近心点时间
+    {
+        double meanAnomaly = 0.5; // 平近点角
+        double tpp = aMeanToTPP(meanAnomaly, semiMajorAxis, GM);
+        double meanAnomalyBack = aTPPToMean(tpp, semiMajorAxis, GM);
+        EXPECT_NEAR(meanAnomaly, meanAnomalyBack, EPS);
+    }
+    
+    // 测试偏近点角 ←→ 过近心点时间
+    {
+        double eccAnomaly = 0.5; // 偏近点角
+        double tpp = aEccToTPP(eccAnomaly, semiMajorAxis, eccentricity, GM);
+        double eccAnomalyBack = aTPPToEcc(tpp, semiMajorAxis, eccentricity, GM);
+        EXPECT_NEAR(eccAnomaly, eccAnomalyBack, EPS);
+    }
+    
+    // 测试真近点角 ←→ 过近心点时间
+    {
+        double trueAnomaly = 0.5; // 真近点角
+        double tpp = aTrueToTPP(trueAnomaly, semiMajorAxis, eccentricity, GM);
+        double trueAnomalyBack = aTPPToTrue(tpp, semiMajorAxis, eccentricity, GM);
+        EXPECT_NEAR(trueAnomaly, trueAnomalyBack, EPS);
+    }
+    
+    // 测试过升交点时间 ←→ 过近心点时间
+    {
+        double tpp = 1000.0; // 过近心点时间
+        double tpan = aTPPToTPAN(tpp, argPeri, semiMajorAxis, eccentricity, GM);
+        double tppBack = aTPANToTPP(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        EXPECT_NEAR(tpp, tppBack, EPS);
+    }
+    
+    // 测试过升交点时间 ←→ 平近点角
+    {
+        double tpan = 5000.0; // 过升交点时间
+        double meanAnomaly = aTPANToMean(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        // 这里需要通过其他函数组合来验证
+        double tpp = aTPANToTPP(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        double meanAnomalyVerify = aTPPToMean(tpp, semiMajorAxis, GM);
+        EXPECT_NEAR(meanAnomaly, meanAnomalyVerify, EPS);
+    }
+    
+    // 测试过升交点时间 ←→ 偏近点角
+    {
+        double tpan = 5000.0; // 过升交点时间
+        double eccAnomaly = aTPANToEcc(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        // 验证逻辑
+        double tpp = aTPANToTPP(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        double eccAnomalyVerify = aTPPToEcc(tpp, semiMajorAxis, eccentricity, GM);
+        EXPECT_NEAR(eccAnomaly, eccAnomalyVerify, EPS);
+    }
+    
+    // 测试过升交点时间 ←→ 真近点角
+    {
+        double tpan = 5000.0; // 过升交点时间
+        double trueAnomaly = aTPANToTrue(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        // 验证逻辑
+        double tpp = aTPANToTPP(tpan, argPeri, semiMajorAxis, eccentricity, GM);
+        double trueAnomalyVerify = aTPPToTrue(tpp, semiMajorAxis, eccentricity, GM);
+        EXPECT_NEAR(trueAnomaly, trueAnomalyVerify, EPS);
+    }
+    
+    // 测试真近点角 ←→ 过升交点时间
+    {
+        double trueAnomaly = 0.5; // 真近点角
+        double tpan = aTrueToTPAN(trueAnomaly, argPeri, semiMajorAxis, eccentricity, GM);   // 过升交点后时间
+        // 验证逻辑
+        double tppFromTrue = aTrueToTPP(trueAnomaly, semiMajorAxis, eccentricity, GM);      // 过近心点后时间
+        double tppFromArgPeri = aTrueToTPP(argPeri, semiMajorAxis, eccentricity, GM);       // 升交点到近心点时间
+        double tpanVerify = tppFromTrue + tppFromArgPeri;
+        EXPECT_NEAR(tpan, tpanVerify, EPS);
+    }
+}
+
+/// @brief 测试轨道几何参数转换
+TEST(OrbitParam, GeometricParams)
+{
+    printf("测试: 轨道几何参数转换\n");
+    
+    // 测试长半轴 ←→ 半短轴
+    {
+        double semiMajorAxis = 7000000.0; // 长半轴
+        double eccentricity = 0.01; // 偏心率
+        
+        double semiMinorAxis = aSMajAxToSMinAx(semiMajorAxis, eccentricity);
+        double semiMajorAxisBack = aSMinAxToSMajAx(semiMinorAxis, eccentricity);
+        EXPECT_NEAR(semiMajorAxis, semiMajorAxisBack, EPS);
+        
+        // 验证几何关系：b = a * sqrt(1 - e^2)
+        double expectedSemiMinorAxis = semiMajorAxis * sqrt(1.0 - eccentricity * eccentricity);
+        EXPECT_NEAR(semiMinorAxis, expectedSemiMinorAxis, EPS);
+    }
+    
+    // 测试长半轴 ←→ 半通径
+    {
+        double semiMajorAxis = 7000000.0; // 长半轴
+        double eccentricity = 0.01; // 偏心率
+        
+        double semiParam = aSMajAxToSParam(semiMajorAxis, eccentricity);
+        // 验证几何关系：p = a * (1 - e^2)
+        double expectedSemiParam = semiMajorAxis * (1.0 - eccentricity * eccentricity);
+        EXPECT_NEAR(semiParam, expectedSemiParam, EPS);
+    }
+    
+    // 测试近地点/远地点半径 ←→ 偏心率
+    {
+        double perigeeRad = 6778000.0; // 近地点半径
+        double apogeeRad = 7000000.0;  // 远地点半径
+        
+        double eccentricity = aRadiiToEcc(perigeeRad, apogeeRad);
+        // 验证偏心率计算：e = (Ra - Rp) / (Ra + Rp)
+        double expectedEccentricity = (apogeeRad - perigeeRad) / (apogeeRad + perigeeRad);
+        EXPECT_NEAR(eccentricity, expectedEccentricity, EPS);
+    }
+}
+
+/// @brief 测试角度相关转换函数
+TEST(OrbitParam, AngleConversions)
+{
+    printf("测试: 角度相关转换函数\n");
+    
+    // 测试真近点角 + 近地点幅角 ←→ 幅角
+    {
+        double trueAnomaly = 1.0; // 真近点角
+        double argPeri = 0.5;     // 近地点幅角
+        
+        double argLat = aTrueToArgLat(trueAnomaly, argPeri);
+        // 验证幅角计算：u = f + ω
+        double expectedArgLat = trueAnomaly + argPeri;
+        EXPECT_NEAR(argLat, expectedArgLat, EPS);
+    }
+    
+    // 测试真近点角 + 近地点幅角 + 升交点赤经 ←→ 真经度
+    {
+        double trueAnomaly = 1.0; // 真近点角
+        double argPeri = 0.5;     // 近地点幅角
+        double raan = 0.8;        // 升交点赤经
+        
+        double trueLong = aTrueToTrueLong(trueAnomaly, argPeri, raan);
+        // 验证真经度计算：l = f + ω + Ω
+        double expectedTrueLong = trueAnomaly + argPeri + raan;
+        EXPECT_NEAR(trueLong, expectedTrueLong, EPS);
+    }
+    
+    // 测试近地点幅角 + 升交点赤经 ←→ 近地点经度（已在其他测试中有部分覆盖，这里补充更多情况）
+    {
+        double argPeri = 1.0;     // 近地点幅角
+        double raan = 0.8;        // 升交点赤经
+        
+        double longPeri = aArgPeriToLongPeri(argPeri, raan);
+        // 验证近地点经度计算：π = ω + Ω
+        double expectedLongPeri = argPeri + raan;
+        EXPECT_NEAR(longPeri, expectedLongPeri, EPS);
+        
+        // 测试边界值
+        double argPeri2 = kPI;    // 近地点幅角为π
+        double raan2 = kPI;       // 升交点赤经为π
+        double longPeri2 = aArgPeriToLongPeri(argPeri2, raan2);
+        double expectedLongPeri2 = argPeri2 + raan2;
+        EXPECT_NEAR(longPeri2, expectedLongPeri2, EPS);
+    }
+}
+
+/// @brief 测试地面轨迹重复函数
+TEST(OrbitParam, GroundTrackRepeat)
+{
+    printf("测试: 地面轨迹重复函数\n");
+    
+    // 地球自转角速度 [rad/s]
+    const double EARTH_ROT_RATE = 7.2921158553e-5;
+    
+    // 测试太阳同步轨道近似（16圈/天）
+    {
+        int daysToRepeat = 1;
+        int revsToRepeat = 16;
+        
+        double semiMajorAxis = aRepeatGrndTrk(daysToRepeat, revsToRepeat, GM, EARTH_ROT_RATE);
+        
+        // 计算平均角速度
+        double meanMotion = aSMajAxToMeanMotn(semiMajorAxis, GM);
+        
+        // 验证轨道周期与地球自转的关系
+        double orbitalPeriod = aMeanMotnToPeriod(meanMotion);
+        double earthDayInSeconds = 24 * 3600.0;
+        
+        // 检查在一天内是否完成约16圈
+        double expectedPeriod = earthDayInSeconds / revsToRepeat;
+        EXPECT_NEAR(orbitalPeriod, expectedPeriod, expectedPeriod * 0.01); // 允许1%误差
+    }
+    
+    // 测试2天重复周期（例如某些遥感卫星）
+    {
+        int daysToRepeat = 2;
+        int revsToRepeat = 31; // 2天31圈
+        
+        double semiMajorAxis = aRepeatGrndTrk(daysToRepeat, revsToRepeat, GM, EARTH_ROT_RATE);
+        
+        // 计算平均角速度
+        double meanMotion = aSMajAxToMeanMotn(semiMajorAxis, GM);
+        
+        // 验证轨道周期
+        double orbitalPeriod = aMeanMotnToPeriod(meanMotion);
+        double totalTime = daysToRepeat * 24 * 3600.0;
+        
+        // 检查在指定天数内是否完成指定圈数
+        double expectedPeriod = totalTime / revsToRepeat;
+        EXPECT_NEAR(orbitalPeriod, expectedPeriod, expectedPeriod * 0.01); // 允许1%误差
+    }
+}
 
 GTEST_MAIN()

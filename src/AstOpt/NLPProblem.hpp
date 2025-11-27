@@ -54,7 +54,7 @@ AST_OPT_CAPI void aParternCCSToCOO(
 class AST_OPT_API NLPProblem
 {
 public:
-    NLPProblem(INLPProblem* problem);
+    explicit NLPProblem(INLPProblem* problem);
 
     ~NLPProblem();
 
