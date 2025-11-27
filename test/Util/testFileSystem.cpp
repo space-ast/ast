@@ -21,10 +21,16 @@
 // #define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 // #include <experimental/filesystem>
 
+// 在文件开头的包含部分添加Windows相关头文件
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include "AstUtil/FileSystem.hpp"
 #include "AstTest/AstTestMacro.h"
 #include <iostream>
 #include <fstream>
+#include <locale>
 
 AST_USING_NAMESPACE
 
@@ -126,7 +132,20 @@ TEST(SimpleFileSystem, FileStatus) {
     EXPECT_FALSE(fs::is_regular_file(test_dir));
     EXPECT_EQ(fs::status(test_dir).type(), fs::file_type::directory);
     
-    // 清理测试目录
+    // 创建测试文件
+    {
+        std::ofstream file(test_file.string());
+        file << "Test content for file status";
+        file.close();
+    }
+    
+    // 测试文件存在性和类型
+    EXPECT_TRUE(fs::exists(test_file));
+    EXPECT_FALSE(fs::is_directory(test_file));
+    EXPECT_TRUE(fs::is_regular_file(test_file));
+    EXPECT_EQ(fs::status(test_file).type(), fs::file_type::regular);
+    
+    // 清理测试目录和文件
     if (fs::exists(test_dir)) {
         fs::remove_all(test_dir);
     }
@@ -274,6 +293,148 @@ TEST(SimpleFileSystem, ErrorHandling) {
     std::error_code ec_set;
     fs::current_path(non_existent, ec_set);
     EXPECT_TRUE(ec_set);  // 应该失败并设置错误码
+}
+
+// 测试Unicode字符支持
+TEST(SimpleFileSystem, UnicodeSupport) {
+    namespace fs = _AST simple_fs;
+    
+    // 在Windows平台上设置控制台和标准库编码为UTF-8
+    #ifdef _WIN32
+    // 设置控制台I/O编码为UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    #endif
+
+    // 按优先级尝试不同的locale
+    std::vector<const char*> locales = {
+        "zh_CN.UTF-8",
+        "en_US.UTF-8",
+        "C.UTF-8",
+        ""
+    };
+
+    for (const auto& loc_name : locales) {
+        try {
+            std::locale::global(std::locale(loc_name));
+            std::cout << "Successfully set locale: " << loc_name << std::endl;
+            break;
+        }
+        catch (const std::exception& e) {
+            std::cout << "Failed to set locale " << loc_name << ": " << e.what() << std::endl;
+        }
+    }
+
+    auto locale = std::setlocale(LC_ALL, nullptr);
+    printf("Locale name: %s\n", locale);
+    
+    // 创建包含Unicode字符的测试目录
+    fs::path unicode_dir = u8"测试目录_Unicode";
+    
+    // 创建包含各种Unicode字符的文件路径
+    fs::path chinese_file = unicode_dir / u8"中文文件.txt";
+    fs::path arabic_file = unicode_dir / u8"ملف_عربي.txt";
+    fs::path russian_file = unicode_dir / u8"Русский_файл.txt";
+    fs::path spanish_file = unicode_dir / u8"archivo_español.txt";
+    fs::path emoji_file = unicode_dir / u8"😊表情文件.txt";
+    
+    // 确保测试开始前目录不存在
+    if (fs::exists(unicode_dir)) {
+        fs::remove_all(unicode_dir);
+    }
+    
+    // 测试创建包含Unicode字符的目录
+    EXPECT_TRUE(fs::create_directory(unicode_dir));
+    EXPECT_TRUE(fs::exists(unicode_dir));
+    EXPECT_TRUE(fs::is_directory(unicode_dir));
+    
+    // 测试创建和访问包含不同Unicode字符的文件
+    // 中文文件名测试
+    {
+        std::ofstream file(chinese_file.string());
+        file << u8"中文内容";
+        file.close();
+        EXPECT_TRUE(fs::exists(chinese_file));
+        EXPECT_TRUE(fs::is_regular_file(chinese_file));
+    }
+    
+    // 阿拉伯语文件名测试
+    {
+        std::ofstream file(arabic_file.string());
+        file << u8"محتوى عربي";
+        file.close();
+        EXPECT_TRUE(fs::exists(arabic_file));
+        EXPECT_TRUE(fs::is_regular_file(arabic_file));
+    }
+    
+    // 俄文文件名测试
+    {
+        std::ofstream file(russian_file.string());
+        file << u8"Русский контент";
+        file.close();
+        EXPECT_TRUE(fs::exists(russian_file));
+        EXPECT_TRUE(fs::is_regular_file(russian_file));
+    }
+    
+    // 西班牙文文件名测试
+    {
+        std::ofstream file(spanish_file.string());
+        file << u8"Contenido español";
+        file.close();
+        EXPECT_TRUE(fs::exists(spanish_file));
+        EXPECT_TRUE(fs::is_regular_file(spanish_file));
+    }
+    
+    // Emoji文件名测试
+    {
+        std::ofstream file(emoji_file.string());
+        file << u8"Emoji content 😊";
+        file.close();
+        EXPECT_TRUE(fs::exists(emoji_file));
+        EXPECT_TRUE(fs::is_regular_file(emoji_file));
+    }
+    
+    // 测试文件操作（复制、重命名）对Unicode路径的支持
+    fs::path chinese_copy = unicode_dir / u8"中文文件_副本.txt";
+    EXPECT_TRUE(fs::copy_file(chinese_file, chinese_copy));
+    EXPECT_TRUE(fs::exists(chinese_copy));
+    
+    fs::path chinese_renamed = unicode_dir / u8"中文文件_重命名.txt";
+    EXPECT_TRUE(fs::rename(chinese_file, chinese_renamed));
+    EXPECT_FALSE(fs::exists(chinese_file));
+    EXPECT_TRUE(fs::exists(chinese_renamed));
+    
+    // 测试目录迭代器对Unicode文件名的支持
+    int count = 0;
+    std::set<std::string> expected_files = {
+        u8"中文文件_副本.txt",
+        u8"中文文件_重命名.txt",
+        u8"ملف_عربي.txt",
+        u8"Русский_файл.txt",
+        u8"archivo_español.txt",
+        u8"😊表情文件.txt"
+    };
+    
+    try {
+        for (auto& entry : fs::directory_iterator(unicode_dir)) {
+            if (fs::is_regular_file(entry.path())) {
+                std::string filename = entry.path().filename().string();
+                EXPECT_TRUE(expected_files.count(filename)) << "Unexpected filename: " << filename;
+                count++;
+            }
+        }
+    } catch (const fs::filesystem_error& e) {
+        FAIL() << "Directory iteration with Unicode failed: " << e.what();
+    }
+    
+    EXPECT_EQ(count, expected_files.size());
+    
+    // 清理测试目录
+    if (fs::exists(unicode_dir)) {
+        uintmax_t removed = fs::remove_all(unicode_dir);
+        EXPECT_TRUE(removed > 0);
+        EXPECT_FALSE(fs::exists(unicode_dir));
+    }
 }
 
 GTEST_MAIN()
