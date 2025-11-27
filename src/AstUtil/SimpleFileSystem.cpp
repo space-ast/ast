@@ -1,4 +1,26 @@
-﻿#include "SimpleFileSystem.hpp"
+﻿/// @file      SimpleFileSystem.cpp
+/// @brief     
+/// @details   ~
+/// @author    jinke18
+/// @date      27.11.2025
+/// @copyright 版权所有 (C) 2025-present, ast项目.
+
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+ 
+ 
+
+#include "SimpleFileSystem.hpp"
+#include "AstUtil/Logger.hpp"
 #include <algorithm>
 #include <cstring>
 
@@ -28,81 +50,158 @@ namespace simple_fs
     struct directory_iterator::impl
     {
         HANDLE handle;
-        WIN32_FIND_DATAW data;  // 修改为宽字符版本
-        bool is_end;
+        WIN32_FIND_DATAW data{};
+        path base_path; 
+        bool data_valid;
+    
+        impl(const path& p) 
+            : handle(INVALID_HANDLE_VALUE)
+            , base_path(p)
+            , data_valid{false}
+        {
+        }
 
-        impl(const path& p) : handle(INVALID_HANDLE_VALUE), is_end(false)
+        bool valid() const
+        {
+            return (handle != INVALID_HANDLE_VALUE) && data_valid;
+        }
+        bool first()
         {
             // 使用平台相关的字符串类型
-            string_type search_path = (p / "*").native();
+            string_type search_path = (base_path / "*").native();
             std::wstring wide_path;
             _aUTF8ToWide(search_path.c_str(), wide_path);  // 转换为宽字符
             handle = FindFirstFileW(wide_path.c_str(), &data);
             if (handle == INVALID_HANDLE_VALUE) {
-                is_end = true;
+                data_valid = false;
             }
+            else {
+                data_valid = true;
+                skip_twodot();
+            }
+            return valid();
         }
 
-        ~impl()
+        bool next()
+        {
+            if (handle != INVALID_HANDLE_VALUE) {
+                data_valid = (FindNextFileW(handle, &data) != 0);
+            }
+            return valid();
+        }
+        void skip_twodot()
+        {
+            do{
+                if (wcscmp(data.cFileName, L".") != 0 && wcscmp(data.cFileName, L"..") != 0)
+                {
+                    break;
+                }
+                next();
+            } while (valid());
+        }
+        bool next_entry()
+        {
+            next();
+            skip_twodot();
+            return valid();
+        }
+        void close()
         {
             if (handle != INVALID_HANDLE_VALUE) {
                 FindClose(handle);
             }
+        }
+        directory_entry entry()
+        {
+            if(data_valid==false)
+				return directory_entry();
+			std::string current_name;
+            _aWideToUTF8(data.cFileName, current_name);
+            return directory_entry(base_path / path(current_name));
+        }
+
+        ~impl()
+        {
+            close();
         }
     };
 #else
     struct directory_iterator::impl
     {
         DIR* dir;
-        struct dirent* entry;
+        struct dirent* direntry;
+        path base_path;
 
-        impl(const path& p) : dir(nullptr), entry(nullptr)
+        impl(const path& p) 
+            : dir(nullptr)
+            , direntry(nullptr)
+            , base_path(p)
         {
-            dir = opendir(p.c_str());
-            if (dir) {
-                entry = readdir(dir);
-            }
+            
         }
-
-        ~impl()
+        bool valid() const
         {
+            return direntry != nullptr;
+        }
+        bool first()
+        {
+            dir = opendir(base_path.c_str());
             if (dir) {
+                direntry = readdir(dir);
+                skip_twodot();
+            }
+            return valid();
+        }
+        bool next()
+        {
+            if(dir)
+                direntry = readdir(dir);
+            return valid();
+        }
+        void skip_twodot()
+        {
+            while (valid())
+            {
+                if (strcmp(direntry->d_name, ".") != 0 && strcmp(direntry->d_name, "..") != 0)
+                    break;
+                next();
+            };
+        }
+        bool next_entry()
+        {
+            next();
+            skip_twodot();
+            return valid();
+        }
+        void close()
+        {
+            if (dir != nullptr) {
                 closedir(dir);
             }
+        }
+        directory_entry entry()
+        {
+            if(!dir)
+                return directory_entry();
+            return directory_entry(base_path / path(direntry->d_name));
+        }
+        ~impl()
+        {
+            close();
         }
     };
 #endif
 
-    directory_iterator::directory_iterator(const path& p) : impl_(new impl(p))
+    directory_iterator::directory_iterator(const path& p) 
+        : impl_(new impl(p))
     {
-        if (impl_) {
-        #ifdef _WIN32
-            if (!impl_->is_end) {
-                // 使用宽字符文件名创建path对象
-                std::string utf8_name;
-                _aWideToUTF8(impl_->data.cFileName, utf8_name);  // 转换为UTF8
-                entry_ = directory_entry(path(utf8_name));
-                // 跳过 "." 和 ".."
-                while (!impl_->is_end) {
-                    std::string current_name;
-                    _aWideToUTF8(impl_->data.cFileName, current_name);
-                    if (current_name != "." && current_name != "..") {
-                        break;
-                    }
-                    read_next_entry();
-                }
-            }
-        #else
-            if (impl_->entry) {
-                entry_ = directory_entry(path(impl_->entry->d_name));
-                // 跳过 "." 和 ".."
-                while (impl_->entry &&
-                    (strcmp(impl_->entry->d_name, ".") == 0 ||
-                        strcmp(impl_->entry->d_name, "..") == 0)) {
-                    read_next_entry();
-                }
-            }
-        #endif
+        if (impl_->first())
+        {
+			entry_ = impl_->entry();
+        }
+        else {
+			entry_ = directory_entry();
+            impl_.reset();
         }
     }
 
@@ -132,64 +231,22 @@ namespace simple_fs
             // delete impl_;
             impl_ = other.impl_;
             entry_ = std::move(other.entry_);
-            other.impl_ = nullptr;
+            other.impl_.reset();
         }
         return *this;
     }
 
-    void directory_iterator::read_next_entry()
-    {
-    #ifdef _WIN32
-        if (impl_ && !impl_->is_end) {
-            if (FindNextFileW(impl_->handle, &impl_->data)) {
-                std::string utf8_name;
-                _aWideToUTF8(impl_->data.cFileName, utf8_name);  // 转换为UTF8
-                entry_ = directory_entry(path(utf8_name));
-            }
-            else {
-                impl_->is_end = true;
-                entry_ = directory_entry();
-                impl_ = nullptr;
-            }
-        }
-    #else
-        if (impl_ && impl_->dir) {
-            impl_->entry = readdir(impl_->dir);
-            if (impl_->entry) {
-                entry_ = directory_entry(path(impl_->entry->d_name));
-            }
-            else {
-                entry_ = directory_entry();
-                impl_ = nullptr;
-            }
-        }
-    #endif
-    }
 
     directory_iterator& directory_iterator::operator++()
     {
-        if (impl_) {
-            read_next_entry();
-        }
         if(impl_){
-        #ifdef _WIN32
-            // 在Windows上跳过 "." 和 ".."
-            while (!impl_->is_end) {
-                std::string current_name;
-                _aWideToUTF8(impl_->data.cFileName, current_name);
-                if (current_name != "." && current_name != "..") {
-                    break;
-                }
-                read_next_entry();
+			if (impl_->next_entry()) {
+                entry_ = impl_->entry();
             }
-        #else
-            // 在Unix上跳过 "." 和 ".."
-            while (impl_->entry &&
-                (strcmp(impl_->entry->d_name, ".") == 0 ||
-                    strcmp(impl_->entry->d_name, "..") == 0)) {
-                read_next_entry();
+            else{
+                entry_ = directory_entry();
+                impl_.reset();
             }
-        #endif
         }
         return *this;
     }
