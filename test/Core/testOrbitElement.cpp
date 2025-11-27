@@ -504,11 +504,9 @@ TEST(OrbitElement, ErrorHandling) {
         
         // 测试ee2moe函数的错误处理
         EquinElem ee;
+        err = moe2ee(moe_parabolic.data(), ee.data());
         err = ee2moe(ee.data(), moe_parabolic.data());
-        // 这里假设当输入无效时应返回错误
-        if (ee[1] * ee[2] < -1.0) { // 检查条件
-            EXPECT_NE(err, eNoError);
-        }
+        EXPECT_NE(err, eNoError);
     }
     
     // 测试用例2: 临界角错误处理 (inc=π)

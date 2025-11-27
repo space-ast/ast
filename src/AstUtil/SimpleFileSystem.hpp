@@ -57,7 +57,7 @@ namespace simple_fs
     {
     public:
         using std::system_error::system_error;
-        filesystem_error(
+        explicit filesystem_error(
             const std::string& what, 
             std::error_code ec=std::make_error_code(std::errc::operation_not_supported)
         ): std::system_error(ec, what)

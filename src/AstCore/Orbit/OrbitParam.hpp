@@ -119,21 +119,21 @@ AST_CORE_CAPI double    aEccToMean         (double eccAnomaly, double eccentrici
 /// @return 真近点角 [rad]
 AST_CORE_CAPI double    aEccToTrue         (double eccAnomaly, double eccentricity);
 
-/// @brief 偏近点角转换为近地点幅角时刻
+/// @brief 偏近点角转换为过升交点后时间
 /// @param eccAnomaly 偏近点角 [rad]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点幅角时刻 [s]
+/// @return 过升交点后时间 [s]
 AST_CORE_CAPI double    aEccToTPAN         (double eccAnomaly, double argPeri, double semiMajorAxis, double eccentricity, double gm);
 
-/// @brief 偏近点角转换为近地点通过时刻
+/// @brief 偏近点角转换为过近心点后时间
 /// @param eccAnomaly 偏近点角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点通过时刻 [s]
+/// @return 过近心点后时间 [s]
 AST_CORE_CAPI double    aEccToTPP          (double eccAnomaly, double semiMajorAxis, double eccentricity, double gm);
 
 /// @brief 平均角速度转换为远地点高度
@@ -185,20 +185,20 @@ AST_CORE_CAPI double    aMeanMotnToSMajAx  (double meanMotn, double gm);
 /// @return 偏近点角 [rad]
 AST_CORE_CAPI double    aMeanToEcc         (double meanAnomaly, double eccentricity, double eps = 1e-14, int maxIter = 100);
 
-/// @brief 平近点角转换为近地点幅角时刻
+/// @brief 平近点角转换为过升交点后时间
 /// @param meanAnomaly 平近点角 [rad]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点幅角时刻 [s]
+/// @return 过升交点后时间 [s]
 AST_CORE_CAPI double    aMeanToTPAN        (double meanAnomaly, double argPeri, double semiMajorAxis, double eccentricity, double gm);
 
-/// @brief 平近点角转换为近地点通过时刻
+/// @brief 平近点角转换为过近心点后时间
 /// @param meanAnomaly 平近点角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点通过时刻 [s]
+/// @return 过近心点后时间 [s]
 AST_CORE_CAPI double    aMeanToTPP         (double meanAnomaly, double semiMajorAxis, double gm);
 
 /// @brief 平近点角转换为真近点角
@@ -394,8 +394,8 @@ AST_CORE_CAPI double    aSMajAxToSParam    (double semiMajorAxis, double eccentr
 /// @return 长半轴 [m]
 AST_CORE_CAPI double    aSMinAxToSMajAx    (double semiminorAxis, double eccentricity);
 
-/// @brief 近地点幅角时刻转换为偏近点角
-/// @param TPAN 近地点幅角时刻 [s]
+/// @brief 过升交点后时间转换为偏近点角
+/// @param TPAN 过升交点后时间 [s]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
@@ -405,8 +405,8 @@ AST_CORE_CAPI double    aSMinAxToSMajAx    (double semiminorAxis, double eccentr
 /// @return 偏近点角 [rad]
 AST_CORE_CAPI double    aTPANToEcc         (double TPAN, double argPeri, double semiMajorAxis,  double eccentricity, double gm, double eps = 1e-14, int maxIter = 100);
 
-/// @brief 近地点幅角时刻转换为平近点角
-/// @param TPAN 近地点幅角时刻 [s]
+/// @brief 过升交点后时间转换为平近点角
+/// @param TPAN 过升交点后时间 [s]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
@@ -414,17 +414,17 @@ AST_CORE_CAPI double    aTPANToEcc         (double TPAN, double argPeri, double 
 /// @return 平近点角 [rad]
 AST_CORE_CAPI double    aTPANToMean        (double TPAN, double argPeri, double semiMajorAxis,  double eccentricity, double gm);
 
-/// @brief 近地点幅角时刻转换为近地点通过时刻
-/// @param TPAN 近地点幅角时刻 [s]
+/// @brief 过升交点后时间转换为过近心点后时间
+/// @param TPAN 过升交点后时间 [s]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点通过时刻 [s]
+/// @return 过近心点后时间 [s]
 AST_CORE_CAPI double    aTPANToTPP         (double TPAN, double argPeri, double semiMajorAxis,  double eccentricity, double gm);
 
-/// @brief 近地点幅角时刻转换为真近点角
-/// @param TPAN 近地点幅角时刻 [s]
+/// @brief 过升交点后时间转换为真近点角
+/// @param TPAN 过升交点后时间 [s]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
@@ -434,8 +434,8 @@ AST_CORE_CAPI double    aTPANToTPP         (double TPAN, double argPeri, double 
 /// @return 真近点角 [rad]
 AST_CORE_CAPI double    aTPANToTrue        (double TPAN, double argPeri, double semiMajorAxis,  double eccentricity, double gm, double eps = 1e-14, int maxIter = 100);
 
-/// @brief 近地点通过时刻转换为偏近点角
-/// @param TPP 近地点通过时刻 [s]
+/// @brief 过近心点后时间转换为偏近点角
+/// @param TPP 过近心点后时间 [s]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
@@ -444,15 +444,15 @@ AST_CORE_CAPI double    aTPANToTrue        (double TPAN, double argPeri, double 
 /// @return 偏近点角 [rad]
 AST_CORE_CAPI double    aTPPToEcc          (double TPP, double semiMajorAxis, double eccentricity, double gm, double eps = 1e-14, int maxIter = 100);
 
-/// @brief 近地点通过时刻转换为平近点角
-/// @param TPP 近地点通过时刻 [s]
+/// @brief 过近心点后时间转换为平近点角
+/// @param TPP 过近心点后时间 [s]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param gm 引力参数 [m^3/s^2]
 /// @return 平近点角 [rad]
 AST_CORE_CAPI double    aTPPToMean         (double TPP, double semiMajorAxis, double gm);
 
-/// @brief 近地点通过时刻转换为真近点角
-/// @param TPP 近地点通过时刻 [s]
+/// @brief 过近心点后时间转换为真近点角
+/// @param TPP 过近心点后时间 [s]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
@@ -461,13 +461,13 @@ AST_CORE_CAPI double    aTPPToMean         (double TPP, double semiMajorAxis, do
 /// @return 真近点角 [rad]
 AST_CORE_CAPI double    aTPPToTrue         (double TPP, double semiMajorAxis, double eccentricity, double gm, double eps = 1e-14, int maxIter = 100);
 
-/// @brief 近地点通过时刻转换为近地点幅角时刻
-/// @param TPP 近地点通过时刻 [s]
+/// @brief 过近心点后时间转换为过升交点后时间
+/// @param TPP 过近心点后时间 [s]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点幅角时刻 [s]
+/// @return 过升交点后时间 [s]
 AST_CORE_CAPI double    aTPPToTPAN         (double TPP, double argPeri, double semiMajorAxis,  double eccentricity, double gm);
 
 /// @brief 真近点角转换为偏近点角
@@ -482,21 +482,21 @@ AST_CORE_CAPI double    aTrueToEcc         (double trueAnomaly, double eccentric
 /// @return 平近点角 [rad]
 AST_CORE_CAPI double    aTrueToMean        (double trueAnomaly, double eccentricity);
 
-/// @brief 真近点角转换为近地点幅角时刻
+/// @brief 真近点角转换为过升交点后时间
 /// @param trueAnomaly 真近点角 [rad]
 /// @param argPeri 近地点幅角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点幅角时刻 [s]
+/// @return 过升交点后时间 [s]
 AST_CORE_CAPI double    aTrueToTPAN        (double trueAnomaly, double argPeri, double semiMajorAxis,  double eccentricity, double gm);
 
-/// @brief 真近点角转换为近地点通过时刻
+/// @brief 真近点角转换为过近心点后时间
 /// @param trueAnomaly 真近点角 [rad]
 /// @param semiMajorAxis 长半轴 [m]
 /// @param eccentricity 偏心率
 /// @param gm 引力参数 [m^3/s^2]
-/// @return 近地点通过时刻 [s]
+/// @return 过近心点后时间 [s]
 AST_CORE_CAPI double    aTrueToTPP         (double trueAnomaly, double semiMajorAxis, double eccentricity, double gm);
 
 /// @brief 真近点角转换为幅角

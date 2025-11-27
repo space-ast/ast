@@ -315,10 +315,10 @@ TEST(OrbitParam, TimeConversions)
     // 测试真近点角 ←→ 过升交点时间
     {
         double trueAnomaly = 0.5; // 真近点角
-        double tpan = aTrueToTPAN(trueAnomaly, argPeri, semiMajorAxis, eccentricity, GM);
+        double tpan = aTrueToTPAN(trueAnomaly, argPeri, semiMajorAxis, eccentricity, GM);   // 过升交点后时间
         // 验证逻辑
-        double tppFromTrue = aTrueToTPP(trueAnomaly, semiMajorAxis, eccentricity, GM);
-        double tppFromArgPeri = aTrueToTPP(argPeri, semiMajorAxis, eccentricity, GM);
+        double tppFromTrue = aTrueToTPP(trueAnomaly, semiMajorAxis, eccentricity, GM);      // 过近心点后时间
+        double tppFromArgPeri = aTrueToTPP(argPeri, semiMajorAxis, eccentricity, GM);       // 升交点到近心点时间
         double tpanVerify = tppFromTrue + tppFromArgPeri;
         EXPECT_NEAR(tpan, tpanVerify, EPS);
     }
