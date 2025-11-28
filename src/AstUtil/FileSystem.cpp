@@ -18,6 +18,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
 #include "FileSystem.hpp"
+#include "Encode.hpp"
 #include "AstUtil/Logger.hpp"
 
 
@@ -70,27 +71,29 @@ std::string aLibPath()
 {
 #ifdef _WIN32
     // Windows平台实现
-    char buffer[MAX_PATH] = { 0 };
+    wchar_t buffer[MAX_PATH] = { 0 };
     HMODULE hModule = NULL;
 
     // 获取当前模块句柄
-    if (GetModuleHandleExA(
+    if (GetModuleHandleExW(
         GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
         GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-        reinterpret_cast<LPCSTR>(&aLibDir),
+        reinterpret_cast<LPCWSTR>(&aLibDir),
         &hModule))
     {
         // 获取模块路径
-        if (GetModuleFileNameA(hModule, buffer, MAX_PATH))
+        if (GetModuleFileNameW(hModule, buffer, MAX_PATH))
         {
-            return buffer;
+            std::string libpath;
+            aWideToUtf8(buffer, libpath);
+            return libpath;
         }
         else {
-            aError("failed to call GetModuleFileNameA");
+            aError("failed to call GetModuleFileNameW");
         }
     }
     else {
-        aError("failed to call GetModuleHandleExA");
+        aError("failed to call GetModuleHandleExW");
     }
 #else
     // Unix-like平台实现 (Linux, macOS等)
@@ -116,12 +119,14 @@ std::string aExePath()
 {
 
 #ifdef _WIN32
-    char buffer[MAX_PATH] = { 0 };
-    if (GetModuleFileNameA(NULL, buffer, MAX_PATH)) {
-        return (buffer);
+    wchar_t buffer[MAX_PATH] = { 0 };
+    if (GetModuleFileNameW(NULL, buffer, MAX_PATH)) {
+        std::string exepath;
+        aWideToUtf8(buffer, exepath);
+        return exepath;
     }
     else {
-        aError("failed to call GetModuleFileNameA");
+        aError("failed to call GetModuleFileNameW");
     }
 #elif defined(__APPLE__)
     // macOS平台实现
