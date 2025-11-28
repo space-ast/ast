@@ -47,8 +47,8 @@ void* aLoadLibrary(const char* filepath)
 	aUtf8ToWide(filepath, widePath);
     return LoadLibraryW(widePath.c_str());
 #else
-    static char* prefixes[]{ "", "lib" };
-    static char* suffixes[]{ "", ".so" };
+    static const char* prefixes[]{ "", "lib" };
+    static const char* suffixes[]{ "", ".so" };
     
     // Linux/Unix平台
     // RTLD_LAZY: 延迟绑定，只在需要时解析符号
