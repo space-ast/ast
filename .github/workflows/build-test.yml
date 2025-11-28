@@ -32,7 +32,8 @@ jobs:
 
       - name: 设置自定义缓存目录路径
         run: |
-          echo "XMAKE_PKG_CACHEDIR=$(pwd)/xmake-cache" >> $GITHUB_ENV
+          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
 
       # Cache xmake dependencies
       - name: 恢复缓存
@@ -43,7 +44,8 @@ jobs:
 
       - name: 编译
         run: |
-          xmake f -cy --with_test=y
+          xmake f -cvy --with_test=y -m release
+          xmake show
           xmake
 
       - name: 测试
