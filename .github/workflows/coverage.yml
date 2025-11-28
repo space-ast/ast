@@ -22,10 +22,24 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y lcov
-      
+
+      - name: 设置自定义缓存目录路径
+        run: |
+          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+
+      # Cache xmake dependencies
+      - name: 恢复缓存
+        uses: actions/cache@v3
+        with:
+          path: xmake-cache
+          key: ${{ matrix.os }}-${{ matrix.arch }}
+          
+
       - name: 编译测试
         run: |
-          xmake f -cy -m coverage --with_test=y
+          xmake f -cvy --with_test=y -m coverage
+          xmake show
           xmake
       
       - name: 生成覆盖率报告
