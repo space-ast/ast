@@ -35,14 +35,7 @@
  
 AST_NAMESPACE_BEGIN
  
-#ifdef _WIN32   
 
-AST_UTIL_CAPI void _aANSIToWide(const char* ansi, std::wstring& wide);
-AST_UTIL_CAPI void _aUTF8ToWide(const char* utf8, std::wstring& wide);
-AST_UTIL_CAPI void _aWideToANSI(const wchar_t* wide, std::string& ansi);
-AST_UTIL_CAPI void _aWideToUTF8(const wchar_t* wide, std::string& utf8);
-
-#endif
 
 #define _AST_FS _AST simple_fs::
 

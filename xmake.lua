@@ -27,8 +27,11 @@ if is_plat("linux") then
     add_rpathdirs("$ORIGIN")
 end
 
+add_requires("openscenegraph", {shared = true, optional = true})
+add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
+
 -- 导入子目录配置
-includes("3rdparty")
+includes("thirdparty")
 includes("src")
 includes("projects")
 

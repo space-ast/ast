@@ -20,6 +20,7 @@
  
 
 #include "SimpleFileSystem.hpp"
+#include "Encode.hpp"
 #include "AstUtil/Logger.hpp"
 #include <algorithm>
 #include <cstring>
@@ -70,7 +71,7 @@ namespace simple_fs
             // 使用平台相关的字符串类型
             string_type search_path = (base_path / "*").native();
             std::wstring wide_path;
-            _aUTF8ToWide(search_path.c_str(), wide_path);  // 转换为宽字符
+            aUtf8ToWide(search_path.c_str(), wide_path);  // 转换为宽字符
             handle = FindFirstFileW(wide_path.c_str(), &data);
             if (handle == INVALID_HANDLE_VALUE) {
                 data_valid = false;
@@ -116,7 +117,7 @@ namespace simple_fs
             if(data_valid==false)
 				return directory_entry();
 			std::string current_name;
-            _aWideToUTF8(data.cFileName, current_name);
+            aWideToUtf8(data.cFileName, current_name);
             return directory_entry(base_path / path(current_name));
         }
 
@@ -262,7 +263,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         DWORD attrs = GetFileAttributesW(wide_path.c_str());
         return (attrs != INVALID_FILE_ATTRIBUTES);
     #else
@@ -275,7 +276,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         DWORD attrs = GetFileAttributesW(wide_path.c_str());
         return (attrs != INVALID_FILE_ATTRIBUTES) && (attrs & FILE_ATTRIBUTE_DIRECTORY);
     #else
@@ -291,7 +292,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         DWORD attrs = GetFileAttributesW(wide_path.c_str());
         return (attrs != INVALID_FILE_ATTRIBUTES) && !(attrs & FILE_ATTRIBUTE_DIRECTORY);
     #else
@@ -307,7 +308,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         HANDLE hFile = CreateFileW(wide_path.c_str(), GENERIC_READ, FILE_SHARE_READ,
             NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile == INVALID_HANDLE_VALUE) {
@@ -354,7 +355,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         return CreateDirectoryW(wide_path.c_str(), NULL) != 0;
     #else
         return mkdir(p.c_str(), 0755) == 0;
@@ -384,7 +385,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         if (is_directory(p)) {
             return RemoveDirectoryW(wide_path.c_str()) != 0;
         }
@@ -434,8 +435,8 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_from, wide_to;
-        _aUTF8ToWide(from.c_str(), wide_from);  // 转换为宽字符
-        _aUTF8ToWide(to.c_str(), wide_to);      // 转换为宽字符
+        aUtf8ToWide(from.c_str(), wide_from);  // 转换为宽字符
+        aUtf8ToWide(to.c_str(), wide_to);      // 转换为宽字符
         return CopyFileW(wide_from.c_str(), wide_to.c_str(), FALSE) != 0;
     #else
         // 使用Linux系统调用实现文件复制
@@ -492,8 +493,8 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_old, wide_new;
-        _aUTF8ToWide(old_p.c_str(), wide_old);  // 转换为宽字符
-        _aUTF8ToWide(new_p.c_str(), wide_new);  // 转换为宽字符
+        aUtf8ToWide(old_p.c_str(), wide_old);  // 转换为宽字符
+        aUtf8ToWide(new_p.c_str(), wide_new);  // 转换为宽字符
         return MoveFileW(wide_old.c_str(), wide_new.c_str()) != 0;
     #else
         return ::rename(old_p.c_str(), new_p.c_str()) == 0;
@@ -507,7 +508,7 @@ namespace simple_fs
 
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         ULARGE_INTEGER free, total, avail;
         if (GetDiskFreeSpaceExW(wide_path.c_str(), &avail, &total, &free)) {
             info.capacity = total.QuadPart;
@@ -531,7 +532,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         HANDLE hFile = CreateFileW(wide_path.c_str(), GENERIC_READ, FILE_SHARE_READ,
             NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile == INVALID_HANDLE_VALUE) {
@@ -577,7 +578,7 @@ namespace simple_fs
         }
 
         std::string utf8_path;
-        _aWideToUTF8(buffer.data(), utf8_path);  // 转换为UTF8
+        aWideToUtf8(buffer.data(), utf8_path);  // 转换为UTF8
         return path(utf8_path);
     #else
         // POSIX 实现
@@ -609,7 +610,7 @@ namespace simple_fs
     {
     #ifdef _WIN32
         std::wstring wide_path;
-        _aUTF8ToWide(new_path.c_str(), wide_path);  // 转换为宽字符
+        aUtf8ToWide(new_path.c_str(), wide_path);  // 转换为宽字符
         if (!SetCurrentDirectoryW(wide_path.c_str())) {
             throw filesystem_error("Failed to set current directory");
         }
@@ -637,51 +638,6 @@ namespace simple_fs
 
 } // namespace simple_fs
 
-#ifdef _WIN32   
-void _aANSIToWide(const char* ansi, std::wstring& wide)
-{
-    int len = MultiByteToWideChar(CP_ACP, 0, ansi, -1, nullptr, 0);
-    if (len > 0)
-    {
-        std::vector<wchar_t> buffer(len);
-        MultiByteToWideChar(CP_ACP, 0, ansi, -1, buffer.data(), len);
-        wide = buffer.data();
-    }
-}
-
-void _aUTF8ToWide(const char* utf8, std::wstring& wide)
-{
-	int len = MultiByteToWideChar(CP_UTF8, 0, utf8, -1, nullptr, 0);
-    if (len > 0)
-    {
-        std::vector<wchar_t> buffer(len);
-        MultiByteToWideChar(CP_UTF8, 0, utf8, -1, buffer.data(), len);
-        wide = buffer.data();
-	}
-}
-
-void _aWideToANSI(const wchar_t* wide, std::string& ansi)
-{
-    int len = WideCharToMultiByte(CP_ACP, 0, wide, -1, nullptr, 0, nullptr, nullptr);
-    if (len > 0)
-    {
-        std::vector<char> buffer(len);
-        WideCharToMultiByte(CP_ACP, 0, wide, -1, buffer.data(), len, nullptr, nullptr);
-        ansi = buffer.data();
-    }
-}
-void _aWideToUTF8(const wchar_t* wide, std::string& utf8)
-{
-    int len = WideCharToMultiByte(CP_UTF8, 0, wide, -1, nullptr, 0, nullptr, nullptr);
-    if (len > 0)
-    {
-        std::vector<char> buffer(len);
-        WideCharToMultiByte(CP_UTF8, 0, wide, -1, buffer.data(), len, nullptr, nullptr);
-        utf8 = buffer.data();
-	}
-}
-
-#endif
 
 
 

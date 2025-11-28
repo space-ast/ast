@@ -85,7 +85,7 @@ public:
 
     /// @brief 计算目标函数与约束
     /// @param numVariable 
-    /// @param varialble 
+    /// @param variable 
     /// @param numObjective 
     /// @param objective 
     /// @param numConstrEq 
@@ -94,7 +94,7 @@ public:
     /// @param constrIneq 
     /// @return 
     err_t evalFitness(
-        int numVariable, double* varialble,
+        int numVariable, double* variable,
         int numObjective, double* objective,
         int numConstrEq, double* constrEq,
         int numConstrIneq, double* constrIneq
@@ -136,6 +136,7 @@ public:
     /// @brief 计算目标函数
     err_t evalObjective(int numVariable, const double* variable, int numObjective, double* objective) const;
 
+    /// @brief 计算目标函数
     err_t evalObjective(int numVariable, const double* variable, double& objective) const;
 
 
