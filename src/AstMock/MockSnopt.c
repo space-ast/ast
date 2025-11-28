@@ -1,4 +1,4 @@
-﻿/// @file      MockSnopt.cpp
+﻿/// @file      MockSnopt.c
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -38,8 +38,7 @@ typedef int (*My_fp)( integer *Status, integer *n,
 
 
 AST_MOCK_CAPI
-void snopta_
-(integer* start, integer* nf, integer* n,
+void snopta_(integer* start, integer* nf, integer* n,
     integer* nxname, integer* nfname, doublereal* objadd, integer* objrow,
     char* prob, My_fp usrfun, integer* iafun, integer* javar,
     integer* lena, integer* nea, doublereal* a, integer* igfun,
@@ -58,8 +57,7 @@ void snopta_
 }
 
 AST_MOCK_CAPI
-void sninit_
-(integer* iPrint, integer* iSumm, char* cw,
+void sninit_(integer* iPrint, integer* iSumm, char* cw,
     integer* lencw, integer* iw, integer* leniw,
     doublereal* rw, integer* lenrw, ftnlen cw_len)
 {
@@ -67,8 +65,7 @@ void sninit_
 }
 
 AST_MOCK_CAPI
-void sngeti_
-(char* buffer, integer* ivalue, integer* inform__,
+void sngeti_(char* buffer, integer* ivalue, integer* inform__,
     char* cw, integer* lencw, integer* iw,
     integer* leniw, doublereal* rw, integer* lenrw,
     ftnlen buffer_len, ftnlen cw_len)
@@ -77,8 +74,7 @@ void sngeti_
 }
 
 AST_MOCK_CAPI
-void sngetr_
-(char* buffer, doublereal* ivalue, integer* inform__,
+void sngetr_(char* buffer, doublereal* ivalue, integer* inform__,
     char* cw, integer* lencw, integer* iw,
     integer* leniw, doublereal* rw, integer* lenrw,
     ftnlen buffer_len, ftnlen cw_len)
@@ -87,8 +83,7 @@ void sngetr_
 }
 
 AST_MOCK_CAPI
-void snset_
-(char* buffer, integer* iprint, integer* isumm,
+void snset_(char* buffer, integer* iprint, integer* isumm,
     integer* inform__, char* cw, integer* lencw,
     integer* iw, integer* leniw,
     doublereal* rw, integer* lenrw,
@@ -98,8 +93,7 @@ void snset_
 }
 
 AST_MOCK_CAPI
-void sngetc_
-(char* buffer, char* ivalue, integer* inform__,
+void sngetc_(char* buffer, char* ivalue, integer* inform__,
     char* cw, integer* lencw, integer* iw,
     integer* leniw, doublereal* rw, integer* lenrw,
     ftnlen buffer_len, ftnlen ivalue_len, ftnlen cw_len)
@@ -108,8 +102,7 @@ void sngetc_
 }
 
 AST_MOCK_CAPI
-void snseti_
-(char* buffer, integer* ivalue, integer* iprint,
+void snseti_(char* buffer, integer* ivalue, integer* iprint,
     integer* isumm, integer* inform__, char* cw,
     integer* lencw, integer* iw, integer* leniw,
     doublereal* rw, integer* lenrw, ftnlen buffer_len,
@@ -119,8 +112,7 @@ void snseti_
 }
 
 AST_MOCK_CAPI
-void snsetr_
-(char* buffer, doublereal* rvalue, integer* iprint,
+void snsetr_(char* buffer, doublereal* rvalue, integer* iprint,
     integer* isumm, integer* inform__, char* cw,
     integer* lencw, integer* iw, integer* leniw,
     doublereal* rw, integer* lenrw, ftnlen buffer_len,
@@ -130,8 +122,7 @@ void snsetr_
 }
 
 AST_MOCK_CAPI
-void snspec_
-(integer* ispecs, integer* inform__, char* cw,
+void snspec_(integer* ispecs, integer* inform__, char* cw,
     integer* lencw, integer* iw, integer* leniw,
     doublereal* rw, integer* lenrw, ftnlen cw_len)
 {
@@ -139,8 +130,7 @@ void snspec_
 }
 
 AST_MOCK_CAPI
-void snmema_
-(integer* iexit, integer* nf, integer* n, integer* nxname,
+void snmema_(integer* iexit, integer* nf, integer* n, integer* nxname,
     integer* nfname, integer* nea, integer* neg,
     integer* mincw, integer* miniw,
     integer* minrw, char* cw, integer* lencw, integer* iw,
@@ -151,8 +141,7 @@ void snmema_
 }
 
 AST_MOCK_CAPI
-void snjac_
-(integer* inform__, integer* nf, integer* n, My_fp userfg,
+void snjac_(integer* inform__, integer* nf, integer* n, My_fp userfg,
     integer* iafun, integer* javar, integer* lena,
     integer* nea, doublereal* a, integer* igfun,
     integer* jgvar, integer* leng, integer* neg,

@@ -21,7 +21,6 @@
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
-#include <mutex>
 #include "SnoptAPI.hpp"
 #include <mutex>
 
