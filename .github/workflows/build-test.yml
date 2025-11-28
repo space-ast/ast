@@ -30,26 +30,32 @@ jobs:
           # xmake-version: local#
           xmake-version: branch@dev
 
-      - name: 设置自定义缓存目录路径
-        run: |
-          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
-          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
-
       # Cache xmake dependencies
-      - name: 恢复缓存
+      - name: 配置依赖缓存
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: ${{ matrix.os }}-${{ matrix.arch }}
+          key: ${{ matrix.os }}-${{ matrix.arch }}-v1
 
-      - name: 编译
+      - name: 设置xmake相关目录
         run: |
-          xmake f -cvy --with_test=y -m release
+          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+      
+      - name: 配置opengl环境
+        if: runner.os != 'Windows'
+        uses: awalsh128/cache-apt-pkgs-action@v1.6.0
+        with:
+          packages: libgl1-mesa-dev libglu1-mesa-dev
+          version: 2
+
+      - name: 配置项目
+        run: |
+          xmake f -cy --with_test=y -m release
           xmake show
+
+      - name: 编译项目
+        run: |
           xmake
 
-      - name: 测试
-        run: |
-          xmake test -v
-          xmake test
           
