@@ -21,6 +21,7 @@
 #include "LibraryLoader.hpp"
 #include "Encode.hpp"
 #include <stdio.h>
+#include <cstring>
 
 // 平台特定的头文件包含
 #if defined(_WIN32) || defined(_WIN64)
