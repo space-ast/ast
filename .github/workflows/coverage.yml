@@ -23,32 +23,42 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y lcov
 
-      - name: 设置自定义缓存目录路径
+      # Cache xmake dependencies
+      - name: 配置依赖缓存
+        uses: actions/cache@v3
+        with:
+          path: xmake-cache
+          key: ${{ matrix.os }}-${{ matrix.arch }}-v1
+
+
+      - name: 设置xmake相关目录
         run: |
           xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
           xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
 
-      # Cache xmake dependencies
-      - name: 恢复缓存
-        uses: actions/cache@v3
+      - name: 配置opengl环境
+        if: runner.os != 'Windows'
+        uses: awalsh128/cache-apt-pkgs-action@v1.6.0
         with:
-          path: xmake-cache
-          key: ${{ matrix.os }}-${{ matrix.arch }}
-          
+          packages: libgl1-mesa-dev libglu1-mesa-dev
+          version: 2          
 
-      - name: 编译测试
+      - name: 配置项目
         run: |
-          xmake f -cvy --with_test=y -m coverage
+          xmake f -cy --with_test=y -m coverage
           xmake show
+
+      - name: 编译项目
+        run: |
           xmake
       
-      - name: 生成覆盖率报告
+      - name: 执行测试并收集覆盖率信息
         run: |
           lcov --directory . --zerocounters
           xmake test
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       
-      - name: 上传到 Codecov
+      - name: 上传覆盖率到Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
