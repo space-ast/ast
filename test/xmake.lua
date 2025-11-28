@@ -1,6 +1,6 @@
 ﻿set_group("test")
 
-add_deps("AstCore", "AstUtil")
+add_deps("AstCore", "AstUtil", "AstOpt")
 add_packages("gtest")
 
 local files = os.files("**/test*.c*")

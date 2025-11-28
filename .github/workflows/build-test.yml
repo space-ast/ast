@@ -30,6 +30,17 @@ jobs:
           # xmake-version: local#
           xmake-version: branch@dev
 
+      - name: 设置自定义缓存目录路径
+        run: |
+          echo "XMAKE_PKG_CACHEDIR=$(pwd)/xmake-cache" >> $GITHUB_ENV
+
+      # Cache xmake dependencies
+      - name: 恢复缓存
+        uses: actions/cache@v3
+        with:
+          path: xmake-cache
+          key: ${{ matrix.os }}-${{ matrix.arch }}
+
       - name: 编译
         run: |
           xmake f -cy --with_test=y
