@@ -180,7 +180,7 @@ std::vector<double> NLPProblem::evalFitness(const std::vector<double>& x) const
 {
 	std::vector<double> f;
 	err_t err = this->evalFitness(x, f);
-	return std::move(f);
+	return f;
 }
 
 err_t NLPProblem::evalFitness(const std::vector<double>& x, std::vector<double>& f) const
@@ -262,6 +262,23 @@ err_t NLPProblem::evalObjective(int numVariable, const double* variable, double&
 	return evalObjective(numVariable, variable, 1, &objective);
 }
 
+
+err_t NLPProblem::evalFitness(int numVariable, double* variable, int numObjective, double* objective, int numConstrEq, double* constrEq, int numConstrIneq, double* constrIneq) const
+{
+	NLPInput input{};
+	NLPOutput output{};
+	input.variable.size = numVariable;
+	input.variable.value = variable;
+
+	output.objective.value = objective;
+	output.objective.size = numObjective;
+	output.constraintEq.size = numConstrEq;
+	output.constraintEq.value = constrEq;
+	output.constraintIneq.size = numConstrIneq;
+	output.constraintIneq.value = constrIneq;
+
+	return evalFitness(input, output);
+}
 
 err_t NLPProblem::evalJacobi(int ndim, const double* x_input, int numConstraint, int numJacobiElem, double* nzElemjacobi) const
 {

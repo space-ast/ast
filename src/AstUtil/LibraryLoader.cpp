@@ -19,7 +19,9 @@
  
  
 #include "LibraryLoader.hpp"
+#include "Encode.hpp"
 #include <stdio.h>
+#include <cstring>
 
 // 平台特定的头文件包含
 #if defined(_WIN32) || defined(_WIN64)
@@ -41,12 +43,38 @@ void* aLoadLibrary(const char* filepath)
 
 #if defined(_WIN32) || defined(_WIN64)
     // Windows平台
-    return LoadLibraryA(filepath);
+	std::wstring widePath;
+	aUtf8ToWide(filepath, widePath);
+    return LoadLibraryW(widePath.c_str());
 #else
+    static const char* prefixes[]{ "", "lib" };
+    static const char* suffixes[]{ "", ".so" };
+    
     // Linux/Unix平台
     // RTLD_LAZY: 延迟绑定，只在需要时解析符号
     // RTLD_LOCAL: 符号不与其他模块共享
-    return dlopen(filepath, RTLD_LAZY | RTLD_LOCAL);
+	int flag = RTLD_LAZY | RTLD_LOCAL;
+
+	bool has_dot = strrchr(filepath, '.') != nullptr;
+	bool has_dir_sep = strchr(filepath, '/') != nullptr;
+    
+    if (has_dot || has_dir_sep) {
+        // 如果路径中已经包含扩展名或目录分隔符，则直接尝试加载
+        return dlopen(filepath, flag);
+	}
+
+	// 尝试不同的前缀和后缀组合加载库
+    for (const char* prefix : prefixes) {
+        for (const char* suffix : suffixes) {
+            std::string fullPath = std::string(prefix) + filepath + std::string(suffix);
+            void* handle = dlopen(fullPath.c_str(), flag);
+            if (handle) {
+                return handle;
+            }
+        }
+	}
+
+    return nullptr;
 #endif
 }
 
