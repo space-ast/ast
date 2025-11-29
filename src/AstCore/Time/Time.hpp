@@ -24,6 +24,17 @@
  
 AST_NAMESPACE_BEGIN
 
+class Time;
+
+
+/// @brief 规范化时间对象
+/// @details 将时间中的秒、分进行进位或借位调整，使其处于合理范围内（0-59）
+/// @param time 要规范化的时间对象
+AST_CORE_CAPI void aTimeNormalize(Time& time);
+
+
+
+
 /// @brief 时间
 class Time
 {
@@ -34,7 +45,18 @@ public:
     int& minute(){return minute_;}
     double second() const{return second_;}
     double& second(){return second_;}
-
+public:
+    /// @brief 规范化时间对象
+    void normalize(){
+        aTimeNormalize(*this);
+    }
+    
+    /// @brief 获取规范化后的时间对象副本
+    Time normalized() const{
+        Time t = *this;
+        aTimeNormalize(t);
+        return t;
+    }
 public:
     int    hour_;       ///< 时
     int    minute_;     ///< 分

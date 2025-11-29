@@ -24,12 +24,38 @@
 #include "Date.hpp"
 #include "Time.hpp"
 
+
+struct tm;
+
 AST_NAMESPACE_BEGIN
+
+
+class DateTime;
+
+/// @brief 获取当前本地日期时间
+AST_CORE_CAPI void aCurrentDateTimeLocal(DateTime& dt);
+
+/// @brief 获取当前UTC日期时间
+AST_CORE_CAPI void aCurrentDateTimeUTC(DateTime& dt);
+
 
 
 /// @brief 日期时间
 class DateTime
 {
+public:
+    /// @brief 根据系统时间创建日期时间对象
+    AST_CORE_API
+    static DateTime FromTm(const tm* time);
+
+    /// @brief 根据time_t创建本地时间的日期时间对象
+    AST_CORE_API
+    static DateTime FromTimeTLocal(time_t time);
+
+    /// @brief 根据time_t创建UTC时间的日期时间对象
+    AST_CORE_API
+    static DateTime FromTimeTUTC(time_t time);
+
 public:
     const Date& date() const{return date_;}
     Date& date() {return date_;}
@@ -41,6 +67,21 @@ public:
     Time time_;     ///< 时间
 };
 
+A_ALWAYS_INLINE
+DateTime aCurrentDateTimeLocal()
+{
+    DateTime dt;
+    aCurrentDateTimeLocal(dt);
+    return dt;
+}
+
+A_ALWAYS_INLINE
+DateTime aCurrentDateTimeUTC()
+{
+    DateTime dt;
+    aCurrentDateTimeUTC(dt);
+    return dt;
+}
 
 
 AST_NAMESPACE_END
