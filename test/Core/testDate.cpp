@@ -1,4 +1,4 @@
-/// @file      testDate.cpp
+﻿/// @file      testDate.cpp
 /// @brief     测试日期类的功能
 /// @details   ~
 /// @author    jinke18
@@ -216,6 +216,47 @@ TEST(Date, MonthWeekdayNames)
     EXPECT_STREQ(aWeekDayShortName(1), "Mon");
     EXPECT_STREQ(aWeekDayShortName(6), "Sat");
     EXPECT_STREQ(aWeekDayShortName(-1), "???");  // 越界情况
+}
+
+TEST(Date, DayInWeek)
+{
+    AST_USING_NAMESPACE
+
+    {
+        // 测试日期转星期几
+        Date date = Date::FromYMD(2025, 11, 29);  // 2025年11月29日是星期三
+        int weekday = date.dayOfWeek();
+        EXPECT_EQ(weekday, 6);  // 0代表星期天，1代表星期一，以此类推
+    }
+
+    {
+        // 测试日期转星期几
+        Date date = Date::FromYMD(2023, 3, 1);  // 2023年3月1日是星期三
+        int weekday = date.dayOfWeek();
+        EXPECT_EQ(weekday, 3);  // 0代表星期天，1代表星期一，以此类推
+        // 测试静态函数
+        EXPECT_EQ(aDayOfWeek(date), 3);  // 0代表星期天，1代表星期一，以此类推
+    }
+    {
+        // 测试跨月份边界情况
+        Date date = Date::FromYMD(2023, 3, 31);  // 2023年3月31日是星期五
+        int weekday = date.dayOfWeek();
+        EXPECT_EQ(weekday, 5);  // 0代表星期天，1代表星期一，以此类推
+        EXPECT_EQ(aDayOfWeek(date), 5);  // 0代表星期天，1代表星期一，以此类推
+    }
+    {
+        // 测试跨年度边界情况
+        Date date3 = Date::FromYMD(2023, 12, 31);  // 2023年12月31日是星期日
+        EXPECT_EQ(date3.dayOfWeek(), 0);  // 0代表星期天，1代表星期一，以此类推
+        EXPECT_EQ(aDayOfWeek(date3), 0);  // 0代表星期天，1代表星期一，以此类推
+    }
+
+    {
+        // 测试跨年度边界情况
+        Date date5 = Date::FromYMD(2023, 1, 0);  // 2023年1月1日是星期日
+        EXPECT_EQ(date5.dayOfWeek(), 6);  // 0代表星期天，1代表星期日，以此类推
+        EXPECT_EQ(aDayOfWeek(date5), 6);  // 0代表星期天，1代表星期日，以此类推
+    }
 }
 
 TEST(Date, EdgeCases) 
