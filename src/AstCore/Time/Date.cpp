@@ -92,6 +92,13 @@ int aDayOfYear(const Date& date)
 	return dayofyear;
 }
 
+int aDayOfWeek(const Date& date)
+{
+    int jd = aDateToJD(date);
+    return (jd + 1) % 7; // 0: Sunday, 1: Monday, ..., 6: Saturday
+}
+
+
 int aDateToJD(const Date& date)
 {
     int Y = date.year();

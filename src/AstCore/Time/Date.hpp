@@ -33,9 +33,11 @@ AST_CORE_CAPI const char* aMoonFullName(int month);
 AST_CORE_CAPI const char* aMoonShortName(int month);
 
 /// @brief 获取星期几的完整英文名称
+/// @param wday 星期几，从0开始计数（0表示星期日）
 AST_CORE_CAPI const char* aWeekDayFullName(int wday);
 
 /// @brief 获取星期几的简写英文名称
+/// @param wday 星期几，从0开始计数（0表示星期日）
 AST_CORE_CAPI const char* aWeekDayShortName(int wday);
 
 /// @brief 判断是否为闰年
@@ -53,6 +55,11 @@ int aDayInMonth(int month, int year)
 
 /// @brief 获取日期是这一年的第几天，从1开始计数
 AST_CORE_CAPI int aDayOfYear(const Date& date);
+
+/// @brief 获取日期是这一周的第几天
+/// @param date 日期对象
+/// @return 星期几，从0开始计数（0表示星期日）
+AST_CORE_CAPI int aDayOfWeek(const Date& date);
 
 /// @brief 将日期转换为儒略日数
 AST_CORE_CAPI int aDateToJD(const Date& date);
@@ -101,6 +108,25 @@ public:
     int day() const{return day_;}
     int& day(){return day_;}
 public:
+    const char* monthFullName() const{
+        return aMoonFullName(month_);
+    }
+    const char* monthShortName() const{
+        return aMoonShortName(month_);
+    }
+    /// @brief 获取星期几的完整英文名称
+    const char* weekDayFullName() const{
+        return aWeekDayFullName(dayOfWeek());
+    }
+    /// @brief 获取星期几的简写英文名称
+    const char* weekDayShortName() const{
+        return aWeekDayShortName(dayOfWeek());
+    }
+    /// @brief 获取日期是这一周的第几天
+    int dayOfWeek() const{
+        return aDayOfWeek(*this);
+    }
+
     /// @brief 获取日期是这一年的第几天，从1开始计数
     /// @return 第几天
     int dayOfYear() const{
