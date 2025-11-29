@@ -133,6 +133,39 @@ void aDateToYD(const Date& date, int& year, int& days)
 	days = aDayOfYear(date);
 }
 
+void aDateNormalize(Date &date)
+{
+	int dayofmonth;
+#ifndef NDEBUG
+	int niter = 0;
+#endif // !NDEBUG
+
+	while (1) {
+#ifndef NDEBUG
+		niter++;
+		assert(niter <= 100000);
+#endif // !NDEBUG
+
+		int ryear = (int)floor((date.month() - 1) / 12.);
+		date.month() -= ryear * 12;
+		date.year() += ryear;
+
+		dayofmonth = aDayInMonth(date.month(), _aIsLeapYear(date.year()));
+		if (date.day() < 1) {
+			date.month()--;
+			date.day() += dayofmonth;
+		}
+		else if (date.day() >= dayofmonth + 1) {
+			date.month()++;
+			date.day() -= dayofmonth;
+		}
+		else {
+			// date.day(): [1, dayofmonth+1)
+			break;
+		}
+	}
+}
+
 void aYDToDate(int year, int days, Date& date)
 {
 	//assert(days > 0 && days <= 367); 

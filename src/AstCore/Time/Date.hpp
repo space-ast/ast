@@ -67,6 +67,9 @@ AST_CORE_CAPI void aYDToDate(int year, int days, Date& date);
 /// @brief 将日期转换为年份和一年中的天数
 AST_CORE_CAPI void aDateToYD(const Date& date, int& year, int& days);
 
+/// @brief 规范化日期对象
+AST_CORE_CAPI void aDateNormalize(Date& date);
+
 
 /// @brief 日期
 class Date
@@ -136,6 +139,18 @@ public:
     /// @brief 将日期转换为年份和一年中的天数
     void toYD(int& year, int& days) const{
         aDateToYD(*this, year, days);
+    }
+
+    /// @brief 规范化日期对象，将日期调整为有效日期
+    void normalize(){
+        aDateNormalize(*this);
+    }
+    
+    /// @brief 返回规范化后的日期对象副本
+    Date normalized() const {
+        Date d = *this;
+        aDateNormalize(d);
+        return d;
     }
 public:
     int year_;          ///< 年
