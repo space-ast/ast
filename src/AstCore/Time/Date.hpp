@@ -82,6 +82,19 @@ AST_CORE_CAPI void aDateNormalize(Date& date);
 class Date
 {
 public:
+
+    /// @brief 月份，从1开始计数（1表示一月）
+    enum EMonth{
+        eJAN = 1, eFEB, eMAR, eAPR, eMAY, eJUN,
+        eJUL = 7, eAUG, eSEP, eOCT, eNOV, eDEC
+    };
+
+    /// @brief 星期几，从0开始计数（0表示星期日）
+    enum EWeekDay{
+        eSUN = 0, eMON, eTUE, eWED, eTHU, eFRI, eSAT
+    };
+
+public:
     /// @brief 根据儒略日数创建日期对象
     static Date FromJD(int jd){
         Date date;
@@ -107,6 +120,10 @@ public:
     int& month(){return month_;}
     int day() const{return day_;}
     int& day(){return day_;}
+
+    void setYear(int year){year_ = year;}
+    void setMonth(int month){month_ = month;}
+    void setDay(int day){day_ = day;}
 public:
     const char* monthFullName() const{
         return aMoonFullName(month_);

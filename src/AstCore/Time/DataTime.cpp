@@ -38,5 +38,73 @@ void aCurrentDateTimeUTC(DateTime &dt)
 	dt = DateTime::FromTimeTUTC(t);
 }
 
+void aDateTimeNormalize(DateTime& dt)
+{
+    aTimeNormalize(dt.time());
+    // @todo 
+}
+
+
+void aDateTimeNormalizeUTC(DateTime& dt)
+{
+    // @todo 
+
+}
+void aDateTimeNormalizeLocal(DateTime& dt, int timezone)
+{
+    // @todo 
+}
+
+void aDateTimeNormalizeBJT(DateTime& dt)
+{
+    // @todo 
+}
+
+void aDateTimeAddYears(DateTime& dt, int years)
+{
+    dt.year() += years;
+    dt.normalize();
+}
+void aDateTimeAddMonths(DateTime& dt, int months)
+{
+    dt.month() += months;
+    dt.normalize();
+}
+void aDateTimeAddDays(DateTime& dt, int days)
+{
+    dt.day() += days;
+    dt.normalize();
+}
+void aDateTimeAddHours(DateTime& dt, int hours)
+{
+    dt.hour() += hours;
+    dt.normalize();
+}
+void aDateTimeAddMinutes(DateTime& dt, int minutes)
+{
+    dt.minute() += minutes;
+    dt.normalize();
+}
+void aDateTimeAddSeconds(DateTime& dt, double seconds)
+{
+    dt.second() += seconds;
+    dt.normalize();
+}
+void aDateTimeAddSecondsUTC(DateTime& dt, double seconds)
+{
+    dt.second() += seconds;
+    dt.normalizeUTC();
+}
+void aDateTimeAddSecondsLocal(DateTime& dt, double seconds, int timezone)
+{
+    dt.second() += seconds;
+    dt.normalizeLocal(timezone);
+}
+void aDateTimeAddSecondsBJT(DateTime& dt, double seconds)
+{
+    dt.second() += seconds;
+    dt.normalizeBJT();
+}
+
 
 AST_NAMESPACE_END

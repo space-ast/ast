@@ -45,6 +45,9 @@ public:
     int& minute(){return minute_;}
     double second() const{return second_;}
     double& second(){return second_;}
+    void setHour(int hour){hour_ = hour;}
+    void setMinute(int minute){minute_ = minute;}
+    void setSecond(double second){second_ = second;}
 public:
     /// @brief 规范化时间对象
     void normalize(){

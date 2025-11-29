@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 
 // 线程本地存储的当前全局上下文指针
 A_THREAD_LOCAL GlobalContext* t_currentGlobalContext = nullptr;
-GlobalContext* g_defaultGlobalContext = nullptr;
+std::unique_ptr<GlobalContext> g_defaultGlobalContext = nullptr;
 
 
 err_t aInitialize(GlobalContext* context)
@@ -49,7 +49,6 @@ err_t aInitialize()
 err_t aUninitialize()
 {
     if (g_defaultGlobalContext) {
-        delete g_defaultGlobalContext;
         g_defaultGlobalContext = nullptr;
     }
     // 线程局部变量 t_currentGlobalContext 通常不需要在此处显式删除，
@@ -159,9 +158,9 @@ GlobalContext* aGlobalContext_GetCurrent()
 GlobalContext* aGlobalContext_GetDefault()
 {
     if (!g_defaultGlobalContext) {
-        g_defaultGlobalContext = aGlobalContext_New();
+        g_defaultGlobalContext.reset(aGlobalContext_New());
     }
-    return g_defaultGlobalContext;
+    return g_defaultGlobalContext.get();
 }
 
 GlobalContext* aGlobalContext_Ensure()
