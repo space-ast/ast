@@ -62,6 +62,12 @@ AST_CORE_CAPI GlobalContext* aGlobalContext_GetCurrent();
 /// @brief 获取默认全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_GetDefault();
 
+/// @brief 确保默认全局上下文存在
+/// 如果默认全局上下文不存在，则创建一个新的默认全局上下文。
+/// @return 
+AST_CORE_CAPI GlobalContext* aGlobalContext_EnsureDefault();
+
+
 /// @brief 确保当前全局上下文存在
 /// 如果当前全局上下文不存在，则创建一个新的全局上下文。
 /// @return 

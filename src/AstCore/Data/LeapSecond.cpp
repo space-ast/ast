@@ -32,16 +32,8 @@ AST_NAMESPACE_BEGIN
 
 LeapSecond::LeapSecond()
 {
-    fs::path datafile = fs::path(aDataDirGet()) / AST_LEAPSECOND_DEFAULT_FILE;
-
-    if (load(datafile.string().c_str()) == eNoError)
-    {
-        
-    }
-    else {
-        aWarning("failed to load leapsecond from default data file");
-        setDefaultData();
-    }
+    setDefaultData();
+    
 }
 
 
@@ -61,12 +53,13 @@ err_t LeapSecond::load(FILE* file)
     if (file == NULL) {
         return eErrorNullInput;
     }
+    std::vector<Entry> data;
     int line, status;
     status = fscanf(file, "%d", &line);
     if (status == EOF) {
         return eErrorInvalidFile;
     }
-    m_data.resize(line);
+    data.resize(line);
 
     char tmp[10];
     float leapvar;
@@ -74,15 +67,16 @@ err_t LeapSecond::load(FILE* file)
         status = fscanf(
             file,
             "%d %f %s %s %s",
-            &m_data[i].mjd,
+            &data[i].mjd,
             &leapvar,
             tmp, tmp, tmp
         );
-        m_data[i].leapSecond = leapvar;
+        data[i].leapSecond = leapvar;
         if (status == EOF) {
             return eErrorInvalidFile;
         }
     }
+    m_data = std::move(data);
     return eNoError;
 }
 
@@ -90,6 +84,18 @@ err_t LeapSecond::load(const char* fileName)
 {
     FILE* file = fopen(fileName, "r");
     return load(file);
+}
+
+err_t LeapSecond::loadDefault()
+{
+    fs::path datafile = fs::path(aDataDirGet()) / AST_LEAPSECOND_DEFAULT_FILE;
+    
+    err_t err = load(datafile.string().c_str());
+    if (err)
+    {
+        aWarning("failed to load leapsecond from default data file");
+    }
+    return err;
 }
 
 void LeapSecond::setDefaultData()

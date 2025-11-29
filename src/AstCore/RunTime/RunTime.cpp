@@ -157,6 +157,11 @@ GlobalContext* aGlobalContext_GetCurrent()
 
 GlobalContext* aGlobalContext_GetDefault()
 {
+    return g_defaultGlobalContext.get();
+}
+
+GlobalContext* aGlobalContext_EnsureDefault()
+{
     if (!g_defaultGlobalContext) {
         g_defaultGlobalContext.reset(aGlobalContext_New());
     }
@@ -167,7 +172,7 @@ GlobalContext* aGlobalContext_Ensure()
 {
     if (!t_currentGlobalContext)
     {
-        aGlobalContext_SetCurrent(aGlobalContext_GetDefault());
+        aGlobalContext_SetCurrent(aGlobalContext_EnsureDefault());
     }
     return t_currentGlobalContext;
 }
