@@ -45,6 +45,7 @@ public:
 public:
 	err_t load(FILE* file);
     err_t load(const char* fileName);
+	err_t loadDefault();
 	void setDefaultData();
 	void setData(const std::vector<double>& mJulianDate, const std::vector<double>& taiMinusUTC);
 	double getLeapSecondByUTC(double jdUTCp1, double jdUTCp2);
