@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Object/ScopedPtr.hpp"
+#include "../../src/AstCore/Alias/ScopedPtr.hpp"

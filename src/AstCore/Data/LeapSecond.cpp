@@ -24,11 +24,13 @@
 #include "AstCore/Date.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/IO.hpp"
+#include "AstUtil/ScopedPtr.hpp"
 #include <assert.h>
 
 AST_NAMESPACE_BEGIN
 
-#define AST_LEAPSECOND_DEFAULT_FILE "Time/LeapSecond.dat"
+#define AST_LEAPSECOND_DEFAULT_FILE "Time/Leap_Second.dat"
 
 LeapSecond::LeapSecond()
 {
@@ -37,19 +39,14 @@ LeapSecond::LeapSecond()
 }
 
 
-LeapSecond::LeapSecond(FILE* file)
+LeapSecond::LeapSecond(const char* filepath)
 {
-    load(file);
+    load(filepath);
 }
 
-LeapSecond::LeapSecond(const char* fileName)
+err_t LeapSecond::loadATK(const char* filepath)
 {
-    FILE* file = fopen(fileName, "r");
-    load(file);
-}
-
-err_t LeapSecond::load(FILE* file)
-{
+    ScopedPtr<std::FILE> file = ast_fopen(filepath, "r");
     if (file == NULL) {
         return eErrorNullInput;
     }
@@ -80,10 +77,20 @@ err_t LeapSecond::load(FILE* file)
     return eNoError;
 }
 
-err_t LeapSecond::load(const char* fileName)
+
+err_t LeapSecond::loadHPIERS(const char* filepath)
 {
-    FILE* file = fopen(fileName, "r");
-    return load(file);
+    ScopedPtr<std::FILE> file = ast_fopen(filepath, "r");
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
+
+    return eNoError;
+}
+
+err_t LeapSecond::load(const char* filepath)
+{
+    return loadHPIERS(filepath);
 }
 
 err_t LeapSecond::loadDefault()
