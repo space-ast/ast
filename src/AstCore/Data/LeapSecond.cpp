@@ -22,6 +22,7 @@
 #include "LeapSecond.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstCore/Date.hpp"
+#include "AstCore/JulianDate.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/IO.hpp"
@@ -40,10 +41,6 @@ LeapSecond::LeapSecond()
 }
 
 
-LeapSecond::LeapSecond(const char* filepath)
-{
-    load(filepath);
-}
 
 err_t LeapSecond::loadATK(const char* filepath)
 {
@@ -197,13 +194,22 @@ void LeapSecond::setData(const std::vector<double>& mjd, const std::vector<doubl
     }
 }
 
-
-
-
-double LeapSecond::getLeapSecondByTAI(double jdTAIp1, double jdTAIp2)
+double LeapSecond::leapSecondUTC(ImpreciseJD jdUTC)
 {
+    ImpreciseMJD mjdUTC = aJDToMJD_Imprecise(jdUTC);
+    return leapSecondUTCMJD(mjdUTC);
+}
 
-    double mjdtai = (jdTAIp1 - 2400000.5) + jdTAIp2;
+
+double LeapSecond::leapSecondTAI(ImpreciseJD jdTAI)
+{
+    ImpreciseMJD mjdTAI = aJDToMJD_Imprecise(jdTAI);
+    return leapSecondTAIMJD(mjdTAI);
+}
+
+double LeapSecond::leapSecondTAIMJD(ImpreciseMJD mjdTAI)
+{
+    double mjdtai = mjdTAI;
     int i = m_data.size() - 1;
     while (i >= 0) {
         if (mjdtai - m_data[i].leapSecond / 86400. >= m_data[i].mjd) {
@@ -214,11 +220,11 @@ double LeapSecond::getLeapSecondByTAI(double jdTAIp1, double jdTAIp2)
     return m_data[0].leapSecond;
 }
 
-double LeapSecond::getSecDayByUTC(double jdUTCp1, double jdUTCp2)
+double LeapSecond::getLodUTC(const JulianDate& jdUTC)
 {
     double sec = 86400;
 
-    double mjd = (jdUTCp1 - 2400000.5) + jdUTCp2;
+    double mjd = aJDToMJD_Imprecise(jdUTC);
     int i = m_data.size() - 1;
     while (i >= 1) {
         if (mjd >= m_data[i].mjd - 1) {
@@ -265,11 +271,11 @@ void LeapSecond::getTimeCorrectionByUTC(int year, int month, int day, double sec
 #else
     //@todo: more efficient implementation
     int jdUTC = aDateToJD(Date{year, month, day});
-    double leap1 = getLeapSecondByUTC(jdUTC, -0.5);
+    double leap1 = leapSecondUTC(jdUTC);
     dday = floor(sec / 86400);
     double leap2;
     do {
-        leap2 = getLeapSecondByUTC(jdUTC + dday, -0.5);
+        leap2 = leapSecondUTC(jdUTC + dday);
         newsec = sec - dday * 86400 + leap1 - leap2;
         if (newsec > 86400) {
             dday += 1;
@@ -308,8 +314,7 @@ double LeapSecond::getLeapSecDayByUTC(double jdUTCp1, double jdUTCp2, double& le
     leap = m_data[0].leapSecond;
     return sec;
 }
-
-double LeapSecond::getLeapSecondByUTC(double jdUTCp1, double jdUTCp2)
+double LeapSecond::leapSecondUTCMJD(ImpreciseMJD mjdUTC)
 {
     /*
 1961  Jan.  1 - 1961  Aug.  1     1.422 818 0s + (MJD - 37 300) x 0.001 296s
@@ -326,7 +331,7 @@ double LeapSecond::getLeapSecondByUTC(double jdUTCp1, double jdUTCp2)
 1966  Jan.  1 - 1968  Feb.  1     4.313 170 0s + (MJD - 39 126) x 0.002 592s
 1968  Feb.  1 - 1972  Jan.  1     4.213 170 0s +        ""
     */
-    double mjd = (jdUTCp1 - 2400000.5) + jdUTCp2;
+    double mjd = mjdUTC;
     int i = m_data.size() - 1;
     while (i >= 0) {
         if (mjd >= m_data[i].mjd) {

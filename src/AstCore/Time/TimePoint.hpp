@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "Duration.hpp"             // for LongDuration
 #include "AstCore/Constants.h"      // for kJ2000XXXX
 #include <stdint.h>                 // for int64_t
 
@@ -39,25 +40,22 @@ class UTCScale;
 
 
 /// @brief 绝对时间点
-/// @tparam TimeScale 时间尺度，TT TAI TDB UTC等
-/// @tparam Duration  相对于时间尺度参考历元的时长
-template<typename TimeScale, typename Duration>
 class TimePoint
 {
 public:
-
+    
 public:
-    Duration    duration_;
+    LongDuration    duration_;
 };
 
 
 // typedef TimePoint<TDBScale, LongDuration> TDBTime;
 // typedef TimePoint<TTScale, LongDuration> TTTime;
 // typedef TimePoint<UTCScale, LongDuration> UTCTime;
-typedef TimePoint<TAIScale, LongDuration> TAITime;
+// typedef TimePoint<TAIScale, LongDuration> TAITime;
 
 // typedef TAITime AbsTime;
-typedef TAITime AstTime;
+// typedef TAITime AstTime;
 
   
 AST_NAMESPACE_END
