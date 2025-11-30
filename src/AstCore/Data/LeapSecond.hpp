@@ -66,8 +66,9 @@ public:
 	void setDefaultData();
 
 	/// @brief  设置数据
-	void setData(const std::vector<double>& mJulianDate, const std::vector<double>& taiMinusUTC);
+	void setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC);
 	
+public:
 	double getLeapSecondByUTC(double jdUTCp1, double jdUTCp2);
 	double getLeapSecondByTAI(double jdTAIp1, double jdTAIp2);
 	

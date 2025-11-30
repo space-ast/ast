@@ -27,6 +27,7 @@
 #include "AstUtil/IO.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include <assert.h>
+#include <fstream>
 
 AST_NAMESPACE_BEGIN
 
@@ -84,7 +85,53 @@ err_t LeapSecond::loadHPIERS(const char* filepath)
     if (file == NULL) {
         return eErrorNullInput;
     }
+    char line[1024];
+    int lineNumber = 0;
+    std::vector<Entry> data;
+    while (fgets(line, sizeof(line), file)) {
+        lineNumber++;
 
+        // 跳过空行和注释行
+        if (line[0] == '#' || line[0] == '\n' || line[0] == '\r') {
+            continue;
+        }
+
+        // 使用sscanf解析行数据
+        double mjd;
+        int day, month, year;
+        int taiMinusUTC;
+
+        // 解析格式: MJD day month year TAI-UTC
+        int parsed = sscanf(line, "%lf %d %d %d %d",
+            &mjd, &day, &month, &year, &taiMinusUTC);
+
+        if (parsed == 5) {
+            // 成功解析一行数据
+            Entry entry{};
+            entry.mjd = static_cast<int>(mjd); // MJD转换为整数
+            entry.leapSecond = taiMinusUTC;
+            #ifdef _DEBUG
+            double mjd_expect = aDateToMJD({year, month, day});
+            if(mjd_expect != mjd){
+                aWarning("failed to load leap second file, incorrect mjd for date");
+                return eErrorInvalidFile;
+            }
+            #endif
+            data.push_back(entry);
+        }
+        else {
+            aWarning("failed to load leap second file, with format = hpiers");
+            // 如果解析失败
+            return eErrorInvalidFile;
+        }
+    }
+
+    // 检查是否成功读取到数据
+    if (data.empty()) {
+        return eErrorInvalidFile;
+    }
+
+    m_data = std::move(data);
     return eNoError;
 }
 
@@ -139,13 +186,13 @@ void LeapSecond::setDefaultData()
     };
 }
 
-void LeapSecond::setData(const std::vector<double>& mJulianDate, const std::vector<double>& taiMinusUTC)
+void LeapSecond::setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC)
 {
-    assert(mJulianDate.size() == taiMinusUTC.size());
-    int line = std::min(mJulianDate.size(), taiMinusUTC.size());
+    assert(mjd.size() == taiMinusUTC.size());
+    int line = std::min(mjd.size(), taiMinusUTC.size());
     m_data.resize(line);
     for (int i = 0; i < line; i++) {
-        m_data[i].mjd = mJulianDate[i];
+        m_data[i].mjd = mjd[i];
         m_data[i].leapSecond = taiMinusUTC[i];
     }
 }
