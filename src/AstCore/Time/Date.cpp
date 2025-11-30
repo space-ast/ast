@@ -20,6 +20,7 @@
  
 
 #include "Date.hpp"
+#include "AstUtil/Constants.h"
 #include <assert.h>
 #include <math.h>       // for floor
 
@@ -48,16 +49,16 @@ const char* aWeekDayFullName(int wday)
 {
   static constexpr const char* full_name_list[] = {
       "Sunday",   "Monday", "Tuesday", "Wednesday",
-      "Thursday", "Friday", "Saturday", "Sunday" };
-  return wday >= 0 && wday <= 7 ? full_name_list[wday] : "?";
+      "Thursday", "Friday", "Saturday" };
+  return wday >= 0 && wday <= 6 ? full_name_list[wday] : "?";
 }
 
 
 const char* aWeekDayShortName(int wday) 
 {
   static constexpr const char* short_name_list[] = {"Sun", "Mon", "Tue", "Wed",
-                                                    "Thu", "Fri", "Sat", "Sun" };
-  return wday >= 0 && wday <= 7 ? short_name_list[wday] : "???";
+                                                    "Thu", "Fri", "Sat"};
+  return wday >= 0 && wday <= 6 ? short_name_list[wday] : "???";
 }
 
 A_ALWAYS_INLINE
@@ -120,60 +121,6 @@ int aDayOfWeek(const Date& date)
 }
 
 
-int aDateToJD(const Date& date)
-{
-    int Y = date.year();
-    int M = date.month();
-    int D = date.day();
-
-    int Mi = (M - 14) / 12; // int类型，整数运算
-	int jd = (1461 * (Y + 4800 + Mi) / 4 )
-       + ( 367 * (M - 2 - Mi * 12) / 12 )
-       - (   3 * ((Y + 4900 + Mi) / 100) / 4)
-	   - 32075 + D;
-    return jd;
-}
-
-
-void aJDToDate(int J, Date& date)
-{
-	int N = 4 * (J + 68569) / 146097;
-	int L1 = J + 68569 - ((N * 146097 + 3) / 4);
-	int Y1 = (4000 * (L1 + 1) / 1461001);
-	int L2 = L1 - (1461 * Y1 / 4) + 31;
-	int M1 = (80 * L2 / 2447);
-	int L3 = (M1 / 11);
-
-	int day = L2 - (2447 * M1 / 80);
-	int month = M1 + 2 - 12 * L3;
-	int year = (100 * (N - 49) + Y1 + L3);
-
-
-    date.year() = year;
-    date.month() = month;
-    date.day() = day;
-}
-
-int aDateToMJD(const Date& date)
-{
-    return aDateToJD(date) - 2400001;
-}
-
-void aMJDToDate(int mjd, Date& date)
-{
-    return aJDToDate(mjd + 2400001, date);
-}
-
-double aMJDToJD(double mjd)
-{
-	return mjd + kMJDRefEpoch;
-}
-
-double aJDToMJD(double jd)
-{
-	return jd - kMJDRefEpoch;
-}
-
 void aDateToYD(const Date& date, int& year, int& days)
 {
 	year = date.year();
@@ -234,6 +181,54 @@ void aYDToDate(int year, int days, Date& date)
 	}
 	aYDToDate(year + 1, days, date);
 }
+
+
+
+
+int aDateToJD(const Date& date)
+{
+    int Y = date.year();
+    int M = date.month();
+    int D = date.day();
+
+    int Mi = (M - 14) / 12; // int类型，整数运算
+	int jd = (1461 * (Y + 4800 + Mi) / 4 )
+       + ( 367 * (M - 2 - Mi * 12) / 12 )
+       - (   3 * ((Y + 4900 + Mi) / 100) / 4)
+	   - 32075 + D;
+    return jd;
+}
+
+
+void aJDToDate(int J, Date& date)
+{
+	int N = 4 * (J + 68569) / 146097;
+	int L1 = J + 68569 - ((N * 146097 + 3) / 4);
+	int Y1 = (4000 * (L1 + 1) / 1461001);
+	int L2 = L1 - (1461 * Y1 / 4) + 31;
+	int M1 = (80 * L2 / 2447);
+	int L3 = (M1 / 11);
+
+	int day = L2 - (2447 * M1 / 80);
+	int month = M1 + 2 - 12 * L3;
+	int year = (100 * (N - 49) + Y1 + L3);
+
+
+    date.year() = year;
+    date.month() = month;
+    date.day() = day;
+}
+
+int aDateToMJD(const Date& date)
+{
+    return aDateToJD(date) - 2400001;
+}
+
+void aMJDToDate(int mjd, Date& date)
+{
+    return aJDToDate(mjd + 2400001, date);
+}
+
 
 
 AST_NAMESPACE_END

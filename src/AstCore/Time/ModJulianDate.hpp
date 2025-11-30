@@ -1,5 +1,5 @@
 ﻿///
-/// @file      EOP.hpp
+/// @file      ModJulianDate.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
@@ -21,19 +21,13 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <vector>
+#include "JulianDate.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class EOP
-{
-public:
-    struct Entry
-    {
 
-    };
-protected:
-    std::vector<Entry> m_data;
-};
 
+ 
+ 
 AST_NAMESPACE_END
+ 

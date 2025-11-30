@@ -26,21 +26,20 @@
 
 AST_NAMESPACE_BEGIN
 
+
+class JulianDate;
+class TimePoint;
+
 class AST_CORE_API LeapSecond
 {
 public:
-	struct Entry
-	{
-		int mjd;
-		int leapSecond;
-	};
-
+    struct Entry
+    {
+        int mjd;
+        int leapSecond;
+    };
 public:
     LeapSecond();
-	LeapSecond(const char* filepath);
-	LeapSecond(const std::vector<double>& mJulianDate, const std::vector<double>& taiMinusUTC) {
-		setData(mJulianDate, taiMinusUTC);
-	}
 public:
 	/// @brief  从ATK格式文件加载闰秒数据
 	/// @param  filepath - ATK格式文件路径
@@ -69,14 +68,18 @@ public:
 	void setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC);
 	
 public:
-	double getLeapSecondByUTC(double jdUTCp1, double jdUTCp2);
-	double getLeapSecondByTAI(double jdTAIp1, double jdTAIp2);
+	double leapSecondUTC(ImpreciseJD jdUTC);
+    double leapSecondUTCMJD(ImpreciseMJD mjdUTC);
+
+    double leapSecondTAI(ImpreciseJD jdTAI);
+    double leapSecondTAIMJD(ImpreciseMJD mjdTAI);
+
 	
     /// @brief  获取当天的UTC秒数
 	/// @param  jdUTCp1 - 
 	/// @param  jdUTCp2 - 
 	/// @retval          - 
-	double getSecDayByUTC(double jdUTCp1, double jdUTCp2);
+	double getLodUTC(const JulianDate& jdUTC);
 	
     /// @brief 考虑闰秒下，通过计算当天积秒计算标准化后的日期变动值和新积秒
 	/// @param year   - 年(UTC)

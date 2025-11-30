@@ -190,6 +190,13 @@ GlobalContext* aGlobalContext_New()
     return new GlobalContext{};
 }
 
+double aLeapSecondUTC(double jdUTC)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->leapSecond()->leapSecondUTC(jdUTC);
+}
+
 
  
 AST_NAMESPACE_END

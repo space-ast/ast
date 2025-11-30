@@ -79,6 +79,9 @@ AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_New();
 
- 
+
+AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
+
+
 AST_NAMESPACE_END
  

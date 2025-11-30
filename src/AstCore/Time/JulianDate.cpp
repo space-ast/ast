@@ -19,9 +19,48 @@
  
 
 #include "JulianDate.hpp" 
+#include "Date.hpp"
+#include "AstUtil/Constants.h"
 
- 
 AST_NAMESPACE_BEGIN
+
+
+void aJDToMJD(const JulianDate& jd, ModJulianDate& mjd)
+{
+	mjd = jd;
+	mjd.setDay(jd.day() - kMJDRefEpoch);
+}
+
+
+void aMJDToJD(const ModJulianDate& mjd, JulianDate& jd)
+{
+	jd = mjd;
+	jd.setDay(mjd.day() + kMJDRefEpoch);
+}
+
+
+double aJDToMJD_Imprecise(const JulianDate& jd)
+{
+	return (jd.dayPart1() - kMJDRefEpoch) + jd.dayPart2();
+}
+
+
+
+ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd)
+{
+	return mjd + kMJDRefEpoch;
+}
+
+ImpreciseJD aMJDToJD_Imprecise(const ModJulianDate& mjd)
+{
+	return (mjd.dayPart1() + kMJDRefEpoch) + mjd.dayPart2();
+}
+
+
+ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd)
+{
+	return jd - kMJDRefEpoch;
+}
 
 
 

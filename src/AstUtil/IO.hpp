@@ -21,8 +21,8 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <cstdio>
-#include <cstdarg>
+#include <cstdio>       // for std::fopen, std::printf, ...
+#include <cstdarg>      // for va_list, va_start, va_end
 
 #if defined AST_BUILD_LIB && defined AST_ENABLE_NAMESPACE
 #   ifndef AST_ENABLE_OVERRIDE_STDLIB  
@@ -54,6 +54,10 @@ AST_UTIL_CAPI std::FILE* ast_fopen(const char* filepath, const char* mode);
 AST_UTIL_CAPI int ast_printf(const char* format, ...);
 
 
+/// @brief 格式化输出
+/// @param format 格式化字符串，utf-8编码
+/// @param args 可变参数列表
+/// @return 输出字符数
 AST_UTIL_CAPI int ast_vprintf(const char* format, va_list args);
 
 #if AST_ENABLE_OVERRIDE_STDLIB // 覆盖标准库函数
