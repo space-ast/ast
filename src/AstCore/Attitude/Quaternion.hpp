@@ -33,9 +33,9 @@ public:
 	/// @brief 创建单位四元数
 	static Quaternion Identity(){return Quaternion{1,0,0,0};}
 	
-	double norm() const{return AST_PREPEND_NAMESPACE(norm)(*this); }
-	void normalize(){ AST_PREPEND_NAMESPACE(normalize)(*this); }
-	Quaternion normalized() const{return AST_PREPEND_NAMESPACE(normalized)(*this);}
+	double norm() const{return _AST norm(*this); }
+	void normalize(){ _AST normalize(*this); }
+	Quaternion normalized() const{return _AST normalized(*this);}
 	void setIdentity(){ *this = {1,0,0,0};}
 	double qs() const{return m_qs;}
 	double qx() const{return m_qx;}

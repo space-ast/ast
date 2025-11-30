@@ -42,10 +42,11 @@ def clean_header(incroot):
             if lines>2:
                 continue
             res = content.split('"')
-            if len(res) == 2:
-                relpath = [1]
+            if len(res) == 2 or len(res) == 3 and res[2] == "\n":
+                relpath = res[1]
                 dstpath = os.path.join(root, relpath)
                 if not os.path.exists(dstpath):
+                    print("remove", filepath)
                     os.remove(filepath)
 
 if __name__ == "__main__":

@@ -59,6 +59,9 @@ err_t aUninitialize()
 std::string aDataDirGet()
 {
     auto context = aGlobalContext_Ensure();
+    if (context->dataDir().empty()) {
+        aDataDirSet(aDataDirGetDefault());
+    }
     return context->dataDir();
 }
 

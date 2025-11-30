@@ -26,11 +26,15 @@
 /*
  * 宏命名规范：
  * 
- * A_   开头：通用宏，也能用于其他工程
- * AST_ 开头：ast项目专用宏、ast模块相关、ast功能相关宏
+ * 前缀 A_          ：通用宏，也能用于其他工程
+ * 前缀 AST_        ：ast项目专用宏、ast模块相关、ast功能相关宏
+ * 前缀 _           ：内部宏
  * 
+ * 前缀 AST_WITH_   ：是否带有某个第三方库，例如eigen、boost、fmt、ipopt等
+ * 前缀 AST_ENABLE_ ：是否启用某个特定功能，通常是性能、调试、特性的开关，例如调试信息、缓存、日志、AVX2指令集等
+ * 前缀 AST_USE_    ：是否使用某个实现方法，通常是可选、可替换的实现方式，例如不同的算法、不同的数据结构
+ * 前缀 AST_HAS_    ：是否具有某个特定功能，通常是指示标准库是否有某功能，例如是否有某个函数、是否有某个类型
  * */
-
 
 /// 通用宏
 
@@ -148,9 +152,13 @@
 
 
 
+#define AST_ENABLE_NAMESPACE                    // 是否使用命名空间
+// #undef AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库功能
+// #undef AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
+
 
 /// ast项目专用宏
-#ifdef __cplusplus
+#if defined AST_ENABLE_NAMESPACE // && defined __cplusplus 
 #   define _AST ::ast:: 
 #	define AST_NAMESPACE ast
 #	define AST_NAMESPACE_BEGIN namespace AST_NAMESPACE{
@@ -159,12 +167,12 @@
 #	define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
 #	define AST_DECL_TYPE_ALIAS(name) typedef AST_PREPEND_NAMESPACE(name) A##name;
 #else
-#   define _AST
+#   define _AST ::
 #	define AST_NAMESPACE 
 #	define AST_NAMESPACE_BEGIN 
 #	define AST_NAMESPACE_END   
 #	define AST_USING_NAMESPACE 
-#	define AST_PREPEND_NAMESPACE(name) name
+#	define AST_PREPEND_NAMESPACE(name) ::name
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 

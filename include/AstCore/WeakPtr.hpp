@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Object/WeakPtr.hpp"
+#include "../../src/AstCore/Alias/WeakPtr.hpp"

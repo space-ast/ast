@@ -42,6 +42,25 @@ if has_config("with_test") then
     includes("test")
 end
 
+-- 自定义任务：复制数据目录到构建目录
+task("cpdata")
+    set_menu{
+        usage = "xmake cpdata",
+        description = "Copy data directory to build directory"
+    }
+    on_run(function ()
+        if is_host("windows") then
+            os.cp(path.join(os.projectdir(), "data"), path.join(os.projectdir(), "build/windows/x64/debug/"))
+            os.cp(path.join(os.projectdir(), "data"), path.join(os.projectdir(), "build/windows/x64/release/"))
+            os.cp(path.join(os.projectdir(), "data"), path.join(os.projectdir(), "build/windows/x64/coverage/"))
+        else
+            os.cp(path.join(os.projectdir(), "data"), path.join(os.projectdir(), "build/linux/x64/debug/"))
+            os.cp(path.join(os.projectdir(), "data"), path.join(os.projectdir(), "build/linux/x64/release/"))
+            os.cp(path.join(os.projectdir(), "data"), path.join(os.projectdir(), "build/linux/x64/coverage/"))
+        end
+    end)
+task_end()
+
 -- 导入打包配置
 includes("@builtin/xpack")
 if xpack then

@@ -32,7 +32,7 @@ class Type;
 
 
 /// @brief 对象基类，实现运行时元信息、强弱引用计数
-class AST_CORE_API Object
+class AST_UTIL_API Object
 {
 public:
     Object(Type* tp)

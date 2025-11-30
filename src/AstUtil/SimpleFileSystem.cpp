@@ -194,7 +194,7 @@ namespace simple_fs
 #endif
 
     directory_iterator::directory_iterator(const path& p) 
-        : impl_(new impl(p))
+        : impl_(std::make_shared<impl>(p))
     {
         if (impl_->first())
         {

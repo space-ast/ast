@@ -22,6 +22,7 @@
 #include "AstCore/ScopedPtr.hpp"
 #include "AstCore/SharedPtr.hpp"
 #include "AstCore/WeakPtr.hpp"
+#include "AstUtil/IO.hpp"
 #include "AstTest/AstTestMacro.h"
 #include <memory>
 
@@ -89,6 +90,58 @@ TEST(SmartPointer, ScopedPtr)
     Object *obj = new Object{type};
     {
         ScopedPtr<Object> ptr{obj};
+    }
+}
+
+
+TEST(SmartPointer, FILE)
+{
+    // without scopedptr
+    {
+        const char* filepath = "testSmartPointer_FILE1.txt";
+        const char* content = u8"testcontent_中文_😊😀_Русский контент";
+        {
+            ScopedPtr<std::FILE> file = fopen(filepath, "w");
+            fprintf(file, content);
+        }
+        {
+            ScopedPtr<std::FILE> file = fopen(filepath, "r");
+            char buffer[1025]{};
+            fread(buffer, 1024, 1, file);
+            int eq = strcmp(buffer, content);
+            EXPECT_EQ(eq, 0);
+        }
+    }
+    // without scopedptr
+    {
+        const char* filepath = "testSmartPointer_FILE2.txt";
+        const char* content = u8"testcontent_中文_😊_Русский контент";
+        {
+            std::FILE* file = fopen(filepath, "w");
+            fprintf(file, content);
+        }
+        {
+            std::FILE* file = fopen(filepath, "r");
+            char buffer[1025]{};
+            fread(buffer, 1024, 1, file);
+            int eq = strcmp(buffer, content);
+            EXPECT_NE(eq, 0);
+        }
+    }
+    // wchar_t
+    {
+        const char* filepath = "testSmartPointer_FILE3.txt";
+        const wchar_t* content = L"testcontent_中文_😊_Русский контент";
+        {
+            ScopedPtr<std::FILE> file = fopen(filepath, "w");
+            fwprintf(file, content);
+        }
+        {
+            ScopedPtr<std::FILE> file = fopen(filepath, "r");
+            char buffer[1025]{};
+            fread(buffer, 1024, 1, file);
+            nothing();
+        }
     }
 }
 

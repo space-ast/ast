@@ -17,7 +17,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-// #define _A_STD_FILESYSTEM_USE_EXPERIMENTAL
+// #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL
 // #define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 // #include <experimental/filesystem>
 
@@ -308,6 +308,7 @@ TEST(SimpleFileSystem, UnicodeSupport) {
 
     // 按优先级尝试不同的locale
     std::vector<const char*> locales = {
+        ".UTF-8",
         "zh_CN.UTF-8",
         "en_US.UTF-8",
         "C.UTF-8",

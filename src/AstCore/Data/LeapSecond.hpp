@@ -26,7 +26,7 @@
 
 AST_NAMESPACE_BEGIN
 
-class LeapSecond
+class AST_CORE_API LeapSecond
 {
 public:
 	struct Entry
@@ -37,17 +37,37 @@ public:
 
 public:
     LeapSecond();
-	LeapSecond(FILE* file);
-	LeapSecond(const char* fileName);
+	LeapSecond(const char* filepath);
 	LeapSecond(const std::vector<double>& mJulianDate, const std::vector<double>& taiMinusUTC) {
 		setData(mJulianDate, taiMinusUTC);
 	}
 public:
-	err_t load(FILE* file);
-    err_t load(const char* fileName);
-	err_t loadDefault();
+	/// @brief  从ATK格式文件加载闰秒数据
+	/// @param  filepath - ATK格式文件路径
+	/// @retval          - 错误码
+    err_t loadATK(const char* filepath);
+
+	/// @brief  从HPIERS格式文件加载闰秒数据
+	/// @details 见https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat
+	/// @param  filepath - HPIERS格式文件路径
+	/// @retval          - 错误码
+    err_t loadHPIERS(const char* filepath);
+
+	/// @brief  从文件加载闰秒数据，按照默认格式进行加载
+	/// @param  filepath - 文件路径
+	/// @retval          - 错误码
+    err_t load(const char* filepath);
+
+    /// @brief 从默认文件加载闰秒数据
+    /// @return 错误码
+    err_t loadDefault();
+
+	/// @brief  设置默认数据
 	void setDefaultData();
+
+	/// @brief  设置数据
 	void setData(const std::vector<double>& mJulianDate, const std::vector<double>& taiMinusUTC);
+	
 	double getLeapSecondByUTC(double jdUTCp1, double jdUTCp2);
 	double getLeapSecondByTAI(double jdTAIp1, double jdTAIp2);
 	
