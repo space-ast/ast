@@ -61,12 +61,25 @@ AST_CORE_CAPI int aDayOfYear(const Date& date);
 /// @return 星期几，从0开始计数（0表示星期日）
 AST_CORE_CAPI int aDayOfWeek(const Date& date);
 
-/// @brief 将日期转换为儒略日数
+/// @brief 将日期转换为当天中午12点的儒略日数
 AST_CORE_CAPI int aDateToJD(const Date& date);
 
-/// @brief 将儒略日数转换为日期
+/// @brief 将当天中午12点的儒略日数转换为当天日期
 AST_CORE_CAPI void aJDToDate(int jd, Date& date);
 
+/// @brief 将日期转换为当天00:00的简约儒略日Modified Julian Date（MJD）
+AST_CORE_CAPI int aDateToMJD(const Date& date);
+
+/// @brief 将当天00:00的简约儒略日Modified Julian Date（MJD）转换为当天日期
+AST_CORE_CAPI void aMJDToDate(int mjd, Date& date);
+
+/// @brief 将儒略日转换为简约儒略日Modified Julian Date（MJD）
+/// @warning 注意用单个double表示的时间精度不高
+AST_CORE_CAPI double aMJDToJD(double mjd);
+
+/// @brief 将简约儒略日Modified Julian Date（MJD）转换为儒略日
+/// @warning 注意用单个double表示的时间精度不高
+AST_CORE_CAPI double aJDToMJD(double jd);
 
 /// @brief 将年份和一年中的天数转换为日期
 AST_CORE_CAPI void aYDToDate(int year, int days, Date& date);

@@ -1,3 +1,24 @@
+﻿/// @file      Date.cpp
+/// @brief     
+/// @details   ~
+/// @author    jinke18
+/// @date      30.11.2025
+/// @copyright 版权所有 (C) 2025-present, ast项目.
+
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+ 
+ 
+
 #include "Date.hpp"
 #include <assert.h>
 #include <math.h>       // for floor
@@ -27,16 +48,16 @@ const char* aWeekDayFullName(int wday)
 {
   static constexpr const char* full_name_list[] = {
       "Sunday",   "Monday", "Tuesday", "Wednesday",
-      "Thursday", "Friday", "Saturday"};
-  return wday >= 0 && wday <= 6 ? full_name_list[wday] : "?";
+      "Thursday", "Friday", "Saturday", "Sunday" };
+  return wday >= 0 && wday <= 7 ? full_name_list[wday] : "?";
 }
 
 
 const char* aWeekDayShortName(int wday) 
 {
   static constexpr const char* short_name_list[] = {"Sun", "Mon", "Tue", "Wed",
-                                                    "Thu", "Fri", "Sat"};
-  return wday >= 0 && wday <= 6 ? short_name_list[wday] : "???";
+                                                    "Thu", "Fri", "Sat", "Sun" };
+  return wday >= 0 && wday <= 7 ? short_name_list[wday] : "???";
 }
 
 A_ALWAYS_INLINE
@@ -133,6 +154,25 @@ void aJDToDate(int J, Date& date)
     date.day() = day;
 }
 
+int aDateToMJD(const Date& date)
+{
+    return aDateToJD(date) - 2400001;
+}
+
+void aMJDToDate(int mjd, Date& date)
+{
+    return aJDToDate(mjd + 2400001, date);
+}
+
+double aMJDToJD(double mjd)
+{
+	return mjd + kMJDRefEpoch;
+}
+
+double aJDToMJD(double jd)
+{
+	return jd - kMJDRefEpoch;
+}
 
 void aDateToYD(const Date& date, int& year, int& days)
 {
