@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "Date.hpp"
 #include "Time.hpp"
+#include <time.h>
 
 
 struct tm;

@@ -29,6 +29,7 @@
 #include "AstUtil/ScopedPtr.hpp"
 #include <assert.h>
 #include <fstream>
+#include <math.h>
 
 AST_NAMESPACE_BEGIN
 

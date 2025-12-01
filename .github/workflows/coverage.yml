@@ -55,6 +55,7 @@ jobs:
       - name: 执行测试并收集覆盖率信息
         run: |
           lcov --directory . --zerocounters
+          xmake cpdata
           xmake test
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       
