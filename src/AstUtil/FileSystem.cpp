@@ -20,6 +20,7 @@
 #include "FileSystem.hpp"
 #include "Encode.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/StringView.hpp"
 
 
 #ifdef _WIN32
@@ -43,8 +44,9 @@
 AST_NAMESPACE_BEGIN
 
 // 移除文件名，只保留目录路径
-std::string _aFileParentDir(const std::string& filepath)
+std::string _aFileParentDir(StringView filepath_)
 {
+    auto filepath = filepath_.to_string();
     #ifdef _WIN32
     size_t lastSlashPos = filepath.find_last_of("/\\");
     #else

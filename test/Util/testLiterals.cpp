@@ -22,7 +22,7 @@
 #include "AstUtil/Constants.h" // 包含常量定义用于测试
 
 AST_USING_NAMESPACE
-using namespace ast::literals;
+using namespace _AST literals;
 
 // 测试角度单位字面量
 TEST(Literals, AngleLiterals)

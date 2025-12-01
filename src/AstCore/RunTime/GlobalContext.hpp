@@ -25,6 +25,7 @@
 #include "AstCore/SolarSystem.hpp"
 #include "AstCore/EOP.hpp"
 #include "AstCore/LeapSecond.hpp"
+#include "AstUtil/StringView.hpp"
 #include <string>
  
 AST_NAMESPACE_BEGIN
@@ -53,7 +54,7 @@ public:
     std::string& dataDir() {return m_dataDir;}
     
 	/// @brief 设置数据目录
-	void setDataDir(const std::string& dir){m_dataDir = dir;}
+	void setDataDir(StringView dir){m_dataDir = std::string(dir);}
 
 protected:
 	SolarSystem  			m_solarSystem;

@@ -1,8 +1,8 @@
-﻿/// @file      Object.cpp
+﻿/// @file      MockStringView.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
-/// @date      19.11.2025
+/// @date      2.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 
 /// ast项目（https://github.com/space-ast/ast）
@@ -16,20 +16,33 @@
 /// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
- 
- 
-#include "Object.hpp"
-#include "AstUtil/StringView.hpp"
+
+#include "MockStringView.hpp"
  
 AST_NAMESPACE_BEGIN
- 
 
-static_assert(sizeof(Object) == sizeof(void*) * 2 + sizeof(uint32_t) * 2, "size not correct");
 
-err_t Object::getAttrString(StringView path, std::string &value) const
+int aMockSetStringConstRef(const std::string& str)
 {
-    return err_t();
+	return str.size();
 }
+int aMockSetStringValue(std::string str)
+{
+	return str.size();
+}
+
+int aMockSetStringView(StringView str)
+{
+	return str.size();
+}
+
+#if _HAS_CXX17
+int aMockSetStringViewStd(StringView str)
+{
+	return str.size();
+}
+#endif
 
 
 AST_NAMESPACE_END
+ 

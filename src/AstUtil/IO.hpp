@@ -24,17 +24,17 @@
 #include <cstdio>       // for std::fopen, std::printf, ...
 #include <cstdarg>      // for va_list, va_start, va_end
 
+
+// 只有当启用命名空间且定义了AST_ENABLE_OVERRIDE_STDLIB时，才覆盖标准库的函数
+// 避免在极端情况下的名称冲突，例如using namespace std; using namespace ast; 虽然这不是推荐的做法
+
 #if defined AST_BUILD_LIB && defined AST_ENABLE_NAMESPACE
 #   ifndef AST_ENABLE_OVERRIDE_STDLIB  
-#       define AST_ENABLE_OVERRIDE_STDLIB   1
+#       define AST_ENABLE_OVERRIDE_STDLIB
 #   endif // !AST_ENABLE_OVERRIDE_STDLIB
 #endif
 
 
-/// @brief 是否覆盖标准库函数
-#ifndef AST_ENABLE_OVERRIDE_STDLIB
-#   define AST_ENABLE_OVERRIDE_STDLIB 0
-#endif
 
 AST_NAMESPACE_BEGIN
 
@@ -60,7 +60,7 @@ AST_UTIL_CAPI int ast_printf(const char* format, ...);
 /// @return 输出字符数
 AST_UTIL_CAPI int ast_vprintf(const char* format, va_list args);
 
-#if AST_ENABLE_OVERRIDE_STDLIB // 覆盖标准库函数
+#ifdef AST_ENABLE_OVERRIDE_STDLIB // 覆盖标准库函数
 
 A_ALWAYS_INLINE 
 std::FILE* fopen(const char* filepath, const char* mode)
