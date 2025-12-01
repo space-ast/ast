@@ -1,4 +1,4 @@
-#include "DataTime.hpp"
+﻿#include "DateTime.hpp"
 #include "time.h"
 
 
@@ -106,5 +106,9 @@ void aDateTimeAddSecondsBJT(DateTime& dt, double seconds)
     dt.normalizeBJT();
 }
 
+err_t aDateTimeFormatISO8601(const DateTime& dt, std::string& str)
+{
+    return -1;
+}
 
 AST_NAMESPACE_END

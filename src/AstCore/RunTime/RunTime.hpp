@@ -44,7 +44,7 @@ AST_CORE_API std::string aDataDirGet();
 
 /// @brief 设置数据文件夹
 /// @param dirpath 
-AST_CORE_CAPI err_t aDataDirSet(const std::string& dirpath);
+AST_CORE_CAPI err_t aDataDirSet(StringView dirpath);
 
 /// @brief 获取默认数据文件夹
 /// 数据文件夹的顺序：

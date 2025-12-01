@@ -20,10 +20,12 @@
  
 #pragma once
  
+#include "AstUtil/StringView.hpp"
 #include "AstGlobal.h"
 #include "Date.hpp"
 #include "Time.hpp"
 #include <time.h>
+#include <string>
 
 
 struct tm;
@@ -212,10 +214,10 @@ AST_CORE_CAPI err_t aDateTimeFormatRFC2822(const DateTime& dt, std::string& str)
 /// @param str 包含ISO 8601格式日期时间的字符串
 /// @param dt 输出参数，解析后的日期时间对象
 /// @return err_t 错误码，eNoError表示成功
-AST_CORE_CAPI err_t aDateTimeParseISO8601(const std::string& str, DateTime& dt);
+AST_CORE_CAPI err_t aDateTimeParseISO8601(StringView str, DateTime& dt);
 
 
-A_ALWAYS_INLINE err_t aDateTimeParseISO(const std::string& str, DateTime& dt)
+A_ALWAYS_INLINE err_t aDateTimeParseISO(StringView str, DateTime& dt)
 {
     return aDateTimeParseISO8601(str, dt);
 }
@@ -226,7 +228,7 @@ A_ALWAYS_INLINE err_t aDateTimeParseISO(const std::string& str, DateTime& dt)
 /// @param str 包含RFC 3339格式日期时间的字符串
 /// @param dt 输出参数，解析后的日期时间对象
 /// @return err_t 错误码，eNoError表示成功
-AST_CORE_CAPI err_t aDateTimeParseRFC3339(const std::string& str, DateTime& dt);
+AST_CORE_CAPI err_t aDateTimeParseRFC3339(StringView str, DateTime& dt);
 
 
 /// @brief 解析格里高利历格式的日期时间字符串
@@ -234,7 +236,7 @@ AST_CORE_CAPI err_t aDateTimeParseRFC3339(const std::string& str, DateTime& dt);
 /// @param str 包含格里高利历格式日期时间的字符串
 /// @param dt 输出参数，解析后的日期时间对象
 /// @return err_t 错误码，eNoError表示成功
-AST_CORE_CAPI err_t aDateTimeParseGregorian(const std::string& str, DateTime& dt);
+AST_CORE_CAPI err_t aDateTimeParseGregorian(StringView str, DateTime& dt);
 
 
 
@@ -243,7 +245,7 @@ AST_CORE_CAPI err_t aDateTimeParseGregorian(const std::string& str, DateTime& dt
 /// @param str 包含格里高利历格式（英文）日期时间的字符串
 /// @param dt 输出参数，解析后的日期时间对象
 /// @return err_t 错误码，eNoError表示成功
-AST_CORE_CAPI err_t aDateTimeParseGregorianEn(const std::string& str, DateTime& dt);
+AST_CORE_CAPI err_t aDateTimeParseGregorianEn(StringView str, DateTime& dt);
 
 
 /// @brief 解析GMT格式的日期时间字符串
@@ -251,7 +253,7 @@ AST_CORE_CAPI err_t aDateTimeParseGregorianEn(const std::string& str, DateTime& 
 /// @param str 包含GMT格式日期时间的字符串
 /// @param dt 输出参数，解析后的日期时间对象
 /// @return err_t 错误码，eNoError表示成功
-AST_CORE_CAPI err_t aDateTimeParseGMT(const std::string& str, DateTime& dt);
+AST_CORE_CAPI err_t aDateTimeParseGMT(StringView str, DateTime& dt);
 
 
 
@@ -270,16 +272,16 @@ public:
     /// @param str 包含日期时间的字符串
     /// @param format 日期时间格式，例如："yyyy-MM-dd HH:mm:ss"
     /// @return DateTime 解析后的日期时间对象
-    static DateTime FromString(const std::string& str, const std::string& format);
+    static DateTime FromString(StringView str, StringView format);
 
     /// @brief 从字符串解析日期时间（默认格式："yyyy-MM-dd HH:mm:ss"）
     /// @param str 包含日期时间的字符串
     /// @return DateTime 解析后的日期时间对象
-    static DateTime FromString(const std::string& str);
+    static DateTime FromString(StringView str);
 
     /// @brief 从格里高利历日期时间创建日期时间对象
     /// @return DateTime 日期时间对象
-    static DateTime FromGregorian(const std::string& str);
+    static DateTime FromGregorian(StringView str);
 
 
     /// @brief 根据系统时间创建日期时间对象

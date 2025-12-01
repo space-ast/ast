@@ -65,9 +65,9 @@ std::string aDataDirGet()
     return context->dataDir();
 }
 
-err_t aDataDirSet(const std::string& dirpath)
+err_t aDataDirSet(StringView dirpath)
 {
-    if (!fs::is_directory(dirpath)) {
+    if (!fs::is_directory(dirpath.to_string())) {
         aError("dirpath is not a directory.");
         return eErrorInvalidParam;
     }

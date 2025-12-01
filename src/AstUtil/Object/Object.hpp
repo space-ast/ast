@@ -42,7 +42,7 @@ public:
     {
         assert(tp);
     }
-    err_t getAttrString(const std::string& path, std::string& value) const;
+    err_t getAttrString(StringView path, std::string& value) const;
     
     uint32_t refCount() const{return m_refcnt;}
     uint32_t weakRefCount() const{return m_weakrefcnt;}

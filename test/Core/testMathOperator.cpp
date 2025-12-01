@@ -182,7 +182,7 @@ TEST(MathOperatorTest, MatrixOperator)
 
 TEST(MathOperatorTest, Example1)
 {
-    using namespace AST_NAMESPACE;
+    AST_USING_NAMESPACE
 
     {
         // 使用 std::vector

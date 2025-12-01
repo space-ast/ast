@@ -41,12 +41,20 @@
 
 #include <stddef.h>         // for size_t
 
-// 下面是ast项目专用宏
 
-#define AST_ENABLE_NAMESPACE                    // 是否使用命名空间
-// #undef AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库功能
-// #undef AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
-// #undef AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
+// 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
+// 有些宏定义会改变项目的二进制接口(ABI)，使用不同宏定义编译的库文件互相不兼容
+// 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
+
+
+#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
+// #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
+// #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
+
+// #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
+// #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
+// #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
+
 
 /// ast项目专用宏
 #if defined AST_ENABLE_NAMESPACE && defined __cplusplus 
@@ -131,6 +139,11 @@ class MatrixMN;
 typedef VectorN<double, 3> Vector3d;
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
+
+template<typename _Char>
+class StringViewBasic;
+
+typedef StringViewBasic<char>     StringView;
 
 
 class Quaternion;
