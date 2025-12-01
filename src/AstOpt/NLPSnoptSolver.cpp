@@ -17,9 +17,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
  
+
  
- 
- 
+
  
  
  
@@ -50,18 +50,18 @@ extern "C" {
 	{
 		INLPProblem* prob = (INLPProblem*)cu;
 
-		prob->EvalObjConstr(*n, x, *neF, F);
+		prob->evalFitness(*n, x, *neF, F);
 
 		return 0;
 	}
 
 }
 
-err_t INLPProblem::EvalNLENNZJacCOOSnJac(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol)
+err_t NLPProblem::evalNLENNZJacCOOSnJac(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol)
 {
 	NLPBounds bounds;
-	bounds.initialize(ndim, m);
-	this->GetBounds(bounds);
+	// bounds.initialize(ndim, m);
+	this->getBounds(bounds);
 
 	long info;
 	long neF = m + 1;
@@ -150,11 +150,11 @@ err_t INLPProblem::EvalNLENNZJacCOOSnJac(int ndim, const double* x_initguess, in
 		memcpy(rw, trw, mlenrw * sizeof(double));
 
 		// Save the lengths of the new work arrays.		
-		stropt_len = strlen("Total real workspace   ");
+		stropt_len = sizeof("Total real workspace   ")-1;
 		snseti_(const_cast<char*>("Total real workspace   "), &lenrw, &iPrt, &iSum, &info,
 			cw, &lencw, iw, &leniw, rw, &lenrw, stropt_len, 8 * 500);
 
-		stropt_len = strlen("Total integer workspace");
+		stropt_len = sizeof("Total integer workspace")-1;
 		snseti_(const_cast<char*>("Total integer workspace"), &leniw, &iPrt, &iSum, &info,
 			cw, &lencw, iw, &leniw, rw, &lenrw, stropt_len, 8 * 500);
 
@@ -308,7 +308,7 @@ err_t CNLPSnoptSolver::Solve(INLPProblem& prob, VectorXd& xopt)
 	short cu_len = cw_len;
 
 	const char* Prob = "SQP_NOPT";
-	long npname = strlen(Prob);
+	long npname = sizeof(Prob) - 1;
 
 	long nInf, nS;                   //nInf-不可行个数, nS-the final number of superbasics
 	double sInf;                    //不可行的和
@@ -357,11 +357,11 @@ err_t CNLPSnoptSolver::Solve(INLPProblem& prob, VectorXd& xopt)
 		memcpy(rw, trw, mlenrw * sizeof(double));
 
 		// Save the lengths of the new work arrays.		
-		stropt_len = strlen("Total real workspace   ");
+		stropt_len = sizeof("Total real workspace   ")-1;
 		snseti_(const_cast<char*>("Total real workspace   "), &lenrw, &iPrt, &iSum, &info,
 			cw, &lencw, iw, &leniw, rw, &lenrw, stropt_len, 8 * 500);
 
-		stropt_len = strlen("Total integer workspace");
+		stropt_len = sizeof("Total integer workspace") - 1;
 		snseti_(const_cast<char*>("Total integer workspace"), &leniw, &iPrt, &iSum, &info,
 			cw, &lencw, iw, &leniw, rw, &lenrw, stropt_len, 8 * 500);
 
@@ -373,7 +373,7 @@ err_t CNLPSnoptSolver::Solve(INLPProblem& prob, VectorXd& xopt)
 
 
 	long MajorIt = options.major_iteration_limit;
-	stropt_len = strlen("Major Iterations Limit");  //"Minor Iterations Limit" //Iteration Limit
+	stropt_len = sizeof("Major Iterations Limit") - 1;  //"Minor Iterations Limit" //Iteration Limit
 	snseti_(const_cast<char*>("Major Iterations Limit"), &MajorIt, &iPrt, &iSum, &info,
 		cw, &lencw, iw, &leniw, rw, &lenrw, stropt_len, 8 * 500);
 
