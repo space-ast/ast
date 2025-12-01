@@ -46,7 +46,7 @@
 #define AST_ENABLE_NAMESPACE                    // 是否使用命名空间
 // #undef AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库功能
 // #undef AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
-
+// #undef AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
 
 /// ast项目专用宏
 #if defined AST_ENABLE_NAMESPACE && defined __cplusplus 

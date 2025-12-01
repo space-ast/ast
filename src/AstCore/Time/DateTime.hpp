@@ -132,6 +132,130 @@ AST_CORE_CAPI void aDateTimeAddSecondsLocal(DateTime& dt, double seconds, int ti
 /// @return 
 AST_CORE_CAPI void aDateTimeAddSecondsBJT(DateTime& dt, double seconds);
 
+
+/// @brief 格式化日期时间为格里高利历格式
+/// @details 将日期时间对象格式化为格里高利历格式的字符串，例如：2025-11-21 12:34:56
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatGregorian(const DateTime& dt, std::string& str);
+
+
+/// @brief 格式化日期时间为格里高利历格式（英文）
+/// @details 将日期时间对象格式化为格里高利历格式的字符串（英文），例如：1 Jan 1970 00:00:00
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatGregorianEn(const DateTime& dt, std::string& str);
+
+
+/// @brief 格式化日期时间为GMT格式
+/// @details 将日期时间对象格式化为GMT格式的字符串，例如：Sat, 21 Nov 2025 12:34:56 GMT
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatGMT(const DateTime& dt, std::string& str);
+
+
+/// @brief 格式化日期时间为ISO 8601格式
+/// @details 将日期时间对象格式化为ISO 8601格式的字符串，例如：2025-11-21T12:34:56Z
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatISO8601(const DateTime& dt, std::string& str);
+
+
+/// @brief 格式化日期时间为简单ISO 8601格式
+/// @details 将日期时间对象格式化为ISO 8601格式的字符串，例如：2025-11-21 12:34:56
+AST_CORE_CAPI err_t aDateTimeFormatISO(const DateTime& dt, std::string& str)
+{
+    return aDateTimeFormatISO8601(dt, str);
+}
+
+
+
+/// @brief 格式化日期时间为RFC 3339格式
+/// @details 将日期时间对象格式化为RFC 3339格式的字符串，例如：2025-11-21T12:34:56+08:00
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatRFC3339(const DateTime& dt, std::string& str);
+
+
+#ifdef AST_ENABLE_DATETIME_FORMAT_RFC // 启用其他RFC日期时间格式化
+
+/// @brief 格式化日期时间为RFC 1123格式
+/// @details 将日期时间对象格式化为RFC 1123格式的字符串，
+/// 例如：Sat, 21 Nov 2025 12:34:56 GMT
+/// 时区必须使用 GMT（RFC 1123 要求始终使用格林尼治时间）
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatRFC1123(const DateTime& dt, std::string& str);
+
+
+/// @brief 格式化日期时间为RFC 2822格式
+/// @details 将日期时间对象格式化为RFC 2822格式的字符串，
+/// 例如：Sat, 21 Nov 2025 12:34:56 +0800
+///       Wed, 18 Feb 2015 23:16:09 GMT
+/// 时区可以是 "+0000" 格式的数字时区，或者是 "GMT"、"UTC" 等标准时区名称
+/// @param dt 
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormatRFC2822(const DateTime& dt, std::string& str);
+
+#endif
+
+
+/// @brief 解析ISO 8601格式的日期时间字符串
+/// @details 将ISO 8601格式的字符串解析为日期时间对象
+/// @param str 包含ISO 8601格式日期时间的字符串
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParseISO8601(const std::string& str, DateTime& dt);
+
+
+A_ALWAYS_INLINE err_t aDateTimeParseISO(const std::string& str, DateTime& dt)
+{
+    return aDateTimeParseISO8601(str, dt);
+}
+
+
+/// @brief 解析RFC 3339格式的日期时间字符串
+/// @details 将RFC 3339格式的字符串解析为日期时间对象
+/// @param str 包含RFC 3339格式日期时间的字符串
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParseRFC3339(const std::string& str, DateTime& dt);
+
+
+/// @brief 解析格里高利历格式的日期时间字符串
+/// @details 将格里高利历格式的字符串解析为日期时间对象
+/// @param str 包含格里高利历格式日期时间的字符串
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParseGregorian(const std::string& str, DateTime& dt);
+
+
+
+/// @brief 解析格里高利历格式（英文）的日期时间字符串
+/// @details 将格里高利历格式（英文）的字符串解析为日期时间对象
+/// @param str 包含格里高利历格式（英文）日期时间的字符串
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParseGregorianEn(const std::string& str, DateTime& dt);
+
+
+/// @brief 解析GMT格式的日期时间字符串
+/// @details 将GMT格式的字符串解析为日期时间对象
+/// @param str 包含GMT格式日期时间的字符串
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParseGMT(const std::string& str, DateTime& dt);
+
+
+
+
 /// @brief 日期时间
 class DateTime
 {
@@ -142,6 +266,22 @@ public:
         eBJT = 8,   ///< 北京时间（东8区）
     };
 public:
+    /// @brief 从字符串解析日期时间
+    /// @param str 包含日期时间的字符串
+    /// @param format 日期时间格式，例如："yyyy-MM-dd HH:mm:ss"
+    /// @return DateTime 解析后的日期时间对象
+    static DateTime FromString(const std::string& str, const std::string& format);
+
+    /// @brief 从字符串解析日期时间（默认格式："yyyy-MM-dd HH:mm:ss"）
+    /// @param str 包含日期时间的字符串
+    /// @return DateTime 解析后的日期时间对象
+    static DateTime FromString(const std::string& str);
+
+    /// @brief 从格里高利历日期时间创建日期时间对象
+    /// @return DateTime 日期时间对象
+    static DateTime FromGregorian(const std::string& str);
+
+
     /// @brief 根据系统时间创建日期时间对象
     AST_CORE_API
     static DateTime FromTm(const tm* time);
