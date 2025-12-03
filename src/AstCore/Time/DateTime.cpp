@@ -21,9 +21,11 @@
 #include "DateTime.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/String.hpp"
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -271,7 +273,7 @@ void aDateTimeAddSecondsBJT(DateTime& dt, double seconds)
 // 格式化函数实现
 err_t aDateTimeFormatISO8601(const DateTime& dt, std::string& str)
 {
-    char buffer[64];
+    char buffer[100];
     int year = dt.year();
     int month = dt.month();
     int day = dt.day();
@@ -281,10 +283,10 @@ err_t aDateTimeFormatISO8601(const DateTime& dt, std::string& str)
     int millisecond = static_cast<int>((dt.second() - second) * 1000);
     
     if (millisecond > 0) {
-        sprintf(buffer, "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ", 
+        snprintf(buffer, sizeof(buffer), "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ", 
                 year, month, day, hour, minute, second, millisecond);
     } else {
-        sprintf(buffer, "%04d-%02d-%02dT%02d:%02d:%02dZ", 
+        snprintf(buffer, sizeof(buffer), "%04d-%02d-%02dT%02d:%02d:%02dZ", 
                 year, month, day, hour, minute, second);
     }
     
@@ -423,7 +425,7 @@ err_t aDateTimeParseGregorianEn(StringView str, DateTime& dt)
     const char* s = str.data();
     int day, year, hour, minute;
     double second = 0.0;
-    char monthName[10];
+    char monthName[10]{'\0'};
     
     if (sscanf(s, "%d %9s %d %02d:%02d:%lf", 
                &day, monthName, &year, &hour, &minute, &second) == 6) {
@@ -432,7 +434,7 @@ err_t aDateTimeParseGregorianEn(StringView str, DateTime& dt)
         const char* monthNames[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < 12; i++) {
-            if (strcmp(monthName, monthNames[i]) == 0) {
+            if (_AST stricmp(monthName, monthNames[i]) == 0) {
                 month = i + 1;
                 break;
             }
@@ -454,7 +456,7 @@ err_t aDateTimeParseGMT(StringView str, DateTime& dt)
 {
     // 解析格式：Day, dd Mon YYYY HH:mm:ss.sss GMT
     const char* s = str.data();
-    char weekdayName[10], monthName[10];
+    char weekdayName[10]{ '\0' }, monthName[10]{ '\0' };
     int day, year, hour, minute;
     double second = 0.0;
     
@@ -465,7 +467,7 @@ err_t aDateTimeParseGMT(StringView str, DateTime& dt)
         const char* monthNames[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < 12; i++) {
-            if (strcmp(monthName, monthNames[i]) == 0) {
+            if (_AST stricmp(monthName, monthNames[i]) == 0) {
                 month = i + 1;
                 break;
             }

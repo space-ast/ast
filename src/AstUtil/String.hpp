@@ -21,12 +21,28 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <string> 
+#include <string>
+#include <string.h>
  
 AST_NAMESPACE_BEGIN
 
 typedef std::string String;
 
+
+// 比较两个字符串是否相等（不区分大小写）
+#ifdef _WIN32
+using ::stricmp;
+A_ALWAYS_INLINE int strcasecmp(const char* str1, const char* str2)
+{
+	return ::stricmp(str1, str2);
+}
+#else
+using ::strcasecmp;
+A_ALWAYS_INLINE int stricmp(const char* str1, const char* str2)
+{
+	return ::strcasecmp(str1, str2);
+}
+#endif
  
 AST_NAMESPACE_END
  

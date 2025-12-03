@@ -87,6 +87,17 @@ int ast_vprintf(const char* format, va_list args)
     return _vprintf_l(format, locale, args);
 }
 
+#else
+
+int ast_printf(const char* format, ...)
+{
+    va_list args;
+    int result;
+    va_start(args, format);
+    result = ast_vprintf(format, args);
+    va_end(args);
+    return result;
+}
 
 #endif
 

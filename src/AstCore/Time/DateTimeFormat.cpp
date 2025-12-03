@@ -29,27 +29,6 @@ AST_NAMESPACE_BEGIN
 namespace
 {
 
-    // 月份名称（英文）
-    static const char* monthNamesShort[] = {
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-    };
-
-    static const char* monthNamesLong[] = {
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    };
-
-    // 星期名称（英文）
-    static const char* weekdayNamesShort[] = {
-        "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
-    };
-
-    static const char* weekdayNamesLong[] = {
-        "Sunday", "Monday", "Tuesday", "Wednesday",
-        "Thursday", "Friday", "Saturday"
-    };
-
     // 将数字格式化为固定宽度，不足前面补0
     static void formatNumber(char* buf, int num, int width)
     {
@@ -76,64 +55,22 @@ namespace
     // 判断是否是闰年
     static bool isLeapYear(int year)
     {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        return aIsLeapYear(year);
     }
 
     // 获取月份的天数
     static int getDaysInMonth(int year, int month)
     {
-        static const int daysInMonth[] = {
-            31, 28, 31, 30, 31, 30,
-            31, 31, 30, 31, 30, 31
-        };
-
-        if (month < 1 || month > 12) {
-            return 0;
-        }
-
-        int days = daysInMonth[month - 1];
-        if (month == 2 && isLeapYear(year)) {
-            days = 29;
-        }
-
-        return days;
+        return aDaysInMonthByYear(month, year);
     }
 
     // 计算一年中的第几天
     static int getDayOfYear(int year, int month, int day)
     {
-        static const int daysToMonth[] = {
-            0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
-        };
-
-        int dayOfYear = daysToMonth[month - 1] + day;
-        if (month > 2 && isLeapYear(year)) {
-            dayOfYear += 1;
-        }
-
-        return dayOfYear;
+        return aDayOfYear({year, month, day});
     }
 
-    // 计算星期几（0=周日，1=周一，...，6=周六）
-    // 使用Zeller同余公式
-    static int getWeekday(int year, int month, int day)
-    {
-        if (month < 3) {
-            month += 12;
-            year -= 1;
-        }
 
-        int century = year / 100;
-        int yearOfCentury = year % 100;
-
-        int weekday = (day + (13 * (month + 1)) / 5 + yearOfCentury +
-            yearOfCentury / 4 + century / 4 + 5 * century) % 7;
-
-        // 调整结果为0=周日，1=周一，...，6=周六
-        weekday = (weekday + 6) % 7;
-
-        return weekday;
-    }
 
     // 安全的缓冲区追加函数
     class Buffer
@@ -221,21 +158,17 @@ err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
 
     // 从 DateTime 中提取值
     int year = dt.year();
-    int month = dt.month(); // 假设 month() 返回 1-12
-    int day = dt.day();     // 假设 day() 返回 1-31
+    int month = dt.month(); // month() 返回 1-12
+    int day = dt.day();     // day() 返回 1-31
     int hour = dt.hour();
     int minute = dt.minute();
     double seconds = dt.second();
     int secondInt = static_cast<int>(seconds);
 
     // 计算一些可能需要的信息
-    int weekday = dt.dayOfWeek(); // 假设已实现
-    int dayOfYear = dt.dayOfYear(); // 假设已实现
+    int weekday = dt.dayOfWeek(); 
+    int dayOfYear = dt.dayOfYear(); 
 
-    // 如果没有 dayOfWeek() 和 dayOfYear()，计算它们
-    if (weekday < 0 || weekday > 6) {
-        weekday = getWeekday(year, month, day);
-    }
 
     if (dayOfYear < 1 || dayOfYear > 366) {
         dayOfYear = getDayOfYear(year, month, day);
@@ -278,21 +211,11 @@ err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
 
         case 'b': // 月份缩写
         case 'h':
-            if (month >= 1 && month <= 12) {
-                buffer.append(monthNamesShort[month - 1]);
-            }
-            else {
-                buffer.append("???");
-            }
+            buffer.append(aMoonShortName(month));
             break;
 
         case 'B': // 月份全称
-            if (month >= 1 && month <= 12) {
-                buffer.append(monthNamesLong[month - 1]);
-            }
-            else {
-                buffer.append("???");
-            }
+            buffer.append(aMoonFullName(month));
             break;
 
             // 日期相关
@@ -306,21 +229,11 @@ err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
 
             // 星期相关
         case 'a': // 星期缩写
-            if (weekday >= 0 && weekday <= 6) {
-                buffer.append(weekdayNamesShort[weekday]);
-            }
-            else {
-                buffer.append("???");
-            }
+            buffer.append(aWeekDayShortName(weekday));
             break;
 
         case 'A': // 星期全称
-            if (weekday >= 0 && weekday <= 6) {
-                buffer.append(weekdayNamesLong[weekday]);
-            }
-            else {
-                buffer.append("???");
-            }
+            buffer.append(aWeekDayFullName(weekday));
             break;
 
         case 'w': // 星期几的数字表示 (0-6，0=周日)
@@ -406,8 +319,8 @@ err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
         {
             char buf[64];
             std::snprintf(buf, sizeof(buf), "%s %s %02d %02d:%02d:%02d %04d",
-                weekdayNamesShort[weekday],
-                monthNamesShort[month - 1],
+                aWeekDayShortName(weekday),
+                aMoonShortName(month),
                 day, hour, minute, secondInt, year);
             buffer.append(buf);
         }

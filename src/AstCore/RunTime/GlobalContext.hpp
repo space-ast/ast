@@ -42,13 +42,16 @@ class GlobalContext
 public:
 
 	/// @brief 太阳系数据
-	SolarSystem* solarSystem() const{return (SolarSystem*)&m_solarSystem;}
+	const SolarSystem* solarSystem() const{return &m_solarSystem;}
+    SolarSystem* solarSystem() {return &m_solarSystem;}
 
 	/// @brief 地球指向数据
-	EOP*	 eop() const{return (EOP*)&m_eop;}
+	const EOP* eop() const{return &m_eop;}
+    EOP* eop() {return &m_eop;}
 
 	/// @brief 闰秒数据
-	LeapSecond* leapSecond() const{return (LeapSecond*)&m_leapSecond;}
+	const LeapSecond* leapSecond() const{return &m_leapSecond;}
+    LeapSecond* leapSecond() {return &m_leapSecond;}
 
 	/// @brief 数据目录
     std::string& dataDir() {return m_dataDir;}

@@ -64,10 +64,7 @@ const char* aWeekDayShortName(int wday)
 A_ALWAYS_INLINE
 bool _aIsLeapYear(int year)
 {
-	if ((year % 400 == 0) || (year % 100 != 0 && year % 4 == 0))
-		return true;
-	else
-		return false;
+	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
 bool aIsLeapYear(int year)
@@ -75,49 +72,95 @@ bool aIsLeapYear(int year)
 	return _aIsLeapYear(year);
 }
 
-int aDayInMonth(int month, bool is_leap_year)
+int aDaysInMonthByYear(int month, int year)
 {
-	// 28: 2
-	// 30: 4, 6, 9, 11
-	// 31: 1, 3, 5, 7, 8, 10, 12
-	assert(month >= 1 && month <= 12);
-	if (month == 2) {
-		if (is_leap_year) {
-			return 29;
-		}
-		else {
-			return 28;
-		}
+	static const int daysInMonth[] = {
+			31, 28, 31, 30, 31, 30,
+			31, 31, 30, 31, 30, 31
+	};
+
+	if (month < 1 || month > 12) {
+		return 0;
 	}
 	else {
-		if (month <= 7 && month % 2 == 1 || month >= 8 && month % 2 == 0) {
-			return 31;
-		}
-		else {
-			return 30;
-		}
+		assert(month >= 1 && month <= 12);
 	}
+
+	int days = daysInMonth[month - 1];
+	if (month == 2 && aIsLeapYear(year)) {
+		days = 29;
+	}
+	return days;
+}
+
+int aDaysInMonthByLeap(int month, bool isLeapYear)
+{
+	static const int daysInMonth[] = {
+			31, 28, 31, 30, 31, 30,
+			31, 31, 30, 31, 30, 31
+	};
+
+	if (month < 1 || month > 12) {
+		return 0;
+	}
+	else {
+		assert(month >= 1 && month <= 12);
+	}
+
+	int days = daysInMonth[month - 1];
+	if (month == 2 && isLeapYear) {
+		days = 29;
+	}
+	return days;
 }
 
 
 int aDayOfYear(const Date& date)
 {
-    int year = date.year();
-    int month = date.month();
-    int dayofyear = date.day();
-	assert(month >= 1 && month <= 12);
+	static const int daysToMonth[] = {
+		0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
+	};
+	int month = date.month();
+	int day = date.day();
+	int year = date.year();
 
-    bool is_leap_year = _aIsLeapYear(year);
-	for (int m = 1; m < month; m++) {
-		dayofyear += aDayInMonth(m, is_leap_year);
+	int dayOfYear = daysToMonth[month - 1] + day;
+	if (month > 2 && _aIsLeapYear(year)) {
+		dayOfYear += 1;
 	}
-	return dayofyear;
+
+	return dayOfYear;
 }
 
 int aDayOfWeek(const Date& date)
 {
+#if 1
     int jd = aDateToJD(date);
     return (jd + 1) % 7; // 0: Sunday, 1: Monday, ..., 6: Saturday
+#else
+	// 计算星期几（0=周日，1=周一，...，6=周六）
+	// 使用Zeller同余公式
+
+	int month = date.month();
+	int year = date.year();
+	int day = date.day();
+
+	if (month < 3) {
+		month += 12;
+		year -= 1;
+	}
+
+	int century = year / 100;
+	int yearOfCentury = year % 100;
+
+	int weekday = (day + (13 * (month + 1)) / 5 + yearOfCentury +
+		yearOfCentury / 4 + century / 4 + 5 * century) % 7;
+
+	// 调整结果为0=周日，1=周一，...，6=周六
+	weekday = (weekday + 6) % 7;
+
+	return weekday;
+#endif
 }
 
 
@@ -144,7 +187,7 @@ void aDateNormalize(Date &date)
 		date.month() -= ryear * 12;
 		date.year() += ryear;
 
-		dayofmonth = aDayInMonth(date.month(), _aIsLeapYear(date.year()));
+		dayofmonth = aDaysInMonthByYear(date.month(), date.year());
 		if (date.day() < 1) {
 			date.month()--;
 			date.day() += dayofmonth;
@@ -170,7 +213,7 @@ void aYDToDate(int year, int days, Date& date)
 	}
 	int dayinmonth;
 	for (int m = 1; m <= 12; m++) {
-		dayinmonth = aDayInMonth(m, is_leap);
+		dayinmonth = aDaysInMonthByLeap(m, is_leap);
 		if (days < dayinmonth + 1) {
 			date.month() = m;
 			date.day() = (int)floor(days);
