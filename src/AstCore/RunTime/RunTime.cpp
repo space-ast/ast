@@ -197,6 +197,13 @@ double aLeapSecondUTC(double jdUTC)
     return context->leapSecond()->leapSecondUTC(jdUTC);
 }
 
+double aLeapSecondUTCMJD(double mjdUTC)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
+}
+
 
  
 AST_NAMESPACE_END

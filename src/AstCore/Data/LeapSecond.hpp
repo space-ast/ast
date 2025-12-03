@@ -69,10 +69,10 @@ public:
 	
 public:
 	double leapSecondUTC(ImpreciseJD jdUTC);
-    double leapSecondUTCMJD(ImpreciseMJD mjdUTC);
+	double leapSecondUTCMJD(ImpreciseMJD mjdUTC);
 
-    double leapSecondTAI(ImpreciseJD jdTAI);
-    double leapSecondTAIMJD(ImpreciseMJD mjdTAI);
+	double leapSecondTAI(ImpreciseJD jdTAI);
+	double leapSecondTAIMJD(ImpreciseMJD mjdTAI);
 
 	
     /// @brief  获取当天的UTC秒数

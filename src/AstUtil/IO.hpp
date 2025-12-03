@@ -90,9 +90,27 @@ int printf(const char* format, ...)
 
 #else // linux
 
-A_ALWAYS_INLINE std::FILE* ast_fopen(const char* filepath, const char* mode)
+A_ALWAYS_INLINE 
+std::FILE* ast_fopen(const char* filepath, const char* mode)
 {
     return fopen(filepath, mode);
+}
+
+A_ALWAYS_INLINE 
+int ast_vprintf(const char* format, va_list args)
+{
+    return vprintf(format, args);
+}
+
+A_ALWAYS_INLINE
+int ast_printf(const char* format, ...)
+{
+    va_list args;
+    int result;
+    va_start(args, format);
+    result = ast_vprintf(format, args);
+    va_end(args);
+    return result;
 }
 
 using std::fopen;
