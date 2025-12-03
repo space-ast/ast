@@ -4,25 +4,29 @@ add_deps("AstCore", "AstUtil", "AstOpt", "AstMock")
 add_packages("gtest")
 add_packages("benchmark")
 
-local test_files = os.files("**/test*.c*")
 
-for _, file in ipairs(test_files) do
-    local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
-    target(targetname)
-        add_files(file)
-        set_kind("binary")
-        add_tests("test")
-        -- add_extrafiles("xmake.lua")
+if has_package("gtest") then
+    local test_files = os.files("**/test*.c*")
+    for _, file in ipairs(test_files) do
+        local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
+        target(targetname)
+            add_files(file)
+            set_kind("binary")
+            add_tests("test")
+            -- add_extrafiles("xmake.lua")
+    end
 end
 
-local bm_files = os.files("**/bm*.c*")
-for _, file in ipairs(bm_files) do
-    local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
-    target(targetname)
-        add_files(file)
-        set_kind("binary")
-        add_tests("benchmark")
-        -- add_extrafiles("xmake.lua")
+if has_package("benchmark") then
+    local bm_files = os.files("**/bm*.c*")
+    for _, file in ipairs(bm_files) do
+        local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
+        target(targetname)
+            add_files(file)
+            set_kind("binary")
+            add_tests("benchmark")
+            -- add_extrafiles("xmake.lua")
+    end
 end
 
 local ex_files = os.files("**/ex*.c*")
