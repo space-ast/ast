@@ -33,6 +33,11 @@ class Time;
 AST_CORE_CAPI void aTimeNormalize(Time& time);
 
 
+/// @brief 从总秒数创建时间对象
+/// @details 根据总秒数计算时、分、秒，并将结果存储在时间对象中
+/// @param totalSecond 总秒数
+/// @param time 要存储结果的时间对象
+AST_CORE_CAPI void aTimeFromTotalSecond(double totalSecond, Time& time);
 
 
 /// @brief 时间
@@ -48,8 +53,17 @@ public:
     void setHour(int hour){hour_ = hour;}
     void setMinute(int minute){minute_ = minute;}
     void setSecond(double second){second_ = second;}
+    /// @brief 获取时间对象的总秒数
+    /// @details 计算时间对象表示的总秒数，包括时、分、秒
+    /// @return 时间对象的总秒数
+    double totalSecond() const{return hour_ * 3600 + minute_ * 60 + second_;}
+    /// @brief 获取时间对象的日分数
+    /// @details 计算时间对象表示的日分数，范围为0-1
+    /// @return 时间对象的日分数
+    double dayFraction() const{return second_ / 86400.0 + minute_ / 1440.0 + hour_ / 24.0;}
 public:
     /// @brief 规范化时间对象
+    /// @details 将时间中的秒、分进行进位或借位调整，使其处于合理范围内（0-59）
     void normalize(){
         aTimeNormalize(*this);
     }

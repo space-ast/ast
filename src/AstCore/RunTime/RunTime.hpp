@@ -82,6 +82,9 @@ AST_CORE_CAPI GlobalContext* aGlobalContext_New();
 
 AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
 
+AST_CORE_CAPI double aLeapSecondUTCMJD(double mjdUTC);
+
+
 
 AST_NAMESPACE_END
  
