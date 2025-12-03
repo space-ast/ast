@@ -19,9 +19,11 @@
  
 
 #include "DateTime.hpp"
-#include "time.h"
 #include "AstCore/RunTime.hpp"
-
+#include "AstUtil/Logger.hpp"
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 
 AST_NAMESPACE_BEGIN
 
@@ -102,7 +104,7 @@ void aDateTimeNormalizeUTC(DateTime& dt)
             }
         }
         aMJDToDate(mjd2, dt.date());
-        minute = min(max(minute_new, 0), 1440 - 1);
+        minute = min(max(minute_new + int(second_new/60), 0), 1440 - 1);
         second = second_new + (minute_new - minute) * 60;
         dt.time().hour() = minute / 60;
         dt.time().minute() = minute - dt.time().hour() * 60;
@@ -481,35 +483,60 @@ err_t aDateTimeParseGMT(StringView str, DateTime& dt)
     return eErrorInvalidParam;
 }
 
+
+err_t aDateTimeParseAny(StringView str, DateTime &dt)
+{
+    err_t ret = aDateTimeParseISO8601(str, dt);
+    if (ret == eNoError) {
+        return ret;
+    }
+    
+    ret = aDateTimeParseRFC3339(str, dt);
+    if (ret == eNoError) {
+        return ret;
+    }
+    
+    ret = aDateTimeParseGregorian(str, dt);
+    if (ret == eNoError) {
+        return ret;
+    }
+    
+    ret = aDateTimeParseGregorianEn(str, dt);
+    if (ret == eNoError) {
+        return ret;
+    }
+    
+    ret = aDateTimeParseGMT(str, dt);
+    if (ret == eNoError) {
+        return ret;
+    }
+    
+    return eErrorInvalidParam;
+}
+
+
 // 静态方法实现
 DateTime DateTime::FromString(StringView str, StringView format)
 {
     DateTime dt;
-    // 这里实现一个简化版本，实际应用中可能需要更复杂的格式解析
-    // 支持的格式占位符：yyyy, MM, dd, HH, mm, ss
-    
-    const char* s = str.data();
-    const char* fmt = format.data();
-    
-    // 尝试基本的ISO格式解析
-    if (aDateTimeParseISO8601(str, dt) == eNoError) {
-        return dt;
+    err_t err = aDateTimeParse(str, format, dt);
+    if (err != eNoError) {
+        // 如果解析失败
+        aError("Failed to parse datetime string '%s' with format '%s'", str.data(), format.data());
     }
-    
-    // 尝试格里高利格式解析
-    if (aDateTimeParseGregorian(str, dt) == eNoError) {
-        return dt;
-    }
-    
-    // 如果都失败，返回当前时间
-    aCurrentDateTimeLocal(dt);
     return dt;
 }
 
 DateTime DateTime::FromString(StringView str)
 {
-    // 默认使用ISO 8601格式
-    return FromString(str, "yyyy-MM-dd HH:mm:ss");
+    // 采用默认格式解析
+    DateTime dt;
+    err_t err = aDateTimeParseAny(str, dt);
+    if(err != eNoError) {
+        // 如果解析失败
+        aError("Failed to parse datetime string '%s'", str.data());
+    }
+    return dt;
 }
 
 DateTime DateTime::FromGregorian(StringView str)

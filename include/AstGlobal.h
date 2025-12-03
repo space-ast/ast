@@ -125,6 +125,7 @@ typedef enum EError
     eErrorInvalidParam, ///< 非法输入参数
     eErrorNotInit,      ///< 没有初始化
     eErrorInvalidFile,  ///< 文件格式错误
+    eErrorParse,        ///< 解析错误
 } AEError;
 
 /// ast项目类型前置声明

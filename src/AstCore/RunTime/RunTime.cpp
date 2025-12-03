@@ -36,7 +36,13 @@ std::unique_ptr<GlobalContext> g_defaultGlobalContext = nullptr;
 
 err_t aInitialize(GlobalContext* context)
 {
-    return eNoError;
+    err_t err = 0;
+    err = context->leapSecond()->loadDefault();
+    if(err != eNoError) {
+        aError("Failed to load default leap second table.");
+        return err;
+    }
+    return err;
 }
 
 
