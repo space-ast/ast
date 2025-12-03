@@ -54,34 +54,34 @@ AST_CORE_CAPI void aDateTimeNormalize(DateTime& dt);
 AST_CORE_CAPI void aDateTimeNormalizeUTC(DateTime& dt);
 
 /// @brief 规范化日期时间对象(按本地时间规范化)
-/// @details 将日期时间对象调整到本地时间，考虑时区和闰秒
-/// @param dt 
+/// @details 将日期时间对象调整到0-23时59分60秒，考虑时区和闰秒
+/// @param dt 本地时间
 /// @param timezone 时区偏移，单位：小时
 /// @return 
 AST_CORE_CAPI void aDateTimeNormalizeLocal(DateTime& dt, int timezone);
 
-/// @brief 规范化日期时间对象(按北京时间)
+/// @brief 规范化日期时间对象(按北京时间规范化)
 /// @details 将日期时间对象调整到0-23时59分60秒，考虑闰秒
-/// @param dt 
+/// @param dt 北京时间
 /// @return 
 AST_CORE_CAPI void aDateTimeNormalizeBJT(DateTime& dt);
 
 /// @brief 增加年
-/// @details 将日期时间对象增加指定的年数
+/// @details 将日期时间对象增加指定的年数，并规范化日期时间对象
 /// @param dt 
 /// @param years 
 /// @return 
 AST_CORE_CAPI void aDateTimeAddYears(DateTime& dt, int years);
 
 /// @brief 增加月
-/// @details 将日期时间对象增加指定的月数
+/// @details 将日期时间对象增加指定的月数，并规范化日期时间对象
 /// @param dt 
 /// @param months 
 /// @return 
 AST_CORE_CAPI void aDateTimeAddMonths(DateTime& dt, int months);
 
 /// @brief 增加日
-/// @details 将日期时间对象增加指定的天数，不考虑闰秒
+/// @details 将日期时间对象增加指定的天数，并规范化日期时间对象，不考虑闰秒
 /// @param dt 
 /// @param days 
 /// @return 
@@ -89,7 +89,7 @@ AST_CORE_CAPI void aDateTimeAddDays(DateTime& dt, int days);
 
 
 /// @brief 增加日（UTC时间）
-/// @details 将日期时间对象增加指定的天数(days*86400s)（UTC时间），考虑闰秒
+/// @details 将日期时间对象增加指定的天数(days*86400s)（UTC时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param days 增加的天数，可正可负
 /// @return 
@@ -97,7 +97,7 @@ AST_CORE_CAPI void aDateTimeAddDaysUTC(DateTime& dt, int days);
 
 
 /// @brief 增加日（本地时间）
-/// @details 将日期时间对象增加指定的天数(days*86400s)（本地时间），考虑时区和闰秒
+/// @details 将日期时间对象增加指定的天数(days*86400s)（本地时间），并规范化日期时间对象，考虑时区和闰秒
 /// @param dt 
 /// @param days 增加的天数，可正可负
 /// @param timezone 时区偏移，单位：小时
@@ -106,7 +106,7 @@ AST_CORE_CAPI void aDateTimeAddDaysLocal(DateTime& dt, int days, int timezone);
 
 
 /// @brief 增加日（北京时间）
-/// @details 将日期时间对象增加指定的天数(days*86400s)（北京时间），考虑闰秒
+/// @details 将日期时间对象增加指定的天数(days*86400s)（北京时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param days 增加的天数，可正可负
 /// @return 
@@ -115,7 +115,7 @@ AST_CORE_CAPI void aDateTimeAddDaysBJT(DateTime& dt, int days);
 
 
 /// @brief 增加时
-/// @details 将日期时间对象增加指定的小时数(hours*3600s)
+/// @details 将日期时间对象增加指定的小时数(hours*3600s)，并规范化日期时间对象，不考虑闰秒
 /// @param dt 
 /// @param hours 增加的小时数，可正可负
 /// @return 
@@ -123,14 +123,14 @@ AST_CORE_CAPI void aDateTimeAddHours(DateTime& dt, int hours);
 
 
 /// @brief 增加时（UTC时间）
-/// @details 将日期时间对象增加指定的小时数(hours*3600s)（UTC时间），考虑闰秒
+/// @details 将日期时间对象增加指定的小时数(hours*3600s)（UTC时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param hours 增加的小时数，可正可负
 /// @return 
 AST_CORE_CAPI void aDateTimeAddHoursUTC(DateTime& dt, int hours);
 
 /// @brief 增加时（本地时间）
-/// @details 将日期时间对象增加指定的小时数(hours*3600s)（本地时间），考虑时区和闰秒
+/// @details 将日期时间对象增加指定的小时数(hours*3600s)（本地时间），并规范化日期时间对象，考虑时区和闰秒
 /// @param dt 
 /// @param hours 增加的小时数，可正可负
 /// @param timezone 时区偏移，单位：小时
@@ -138,16 +138,16 @@ AST_CORE_CAPI void aDateTimeAddHoursUTC(DateTime& dt, int hours);
 AST_CORE_CAPI void aDateTimeAddHoursLocal(DateTime& dt, int hours, int timezone);
 
 
-/// @brief 增加分（北京时间）
-/// @details 将日期时间对象增加指定的分钟数(minutes*60s)（北京时间），考虑闰秒
+/// @brief 增加时（北京时间）
+/// @details 将日期时间对象增加指定的小时数(hours*3600s)（北京时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
-/// @param minutes 增加的分钟数，可正可负
+/// @param hours 增加的小时数，可正可负
 /// @return 
-AST_CORE_CAPI void aDateTimeAddMinutesBJT(DateTime& dt, int minutes);
+AST_CORE_CAPI void aDateTimeAddHoursBJT(DateTime& dt, int hours);
 
 
 /// @brief 增加分
-/// @details 将日期时间对象增加指定的分钟数(minutes*60s)
+/// @details 将日期时间对象增加指定的分钟数(minutes*60s)，并规范化日期时间对象，不考虑闰秒
 /// @param dt 
 /// @param minutes 增加的分钟数，可正可负
 /// @return 
@@ -155,7 +155,7 @@ AST_CORE_CAPI void aDateTimeAddMinutes(DateTime& dt, int minutes);
 
 
 /// @brief 增加分（UTC时间）
-/// @details 将日期时间对象增加指定的分钟数（UTC时间），考虑闰秒
+/// @details 将日期时间对象增加指定的分钟数（UTC时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param minutes 增加的分钟数，可正可负
 /// @return 
@@ -164,7 +164,7 @@ AST_CORE_CAPI void aDateTimeAddMinutesUTC(DateTime& dt, int minutes);
 
 
 /// @brief 增加分（本地时间）
-/// @details 将日期时间对象增加指定的分钟数(minutes*60s)（本地时间），考虑时区和闰秒
+/// @details 将日期时间对象增加指定的分钟数(minutes*60s)（本地时间），并规范化日期时间对象，考虑时区和闰秒
 /// @param dt 
 /// @param minutes 增加的分钟数，可正可负
 /// @param timezone 时区偏移，单位：小时
@@ -173,7 +173,7 @@ AST_CORE_CAPI void aDateTimeAddMinutesLocal(DateTime& dt, int minutes, int timez
 
 
 /// @brief 增加分（北京时间）
-/// @details 将日期时间对象增加指定的分钟数(minutes*60s)（北京时间），考虑闰秒
+/// @details 将日期时间对象增加指定的分钟数(minutes*60s)（北京时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param minutes 增加的分钟数，可正可负
 /// @return 
@@ -181,7 +181,7 @@ AST_CORE_CAPI void aDateTimeAddMinutesBJT(DateTime& dt, int minutes);
 
 
 /// @brief 增加秒
-/// @details 将日期时间对象增加指定的秒数
+/// @details 将日期时间对象增加指定的秒数，并规范化日期时间对象，不考虑闰秒
 /// @param dt 
 /// @param seconds 
 /// @return 
@@ -189,7 +189,7 @@ AST_CORE_CAPI void aDateTimeAddSeconds(DateTime& dt, double seconds);
 
 
 /// @brief 增加秒（UTC时间）
-/// @details 将日期时间对象增加指定的秒数（UTC时间），考虑闰秒
+/// @details 将日期时间对象增加指定的秒数（UTC时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param seconds 
 /// @return 
@@ -197,7 +197,7 @@ AST_CORE_CAPI void aDateTimeAddSecondsUTC(DateTime& dt, double seconds);
 
 
 /// @brief 增加秒（本地时间）
-/// @details 将日期时间对象增加指定的秒数（本地时间），考虑时区和闰秒
+/// @details 将日期时间对象增加指定的秒数（本地时间），并规范化日期时间对象，考虑时区和闰秒
 /// @param dt 
 /// @param seconds 
 /// @param timezone 时区偏移，单位：小时
@@ -206,11 +206,20 @@ AST_CORE_CAPI void aDateTimeAddSecondsLocal(DateTime& dt, double seconds, int ti
 
 
 /// @brief 增加秒（北京时间）
-/// @details 将日期时间对象增加指定的秒数（北京时间），考虑闰秒
+/// @details 将日期时间对象增加指定的秒数（北京时间），并规范化日期时间对象，考虑闰秒
 /// @param dt 
 /// @param seconds 
 /// @return 
 AST_CORE_CAPI void aDateTimeAddSecondsBJT(DateTime& dt, double seconds);
+
+
+/// @brief 格式化日期时间为字符串
+/// @details 将日期时间对象格式化为指定格式的字符串
+/// @param dt 
+/// @param format 格式化字符串，例如："%Y-%m-%d %H:%M:%S"
+/// @param str 
+/// @return err_t 
+AST_CORE_CAPI err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str);
 
 
 /// @brief 格式化日期时间为格里高利历格式
@@ -301,6 +310,7 @@ A_ALWAYS_INLINE err_t aDateTimeParseISO(StringView str, DateTime& dt)
 }
 
 
+
 /// @brief 解析RFC 3339格式的日期时间字符串
 /// @details 将RFC 3339格式的字符串解析为日期时间对象
 /// @param str 包含RFC 3339格式日期时间的字符串
@@ -334,6 +344,21 @@ AST_CORE_CAPI err_t aDateTimeParseGregorianEn(StringView str, DateTime& dt);
 AST_CORE_CAPI err_t aDateTimeParseGMT(StringView str, DateTime& dt);
 
 
+/// @brief 解析自定义格式的日期时间字符串
+/// @details 将自定义格式的字符串解析为日期时间对象
+/// @param str 包含自定义格式日期时间的字符串
+/// @param format 日期时间格式，参考strptime函数的格式规范
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParse(StringView str, StringView format, DateTime& dt);
+
+
+/// @brief 解析任意格式的日期时间字符串
+/// @details 尝试解析多种日期时间格式，包括ISO 8601、RFC 3339、格里高利历等
+/// @param str 包含日期时间的字符串
+/// @param dt 输出参数，解析后的日期时间对象
+/// @return err_t 错误码，eNoError表示成功
+AST_CORE_CAPI err_t aDateTimeParseAny(StringView str, DateTime& dt);
 
 
 /// @brief 日期时间
@@ -348,7 +373,7 @@ public:
 public:
     /// @brief 从字符串解析日期时间
     /// @param str 包含日期时间的字符串
-    /// @param format 日期时间格式，例如："yyyy-MM-dd HH:mm:ss"
+    /// @param format 日期时间格式，参考strptime函数的格式规范
     /// @return DateTime 解析后的日期时间对象
     AST_CORE_API
     static DateTime FromString(StringView str, StringView format);
@@ -435,7 +460,61 @@ public:
         dt.normalizeBJT();
         return dt;
     }
-    
+public:
+    void addYears(int years){
+        aDateTimeAddYears(*this, years);
+    }
+    void addMonths(int months){
+        aDateTimeAddMonths(*this, months);
+    }
+    void addDays(int days){
+        aDateTimeAddDays(*this, days);
+    }
+    void addDaysUTC(int days){
+        aDateTimeAddDaysUTC(*this, days);
+    }
+    void addDaysLocal(int days, int timezone){
+        aDateTimeAddDaysLocal(*this, days, timezone);
+    }
+    void addDaysBJT(int days){
+        aDateTimeAddDaysBJT(*this, days);
+    }
+    void addHours(int hours){
+        aDateTimeAddHours(*this, hours);
+    }
+    void addHoursUTC(int hours){
+        aDateTimeAddHoursUTC(*this, hours);
+    }
+    void addHoursLocal(int hours, int timezone){
+        aDateTimeAddHoursLocal(*this, hours, timezone);
+    }
+    void addHoursBJT(int hours){
+        aDateTimeAddHoursBJT(*this, hours);
+    }
+    void addMinutes(int minutes){
+        aDateTimeAddMinutes(*this, minutes);
+    }
+    void addMinutesUTC(int minutes){
+        aDateTimeAddMinutesUTC(*this, minutes);
+    }
+    void addMinutesLocal(int minutes, int timezone){
+        aDateTimeAddMinutesLocal(*this, minutes, timezone);
+    }
+    void addMinutesBJT(int minutes){
+        aDateTimeAddMinutesBJT(*this, minutes);
+    }
+    void addSeconds(double seconds){
+        aDateTimeAddSeconds(*this, seconds);
+    }
+    void addSecondsUTC(double seconds){
+        aDateTimeAddSecondsUTC(*this, seconds);
+    }
+    void addSecondsLocal(double seconds, int timezone){
+        aDateTimeAddSecondsLocal(*this, seconds, timezone);
+    }
+    void addSecondsBJT(double seconds){
+        aDateTimeAddSecondsBJT(*this, seconds);
+    }
 
 public:
     Date date_;     ///< 日期

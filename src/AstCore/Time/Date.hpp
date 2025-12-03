@@ -27,9 +27,11 @@ AST_NAMESPACE_BEGIN
 class Date;
 
 /// @brief 获取月份的完整英文名称
+/// @param month 月份，从1开始计数（1表示一月）
 AST_CORE_CAPI const char* aMoonFullName(int month);
 
 /// @brief 获取月份的简写英文名称
+/// @param month 月份，从1开始计数（1表示一月）
 AST_CORE_CAPI const char* aMoonShortName(int month);
 
 /// @brief 获取星期几的完整英文名称

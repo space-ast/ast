@@ -33,7 +33,7 @@ const char* aMoonFullName(int mon)
   static constexpr const char* full_name_list[] = {
       "January", "February", "March",     "April",   "May",      "June",
       "July",    "August",   "September", "October", "November", "December"};
-  return mon >= 0 && mon <= 11 ? full_name_list[mon] : "?";
+  return mon >= 1 && mon <= 12 ? full_name_list[mon - 1] : "?";
 }
 const char* aMoonShortName(int mon)
 {
@@ -41,7 +41,7 @@ const char* aMoonShortName(int mon)
       "Jan", "Feb", "Mar", "Apr", "May", "Jun",
       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
   };
-  return mon >= 0 && mon <= 11 ? short_name_list[mon] : "???";
+  return mon >= 1 && mon <= 12 ? short_name_list[mon - 1] : "???";
 }
 
 

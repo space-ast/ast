@@ -194,15 +194,15 @@ TEST(Date, MonthWeekdayNames)
     AST_USING_NAMESPACE
     
     // 测试月份完整名称
-    EXPECT_STREQ(aMoonFullName(0), "January");
-    EXPECT_STREQ(aMoonFullName(1), "February");
-    EXPECT_STREQ(aMoonFullName(11), "December");
-    EXPECT_STREQ(aMoonFullName(12), "?");  // 越界情况
+    EXPECT_STREQ(aMoonFullName(1), "January");
+    EXPECT_STREQ(aMoonFullName(2), "February");
+    EXPECT_STREQ(aMoonFullName(12), "December");
+    EXPECT_STREQ(aMoonFullName(13), "?");  // 越界情况
     
     // 测试月份简写名称
-    EXPECT_STREQ(aMoonShortName(0), "Jan");
-    EXPECT_STREQ(aMoonShortName(1), "Feb");
-    EXPECT_STREQ(aMoonShortName(11), "Dec");
+    EXPECT_STREQ(aMoonShortName(1), "Jan");
+    EXPECT_STREQ(aMoonShortName(2), "Feb");
+    EXPECT_STREQ(aMoonShortName(12), "Dec");
     EXPECT_STREQ(aMoonShortName(-1), "???");  // 越界情况
     
     // 测试星期几完整名称
