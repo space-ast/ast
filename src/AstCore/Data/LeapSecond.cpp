@@ -57,18 +57,27 @@ err_t LeapSecond::loadATK(const char* filepath)
     }
     data.resize(line);
 
-    char tmp[10];
-    float leapvar;
+    char linebuf[1024];
+    double leapsec;
+    int year;
+    char month_str[10];
+    int day;
     for (int i = 0; i < line; i++) {
-        status = fscanf(
-            file,
-            "%d %f %s %s %s",
-            &data[i].mjd,
-            &leapvar,
-            tmp, tmp, tmp
-        );
-        data[i].leapSecond = leapvar;
-        if (status == EOF) {
+        if (fgets(linebuf, sizeof(linebuf), file))
+        {
+            status = sscanf(
+                linebuf,
+                "%d %lf %d %5s %d",
+                &data[i].mjd,
+                &leapsec,
+                &year, month_str, &day
+            );
+            data[i].leapSecond = leapsec;
+            if (status == EOF) {
+                return eErrorInvalidFile;
+            }
+        }
+        else {
             return eErrorInvalidFile;
         }
     }
@@ -83,14 +92,14 @@ err_t LeapSecond::loadHPIERS(const char* filepath)
     if (file == NULL) {
         return eErrorNullInput;
     }
-    char line[1024];
+    char linebuf[1024];
     int lineNumber = 0;
     std::vector<Entry> data;
-    while (fgets(line, sizeof(line), file)) {
+    while (fgets(linebuf, sizeof(linebuf), file)) {
         lineNumber++;
 
         // 跳过空行和注释行
-        if (line[0] == '#' || line[0] == '\n' || line[0] == '\r') {
+        if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {
             continue;
         }
 
@@ -100,7 +109,7 @@ err_t LeapSecond::loadHPIERS(const char* filepath)
         int taiMinusUTC;
 
         // 解析格式: MJD day month year TAI-UTC
-        int parsed = sscanf(line, "%lf %d %d %d %d",
+        int parsed = sscanf(linebuf, "%lf %d %d %d %d",
             &mjd, &day, &month, &year, &taiMinusUTC);
 
         if (parsed == 5) {
@@ -221,11 +230,14 @@ double LeapSecond::leapSecondTAIMJD(ImpreciseMJD mjdTAI)
     return m_data[0].leapSecond;
 }
 
-double LeapSecond::getLodUTC(const JulianDate& jdUTC)
+double LeapSecond::getLodUTC(const Date& utcDate)
 {
-    double sec = 86400;
+    return getLodUTCMJD(aDateToMJD(utcDate));
+}
 
-    double mjd = aJDToMJD_Imprecise(jdUTC);
+double LeapSecond::getLodUTCMJD(ImpreciseMJD mjd)
+{
+    const double sec = 86400;
     int i = m_data.size() - 1;
     while (i >= 1) {
         if (mjd >= m_data[i].mjd - 1) {
@@ -241,80 +253,6 @@ double LeapSecond::getLodUTC(const JulianDate& jdUTC)
     return sec;
 }
 
-void LeapSecond::getTimeCorrectionByUTC(int year, int month, int day, double sec, int& dday, double& newsec)
-{
-#if _AST_USE_getTimeCorrectionByUTC_V2
-    int jdUTC;
-    AsTimeToJD(year, month, day, jdUTC);
-    double leap1, leapNextDay;
-    double secOfDay = GetLeapSecDayByUTC(jdUTC, 0, leap1, leapNextDay);
-    if (0 <= sec && sec < secOfDay) {
-        dday = 0;
-        newsec = sec;
-    }
-    else {
-        double leap2;
-        dday = floor(sec / 86400);
-        do {
-            secOfDay = GetLeapSecDayByUTC(jdUTC + dday, 0, leap2, leapNextDay);
-            newsec = sec - dday * 86400 + leap1 - leap2;
-            if (newsec >= secOfDay) {
-                dday += 1;
-            }
-            else if (newsec < 0) {
-                dday -= 1;
-            }
-            else {
-                break;
-            }
-        } while (1);
-    }
-#else
-    //@todo: more efficient implementation
-    int jdUTC = aDateToJD(Date{year, month, day});
-    double leap1 = leapSecondUTC(jdUTC);
-    dday = floor(sec / 86400);
-    double leap2;
-    do {
-        leap2 = leapSecondUTC(jdUTC + dday);
-        newsec = sec - dday * 86400 + leap1 - leap2;
-        if (newsec > 86400) {
-            dday += 1;
-        }
-        else if (newsec < 0) {
-            dday -= 1;
-        }
-        else {
-            break;
-        }
-    } while (1);
-#endif
-}
-
-double LeapSecond::getLeapSecDayByUTC(double jdUTCp1, double jdUTCp2, double& leap, double& leapNextDay)
-{
-    double sec = 86400;
-    
-    double mjd = (jdUTCp1 - 2400000.5) + jdUTCp2;
-    int i = m_data.size() - 1;
-    while (i >= 1) {
-        if (mjd + 1 >= m_data[i].mjd) {
-            leapNextDay = m_data[i].leapSecond;
-            if (mjd < m_data[i].mjd) {
-                leap = m_data[i - 1].leapSecond;
-                return sec - leap + leapNextDay;
-            }
-            else {
-                leap = m_data[i].leapSecond;
-                return sec;
-            }
-        }
-        i--;
-    }
-    leapNextDay = m_data[0].leapSecond;
-    leap = m_data[0].leapSecond;
-    return sec;
-}
 double LeapSecond::leapSecondUTCMJD(ImpreciseMJD mjdUTC)
 {
     /*

@@ -102,16 +102,8 @@ int ast_vprintf(const char* format, va_list args)
     return vprintf(format, args);
 }
 
-A_ALWAYS_INLINE
-int ast_printf(const char* format, ...)
-{
-    va_list args;
-    int result;
-    va_start(args, format);
-    result = ast_vprintf(format, args);
-    va_end(args);
-    return result;
-}
+AST_UTIL_CAPI
+int ast_printf(const char* format, ...);
 
 using std::fopen;
 using std::printf;

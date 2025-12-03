@@ -45,15 +45,15 @@ AST_CORE_CAPI const char* aWeekDayShortName(int wday);
 /// @brief 判断是否为闰年
 AST_CORE_CAPI bool aIsLeapYear(int year);
 
-/// @brief 获取某月的天数
-AST_CORE_CAPI int aDayInMonth(int month, bool is_leap_year);
+/// @brief 获取某年某月的天数，根据年份判断
+/// @param month 月份，从1开始计数（1表示一月）
+/// @param year 年份
+AST_CORE_CAPI int aDaysInMonthByYear(int month, int year);
 
-/// @brief 获取某年某月的天数
-A_ALWAYS_INLINE
-int aDayInMonth(int month, int year)
-{
-    return aDayInMonth(month, aIsLeapYear(year));
-}
+/// @brief 获取某年某月的天数，根据是否为闰年判断
+/// @param month 月份，从1开始计数（1表示一月）
+/// @param isLeapYear 是否为闰年
+AST_CORE_CAPI int aDaysInMonthByLeap(int month, bool isLeapYear);
 
 /// @brief 获取日期是这一年的第几天，从1开始计数
 AST_CORE_CAPI int aDayOfYear(const Date& date);
@@ -168,7 +168,7 @@ public:
 
     /// @brief 获取该月的天数
     int dayInMonth() const{
-        return aDayInMonth(month_, year_);
+        return aDaysInMonthByYear(month_, year_);
     }
 
     /// @brief 将日期转换为儒略日数

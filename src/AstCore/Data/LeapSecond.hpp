@@ -29,6 +29,7 @@ AST_NAMESPACE_BEGIN
 
 class JulianDate;
 class TimePoint;
+class Date;
 
 class AST_CORE_API LeapSecond
 {
@@ -79,25 +80,11 @@ public:
 	/// @param  jdUTCp1 - 
 	/// @param  jdUTCp2 - 
 	/// @retval          - 
-	double getLodUTC(const JulianDate& jdUTC);
-	
-    /// @brief 考虑闰秒下，通过计算当天积秒计算标准化后的日期变动值和新积秒
-	/// @param year   - 年(UTC)
-	/// @param month  - 月(UTC)
-	/// @param day    - 日(UTC)
-	/// @param sec    - 当天积秒
-	/// @param dday   - 时间格式标准化后的日期变动值
-	/// @param newsec - 当天的新积秒
-	void getTimeCorrectionByUTC(int year, int month, int day, double sec, int& dday, double& newsec);
-private:
+	double getLodUTC(const Date& utcDate);
+	double getLodUTCMJD(ImpreciseMJD mjdUTC);
 
-    /// @brief  计算当天的UTC秒数、当天的闰秒、明天的闰秒
-    /// @param  jdUTCp1    - 
-    /// @param  jdUTCp2    - 
-    /// @param  leap        - 
-    /// @param  leapNextDay - 
-    /// @retval             - 
-	double getLeapSecDayByUTC(double jdUTCp1, double jdUTCp2, double& leap, double& leapNextDay);
+	
+
 protected:
     std::vector<Entry> m_data;
 };

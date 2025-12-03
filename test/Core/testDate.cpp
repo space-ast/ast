@@ -66,25 +66,25 @@ TEST(Date, DayInMonth)
     AST_USING_NAMESPACE
     
     // 测试非闰年各月天数
-    EXPECT_EQ(aDayInMonth(1, false), 31);
-    EXPECT_EQ(aDayInMonth(2, false), 28);
-    EXPECT_EQ(aDayInMonth(3, false), 31);
-    EXPECT_EQ(aDayInMonth(4, false), 30);
-    EXPECT_EQ(aDayInMonth(5, false), 31);
-    EXPECT_EQ(aDayInMonth(6, false), 30);
-    EXPECT_EQ(aDayInMonth(7, false), 31);
-    EXPECT_EQ(aDayInMonth(8, false), 31);
-    EXPECT_EQ(aDayInMonth(9, false), 30);
-    EXPECT_EQ(aDayInMonth(10, false), 31);
-    EXPECT_EQ(aDayInMonth(11, false), 30);
-    EXPECT_EQ(aDayInMonth(12, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(1, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(2, false), 28);
+    EXPECT_EQ(aDaysInMonthByLeap(3, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(4, false), 30);
+    EXPECT_EQ(aDaysInMonthByLeap(5, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(6, false), 30);
+    EXPECT_EQ(aDaysInMonthByLeap(7, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(8, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(9, false), 30);
+    EXPECT_EQ(aDaysInMonthByLeap(10, false), 31);
+    EXPECT_EQ(aDaysInMonthByLeap(11, false), 30);
+    EXPECT_EQ(aDaysInMonthByLeap(12, false), 31);
     
     // 测试闰年2月天数
-    EXPECT_EQ(aDayInMonth(2, true), 29);
+    EXPECT_EQ(aDaysInMonthByLeap(2, true), 29);
     
     // 测试带年份的方法
-    EXPECT_EQ(aDayInMonth(2, 2024), 29);  // 闰年
-    EXPECT_EQ(aDayInMonth(2, 2023), 28);  // 非闰年
+    EXPECT_EQ(aDaysInMonthByYear(2, 2024), 29);  // 闰年
+    EXPECT_EQ(aDaysInMonthByYear(2, 2023), 28);  // 非闰年
     
     // 测试Date类中的dayInMonth方法
     Date date = Date::FromYMD(2024, 2, 1);
