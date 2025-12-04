@@ -65,6 +65,10 @@ err_t LeapSecond::loadATK(const char* filepath)
     for (int i = 0; i < line; i++) {
         if (fgets(linebuf, sizeof(linebuf), file))
         {
+            // 跳过空行和注释行
+            if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {
+                continue;
+            }
             status = sscanf(
                 linebuf,
                 "%d %lf %d %5s %d",
