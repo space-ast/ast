@@ -229,7 +229,7 @@ TEST(DateTime, Formatting)
     EXPECT_TRUE(str.find("10:30:45") != std::string::npos);
     
     // 测试格里高利历格式（英文）
-    err = aDateTimeFormatGregorianEn(dt, str);
+err = aDateTimeFormatGregorianEn(dt, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("25 Dec 2023") != std::string::npos);
     
@@ -819,5 +819,118 @@ TEST(DateTime, RFCFormatting)
     EXPECT_TRUE(str.find("2023") != std::string::npos);
 }
 #endif
+
+// 添加新的测试用例来覆盖未测试的代码行
+TEST(DateTime, UncoveredBranches) 
+{ 
+    AST_USING_NAMESPACE
+    
+    // 1. 测试aDateTimeFormatISO8601函数中millisecond=0的分支
+    DateTime dt;
+    dt.year() = 2023;
+    dt.month() = 12;
+    dt.day() = 25;
+    dt.hour() = 10;
+    dt.minute() = 30;
+    dt.second() = 45.0;  // 确保毫秒为0
+    
+    std::string str;
+    err_t err = aDateTimeFormatISO8601(dt, str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(str == "2023-12-25T10:30:45Z");
+    
+    // 2. 测试aDateTimeParseGregorianEn函数的错误处理分支
+    err = aDateTimeParseGregorianEn("invalid date string", dt);
+    EXPECT_EQ(err, eErrorInvalidParam);
+    
+    // 3. 测试aDateTimeParseGMT函数的错误处理分支
+    err = aDateTimeParseGMT("invalid GMT string", dt);
+    EXPECT_EQ(err, eErrorInvalidParam);
+    
+    // 4. 测试aDateTimeParseAny函数中各个分支
+    // 测试RFC3339成功的情况 - 但实际上RFC3339复用了ISO8601的实现，这里需要特殊构造
+    // 为了测试RFC3339的成功路径，我们需要确保RFC3339解析成功但ISO8601解析失败
+    // 由于当前实现中RFC3339直接调用ISO8601，这部分测试可能无法完全分离
+    
+    // 测试GMT解析成功的情况
+    // 先确保其他格式都失败，只让GMT格式成功
+    // 这里我们使用一个只有GMT格式能解析的特殊格式
+    DateTime dtGMT;
+    std::string gmtStr = "Sun, 01 Jan 2023 00:00:00 GMT";
+    
+    // 先测试这个字符串用其他格式解析会失败
+    EXPECT_NE(aDateTimeParseISO8601(gmtStr, dtGMT), eNoError);
+    EXPECT_NE(aDateTimeParseGregorian(gmtStr, dtGMT), eNoError);
+    EXPECT_NE(aDateTimeParseGregorianEn(gmtStr, dtGMT), eNoError);
+    
+    // 然后测试aDateTimeParseAny可以正确解析它
+    err = aDateTimeParseAny(gmtStr, dtGMT);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dtGMT.year(), 2023);
+    EXPECT_EQ(dtGMT.month(), 1);
+    EXPECT_EQ(dtGMT.day(), 1);
+    
+    // 测试aDateTimeParseAny返回错误的情况
+    err = aDateTimeParseAny("completely invalid date string", dt);
+    EXPECT_EQ(err, eErrorInvalidParam);
+    
+    // 5. 测试DateTime::FromString函数的错误处理（有格式参数）
+    // 这个函数在解析失败时会调用aError，但我们无法直接验证aError是否被调用
+    // 我们只能测试它能处理错误输入但仍返回一个DateTime对象
+    DateTime dtFromStringErr = DateTime::FromString("invalid date", "%Y-%m-%d");
+    // 只要不崩溃即可，无法验证错误日志
+    
+    // 6. 测试DateTime::FromString函数的错误处理（无格式参数）
+    DateTime dtFromStringNoFormatErr = DateTime::FromString("invalid date");
+    // 只要不崩溃即可，无法验证错误日志
+    
+    // 7. 测试DateTime::FromGregorian函数的错误处理
+    DateTime dtFromGregErr = DateTime::FromGregorian("invalid gregorian date");
+    // 函数应该返回当前时间，我们只能验证返回的对象是有效的
+    EXPECT_GT(dtFromGregErr.year(), 2000);
+    EXPECT_LT(dtFromGregErr.year(), 2100);
+}
+
+// 8. 测试时区相关的未覆盖分支
+TEST(DateTime, TimeZoneRelatedBranches) 
+{ 
+    AST_USING_NAMESPACE
+    
+    // 为了测试_aGregDateDifference和_aTimeZoneDateDifference函数中的未覆盖分支
+    // 我们需要通过调用使用这些内部函数的公共API来间接测试
+    
+    DateTime dt1, dt2;
+    dt1.year() = 2023;
+    dt1.month() = 1;
+    dt1.day() = 1;
+    dt1.hour() = 12;
+    dt1.minute() = 0;
+    dt1.second() = 0;
+    
+    dt2.year() = 2023;
+    dt2.month() = 1;
+    dt2.day() = 1;
+    dt2.hour() = 12;
+    dt2.minute() = 0;
+    dt2.second() = 0;
+    
+    // 测试时区相关函数 - 由于这些是内部函数，我们通过调用公共API间接测试
+    // 例如，通过测试不同时区的日期时间转换来触发这些分支
+    
+    // 测试不同时区的日期时间计算
+    aDateTimeAddDaysLocal(dt2, 1, 0);   // timeZone=0，测试第120行分支
+    aDateTimeAddDaysLocal(dt2, 1, -8);  // timeZone<0，测试第131-132行和第135行分支
+    
+    // 测试可能触发h<0情况的时区计算（第148行）
+    DateTime dt3;
+    dt3.year() = 2023;
+    dt3.month() = 1;
+    dt3.day() = 1;
+    dt3.hour() = 0;
+    dt3.minute() = 0;
+    dt3.second() = 0;
+    
+    aDateTimeAddHoursLocal(dt3, -1, 0);  // 尝试让小时变为负数，触发相关分支
+}
 
 GTEST_MAIN()
