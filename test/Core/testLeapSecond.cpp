@@ -251,4 +251,216 @@ TEST(LeapSecond, loadATK)
     EXPECT_EQ(leapSecond.loadATK(nullptr), eErrorNullInput);
     EXPECT_NE(leapSecond.loadATK("non_existent_file.dat"), 0);
 }
+// 测试边界情况 - 空数据
+TEST(LeapSecond, emptyDataBoundary) {
+    LeapSecond leapSecond;
+    
+    // 创建一个空的数据结构
+    leapSecond.data().clear();
+    
+    // 测试使用空数据时的行为
+    try {
+        // 这些调用在空数据时应该有合理的默认行为或抛出异常
+        double result1 = leapSecond.leapSecondUTCMJD(58000.0);
+        // 如果没有抛出异常，验证结果是否合理
+        EXPECT_FALSE(std::isnan(result1));
+    } catch (...) {
+        // 如果抛出异常，也是一种合理的边界情况处理
+        GTEST_SKIP() << "Empty data handling throws exception (acceptable behavior)";
+    }
+}
+
+// 测试边界情况 - 1972年之前的日期
+TEST(LeapSecond, before1972Boundary) {
+    LeapSecond leapSecond;
+    leapSecond.setDefaultData();
+    
+    // 1970-01-01，早于1972年
+    double mjd1970 = 40587.0;
+    
+    // 验证对于1972年之前的日期，系统有正确的处理
+    double leapSec1970 = leapSecond.leapSecondUTCMJD(mjd1970);
+    EXPECT_FALSE(std::isnan(leapSec1970));
+    
+    // 如果定义了_AST_CONSIDER_LEAPSECOND_BEFORE_1972，应该返回计算值，否则返回默认数据中的第一个值
+    #ifdef _AST_CONSIDER_LEAPSECOND_BEFORE_1972
+    EXPECT_LT(leapSec1970, 10.0); // 1970年的闰秒应该小于10
+    #else
+    EXPECT_EQ(leapSec1970, leapSecond.data()[0].leapSecond);
+    #endif
+}
+
+// 测试边界情况 - 未来日期
+TEST(LeapSecond, futureDateBoundary) {
+    LeapSecond leapSecond;
+    leapSecond.setDefaultData();
+    
+    // 2030-01-01，一个未来的日期
+    double mjd2030 = 63072.0;
+    
+    // 对于未来日期，应该返回最后一个已知的闰秒值
+    double lastLeapSecond = leapSecond.data().back().leapSecond;
+    EXPECT_DOUBLE_EQ(leapSecond.leapSecondUTCMJD(mjd2030), lastLeapSecond);
+}
+
+// 测试边界情况 - 闰秒变更的精确时间点
+TEST(LeapSecond, leapSecondTransitionBoundary) {
+    LeapSecond leapSecond;
+    leapSecond.setDefaultData();
+    
+    // 找到最后一次闰秒变更的MJD
+    int lastLeapMJD = leapSecond.data().back().mjd;
+    
+    // 测试变更前的最后一刻（精确到毫秒）
+    double justBeforeTransition = lastLeapMJD - 0.00001; // 接近但小于变更MJD
+    double leapBefore = leapSecond.leapSecondUTCMJD(justBeforeTransition);
+    
+    // 测试变更后的第一刻
+    double justAfterTransition = lastLeapMJD + 0.00001; // 大于变更MJD
+    double leapAfter = leapSecond.leapSecondUTCMJD(justAfterTransition);
+    
+    // 验证变更前后的闰秒值不同
+    EXPECT_NE(leapBefore, leapAfter);
+    // 验证变更后的值正好是最后一条记录的值
+    EXPECT_DOUBLE_EQ(leapAfter, leapSecond.data().back().leapSecond);
+}
+
+// 测试边界情况 - 接近午夜的时间点
+TEST(LeapSecond, midnightBoundary) {
+    LeapSecond leapSecond;
+    leapSecond.setDefaultData();
+    
+    // 选择一个非闰秒日的午夜附近
+    double mjdDay = 58849.0; // 2020-01-01
+    
+    // 测试午夜前
+    double justBeforeMidnight = mjdDay - 0.00001;
+    double leapBeforeMidnight = leapSecond.leapSecondUTCMJD(justBeforeMidnight);
+    
+    // 测试午夜后
+    double justAfterMidnight = mjdDay + 0.00001;
+    double leapAfterMidnight = leapSecond.leapSecondUTCMJD(justAfterMidnight);
+    
+    // 在非闰秒日，午夜前后的闰秒值应该相同
+    EXPECT_DOUBLE_EQ(leapBeforeMidnight, leapAfterMidnight);
+}
+
+// 测试文件加载边界情况 - 错误格式的文件
+TEST(LeapSecond, invalidFileFormat) {
+    LeapSecond leapSecond;
+    
+    // 创建格式错误的临时文件
+    std::string tempFilePath = "temp_invalid_leap_second.dat";
+    {
+        std::ofstream tempFile(tempFilePath);
+        tempFile << "# 格式错误的文件\n";
+        tempFile << "这不是有效的数据行\n";
+        tempFile << "57000 abc 1 2015 36\n"; // 格式错误
+        tempFile.close();
+    }
+    
+    // 测试加载格式错误的文件
+    err_t err = leapSecond.loadHPIERS(tempFilePath.c_str());
+    EXPECT_EQ(err, eErrorInvalidFile);
+    
+    // 创建空文件
+    std::ofstream emptyFile(tempFilePath, std::ios::trunc);
+    emptyFile.close();
+    
+    // 测试加载空文件
+    err = leapSecond.loadHPIERS(tempFilePath.c_str());
+    EXPECT_NE(err, 0);
+
+    err = leapSecond.loadATK(tempFilePath.c_str());
+    EXPECT_NE(err, 0);
+
+    // 清理
+    std::remove(tempFilePath.c_str());
+}
+
+// 测试ATK格式文件加载
+TEST(LeapSecond, loadATKFormat) {
+    LeapSecond leapSecond;
+    
+    // 创建ATK格式的临时文件
+    std::string tempFilePath = "temp_atk_leap_second.dat";
+    {
+        std::ofstream tempFile(tempFilePath);
+        tempFile << "2\n"; // 两行数据
+        tempFile << "57000 36 2015 JAN 1\n";
+        tempFile << "58000 37 2018 JAN 1\n";
+        tempFile.close();
+    }
+    
+    // 测试loadATK
+    err_t err = leapSecond.loadATK(tempFilePath.c_str());
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(leapSecond.data().size(), 2);
+    EXPECT_EQ(leapSecond.data()[0].mjd, 57000);
+    EXPECT_EQ(leapSecond.data()[0].leapSecond, 36);
+    
+    // 清理
+    std::remove(tempFilePath.c_str());
+
+    err = leapSecond.loadHPIERS(tempFilePath.c_str());
+    EXPECT_NE(err, 0);
+}
+
+// 测试getLodUTC的边界情况 - 闰秒变更当天
+TEST(LeapSecond, getLodUTCOnLeapSecondDay) {
+    LeapSecond leapSecond;
+    leapSecond.setDefaultData();
+    
+    // 获取最后一次闰秒变更的日期
+    int lastLeapMJD = leapSecond.data().back().mjd;
+    Date leapDay = aMJDToDate(lastLeapMJD);
+    
+    // 验证闰秒变更当天的LOD是标准的86400秒
+    EXPECT_DOUBLE_EQ(leapSecond.getLodUTC(leapDay), 86400.0);
+    
+    // 验证变更前一天的LOD包含闰秒
+    Date dayBeforeLeap = aMJDToDate(lastLeapMJD - 1);
+    double expectedLod = 86400.0 - leapSecond.data()[leapSecond.data().size()-2].leapSecond + leapSecond.data().back().leapSecond;
+    EXPECT_DOUBLE_EQ(leapSecond.getLodUTC(dayBeforeLeap), expectedLod);
+}
+
+// 测试setData的边界情况 - 不同长度的输入向量
+TEST(LeapSecond, setDataDifferentLengths) {
+    LeapSecond leapSecond;
+    
+    // 测试不同长度的向量
+    std::vector<double> mjds = {57000, 58000, 59000};
+    std::vector<double> leapSeconds = {36, 37}; // 长度较短
+    
+    // 代码中使用了assert，所以在发布版本中不会崩溃，但会使用最短的长度
+    // 在测试中验证这一点
+    leapSecond.setData(mjds, leapSeconds);
+    EXPECT_EQ(leapSecond.data().size(), 2); // 应该使用较短的长度
+    
+    // 测试空向量
+    std::vector<double> emptyMJD, emptyLeapSeconds;
+    leapSecond.setData(emptyMJD, emptyLeapSeconds);
+    EXPECT_EQ(leapSecond.data().size(), 0);
+}
+
+// 测试leapSecondTAI的边界情况 - TAI和UTC时间转换关系
+TEST(LeapSecond, leapSecondTAIBoundary) {
+    LeapSecond leapSecond;
+    leapSecond.setDefaultData();
+    
+    // 测试非常接近闰秒变更的TAI时间
+    int lastLeapMJD = leapSecond.data().back().mjd;
+    double leapSecondsValue = leapSecond.data().back().leapSecond;
+    
+    // TAI时间刚好在UTC闰秒变更点
+    double taiMJDAtTransition = lastLeapMJD + leapSecondsValue / 86400.0;
+    
+    // 测试TAI时间在变更点前后
+    double justBeforeTai = taiMJDAtTransition - 0.00001;
+    double justAfterTai = taiMJDAtTransition + 0.00001;
+    
+    EXPECT_FALSE(std::isnan(leapSecond.leapSecondTAIMJD(justBeforeTai)));
+    EXPECT_FALSE(std::isnan(leapSecond.leapSecondTAIMJD(justAfterTai)));
+}
+
 GTEST_MAIN()

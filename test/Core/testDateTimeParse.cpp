@@ -251,6 +251,164 @@ TEST(DateTimeParse, ErrorHandling)
 }
 
 
+
+// 测试aDateTimeParse的更多边界情况和错误处理
+TEST(DateTimeParse, AdditionalEdgeCases) {
+    AST_USING_NAMESPACE
+    
+    DateTime dt;
+    err_t err;
+    
+    // 测试parseNumber函数的边界情况（对应行43）
+    err = aDateTimeParse("2023-00-25", "%Y-%m-%d", dt);
+    EXPECT_EQ(err, eErrorParse); // 月份范围错误
+    
+    // 测试parseFractionalSeconds函数（对应行68）
+    err = aDateTimeParse("59.", "%S", dt);
+    EXPECT_EQ(err, eErrorParse); // 小数点后无数字
+    
+    // 测试时区偏移解析错误（对应行178-179）
+    err = aDateTimeParse("+0", "%z", dt);
+    EXPECT_EQ(err, eErrorParse); // 时区偏移格式错误
+    
+    err = aDateTimeParse("+08:", "%z", dt);
+    EXPECT_EQ(err, eErrorParse); // 时区偏移分钟部分不完整
+    
+    // 测试格式字符串以%结束（对应行206）
+    err = aDateTimeParse("2023", "%", dt);
+    EXPECT_EQ(err, eErrorInvalidParam);
+    
+    // 测试两位年份的边界情况（对应行214-215）
+    err = aDateTimeParse("68", "%y", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.year(), 2068); // 68 -> 2068
+    
+    err = aDateTimeParse("69", "%y", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.year(), 1969); // 69 -> 1969
+    
+    // 测试月份和日期范围验证（对应行226-227）
+    err = aDateTimeParse("2023-04-31", "%Y-%m-%d", dt);
+    EXPECT_EQ(err, eErrorParse); // 4月没有31天
+    
+    // 测试星期解析失败（对应行302）
+    err = aDateTimeParse("Monx", "%a", dt);
+    EXPECT_EQ(err, eErrorParse); // 无效的星期缩写
+    
+    // 测试%j格式的错误处理（对应行310）
+    err = aDateTimeParse("2023 000", "%Y %j", dt);
+    EXPECT_EQ(err, eErrorParse); // 无效的天数
+    
+    err = aDateTimeParse("2023 367", "%Y %j", dt);
+    EXPECT_EQ(err, eErrorParse); // 超过一年的天数
+    
+    // 测试时区偏移解析的失败情况（对应行319）
+    err = aDateTimeParse("AB12", "%z", dt);
+    EXPECT_EQ(err, eErrorParse); // 无效的时区偏移格式
+    
+    // 测试格式字符串中存在未处理的字符（对应行355）
+    err = aDateTimeParse("2023", "%Y extra", dt);
+    EXPECT_EQ(err, eErrorParse); // 格式字符串未完全匹配
+    
+    // 测试小时分钟秒的边界值
+    err = aDateTimeParse("23:59:60", "%H:%M:%S", dt);
+    EXPECT_EQ(err, eNoError); // 闰秒应该被允许
+    
+    err = aDateTimeParse("23:59:61", "%H:%M:%S", dt);
+    EXPECT_EQ(err, eErrorParse); // 超过允许的秒数范围
+    
+    // 测试未设置的日期时间组件默认值（对应行400、407、413、421、430）
+    err = aDateTimeParse("2023", "%Y", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.year(), 2023);
+    EXPECT_EQ(dt.month(), 1); // 默认月份
+    EXPECT_EQ(dt.day(), 1);   // 默认日期
+    
+    // 测试仅设置月份的情况
+    err = aDateTimeParse("12", "%m", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.month(), 12);
+    EXPECT_EQ(dt.day(), 1);   // 默认日期
+    
+    // 测试仅设置小时的情况
+    err = aDateTimeParse("14", "%H", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.hour(), 14);
+    
+    // 测试使用%j设置日期（对应行443、462）
+    err = aDateTimeParse("2023 365", "%Y %j", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.year(), 2023);
+    // 这里可以进一步验证day和month是否正确设置为12月31日
+    
+    // 测试特殊情况：格式字符串中的空格处理（对应行475-477）
+    err = aDateTimeParse("2023   -  12  - 25", "%Y - %m - %d", dt);
+    EXPECT_EQ(err, eErrorParse); // 输入字符串中的空格与格式不匹配
+    
+    // 测试混合有效和无效的格式说明符
+    err = aDateTimeParse("2023-12-25", "%Y-%m-%X", dt);
+    EXPECT_EQ(err, eErrorInvalidParam); // 未知的格式说明符
+}
+
+// 测试解析不完整的日期时间字符串
+TEST(DateTimeParse, PartialDateTime) {
+    AST_USING_NAMESPACE
+    
+    DateTime dt;
+    err_t err;
+    
+    // 只包含时间部分
+    err = aDateTimeParse("14:30:45", "%H:%M:%S", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.hour(), 14);
+    EXPECT_EQ(dt.minute(), 30);
+    EXPECT_EQ(dt.second(), 45.0);
+    
+    // 混合格式：部分日期和时间
+    err = aDateTimeParse("2023-12 14:30", "%Y-%m %H:%M", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.year(), 2023);
+    EXPECT_EQ(dt.month(), 12);
+    EXPECT_EQ(dt.day(), 1); // 默认日期
+    EXPECT_EQ(dt.hour(), 14);
+    EXPECT_EQ(dt.minute(), 30);
+    
+    // 测试使用%j但不设置年份（应该使用默认值）
+    err = aDateTimeParse("180", "%j", dt);
+    EXPECT_EQ(err, eNoError);
+    // 由于没有设置年份，这里可能不会正确计算月和日
+}
+
+// 测试更复杂的错误情况
+TEST(DateTimeParse, ComplexErrorScenarios) {
+    AST_USING_NAMESPACE
+    
+    DateTime dt;
+    err_t err;
+    
+    // 格式匹配但数值超出范围
+    err = aDateTimeParse("2023-12-31 25:00:00", "%Y-%m-%d %H:%M:%S", dt);
+    EXPECT_EQ(err, eErrorParse); // 小时超出范围
+    
+    // 格式匹配但部分数值无效
+    err = aDateTimeParse("2023-12-25 14:60:45", "%Y-%m-%d %H:%M:%S", dt);
+    EXPECT_EQ(err, eErrorParse); // 分钟超出范围
+    
+    // 测试%p格式但没有%I格式
+    err = aDateTimeParse("PM", "%p", dt);
+    EXPECT_EQ(err, eNoError); // 解析应该成功，但不会影响小时值
+    
+    // 测试%I格式但没有%p格式（保持原样）
+    err = aDateTimeParse("11", "%I", dt);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(dt.hour(), 11); // 没有%p时保持12小时制的值
+    
+    // 测试带有前导空格的各种格式
+    err = aDateTimeParse(" 2023-12-25", "%Y-%m-%d", dt);
+    EXPECT_EQ(err, eErrorParse); // 格式中没有空格，输入中有空格
+}
+
+
 // 测试解析和格式化的一致性
 TEST(DateTimeParseFormat, Consistency)
 {
