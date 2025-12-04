@@ -241,7 +241,7 @@ namespace
 } // 匿名命名空间
 
 // 主解析函数
-err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
+err_t aDateTimeParse(StringView str, StringView format, DateTime& dt, bool strict)
 {
     if (str.empty() || format.empty()) {
         return eErrorInvalidParam;
@@ -306,7 +306,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
 
         switch (specifier) {
         case 'Y': // 四位年份
-            if (!parseNumber(s, 0, 9999, state.year, 4)) {
+            if (!parseNumber(s, strict?0:-9999, 9999, state.year, 4)) {
                 return eErrorParse;
             }
             state.yearSet = true;
@@ -315,7 +315,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
         case 'y': // 两位年份
         {
             int shortYear;
-            if (!parseNumber(s, 0, 99, shortYear, 2)) {
+            if (!parseNumber(s, strict?0:-99, 99, shortYear, 2)) {
                 return eErrorParse;
             }
             // 按照 glibc 规则：00-68 -> 2000-2068, 69-99 -> 1969-1999
@@ -327,21 +327,21 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
         break;
 
         case 'm': // 月份 (01-12)
-            if (!parseNumber(s, 1, 12, state.month, 2)) {
+            if (!parseNumber(s, strict?1:-99, strict?12:99, state.month, 2)) {
                 return eErrorParse;
             }
             state.monthSet = true;
             break;
 
         case 'd': // 日 (01-31)
-            if (!parseNumber(s, 1, 31, state.day, 2)) {
+            if (!parseNumber(s, strict?1:-99, strict?31:99, state.day, 2)) {
                 return eErrorParse;
             }
             state.daySet = true;
             break;
 
         case 'H': // 24小时制小时 (00-23)
-            if (!parseNumber(s, 0, 23, state.hour, 2)) {
+            if (!parseNumber(s, strict?0:-99, strict?23:99, state.hour, 2)) {
                 return eErrorParse;
             }
             state.hourSet = true;
@@ -351,7 +351,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
         case 'I': // 12小时制小时 (01-12)
         {
             int hour12;
-            if (!parseNumber(s, 1, 12, hour12, 2)) {
+            if (!parseNumber(s, strict?1:-99, strict?12:99, hour12, 2)) {
                 return eErrorParse;
             }
             state.hour = hour12;
@@ -361,7 +361,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
         break;
 
         case 'M': // 分钟 (00-59)
-            if (!parseNumber(s, 0, 59, state.minute, 2)) {
+            if (!parseNumber(s, strict?0:-99, strict?59:99, state.minute, 2)) {
                 return eErrorParse;
             }
             state.minuteSet = true;
@@ -370,7 +370,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
         case 'S': // 秒 (00-60, 60是闰秒)
         {
             int secInt;
-            if (!parseNumber(s, 0, 60, secInt, 2)) {
+            if (!parseNumber(s, strict?0:-99, strict?60:99, secInt, 2)) {
                 return eErrorParse;
             }
             state.second = static_cast<double>(secInt);
@@ -426,7 +426,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
 
         case 'j': // 一年中的第几天 (001-366)
         {
-            if (!parseNumber(s, 1, 366, state.dayOfYear, 3)) {
+            if (!parseNumber(s, strict?1:-999, strict?366:999, state.dayOfYear, 3)) {
                 return eErrorParse;
             }
             state.dayofYearSet = true;
@@ -441,6 +441,7 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
             }
             else {
                 s = saved; // 回溯
+                return eErrorParse;
             }
         }
         break;
@@ -557,5 +558,10 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
     return eNoError;
 }
 
+
+err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
+{
+    return aDateTimeParse(str, format, dt, false);
+}
 AST_NAMESPACE_END
  
