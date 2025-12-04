@@ -43,8 +43,18 @@ typedef std::array<double, 6> array6d;
  * 
  * */
 
+template<typename _Scalar, size_t Row, size_t Col>
+class MatrixMN;
+
+namespace math{
 
 
+inline std::pair<double, double> twoSum(double a, double b) {
+    double s = a + b;
+    double t = s - a;
+    double e = (a - (s - t)) + (b - t);
+    return {s, e};
+}
 
 inline double eps(double t)
 {
@@ -448,8 +458,7 @@ inline std::array<double, N1> operator+(const double (&vec1)[N1], const double (
 
 /// 矩阵乘法
 
-template<typename _Scalar, size_t Row, size_t Col>
-class MatrixMN;
+
 
 template<typename _Scalar, size_t I, size_t J, size_t K>
 MatrixMN<_Scalar, I, K> operator* (
@@ -495,7 +504,10 @@ std::array<std::array<_Scalar, K>, I> mtimes(
 }
 
 
+}
 
+
+using namespace math;
 
 
 AST_NAMESPACE_END

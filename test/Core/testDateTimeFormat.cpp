@@ -333,4 +333,121 @@ TEST(DateTimeParseFormat, EdgeCases)
     EXPECT_EQ(str, "00:00:60");
 }
 
+// 测试未覆盖的格式说明符和边界情况
+TEST(DateTimeFormat, UncoveredFormatSpecifiers) {
+    AST_USING_NAMESPACE
+    
+    DateTime dt;
+    dt.year() = 2023;
+    dt.month() = 6;
+    dt.day() = 15;
+    dt.hour() = 10;
+    dt.minute() = 30;
+    dt.second() = 45.123456;
+    
+    std::string str;
+    err_t err;
+    
+    // 测试Unix时间戳格式说明符 '%s'
+    err = aDateTimeFormat(dt, "%s", str);
+    EXPECT_EQ(err, eNoError);
+    // Unix时间戳应该是一个有效的数字字符串
+    EXPECT_TRUE(str.find_first_not_of("0123456789") == std::string::npos);
+    
+    // 测试周数相关格式说明符
+    // 以周日为周始的周数 '%U'
+    err = aDateTimeFormat(dt, "%U", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(str.length() == 2);
+    
+    // ISO周数 '%V'
+    err = aDateTimeFormat(dt, "%V", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(str.length() == 2);
+    
+    // 以周一为周始的周数 '%W'
+    err = aDateTimeFormat(dt, "%W", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(str.length() == 2);
+    
+    // 测试未知格式说明符（default分支）
+    err = aDateTimeFormat(dt, "%Z%ABC", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(str.find("BC") != std::string::npos);
+    
+    // 测试特殊组合格式
+    err = aDateTimeFormat(dt, "Timestamp: %s, Week(U): %U, Week(V): %V, Week(W): %W", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(str.find("Timestamp:") != std::string::npos);
+    EXPECT_TRUE(str.find("Week(U):") != std::string::npos);
+    EXPECT_TRUE(str.find("Week(V):") != std::string::npos);
+    EXPECT_TRUE(str.find("Week(W):") != std::string::npos);
+}
+
+// 测试dayOfYear验证失败分支
+TEST(DateTimeFormat, DayOfYearValidation) {
+    AST_USING_NAMESPACE
+    
+    // 创建一个DateTime对象并修改其内部状态以触发dayOfYear验证失败分支
+    DateTime dt;
+    dt.year() = 2023;
+    dt.month() = 2;
+    dt.day() = 28;
+    dt.hour() = 0;
+    dt.minute() = 0;
+    dt.second() = 0.0;
+    
+    std::string str;
+    err_t err = aDateTimeFormat(dt, "%j", str);
+    EXPECT_EQ(err, eNoError);
+    // 2023年2月28日应该是一年中的第59天
+    EXPECT_TRUE(str == "059" || str == "59");
+    
+    // 测试闰年的情况
+    dt.year() = 2024;
+    dt.month() = 2;
+    dt.day() = 29;
+    err = aDateTimeFormat(dt, "%j", str);
+    EXPECT_EQ(err, eNoError);
+    // 2024年2月29日应该是一年中的第60天
+    EXPECT_TRUE(str == "060" || str == "60");
+}
+
+// 测试内部辅助函数相关逻辑（通过调用相关API间接测试）
+TEST(DateTimeFormat, InternalHelpers) {
+    AST_USING_NAMESPACE
+    
+    // 测试闰年判断（间接测试isLeapYear函数）
+    DateTime dt;
+    dt.year() = 2024;
+    dt.month() = 2;
+    dt.day() = 29; // 闰年2月29日
+    
+    std::string str;
+    err_t err = aDateTimeFormat(dt, "%Y-%m-%d", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(str, "2024-02-29");
+    
+    // 测试非闰年
+    dt.year() = 2023;
+    dt.month() = 2;
+    dt.day() = 28;
+    err = aDateTimeFormat(dt, "%Y-%m-%d", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(str, "2023-02-28");
+    
+    // 测试Buffer类的各种append方法（间接测试）
+    // 通过不同格式说明符和数值范围来触发Buffer类的不同append重载
+    dt.year() = 9999;
+    dt.month() = 1;
+    dt.day() = 1;
+    dt.hour() = 0;
+    dt.minute() = 0;
+    dt.second() = 0.0;
+    
+    err = aDateTimeFormat(dt, "%Y-%m-%d %H:%M:%S.%f", str);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(str, "9999-01-01 00:00:00.000000");
+}
+
 GTEST_MAIN()

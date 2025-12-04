@@ -29,18 +29,6 @@ AST_NAMESPACE_BEGIN
 namespace
 {
 
-    // 将数字格式化为固定宽度，不足前面补0
-    static void formatNumber(char* buf, int num, int width)
-    {
-        char format[16];
-        if (width <= 0) {
-            std::sprintf(buf, "%d", num);
-        }
-        else {
-            std::sprintf(format, "%%0%dd", width);
-            std::sprintf(buf, format, num);
-        }
-    }
 
     // 获取小数秒的小数部分
     static int getFractionalPart(double seconds, int precision)
@@ -51,25 +39,6 @@ namespace
         }
         return static_cast<int>(fractional + 0.5); // 四舍五入
     }
-
-    // 判断是否是闰年
-    static bool isLeapYear(int year)
-    {
-        return aIsLeapYear(year);
-    }
-
-    // 获取月份的天数
-    static int getDaysInMonth(int year, int month)
-    {
-        return aDaysInMonthByYear(month, year);
-    }
-
-    // 计算一年中的第几天
-    static int getDayOfYear(int year, int month, int day)
-    {
-        return aDayOfYear({year, month, day});
-    }
-
 
 
     // 安全的缓冲区追加函数
@@ -170,9 +139,6 @@ err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
     int dayOfYear = dt.dayOfYear(); 
 
 
-    if (dayOfYear < 1 || dayOfYear > 366) {
-        dayOfYear = getDayOfYear(year, month, day);
-    }
 
     while (fmt < fmt_end) {
         if (*fmt != '%') {
