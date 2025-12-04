@@ -1,0 +1,6 @@
+target("AstGfx")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_deps("AstUtil", "AstOpt", "AstCore")
+    add_defines("AST_BUILD_LIB_GFX")
+    set_enabled(false)

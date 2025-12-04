@@ -20,137 +20,44 @@
  
 #pragma once
 
-#include <stddef.h>         // for size_t
 
 
 /*
  * 宏命名规范：
  * 
- * A_   开头：通用宏，也能用于其他工程
- * AST_ 开头：ast项目专用宏、ast模块相关、ast功能相关宏
+ * 前缀 A_          ：通用宏，也能用于其他工程
+ * 前缀 AST_        ：ast项目专用宏、ast模块相关、ast功能相关宏
+ * 前缀 _           ：内部宏
  * 
+ * 前缀 AST_WITH_   ：是否带有某个第三方库，例如eigen、boost、fmt、ipopt等
+ * 前缀 AST_ENABLE_ ：是否启用某个特定功能，通常是性能、调试、特性的开关，例如调试信息、缓存、日志、AVX2指令集等
+ * 前缀 AST_USE_    ：是否使用某个实现方法，通常是可选、可替换的实现方式，例如不同的算法、不同的数据结构
+ * 前缀 AST_HAS_    ：是否具有某个特定功能，通常是指示标准库是否有某功能，例如是否有某个函数、是否有某个类型
  * */
 
 
-/// 通用宏
+// 通用宏见"AstCompiler.h"
+#include "AstCompiler.h"
 
-// 判断是否是 Microsoft Visual C++
-#if defined(_MSC_VER)
-#    define A_COMP_MSVC _MSC_VER
-#else
-#    define A_COMP_MSVC 0
-#endif
-
-// 判断是否是Intel icc compiler
-#if defined(__INTEL_COMPILER)
-#    define A_COMP_ICC __INTEL_COMPILER
-#else
-#    define A_COMP_ICC 0
-#endif
-
-// 判断编译器是否是与GCC兼容
-#ifdef __GNUC__
-#    define A_COMP_GNUC (__GNUC__*10+__GNUC_MINOR__)
-#else
-#    define A_COMP_GNUC 0
-#endif
-
-#if defined(__clang__)
-#define A_COMP_CLANG (__clang_major__*100+__clang_minor__)
-#else
-#define A_COMP_CLANG 0
-#endif
-
-#if defined(__MINGW32__)
-#define A_COMP_MINGW 1
-#else
-#define A_COMP_MINGW 0
-#endif
-
-// deprecated c++17特性
-#if _HAS_CXX17 || __cplusplus>201402L
-#define A_DEPRECATED [[deprecated]] // 废弃函数
-#else
-#define A_DEPRECATED // 废弃函数
-#endif
+#include <stddef.h>         // for size_t
 
 
-// __forceinline
-#ifndef A_STRONG_INLINE
-#if A_COMP_MSVC || A_COMP_ICC
-#define A_STRONG_INLINE __forceinline
-#else
-#define A_STRONG_INLINE inline
-#endif
-#endif
-
-// __attribute__((always_inline)) __forceinline
-#if A_COMP_GNUC
-#define A_ALWAYS_INLINE __attribute__((always_inline)) inline
-#else
-#define A_ALWAYS_INLINE A_STRONG_INLINE
-#endif
-
-// DLL 导出导入
-
-#ifdef _WIN32
-#   define A_DECL_EXPORT __declspec(dllexport)
-#   define A_DECL_IMPORT __declspec(dllimport)
-#else
-#   define A_DECL_EXPORT __attribute__((visibility("default")))
-#   define A_DECL_IMPORT __attribute__((visibility("default")))
-#endif
+// 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
+// 有些宏定义会改变项目的二进制接口(ABI)，使用不同宏定义编译的库文件互相不兼容
+// 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
 
 
-// extern "C"
+#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
+// #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
+// #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
 
-#ifdef __cplusplus
-#   define A_DECL_EXTERN_C extern "C"
-#else
-#   define A_DECL_EXTERN_C
-#endif
-
-
-// thread local storage
-
-#ifdef thread_local
-#  define A_THREAD_LOCAL thread_local
-#elif __STDC_VERSION__ >= 201112L && !defined(__STDC_NO_THREADS__)
-#  define A_THREAD_LOCAL _Thread_local
-#elif defined(_MSC_VER)  
-#  define A_THREAD_LOCAL __declspec(thread)
-#elif defined(__GNUC__) 
-#  define A_THREAD_LOCAL __thread
-#endif
-
-
-#define A_STR(S) #S
-
-
-/// 为类型定义迭代器标准函数
-#define A_DEF_ITERABLE(Scalar, Data, Size)                                      \
-    size_t size() const noexcept{ return (Size) ;}                              \
-    Scalar* data() noexcept{return (Data);}                                     \
-    Scalar const* data() const{return (Data);}                                  \
-    Scalar* begin() noexcept{ return data(); }                                  \
-    Scalar* end() noexcept{ return (Data) + (Size); }                           \
-    Scalar const * begin() const noexcept{ return data(); }                      \
-    Scalar const* end() const noexcept{ return (Data) + (Size); }               \
-    Scalar const* cbegin() const noexcept{ return data(); }                     \
-    Scalar const* cend() const noexcept{ return (Data) + (Size); }              \
-    Scalar operator[](size_t idx) const noexcept{return data()[idx];}           \
-    Scalar& operator[](size_t idx) noexcept{return data()[idx];}                \
-
-
-/// 为POD类型定义迭代器标准函数
-#define A_DEF_POD_ITERABLE(Scalar)                                      \
-    A_DEF_ITERABLE(Scalar, (Scalar*)this, sizeof(*this)/sizeof(Scalar))
-
-
+// #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
+// #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
+// #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
 
 
 /// ast项目专用宏
-#ifdef __cplusplus
+#if defined AST_ENABLE_NAMESPACE && defined __cplusplus 
 #   define _AST ::ast:: 
 #	define AST_NAMESPACE ast
 #	define AST_NAMESPACE_BEGIN namespace AST_NAMESPACE{
@@ -159,12 +66,12 @@
 #	define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
 #	define AST_DECL_TYPE_ALIAS(name) typedef AST_PREPEND_NAMESPACE(name) A##name;
 #else
-#   define _AST
+#   define _AST ::
 #	define AST_NAMESPACE 
 #	define AST_NAMESPACE_BEGIN 
 #	define AST_NAMESPACE_END   
 #	define AST_USING_NAMESPACE 
-#	define AST_PREPEND_NAMESPACE(name) name
+#	define AST_PREPEND_NAMESPACE(name) ::name
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 
@@ -217,6 +124,8 @@ typedef enum EError
     eErrorNullInput,    ///< 输入参数是空指针
     eErrorInvalidParam, ///< 非法输入参数
     eErrorNotInit,      ///< 没有初始化
+    eErrorInvalidFile,  ///< 文件格式错误
+    eErrorParse,        ///< 解析错误
 } AEError;
 
 /// ast项目类型前置声明
@@ -232,6 +141,11 @@ typedef VectorN<double, 3> Vector3d;
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
 
+template<typename _Char>
+class StringViewBasic;
+
+typedef StringViewBasic<char>     StringView;
+
 
 class Quaternion;
 
@@ -241,6 +155,8 @@ class Object;
 class Type;
 
 class AbsTime;
+class TimePoint;
+class JulianDate;
 
 class System;
 class Axes;
@@ -249,7 +165,8 @@ class Point;
 #endif
 
 typedef int err_t;
-
+typedef double ImpreciseJD;  // 儒略日(注意单个double的数值精度不够)
+typedef double ImpreciseMJD; // 简约儒略日(注意单个double的数值精度不够)
 
 inline void nothing(){}
 

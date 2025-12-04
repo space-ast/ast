@@ -44,7 +44,7 @@ AST_CORE_API std::string aDataDirGet();
 
 /// @brief 设置数据文件夹
 /// @param dirpath 
-AST_CORE_CAPI err_t aDataDirSet(const std::string& dirpath);
+AST_CORE_CAPI err_t aDataDirSet(StringView dirpath);
 
 /// @brief 获取默认数据文件夹
 /// 数据文件夹的顺序：
@@ -62,6 +62,12 @@ AST_CORE_CAPI GlobalContext* aGlobalContext_GetCurrent();
 /// @brief 获取默认全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_GetDefault();
 
+/// @brief 确保默认全局上下文存在
+/// 如果默认全局上下文不存在，则创建一个新的默认全局上下文。
+/// @return 
+AST_CORE_CAPI GlobalContext* aGlobalContext_EnsureDefault();
+
+
 /// @brief 确保当前全局上下文存在
 /// 如果当前全局上下文不存在，则创建一个新的全局上下文。
 /// @return 
@@ -73,6 +79,12 @@ AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_New();
 
- 
+
+AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
+
+AST_CORE_CAPI double aLeapSecondUTCMJD(double mjdUTC);
+
+
+
 AST_NAMESPACE_END
  

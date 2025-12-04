@@ -21,40 +21,49 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstCore/ScopedPtr.hpp"
+#include "AstCore/SolarSystem.hpp"
+#include "AstCore/EOP.hpp"
+#include "AstCore/LeapSecond.hpp"
+#include "AstUtil/StringView.hpp"
 #include <string>
  
 AST_NAMESPACE_BEGIN
  
 
 class SolarSystem;
-class EOPData;
-class LeapSecondData;
+class EOP;
+class LeapSecond;
 
 
 /// @brief 全局上下文
 class GlobalContext
 {
 public:
+
 	/// @brief 太阳系数据
-	SolarSystem* solarSystem() const{return m_solarSystem;}
+	const SolarSystem* solarSystem() const{return &m_solarSystem;}
+    SolarSystem* solarSystem() {return &m_solarSystem;}
 
 	/// @brief 地球指向数据
-	EOPData*	 eopData() const{return m_eopData;}
+	const EOP* eop() const{return &m_eop;}
+    EOP* eop() {return &m_eop;}
 
 	/// @brief 闰秒数据
-	LeapSecondData* leapSecondData() const{return m_leapSecondData;}
+	const LeapSecond* leapSecond() const{return &m_leapSecond;}
+    LeapSecond* leapSecond() {return &m_leapSecond;}
 
 	/// @brief 数据目录
     std::string& dataDir() {return m_dataDir;}
     
 	/// @brief 设置数据目录
-	void setDataDir(const std::string& dir){m_dataDir = dir;}
+	void setDataDir(StringView dir){m_dataDir = std::string(dir);}
 
 protected:
-	SolarSystem*    m_solarSystem{ nullptr };
-	EOPData*	    m_eopData{nullptr};
-	LeapSecondData* m_leapSecondData{nullptr};
-    std::string     m_dataDir;
+	SolarSystem  			m_solarSystem;
+	EOP		    			m_eop;	
+	LeapSecond  			m_leapSecond;
+    std::string     		m_dataDir;
 };
 
 

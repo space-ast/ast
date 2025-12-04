@@ -1,9 +1,9 @@
 ﻿///
-/// @file      DataTime.hpp
+/// @file      MockStringView.hpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18
-/// @date      21.11.2025
+/// @date      2.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,27 +21,20 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "Date.hpp"
-#include "Time.hpp"
-
+#include "AstUtil/StringView.hpp"
+#include <string>
+#if _HAS_CXX17
+#include <string_view>
+#endif
+ 
 AST_NAMESPACE_BEGIN
-
-
-/// @brief 日期时间
-class DateTime
-{
-public:
-    const Date& date() const{return date_;}
-    Date& date() {return date_;}
-    const Time& time() const {return time_;}
-    Time& time() {return time_;}
-
-public:
-    Date date_;     ///< 日期
-    Time time_;     ///< 时间
-};
-
-
+ 
+AST_MOCK_CAPI int aMockSetStringConstRef(const std::string& str);
+AST_MOCK_CAPI int aMockSetStringValue(std::string str);
+AST_MOCK_CAPI int aMockSetStringView(StringView str);
+#if _HAS_CXX17
+AST_MOCK_CAPI int aMockSetStringViewStd(StringView str);
+#endif
 
 AST_NAMESPACE_END
  

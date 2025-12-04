@@ -38,8 +38,25 @@ includes("projects")
 -- 导入测试配置
 if has_config("with_test") then
     add_requires("gtest v1.12.1", {optional = true})  -- gtest v1.12.1 for c++11
+    add_requires("benchmark", {optional = true})
     includes("test")
 end
+
+-- 自定义任务：复制数据目录到构建目录
+task("cpdata")
+    set_menu{
+        usage = "xmake cpdata",
+        description = "Copy data directory to build directory"
+    }
+    on_run(function ()
+        local modes = {"release", "debug", "coverage"}
+        for _, mode in ipairs(modes) do
+            local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", os.host(), os.arch(), mode))
+            os.cp(path.join(os.projectdir(), "data"), dstpath)
+            print("dstpath:", dstpath)
+        end
+    end)
+task_end()
 
 -- 导入打包配置
 includes("@builtin/xpack")

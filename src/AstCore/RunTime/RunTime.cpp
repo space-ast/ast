@@ -31,12 +31,18 @@ AST_NAMESPACE_BEGIN
 
 // 线程本地存储的当前全局上下文指针
 A_THREAD_LOCAL GlobalContext* t_currentGlobalContext = nullptr;
-GlobalContext* g_defaultGlobalContext = nullptr;
+std::unique_ptr<GlobalContext> g_defaultGlobalContext = nullptr;
 
 
 err_t aInitialize(GlobalContext* context)
 {
-    return eNoError;
+    err_t err = 0;
+    err = context->leapSecond()->loadDefault();
+    if(err != eNoError) {
+        aError("Failed to load default leap second table.");
+        return err;
+    }
+    return err;
 }
 
 
@@ -49,7 +55,6 @@ err_t aInitialize()
 err_t aUninitialize()
 {
     if (g_defaultGlobalContext) {
-        delete g_defaultGlobalContext;
         g_defaultGlobalContext = nullptr;
     }
     // 线程局部变量 t_currentGlobalContext 通常不需要在此处显式删除，
@@ -60,12 +65,15 @@ err_t aUninitialize()
 std::string aDataDirGet()
 {
     auto context = aGlobalContext_Ensure();
+    if (context->dataDir().empty()) {
+        aDataDirSet(aDataDirGetDefault());
+    }
     return context->dataDir();
 }
 
-err_t aDataDirSet(const std::string& dirpath)
+err_t aDataDirSet(StringView dirpath)
 {
-    if (!fs::is_directory(dirpath)) {
+    if (!fs::is_directory(dirpath.to_string())) {
         aError("dirpath is not a directory.");
         return eErrorInvalidParam;
     }
@@ -158,17 +166,22 @@ GlobalContext* aGlobalContext_GetCurrent()
 
 GlobalContext* aGlobalContext_GetDefault()
 {
+    return g_defaultGlobalContext.get();
+}
+
+GlobalContext* aGlobalContext_EnsureDefault()
+{
     if (!g_defaultGlobalContext) {
-        g_defaultGlobalContext = aGlobalContext_New();
+        g_defaultGlobalContext.reset(aGlobalContext_New());
     }
-    return g_defaultGlobalContext;
+    return g_defaultGlobalContext.get();
 }
 
 GlobalContext* aGlobalContext_Ensure()
 {
     if (!t_currentGlobalContext)
     {
-        aGlobalContext_SetCurrent(aGlobalContext_GetDefault());
+        aGlobalContext_SetCurrent(aGlobalContext_EnsureDefault());
     }
     return t_currentGlobalContext;
 }
@@ -181,6 +194,20 @@ void aGlobalContext_SetCurrent(GlobalContext* context)
 GlobalContext* aGlobalContext_New()
 {
     return new GlobalContext{};
+}
+
+double aLeapSecondUTC(double jdUTC)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->leapSecond()->leapSecondUTC(jdUTC);
+}
+
+double aLeapSecondUTCMJD(double mjdUTC)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
 
 

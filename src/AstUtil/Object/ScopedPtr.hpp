@@ -22,6 +22,7 @@
  
 #include "AstGlobal.h"
 #include <type_traits>    // for std::enable_if
+#include <cstdio>
 
 AST_NAMESPACE_BEGIN
 
@@ -44,7 +45,14 @@ struct ScopedPtrDeleter<T, typename std::enable_if<std::is_base_of<Object, T>::v
     }
 };
 
-
+template<>
+struct ScopedPtrDeleter<std::FILE>
+{
+    static void cleanup(std::FILE* ptr)
+    {
+        fclose(ptr);
+    }
+};
 
 template<typename T>
 class ScopedPtr
@@ -75,7 +83,8 @@ public:
     {
         return m_pointer;
     }
-
+    T* operator->() const{return m_pointer;}
+    operator T*() const{return m_pointer;}
 private:
     ScopedPtr(const ScopedPtr&) = delete;
     ScopedPtr& operator =(const ScopedPtr&) = delete;

@@ -25,7 +25,7 @@
 #include <string>
 
 // 是否允许使用 std::experimental::filesystem 的c++实验特性，如果存在的话
-// #define _A_STD_FILESYSTEM_USE_EXPERIMENTAL
+// #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL
 
 // 判断 c++ 标准库是否有std::filesystem
 #ifdef __cpp_lib_filesystem
@@ -34,12 +34,12 @@
 #elif defined(__cplusplus) && __cplusplus >= 201703L
 #   include <filesystem>
 #   define _A_STD_FILESYSTEM std::filesystem
-#elif defined _A_STD_FILESYSTEM_USE_EXPERIMENTAL
+#elif defined AST_USE_STD_FILESYSTEM_EXPERIMENTAL
 #   define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 #   if defined _MSC_VER
 #      include <experimental/filesystem>
 #      define _A_STD_FILESYSTEM std::experimental::filesystem
-#   elif defined(__has_include) && __has_include(<experimental/filesystem>) && defined _A_STD_FILESYSTEM_USE_EXPERIMENTAL
+#   elif defined(__has_include) && __has_include(<experimental/filesystem>) && defined AST_USE_STD_FILESYSTEM_EXPERIMENTAL
 #      include <experimental/filesystem>
 #      define _A_STD_FILESYSTEM std::experimental::filesystem
 #   endif
@@ -51,11 +51,11 @@
 AST_NAMESPACE_BEGIN
 
 // 如果 c++ 标准库没有 filesystem功能，则切换到ast项目对filesystem功能的简化实现
-#ifdef _A_STD_FILESYSTEM
-#pragma message("use std::filesystem")
+#if defined _A_STD_FILESYSTEM && defined AST_USE_STD_FILESYSTEM
+// #pragma message("use std::filesystem")
 namespace filesystem = _A_STD_FILESYSTEM;
 #else
-#pragma message("use ast::simple_fs")
+// #pragma message("use ast::simple_fs")
 namespace filesystem = simple_fs;
 #endif
 

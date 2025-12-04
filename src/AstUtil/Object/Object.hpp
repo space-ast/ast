@@ -32,7 +32,7 @@ class Type;
 
 
 /// @brief 对象基类，实现运行时元信息、强弱引用计数
-class AST_CORE_API Object
+class AST_UTIL_API Object
 {
 public:
     Object(Type* tp)
@@ -42,7 +42,7 @@ public:
     {
         assert(tp);
     }
-    err_t getAttrString(const std::string& path, std::string& value) const;
+    err_t getAttrString(StringView path, std::string& value) const;
     
     uint32_t refCount() const{return m_refcnt;}
     uint32_t weakRefCount() const{return m_weakrefcnt;}
