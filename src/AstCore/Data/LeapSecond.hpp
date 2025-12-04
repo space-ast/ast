@@ -94,6 +94,8 @@ public:
 
 	/// @brief  获取闰秒数据
 	const std::vector<Entry>& data() const { return m_data; }
+	std::vector<Entry>& data() { return m_data; }
+
 
 protected:
     std::vector<Entry> m_data;

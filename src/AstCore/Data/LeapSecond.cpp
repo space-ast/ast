@@ -55,31 +55,33 @@ err_t LeapSecond::loadATK(const char* filepath)
     if (status == EOF) {
         return eErrorInvalidFile;
     }
-    data.resize(line);
+    data.reserve(line);
 
     char linebuf[1024];
     double leapsec;
     int year;
     char month_str[10];
     int day;
-    for (int i = 0; i < line; i++) {
+    while (data.size() < line) {
         if (fgets(linebuf, sizeof(linebuf), file))
         {
             // 跳过空行和注释行
             if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {
                 continue;
             }
+            Entry entry{};
             status = sscanf(
                 linebuf,
                 "%d %lf %d %5s %d",
-                &data[i].mjd,
+                &entry.mjd,
                 &leapsec,
                 &year, month_str, &day
             );
-            data[i].leapSecond = leapsec;
+            entry.leapSecond = leapsec;
             if (status == EOF) {
                 return eErrorInvalidFile;
             }
+            data.push_back(entry);
         }
         else {
             return eErrorInvalidFile;
@@ -199,7 +201,9 @@ void LeapSecond::setDefaultData()
 
 void LeapSecond::setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC)
 {
-    assert(mjd.size() == taiMinusUTC.size());
+    if(mjd.size() != taiMinusUTC.size()){
+        aWarning("try to set leap second data with different size of mjd and taiMinusUTC");
+    }
     int line = std::min(mjd.size(), taiMinusUTC.size());
     m_data.resize(line);
     for (int i = 0; i < line; i++) {
@@ -336,7 +340,10 @@ double LeapSecond::leapSecondUTCMJD(ImpreciseMJD mjdUTC)
             return dsec + 4.2131700;
     }
 #else
-    return m_data[0].leapSecond;
+    if(m_data.size() > 0)
+        return m_data[0].leapSecond;
+    else
+        return 0;
 #endif
 }
 

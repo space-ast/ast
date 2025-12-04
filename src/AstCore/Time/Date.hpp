@@ -212,6 +212,14 @@ public:
     int day_;           ///< 日
 };
 
+/// @brief 将当天00:00的简约儒略日转换为当天日期
+A_ALWAYS_INLINE Date aMJDToDate(int mjd){
+    Date date;
+    aMJDToDate(mjd, date);
+    return date;
+}
+
+
 
 AST_NAMESPACE_END
  
