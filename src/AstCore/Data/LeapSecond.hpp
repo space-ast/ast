@@ -69,21 +69,31 @@ public:
 	void setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC);
 	
 public:
+	/// @brief  获取UTC秒数
+	/// @param  jdUTC -  儒略日Julian Date (UTC)
+	/// @retval       -  闰秒数
 	double leapSecondUTC(ImpreciseJD jdUTC);
 	double leapSecondUTCMJD(ImpreciseMJD mjdUTC);
 
+	/// @brief  获取TAI秒数
+	/// @param  jdTAI -  儒略日Julian Date (TAI)
+	/// @retval       -  闰秒数
 	double leapSecondTAI(ImpreciseJD jdTAI);
 	double leapSecondTAIMJD(ImpreciseMJD mjdTAI);
 
 	
     /// @brief  获取当天的UTC秒数
-	/// @param  jdUTCp1 - 
-	/// @param  jdUTCp2 - 
-	/// @retval          - 
+	/// @param  utcDate -  UTC日期
+	/// @retval          -  当天的UTC秒数
 	double getLodUTC(const Date& utcDate);
+
+	/// @brief  获取当天的UTC秒数
+	/// @param  mjdUTC -   简约儒略日Modified Julian Date (UTC)
+	/// @retval          -  当天的UTC秒数
 	double getLodUTCMJD(ImpreciseMJD mjdUTC);
 
-	
+	/// @brief  获取闰秒数据
+	const std::vector<Entry>& data() const { return m_data; }
 
 protected:
     std::vector<Entry> m_data;
