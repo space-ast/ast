@@ -253,17 +253,26 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
     const char* fend = f + format.length();
 
     // 临时存储解析的值
-    int year = 0, month = 0, day = 0;
-    int hour = 0, minute = 0;
-    double second = 0.0;
-    int weekday = -1; // -1 表示未解析
-    bool isPm = false;
-    bool hasHour12 = false;
-    int tzHourOffset = 0, tzMinuteOffset = 0;
-    bool hasTimezone = false;
 
-    bool yearSet = false, monthSet = false, daySet = false;
-    bool hourSet = false, minuteSet = false, secondSet = false;
+
+    struct ParserState
+    {
+        bool yearSet = false, monthSet = false, daySet = false;
+        bool hourSet = false, minuteSet = false, secondSet = false;
+        bool dayofYearSet = false;
+        bool isPm = false;
+        bool hasHour12 = false;
+        bool hasTimezone = false;
+
+        int year = 0, month = 0, day = 0;
+        int hour = 0, minute = 0;
+        int weekday = -1; // -1 表示未解析
+        int dayOfYear = 0;
+        int tzHourOffset = 0, tzMinuteOffset = 0;
+        
+        double second = 0.0;
+    } state;
+
 
     while (f < fend && s < send) {
         // 跳过格式字符串中的空格
@@ -297,10 +306,10 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
 
         switch (specifier) {
         case 'Y': // 四位年份
-            if (!parseNumber(s, 0, 9999, year, 4)) {
+            if (!parseNumber(s, 0, 9999, state.year, 4)) {
                 return eErrorParse;
             }
-            yearSet = true;
+            state.yearSet = true;
             break;
 
         case 'y': // 两位年份
@@ -310,33 +319,33 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
                 return eErrorParse;
             }
             // 按照 glibc 规则：00-68 -> 2000-2068, 69-99 -> 1969-1999
-            year = (shortYear < 69) ? shortYear + 100 : shortYear;
+            state.year = (shortYear < 69) ? shortYear + 100 : shortYear;
             // tm_year 是从 1900 开始的，所以我们存储相对 1900 的偏移
-            year += 1900;
+            state.year += 1900;
         }
-        yearSet = true;
+        state.yearSet = true;
         break;
 
         case 'm': // 月份 (01-12)
-            if (!parseNumber(s, 1, 12, month, 2)) {
+            if (!parseNumber(s, 1, 12, state.month, 2)) {
                 return eErrorParse;
             }
-            monthSet = true;
+            state.monthSet = true;
             break;
 
         case 'd': // 日 (01-31)
-            if (!parseNumber(s, 1, 31, day, 2)) {
+            if (!parseNumber(s, 1, 31, state.day, 2)) {
                 return eErrorParse;
             }
-            daySet = true;
+            state.daySet = true;
             break;
 
         case 'H': // 24小时制小时 (00-23)
-            if (!parseNumber(s, 0, 23, hour, 2)) {
+            if (!parseNumber(s, 0, 23, state.hour, 2)) {
                 return eErrorParse;
             }
-            hourSet = true;
-            hasHour12 = false;
+            state.hourSet = true;
+            state.hasHour12 = false;
             break;
 
         case 'I': // 12小时制小时 (01-12)
@@ -345,17 +354,17 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
             if (!parseNumber(s, 1, 12, hour12, 2)) {
                 return eErrorParse;
             }
-            hour = hour12;
-            hourSet = true;
-            hasHour12 = true;
+            state.hour = hour12;
+            state.hourSet = true;
+            state.hasHour12 = true;
         }
         break;
 
         case 'M': // 分钟 (00-59)
-            if (!parseNumber(s, 0, 59, minute, 2)) {
+            if (!parseNumber(s, 0, 59, state.minute, 2)) {
                 return eErrorParse;
             }
-            minuteSet = true;
+            state.minuteSet = true;
             break;
 
         case 'S': // 秒 (00-60, 60是闰秒)
@@ -364,43 +373,43 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
             if (!parseNumber(s, 0, 60, secInt, 2)) {
                 return eErrorParse;
             }
-            second = static_cast<double>(secInt);
-            if (!parseFractionalSeconds(s, second)) {
+            state.second = static_cast<double>(secInt);
+            if (!parseFractionalSeconds(s, state.second)) {
                 return eErrorParse;
             }
-            secondSet = true;
+            state.secondSet = true;
         }
         break;
 
         case 'p': // AM/PM
-            if (!parseAmPm(s, isPm)) {
+            if (!parseAmPm(s, state.isPm)) {
                 return eErrorParse;
             }
             break;
 
         case 'b': // 月份缩写
         case 'h':
-            if (!parseMonthName(s, month, false)) {
+            if (!parseMonthName(s, state.month, false)) {
                 return eErrorParse;
             }
-            monthSet = true;
+            state.monthSet = true;
             break;
 
         case 'B': // 月份全称
-            if (!parseMonthName(s, month, true)) {
+            if (!parseMonthName(s, state.month, true)) {
                 return eErrorParse;
             }
-            monthSet = true;
+            state.monthSet = true;
             break;
 
         case 'a': // 星期缩写
-            if (!parseWeekdayName(s, weekday, false)) {
+            if (!parseWeekdayName(s, state.weekday, false)) {
                 return eErrorParse;
             }
             break;
 
         case 'A': // 星期全称
-            if (!parseWeekdayName(s, weekday, true)) {
+            if (!parseWeekdayName(s, state.weekday, true)) {
                 return eErrorParse;
             }
             break;
@@ -411,26 +420,24 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
             if (!parseNumber(s, 0, 6, w, 1)) {
                 return eErrorParse;
             }
-            weekday = w;
+            state.weekday = w;
         }
         break;
 
         case 'j': // 一年中的第几天 (001-366)
         {
-            int dayOfYear;
-            if (!parseNumber(s, 1, 366, dayOfYear, 3)) {
+            if (!parseNumber(s, 1, 366, state.dayOfYear, 3)) {
                 return eErrorParse;
             }
-            // 需要转换为月/日，但我们这里暂时不支持
-            // 可以稍后计算，但需要年份信息
+            state.dayofYearSet = true;
         }
         break;
 
         case 'z': // 时区偏移 +HHMM 或 -HHMM
         {
             const char* saved = s;
-            if (parseTimezoneOffset(s, tzHourOffset, tzMinuteOffset)) {
-                hasTimezone = true;
+            if (parseTimezoneOffset(s, state.tzHourOffset, state.tzMinuteOffset)) {
+                state.hasTimezone = true;
             }
             else {
                 s = saved; // 回溯
@@ -472,57 +479,73 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
     }
 
     // 后处理
-    if (hasHour12) {
+    if (state.hasHour12) {
         // 处理 12 小时制转换
-        if (isPm) {
-            if (hour != 12) {
-                hour += 12;
+        if (state.isPm) {
+            if (state.hour != 12) {
+                state.hour += 12;
             }
         }
         else {
-            if (hour == 12) {
-                hour = 0;
+            if (state.hour == 12) {
+                state.hour = 0;
             }
         }
     }
 
+    dt = DateTime{};
+
     // 设置日期时间对象
-    if (yearSet) {
-        dt.setYear(year);
+    if (state.yearSet) {
+        dt.setYear(state.year);
     }
     else {
         // 默认年份（如果需要的话）
         // 在实际应用中，可能需要设置默认值
     }
 
-    if (monthSet) {
-        dt.setMonth(month);
+    if (!state.monthSet || !state.daySet)
+    {
+        if (state.dayofYearSet && state.yearSet) {
+            Date date;
+            aYDToDate(state.year, state.dayOfYear, date);
+            state.month = date.month();
+            state.monthSet = true;
+            state.day = date.day();
+            state.daySet = true;
+        }
+    }
+
+    if (state.monthSet) {
+        dt.setMonth(state.month);
     }
     else {
         dt.setMonth(1); // 默认一月
     }
 
-    if (daySet) {
-        dt.setDay(day);
+    if (state.daySet) {
+        dt.setDay(state.day);
     }
     else {
         dt.setDay(1); // 默认第一天
     }
 
-    if (hourSet) {
-        dt.setHour(hour);
+
+
+    if (state.hourSet) {
+        dt.setHour(state.hour);
     }
 
-    if (minuteSet) {
-        dt.setMinute(minute);
+    if (state.minuteSet) {
+        dt.setMinute(state.minute);
     }
 
-    if (secondSet) {
-        dt.setSecond(second);
+    if (state.secondSet) {
+        dt.setSecond(state.second);
     }
 
     // 如果有时区信息，可能需要调整
-    if (hasTimezone) {
+    if (state.hasTimezone) {
         // 根据时区偏移调整时间
         // 注意：这里需要知道原始时间是 UTC 还是本地时间
         // 暂时不实现时区转换，只是保存偏移信息
