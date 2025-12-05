@@ -60,6 +60,7 @@ public:
 	/// @brief 设置数据目录
 	void setDataDir(StringView dir){m_dataDir = std::string(dir);}
 
+	/// @brief JPL DE星历数据
     const JplDe* jplDe() const {return &m_jplDe;}
     JplDe* jplDe() {return &m_jplDe;}
 

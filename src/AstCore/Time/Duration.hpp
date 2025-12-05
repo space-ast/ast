@@ -30,7 +30,8 @@ AST_NAMESPACE_BEGIN
 class ShorDuration
 {
 public:
-    
+    double second() const{return second_;}
+    double& second(){return second_;}
 public:
     double second_;         // 秒数
 };
@@ -39,6 +40,11 @@ public:
 /// @brief 长时长
 class LongDuration
 {
+public:
+    int64_t integer() const{return integer_;}
+    int64_t& integer(){return integer_;}
+    double fractional() const{return fractional_;}
+    double& fractional(){return fractional_;}
 public:
     int64_t integer_;       // 整数秒部分
     double  fractional_;    // 小数秒部分
@@ -55,7 +61,7 @@ public:
     double& second(){return second_;}
 public:
     int    day_;            // 整数天部分
-    double second_;         // 描述秒部分
+    double second_;         // 小数秒部分
 };
 
  
