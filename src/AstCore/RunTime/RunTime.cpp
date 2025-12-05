@@ -24,6 +24,9 @@
 #include "AstUtil/Logger.hpp"
 #include <assert.h>
 
+#define AST_DEFAULT_FILE_LEAPSECOND "Time/Leap_Second.dat"
+#define AST_DEFAULT_FILE_JPLDE      "SolarSystem/plneph.430"
+
 
 AST_NAMESPACE_BEGIN
 
@@ -34,13 +37,37 @@ A_THREAD_LOCAL GlobalContext* t_currentGlobalContext = nullptr;
 std::unique_ptr<GlobalContext> g_defaultGlobalContext = nullptr;
 
 
+err_t LeapSecond::loadDefault()
+{
+    fs::path datafile = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_LEAPSECOND;
+    err_t err = this->load(datafile.string().c_str());
+    if (err)
+    {
+        aWarning("failed to load leapsecond from default data file: %s", datafile);
+    }
+    return err;
+}
+
+err_t JplDe::openDefault()
+{
+    fs::path datafile = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_JPLDE;
+
+    err_t err = this->open(datafile.string().c_str());
+    if (err)
+    {
+        aWarning("failed to load jpl de from default data file: %s", datafile);
+    }
+    return err;
+}
+
+
 err_t aInitialize(GlobalContext* context)
 {
     err_t err = 0;
-    err = context->leapSecond()->loadDefault();
+    err |= context->leapSecond()->loadDefault();
+    err |= context->jplDe()->openDefault();
     if(err != eNoError) {
-        aError("Failed to load default leap second table.");
-        return err;
+        aError("initialize failed: failed to load data.");
     }
     return err;
 }
@@ -210,6 +237,46 @@ double aLeapSecondUTCMJD(double mjdUTC)
     return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
 
+
+
+err_t aJplDeGetPosVelICRF(
+    const TimePoint& time,
+    int target,
+    int referenceBody,
+    Vector3d& pos,
+    Vector3d& vel
+)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->jplDe()->getPosVelICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos, vel);
+}
+
+err_t aJplDeGetPosICRF(
+    const TimePoint& time,
+    int target,
+    int referenceBody,
+    Vector3d& pos
+)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
+}
+
+err_t aJplDeOpen(const char* filepath)
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    return context->jplDe()->open(filepath);
+}
+
+void aJplDeClose()
+{
+    auto context = aGlobalContext_GetCurrent();
+    assert(context);
+    context->jplDe()->close();
+}
 
  
 AST_NAMESPACE_END

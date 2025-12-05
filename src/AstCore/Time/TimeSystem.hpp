@@ -65,26 +65,42 @@ A_ALWAYS_INLINE void aTAIToTT(const Time& tmTAI, Time& tmTT)
 /// @brief 转换 TAI 时间到 UTC 时间
 /// @param jdTAI TAI 时间
 /// @param jdUTC UTC 时间
-AST_CORE_CAPI void aTAIToUTC(const JulianDate& jdTAI, JulianDate& jdUTC);
-AST_CORE_API void aTAIToUTC(const DateTime& dtTAI, DateTime& dtUTC);
+AST_CORE_API void aTAIToUTC(const JulianDate& jdTAI, JulianDate& jdUTC);
+AST_CORE_API void aTAIToUTC(const DateTime& dttmTAI, DateTime& dttmUTC);
 
 /// @brief 转换 UTC 时间到 TAI 时间
 /// @param jdUTC UTC 时间
 /// @param jdTAI TAI 时间
-AST_CORE_CAPI void aUTCToTAI(const JulianDate& jdUTC, JulianDate& jdTAI);
-AST_CORE_API void aUTCToTAI(const DateTime& dtUTC, DateTime& dtTAI);
+AST_CORE_API void aUTCToTAI(const JulianDate& jdUTC, JulianDate& jdTAI);
+AST_CORE_API void aUTCToTAI(const DateTime& dttmUTC, DateTime& dttmTAI);
 
 /// @brief 转换 UTC 时间到 TT 时间
 /// @param jdUTC UTC 时间
 /// @param jdTT TT 时间
-AST_CORE_CAPI void aUTCToTT(const JulianDate& jdUTC, JulianDate& jdTT);
-AST_CORE_API void aUTCToTT(const DateTime& dtUTC, DateTime& dtTT);
+AST_CORE_API void aUTCToTT(const JulianDate& jdUTC, JulianDate& jdTT);
+AST_CORE_API void aUTCToTT(const DateTime& dttmUTC, DateTime& dttmTT);
 
 /// @brief 转换 TT 时间到 UTC 时间
 /// @param jdTT TT 时间
 /// @param jdUTC UTC 时间
-AST_CORE_CAPI void aTTToUTC(const JulianDate& jdTT, JulianDate& jdUTC);
-AST_CORE_API void aTTToUTC(const DateTime& dtTT, DateTime& dtUTC);
+AST_CORE_API void aTTToUTC(const JulianDate& jdTT, JulianDate& jdUTC);
+AST_CORE_API void aTTToUTC(const DateTime& dttmTT, DateTime& dttmUTC);
+
+
+AST_CORE_API void aTTToTDB(const JulianDate& jdTT, JulianDate& jdTDB);
+AST_CORE_API void aTTToTDB(const DateTime& dttmTT, DateTime& dttmTDB);
+
+
+/// @brief 计算 TDB 时间与 TT 时间的差值
+/// @param jdTT TT 时间
+/// @return TDB 时间与 TT 时间的差值
+AST_CORE_CAPI double aTDBMinusTT(const JulianDate& jdTT);
+
+
+/// @brief 计算儒略世纪数，以 J2000.0 为基准
+/// @param jd 儒略日
+/// @return 儒略世纪数
+AST_CORE_CAPI double aJulianCenturyFromJ2000(const JulianDate& jd);
 
 
 AST_NAMESPACE_END

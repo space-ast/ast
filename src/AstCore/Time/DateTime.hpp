@@ -524,12 +524,12 @@ public:
 public:
     DateTime& operator += (double sec)
     {
-        this->second() += sec;  // 适用于任何时间尺度，包括考核闰秒的和不考虑闰秒的
+        this->second() += sec;  // 适用于任何时间尺度，包括考虑闰秒的和不考虑闰秒的
         return *this;
     }
     DateTime& operator -= (double sec)
     {
-        this->second() -= sec;  // 适用于任何时间尺度，包括考核闰秒的和不考虑闰秒的
+        this->second() -= sec;  // 适用于任何时间尺度，包括考虑闰秒的和不考虑闰秒的
         return *this;
     }
     DateTime operator + (double sec) const

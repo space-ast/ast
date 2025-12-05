@@ -29,12 +29,12 @@ TEST(TimeSystem, Datetime_JulianDate)
 {
     {
         auto jd = JulianDate::FromDateTime({2025, 12, 5, 12, 0, 0});
-        EXPECT_EQ(jd.day(), 2461014.5000000000);
-        EXPECT_EQ(jd.second(), 43200);
+        EXPECT_EQ(jd.day(), 2461015.000000000);
+        EXPECT_EQ(jd.second(), 0);
         nothing();
     }
     {
-        auto dttm = DateTime::FromJD({ 2461014.5000000000, 43200});
+        auto dttm = DateTime::FromJD({ 2461015, 0});
         EXPECT_EQ(dttm.year(), 2025);
         EXPECT_EQ(dttm.month(), 12);
         EXPECT_EQ(dttm.day(), 5);
@@ -44,7 +44,7 @@ TEST(TimeSystem, Datetime_JulianDate)
         nothing();
     }
     {
-        auto dttm = DateTime::FromJD({ 2461015.000000000, 0 });
+        auto dttm = DateTime::FromJD({ 2461015, 0 });
         EXPECT_EQ(dttm.year(), 2025);
         EXPECT_EQ(dttm.month(), 12);
         EXPECT_EQ(dttm.day(), 5);
@@ -68,9 +68,10 @@ TEST(TimeSystem, TT_TAI)
         DateTime dttmTT{ 2025, 12, 5, 12, 0, 0 };
         DateTime dttmTAI;
         aTTToTAI(dttmTT, dttmTAI);
-        auto jdTT = aTAIToTT(JulianDate::FromDateTime(dttmTAI));
-        EXPECT_EQ(jdTT.day(), 2461014.500000000);
-        EXPECT_EQ(jdTT.second(), 43200);
+        JulianDate jdTAI = JulianDate::FromDateTime(dttmTAI);
+        auto jdTT = aTAIToTT(jdTAI);
+        EXPECT_EQ(jdTT.day(), 2461015.00000000);
+        EXPECT_EQ(jdTT.second(), 0);
         nothing();
     }
 
