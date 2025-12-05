@@ -32,9 +32,9 @@ TEST(TwoBodyTest, Prop)
 		Vector3d pos{6678137.000000000000, 0, 0};
 		Vector3d vel { 0, 6789.5302977176515924, 3686.4141730136516344 };
 
-		double dt = 86400;
+		double dttm = 86400;
 		double gm = 3.986004418e14;
-		aTwoBodyProp(dt, gm, pos, vel);
+		aTwoBodyProp(dttm, gm, pos, vel);
 
 		Vector3d posExpect{
 			5596646.34376213,

@@ -114,7 +114,7 @@ namespace
 } // 匿名命名空间
 
 // 主格式化函数
-err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
+err_t aDateTimeFormat(const DateTime& dttm, StringView format, std::string& str)
 {
     if (format.empty()) {
         str.clear();
@@ -126,17 +126,17 @@ err_t aDateTimeFormat(const DateTime& dt, StringView format, std::string& str)
     const char* fmt_end = fmt + format.length();
 
     // 从 DateTime 中提取值
-    int year = dt.year();
-    int month = dt.month(); // month() 返回 1-12
-    int day = dt.day();     // day() 返回 1-31
-    int hour = dt.hour();
-    int minute = dt.minute();
-    double seconds = dt.second();
+    int year = dttm.year();
+    int month = dttm.month(); // month() 返回 1-12
+    int day = dttm.day();     // day() 返回 1-31
+    int hour = dttm.hour();
+    int minute = dttm.minute();
+    double seconds = dttm.second();
     int secondInt = static_cast<int>(seconds);
 
     // 计算一些可能需要的信息
-    int weekday = dt.dayOfWeek(); 
-    int dayOfYear = dt.dayOfYear(); 
+    int weekday = dttm.dayOfWeek(); 
+    int dayOfYear = dttm.dayOfYear(); 
 
 
 

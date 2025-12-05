@@ -126,26 +126,26 @@ TEST(Date, JulianDateConversion)
     
     // 测试已知的儒略日转换（2000-01-01的儒略日是2451545）
     Date date1 = Date::FromYMD(2000, 1, 1);
-    int jd1 = date1.toJD();
+    int jd1 = date1.toJDAtNoon();
     EXPECT_EQ(jd1, 2451545);
     
     // 测试儒略日转日期
     Date date2;
-    date2.fromJD(jd1);
+    date2.fromJDAtNoon(jd1);
     EXPECT_EQ(date2.year(), 2000);
     EXPECT_EQ(date2.month(), 1);
     EXPECT_EQ(date2.day(), 1);
     
     // 测试静态方法FromJD
-    Date date3 = Date::FromJD(jd1);
+    Date date3 = Date::FromJDAtNoon(jd1);
     EXPECT_EQ(date3.year(), 2000);
     EXPECT_EQ(date3.month(), 1);
     EXPECT_EQ(date3.day(), 1);
     
     // 测试其他日期
     Date date4 = Date::FromYMD(2023, 12, 25);
-    int jd4 = date4.toJD();
-    Date date5 = Date::FromJD(jd4);
+    int jd4 = date4.toJDAtNoon();
+    Date date5 = Date::FromJDAtNoon(jd4);
     EXPECT_EQ(date5.year(), 2023);
     EXPECT_EQ(date5.month(), 12);
     EXPECT_EQ(date5.day(), 25);
@@ -279,8 +279,8 @@ TEST(Date, EdgeCases)
     
     // 测试负年份（如果支持的话）
     Date date3 = Date::FromYMD(-45, 1, 1);  // 凯撒大帝出生年份
-    int jd = date3.toJD();
-    Date date4 = Date::FromJD(jd);
+    int jd = date3.toJDAtNoon();
+    Date date4 = Date::FromJDAtNoon(jd);
     EXPECT_EQ(date4.year(), -45);
     EXPECT_EQ(date4.month(), 1);
     EXPECT_EQ(date4.day(), 1);

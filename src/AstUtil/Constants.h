@@ -31,6 +31,7 @@ constexpr const double kJ2000Epoch      = 2451545.0;        ///< J2000历元
 constexpr const double kB1950Epoch      = 2433282.4234591;  ///< B1950历元
 constexpr const double kJ1950Epoch      = 2433282.5;        ///< J1950历元
 constexpr const double kTTMinusTAI      = 32.184;           ///< 地球时相对原子时的偏置[s]
+constexpr const double kGPSMinusTAI     = 19.0;             ///< GPS 时间相对原子时的偏置[s]
 constexpr const double kTTMinusTAIInDay = 32.184/86400;     ///< 地球时相对原子时的偏置[day]
 constexpr const double kMJDRefEpoch     = 2400000.5;        ///< 简约儒略日的参考历元
 

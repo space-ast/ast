@@ -241,7 +241,7 @@ namespace
 } // 匿名命名空间
 
 // 主解析函数
-err_t aDateTimeParse(StringView str, StringView format, DateTime& dt, bool strict)
+err_t aDateTimeParse(StringView str, StringView format, DateTime& dttm, bool strict)
 {
     if (str.empty() || format.empty()) {
         return eErrorInvalidParam;
@@ -494,11 +494,11 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt, bool stric
         }
     }
 
-    dt = DateTime{};
+    dttm = DateTime{};
 
     // 设置日期时间对象
     if (state.yearSet) {
-        dt.setYear(state.year);
+        dttm.setYear(state.year);
     }
     else {
         // 默认年份（如果需要的话）
@@ -518,31 +518,31 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt, bool stric
     }
 
     if (state.monthSet) {
-        dt.setMonth(state.month);
+        dttm.setMonth(state.month);
     }
     else {
-        dt.setMonth(1); // 默认一月
+        dttm.setMonth(1); // 默认一月
     }
 
     if (state.daySet) {
-        dt.setDay(state.day);
+        dttm.setDay(state.day);
     }
     else {
-        dt.setDay(1); // 默认第一天
+        dttm.setDay(1); // 默认第一天
     }
 
 
 
     if (state.hourSet) {
-        dt.setHour(state.hour);
+        dttm.setHour(state.hour);
     }
 
     if (state.minuteSet) {
-        dt.setMinute(state.minute);
+        dttm.setMinute(state.minute);
     }
 
     if (state.secondSet) {
-        dt.setSecond(state.second);
+        dttm.setSecond(state.second);
     }
 
     // 如果有时区信息，可能需要调整
@@ -553,15 +553,15 @@ err_t aDateTimeParse(StringView str, StringView format, DateTime& dt, bool stric
     }
 
     // @todo 验证日期有效性
-    // dt.normalize();
+    // dttm.normalize();
 
     return eNoError;
 }
 
 
-err_t aDateTimeParse(StringView str, StringView format, DateTime& dt)
+err_t aDateTimeParse(StringView str, StringView format, DateTime& dttm)
 {
-    return aDateTimeParse(str, format, dt, false);
+    return aDateTimeParse(str, format, dttm, false);
 }
 AST_NAMESPACE_END
  
