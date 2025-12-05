@@ -31,7 +31,7 @@ typedef struct AVector3d
 
 typedef struct AMatrix3d
 {
-	double _data[3][3];
+	double data_[3][3];
 } AMatrix3d;
 
 #endif

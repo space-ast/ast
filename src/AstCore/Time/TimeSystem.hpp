@@ -22,28 +22,23 @@
  
 #include "AstGlobal.h"
 #include "AstCore/Constants.h"
+#include "AstCore/DateTime.hpp"
+#include "AstCore/JulianDate.hpp"
  
 AST_NAMESPACE_BEGIN
 
 class JulianDate;
 class DateTime;
 
+
+/// @brief 从原子时(TAI) 转换为 地球时(TT)
+/// @param tmTAI 原子时(TAI)
+/// @param tmTT 地球时(TT)
 template<typename Time>
-A_ALWAYS_INLINE Time aTTToTAI(const Time& tmTT)
+A_ALWAYS_INLINE void aTAIToTT(const Time& tmTAI, Time& tmTT)
 {
-    return tmTT - kTTMinusTAI;
+    tmTT = aTAIToTT(tmTAI);
 }
-
-
-/// @brief 转换 TT 时间到 TAI 时间
-/// @param tmTT TT 时间
-/// @param tmTAI TAI 时间
-template<typename Time>
-A_ALWAYS_INLINE void aTTToTAI(const Time& tmTT, Time& tmTAI)
-{
-    tmTAI = aTTToTAI(tmTT);
-}
-
 template<typename Time>
 A_ALWAYS_INLINE Time aTAIToTT(const Time& tmTAI)
 {
@@ -51,49 +46,150 @@ A_ALWAYS_INLINE Time aTAIToTT(const Time& tmTAI)
 }
 
 
-/// @brief 转换 TAI 时间到 TT 时间
-/// @param tmTAI TAI 时间
-/// @param tmTT TT 时间
+/// @brief 从地球时(TT) 转换为 原子时(TAI)
+/// @param tmTT 地球时(TT) 
+/// @param tmTAI 原子时(TAI)
 template<typename Time>
-A_ALWAYS_INLINE void aTAIToTT(const Time& tmTAI, Time& tmTT)
+A_ALWAYS_INLINE void aTTToTAI(const Time& tmTT, Time& tmTAI)
 {
-    tmTT = aTAIToTT(tmTAI);
+    tmTAI = aTTToTAI(tmTT);
+}
+template<typename Time>
+A_ALWAYS_INLINE Time aTTToTAI(const Time& tmTT)
+{
+    return tmTT - kTTMinusTAI;
+}
+
+/// @brief 从原子时(TAI) 转换为 GPS时
+/// @param tmTAI 原子时(TAI)
+/// @param tmGPS GPS时
+template<typename Time>
+A_ALWAYS_INLINE void aTAIToGPS(const Time& tmTAI, Time& tmGPS)
+{
+    tmGPS = tmTAI + kGPSMinusTAI;
+}
+template<typename Time>
+A_ALWAYS_INLINE Time aTAIToGPS(const Time& tmTAI)
+{
+    return tmTAI + kGPSMinusTAI;
+}
+
+/// @brief 从GPS时 转换为 原子时(TAI)
+/// @param tmGPS GPS时
+/// @param tmTAI 原子时(TAI)
+template<typename Time>
+A_ALWAYS_INLINE void aGPSToTAI(const Time& tmGPS, Time& tmTAI)
+{
+    tmTAI = tmGPS - kGPSMinusTAI;
+}
+template<typename Time>
+A_ALWAYS_INLINE Time aGPSToTAI(const Time& tmGPS)
+{
+    return tmGPS - kGPSMinusTAI;
 }
 
 
 
-/// @brief 转换 TAI 时间到 UTC 时间
-/// @param jdTAI TAI 时间
-/// @param jdUTC UTC 时间
+/// @brief 从原子时(TAI) 转换为 协调世界时(UTC)
+/// @param jdTAI 原子时(TAI)
+/// @param jdUTC 协调世界时(UTC)
 AST_CORE_API void aTAIToUTC(const JulianDate& jdTAI, JulianDate& jdUTC);
 AST_CORE_API void aTAIToUTC(const DateTime& dttmTAI, DateTime& dttmUTC);
+A_ALWAYS_INLINE JulianDate aTAIToUTC(const JulianDate& jdTAI)
+{
+    JulianDate jdUTC;
+    aTAIToUTC(jdTAI, jdUTC);
+    return jdUTC;
+}
+A_ALWAYS_INLINE DateTime aTAIToUTC(const DateTime& dttmTAI)
+{
+    DateTime dttmUTC;
+    aTAIToUTC(dttmTAI, dttmUTC);
+    return dttmUTC;
+}
 
-/// @brief 转换 UTC 时间到 TAI 时间
-/// @param jdUTC UTC 时间
-/// @param jdTAI TAI 时间
+
+
+
+/// @brief 从协调世界时(UTC) 转换为 原子时(TAI)
+/// @param jdUTC 协调世界时(UTC)
+/// @param jdTAI 原子时(TAI)
 AST_CORE_API void aUTCToTAI(const JulianDate& jdUTC, JulianDate& jdTAI);
 AST_CORE_API void aUTCToTAI(const DateTime& dttmUTC, DateTime& dttmTAI);
 
-/// @brief 转换 UTC 时间到 TT 时间
-/// @param jdUTC UTC 时间
-/// @param jdTT TT 时间
+A_ALWAYS_INLINE JulianDate aUTCToTAI(const JulianDate& jdUTC)
+{
+    JulianDate jdTAI;
+    aUTCToTAI(jdUTC, jdTAI);
+    return jdTAI;
+}
+A_ALWAYS_INLINE DateTime aUTCToTAI(const DateTime& dttmUTC)
+{
+    DateTime dttmTAI;
+    aUTCToTAI(dttmUTC, dttmTAI);
+    return dttmTAI;
+}
+
+/// @brief 从协调世界时(UTC) 转换为 地球时(TT)
+/// @param jdUTC 协调世界时(UTC)
+/// @param jdTT 地球时(TT)
 AST_CORE_API void aUTCToTT(const JulianDate& jdUTC, JulianDate& jdTT);
 AST_CORE_API void aUTCToTT(const DateTime& dttmUTC, DateTime& dttmTT);
 
-/// @brief 转换 TT 时间到 UTC 时间
-/// @param jdTT TT 时间
-/// @param jdUTC UTC 时间
+A_ALWAYS_INLINE JulianDate aUTCToTT(const JulianDate& jdUTC)
+{
+    JulianDate jdTT;
+    aUTCToTT(jdUTC, jdTT);
+    return jdTT;
+}
+A_ALWAYS_INLINE DateTime aUTCToTT(const DateTime& dttmUTC)
+{
+    DateTime dttmTT;
+    aUTCToTT(dttmUTC, dttmTT);
+    return dttmTT;
+}
+
+/// @brief 从地球时(TT) 转换为 协调世界时(UTC)
+/// @param jdTT 地球时(TT)
+/// @param jdUTC 协调世界时(UTC)
 AST_CORE_API void aTTToUTC(const JulianDate& jdTT, JulianDate& jdUTC);
 AST_CORE_API void aTTToUTC(const DateTime& dttmTT, DateTime& dttmUTC);
 
+A_ALWAYS_INLINE JulianDate aTTToUTC(const JulianDate& jdTT)
+{
+    JulianDate jdUTC;
+    aTTToUTC(jdTT, jdUTC);
+    return jdUTC;
+}
+A_ALWAYS_INLINE DateTime aTTToUTC(const DateTime& dttmTT)
+{
+    DateTime dttmUTC;
+    aTTToUTC(dttmTT, dttmUTC);
+    return dttmUTC;
+}
 
+/// @brief 从地球时(TT) 转换为质心动力学时(TDB)
+/// @param jdTT 地球时(TT)
+/// @param jdTDB 质心动力学时(TDB)
 AST_CORE_API void aTTToTDB(const JulianDate& jdTT, JulianDate& jdTDB);
 AST_CORE_API void aTTToTDB(const DateTime& dttmTT, DateTime& dttmTDB);
+A_ALWAYS_INLINE JulianDate aTTToTDB(const JulianDate& jdTT)
+{
+    JulianDate jdTDB;
+    aTTToTDB(jdTT, jdTDB);
+    return jdTDB;
+}
+A_ALWAYS_INLINE DateTime aTTToTDB(const DateTime& dttmTT)
+{
+    DateTime dttmTDB;
+    aTTToTDB(dttmTT, dttmTDB);
+    return dttmTDB;
+}
 
 
-/// @brief 计算 TDB 时间与 TT 时间的差值
-/// @param jdTT TT 时间
-/// @return TDB 时间与 TT 时间的差值
+/// @brief 计算 质心动力学时(TDB) 时间与 地球时(TT) 时间的差值
+/// @param jdTT 地球时(TT)
+/// @return 质心动力学时(TDB) 时间与 地球时(TT) 时间的差值
 AST_CORE_CAPI double aTDBMinusTT(const JulianDate& jdTT);
 
 

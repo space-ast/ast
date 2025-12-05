@@ -79,12 +79,23 @@ AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_New();
 
-
+/// @brief 获取UTC时间的闰秒数
+/// @param jdUTC 
+/// @return 
 AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
 
+/// @brief 获取UTC时间的闰秒数（MJD）
+/// @param mjdUTC 
+/// @return 
 AST_CORE_CAPI double aLeapSecondUTCMJD(double mjdUTC);
 
-
+/// @brief 获取JPL DE星历数据的位置和速度（ICRF）
+/// @param time 
+/// @param target 
+/// @param referenceBody 
+/// @param pos 
+/// @param vel 
+/// @return 
 AST_CORE_CAPI err_t aJplDeGetPosVelICRF(
     const TimePoint& time, 
     int target, 
@@ -93,6 +104,12 @@ AST_CORE_CAPI err_t aJplDeGetPosVelICRF(
     Vector3d& vel
 );
 
+/// @brief 获取JPL DE星历数据的位置（ICRF）
+/// @param time 
+/// @param target 
+/// @param referenceBody 
+/// @param pos 
+/// @return 
 AST_CORE_CAPI err_t aJplDeGetPosICRF(
     const TimePoint& time,
     int target,
@@ -100,8 +117,12 @@ AST_CORE_CAPI err_t aJplDeGetPosICRF(
     Vector3d& pos
 );
 
+/// @brief 打开JPL DE星历数据文件
+/// @param filepath 
+/// @return 
 AST_CORE_CAPI err_t aJplDeOpen(const char* filepath);
 
+/// @brief 关闭JPL DE星历数据文件
 AST_CORE_CAPI void aJplDeClose();
 
 

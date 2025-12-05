@@ -146,9 +146,11 @@ public:
     void setMonth(int month){month_ = month;}
     void setDay(int day){day_ = day;}
 public:
+    /// @brief 获取月份的完整英文名称
     const char* monthFullName() const{
         return aMoonFullName(month_);
     }
+    /// @brief 获取月份的简写英文名称
     const char* monthShortName() const{
         return aMoonShortName(month_);
     }
@@ -185,12 +187,17 @@ public:
     int toJDAtNoon() const{
         return aDateToJDAtNoon(*this);
     }
-
+    /// @brief 将日期转换为当天00:00的儒略日数
     double toJD() const{
         return aDateToJD(*this);
     }
+    
+    /// @brief 将日期转换为当天00:00的简约儒略日数
+    double toMJD() const{
+        return aDateToMJD(*this);
+    }
 
-    /// @brief 将儒略日数转换为日期
+    /// @brief 将当天中午12点的儒略日数转换为日期
     void fromJDAtNoon(int jd){
         aJDToDateAtNoon(jd, *this);
     }

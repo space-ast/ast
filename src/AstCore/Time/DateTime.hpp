@@ -534,7 +534,7 @@ public:
     }
     DateTime operator + (double sec) const
     {
-        return DateTime{*this} += sec;
+        return DateTime{ *this } += sec;
     }
     DateTime operator -(double sec) const
     {

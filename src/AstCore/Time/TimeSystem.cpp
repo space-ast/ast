@@ -26,8 +26,65 @@ AST_NAMESPACE_BEGIN
 
 double aJulianCenturyFromJ2000(const JulianDate& jd)
 {
-	return ((jd.day() - kJ2000Epoch) + jd.dayFractional()) / 36525.;
+    return ((jd.day() - kJ2000Epoch) + jd.dayFractional()) / 36525.;
 }
+
+void aTAIToUTC(const JulianDate& jdTAI, JulianDate& jdUTC)
+{
+    // @note: TAI 时间 = UTC 时间 + 闰秒
+    // 闰秒只由UTC儒略日的整数部分确定
+    // 在这里，让TAI时间和UTC时间的整数部分保持一致，可直接通过jdTAI.day()计算闰秒
+    double leapsec = aLeapSecondUTC(jdTAI.day());
+    jdUTC = jdTAI - leapsec;
+}
+
+void aTAIToUTC(const DateTime& dttmTAI, DateTime& dttmUTC)
+{
+    double leapsec = aLeapSecondUTCMJD(dttmTAI.date().toMJD());
+    dttmUTC = dttmTAI;
+    dttmUTC.addSecondsUTC(-leapsec); // 减去闰秒，得到UTC时间，这里会进行规范化
+}
+
+void aUTCToTAI(const JulianDate& jdUTC, JulianDate& jdTAI)
+{
+    // @note: TAI 时间 = UTC 时间 + 闰秒
+    // 闰秒只由UTC儒略日的整数部分确定，避免奇异问题
+    double leapsec = aLeapSecondUTC(jdUTC.day());
+    jdTAI = jdUTC + leapsec;
+}
+
+
+void aUTCToTAI(const DateTime& dttmUTC, DateTime& dttmTAI)
+{
+    double leapsec = aLeapSecondUTCMJD(dttmUTC.date().toMJD());
+    dttmTAI = dttmUTC;
+    dttmTAI.addSeconds(leapsec); // 加上闰秒，得到TAI时间，这里会进行规范化
+}
+
+void aUTCToTT(const JulianDate& jdUTC, JulianDate& jdTT)
+{
+    aUTCToTAI(jdUTC, jdTT);
+    aTAIToTT(jdTT, jdTT);
+}
+
+void aUTCToTT(const DateTime& dttmUTC, DateTime& dttmTT)
+{
+    aUTCToTAI(dttmUTC, dttmTT);
+    aTAIToTT(dttmTT, dttmTT);
+}
+
+void aTTToUTC(const JulianDate& jdTT, JulianDate& jdUTC)
+{
+    aTTToTAI(jdTT, jdUTC);
+    aTAIToUTC(jdUTC, jdUTC);
+}
+
+void aTTToUTC(const DateTime& dttmTT, DateTime& dttmUTC)
+{
+    aTTToTAI(dttmTT, dttmUTC);
+    aTAIToUTC(dttmUTC, dttmUTC);
+}
+
 
 void aTTToTDB(const JulianDate& jdTT, JulianDate& jdTDB)
 {
@@ -42,11 +99,6 @@ void aTTToTDB(const DateTime& dttmTT, DateTime& dttmTDB)
     dttmTDB.addSeconds(tdb_tt);
 }
 
-void aUTCToTAI(const JulianDate& jdUTC, JulianDate& jdTAI)
-{
-    double leapsec = aLeapSecondUTC(jdUTC.day());
-    jdTAI = jdUTC + leapsec;
-}
 
 double aTDBMinusTT(const JulianDate& jdTT)
 {

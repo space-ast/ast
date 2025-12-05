@@ -84,7 +84,7 @@ public:
     static JulianDate FromDaySecond(int day, double second){
         return JulianDate{day, second};
     }
-
+    /// @brief 根据日期时间创建儒略日对象
     static JulianDate FromDateTime(const DateTime& dttm)
     {
         JulianDate jd;
@@ -110,18 +110,22 @@ public:
     void setDay(double day){day_ = day;}
     void setSecond(double sec){second_ = sec;}
 
+    /// @brief 获取天数和秒数
     void getDaySecond(int& day, double& second) const{
         day = day_;
         second = second_;
     }
+    /// @brief 设置天数和秒数
     void setDaySecond(int day, double second){
         day_ = day;
         second_ = second;
     }
 public:
+    /// @brief 获取小数部分的日数
     double dayFractional() const{
         return second_ / 86400.0;
     }
+    /// @brief 设置小数部分的日数
     void setDayFractional(double df){
         second_ = df * 86400.0;
     }

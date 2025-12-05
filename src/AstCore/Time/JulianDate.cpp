@@ -29,15 +29,19 @@ AST_NAMESPACE_BEGIN
 
 void aJDToMJD(const JulianDate& jd, ModJulianDate& mjd)
 {
-	mjd = jd;
-	mjd.setDay(jd.day() - kMJDRefEpoch);
+	// mjd = jd;
+	// mjd.setDay(jd.day() - kMJDRefEpoch);
+	mjd.setDay(jd.day() - 2400001);
+	mjd.setSecond(jd.second() + 43200);
 }
 
 
 void aMJDToJD(const ModJulianDate& mjd, JulianDate& jd)
 {
-	jd = mjd;
-	jd.setDay(mjd.day() + kMJDRefEpoch);
+	// jd = mjd;
+	// jd.setDay(mjd.day() + kMJDRefEpoch);
+	jd.setDay(mjd.day() + 2400001);
+	jd.setSecond(mjd.second() - 43200);
 }
 
 
@@ -67,8 +71,9 @@ ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd)
 void aDateTimeToJD(const DateTime &dttm, JulianDate &jd)
 {
 	int day = dttm.date().toJDAtNoon();
-	double sec = (dttm.time().hour() * 3600 + dttm.time().minute() * 60 - 43200) + dttm.time().second();
-	jd.setDaySecond(day, sec);
+	int second_integer = (dttm.time().hour() * 3600 + dttm.time().minute() * 60 - 43200);
+	double second =  second_integer + dttm.time().second();
+	jd.setDaySecond(day, second);
 }
 
 void aJDToDateTime(const JulianDate& jd, DateTime& dttm)
