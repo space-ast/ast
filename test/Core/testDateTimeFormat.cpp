@@ -30,151 +30,151 @@ TEST(DateTimeFormat, FormatSpecifiers)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 14;
-    dt.minute() = 30;
-    dt.second() = 45.123456;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 14;
+    dttm.minute() = 30;
+    dttm.second() = 45.123456;
     
     std::string str;
     err_t err;
     
     // 测试年份格式说明符
-    err = aDateTimeFormat(dt, "%Y", str);
+    err = aDateTimeFormat(dttm, "%Y", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "2023");
     
-    err = aDateTimeFormat(dt, "%y", str);
+    err = aDateTimeFormat(dttm, "%y", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "23");
     
-    err = aDateTimeFormat(dt, "%C", str);
+    err = aDateTimeFormat(dttm, "%C", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "20");
     
     // 测试月份格式说明符
-    err = aDateTimeFormat(dt, "%m", str);
+    err = aDateTimeFormat(dttm, "%m", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "12");
     
-    err = aDateTimeFormat(dt, "%b", str);
+    err = aDateTimeFormat(dttm, "%b", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%B", str);
+    err = aDateTimeFormat(dttm, "%B", str);
     EXPECT_EQ(err, eNoError);
     
     // 测试日期格式说明符
-    err = aDateTimeFormat(dt, "%d", str);
+    err = aDateTimeFormat(dttm, "%d", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "25");
     
-    err = aDateTimeFormat(dt, "%e", str);
+    err = aDateTimeFormat(dttm, "%e", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%j", str);
+    err = aDateTimeFormat(dttm, "%j", str);
     EXPECT_EQ(err, eNoError);
     
     // 测试时间格式说明符
-    err = aDateTimeFormat(dt, "%H", str);
+    err = aDateTimeFormat(dttm, "%H", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "14");
     
-    err = aDateTimeFormat(dt, "%I", str);
+    err = aDateTimeFormat(dttm, "%I", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "02");
     
-    err = aDateTimeFormat(dt, "%M", str);
+    err = aDateTimeFormat(dttm, "%M", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "30");
     
-    err = aDateTimeFormat(dt, "%S", str);
+    err = aDateTimeFormat(dttm, "%S", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "45");
     
-    err = aDateTimeFormat(dt, "%f", str);
+    err = aDateTimeFormat(dttm, "%f", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%L", str);
+    err = aDateTimeFormat(dttm, "%L", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%N", str);
+    err = aDateTimeFormat(dttm, "%N", str);
     EXPECT_EQ(err, eNoError);
     
     // 测试AM/PM
-    err = aDateTimeFormat(dt, "%p", str);
+    err = aDateTimeFormat(dttm, "%p", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "PM");
     
-    err = aDateTimeFormat(dt, "%P", str);
+    err = aDateTimeFormat(dttm, "%P", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "pm");
     
     // 测试星期格式说明符
-    err = aDateTimeFormat(dt, "%a", str);
+    err = aDateTimeFormat(dttm, "%a", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%A", str);
+    err = aDateTimeFormat(dttm, "%A", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%w", str);
+    err = aDateTimeFormat(dttm, "%w", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%u", str);
+    err = aDateTimeFormat(dttm, "%u", str);
     EXPECT_EQ(err, eNoError);
     
     // 测试时区格式说明符
-    err = aDateTimeFormat(dt, "%z", str);
+    err = aDateTimeFormat(dttm, "%z", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "+0000");
     
-    err = aDateTimeFormat(dt, "%Z", str);
+    err = aDateTimeFormat(dttm, "%Z", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "UTC");
     
     // 测试特殊格式
-    err = aDateTimeFormat(dt, "%c", str);
+    err = aDateTimeFormat(dttm, "%c", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%x", str);
+    err = aDateTimeFormat(dttm, "%x", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "2023-12-25");
     
-    err = aDateTimeFormat(dt, "%X", str);
+    err = aDateTimeFormat(dttm, "%X", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "14:30:45");
     
-    err = aDateTimeFormat(dt, "%r", str);
+    err = aDateTimeFormat(dttm, "%r", str);
     EXPECT_EQ(err, eNoError);
     
-    err = aDateTimeFormat(dt, "%R", str);
+    err = aDateTimeFormat(dttm, "%R", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "14:30");
     
-    err = aDateTimeFormat(dt, "%T", str);
+    err = aDateTimeFormat(dttm, "%T", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "14:30:45");
     
-    err = aDateTimeFormat(dt, "%F", str);
+    err = aDateTimeFormat(dttm, "%F", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "2023-12-25");
     
     // 测试扩展格式
-    err = aDateTimeFormat(dt, "%Q", str);
+    err = aDateTimeFormat(dttm, "%Q", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "4"); // 12月属于第4季度
     
     // 测试特殊字符
-    err = aDateTimeFormat(dt, "%%", str);
+    err = aDateTimeFormat(dttm, "%%", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "%");
     
-    err = aDateTimeFormat(dt, "%n", str);
+    err = aDateTimeFormat(dttm, "%n", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "\n");
     
-    err = aDateTimeFormat(dt, "%t", str);
+    err = aDateTimeFormat(dttm, "%t", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "\t");
 }
@@ -184,35 +184,35 @@ TEST(DateTimeFormat, ComplexFormats)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45.123;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45.123;
     
     std::string str;
     err_t err;
     
     // ISO 8601格式
-    err = aDateTimeFormat(dt, "%Y-%m-%dT%H:%M:%S.%L%z", str);
+    err = aDateTimeFormat(dttm, "%Y-%m-%dT%H:%M:%S.%L%z", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023-12-25T10:30:45.123+0000") != std::string::npos);
     
     // 带星期的格式
-    err = aDateTimeFormat(dt, "%A, %d %B %Y", str);
+    err = aDateTimeFormat(dttm, "%A, %d %B %Y", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023") != std::string::npos);
     EXPECT_TRUE(str.find("December") != std::string::npos);
     
     // 12小时制格式
-    err = aDateTimeFormat(dt, "%I:%M:%S %p", str);
+    err = aDateTimeFormat(dttm, "%I:%M:%S %p", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("10:30:45 AM") != std::string::npos);
     
     // 自定义格式
-    err = aDateTimeFormat(dt, "Year: %Y, Month: %m, Day: %d", str);
+    err = aDateTimeFormat(dttm, "Year: %Y, Month: %m, Day: %d", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("Year: 2023") != std::string::npos);
     EXPECT_TRUE(str.find("Month: 12") != std::string::npos);
@@ -224,24 +224,24 @@ TEST(DateTimeFormat, ErrorHandling)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
     
     std::string str;
     err_t err;
     
     // 空格式
-    err = aDateTimeFormat(dt, "", str);
+    err = aDateTimeFormat(dttm, "", str);
     EXPECT_EQ(err, eErrorInvalidParam);
     
     // 格式以%结束
-    err = aDateTimeFormat(dt, "%", str);
+    err = aDateTimeFormat(dttm, "%", str);
     EXPECT_EQ(err, eErrorInvalidParam);
     
     // 未知的格式说明符（应该按原样输出）
-    err = aDateTimeFormat(dt, "%X%Y%Z", str);
+    err = aDateTimeFormat(dttm, "%X%Y%Z", str);
     EXPECT_EQ(err, eNoError);
 }
 
@@ -260,12 +260,12 @@ TEST(DateTimeParseFormat, Consistency)
     std::string date_str, format;
     for (auto& iter : format_tests) {
         std::tie(date_str, format) = iter;
-        DateTime dt;
-        err_t parse_err = aDateTimeParse(date_str, format, dt);
+        DateTime dttm;
+        err_t parse_err = aDateTimeParse(date_str, format, dttm);
         EXPECT_EQ(parse_err, eNoError) << "Failed to parse: " << date_str;
         
         std::string formatted;
-        err_t format_err = aDateTimeFormat(dt, format, formatted);
+        err_t format_err = aDateTimeFormat(dttm, format, formatted);
         EXPECT_EQ(format_err, eNoError) << "Failed to format with: " << format;
         
         // 注意：由于时间组件的精度问题，这里可能需要更宽松的比较
@@ -286,49 +286,49 @@ TEST(DateTimeParseFormat, EdgeCases)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
+    DateTime dttm;
     std::string str;
     err_t err;
     
     // 闰年
-    err = aDateTimeParse("2024-02-29", "%Y-%m-%d", dt);
+    err = aDateTimeParse("2024-02-29", "%Y-%m-%d", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 2);
-    EXPECT_EQ(dt.day(), 29);
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 2);
+    EXPECT_EQ(dttm.day(), 29);
     
     // 特殊时间
-    err = aDateTimeParse("23:59:59.999", "%H:%M:%S", dt);
+    err = aDateTimeParse("23:59:59.999", "%H:%M:%S", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.hour(), 23);
-    EXPECT_EQ(dt.minute(), 59);
-    EXPECT_EQ(dt.second(), 59.999);
+    EXPECT_EQ(dttm.hour(), 23);
+    EXPECT_EQ(dttm.minute(), 59);
+    EXPECT_EQ(dttm.second(), 59.999);
     
     // 零值
-    err = aDateTimeParse("0000-01-01 00:00:00", "%Y-%m-%d %H:%M:%S", dt);
+    err = aDateTimeParse("0000-01-01 00:00:00", "%Y-%m-%d %H:%M:%S", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 0);
-    EXPECT_EQ(dt.month(), 1);
-    EXPECT_EQ(dt.day(), 1);
-    EXPECT_EQ(dt.hour(), 0);
-    EXPECT_EQ(dt.minute(), 0);
-    EXPECT_DOUBLE_EQ(dt.second(), 0.0);
+    EXPECT_EQ(dttm.year(), 0);
+    EXPECT_EQ(dttm.month(), 1);
+    EXPECT_EQ(dttm.day(), 1);
+    EXPECT_EQ(dttm.hour(), 0);
+    EXPECT_EQ(dttm.minute(), 0);
+    EXPECT_DOUBLE_EQ(dttm.second(), 0.0);
     
     // 格式化为零值
-    dt.year() = 0;
-    dt.month() = 1;
-    dt.day() = 1;
-    dt.hour() = 0;
-    dt.minute() = 0;
-    dt.second() = 0.0;
+    dttm.year() = 0;
+    dttm.month() = 1;
+    dttm.day() = 1;
+    dttm.hour() = 0;
+    dttm.minute() = 0;
+    dttm.second() = 0.0;
     
-    err = aDateTimeFormat(dt, "%Y-%m-%d %H:%M:%S", str);
+    err = aDateTimeFormat(dttm, "%Y-%m-%d %H:%M:%S", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "0000-01-01 00:00:00");
     
     // 带闰秒的格式
-    dt.second() = 60.0;
-    err = aDateTimeFormat(dt, "%H:%M:%S", str);
+    dttm.second() = 60.0;
+    err = aDateTimeFormat(dttm, "%H:%M:%S", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "00:00:60");
 }
@@ -337,46 +337,46 @@ TEST(DateTimeParseFormat, EdgeCases)
 TEST(DateTimeFormat, UncoveredFormatSpecifiers) {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 6;
-    dt.day() = 15;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45.123456;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 6;
+    dttm.day() = 15;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45.123456;
     
     std::string str;
     err_t err;
     
     // 测试Unix时间戳格式说明符 '%s'
-    err = aDateTimeFormat(dt, "%s", str);
+    err = aDateTimeFormat(dttm, "%s", str);
     EXPECT_EQ(err, eNoError);
     // Unix时间戳应该是一个有效的数字字符串
     EXPECT_TRUE(str.find_first_not_of("0123456789") == std::string::npos);
     
     // 测试周数相关格式说明符
     // 以周日为周始的周数 '%U'
-    err = aDateTimeFormat(dt, "%U", str);
+    err = aDateTimeFormat(dttm, "%U", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.length() == 2);
     
     // ISO周数 '%V'
-    err = aDateTimeFormat(dt, "%V", str);
+    err = aDateTimeFormat(dttm, "%V", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.length() == 2);
     
     // 以周一为周始的周数 '%W'
-    err = aDateTimeFormat(dt, "%W", str);
+    err = aDateTimeFormat(dttm, "%W", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.length() == 2);
     
     // 测试未知格式说明符（default分支）
-    err = aDateTimeFormat(dt, "%Z%ABC", str);
+    err = aDateTimeFormat(dttm, "%Z%ABC", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("BC") != std::string::npos);
     
     // 测试特殊组合格式
-    err = aDateTimeFormat(dt, "Timestamp: %s, Week(U): %U, Week(V): %V, Week(W): %W", str);
+    err = aDateTimeFormat(dttm, "Timestamp: %s, Week(U): %U, Week(V): %V, Week(W): %W", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("Timestamp:") != std::string::npos);
     EXPECT_TRUE(str.find("Week(U):") != std::string::npos);
@@ -389,25 +389,25 @@ TEST(DateTimeFormat, DayOfYearValidation) {
     AST_USING_NAMESPACE
     
     // 创建一个DateTime对象并修改其内部状态以触发dayOfYear验证失败分支
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 2;
-    dt.day() = 28;
-    dt.hour() = 0;
-    dt.minute() = 0;
-    dt.second() = 0.0;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 2;
+    dttm.day() = 28;
+    dttm.hour() = 0;
+    dttm.minute() = 0;
+    dttm.second() = 0.0;
     
     std::string str;
-    err_t err = aDateTimeFormat(dt, "%j", str);
+    err_t err = aDateTimeFormat(dttm, "%j", str);
     EXPECT_EQ(err, eNoError);
     // 2023年2月28日应该是一年中的第59天
     EXPECT_TRUE(str == "059" || str == "59");
     
     // 测试闰年的情况
-    dt.year() = 2024;
-    dt.month() = 2;
-    dt.day() = 29;
-    err = aDateTimeFormat(dt, "%j", str);
+    dttm.year() = 2024;
+    dttm.month() = 2;
+    dttm.day() = 29;
+    err = aDateTimeFormat(dttm, "%j", str);
     EXPECT_EQ(err, eNoError);
     // 2024年2月29日应该是一年中的第60天
     EXPECT_TRUE(str == "060" || str == "60");
@@ -418,34 +418,34 @@ TEST(DateTimeFormat, InternalHelpers) {
     AST_USING_NAMESPACE
     
     // 测试闰年判断（间接测试isLeapYear函数）
-    DateTime dt;
-    dt.year() = 2024;
-    dt.month() = 2;
-    dt.day() = 29; // 闰年2月29日
+    DateTime dttm;
+    dttm.year() = 2024;
+    dttm.month() = 2;
+    dttm.day() = 29; // 闰年2月29日
     
     std::string str;
-    err_t err = aDateTimeFormat(dt, "%Y-%m-%d", str);
+    err_t err = aDateTimeFormat(dttm, "%Y-%m-%d", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "2024-02-29");
     
     // 测试非闰年
-    dt.year() = 2023;
-    dt.month() = 2;
-    dt.day() = 28;
-    err = aDateTimeFormat(dt, "%Y-%m-%d", str);
+    dttm.year() = 2023;
+    dttm.month() = 2;
+    dttm.day() = 28;
+    err = aDateTimeFormat(dttm, "%Y-%m-%d", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "2023-02-28");
     
     // 测试Buffer类的各种append方法（间接测试）
     // 通过不同格式说明符和数值范围来触发Buffer类的不同append重载
-    dt.year() = 9999;
-    dt.month() = 1;
-    dt.day() = 1;
-    dt.hour() = 0;
-    dt.minute() = 0;
-    dt.second() = 0.0;
+    dttm.year() = 9999;
+    dttm.month() = 1;
+    dttm.day() = 1;
+    dttm.hour() = 0;
+    dttm.minute() = 0;
+    dttm.second() = 0.0;
     
-    err = aDateTimeFormat(dt, "%Y-%m-%d %H:%M:%S.%f", str);
+    err = aDateTimeFormat(dttm, "%Y-%m-%d %H:%M:%S.%f", str);
     EXPECT_EQ(err, eNoError);
     EXPECT_EQ(str, "9999-01-01 00:00:00.000000");
 }

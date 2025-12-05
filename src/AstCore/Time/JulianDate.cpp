@@ -19,7 +19,9 @@
  
 
 #include "JulianDate.hpp" 
-#include "Date.hpp"
+#include "AstCore/Date.hpp"
+#include "AstCore/Time.hpp"
+#include "AstCore/DateTime.hpp"
 #include "AstUtil/Constants.h"
 
 AST_NAMESPACE_BEGIN
@@ -62,6 +64,20 @@ ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd)
 	return jd - kMJDRefEpoch;
 }
 
+void aDateTimeToJD(const DateTime &dttm, JulianDate &jd)
+{
+	double day = dttm.date().toJD();
+	double sec = dttm.time().totalSecond();
+	jd.setDaySecond(day, sec);
+}
+
+void aJDToDateTime(const JulianDate& jd, DateTime& dttm)
+{
+	double secInDay;
+	aJDToDate(jd.day(), dttm.date(), &secInDay);
+	secInDay += jd.second();
+	aTimeFromTotalSecond(secInDay, dttm.time());
+}
 
 
 AST_NAMESPACE_END

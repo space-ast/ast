@@ -60,6 +60,13 @@ AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(const ModJulianDate& mjd);
 AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd);
 
 
+/// @brief 将日期时间转换为儒略日
+AST_CORE_CAPI void aDateTimeToJD(const DateTime& dttm, JulianDate& jd);
+
+
+/// @brief 将儒略日转换为日期时间
+AST_CORE_CAPI void aJDToDateTime(const JulianDate& jd, DateTime& dttm);
+
 
 /// @brief 儒略日
 /// @details 儒略日（Julian Date）是一种用于表示时间的方法，常用于天文学和计算机科学中。
@@ -82,7 +89,12 @@ public:
         double second = dayp2 * 86400.0;
         return JulianDate::FromDaySecond(day, second);
     }
-
+    static JulianDate FromDateTime(const DateTime& dttm)
+    {
+        JulianDate jd;
+        aDateTimeToJD(dttm, jd);
+        return jd;
+    }
 public:
     /// @brief 获取不精确的天数
     /// @return 不精确的天数
@@ -130,6 +142,25 @@ public:
     void setDayTwoPart(double dayp1, double dayp2){
         day_ = dayp1;
         second_ = dayp2 * 86400.0;
+    }
+public:
+    JulianDate& operator += (double sec)
+    {
+        this->second() += sec;  // 适用于任何时间尺度，包括考核闰秒的和不考虑闰秒的
+        return *this;
+    }
+    JulianDate& operator -= (double sec)
+    {
+        this->second() -= sec;  // 适用于任何时间尺度，包括考核闰秒的和不考虑闰秒的
+        return *this;
+    }
+    JulianDate operator + (double sec) const
+    {
+        return JulianDate{ *this } += sec;
+    }
+    JulianDate operator -(double sec) const
+    {
+        return JulianDate{ *this } -= sec;
     }
 public:
     double day_;     // 天数部分 day part of julian date

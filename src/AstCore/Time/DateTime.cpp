@@ -19,6 +19,7 @@
  
 
 #include "DateTime.hpp"
+#include "AstCore/JulianDate.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/String.hpp"
@@ -51,42 +52,42 @@ DateTime DateTime::FromTimeTUTC(time_t time)
     return FromTm(gmtime(&time));
 }
 
-void aCurrentDateTimeLocal(DateTime& dt)
+void aCurrentDateTimeLocal(DateTime& dttm)
 {
     time_t t = time(NULL);
-	dt = DateTime::FromTimeTLocal(t);
+	dttm = DateTime::FromTimeTLocal(t);
 }
 
-void aCurrentDateTimeUTC(DateTime &dt)
+void aCurrentDateTimeUTC(DateTime &dttm)
 {
     time_t t = time(NULL);
-	dt = DateTime::FromTimeTUTC(t);
+	dttm = DateTime::FromTimeTUTC(t);
 }
 
-void aDateTimeNormalize(DateTime& dt)
+void aDateTimeNormalize(DateTime& dttm)
 {
-    aTimeNormalize(dt.time());
-    int rday = (int)floor(dt.hour() / 24.);
-    dt.hour() -= rday * 24;
-    dt.day() += rday;
-    aDateNormalize(dt.date());
+    aTimeNormalize(dttm.time());
+    int rday = (int)floor(dttm.hour() / 24.);
+    dttm.hour() -= rday * 24;
+    dttm.day() += rday;
+    aDateNormalize(dttm.date());
 }
 
 
-void aDateTimeNormalizeUTC(DateTime& dt)
+void aDateTimeNormalizeUTC(DateTime& dttm)
 {
     using std::min;
     using std::max;
 
-    int minute = dt.time().hour() * 60 + dt.minute();
-    double second = dt.time().second();
+    int minute = dttm.time().hour() * 60 + dttm.minute();
+    double second = dttm.time().second();
     int dday = (second + minute * 60) / 86400.;
     if (dday == 0) {
-        aDateTimeNormalize(dt);
+        aDateTimeNormalize(dttm);
         return;
     }
     else {
-        int mjd1 = aDateToMJD(dt.date());
+        int mjd1 = aDateToMJD(dttm.date());
         double leap1 = aLeapSecondUTCMJD(mjd1);
 
         int minute_new;
@@ -105,12 +106,12 @@ void aDateTimeNormalizeUTC(DateTime& dt)
                 dday -= 1;
             }
         }
-        aMJDToDate(mjd2, dt.date());
+        aMJDToDate(mjd2, dttm.date());
         minute = min(max(minute_new + int(second_new/60), 0), 1440 - 1);
         second = second_new + (minute_new - minute) * 60;
-        dt.time().hour() = minute / 60;
-        dt.time().minute() = minute - dt.time().hour() * 60;
-        dt.time().second() = second;
+        dttm.time().hour() = minute / 60;
+        dttm.time().minute() = minute - dttm.time().hour() * 60;
+        dttm.time().second() = second;
     }
 }
 
@@ -152,135 +153,135 @@ int _aTimeZoneDateDifference(int hour, int timeZone) {
 	}
 }
     
-void aDateTimeNormalizeLocal(DateTime& dt, int timezone)
+void aDateTimeNormalizeLocal(DateTime& dttm, int timezone)
 {
-    int dateDiff = _aGregDateDifference(dt.hour(), timezone);
-	dt.hour() -= (timezone + dateDiff * 24);
-    dt.day() += dateDiff;
+    int dateDiff = _aGregDateDifference(dttm.hour(), timezone);
+	dttm.hour() -= (timezone + dateDiff * 24);
+    dttm.day() += dateDiff;
 
-    aDateTimeNormalizeUTC(dt);
+    aDateTimeNormalizeUTC(dttm);
 
-    dateDiff = _aTimeZoneDateDifference(dt.hour(), timezone);
-	dt.day() += dateDiff;
-	dt.hour() += (timezone - dateDiff * 24);
-    dt.date().normalize();
-}
-
-void aDateTimeNormalizeBJT(DateTime& dt)
-{
-    aDateTimeNormalizeLocal(dt, 8);
+    dateDiff = _aTimeZoneDateDifference(dttm.hour(), timezone);
+	dttm.day() += dateDiff;
+	dttm.hour() += (timezone - dateDiff * 24);
+    dttm.date().normalize();
 }
 
-void aDateTimeAddYears(DateTime& dt, int years)
+void aDateTimeNormalizeBJT(DateTime& dttm)
 {
-    dt.year() += years;
-    dt.normalize();
-}
-void aDateTimeAddMonths(DateTime& dt, int months)
-{
-    dt.month() += months;
-    dt.normalize();
-}
-void aDateTimeAddDays(DateTime& dt, int days)
-{
-    dt.day() += days;
-    dt.normalize();
-}
-void aDateTimeAddDaysUTC(DateTime& dt, int days)
-{
-    dt.hour() += days * 24;
-    dt.normalizeUTC();
-}
-void aDateTimeAddDaysLocal(DateTime& dt, int days, int timezone)
-{
-    dt.hour() += days * 24;
-    dt.normalizeLocal(timezone);
-}
-void aDateTimeAddDaysBJT(DateTime& dt, int days)
-{
-    dt.hour() += days * 24;
-    dt.normalizeBJT();
-}
-void aDateTimeAddHours(DateTime& dt, int hours)
-{
-    dt.hour() += hours;
-    dt.normalize();
+    aDateTimeNormalizeLocal(dttm, 8);
 }
 
-void aDateTimeAddHoursUTC(DateTime& dt, int hours)
+void aDateTimeAddYears(DateTime& dttm, int years)
 {
-    dt.hour() += hours;
-    dt.normalizeUTC();
+    dttm.year() += years;
+    dttm.normalize();
+}
+void aDateTimeAddMonths(DateTime& dttm, int months)
+{
+    dttm.month() += months;
+    dttm.normalize();
+}
+void aDateTimeAddDays(DateTime& dttm, int days)
+{
+    dttm.day() += days;
+    dttm.normalize();
+}
+void aDateTimeAddDaysUTC(DateTime& dttm, int days)
+{
+    dttm.hour() += days * 24;
+    dttm.normalizeUTC();
+}
+void aDateTimeAddDaysLocal(DateTime& dttm, int days, int timezone)
+{
+    dttm.hour() += days * 24;
+    dttm.normalizeLocal(timezone);
+}
+void aDateTimeAddDaysBJT(DateTime& dttm, int days)
+{
+    dttm.hour() += days * 24;
+    dttm.normalizeBJT();
+}
+void aDateTimeAddHours(DateTime& dttm, int hours)
+{
+    dttm.hour() += hours;
+    dttm.normalize();
 }
 
-void aDateTimeAddHoursLocal(DateTime& dt, int hours, int timezone)
+void aDateTimeAddHoursUTC(DateTime& dttm, int hours)
 {
-    dt.hour() += hours;
-    dt.normalizeLocal(timezone);
+    dttm.hour() += hours;
+    dttm.normalizeUTC();
 }
 
-void aDateTimeAddHoursBJT(DateTime& dt, int hours)
+void aDateTimeAddHoursLocal(DateTime& dttm, int hours, int timezone)
 {
-    dt.hour() += hours;
-    dt.normalizeBJT();
+    dttm.hour() += hours;
+    dttm.normalizeLocal(timezone);
 }
 
-void aDateTimeAddMinutes(DateTime& dt, int minutes)
+void aDateTimeAddHoursBJT(DateTime& dttm, int hours)
 {
-    dt.minute() += minutes;
-    dt.normalize();
-}
-void aDateTimeAddMinutesUTC(DateTime& dt, int minutes)
-{
-    dt.minute() += minutes;
-    dt.normalizeUTC();
-}
-void aDateTimeAddMinutesLocal(DateTime& dt, int minutes, int timezone)
-{
-    dt.minute() += minutes;
-    dt.normalizeLocal(timezone);
+    dttm.hour() += hours;
+    dttm.normalizeBJT();
 }
 
-
-void aDateTimeAddMinutesBJT(DateTime& dt, int minutes)
+void aDateTimeAddMinutes(DateTime& dttm, int minutes)
 {
-    dt.minute() += minutes;
-    dt.normalizeBJT();
+    dttm.minute() += minutes;
+    dttm.normalize();
+}
+void aDateTimeAddMinutesUTC(DateTime& dttm, int minutes)
+{
+    dttm.minute() += minutes;
+    dttm.normalizeUTC();
+}
+void aDateTimeAddMinutesLocal(DateTime& dttm, int minutes, int timezone)
+{
+    dttm.minute() += minutes;
+    dttm.normalizeLocal(timezone);
 }
 
 
-void aDateTimeAddSeconds(DateTime& dt, double seconds)
+void aDateTimeAddMinutesBJT(DateTime& dttm, int minutes)
 {
-    dt.second() += seconds;
-    dt.normalize();
+    dttm.minute() += minutes;
+    dttm.normalizeBJT();
 }
-void aDateTimeAddSecondsUTC(DateTime& dt, double seconds)
+
+
+void aDateTimeAddSeconds(DateTime& dttm, double seconds)
 {
-    dt.second() += seconds;
-    dt.normalizeUTC();
+    dttm.second() += seconds;
+    dttm.normalize();
 }
-void aDateTimeAddSecondsLocal(DateTime& dt, double seconds, int timezone)
+void aDateTimeAddSecondsUTC(DateTime& dttm, double seconds)
 {
-    dt.second() += seconds;
-    dt.normalizeLocal(timezone);
+    dttm.second() += seconds;
+    dttm.normalizeUTC();
 }
-void aDateTimeAddSecondsBJT(DateTime& dt, double seconds)
+void aDateTimeAddSecondsLocal(DateTime& dttm, double seconds, int timezone)
 {
-    dt.second() += seconds;
-    dt.normalizeBJT();
+    dttm.second() += seconds;
+    dttm.normalizeLocal(timezone);
+}
+void aDateTimeAddSecondsBJT(DateTime& dttm, double seconds)
+{
+    dttm.second() += seconds;
+    dttm.normalizeBJT();
 }
 
 // 格式化函数实现
-err_t aDateTimeFormatISO8601(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatISO8601(const DateTime& dttm, std::string& str)
 {
     char buffer[100];
-    int year = dt.year();
-    int month = dt.month();
-    int day = dt.day();
-    int hour = dt.hour();
-    int minute = dt.minute();
-    int second = static_cast<int>(dt.second());
-    int millisecond = static_cast<int>((dt.second() - second) * 1000);
+    int year = dttm.year();
+    int month = dttm.month();
+    int day = dttm.day();
+    int hour = dttm.hour();
+    int minute = dttm.minute();
+    int second = static_cast<int>(dttm.second());
+    int millisecond = static_cast<int>((dttm.second() - second) * 1000);
     
     if (millisecond > 0) {
         snprintf(buffer, sizeof(buffer), "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ", 
@@ -294,70 +295,70 @@ err_t aDateTimeFormatISO8601(const DateTime& dt, std::string& str)
     return eNoError;
 }
 
-err_t aDateTimeFormatGregorian(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
     sprintf(buffer, "%04d-%02d-%02d %02d:%02d:%02.3f", 
-            dt.year(), dt.month(), dt.day(), 
-            dt.hour(), dt.minute(), dt.second());
+            dttm.year(), dttm.month(), dttm.day(), 
+            dttm.hour(), dttm.minute(), dttm.second());
     
     str = buffer;
     return eNoError;
 }
 
-err_t aDateTimeFormatGregorianEn(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatGregorianEn(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
-    const char* monthName = dt.date().monthShortName();
+    const char* monthName = dttm.date().monthShortName();
     sprintf(buffer, "%d %s %04d %02d:%02d:%02.3f", 
-            dt.day(), monthName, dt.year(), 
-            dt.hour(), dt.minute(), dt.second());
+            dttm.day(), monthName, dttm.year(), 
+            dttm.hour(), dttm.minute(), dttm.second());
     
     str = buffer;
     return eNoError;
 }
 
-err_t aDateTimeFormatGMT(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatGMT(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
-    const char* weekdayName = dt.date().weekDayShortName();
-    const char* monthName = dt.date().monthShortName();
+    const char* weekdayName = dttm.date().weekDayShortName();
+    const char* monthName = dttm.date().monthShortName();
     sprintf(buffer, "%s, %02d %s %04d %02d:%02d:%02.3f GMT", 
-            weekdayName, dt.day(), monthName, dt.year(), 
-            dt.hour(), dt.minute(), dt.second());
+            weekdayName, dttm.day(), monthName, dttm.year(), 
+            dttm.hour(), dttm.minute(), dttm.second());
     
     str = buffer;
     return eNoError;
 }
 
-err_t aDateTimeFormatRFC3339(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatRFC3339(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
     // 默认使用+00:00时区，实际使用时可能需要根据具体时区调整
     sprintf(buffer, "%04d-%02d-%02dT%02d:%02d:%02.3f+00:00", 
-            dt.year(), dt.month(), dt.day(), 
-            dt.hour(), dt.minute(), dt.second());
+            dttm.year(), dttm.month(), dttm.day(), 
+            dttm.hour(), dttm.minute(), dttm.second());
     
     str = buffer;
     return eNoError;
 }
 
 #ifdef AST_ENABLE_DATETIME_FORMAT_RFC
-err_t aDateTimeFormatRFC1123(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatRFC1123(const DateTime& dttm, std::string& str)
 {
     // RFC 1123格式与GMT格式类似
-    return aDateTimeFormatGMT(dt, str);
+    return aDateTimeFormatGMT(dttm, str);
 }
 
-err_t aDateTimeFormatRFC2822(const DateTime& dt, std::string& str)
+err_t aDateTimeFormatRFC2822(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
-    const char* weekdayName = dt.date().weekDayShortName();
-    const char* monthName = dt.date().monthShortName();
+    const char* weekdayName = dttm.date().weekDayShortName();
+    const char* monthName = dttm.date().monthShortName();
     // 默认使用+0000时区，实际使用时可能需要根据具体时区调整
     sprintf(buffer, "%s, %02d %s %04d %02d:%02d:%02.3f +0000", 
-            weekdayName, dt.day(), monthName, dt.year(), 
-            dt.hour(), dt.minute(), dt.second());
+            weekdayName, dttm.day(), monthName, dttm.year(), 
+            dttm.hour(), dttm.minute(), dttm.second());
     
     str = buffer;
     return eNoError;
@@ -365,7 +366,7 @@ err_t aDateTimeFormatRFC2822(const DateTime& dt, std::string& str)
 #endif
 
 // 解析函数实现
-err_t aDateTimeParseISO8601(StringView str, DateTime& dt)
+err_t aDateTimeParseISO8601(StringView str, DateTime& dttm)
 {
     // 简化实现，支持基本的ISO 8601格式：YYYY-MM-DDThh:mm:ss.sssZ
     // 实际应用中可能需要更复杂的解析逻辑
@@ -378,12 +379,12 @@ err_t aDateTimeParseISO8601(StringView str, DateTime& dt)
     if (strlen(s) >= 19) {
         if (sscanf(s, "%04d-%02d-%02dT%02d:%02d:%lf", 
                    &year, &month, &day, &hour, &minute, &second) == 6) {
-            dt.year() = year;
-            dt.month() = month;
-            dt.day() = day;
-            dt.hour() = hour;
-            dt.minute() = minute;
-            dt.second() = second;
+            dttm.year() = year;
+            dttm.month() = month;
+            dttm.day() = day;
+            dttm.hour() = hour;
+            dttm.minute() = minute;
+            dttm.second() = second;
             return eNoError;
         }
     }
@@ -391,14 +392,14 @@ err_t aDateTimeParseISO8601(StringView str, DateTime& dt)
     return eErrorInvalidParam;
 }
 
-err_t aDateTimeParseRFC3339(StringView str, DateTime& dt)
+err_t aDateTimeParseRFC3339(StringView str, DateTime& dttm)
 {
     // RFC 3339格式与ISO 8601格式类似，可以复用解析逻辑
     // 这里简化实现，不处理时区部分
-    return aDateTimeParseISO8601(str, dt);
+    return aDateTimeParseISO8601(str, dttm);
 }
 
-err_t aDateTimeParseGregorian(StringView str, DateTime& dt)
+err_t aDateTimeParseGregorian(StringView str, DateTime& dttm)
 {
     // 解析格式：YYYY-MM-DD HH:mm:ss.sss
     const char* s = str.data();
@@ -407,19 +408,19 @@ err_t aDateTimeParseGregorian(StringView str, DateTime& dt)
     
     if (sscanf(s, "%04d-%02d-%02d %02d:%02d:%lf", 
                &year, &month, &day, &hour, &minute, &second) == 6) {
-        dt.year() = year;
-        dt.month() = month;
-        dt.day() = day;
-        dt.hour() = hour;
-        dt.minute() = minute;
-        dt.second() = second;
+        dttm.year() = year;
+        dttm.month() = month;
+        dttm.day() = day;
+        dttm.hour() = hour;
+        dttm.minute() = minute;
+        dttm.second() = second;
         return eNoError;
     }
     
     return eErrorInvalidParam;
 }
 
-err_t aDateTimeParseGregorianEn(StringView str, DateTime& dt)
+err_t aDateTimeParseGregorianEn(StringView str, DateTime& dttm)
 {
     // 解析格式：dd Mon YYYY HH:mm:ss.sss
     const char* s = str.data();
@@ -440,19 +441,19 @@ err_t aDateTimeParseGregorianEn(StringView str, DateTime& dt)
             }
         }
         
-        dt.year() = year;
-        dt.month() = month;
-        dt.day() = day;
-        dt.hour() = hour;
-        dt.minute() = minute;
-        dt.second() = second;
+        dttm.year() = year;
+        dttm.month() = month;
+        dttm.day() = day;
+        dttm.hour() = hour;
+        dttm.minute() = minute;
+        dttm.second() = second;
         return eNoError;
     }
     
     return eErrorInvalidParam;
 }
 
-err_t aDateTimeParseGMT(StringView str, DateTime& dt)
+err_t aDateTimeParseGMT(StringView str, DateTime& dttm)
 {
     // 解析格式：Day, dd Mon YYYY HH:mm:ss.sss GMT
     const char* s = str.data();
@@ -473,12 +474,12 @@ err_t aDateTimeParseGMT(StringView str, DateTime& dt)
             }
         }
         
-        dt.year() = year;
-        dt.month() = month;
-        dt.day() = day;
-        dt.hour() = hour;
-        dt.minute() = minute;
-        dt.second() = second;
+        dttm.year() = year;
+        dttm.month() = month;
+        dttm.day() = day;
+        dttm.hour() = hour;
+        dttm.minute() = minute;
+        dttm.second() = second;
         return eNoError;
     }
     
@@ -486,29 +487,29 @@ err_t aDateTimeParseGMT(StringView str, DateTime& dt)
 }
 
 
-err_t aDateTimeParseAny(StringView str, DateTime &dt)
+err_t aDateTimeParseAny(StringView str, DateTime &dttm)
 {
-    err_t ret = aDateTimeParseISO8601(str, dt);
+    err_t ret = aDateTimeParseISO8601(str, dttm);
     if (ret == eNoError) {
         return ret;
     }
     
-    ret = aDateTimeParseRFC3339(str, dt);
+    ret = aDateTimeParseRFC3339(str, dttm);
     if (ret == eNoError) {
         return ret;
     }
     
-    ret = aDateTimeParseGregorian(str, dt);
+    ret = aDateTimeParseGregorian(str, dttm);
     if (ret == eNoError) {
         return ret;
     }
     
-    ret = aDateTimeParseGregorianEn(str, dt);
+    ret = aDateTimeParseGregorianEn(str, dttm);
     if (ret == eNoError) {
         return ret;
     }
     
-    ret = aDateTimeParseGMT(str, dt);
+    ret = aDateTimeParseGMT(str, dttm);
     if (ret == eNoError) {
         return ret;
     }
@@ -516,39 +517,45 @@ err_t aDateTimeParseAny(StringView str, DateTime &dt)
     return eErrorInvalidParam;
 }
 
+DateTime DateTime::FromJD(const JulianDate &jd)
+{
+    DateTime dttm;
+    aJDToDateTime(jd, dttm);
+    return dttm;
+}
 
 // 静态方法实现
 DateTime DateTime::FromString(StringView str, StringView format)
 {
-    DateTime dt;
-    err_t err = aDateTimeParse(str, format, dt);
+    DateTime dttm;
+    err_t err = aDateTimeParse(str, format, dttm);
     if (err != eNoError) {
         // 如果解析失败
         aError("Failed to parse datetime string '%s' with format '%s'", str.data(), format.data());
     }
-    return dt;
+    return dttm;
 }
 
 DateTime DateTime::FromString(StringView str)
 {
     // 采用默认格式解析
-    DateTime dt;
-    err_t err = aDateTimeParseAny(str, dt);
+    DateTime dttm;
+    err_t err = aDateTimeParseAny(str, dttm);
     if(err != eNoError) {
         // 如果解析失败
         aError("Failed to parse datetime string '%s'", str.data());
     }
-    return dt;
+    return dttm;
 }
 
 DateTime DateTime::FromGregorian(StringView str)
 {
-    DateTime dt;
-    if (aDateTimeParseGregorian(str, dt) != eNoError) {
+    DateTime dttm;
+    if (aDateTimeParseGregorian(str, dttm) != eNoError) {
         // 如果解析失败，返回当前时间
-        aCurrentDateTimeLocal(dt);
+        aCurrentDateTimeLocal(dttm);
     }
-    return dt;
+    return dttm;
 }
 
 AST_NAMESPACE_END

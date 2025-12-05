@@ -22,7 +22,7 @@
 #include "Date.hpp"
 #include "AstUtil/Constants.h"
 #include <assert.h>
-#include <math.h>       // for floor
+#include <cmath>       // for floor
 
 
 AST_NAMESPACE_BEGIN
@@ -135,7 +135,7 @@ int aDayOfYear(const Date& date)
 int aDayOfWeek(const Date& date)
 {
 #if 1
-    int jd = aDateToJD(date);
+    int jd = aDateToJDAtNoon(date);
     return (jd + 1) % 7; // 0: Sunday, 1: Monday, ..., 6: Saturday
 #else
 	// 计算星期几（0=周日，1=周一，...，6=周六）
@@ -228,7 +228,7 @@ void aYDToDate(int year, int days, Date& date)
 
 
 
-int aDateToJD(const Date& date)
+int aDateToJDAtNoon(const Date& date)
 {
     int Y = date.year();
     int M = date.month();
@@ -243,7 +243,7 @@ int aDateToJD(const Date& date)
 }
 
 
-void aJDToDate(int J, Date& date)
+void aJDToDateAtNoon(int J, Date& date)
 {
 	int N = 4 * (J + 68569) / 146097;
 	int L1 = J + 68569 - ((N * 146097 + 3) / 4);
@@ -262,14 +262,32 @@ void aJDToDate(int J, Date& date)
     date.day() = day;
 }
 
+ImpreciseJD aDateToJD(const Date &date)
+{
+	return aDateToJDAtNoon(date) - 0.5;
+}
+
+void aJDToDate(ImpreciseJD jd, Date& date, double* secInDay)
+{
+	// 计算日期部分
+	int jdAtNoon = (int)floor(jd + 0.5);
+	aJDToDateAtNoon(jdAtNoon, date);
+
+	// 计算秒数部分
+	if (secInDay != nullptr) {
+		*secInDay = (jd - jdAtNoon) * 86400.0 + 43200.0;
+	}
+}
+
+
 int aDateToMJD(const Date& date)
 {
-    return aDateToJD(date) - 2400001;
+    return aDateToJDAtNoon(date) - 2400001;
 }
 
 void aMJDToDate(int mjd, Date& date)
 {
-    return aJDToDate(mjd + 2400001, date);
+    return aJDToDateAtNoon(mjd + 2400001, date);
 }
 
 
