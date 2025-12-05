@@ -33,7 +33,6 @@
 
 AST_NAMESPACE_BEGIN
 
-#define AST_LEAPSECOND_DEFAULT_FILE "Time/Leap_Second.dat"
 
 LeapSecond::LeapSecond()
 {
@@ -153,17 +152,6 @@ err_t LeapSecond::load(const char* filepath)
     return loadHPIERS(filepath);
 }
 
-err_t LeapSecond::loadDefault()
-{
-    fs::path datafile = fs::path(aDataDirGet()) / AST_LEAPSECOND_DEFAULT_FILE;
-    
-    err_t err = load(datafile.string().c_str());
-    if (err)
-    {
-        aWarning("failed to load leapsecond from default data file");
-    }
-    return err;
-}
 
 void LeapSecond::setDefaultData()
 {

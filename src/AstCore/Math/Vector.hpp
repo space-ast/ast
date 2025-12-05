@@ -66,6 +66,8 @@ public:
     static Self UnitX() {return Self{1,0,0}; }
     static Self UnitY() {return Self{0,1,0}; }
     static Self UnitZ() {return Self{0,0,1}; }
+    _Scalar at(size_t idx) const{return data()[idx]; }
+    _Scalar& at(size_t idx) {return data()[idx]; }
 
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:

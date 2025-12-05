@@ -45,12 +45,17 @@ public:
 };
 
 
-/// @brief 天+秒时长（也能解决长时长问题）
+/// @brief 整数天 + 小数秒时长（也能解决长时长问题）
 class DaySecDuration
 {
 public:
-    int    day_;            // 天数部分
-    double second_;         // 秒数部分
+    int day() const{return day_;}
+    int& day(){return day_;}
+    double second() const{return second_;}
+    double& second(){return second_;}
+public:
+    int    day_;            // 整数天部分
+    double second_;         // 描述秒部分
 };
 
  

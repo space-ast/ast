@@ -85,6 +85,25 @@ AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
 AST_CORE_CAPI double aLeapSecondUTCMJD(double mjdUTC);
 
 
+AST_CORE_CAPI err_t aJplDeGetPosVelICRF(
+    const TimePoint& time, 
+    int target, 
+    int referenceBody, 
+    Vector3d& pos,
+    Vector3d& vel
+);
+
+AST_CORE_CAPI err_t aJplDeGetPosICRF(
+    const TimePoint& time,
+    int target,
+    int referenceBody,
+    Vector3d& pos
+);
+
+AST_CORE_CAPI err_t aJplDeOpen(const char* filepath);
+
+AST_CORE_CAPI void aJplDeClose();
+
 
 AST_NAMESPACE_END
  

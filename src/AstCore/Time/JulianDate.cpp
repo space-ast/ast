@@ -43,7 +43,7 @@ void aMJDToJD(const ModJulianDate& mjd, JulianDate& jd)
 
 double aJDToMJD_Imprecise(const JulianDate& jd)
 {
-	return (jd.dayPart1() - kMJDRefEpoch) + jd.dayPart2();
+	return (jd.day() - kMJDRefEpoch) + jd.dayFractional();
 }
 
 
@@ -55,7 +55,7 @@ ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd)
 
 ImpreciseJD aMJDToJD_Imprecise(const ModJulianDate& mjd)
 {
-	return (mjd.dayPart1() + kMJDRefEpoch) + mjd.dayPart2();
+	return mjd.day() + (mjd.dayFractional() + kMJDRefEpoch);
 }
 
 
@@ -66,8 +66,8 @@ ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd)
 
 void aDateTimeToJD(const DateTime &dttm, JulianDate &jd)
 {
-	double day = dttm.date().toJD();
-	double sec = dttm.time().totalSecond();
+	int day = dttm.date().toJDAtNoon();
+	double sec = (dttm.time().hour() * 3600 + dttm.time().minute() * 60 - 43200) + dttm.time().second();
 	jd.setDaySecond(day, sec);
 }
 

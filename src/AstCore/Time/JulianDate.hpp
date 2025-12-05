@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "Duration.hpp"
  
 AST_NAMESPACE_BEGIN
 
@@ -80,15 +81,10 @@ public:
         return JulianDate::FromDaySecond(day, second);
     }
     /// @brief 根据天数和秒数创建儒略日对象
-    static JulianDate FromDaySecond(double day, double second){
+    static JulianDate FromDaySecond(int day, double second){
         return JulianDate{day, second};
     }
 
-    static JulianDate FromDayTwoPart(double dayp1, double dayp2){
-        double day = dayp1;
-        double second = dayp2 * 86400.0;
-        return JulianDate::FromDaySecond(day, second);
-    }
     static JulianDate FromDateTime(const DateTime& dttm)
     {
         JulianDate jd;
@@ -107,41 +103,27 @@ public:
         setDaySecond(day, second);
     }
 public:
-    double day() const{return day_;}
-    double& day(){return day_;}
+    int day() const{return day_;}
+    int& day(){return day_;}
     double second() const {return second_;}
     double& second(){return second_;}
     void setDay(double day){day_ = day;}
     void setSecond(double sec){second_ = sec;}
 
-    void getDaySecond(double& day, double& second) const{
+    void getDaySecond(int& day, double& second) const{
         day = day_;
         second = second_;
     }
-    void setDaySecond(double day, double second){
+    void setDaySecond(int day, double second){
         day_ = day;
         second_ = second;
     }
 public:
-    double dayPart1() const{
-        return day_;
-    }
-    void setDayPart1(double dp1){
-        day_ = dp1;
-    }
-    double dayPart2() const{
+    double dayFractional() const{
         return second_ / 86400.0;
     }
-    void setDayPart2(double dp2){
-        second_ = dp2 * 86400.0;
-    }
-    void getDayTwoPart(double& dayp1, double& dayp2) const{
-        dayp1 = day_;
-        dayp2 = second_ / 86400.0;
-    }
-    void setDayTwoPart(double dayp1, double dayp2){
-        day_ = dayp1;
-        second_ = dayp2 * 86400.0;
+    void setDayFractional(double df){
+        second_ = df * 86400.0;
     }
 public:
     JulianDate& operator += (double sec)
@@ -158,12 +140,16 @@ public:
     {
         return JulianDate{ *this } += sec;
     }
-    JulianDate operator -(double sec) const
+    JulianDate operator - (double sec) const
     {
         return JulianDate{ *this } -= sec;
     }
+    DaySecDuration operator - (const JulianDate& other) const
+    {
+        return {day() - other.day(), second() - other.second()};
+    }
 public:
-    double day_;     // 天数部分 day part of julian date
+    int    day_;     // 天数部分 day part of julian date
     double second_;  // 秒数部分 second part of julia date
 };
  

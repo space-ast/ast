@@ -25,6 +25,7 @@
 #include "AstCore/SolarSystem.hpp"
 #include "AstCore/EOP.hpp"
 #include "AstCore/LeapSecond.hpp"
+#include "AstCore/JplDe.hpp"
 #include "AstUtil/StringView.hpp"
 #include <string>
  
@@ -59,15 +60,19 @@ public:
 	/// @brief 设置数据目录
 	void setDataDir(StringView dir){m_dataDir = std::string(dir);}
 
+    const JplDe* jplDe() const {return &m_jplDe;}
+    JplDe* jplDe() {return &m_jplDe;}
+
 protected:
 	SolarSystem  			m_solarSystem;
 	EOP		    			m_eop;	
 	LeapSecond  			m_leapSecond;
+    JplDe                   m_jplDe;
     std::string     		m_dataDir;
 };
 
 
-
+constexpr size_t kSizeOfGlobalContext = sizeof(GlobalContext);
  
 AST_NAMESPACE_END
  
