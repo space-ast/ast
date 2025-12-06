@@ -18,7 +18,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
 #include "FileSystem.hpp"
-#include "Encode.hpp"
+#include "AstUtil/Encode.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
 
