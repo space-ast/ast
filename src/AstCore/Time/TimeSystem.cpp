@@ -21,6 +21,8 @@
 #include "AstCore/DateTime.hpp"
 #include "AstCore/JulianDate.hpp"
 #include "AstCore/RunTime.hpp"
+#include <math.h>
+
 
 AST_NAMESPACE_BEGIN
 

@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Math/MathOperator.hpp"
+#include "../../src/AstCore/Alias/MathOperator.hpp"

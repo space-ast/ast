@@ -20,7 +20,7 @@
  
 
 #include "SimpleFileSystem.hpp"
-#include "Encode.hpp"
+#include "AstUtil/Encode.hpp"
 #include "AstUtil/Logger.hpp"
 #include <algorithm>
 #include <cstring>

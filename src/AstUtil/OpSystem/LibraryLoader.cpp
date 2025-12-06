@@ -19,7 +19,7 @@
  
  
 #include "LibraryLoader.hpp"
-#include "Encode.hpp"
+#include "AstUtil/Encode.hpp"
 #include <stdio.h>
 #include <cstring>
 
