@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Attitude/AttitudeConvert.hpp"
+#include "../../src/AstCore/Alias/AttitudeConvert.hpp"

@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Attitude/Euler.hpp"
+#include "../../src/AstCore/Alias/Euler.hpp"
