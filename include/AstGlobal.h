@@ -84,8 +84,8 @@
 // AST 对象运行时元信息
 #define AST_OBJECT(TYPE) // @todo
 
-/// ast项目模块导出声明
 
+// ast项目核心模块导出声明
 #ifdef AST_BUILD_LIB_CORE
 #    define AST_CORE_API A_DECL_EXPORT
 #else
@@ -93,6 +93,7 @@
 #endif
 #define AST_CORE_CAPI A_DECL_EXTERN_C AST_CORE_API
 
+// ast项目优化模块导出声明
 #ifdef AST_BUILD_LIB_OPT
 #    define AST_OPT_API A_DECL_EXPORT
 #else
@@ -100,6 +101,15 @@
 #endif
 #define AST_OPT_CAPI  A_DECL_EXTERN_C AST_OPT_API
 
+// ast项目数学模块导出声明
+#ifdef AST_BUILD_LIB_MATH
+#    define AST_MATH_API A_DECL_EXPORT
+#else
+#    define AST_MATH_API A_DECL_IMPORT
+#endif
+#define AST_MATH_CAPI A_DECL_EXTERN_C AST_MATH_API
+
+// ast项目工具模块导出声明
 #ifdef AST_BUILD_LIB_UTIL
 #    define AST_UTIL_API A_DECL_EXPORT
 #else
@@ -107,6 +117,7 @@
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
+// ast项目模拟模块导出声明
 #ifdef AST_BUILD_LIB_MOCK
 #    define AST_MOCK_API A_DECL_EXPORT
 #else

@@ -58,6 +58,30 @@ task("cpdata")
     end)
 task_end()
 
+
+task("gitpush")
+    set_menu{
+        usage = "xmake gitpush",
+        description = "Push git repository"
+    }
+    on_run(function ()
+        os.exec("python " .. path.join(os.scriptdir(), "scripts/git_push_retry.py"))
+    end)
+task_end()
+
+
+task("genheader")
+    set_menu{
+        usage = "xmake genheader",
+        description = "Generate header file"
+    }
+    on_run(function ()
+        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_redirect_header.py"))
+    end)
+task_end()
+
+
+
 -- 导入打包配置
 includes("@builtin/xpack")
 if xpack then
