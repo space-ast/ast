@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 天体
-class CelestialBody : public Object
+class AST_CORE_API CelestialBody : public Object
 {
     AST_OBJECT(CelestialBody)
 public:
