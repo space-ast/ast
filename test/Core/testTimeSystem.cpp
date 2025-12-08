@@ -246,7 +246,7 @@ TEST(TimeSystem, TDBMinusTT)
     // 测试TDB与TT的差值计算
     
     // J2000.0时刻的差值
-    JulianDate jdJ2000{ kJ2000Epoch, 0 };
+    JulianDate jdJ2000{ (int)kJ2000Epoch, 0 };
     double diff = aTDBMinusTT(jdJ2000);
     
     // 验证差值应该很小

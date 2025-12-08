@@ -389,12 +389,31 @@ inline std::array<double, N> normalized(const double* vec)
     return retval;
 }
 
+// 定义向量特征：必须要有 size() 和 operator[]
+template<typename T>
+struct is_vector_like {
+private:
+    template<typename U>
+    static auto test(int) -> decltype(
+        std::declval<U>()[0],       // 有 operator[]
+        size(std::declval<U>()),    // 有 size() 函数
+        std::true_type{}
+    );
+    
+    template<typename>
+    static std::false_type test(...);
+    
+public:
+    static constexpr bool value = decltype(test<T>(0))::value;
+};
+
+
 /// + - * /
 
 #define _AST_DEF_OP_SV(OP)                                                   \
 template<typename Scalar, typename Vector>                                   \
 inline auto operator OP(Scalar scalar, const Vector& vec)                    \
--> typename std::enable_if<std::is_arithmetic<Scalar>::value && std::is_class<Vector>::value, Vector>::type  \
+-> typename std::enable_if<std::is_arithmetic<Scalar>::value && is_vector_like<Vector>::value, Vector>::type  \
 {                                                                            \
     Vector retval{ vec };                                                    \
     size_t s = size(vec);                                                    \
@@ -409,7 +428,7 @@ inline auto operator OP(Scalar scalar, const Vector& vec)                    \
 #define _AST_DEF_OP_VS(OP)                                                   \
 template<typename Vector, typename Scalar>                                   \
 inline auto operator OP(const Vector& vec, Scalar scalar)                    \
--> typename std::enable_if<std::is_arithmetic<Scalar>::value && std::is_class<Vector>::value, Vector>::type  \
+-> typename std::enable_if<std::is_arithmetic<Scalar>::value && is_vector_like<Vector>::value, Vector>::type  \
 {                                                                            \
     Vector retval{ vec };                                                    \
     size_t s = size(vec);                                                    \
@@ -424,7 +443,7 @@ inline auto operator OP(const Vector& vec, Scalar scalar)                    \
 #define _AST_DEF_OP_VV(OP)                                          \
 template<typename Vector1, typename Vector2>                        \
 inline auto operator OP(const Vector1& vec1, const Vector2& vec2)\
--> typename std::enable_if<std::is_class<Vector1>::value && std::is_class<Vector2>::value, Vector1>::type  \
+-> typename std::enable_if<is_vector_like<Vector1>::value && is_vector_like<Vector2>::value, Vector1>::type  \
 {                                                                   \
     assert(size(vec1) == size(vec2));                               \
     Vector1 retval{ vec1 };                                         \
