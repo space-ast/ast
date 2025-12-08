@@ -17,11 +17,12 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
 #include "AttitudeConvert.hpp"
-#include "AstCore/Matrix.hpp"
-#include "AstCore/Euler.hpp"
-#include "AstCore/Quaternion.hpp"
-#include "AstCore/Vector.hpp"
-#include "AstCore/MathOperator.hpp"
+#include "AstMath/Matrix.hpp"
+#include "AstMath/Euler.hpp"
+#include "AstMath/Quaternion.hpp"
+#include "AstMath/AngleAxis.hpp"
+#include "AstMath/Vector.hpp"
+#include "AstMath/MathOperator.hpp"
 #include "AstCore/Constants.h"
 #include "AstUtil/Logger.hpp"
 
@@ -598,8 +599,47 @@ void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler)
 	}
 }
 
+void aQuatToAngleAxis(const Quaternion& quat, AngleAxis& aa)
+{
+	aa.angle() = 2. * acos(quat.qs());
+	double b = sin(aa.angle_*0.5);
+	if(b)
+	{
+		aa.axis() = {quat.qx()/b, quat.qy()/b, quat.qz()/b};
+	}
+	else
+	{
+		aa.axis() = {0, 0, 0};
+	}
+}
 
-  
+void aAngleAxisToQuat(const AngleAxis &aa, Quaternion &quat)
+{
+	double half_angle = aa.angle() / 2.;
+	double sina = sin(half_angle);
+	double cosa = cos(half_angle);
+	quat = {
+		cosa,
+		aa.axis()[0] * sina,
+		aa.axis()[1] * sina,
+		aa.axis()[2] * sina,
+	};
+}
+
+void aAngleAxisToMatrix(const AngleAxis &aa, Matrix3d &mtx)
+{
+	Quaternion quat;
+	aAngleAxisToQuat(aa, quat);
+	aQuatToMatrix(quat, mtx);
+}
+
+void aMatrixToAngleAxis(const Matrix3d &mtx, AngleAxis &aa)
+{
+	Quaternion quat;
+	aMatrixToQuat(mtx, quat);
+	aQuatToAngleAxis(quat, aa);
+}
+
 AST_NAMESPACE_END
  
 

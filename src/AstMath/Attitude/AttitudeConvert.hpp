@@ -24,6 +24,8 @@
  
 AST_NAMESPACE_BEGIN
 
+class AngleAxis;
+
 /// @brief 四元数转矩阵
 /// @param quat 
 /// @param mtx 
@@ -80,9 +82,45 @@ AST_MATH_CAPI void aEuler232ToMatrix(const Euler& euler, Matrix3d& mtx);
 AST_MATH_CAPI void aEuler313ToMatrix(const Euler& euler, Matrix3d& mtx);
 AST_MATH_CAPI void aEuler323ToMatrix(const Euler& euler, Matrix3d& mtx);
 
-
+/// @brief 欧拉角转四元数
+/// @param euler 欧拉角
+/// @param seq 转序
+/// @param quat 四元数
+/// @return 
 AST_MATH_CAPI err_t aEulerToQuat(const Euler& euler, int seq, Quaternion& quat);
+
+/// @brief 四元数转欧拉角
+/// @param quat 四元数
+/// @param seq 转序
+/// @param euler 欧拉角
+/// @return 
 AST_MATH_CAPI err_t aQuatToEuler(const Quaternion& quat, int seq, Euler& euler);
+
+/// @brief 四元数转轴角
+/// @param quat 四元数
+/// @param aa 轴角
+AST_MATH_CAPI void aQuatToAngleAxis(const Quaternion& quat, AngleAxis& aa);
+
+
+
+/// @brief 轴角转四元数
+/// @param aa 轴角
+/// @param quat 四元数
+AST_MATH_CAPI void aAngleAxisToQuat(const AngleAxis& aa, Quaternion& quat);
+
+
+
+/// @brief 轴角转矩阵
+/// @param aa 轴角
+/// @param mtx 矩阵
+AST_MATH_CAPI void aAngleAxisToMatrix(const AngleAxis& aa, Matrix3d& mtx);
+
+
+
+/// @brief 矩阵转轴角
+/// @param mtx 矩阵
+/// @param aa 轴角
+AST_MATH_CAPI void aMatrixToAngleAxis(const Matrix3d& mtx, AngleAxis& aa);
 
 
 AST_NAMESPACE_END

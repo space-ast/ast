@@ -6,7 +6,7 @@ set_version("0.0.1", {build="%Y%m%d"})
 
 -- 编译选项：是否编译测试工程
 option("with_test")
-    set_default(false)
+    set_default(true)
 option_end()
 
 -- 设置c代码标准：c99， c++代码标准：c++11
@@ -29,6 +29,7 @@ end
 
 add_requires("openscenegraph", {shared = true, optional = true})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
+add_requires("eigen", {optional = true, headeronly = true})
 
 -- 导入子目录配置
 includes("thirdparty")

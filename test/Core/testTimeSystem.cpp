@@ -59,7 +59,7 @@ TEST(TimeSystem, Datetime_JulianDate)
 TEST(TimeSystem, TT_TAI)
 {
     {
-        JulianDate jdTT{ 2461015.000000000, 0 };
+        JulianDate jdTT{ 2461015, 0 };
         JulianDate jdTAI;
         aTTToTAI(jdTT, jdTAI);
         nothing();
