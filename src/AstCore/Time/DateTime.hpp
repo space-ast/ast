@@ -377,6 +377,12 @@ public:
     AST_CORE_API
     static DateTime FromJD(const JulianDate& jd);
 
+    /// @brief 从儒略日数创建日期时间对象
+    /// @param jd 儒略日数
+    /// @return DateTime 日期时间对象
+    A_ALWAYS_INLINE
+    static DateTime FromJulianDate(const JulianDate& jd){return FromJD(jd);}
+
     /// @brief 从字符串解析日期时间
     /// @param str 包含日期时间的字符串
     /// @param format 日期时间格式，参考strptime函数的格式规范

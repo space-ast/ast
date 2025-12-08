@@ -55,10 +55,18 @@ public:
 class DaySecDuration
 {
 public:
+    /// @brief 获取整数天部分
     int day() const{return day_;}
     int& day(){return day_;}
+
+    /// @brief 获取小数部分的秒数
     double second() const{return second_;}
     double& second(){return second_;}
+    /// @warning 
+    /// 注意：totalSecond() 方法返回的是一个不精确的double值，
+    /// 计算会引入舍入误差。且不考虑闰秒等因素。
+    /// @return 总秒数（整数天秒数 + 小数秒数）
+    double totalSecond() const{return day_ * 86400.0 + second_;}
 public:
     int    day_;            // 整数天部分
     double second_;         // 小数秒部分

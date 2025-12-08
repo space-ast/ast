@@ -394,7 +394,7 @@ inline std::array<double, N> normalized(const double* vec)
 #define _AST_DEF_OP_SV(OP)                                                   \
 template<typename Scalar, typename Vector>                                   \
 inline auto operator OP(Scalar scalar, const Vector& vec)                    \
--> typename std::enable_if<std::is_arithmetic<Scalar>::value, Vector>::type  \
+-> typename std::enable_if<std::is_arithmetic<Scalar>::value && std::is_class<Vector>::value, Vector>::type  \
 {                                                                            \
     Vector retval{ vec };                                                    \
     size_t s = size(vec);                                                    \
@@ -409,7 +409,7 @@ inline auto operator OP(Scalar scalar, const Vector& vec)                    \
 #define _AST_DEF_OP_VS(OP)                                                   \
 template<typename Vector, typename Scalar>                                   \
 inline auto operator OP(const Vector& vec, Scalar scalar)                    \
--> typename std::enable_if<std::is_arithmetic<Scalar>::value, Vector>::type  \
+-> typename std::enable_if<std::is_arithmetic<Scalar>::value && std::is_class<Vector>::value, Vector>::type  \
 {                                                                            \
     Vector retval{ vec };                                                    \
     size_t s = size(vec);                                                    \
@@ -424,7 +424,7 @@ inline auto operator OP(const Vector& vec, Scalar scalar)                    \
 #define _AST_DEF_OP_VV(OP)                                          \
 template<typename Vector1, typename Vector2>                        \
 inline auto operator OP(const Vector1& vec1, const Vector2& vec2)\
--> typename std::enable_if<!std::is_arithmetic<Vector1>::value && !std::is_arithmetic<Vector2>::value, Vector1>::type  \
+-> typename std::enable_if<std::is_class<Vector1>::value && std::is_class<Vector2>::value, Vector1>::type  \
 {                                                                   \
     assert(size(vec1) == size(vec2));                               \
     Vector1 retval{ vec1 };                                         \

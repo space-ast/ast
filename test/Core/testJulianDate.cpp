@@ -22,6 +22,7 @@
 #include "AstCore/Date.hpp"
 #include "AstTest/AstTestMacro.h"
 #include "AstUtil/Constants.h"
+#include "AstCore/ModJulianDate.hpp"
 #include <stdio.h>
 
 

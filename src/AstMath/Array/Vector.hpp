@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstMath/MathOperator.hpp"
 #include <stdlib.h>    // for malloc
  
 AST_NAMESPACE_BEGIN
@@ -68,7 +69,7 @@ public:
     static Self UnitZ() {return Self{0,0,1}; }
     _Scalar at(size_t idx) const{return data()[idx]; }
     _Scalar& at(size_t idx) {return data()[idx]; }
-
+    void normalize(){_ASTMATH normalize(*this);}
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化

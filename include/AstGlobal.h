@@ -174,6 +174,7 @@ class Type;
 class AbsTime;
 class TimePoint;
 class JulianDate;
+class ModJulianDate;
 
 class System;
 class Axes;
