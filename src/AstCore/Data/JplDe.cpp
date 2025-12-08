@@ -25,10 +25,10 @@
 #include "AstCore/JulianDate.hpp"
 #include "AstUtil/IO.hpp"       // for ast_fopen
 #include "AstUtil/Logger.hpp"   // for aError
-#include <assert.h>
-#include <mutex>
-#include <math.h>
-
+#include <assert.h>             // for assert
+#include <mutex>                // for std::mutex
+#include <math.h>               // for std::sin, std::cos, std::sqrt, etc.
+#include <memory>               // for std::unique_ptr
  
  
 AST_NAMESPACE_BEGIN
