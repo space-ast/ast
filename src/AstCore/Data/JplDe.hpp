@@ -21,8 +21,9 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <stdint.h>
-#include <stdio.h>
+#include <stdint.h>      // for uint32_t
+#include <stdio.h>       // for FILE
+#include <mutex>         // for std::mutex
  
 AST_NAMESPACE_BEGIN
 
@@ -93,21 +94,6 @@ public:
         Vector3d* vel
     );
 
-    /// @brief  获取对应时间点的目标天体在参考天体下的位置和速度
-    /// @details 位置向量和速度向量的参考系是参考天体为中心的ICRF系
-    /// @param  jdTT        - 儒略日(动力学时间)
-    /// @param  target      - 目标天体
-    /// @param  referenceBody- 参考天体
-    /// @param  pos         - 位置向量
-    /// @param  vel         - 速度向量
-    /// @retval             - 错误码
-    err_t getPosVelICRF_TT(
-        const JulianDate& jdTT,
-        EDataCode target,
-        EDataCode referenceBody,
-        Vector3d& pos,
-        Vector3d& vel
-    );
 
     /// @brief  获取对应时间点的目标天体在参考天体下的位置
     /// @details 位置向量的参考系是参考天体为中心的ICRF系
@@ -169,7 +155,7 @@ private:
 
     err_t         getState(const TimePoint& time, int dataid, double pos[], double vel[]);
     err_t         getState(const TimePoint& time, int datalist[11], double statelist[11][6]);
-public:
+protected:
     bool        m_IsSameEndian;        // 二进制文件与系统大小端是否一致
     uint32_t    m_EphemVerion{ 0 };    // De星历版本
     uint32_t    m_NumConstants;        // 文件的常量个数
@@ -183,6 +169,7 @@ public:
     double      m_EMMassRatio;         // 地球月球质量比
     FILE*       m_DeFile{ NULL };      // De二进制文件
     double**    m_DataBlocks{NULL};    // 星历数据块的内存缓存
+    std::mutex  m_DataBlockMutex;      // 数据块缓存互斥锁
 };
 
 

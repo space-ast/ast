@@ -60,6 +60,79 @@ TEST(JplDe, PosVel)
 
 }
 
+TEST(JplDe, IsOpenAndClose)
+{
+    JplDe jplDe;
+    // 初始状态应该是关闭的
+    EXPECT_FALSE(jplDe.isOpen());
+    
+    // 打开默认文件后应该是打开的
+    err_t err = jplDe.openDefault();
+    EXPECT_FALSE(err);
+    EXPECT_TRUE(jplDe.isOpen());
+    
+    // 关闭后应该是关闭的
+    jplDe.close();
+    EXPECT_FALSE(jplDe.isOpen());
+}
 
+TEST(JplDe, GetPosICRF)
+{
+    JplDe jplDe;
+    err_t err = jplDe.openDefault();
+    EXPECT_FALSE(err);
+    
+    auto time = TimePoint::FromUTC({2025, 12, 6, 4, 0, 0});
+    Vector3d pos;
+    
+    // 测试只获取位置的函数
+    err = jplDe.getPosICRF(time, JplDe::eEarth, JplDe::eSSBarycenter, pos);
+    EXPECT_FALSE(err);
+    
+    // 验证位置是否合理（可以使用与PosVel测试相同的预期值）
+    Vector3d expect_pos { 40340688655.266181945800781,    129187016414.9415588378906250,    56021612758.1787185668945313 };
+    for (int i = 0; i < 3; i++) {
+        EXPECT_NEAR(pos[i], expect_pos[i], 1e-1);
+    }
+}
+
+
+
+TEST(JplDe, GetNutation)
+{
+    JplDe jplDe;
+    err_t err = jplDe.openDefault();
+    EXPECT_FALSE(err);
+    
+    auto time = TimePoint::FromUTC({2025, 12, 6, 4, 0, 0});
+    double nutLong, nutObl;
+    
+    // 测试获取章动角的函数
+    err = jplDe.getNutation(time, nutLong, nutObl);
+    EXPECT_FALSE(err);
+    
+    // 章动角应该很小（弧度制）
+    EXPECT_TRUE(std::abs(nutLong) < 1e-3);
+    EXPECT_TRUE(std::abs(nutObl) < 1e-3);
+}
+
+TEST(JplDe, GetLibration)
+{
+    JplDe jplDe;
+    err_t err = jplDe.openDefault();
+    EXPECT_FALSE(err);
+    
+    auto time = TimePoint::FromUTC({2025, 12, 6, 4, 0, 0});
+    Vector3d ang, angRate;
+    
+    // 测试获取月面天平动的函数
+    err = jplDe.getLibration(time, ang, angRate);
+    EXPECT_FALSE(err);
+    
+    // 天平动角应该合理
+    // EXPECT_TRUE(std::abs(ang[0]) < 1e-2);   // 进动角应该很小
+    // EXPECT_TRUE(std::abs(ang[1]) < 1e-2);   // 章动角应该很小
+    // EXPECT_TRUE(std::abs(angRate[0]) < 1e-6); // 角速度应该很小
+}
 
 GTEST_MAIN()

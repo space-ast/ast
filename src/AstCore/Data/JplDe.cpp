@@ -23,7 +23,8 @@
 #include "AstCore/TimeSystem.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/JulianDate.hpp"
-#include "AstUtil/IO.hpp"
+#include "AstUtil/IO.hpp"       // for ast_fopen
+#include "AstUtil/Logger.hpp"   // for aError
 #include <assert.h>
 #include <mutex>
 #include <math.h>
@@ -201,19 +202,20 @@ int JplDe::readDataBlock(size_t idx)
     assert(idx < m_NumDataBlock && idx >= 0);
     if (m_DataBlocks && idx < m_NumDataBlock && idx >= 0)
     {
-        std::mutex& theMutex = *(std::mutex*)m_DataBlocks[-1];
-        std::lock_guard<std::mutex> _(theMutex);
-        auto& block = m_DataBlocks[idx];
-        if (block) {  // has data cache
+        std::lock_guard<std::mutex> _(m_DataBlockMutex);
+        if (m_DataBlocks[idx]) {  // has data cache
             return 0;
         }
-        block = new double[m_NumCoeff];
+        std::unique_ptr<double[]> block_ptr(new double[m_NumCoeff]);
+        auto block = block_ptr.get();
         if (fseek(m_DeFile, (idx + 2) * m_NumCoeff * sizeof(double), SEEK_SET))
             return JPL_EPH_READ_ERROR;
         if (fread(block, sizeof(double), (size_t)m_NumCoeff, m_DeFile) != (size_t)m_NumCoeff)
             return JPL_EPH_READ_ERROR;
         if (!m_IsSameEndian)
             swap_64_bit_val(block, m_NumCoeff);
+        ;
+        m_DataBlocks[idx] = block_ptr.release();  // 转移所有权到 m_DataBlocks[idx]
         return 0;
     }
     else {
@@ -245,9 +247,7 @@ void JplDe::close()
     }
     if (m_DataBlocks) {
         double* block = NULL;
-        m_DataBlocks--;
-        delete (std::mutex*)m_DataBlocks[0];
-        for (int i = 1; i <= m_NumDataBlock; i++) {
+        for (int i = 0; i < m_NumDataBlock; i++) {
             block = m_DataBlocks[i];
             if (block) {
                 delete[] block;
@@ -357,11 +357,8 @@ err_t JplDe::open(const char* fileName)
     }
 
     m_NumDataBlock = (m_EphemEnd - m_EphemStart) / m_EphemStep;
-    m_DataBlocks = new double* [m_NumDataBlock + 1]
-    {};
-    memset(m_DataBlocks, 0, sizeof(double*) * (m_NumDataBlock + 1));
-    m_DataBlocks[0] = (double*)new std::mutex();
-    m_DataBlocks++;
+    m_DataBlocks = new double* [m_NumDataBlock]{};
+    memset(m_DataBlocks, 0, sizeof(double*) * m_NumDataBlock);
     m_DeFile = file;
     return eNoError;
 fail:
@@ -372,18 +369,6 @@ fail:
     return eErrorInvalidFile;
 }
 
-
-err_t JplDe::getPosVelICRF_TT(
-    const JulianDate& jdTT,
-    EDataCode target,
-    EDataCode center,
-    Vector3d& pos,
-    Vector3d& vel
-) 
-{
-    double tdb_tt = aTDBMinusTT(jdTT);
-    return this->getPosVelICRF_TT(jdTT - tdb_tt, target, center, pos, vel);
-}
 
 err_t JplDe::getPosVelICRF(
     const TimePoint& time,
@@ -399,7 +384,7 @@ err_t JplDe::getPosVelICRF(
         // only interp Moon (geocenter)
         int rval = this->getState(time, eDeMoon, pos.data(), (double*)vel);
         if (rval) {
-            return false;
+            return rval;
         }
         if (ncent == eMoon) {
             for (int i = 0; i < 3u; ++i)
@@ -603,7 +588,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doubl
     if (ntarg > eDeTT_TDB)
     {
         /* Also protects against weird input errors */
-        printf("\n ntarg out of range, must <= eDeTT_TDB(14) \n");
+        aError("\n ntarg out of range, must <= eDeTT_TDB(14) \n");
         return JPL_EPH_INVALID_INDEX;
     }
     if (jed < m_EphemStart || jed >= m_EphemEnd)
@@ -698,7 +683,7 @@ err_t JplDe::getNutation(
     double val[2];
     int res = this->getState(time, eDeNutation, val, nullptr);
     nutLong = val[0];
-    nutLong = val[1];
+    nutObl = val[1];
     return res;
 }
 

@@ -30,7 +30,6 @@ class Date;
 class Time;
 class DateTime;
 
-typedef class JulianDate ModJulianDate;
 
 
 /// @brief 将儒略日转换为简约儒略日
