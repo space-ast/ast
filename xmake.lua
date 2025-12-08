@@ -6,7 +6,7 @@ set_version("0.0.1", {build="%Y%m%d"})
 
 -- 编译选项：是否编译测试工程
 option("with_test")
-    set_default(false)
+    set_default(true)
 option_end()
 
 -- 设置c代码标准：c99， c++代码标准：c++11
@@ -29,6 +29,7 @@ end
 
 add_requires("openscenegraph", {shared = true, optional = true})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
+add_requires("eigen", {optional = true, headeronly = true})
 
 -- 导入子目录配置
 includes("thirdparty")
@@ -57,6 +58,30 @@ task("cpdata")
         end
     end)
 task_end()
+
+
+task("gitpush")
+    set_menu{
+        usage = "xmake gitpush",
+        description = "Push git repository"
+    }
+    on_run(function ()
+        os.exec("python " .. path.join(os.scriptdir(), "scripts/git_push_retry.py"))
+    end)
+task_end()
+
+
+task("genheader")
+    set_menu{
+        usage = "xmake genheader",
+        description = "Generate header file"
+    }
+    on_run(function ()
+        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_redirect_header.py"))
+    end)
+task_end()
+
+
 
 -- 导入打包配置
 includes("@builtin/xpack")

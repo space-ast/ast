@@ -27,7 +27,7 @@
 #include <array>
 #include <stdio.h>
 
-
+using namespace _AST math;
 
 TEST(MathOperatorTest, VectorFunction)
 {

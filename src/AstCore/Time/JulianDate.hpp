@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "Duration.hpp"
  
 AST_NAMESPACE_BEGIN
 
@@ -29,7 +30,6 @@ class Date;
 class Time;
 class DateTime;
 
-typedef class JulianDate ModJulianDate;
 
 
 /// @brief 将儒略日转换为简约儒略日
@@ -60,6 +60,13 @@ AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(const ModJulianDate& mjd);
 AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd);
 
 
+/// @brief 将日期时间转换为儒略日
+AST_CORE_CAPI void aDateTimeToJD(const DateTime& dttm, JulianDate& jd);
+
+
+/// @brief 将儒略日转换为日期时间
+AST_CORE_CAPI void aJDToDateTime(const JulianDate& jd, DateTime& dttm);
+
 
 /// @brief 儒略日
 /// @details 儒略日（Julian Date）是一种用于表示时间的方法，常用于天文学和计算机科学中。
@@ -73,16 +80,16 @@ public:
         return JulianDate::FromDaySecond(day, second);
     }
     /// @brief 根据天数和秒数创建儒略日对象
-    static JulianDate FromDaySecond(double day, double second){
+    static JulianDate FromDaySecond(int day, double second){
         return JulianDate{day, second};
     }
-
-    static JulianDate FromDayTwoPart(double dayp1, double dayp2){
-        double day = dayp1;
-        double second = dayp2 * 86400.0;
-        return JulianDate::FromDaySecond(day, second);
+    /// @brief 根据日期时间创建儒略日对象
+    static JulianDate FromDateTime(const DateTime& dttm)
+    {
+        JulianDate jd;
+        aDateTimeToJD(dttm, jd);
+        return jd;
     }
-
 public:
     /// @brief 获取不精确的天数
     /// @return 不精确的天数
@@ -95,44 +102,57 @@ public:
         setDaySecond(day, second);
     }
 public:
-    double day() const{return day_;}
-    double& day(){return day_;}
+    int day() const{return day_;}
+    int& day(){return day_;}
     double second() const {return second_;}
     double& second(){return second_;}
     void setDay(double day){day_ = day;}
     void setSecond(double sec){second_ = sec;}
 
-    void getDaySecond(double& day, double& second) const{
+    /// @brief 获取天数和秒数
+    void getDaySecond(int& day, double& second) const{
         day = day_;
         second = second_;
     }
-    void setDaySecond(double day, double second){
+    /// @brief 设置天数和秒数
+    void setDaySecond(int day, double second){
         day_ = day;
         second_ = second;
     }
 public:
-    double dayPart1() const{
-        return day_;
-    }
-    void setDayPart1(double dp1){
-        day_ = dp1;
-    }
-    double dayPart2() const{
+    /// @brief 获取小数部分的日数
+    double dayFractional() const{
         return second_ / 86400.0;
     }
-    void setDayPart2(double dp2){
-        second_ = dp2 * 86400.0;
-    }
-    void getDayTwoPart(double& dayp1, double& dayp2) const{
-        dayp1 = day_;
-        dayp2 = second_ / 86400.0;
-    }
-    void setDayTwoPart(double dayp1, double dayp2){
-        day_ = dayp1;
-        second_ = dayp2 * 86400.0;
+    /// @brief 设置小数部分的日数
+    void setDayFractional(double df){
+        second_ = df * 86400.0;
     }
 public:
-    double day_;     // 天数部分 day part of julian date
+    JulianDate& operator += (double sec)
+    {
+        this->second() += sec;  // 适用于任何时间尺度，包括考核闰秒的和不考虑闰秒的
+        return *this;
+    }
+    JulianDate& operator -= (double sec)
+    {
+        this->second() -= sec;  // 适用于任何时间尺度，包括考核闰秒的和不考虑闰秒的
+        return *this;
+    }
+    JulianDate operator + (double sec) const
+    {
+        return JulianDate{ *this } += sec;
+    }
+    JulianDate operator - (double sec) const
+    {
+        return JulianDate{ *this } -= sec;
+    }
+    DaySecDuration operator - (const JulianDate& other) const
+    {
+        return {day() - other.day(), second() - other.second()};
+    }
+public:
+    int    day_;     // 天数部分 day part of julian date
     double second_;  // 秒数部分 second part of julia date
 };
  

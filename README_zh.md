@@ -153,6 +153,7 @@ ast项目的开发参考和使用了很多资料与工具，感谢所有开源�
 - [PyKEP](https://esa.github.io/pykep/): 欧洲空间局的航天动力学Python库，专注于轨道优化
 - [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
 - [GNU Octave](https://octave.org/): 开源数值计算软件，提供与MATLAB兼容的语法
+- [Hipparchus](https://hipparchus.org/): 一个Java数学库，提供了丰富的数学函数和算法
 - [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
 - [Python](https://www.python.org/): 流行的通用编程语言，在科学计算领域广泛应用
 

@@ -76,10 +76,20 @@ AST_CORE_CAPI void aDateNormalize(Date& date);
 
 
 /// @brief 将日期转换为当天中午12点的儒略日数
-AST_CORE_CAPI int aDateToJD(const Date& date);
+AST_CORE_CAPI int aDateToJDAtNoon(const Date& date);
 
 /// @brief 将当天中午12点的儒略日数转换为当天日期
-AST_CORE_CAPI void aJDToDate(int jd, Date& date);
+AST_CORE_CAPI void aJDToDateAtNoon(int jd, Date& date);
+
+/// @brief 将日期转换为当天00:00的儒略日数
+AST_CORE_CAPI ImpreciseJD aDateToJD(const Date& date);
+
+/// @brief 将儒略日数转换为当天日期
+/// @param jd 当天00:00的儒略日数
+/// @param date 日期对象
+/// @param secInDay 可选参数，用于返回当天00:00后的秒数
+AST_CORE_CAPI void aJDToDate(ImpreciseJD jd, Date& date, double* secInDay=nullptr);
+
 
 /// @brief 将日期转换为当天00:00的简约儒略日
 AST_CORE_CAPI int aDateToMJD(const Date& date);
@@ -107,9 +117,9 @@ public:
 
 public:
     /// @brief 根据儒略日数创建日期对象
-    static Date FromJD(int jd){
+    static Date FromJDAtNoon(int jd){
         Date date;
-        aJDToDate(jd, date);
+        aJDToDateAtNoon(jd, date);
         return date;
     }
     
@@ -136,9 +146,11 @@ public:
     void setMonth(int month){month_ = month;}
     void setDay(int day){day_ = day;}
 public:
+    /// @brief 获取月份的完整英文名称
     const char* monthFullName() const{
         return aMoonFullName(month_);
     }
+    /// @brief 获取月份的简写英文名称
     const char* monthShortName() const{
         return aMoonShortName(month_);
     }
@@ -172,13 +184,22 @@ public:
     }
 
     /// @brief 将日期转换为儒略日数
-    int toJD() const{
+    int toJDAtNoon() const{
+        return aDateToJDAtNoon(*this);
+    }
+    /// @brief 将日期转换为当天00:00的儒略日数
+    double toJD() const{
         return aDateToJD(*this);
     }
+    
+    /// @brief 将日期转换为当天00:00的简约儒略日数
+    double toMJD() const{
+        return aDateToMJD(*this);
+    }
 
-    /// @brief 将儒略日数转换为日期
-    void fromJD(int jd){
-        aJDToDate(jd, *this);
+    /// @brief 将当天中午12点的儒略日数转换为日期
+    void fromJDAtNoon(int jd){
+        aJDToDateAtNoon(jd, *this);
     }
     /// @brief 将年份、月份、日期转换为日期
     void fromYMD(int year, int month, int day){

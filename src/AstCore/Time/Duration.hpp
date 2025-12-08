@@ -30,7 +30,8 @@ AST_NAMESPACE_BEGIN
 class ShorDuration
 {
 public:
-    
+    double second() const{return second_;}
+    double& second(){return second_;}
 public:
     double second_;         // 秒数
 };
@@ -40,17 +41,35 @@ public:
 class LongDuration
 {
 public:
+    int64_t integer() const{return integer_;}
+    int64_t& integer(){return integer_;}
+    double fractional() const{return fractional_;}
+    double& fractional(){return fractional_;}
+public:
     int64_t integer_;       // 整数秒部分
     double  fractional_;    // 小数秒部分
 };
 
 
-/// @brief 天+秒时长（也能解决长时长问题）
+/// @brief 整数天 + 小数秒时长（也能解决长时长问题）
 class DaySecDuration
 {
 public:
-    int    day_;            // 天数部分
-    double second_;         // 秒数部分
+    /// @brief 获取整数天部分
+    int day() const{return day_;}
+    int& day(){return day_;}
+
+    /// @brief 获取小数部分的秒数
+    double second() const{return second_;}
+    double& second(){return second_;}
+    /// @warning 
+    /// 注意：totalSecond() 方法返回的是一个不精确的double值，
+    /// 计算会引入舍入误差。且不考虑闰秒等因素。
+    /// @return 总秒数（整数天秒数 + 小数秒数）
+    double totalSecond() const{return day_ * 86400.0 + second_;}
+public:
+    int    day_;            // 整数天部分
+    double second_;         // 小数秒部分
 };
 
  

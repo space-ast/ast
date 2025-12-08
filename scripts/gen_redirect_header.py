@@ -42,7 +42,7 @@ def clean_header(incroot):
             if lines>2:
                 continue
             res = content.split('"')
-            if len(res) == 2 or len(res) == 3 and res[2] == "\n":
+            if len(res) == 2 or len(res) == 3 and res[2] in ["\n", ""]:
                 relpath = res[1]
                 dstpath = os.path.join(root, relpath)
                 if not os.path.exists(dstpath):
@@ -50,16 +50,18 @@ def clean_header(incroot):
                     os.remove(filepath)
 
 if __name__ == "__main__":
-    
-    rootdir = os.path.dirname(__file__)
-    rootdir = os.path.dirname(rootdir)
-    print("rootdir", rootdir) 
-    os.chdir(rootdir)
-    incroot = os.path.join(rootdir, "include")
-    clean_header(incroot)
-    for module in ["src"]:
-        srcroot = os.path.join(rootdir, module)
-        gen_module_header(srcroot, incroot)
+    try:
+        rootdir = os.path.dirname(__file__)
+        rootdir = os.path.dirname(rootdir)
+        print("rootdir", rootdir) 
+        os.chdir(rootdir)
+        incroot = os.path.join(rootdir, "include")
+        clean_header(incroot)
+        for module in ["src"]:
+            srcroot = os.path.join(rootdir, module)
+            gen_module_header(srcroot, incroot)
+    except:
+        traceback.print_exc()
 
 
 

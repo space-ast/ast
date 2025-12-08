@@ -23,6 +23,9 @@
 #include "AstGlobal.h"
 #include "Duration.hpp"             // for LongDuration
 #include "AstCore/Constants.h"      // for kJ2000XXXX
+#include "AstCore/Constants.h"
+#include "AstCore/JulianDate.hpp"    
+#include "AstCore/DateTime.hpp"
 #include <stdint.h>                 // for int64_t
 
 AST_NAMESPACE_BEGIN
@@ -38,12 +41,81 @@ class TDBScale;
 class TTScale;
 class UTCScale;
 
+class TimePoint;
+
+/// @brief 将时间点转换为儒略日数（UTC）
+AST_CORE_API void aTimePointToUTC(const TimePoint& time, JulianDate& jdUTC);
+
+/// @brief 将时间点转换为儒略日数（地球时TT）
+AST_CORE_API void aTimePointToTT(const TimePoint& time, JulianDate& jdTT);
+
+/// @brief 将时间点转换为儒略日数（质心动力学时TDB）
+AST_CORE_API void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB);
+
+/// @brief 将时间点转换为儒略日数（原子时 TAI）
+AST_CORE_API void aTimePointToTAI(const TimePoint& time, JulianDate& jdTAI);
+
+/// @brief 将时间点转换为日期时间（UTC）
+AST_CORE_API void aTimePointToUTC(const TimePoint& time, DateTime& dttmUTC);
+
+/// @brief 将时间点转换为日期时间（地球时TT）
+AST_CORE_API void aTimePointToTT(const TimePoint& time, DateTime& dttmTT);
+
+/// @brief 将时间点转换为日期时间（质心动力学时TDB）
+AST_CORE_API void aTimePointToTDB(const TimePoint& time, DateTime& dttmTDB);
+
+/// @brief 将时间点转换为日期时间（原子时 TAI）
+AST_CORE_API void aTimePointToTAI(const TimePoint& time, DateTime& dttmTAI);
 
 /// @brief 绝对时间点
 class TimePoint
 {
 public:
-    
+    AST_CORE_API
+    static TimePoint FromUTC(const DateTime& dttmUTC);
+
+    AST_CORE_API 
+    static TimePoint FromTAI(const JulianDate& jdTAI);
+protected:
+    static TimePoint FromIntegerFractional(int64_t integer, double fractional);
+public:
+    /// @brief 时间点的整数秒数部分
+    int64_t integerPart() const { return duration_.integer_; }
+
+    /// @brief 时间点的小数秒数部分
+    double fractionalPart() const { return duration_.fractional_; }
+public:
+    /// @brief 将时间点转换为儒略日数（地球时TT）
+    void toTT(JulianDate& jdTT) const{
+        aTimePointToTT(*this, jdTT);
+    }
+    /// @brief 将时间点转换为儒略日数（地球时TT）
+    JulianDate toTT() const{
+        JulianDate jdTT;
+        toTT(jdTT);
+        return jdTT;
+    }
+    /// @brief 将时间点转换为儒略日数（质心动力学时TDB）
+    void toTDB(JulianDate& jdTDB) const{
+        aTimePointToTDB(*this, jdTDB);
+    }
+    /// @brief 将时间点转换为儒略日数（质心动力学时TDB）
+    JulianDate toTDB() const{
+        JulianDate jdTDB;
+        toTDB(jdTDB);
+        return jdTDB;
+    }
+    /// @brief 将时间点转换为儒略日数（原子时 TAI）
+    void toTAI(JulianDate& jdTAI) const{
+        aTimePointToTAI(*this, jdTAI);
+    }
+    /// @brief 将时间点转换为儒略日数（原子时 TAI）
+    JulianDate toTAI() const{
+        JulianDate jdTAI;
+        toTAI(jdTAI);
+        return jdTAI;
+    }
+
 public:
     LongDuration    duration_;
 };

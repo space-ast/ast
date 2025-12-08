@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Attitude/Quaternion.hpp"
+#include "../../src/AstCore/Alias/Quaternion.hpp"

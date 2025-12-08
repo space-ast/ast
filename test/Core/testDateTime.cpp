@@ -31,63 +31,63 @@ TEST(DateTime, BasicConstructor)
     
     aInitialize();
     // 测试默认构造
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45.5;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45.5;
     
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
-    EXPECT_EQ(dt.hour(), 10);
-    EXPECT_EQ(dt.minute(), 30);
-    EXPECT_DOUBLE_EQ(dt.second(), 45.5);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
+    EXPECT_EQ(dttm.hour(), 10);
+    EXPECT_EQ(dttm.minute(), 30);
+    EXPECT_DOUBLE_EQ(dttm.second(), 45.5);
     
     // 测试直接访问date_和time_成员
-    EXPECT_EQ(dt.date_.year(), 2023);
-    EXPECT_EQ(dt.time_.hour(), 10);
+    EXPECT_EQ(dttm.date_.year(), 2023);
+    EXPECT_EQ(dttm.time_.hour(), 10);
 }
 
 TEST(DateTime, Accessors) 
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.setYear(2024);
-    dt.setMonth(2);
-    dt.setDay(29);  // 闰年
-    dt.setHour(23);
-    dt.setMinute(59);
-    dt.setSecond(59.999);
+    DateTime dttm;
+    dttm.setYear(2024);
+    dttm.setMonth(2);
+    dttm.setDay(29);  // 闰年
+    dttm.setHour(23);
+    dttm.setMinute(59);
+    dttm.setSecond(59.999);
     
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 2);
-    EXPECT_EQ(dt.day(), 29);
-    EXPECT_EQ(dt.hour(), 23);
-    EXPECT_EQ(dt.minute(), 59);
-    EXPECT_DOUBLE_EQ(dt.second(), 59.999);
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 2);
+    EXPECT_EQ(dttm.day(), 29);
+    EXPECT_EQ(dttm.hour(), 23);
+    EXPECT_EQ(dttm.minute(), 59);
+    EXPECT_DOUBLE_EQ(dttm.second(), 59.999);
     
     // 测试getter返回引用
-    dt.year() = 2025;
-    dt.month() = 11;
-    dt.day() = 21;
+    dttm.year() = 2025;
+    dttm.month() = 11;
+    dttm.day() = 21;
     
-    EXPECT_EQ(dt.year(), 2025);
-    EXPECT_EQ(dt.month(), 11);
-    EXPECT_EQ(dt.day(), 21);
+    EXPECT_EQ(dttm.year(), 2025);
+    EXPECT_EQ(dttm.month(), 11);
+    EXPECT_EQ(dttm.day(), 21);
     
     // 测试date()和time()方法
-    Date& date = dt.date();
-    Time& time = dt.time();
+    Date& date = dttm.date();
+    Time& time = dttm.time();
     
     date.year() = 2026;
     time.hour() = 12;
     
-    EXPECT_EQ(dt.year(), 2026);
-    EXPECT_EQ(dt.hour(), 12);
+    EXPECT_EQ(dttm.year(), 2026);
+    EXPECT_EQ(dttm.hour(), 12);
 }
 
 TEST(DateTime, Normalize) 
@@ -95,23 +95,23 @@ TEST(DateTime, Normalize)
     AST_USING_NAMESPACE
     
     // 测试基本规范化
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 13;  // 无效月份
-    dt.day() = 32;    // 无效日期
-    dt.hour() = 25;   // 无效小时
-    dt.minute() = 61; // 无效分钟
-    dt.second() = 62; // 无效秒
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 13;  // 无效月份
+    dttm.day() = 32;    // 无效日期
+    dttm.hour() = 25;   // 无效小时
+    dttm.minute() = 61; // 无效分钟
+    dttm.second() = 62; // 无效秒
     
-    dt.normalize();
+    dttm.normalize();
     
     // 预期结果: 2024-02-02 02:02:02
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 2);
-    EXPECT_EQ(dt.day(), 2);
-    EXPECT_EQ(dt.hour(), 2);
-    EXPECT_EQ(dt.minute(), 2);
-    EXPECT_DOUBLE_EQ(dt.second(), 2);
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 2);
+    EXPECT_EQ(dttm.day(), 2);
+    EXPECT_EQ(dttm.hour(), 2);
+    EXPECT_EQ(dttm.minute(), 2);
+    EXPECT_DOUBLE_EQ(dttm.second(), 2);
     
     // 测试normalized()返回新对象
     DateTime dt2;
@@ -146,40 +146,40 @@ TEST(DateTime, FromString)
     AST_USING_NAMESPACE
     
     // 测试默认格式的字符串解析
-    DateTime dt = DateTime::FromString("2023-12-25 10:30:45");
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
-    EXPECT_EQ(dt.hour(), 10);
-    EXPECT_EQ(dt.minute(), 30);
-    EXPECT_DOUBLE_EQ(dt.second(), 45);
+    DateTime dttm = DateTime::FromString("2023-12-25 10:30:45");
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
+    EXPECT_EQ(dttm.hour(), 10);
+    EXPECT_EQ(dttm.minute(), 30);
+    EXPECT_DOUBLE_EQ(dttm.second(), 45);
 
     // 测试指定格式的字符串解析
-    dt = DateTime::FromString("2025-11-21 12:34:56", "%Y-%m-%d %H:%M:%S");
-    EXPECT_EQ(dt.year(), 2025);
-    EXPECT_EQ(dt.month(), 11);
-    EXPECT_EQ(dt.day(), 21);
-    EXPECT_EQ(dt.hour(), 12);
-    EXPECT_EQ(dt.minute(), 34);
-    EXPECT_DOUBLE_EQ(dt.second(), 56);
+    dttm = DateTime::FromString("2025-11-21 12:34:56", "%Y-%m-%d %H:%M:%S");
+    EXPECT_EQ(dttm.year(), 2025);
+    EXPECT_EQ(dttm.month(), 11);
+    EXPECT_EQ(dttm.day(), 21);
+    EXPECT_EQ(dttm.hour(), 12);
+    EXPECT_EQ(dttm.minute(), 34);
+    EXPECT_DOUBLE_EQ(dttm.second(), 56);
 
     // 测试指定格式的字符串解析
-    dt = DateTime::FromString("25/12/2023 10:30:45", "%d/%m/%Y %H:%M:%S");
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
-    EXPECT_EQ(dt.hour(), 10);
-    EXPECT_EQ(dt.minute(), 30);
-    EXPECT_DOUBLE_EQ(dt.second(), 45);
+    dttm = DateTime::FromString("25/12/2023 10:30:45", "%d/%m/%Y %H:%M:%S");
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
+    EXPECT_EQ(dttm.hour(), 10);
+    EXPECT_EQ(dttm.minute(), 30);
+    EXPECT_DOUBLE_EQ(dttm.second(), 45);
     
     // 测试FromGregorian方法
-    dt = DateTime::FromGregorian("2024-02-29 23:59:59");
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 2);
-    EXPECT_EQ(dt.day(), 29);
-    EXPECT_EQ(dt.hour(), 23);
-    EXPECT_EQ(dt.minute(), 59);
-    EXPECT_DOUBLE_EQ(dt.second(), 59);
+    dttm = DateTime::FromGregorian("2024-02-29 23:59:59");
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 2);
+    EXPECT_EQ(dttm.day(), 29);
+    EXPECT_EQ(dttm.hour(), 23);
+    EXPECT_EQ(dttm.minute(), 59);
+    EXPECT_DOUBLE_EQ(dttm.second(), 59);
 }
 
 TEST(DateTime, CurrentDateTime) 
@@ -212,45 +212,45 @@ TEST(DateTime, Formatting)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45.5;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45.5;
     
     std::string str;
     
     // 测试格里高利历格式
-    err_t err = aDateTimeFormatGregorian(dt, str);
+    err_t err = aDateTimeFormatGregorian(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023-12-25") != std::string::npos);
     EXPECT_TRUE(str.find("10:30:45") != std::string::npos);
     
     // 测试格里高利历格式（英文）
-err = aDateTimeFormatGregorianEn(dt, str);
+err = aDateTimeFormatGregorianEn(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("25 Dec 2023") != std::string::npos);
     
     // 测试GMT格式
-    err = aDateTimeFormatGMT(dt, str);
+    err = aDateTimeFormatGMT(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023") != std::string::npos);
     EXPECT_TRUE(str.find("GMT") != std::string::npos);
     
     // 测试ISO 8601格式
-    err = aDateTimeFormatISO8601(dt, str);
+    err = aDateTimeFormatISO8601(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023-12-25T") != std::string::npos);
     
     // 测试ISO别名
-    err = aDateTimeFormatISO(dt, str);
+    err = aDateTimeFormatISO(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023-12-25T") != std::string::npos);
     
     // 测试RFC 3339格式
-    err = aDateTimeFormatRFC3339(dt, str);
+    err = aDateTimeFormatRFC3339(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023-12-25") != std::string::npos);
 }
@@ -259,96 +259,96 @@ TEST(DateTime, Parsing)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
+    DateTime dttm;
     
     // 测试解析ISO 8601格式
-    err_t err = aDateTimeParseISO8601("2023-12-25T10:30:45Z", dt);
+    err_t err = aDateTimeParseISO8601("2023-12-25T10:30:45Z", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
-    EXPECT_EQ(dt.hour(), 10);
-    EXPECT_EQ(dt.minute(), 30);
-    EXPECT_DOUBLE_EQ(dt.second(), 45);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
+    EXPECT_EQ(dttm.hour(), 10);
+    EXPECT_EQ(dttm.minute(), 30);
+    EXPECT_DOUBLE_EQ(dttm.second(), 45);
     
     // 测试解析ISO别名
-    err = aDateTimeParseISO("2023-12-25T10:30:45Z", dt);
+    err = aDateTimeParseISO("2023-12-25T10:30:45Z", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
+    EXPECT_EQ(dttm.year(), 2023);
     
     // 测试解析RFC 3339格式
-    err = aDateTimeParseRFC3339("2023-12-25T10:30:45+08:00", dt);
+    err = aDateTimeParseRFC3339("2023-12-25T10:30:45+08:00", dttm);
     EXPECT_EQ(err, eNoError);
     
     // 测试解析格里高利历格式
-    err = aDateTimeParseGregorian("2023-12-25 10:30:45", dt);
+    err = aDateTimeParseGregorian("2023-12-25 10:30:45", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
     
     // 测试解析格里高利历格式（英文）
-    err = aDateTimeParseGregorianEn("25 Dec 2023 10:30:45", dt);
+    err = aDateTimeParseGregorianEn("25 Dec 2023 10:30:45", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
     
     // 测试解析GMT格式
-    err = aDateTimeParseGMT("Mon, 25 Dec 2023 10:30:45 GMT", dt);
+    err = aDateTimeParseGMT("Mon, 25 Dec 2023 10:30:45 GMT", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
 }
 
 TEST(DateTime, AddFunctions) 
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45;
     
     // 测试增加年
-    DateTime dt2 = dt;
+    DateTime dt2 = dttm;
     aDateTimeAddYears(dt2, 1);
     EXPECT_EQ(dt2.year(), 2024);
     EXPECT_EQ(dt2.month(), 12);
     EXPECT_EQ(dt2.day(), 25);
     
     // 测试增加月
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddMonths(dt2, 2);
     EXPECT_EQ(dt2.year(), 2024);
     EXPECT_EQ(dt2.month(), 2);
     EXPECT_EQ(dt2.day(), 25);
     
     // 测试增加日
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddDays(dt2, 7);
     EXPECT_EQ(dt2.year(), 2024);
     EXPECT_EQ(dt2.month(), 1);
     EXPECT_EQ(dt2.day(), 1);
     
     // 测试增加小时
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddHours(dt2, 14);
     EXPECT_EQ(dt2.hour(), 0);
     EXPECT_EQ(dt2.day(), 26);
     
     // 测试增加分钟
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddMinutes(dt2, 40);
     EXPECT_EQ(dt2.minute(), 10);
     EXPECT_EQ(dt2.hour(), 11);
     
     // 测试增加秒
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddSeconds(dt2, 20.5);
     EXPECT_DOUBLE_EQ(dt2.second(), 5.5);
     EXPECT_EQ(dt2.minute(), 31);
@@ -359,40 +359,40 @@ TEST(DateTime, EdgeCases)
     AST_USING_NAMESPACE
     
     // 测试闰年边界
-    DateTime dt;
-    dt.year() = 2024;
-    dt.month() = 2;
-    dt.day() = 29;  // 闰年2月29日
-    dt.hour() = 23;
-    dt.minute() = 59;
-    dt.second() = 59;
+    DateTime dttm;
+    dttm.year() = 2024;
+    dttm.month() = 2;
+    dttm.day() = 29;  // 闰年2月29日
+    dttm.hour() = 23;
+    dttm.minute() = 59;
+    dttm.second() = 59;
     
-    aDateTimeAddDays(dt, 1);
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 3);
-    EXPECT_EQ(dt.day(), 1);
+    aDateTimeAddDays(dttm, 1);
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 3);
+    EXPECT_EQ(dttm.day(), 1);
     
     // 测试时区枚举
     EXPECT_EQ(DateTime::eUTC, 0);
     EXPECT_EQ(DateTime::eBJT, 8);
     
     // 测试负数年份
-    dt.year() = -45;
-    dt.month() = 1;
-    dt.day() = 1;
+    dttm.year() = -45;
+    dttm.month() = 1;
+    dttm.day() = 1;
     
     std::string str;
-    err_t err = aDateTimeFormatGregorian(dt, str);
+    err_t err = aDateTimeFormatGregorian(dttm, str);
     EXPECT_EQ(err, eNoError);
     
     // 测试时间组件的边界值
-    dt.hour() = 23;
-    dt.minute() = 59;
-    dt.second() = 59.999;
-    dt.normalize();
-    EXPECT_EQ(dt.hour(), 23);
-    EXPECT_EQ(dt.minute(), 59);
-    EXPECT_DOUBLE_EQ(dt.second(), 59.999);
+    dttm.hour() = 23;
+    dttm.minute() = 59;
+    dttm.second() = 59.999;
+    dttm.normalize();
+    EXPECT_EQ(dttm.hour(), 23);
+    EXPECT_EQ(dttm.minute(), 59);
+    EXPECT_DOUBLE_EQ(dttm.second(), 59.999);
 }
 
 TEST(DateTime, TimeConversion) 
@@ -417,75 +417,75 @@ TEST(DateTime, NormalizeVariants)
     AST_USING_NAMESPACE
 
     // 测试基本normalize - 不考虑闰秒，时间范围0-23:59:59
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 13;
-    dt.day() = 32;
-    dt.hour() = 25;
-    dt.minute() = 61;
-    dt.second() = 62;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 13;
+    dttm.day() = 32;
+    dttm.hour() = 25;
+    dttm.minute() = 61;
+    dttm.second() = 62;
 
-    dt.normalize();
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 2);
-    EXPECT_EQ(dt.day(), 2);
-    EXPECT_EQ(dt.hour(), 2);
-    EXPECT_EQ(dt.minute(), 2);
-    EXPECT_DOUBLE_EQ(dt.second(), 2);
+    dttm.normalize();
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 2);
+    EXPECT_EQ(dttm.day(), 2);
+    EXPECT_EQ(dttm.hour(), 2);
+    EXPECT_EQ(dttm.minute(), 2);
+    EXPECT_DOUBLE_EQ(dttm.second(), 2);
 
     // 测试normalizeUTC - 考虑闰秒，时间范围0-23:59:60
-    dt.year() = 2023;
-    dt.month() = 13;
-    dt.day() = 32;
-    dt.hour() = 25;
-    dt.minute() = 61;
-    dt.second() = 62;
+    dttm.year() = 2023;
+    dttm.month() = 13;
+    dttm.day() = 32;
+    dttm.hour() = 25;
+    dttm.minute() = 61;
+    dttm.second() = 62;
 
-    dt.normalizeUTC();
-    EXPECT_EQ(dt.year(), 2024);
-    EXPECT_EQ(dt.month(), 2);
-    EXPECT_EQ(dt.day(), 2);
-    EXPECT_EQ(dt.hour(), 2);
-    EXPECT_EQ(dt.minute(), 2);
-    EXPECT_DOUBLE_EQ(dt.second(), 2);
+    dttm.normalizeUTC();
+    EXPECT_EQ(dttm.year(), 2024);
+    EXPECT_EQ(dttm.month(), 2);
+    EXPECT_EQ(dttm.day(), 2);
+    EXPECT_EQ(dttm.hour(), 2);
+    EXPECT_EQ(dttm.minute(), 2);
+    EXPECT_DOUBLE_EQ(dttm.second(), 2);
 
     // 测试normalizeUTC处理闰秒的能力
     // 注意：这里只是测试函数接口，实际闰秒处理需要具体实现支持
-    dt.year() = 2023;
-    dt.month() = 6;
-    dt.day() = 30;
-    dt.hour() = 23;
-    dt.minute() = 59;
-    dt.second() = 60; // 闰秒
+    dttm.year() = 2023;
+    dttm.month() = 6;
+    dttm.day() = 30;
+    dttm.hour() = 23;
+    dttm.minute() = 59;
+    dttm.second() = 60; // 闰秒
 
-    dt.normalizeUTC();
+    dttm.normalizeUTC();
     // 如果系统支持闰秒，这里应该保持60秒不变
     // 否则可能会规范化为次日00:00:00
 
     // 测试normalizeLocal - 考虑时区和闰秒
     // 假设传入的是本地时间，函数会根据时区进行调整
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 31;
-    dt.hour() = 23;
-    dt.minute() = 59;
-    dt.second() = 61;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 31;
+    dttm.hour() = 23;
+    dttm.minute() = 59;
+    dttm.second() = 61;
 
-    dt.normalizeLocal(8); // 东8区
+    dttm.normalizeLocal(8); // 东8区
     // 预期：秒数规范化，可能进位到分钟
-    EXPECT_TRUE(dt.second() < 61);
+    EXPECT_TRUE(dttm.second() < 61);
 
     // 测试normalizeBJT - 按北京时间规范化，考虑闰秒
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 31;
-    dt.hour() = 23;
-    dt.minute() = 59;
-    dt.second() = 61;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 31;
+    dttm.hour() = 23;
+    dttm.minute() = 59;
+    dttm.second() = 61;
 
-    dt.normalizeBJT();
+    dttm.normalizeBJT();
     // 预期：秒数规范化，可能进位到分钟
-    EXPECT_TRUE(dt.second() < 61);
+    EXPECT_TRUE(dttm.second() < 61);
 
     // 测试各normalize方法的返回新对象版本
     DateTime dt2;
@@ -514,40 +514,40 @@ TEST(DateTime, AddFunctionsUTC)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45;
     
     // 测试增加日（UTC）
-    DateTime dt2 = dt;
+    DateTime dt2 = dttm;
     aDateTimeAddDaysUTC(dt2, 7);
     EXPECT_EQ(dt2.year(), 2024);
     EXPECT_EQ(dt2.month(), 1);
     EXPECT_EQ(dt2.day(), 1);
     
     // 测试增加时（UTC）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddHoursUTC(dt2, 14);
     EXPECT_EQ(dt2.hour(), 0);
     EXPECT_EQ(dt2.day(), 26);
     
     // 测试增加分（UTC）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddMinutesUTC(dt2, 40);
     EXPECT_EQ(dt2.minute(), 10);
     EXPECT_EQ(dt2.hour(), 11);
     
     // 测试增加秒（UTC）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddSecondsUTC(dt2, 20.5);
     EXPECT_DOUBLE_EQ(dt2.second(), 5.5);
     
     // 测试减少日（UTC）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddDaysUTC(dt2, -1);
     EXPECT_EQ(dt2.day(), 24);
 }
@@ -556,35 +556,35 @@ TEST(DateTime, AddFunctionsLocal)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45;
     
     // 测试增加日（本地时间，东8区）
-    DateTime dt2 = dt;
+    DateTime dt2 = dttm;
     aDateTimeAddDaysLocal(dt2, 7, 8);
     EXPECT_EQ(dt2.year(), 2024);
     EXPECT_EQ(dt2.month(), 1);
     EXPECT_EQ(dt2.day(), 1);
     
     // 测试增加时（本地时间，东8区）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddHoursLocal(dt2, 14, 8);
     EXPECT_EQ(dt2.hour(), 0);
     EXPECT_EQ(dt2.day(), 26);
     
     // 测试增加分（本地时间，东8区）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddMinutesLocal(dt2, 40, 8);
     EXPECT_EQ(dt2.minute(), 10);
     EXPECT_EQ(dt2.hour(), 11);
     
     // 测试增加秒（本地时间，东8区）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddSecondsLocal(dt2, 20.5, 8);
     EXPECT_DOUBLE_EQ(dt2.second(), 5.5);
 }
@@ -593,35 +593,35 @@ TEST(DateTime, AddFunctionsBJT)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45;
     
     // 测试增加日（北京时间）
-    DateTime dt2 = dt;
+    DateTime dt2 = dttm;
     aDateTimeAddDaysBJT(dt2, 7);
     EXPECT_EQ(dt2.year(), 2024);
     EXPECT_EQ(dt2.month(), 1);
     EXPECT_EQ(dt2.day(), 1);
     
     // 测试增加时（北京时间）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddHoursBJT(dt2, 14);
     EXPECT_EQ(dt2.hour(), 0);
     EXPECT_EQ(dt2.day(), 26);
     
     // 测试增加分（北京时间）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddMinutesBJT(dt2, 40);
     EXPECT_EQ(dt2.minute(), 10);
     EXPECT_EQ(dt2.hour(), 11);
     
     // 测试增加秒（北京时间）
-    dt2 = dt;
+    dt2 = dttm;
     aDateTimeAddSecondsBJT(dt2, 20.5);
     EXPECT_DOUBLE_EQ(dt2.second(), 5.5);
 }
@@ -630,116 +630,116 @@ TEST(DateTime, MemberAddFunctions)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45;
     
     // 测试成员方法版本的addYears
-    dt.addYears(1);
-    EXPECT_EQ(dt.year(), 2024);
+    dttm.addYears(1);
+    EXPECT_EQ(dttm.year(), 2024);
     
     // 测试成员方法版本的addMonths
-    dt.addMonths(1);
-    EXPECT_EQ(dt.month(), 1);
-    EXPECT_EQ(dt.year(), 2025);
+    dttm.addMonths(1);
+    EXPECT_EQ(dttm.month(), 1);
+    EXPECT_EQ(dttm.year(), 2025);
     
     // 测试成员方法版本的addDays
-    dt.addDays(1);
-    EXPECT_EQ(dt.day(), 26);
+    dttm.addDays(1);
+    EXPECT_EQ(dttm.day(), 26);
     
     // 测试成员方法版本的addDaysUTC
-    dt.addDaysUTC(1);
-    EXPECT_EQ(dt.day(), 27);
+    dttm.addDaysUTC(1);
+    EXPECT_EQ(dttm.day(), 27);
     
     // 测试成员方法版本的addDaysLocal
-    dt.addDaysLocal(1, 8);
-    EXPECT_EQ(dt.day(), 28);
+    dttm.addDaysLocal(1, 8);
+    EXPECT_EQ(dttm.day(), 28);
     
     // 测试成员方法版本的addDaysBJT
-    dt.addDaysBJT(1);
-    EXPECT_EQ(dt.day(), 29);
+    dttm.addDaysBJT(1);
+    EXPECT_EQ(dttm.day(), 29);
     
     // 测试成员方法版本的addHours
-    dt.addHours(1);
-    EXPECT_EQ(dt.hour(), 11);
+    dttm.addHours(1);
+    EXPECT_EQ(dttm.hour(), 11);
     
     // 测试成员方法版本的addHoursUTC
-    dt.addHoursUTC(1);
-    EXPECT_EQ(dt.hour(), 12);
+    dttm.addHoursUTC(1);
+    EXPECT_EQ(dttm.hour(), 12);
     
     // 测试成员方法版本的addHoursLocal
-    dt.addHoursLocal(1, 8);
-    EXPECT_EQ(dt.hour(), 13);
+    dttm.addHoursLocal(1, 8);
+    EXPECT_EQ(dttm.hour(), 13);
     
     // 测试成员方法版本的addHoursBJT
-    dt.addHoursBJT(1);
-    EXPECT_EQ(dt.hour(), 14);
+    dttm.addHoursBJT(1);
+    EXPECT_EQ(dttm.hour(), 14);
     
     // 测试成员方法版本的addMinutes
-    dt.addMinutes(1);
-    EXPECT_EQ(dt.minute(), 31);
+    dttm.addMinutes(1);
+    EXPECT_EQ(dttm.minute(), 31);
     
     // 测试成员方法版本的addMinutesUTC
-    dt.addMinutesUTC(1);
-    EXPECT_EQ(dt.minute(), 32);
+    dttm.addMinutesUTC(1);
+    EXPECT_EQ(dttm.minute(), 32);
     
     // 测试成员方法版本的addMinutesLocal
-    dt.addMinutesLocal(1, 8);
-    EXPECT_EQ(dt.minute(), 33);
+    dttm.addMinutesLocal(1, 8);
+    EXPECT_EQ(dttm.minute(), 33);
     
     // 测试成员方法版本的addMinutesBJT
-    dt.addMinutesBJT(1);
-    EXPECT_EQ(dt.minute(), 34);
+    dttm.addMinutesBJT(1);
+    EXPECT_EQ(dttm.minute(), 34);
     
     // 测试成员方法版本的addSeconds
-    dt.addSeconds(1.5);
-    EXPECT_DOUBLE_EQ(dt.second(), 46.5);
+    dttm.addSeconds(1.5);
+    EXPECT_DOUBLE_EQ(dttm.second(), 46.5);
     
     // 测试成员方法版本的addSecondsUTC
-    dt.addSecondsUTC(1.5);
-    EXPECT_DOUBLE_EQ(dt.second(), 48.0);
+    dttm.addSecondsUTC(1.5);
+    EXPECT_DOUBLE_EQ(dttm.second(), 48.0);
     
     // 测试成员方法版本的addSecondsLocal
-    dt.addSecondsLocal(1.5, 8);
-    EXPECT_DOUBLE_EQ(dt.second(), 49.5);
+    dttm.addSecondsLocal(1.5, 8);
+    EXPECT_DOUBLE_EQ(dttm.second(), 49.5);
     
     // 测试成员方法版本的addSecondsBJT
-    dt.addSecondsBJT(1.5);
-    EXPECT_DOUBLE_EQ(dt.second(), 51.0);
+    dttm.addSecondsBJT(1.5);
+    EXPECT_DOUBLE_EQ(dttm.second(), 51.0);
 }
 
 TEST(DateTime, AdditionalParsingFunctions)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
+    DateTime dttm;
     
     // 测试aDateTimeParse自定义格式
-    err_t err = aDateTimeParse("2023-12-25 10:30:45", "%Y-%m-%d %H:%M:%S", dt);
+    err_t err = aDateTimeParse("2023-12-25 10:30:45", "%Y-%m-%d %H:%M:%S", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
-    EXPECT_EQ(dt.hour(), 10);
-    EXPECT_EQ(dt.minute(), 30);
-    EXPECT_DOUBLE_EQ(dt.second(), 45);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
+    EXPECT_EQ(dttm.hour(), 10);
+    EXPECT_EQ(dttm.minute(), 30);
+    EXPECT_DOUBLE_EQ(dttm.second(), 45);
     
     // 测试aDateTimeParseAny解析多种格式
-    err = aDateTimeParseAny("2023-12-25 10:30:45", dt);
+    err = aDateTimeParseAny("2023-12-25 10:30:45", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
+    EXPECT_EQ(dttm.year(), 2023);
     
-    err = aDateTimeParseAny("2023-12-25T10:30:45Z", dt);
+    err = aDateTimeParseAny("2023-12-25T10:30:45Z", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
+    EXPECT_EQ(dttm.year(), 2023);
     
-    err = aDateTimeParseAny("25 Dec 2023 10:30:45", dt);
+    err = aDateTimeParseAny("25 Dec 2023 10:30:45", dttm);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(dt.year(), 2023);
+    EXPECT_EQ(dttm.year(), 2023);
 }
 
 TEST(DateTime, FromTmFunction)
@@ -757,39 +757,39 @@ TEST(DateTime, FromTmFunction)
     timeStruct.tm_sec = 45;
     
     // 测试FromTm函数
-    DateTime dt = DateTime::FromTm(&timeStruct);
-    EXPECT_EQ(dt.year(), 2023);
-    EXPECT_EQ(dt.month(), 12);
-    EXPECT_EQ(dt.day(), 25);
-    EXPECT_EQ(dt.hour(), 10);
-    EXPECT_EQ(dt.minute(), 30);
-    EXPECT_DOUBLE_EQ(dt.second(), 45);
+    DateTime dttm = DateTime::FromTm(&timeStruct);
+    EXPECT_EQ(dttm.year(), 2023);
+    EXPECT_EQ(dttm.month(), 12);
+    EXPECT_EQ(dttm.day(), 25);
+    EXPECT_EQ(dttm.hour(), 10);
+    EXPECT_EQ(dttm.minute(), 30);
+    EXPECT_DOUBLE_EQ(dttm.second(), 45);
 }
 
 TEST(DateTime, DayOfYearAndDayOfWeek)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
+    DateTime dttm;
     
     // 测试1月1日
-    dt.year() = 2023;
-    dt.month() = 1;
-    dt.day() = 1;
-    EXPECT_EQ(dt.dayOfYear(), 1);
-    EXPECT_EQ(dt.dayOfWeek(), 0); // 星期日
+    dttm.year() = 2023;
+    dttm.month() = 1;
+    dttm.day() = 1;
+    EXPECT_EQ(dttm.dayOfYear(), 1);
+    EXPECT_EQ(dttm.dayOfWeek(), 0); // 星期日
     
     // 测试2月29日（闰年）
-    dt.year() = 2024;
-    dt.month() = 2;
-    dt.day() = 29;
-    EXPECT_EQ(dt.dayOfYear(), 60);
+    dttm.year() = 2024;
+    dttm.month() = 2;
+    dttm.day() = 29;
+    EXPECT_EQ(dttm.dayOfYear(), 60);
     
     // 测试12月31日
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 31;
-    EXPECT_EQ(dt.dayOfYear(), 365);
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 31;
+    EXPECT_EQ(dttm.dayOfYear(), 365);
 }
 
 #ifdef AST_ENABLE_DATETIME_FORMAT_RFC
@@ -797,24 +797,24 @@ TEST(DateTime, RFCFormatting)
 {
     AST_USING_NAMESPACE
     
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45;
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45;
     
     std::string str;
     
     // 测试RFC 1123格式
-    err_t err = aDateTimeFormatRFC1123(dt, str);
+    err_t err = aDateTimeFormatRFC1123(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023") != std::string::npos);
     EXPECT_TRUE(str.find("GMT") != std::string::npos);
     
     // 测试RFC 2822格式
-    err = aDateTimeFormatRFC2822(dt, str);
+    err = aDateTimeFormatRFC2822(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str.find("2023") != std::string::npos);
 }
@@ -826,25 +826,25 @@ TEST(DateTime, UncoveredBranches)
     AST_USING_NAMESPACE
     
     // 1. 测试aDateTimeFormatISO8601函数中millisecond=0的分支
-    DateTime dt;
-    dt.year() = 2023;
-    dt.month() = 12;
-    dt.day() = 25;
-    dt.hour() = 10;
-    dt.minute() = 30;
-    dt.second() = 45.0;  // 确保毫秒为0
+    DateTime dttm;
+    dttm.year() = 2023;
+    dttm.month() = 12;
+    dttm.day() = 25;
+    dttm.hour() = 10;
+    dttm.minute() = 30;
+    dttm.second() = 45.0;  // 确保毫秒为0
     
     std::string str;
-    err_t err = aDateTimeFormatISO8601(dt, str);
+    err_t err = aDateTimeFormatISO8601(dttm, str);
     EXPECT_EQ(err, eNoError);
     EXPECT_TRUE(str == "2023-12-25T10:30:45Z");
     
     // 2. 测试aDateTimeParseGregorianEn函数的错误处理分支
-    err = aDateTimeParseGregorianEn("invalid date string", dt);
+    err = aDateTimeParseGregorianEn("invalid date string", dttm);
     EXPECT_EQ(err, eErrorInvalidParam);
     
     // 3. 测试aDateTimeParseGMT函数的错误处理分支
-    err = aDateTimeParseGMT("invalid GMT string", dt);
+    err = aDateTimeParseGMT("invalid GMT string", dttm);
     EXPECT_EQ(err, eErrorInvalidParam);
     
     // 4. 测试aDateTimeParseAny函数中各个分支
@@ -871,7 +871,7 @@ TEST(DateTime, UncoveredBranches)
     EXPECT_EQ(dtGMT.day(), 1);
     
     // 测试aDateTimeParseAny返回错误的情况
-    err = aDateTimeParseAny("completely invalid date string", dt);
+    err = aDateTimeParseAny("completely invalid date string", dttm);
     EXPECT_EQ(err, eErrorInvalidParam);
     
     // 5. 测试DateTime::FromString函数的错误处理（有格式参数）

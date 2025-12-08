@@ -1,1 +1,1 @@
-#include "../../src/AstCore/CoordSystem/Point.hpp"
+#include "../../src/AstCore/Geometry/Point.hpp"
