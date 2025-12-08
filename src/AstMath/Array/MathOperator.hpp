@@ -232,17 +232,47 @@ inline std::array<double, 3> cross3(const double* vec1, const double* vec2)
     };
 }
 
+/// squaredNorm
+
+inline double squaredNorm(const double* vec, size_t N)
+{
+    double sumsq = 0;
+    for (size_t i = 0; i < N; i++)
+    {
+        sumsq += vec[i] * vec[i];
+    }
+    return sumsq;
+}
+
+
+template<typename Vector>
+inline auto squaredNorm(const Vector& vec)
+    -> typename std::enable_if<!std::is_pointer<Vector>::value, double>::type
+{
+    double sumsq = 0.0;
+    for (const auto& val : vec) {
+        sumsq += val * val;
+    }
+    return sumsq;
+}
+
+template <size_t N>
+inline double squaredNorm(const double (&vec)[N])
+{
+    double sumsq = 0;
+    for (size_t i = 0; i < N; i++)
+    {
+        sumsq += vec[i] * vec[i];
+    }
+    return sumsq;
+}
+
 
 /// norm
 
 inline double norm(const double* vec, size_t N)
 {
-    double sum = 0;
-    for (size_t i = 0; i < N; i++)
-    {
-        sum += vec[i] * vec[i];
-    }
-    return sqrt(sum);
+    return sqrt(squaredNorm(vec, N));
 }
 
 
@@ -250,11 +280,7 @@ template<typename Vector>
 inline auto norm(const Vector& vec)
     -> typename std::enable_if<!std::is_pointer<Vector>::value, double>::type
 {
-    double sum = 0.0;
-    for (const auto& val : vec) {
-        sum += val * val;
-    }
-    return sqrt(sum);
+    return sqrt(squaredNorm(vec));
 }
 
 
@@ -262,12 +288,7 @@ inline auto norm(const Vector& vec)
 template <size_t N>
 inline double norm(const double (&vec)[N])
 {
-    double sum = 0;
-    for (size_t i = 0; i < N; i++)
-    {
-        sum += vec[i] * vec[i];
-    }
-    return sqrt(sum);
+    return sqrt(squaredNorm(vec));
 }
 
 
@@ -506,8 +527,10 @@ std::array<std::array<_Scalar, K>, I> mtimes(
 
 }
 
+#define _ASTMATH _AST math::
 
+#ifdef AST_BUILD_LIB  // 防止与其他库使用时出现冲突，默认只在编译时使用，否则需要主动开启
 using namespace math;
-
+#endif
 
 AST_NAMESPACE_END

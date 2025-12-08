@@ -73,7 +73,7 @@ public:
     enum {Row = 3, Col = 3};
     typedef MatrixMN< _Scalar, 3, 3> Self;
     typedef _Scalar Scalar;
-    static Self Identify(){return Self{1,0,0,0,1,0,0,0,1};}
+    static Self Identity(){return Self{1,0,0,0,1,0,0,0,1};}
 
     constexpr size_t size() const{return Row*Col;}
     constexpr size_t row() const{return Row;}

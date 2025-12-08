@@ -85,6 +85,12 @@
 #define AST_OBJECT(TYPE) // @todo
 
 
+// 字符串宏，用于在编译时将字符串转换为ast项目内部运行时编码
+// 当前ast项目内部运行时采用utf-8编码，所有字符串字面量都需要在编译时转换为utf-8编码
+// 但是考虑到为了有可能会采用其他编码，例如utf-16等，所以这里保留宏定义
+#define aText(x) u8 ## x
+
+
 // ast项目核心模块导出声明
 #ifdef AST_BUILD_LIB_CORE
 #    define AST_CORE_API A_DECL_EXPORT

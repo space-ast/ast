@@ -34,7 +34,7 @@ void testQuatAnsMatrix(const Quaternion& quatInput)
     Matrix3d mtx;
     aQuatToMatrix(quat, mtx);
     aMatrixToQuat(mtx, quat2);
-    for (size_t i = 0; i < size(quat2); i++)
+    for (size_t i = 0; i < _ASTMATH size(quat2); i++)
     {
         EXPECT_NEAR(quat[i], quat2[i], 1e-14);
     }
@@ -43,7 +43,7 @@ void testQuatAnsMatrix(const Quaternion& quatInput)
 TEST(AttitudeConvertTest, QuatAndMatrix)
 {
     {
-        Matrix3d mtx = Matrix3d::Identify();
+        Matrix3d mtx = Matrix3d::Identity();
         Matrix3d mtx2;
         Quaternion quat;
         aMatrixToQuat(mtx, quat);
@@ -81,7 +81,7 @@ void testEulerAndMatrix(int seq, const Euler& eulerInput)
     {
         EXPECT_NEAR(mtx(i), mtx2(i), 1e-14);
     }
-    for (int i = 0; i < size(euler); i++)
+    for (int i = 0; i < _ASTMATH size(euler); i++)
     {
         EXPECT_NEAR(euler[i], euler2[i], 1e-14);
     }
