@@ -34,6 +34,22 @@
 AST_NAMESPACE_BEGIN
 
 
+void* _aLoadLibrary(const char* filepath)
+{
+#if defined(_WIN32) || defined(_WIN64)
+	std::wstring widePath;
+	aUtf8ToWide(filepath, widePath);
+    return LoadLibraryW(widePath.c_str());
+#else
+    // Linux/Unix平台
+    // RTLD_LAZY: 延迟绑定，只在需要时解析符号
+    // RTLD_LOCAL: 符号不与其他模块共享
+	const int flag = RTLD_LAZY | RTLD_LOCAL;
+    return dlopen(fullPath.c_str(), flag);
+#endif
+}
+
+
 
 void* aLoadLibrary(const char* filepath)
 {
@@ -43,39 +59,33 @@ void* aLoadLibrary(const char* filepath)
 
 #if defined(_WIN32) || defined(_WIN64)
     // Windows平台
-	std::wstring widePath;
-	aUtf8ToWide(filepath, widePath);
-    return LoadLibraryW(widePath.c_str());
+    static const char* prefixes[]{ "", "lib" };     // prefix `lib` for mingw
+    static const char* suffixes[]{ "" };
 #else
+    // Linux/Unix平台
     static const char* prefixes[]{ "", "lib" };
     static const char* suffixes[]{ "", ".so" };
-    
-    // Linux/Unix平台
-    // RTLD_LAZY: 延迟绑定，只在需要时解析符号
-    // RTLD_LOCAL: 符号不与其他模块共享
-	int flag = RTLD_LAZY | RTLD_LOCAL;
+#endif
 
 	bool has_dot = strrchr(filepath, '.') != nullptr;
 	bool has_dir_sep = strchr(filepath, '/') != nullptr;
     
     if (has_dot || has_dir_sep) {
         // 如果路径中已经包含扩展名或目录分隔符，则直接尝试加载
-        return dlopen(filepath, flag);
+        return _aLoadLibrary(filepath);
 	}
 
 	// 尝试不同的前缀和后缀组合加载库
     for (const char* prefix : prefixes) {
         for (const char* suffix : suffixes) {
             std::string fullPath = std::string(prefix) + filepath + std::string(suffix);
-            void* handle = dlopen(fullPath.c_str(), flag);
+            void* handle = _aLoadLibrary(fullPath.c_str());
             if (handle) {
                 return handle;
             }
         }
 	}
-
     return nullptr;
-#endif
 }
 
 

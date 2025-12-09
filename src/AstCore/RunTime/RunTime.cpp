@@ -55,7 +55,7 @@ err_t JplDe::openDefault()
     err_t err = this->open(datafile.string().c_str());
     if (err)
     {
-        aWarning("failed to load jpl de from default data file: %s", datafile);
+        aWarning("failed to load jpl de from default data file:\n%s", datafile.string().c_str());
     }
     return err;
 }
@@ -114,6 +114,7 @@ std::string aDataDirGetDefault()
     // 1. 检查AST_DATA_DIR环境变量
     try {
         const char* datadir = getenv(AST_ENV_DATA_DIR);
+        printf("AST_ENV_DATA_DIR: %s\n", datadir);
         if (datadir && fs::is_directory(datadir))
             return datadir;
     }
@@ -131,6 +132,7 @@ std::string aDataDirGetDefault()
     // 2. 检查动态库目录的data文件夹
     try {
         fs::path datadir = fs::path(aLibDir()) / AST_DATA_DIR_NAME;
+        printf("datadir: %s\n", datadir.string().c_str());
         if (fs::is_directory(datadir))
             return datadir.string();
     }
@@ -148,6 +150,7 @@ std::string aDataDirGetDefault()
     // 3. 检查可执行文件目录的data文件夹
     try {
         fs::path datadir = fs::path(aExeDir()) / AST_DATA_DIR_NAME;
+        printf("AST_ENV_DATA_DIR: %s\n", datadir);
         if (fs::is_directory(datadir))
             return datadir.string();
     }
@@ -165,6 +168,7 @@ std::string aDataDirGetDefault()
     // 4. 检查当前运行目录的data文件夹
     try {
         fs::path currentdir = fs::current_path() / AST_DATA_DIR_NAME;
+        printf("currentdir: %s\n", currentdir.string().c_str());
         if (fs::is_directory(currentdir))
             return currentdir.string();
     }

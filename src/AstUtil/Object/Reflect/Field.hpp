@@ -1,6 +1,5 @@
-
 ///
-/// @file      Type.hpp
+/// @file      Field.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -22,11 +21,20 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Class.hpp"
+#include <string>       // for std::string
 
 AST_NAMESPACE_BEGIN
 
-using Type = Class;
+
+/// @brief 反射字段类
+class Field
+{
+public:
+    const std::string& name() const{return name_;}
+    
+protected:
+    std::string name_;  ///< 名称
+};
+
 
 AST_NAMESPACE_END
-

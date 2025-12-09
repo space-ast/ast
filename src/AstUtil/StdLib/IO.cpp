@@ -37,7 +37,7 @@ struct LocaleDeleter
     }
 };
 
-A_THREAD_LOCAL std::unique_ptr<__crt_locale_pointers, LocaleDeleter> t_locale;  // utf-8 locale
+A_THREAD_LOCAL std::unique_ptr<std::remove_pointer<_locale_t>::type, LocaleDeleter> t_locale;  // utf-8 locale
 
 _locale_t _ast_locale_ensure()
 {

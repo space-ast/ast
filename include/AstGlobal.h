@@ -169,7 +169,8 @@ class Quaternion;
 class Euler;
 
 class Object;
-class Type;
+class Class;
+using Type = Class;
 
 class AbsTime;
 class TimePoint;
