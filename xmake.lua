@@ -55,6 +55,11 @@ task("cpdata")
             local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", os.host(), os.arch(), mode))
             os.cp(path.join(os.projectdir(), "data"), dstpath)
             print("dstpath:", dstpath)
+            if is_host("windows") then
+                local dstpath = path.join(os.projectdir(), format("build/mingw/x86_64/%s/", mode))
+                os.cp(path.join(os.projectdir(), "data"), dstpath)
+                print("dstpath:", dstpath)
+            end
         end
     end)
 task_end()

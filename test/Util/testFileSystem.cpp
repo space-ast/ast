@@ -306,26 +306,7 @@ TEST(SimpleFileSystem, UnicodeSupport) {
     SetConsoleCP(CP_UTF8);
     #endif
 
-    // 按优先级尝试不同的locale
-    std::vector<const char*> locales = {
-        ".UTF-8",
-        "zh_CN.UTF-8",
-        "en_US.UTF-8",
-        "C.UTF-8",
-        ""
-    };
-
-    for (const auto& loc_name : locales) {
-        try {
-            std::locale::global(std::locale(loc_name));
-            std::cout << "Successfully set locale: " << loc_name << std::endl;
-            break;
-        }
-        catch (const std::exception& e) {
-            std::cout << "Failed to set locale " << loc_name << ": " << e.what() << std::endl;
-        }
-    }
-
+    std::setlocale(LC_ALL, ".UTF-8");
     auto locale = std::setlocale(LC_ALL, nullptr);
     printf("Locale name: %s\n", locale);
     

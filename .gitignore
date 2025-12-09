@@ -8,3 +8,4 @@ vsxmake*
 node_modules
 coverage.info
 *.gcov
+__pycache__

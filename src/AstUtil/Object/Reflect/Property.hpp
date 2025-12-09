@@ -1,6 +1,5 @@
-
 ///
-/// @file      Type.hpp
+/// @file      Property.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -22,11 +21,14 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Class.hpp"
+#include "Field.hpp"
 
 AST_NAMESPACE_BEGIN
 
-using Type = Class;
+class Property: public Field
+{
+public:
+
+};
 
 AST_NAMESPACE_END
-

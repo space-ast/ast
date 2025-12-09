@@ -122,7 +122,7 @@
 
 // 线程本地存储 thread local storage
 
-#ifdef thread_local
+#if defined(thread_local) || defined(__cplusplus) && __cplusplus >= 201103L
 #  define A_THREAD_LOCAL thread_local
 #elif __STDC_VERSION__ >= 201112L && !defined(__STDC_NO_THREADS__)
 #  define A_THREAD_LOCAL _Thread_local

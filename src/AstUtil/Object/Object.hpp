@@ -28,14 +28,14 @@
 
 AST_NAMESPACE_BEGIN
  
-class Type;
+class Class;
 
 
 /// @brief 对象基类，实现运行时元信息、强弱引用计数
 class AST_UTIL_API Object
 {
 public:
-    Object(Type* tp)
+    Object(Class* tp)
         :m_type{tp}
         ,m_refcnt{0}
         ,m_weakrefcnt{1}
@@ -58,7 +58,7 @@ protected:
     virtual ~Object(){}
 
 protected:
-    Type*                    m_type;                 ///< 类型元信息，同时用于标识对象是否被析构
+    Class*                   m_type;                 ///< 类型元信息，同时用于标识对象是否被析构
     std::atomic<uint32_t>    m_refcnt;               ///< 强引用计数，给SharedPtr使用
     std::atomic<uint32_t>    m_weakrefcnt;           ///< 弱引用计数，给WeakPtr使用
 };
