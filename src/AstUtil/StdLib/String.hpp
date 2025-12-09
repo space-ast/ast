@@ -29,6 +29,26 @@ AST_NAMESPACE_BEGIN
 typedef std::string String;
 
 
+/// @brief 将字符串转换为整数
+/// @param str 输入字符串
+/// @param value 输出整数
+/// @return 0 成功，其他值 失败
+AST_CORE_CAPI err_t aParseInt(const char* str, int& value);
+
+/// @brief 将字符串转换为双精度浮点数
+/// @param str 输入字符串
+/// @param value 输出双精度浮点数
+/// @return 0 成功，其他值 失败
+AST_CORE_CAPI err_t aParseDouble(const char* str, double& value);
+
+/// @brief 将字符串转换为布尔值
+/// @param str 输入字符串
+/// @param value 输出布尔值
+/// @return 0 成功，其他值 失败
+AST_CORE_CAPI err_t aParseBool(const char* str, bool& value);
+
+
+
 // 比较两个字符串是否相等（不区分大小写）
 #ifdef _WIN32
 using ::stricmp;
