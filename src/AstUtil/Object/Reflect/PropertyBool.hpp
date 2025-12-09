@@ -25,9 +25,21 @@
 
 AST_NAMESPACE_BEGIN
 
-class PropertyBool: public Property
+
+/// @brief 反射属性类（bool类型）
+class PropertyBool final: public Property
 {
 public:
+    using Property::Property;
+    
+    err_t getValueBool(void* container, bool& value) override;
+    err_t setValueBool(void* container, bool value) override;
+    err_t getValueInt(void* container, int& value) override;
+    err_t setValueInt(void* container, int value) override;
+    err_t getValueString(void* container, std::string& value) override;
+    err_t setValueString(void* container, StringView value) override;
+    err_t getValueDouble(void* container, double& value) override;
+    err_t setValueDouble(void* container, double value) override;
 };
 
 

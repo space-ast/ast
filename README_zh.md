@@ -5,7 +5,7 @@
 ![build](https://img.shields.io/github/actions/workflow/status/space-ast/ast/build-test.yml?branch=master&style=flat-square&logo=windows)
 ![C++](https://img.shields.io/badge/C++-11+-blue.svg)
 ![License](https://img.shields.io/badge/License-Apache2.0-green.svg)
-![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)
+![Platform](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20mingw-lightgrey.svg)
 
 
 **ast** (/æst/) 是一个用C++编写的开源航天仿真算法库，为航天任务分析和设计提供计算基础。

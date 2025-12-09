@@ -1,5 +1,5 @@
 ///
-/// @file      Field.hpp
+/// @file      ReflectAPI.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -21,32 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include <string>                   // for std::string
-#include "AstUtil/StringView.hpp"   // for StringView
 
 AST_NAMESPACE_BEGIN
 
 
-/// @brief 反射字段类
-class Field
-{
-public:
-    Field(){}
+class Property;
 
-    Field(StringView name, StringView desc = ""): name_(name), desc_(desc){}
-    
-    virtual ~Field() = default;
-    
-    /// @brief 获取字段名称
-    const std::string& name() const{return name_;}
-    /// @brief 获取字段描述
-    const std::string& desc() const{return desc_;}
-protected:
-    //@todo: 考虑使用StringView来提升效率
-    
-    std::string name_;  ///< 名称
-    std::string desc_;  ///< 描述
-};
 
 
 AST_NAMESPACE_END

@@ -23,5 +23,17 @@
 AST_NAMESPACE_BEGIN
 
 
+err_t PropertyBool::getValueBool(void* container, bool& value) 
+{
+    value = *reinterpret_cast<bool*>(container);
+    return 0;
+}
+err_t PropertyBool::setValueBool(void* container, bool value) {return 0;}
+err_t PropertyBool::getValueInt(void* container, int& value) {return 0;}
+err_t PropertyBool::setValueInt(void* container, int value) {return 0;}
+err_t PropertyBool::getValueString(void* container, std::string& value){return 0;}
+err_t PropertyBool::setValueString(void* container, StringView value){return 0;}
+err_t PropertyBool::getValueDouble(void* container, double& value){return 0;}
+err_t PropertyBool::setValueDouble(void* container, double value){return 0;}
 
 AST_NAMESPACE_END
