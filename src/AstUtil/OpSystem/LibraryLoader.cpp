@@ -45,7 +45,7 @@ void* _aLoadLibrary(const char* filepath)
     // RTLD_LAZY: 延迟绑定，只在需要时解析符号
     // RTLD_LOCAL: 符号不与其他模块共享
 	const int flag = RTLD_LAZY | RTLD_LOCAL;
-    return dlopen(fullPath.c_str(), flag);
+    return dlopen(filepath, flag);
 #endif
 }
 
