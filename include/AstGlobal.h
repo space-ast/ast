@@ -40,6 +40,7 @@
 #include "AstCompiler.h"
 
 #include <stddef.h>         // for size_t
+#include <stdint.h>         // for uint32_t
 
 
 // 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
@@ -184,8 +185,9 @@ class Point;
 #endif
 
 typedef int err_t;
-typedef double ImpreciseJD;  // 儒略日(注意单个double的数值精度不够)
-typedef double ImpreciseMJD; // 简约儒略日(注意单个double的数值精度不够)
+typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不够)
+typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
+typedef uint32_t Color;      ///< 颜色值
 
 inline void nothing(){}
 

@@ -25,6 +25,9 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 反射属性类（POD类型: plain old data）
+/// @details POD类型是指简单的数据类型，如int、float、double、bool等。
+/// @todo 拟作为int, double, bool等的基础属性类，其他属性类继承自该类。
 class PropertyPOD : public Property
 {
 public:

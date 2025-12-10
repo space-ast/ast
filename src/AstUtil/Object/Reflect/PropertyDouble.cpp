@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      PropertyDouble.cpp
 /// @brief     ~
 /// @details   ~
@@ -19,9 +19,74 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "PropertyDouble.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
+err_t PropertyDouble::getValueBool(void* container, bool& value)
+{
+    double d;
+    err_t ret = this->getValue(container, &d);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    value = (d != 0.0);
+    return eNoError;
+}
+err_t PropertyDouble::setValueBool(void* container, bool value) 
+{
+    double d = value ? 1.0 : 0.0;
+    return this->setValue(container, &d);
+}
+err_t PropertyDouble::getValueInt(void* container, int& value) 
+{
+    double d;
+    err_t ret = this->getValue(container, &d);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    value = (int)d;
+    return eNoError;
+}
 
+err_t PropertyDouble::setValueInt(void* container, int value) 
+{
+    double d = (double)value;
+    return this->setValue(container, &d);
+}
+
+err_t PropertyDouble::getValueString(void* container, std::string& value)
+{
+    double d;
+    err_t ret = this->getValue(container, &d);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    return aFormatDouble(d, value);
+}
+
+err_t PropertyDouble::setValueString(void* container, StringView value)
+{
+    double d;
+    err_t ret = aParseDouble(value, d);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    return this->setValue(container, &d);
+}
+
+err_t PropertyDouble::getValueDouble(void* container, double& value)
+{
+    return this->getValue(container, &value);
+}
+
+err_t PropertyDouble::setValueDouble(void* container, double value)
+{
+    return this->setValue(container, &value);
+}
 
 AST_NAMESPACE_END

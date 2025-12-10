@@ -28,6 +28,29 @@ AST_NAMESPACE_BEGIN
 class PropertyStruct: public Property
 {
 public:
+    using Property::Property;
+    using OutputType = void*;
+    using InputType = void;
+protected:
+    /// @brief 设置属性值（结构体类型）
+    /// @param container 容器指针
+    /// @param value 属性值指针
+    /// @return 0 成功，其他值 失败
+    A_ALWAYS_INLINE
+    err_t setValue(void* container, const InputType* value)
+    {
+        return setter_(container, value);
+    }
+    /// @brief 获取属性值（结构体类型）
+    /// @param container 容器指针
+    /// @param value 属性值指针
+    /// @return 0 成功，其他值 失败
+    A_ALWAYS_INLINE
+    err_t getValue(void* container, OutputType* value)
+    {
+        return getter_(container, value);
+    }
+
 };
 
 

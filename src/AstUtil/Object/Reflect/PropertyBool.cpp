@@ -19,21 +19,73 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "PropertyBool.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
 err_t PropertyBool::getValueBool(void* container, bool& value) 
 {
-    value = *reinterpret_cast<bool*>(container);
+    return getValue(container, &value);
+}
+err_t PropertyBool::setValueBool(void* container, bool value) 
+{
+    return setValue(container, &value);
+}
+err_t PropertyBool::getValueInt(void* container, int& value) 
+{
+    bool b;
+    err_t ret = getValue(container, &b);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    value = b ? 1 : 0;
     return 0;
 }
-err_t PropertyBool::setValueBool(void* container, bool value) {return 0;}
-err_t PropertyBool::getValueInt(void* container, int& value) {return 0;}
-err_t PropertyBool::setValueInt(void* container, int value) {return 0;}
-err_t PropertyBool::getValueString(void* container, std::string& value){return 0;}
-err_t PropertyBool::setValueString(void* container, StringView value){return 0;}
-err_t PropertyBool::getValueDouble(void* container, double& value){return 0;}
-err_t PropertyBool::setValueDouble(void* container, double value){return 0;}
+err_t PropertyBool::setValueInt(void* container, int value) 
+{
+    bool b = value != 0;
+    return setValue(container, &b);
+}
+err_t PropertyBool::getValueString(void* container, std::string& value)
+{
+    bool b;
+    err_t ret = getValue(container, &b);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    aFormatBool(b, value);
+    return 0;
+}
+err_t PropertyBool::setValueString(void* container, StringView value)
+{
+    bool b;
+    err_t ret = aParseBool(value, b);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    return setValue(container, &b);
+}
+
+err_t PropertyBool::getValueDouble(void* container, double& value)
+{
+    bool b;
+    err_t ret = getValue(container, &b);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    value = b ? 1.0 : 0.0;
+    return 0;
+}
+
+err_t PropertyBool::setValueDouble(void* container, double value)
+{
+    bool b = value != 0.0;
+    return setValue(container, &b);
+}
 
 AST_NAMESPACE_END

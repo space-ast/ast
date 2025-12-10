@@ -22,17 +22,40 @@
 
 #include "AstGlobal.h"
 #include "Field.hpp"
+#include <unordered_map>
+#include <vector>
+
 
 AST_NAMESPACE_BEGIN
 
+class Property;
 
 class Struct: public Field
 {
 public:
+    using Field::Field;
+
+    // @todo: 考虑使用StringView作为索引
+    using PropertyMap = std::unordered_map<std::string, Property*>;
+    using PropertyList = std::vector<Property*>;
+    
+    Property* addProerty(StringView name, Property* property);
+
+    /// @brief 添加属性
+    /// @param property 属性
+    /// @return Property* 属性指针
+    Property* addProperty(Property* property);
+    
+    /// @brief 获取属性
+    /// @param name 属性名
+    /// @return Property* 属性指针
+    Property* getProperty(StringView name);
 
 protected:
-    
+    PropertyList m_properties;
+    PropertyMap  m_propertyMap;
 };
+
 
 
 AST_NAMESPACE_END

@@ -19,9 +19,22 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Property.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
+err_t aFakeGet(void *container, void *value)
+{
+    aError("getter is null");
+    return eErrorNullInput;
+}
+
+err_t aFakeSet(void* container, const void* value)
+{
+    aError("setter is null");
+    return eErrorNullInput;
+}
 
 
 AST_NAMESPACE_END
+
