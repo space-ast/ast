@@ -372,7 +372,7 @@ A_ALWAYS_INLINE Property* aNewPropertyString()
         [](void* obj, const void* value) -> err_t
     {
         static_assert(Setter!=nullptr, "invalid setter");
-        (((T*)obj)->*Setter)(*((std::string*)value));
+        (((T*)obj)->*Setter)(*((typename property_trait<std::string>::input_type*)value));
         return 0;
     }
     );
@@ -473,7 +473,7 @@ A_ALWAYS_INLINE Property* aNewPropertyString()
         [](void* obj, const void* value) -> err_t
     {
         static_assert(Setter!=nullptr, "invalid setter");
-        return (((T*)obj)->*Setter)(*((std::string*)value));
+        return (((T*)obj)->*Setter)(*((typename property_trait<std::string>::input_type*)value));
     }
     );
 }

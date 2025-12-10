@@ -39,7 +39,7 @@ public:
     using PropertyMap = std::unordered_map<std::string, Property*>;
     using PropertyList = std::vector<Property*>;
     
-    Property* addProerty(StringView name, Property* property);
+    Property* addProperty(StringView name, Property* property);
 
     /// @brief 添加属性
     /// @param property 属性

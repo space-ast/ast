@@ -70,6 +70,13 @@ err_t aParseBool(StringView str, bool& value)
 
 err_t aParseInt(StringView str, int& value)
 {
+    /*
+    * @note
+    * 根据benchmark结果（见bmParse.cpp）
+    * c++17 的 from_chars 性能最好
+    * libc 的 strtol 性能其次
+    */
+
     #if A_CXX_VERSION >= 17
     return _aParseInt_FromChars(str, value);
     #else
@@ -145,14 +152,14 @@ err_t _aParseInt_Simple(StringView str, int& value)
     
     // 解析数字
     while (p < end && *p >= '0' && *p <= '9') {
+        // 检查溢出
+        if (result > (INT_MAX - (*p - '0')) / 10) {
+            return eErrorParse;
+        }
         result = result * 10 + (*p - '0');
         ++p;
     }
 
-    // 检查溢出
-    if (result > (INT_MAX - (*p - '0')) / 10) {
-        return eErrorParse;
-    }
 
     #ifdef AST_USE_PARSE_STRICT_MODE
     
@@ -192,6 +199,12 @@ err_t _aParseInt_Scanf(StringView str, int &value)
 
 err_t aParseDouble(StringView str, double& value)
 {
+    /*
+    * @note
+    * 根据benchmark结果（见bmParse.cpp）
+    * c++17 的 from_chars 性能最好
+    * libc 的 strtod 性能其次
+    */
     #if A_CXX_VERSION >= 17
     return _aParseDouble_FromChars(str, value);
     #else

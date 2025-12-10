@@ -25,7 +25,7 @@
 
 AST_NAMESPACE_BEGIN
 
-Property *Struct::addProerty(StringView name, Property *property)
+Property *Struct::addProperty(StringView name, Property *property)
 {
     m_propertyMap[name.to_string()] = property;
     m_properties.push_back(property);
@@ -34,7 +34,7 @@ Property *Struct::addProerty(StringView name, Property *property)
 
 Property *Struct::addProperty(Property *property)
 {
-    return addProerty(property->name(), property);
+    return addProperty(property->name(), property);
 }
 
 Property *Struct::getProperty(StringView name)
