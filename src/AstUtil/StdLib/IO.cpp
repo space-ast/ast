@@ -19,10 +19,12 @@
  
 #include "IO.hpp"
 #include "AstUtil/Encode.hpp"
-#include <clocale>
-#include <cstdarg>
-#include <memory>
- 
+#include <clocale>              // for _create_locale, _free_locale
+#include <cstdarg>              // for va_list, va_start, va_end
+#include <memory>               // for std::unique_ptr
+#include <type_traits>          // for std::remove_pointer
+
+
 AST_NAMESPACE_BEGIN
  
 #ifdef _WIN32
@@ -37,7 +39,7 @@ struct LocaleDeleter
     }
 };
 
-A_THREAD_LOCAL std::unique_ptr<__crt_locale_pointers, LocaleDeleter> t_locale;  // utf-8 locale
+A_THREAD_LOCAL std::unique_ptr<std::remove_pointer<_locale_t>::type, LocaleDeleter> t_locale;  // utf-8 locale
 
 _locale_t _ast_locale_ensure()
 {

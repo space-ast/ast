@@ -30,6 +30,14 @@ end
 add_requires("openscenegraph", {shared = true, optional = true})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
 add_requires("eigen", {optional = true, headeronly = true})
+-- add_requires("llvm", {optional = true})
+
+-- 可选：添加abseil库
+-- add_requires("abseil", {optional = true})
+-- if has_package("abseil") then
+--     add_packages("abseil")
+--     add_defines("AST_WITH_ABSEIL")
+-- end
 
 -- 导入子目录配置
 includes("thirdparty")
@@ -55,6 +63,11 @@ task("cpdata")
             local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", os.host(), os.arch(), mode))
             os.cp(path.join(os.projectdir(), "data"), dstpath)
             print("dstpath:", dstpath)
+            if is_host("windows") then
+                local dstpath = path.join(os.projectdir(), format("build/mingw/x86_64/%s/", mode))
+                os.cp(path.join(os.projectdir(), "data"), dstpath)
+                print("dstpath:", dstpath)
+            end
         end
     end)
 task_end()

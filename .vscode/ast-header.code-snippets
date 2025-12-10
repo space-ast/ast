@@ -31,7 +31,8 @@
             "",
             "${0}",
             "",
-            "AST_NAMESPACE_END"
+            "AST_NAMESPACE_END",
+            ""
         ],
         "description": "Create C++ header file with ast project template"
     }

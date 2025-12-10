@@ -31,6 +31,11 @@ double aJulianCenturyFromJ2000(const JulianDate& jd)
     return ((jd.day() - kJ2000Epoch) + jd.dayFractional()) / 36525.;
 }
 
+double aJulianDayFromJ2000(const JulianDate& jd)
+{
+    return (jd.day() - kJ2000Epoch) + jd.dayFractional();
+}
+
 void aTAIToUTC(const JulianDate& jdTAI, JulianDate& jdUTC)
 {
     // @note: TAI 时间 = UTC 时间 + 闰秒
@@ -104,8 +109,12 @@ void aTTToTDB(const DateTime& dttmTT, DateTime& dttmTDB)
 
 double aTDBMinusTT(const JulianDate& jdTT)
 {
-#define USE_X -2
-#if (USE_X == -2)
+#define USE_X -3
+#if (USE_X == -3)
+	double jdfromj2000 = aJulianDayFromJ2000(jdTT);
+	double arg = (0.01720197 * jdfromj2000 + 6.239996);
+	return 0.001657 * sin(arg + 0.01671*sin(arg));
+#elif (USE_X == -2)
 	double jctt = aJulianCenturyFromJ2000(jdTT);
 	double arg = kDegToRad * (35999.05034 * jctt + 357.5277233);
 	return 0.001658 * sin(arg + 0.0167*sin(arg));

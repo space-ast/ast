@@ -23,10 +23,11 @@
 #include "AstGlobal.h"
 #include <string>
 #include <string.h>
- 
+
 AST_NAMESPACE_BEGIN
 
 typedef std::string String;
+
 
 
 // 比较两个字符串是否相等（不区分大小写）

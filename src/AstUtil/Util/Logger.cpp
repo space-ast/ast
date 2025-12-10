@@ -18,7 +18,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
 #include "Logger.hpp"
+#include "AstUtil/IO.hpp"
 #include <stdarg.h> 
+
  
 AST_NAMESPACE_BEGIN
  
@@ -27,7 +29,8 @@ AST_NAMESPACE_BEGIN
 
 void aLogMessageV(ELogLevel level, const MessageLogContext& context, const char* format, va_list ap)
 {
-	vprintf(format, ap);
+	ast_printf("%s(%d): %s\n", context.file, context.line, context.function);
+	ast_vprintf(format, ap);
 }
 
 void aLogMessage(ELogLevel level, const MessageLogContext& context, const char* format, ...)

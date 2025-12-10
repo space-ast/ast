@@ -1,1 +1,1 @@
-#include "AstMath/MathOperator.hpp"
+﻿#include "AstMath/MathOperator.hpp"
