@@ -336,13 +336,14 @@ err_t aFormatInt(int value, std::string& str)
 err_t aFormatDouble(double value, std::string& str, int precision)
 {
     char double_buffer[32];
-    // 限制精度范围
-    if (precision < 0 || precision > 30)
+    int len;
+    if (precision < 0)
     {
-        precision = 15;
+        len = std::snprintf(double_buffer, sizeof(double_buffer), "%g", value);
+    }else{
+        len = std::snprintf(double_buffer, sizeof(double_buffer), "%.*f", precision, value);
     }
 
-    int len = std::snprintf(double_buffer, sizeof(double_buffer), "%.*g", precision, value);
     if (len < 0 || len >= static_cast<int>(sizeof(double_buffer)))
     {
         return eErrorInvalidParam;

@@ -206,7 +206,7 @@ A_ALWAYS_INLINE Property* aNewPropertyString()
         },
         [](void* obj, const void* value) -> err_t
         {
-            ((T*)obj)->*Member = *((typename property_trait<std::string>::input_type*)value);
+            ((T*)obj)->*Member = std::string(*((typename property_trait<std::string>::input_type*)value));
             return 0;
         }
     );
@@ -386,7 +386,7 @@ A_ALWAYS_INLINE Property* aNewPropertyString()
 /// @tparam Getter 布尔属性获取函数指针
 /// @tparam Setter 布尔属性设置函数指针
 /// @return Property* 属性指针
-template<typename T, err_t (T::* Getter) () const, err_t (T::* Setter)(bool)>
+template<typename T, bool (T::* Getter) () const, err_t (T::* Setter)(bool)>
 A_ALWAYS_INLINE Property* aNewPropertyBool()
 {
     return _aNewPropertyBool(

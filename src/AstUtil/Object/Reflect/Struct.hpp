@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 
 class Property;
 
-class Struct: public Field
+class AST_UTIL_API Struct: public Field
 {
 public:
     using Field::Field;
