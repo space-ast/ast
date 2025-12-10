@@ -25,17 +25,17 @@
 
 // 判断是否是clang
 #if defined(__clang__)
-#  define A_CLANG __clang__
+#   define A_CLANG __clang__
 #endif
 
 // 判断是否是gcc
 #if defined(__GNUC__) && !defined(__clang__)
-#  define A_GCC __GNUC__
+#   define A_GCC __GNUC__
 #endif
 
 // 判断是否是intel icc
 #if defined(__INTEL_COMPILER)
-#    define A_ICC __INTEL_COMPILER
+#   define A_ICC __INTEL_COMPILER
 #endif
 
 // 判断是否是mingw
@@ -45,58 +45,58 @@
 
 // 判断是否是vc
 #if defined(_MSC_VER)
-#  define A_MSVC _MSC_VER
+#   define A_MSVC _MSC_VER
 #endif
 
 // 内置函数检测
 #if defined(__has_builtin)
-#  define A_HAS_BUILTIN(builtin) __has_builtin(builtin)
+#   define A_HAS_BUILTIN(builtin) __has_builtin(builtin)
 #else
-#  define A_HAS_BUILTIN(builtin) 0
+#   define A_HAS_BUILTIN(builtin) 0
 #endif
 
 #if defined(__has_attribute)
-#  define A_HAS_ATTRIBUTE(attribute) __has_attribute(attribute)
+#   define A_HAS_ATTRIBUTE(attribute) __has_attribute(attribute)
 #else
-#  define A_HAS_ATTRIBUTE(attribute) 0
+#   define A_HAS_ATTRIBUTE(attribute) 0
 #endif
 
 // 分支预测宏
 #if A_HAS_BUILTIN(__builtin_expect) || defined(A_GCC) || defined(A_CLANG)
-#  define A_LIKELY(expr)   __builtin_expect(!!(expr), 1)
-#  define A_UNLIKELY(expr) __builtin_expect(!!(expr), 0)
+#   define A_LIKELY(expr)   __builtin_expect(!!(expr), 1)
+#   define A_UNLIKELY(expr) __builtin_expect(!!(expr), 0)
 #else
-#  define A_LIKELY(expr)   (expr)
-#  define A_UNLIKELY(expr) (expr)
+#   define A_LIKELY(expr)   (expr)
+#   define A_UNLIKELY(expr) (expr)
 #endif
 
 #if A_HAS_BUILTIN(__builtin_unpredictable)
-#  define A_UNPREDICTABLE(expr) __builtin_unpredictable(!!(expr))
+#   define A_UNPREDICTABLE(expr) __builtin_unpredictable(!!(expr))
 #else
-#  define A_UNPREDICTABLE(expr) (expr)
+#   define A_UNPREDICTABLE(expr) (expr)
 #endif
 
 // 内联控制宏
 
 #if A_MSVC || A_ICC
-#    define A_STRONG_INLINE __forceinline
+#   define A_STRONG_INLINE __forceinline
 #else
-#    define A_STRONG_INLINE inline
+#   define A_STRONG_INLINE inline
 #endif
 
 
 #if A_HAS_ATTRIBUTE(always_inline) || defined(A_GCC) || defined(A_CLANG)
-#  define A_ALWAYS_INLINE __attribute__((__always_inline__)) inline
+#   define A_ALWAYS_INLINE __attribute__((__always_inline__)) inline
 #else
-#  define A_ALWAYS_INLINE A_STRONG_INLINE
+#   define A_ALWAYS_INLINE A_STRONG_INLINE
 #endif
 
 #if A_HAS_ATTRIBUTE(noinline) || defined(A_GCC) || defined(A_CLANG)
-#  define A_NO_INLINE __attribute__((__noinline__))
+#   define A_NO_INLINE __attribute__((__noinline__))
 #elif defined(A_MSVC)
-#  define A_NO_INLINE __declspec(noinline)
+#   define A_NO_INLINE __declspec(noinline)
 #else
-#  define A_NO_INLINE
+#   define A_NO_INLINE
 #endif
 
 
@@ -123,13 +123,13 @@
 // 线程本地存储 thread local storage
 
 #if defined(thread_local) || defined(__cplusplus) && __cplusplus >= 201103L
-#  define A_THREAD_LOCAL thread_local
+#   define A_THREAD_LOCAL thread_local
 #elif __STDC_VERSION__ >= 201112L && !defined(__STDC_NO_THREADS__)
-#  define A_THREAD_LOCAL _Thread_local
+#   define A_THREAD_LOCAL _Thread_local
 #elif defined(_MSC_VER)  
-#  define A_THREAD_LOCAL __declspec(thread)
+#   define A_THREAD_LOCAL __declspec(thread)
 #elif defined(__GNUC__) 
-#  define A_THREAD_LOCAL __thread
+#   define A_THREAD_LOCAL __thread
 #endif
 
 
@@ -141,54 +141,54 @@
 
 // 函数属性宏
 #if A_HAS_ATTRIBUTE(const) || defined(A_GCC) || defined(A_CLANG)
-#  define A_CONST __attribute__((__const__))
+#   define A_CONST __attribute__((__const__))
 #else
-#  define A_CONST
+#   define A_CONST
 #endif
 
 #if A_HAS_ATTRIBUTE(pure) || defined(A_GCC) || defined(A_CLANG)
-#  define A_PURE __attribute__((__pure__))
+#   define A_PURE __attribute__((__pure__))
 #else
-#  define A_PURE
+#   define A_PURE
 #endif
 
 #if A_HAS_ATTRIBUTE(noreturn) || defined(A_GCC) || defined(A_CLANG)
-#  define A_NORETURN __attribute__((__noreturn__))
+#   define A_NORETURN __attribute__((__noreturn__))
 #elif defined(A_MSVC)
-#  define A_NORETURN __declspec(noreturn)
+#   define A_NORETURN __declspec(noreturn)
 #else
-#  define A_NORETURN
+#   define A_NORETURN
 #endif
 
 #if A_HAS_ATTRIBUTE(malloc) || defined(A_GCC) || defined(A_CLANG)
-#  define A_MALLOC __attribute__((__malloc__))
+#   define A_MALLOC __attribute__((__malloc__))
 #else
-#  define A_MALLOC
+#   define A_MALLOC
 #endif
 
 #if A_HAS_ATTRIBUTE(warn_unused_result) || defined(A_GCC) || defined(A_CLANG)
-#  define A_NODISCARD __attribute__((__warn_unused_result__))
+#   define A_NODISCARD __attribute__((__warn_unused_result__))
 #elif defined(A_MSVC) && (_MSC_VER >= 1700)
-#  define A_NODISCARD _Check_return_
+#   define A_NODISCARD _Check_return_
 #else
-#  define A_NODISCARD
+#   define A_NODISCARD
 #endif
 
 // 优化提示
 #if A_HAS_BUILTIN(__builtin_assume)
-#  define A_ASSUME(expr) __builtin_assume(expr)
+#   define A_ASSUME(expr) __builtin_assume(expr)
 #elif defined(A_MSVC)
-#  define A_ASSUME(expr) __assume(expr)
+#   define A_ASSUME(expr) __assume(expr)
 #else
-#  define A_ASSUME(expr) ((void)((expr) ? 1 : 0))
+#   define A_ASSUME(expr) ((void)((expr) ? 1 : 0))
 #endif
 
 #if A_HAS_BUILTIN(__builtin_unreachable) || defined(A_GCC) || defined(A_CLANG)
-#  define A_UNREACHABLE() __builtin_unreachable()
+#   define A_UNREACHABLE() __builtin_unreachable()
 #elif defined(A_MSVC)
-#  define A_UNREACHABLE() __assume(0)
+#   define A_UNREACHABLE() __assume(0)
 #else
-#  define A_UNREACHABLE() 
+#   define A_UNREACHABLE() 
 #endif
 
 
@@ -209,22 +209,45 @@
 
 // 类型安全检查
 #if A_HAS_ATTRIBUTE(nonnull) || defined(A_GCC) || defined(A_CLANG)
-#  define A_NON_NULL(...) __attribute__((__nonnull__(__VA_ARGS__)))
+#   define A_NON_NULL(...) __attribute__((__nonnull__(__VA_ARGS__)))
 #else
-#  define A_NON_NULL(...)
+#   define A_NON_NULL(...)
 #endif
 
 // 限制指针
 #if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)
-#  define A_RESTRICT restrict
+#   define A_RESTRICT restrict
 #elif defined(A_MSVC)
-#  define A_RESTRICT __restrict
+#   define A_RESTRICT __restrict
 #elif defined(A_GCC) || defined(A_CLANG)
-#  define A_RESTRICT __restrict__
+#   define A_RESTRICT __restrict__
 #else
-#  define A_RESTRICT
+#   define A_RESTRICT
 #endif
 
+// 处理 MSVC 编译器的 _MSVC_LANG 宏
+#if defined(_MSVC_LANG)
+#   define A_CPLUSPLUS _MSVC_LANG
+#elif defined(_MSC_VER) && (_MSC_VER >= 1900)
+#   define A_CPLUSPLUS 201103L
+#elif defined(__cplusplus)
+#   define A_CPLUSPLUS __cplusplus
+#else
+#   define A_CPLUSPLUS 0
+#endif
+
+// C++ 版本宏
+#if A_CPLUSPLUS >= 202002L
+#   define A_CXX_VERSION 20
+#elif A_CPLUSPLUS >= 201703L
+#   define A_CXX_VERSION 17
+#elif A_CPLUSPLUS >= 201402L
+#   define A_CXX_VERSION 14
+#elif A_CPLUSPLUS >= 201103L
+#   define A_CXX_VERSION 11
+#else
+#   define A_CXX_VERSION 03
+#endif
 
 
 

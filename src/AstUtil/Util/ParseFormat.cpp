@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      ParseFormat.cpp
 /// @brief     ~
 /// @details   ~
@@ -27,6 +27,17 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <climits>
+#include <cmath>
+
+#ifdef AST_WITH_ABSEIL
+#include "absl/strings/charconv.h"
+#endif
+
+#if A_CXX_VERSION >= 17
+#   include <charconv>
+#endif
+
 
 AST_NAMESPACE_BEGIN
 
@@ -57,8 +68,16 @@ err_t aParseBool(StringView str, bool& value)
 }
 
 
-
 err_t aParseInt(StringView str, int& value)
+{
+    #if A_CXX_VERSION >= 17
+    return _aParseInt_FromChars(str, value);
+    #else
+    return _aParseInt_LibC_1(str, value);
+    #endif
+}
+
+err_t _aParseInt_LibC_1(StringView str, int& value)
 {
     if (str.empty() || !str.data())
     {
@@ -85,8 +104,102 @@ err_t aParseInt(StringView str, int& value)
     return eNoError;
 }
 
+err_t _aParseInt_LibC_2(StringView str, int& value)
+{
+    value = std::atoi(str.data());
+    return 0;
+}
+
+#if A_CXX_VERSION >= 17
+err_t _aParseInt_FromChars(StringView str, int &value)
+{
+    auto result = std::from_chars(str.data(), str.data() + str.size(), value);
+    return result.ec == std::errc() ? eNoError : eErrorParse;
+}
+#endif
+
+err_t _aParseInt_Simple(StringView str, int& value)
+{
+    if (str.empty()) {
+        return eErrorParse;
+    }
+    
+    const char* p = str.data();
+    const char* end = p + str.size();
+    
+    bool negative = false;
+    int result = 0;
+    
+    // 跳过前导空格（如果需要）
+    while (p < end && (*p == ' ' || *p == '\t')) {
+        ++p;
+    }
+    
+    // 处理符号
+    if (*p == '-') {
+        negative = true;
+        ++p;
+    } else if (*p == '+') {
+        ++p;
+    }
+    
+    // 解析数字
+    while (p < end && *p >= '0' && *p <= '9') {
+        result = result * 10 + (*p - '0');
+        ++p;
+    }
+
+    // 检查溢出
+    if (result > (INT_MAX - (*p - '0')) / 10) {
+        return eErrorParse;
+    }
+
+    #ifdef AST_USE_PARSE_STRICT_MODE
+    
+    // 检查是否有无效字符（如果需要）
+    while (p < end && (*p == ' ' || *p == '\t')) {
+        ++p;
+    }
+
+    if (p != end) {
+        return eErrorParse;
+    }
+    
+    #endif
+
+    value = negative ? -result : result;
+    return eNoError;
+}
+
+err_t _aParseInt_StringStream(StringView str, int &value)
+{
+    std::istringstream iss(str.data());
+    iss >> value;
+    return eNoError;
+}
+
+err_t _aParseInt_Scanf(StringView str, int &value)
+{
+    int result = 0;
+    int ret = std::sscanf(str.data(), "%d", &result);
+    if (ret != 1)
+    {
+        return eErrorParse;
+    }
+    value = result;
+    return eNoError;
+}
 
 err_t aParseDouble(StringView str, double& value)
+{
+    #if A_CXX_VERSION >= 17
+    return _aParseDouble_FromChars(str, value);
+    #else
+    return _aParseDouble_LibC_1(str, value);
+    #endif
+}
+
+err_t _aParseDouble_LibC_1(StringView str, double& value)
 {
     if (str.empty() || !str.data())
     {
@@ -107,7 +220,47 @@ err_t aParseDouble(StringView str, double& value)
     return eNoError;
 }
 
+err_t _aParseDouble_LibC_2(StringView str, double& value)
+{
+    value = std::atof(str.data());
+    return 0;
+}
 
+#if A_CXX_VERSION >= 17
+err_t _aParseDouble_FromChars(StringView str, double &value)
+{
+    auto result = std::from_chars(str.data(), str.data() + str.size(), value);
+    return result.ec == std::errc() ? eNoError : eErrorParse;
+}
+
+#endif
+
+#ifdef AST_WITH_ABSEIL
+err_t _aParseDouble_FromChars_Abseil(StringView str, double &value)
+{
+    auto result = absl::from_chars(str.data(), str.data() + str.size(), value);
+    return result.ec == std::errc() ? eNoError : eErrorParse;
+}
+#endif
+
+err_t _aParseDouble_StringStream(StringView str, double &value)
+{
+    std::istringstream iss(str.data());
+    iss >> value;
+    return eNoError;
+}
+
+err_t _aParseDouble_Scanf(StringView str, double &value)
+{
+    double result = 0.0;
+    int ret = std::sscanf(str.data(), "%lf", &result);
+    if (ret != 1)
+    {
+        return eErrorParse;
+    }
+    value = result;
+    return eNoError;
+}
 
 err_t aParseColor(StringView str, Color& value)
 {

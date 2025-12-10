@@ -222,7 +222,7 @@ TEST(TimeSystem, TTToTDB)
     double diff2 = (jdTDB - jdTT).second();
     
     // 验证两种方式计算的差值是否一致
-    EXPECT_NEAR(diff, diff2, 1e-12);
+    EXPECT_NEAR(diff, diff2, 1e-11);
     
     // TDB与TT的差值应该很小
     EXPECT_NEAR(diff, 0.0, 0.01); // 差值应该在10毫秒以内

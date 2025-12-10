@@ -1,4 +1,4 @@
-target("AstOpt")
+﻿target("AstOpt")
     set_kind("shared")
     add_files("**.cpp")
     add_files("**.c")

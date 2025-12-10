@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      PropertyBool.cpp
 /// @brief     ~
 /// @details   ~

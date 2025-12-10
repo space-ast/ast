@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      Property.cpp
 /// @brief     ~
 /// @details   ~

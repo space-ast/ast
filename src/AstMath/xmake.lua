@@ -1,4 +1,4 @@
-target("AstMath")
+﻿target("AstMath")
     set_kind("shared")
     add_files("*.c")
     add_files("**.cpp")

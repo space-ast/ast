@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      AngleAxis.cpp
 /// @brief     ~
 /// @details   ~

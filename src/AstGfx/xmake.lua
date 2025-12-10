@@ -1,4 +1,4 @@
-target("AstGfx")
+﻿target("AstGfx")
     set_kind("shared")
     add_files("**.cpp")
     add_deps("AstUtil", "AstOpt", "AstCore")
