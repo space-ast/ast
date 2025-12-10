@@ -137,7 +137,7 @@ err_t _aParseInt_Simple(StringView str, int& value)
     bool negative = false;
     int result = 0;
     
-    // 跳过前导空格（如果需要）
+    // 跳过前导空格
     while (p < end && (*p == ' ' || *p == '\t')) {
         ++p;
     }
@@ -149,19 +149,21 @@ err_t _aParseInt_Simple(StringView str, int& value)
     } else if (*p == '+') {
         ++p;
     }
-    
-    // 解析数字
-    while (p < end && *p >= '0' && *p <= '9') {
-        // 检查溢出
-        if (result > (INT_MAX - (*p - '0')) / 10) {
-            return eErrorParse;
-        }
-        result = result * 10 + (*p - '0');
-        ++p;
+
+    if (p >= end || !(*p >= '0' && *p <= '9')) {
+        return eErrorParse;
+    }else{
+        // 解析数字
+        do {
+            // 检查溢出
+            if (result > (INT_MAX - (*p - '0')) / 10) {
+                return eErrorParse;
+            }
+            result = result * 10 + (*p - '0');
+            ++p;
+        } while (p < end && *p >= '0' && *p <= '9');
     }
 
-
-    #ifdef AST_USE_PARSE_STRICT_MODE
     
     // 检查是否有无效字符（如果需要）
     while (p < end && (*p == ' ' || *p == '\t')) {
@@ -172,7 +174,6 @@ err_t _aParseInt_Simple(StringView str, int& value)
         return eErrorParse;
     }
     
-    #endif
 
     value = negative ? -result : result;
     return eNoError;

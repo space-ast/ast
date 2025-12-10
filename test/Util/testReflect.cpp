@@ -377,6 +377,54 @@ TEST(Reflect, PropertyStringGetterSetter2)
     EXPECT_EQ(test.propString_, "test2");
 }
 
+// 测试字符串属性的类型转换
+TEST(Reflect, PropertyStringConvert)
+{
+constexpr auto memberPtr = &TestClass::propString_;
+    auto prop = aNewPropertyString<TestClass, memberPtr>();
+    TestClass test{};
+    
+    // 测试 string -> bool
+    test.propString_ = "true";
+    bool boolValue;
+    err_t err = prop->getValueBool(&test, boolValue);
+    EXPECT_FALSE(err);
+    EXPECT_EQ(boolValue, true);
+    
+    // 测试 bool -> string
+    err = prop->setValueBool(&test, false);
+    EXPECT_FALSE(err);
+    EXPECT_EQ(test.propString_, "false");
+    
+    // 测试 string -> int
+    test.propString_ = "42";
+    int intValue;
+    err = prop->getValueInt(&test, intValue);
+    EXPECT_FALSE(err);
+    EXPECT_EQ(intValue, 42);
+    
+    // 测试 int -> string
+    err = prop->setValueInt(&test, 84);
+    EXPECT_FALSE(err);
+    EXPECT_EQ(test.propString_, "84");
+    
+    // 测试 string -> double
+    test.propString_ = "42.5";
+    double doubleValue;
+    err = prop->getValueDouble(&test, doubleValue);
+    EXPECT_FALSE(err);
+    EXPECT_EQ(doubleValue, 42.5);
+    
+    // 测试 double -> string
+    err = prop->setValueDouble(&test, 84.5);
+    EXPECT_FALSE(err);
+    // 注意：浮点数转字符串可能有精度问题，这里只检查值的正确性
+    double checkValue;
+    err = prop->getValueDouble(&test, checkValue);
+    EXPECT_FALSE(err);
+    EXPECT_EQ(checkValue, 84.5);
+}
+
 // 测试Struct类的功能
 TEST(Reflect, Struct)
 {
