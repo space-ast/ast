@@ -29,8 +29,7 @@ AST_NAMESPACE_BEGIN
 class Class: public Struct
 {
 public:
-    Class();
-    ~Class();
+    // @todo 实现类的反射机制
 };
 
 

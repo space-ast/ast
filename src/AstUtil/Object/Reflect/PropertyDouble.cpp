@@ -23,7 +23,7 @@
 
 AST_NAMESPACE_BEGIN
 
-err_t PropertyDouble::getValueBool(void* container, bool& value)
+err_t PropertyDouble::getValueBool(const void* container, bool& value)
 {
     double d;
     err_t ret = this->getValue(container, &d);
@@ -39,7 +39,7 @@ err_t PropertyDouble::setValueBool(void* container, bool value)
     double d = value ? 1.0 : 0.0;
     return this->setValue(container, &d);
 }
-err_t PropertyDouble::getValueInt(void* container, int& value) 
+err_t PropertyDouble::getValueInt(const void* container, int& value) 
 {
     double d;
     err_t ret = this->getValue(container, &d);
@@ -57,7 +57,7 @@ err_t PropertyDouble::setValueInt(void* container, int value)
     return this->setValue(container, &d);
 }
 
-err_t PropertyDouble::getValueString(void* container, std::string& value)
+err_t PropertyDouble::getValueString(const void* container, std::string& value)
 {
     double d;
     err_t ret = this->getValue(container, &d);
@@ -79,7 +79,7 @@ err_t PropertyDouble::setValueString(void* container, StringView value)
     return this->setValue(container, &d);
 }
 
-err_t PropertyDouble::getValueDouble(void* container, double& value)
+err_t PropertyDouble::getValueDouble(const void* container, double& value)
 {
     return this->getValue(container, &value);
 }

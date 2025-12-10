@@ -33,13 +33,13 @@ public:
     using InputType = double;
     using OutputType = double;
 
-    err_t getValueBool(void* container, bool& value) override;
+    err_t getValueBool(const void* container, bool& value) override;
     err_t setValueBool(void* container, bool value) override;
-    err_t getValueInt(void* container, int& value) override;
+    err_t getValueInt(const void* container, int& value) override;
     err_t setValueInt(void* container, int value) override;
-    err_t getValueString(void* container, std::string& value) override;
+    err_t getValueString(const void* container, std::string& value) override;
     err_t setValueString(void* container, StringView value) override;
-    err_t getValueDouble(void* container, double& value) override;
+    err_t getValueDouble(const void* container, double& value) override;
     err_t setValueDouble(void* container, double value) override;
 protected:
     /// @brief 设置属性值（double类型）
@@ -56,7 +56,7 @@ protected:
     /// @param value 属性值指针
     /// @return 0 成功，其他值 失败
     A_ALWAYS_INLINE
-    err_t getValue(void* container, OutputType* value)
+    err_t getValue(const void* container, OutputType* value)
     {
         return getter_(container, value);
     }

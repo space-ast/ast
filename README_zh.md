@@ -33,7 +33,7 @@
 
 ### 环境要求
 
-- C++11兼容编译器 (GCC 5+, MSVC 2015+)
+- C++11兼容编译器 (GCC 5+, MSVC 2015+, mingw)
 - [xmake 2.9+](https://xmake.io/)
 
 

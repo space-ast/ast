@@ -38,7 +38,7 @@ enum EValueType{
 /// @param container 对象指针
 /// @param value 指向属性值的指针
 /// @return err_t 错误码
-AST_UTIL_CAPI err_t aFakeGet(void* container, void* value);
+AST_UTIL_CAPI err_t aFakeGet(const void* container, void* value);
 
 
 /// @brief 模拟设置属性值的函数
@@ -73,7 +73,7 @@ public:
     /// @param container 容器对象指针
     /// @param value 指向double类型变量的引用，用于存储属性值
     /// @return err_t 错误码
-    virtual err_t getValueDouble(void* container, double& value) = 0;
+    virtual err_t getValueDouble(const void* container, double& value) = 0;
 
     /// @brief 设置属性值（double类型）
     /// @param container 容器对象指针
@@ -85,7 +85,7 @@ public:
     /// @param container 容器对象指针
     /// @param value 指向int类型变量的引用，用于存储属性值
     /// @return err_t 错误码
-    virtual err_t getValueInt(void* container, int& value) = 0;
+    virtual err_t getValueInt(const void* container, int& value) = 0;
 
     /// @brief 设置属性值（int类型）
     /// @param container 容器对象指针
@@ -97,7 +97,7 @@ public:
     /// @param container 容器对象指针
     /// @param value 指向bool类型变量的引用，用于存储属性值
     /// @return err_t 错误码
-    virtual err_t getValueBool(void* container, bool& value) = 0;
+    virtual err_t getValueBool(const void* container, bool& value) = 0;
 
     /// @brief 设置属性值（bool类型）
     /// @param container 容器对象指针
@@ -109,7 +109,7 @@ public:
     /// @param container 容器对象指针
     /// @param value 指向std::string类型变量的引用，用于存储属性值
     /// @return err_t 错误码
-    virtual err_t getValueString(void* container, std::string& value) = 0;
+    virtual err_t getValueString(const void* container, std::string& value) = 0;
 
     /// @brief 设置属性值（String类型）
     /// @param container 容器对象指针
