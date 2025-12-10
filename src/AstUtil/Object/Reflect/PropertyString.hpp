@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      PropertyString.hpp
 /// @brief     ~
 /// @details   ~
@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 class PropertyString: public Property
 {
 public:
-    using InputType  = StringView;
+    using InputType  = typename property_trait<std::string>::input_type;
     using OutputType = std::string;
 public:
     using Property::Property;

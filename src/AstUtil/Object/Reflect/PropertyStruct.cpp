@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      PropertyStruct.cpp
 /// @brief     ~
 /// @details   ~

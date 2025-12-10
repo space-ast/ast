@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      Field.cpp
 /// @brief     ~
 /// @details   ~

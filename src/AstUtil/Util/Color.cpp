@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      Color.cpp
 /// @brief     ~
 /// @details   ~

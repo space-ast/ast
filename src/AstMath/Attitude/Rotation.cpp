@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      Rotation.cpp
 /// @brief     ~
 /// @details   ~

@@ -1,4 +1,4 @@
-
+﻿
 ///
 /// @file      Type.hpp
 /// @brief     ~

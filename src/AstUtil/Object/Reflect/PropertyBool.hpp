@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      PropertyBool.hpp
 /// @brief     ~
 /// @details   ~

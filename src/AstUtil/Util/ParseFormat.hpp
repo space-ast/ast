@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      ParseFormat.hpp
 /// @brief     解析和格式化字符串
 /// @details   
@@ -41,11 +41,77 @@ AST_UTIL_CAPI err_t aParseBool(StringView str, bool& value);
 /// @return 0 成功，其他值 失败
 AST_UTIL_CAPI err_t aParseInt(StringView str, int& value);
 
+
+/// @brief 内部函数，将字符串转换为整数（基于C标准库函数）
+/// @param str 输入字符串
+/// @param value 输出整数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseInt_LibC_1(StringView str, int& value);      // 基于 strtol 函数(stol函数)
+AST_UTIL_CAPI err_t _aParseInt_LibC_2(StringView str, int& value);      // 基于 atoi 函数
+
+#if A_CXX_VERSION >= 17
+AST_UTIL_CAPI err_t _aParseInt_FromChars(StringView str, int& value);    // 基于 std::from_chars 函数
+#endif
+
+
+/// @brief 内部函数，将字符串转换为整数（简单实现）
+/// @param str 输入字符串
+/// @param value 输出整数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseInt_Simple(StringView str, int& value);
+
+
+/// @brief 内部函数，将字符串转换为整数（基于 stringstream 流解析）
+/// @param str 输入字符串
+/// @param value 输出整数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseInt_StringStream(StringView str, int& value);
+
+
+/// @brief 内部函数，将字符串转换为整数（基于 scanf 函数）
+/// @param str 输入字符串
+/// @param value 输出整数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseInt_Scanf(StringView str, int& value);      // 基于 scanf 函数
+
+
 /// @brief 将字符串转换为双精度浮点数
 /// @param str 输入字符串
 /// @param value 输出双精度浮点数
 /// @return 0 成功，其他值 失败
 AST_UTIL_CAPI err_t aParseDouble(StringView str, double& value);
+
+
+/// @brief 内部函数，将字符串转换为双精度浮点数（基于C标准库函数）
+/// @param str 输入字符串
+/// @param value 输出双精度浮点数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseDouble_LibC_1(StringView str, double& value);  // 基于 strtod 函数(stod函数)
+AST_UTIL_CAPI err_t _aParseDouble_LibC_2(StringView str, double& value);  // 基于 atof 函数
+
+
+#if A_CXX_VERSION >= 17
+AST_UTIL_CAPI err_t _aParseDouble_FromChars(StringView str, double& value);    // 基于 std::from_chars 函数
+#endif
+
+#ifdef AST_WITH_ABSEIL
+AST_UTIL_CAPI err_t _aParseDouble_FromChars_Abseil(StringView str, double& value);
+#endif
+
+/// @brief 内部函数，将字符串转换为双精度浮点数（基于 stringstream 流解析）
+/// @param str 输入字符串
+/// @param value 输出双精度浮点数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseDouble_StringStream(StringView str, double& value);
+
+
+
+/// @brief 内部函数，将字符串转换为双精度浮点数（基于 scanf 函数）
+/// @param str 输入字符串
+/// @param value 输出双精度浮点数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t _aParseDouble_Scanf(StringView str, double& value);      // 基于 scanf 函数
+
 
 
 /// @brief 将字符串转换为颜色值

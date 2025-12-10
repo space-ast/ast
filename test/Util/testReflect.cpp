@@ -34,6 +34,8 @@ public:
 };
 
 
+
+
 TEST(Reflect, PropertyDouble)
 {
     constexpr auto memberPtr = &TestClass::propDouble_;
