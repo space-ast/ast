@@ -139,9 +139,9 @@ AST_UTIL_CAPI err_t aFormatInt(int value, std::string& str);
 /// @brief 将双精度浮点数格式化为字符串
 /// @param value 输入双精度浮点数
 /// @param str 输出字符串
-/// @param precision 格式化精度，默认值为15
+/// @param precision 格式化精度，默认自适应
 /// @return 0 成功，其他值 失败
-AST_UTIL_CAPI err_t aFormatDouble(double value, std::string& str, int precision = 15);
+AST_UTIL_CAPI err_t aFormatDouble(double value, std::string& str, int precision = -1);
 
 
 /// @brief 将颜色值格式化为字符串
