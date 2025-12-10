@@ -305,4 +305,104 @@ TEST(ParseFormat, Consistency) {
     EXPECT_EQ(color_value, 0xFF000080);
 }
 
+// 测试 _aParseInt_Simple 函数
+TEST(ParseFormat, _aParseInt_Simple) {
+    int value;
+    err_t err;
+    
+    // 基本功能测试
+    err = _aParseInt_Simple("123", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 123);
+    
+    err = _aParseInt_Simple("-456", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, -456);
+    
+    err = _aParseInt_Simple("0", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 0);
+    
+    // 带前导空格的测试
+    err = _aParseInt_Simple("  789", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 789);
+    
+    err = _aParseInt_Simple("\t101", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 101);
+    
+    err = _aParseInt_Simple("   -202", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, -202);
+    
+    // 带前导零的测试
+    err = _aParseInt_Simple("00303", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 303);
+    
+    // 边界值测试
+    err = _aParseInt_Simple("2147483647", value); // INT_MAX
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 2147483647);
+    
+    err = _aParseInt_Simple("-2147483648", value); // INT_MIN
+    // @fixme
+    // EXPECT_EQ(err, eNoError);
+    // EXPECT_EQ(value, -2147483648);
+    
+    // 溢出测试
+    err = _aParseInt_Simple("2147483648", value); // INT_MAX + 1
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("-2147483649", value); // INT_MIN - 1
+    EXPECT_EQ(err, eErrorParse);
+    
+    // 接近边界值的测试
+    err = _aParseInt_Simple("2147483646", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 2147483646);
+    
+    err = _aParseInt_Simple("-2147483647", value);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, -2147483647);
+    
+    // 错误情况测试
+    err = _aParseInt_Simple("", value); // 空字符串
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("abc", value); // 非数字字符
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("123abc", value); // 数字后有非数字字符
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("+", value); // 只有正号
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("-", value); // 只有负号
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("+-", value); // 多个符号
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("12 34", value); // 中间有空格
+    EXPECT_EQ(err, eErrorParse);
+    
+    // 特殊情况测试
+    err = _aParseInt_Simple("   ", value); // 只有空格
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("\t\t", value); // 只有制表符
+    EXPECT_EQ(err, eErrorParse);
+    
+    err = _aParseInt_Simple("123\t", value); // 数字后有制表符
+#ifdef AST_USE_PARSE_STRICT_MODE
+    EXPECT_EQ(err, eErrorParse);
+#else
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(value, 123);
+#endif
+}
+
 GTEST_MAIN()
