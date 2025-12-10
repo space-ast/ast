@@ -25,9 +25,42 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 双精度浮点数属性
 class PropertyDouble: public Property
 {
 public:
+    using Property::Property;
+    using InputType = double;
+    using OutputType = double;
+
+    err_t getValueBool(void* container, bool& value) override;
+    err_t setValueBool(void* container, bool value) override;
+    err_t getValueInt(void* container, int& value) override;
+    err_t setValueInt(void* container, int value) override;
+    err_t getValueString(void* container, std::string& value) override;
+    err_t setValueString(void* container, StringView value) override;
+    err_t getValueDouble(void* container, double& value) override;
+    err_t setValueDouble(void* container, double value) override;
+protected:
+    /// @brief 设置属性值（double类型）
+    /// @param container 容器指针
+    /// @param value 属性值指针
+    /// @return 0 成功，其他值 失败
+    A_ALWAYS_INLINE
+    err_t setValue(void* container, const InputType* value)
+    {
+        return setter_(container, value);
+    }
+    /// @brief 获取属性值（double类型）
+    /// @param container 容器指针
+    /// @param value 属性值指针
+    /// @return 0 成功，其他值 失败
+    A_ALWAYS_INLINE
+    err_t getValue(void* container, OutputType* value)
+    {
+        return getter_(container, value);
+    }
+
 };
 
 

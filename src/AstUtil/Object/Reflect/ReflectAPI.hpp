@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      ReflectAPI.hpp
 /// @brief     ~
 /// @details   ~
@@ -24,8 +24,133 @@
 
 AST_NAMESPACE_BEGIN
 
+typedef err_t (*FPropertyGet)(void* obj, void* value);              ///< 获取属性值的函数指针
+typedef err_t (*FPropertySet)(void* obj, void const* value);        ///< 设置属性值的函数指针
+
 
 class Property;
+
+/// @brief 创建一个布尔属性
+/// @warning 本函数为内部函数，不建议直接调用。
+/// @param getter 获取属性值的函数指针
+/// @param setter 设置属性值的函数指针
+AST_UTIL_CAPI Property* _aNewPropertyBool(FPropertyGet getter, FPropertySet setter);
+
+
+/// @brief 创建一个整数属性
+/// @warning 本函数为内部函数，不建议直接调用。
+/// @param getter 获取属性值的函数指针
+/// @param setter 设置属性值的函数指针
+AST_UTIL_CAPI Property* _aNewPropertyInt(FPropertyGet getter, FPropertySet setter);
+
+
+/// @brief 创建一个双精度属性
+/// @warning 本函数为内部函数，不建议直接调用。
+/// @param getter 获取属性值的函数指针
+/// @param setter 设置属性值的函数指针
+/// @return Property* 属性指针
+AST_UTIL_CAPI Property* _aNewPropertyDouble(FPropertyGet getter, FPropertySet setter);
+
+
+/// @brief 创建一个字符串属性
+/// @warning 本函数为内部函数，不建议直接调用。
+/// @param getter 获取属性值的函数指针
+/// @param setter 设置属性值的函数指针
+/// @return Property* 属性指针
+AST_UTIL_CAPI Property* _aNewPropertyString(FPropertyGet getter, FPropertySet setter);
+
+
+
+/// @brief 创建一个双精度属性
+/// @details 本函数创建一个双精度属性，属性值通过访问对象的成员变量获取。
+/// @tparam T 类类型
+/// @param member 双精度属性成员指针
+/// @return Property* 属性指针
+template<typename T, double T::* Member>
+A_ALWAYS_INLINE Property* aNewPropertyDouble()
+{
+    return _aNewPropertyDouble(
+        [](void* obj, void* value) -> err_t
+        {
+            *((double*)value) = ((T*)obj)->*Member;
+            return 0;
+        },
+        [](void* obj, const void* value) -> err_t
+        {
+            ((T*)obj)->*Member = *((double*)value);
+            return 0;
+        }
+    );
+}
+
+
+/// @brief 创建一个双精度属性
+/// @details 本函数创建一个双精度属性，属性值通过调用对象的成员函数获取。
+/// @tparam T 类类型
+/// @tparam Getter 双精度属性获取函数指针
+/// @return Property* 属性指针
+template<typename T, double (T::* Getter) () const>
+A_ALWAYS_INLINE Property* aNewPropertyDouble()
+{
+    return _aNewPropertyDouble(
+        [](void* obj, void* value) -> err_t
+        {
+            static_assert(Getter!=nullptr, "invalid getter");
+             *((double*)value) = (((T*)obj)->*Getter)();
+             return 0;
+        }, 
+        nullptr
+    );
+}
+
+/// @brief 创建一个双精度属性
+/// @details 本函数创建一个双精度属性，属性值通过调用对象的成员函数获取。
+/// @tparam T 类类型
+/// @tparam Getter 双精度属性获取函数指针
+/// @tparam Setter 双精度属性设置函数指针
+/// @return Property* 属性指针
+template<typename T, double (T::* Getter) () const, void (T::* Setter)(double)>
+A_ALWAYS_INLINE Property* aNewPropertyDouble()
+{
+    return _aNewPropertyDouble(
+        [](void* obj, void* value) -> err_t
+    {
+        static_assert(Getter!=nullptr, "invalid getter");
+        *((double*)value) = (((T*)obj)->*Getter)();
+        return 0;
+    },
+        [](void* obj, const void* value) -> err_t
+    {
+        static_assert(Setter!=nullptr, "invalid setter");
+        (((T*)obj)->*Setter)(*((double*)value));
+        return 0;
+    }
+    );
+}
+
+/// @brief 创建一个双精度属性
+/// @details 本函数创建一个双精度属性，属性值通过调用对象的成员函数获取。
+/// @tparam T 类类型
+/// @tparam Getter 双精度属性获取函数指针
+/// @tparam Setter 双精度属性设置函数指针
+/// @return Property* 属性指针
+template<typename T, double (T::* Getter) () const, err_t (T::* Setter)(double)>
+A_ALWAYS_INLINE Property* aNewPropertyDouble()
+{
+    return _aNewPropertyDouble(
+        [](void* obj, void* value) -> err_t
+    {
+        static_assert(Getter != nullptr, "invalid getter");
+        *((double*)value) = (((T*)obj)->*Getter)();
+        return 0;
+    },
+        [](void* obj, const void* value) -> err_t
+    {
+        static_assert(Setter != nullptr, "invalid setter");
+        return (((T*)obj)->*Setter)(*((double*)value));
+    }
+    );
+}
 
 
 

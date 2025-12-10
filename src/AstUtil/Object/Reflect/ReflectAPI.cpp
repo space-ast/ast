@@ -19,9 +19,34 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ReflectAPI.hpp"
+#include "PropertyBool.hpp"
+#include "PropertyInt.hpp"
+#include "PropertyDouble.hpp"
+#include "PropertyString.hpp"
 
 AST_NAMESPACE_BEGIN
 
+
+
+Property* _aNewPropertyBool(FPropertyGet getter, FPropertySet setter)
+{
+    return new PropertyBool(getter, setter);
+}
+
+Property* _aNewPropertyInt(FPropertyGet getter, FPropertySet setter)
+{
+    return new PropertyInt(getter, setter);
+}
+
+Property* _aNewPropertyDouble(FPropertyGet getter, FPropertySet setter)
+{
+    return new PropertyDouble(getter, setter);
+}
+
+Property* _aNewPropertyString(FPropertyGet getter, FPropertySet setter)
+{
+    return new PropertyString(getter, setter);
+}
 
 
 AST_NAMESPACE_END

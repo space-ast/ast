@@ -1,9 +1,9 @@
 ///
-/// @file      PropertyBool.hpp
+/// @file      PropertyInt.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-09
+/// @date      2025-12-10
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -26,14 +26,13 @@
 AST_NAMESPACE_BEGIN
 
 
-/// @brief 反射属性类（bool类型）
-class PropertyBool final: public Property
+/// @brief 反射属性类（int类型）
+class PropertyInt: public Property
 {
 public:
     using Property::Property;
-    using InputType = bool;
-    using OutputType = bool;
-    
+    using InputType = int;
+    using OutputType = int;
     err_t getValueBool(void* container, bool& value) override;
     err_t setValueBool(void* container, bool value) override;
     err_t getValueInt(void* container, int& value) override;
@@ -42,8 +41,9 @@ public:
     err_t setValueString(void* container, StringView value) override;
     err_t getValueDouble(void* container, double& value) override;
     err_t setValueDouble(void* container, double value) override;
+
 protected:
-    /// @brief 设置属性值（bool类型）
+    /// @brief 设置属性值（int类型）
     /// @param container 容器指针
     /// @param value 属性值指针
     /// @return 0 成功，其他值 失败
@@ -52,7 +52,7 @@ protected:
     {
         return setter_(container, value);
     }
-    /// @brief 获取属性值（bool类型）
+    /// @brief 获取属性值（int类型）
     /// @param container 容器指针
     /// @param value 属性值指针
     /// @return 0 成功，其他值 失败
@@ -61,7 +61,6 @@ protected:
     {
         return getter_(container, value);
     }
-
 };
 
 

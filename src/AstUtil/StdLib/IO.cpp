@@ -19,10 +19,12 @@
  
 #include "IO.hpp"
 #include "AstUtil/Encode.hpp"
-#include <clocale>
-#include <cstdarg>
-#include <memory>
- 
+#include <clocale>              // for _create_locale, _free_locale
+#include <cstdarg>              // for va_list, va_start, va_end
+#include <memory>               // for std::unique_ptr
+#include <type_traits>          // for std::remove_pointer
+
+
 AST_NAMESPACE_BEGIN
  
 #ifdef _WIN32

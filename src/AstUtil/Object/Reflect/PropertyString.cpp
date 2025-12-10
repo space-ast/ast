@@ -19,9 +19,82 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "PropertyString.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
+err_t PropertyString::getValueBool(void* container, bool& value)
+{
+    std::string str;
+    err_t ret = this->getValue(container, &str);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    return aParseBool(str, value);
+}
+err_t PropertyString::setValueBool(void* container, bool value) 
+{
+    std::string str = aFormatBool(value);
+    StringView strview = str;
+    return this->setValue(container, &strview);
+}
+
+err_t PropertyString::getValueInt(void* container, int& value) 
+{
+    std::string str;
+    err_t ret = this->getValue(container, &str);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    return aParseInt(str, value);
+}
+
+err_t PropertyString::setValueInt(void* container, int value) 
+{
+    std::string str;
+    err_t err = aFormatInt(value, str);
+    if (err != eNoError)
+    {
+        return err;
+    }
+    StringView strview = str;
+    return this->setValue(container, &strview);
+}
+
+err_t PropertyString::getValueString(void* container, std::string& value)
+{
+    return this->getValue(container, &value);
+}
+
+err_t PropertyString::setValueString(void* container, StringView value)
+{
+    return this->setValue(container, &value);
+}
+
+err_t PropertyString::getValueDouble(void* container, double& value)
+{
+    std::string str;
+    err_t ret = this->getValue(container, &str);
+    if (ret != eNoError)
+    {
+        return ret;
+    }
+    return aParseDouble(str, value);
+}
+
+err_t PropertyString::setValueDouble(void* container, double value)
+{
+    std::string str;
+    err_t err = aFormatDouble(value, str);
+    if (err != eNoError)
+    {
+        return err;
+    }
+    StringView strview = str;
+    return this->setValue(container, &strview);
+}
 
 AST_NAMESPACE_END
