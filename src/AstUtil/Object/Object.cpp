@@ -20,15 +20,81 @@
  
 #include "Object.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/Class.hpp"            // for Class
+#include "AstUtil/Property.hpp"         // for Property
  
 AST_NAMESPACE_BEGIN
  
 
-static_assert(sizeof(Object) == sizeof(void*) * 2 + sizeof(uint32_t) * 2, "size not correct");
+static_assert(sizeof(Object) == sizeof(void*) * 2 + sizeof(uint32_t) * 2, "size not correct");      // 检查 Object 类的大小是否正确
+
+err_t Object::getAttrBool(StringView path, bool &value) const
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->getValueBool(this, value);
+}
+
+err_t Object::getAttrInt(StringView path, int &value) const
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->getValueInt(this, value);
+}
+
+err_t Object::getAttrDouble(StringView path, double &value) const
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->getValueDouble(this, value);
+}
 
 err_t Object::getAttrString(StringView path, std::string &value) const
 {
-    return err_t();
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->getValueString(this, value);
+}
+
+err_t Object::setAttrBool(StringView path, bool value)
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->setValueBool(this, value);
+}
+
+err_t Object::setAttrInt(StringView path, int value)
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->setValueInt(this, value);
+}
+
+err_t Object::setAttrDouble(StringView path, double value)
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->setValueDouble(this, value);
+}
+
+err_t Object::setAttrString(StringView path, StringView value)
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->setValueString(this, value);
+}
+
+Property *Object::getProperty(StringView fieldName) const
+{
+    return m_type->getProperty(fieldName);
 }
 
 

@@ -28,8 +28,8 @@
 
 AST_NAMESPACE_BEGIN
  
-class Class;
-
+class Class;        // 类元信息
+class Property;     // 属性元信息
 
 /// @brief 对象基类，实现运行时元信息、强弱引用计数
 class AST_UTIL_API Object
@@ -42,20 +42,100 @@ public:
     {
         assert(tp);
     }
-    err_t getAttrString(StringView path, std::string& value) const;
+
+    /// @brief 获取属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值引用
+    /// @return err_t 错误码
+    err_t getAttrBool(StringView path, bool& value) const;
     
+    /// @brief 获取属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值引用
+    /// @return err_t 错误码
+    err_t getAttrInt(StringView path, int& value) const;
+
+    /// @brief 获取属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值引用
+    /// @return err_t 错误码
+    err_t getAttrDouble(StringView path, double& value) const;
+
+    /// @brief 获取属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值引用
+    /// @return err_t 错误码
+    err_t getAttrString(StringView path, std::string& value) const;
+
+    /// @param path 属性路径
+    /// @param value 属性值
+    /// @return err_t 错误码
+    err_t setAttrBool(StringView path, bool value);
+
+    /// @brief 设置属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值
+    /// @return err_t 错误码
+    err_t setAttrInt(StringView path, int value);
+
+    /// @brief 设置属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值
+    /// @return err_t 错误码
+    err_t setAttrDouble(StringView path, double value);
+
+    /// @brief 设置属性值，属性路径格式为 "attr1.attr2.attr3"
+    /// @param path 属性路径
+    /// @param value 属性值
+    /// @return err_t 错误码
+    err_t setAttrString(StringView path, StringView value);
+
+    /// @brief 获取对象类型
+    /// @return Class* 类型元信息
+    Class* type() const{return m_type;}
+
+    /// @brief 获取属性元信息
+    /// @param fieldName 属性名
+    /// @return Property* 属性元信息
+    Property* getProperty(StringView fieldName) const;
+    
+    /// @brief 获取强引用计数
+    /// @return uint32_t 强引用计数
     uint32_t refCount() const{return m_refcnt;}
+
+    /// @brief 获取弱引用计数
+    /// @return uint32_t 弱引用计数
     uint32_t weakRefCount() const{return m_weakrefcnt;}
+
+    /// @brief 判断对象是否被析构
+    /// @return bool 是否已析构
     bool     isDestructed() const{return m_type ==nullptr;}
+
+    /// @brief 析构对象，仅当强引用计数为0时才会被调用
+    /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
     void     destruct() ;
+
+    /// @brief 增加弱引用计数
+    /// @return uint32_t 新的弱引用计数
     uint32_t incWeakRef();
+
+    /// @brief 减少弱引用计数
+    /// @return uint32_t 新的弱引用计数
     uint32_t decWeakRef();
+
+    /// @brief 增加强引用计数
+    /// @return uint32_t 新的强引用计数
     uint32_t incRef();
+
+    /// @brief 减少强引用计数
+    /// @return uint32_t 新的强引用计数
     uint32_t decRef(); 
 private:
+    /// @brief 析构对象，仅当强引用计数为0时才会被调用
+    /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
     void    _destruct();
 protected:
-    virtual ~Object(){}
+    virtual ~Object() = default;
 
 protected:
     Class*                   m_type;                 ///< 类型元信息，同时用于标识对象是否被析构
@@ -63,7 +143,8 @@ protected:
     std::atomic<uint32_t>    m_weakrefcnt;           ///< 弱引用计数，给WeakPtr使用
 };
 
-inline void Object::destruct() 
+
+inline void Object::destruct()
 {
     assert(m_refcnt == 0);  // 只能直接删除不采用共享引用计数管理的对象
     this->_destruct();

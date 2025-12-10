@@ -41,7 +41,7 @@ struct property_trait<std::string>
 
 
 
-typedef err_t (*FPropertyGet)(void* obj, void* value);              ///< 获取属性值的函数指针
+typedef err_t (*FPropertyGet)(const void* obj, void* value);              ///< 获取属性值的函数指针
 typedef err_t (*FPropertySet)(void* obj, void const* value);        ///< 设置属性值的函数指针
 
 
@@ -140,7 +140,7 @@ template<typename T, bool T::* Member>
 A_ALWAYS_INLINE Property* aNewPropertyBool()
 {
     return _aNewPropertyBool(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((bool*)value) = ((T*)obj)->*Member;
             return 0;
@@ -158,7 +158,7 @@ template<typename T, int T::* Member>
 A_ALWAYS_INLINE Property* aNewPropertyInt()
 {
     return _aNewPropertyInt(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((int*)value) = ((T*)obj)->*Member;
             return 0;
@@ -182,7 +182,7 @@ template<typename T, double T::* Member>
 A_ALWAYS_INLINE Property* aNewPropertyDouble()
 {
     return _aNewPropertyDouble(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((double*)value) = ((T*)obj)->*Member;
             return 0;
@@ -199,7 +199,7 @@ template<typename T, std::string T::* Member>
 A_ALWAYS_INLINE Property* aNewPropertyString()
 {
     return _aNewPropertyString(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((std::string*)value) = ((T*)obj)->*Member;
             return 0;
@@ -223,7 +223,7 @@ template<typename T, bool(T::* Getter) () const>
 A_ALWAYS_INLINE Property* aNewPropertyBool()
 {
     return _aNewPropertyBool(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((bool*)value) = (((T*)obj)->*Getter)();
             return 0;
@@ -237,7 +237,7 @@ template<typename T, int(T::* Getter) () const>
 A_ALWAYS_INLINE Property* aNewPropertyInt()
 {
     return _aNewPropertyInt(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((int*)value) = (((T*)obj)->*Getter)();
             return 0;
@@ -257,7 +257,7 @@ template<typename T, double (T::* Getter) () const>
 A_ALWAYS_INLINE Property* aNewPropertyDouble()
 {
     return _aNewPropertyDouble(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             static_assert(Getter!=nullptr, "invalid getter");
              *((double*)value) = (((T*)obj)->*Getter)();
@@ -276,7 +276,7 @@ template<typename T, std::string(T::*Getter)() const>
 A_ALWAYS_INLINE Property* aNewPropertyString()
 {
     return _aNewPropertyString(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((std::string*)value) = (((T*)obj)->*Getter)();
             return 0;
@@ -290,7 +290,7 @@ template<typename T, bool (T::* Getter) () const, void (T::* Setter)(bool)>
 A_ALWAYS_INLINE Property* aNewPropertyBool()
 {
     return _aNewPropertyBool(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((bool*)value) = (((T*)obj)->*Getter)();
             return 0;
@@ -316,7 +316,7 @@ template<typename T, int(T::* Getter) () const, void (T::* Setter)(int)>
 A_ALWAYS_INLINE Property* aNewPropertyInt()
 {
     return _aNewPropertyInt(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
     {
         static_assert(Getter!=nullptr, "invalid getter");
         *((int*)value) = (((T*)obj)->*Getter)();
@@ -342,7 +342,7 @@ template<typename T, double (T::* Getter) () const, void (T::* Setter)(double)>
 A_ALWAYS_INLINE Property* aNewPropertyDouble()
 {
     return _aNewPropertyDouble(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
     {
         static_assert(Getter!=nullptr, "invalid getter");
         *((double*)value) = (((T*)obj)->*Getter)();
@@ -363,7 +363,7 @@ template<typename T, const std::string& (T::* Getter) () const, void (T::* Sette
 A_ALWAYS_INLINE Property* aNewPropertyString()
 {
     return _aNewPropertyString(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
     {
         static_assert(Getter!=nullptr, "invalid getter");
         *((std::string*)value) = (((T*)obj)->*Getter)();
@@ -390,7 +390,7 @@ template<typename T, err_t (T::* Getter) () const, err_t (T::* Setter)(bool)>
 A_ALWAYS_INLINE Property* aNewPropertyBool()
 {
     return _aNewPropertyBool(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
         {
             *((bool*)value) = (((T*)obj)->*Getter)();
             return 0;
@@ -415,7 +415,7 @@ template<typename T, int (T::* Getter) () const, err_t (T::* Setter)(int)>
 A_ALWAYS_INLINE Property* aNewPropertyInt()
 {
     return _aNewPropertyInt(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
     {
         static_assert(Getter!=nullptr, "invalid getter");
         *((int*)value) = (((T*)obj)->*Getter)();
@@ -440,7 +440,7 @@ template<typename T, double (T::* Getter) () const, err_t (T::* Setter)(double)>
 A_ALWAYS_INLINE Property* aNewPropertyDouble()
 {
     return _aNewPropertyDouble(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
     {
         static_assert(Getter != nullptr, "invalid getter");
         *((double*)value) = (((T*)obj)->*Getter)();
@@ -464,7 +464,7 @@ template<typename T, const std::string& (T::* Getter) () const, err_t (T::* Sett
 A_ALWAYS_INLINE Property* aNewPropertyString()
 {
     return _aNewPropertyString(
-        [](void* obj, void* value) -> err_t
+        [](const void* obj, void* value) -> err_t
     {
         static_assert(Getter!=nullptr, "invalid getter");
         *((std::string*)value) = (((T*)obj)->*Getter)();
