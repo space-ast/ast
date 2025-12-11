@@ -85,6 +85,13 @@
 // AST 对象运行时元信息
 #define AST_OBJECT(TYPE) // @todo
 
+#ifdef AST_PROPERTIES_MARK
+#   define AST_PROPERTIES AST_PROPERTIES_MARK public
+#else
+#   define AST_PROPERTIES public
+#endif
+#define properties AST_PROPERTIES
+
 
 // 字符串宏，用于在编译时将字符串转换为ast项目内部运行时编码
 // 当前ast项目内部运行时采用utf-8编码，所有字符串字面量都需要在编译时转换为utf-8编码
@@ -136,6 +143,8 @@ AST_NAMESPACE_BEGIN
 
 /// ast项目公共枚举
 
+
+/// @brief 错误码
 typedef enum EError
 {
 	eNoError = 0,       ///< 没有错误
@@ -146,7 +155,65 @@ typedef enum EError
     eErrorParse,        ///< 解析错误
 } AEError;
 
+
+/// @brief 量纲
+typedef enum EDimension
+{
+    // 基本量纲 7个
+    eLength,            ///< 长度L      (相应的基本单位: m)
+    eMass,              ///< 质量M      (相应的基本单位: kg)
+    eTime,              ///< 时间T      (相应的基本单位: s)
+    eElectric,          ///< 电流I      (相应的基本单位: A)
+    eTemperature,       ///< 温度Θ      (相应的基本单位: K)
+    eAmount,            ///< 物质量N    (相应的基本单位: mol)
+    eLuminous,          ///< 发光强度J  (相应的基本单位: cd)
+
+    // 特殊量纲
+    eDateTime,          ///< 日期时间
+    
+    // 辅助量纲
+    eAngle,             ///< 角度
+    //
+    eAngVel,            ///< 角速度
+    eAngularVelocity = eAngVel,   
+
+    // 导出量纲（由基本量纲组合而成）
+    eArea,              ///< 面积   L^2
+    eVolume,            ///< 体积   L^3
+    eSpeed,             ///< 速度   L·T^-1
+    eAcceleration,      ///< 加速度 L·T^-2
+    eForce,             ///< 力     M·L·T^-2
+    ePressure,          ///< 压力   M·L^-1·T^-2
+    eEnergy,            ///< 能量   M·L^2·T^-2
+    ePower,             ///< 功率   M·L^2·T^-3
+    eFrequency,         ///< 频率   T^-1
+} AEDimension;
+
+
 /// ast项目类型前置声明
+
+/*
+ * @note
+ * 下面这些别名用于类型元信息标注，例如：
+ * ```
+ * class Demo{
+ * properties:
+ *   time_d   timestamp;        // 时间量纲
+ *   angle_d  heading;          // 角度量纲
+ *   length_d distance;         // 长度量纲
+ * };
+ * ```
+ * 通过这些标注，反射工具可以识别这些类型，提取其属性元信息，然后生成相应代码，例如动态反射、序列化
+ * 使用 `_d` 后缀，表示 dimension 和 double，避免了使用 `_t` 后缀与标准库 `time_t` 的冲突
+ */ 
+typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, power_d, angle_d, angvel_d; 
+
+
+typedef int err_t;           ///< 错误码类型
+typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不够)
+typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
+typedef uint32_t Color;      ///< 颜色值
+
 
 #ifdef __cplusplus
 template<typename _Scalar, size_t N>
@@ -184,10 +251,6 @@ class Point;
 
 #endif
 
-typedef int err_t;
-typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不够)
-typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
-typedef uint32_t Color;      ///< 颜色值
 
 inline void nothing(){}
 
