@@ -70,6 +70,7 @@ public:
     _Scalar at(size_t idx) const{return data()[idx]; }
     _Scalar& at(size_t idx) {return data()[idx]; }
     void normalize(){_ASTMATH normalize(*this);}
+    Self operator-() const{return Self{-x_, -y_, -z_};}
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化
