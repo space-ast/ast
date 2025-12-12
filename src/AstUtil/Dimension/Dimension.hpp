@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -178,8 +179,8 @@ enum
     kIdxLength,
     kIdxAngle,
     kIdxTime,
-    kIdxCurrent,
     kIdxTemperature,
+    kIdxCurrent,
     kIdxAmount,
     kIdxLuminous,
 };
@@ -218,6 +219,13 @@ typedef enum class EDimension
     eFrequency          = dim_divide(eUnit, eTime),           ///< 频率   T^-1
 
 } AEDimension;
+
+
+/// @brief 获取量纲的名称
+AST_UTIL_CAPI std::string aDimName(EDimension dimension);
+
+/// @brief 获取量纲的符号
+AST_UTIL_CAPI std::string aDimSymbol(EDimension dimension);
 
 
 /// @brief 量纲
@@ -270,7 +278,11 @@ public:
     static constexpr Dimension Frequency() noexcept { return Dimension(EDimension::eFrequency); }
     /// @brief 获取力量纲
     static constexpr Dimension Force() noexcept{ return Dimension(EDimension::eForce); }
+public:
+    std::string name() const { return aDimName(value()); }
+    std::string symbol() const { return aDimSymbol(value()); }
 
+public:
     
     /// @brief 量纲乘法运算符
     constexpr Dimension operator*(Dimension other) const noexcept

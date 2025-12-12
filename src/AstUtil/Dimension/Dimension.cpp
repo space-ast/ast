@@ -19,10 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Dimension.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
-#if defined AST_TEST_DIMENSION || 1
+#if defined AST_TEST_DIMENSION 
 
 struct dimension_value
 {
@@ -72,4 +73,126 @@ int dim_set_exponent_bitfield(int dimension, int exponent)
 
 #endif
 
+
+std::string aDimName(EDimension dimension)
+{
+    switch (dimension)
+    {
+    case EDimension::eUnit: return "Unit";
+    case EDimension::eLength: return "Length";
+    case EDimension::eMass: return "Mass";
+    case EDimension::eTime: return "Time";
+    case EDimension::eCurrent: return "Electric Current";
+    case EDimension::eTemperature: return "Temperature";
+    case EDimension::eAmount: return "Amount of Substance";
+    case EDimension::eLuminous: return "Luminous Intensity";
+    case EDimension::eAngle: return "Angle";
+    case EDimension::eAngVel: return "Angular Velocity";
+    case EDimension::eArea: return "Area";
+    case EDimension::eVolume: return "Volume";
+    case EDimension::eSpeed: return "Speed";
+    case EDimension::eAcceleration: return "Acceleration";
+    case EDimension::eForce: return "Force";
+    case EDimension::ePressure: return "Pressure";
+    case EDimension::eEnergy: return "Energy";
+    case EDimension::ePower: return "Power";
+    case EDimension::eFrequency: return "Frequency";
+    }
+    return aDimSymbol(dimension);
+}
+
+
+const char* aNumberToSuperscript(int number)
+{
+    static const char *number_to_superscript[] =
+    {
+        aText("⁰"), aText("¹"), aText("²"), aText("³"), aText("⁴"), 
+        aText("⁵"), aText("⁶"), aText("⁷"), aText("⁸"), aText("⁹")
+    };
+
+    if (number < 0 || number > 9)
+    {
+        aError("number out of range");
+        return "";
+    }
+    return number_to_superscript[number];
+}
+
+#if 0
+const char* aNumberToStr(int number)
+{
+    static const char *number_to_str[] =
+    {
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+    };
+
+    if (number < 0 || number > 9)
+    {
+        aError("number out of range");
+        return "";
+    }
+    return number_to_str[number];
+}
+#endif
+
+const char* symbol_separator = aText("·");
+
+std::string aDimBasicSymbol(EDimension dimension)
+{
+    switch (dimension)
+    {
+    case EDimension::eUnit: return ""; // @todo 单位量纲的符号为空，合适吗？
+    case EDimension::eLength: return "L";
+    case EDimension::eMass: return "M";
+    case EDimension::eTime: return "T";
+    case EDimension::eCurrent: return "I";
+    case EDimension::eTemperature: return "Θ";
+    case EDimension::eAmount: return "N";
+    case EDimension::eLuminous: return "J";
+    case EDimension::eAngle:return "A";
+    }
+    return "";
+}
+
+std::string aDimSymbol(EDimension dimension)
+{
+    std::string symbol = aDimBasicSymbol(dimension);
+    if(!symbol.empty())
+    {
+        return symbol;
+    }
+
+    for (int i = 0; i < 8; i++)
+    {
+        // 跳过指数为0的量纲
+        int exponent = dim_get_exponent(dimension, i);
+        if (exponent != 0)
+        {
+            if(!symbol.empty())
+            {
+                symbol += symbol_separator;
+            }
+            EDimension basicDim = dim_set_exponent(EDimension::eUnit, i, 1);
+            auto basicSymbol = aDimBasicSymbol(basicDim);
+            if(basicSymbol.empty())
+            {
+                aError("basic symbol is empty");
+                continue;
+            }
+            symbol += basicSymbol;
+            if (exponent != 1){
+                if (exponent < 0)
+                {
+                    symbol += aText("⁻");
+                }
+                symbol += aNumberToSuperscript(abs(exponent));
+            }
+        }
+    }
+    return symbol;
+}
+
+
+
 AST_NAMESPACE_END
+

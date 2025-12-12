@@ -20,6 +20,7 @@
 
 #include "AstUtil/Dimension.hpp"
 #include "AstTest/AstTestMacro.h"
+#include "AstUtil/IO.hpp"
 
 AST_USING_NAMESPACE
 
@@ -405,6 +406,99 @@ TEST(Dimension, SetInterface)
         EXPECT_EQ(dim.getMass(), massExponent);
         EXPECT_EQ(dim.getLength(), lengthExponent);
         EXPECT_EQ(dim.getTime(), timeExponent);
+    }
+}
+
+
+
+// 测试量纲symbol和name接口
+TEST(Dimension, SymbolAndName)
+{
+    // 测试基本量纲
+    {
+        EXPECT_EQ(Dimension::Unit().name(), "Unit");
+        EXPECT_EQ(Dimension::Unit().symbol(), "");
+        
+        EXPECT_EQ(Dimension::Length().name(), "Length");
+        EXPECT_EQ(Dimension::Length().symbol(), "L");
+        
+        EXPECT_EQ(Dimension::Mass().name(), "Mass");
+        EXPECT_EQ(Dimension::Mass().symbol(), "M");
+        
+        EXPECT_EQ(Dimension::Time().name(), "Time");
+        EXPECT_EQ(Dimension::Time().symbol(), "T");
+        
+        EXPECT_EQ(Dimension::Current().name(), "Electric Current");
+        EXPECT_EQ(Dimension::Current().symbol(), "I");
+        
+        EXPECT_EQ(Dimension::Temperature().name(), "Temperature");
+        EXPECT_EQ(Dimension::Temperature().symbol(), "Θ");
+        
+        EXPECT_EQ(Dimension::Amount().name(), "Amount of Substance");
+        EXPECT_EQ(Dimension::Amount().symbol(), "N");
+        
+        EXPECT_EQ(Dimension::Luminous().name(), "Luminous Intensity");
+        EXPECT_EQ(Dimension::Luminous().symbol(), "J");
+        
+        EXPECT_EQ(Dimension::Angle().name(), "Angle");
+        EXPECT_EQ(Dimension::Angle().symbol(), "A");
+    }
+    
+    // 测试导出量纲
+    {
+        EXPECT_EQ(Dimension::Area().name(), "Area");
+        EXPECT_EQ(Dimension::Area().symbol(), aText("L²")); // 这里可能需要根据实际实现调整
+        
+        EXPECT_EQ(Dimension::Volume().name(), "Volume");
+        
+        EXPECT_EQ(Dimension::Speed().name(), "Speed");
+        EXPECT_EQ(Dimension::Speed().symbol(), aText("L·T⁻¹"));
+        
+        EXPECT_EQ(Dimension::Acceleration().name(), "Acceleration");
+        EXPECT_EQ(Dimension::Acceleration().symbol(), aText("L·T⁻²"));
+        
+        EXPECT_EQ(Dimension::Force().name(), "Force");
+        EXPECT_EQ(Dimension::Force().symbol(), aText("M·L·T⁻²"));
+        
+        EXPECT_EQ(Dimension::Pressure().name(), "Pressure");
+        
+        EXPECT_EQ(Dimension::Energy().name(), "Energy");
+        
+        EXPECT_EQ(Dimension::Power().name(), "Power");
+        
+        EXPECT_EQ(Dimension::Frequency().name(), "Frequency");
+        EXPECT_EQ(Dimension::Frequency().symbol(), aText("T⁻¹"));
+        
+        EXPECT_EQ(Dimension::AngVel().name(), "Angular Velocity");
+        EXPECT_EQ(Dimension::AngVel().symbol(), aText("A·T⁻¹"));
+    }
+    
+    // 测试复合运算后的量纲
+    {
+        // 测试乘法运算
+        Dimension massLength = Dimension::Mass() * Dimension::Length();
+        EXPECT_EQ(massLength.symbol(), aText("M·L"));
+        
+        // 测试除法运算
+        Dimension massOverLength = Dimension::Mass() / Dimension::Length();
+        EXPECT_EQ(massOverLength.symbol(), aText("M·L⁻¹"));
+        
+        // 测试幂运算
+        Dimension lengthSquared = Dimension::Length().pow(2);
+        EXPECT_EQ(lengthSquared.symbol(), aText("L²")); // 这里可能需要根据实际实现调整
+        
+        // 测试复杂运算
+        Dimension complex = Dimension::Mass() * Dimension::Length() * Dimension::Length() / Dimension::Time() / Dimension::Time();
+        EXPECT_EQ(complex.symbol(), aText("M·L²·T⁻²")); // 这里可能需要根据实际实现调整
+    }
+    
+    // 测试自定义设置的量纲
+    {
+        Dimension dim;
+        dim.setMass(1).setLength(2).setTime(-3);
+        EXPECT_EQ(dim.symbol(), aText("M·L²·T⁻³"));
+        EXPECT_EQ(dim.symbol(), aText("M·L²·T⁻³")); // 这里的测试重点是验证输出格式是否符合预期
+        // 注意：由于没有直接的name()返回的字符串格式，所以我们只检查实现是否正确生成了预期的符号组合
     }
 }
 
