@@ -156,39 +156,6 @@ typedef enum EError
 } AEError;
 
 
-/// @brief 量纲
-typedef enum EDimension
-{
-    // 基本量纲 7个
-    eLength,            ///< 长度L      (相应的基本单位: m)
-    eMass,              ///< 质量M      (相应的基本单位: kg)
-    eTime,              ///< 时间T      (相应的基本单位: s)
-    eElectric,          ///< 电流I      (相应的基本单位: A)
-    eTemperature,       ///< 温度Θ      (相应的基本单位: K)
-    eAmount,            ///< 物质量N    (相应的基本单位: mol)
-    eLuminous,          ///< 发光强度J  (相应的基本单位: cd)
-
-    // 特殊量纲
-    eDateTime,          ///< 日期时间
-    
-    // 辅助量纲
-    eAngle,             ///< 角度
-    //
-    eAngVel,            ///< 角速度
-    eAngularVelocity = eAngVel,   
-
-    // 导出量纲（由基本量纲组合而成）
-    eArea,              ///< 面积   L^2
-    eVolume,            ///< 体积   L^3
-    eSpeed,             ///< 速度   L·T^-1
-    eAcceleration,      ///< 加速度 L·T^-2
-    eForce,             ///< 力     M·L·T^-2
-    ePressure,          ///< 压力   M·L^-1·T^-2
-    eEnergy,            ///< 能量   M·L^2·T^-2
-    ePower,             ///< 功率   M·L^2·T^-3
-    eFrequency,         ///< 频率   T^-1
-} AEDimension;
-
 
 /// ast项目类型前置声明
 
