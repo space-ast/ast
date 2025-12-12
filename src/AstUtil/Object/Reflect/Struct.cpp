@@ -25,6 +25,14 @@
 
 AST_NAMESPACE_BEGIN
 
+Struct::~Struct()
+{
+    for (auto property : m_properties)
+    {
+        delete property;
+    }
+}
+
 Property *Struct::addProperty(StringView name, Property *property)
 {
     m_propertyMap[name.to_string()] = property;

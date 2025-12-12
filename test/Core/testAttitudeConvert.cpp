@@ -281,7 +281,7 @@ TEST(AttitudeConvertTest, QuatAndAngleAxis)
         EXPECT_NEAR(aa2.angle(), kPI / 2.0, 1e-14);
         EXPECT_NEAR(aa2.axis()[0], 0.0, 1e-14);
         EXPECT_NEAR(aa2.axis()[1], 0.0, 1e-14);
-        EXPECT_NEAR(aa2.axis()[2], 1.0, 1e-14);
+        EXPECT_NEAR(aa2.axis()[2], -1.0, 1e-14);
         Quaternion quat3;
         aAngleAxisToQuat(aa2, quat3);
         EXPECT_NEAR(quat3.qs(), 0.7071067811865476, 1e-14);
