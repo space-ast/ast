@@ -70,6 +70,7 @@ public:
     _Scalar at(size_t idx) const{return data()[idx]; }
     _Scalar& at(size_t idx) {return data()[idx]; }
     void normalize(){_ASTMATH normalize(*this);}
+    double norm() const{return _ASTMATH norm(*this);}
     Self operator-() const{return Self{-x_, -y_, -z_};}
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:

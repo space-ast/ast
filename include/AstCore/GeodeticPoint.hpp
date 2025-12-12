@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Geo/Coordinate/GeodeticPoint.hpp"
+#include "../../src/AstCore/Geometry/Surface/Coordinate/GeodeticPoint.hpp"

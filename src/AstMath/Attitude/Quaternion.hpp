@@ -69,6 +69,9 @@ public:
 	double& qy(){return m_qy;}
 	/// @brief 四元数的虚部z
 	double& qz(){return m_qz;}
+	/// @brief 四元数的虚部向量
+	const Vector3d& vec() const {return (const Vector3d&)m_qx;}
+
 public:
 	// 兼容Eigen接口
 

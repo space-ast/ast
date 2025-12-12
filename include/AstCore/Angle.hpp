@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Geometry/Angle.hpp"
+#include "../../src/AstCore/Geometry/Euclid/Angle.hpp"
