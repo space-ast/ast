@@ -114,7 +114,7 @@ std::string aDataDirGetDefault()
     // 1. 检查AST_DATA_DIR环境变量
     try {
         const char* datadir = getenv(AST_ENV_DATA_DIR);
-        aDebug("AST_ENV_DATA_DIR: %s\n", datadir);
+        aDebug("AST_ENV_DATA_DIR: %s\n", datadir?datadir:"(not set)");
         if (datadir && fs::is_directory(datadir))
             return datadir;
     }
@@ -150,7 +150,7 @@ std::string aDataDirGetDefault()
     // 3. 检查可执行文件目录的data文件夹
     try {
         fs::path datadir = fs::path(aExeDir()) / AST_DATA_DIR_NAME;
-        aDebug("AST_ENV_DATA_DIR: %s\n", datadir);
+        aDebug("datadir: %s\n", datadir.string().c_str());
         if (fs::is_directory(datadir))
             return datadir.string();
     }

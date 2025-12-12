@@ -35,6 +35,8 @@ class AST_UTIL_API Struct: public Field
 public:
     using Field::Field;
 
+    ~Struct() override;
+
     // @todo: 考虑使用StringView作为索引
     using PropertyMap = std::unordered_map<std::string, Property*>;
     using PropertyList = std::vector<Property*>;
