@@ -1,5 +1,5 @@
 ///
-/// @file      EllipsoidShape.hpp
+/// @file      SpheroidShape.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -21,14 +21,19 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/BodyShape.hpp"
+#include "BodyShape.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class EllipsoidShape : public BodyShape
+/// @brief 旋转椭球体形状
+/// @details 有两个轴长度相同，且与旋转轴垂直。
+class SpheroidShape : public BodyShape
 {
 public:
     
+properties:
+    length_d    majorAxis_;  ///< 长轴长度
+    double      flatfactor_; ///< 扁率因子
 };
 
 AST_NAMESPACE_END

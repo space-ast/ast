@@ -244,7 +244,7 @@ TEST(AttitudeConvertTest, QuatAndAngleAxis)
     AngleAxis aa1;
     aQuatToAngleAxis(quat1, aa1);
     EXPECT_NEAR(aa1.angle(), 0.0, 1e-14);
-    EXPECT_NEAR(aa1.axis()[0], 0.0, 1e-14);
+    EXPECT_NEAR(aa1.axis()[0], 1.0, 1e-14);
     EXPECT_NEAR(aa1.axis()[1], 0.0, 1e-14);
     EXPECT_NEAR(aa1.axis()[2], 0.0, 1e-14);
 
@@ -270,6 +270,25 @@ TEST(AttitudeConvertTest, QuatAndAngleAxis)
     EXPECT_NEAR(aa3_check.axis()[0], aa3.axis()[0], 1e-14);
     EXPECT_NEAR(aa3_check.axis()[1], aa3.axis()[1], 1e-14);
     EXPECT_NEAR(aa3_check.axis()[2], aa3.axis()[2], 1e-14);
+
+    {
+        // 测试用例: 四元数实部为负
+        // 将实部取负，虚部不变，表示旋转角度取反或者旋转轴取反
+        // 将四元数全部取负，相当于多旋转了360度
+        Quaternion quat2{ -0.7071067811865476, 0.0, 0.0, 0.7071067811865476 };
+        AngleAxis aa2;
+        aQuatToAngleAxis(quat2, aa2);
+        EXPECT_NEAR(aa2.angle(), kPI / 2.0, 1e-14);
+        EXPECT_NEAR(aa2.axis()[0], 0.0, 1e-14);
+        EXPECT_NEAR(aa2.axis()[1], 0.0, 1e-14);
+        EXPECT_NEAR(aa2.axis()[2], 1.0, 1e-14);
+        Quaternion quat3;
+        aAngleAxisToQuat(aa2, quat3);
+        EXPECT_NEAR(quat3.qs(), 0.7071067811865476, 1e-14);
+        EXPECT_NEAR(quat3.qx(), 0.0, 1e-14);
+        EXPECT_NEAR(quat3.qy(), 0.0, 1e-14);
+        EXPECT_NEAR(quat3.qz(), -0.7071067811865476, 1e-14);
+    }
 }
 
 // 测试轴角与矩阵转换

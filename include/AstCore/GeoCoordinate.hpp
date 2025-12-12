@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Geo/Coordinate/GeoCoordinate.hpp"
+#include "../../src/AstCore/Geometry/Surface/Coordinate/GeoCoordinate.hpp"

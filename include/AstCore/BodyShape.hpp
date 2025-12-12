@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Geo/BodyShape/BodyShape.hpp"
+#include "../../src/AstCore/Geometry/Surface/BodyShape/BodyShape.hpp"

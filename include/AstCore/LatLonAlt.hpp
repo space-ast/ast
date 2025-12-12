@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Geo/Coordinate/LatLonAlt.hpp"
+#include "../../src/AstCore/Geometry/Surface/Coordinate/LatLonAlt.hpp"
