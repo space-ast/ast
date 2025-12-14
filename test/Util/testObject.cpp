@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      testObject.cpp
 /// @brief     ~
 /// @details   ~

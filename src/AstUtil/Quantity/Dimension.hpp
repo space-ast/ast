@@ -60,6 +60,18 @@ constexpr EDimension dim_set_exponent(T dimension, int idx, int exponent) noexce
     return (EDimension)newValue;
 }
 
+
+/// @brief 获取量纲的指数绝对值的和
+template<typename T>
+constexpr int dim_get_sum_abs_exponent(T dimension) noexcept
+{
+    int sum = 0;
+    for (int i = 0; i < 8; ++i) {
+        sum += abs(dim_get_exponent(dimension, i));
+    }
+    return sum;
+}
+
 /// @brief 量纲乘法
 template<typename T>
 constexpr int dim_product(T dim1, T dim2) noexcept
@@ -222,10 +234,29 @@ typedef enum class EDimension
 
 
 /// @brief 获取量纲的名称
-AST_UTIL_CAPI std::string aDimName(EDimension dimension);
+AST_UTIL_API std::string aDimName(EDimension dimension);
 
 /// @brief 获取量纲的符号
-AST_UTIL_CAPI std::string aDimSymbol(EDimension dimension);
+AST_UTIL_API std::string aDimSymbol(EDimension dimension);
+
+/// @brief 判断量纲是否为基本量纲
+constexpr bool aDimIsBase(EDimension dimension) noexcept
+{
+    return dim_get_sum_abs_exponent(dimension) == 1;
+}
+
+/// @brief 判断量纲是否为导出量纲
+constexpr bool aDimIsDerived(EDimension dimension) noexcept
+{
+    return dim_get_sum_abs_exponent(dimension) > 1;
+}
+
+/// @brief 判断量纲是否为单位量纲
+constexpr bool aDimIsUnit(EDimension dimension) noexcept
+{
+    return dimension == EDimension::eUnit;
+}
+
 
 
 /// @brief 量纲
@@ -279,9 +310,16 @@ public:
     /// @brief 获取力量纲
     static constexpr Dimension Force() noexcept{ return Dimension(EDimension::eForce); }
 public:
+    /// @brief 获取量纲的名称
     std::string name() const { return aDimName(value()); }
+    /// @brief 获取量纲的符号
     std::string symbol() const { return aDimSymbol(value()); }
-
+    /// @brief 判断量纲是否为基本量纲
+    bool isBase() const noexcept { return aDimIsBase(value()); }
+    /// @brief 判断量纲是否为导出量纲
+    bool isDerived() const noexcept { return aDimIsDerived(value()); }
+    /// @brief 判断量纲是否为单位量纲
+    bool isUnit() const noexcept { return aDimIsUnit(value()); }
 public:
     
     /// @brief 量纲乘法运算符
