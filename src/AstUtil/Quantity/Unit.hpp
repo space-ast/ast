@@ -33,6 +33,8 @@
 AST_NAMESPACE_BEGIN
 
 class Unit;
+class Quantity;
+
 
 /// @brief 单位乘法
 AST_UTIL_API Unit aUnitMultiply(const Unit& unit1, const Unit& unit2);
@@ -52,6 +54,11 @@ AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent);
 /// @brief 单位幂
 AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent, StringView newname);
 
+/// @brief 单位约简
+/// AST_UTIL_CAPI void aUnitReduce(Unit& unit);
+
+/// @brief 单位约简
+/// AST_UTIL_CAPI void aUnitReduce(Unit& unit, double& scale);
 
 /// @brief 单位
 class Unit
@@ -87,6 +94,12 @@ public:
         SubUnitListConst     subUnits_;      ///< 子单位列表
     };
 public:
+    /// @brief 无效单位
+    static Unit NaN()
+    {
+        return Unit("", 0.0, EDimension::eUnit);
+    }
+
     /// @brief 无单位
     static Unit None()
     {
@@ -242,6 +255,11 @@ public:
     /// @return 单位名称
     const std::string& name() const { return rep_->name_; }
 
+
+    /// @brief 是否有效单位
+    /// @return 是否有效单位
+    bool isValid() const { return rep_->scale_ != 0.0; }
+
 public: // operators
 
 
@@ -344,6 +362,18 @@ public: // operators
 public:
     UnitRepHandle rep_;
 };
+
+
+namespace units
+{
+    extern AST_UTIL_API Unit km;
+    extern AST_UTIL_API Unit m;
+    extern AST_UTIL_API Unit s;
+    extern AST_UTIL_API Unit kg;
+    extern AST_UTIL_API Unit N;
+    extern AST_UTIL_API Unit deg;
+};
+
 
 
 
