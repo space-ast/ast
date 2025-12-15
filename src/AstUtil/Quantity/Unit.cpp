@@ -336,5 +336,16 @@ Unit Unit::Scale(double scale)
     return Unit(unit_name_from_scale_dimless(scale), scale, EDimension::eUnit);
 }
 
+
+namespace units
+{
+    Unit km = Unit::Kilometer();
+    Unit m = Unit::Meter();
+    Unit s = Unit::Second();
+    Unit kg = Unit::Kilogram();
+    Unit N = Unit::Newton();
+    Unit deg = Unit::Degree();
+}
+
 AST_NAMESPACE_END
 
