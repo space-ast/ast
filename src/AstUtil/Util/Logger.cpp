@@ -29,8 +29,9 @@ AST_NAMESPACE_BEGIN
 
 void aLogMessageV(ELogLevel level, const MessageLogContext& context, const char* format, va_list ap)
 {
-	ast_printf("%s(%d): %s\n", context.file, context.line, context.function);
+	ast_printf("\n%s(%d): %s\n", context.file, context.line, context.function);
 	ast_vprintf(format, ap);
+	ast_printf("\n");
 }
 
 void aLogMessage(ELogLevel level, const MessageLogContext& context, const char* format, ...)

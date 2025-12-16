@@ -349,6 +349,24 @@ public:
     {
         return EDimension(dim_pow(value(), n));
     }
+    /// @brief 量纲相等运算符
+    constexpr bool operator==(Dimension other) const noexcept
+    {
+        return value() == other.value();
+    }
+    /// @brief 量纲不相等运算符
+    constexpr bool operator!=(Dimension other) const noexcept
+    {
+        return value() != other.value();
+    }
+    constexpr bool operator==(EDimension other) const noexcept
+    {
+        return value() == other;
+    }
+    constexpr bool operator!=(EDimension other) const noexcept
+    {
+        return value() != other;
+    }
 public:
     /// @brief 转换为EDimension枚举
     constexpr operator EDimension() const noexcept { return dimension_; }
