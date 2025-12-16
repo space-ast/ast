@@ -157,7 +157,29 @@ public:
     {
         return Unit("km", 1000.0, EDimension::eLength);
     }
+    /// @brief 厘米单位
+    static Unit Centimeter()
+    {
+        return Unit("cm", 0.01, EDimension::eLength);
+    }
 
+    /// @brief 毫米单位
+    static Unit Millimeter()
+    {
+        return Unit("mm", 0.001, EDimension::eLength);
+    }
+
+    /// @brief 英尺单位
+    static Unit Foot()
+    {
+        return Unit("ft", 0.3048, EDimension::eLength);
+    }
+
+    /// @brief  码单位
+    static Unit Yard()
+    {
+        return Unit("yd", 0.9144, EDimension::eLength);
+    }
 
     /// @brief 千克单位
     static Unit Kilogram()
@@ -168,6 +190,12 @@ public:
     static Unit Gram()
     {
         return Unit("g", 0.001, EDimension::eMass);
+    }
+
+    /// @brief 毫克单位
+    static Unit Milligram()
+    {
+        return Unit("mg", 0.000001, EDimension::eMass);
     }
 
     /// @brief 弧度单位
@@ -204,6 +232,43 @@ public:
         return Unit("mol", 1.0, EDimension::eAmount);
     }
 
+    // 下面是组合单位
+
+    /// @brief 厘米每秒单位
+    static Unit CentimeterPerSecond(){
+        return Centimeter() / Second();
+    }
+    /// @brief 千米每秒单位
+    static Unit KilometerPerHour()
+    {
+        return Kilometer() / Hour();
+    }
+    /// @brief 米每分钟单位
+    static Unit MeterPerMinute()
+    {
+        return Meter() / Minute();
+    }
+    /// @brief 平方米单位
+    static Unit SquareMeter()
+    {
+        return Meter() * Meter();
+    }
+    /// @brief 平方公里单位
+    static Unit SquareKilometer()
+    {
+        return Kilometer() * Kilometer();
+    }
+    /// @brief 平方英尺单位
+    static Unit SquareFoot()
+    {
+        return Foot() * Foot();
+    }
+
+    /// @brief 平方码单位
+    static Unit SquareYard()
+    {
+        return Yard() * Yard();
+    }
 public:
     /// @brief 默认无单位
     Unit(): Unit{None()}{}

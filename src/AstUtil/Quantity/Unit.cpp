@@ -72,6 +72,9 @@ static std::string unit_name_from_subunits(const Unit::SubUnitListConst& subUnit
     return name;
 }
 
+/// @brief 生成单位名称
+/// @param unit 单位
+/// @return 单位名称
 static std::string unit_name_generate(const Unit& unit)
 {
     auto name =  unit_name_from_subunits(unit.rep_->subUnits_);
@@ -99,18 +102,20 @@ static double unit_scale_from_subunits(const Unit::SubUnitListConst& subUnits)
 
 
 /// @brief 化简单位子项
-/// @param unitRep 单位表示
-/// @return 缩放因子
-static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
+/// @param subUnits 单位子项列表
+/// @param dimlessUnit 无量纲单位
+/// @param extra_scale 额外缩放因子
+static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRepHandleConst& dimlessUnit)
 {
     if (subUnits.empty())
     {
-        return 1.0;
+        return;
     }
-    Unit::SubUnitListConst newSubUnits;                           // 新的单位子项列表
-    std::shared_ptr<const Unit::UnitRep> dimlessUnit = nullptr;   // 无量纲单位
-    double extra_scale = 1.0;                                     // 额外缩放因子
-    
+    Unit::SubUnitListConst newSubUnits;                             // 新的单位子项列表
+    std::vector<Unit::UnitRepHandleConst> dimlessUnits;             // 无量纲单位项列表
+    double dimlessScale = 1.0;                                      // 额外缩放因子(量纲间乘除产生的缩放因子)
+    dimlessUnit = nullptr;                                          // 清空
+
     for (auto it = subUnits.begin(); it != subUnits.end(); it++)
     {
         if (it->second == 0)
@@ -120,7 +125,8 @@ static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
         else
         {
             if(it->first->dimension_ == EDimension::eUnit){
-                dimlessUnit = it->first;
+                dimlessScale *= std::pow(it->first->scale_, it->second);
+                dimlessUnits.push_back(it->first);
             }else{
                 // 查找是否已存在相同量纲的单位
                 auto found = std::find_if(newSubUnits.begin(), newSubUnits.end(),
@@ -136,12 +142,12 @@ static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
                     }
                     else if(found->first->scale_ > it->first->scale_)
                     {
-                        extra_scale *= (found->first->scale_ / it->first->scale_);   // 更新额外的缩放因子
-                        found->first = it->first;                                    // 更新单位子项
+                        dimlessScale *= std::pow(found->first->scale_ / it->first->scale_, found->second);   // 更新额外的缩放因子
+                        found->first = it->first;                                                            // 更新单位子项
                     }else // if(found->first->scale_ < it->first->scale_)
                     {
-                        extra_scale *= (it->first->scale_ / found->first->scale_);   // 更新额外的缩放因子
-                        // found->first = found->first;                              // 更新单位子项
+                        dimlessScale *= std::pow(it->first->scale_ / found->first->scale_, it->second);      // 更新额外的缩放因子
+                        // found->first = found->first;                                                      // 更新单位子项
                     }
                     found->second += it->second;
                 }
@@ -151,15 +157,6 @@ static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
                 }
             }
         }
-    }
-    if(extra_scale != 1.0){
-        if(dimlessUnit){
-            extra_scale *= dimlessUnit->scale_;
-        }
-        dimlessUnit = unit_new_dimenless(extra_scale);
-    }
-    if(dimlessUnit){
-        newSubUnits.emplace(newSubUnits.begin(), Unit::UnitRepPairConst{ dimlessUnit, 1 });
     }
     for (auto it = newSubUnits.begin(); it != newSubUnits.end(); )
     {
@@ -171,10 +168,29 @@ static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
             it++;
         }
     }
+    if(dimlessScale != 1.0){
+        for(auto& it: dimlessUnits){
+            if(it->scale_ == dimlessScale){
+                dimlessUnit = it;
+            }
+        }
+        if(!dimlessUnit){
+            dimlessUnit = unit_new_dimenless(dimlessScale);
+        }
+    }
     subUnits = std::move(newSubUnits);
-    return unit_scale_from_subunits(subUnits);
+    // return unit_scale_from_subunits(subUnits);
 }
 
+static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
+{
+    Unit::UnitRepHandleConst dimlessUnit;
+    unit_reduce_subunits(subUnits, dimlessUnit);
+    if(dimlessUnit){
+        subUnits.emplace(subUnits.begin(), Unit::UnitRepPairConst{ dimlessUnit, 1 });
+    }
+    return unit_scale_from_subunits(subUnits);
+}
 
 /// @brief 化简单位
 /// @param unit 单位
@@ -213,9 +229,10 @@ Unit unit_multiply(const Unit& unit1, const Unit& unit2)
     Unit retval = Unit(unit1.getScale() * unit2.getScale(), unit1.dimension() * unit2.dimension(), subunits);
     // 化简单位子项
     double scale = unit_reduce(retval);
-    if(scale != retval.getScale())
+    if(fabs(scale - retval.getScale()) > 1e-15 * fabs(scale))
     {
-        aError("unexpected condition, scale != retval.getScale()");
+        aError("unexpected condition, scale(%lf) != retval.getScale()(%lf)", scale, retval.getScale());
+        assert(scale == retval.getScale());
     }
     return retval;
 }
@@ -245,9 +262,10 @@ Unit unit_divide(const Unit& unit1, const Unit& unit2)
     Unit retval = Unit(unit1.getScale() / unit2.getScale(), unit1.dimension() / unit2.dimension(), subunits);
     // 化简单位子项
     double scale = unit_reduce(retval);
-    if(scale != retval.getScale())
+    if (fabs(scale - retval.getScale()) > 1e-15 * fabs(scale))
     {
-        aError("unexpected condition, scale != retval.getScale()");
+        aError("unexpected condition, scale(%lf) != retval.getScale()(%lf)", scale, retval.getScale());
+        assert(scale == retval.getScale());
     }
     return retval;
 }
@@ -272,9 +290,10 @@ Unit unit_power(const Unit& unit, int exponent)
     Unit retval = Unit(std::pow(unit.getScale(), exponent), unit.dimension().pow(exponent), subunits);
     // double scale = unit_reduce_subunits(subunits);
     double scale = unit_scale_from_subunits(subunits);
-    if(scale != retval.getScale())
+    if (fabs(scale - retval.getScale()) > 1e-15 * fabs(scale))
     {
-        aError("unexpected condition, scale != retval.getScale()");
+        aError("unexpected condition, scale(%lf) != retval.getScale()(%lf)", scale, retval.getScale());
+        assert(scale == retval.getScale());
     }
     return retval;
 }
