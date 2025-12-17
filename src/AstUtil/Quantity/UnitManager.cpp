@@ -28,6 +28,23 @@ UnitManager& UnitManager::Instance()
     return instance;
 }
 
+UnitManager::UnitManager()
+{
+    addUnit(units::cm);
+    addUnit(units::m);
+    addUnit(units::kg);
+    addUnit(units::g);
+    addUnit(units::mg);
+    addUnit(units::lb);
+    addUnit(units::N);
+    addUnit(units::deg);
+    addUnit(units::rad);
+    addUnit(units::m2);
+    addUnit(units::s);
+    addUnit(units::h);
+    addUnit(units::day);
+    addUnit(units::hour);
+}
 
 UnitManager::~UnitManager()
 {

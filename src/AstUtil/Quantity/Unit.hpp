@@ -54,11 +54,20 @@ AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent);
 /// @brief 单位幂
 AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent, StringView newname);
 
-/// @brief 单位约简
-/// AST_UTIL_CAPI void aUnitReduce(Unit& unit);
 
-/// @brief 单位约简
-/// AST_UTIL_CAPI void aUnitReduce(Unit& unit, double& scale);
+/// @brief 单位分解
+/// @param[in] unit 分解前的单位
+/// @param[out] newUnit 分解后的单位
+/// @param[out] scale 单位缩放因子
+AST_UTIL_API void aUnitFactorize(const Unit& unit, Unit& newUnit, double& scale);
+
+/// @brief 单位分解
+/// @param[in,out] unit 约简前后的单位
+/// @param[out] scale 单位缩放因子
+AST_UTIL_API void aUnitFactorize(Unit& unit, double& scale);
+
+
+
 
 /// @brief 单位
 class Unit
@@ -162,11 +171,23 @@ public:
     {
         return Unit("cm", 0.01, EDimension::eLength);
     }
+    /// @brief 分米单位
+    static Unit Decimeter()
+    {
+        return Unit("dm", 0.1, EDimension::eLength);
+    }
 
     /// @brief 毫米单位
     static Unit Millimeter()
     {
         return Unit("mm", 0.001, EDimension::eLength);
+    }
+
+    
+    /// @brief 英寸单位
+    static Unit Inch()
+    {
+        return Unit("in", 0.0254, EDimension::eLength);
     }
 
     /// @brief 英尺单位
@@ -179,6 +200,12 @@ public:
     static Unit Yard()
     {
         return Unit("yd", 0.9144, EDimension::eLength);
+    }
+
+    /// @brief 英里单位
+    static Unit Mile()
+    {
+        return Unit("mi", 1609.344, EDimension::eLength);
     }
 
     /// @brief 千克单位
@@ -196,6 +223,12 @@ public:
     static Unit Milligram()
     {
         return Unit("mg", 0.000001, EDimension::eMass);
+    }
+
+    /// @brief 磅单位
+    static Unit Pound()
+    {
+        return Unit("lb", 0.45359237, EDimension::eMass);
     }
 
     /// @brief 弧度单位
@@ -269,6 +302,18 @@ public:
     {
         return Yard() * Yard();
     }
+
+    /// @brief 立方米单位
+    static Unit CubicMeter()
+    {
+        return Meter() * Meter() * Meter();
+    }
+    /// @brief 升单位
+    static Unit Liter()
+    {
+        return Unit("L", 0.001, EDimension::eVolume);
+    }
+
 public:
     /// @brief 默认无单位
     Unit(): Unit{None()}{}
@@ -327,6 +372,9 @@ public:
 
 public: // operators
 
+    /// @brief 单位克隆
+    /// @return 新单位
+    Unit clone() const { return Unit(std::make_shared<UnitRep>(*rep_)); }
 
     /// @brief 单位乘法
     /// @param newname 新单位名称
@@ -431,12 +479,41 @@ public:
 
 namespace units
 {
-    extern AST_UTIL_API Unit km;
-    extern AST_UTIL_API Unit m;
-    extern AST_UTIL_API Unit s;
-    extern AST_UTIL_API Unit kg;
-    extern AST_UTIL_API Unit N;
-    extern AST_UTIL_API Unit deg;
+    extern AST_UTIL_API Unit mm;        ///< 毫米
+    extern AST_UTIL_API Unit cm;        ///< 厘米
+    extern AST_UTIL_API Unit dm;        ///< 分米
+    extern AST_UTIL_API Unit m;         ///< 米
+    extern AST_UTIL_API Unit km;        ///< 千米
+
+    extern AST_UTIL_API Unit in;        ///< 英寸
+    extern AST_UTIL_API Unit ft;        ///< 英尺
+    extern AST_UTIL_API Unit yd;        ///< 码
+    extern AST_UTIL_API Unit mi;        ///< 英里
+
+
+
+    extern AST_UTIL_API Unit sec;       ///< 秒
+    extern AST_UTIL_API Unit s;         ///< 秒
+    extern AST_UTIL_API Unit min;       ///< 分钟
+    extern AST_UTIL_API Unit hour;      ///< 小时
+    extern AST_UTIL_API Unit h;         ///< 小时
+    extern AST_UTIL_API Unit day;       ///< 天
+
+    extern AST_UTIL_API Unit kg;        ///< 千克
+    extern AST_UTIL_API Unit g;         ///< 克
+    extern AST_UTIL_API Unit mg;        ///< 毫克
+    extern AST_UTIL_API Unit lb;        ///< 磅
+
+    extern AST_UTIL_API Unit N;         ///< 牛顿
+
+    extern AST_UTIL_API Unit deg;       ///< 度
+    extern AST_UTIL_API Unit rad;       ///< 弧度
+
+    extern AST_UTIL_API Unit m2;        ///< 平方米
+
+    extern AST_UTIL_API Unit m3;        ///< 立方米
+    extern AST_UTIL_API Unit L;         ///< 升
+    
 };
 
 

@@ -36,7 +36,7 @@ public:
     /// @return 单位管理器默认实例  
     static UnitManager& Instance();
 
-    UnitManager() = default;
+    UnitManager();
 
     ~UnitManager();
 

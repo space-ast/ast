@@ -136,12 +136,14 @@ AST_UTIL_CAPI void aFormatBool(bool value, std::string& str);
 AST_UTIL_CAPI err_t aFormatInt(int value, std::string& str);
 
 
+enum {kDefaultFormatDoubleEps = -1};
+
 /// @brief 将双精度浮点数格式化为字符串
 /// @param value 输入双精度浮点数
 /// @param str 输出字符串
 /// @param precision 格式化精度，默认自适应
 /// @return 0 成功，其他值 失败
-AST_UTIL_CAPI err_t aFormatDouble(double value, std::string& str, int precision = -1);
+AST_UTIL_CAPI err_t aFormatDouble(double value, std::string& str, int precision = kDefaultFormatDoubleEps);
 
 
 /// @brief 将颜色值格式化为字符串
@@ -188,7 +190,7 @@ std::string aFormatInt(int value)
 /// @param precision 格式化精度，默认值为15
 /// @return 格式化后的字符串
 A_ALWAYS_INLINE
-std::string aFormatDouble(double value, int precision = 15)
+std::string aFormatDouble(double value, int precision = kDefaultFormatDoubleEps)
 {
     std::string str;
     err_t err = aFormatDouble(value, str, precision);
