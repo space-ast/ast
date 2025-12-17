@@ -20,6 +20,7 @@
 
 #include "Unit.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -33,7 +34,7 @@ static std::string unit_name_from_scale_dimless(double scale)
     {
         return aText(""); // @fixme: 在这里使用空字符串吗？
     }
-    return aText("×") + std::to_string(scale);
+    return aText("×") + aFormatDouble(scale);
 }
 
 /// @brief 新建无量纲单位
@@ -103,9 +104,10 @@ static double unit_scale_from_subunits(const Unit::SubUnitListConst& subUnits)
 
 /// @brief 化简单位子项
 /// @param subUnits 单位子项列表
+/// @param newSubUnits 新的单位子项列表
 /// @param dimlessUnit 无量纲单位
 /// @param extra_scale 额外缩放因子
-static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRepHandleConst& dimlessUnit)
+static void unit_reduce_subunits(const Unit::SubUnitListConst& subUnits, Unit::SubUnitListConst& newSubUnits_, Unit::UnitRepHandleConst& dimlessUnit)
 {
     if (subUnits.empty())
     {
@@ -114,7 +116,6 @@ static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRep
     Unit::SubUnitListConst newSubUnits;                             // 新的单位子项列表
     std::vector<Unit::UnitRepHandleConst> dimlessUnits;             // 无量纲单位项列表
     double dimlessScale = 1.0;                                      // 额外缩放因子(量纲间乘除产生的缩放因子)
-    dimlessUnit = nullptr;                                          // 清空
 
     for (auto it = subUnits.begin(); it != subUnits.end(); it++)
     {
@@ -168,6 +169,7 @@ static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRep
             it++;
         }
     }
+    dimlessUnit = nullptr;                                          // 清空
     if(dimlessScale != 1.0){
         for(auto& it: dimlessUnits){
             if(it->scale_ == dimlessScale){
@@ -178,9 +180,15 @@ static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRep
             dimlessUnit = unit_new_dimenless(dimlessScale);
         }
     }
-    subUnits = std::move(newSubUnits);
+    newSubUnits_ = std::move(newSubUnits);
     // return unit_scale_from_subunits(subUnits);
 }
+
+static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRepHandleConst& dimlessUnit)
+{
+    unit_reduce_subunits(subUnits, subUnits, dimlessUnit);
+}
+
 
 static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
 {
@@ -350,6 +358,23 @@ Unit aUnitPower(const Unit& unit, int exponent, StringView newname)
     return retval;
 }
 
+void aUnitFactorize(const Unit &unit, Unit &newUnit, double &scale)
+{
+    Unit::UnitRepHandleConst dimless;
+    unit_reduce_subunits(unit.rep_->subUnits_, newUnit.rep_->subUnits_, dimless);
+    newUnit.rep_->scale_ = unit_scale_from_subunits(newUnit.rep_->subUnits_);
+    newUnit.rep_->name_ = unit_name_from_subunits(newUnit.rep_->subUnits_);
+    if(dimless)
+        scale = dimless->scale_;
+    else
+        scale = 1.0;
+}
+
+void aUnitFactorize(Unit &unit, double &scale)
+{
+    aUnitFactorize(unit, unit, scale);
+}
+
 Unit Unit::Scale(double scale)
 {
     return Unit(unit_name_from_scale_dimless(scale), scale, EDimension::eUnit);
@@ -358,12 +383,38 @@ Unit Unit::Scale(double scale)
 
 namespace units
 {
-    Unit km = Unit::Kilometer();
+    Unit mm = Unit::Millimeter();
+    Unit cm = Unit::Centimeter();
+    Unit dm = Unit::Decimeter();
     Unit m = Unit::Meter();
-    Unit s = Unit::Second();
+    Unit km = Unit::Kilometer();
+
+    Unit in = Unit::Inch();
+    Unit yd = Unit::Yard();
+    Unit ft = Unit::Foot();
+    Unit mi = Unit::Mile();
+    
+    Unit sec = Unit::Second();
+    Unit s = sec;
+    Unit min = Unit::Minute();
+    Unit hour = Unit::Hour();
+    Unit h = hour;
+    Unit day = Unit::Day();
+
     Unit kg = Unit::Kilogram();
+    Unit g = Unit::Gram();
+    Unit mg = Unit::Milligram();
+    Unit lb = Unit::Pound();
+
     Unit N = Unit::Newton();
+
     Unit deg = Unit::Degree();
+    Unit rad = Unit::Radian();
+
+    Unit m2 = Unit::SquareMeter();
+
+    Unit m3 = Unit::CubicMeter();
+    Unit L = Unit::Liter();
 }
 
 AST_NAMESPACE_END

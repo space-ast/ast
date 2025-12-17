@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      Quantity.hpp
 /// @brief     ~
 /// @details   ~
@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Unit.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -48,6 +49,13 @@ AST_UTIL_API Quantity aQuantitySub(const Quantity& q1, const Quantity& q2);
 AST_UTIL_API Quantity aQuantityMul(const Quantity& q1, const Quantity& q2);
 
 
+/// @brief 数量值单位乘法
+/// @param q 数量值
+/// @param unit 单位
+/// @return 数量值与单位的积
+AST_UTIL_API Quantity aQuantityMul(const Quantity& q, const Unit& unit);
+
+
 /// @brief 数量值除法
 /// @param q1 数量值1
 /// @param q2 数量值2
@@ -55,12 +63,29 @@ AST_UTIL_API Quantity aQuantityMul(const Quantity& q1, const Quantity& q2);
 AST_UTIL_API Quantity aQuantityDiv(const Quantity& q1, const Quantity& q2);
 
 
+/// @brief 数量值单位除法
+/// @param q 数量值
+/// @param unit 单位
+/// @return 数量值与单位的商
+AST_UTIL_API Quantity aQuantityDiv(const Quantity& q, const Unit& unit);
+
+
+/// @brief 数量值简化
+/// @param q 数量值
+AST_UTIL_API void aQuantityReduce(Quantity& q);
+
+
+/// @brief 数量值转换为字符串
+/// @param q 数量值
+/// @return 数量值的字符串表示
+AST_UTIL_API std::string aQuantityToString(const Quantity& q);
 
 /// @brief 单位乘法运算符
 /// @param value 数值
 /// @param unit 单位
 /// @return 新单位
 AST_UTIL_API Quantity operator*(double value, const Unit& unit);
+
 
 
 /// @brief 带单位的数量值
@@ -100,9 +125,17 @@ public:
     /// @return 数量值
     double value() const { return value_; }
     
+    /// @brief 获取可修改的数量值
+    /// @return 可修改的数量值
+    double& value() { return value_; }
+
     /// @brief 获取单位
     /// @return 单位
     const Unit& unit() const { return unit_; }
+
+    /// @brief 获取可修改的单位
+    /// @return 可修改的单位
+    Unit& unit() { return unit_; }
     
     /// @brief 获取量纲
     /// @return 量纲
@@ -137,6 +170,20 @@ public:
     /// @return 如果数量值不相等则返回true，否则返回false
     bool operator !=(const Quantity& q) const{return !(*this == q);}
     
+    /// @brief 检查数量值是否等于标量
+    /// @param value 标量值
+    /// @return 如果数量值等于标量值则返回true，否则返回false
+    bool operator == (double value) const{
+        return this->dimension() == EDimension::eUnit && this->getInternalValue() == value;
+    }
+
+    /// @brief 检查数量值是否不等于标量
+    /// @param value 标量值
+    /// @return 如果数量值不等于标量值则返回true，否则返回false
+    bool operator != (double value) const{
+        return !(*this == value);
+    }
+
     /// @brief 数量值取正
     Quantity operator+() const { return *this; }
     /// @brief 数量值取负
@@ -146,18 +193,18 @@ public:
     Quantity operator*(double scale) const { return Quantity(value_ * scale, unit_); }
     /// @brief 数量值除法
     Quantity operator/(double scale) const { return Quantity(value_ / scale, unit_); }
-    /// @brief 数量值单位乘法
-    Quantity operator*(const Unit& unit) const { return Quantity(value_, unit_ * unit); }
-    /// @brief 数量值单位除法
-    Quantity operator/(const Unit& unit) const { return Quantity(value_, unit_ / unit); }
     /// @brief 数量值缩放赋值
     Quantity& operator*=(double scale) { value_ *= scale; return *this; }
     /// @brief 数量值除法赋值
     Quantity& operator/=(double scale) { value_ /= scale; return *this; }
+    /// @brief 数量值单位乘法
+    Quantity operator*(const Unit& unit) const { return aQuantityMul(*this, unit); }
+    /// @brief 数量值单位除法
+    Quantity operator/(const Unit& unit) const { return aQuantityDiv(*this, unit); }
     /// @brief 数量值单位乘法赋值
-    Quantity& operator*=(const Unit& unit) { unit_ *= unit; return *this; }
+    Quantity& operator*=(const Unit& unit) { *this = aQuantityMul(*this, unit); return *this; }
     /// @brief 数量值单位除法赋值
-    Quantity& operator/=(const Unit& unit) { unit_ /= unit; return *this; }
+    Quantity& operator/=(const Unit& unit) { *this = aQuantityDiv(*this, unit); return *this; }
 
 
     /// @brief 数量值加法
@@ -178,10 +225,15 @@ public:
     Quantity& operator/=(const Quantity& q) { *this = aQuantityDiv(*this, q); return *this; }
     /// @brief 数量值转换为字符串
     /// @return 数量值的字符串表示
-    std::string toString() const{return std::to_string(value_) + " " + unit_.name();}
+    std::string toString() const{return aQuantityToString(*this);}
 private:
     double value_;
     Unit unit_;
 };
+
+inline Quantity operator*(double value, const Quantity& q)
+{
+    return q * value;
+}
 
 AST_NAMESPACE_END

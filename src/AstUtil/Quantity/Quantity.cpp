@@ -20,14 +20,15 @@
 
 #include "Quantity.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 数量值简化
-/// @param q 数量值
-void quantity_reduce(Quantity& q)
+void aQuantityReduce(Quantity& q)
 {
-    // @todo;
+    double scale;
+    aUnitFactorize(q.unit(), scale);
+    q.value() *= scale;
 }
 
 Quantity aQuantityAdd(const Quantity& q1, const Quantity& q2)
@@ -57,15 +58,38 @@ Quantity aQuantitySub(const Quantity& q1, const Quantity& q2)
 
 Quantity aQuantityMul(const Quantity& q1, const Quantity& q2)
 {
-    return Quantity(q1.value() * q2.value(), q1.unit() * q2.unit());
+    Quantity q(q1.value() * q2.value(), q1.unit() * q2.unit());
+    aQuantityReduce(q);
+    return q;
+}
+
+Quantity aQuantityMul(const Quantity& q, const Unit& unit)
+{
+    Quantity q2(q.value(), q.unit() * unit);
+    aQuantityReduce(q2);
+    return q2;
 }
 
 Quantity aQuantityDiv(const Quantity& q1, const Quantity& q2)
 {
-    return Quantity(q1.value() / q2.value(), q1.unit() / q2.unit());
+    Quantity q(q1.value() / q2.value(), q1.unit() / q2.unit());
+    aQuantityReduce(q);
+    return q;
+}
+
+Quantity aQuantityDiv(const Quantity& q, const Unit& unit)
+{
+    Quantity q2(q.value(), q.unit() / unit);
+    aQuantityReduce(q2);
+    return q2;
 }
 
 
+
+std::string aQuantityToString(const Quantity &q)
+{
+    return aFormatDouble(q.value()) + " " + q.unit().name();
+}
 
 Quantity operator*(double value, const Unit &unit)
 {
