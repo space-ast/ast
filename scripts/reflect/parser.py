@@ -29,19 +29,16 @@ class PropertyType(Enum):
 
 class PropertyInfo:
     """属性信息"""
-    name: str  # 属性名（去掉m_前缀）
-    original_name: str  # 原始成员名
-    type_name: str  # C++类型名
-    property_type: PropertyType  # 属性类型
-    getter: Optional[str] = None  # getter函数名
-    setter: Optional[str] = None  # setter函数名
-    is_readonly: bool = False  # 是否只读
     
     def __init__(self, name, original_name, type_name, property_type):
-        self.name = name
-        self.original_name = original_name
-        self.type_name = type_name
-        self.property_type = property_type
+        self.name = name                    # 属性名（去掉m_前缀）
+        self.original_name = original_name  # 原始成员名
+        self.type_name = type_name          # C++类型名
+        self.property_type = property_type  # 属性类型
+        self.getter = None                  # getter函数名
+        self.setter = None                  # setter函数名
+        self.is_readonly = False            # 是否只读
+
 
     def __repr__(self):
         return (f"PropertyInfo(name={self.name}, cpp_type={self.type_name}, "
@@ -49,13 +46,10 @@ class PropertyInfo:
 
 class ClassInfo:
     """类信息"""
-    name: str  # 类名
-    properties: Dict[str, PropertyInfo] = {}
-    file_path: Optional[str] = None  # 所在文件
-    
     def __init__(self, name, file_path):
-        self.name = name
-        self.file_path = file_path
+        self.name: str = name
+        self.file_path:Optional[str] = file_path
+        self.properties: Dict[str, PropertyInfo] = {}
 
     def add_property(self, prop: PropertyInfo):
         """添加属性"""
