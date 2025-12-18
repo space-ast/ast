@@ -21,7 +21,7 @@
 #include "GeoCoordinate.hpp"
 #include "GeocentricPoint.hpp"
 #include "GeodeticPoint.hpp"
-#include <math.h>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 

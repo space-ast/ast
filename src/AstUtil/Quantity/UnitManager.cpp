@@ -54,20 +54,19 @@ UnitManager::~UnitManager()
     }
 }
 
-void UnitManager::addUnit(const Unit& unit)
+err_t UnitManager::addUnit(const Unit& unit)
 {
-    units_[unit.name()] = new Unit(unit);
+    return addUnit(unit.name(), unit);
 }
 
-
-void UnitManager::addUnit(std::string name, const Unit& unit)
+err_t UnitManager::addUnit(StringView name, const Unit& unit)
 {
-    units_[name] = new Unit(unit);
+    return addUnit(name.to_string(), unit);
 }
 
-Unit* UnitManager::getUnit(std::string name)
+Unit* UnitManager::getUnit(StringView name)
 {
-    auto it = units_.find(name);
+    auto it = units_.find(name.to_string());
     if (it == units_.end())
     {
         return nullptr;
@@ -75,6 +74,31 @@ Unit* UnitManager::getUnit(std::string name)
     return it->second;
 }
 
+err_t UnitManager::addUnit(const std::string &name, const Unit &unit)
+{
+    if (units_.find(name) != units_.end())
+    {
+        return eErrorInvalidParam;
+    }
+    units_[name] = new Unit(unit);
+    return eNoError;
+}
 
+Unit* aUnitGet(StringView name)
+{
+    return UnitManager::Instance().getUnit(name);
+}
+
+err_t aUnitAdd(const Unit& unit)
+{
+    return UnitManager::Instance().addUnit(unit);
+}
+
+err_t aUnitAdd(StringView name, const Unit &unit)
+{
+    return UnitManager::Instance().addUnit(name, unit);
+}
 
 AST_NAMESPACE_END
+
+

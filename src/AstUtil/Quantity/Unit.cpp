@@ -60,14 +60,23 @@ static std::string unit_name_from_subunits(const Unit::SubUnitListConst& subUnit
     std::string name;
     for (const auto& unitpair : subUnits)
     {
-        if (!name.empty())
+        if(!unitpair.first->name_.empty())
         {
-            name += unit_name_separator;
-        }
-        name += unitpair.first->name_;
-        if (unitpair.second != 1)
-        {
-            name += "^" + std::to_string(unitpair.second);
+            if (!name.empty())
+            {
+                name += unit_name_separator;
+            }
+            name += unitpair.first->name_;
+            if (unitpair.second != 1)
+            {
+                name += "^" + std::to_string(unitpair.second);
+            }
+        }else{
+            // 只有缩放量为1的无量纲单位才允许为空
+            if(unitpair.first->dimension_ != EDimension::eUnit || unitpair.first->scale_ != 1.0)
+            {
+                aError("unexpected unit in unit_name_from_subunits: dimension=%d, scale=%lf", (int)unitpair.first->dimension_.value(), unitpair.first->scale_);
+            }
         }
     }
     return name;
@@ -383,6 +392,8 @@ Unit Unit::Scale(double scale)
 
 namespace units
 {
+    Unit none = Unit::None();
+
     Unit mm = Unit::Millimeter();
     Unit cm = Unit::Centimeter();
     Unit dm = Unit::Decimeter();
