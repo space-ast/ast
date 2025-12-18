@@ -21,10 +21,33 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 
+class Quantity;
+class Unit;
 
+/// @brief 解析量字符串
+/// @param[in] str 量字符串
+/// @param[out] value 解析得到的数值
+/// @param[out] unit 解析得到的单位
+/// @return err_t 错误码
+AST_UTIL_API err_t aQuantityParse(StringView str, double& value, Unit& unit);
+
+
+
+/// @brief 解析量字符串
+/// @param[in] str 量字符串
+/// @param[out] quantity 解析后的量
+/// @return err_t 错误码
+AST_UTIL_API err_t aQuantityParse(StringView str, Quantity& quantity);
+
+
+/// @brief 解析量字符串
+/// @param[in] str 量字符串
+/// @return Quantity 解析得到的量，如果解析失败返回 Quantity::NaN()
+AST_UTIL_API Quantity aQuantityParse(StringView str);
 
 
 

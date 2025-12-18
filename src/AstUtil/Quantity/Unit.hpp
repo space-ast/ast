@@ -71,6 +71,8 @@ namespace units
     extern AST_UTIL_API Unit deg;       ///< 度
     extern AST_UTIL_API Unit rad;       ///< 弧度
 
+    extern AST_UTIL_API Unit A;         ///< 安培
+
     extern AST_UTIL_API Unit m2;        ///< 平方米
 
     extern AST_UTIL_API Unit m3;        ///< 立方米

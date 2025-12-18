@@ -1,9 +1,9 @@
 ///
-/// @file      UnitParser.hpp
+/// @file      testQuantityParser.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-15
+/// @date      2025-12-18
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,29 +18,17 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "AstUtil/StringView.hpp"       // for StringView
-
-AST_NAMESPACE_BEGIN
-
-class Unit;
+#include "AstTest/AstTestMacro.h"
+#include "AstUtil/QuantityParser.hpp"
 
 
-/// @brief 解析单位字符串
-/// @param[in] str 单位字符串
-/// @param[out] unit 解析后的单位
-/// @return err_t 错误码
-AST_UTIL_API err_t aUnitParse(StringView str, Unit& unit);
+TEST(QuantityParser, Basic)
+{
+    Quantity quantity;
+    err_t err = aQuantityParse("123.456 m/s", quantity);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_TRUE(quantity.isValid());
+}
 
 
-/// @brief 解析单位字符串
-/// @param[in] str 单位字符串
-/// @return Unit 解析得到的单位，如果解析失败返回 Unit::NaN()
-AST_UTIL_API Unit aUnitParse(StringView str);
-
-
-
-AST_NAMESPACE_END
-
+GTEST_MAIN()
