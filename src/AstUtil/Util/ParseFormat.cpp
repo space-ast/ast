@@ -84,13 +84,16 @@ err_t aParseInt(StringView str, int& value)
     #endif
 }
 
-err_t _aParseInt_LibC_1(StringView str, int& value)
+err_t _aParseInt_LibC_1(StringView sv, int& value)
 {
-    if (str.empty() || !str.data())
+    if (sv.empty() || !sv.data())
     {
         return eErrorNullInput;
     }
-
+    // @fixme: 如果StringView 是取了字符串中的一段，可能会有问题，所以在这里先转换为string
+    // 这里会影响一点效率
+    std::string str = sv.to_string();
+    
     // 使用标准库函数strtol进行转换
     char* endptr = nullptr;
     long result = std::strtol(str.data(), &endptr, 10);
@@ -213,12 +216,15 @@ err_t aParseDouble(StringView str, double& value)
     #endif
 }
 
-err_t _aParseDouble_LibC_1(StringView str, double& value)
+err_t _aParseDouble_LibC_1(StringView sv, double& value)
 {
-    if (str.empty() || !str.data())
+    if (sv.empty() || !sv.data())
     {
         return eErrorNullInput;
     }
+    // @fixme: 如果StringView 是取了字符串中的一段，可能会有问题，所以在这里先转换为string
+    // 这里会影响一点效率
+    std::string str = sv.to_string();
 
     // 使用标准库函数strtod进行转换
     char* endptr = nullptr;

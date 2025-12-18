@@ -422,6 +422,8 @@ namespace units
     Unit deg = Unit::Degree();
     Unit rad = Unit::Radian();
 
+    Unit A = Unit::Ampere();
+
     Unit m2 = Unit::SquareMeter();
 
     Unit m3 = Unit::CubicMeter();

@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      UnitManager.cpp
 /// @brief     ~
 /// @details   ~
@@ -32,6 +32,7 @@ UnitManager::UnitManager()
 {
     addUnit(units::cm);
     addUnit(units::m);
+    addUnit(units::km);
     addUnit(units::kg);
     addUnit(units::g);
     addUnit(units::mg);
@@ -44,6 +45,7 @@ UnitManager::UnitManager()
     addUnit(units::h);
     addUnit(units::day);
     addUnit(units::hour);
+    addUnit(units::A);
 }
 
 UnitManager::~UnitManager()
