@@ -36,6 +36,50 @@ class Unit;
 class Quantity;
 
 
+
+namespace units
+{
+    extern AST_UTIL_API Unit none;      ///< 无单位
+
+    extern AST_UTIL_API Unit mm;        ///< 毫米
+    extern AST_UTIL_API Unit cm;        ///< 厘米
+    extern AST_UTIL_API Unit dm;        ///< 分米
+    extern AST_UTIL_API Unit m;         ///< 米
+    extern AST_UTIL_API Unit km;        ///< 千米
+
+    extern AST_UTIL_API Unit in;        ///< 英寸
+    extern AST_UTIL_API Unit ft;        ///< 英尺
+    extern AST_UTIL_API Unit yd;        ///< 码
+    extern AST_UTIL_API Unit mi;        ///< 英里
+
+
+
+    extern AST_UTIL_API Unit sec;       ///< 秒
+    extern AST_UTIL_API Unit s;         ///< 秒
+    extern AST_UTIL_API Unit min;       ///< 分钟
+    extern AST_UTIL_API Unit hour;      ///< 小时
+    extern AST_UTIL_API Unit h;         ///< 小时
+    extern AST_UTIL_API Unit day;       ///< 天
+
+    extern AST_UTIL_API Unit kg;        ///< 千克
+    extern AST_UTIL_API Unit g;         ///< 克
+    extern AST_UTIL_API Unit mg;        ///< 毫克
+    extern AST_UTIL_API Unit lb;        ///< 磅
+
+    extern AST_UTIL_API Unit N;         ///< 牛顿
+
+    extern AST_UTIL_API Unit deg;       ///< 度
+    extern AST_UTIL_API Unit rad;       ///< 弧度
+
+    extern AST_UTIL_API Unit m2;        ///< 平方米
+
+    extern AST_UTIL_API Unit m3;        ///< 立方米
+    extern AST_UTIL_API Unit L;         ///< 升
+    
+};
+
+
+
 /// @brief 单位乘法
 AST_UTIL_API Unit aUnitMultiply(const Unit& unit1, const Unit& unit2);
 
@@ -316,7 +360,7 @@ public:
 
 public:
     /// @brief 默认无单位
-    Unit(): Unit{None()}{}
+    Unit(): Unit{units::none}{}
 
     /// @brief 新建单位
     Unit(StringView name, double scale, Dimension dimension)
@@ -474,46 +518,6 @@ public: // operators
 
 public:
     UnitRepHandle rep_;
-};
-
-
-namespace units
-{
-    extern AST_UTIL_API Unit mm;        ///< 毫米
-    extern AST_UTIL_API Unit cm;        ///< 厘米
-    extern AST_UTIL_API Unit dm;        ///< 分米
-    extern AST_UTIL_API Unit m;         ///< 米
-    extern AST_UTIL_API Unit km;        ///< 千米
-
-    extern AST_UTIL_API Unit in;        ///< 英寸
-    extern AST_UTIL_API Unit ft;        ///< 英尺
-    extern AST_UTIL_API Unit yd;        ///< 码
-    extern AST_UTIL_API Unit mi;        ///< 英里
-
-
-
-    extern AST_UTIL_API Unit sec;       ///< 秒
-    extern AST_UTIL_API Unit s;         ///< 秒
-    extern AST_UTIL_API Unit min;       ///< 分钟
-    extern AST_UTIL_API Unit hour;      ///< 小时
-    extern AST_UTIL_API Unit h;         ///< 小时
-    extern AST_UTIL_API Unit day;       ///< 天
-
-    extern AST_UTIL_API Unit kg;        ///< 千克
-    extern AST_UTIL_API Unit g;         ///< 克
-    extern AST_UTIL_API Unit mg;        ///< 毫克
-    extern AST_UTIL_API Unit lb;        ///< 磅
-
-    extern AST_UTIL_API Unit N;         ///< 牛顿
-
-    extern AST_UTIL_API Unit deg;       ///< 度
-    extern AST_UTIL_API Unit rad;       ///< 弧度
-
-    extern AST_UTIL_API Unit m2;        ///< 平方米
-
-    extern AST_UTIL_API Unit m3;        ///< 立方米
-    extern AST_UTIL_API Unit L;         ///< 升
-    
 };
 
 

@@ -117,6 +117,9 @@ public:
     }
 
 public:
+    Quantity()
+        : value_(0.0), unit_{}
+    {}
     Quantity(double value, const Unit& unit)
         : value_(value), unit_(unit)
     {}

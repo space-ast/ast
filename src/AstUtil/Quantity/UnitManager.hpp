@@ -28,7 +28,28 @@
 
 AST_NAMESPACE_BEGIN
 
+class Unit;
 
+/// @brief 获取单位
+/// @param name 单位名称
+/// @return 单位
+AST_UTIL_API Unit* aUnitGet(StringView name);
+
+
+/// @brief 添加单位
+/// @param unit 要添加的单位
+/// @return err_t 错误码
+AST_UTIL_API err_t aUnitAdd(const Unit& unit);
+
+
+/// @brief 添加单位
+/// @param name 单位名称
+/// @param unit 要添加的单位
+/// @return err_t 错误码
+AST_UTIL_API err_t aUnitAdd(StringView name, const Unit& unit);
+
+
+/// @brief 单位管理器
 class AST_UTIL_API UnitManager
 {
 public:
@@ -42,17 +63,25 @@ public:
 
     /// @brief 添加单位
     /// @param unit 要添加的单位
-    void addUnit(const Unit& unit);
+    err_t addUnit(const Unit& unit);
 
     /// @brief 添加单位
     /// @param name 单位名称
     /// @param scale 单位缩放因子
-    void addUnit(std::string name, const Unit& unit);
+    err_t addUnit(StringView name, const Unit& unit);
 
     /// @brief 获取单位
     /// @param name 单位名称
     /// @return 单位
-    Unit* getUnit(std::string name);
+    Unit* getUnit(StringView name);
+
+protected:
+
+    /// @brief 添加单位
+    /// @param name 单位名称
+    /// @param unit 要添加的单位
+    /// @return err_t 错误码
+    err_t addUnit(const std::string& name, const Unit& unit);
 
 protected:
     std::unordered_map<std::string, Unit*> units_;       ///< 单位映射表
