@@ -4,14 +4,14 @@
 #else
 #   define AST_PROPERTIES public
 #endif
-#define properties AST_PROPERTIES
+#define PROPERTIES AST_PROPERTIES
 #include <string>
 
 typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, power_d, angle_d, angvel_d; 
 typedef int err_t;
 
 class Test{
-properties:
+PROPERTIES:
     // 标记下面都是properties
     time_d    m_timestamp;        
     angle_d   m_heading;          

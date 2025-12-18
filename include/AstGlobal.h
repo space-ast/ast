@@ -90,7 +90,7 @@
 #else
 #   define AST_PROPERTIES public
 #endif
-#define properties AST_PROPERTIES
+#define PROPERTIES AST_PROPERTIES
 
 
 // 字符串宏，用于在编译时将字符串转换为ast项目内部运行时编码
@@ -146,6 +146,15 @@
 #    define AST_GUI_API A_DECL_IMPORT
 #endif
 #define AST_GUI_CAPI A_DECL_EXTERN_C AST_GUI_API
+
+// ast项目可视化模块导出声明
+#ifdef AST_BUILD_LIB_GFX
+#    define AST_GFX_API A_DECL_EXPORT
+#else
+#    define AST_GFX_API A_DECL_IMPORT
+#endif
+#define AST_GFX_CAPI A_DECL_EXTERN_C AST_GFX_API
+
 
 
 AST_NAMESPACE_BEGIN

@@ -1,9 +1,8 @@
-﻿target("AstGfx")
-    set_kind("shared")
+target("TestAstGfx")
+    set_kind("binary")
     add_files("**.cpp")
     add_headerfiles("**.hpp")
-    add_deps("AstUtil", "AstOpt", "AstCore")
-    add_defines("AST_BUILD_LIB_GFX")
+    add_deps("AstGfx")
     add_packages("openscenegraph", "opengl")
     if is_plat("windows") then 
         add_defines("WIN32")
