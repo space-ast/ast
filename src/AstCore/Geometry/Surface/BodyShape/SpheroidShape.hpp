@@ -31,7 +31,7 @@ class SpheroidShape : public BodyShape
 {
 public:
     
-properties:
+PROPERTIES:
     length_d    majorAxis_;  ///< 长轴长度
     double      flatfactor_; ///< 扁率因子
 };

@@ -30,7 +30,7 @@ class EllipsoidShape : public BodyShape
 {
 public:
     
-properties:
+PROPERTIES:
     length_d majorAxis_;  ///< 长轴长度
     length_d middleAxis_; ///< 中轴长度
     length_d minorAxis_;  ///< 短轴长度
