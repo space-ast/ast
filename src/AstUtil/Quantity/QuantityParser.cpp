@@ -19,9 +19,29 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "QuantityParser.hpp"
+#include "Quantity.hpp"
 
 AST_NAMESPACE_BEGIN
 
+err_t aQuantityParse(StringView str, double& value, Unit& unit)
+{
+    // @todo
+    return -1;
+}
 
+err_t aQuantityParse(StringView str, Quantity& quantity)
+{
+    return aQuantityParse(str, quantity.value(), quantity.unit());
+}
+
+Quantity aQuantityParse(StringView str)
+{
+    Quantity quantity;
+    if (aQuantityParse(str, quantity) != eNoError)
+    {
+        return Quantity::NaN();
+    }
+    return quantity;
+}
 
 AST_NAMESPACE_END
