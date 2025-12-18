@@ -353,7 +353,7 @@ TEST(UnitParserTest, ErrorCases) {
     // 测试空字符串
     err = aUnitParse("", unit);
     EXPECT_TRUE(err);
-    EXPECT_TRUE(unit.isValid());
+    EXPECT_FALSE(unit.isValid());
     
     // 测试未知单位
     err = aUnitParse("unknown_unit", unit);

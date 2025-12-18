@@ -211,7 +211,7 @@ static err_t parseExpression(ParserContext& ctx, int &value)
     {
         const char* start = ctx.position();
         // 读取整数（可能带负号）
-        while (!ctx.atEnd() && ctx.peek() >= '0' && ctx.peek() <= '9' || ctx.peek() == '-')
+        while (!ctx.atEnd() && ((ctx.peek() >= '0' && ctx.peek() <= '9') || ctx.peek() == '-'))
         {
             ctx.consume();
         }
@@ -411,7 +411,7 @@ err_t aUnitParse(StringView str, Unit& unit)
     // 检查输入是否为空
     if (str.empty())
     {
-        unit = Unit::None();
+        unit = Unit::NaN();
         return eErrorParse;
     }
     
