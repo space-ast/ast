@@ -28,7 +28,8 @@ AST_NAMESPACE_BEGIN
 class Quantity;
 class Unit;
 
-/// @brief 解析量字符串
+/// @brief 解析量字符串，将其解析为数值和单位。
+/// @details 例如 "123.456 m/s", "123.456m", "123.456[m/s]"。
 /// @param[in] str 量字符串
 /// @param[out] value 解析得到的数值
 /// @param[out] unit 解析得到的单位
@@ -38,6 +39,7 @@ AST_UTIL_API err_t aQuantityParse(StringView str, double& value, Unit& unit);
 
 
 /// @brief 解析量字符串
+/// @details 例如 "123.456 m/s", "123.456m", "123.456[m/s]"。
 /// @param[in] str 量字符串
 /// @param[out] quantity 解析后的量
 /// @return err_t 错误码
@@ -45,6 +47,7 @@ AST_UTIL_API err_t aQuantityParse(StringView str, Quantity& quantity);
 
 
 /// @brief 解析量字符串
+/// @details 例如 "123.456 m/s", "123.456m", "123.456[m/s]"。
 /// @param[in] str 量字符串
 /// @return Quantity 解析得到的量，如果解析失败返回 Quantity::NaN()
 AST_UTIL_API Quantity aQuantityParse(StringView str);

@@ -32,6 +32,7 @@ UnitManager::UnitManager()
 {
     addUnit(units::cm);
     addUnit(units::m);
+    addUnit(units::km);
     addUnit(units::kg);
     addUnit(units::g);
     addUnit(units::mg);

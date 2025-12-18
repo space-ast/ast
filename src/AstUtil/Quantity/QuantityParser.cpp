@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      QuantityParser.cpp
 /// @brief     ~
 /// @details   ~
@@ -20,13 +20,59 @@
 
 #include "QuantityParser.hpp"
 #include "Quantity.hpp"
+#include "UnitParser.hpp"
 
 AST_NAMESPACE_BEGIN
 
-err_t aQuantityParse(StringView str, double& value, Unit& unit)
+static void skipWhitespace(const char*& position, const char* end)
 {
-    // @todo
-    return -1;
+    while (position < end && isspace(static_cast<unsigned char>(*position)))
+    {
+        position++;
+    }
+}
+
+err_t aQuantityParse(StringView sv, double& value, Unit& unit)
+{
+    std::string str = sv.to_string();
+    const char* end = str.c_str() + str.size();
+    const char* position = nullptr;
+
+    value = strtod(str.c_str(), const_cast<char**>(&position));
+    if (!position || position == str.c_str())
+    {
+        value = 0;
+        unit = Unit::NaN();
+        return eErrorParse;
+    }
+
+    // 如果已经解析到了字符串的末尾，则单位为空
+    if (*position == '\0' || position >= end)
+    {
+        unit = Unit::None();
+        return eNoError;
+    }
+
+    {
+        skipWhitespace(position, end);
+        StringView sv(position, end - position);
+        if (sv[0] == '[') {
+            auto pos = sv.rfind(']');
+            if (pos == StringView::npos)
+            {
+                return eErrorParse;
+            }
+            else {
+                sv = sv.substr(1, pos - 1);
+            }
+        }
+
+        err_t err = aUnitParse(sv, unit);
+        if (err != eNoError) {
+            return err;
+        }
+        return err;
+    }
 }
 
 err_t aQuantityParse(StringView str, Quantity& quantity)

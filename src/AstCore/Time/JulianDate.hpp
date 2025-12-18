@@ -141,11 +141,15 @@ public:
     }
     JulianDate operator + (double sec) const
     {
-        return JulianDate{ *this } += sec;
+        JulianDate jd{ *this };
+        jd += sec;
+        return jd;
     }
     JulianDate operator - (double sec) const
     {
-        return JulianDate{ *this } -= sec;
+        JulianDate jd{ *this };
+        jd -= sec;
+        return jd;
     }
     DaySecDuration operator - (const JulianDate& other) const
     {
