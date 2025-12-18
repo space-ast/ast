@@ -139,6 +139,15 @@
 #endif
 #define AST_MOCK_CAPI A_DECL_EXTERN_C AST_MOCK_API
 
+// ast项目GUI模块导出声明
+#ifdef AST_BUILD_LIB_GUI
+#    define AST_GUI_API A_DECL_EXPORT
+#else
+#    define AST_GUI_API A_DECL_IMPORT
+#endif
+#define AST_GUI_CAPI A_DECL_EXTERN_C AST_GUI_API
+
+
 AST_NAMESPACE_BEGIN
 
 /// ast项目公共枚举
