@@ -15,7 +15,7 @@ void test()
     
     // 设置背景颜色为深蓝色
     std::cout << "设置背景颜色..." << std::endl;
-    AstGfxSetBackgroundColor(0.0f, 0.0f, 0.1f, 1.0f);
+    AstGfxSetBackgroundColor(1.0f, 0.0f, 0.1f, 1.0f);
     
     // 获取太阳系对象
     GfxSolarSystem* solarSystem = AstGfxAPI::instance().getSolarSystem();
@@ -26,8 +26,14 @@ void test()
     
     // 创建完整的太阳系
     std::cout << "正在创建太阳系..." << std::endl;
-    solarSystem->createCompleteSolarSystem();
+    bool success = solarSystem->createCompleteSolarSystem();
+    if (!success) {
+        std::cerr << "创建太阳系失败!" << std::endl;
+        return;
+    }
     
+    AstGfxUpdate(0);
+
     // 运行可视化系统
     std::cout << "正在运行太阳系可视化..." << std::endl;
     std::cout << "按ESC键退出程序。" << std::endl;
