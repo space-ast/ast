@@ -56,22 +56,16 @@ err_t aQuantityParse(StringView sv, double& value, Unit& unit)
     {
         skipWhitespace(position, end);
         StringView sv(position, end - position);
-        if (sv[0] == '[') {
+        if (!sv.empty() && sv.front() == '[') {
             auto pos = sv.rfind(']');
             if (pos == StringView::npos)
             {
                 return eErrorParse;
             }
-            else {
-                sv = sv.substr(1, pos - 1);
-            }
+            sv = sv.substr(1, pos - 1);
         }
 
-        err_t err = aUnitParse(sv, unit);
-        if (err != eNoError) {
-            return err;
-        }
-        return err;
+        return aUnitParse(sv, unit);
     }
 }
 

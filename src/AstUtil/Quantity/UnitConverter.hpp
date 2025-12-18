@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 class UnitConverter
 {
 public:
-    UnitConverter() = default;
+    UnitConverter():fromUnit_(Unit()), toUnit_(Unit()), conversionFactor_(1.0){}
 
     UnitConverter(Unit fromUnit, Unit toUnit)
         : fromUnit_(fromUnit), toUnit_(toUnit), conversionFactor_(fromUnit.getScale() / toUnit.getScale()){}
