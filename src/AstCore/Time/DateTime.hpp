@@ -540,11 +540,15 @@ public:
     }
     DateTime operator + (double sec) const
     {
-        return DateTime{ *this } += sec;
+        auto dttm = DateTime{ *this };
+        dttm += sec;
+        return dttm;
     }
     DateTime operator -(double sec) const
     {
-        return DateTime{ *this } -= sec;
+        auto dttm = DateTime{ *this };
+        dttm -= sec;
+        return dttm;
     }
     
 public:

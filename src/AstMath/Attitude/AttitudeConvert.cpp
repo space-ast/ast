@@ -601,15 +601,21 @@ void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler)
 
 void aQuatToAngleAxis(const Quaternion& quat, AngleAxis& aa)
 {
-	aa.angle() = 2. * acos(quat.qs());
-	double b = sin(aa.angle_*0.5);
-	if(b)
+	double n = quat.vec().norm();
+	if(n)
 	{
-		aa.axis() = {quat.qx()/b, quat.qy()/b, quat.qz()/b};
+    	if (quat.qs() < 0){
+			aa.angle() = 2 * atan2(n, -(quat.qs()));
+			aa.axis() = quat.vec() / -n;
+		}else{
+			aa.angle() = 2 * atan2(n, (quat.qs()));
+			aa.axis() = quat.vec() / n;
+		};
 	}
 	else
 	{
-		aa.axis() = {0, 0, 0};
+		aa.angle() = 0;
+		aa.axis() = {1, 0, 0};
 	}
 }
 

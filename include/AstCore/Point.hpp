@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Geometry/Point.hpp"
+#include "../../src/AstCore/Geometry/Euclid/Point.hpp"
