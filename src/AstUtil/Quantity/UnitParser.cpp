@@ -192,7 +192,6 @@ static err_t parsePrimary(ParserContext& ctx, Unit& unit)
 /// @return 错误码
 static err_t parseExpression(ParserContext& ctx, int &value)
 {
-    const char* start = ctx.position();
     if (ctx.match('('))
     {
         // 递归解析括号内的表达式
@@ -210,6 +209,7 @@ static err_t parseExpression(ParserContext& ctx, int &value)
     }
     else
     {
+        const char* start = ctx.position();
         // 读取整数（可能带负号）
         while (!ctx.atEnd() && ctx.peek() >= '0' && ctx.peek() <= '9' || ctx.peek() == '-')
         {

@@ -52,7 +52,7 @@ public: // get and set methods
     /// @brief 获取纬度、经度、高度坐标
     constexpr const LatLonAlt& latLonAlt() const noexcept { return latLonAlt_; }
     /// @brief 设置纬度、经度、高度坐标
-    constexpr void setLatLonAlt(const LatLonAlt& latLonAlt) noexcept{ latLonAlt_ = latLonAlt; }
+    void setLatLonAlt(const LatLonAlt& latLonAlt) noexcept{ latLonAlt_ = latLonAlt; }
 
     /// @brief 获取纬度
     double latitude() const { return latLonAlt_.latitude(); }
