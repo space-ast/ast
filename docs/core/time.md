@@ -33,7 +33,7 @@ Time模块提供了全面的时间处理功能，包括日期、时间、日期�
    - 基于JulianDate类，提供更简洁的表示方式
 
 6. **时长类型**
-   - **ShorDuration**: 短时长，使用double表示秒数
+   - **ShortDuration**: 短时长，使用double表示秒数
    - **LongDuration**: 长时长，使用整数秒和小数秒分离表示
    - **DaySecDuration**: 整数天 + 小数秒时长，适合长时间跨度表示
 
