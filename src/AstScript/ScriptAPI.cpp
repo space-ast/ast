@@ -1,5 +1,5 @@
 ///
-/// @file      AstScriptAPI.cpp
+/// @file      ScriptAPI.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -18,24 +18,22 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstScriptAPI.hpp"
+#include "ScriptAPI.hpp"
 #include "AstScript/ValBool.hpp"
 #include "AstScript/ValInt.hpp"
 #include "AstScript/ValDouble.hpp"
 #include "AstScript/ValString.hpp"
+#include "AstScript/ValQuantity.hpp"
 #include "AstScript/ValNull.hpp"
 #include "AstScript/Variable.hpp"
 #include "AstScript/OpBin.hpp"
 #include "AstScript/OpAssign.hpp"
+#include "AstScript/OpUnary.hpp"
+#include "AstScript/Parser.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
 AST_NAMESPACE_BEGIN
 
-Expr *aParseExpr(StringView script)
-{
-    // @todo 实现表达式解析逻辑
-    return nullptr;
-}
 
 Variable *aNewVariable(Expr *expr, bool bind)
 {
@@ -61,6 +59,14 @@ Expr *aNewOpBin(OpBinType op, Expr *left, Expr *right)
     return new OpBin(op, left, right);
 }
 
+Expr *aNewOpUnary(OpUnaryType op, Expr *expr)
+{
+    if(!expr){
+        return nullptr;
+    }
+    return new OpUnary(op, expr);
+}
+
 
 Value* aNewValueString(StringView value)
 {
@@ -77,6 +83,11 @@ Value* aNewValueBool(bool value)
 Value* aNewValueDouble(double value)
 {
     return new ValDouble(value);
+}
+
+Value *aNewValueQuantity(const Quantity &value)
+{
+    return new ValQuantity(value);
 }
 
 Value *aValueNull()

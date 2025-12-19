@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "Op.hpp"
-#include "AstScript/AstScriptAPI.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,6 +37,7 @@ public:
     {};
     virtual ~OpBin() = default;
     Value* eval() const override;
+    std::string getExpression(Object* context=nullptr) const override;
 protected:
     OpBinType   op_;        ///< 运算符
     Expr*       left_;      ///< 左操作数

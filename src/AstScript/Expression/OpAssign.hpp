@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "Op.hpp"
-#include "AstScript/AstScriptAPI.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -35,6 +35,7 @@ public:
         ,right_{right}
     {};
     Value* eval() const override;
+    std::string getExpression(Object* context=nullptr) const override;
 protected:
     OpAssignType op_;
     Expr* left_;

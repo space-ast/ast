@@ -32,6 +32,7 @@ public:
     ValBool(): value_{false}{}
     ValBool(bool value): value_{value}{}
     bool value() const{return value_;}
+    std::string getExpression(Object* context=nullptr) const override;
 protected:
     bool value_;
 };

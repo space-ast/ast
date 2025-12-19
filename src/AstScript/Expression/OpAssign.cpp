@@ -22,10 +22,37 @@
 
 AST_NAMESPACE_BEGIN
 
+const char* OpAssignTypeStr[] = {
+    "=",    // eAssign
+    ":=",   // eDelayAssign
+    "=&",   // eBindAssign
+    "+=",   // eAddAssign
+    "-=",   // eSubAssign
+    "*=",   // eMulAssign
+    "/=",   // eDivAssign
+    "^=",   // ePowAssign
+    "%=",   // eModAssign
+    ".*=",  // eElemMulAssign
+    "./=",  // eElemDivAssign
+    ".^=",  // eElemPowAssign
+    ".%=",  // eElemModAssign
+    ".&&=",  // eElemAndAssign
+    ".||=",  // eElemOrAssign
+};
+
+static_assert(sizeof(OpAssignTypeStr)/sizeof(OpAssignTypeStr[0]) == static_cast<size_t>(numOpAssignType), "OpAssignTypeStr size mismatch");
+
 Value *OpAssign::eval() const
 {
     // @todo 实现赋值操作
     return nullptr;
+}
+
+std::string OpAssign::getExpression(Object *context) const
+{
+    return std::string(left_->getExpression(context)) + " " +
+           OpAssignTypeStr[op_] + " " +
+           right_->getExpression(context);
 }
 
 AST_NAMESPACE_END

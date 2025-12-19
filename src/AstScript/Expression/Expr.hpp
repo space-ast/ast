@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      Expr.hpp
 /// @brief     ~
 /// @details   ~
@@ -45,6 +45,11 @@ public:
     
     /// @brief 设置表达式的值
     virtual err_t setValue(Value* val) = 0;
+
+    /// @brief 获取表达式的字符串表示
+    /// @param context 可选的上下文对象，用于解析变量等
+    /// @return std::string 表达式的字符串表示
+    virtual std::string getExpression(Object* context=nullptr) const = 0;
 };
 
 

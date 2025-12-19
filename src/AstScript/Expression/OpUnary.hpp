@@ -1,9 +1,9 @@
 ///
-/// @file      ValString.cpp
+/// @file      OpUnary.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-20
+/// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,16 +18,29 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ValString.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "Op.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
-std::string ValString::getExpression(Object *context) const
+/// @brief 一元运算符表达式
+class OpUnary: public Op
 {
-    // @fixme 处理转义字符
-    return "\"" + value_ + "\"";
-}
+public:
+    OpUnary(OpUnaryType op, Expr* expr)
+        : op_(op), expr_(expr)
+    {};
+    virtual ~OpUnary() = default;
+    Value* eval() const override;
+    std::string getExpression(Object* context=nullptr) const override;
+protected:
+    OpUnaryType   op_;        ///< 运算符
+    Expr*         expr_;      ///< 操作数
+};
+
 
 
 AST_NAMESPACE_END
-

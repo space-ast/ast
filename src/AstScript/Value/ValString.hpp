@@ -36,6 +36,7 @@ public:
         :value_{value.to_string()}
     {}
     ValString(): value_{}{}
+    std::string getExpression(Object* context=nullptr) const override;
     const std::string& value() const{return value_;}
 protected:
     std::string value_;

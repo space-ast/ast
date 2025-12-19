@@ -1,5 +1,5 @@
 ///
-/// @file      AstScriptAPI.hpp
+/// @file      ScriptAPI.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "ScriptParser.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -49,6 +50,8 @@ enum OpBinType{
     eGt,        ///< 大于
     eGe,        ///< 大于等于
     eNe,        ///< 不等于
+
+    numOpBinType,   ///< 运算符类型数量
 };
 
 enum OpAssignType{
@@ -69,6 +72,8 @@ enum OpAssignType{
     eElemPowAssign, ///< 按元素乘方赋值
     eElemAndAssign, ///< 按元素与赋值
     eElemOrAssign,  ///< 按元素或赋值
+
+    numOpAssignType,   ///< 运算符类型数量
 };
 
 
@@ -77,6 +82,7 @@ enum OpUnaryType{
     eNeg,       ///< 负号
     eInc,       ///< 自增
     eDec,       ///< 自减
+    numOpUnaryType,   ///< 运算符类型数量
 };
 
 class Expr;         ///< 表达式
@@ -85,11 +91,6 @@ class Variable;     ///< 变量
 class Macro;        ///< 宏
 class Function;     ///< 函数
 
-
-/// @brief 解析脚本表达式
-/// @param script 脚本文本
-/// @return 解析得到的表达式对象
-AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
 
 
 /// @brief 创建变量对象
@@ -114,6 +115,11 @@ AST_SCRIPT_CAPI Expr* aNewOpAssign(OpAssignType op, Expr* left, Expr* right);
 /// @return 二元运算符表达式对象
 AST_SCRIPT_CAPI Expr* aNewOpBin(OpBinType op, Expr* left, Expr* right);
 
+/// @brief 创建一元运算符表达式对象
+/// @param op 运算符类型
+/// @param expr 操作数
+/// @return 一元运算符表达式对象
+AST_SCRIPT_CAPI Expr* aNewOpUnary(OpUnaryType op, Expr* expr);
 
 /// @brief 创建字符串值对象
 AST_SCRIPT_CAPI Value* aNewValueString(StringView value);
@@ -126,6 +132,10 @@ AST_SCRIPT_CAPI Value* aNewValueBool(bool value);
 
 /// @brief 创建双精度浮点数值对象
 AST_SCRIPT_CAPI Value* aNewValueDouble(double value);
+
+class Quantity;
+/// @brief 创建数量值对象
+AST_SCRIPT_CAPI Value* aNewValueQuantity(const Quantity& value);
 
 /// @brief 获取空值对象
 AST_SCRIPT_CAPI Value* aValueNull();

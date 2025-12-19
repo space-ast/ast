@@ -32,6 +32,7 @@ public:
     ValInt(): value_{}{}
     ValInt(int value): value_{value}{}
     int value() const{return value_;}
+    std::string getExpression(Object* context=nullptr) const override;
 protected:
     int value_;
 };
