@@ -99,6 +99,15 @@
 #define aText(x) u8 ## x
 
 
+// ast项目脚本模块导出声明
+#ifdef AST_BUILD_LIB_SCRIPT
+#    define AST_SCRIPT_API A_DECL_EXPORT
+#else
+#    define AST_SCRIPT_API A_DECL_IMPORT
+#endif
+#define AST_SCRIPT_CAPI A_DECL_EXTERN_C AST_SCRIPT_API
+
+
 // ast项目核心模块导出声明
 #ifdef AST_BUILD_LIB_CORE
 #    define AST_CORE_API A_DECL_EXPORT
@@ -153,6 +162,7 @@ typedef enum EError
     eErrorNotInit,      ///< 没有初始化
     eErrorInvalidFile,  ///< 文件格式错误
     eErrorParse,        ///< 解析错误
+    eErrorReadonly,     ///< 只读属性
 } AEError;
 
 

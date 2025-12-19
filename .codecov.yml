@@ -21,4 +21,8 @@ ignore:
   - "thirdparty"
   - "test"
   - "projects"
+  - "examples"
+  - "docs"
+  - "src/AstGui"
+  - "src/AstGfx"
 
