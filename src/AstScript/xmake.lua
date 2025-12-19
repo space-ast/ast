@@ -1,0 +1,8 @@
+target("AstScript")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_headerfiles("**.hpp")
+    add_headerfiles("../../(include/AstGlobal.h)")
+    add_defines("AST_BUILD_LIB_SCRIPT")
+    -- add_extrafiles("xmake.lua")    
+    add_deps("AstUtil")
