@@ -28,19 +28,7 @@ ast 项目提供了三种智能指针实现，用于安全地管理对象生命�
 
 ### 使用示例
 
-```cpp
-// 创建共享指针对象（只能用于Object的子类）
-SharedPtr<MyObject> ptr1 = new MyObject();  // MyObject必须继承自Object
-
-// 共享所有权
-SharedPtr<MyObject> ptr2 = ptr1;
-
-// 访问对象成员
-ptr1->doSomething();
-
-// 获取原始指针
-MyObject* rawPtr = ptr1.get();
-```
+@[code](/examples/util/smartpointer/sharedptr.cpp)
 
 ## ScopedPtr
 
@@ -64,21 +52,7 @@ MyObject* rawPtr = ptr1.get();
 
 ### 使用示例
 
-```cpp
-{  // 作用域开始
-    // 可以用于普通类型
-    ScopedPtr<int> intPtr = new int(42);
-    
-    // 也可以用于Object子类（有特殊的删除处理）
-    ScopedPtr<MyObject> objPtr = new MyObject();  // MyObject必须继承自Object
-    objPtr->doSomething();
-    
-    // 重置指针
-    objPtr.reset(new MyObject());
-    
-    // 作用域结束时自动释放
-}
-```
+@[code](/examples/util/smartpointer/scopedptr.cpp)
 
 ## WeakPtr
 
@@ -106,18 +80,7 @@ MyObject* rawPtr = ptr1.get();
 
 ### 使用示例
 
-```cpp
-// 创建共享指针（只能用于Object的子类）
-SharedPtr<MyObject> shared = new MyObject();  // MyObject必须继承自Object
-
-// 创建弱引用指针
-WeakPtr<MyObject> weak = shared.get();
-
-// 安全访问对象
-if (MyObject* obj = weak.get()) {
-    obj->doSomething();
-}
-```
+@[code](/examples/util/smartpointer/weakptr.cpp)
 
 ## 智能指针的使用建议
 

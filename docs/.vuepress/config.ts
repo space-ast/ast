@@ -1,6 +1,8 @@
 import { defineUserConfig } from "vuepress";
-
+import { getDirname, path } from 'vuepress/utils'
 import theme from "./theme.js";
+
+const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
   base: "/ast/",
@@ -20,6 +22,15 @@ export default defineUserConfig({
   },
 
   theme,
+  markdown:{
+    importCode:{
+      handleImportPath:  (str) => 
+        str
+        .replace(/^\/examples/, path.resolve(__dirname, '../../examples'))
+        .replace(/^\/src/, path.resolve(__dirname, '../../src'))
+      ,
+    }
+  }
 
   // Enable it with pwa
   // shouldPrefetch: false,

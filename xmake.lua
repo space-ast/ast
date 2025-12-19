@@ -43,6 +43,7 @@ add_requires("eigen", {optional = true, headeronly = true})
 includes("thirdparty")
 includes("src")
 includes("projects")
+includes("examples")
 
 -- 导入测试配置
 if has_config("with_test") then
