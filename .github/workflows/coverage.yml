@@ -50,7 +50,7 @@ jobs:
 
       - name: 编译项目
         run: |
-          xmake
+          xmake -a
       
       - name: 执行测试并收集覆盖率信息
         run: |

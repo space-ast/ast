@@ -35,12 +35,14 @@ class Property;     // 属性元信息
 class AST_UTIL_API Object
 {
 public:
+    Object():Object(nullptr){}
+
     Object(Class* tp)
         :m_type{tp}
         ,m_refcnt{0}
         ,m_weakrefcnt{1}
     {
-        assert(tp);
+        // assert(tp);
     }
 
     /// @brief 获取属性值，属性路径格式为 "attr1.attr2.attr3"

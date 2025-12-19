@@ -10,3 +10,7 @@ coverage.info
 *.gcov
 __pycache__
 *.zip
+doxyfile
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
