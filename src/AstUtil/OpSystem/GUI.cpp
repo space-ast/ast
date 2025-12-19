@@ -19,6 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "GUI.hpp"
+#include <cstdlib>
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
