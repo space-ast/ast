@@ -37,7 +37,7 @@ AST_NAMESPACE_BEGIN
  * BasicUnit → [a-zA-Z][a-zA-Z0-9]*
  */
 
-
+namespace{
 /// @brief 解析器上下文
 class ParserContext
 {
@@ -112,6 +112,7 @@ private:
     const char* begin_;
     const char* end_;
 };
+}
 
 /// @brief 检查字符是否为字母或数字
 static bool isAlphanumeric(char c)

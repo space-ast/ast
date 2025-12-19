@@ -30,6 +30,9 @@ class ValNull: public Value
 {
 public:
     using Value::Value;
+    std::string getExpression(Object* context=nullptr) const override{
+        return "null";
+    }
 };
 
 

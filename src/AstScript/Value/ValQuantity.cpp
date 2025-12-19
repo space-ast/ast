@@ -1,9 +1,9 @@
 ///
-/// @file      ValString.cpp
+/// @file      ValQuantity.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-20
+/// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,15 +18,17 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ValString.hpp"
+#include "ValQuantity.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
-std::string ValString::getExpression(Object *context) const
+
+std::string ValQuantity::getExpression(Object *context) const
 {
-    // @fixme 处理转义字符
-    return "\"" + value_ + "\"";
+    return aFormatDouble(value_.value()) + "[" + unit().name() + "]";
 }
+
 
 
 AST_NAMESPACE_END

@@ -1,5 +1,5 @@
 ///
-/// @file      ValString.cpp
+/// @file      ScriptParser.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -18,16 +18,19 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ValString.hpp"
+#include "ScriptParser.hpp"
+#include "AstScript/Parser.hpp"
 
 AST_NAMESPACE_BEGIN
 
-std::string ValString::getExpression(Object *context) const
+Expr *aParseExpr(StringView script)
 {
-    // @fixme 处理转义字符
-    return "\"" + value_ + "\"";
+    return Parser::parseExpr(script);
 }
 
+std::string aFormatExpr(Expr *expr, Object *context)
+{
+    return expr->getExpression(context);
+}
 
 AST_NAMESPACE_END
-

@@ -32,6 +32,7 @@ public:
     ValDouble(): value_{}{}
     ValDouble(double value): value_{value}{}
     double value() const{return value_;}
+    std::string getExpression(Object* context=nullptr) const override;
 protected:
     double value_;
 };

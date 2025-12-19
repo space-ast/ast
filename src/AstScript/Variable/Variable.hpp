@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Expr.hpp"
+#include "AstScript/Expr.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -39,6 +39,7 @@ public:
     {};
     Value* eval() const final;
     err_t setValue(Value* val) final;
+    std::string getExpression(Object* context=nullptr) const override{return name_;}
 protected:
     std::string name_;  ///< 变量的名称
     Expr* expr_;        ///< 变量的值，或者绑定的表达式

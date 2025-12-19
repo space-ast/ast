@@ -1,6 +1,6 @@
 ﻿set_group("test")
 
-add_deps("AstCore", "AstUtil", "AstOpt", "AstMock", "AstMath")
+add_deps("AstCore", "AstUtil", "AstOpt", "AstMock", "AstMath", "AstScript")
 add_packages("gtest")
 add_packages("benchmark")
 add_packages("eigen")

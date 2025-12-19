@@ -22,10 +22,45 @@
 
 AST_NAMESPACE_BEGIN
 
+static const char* OpBinTypeStr[] = {
+    "+",    // eAdd
+    "-",    // eSub
+    "*",    // eMul
+    "/",    // eDiv
+    "^",    // ePow
+    "%",    // eMod
+
+    "&&",   // eAnd
+    "||",   // eOr
+
+    ".*",   // eElemMul
+    "./",   // eElemDiv
+    ".^",   // eElemPow
+    ".%",   // eElemMod
+    ".&",   // eElemAnd
+    ".|",   // eElemOr
+
+    "<",    // eLt
+    "<=",   // eLe
+    "==",   // eEq
+    ">",    // eGt
+    ">=",   // eGe
+    "!=",   // eNe
+};
+
+static_assert(sizeof(OpBinTypeStr)/sizeof(OpBinTypeStr[0]) == static_cast<size_t>(numOpBinType), "OpBinTypeStr size mismatch");
+
 Value *OpBin::eval() const
 {
     // @todo 实现二元运算符的求值逻辑
     return nullptr;
+}
+
+std::string OpBin::getExpression(Object *context) const
+{
+    return std::string("(") + left_->getExpression(context) + " " +
+           OpBinTypeStr[op_] + " " +
+           right_->getExpression(context) + ")";
 }
 
 AST_NAMESPACE_END
