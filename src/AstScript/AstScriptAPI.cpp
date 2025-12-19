@@ -23,7 +23,11 @@
 #include "AstScript/ValInt.hpp"
 #include "AstScript/ValDouble.hpp"
 #include "AstScript/ValString.hpp"
+#include "AstScript/ValNull.hpp"
+#include "AstScript/Variable.hpp"
 #include "AstScript/OpBin.hpp"
+#include "AstScript/OpAssign.hpp"
+#include "AstUtil/SharedPtr.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -33,6 +37,21 @@ Expr *aParseExpr(StringView script)
     return nullptr;
 }
 
+Variable *aNewVariable(Expr *expr, bool bind)
+{
+    if(!expr){
+        return nullptr;
+    }
+    return new Variable(expr, bind);
+}
+
+Expr *aNewOpAssign(OpAssignType op, Expr *left, Expr *right)
+{
+    if(!left || !right){
+        return nullptr;
+    }
+    return new OpAssign(op, left, right);
+}
 
 Expr *aNewOpBin(OpBinType op, Expr *left, Expr *right)
 {
@@ -60,5 +79,10 @@ Value* aNewValueDouble(double value)
     return new ValDouble(value);
 }
 
+Value *aValueNull()
+{
+    static SharedPtr<Value> nullValue{new ValNull{}};
+    return nullValue.get();
+}
 
 AST_NAMESPACE_END
