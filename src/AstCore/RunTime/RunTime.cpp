@@ -210,7 +210,7 @@ GlobalContext* aGlobalContext_EnsureDefault()
 
 GlobalContext* aGlobalContext_Ensure()
 {
-    if (!t_currentGlobalContext)
+    if (A_UNLIKELY(!t_currentGlobalContext))
     {
         aGlobalContext_SetCurrent(aGlobalContext_EnsureDefault());
     }
@@ -229,14 +229,14 @@ GlobalContext* aGlobalContext_New()
 
 double aLeapSecondUTC(double jdUTC)
 {
-    auto context = aGlobalContext_GetCurrent();
+    auto context = aGlobalContext_Ensure();
     assert(context);
     return context->leapSecond()->leapSecondUTC(jdUTC);
 }
 
 double aLeapSecondUTCMJD(double mjdUTC)
 {
-    auto context = aGlobalContext_GetCurrent();
+    auto context = aGlobalContext_Ensure();
     assert(context);
     return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
@@ -251,8 +251,8 @@ err_t aJplDeGetPosVelICRF(
     Vector3d& vel
 )
 {
-    auto context = aGlobalContext_GetCurrent();
-    assert(context);
+    auto context = aGlobalContext_Ensure();
+    // assert(context);
     return context->jplDe()->getPosVelICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos, vel);
 }
 
@@ -263,22 +263,22 @@ err_t aJplDeGetPosICRF(
     Vector3d& pos
 )
 {
-    auto context = aGlobalContext_GetCurrent();
-    assert(context);
+    auto context = aGlobalContext_Ensure();
+    // assert(context);
     return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
 }
 
 err_t aJplDeOpen(const char* filepath)
 {
-    auto context = aGlobalContext_GetCurrent();
-    assert(context);
+    auto context = aGlobalContext_Ensure();
+    //assert(context);
     return context->jplDe()->open(filepath);
 }
 
 void aJplDeClose()
 {
-    auto context = aGlobalContext_GetCurrent();
-    assert(context);
+    auto context = aGlobalContext_Ensure();
+    // assert(context);
     context->jplDe()->close();
 }
 

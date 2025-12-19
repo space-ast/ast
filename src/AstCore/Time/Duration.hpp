@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
  
 
 /// @brief 短时长
-class ShorDuration
+class ShortDuration
 {
 public:
     double second() const{return second_;}

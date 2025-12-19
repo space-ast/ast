@@ -52,62 +52,27 @@
 
 ### 角度单位示例
 
-```cpp
-#include "AstUtil/Literals.hpp"
-
-using namespace AST_NAMESPACE;
-
-// 角度转换示例
-double angle1 = 90.0_deg;      // 90度转换为弧度 (约1.5708 rad)
-double angle2 = 3.14159_rad;   // 直接使用弧度值
-double quarter = 0.25 * 360_deg; // 90度
-```
+@[code](/examples/util/literals/angle.cpp)
 
 ### 长度单位示例
 
-```cpp
-// 长度转换示例
-double distance1 = 5.5_km;     // 5.5公里转换为米 (5500米)
-double distance2 = 1000_cm;    // 1000厘米转换为米 (10米)
-double distance3 = 1.0_au;     // 1天文单位转换为米
-double thickness = 0.5_mm;     // 0.5毫米转换为米
-```
+@[code](/examples/util/literals/length.cpp)
 
 ### 时间单位示例
 
-```cpp
-// 时间转换示例
-double time1 = 24_h;           // 24小时转换为秒 (86400秒)
-double time2 = 30_min;         // 30分钟转换为秒 (1800秒)
-double time3 = 500_ms;         // 500毫秒转换为秒 (0.5秒)
-double shortDelay = 10_us;     // 10微秒转换为秒
-```
+@[code](/examples/util/literals/time.cpp)
 
 ### 速度单位示例
 
-```cpp
-// 速度转换示例
-double speed1 = 300000_km_s;   // 300000千米/秒转换为米/秒
-double speed2 = 100_km_h;      // 100千米/小时转换为米/秒 (约27.78 m/s)
-double speed3 = 25_m_s;        // 直接使用米/秒
-```
+@[code](/examples/util/literals/speed.cpp)
 
 ### 角速度单位示例
 
-```cpp
-// 角速度转换示例
-double angSpeed1 = 30_deg_s;   // 30度/秒转换为弧度/秒
-double angSpeed2 = 0.1_rad_s;  // 直接使用弧度/秒
-```
+@[code](/examples/util/literals/angvel.cpp)
 
 ### 实际计算示例
 
-```cpp
-// 计算示例
-double speed = 100_km / 1_h;   // 计算速度 (约27.78 m/s)
-double frequency = 1.0 / 1_ms; // 计算频率 (1000 Hz)
-double circumference = 2.0 * kPI * 1.0_km; // 计算周长
-```
+@[code](/examples/util/literals/literals_ex1.cpp)
 
 ## 设计说明
 
