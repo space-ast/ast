@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      ScriptParser.cpp
 /// @brief     ~
 /// @details   ~

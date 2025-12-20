@@ -65,6 +65,13 @@ TEST(ScriptParser, ArithmeticExpression)
     testScriptParser("3.14 * 2.0");
     testScriptParser("10 / 3.0");
     
+    // 幂指数运算:
+    testScriptParser("2^3");
+    testScriptParser("2^3^6");
+    testScriptParser("2^3 + 4");
+    testScriptParser("2 * 3^4");
+    testScriptParser("(2 + 3)^4");
+    
     // 复杂算术表达式
     testScriptParser("1 + 2 * 3 - 4 / 5");
     testScriptParser("(1 + 2) * (3 - 4) / 5");
@@ -106,14 +113,12 @@ TEST(ScriptParser, BitwiseExpression)
     // 按位运算符
     testScriptParser("1 & 2");
     testScriptParser("3 | 4");
-    testScriptParser("5 ^ 6");
     testScriptParser("~7");
     testScriptParser("8 << 2");
     testScriptParser("16 >> 1");
     
     // 复合按位表达式
     testScriptParser("(1 & 2) | (3 & 4)");
-    testScriptParser("5 ^ 6 ^ 7");
     testScriptParser("8 << 2 >> 1");
 }
 

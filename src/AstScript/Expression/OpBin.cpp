@@ -32,6 +32,8 @@ static const char* OpBinTypeStr[] = {
 
     "&&",   // eAnd
     "||",   // eOr
+    "|",    // eBitOr
+    "&",    // eBitAnd
 
     ".*",   // eElemMul
     "./",   // eElemDiv
