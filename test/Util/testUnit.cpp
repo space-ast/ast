@@ -119,7 +119,7 @@ TEST(Unit, PredefinedUnits)
         EXPECT_EQ(unit.dimension(), Dimension::Angle());
         
         unit = Unit::Degree();
-        EXPECT_EQ(unit.name(), "°");
+        EXPECT_EQ(unit.name(), aText("°"));
         EXPECT_NEAR(unit.getScale(), 0.017453292519943295, 1e-15);
         EXPECT_EQ(unit.dimension(), Dimension::Angle());
     }

@@ -25,6 +25,8 @@ set_policy("build.progress_style", "multirow")
 -- linux平台添加rpath
 if is_plat("linux") then
     add_rpathdirs("$ORIGIN")
+elseif is_plat("windows") then
+    add_cxflags("/wd4819") -- 忽略代码页警告
 end
 
 add_requires("openscenegraph", {shared = true, optional = true})
