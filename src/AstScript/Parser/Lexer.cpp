@@ -108,13 +108,23 @@ Lexer::ETokenType Lexer::getNextToken()
             }
             return Lexer::eEqual;
         case '<':
-            if (match('=')) {
+            if (match('<')) {
+                current_lexeme_ += '<';
+                return Lexer::eLessLess;
+            } else if (match('=')) {
                 current_lexeme_ += '=';
                 return Lexer::eLessEqual;
             }
             return Lexer::eLess;
         case '>':
-            if (match('=')) {
+            if (match('>')) {
+                current_lexeme_ += '>';
+                if (match('>')) {
+                    current_lexeme_ += '>';
+                    return Lexer::eGreaterGreaterGreater;
+                }
+                return Lexer::eGreaterGreater;
+            } else if (match('=')) {
                 current_lexeme_ += '=';
                 return Lexer::eGreaterEqual;
             }

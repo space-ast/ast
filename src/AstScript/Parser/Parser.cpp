@@ -325,7 +325,35 @@ Expr* Parser::parseShiftExpr()
 {
     Expr* expr = parseAdditiveExpr();
     
-    // TODO: 实现移位运算符
+    while (true) {
+        if (match(Lexer::eLessLess)) {
+            Expr* right = parseAdditiveExpr();
+            if (right) {
+                expr = aNewOpBin(OpBinType::eBitLeftShift, expr, right);
+            } else {
+                delete expr;
+                return nullptr;
+            }
+        } else if (match(Lexer::eGreaterGreater)) {
+            Expr* right = parseAdditiveExpr();
+            if (right) {
+                expr = aNewOpBin(OpBinType::eBitRightShift, expr, right);
+            } else {
+                delete expr;
+                return nullptr;
+            }
+        } else if (match(Lexer::eGreaterGreaterGreater)) {
+            Expr* right = parseAdditiveExpr();
+            if (right) {
+                expr = aNewOpBin(OpBinType::eBitURightShift, expr, right);
+            } else {
+                delete expr;
+                return nullptr;
+            }
+        } else {
+            break;
+        }
+    }
     
     return expr;
 }

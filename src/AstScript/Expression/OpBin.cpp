@@ -32,9 +32,12 @@ static const char* OpBinTypeStr[] = {
 
     "&&",   // eAnd
     "||",   // eOr
-    "|",    // eBitOr
+    "|" ,    // eBitOr
     "&",    // eBitAnd
     aText("\u22BB"),    // eBitXor 位异或运算符 ⊻
+    "<<",   // eBitLeftShift (逻辑/算术左移)
+    ">>",   // eBitRightShift (算术右移)
+    ">>>",  // eBitURightShift (逻辑右移)
 
     ".*",   // eElemMul
     "./",   // eElemDiv
