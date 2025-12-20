@@ -1,4 +1,4 @@
-﻿/// @file      Attitude.cpp
+/// @file      Attitude.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

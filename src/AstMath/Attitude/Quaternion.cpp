@@ -1,4 +1,4 @@
-﻿/// @file      Quaternion.cpp
+/// @file      Quaternion.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

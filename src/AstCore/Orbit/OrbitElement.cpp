@@ -1,4 +1,4 @@
-﻿/// @file      OrbitElement.cpp
+/// @file      OrbitElement.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

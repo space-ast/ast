@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      INLPProblem.hpp
 /// @brief     非线性规划问题描述接口
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      ParseFormat.cpp
 /// @brief     ~
 /// @details   ~

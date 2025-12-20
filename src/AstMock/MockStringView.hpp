@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      MockStringView.hpp
 /// @brief     
 /// @details   ~

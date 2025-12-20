@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Class.cpp
 /// @brief     ~
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      ParseFormat.hpp
 /// @brief     解析和格式化字符串
 /// @details   

@@ -1,4 +1,4 @@
-﻿/// @file      SnoptAPI.cpp
+/// @file      SnoptAPI.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

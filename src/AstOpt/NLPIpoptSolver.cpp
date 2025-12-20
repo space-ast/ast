@@ -1,4 +1,4 @@
-﻿/// @file      NLPIpoptSolver.cpp
+/// @file      NLPIpoptSolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

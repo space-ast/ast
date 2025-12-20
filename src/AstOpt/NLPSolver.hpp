@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      NLPSolver.hpp
 /// @brief     
 /// @details   ~

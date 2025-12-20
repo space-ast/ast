@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      PropertyPOD.hpp
 /// @brief     ~
 /// @details   ~

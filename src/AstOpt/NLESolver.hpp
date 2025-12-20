@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      NLESolver.hpp
 /// @brief     
 /// @details   ~

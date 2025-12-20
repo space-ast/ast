@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      RunTime.hpp
 /// @brief     
 /// @details   ~

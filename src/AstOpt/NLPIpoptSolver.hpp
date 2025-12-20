@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      NLPIpoptSolver.hpp
 /// @brief     
 /// @details   ~

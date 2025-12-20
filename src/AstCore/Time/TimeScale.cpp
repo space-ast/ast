@@ -1,4 +1,4 @@
-﻿/// @file      TimeScale.cpp
+/// @file      TimeScale.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

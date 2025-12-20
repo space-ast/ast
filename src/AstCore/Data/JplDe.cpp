@@ -1,4 +1,4 @@
-﻿/// @file      JplDe.cpp
+/// @file      JplDe.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

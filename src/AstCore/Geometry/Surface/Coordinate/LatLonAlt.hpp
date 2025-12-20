@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      LatLonAlt.hpp
 /// @brief     ~
 /// @details   ~

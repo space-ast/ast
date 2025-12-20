@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Lexer.hpp
 /// @brief     词法分析器
 /// @details   将输入的字符序列转换为令牌序列

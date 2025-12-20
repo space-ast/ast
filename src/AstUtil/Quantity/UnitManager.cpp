@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      UnitManager.cpp
 /// @brief     ~
 /// @details   ~

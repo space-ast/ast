@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      LibraryLoader.hpp
 /// @brief     
 /// @details   ~

@@ -1,1 +1,1 @@
-﻿#include "AstMath/Euler.hpp"
+#include "AstMath/Euler.hpp"

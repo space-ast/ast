@@ -1,4 +1,4 @@
-﻿/// @file      NLESolver.cpp
+/// @file      NLESolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

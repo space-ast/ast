@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Date.hpp
 /// @brief     
 /// @details   ~

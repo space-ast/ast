@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      TraitPosVel.hpp
 /// @brief     
 /// @details   ~

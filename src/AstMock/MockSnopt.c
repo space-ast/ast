@@ -1,4 +1,4 @@
-﻿/// @file      MockSnopt.c
+/// @file      MockSnopt.c
 /// @brief     
 /// @details   ~
 /// @author    jinke18

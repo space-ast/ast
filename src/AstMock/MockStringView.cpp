@@ -1,4 +1,4 @@
-﻿/// @file      MockStringView.cpp
+/// @file      MockStringView.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

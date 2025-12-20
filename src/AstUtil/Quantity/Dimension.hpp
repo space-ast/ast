@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Dimension.hpp
 /// @brief     ~
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      JulianDate.hpp
 /// @brief     
 /// @details   ~

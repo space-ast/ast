@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      MathOperator.hpp
 /// @brief     定义向量运算实用函数
 /// @details   ~

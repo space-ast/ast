@@ -1,1 +1,1 @@
-﻿#include "AstMath/Quaternion.hpp"
+#include "AstMath/Quaternion.hpp"

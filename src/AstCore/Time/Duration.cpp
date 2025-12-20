@@ -1,4 +1,4 @@
-﻿/// @file      Duration.cpp
+/// @file      Duration.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

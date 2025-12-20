@@ -1,4 +1,4 @@
-﻿/// @file      Encode.cpp
+/// @file      Encode.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

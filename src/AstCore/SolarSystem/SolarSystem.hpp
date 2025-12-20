@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      SolarSystem.hpp
 /// @brief     
 /// @details   ~

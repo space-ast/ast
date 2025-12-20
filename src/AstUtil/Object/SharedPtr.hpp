@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      SharedPtr.hpp
 /// @brief     共享指针
 /// @details   与std::shared_ptr功能类似

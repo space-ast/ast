@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      TraitValue.hpp
 /// @brief     
 /// @details   ~

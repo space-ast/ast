@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      SimpleFileSystem.hpp
 /// @brief     c++17 标准库 filesystem的简化实现，保证api规范一致，使得在c++11时也能使用filesystem
 /// @details   ~

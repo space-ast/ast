@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      JplDe.hpp
 /// @brief     
 /// @details   ~

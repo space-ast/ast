@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Sparse.hpp
 /// @brief     
 /// @details   ~

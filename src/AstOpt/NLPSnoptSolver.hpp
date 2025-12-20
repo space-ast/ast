@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      NLPSnoptSolver.hpp
 /// @brief     
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿/// @file      TimeSystem.cpp
+/// @file      TimeSystem.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

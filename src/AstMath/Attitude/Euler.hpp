@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Euler.hpp
 /// @brief     
 /// @details   ~

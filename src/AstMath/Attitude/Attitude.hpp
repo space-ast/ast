@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Attitude.hpp
 /// @brief     
 /// @details   ~

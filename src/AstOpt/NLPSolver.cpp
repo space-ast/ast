@@ -1,4 +1,4 @@
-﻿/// @file      NLPSolver.cpp
+/// @file      NLPSolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

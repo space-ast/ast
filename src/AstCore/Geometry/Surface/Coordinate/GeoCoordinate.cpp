@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      GeoCoordinate.cpp
 /// @brief     ~
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      EOP.hpp
 /// @brief     
 /// @details   ~

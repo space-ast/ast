@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Quantity.hpp
 /// @brief     ~
 /// @details   ~

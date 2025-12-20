@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      ReflectAPI.cpp
 /// @brief     ~
 /// @details   ~

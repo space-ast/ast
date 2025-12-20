@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Vector.hpp
 /// @brief     
 /// @details   ~

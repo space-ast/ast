@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Duration.hpp
 /// @brief     
 /// @details   ~
