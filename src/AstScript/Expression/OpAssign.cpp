@@ -44,8 +44,21 @@ static_assert(sizeof(OpAssignTypeStr)/sizeof(OpAssignTypeStr[0]) == static_cast<
 
 Value *OpAssign::eval() const
 {
-    // @todo 实现赋值操作
-    return nullptr;
+    // 先求右操作数的值
+    Value* rightValue = right_->eval();
+    if (!rightValue) {
+        return nullptr;
+    }
+    
+    // 将右操作数的值赋给左操作数
+    err_t err = left_->setValue(rightValue);
+    if (err != eNoError) {
+        delete rightValue;
+        return nullptr;
+    }
+    
+    // 返回赋值后的值
+    return rightValue;
 }
 
 std::string OpAssign::getExpression(Object *context) const
@@ -56,5 +69,3 @@ std::string OpAssign::getExpression(Object *context) const
 }
 
 AST_NAMESPACE_END
-
-

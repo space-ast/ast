@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstScript/Expr.hpp"
+#include "AstUtil/StringView.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -34,12 +35,19 @@ AST_NAMESPACE_BEGIN
 class Variable: public Expr
 {
 public:
+    Variable(StringView name, Expr* expr, bool bind = false)
+        : name_(name.to_string()), expr_(expr), bind_(bind)
+    {};
     Variable(Expr* expr, bool bind = false)
-        : expr_(expr), bind_(bind)
+        : name_{}, expr_(expr), bind_(bind)
     {};
     Value* eval() const final;
     err_t setValue(Value* val) final;
     std::string getExpression(Object* context=nullptr) const override{return name_;}
+public:
+    const std::string& name() const { return name_; }
+    Expr* expr() const { return expr_; }
+    
 protected:
     std::string name_;  ///< 变量的名称
     Expr* expr_;        ///< 变量的值，或者绑定的表达式

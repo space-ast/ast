@@ -35,11 +35,13 @@
 AST_NAMESPACE_BEGIN
 
 
+Variable *aNewVariable(StringView name, Expr *expr, bool bind)
+{
+    return new Variable(name, expr, bind);
+}
+
 Variable *aNewVariable(Expr *expr, bool bind)
 {
-    if(!expr){
-        return nullptr;
-    }
     return new Variable(expr, bind);
 }
 
