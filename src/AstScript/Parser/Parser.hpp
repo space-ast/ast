@@ -89,6 +89,9 @@ public:
     /// @brief 解析乘法表达式
     Expr* parseMultiplicativeExpr();
     
+    /// @brief 解析幂指数表达式
+    Expr* parseExponentiationExpr();
+    
     /// @brief 解析一元表达式
     Expr* parseUnaryExpr();
     

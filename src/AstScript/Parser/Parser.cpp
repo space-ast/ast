@@ -150,7 +150,7 @@ Expr* Parser::parseLogicalOrExpr()
 {
     Expr* expr = parseLogicalAndExpr();
     
-    while (match(Lexer::eOr)) {
+    while (match(Lexer::eOrOr)) {
         Expr* right = parseLogicalAndExpr();
         if (right) {
             expr = aNewOpBin(OpBinType::eOr, expr, right);
@@ -168,7 +168,7 @@ Expr* Parser::parseLogicalAndExpr()
 {
     Expr* expr = parseBitwiseOrExpr();
     
-    while (match(Lexer::eAnd)) {
+    while (match(Lexer::eAndAnd)) {
         Expr* right = parseBitwiseOrExpr();
         if (right) {
             expr = aNewOpBin(OpBinType::eAnd, expr, right);
@@ -205,8 +205,19 @@ Expr* Parser::parseBitwiseXorExpr()
 Expr* Parser::parseBitwiseAndExpr()
 {
     Expr* expr = parseEqualityExpr();
-    
-    // TODO: 实现位与运算符
+    while (true) {
+        if (match(Lexer::eAmpersand)) {
+            Expr* right = parseEqualityExpr();
+            if (right) {
+                expr = aNewOpBin(OpBinType::eBitAnd, expr, right);
+            } else {
+                delete expr;
+                return nullptr;
+            }
+        }else{
+            break;
+        }
+    }
     
     return expr;
 }
@@ -330,11 +341,11 @@ Expr* Parser::parseAdditiveExpr()
 /// @brief 解析乘法表达式
 Expr* Parser::parseMultiplicativeExpr()
 {
-    Expr* expr = parseUnaryExpr();
+    Expr* expr = parseExponentiationExpr();
     
     while (true) {
         if (match(Lexer::eStar)) {
-            Expr* right = parseUnaryExpr();
+            Expr* right = parseExponentiationExpr();
             if (right) {
                 expr = aNewOpBin(OpBinType::eMul, expr, right);
             } else {
@@ -342,7 +353,7 @@ Expr* Parser::parseMultiplicativeExpr()
                 return nullptr;
             }
         } else if (match(Lexer::eSlash)) {
-            Expr* right = parseUnaryExpr();
+            Expr* right = parseExponentiationExpr();
             if (right) {
                 expr = aNewOpBin(OpBinType::eDiv, expr, right);
             } else {
@@ -350,7 +361,7 @@ Expr* Parser::parseMultiplicativeExpr()
                 return nullptr;
             }
         } else if (match(Lexer::ePercent)) {
-            Expr* right = parseUnaryExpr();
+            Expr* right = parseExponentiationExpr();
             if (right) {
                 expr = aNewOpBin(OpBinType::eMod, expr, right);
             } else {
@@ -359,6 +370,24 @@ Expr* Parser::parseMultiplicativeExpr()
             }
         } else {
             break;
+        }
+    }
+    
+    return expr;
+}
+
+/// @brief 解析幂指数表达式（右结合）
+Expr* Parser::parseExponentiationExpr()
+{
+    Expr* expr = parseUnaryExpr();
+    
+    if (match(Lexer::eCaret)) {
+        Expr* right = parseExponentiationExpr();
+        if (right) {
+            return aNewOpBin(OpBinType::ePow, expr, right);
+        } else {
+            delete expr;
+            return nullptr;
         }
     }
     

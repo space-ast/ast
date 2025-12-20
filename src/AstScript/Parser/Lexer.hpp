@@ -21,12 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstScript/Scanner.hpp"
 #include "AstUtil/StringView.hpp"
-#include "Scanner.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-// 移除Token类，直接使用枚举值返回令牌类型
 
 /// @brief 词法分析器
 class Lexer
@@ -53,6 +53,7 @@ public:
         eStar,       ///< *
         eSlash,      ///< /
         ePercent,    ///< %
+        eCaret,      ///< ^
         
         // 比较运算符
         eEqual,      ///< =
@@ -65,8 +66,10 @@ public:
         eGreaterEqual,///< >=
         
         // 逻辑运算符
-        eAnd,        ///< &&
-        eOr,         ///< ||
+        eAmpersand,      ///< & (按位与/逻辑与)
+        ePipe,           ///< | (按位或/逻辑或)
+        eAndAnd,         ///< && (逻辑与)
+        eOrOr,           ///< || (逻辑或)
         
         // 括号
         eLeftParen,  ///< (

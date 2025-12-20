@@ -31,8 +31,8 @@ static const std::unordered_map<StringView, Lexer::ETokenType> keywords = {
     {"true", Lexer::eTrue},
     {"false", Lexer::eFalse},
     {"null", Lexer::eNullLiteral},
-    {"and", Lexer::eAnd},
-    {"or", Lexer::eOr}
+    {"and", Lexer::eAndAnd},
+    {"or", Lexer::eOrOr}
 };
 
 /// @brief 获取下一个令牌
@@ -135,7 +135,20 @@ Lexer::ETokenType Lexer::getNextToken()
 			// case '\'': @todo: 支持单引号字符串
             current_lexeme_.clear(); // 引号不包含在字符串内容中
             return scanString();
-        
+        case '&':
+            if (match('&')) {
+                current_lexeme_ += '&';
+                return Lexer::eAndAnd;
+            }
+            return Lexer::eAmpersand;
+        case '|':
+            if (match('|')) {
+                current_lexeme_ += '|';
+                return Lexer::eOrOr;
+            }
+            return Lexer::ePipe;   
+        case '^':
+            return Lexer::eCaret;
         default:
             return Lexer::eError;
     }

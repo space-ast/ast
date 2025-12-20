@@ -36,6 +36,8 @@ enum OpBinType{
 
     eAnd,       ///< 逻辑与
     eOr,        ///< 逻辑或
+    eBitOr,     ///< 位或
+    eBitAnd,    ///< 位与
 
     eElemMul,   ///< 按元素乘
     eElemDiv,   ///< 按元素除

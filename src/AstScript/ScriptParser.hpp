@@ -35,7 +35,7 @@ AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
 
 /// @brief 格式化表达式为字符串
 /// @param expr 表达式对象
-AST_UTIL_API std::string aFormatExpr(Expr* expr, Object* context=nullptr);
+AST_SCRIPT_API std::string aFormatExpr(Expr* expr, Object* context=nullptr);
 
 
 AST_NAMESPACE_END

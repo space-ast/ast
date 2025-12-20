@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 
 std::string ValDouble::getExpression(Object *context) const
 {
-    return std::string();
+    return aFormatDouble(value_);
 }
 
 AST_NAMESPACE_END
