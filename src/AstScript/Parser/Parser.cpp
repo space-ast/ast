@@ -185,8 +185,19 @@ Expr* Parser::parseLogicalAndExpr()
 Expr* Parser::parseBitwiseOrExpr()
 {
     Expr* expr = parseBitwiseXorExpr();
-    
-    // TODO: 实现位或运算符
+    while (true) {
+        if (match(Lexer::ePipe)) {
+            Expr* right = parseBitwiseXorExpr();
+            if (right) {
+                expr = aNewOpBin(OpBinType::eBitOr, expr, right);
+            } else {
+                delete expr;
+                return nullptr;
+            }
+        }else{
+            break;
+        }
+    }
     
     return expr;
 }
@@ -195,8 +206,19 @@ Expr* Parser::parseBitwiseOrExpr()
 Expr* Parser::parseBitwiseXorExpr()
 {
     Expr* expr = parseBitwiseAndExpr();
-    
-    // TODO: 实现位异或运算符
+    while (true) {
+        if (match(Lexer::eXor)) {
+            Expr* right = parseBitwiseAndExpr();
+            if (right) {
+                expr = aNewOpBin(OpBinType::eBitXor, expr, right);
+            } else {
+                delete expr;
+                return nullptr;
+            }
+        }else{
+            break;
+        }
+    }
     
     return expr;
 }

@@ -34,6 +34,7 @@ static const char* OpBinTypeStr[] = {
     "||",   // eOr
     "|",    // eBitOr
     "&",    // eBitAnd
+    aText("\u22BB"),    // eBitXor 位异或运算符 ⊻
 
     ".*",   // eElemMul
     "./",   // eElemDiv
@@ -66,5 +67,3 @@ std::string OpBin::getExpression(Object *context) const
 }
 
 AST_NAMESPACE_END
-
-

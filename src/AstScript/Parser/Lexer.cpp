@@ -149,6 +149,12 @@ Lexer::ETokenType Lexer::getNextToken()
             return Lexer::ePipe;   
         case '^':
             return Lexer::eCaret;
+        case aText("\u22BB")[0]:  // \u22BB 位异或运算符 ⊻
+            // 检查是否为⊻符号
+            if (match(aText("\u22BB") + 1)) {
+                return Lexer::eXor;
+            }
+            return Lexer::eError;
         default:
             return Lexer::eError;
     }
@@ -292,6 +298,19 @@ bool Lexer::match(char expected)
     }
     
     advance();
+    return true;
+}
+
+bool Lexer::match(const char *str)
+{
+    const char *p = str;
+    while (*p != '\0') {
+        if (atEnd() || peek() != *p) {
+            return false;
+        }
+        advance();
+        p++;
+    }
     return true;
 }
 
