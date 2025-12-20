@@ -68,6 +68,7 @@ public:
         // 逻辑运算符
         eAmpersand,      ///< & (按位与/逻辑与)
         ePipe,           ///< | (按位或/逻辑或)
+        eXor,            ///< ⊻ (按位异或)
         eAndAnd,         ///< && (逻辑与)
         eOrOr,           ///< || (逻辑或)
         
@@ -132,6 +133,9 @@ private:
     
     /// @brief 匹配并消耗指定字符
     bool match(char expected);
+    
+    /// @brief 匹配并消耗指定字符串
+    bool match(const char* str);
     
     /// @brief 消耗当前字符
     char advance();
