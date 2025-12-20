@@ -149,6 +149,8 @@ Lexer::ETokenType Lexer::getNextToken()
             return Lexer::ePipe;   
         case '^':
             return Lexer::eCaret;
+        case '~':
+            return Lexer::eTilde;
         case aText("\u22BB")[0]:  // \u22BB 位异或运算符 ⊻
             // 检查是否为⊻符号
             if (match(aText("\u22BB") + 1)) {

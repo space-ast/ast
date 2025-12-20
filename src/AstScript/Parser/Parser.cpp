@@ -431,6 +431,12 @@ Expr* Parser::parseUnaryExpr()
             return aNewOpUnary(OpUnaryType::eNot, expr);
         }
         return nullptr;
+    } else if (match(Lexer::eTilde)) {
+        Expr* expr = parseUnaryExpr();
+        if (expr) {
+            return aNewOpUnary(OpUnaryType::eBitNot, expr);
+        }
+        return nullptr;
     }
     
     return parsePrimaryExpr();
