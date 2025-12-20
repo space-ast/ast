@@ -39,6 +39,9 @@ enum OpBinType{
     eBitOr,     ///< 位或
     eBitAnd,    ///< 位与
     eBitXor,    ///< 位异或
+    eBitLeftShift,   ///< << (逻辑/算术左移)
+    eBitRightShift,  ///< >> (算术右移)
+    eBitURightShift, ///< >>> (逻辑右移)  U代表Unsigned
 
     eElemMul,   ///< 按元素乘
     eElemDiv,   ///< 按元素除

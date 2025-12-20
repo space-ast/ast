@@ -63,8 +63,11 @@ public:
         eBangEqual,  ///< !=
         eLess,       ///< <
         eLessEqual,  ///< <=
+        eLessLess,   ///< << (逻辑/算术左移)
         eGreater,    ///< >
         eGreaterEqual,///< >=
+        eGreaterGreater,///< >> (算术右移)
+        eGreaterGreaterGreater,///< >>> (逻辑右移)
         
         // 逻辑运算符
         eAmpersand,      ///< & (按位与/逻辑与)
