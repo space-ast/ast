@@ -432,7 +432,7 @@ TEST(Dimension, SymbolAndName)
         EXPECT_EQ(Dimension::Current().symbol(), "I");
         
         EXPECT_EQ(Dimension::Temperature().name(), "Temperature");
-        EXPECT_EQ(Dimension::Temperature().symbol(), "Θ");
+        EXPECT_EQ(Dimension::Temperature().symbol(), aText("Θ"));
         
         EXPECT_EQ(Dimension::Amount().name(), "Amount of Substance");
         EXPECT_EQ(Dimension::Amount().symbol(), "N");

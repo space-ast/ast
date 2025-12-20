@@ -106,8 +106,12 @@ const char* aNumberToSuperscript(int number)
 {
     static const char *number_to_superscript[] =
     {
+        aText("\u2070"), aText("\u00b9"), aText("\u00b2"), aText("\u00b3"), aText("\u2074"), 
+        aText("\u2075"), aText("\u2076"), aText("\u2077"), aText("\u2078"), aText("\u2079"),
+        /*
         aText("⁰"), aText("¹"), aText("²"), aText("³"), aText("⁴"), 
         aText("⁵"), aText("⁶"), aText("⁷"), aText("⁸"), aText("⁹")
+        */
     };
 
     if (number < 0 || number > 9)
@@ -135,7 +139,8 @@ const char* aNumberToStr(int number)
 }
 #endif
 
-const char* symbol_separator = aText("·");
+// const char* symbol_separator = aText("·");
+const char* symbol_separator = aText("\u00b7");
 
 std::string aDimBasicSymbol(EDimension dimension)
 {
@@ -146,7 +151,7 @@ std::string aDimBasicSymbol(EDimension dimension)
     case EDimension::eMass: return "M";
     case EDimension::eTime: return "T";
     case EDimension::eCurrent: return "I";
-    case EDimension::eTemperature: return "Θ";
+    case EDimension::eTemperature: return aText("\u0398");  // Θ
     case EDimension::eAmount: return "N";
     case EDimension::eLuminous: return "J";
     case EDimension::eAngle:return "A";
@@ -183,7 +188,8 @@ std::string aDimSymbol(EDimension dimension)
             if (exponent != 1){
                 if (exponent < 0)
                 {
-                    symbol += aText("⁻");
+                    // symbol += aText("⁻");
+                    symbol += aText("\u207b");
                 }
                 symbol += aNumberToSuperscript(abs(exponent));
             }

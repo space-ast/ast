@@ -164,7 +164,8 @@ public:
     /// @brief 无量纲单位
     static Unit One()
     {
-        return Unit(aText("×1"), 1.0, EDimension::eUnit);
+        // return Unit(aText("×1"), 1.0, EDimension::eUnit);
+        return Unit(aText("\u00D71"), 1.0, EDimension::eUnit);
     }
 
     /// @brief 新建无量纲单位
@@ -286,7 +287,8 @@ public:
     /// @brief 度单位
     static Unit Degree()
     {
-        return Unit("°", 0.017453292519943295, EDimension::eAngle);
+        // return Unit("°", 0.017453292519943295, EDimension::eAngle);
+        return Unit(aText("\u00B0"), 0.017453292519943295, EDimension::eAngle);
     }
 
     /// @brief 牛顿单位

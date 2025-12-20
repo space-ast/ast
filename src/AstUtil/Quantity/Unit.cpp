@@ -34,7 +34,8 @@ static std::string unit_name_from_scale_dimless(double scale)
     {
         return aText(""); // @fixme: 在这里使用空字符串吗？
     }
-    return aText("×") + aFormatDouble(scale);
+    // return aText("×") + aFormatDouble(scale);
+    return aText("\u00D7") + aFormatDouble(scale);
 }
 
 /// @brief 新建无量纲单位
