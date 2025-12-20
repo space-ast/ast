@@ -27,6 +27,7 @@ const char* OpUnaryTypeStr[] = {
     "-",    // eNeg
     "++",   // eInc
     "--",   // eDec
+    "~",    // eTilde (按位取反)
 };
 
 static_assert(sizeof(OpUnaryTypeStr)/sizeof(OpUnaryTypeStr[0]) == static_cast<size_t>(numOpUnaryType), "OpUnaryTypeStr size mismatch");

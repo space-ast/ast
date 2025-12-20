@@ -54,6 +54,7 @@ public:
         eSlash,      ///< /
         ePercent,    ///< %
         eCaret,      ///< ^
+        eTilde,      ///< ~ (按位取反)
         
         // 比较运算符
         eEqual,      ///< =

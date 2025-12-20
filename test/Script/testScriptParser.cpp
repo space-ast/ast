@@ -30,14 +30,14 @@ void testScriptParser(StringView str)
     EXPECT_NE(expr, nullptr);
     if (expr) {
         std::string exprStr = aFormatExpr(expr);
-        std::cout << "1stParsed expression: " << exprStr << std::endl;
+        std::cout << "1st Parsed expression: " << exprStr << std::endl;
         delete expr;
         {
 			Expr* expr2 = aParseExpr(exprStr);
 			EXPECT_NE(expr2, nullptr);
             if (expr2) {
                 std::string exprStr2 = aFormatExpr(expr2);
-                std::cout << "2ndParsed expression: " <<  exprStr2 << std::endl;
+                std::cout << "2nd Parsed expression: " <<  exprStr2 << std::endl;
                 EXPECT_EQ(exprStr, exprStr2);
 				delete expr2;
             }

@@ -85,6 +85,7 @@ enum OpUnaryType{
     eNeg,       ///< 负号
     eInc,       ///< 自增
     eDec,       ///< 自减
+    eBitNot,    ///< 按位取反
     numOpUnaryType,   ///< 运算符类型数量
 };
 
