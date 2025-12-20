@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      ScriptParser.hpp
 /// @brief     ~
 /// @details   ~

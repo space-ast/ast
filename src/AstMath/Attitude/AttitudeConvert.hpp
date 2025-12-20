@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      AttitudeConvert.hpp
 /// @brief     
 /// @details   ~

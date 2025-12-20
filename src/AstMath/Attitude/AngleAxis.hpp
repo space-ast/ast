@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      AngleAxis.hpp
 /// @brief     ~
 /// @details   ~

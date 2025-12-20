@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      GeodeticPoint.hpp
 /// @brief     ~
 /// @details   ~

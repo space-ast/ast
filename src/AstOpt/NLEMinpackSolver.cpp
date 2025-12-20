@@ -1,4 +1,4 @@
-﻿/// @file      NLEMinpackSolver.cpp
+/// @file      NLEMinpackSolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

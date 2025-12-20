@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Logger.hpp
 /// @brief     
 /// @details   ~

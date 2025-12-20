@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      TimeSystem.hpp
 /// @brief     
 /// @details   ~

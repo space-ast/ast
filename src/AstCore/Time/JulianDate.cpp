@@ -1,4 +1,4 @@
-﻿/// @file      JulianDate.cpp
+/// @file      JulianDate.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

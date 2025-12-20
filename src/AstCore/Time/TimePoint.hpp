@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      TimePoint.hpp
 /// @brief     绝对时间点
 /// @details   ~

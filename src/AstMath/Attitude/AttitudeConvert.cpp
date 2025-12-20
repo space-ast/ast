@@ -1,4 +1,4 @@
-﻿/// @file      AttitudeConvert.cpp
+/// @file      AttitudeConvert.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

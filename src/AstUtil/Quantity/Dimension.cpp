@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Dimension.cpp
 /// @brief     ~
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Unit.cpp
 /// @brief     ~
 /// @details   ~

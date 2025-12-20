@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      NLPProblem.hpp
 /// @brief     非线性规划问题与相关实用函数
 /// @details   ~

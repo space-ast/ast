@@ -1,4 +1,4 @@
-﻿#include "SolarSystem.hpp"
+#include "SolarSystem.hpp"
 
 AST_NAMESPACE_BEGIN
 

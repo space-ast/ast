@@ -1,4 +1,4 @@
-﻿/// @file      LeapSecond.cpp
+/// @file      LeapSecond.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

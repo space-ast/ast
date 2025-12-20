@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      String.hpp
 /// @brief     
 /// @details   ~

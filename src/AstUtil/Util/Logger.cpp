@@ -1,4 +1,4 @@
-﻿/// @file      Logger.cpp
+/// @file      Logger.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

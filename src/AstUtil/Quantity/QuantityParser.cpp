@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      QuantityParser.cpp
 /// @brief     ~
 /// @details   ~

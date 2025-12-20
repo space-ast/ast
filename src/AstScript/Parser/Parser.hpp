@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Parser.hpp
 /// @brief     ~
 /// @details   ~
