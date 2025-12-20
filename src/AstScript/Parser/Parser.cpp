@@ -28,6 +28,7 @@
 #include "AstScript/OpBin.hpp"
 #include "AstScript/OpAssign.hpp"
 #include "AstScript/OpUnary.hpp"
+#include "AstScript/Variable.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 
@@ -501,8 +502,9 @@ Expr* Parser::parsePrimaryExpr()
     
     if (currentTokenType() == Lexer::eString) {
         StringView str = currentLexeme();
+        auto retval = new ValString(String(str.data(), str.size()));
         advance();
-        return new ValString(String(str.data(), str.size()));
+        return retval;
     }
     
     if (match(Lexer::eTrue)) {
@@ -515,6 +517,12 @@ Expr* Parser::parsePrimaryExpr()
     
     if (match(Lexer::eNullLiteral)) {
         return new ValNull();
+    }
+    
+    if (currentTokenType() == Lexer::eIdentifier) {
+        auto var = aNewVariable(currentLexeme());
+        advance();
+        return var;
     }
     
     return nullptr;

@@ -101,10 +101,12 @@ class Function;     ///< 函数
 
 
 /// @brief 创建变量对象
+/// @param name 变量名
 /// @param expr 变量的值，或与变量绑定的表达式
 /// @param bind 是否与表达式双向绑定
 /// @return 变量对象
-AST_SCRIPT_CAPI Variable* aNewVariable(Expr* expr, bool bind = false);
+AST_SCRIPT_API Variable* aNewVariable(StringView name, Expr* expr=nullptr, bool bind = false);
+AST_SCRIPT_API Variable* aNewVariable(Expr* expr=nullptr, bool bind = false);
 
 
 /// @brief 创建赋值运算符表达式对象
