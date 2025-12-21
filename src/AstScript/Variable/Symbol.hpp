@@ -1,9 +1,9 @@
 ///
-/// @file      ValInt.hpp
+/// @file      Symbol.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-21
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,22 +21,35 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Value.hpp"
+#include "AstScript/Expr.hpp"
+#include "AstUtil/StringView.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 整数值
-class ValInt: public Value
-{
+class Symbol: public Expr{
 public:
-    AST_EXPR(ValInt)
+    AST_EXPR(Symbol)
 
-    ValInt(): value_{}{}
-    ValInt(int value): value_{value}{}
-    int value() const{return value_;}
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    int value_;
+    Symbol(StringView name)
+        : name_(name) {}
+
+    const std::string& name() const { return name_; }
+
+    std::string getExpression(Object* object) const override {
+        return name_;
+    }
+    Value* eval() const override {
+        // @todo 实现符号求值
+        return nullptr;
+    }
+    err_t setValue(Value* value) override {
+        // @todo 实现符号赋值
+        return eErrorReadonly;
+    }
+private:
+    std::string name_;
 };
 
 AST_NAMESPACE_END
+

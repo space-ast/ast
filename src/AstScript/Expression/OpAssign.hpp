@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
 class OpAssign: public Op
 {
 public:
+    AST_EXPR(OpAssign)
+
     OpAssign(OpAssignType op, Expr* left, Expr* right)
         :op_{op}
         ,left_{left}

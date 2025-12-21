@@ -35,6 +35,8 @@ AST_NAMESPACE_BEGIN
 class Variable: public Expr
 {
 public:
+    AST_EXPR(Variable)
+    
     Variable(StringView name, Expr* expr, bool bind = false)
         : name_(name.to_string()), expr_(expr), bind_(bind)
     {};

@@ -30,6 +30,8 @@ AST_NAMESPACE_BEGIN
 class OpUnary: public Op
 {
 public:
+    AST_EXPR(OpUnary)
+
     OpUnary(OpUnaryType op, Expr* expr)
         : op_(op), expr_(expr)
     {};

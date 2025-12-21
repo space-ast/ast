@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
 class OpBin: public Op
 {
 public:
+    AST_EXPR(OpBin)
 
 public:
     OpBin(OpBinType op, Expr* left, Expr* right)

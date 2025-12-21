@@ -29,6 +29,7 @@
 #include "AstScript/OpAssign.hpp"
 #include "AstScript/OpUnary.hpp"
 #include "AstScript/Variable.hpp"
+#include "AstScript/Symbol.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 
@@ -520,7 +521,7 @@ Expr* Parser::parsePrimaryExpr()
     }
     
     if (currentTokenType() == Lexer::eIdentifier) {
-        auto var = aNewVariable(currentLexeme());
+        auto var = aNewSymbol(currentLexeme());
         advance();
         return var;
     }

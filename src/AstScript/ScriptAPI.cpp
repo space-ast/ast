@@ -30,6 +30,7 @@
 #include "AstScript/OpAssign.hpp"
 #include "AstScript/OpUnary.hpp"
 #include "AstScript/Parser.hpp"
+#include "AstScript/Symbol.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -43,6 +44,11 @@ Variable *aNewVariable(StringView name, Expr *expr, bool bind)
 Variable *aNewVariable(Expr *expr, bool bind)
 {
     return new Variable(expr, bind);
+}
+
+Symbol *aNewSymbol(StringView name)
+{
+    return new Symbol(name);
 }
 
 Expr *aNewOpAssign(OpAssignType op, Expr *left, Expr *right)

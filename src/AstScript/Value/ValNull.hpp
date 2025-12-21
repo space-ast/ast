@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
 class ValNull: public Value
 {
 public:
+    AST_EXPR(ValNull)
+
     using Value::Value;
     std::string getExpression(Object* context=nullptr) const override{
         return "null";

@@ -32,6 +32,8 @@ AST_NAMESPACE_BEGIN
 class ValString: public Value
 {
 public:
+    AST_EXPR(ValString)
+
     ValString(StringView value)
         :value_{value.to_string()}
     {}
