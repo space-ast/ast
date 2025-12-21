@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
 class ValDouble: public Value
 {
 public:
+    AST_EXPR(ValDouble)
+
     ValDouble(): value_{}{}
     ValDouble(double value): value_{value}{}
     double value() const{return value_;}

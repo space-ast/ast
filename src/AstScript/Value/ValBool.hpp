@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
 class ValBool: public Value
 {
 public:
+    AST_EXPR(ValBool)
+
     ValBool(): value_{false}{}
     ValBool(bool value): value_{value}{}
     bool value() const{return value_;}

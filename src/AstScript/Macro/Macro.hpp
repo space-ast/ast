@@ -34,7 +34,7 @@ AST_NAMESPACE_BEGIN
 class Macro: public Value
 {
 public:
-
+    AST_EXPR(Macro)
 
 };
 

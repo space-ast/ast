@@ -34,6 +34,8 @@ AST_NAMESPACE_BEGIN
 class Function: public Macro
 {
 public:
+    AST_EXPR(Function)
+
     using Macro::Macro;
     ~Function() override = default;
 };

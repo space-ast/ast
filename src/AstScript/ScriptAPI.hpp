@@ -21,10 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "ScriptParser.hpp"
-
+#include "AstScript/ScriptParser.hpp"
+#include "AstScript/ExprVisitor.hpp"
 
 AST_NAMESPACE_BEGIN
+
+#define AST_EXPR(CLASS) void accept(ExprVisitor& visitor) override{visitor.visit(*this);};
 
 enum OpBinType{
     eAdd,       ///< 加法
@@ -97,7 +99,7 @@ class Value;        ///< 值
 class Variable;     ///< 变量
 class Macro;        ///< 宏
 class Function;     ///< 函数
-
+class Symbol;       ///< 符号
 
 
 /// @brief 创建变量对象
@@ -108,6 +110,7 @@ class Function;     ///< 函数
 AST_SCRIPT_API Variable* aNewVariable(StringView name, Expr* expr=nullptr, bool bind = false);
 AST_SCRIPT_API Variable* aNewVariable(Expr* expr=nullptr, bool bind = false);
 
+AST_SCRIPT_API Symbol* aNewSymbol(StringView name);
 
 /// @brief 创建赋值运算符表达式对象
 /// @param op 赋值运算符类型

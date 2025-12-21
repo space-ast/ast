@@ -31,6 +31,8 @@ AST_NAMESPACE_BEGIN
 class ValQuantity: public Value
 {
 public:
+    AST_EXPR(ValQuantity)
+
     ValQuantity(const Quantity& q)
         : value_(q)
     {

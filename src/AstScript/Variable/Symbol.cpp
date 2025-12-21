@@ -1,9 +1,9 @@
 ///
-/// @file      ValInt.hpp
+/// @file      Symbol.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-21
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,25 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "Value.hpp"
+#include "Symbol.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 整数值
-class ValInt: public Value
-{
-public:
-    AST_EXPR(ValInt)
 
-    ValInt(): value_{}{}
-    ValInt(int value): value_{value}{}
-    int value() const{return value_;}
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    int value_;
-};
 
 AST_NAMESPACE_END
