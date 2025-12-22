@@ -61,7 +61,8 @@ _AST_OPBIN_SCALAR_SCALAR(lt, <)
 _AST_OPBIN_SCALAR_SCALAR(gt, >)
 _AST_OPBIN_SCALAR_SCALAR(le, <=)
 _AST_OPBIN_SCALAR_SCALAR(ge, >=)
-
+_AST_OPBIN_SCALAR_SCALAR(and, &&)
+_AST_OPBIN_SCALAR_SCALAR(or, ||)
 
 
 
@@ -319,7 +320,8 @@ OpBinRegistry& get_opbin_registry() {
 //  @param rightType 右运算数类型
 //  @param func 运算函数指针
 void opbin_register_func(OpBinType op, Class* leftType, Class* rightType, OpBinFunc func) {
-    get_opbin_registry().regFunc(op, leftType, rightType, func);
+    static_assert(sizeof(OpBinFunc) == sizeof(void*), "OpBinFunc size must be equal to void* size");
+    get_opbin_registry().regFunc(op, leftType, rightType, (void*)func);
 }
 
 //  @brief 获取二进制运算函数指针
@@ -329,74 +331,77 @@ void opbin_register_func(OpBinType op, Class* leftType, Class* rightType, OpBinF
 //  @return 运算函数指针
 OpBinFunc opbin_get_func(OpBinType op, Class* leftType, Class* rightType) 
 {
+    static_assert(sizeof(OpBinFunc) == sizeof(void*), "OpBinFunc size must be equal to void* size");
     return (OpBinFunc)get_opbin_registry().getFunc(op, leftType, rightType);
 }
+
+
+template<typename T>
+Class* aValueType();
+
+template<>
+Class* aValueType<int>() { return &aValInt_Type; }
+
+template<>
+Class* aValueType<double>() { return &aValDouble_Type; }
+
+template<>
+Class* aValueType<bool>() { return &aValBool_Type; }
+
+// 注册标量类型运算函数
+#define REGISTER_OPBIN(op, left_type, right_type, func) \
+    opbin_register_func(OpBinType::op, left_type, right_type, (OpBinFunc)func)
+
+template<typename SCALAR1, typename SCALAR2>
+void _register_scalar_opbin()
+{
+    REGISTER_OPBIN(eAdd, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_add_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eSub, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_sub_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eMul, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_mul_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eDiv, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_div_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eEq, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_eq_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eNe, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_ne_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eLt, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_lt_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eGt, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_gt_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eLe, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_le_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eGe, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_ge_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eAnd, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_and_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eOr, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_or_scalar_scalar<SCALAR1, SCALAR2>));
+}
+
+#undef REGISTER_OPBIN
+
+
+template<typename SCALAR1, typename SCALAR2>
+void register_scalar_opbin()
+{
+    _register_scalar_opbin<SCALAR1, SCALAR2>();
+    if(!std::is_same<SCALAR1, SCALAR2>::value)
+    {
+        _register_scalar_opbin<SCALAR2, SCALAR1>();
+    }
+}
+
+template<typename SCALAR>
+void register_scalar_opbin()
+{
+    register_scalar_opbin<SCALAR, SCALAR>();
+}
+
 
 //  @brief 初始化二进制运算函数注册表
 void opbin_init_registry() {
     auto& registry = get_opbin_registry();
     
     // 注册标量类型运算函数
-    #define REGISTER_OPBIN(op, left_type, right_type, func) \
-        opbin_register_func(OpBinType::op, left_type, right_type, (OpBinFunc)func)
+    register_scalar_opbin<bool>();
+    register_scalar_opbin<int>();
+    register_scalar_opbin<double>();
     
-    // 注册整数-整数运算
-    REGISTER_OPBIN(eAdd, &aValInt_Type, &aValInt_Type, (opbin_add_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eSub, &aValInt_Type, &aValInt_Type, (opbin_sub_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eMul, &aValInt_Type, &aValInt_Type, (opbin_mul_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eDiv, &aValInt_Type, &aValInt_Type, (opbin_div_scalar_scalar<int, int>));
-    //REGISTER_OPBIN(eMod, &aValInt_Type, &aValInt_Type, (opbin_mod_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eEq, &aValInt_Type, &aValInt_Type, (opbin_eq_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eNe, &aValInt_Type, &aValInt_Type, (opbin_ne_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eLt, &aValInt_Type, &aValInt_Type, (opbin_lt_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eGt, &aValInt_Type, &aValInt_Type, (opbin_gt_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eLe, &aValInt_Type, &aValInt_Type, (opbin_le_scalar_scalar<int, int>));
-    REGISTER_OPBIN(eGe, &aValInt_Type, &aValInt_Type, (opbin_ge_scalar_scalar<int, int>));
+    register_scalar_opbin<bool, int>();
+    register_scalar_opbin<bool, double>();
+    register_scalar_opbin<int, double>();
     
-    // 注册整数-双精度运算
-    REGISTER_OPBIN(eAdd, &aValInt_Type, &aValDouble_Type, (opbin_add_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eSub, &aValInt_Type, &aValDouble_Type, (opbin_sub_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eMul, &aValInt_Type, &aValDouble_Type, (opbin_mul_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eDiv, &aValInt_Type, &aValDouble_Type, (opbin_div_scalar_scalar<int, double>));
-    //REGISTER_OPBIN(eMod, &aValInt_Type, &aValDouble_Type, (opbin_mod_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eEq, &aValInt_Type, &aValDouble_Type, (opbin_eq_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eNe, &aValInt_Type, &aValDouble_Type, (opbin_ne_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eLt, &aValInt_Type, &aValDouble_Type, (opbin_lt_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eGt, &aValInt_Type, &aValDouble_Type, (opbin_gt_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eLe, &aValInt_Type, &aValDouble_Type, (opbin_le_scalar_scalar<int, double>));
-    REGISTER_OPBIN(eGe, &aValInt_Type, &aValDouble_Type, (opbin_ge_scalar_scalar<int, double>));
-    
-    // 注册双精度-整数运算
-    REGISTER_OPBIN(eAdd, &aValDouble_Type, &aValInt_Type, (opbin_add_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eSub, &aValDouble_Type, &aValInt_Type, (opbin_sub_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eMul, &aValDouble_Type, &aValInt_Type, (opbin_mul_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eDiv, &aValDouble_Type, &aValInt_Type, (opbin_div_scalar_scalar<double, int>));
-    //REGISTER_OPBIN(eMod, &aValDouble_Type, &aValInt_Type, (opbin_mod_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eEq, &aValDouble_Type, &aValInt_Type, (opbin_eq_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eNe, &aValDouble_Type, &aValInt_Type, (opbin_ne_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eLt, &aValDouble_Type, &aValInt_Type, (opbin_lt_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eGt, &aValDouble_Type, &aValInt_Type, (opbin_gt_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eLe, &aValDouble_Type, &aValInt_Type, (opbin_le_scalar_scalar<double, int>));
-    REGISTER_OPBIN(eGe, &aValDouble_Type, &aValInt_Type, (opbin_ge_scalar_scalar<double, int>));
-    
-    // 注册双精度-双精度运算
-    REGISTER_OPBIN(eAdd, &aValDouble_Type, &aValDouble_Type, (opbin_add_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eSub, &aValDouble_Type, &aValDouble_Type, (opbin_sub_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eMul, &aValDouble_Type, &aValDouble_Type, (opbin_mul_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eDiv, &aValDouble_Type, &aValDouble_Type, (opbin_div_scalar_scalar<double, double>));
-    //REGISTER_OPBIN(eMod, &aValDouble_Type, &aValDouble_Type, (opbin_mod_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eEq, &aValDouble_Type, &aValDouble_Type, (opbin_eq_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eNe, &aValDouble_Type, &aValDouble_Type, (opbin_ne_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eLt, &aValDouble_Type, &aValDouble_Type, (opbin_lt_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eGt, &aValDouble_Type, &aValDouble_Type, (opbin_gt_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eLe, &aValDouble_Type, &aValDouble_Type, (opbin_le_scalar_scalar<double, double>));
-    REGISTER_OPBIN(eGe, &aValDouble_Type, &aValDouble_Type, (opbin_ge_scalar_scalar<double, double>));
-    
-    // 注册布尔-布尔运算
-    REGISTER_OPBIN(eEq, &aValBool_Type, &aValBool_Type, (opbin_eq_scalar_scalar<bool, bool>));
-    REGISTER_OPBIN(eNe, &aValBool_Type, &aValBool_Type, (opbin_ne_scalar_scalar<bool, bool>));
-    
-    #undef REGISTER_OPBIN
 }
 
 // 初始化注册表

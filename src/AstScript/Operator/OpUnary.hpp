@@ -39,8 +39,10 @@ public:
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
 protected:
-    OpUnaryType   op_;        ///< 运算符
-    Expr*         expr_;      ///< 操作数
+    OpUnaryType   op_;                       ///< 运算符
+    Expr*         expr_;                     ///< 操作数
+    mutable OpUnaryFunc func_{nullptr};      ///< 运算符函数指针
+    mutable Class*  type_{nullptr};          ///< 运算数类型
 };
 
 

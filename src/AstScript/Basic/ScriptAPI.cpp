@@ -33,6 +33,8 @@
 #include "AstScript/Symbol.hpp"
 #include "AstScript/OpBinPredefined.hpp"
 #include "AstScript/OpAssignPredefined.hpp"
+#include "AstScript/OpUnaryPredefined.hpp"
+#include "AstScript/OpUnaryPredefined.hpp"
 #include "AstScript/Types.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
@@ -188,6 +190,16 @@ OpBinFunc aGetOpBinFunc(OpBinType op, Class *leftType, Class *rightType)
 OpAssignFunc aGetOpAssignFunc(OpAssignType op, Class *leftType, Class *rightType)
 {
     return opassign_get_func(op, leftType, rightType);
+}
+
+Value* aDoOpUnary(OpUnaryType op, Value* value)
+{
+    return opunary(op, value);
+}
+
+OpUnaryFunc aGetOpUnaryFunc(OpUnaryType op, Class *type)
+{
+    return opunary_get_func(op, type);
 }
 
 Value *aDoOpBin(OpBinType op, Value *left, Value *right)
