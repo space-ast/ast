@@ -383,6 +383,11 @@ bool Lexer::match(char expected)
 
 bool Lexer::match(const char *str)
 {
+    /*
+    @todo 该函数的实现待改进。它在检查字符时会消耗输入流中的字符。
+    如果发生部分匹配后紧跟着不匹配，已消耗的字符不会回滚，导致扫描器处于不正确的状态。
+    比较好的实现应该只在整个字符串匹配时才消耗字符。这可以通过不消耗地向前看，或者实现回滚机制来完成。
+    */
     const char *p = str;
     while (*p != '\0') {
         if (atEnd() || peek() != *p) {

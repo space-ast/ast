@@ -52,6 +52,7 @@ _AST_OPUNARY_SCALAR(not, !)
 _AST_OPUNARY_SCALAR(neg, -)
 _AST_OPUNARY_SCALAR(bit_not, ~)
 
+#ifdef AST_ENABLE_REDUNDANT
 //  @brief 执行逻辑非运算
 //  @param value 运算数
 //  @return 运算结果
@@ -96,6 +97,7 @@ static Value* opunary_bit_not(Value* value)
     // @todo 实现按位取反运算
     return nullptr;
 }
+#endif
 
 //  @brief 获取全局运算函数注册表
 //  @return 全局运算函数注册表引用
@@ -145,23 +147,7 @@ Value* opunary(OpUnaryType op, Value* value)
         return func(value);
     }
     
-    // 如果没有找到对应的运算函数，使用默认实现 
-    switch (op)
-    {
-    case OpUnaryType::eNot:
-        return opunary_not(value);
-    case OpUnaryType::eNeg:
-        return opunary_neg(value);
-    case OpUnaryType::eInc:
-        return opunary_inc(value);
-    case OpUnaryType::eDec:
-        return opunary_dec(value);
-    case OpUnaryType::eBitNot:
-        return opunary_bit_not(value);
-    default:
-        aError("Unsupported unary operator: %d", op);
-        return nullptr;
-    }
+    return nullptr;
 }
 
 

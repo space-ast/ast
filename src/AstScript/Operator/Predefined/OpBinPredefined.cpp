@@ -126,6 +126,7 @@ Value* opbin_pow_scalar_scalar(Value* left, Value* right)
     return aNewValue(_pow(leftval_common, rightval_common)); 
 }
 
+#ifdef AST_ENABLE_REDUNDANT
 
 //  @brief 执行加法运算
 //  @param left 左运算数
@@ -366,7 +367,7 @@ static Value* opbin_elem_eq(Value* left, Value* right)
     return nullptr;
 }
 
-
+#endif
 
 //  @brief 获取全局运算函数注册表
 //  @return 全局运算函数注册表引用
@@ -503,45 +504,7 @@ Value* opbin(OpBinType op, Value* left, Value* right)
     if (func) {
         return func(left, right);
     }
-    
-    // 如果没有找到对应的运算函数，使用默认实现 
-    switch (op)
-    {
-    case OpBinType::eAdd:
-        return opbin_add(left, right);
-    case OpBinType::eSub:
-        return opbin_sub(left, right);
-    case OpBinType::eMul:
-        return opbin_mul(left, right);
-    case OpBinType::eDiv:
-        return opbin_div(left, right);
-    case OpBinType::eMod:
-        return opbin_mod(left, right);
-    case OpBinType::ePow:
-        return opbin_pow(left, right);
-    case OpBinType::eEq:
-        return opbin_eq(left, right);
-    case OpBinType::eNe:
-        return opbin_ne(left, right);
-    case OpBinType::eGt:
-        return opbin_gt(left, right);
-    case OpBinType::eGe:
-        return opbin_ge(left, right);
-    case OpBinType::eLt:
-        return opbin_lt(left, right);
-    case OpBinType::eLe:
-        return opbin_le(left, right);
-    // 位运算
-    case OpBinType::eBitAnd:
-        return opbin_and(left, right);
-    case OpBinType::eBitOr:
-        return opbin_or(left, right);
-    case OpBinType::eBitXor:
-        return opbin_xor(left, right);
-    default:
-        aError("Unsupported binary operator: %d", op);
-        return nullptr;
-    }
+    return nullptr;
 }
 
 

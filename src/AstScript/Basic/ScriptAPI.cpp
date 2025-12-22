@@ -34,7 +34,6 @@
 #include "AstScript/OpBinPredefined.hpp"
 #include "AstScript/OpAssignPredefined.hpp"
 #include "AstScript/OpUnaryPredefined.hpp"
-#include "AstScript/OpUnaryPredefined.hpp"
 #include "AstScript/Types.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
@@ -122,7 +121,7 @@ Value *aEval(StringView script)
         return nullptr;
     }
     expr = expr->eval();
-    return (Value*)expr.taken();
+    return (Value*)expr.take();
 }
 
 Value *aEvalExpr(Expr *expr)
@@ -135,17 +134,17 @@ Value *aEvalExpr(Expr *expr)
 
 bool aValueIsBool(Value *value)
 {
-    return value && static_cast<ValBool*>(value)->type() == &aValBool_Type;
+    return value && (value)->type() == &aValBool_Type;
 }
 
 bool aValueIsDouble(Value *value)
 {
-    return value && static_cast<ValDouble*>(value)->type() == &aValDouble_Type;
+    return value && (value)->type() == &aValDouble_Type;
 }
 
 bool aValueIsInt(Value *value)
 {
-    return value && static_cast<ValInt*>(value)->type() == &aValInt_Type;
+    return value && (value)->type() == &aValInt_Type;
 }
 
 

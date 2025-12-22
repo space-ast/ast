@@ -109,16 +109,22 @@ class Symbol;       ///< 符号
 /// @param name 变量名
 /// @param expr 变量的值，或与变量绑定的表达式
 /// @param bind 是否与表达式双向绑定
+/// @warning 返回的指针由调用者拥有，需要记得管理其生命周期
 /// @return 变量对象
 AST_SCRIPT_API Variable* aNewVariable(StringView name, Expr* expr=nullptr, bool bind = false);
 AST_SCRIPT_API Variable* aNewVariable(Expr* expr=nullptr, bool bind = false);
 
+/// @brief 创建符号对象
+/// @param name 符号名
+/// @warning 返回的指针由调用者拥有，需要记得管理其生命周期
+/// @return 符号对象
 AST_SCRIPT_API Symbol* aNewSymbol(StringView name);
 
 /// @brief 创建赋值运算符表达式对象
 /// @param op 赋值运算符类型
 /// @param left 左操作数
 /// @param right 右操作数
+/// @warning 返回的指针由调用者拥有，需要记得管理其生命周期
 /// @return 赋值运算符表达式对象
 AST_SCRIPT_CAPI Expr* aNewOpAssign(OpAssignType op, Expr* left, Expr* right);
 
@@ -127,29 +133,38 @@ AST_SCRIPT_CAPI Expr* aNewOpAssign(OpAssignType op, Expr* left, Expr* right);
 /// @param op 运算符类型
 /// @param left 左操作数
 /// @param right 右操作数
+/// @warning 返回的指针由调用者拥有，需要记得管理其生命周期
 /// @return 二元运算符表达式对象
 AST_SCRIPT_CAPI Expr* aNewOpBin(OpBinType op, Expr* left, Expr* right);
 
 /// @brief 创建一元运算符表达式对象
 /// @param op 运算符类型
 /// @param expr 操作数
+/// @warning 返回的指针由调用者拥有，需要记得管理其生命周期
 /// @return 一元运算符表达式对象
 AST_SCRIPT_CAPI Expr* aNewOpUnary(OpUnaryType op, Expr* expr);
 
 /// @brief 创建字符串值对象
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 AST_SCRIPT_CAPI Value* aNewValueString(StringView value);
 
 /// @brief 创建整数值对象
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 AST_SCRIPT_CAPI Value* aNewValueInt(int value);
 
 /// @brief 创建布尔值对象
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 AST_SCRIPT_CAPI Value* aNewValueBool(bool value);
 
 /// @brief 创建双精度浮点数值对象
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 AST_SCRIPT_CAPI Value* aNewValueDouble(double value);
 
 class Quantity;
+
+
 /// @brief 创建数量值对象
+/// @warning 返回的指针由调用者拥有，需要记得管理其生命周期
 AST_SCRIPT_CAPI Value* aNewValueQuantity(const Quantity& value);
 
 /// @brief 获取空值对象
@@ -163,11 +178,13 @@ AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
 
 /// @brief 执行脚本表达式
 /// @param script 脚本文本
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 /// @return 表达式执行结果
 AST_SCRIPT_CAPI Value* aEval(StringView script);
 
 /// @brief 执行表达式
 /// @param expr 表达式对象
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 /// @return 表达式执行结果
 AST_SCRIPT_CAPI Value* aEvalExpr(Expr* expr);
 
@@ -249,12 +266,14 @@ AST_SCRIPT_CAPI OpUnaryFunc aGetOpUnaryFunc(OpUnaryType op, Class* type);
 /// @param op 运算符类型
 /// @param left 左运算数
 /// @param right 右运算数
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 /// @return 运算结果
 AST_SCRIPT_CAPI Value* aDoOpBin(OpBinType op, Value* left, Value* right);
 
 /// @brief 执行一元运算符
 /// @param op 运算符类型
 /// @param value 运算数
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要记得管理其生命周期
 /// @return 运算结果
 AST_SCRIPT_CAPI Value* aDoOpUnary(OpUnaryType op, Value* value);
 

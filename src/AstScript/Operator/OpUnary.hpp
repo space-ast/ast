@@ -23,6 +23,8 @@
 #include "AstGlobal.h"
 #include "Op.hpp"
 #include "AstScript/ScriptAPI.hpp"
+#include <atomic>
+#include <mutex>s
 
 AST_NAMESPACE_BEGIN
 
@@ -39,10 +41,11 @@ public:
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
 protected:
-    OpUnaryType   op_;                       ///< 运算符
-    Expr*         expr_;                     ///< 操作数
-    mutable OpUnaryFunc func_{nullptr};      ///< 运算符函数指针
-    mutable Class*  type_{nullptr};          ///< 运算数类型
+    OpUnaryType   op_;                                    ///< 运算符
+    Expr*         expr_;                                  ///< 操作数
+    mutable std::atomic<OpUnaryFunc> func_{nullptr};      ///< 运算符函数指针
+    mutable std::atomic<Class*>  type_{nullptr};          ///< 运算数类型
+    mutable std::mutex cache_mutex_;                      ///< 用于保护缓存成员的互斥锁
 };
 
 
