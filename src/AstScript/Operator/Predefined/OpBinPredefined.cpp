@@ -28,6 +28,7 @@
 #include <tuple>
 #include <unordered_map>
 #include <functional>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -54,7 +55,6 @@ _AST_OPBIN_SCALAR_SCALAR(add, +)
 _AST_OPBIN_SCALAR_SCALAR(sub, -)
 _AST_OPBIN_SCALAR_SCALAR(mul, *)
 _AST_OPBIN_SCALAR_SCALAR(div, /)
-// _AST_OPBIN_SCALAR_SCALAR(mod, %)
 _AST_OPBIN_SCALAR_SCALAR(eq, ==)
 _AST_OPBIN_SCALAR_SCALAR(ne, !=)
 _AST_OPBIN_SCALAR_SCALAR(lt, <)
@@ -64,6 +64,49 @@ _AST_OPBIN_SCALAR_SCALAR(ge, >=)
 _AST_OPBIN_SCALAR_SCALAR(and, &&)
 _AST_OPBIN_SCALAR_SCALAR(or, ||)
 
+inline double _mod(double left, double right)
+{
+    return fmod(left, right);
+}
+
+inline int _mod(int left, int right)
+{
+    return (int)fmod(left, right);
+}
+
+//  @brief 执行取模运算
+template<typename Left, typename Right> 
+Value* opbin_mod_scalar_scalar(Value* left, Value* right) 
+{ 
+    auto leftval = static_cast<ValScalar<Left>*>(left); 
+    auto rightval = static_cast<ValScalar<Right>*>(right); 
+    using CommonType = typename std::common_type<Left, Right>::type;
+    CommonType leftval_common = (CommonType)leftval->value();
+    CommonType rightval_common = (CommonType)rightval->value();
+    return aNewValue(_mod(leftval_common, rightval_common)); 
+}
+
+inline int _pow(int left, int right)
+{
+    return (int) std::pow(left, right);
+}
+
+inline double _pow(double left, double right)
+{
+    return std::pow(left, right);
+}
+
+//  @brief 执行乘方运算
+template<typename Left, typename Right>
+Value* opbin_pow_scalar_scalar(Value* left, Value* right) 
+{ 
+    auto leftval = static_cast<ValScalar<Left>*>(left); 
+    auto rightval = static_cast<ValScalar<Right>*>(right); 
+    using CommonType = typename std::common_type<Left, Right>::type;
+    CommonType leftval_common = (CommonType)leftval->value();
+    CommonType rightval_common = (CommonType)rightval->value();
+    return aNewValue(_pow(leftval_common, rightval_common)); 
+}
 
 
 //  @brief 执行加法运算
@@ -367,6 +410,8 @@ void _register_scalar_opbin()
     REGISTER_OPBIN(eGe, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_ge_scalar_scalar<SCALAR1, SCALAR2>));
     REGISTER_OPBIN(eAnd, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_and_scalar_scalar<SCALAR1, SCALAR2>));
     REGISTER_OPBIN(eOr, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_or_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(eMod, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_mod_scalar_scalar<SCALAR1, SCALAR2>));
+    REGISTER_OPBIN(ePow, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_pow_scalar_scalar<SCALAR1, SCALAR2>));
 }
 
 #undef REGISTER_OPBIN
