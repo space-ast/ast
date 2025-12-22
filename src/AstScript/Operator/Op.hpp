@@ -1,9 +1,9 @@
 ///
-/// @file      Symbol.hpp
+/// @file      Op.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-21
+/// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -22,37 +22,15 @@
 
 #include "AstGlobal.h"
 #include "AstScript/Expr.hpp"
-#include "AstUtil/StringView.hpp"
-#include <string>
 
 AST_NAMESPACE_BEGIN
 
-
-/// @brief 符号表达式
-/// @details 表示变量或函数的名称
-class Symbol: public Expr{
+/// @brief 运算符表达式
+class Op: public Expr
+{
 public:
-    AST_EXPR(Symbol)
-
-    Symbol(StringView name)
-        : name_(name) {}
-
-    const std::string& name() const { return name_; }
-
-    std::string getExpression(Object* object) const override {
-        return name_;
-    }
-    Value* eval() const override {
-        // @todo 实现符号求值
-        return nullptr;
-    }
-    err_t setValue(Value* value) override {
-        // @todo 实现符号赋值
-        return eErrorReadonly;
-    }
-private:
-    std::string name_;
+    err_t setValue(Value* val) override{return eErrorReadonly;}
+    
 };
 
 AST_NAMESPACE_END
-

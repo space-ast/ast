@@ -1,5 +1,5 @@
 ///
-/// @file      ValDouble.cpp
+/// @file      ScriptParser.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -18,18 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ValDouble.hpp"
-#include "AstUtil/ParseFormat.hpp"
-#include "AstScript/Types.hpp"
+#include "ScriptParser.hpp"
+#include "AstScript/Parser.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-static_assert(sizeof(ValDouble) == sizeof(ValScalar<double>), "ValDouble must be same size as ValScalar<double>");
-
-Class* ValDouble::staticType()
-{
-    return &aValDouble_Type;
-}
 
 AST_NAMESPACE_END

@@ -1,9 +1,9 @@
 ///
-/// @file      OpBin.hpp
+/// @file      OperatorBinary.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-22
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,30 +21,15 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Op.hpp"
 #include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 二元运算符表达式
-class OpBin: public Op
-{
-public:
-    AST_EXPR(OpBin)
-
-public:
-    OpBin(OpBinType op, Expr* left, Expr* right)
-        : op_(op), left_(left), right_(right)
-    {};
-    virtual ~OpBin() = default;
-    Value* eval() const override;
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    OpBinType   op_;        ///< 运算符
-    Expr*       left_;      ///< 左操作数
-    Expr*       right_;     ///< 右操作数
-};
+class Value;
 
 
+Value* binop(OpBinType op, Value* left, Value* right);
+
+OpBinFunc binop_get_func(OpBinType op, Class* leftType, Class* rightType);
 
 AST_NAMESPACE_END

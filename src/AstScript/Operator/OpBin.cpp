@@ -19,6 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OpBin.hpp"
+#include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstScript/Value.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -58,7 +61,35 @@ static_assert(sizeof(OpBinTypeStr)/sizeof(OpBinTypeStr[0]) == static_cast<size_t
 
 Value *OpBin::eval() const
 {
-    // @todo 实现二元运算符的求值逻辑
+    if(A_UNLIKELY(!left_ || !right_))
+    {
+        return nullptr;
+    }
+    SharedPtr<Value> leftval = left_->eval();
+    SharedPtr<Value> rightval = right_->eval();
+    
+    // 检查左操作数和右操作数是否为null
+    if(!leftval.get() || !rightval.get())
+    {
+        aError("left or right value is null");
+        return nullptr;
+    }
+    auto leftType = leftval->type();
+    auto rightType = rightval->type();
+
+    // 检查是否缓存了函数指针，且参数类型匹配
+    if(this->func_ && this->leftType_ == leftType && this->rightType_ == rightType){
+        return this->func_(leftval.get(), rightval.get());
+    }
+
+    // 尝试获取新的函数指针
+    this->func_ = aGetOpBinFunc(op_, leftType, rightType);
+    if(this->func_){
+        // 缓存新的函数指针和参数类型
+        this->leftType_ = leftType;
+        this->rightType_ = rightType;
+        return func_(leftval.get(), rightval.get());
+    }
     return nullptr;
 }
 

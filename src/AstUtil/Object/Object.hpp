@@ -132,6 +132,10 @@ public:
     /// @brief 减少强引用计数
     /// @return uint32_t 新的强引用计数
     uint32_t decRef(); 
+
+    /// @brief 减少强引用计数，不删除对象
+    /// @return uint32_t 新的强引用计数
+    uint32_t decRefNoDelete();
 private:
     /// @brief 析构对象，仅当强引用计数为0时才会被调用
     /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
@@ -179,6 +183,11 @@ inline uint32_t Object::decRef()
         this->_destruct();
         return 0;
     }
+    return --m_refcnt;
+}
+
+inline uint32_t Object::decRefNoDelete()
+{
     return --m_refcnt;
 }
 

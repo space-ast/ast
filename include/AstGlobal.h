@@ -83,7 +83,7 @@
 
 
 // AST 对象运行时元信息
-#define AST_OBJECT(TYPE) // @todo
+#define AST_OBJECT(TYPE) Class* staticType();
 
 #ifdef AST_PROPERTIES_MARK
 #   define AST_PROPERTIES AST_PROPERTIES_MARK public
