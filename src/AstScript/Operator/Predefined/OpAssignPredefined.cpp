@@ -1,5 +1,5 @@
 ///
-/// @file      ValScalar.hpp
+/// @file      OpAssignPredefined.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -18,38 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "AstScript/Value.hpp"
-#include "AstUtil/ParseFormat.hpp"
+#include "OpAssignPredefined.hpp"
 
 AST_NAMESPACE_BEGIN
 
-template <typename Scalar>
-class ValScalar : public Value
+
+OpAssignFunc opassign_get_func(OpAssignType op, Class *leftType, Class *rightType)
 {
-public:
-    ValScalar()
-        : value_(Scalar())
-    {}
-    ValScalar(Scalar value)
-        : value_(value)
-    {}
-    
-    ~ValScalar(){}
-
-    Scalar value() const{return value_;}
-    
-    std::string getExpression(Object* context=nullptr) const override{return aFormatScalar(value_);}
-protected:
-    ValScalar(Class* type, Scalar value)
-        : Value(type)
-        , value_(value)
-    {}
-protected:
-    Scalar value_;
-};
-
+    return nullptr;
+}
 
 AST_NAMESPACE_END
+

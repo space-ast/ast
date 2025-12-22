@@ -212,8 +212,11 @@ AST_SCRIPT_CAPI int aValueUnboxInt(Value* value);
 AST_SCRIPT_API std::string aFormatExpr(Expr* expr, Object* context=nullptr);
 
 
-/// @brief 二进制运算函数指针类型 
+/// @brief 二元运算函数指针类型 
 typedef Value* (*OpBinFunc)(Value* left, Value* right);
+
+/// @brief 赋值运算函数指针类型 
+typedef Value* (*OpAssignFunc)(Expr* left, Value* right);
 
 
 //  @brief 获取二进制运算函数指针
@@ -222,6 +225,14 @@ typedef Value* (*OpBinFunc)(Value* left, Value* right);
 //  @param rightType 右运算数类型
 //  @return 运算函数指针
 AST_SCRIPT_CAPI OpBinFunc aGetOpBinFunc(OpBinType op, Class* leftType, Class* rightType);
+
+
+//  @brief 获取赋值运算函数指针
+//  @param op 运算类型
+//  @param leftType 左运算数类型
+//  @param rightType 右运算数类型
+//  @return 运算函数指针
+AST_SCRIPT_CAPI OpAssignFunc aGetOpAssignFunc(OpAssignType op, Class* leftType, Class* rightType);
 
 
 /// @brief 执行二元运算符
