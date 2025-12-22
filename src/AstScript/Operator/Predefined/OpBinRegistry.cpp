@@ -1,5 +1,5 @@
 ///
-/// @file      OperatorBinary.hpp
+/// @file      OpBinRegistry.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -18,18 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "AstScript/ScriptAPI.hpp"
+#include "OpBinRegistry.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class Value;
 
-
-Value* binop(OpBinType op, Value* left, Value* right);
-
-OpBinFunc binop_get_func(OpBinType op, Class* leftType, Class* rightType);
 
 AST_NAMESPACE_END

@@ -31,7 +31,8 @@
 #include "AstScript/OpUnary.hpp"
 #include "AstScript/Parser.hpp"
 #include "AstScript/Symbol.hpp"
-#include "AstScript/OperatorBinary.hpp"
+#include "AstScript/OpBinPredefined.hpp"
+#include "AstScript/OpAssignPredefined.hpp"
 #include "AstScript/Types.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
@@ -181,12 +182,17 @@ std::string aFormatExpr(Expr *expr, Object *context)
 
 OpBinFunc aGetOpBinFunc(OpBinType op, Class *leftType, Class *rightType)
 {
-    return binop_get_func(op, leftType, rightType);
+    return opbin_get_func(op, leftType, rightType);
+}
+
+OpAssignFunc aGetOpAssignFunc(OpAssignType op, Class *leftType, Class *rightType)
+{
+    return opassign_get_func(op, leftType, rightType);
 }
 
 Value *aDoOpBin(OpBinType op, Value *left, Value *right)
 {
-    return binop(op, left, right);
+    return opbin(op, left, right);
 }
 
 
