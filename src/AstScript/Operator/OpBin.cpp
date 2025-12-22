@@ -22,6 +22,7 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstScript/Value.hpp"
+#include "AstUtil/Class.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -65,20 +66,25 @@ Value *OpBin::eval() const
     {
         return nullptr;
     }
+    // 计算左操作数和右操作数的值
     SharedPtr<Value> leftval = left_->eval();
     SharedPtr<Value> rightval = right_->eval();
     
     // 检查左操作数和右操作数是否为null
-    if(!leftval.get() || !rightval.get())
+    if(A_UNLIKELY(!leftval.get() || !rightval.get()))
     {
         aError("left or right value is null");
         return nullptr;
     }
     auto leftType = leftval->type();
     auto rightType = rightval->type();
+    if(A_UNLIKELY(!leftType || !rightType)){
+        aError("left or right value type is null");
+        return nullptr;
+    }
 
     // 检查是否缓存了函数指针，且参数类型匹配
-    if(this->func_ && this->leftType_ == leftType && this->rightType_ == rightType){
+    if(A_LIKELY(this->func_ && this->leftType_ == leftType && this->rightType_ == rightType)){
         return this->func_(leftval.get(), rightval.get());
     }
 
@@ -88,8 +94,14 @@ Value *OpBin::eval() const
         // 缓存新的函数指针和参数类型
         this->leftType_ = leftType;
         this->rightType_ = rightType;
-        return func_(leftval.get(), rightval.get());
+        return this->func_(leftval.get(), rightval.get());
     }
+    // 未找到匹配的函数指针
+    aError("no operator function found for %s %s %s",
+           leftType->name().c_str(),
+           OpBinTypeStr[op_],
+           rightType->name().c_str());
+
     return nullptr;
 }
 

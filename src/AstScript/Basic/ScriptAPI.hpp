@@ -218,6 +218,9 @@ typedef Value* (*OpBinFunc)(Value* left, Value* right);
 /// @brief 赋值运算函数指针类型 
 typedef Value* (*OpAssignFunc)(Expr* left, Value* right);
 
+/// @brief 一元运算函数指针类型 
+typedef Value* (*OpUnaryFunc)(Value* value);
+
 
 //  @brief 获取二进制运算函数指针
 //  @param op 运算类型
@@ -235,12 +238,26 @@ AST_SCRIPT_CAPI OpBinFunc aGetOpBinFunc(OpBinType op, Class* leftType, Class* ri
 AST_SCRIPT_CAPI OpAssignFunc aGetOpAssignFunc(OpAssignType op, Class* leftType, Class* rightType);
 
 
+/// @brief 获取一元运算函数指针
+//  @param op 运算类型
+//  @param type 运算数类型
+//  @return 运算函数指针
+AST_SCRIPT_CAPI OpUnaryFunc aGetOpUnaryFunc(OpUnaryType op, Class* type);
+
+
 /// @brief 执行二元运算符
 /// @param op 运算符类型
 /// @param left 左运算数
 /// @param right 右运算数
 /// @return 运算结果
 AST_SCRIPT_CAPI Value* aDoOpBin(OpBinType op, Value* left, Value* right);
+
+/// @brief 执行一元运算符
+/// @param op 运算符类型
+/// @param value 运算数
+/// @return 运算结果
+AST_SCRIPT_CAPI Value* aDoOpUnary(OpUnaryType op, Value* value);
+
 
 
 // ALIAS

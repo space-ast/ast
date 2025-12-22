@@ -19,6 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OpUnary.hpp"
+#include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/Class.hpp"
+#include "AstScript/Value.hpp"
+#include "AstScript/OpUnaryPredefined.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -34,7 +39,38 @@ static_assert(sizeof(OpUnaryTypeStr)/sizeof(OpUnaryTypeStr[0]) == static_cast<si
 
 Value *OpUnary::eval() const
 {
-    // @todo 实现一元运算符的求值逻辑
+    // 计算操作数的值
+    SharedPtr<Value> value = expr_->eval();
+
+    /// 检查操作数是否为空
+    if (A_UNLIKELY(!value.get())) {
+        aError("Failed to evaluate operand for unary operator");
+        return nullptr;
+    }
+    auto type = value->type();
+    if (A_UNLIKELY(!type)) {
+        aError("Failed to get type of operand for unary operator");
+        return nullptr;
+    }
+    
+    // 检查是否缓存了函数指针，且类型匹配
+    if (A_LIKELY(this->func_ && this->type_ == type)) {
+        return this->func_(value.get());
+    }
+    
+    // 尝试获取新的函数指针
+    this->func_ = aGetOpUnaryFunc(op_, type);
+    if(this->func_)
+    {
+        this->type_ = type;
+        return this->func_(value.get());
+    }
+    
+    // 未找到匹配的函数指针
+    aError("no operator function found for %s %s", 
+        type->name().c_str(),
+        OpUnaryTypeStr[op_]
+    );
     return nullptr;
 }
 
