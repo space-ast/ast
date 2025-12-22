@@ -59,7 +59,7 @@ def convert_file_to_utf8(file_path, output_encoding='utf-8', backup=False):
         
         # 如果需要备份，创建备份文件
         if backup:
-            backup_path = file_path + '.bak'
+            backup_path = str(file_path) + '.bak'
             try:
                 with open(backup_path, 'wb') as f:
                     f.write(raw_data)
