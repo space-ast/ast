@@ -1,1 +1,1 @@
-#include "../../src/AstScript/ScriptParser.hpp"
+#include "../../src/AstScript/Basic/ScriptParser.hpp"

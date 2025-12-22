@@ -1,9 +1,9 @@
 ///
-/// @file      Op.hpp
+/// @file      AllTypes.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-22
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,16 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Expr.hpp"
-
-AST_NAMESPACE_BEGIN
-
-/// @brief 运算符表达式
-class Op: public Expr
-{
-public:
-    err_t setValue(Value* val) override{return eErrorReadonly;}
-    
-};
-
-AST_NAMESPACE_END
+#include "AstScript/Value.hpp"
+#include "AstScript/ValInt.hpp"
+#include "AstScript/ValDouble.hpp"
+#include "AstScript/ValString.hpp"
+#include "AstScript/ValBool.hpp"

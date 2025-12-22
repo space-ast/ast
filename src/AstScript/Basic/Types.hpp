@@ -1,9 +1,9 @@
 ///
-/// @file      ScriptParser.cpp
+/// @file      Types.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-20
+/// @date      2025-12-22
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,19 +18,17 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ScriptParser.hpp"
-#include "AstScript/Parser.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstUtil/Class.hpp"
 
 AST_NAMESPACE_BEGIN
 
-Expr *aParseExpr(StringView script)
-{
-    return Parser::parseExpr(script);
-}
 
-std::string aFormatExpr(Expr *expr, Object *context)
-{
-    return expr->getExpression(context);
-}
+extern Class aValBool_Type;        ///< 布尔值类型
+extern Class aValInt_Type;         ///< 整数类型
+extern Class aValDouble_Type;      ///< 双精度浮点数值类型
+
 
 AST_NAMESPACE_END

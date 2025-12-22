@@ -1,5 +1,5 @@
 ///
-/// @file      ValBool.hpp
+/// @file      OpBin.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -21,23 +21,32 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstScript/ValScalar.hpp"
+#include "Op.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 布尔值
-class ValBool: public ValScalar<bool>
+/// @brief 二元运算符表达式
+class OpBin: public Op
 {
 public:
-    AST_EXPR(ValBool)
-    ValBool()
-        : ValScalar<bool>(staticType(), false)
-    {}
-    ValBool(bool value)
-        : ValScalar<bool>(staticType(), value)
-    {}
+    AST_EXPR(OpBin)
 
-    using ValScalar<bool>::ValScalar;
+public:
+    OpBin(OpBinType op, Expr* left, Expr* right)
+        : op_(op), left_(left), right_(right)
+    {};
+    virtual ~OpBin() = default;
+    Value* eval() const override;
+    std::string getExpression(Object* context=nullptr) const override;
+protected:
+    OpBinType   op_;        ///< 运算符
+    Expr*       left_;      ///< 左操作数
+    Expr*       right_;     ///< 右操作数
+
+    mutable OpBinFunc    func_{nullptr};      ///< 运算符函数指针
+    mutable Class*       leftType_{nullptr};  ///< 左操作数类型
+    mutable Class*       rightType_{nullptr}; ///< 右操作数类型
 };
 
 

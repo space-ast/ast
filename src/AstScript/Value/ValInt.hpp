@@ -21,22 +21,21 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Value.hpp"
+#include "AstScript/ValScalar.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief 整数值
-class ValInt: public Value
+class ValInt: public ValScalar<int>
 {
 public:
     AST_EXPR(ValInt)
-
-    ValInt(): value_{}{}
-    ValInt(int value): value_{value}{}
-    int value() const{return value_;}
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    int value_;
+    ValInt()
+        : ValScalar<int>(staticType(), 0)
+    {}
+    ValInt(int value)
+        : ValScalar<int>(staticType(), value)
+    {}
 };
 
 AST_NAMESPACE_END

@@ -21,22 +21,21 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Value.hpp"
+#include "AstScript/ValScalar.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief 双精度浮点值
-class ValDouble: public Value
+class ValDouble: public ValScalar<double>
 {
 public:
     AST_EXPR(ValDouble)
-
-    ValDouble(): value_{}{}
-    ValDouble(double value): value_{value}{}
-    double value() const{return value_;}
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    double value_;
+    ValDouble()
+        : ValScalar<double>(staticType(), 0.0)
+    {}
+    ValDouble(double value)
+        : ValScalar<double>(staticType(), value)
+    {}
 };
 
 AST_NAMESPACE_END

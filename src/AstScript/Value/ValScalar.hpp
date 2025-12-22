@@ -1,9 +1,9 @@
 ///
-/// @file      ScriptParser.hpp
+/// @file      ValScalar.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-20
+/// @date      2025-12-22
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,21 +21,34 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include <string>
+#include "AstScript/Value.hpp"
+#include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class Expr;         ///< 表达式
+template <typename Scalar>
+class ValScalar : public Value
+{
+public:
+    ValScalar()
+        : value_(Scalar())
+    {}
+    ValScalar(Scalar value)
+        : value_(value)
+    
+    ~ValScalar(){}
 
-
-/// @brief 解析脚本表达式
-/// @param script 脚本文本
-/// @return 解析得到的表达式对象
-AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
-
-/// @brief 格式化表达式为字符串
-/// @param expr 表达式对象
-AST_SCRIPT_API std::string aFormatExpr(Expr* expr, Object* context=nullptr);
+    Scalar value() const{return value_;}
+    
+    std::string getExpression(Object* context=nullptr) const override{return aFormatScalar(value_);}
+protected:
+    ValScalar(Class* type, Scalar value)
+        : Value(type)
+        , value_(value)
+    {}
+protected:
+    Scalar value_;
+};
 
 
 AST_NAMESPACE_END

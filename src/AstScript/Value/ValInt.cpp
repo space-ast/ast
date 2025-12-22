@@ -20,13 +20,17 @@
 
 #include "ValInt.hpp"
 #include "AstUtil/ParseFormat.hpp"
+#include "AstScript/Types.hpp"
 
 AST_NAMESPACE_BEGIN
 
-std::string ValInt::getExpression(Object *context) const
+static_assert(sizeof(ValInt) == sizeof(ValScalar<int>), "ValInt must be same size as ValScalar<int>");
+
+Class* ValInt::staticType()
 {
-    return aFormatInt(value_);
+    return &aValInt_Type;
 }
+
 
 
 AST_NAMESPACE_END

@@ -31,6 +31,8 @@
 #include "AstScript/OpUnary.hpp"
 #include "AstScript/Parser.hpp"
 #include "AstScript/Symbol.hpp"
+#include "AstScript/OperatorBinary.hpp"
+#include "AstScript/Types.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -103,5 +105,90 @@ Value *aValueNull()
     static SharedPtr<Value> nullValue{new ValNull{}};
     return nullValue.get();
 }
+
+
+Expr *aParseExpr(StringView script)
+{
+    return Parser::parseExpr(script);
+}
+
+Value *aEval(StringView script)
+{
+    SharedPtr<Expr> expr = Parser::parseExpr(script);
+    if(!expr.get()){
+        return nullptr;
+    }
+    expr = expr->eval();
+    return (Value*)expr.taken();
+}
+
+Value *aEvalExpr(Expr *expr)
+{
+    if(!expr){
+        return nullptr;
+    }
+    return expr->eval();
+}
+
+bool aValueIsBool(Value *value)
+{
+    return value && static_cast<ValBool*>(value)->type() == &aValBool_Type;
+}
+
+bool aValueIsDouble(Value *value)
+{
+    return value && static_cast<ValDouble*>(value)->type() == &aValDouble_Type;
+}
+
+bool aValueIsInt(Value *value)
+{
+    return value && static_cast<ValInt*>(value)->type() == &aValInt_Type;
+}
+
+
+
+bool aValueUnboxBool(Value *value)
+{
+    if(!aValueIsBool(value)){
+        aError("Value is not a bool");
+        return false;
+    }
+    return static_cast<ValBool*>(value)->value();
+}
+
+double aValueUnboxDouble(Value *value)
+{
+    if(!aValueIsDouble(value)){
+        aError("Value is not a double");
+        return 0.0;
+    }
+    return static_cast<ValDouble*>(value)->value();
+}
+
+int aValueUnboxInt(Value *value)
+{
+    if(!aValueIsInt(value)){
+        aError("Value is not an int");
+        return 0;
+    }
+    return static_cast<ValInt*>(value)->value();
+}
+
+std::string aFormatExpr(Expr *expr, Object *context)
+{
+    return expr->getExpression(context);
+}
+
+OpBinFunc aGetOpBinFunc(OpBinType op, Class *leftType, Class *rightType)
+{
+    return binop_get_func(op, leftType, rightType);
+}
+
+Value *aDoOpBin(OpBinType op, Value *left, Value *right)
+{
+    return binop(op, left, right);
+}
+
+
 
 AST_NAMESPACE_END

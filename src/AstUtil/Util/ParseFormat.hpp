@@ -280,5 +280,46 @@ Color aParseColor(StringView str)
 }
 
 
+A_ALWAYS_INLINE
+err_t aFormatScalar(double value, std::string& str)
+{
+    return aFormatDouble(value, str);
+}
+
+
+A_ALWAYS_INLINE
+err_t aFormatScalar(int value, std::string& str)
+{
+    return aFormatInt(value, str);
+}
+
+
+A_ALWAYS_INLINE
+void aFormatScalar(bool value, std::string& str)
+{
+    return aFormatBool(value, str);
+}
+
+
+A_ALWAYS_INLINE
+std::string aFormatScalar(double value)
+{
+    return aFormatDouble(value);
+}
+
+A_ALWAYS_INLINE
+std::string aFormatScalar(int value)
+{
+    return aFormatInt(value);
+}
+
+
+A_ALWAYS_INLINE
+std::string aFormatScalar(bool value)
+{
+    return aFormatBool(value);
+}
+
+
 
 AST_NAMESPACE_END

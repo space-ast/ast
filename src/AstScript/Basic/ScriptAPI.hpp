@@ -23,10 +23,13 @@
 #include "AstGlobal.h"
 #include "AstScript/ScriptParser.hpp"
 #include "AstScript/ExprVisitor.hpp"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 
-#define AST_EXPR(CLASS) void accept(ExprVisitor& visitor) override{visitor.visit(*this);};
+#define AST_EXPR(CLASS) \
+    AST_OBJECT(CLASS)\
+    void accept(ExprVisitor& visitor) override{visitor.visit(*this);};
 
 enum OpBinType{
     eAdd,       ///< 加法
@@ -151,6 +154,110 @@ AST_SCRIPT_CAPI Value* aNewValueQuantity(const Quantity& value);
 
 /// @brief 获取空值对象
 AST_SCRIPT_CAPI Value* aValueNull();
+
+/// @brief 解析脚本表达式
+/// @param script 脚本文本
+/// @return 解析得到的表达式对象
+AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
+
+
+/// @brief 执行脚本表达式
+/// @param script 脚本文本
+/// @return 表达式执行结果
+AST_SCRIPT_CAPI Value* aEval(StringView script);
+
+/// @brief 执行表达式
+/// @param expr 表达式对象
+/// @return 表达式执行结果
+AST_SCRIPT_CAPI Value* aEvalExpr(Expr* expr);
+
+
+/// @brief 判断值对象是否为布尔值
+/// @param value 值对象
+/// @return 是否为布尔值
+AST_SCRIPT_CAPI bool aValueIsBool(Value* value);
+
+/// @brief 判断值对象是否为双精度浮点数值
+/// @param value 值对象
+/// @return 是否为双精度浮点数值
+AST_SCRIPT_CAPI bool aValueIsDouble(Value* value);
+
+/// @brief 判断值对象是否为整数值
+/// @param value 值对象
+/// @return 是否为整数值
+AST_SCRIPT_CAPI bool aValueIsInt(Value* value);
+
+
+
+/// @brief 解包布尔值
+/// @param value 值对象
+/// @return 布尔值
+AST_SCRIPT_CAPI bool aValueUnboxBool(Value* value);
+
+
+/// @brief 解包双精度浮点数值
+/// @param value 值对象
+/// @return 双精度浮点数值
+AST_SCRIPT_CAPI double aValueUnboxDouble(Value* value);
+
+
+/// @brief 解包整数值
+/// @param value 值对象
+/// @return 整数值
+AST_SCRIPT_CAPI int aValueUnboxInt(Value* value);
+
+
+/// @brief 格式化表达式为字符串
+/// @param expr 表达式对象
+AST_SCRIPT_API std::string aFormatExpr(Expr* expr, Object* context=nullptr);
+
+
+/// @brief 二进制运算函数指针类型 
+typedef Value* (*OpBinFunc)(Value* left, Value* right);
+
+
+//  @brief 获取二进制运算函数指针
+//  @param op 运算类型
+//  @param leftType 左运算数类型
+//  @param rightType 右运算数类型
+//  @return 运算函数指针
+AST_SCRIPT_CAPI OpBinFunc aGetOpBinFunc(OpBinType op, Class* leftType, Class* rightType);
+
+
+/// @brief 执行二元运算符
+/// @param op 运算符类型
+/// @param left 左运算数
+/// @param right 右运算数
+/// @return 运算结果
+AST_SCRIPT_CAPI Value* aDoOpBin(OpBinType op, Value* left, Value* right);
+
+
+// ALIAS
+
+A_ALWAYS_INLINE Value* aNewValue(int value)
+{
+    return aNewValueInt(value);
+}
+
+A_ALWAYS_INLINE Value* aNewValue(double value)
+{
+    return aNewValueDouble(value);
+}
+
+A_ALWAYS_INLINE Value* aNewValue(bool value)
+{
+    return aNewValueBool(value);
+}
+
+A_ALWAYS_INLINE Value* aNewValue(const Quantity& value)
+{
+    return aNewValueQuantity(value);
+}
+
+A_ALWAYS_INLINE Value* aNewValue(StringView value)
+{
+    return aNewValueString(value);
+}
 
 
 AST_NAMESPACE_END

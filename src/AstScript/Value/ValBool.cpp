@@ -20,13 +20,17 @@
 
 #include "ValBool.hpp"
 #include "AstUtil/ParseFormat.hpp"
+#include "AstScript/Types.hpp"
 
 AST_NAMESPACE_BEGIN
 
-std::string ValBool::getExpression(Object *context) const
+static_assert(sizeof(ValBool) == sizeof(ValScalar<bool>), "ValBool must be same size as ValScalar<bool>");
+
+Class* ValBool::staticType()
 {
-    return aFormatBool(value_);
+    return &aValBool_Type;
 }
+
 
 
 AST_NAMESPACE_END

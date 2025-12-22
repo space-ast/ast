@@ -1,9 +1,9 @@
 ///
-/// @file      ValDouble.cpp
+/// @file      Types.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-20
+/// @date      2025-12-22
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,18 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ValDouble.hpp"
-#include "AstUtil/ParseFormat.hpp"
-#include "AstScript/Types.hpp"
+#include "Types.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
-static_assert(sizeof(ValDouble) == sizeof(ValScalar<double>), "ValDouble must be same size as ValScalar<double>");
-
-Class* ValDouble::staticType()
-{
-    return &aValDouble_Type;
-}
+Class aValBool_Type;     
+Class aValInt_Type;   
+Class aValDouble_Type;
 
 AST_NAMESPACE_END

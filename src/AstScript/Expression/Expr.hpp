@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
-#include "AstScript/AstScriptAPI.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
