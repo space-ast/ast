@@ -23,6 +23,8 @@
 #include "AstGlobal.h"
 #include "Op.hpp"
 #include "AstScript/ScriptAPI.hpp"
+#include <mutex>
+#include <atomic>
 
 AST_NAMESPACE_BEGIN
 
@@ -44,9 +46,10 @@ protected:
     Expr*       left_;      ///< 左操作数
     Expr*       right_;     ///< 右操作数
 
-    mutable OpBinFunc    func_{nullptr};      ///< 运算符函数指针
-    mutable Class*       leftType_{nullptr};  ///< 左操作数类型
-    mutable Class*       rightType_{nullptr}; ///< 右操作数类型
+    mutable std::atomic<OpBinFunc> func_{nullptr};      ///< 运算符函数指针
+    mutable std::atomic<Class*>    leftType_{nullptr};  ///< 左操作数类型
+    mutable std::atomic<Class*>    rightType_{nullptr}; ///< 右操作数类型
+    mutable std::mutex             cache_mutex_;        ///< 用于保护缓存成员的互斥锁
 };
 
 

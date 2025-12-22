@@ -188,17 +188,13 @@ Expr* Parser::parseLogicalAndExpr()
 Expr* Parser::parseBitwiseOrExpr()
 {
     Expr* expr = parseBitwiseXorExpr();
-    while (true) {
-        if (match(Lexer::ePipe)) {
-            Expr* right = parseBitwiseXorExpr();
-            if (right) {
-                expr = aNewOpBin(OpBinType::eBitOr, expr, right);
-            } else {
-                delete expr;
-                return nullptr;
-            }
-        }else{
-            break;
+    while (match(Lexer::ePipe)) {
+        Expr* right = parseBitwiseXorExpr();
+        if (right) {
+            expr = aNewOpBin(OpBinType::eBitOr, expr, right);
+        } else {
+            delete expr;
+            return nullptr;
         }
     }
     

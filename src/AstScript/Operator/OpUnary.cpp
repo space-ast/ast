@@ -53,19 +53,40 @@ Value *OpUnary::eval() const
         return nullptr;
     }
     
-    // 检查是否缓存了函数指针，且类型匹配
-    if (A_LIKELY(this->func_ && this->type_ == type)) {
-        return this->func_(value.get());
+    // --- 双重检查锁定模式 (DCLP) 开始 ---
+    // 1. 第一次检查：无锁读取缓存值
+    // 使用 memory_order_acquire 确保在读取 func_ 之后，
+    // 之前写入 func_、type_ 的操作对当前线程可见。
+    OpUnaryFunc current_func = func_.load(std::memory_order_acquire);
+    Class* current_type = type_.load(std::memory_order_acquire);
+
+    if (A_LIKELY(current_func && current_type == type)) {
+        return current_func(value.get());
     }
     
-    // 尝试获取新的函数指针
-    this->func_ = aGetOpUnaryFunc(op_, type);
-    if(this->func_)
-    {
-        this->type_ = type;
-        return this->func_(value.get());
+    // 2. 如果缓存未命中，则获取互斥锁并进行第二次检查
+    std::lock_guard<std::mutex> lock(cache_mutex_);
+
+    // 在锁内进行第二次检查，以避免重复计算（如果其他线程刚刚更新了缓存）
+    // 此时在锁的保护下，可以使用 memory_order_relaxed，因为互斥锁本身提供了同步保证。
+    current_func = func_.load(std::memory_order_relaxed);
+    current_type = type_.load(std::memory_order_relaxed);
+
+    if (A_LIKELY(current_func && current_type == type)) {
+        return current_func(value.get());
     }
-    
+
+    // 3. 如果仍然未在缓存中找到，则计算并存储新的函数指针和类型
+    OpUnaryFunc new_func = aGetOpUnaryFunc(op_, type);
+    if (new_func) {
+        // 使用 memory_order_release 确保在写入 func_ 之前，
+        // 所有对 leftType_ 和 rightType_ 的写入操作都已完成并对其他线程可见。
+        func_.store(new_func, std::memory_order_release);
+        type_.store(type, std::memory_order_release);
+        return new_func(value.get());
+    }
+    // --- 双重检查锁定模式 (DCLP) 结束 ---
+
     // 未找到匹配的函数指针
     aError("no operator function found for %s %s", 
         type->name().c_str(),

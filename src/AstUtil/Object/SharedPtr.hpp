@@ -73,11 +73,14 @@ public:
     {
         return m_object;
     }
-    _Object* taken()
+    _Object* take()
     {
-        if(m_object)
-            m_object->decRefNoDelete();
-        return m_object;
+        _Object* obj = m_object;
+        if(obj){
+            obj->decRefNoDelete();
+            m_object = nullptr;
+        }
+        return obj;
     }
 protected:
     void _incRef()
