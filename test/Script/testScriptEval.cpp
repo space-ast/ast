@@ -20,15 +20,19 @@
 
 #include "AstScript/ScriptAPI.hpp"
 #include "AstTest/AstTestMacro.h"
-#include "AstUtil/StringView.hpp"
 #include "AstScript/ValString.hpp"
+#include "AstUtil/StringView.hpp"
+#include "AstUtil/IO.hpp"
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 AST_USING_NAMESPACE
 
 // 辅助函数：测试布尔值表达式
 void testScriptEvalBool(StringView str, bool expectedValue)
 {
-    printf("testScriptEvalBool: %s\n", str.to_string().c_str());
+    ast_printf("testScriptEvalBool: %s\n", str.to_string().c_str());
     Value* value = aEval(str);
     EXPECT_TRUE(value);
     if(value){
@@ -117,12 +121,37 @@ TEST(ScriptEval, EvalInt)
     testScriptEvalInt("-1", -1);
     testScriptEvalInt("12345", 12345);
     testScriptEvalInt("-12345", -12345);
+
+    // 十六进制整数
+    testScriptEvalInt("0x0", 0x0);
+    testScriptEvalInt("0x10", 0x10);
+    testScriptEvalInt("0xFF", 0xFF);
+    testScriptEvalInt("0xEF", 0xEF);
+    testScriptEvalInt("0xeF", 0xeF);
+    testScriptEvalInt("0xabc", 0xabc);
+    //testScriptEvalInt("0x123456789ABCDEF", 0x123456789ABCDEF); // @fixme 超出int范围，需要处理这种情况
+    
+    // 二进制整数
+    testScriptEvalInt("0b0", 0b0);
+    testScriptEvalInt("0b1", 0b1);
+    testScriptEvalInt("0b1010", 0b1010);
+    testScriptEvalInt("0b1111", 0b1111);
+    testScriptEvalInt("0b10000000", 0b10000000);
+    
+    // 八进制整数，参照Julia语法
+    testScriptEvalInt("0o0", 00);
+    testScriptEvalInt("0o1", 01);
+    testScriptEvalInt("0o7", 07);
+    testScriptEvalInt("0o10", 010);
+    testScriptEvalInt("0o100", 0100);
+    testScriptEvalInt("0o777", 0777);
+    testScriptEvalInt("0o123", 0123);
     
     // 算术运算
     testScriptEvalInt("1 + 2", 3);
     testScriptEvalInt("3 - 1", 2);
     testScriptEvalInt("2 * 3", 6);
-    testScriptEvalInt("6 / 2", 3);
+    testScriptEvalDouble("6 / 2", 3.0); // 整数除法结果为浮点数，与julia语言一致
     testScriptEvalInt("7 % 3", 1);
     
     // 幂运算 (Julia使用^)
@@ -177,6 +206,13 @@ TEST(ScriptEval, EvalString)
 // 测试位运算
 TEST(ScriptEval, EvalBitwise)
 {
+    #ifdef _WIN32
+    // 设置控制台I/O编码为UTF-8
+    // 设置这个让异或符号⊻正常显示
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    #endif
+    
     // 按位与
     testScriptEvalInt("0b1100 & 0b1010", 0b1000);
     
@@ -184,7 +220,7 @@ TEST(ScriptEval, EvalBitwise)
     testScriptEvalInt("0b1100 | 0b1010", 0b1110);
     
     // 按位异或
-    testScriptEvalInt("0b1100 ^ 0b1010", 0b0110);
+    testScriptEvalInt(aText("0b1100 \u22BB 0b1010"), 0b0110); // 异或⊻
     
     // 左移
     testScriptEvalInt("0b101 << 2", 0b10100);
@@ -229,7 +265,7 @@ TEST(ScriptEval, EvalComplexExpressions)
     testScriptEvalDouble("1 + 2 * 3.0 - 4 / 2", 5.0);
     
     // 嵌套括号
-    testScriptEvalDouble("((1 + 2) * 3 - 4) / 2", 3.5);
+    testScriptEvalDouble("((1 + 2) * 3 - 4) / 2", 2.5);
     
     // 混合类型和运算符
     testScriptEvalBool("(1 + 2) > 3 && 5 < 6", false);

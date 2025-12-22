@@ -28,6 +28,7 @@ void testScriptParser(StringView str)
 {
     Expr* expr = aParseExpr(str);
     EXPECT_NE(expr, nullptr);
+    std::cout << "Input expression: " << str << std::endl;
     if (expr) {
         std::string exprStr = aFormatExpr(expr);
         std::cout << "1st Parsed expression: " << exprStr << std::endl;
@@ -129,6 +130,32 @@ TEST(ScriptParser, LiteralExpression)
     testScriptParser("0");
     testScriptParser("-123");
     testScriptParser("3.14159");
+    
+    // 十六进制整数
+    testScriptParser("0x0");
+    testScriptParser("0x10");
+    testScriptParser("0xFF");
+    testScriptParser("0xEF");
+    testScriptParser("0xEe");
+    testScriptParser("0xabc");
+    // testScriptParser("0x123456789ABCDEF"); // @fixme 超出int范围，需要处理这种情况
+    
+    // 二进制整数
+    testScriptParser("0b0");
+    testScriptParser("0b1");
+    testScriptParser("0b1010");
+    testScriptParser("0b1111");
+    testScriptParser("0b10000000");
+    
+    // 八进制整数，参照Julia语法
+    testScriptParser("0o0");
+    testScriptParser("0o1");
+    testScriptParser("0o7");
+    testScriptParser("0o10");
+    testScriptParser("0o100");
+    testScriptParser("0o777");
+    testScriptParser("0o123");
+    // testScriptParser("0Oabc"); // 这应该会失败，因为八进制只能包含0-7
     
     // 字符串字面量
     testScriptParser("\"hello\"");
