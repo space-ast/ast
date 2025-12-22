@@ -35,6 +35,7 @@
 
 #include <cstdlib>
 #include <cctype>
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 
@@ -485,18 +486,47 @@ Expr* Parser::parsePrimaryExpr()
     }
     
     if (currentTokenType() == Lexer::eNumber) {
-        StringView numStr = currentLexeme();
+        std::string numStr = currentLexeme().to_string();
         
+        // @todo: 下面的逻辑有待优化
+
         // 检查是否为浮点数
-        if (numStr.find('.') != StringView::npos || 
-            numStr.find('e') != StringView::npos || 
-            numStr.find('E') != StringView::npos) {
-            double value = std::stod(numStr.data());
+        if (numStr.find_first_of("eE.") != std::string::npos && numStr[1] != 'x') 
+        {
+            double value = std::strtod(numStr.data(), nullptr);
             advance();
             return new ValDouble(value);
         } else {
-            long long value = std::stoll(numStr.data());
+            long long value = 0;
+            if(numStr.size() >= 2 && numStr[0] == '0' && (numStr[1] == 'x' || numStr[1] == 'b' || numStr[1] == 'o')){
+                // 检查是否为十六进制数字
+                if ((numStr[1] == 'x')) {
+                    // 使用 strtoll 的十六进制解析功能
+                    value = std::strtoll(numStr.data(), nullptr, 16);
+                } 
+                // 检查是否为二进制数字
+                else if ((numStr[1] == 'b')) {
+                    // 使用stoll的二进制解析功能
+                    value = std::strtoll(numStr.data() + 2, nullptr, 2);
+                }
+                // 检查是否为八进制数字，参照Julia语法
+                else if ((numStr[1] == 'o')) {
+                    // 使用stoll的八进制解析功能
+                    value = std::strtoll(numStr.data() + 2, nullptr, 8);
+                }
+            }
+            // 十进制数字
+            else
+            {
+                value = std::strtoll(numStr.data(), nullptr, 10);
+            }
+            
             advance();
+            // 检查是否超出int范围
+            if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
+                // 超出int范围
+                return nullptr;
+            }
             return new ValInt(static_cast<int>(value));
         }
     }

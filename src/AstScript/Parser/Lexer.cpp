@@ -246,12 +246,80 @@ int Lexer::parseIdentifier()
     return Lexer::eIdentifier;
 }
 
+/// @brief 检查当前字符是否是十六进制数字
+bool isHexDigit(char c) 
+{
+    return (c >= '0' && c <= '9') || 
+           (c >= 'a' && c <= 'f') || 
+           (c >= 'A' && c <= 'F');
+}
+
+/// @brief 检查当前字符是否是二进制数字
+bool isBinaryDigit(char c) 
+{
+    return c == '0' || c == '1';
+}
+
+/// @brief 检查当前字符是否是八进制数字
+bool isOctalDigit(char c) 
+{
+    return c >= '0' && c <= '7';
+}
+
 /// @brief 解析数字字面量
 Lexer::ETokenType Lexer::scanNumber()
 {
     // current_lexeme_已经在getNextToken中初始化
+    char firstChar = current_lexeme_[0];
     
-    // 整数部分
+    // 0开头的数字，可能是十六进制、二进制或八进制
+    if(firstChar == '0'){
+        // 检查是否是十六进制数字 (0x 前缀)
+        char peekChar = peek();
+        if ((peekChar == 'x' )) {
+            current_lexeme_ += advance(); // 跳过 'x'
+            
+            // 至少需要一个十六进制数字
+            if (isHexDigit(peek())) {
+                while (isHexDigit(peek())) {
+                    current_lexeme_ += advance();
+                }
+                return Lexer::eNumber;
+            }
+            return Lexer::eError; // 0x 后面没有十六进制数字
+        }
+        
+        // 检查是否是二进制数字 (0b 前缀)
+        else if ((peekChar == 'b')) {
+            current_lexeme_ += advance(); // 跳过 'b'
+            
+            // 至少需要一个二进制数字
+            if (isBinaryDigit(peek())) {
+                while (isBinaryDigit(peek())) {
+                    current_lexeme_ += advance();
+                }
+                return Lexer::eNumber;
+            }
+            return Lexer::eError; // 0b 后面没有二进制数字
+        }
+        
+        // 检查是否是八进制数字 (0o 前缀)，参照Julia语法
+        else if ((peekChar == 'o')) {
+            current_lexeme_ += advance(); // 跳过 'o'
+            
+            // 至少需要一个八进制数字
+            if (isOctalDigit(peek())) {
+                while (isOctalDigit(peek())) {
+                    current_lexeme_ += advance();
+                }
+                return Lexer::eNumber;
+            }
+            return Lexer::eError; // 0o 后面没有八进制数字
+        }
+    }
+    
+    
+    // 十进制整数部分
     while (isDigit(peek())) {
         current_lexeme_ += advance();
     }

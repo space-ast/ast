@@ -54,7 +54,7 @@ Value* opbin_##OPNAME##_scalar_scalar(Value* left, Value* right) \
 _AST_OPBIN_SCALAR_SCALAR(add, +)
 _AST_OPBIN_SCALAR_SCALAR(sub, -)
 _AST_OPBIN_SCALAR_SCALAR(mul, *)
-_AST_OPBIN_SCALAR_SCALAR(div, /)
+// _AST_OPBIN_SCALAR_SCALAR(div, /)  // 除法需要特殊处理
 _AST_OPBIN_SCALAR_SCALAR(eq, ==)
 _AST_OPBIN_SCALAR_SCALAR(ne, !=)
 _AST_OPBIN_SCALAR_SCALAR(lt, <)
@@ -63,6 +63,24 @@ _AST_OPBIN_SCALAR_SCALAR(le, <=)
 _AST_OPBIN_SCALAR_SCALAR(ge, >=)
 _AST_OPBIN_SCALAR_SCALAR(and, &&)
 _AST_OPBIN_SCALAR_SCALAR(or, ||)
+// 位运算
+_AST_OPBIN_SCALAR_SCALAR(bit_and, &)
+_AST_OPBIN_SCALAR_SCALAR(bit_or, |)
+_AST_OPBIN_SCALAR_SCALAR(bit_xor, ^)
+_AST_OPBIN_SCALAR_SCALAR(bit_left_shift, <<)
+_AST_OPBIN_SCALAR_SCALAR(bit_right_shift, >>)
+
+//  @brief 执行除法运算
+template<typename Left, typename Right> 
+Value* opbin_div_scalar_scalar(Value* left, Value* right) 
+{
+    // 与julia语言一致：除法只允许浮点数类型，防止出现 1/2 得到 0
+    auto leftval = static_cast<ValScalar<Left>*>(left); 
+    auto rightval = static_cast<ValScalar<Right>*>(right); 
+    double leftval_common = (double)leftval->value();
+    double rightval_common = (double)rightval->value();
+    return aNewValue(leftval_common / rightval_common); 
+}
 
 inline double _mod(double left, double right)
 {
@@ -412,9 +430,10 @@ void _register_scalar_opbin()
     REGISTER_OPBIN(eOr, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_or_scalar_scalar<SCALAR1, SCALAR2>));
     REGISTER_OPBIN(eMod, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_mod_scalar_scalar<SCALAR1, SCALAR2>));
     REGISTER_OPBIN(ePow, aValueType<SCALAR1>(), aValueType<SCALAR2>(), (opbin_pow_scalar_scalar<SCALAR1, SCALAR2>));
+    // 位运算只在int类型中单独注册，避免bool和double类型的错误
 }
 
-#undef REGISTER_OPBIN
+//#undef REGISTER_OPBIN
 
 
 template<typename SCALAR1, typename SCALAR2>
@@ -447,6 +466,12 @@ void opbin_init_registry() {
     register_scalar_opbin<bool, double>();
     register_scalar_opbin<int, double>();
     
+    // 单独为int类型注册位运算（只支持int类型的位运算）
+    opbin_register_func(OpBinType::eBitAnd, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_and_scalar_scalar<int, int>);
+    opbin_register_func(OpBinType::eBitOr, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_or_scalar_scalar<int, int>);
+    opbin_register_func(OpBinType::eBitXor, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_xor_scalar_scalar<int, int>);
+    opbin_register_func(OpBinType::eBitLeftShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_left_shift_scalar_scalar<int, int>);
+    opbin_register_func(OpBinType::eBitRightShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_right_shift_scalar_scalar<int, int>);
 }
 
 // 初始化注册表
@@ -506,6 +531,13 @@ Value* opbin(OpBinType op, Value* left, Value* right)
         return opbin_lt(left, right);
     case OpBinType::eLe:
         return opbin_le(left, right);
+    // 位运算
+    case OpBinType::eBitAnd:
+        return opbin_and(left, right);
+    case OpBinType::eBitOr:
+        return opbin_or(left, right);
+    case OpBinType::eBitXor:
+        return opbin_xor(left, right);
     default:
         aError("Unsupported binary operator: %d", op);
         return nullptr;
