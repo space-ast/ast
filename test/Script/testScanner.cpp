@@ -102,7 +102,7 @@ Expr* parseScriptFromStream(const std::string& filename) {
 TEST(ScannerTest, FileScannerTest) {
     // 创建临时测试文件
     const std::string filename = "test_scanner_file.txt";
-    const std::string content = "123 + 456";
+    const std::string content = "123.0 + 456";
     ASSERT_TRUE(createTestFile(content, filename));
     
     // 通过FileScanner间接测试脚本解析
@@ -122,7 +122,7 @@ TEST(ScannerTest, FileScannerTest) {
 TEST(ScannerTest, FileScannerComplexTest) {
     // 创建包含复杂表达式的临时测试文件
     const std::string filename = "test_scanner_complex.txt";
-    const std::string content = "(10 + 20) * 30 / 5 - 15";
+    const std::string content = "(10.0 + 20) * 30 / 5 - 15.0";
     ASSERT_TRUE(createTestFile(content, filename));
     
     // 通过FileScanner间接测试复杂脚本解析
@@ -142,7 +142,7 @@ TEST(ScannerTest, FileScannerComplexTest) {
 TEST(ScannerTest, StreamScannerTest) {
     // 创建临时测试文件
     const std::string filename = "test_stream_scanner.txt";
-    const std::string content = "789 - 345 * 2";
+    const std::string content = "789.0 - 345 * 2.0";
     ASSERT_TRUE(createTestFile(content, filename));
     
     // 通过StreamScanner间接测试脚本解析
@@ -162,7 +162,7 @@ TEST(ScannerTest, StreamScannerTest) {
 TEST(ScannerTest, StreamScannerComplexTest) {
     // 创建包含复杂表达式的临时测试文件
     const std::string filename = "test_stream_complex.txt";
-    const std::string content = "2^3 + 4 * 5";
+    const std::string content = "2^3 + 4 * 5.0";
     ASSERT_TRUE(createTestFile(content, filename));
     
     // 通过StreamScanner间接测试复杂脚本解析

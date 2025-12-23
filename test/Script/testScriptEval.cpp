@@ -273,4 +273,91 @@ TEST(ScriptEval, EvalComplexExpressions)
     testScriptEvalBool("(1 + 2) > 3 || 5 < 6", true);
 }
 
+// 辅助函数：测试语法错误情况（预期返回nullptr）
+void testScriptEvalSyntaxError(StringView str)
+{
+    printf("testScriptEvalSyntaxError: %s\n", str.to_string().c_str());
+    Value* value = aEval(str);
+    EXPECT_FALSE(value); // 语法错误应该返回nullptr
+    if(value){
+        delete value;
+    }
+}
+
+// 辅助函数：测试运行时错误情况（预期执行时失败）
+void testScriptEvalRuntimeError(StringView str)
+{
+    printf("testScriptEvalRuntimeError: %s\n", str.to_string().c_str());
+    Value* value = aEval(str);
+    // 这些表达式在语法上是正确的，但在运行时会失败
+    // 注意：当前实现中，aEval可能会返回非nullptr但执行时抛出错误
+    // 我们通过检查控制台输出来验证错误发生
+    EXPECT_FALSE(value); // 语法错误应该返回nullptr
+    if(value){
+        delete value;
+    }
+}
+
+// 测试语法错误情况
+TEST(ScriptEval, EvalSyntaxErrors)
+{
+    // 未闭合的括号
+    testScriptEvalSyntaxError("(1 + 2");
+    testScriptEvalSyntaxError("(1 + (2 * 3)");
+    testScriptEvalSyntaxError("1 + (2 * 3");
+    
+    // 多余的括号
+    testScriptEvalSyntaxError("(1 + 2))");
+    
+    // 缺少操作数
+    testScriptEvalSyntaxError("1 +");
+    testScriptEvalSyntaxError("+ 1");
+    testScriptEvalSyntaxError("1 *");
+    testScriptEvalSyntaxError("/ 2");
+    
+    // 无效的操作符组合 - 注意：当前解析器将这些视为有效表达式，但在严格的Julia语法中可能是错误
+    //testScriptEvalSyntaxError("1 ++ 2");  // @fixme 
+    //testScriptEvalSyntaxError("1 -- 2");  // @fixme 
+    
+    // 无效的数字格式
+    testScriptEvalSyntaxError("123abc"); 
+    testScriptEvalSyntaxError("0xGHIJ"); // 无效的十六进制字符
+    testScriptEvalSyntaxError("0b2"); // 二进制中只能包含0和1
+    testScriptEvalSyntaxError("0o8"); // 八进制中只能包含0-7
+    testScriptEvalSyntaxError("1.2.3"); // 多个小数点
+    
+    // 字符串相关错误
+    testScriptEvalSyntaxError("\"unclosed string");
+    testScriptEvalSyntaxError("'single quote string'"); // Julia使用双引号
+    
+    // Julia特定语法错误
+    testScriptEvalSyntaxError("[1, 2, 3"); // 未闭合的数组
+    testScriptEvalSyntaxError("(1, 2"); // 未闭合的元组
+    
+    // 其他语法错误
+    testScriptEvalSyntaxError("!@#$%"); // 无效的符号组合
+    testScriptEvalSyntaxError("0x"); // 十六进制缺少数字
+    testScriptEvalSyntaxError("0b"); // 二进制缺少数字
+    testScriptEvalSyntaxError("0o"); // 八进制缺少数字
+    
+    // 注意：非int类型的移位运算不是语法错误，而是运行时错误
+    // 我们将在EvalRuntimeErrors测试中处理这些情况
+}
+
+// 测试运行时错误情况
+TEST(ScriptEval, EvalRuntimeErrors)
+{
+    // 不支持的运算符 - 非int类型使用移位运算
+    testScriptEvalRuntimeError("1.0 << 2");
+    testScriptEvalRuntimeError("1.5 >> 1");
+    testScriptEvalRuntimeError("3.14159 << 3");
+    testScriptEvalRuntimeError("2.0 << 1.0");
+    
+    // 其他可能不支持的运算符组合
+    testScriptEvalRuntimeError("true << 1");
+    testScriptEvalRuntimeError("false >> 2");
+    testScriptEvalRuntimeError("\"string\" << 1");
+    testScriptEvalRuntimeError("\"string\" + 1");
+}
+
 GTEST_MAIN()
