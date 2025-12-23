@@ -44,9 +44,13 @@ public:
     /// @param visitor 表达式访问者对象
     virtual void accept(ExprVisitor& visitor) = 0;
 
-    /// @brief 求值表达式
+    /// @brief 求值
     /// @return Value* 求值结果
     virtual Value* eval() const = 0;
+
+    /// @brief 执行
+    /// @return Expr* 执行结果
+    virtual Expr* exec() const {return const_cast<Expr*>(this);};
     
     /// @brief 设置表达式的值
     virtual err_t setValue(Value* val) = 0;

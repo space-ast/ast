@@ -42,14 +42,9 @@ public:
     std::string getExpression(Object* object) const override {
         return name_;
     }
-    Value* eval() const override {
-        // @todo 实现符号求值
-        return nullptr;
-    }
-    err_t setValue(Value* value) override {
-        // @todo 实现符号赋值
-        return eErrorReadonly;
-    }
+    Value* eval() const final;
+    Expr* exec() const final;
+    err_t setValue(Value* value) final;
 private:
     std::string name_;
 };

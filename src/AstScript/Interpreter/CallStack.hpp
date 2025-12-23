@@ -1,9 +1,9 @@
 ///
-/// @file      Interpreter.cpp
+/// @file      CallStack.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-23
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,24 +18,17 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Interpreter.hpp"
-#include "ScriptContext.hpp"
+#pragma once
+
+#include "AstGlobal.h"
 
 AST_NAMESPACE_BEGIN
 
 
-Interpreter::~Interpreter()
+class CallStack
 {
-    aScriptContext_RemoveInterpreter(this);
-}
-
-void Interpreter::interpret(StringView code)
-{
-    InterpreterContext _(this);     ///< 解释器上下文守卫
-    
-    
-}
+public:
+    // @todo 实现调用栈相关功能
+};
 
 AST_NAMESPACE_END
-
-

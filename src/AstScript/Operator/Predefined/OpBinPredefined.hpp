@@ -28,8 +28,8 @@ AST_NAMESPACE_BEGIN
 class Value;
 
 
-Value* opbin(OpBinType op, Value* left, Value* right);
+Value* opbin(EOpBinType op, Value* left, Value* right);
 
-OpBinFunc opbin_get_func(OpBinType op, Class* leftType, Class* rightType);
+OpBinFunc opbin_get_func(EOpBinType op, Class* leftType, Class* rightType);
 
 AST_NAMESPACE_END

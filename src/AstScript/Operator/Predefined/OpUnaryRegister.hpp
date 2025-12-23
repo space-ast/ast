@@ -48,7 +48,7 @@ public:
 public:
     OpUnaryRegister() = default;
     ~OpUnaryRegister() = default;
-    void* getFunc(OpUnaryType op, Class* type)
+    void* getFunc(EOpUnaryType op, Class* type)
     {
         auto key = OpUnaryKey{static_cast<int>(op), type};
         auto it = map_.find(key);
@@ -57,7 +57,7 @@ public:
         }
         return it->second;
     }
-    void regFunc(OpUnaryType op, Class* type, void* func)
+    void regFunc(EOpUnaryType op, Class* type, void* func)
     {
         map_[{static_cast<int>(op), type}] = func;
     }

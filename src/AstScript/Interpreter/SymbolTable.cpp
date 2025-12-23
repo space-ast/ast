@@ -1,9 +1,9 @@
 ///
-/// @file      Interpreter.cpp
+/// @file      SymbolTable.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-23
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,24 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Interpreter.hpp"
-#include "ScriptContext.hpp"
+#include "SymbolTable.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-Interpreter::~Interpreter()
-{
-    aScriptContext_RemoveInterpreter(this);
-}
-
-void Interpreter::interpret(StringView code)
-{
-    InterpreterContext _(this);     ///< 解释器上下文守卫
-    
-    
-}
 
 AST_NAMESPACE_END
-
-

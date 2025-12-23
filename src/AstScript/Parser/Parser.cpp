@@ -105,7 +105,7 @@ Expr* Parser::parseAssignExpr()
     if (match(Lexer::eEqual)) {
         Expr* right = parseAssignExpr();
         if (right) {
-            return aNewOpAssign(OpAssignType::eAssign, expr, right);
+            return aNewOpAssign(EOpAssignType::eAssign, expr, right);
         }
         delete expr;
         return nullptr;
@@ -156,7 +156,7 @@ Expr* Parser::parseLogicalOrExpr()
     while (match(Lexer::eOrOr)) {
         Expr* right = parseLogicalAndExpr();
         if (right) {
-            expr = aNewOpBin(OpBinType::eOr, expr, right);
+            expr = aNewOpBin(EOpBinType::eOr, expr, right);
         } else {
             delete expr;
             return nullptr;
@@ -174,7 +174,7 @@ Expr* Parser::parseLogicalAndExpr()
     while (match(Lexer::eAndAnd)) {
         Expr* right = parseBitwiseOrExpr();
         if (right) {
-            expr = aNewOpBin(OpBinType::eAnd, expr, right);
+            expr = aNewOpBin(EOpBinType::eAnd, expr, right);
         } else {
             delete expr;
             return nullptr;
@@ -191,7 +191,7 @@ Expr* Parser::parseBitwiseOrExpr()
     while (match(Lexer::ePipe)) {
         Expr* right = parseBitwiseXorExpr();
         if (right) {
-            expr = aNewOpBin(OpBinType::eBitOr, expr, right);
+            expr = aNewOpBin(EOpBinType::eBitOr, expr, right);
         } else {
             delete expr;
             return nullptr;
@@ -209,7 +209,7 @@ Expr* Parser::parseBitwiseXorExpr()
         if (match(Lexer::eXor)) {
             Expr* right = parseBitwiseAndExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eBitXor, expr, right);
+                expr = aNewOpBin(EOpBinType::eBitXor, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -230,7 +230,7 @@ Expr* Parser::parseBitwiseAndExpr()
         if (match(Lexer::eAmpersand)) {
             Expr* right = parseEqualityExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eBitAnd, expr, right);
+                expr = aNewOpBin(EOpBinType::eBitAnd, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -252,7 +252,7 @@ Expr* Parser::parseEqualityExpr()
         if (match(Lexer::eEqualEqual)) {
             Expr* right = parseRelationalExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eEq, expr, right);
+                expr = aNewOpBin(EOpBinType::eEq, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -260,7 +260,7 @@ Expr* Parser::parseEqualityExpr()
         } else if (match(Lexer::eBangEqual)) {
             Expr* right = parseRelationalExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eNe, expr, right);
+                expr = aNewOpBin(EOpBinType::eNe, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -282,7 +282,7 @@ Expr* Parser::parseRelationalExpr()
         if (match(Lexer::eLess)) {
             Expr* right = parseShiftExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eLt, expr, right);
+                expr = aNewOpBin(EOpBinType::eLt, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -290,7 +290,7 @@ Expr* Parser::parseRelationalExpr()
         } else if (match(Lexer::eLessEqual)) {
             Expr* right = parseShiftExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eLe, expr, right);
+                expr = aNewOpBin(EOpBinType::eLe, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -298,7 +298,7 @@ Expr* Parser::parseRelationalExpr()
         } else if (match(Lexer::eGreater)) {
             Expr* right = parseShiftExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eGt, expr, right);
+                expr = aNewOpBin(EOpBinType::eGt, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -306,7 +306,7 @@ Expr* Parser::parseRelationalExpr()
         } else if (match(Lexer::eGreaterEqual)) {
             Expr* right = parseShiftExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eGe, expr, right);
+                expr = aNewOpBin(EOpBinType::eGe, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -328,7 +328,7 @@ Expr* Parser::parseShiftExpr()
         if (match(Lexer::eLessLess)) {
             Expr* right = parseAdditiveExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eBitLeftShift, expr, right);
+                expr = aNewOpBin(EOpBinType::eBitLeftShift, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -336,7 +336,7 @@ Expr* Parser::parseShiftExpr()
         } else if (match(Lexer::eGreaterGreater)) {
             Expr* right = parseAdditiveExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eBitRightShift, expr, right);
+                expr = aNewOpBin(EOpBinType::eBitRightShift, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -344,7 +344,7 @@ Expr* Parser::parseShiftExpr()
         } else if (match(Lexer::eGreaterGreaterGreater)) {
             Expr* right = parseAdditiveExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eBitURightShift, expr, right);
+                expr = aNewOpBin(EOpBinType::eBitURightShift, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -366,7 +366,7 @@ Expr* Parser::parseAdditiveExpr()
         if (match(Lexer::ePlus)) {
             Expr* right = parseMultiplicativeExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eAdd, expr, right);
+                expr = aNewOpBin(EOpBinType::eAdd, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -374,7 +374,7 @@ Expr* Parser::parseAdditiveExpr()
         } else if (match(Lexer::eMinus)) {
             Expr* right = parseMultiplicativeExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eSub, expr, right);
+                expr = aNewOpBin(EOpBinType::eSub, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -396,7 +396,7 @@ Expr* Parser::parseMultiplicativeExpr()
         if (match(Lexer::eStar)) {
             Expr* right = parseExponentiationExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eMul, expr, right);
+                expr = aNewOpBin(EOpBinType::eMul, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -404,7 +404,7 @@ Expr* Parser::parseMultiplicativeExpr()
         } else if (match(Lexer::eSlash)) {
             Expr* right = parseExponentiationExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eDiv, expr, right);
+                expr = aNewOpBin(EOpBinType::eDiv, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -412,7 +412,7 @@ Expr* Parser::parseMultiplicativeExpr()
         } else if (match(Lexer::ePercent)) {
             Expr* right = parseExponentiationExpr();
             if (right) {
-                expr = aNewOpBin(OpBinType::eMod, expr, right);
+                expr = aNewOpBin(EOpBinType::eMod, expr, right);
             } else {
                 delete expr;
                 return nullptr;
@@ -433,7 +433,7 @@ Expr* Parser::parseExponentiationExpr()
     if (match(Lexer::eCaret)) {
         Expr* right = parseExponentiationExpr();
         if (right) {
-            return aNewOpBin(OpBinType::ePow, expr, right);
+            return aNewOpBin(EOpBinType::ePow, expr, right);
         } else {
             delete expr;
             return nullptr;
@@ -449,19 +449,19 @@ Expr* Parser::parseUnaryExpr()
     if (match(Lexer::eMinus)) {
         Expr* expr = parseUnaryExpr();
         if (expr) {
-            return aNewOpUnary(OpUnaryType::eNeg, expr);
+            return aNewOpUnary(EOpUnaryType::eNeg, expr);
         }
         return nullptr;
     } else if (match(Lexer::eBang)) {
         Expr* expr = parseUnaryExpr();
         if (expr) {
-            return aNewOpUnary(OpUnaryType::eNot, expr);
+            return aNewOpUnary(EOpUnaryType::eNot, expr);
         }
         return nullptr;
     } else if (match(Lexer::eTilde)) {
         Expr* expr = parseUnaryExpr();
         if (expr) {
-            return aNewOpUnary(OpUnaryType::eBitNot, expr);
+            return aNewOpUnary(EOpUnaryType::eBitNot, expr);
         }
         return nullptr;
     }

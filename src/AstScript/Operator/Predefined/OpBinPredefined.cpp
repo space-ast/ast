@@ -381,7 +381,7 @@ OpBinRegistry& get_opbin_registry() {
 //  @param leftType 左运算数类型
 //  @param rightType 右运算数类型
 //  @param func 运算函数指针
-void opbin_register_func(OpBinType op, Class* leftType, Class* rightType, OpBinFunc func) {
+void opbin_register_func(EOpBinType op, Class* leftType, Class* rightType, OpBinFunc func) {
     static_assert(sizeof(OpBinFunc) == sizeof(void*), "OpBinFunc size must be equal to void* size");
     get_opbin_registry().regFunc(op, leftType, rightType, (void*)func);
 }
@@ -391,7 +391,7 @@ void opbin_register_func(OpBinType op, Class* leftType, Class* rightType, OpBinF
 //  @param leftType 左运算数类型
 //  @param rightType 右运算数类型
 //  @return 运算函数指针
-OpBinFunc opbin_get_func(OpBinType op, Class* leftType, Class* rightType) 
+OpBinFunc opbin_get_func(EOpBinType op, Class* leftType, Class* rightType) 
 {
     static_assert(sizeof(OpBinFunc) == sizeof(void*), "OpBinFunc size must be equal to void* size");
     return (OpBinFunc)get_opbin_registry().getFunc(op, leftType, rightType);
@@ -412,7 +412,7 @@ Class* aValueType<bool>() { return &aValBool_Type; }
 
 // 注册标量类型运算函数
 #define REGISTER_OPBIN(op, left_type, right_type, func) \
-    opbin_register_func(OpBinType::op, left_type, right_type, (OpBinFunc)func)
+    opbin_register_func(EOpBinType::op, left_type, right_type, (OpBinFunc)func)
 
 template<typename SCALAR1, typename SCALAR2>
 void _register_scalar_opbin()
@@ -468,11 +468,11 @@ void opbin_init_registry() {
     register_scalar_opbin<int, double>();
     
     // 单独为int类型注册位运算（只支持int类型的位运算）
-    opbin_register_func(OpBinType::eBitAnd, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_and_scalar_scalar<int, int>);
-    opbin_register_func(OpBinType::eBitOr, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_or_scalar_scalar<int, int>);
-    opbin_register_func(OpBinType::eBitXor, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_xor_scalar_scalar<int, int>);
-    opbin_register_func(OpBinType::eBitLeftShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_left_shift_scalar_scalar<int, int>);
-    opbin_register_func(OpBinType::eBitRightShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_right_shift_scalar_scalar<int, int>);
+    opbin_register_func(EOpBinType::eBitAnd, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_and_scalar_scalar<int, int>);
+    opbin_register_func(EOpBinType::eBitOr, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_or_scalar_scalar<int, int>);
+    opbin_register_func(EOpBinType::eBitXor, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_xor_scalar_scalar<int, int>);
+    opbin_register_func(EOpBinType::eBitLeftShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_left_shift_scalar_scalar<int, int>);
+    opbin_register_func(EOpBinType::eBitRightShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_right_shift_scalar_scalar<int, int>);
 }
 
 // 初始化注册表
@@ -487,7 +487,7 @@ auto __opbin_registry_initializer = []() -> bool {
 //  @param left 左运算数
 //  @param right 右运算数
 //  @return 运算结果
-Value* opbin(OpBinType op, Value* left, Value* right)
+Value* opbin(EOpBinType op, Value* left, Value* right)
 {
     // 首先检查输入是否有效
     if (!left || !right) {
