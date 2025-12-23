@@ -24,7 +24,7 @@
 #include "Op.hpp"
 #include "AstScript/ScriptAPI.hpp"
 #include <atomic>
-#include <mutex>s
+#include <mutex>
 
 AST_NAMESPACE_BEGIN
 
