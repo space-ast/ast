@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #ifdef __cplusplus 
 #   include <memory>           // for std::unique_ptr
 #   include <algorithm>        // for std::fill_n

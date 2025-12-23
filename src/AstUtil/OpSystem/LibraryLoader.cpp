@@ -1,4 +1,4 @@
-﻿/// @file      LibraryLoader.cpp
+/// @file      LibraryLoader.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

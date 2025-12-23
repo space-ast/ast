@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      GeocentricPoint.hpp
 /// @brief     ~
 /// @details   ~

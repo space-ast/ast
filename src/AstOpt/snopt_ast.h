@@ -1,4 +1,4 @@
-﻿/* Josh Griffin ... modeled after npsol.h written by           */
+/* Josh Griffin ... modeled after npsol.h written by           */
 /* Mike Gertz - 2-Aug-98                                       */
 /* Function prototypes for functions in the snopt distribution */
 

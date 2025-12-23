@@ -1,4 +1,4 @@
-﻿/// @file      UnitParser.cpp
+/// @file      UnitParser.cpp
 /// @brief     单位解析器实现，使用递归下降方法
 /// @details   解析复合单位表达式，支持乘除运算（左结合）和指数运算（右结合）
 /// @author    jinke18
@@ -37,7 +37,7 @@ AST_NAMESPACE_BEGIN
  * BasicUnit → [a-zA-Z][a-zA-Z0-9]*
  */
 
-
+namespace{
 /// @brief 解析器上下文
 class ParserContext
 {
@@ -112,6 +112,7 @@ private:
     const char* begin_;
     const char* end_;
 };
+}
 
 /// @brief 检查字符是否为字母或数字
 static bool isAlphanumeric(char c)
@@ -270,18 +271,25 @@ static err_t parseFactor(ParserContext& ctx, Unit& unit)
         
         // 应用指数
         unit = unit.pow(exponent);
-    }else if(ctx.peek() == (aText("⁰")[0]) || ctx.peek() == (aText("¹")[0]) || ctx.peek() == (aText("⁻")[0]))
+    }
+    // else if(ctx.peek() == (aText("⁰")[0]) || ctx.peek() == (aText("¹")[0]) || ctx.peek() == (aText("⁻")[0]))
+    else if(ctx.peek() == (aText("\u2070")[0]) || ctx.peek() == (aText("\u00b9")[0]) || ctx.peek() == (aText("\u207b")[0]))
     {
         int sign = 1;
-        if (ctx.match(aText("⁻")))
+        // if (ctx.match(aText("⁻"))) 
+        if (ctx.match(aText("\u207b")))
         {
             sign = -1;
         }
 
         static const char *number_to_superscript[] =
         {
+            aText("\u2070"), aText("\u00b9"), aText("\u00b2"), aText("\u00b3"), aText("\u2074"), 
+            aText("\u2075"), aText("\u2076"), aText("\u2077"), aText("\u2078"), aText("\u2079"),
+            /*
             aText("⁰"), aText("¹"), aText("²"), aText("³"), aText("⁴"), 
             aText("⁵"), aText("⁶"), aText("⁷"), aText("⁸"), aText("⁹")
+            */
         };
         for (int i = 0; i < 10; ++i)
         {
@@ -319,7 +327,8 @@ static err_t parseTerm(ParserContext& ctx, Unit& unit)
         }
         
         char op = ctx.peek();
-        if (ctx.match("*") || ctx.match("/") || ctx.match(aText("·")))
+        // if (ctx.match("*") || ctx.match("/") || ctx.match(aText("·")))
+        if (ctx.match("*") || ctx.match("/") || ctx.match(aText("\u00b7")))
         {
             // 解析右侧的因子
             Unit right;

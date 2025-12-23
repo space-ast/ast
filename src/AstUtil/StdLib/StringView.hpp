@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      StringView.hpp
 /// @brief     
 /// @details   ~

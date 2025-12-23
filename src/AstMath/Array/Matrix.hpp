@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Matrix.hpp
 /// @brief     
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      SharedPtr.hpp
 /// @brief     共享指针
 /// @details   与std::shared_ptr功能类似
@@ -72,6 +72,15 @@ public:
     _Object* get() const
     {
         return m_object;
+    }
+    _Object* take()
+    {
+        _Object* obj = m_object;
+        if(obj){
+            obj->decRefNoDelete();
+            m_object = nullptr;
+        }
+        return obj;
     }
 protected:
     void _incRef()

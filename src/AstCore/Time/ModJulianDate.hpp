@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      ModJulianDate.hpp
 /// @brief     
 /// @details   ~

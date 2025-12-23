@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      LeapSecond.hpp
 /// @brief     
 /// @details   ~

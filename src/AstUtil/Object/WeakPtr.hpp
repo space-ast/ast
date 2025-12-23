@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      WeakPtr.hpp
 /// @brief     弱引用指针
 /// @details   与std::weak_ptr功能类型

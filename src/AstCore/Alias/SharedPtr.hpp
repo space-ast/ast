@@ -1,1 +1,1 @@
-﻿#include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/SharedPtr.hpp"

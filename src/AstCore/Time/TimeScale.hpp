@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      TimeScale.hpp
 /// @brief     
 /// @details   ~

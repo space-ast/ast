@@ -1,4 +1,4 @@
-﻿/// @file      GlobalContext.cpp
+/// @file      GlobalContext.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

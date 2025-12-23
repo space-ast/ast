@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      AstCoreC.h
 /// @brief     AstCore的C语言接口，确保与C++的实现二进制兼容
 /// @details   因为CAPI使用较少，该文件不会包含所有功能，只会按需增加

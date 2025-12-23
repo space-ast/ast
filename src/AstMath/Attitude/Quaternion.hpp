@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Quaternion.hpp
 /// @brief     
 /// @details   ~

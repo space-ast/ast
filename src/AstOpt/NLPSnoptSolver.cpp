@@ -1,4 +1,4 @@
-﻿/// @file      NLPSnoptSolver.cpp
+/// @file      NLPSnoptSolver.cpp
 /// @brief     
 /// @details   ~
 /// @author    jinke18

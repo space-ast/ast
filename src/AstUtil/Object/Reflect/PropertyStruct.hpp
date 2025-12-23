@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      PropertyStruct.hpp
 /// @brief     ~
 /// @details   ~

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      GeoCoordinate.hpp
 /// @brief     ~
 /// @details   ~

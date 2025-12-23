@@ -51,6 +51,7 @@
 #define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
 // #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
 // #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
+// #define AST_ENABLE_REDUNDANT                  // 是否启用冗余功能
 
 // #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
 // #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
@@ -83,7 +84,7 @@
 
 
 // AST 对象运行时元信息
-#define AST_OBJECT(TYPE) // @todo
+#define AST_OBJECT(TYPE) Class* staticType();
 
 #ifdef AST_PROPERTIES_MARK
 #   define AST_PROPERTIES AST_PROPERTIES_MARK public
@@ -97,6 +98,15 @@
 // 当前ast项目内部运行时采用utf-8编码，所有字符串字面量都需要在编译时转换为utf-8编码
 // 但是考虑到为了有可能会采用其他编码，例如utf-16等，所以这里保留宏定义
 #define aText(x) u8 ## x
+
+
+// ast项目脚本模块导出声明
+#ifdef AST_BUILD_LIB_SCRIPT
+#    define AST_SCRIPT_API A_DECL_EXPORT
+#else
+#    define AST_SCRIPT_API A_DECL_IMPORT
+#endif
+#define AST_SCRIPT_CAPI A_DECL_EXTERN_C AST_SCRIPT_API
 
 
 // ast项目核心模块导出声明
@@ -153,6 +163,7 @@ typedef enum EError
     eErrorNotInit,      ///< 没有初始化
     eErrorInvalidFile,  ///< 文件格式错误
     eErrorParse,        ///< 解析错误
+    eErrorReadonly,     ///< 只读属性
 } AEError;
 
 

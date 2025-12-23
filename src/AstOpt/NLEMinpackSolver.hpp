@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      NLEMinpackSolver.hpp
 /// @brief     
 /// @details   ~

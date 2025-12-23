@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      Encode.hpp
 /// @brief     
 /// @details   ~
