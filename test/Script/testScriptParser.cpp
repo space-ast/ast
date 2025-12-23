@@ -19,10 +19,75 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstScript/ScriptAPI.hpp"
+#include "AstScript/Parser.hpp"
+#include "AstScript/Lexer.hpp"
+#include "AstScript/Scanner.hpp"
 #include "AstTest/AstTestMacro.h"
 #include "AstUtil/StringView.hpp"
 
 AST_USING_NAMESPACE
+
+/// @brief 创建临时测试文件
+/// @param content 文件内容
+/// @param filename 文件名
+/// @return 是否创建成功
+bool createTestFile(StringView content, StringView filename) {
+    std::ofstream file(filename.data());
+    if (!file.is_open()) {
+        return false;
+    }
+    file << content;
+    file.close();
+    return true;
+}
+
+/// @brief 删除临时测试文件
+/// @param filename 文件名
+void deleteTestFile(StringView filename) {
+    std::remove(filename.data());
+}
+
+
+Expr* parseByFileScanner(StringView str)
+{
+    const std::string filename = "test_parser_file.txt";
+    EXPECT_TRUE(createTestFile(str, filename));
+    FILE* file = std::fopen(filename.c_str(), "r");
+    FileScanner scanner(file);
+    Lexer lexer(&scanner);
+    Parser parser(lexer);
+    
+    auto expr = parser.parseExpression();
+    // 检查是否解析到文件末尾
+    if (expr && parser.currentTokenType() != Lexer::eEndOfFile) {
+        delete expr;
+        expr = nullptr;
+    }
+    std::fclose(file);
+    deleteTestFile(filename);
+    return expr;
+}
+
+
+Expr* parseByStreamScanner(StringView str)
+{
+    const std::string filename = "test_parser_file.txt";
+    EXPECT_TRUE(createTestFile(str, filename));
+    std::fstream file(filename);
+    StreamScanner scanner(file);
+    Lexer lexer(&scanner);
+    Parser parser(lexer);
+    
+    auto expr = parser.parseExpression();
+    // 检查是否解析到文件末尾
+    if (expr && parser.currentTokenType() != Lexer::eEndOfFile) {
+        delete expr;
+        expr = nullptr;
+    }
+    file.close();
+    deleteTestFile(filename);
+    return expr;
+}
 
 void testScriptParser(StringView str)
 {
@@ -34,16 +99,39 @@ void testScriptParser(StringView str)
         std::cout << "1st Parsed expression: " << exprStr << std::endl;
         delete expr;
         {
-		Expr* expr2 = aParseExpr(exprStr);
-		EXPECT_NE(expr2, nullptr);
+		    Expr* expr2 = aParseExpr(exprStr);
+		    EXPECT_NE(expr2, nullptr);
             if (expr2) {
                 std::string exprStr2 = aFormatExpr(expr2);
                 std::cout << "2nd Parsed expression: " <<  exprStr2 << std::endl;
                 EXPECT_EQ(exprStr, exprStr2);
-		delete expr2;
+	            delete expr2;
+            }else {
+	            std::cout << "Failed to re-parse expression." << std::endl;
             }
-            else {
-		std::cout << "Failed to re-parse expression." << std::endl;
+        }
+        {
+            Expr* expr3 = parseByFileScanner(exprStr);
+            EXPECT_NE(expr3, nullptr);
+            if (expr3) {
+                std::string exprStr3 = aFormatExpr(expr3);
+                std::cout << "3rd Parsed expression: " <<  exprStr3 << std::endl;
+                EXPECT_EQ(exprStr, exprStr3);
+                delete expr3;
+            }else {
+                std::cout << "Failed to re-parse expression." << std::endl;
+            }
+        }
+        {
+            Expr* expr4 = parseByStreamScanner(exprStr);
+            EXPECT_NE(expr4, nullptr);
+            if (expr4) {
+                std::string exprStr4 = aFormatExpr(expr4);
+                std::cout << "4th Parsed expression: " <<  exprStr4 << std::endl;
+                EXPECT_EQ(exprStr, exprStr4);
+                delete expr4;
+            }else {
+                std::cout << "Failed to re-parse expression." << std::endl;
             }
         }
     } else {
@@ -131,10 +219,12 @@ TEST(ScriptParser, BitwiseExpression)
     testScriptParser("~7");
     testScriptParser("8 << 2");
     testScriptParser("16 >> 1");
+    testScriptParser("16 >>> 1");
     
     // 复合按位表达式
     testScriptParser("(1 & 2) | (3 & 4)");
     testScriptParser("8 << 2 >> 1");
+    testScriptParser("8 << 2 >>> 1");
 }
 
 TEST(ScriptParser, LiteralExpression)
@@ -354,7 +444,107 @@ TEST(ScriptParser, InvalidSyntax)
     testInvalidScriptParser("1 2"); // 两个数值之间没有运算符
     testInvalidScriptParser("x y"); // 两个变量之间没有运算符
     // testInvalidScriptParser("""多引号字符串"""); // 不支持的多行字符串语法 (注释掉，因为C++不支持三引号)
+    
+    // 测试数值超出int范围的情况
+    testInvalidScriptParser("2147483648"); // int最大值+1
+    testInvalidScriptParser("-2147483649"); // int最小值-1
+    testInvalidScriptParser("0x80000000"); // 十六进制超出int范围
+    testInvalidScriptParser("0b10000000000000000000000000000000"); // 二进制超出int范围
+    testInvalidScriptParser("0o20000000000"); // 八进制超出int范围
 }
 
+// 测试条件表达式的异常分支
+TEST(ScriptParser, ConditionalExpressionError) {
+    // 缺少冒号和else分支
+    testInvalidScriptParser("true ? 1");
+    testInvalidScriptParser("x > y ? ");
+    testInvalidScriptParser("(1 + 2) ? ");
+    
+    // then分支解析失败
+    testInvalidScriptParser("true ? +");
+    testInvalidScriptParser("false ? (1 + ");
+    
+    // else分支解析失败
+    testInvalidScriptParser("true ? 1 : +");
+    testInvalidScriptParser("x == y ? 2 : (3 + ");
+}
+
+// 测试二元表达式的异常分支
+TEST(ScriptParser, BinaryExpressionError) {
+    // 加法右侧解析失败
+    testInvalidScriptParser("1 +");
+    testInvalidScriptParser("2 + +");
+    
+    // 乘法右侧解析失败
+    testInvalidScriptParser("3 *");
+    testInvalidScriptParser("4 * (");
+    
+    // 除法右侧解析失败
+    testInvalidScriptParser("5 /");
+    testInvalidScriptParser("6 / (");
+    
+    // 幂运算右侧解析失败
+    testInvalidScriptParser("7 ^");
+    testInvalidScriptParser("8 ^ +");
+    
+    // 比较运算右侧解析失败
+    testInvalidScriptParser("9 <");
+    testInvalidScriptParser("10 > (");
+    
+    // 逻辑运算右侧解析失败
+    testInvalidScriptParser("true &&");
+    testInvalidScriptParser("false || (");
+    
+    // 位运算右侧解析失败
+    testInvalidScriptParser("11 &");
+    testInvalidScriptParser("12 | +");
+}
+
+// 测试一元表达式的异常分支
+TEST(ScriptParser, UnaryExpressionError) {
+    // 负号后面没有表达式
+    testInvalidScriptParser("-");
+    testInvalidScriptParser("--");
+    
+    // 逻辑非后面没有表达式
+    testInvalidScriptParser("!");
+    testInvalidScriptParser("!!");
+    
+    // 按位非后面没有表达式
+    testInvalidScriptParser("~");
+    testInvalidScriptParser("~~");
+    
+    // 一元运算符后面解析失败
+    testInvalidScriptParser("-(+");
+    testInvalidScriptParser("!(1 +");
+    testInvalidScriptParser("~(");
+}
+
+// 测试赋值表达式的异常分支
+TEST(ScriptParser, AssignmentExpressionError) {
+    // 赋值右侧解析失败
+    testInvalidScriptParser("x =");
+    testInvalidScriptParser("y = +");
+    testInvalidScriptParser("z = (");
+    
+    // 复合赋值解析失败
+    testInvalidScriptParser("x = 1 +");
+    testInvalidScriptParser("y = (1 + ");
+    testInvalidScriptParser("z = x +");
+}
+
+// 测试括号表达式的异常分支
+TEST(ScriptParser, ParenthesisExpressionError) {
+    // 缺少右括号
+    testInvalidScriptParser("(");
+    testInvalidScriptParser("(1");
+    testInvalidScriptParser("(1 + 2");
+    testInvalidScriptParser("((1 + 2)");
+    
+    // 括号内解析失败
+    testInvalidScriptParser("(+");
+    testInvalidScriptParser("(1 +");
+    testInvalidScriptParser("((1 +");
+}
 
 GTEST_MAIN()

@@ -220,7 +220,7 @@ bool Lexer::isDigit(char c) const
 {
     return c >= '0' && c <= '9';
 }
-
+#ifdef AST_ENABLE_REDUNDANT
 /// @brief 检查当前字符是否是空白字符
 bool Lexer::isWhitespace(char c) const
 {
@@ -245,6 +245,7 @@ int Lexer::parseIdentifier()
     
     return Lexer::eIdentifier;
 }
+#endif
 
 /// @brief 检查当前字符是否是十六进制数字
 bool isHexDigit(char c) 
