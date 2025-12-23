@@ -27,7 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 脚本语法解析器
-class Parser
+class AST_SCRIPT_API Parser
 {
 public:
     Parser(Lexer& lexer);

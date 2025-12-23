@@ -34,20 +34,34 @@ void testScriptParser(StringView str)
         std::cout << "1st Parsed expression: " << exprStr << std::endl;
         delete expr;
         {
-			Expr* expr2 = aParseExpr(exprStr);
-			EXPECT_NE(expr2, nullptr);
+		Expr* expr2 = aParseExpr(exprStr);
+		EXPECT_NE(expr2, nullptr);
             if (expr2) {
                 std::string exprStr2 = aFormatExpr(expr2);
                 std::cout << "2nd Parsed expression: " <<  exprStr2 << std::endl;
                 EXPECT_EQ(exprStr, exprStr2);
-				delete expr2;
+		delete expr2;
             }
             else {
-				std::cout << "Failed to re-parse expression." << std::endl;
+		std::cout << "Failed to re-parse expression." << std::endl;
             }
         }
     } else {
         std::cout << "Failed to parse expression." << std::endl;
+    }
+}
+
+// 测试无效语法，应该解析失败
+void testInvalidScriptParser(StringView str)
+{
+    Expr* expr = aParseExpr(str);
+    EXPECT_EQ(expr, nullptr);
+    std::cout << "Invalid input expression: " << str << std::endl;
+    if (expr) {
+        std::cout << "ERROR: Should have failed to parse!" << std::endl;
+        delete expr;
+    } else {
+        std::cout << "OK: Correctly failed to parse invalid expression" << std::endl;
     }
 }
 
@@ -131,6 +145,17 @@ TEST(ScriptParser, LiteralExpression)
     testScriptParser("-123");
     testScriptParser("3.14159");
     
+    // 数值字面量边界情况
+    testScriptParser("0.0");
+    testScriptParser("-0.0");
+    testScriptParser("1.0");
+    testScriptParser("-1.0");
+    testScriptParser("1e10");
+    testScriptParser("1e-10");
+    testScriptParser("1.5e3");
+    testScriptParser("-1.5e3");
+    testScriptParser("1.5e-3");
+    
     // 十六进制整数
     testScriptParser("0x0");
     testScriptParser("0x10");
@@ -138,6 +163,8 @@ TEST(ScriptParser, LiteralExpression)
     testScriptParser("0xEF");
     testScriptParser("0xEe");
     testScriptParser("0xabc");
+    testScriptParser("0xABC");
+    testScriptParser("0x1A2B3C");
     // testScriptParser("0x123456789ABCDEF"); // @fixme 超出int范围，需要处理这种情况
     
     // 二进制整数
@@ -146,6 +173,8 @@ TEST(ScriptParser, LiteralExpression)
     testScriptParser("0b1010");
     testScriptParser("0b1111");
     testScriptParser("0b10000000");
+    testScriptParser("0b11111111");
+    testScriptParser("0b100000000000");
     
     // 八进制整数，参照Julia语法
     testScriptParser("0o0");
@@ -155,11 +184,14 @@ TEST(ScriptParser, LiteralExpression)
     testScriptParser("0o100");
     testScriptParser("0o777");
     testScriptParser("0o123");
+    testScriptParser("0o345");
     // testScriptParser("0Oabc"); // 这应该会失败，因为八进制只能包含0-7
     
     // 字符串字面量
     testScriptParser("\"hello\"");
     testScriptParser("\"world\"");
+    testScriptParser("\"\"" ); // 空字符串
+    testScriptParser("\"a\""); // 单字符字符串
     
     // 布尔字面量
     testScriptParser("true");
@@ -175,6 +207,21 @@ TEST(ScriptParser, AssignmentExpression)
     testScriptParser("x = 10");
     testScriptParser("y = x + 5");
     testScriptParser("z = (a + b) * c");
+    testScriptParser("a = b = c = 10");
+    testScriptParser("x = y + z * a");
+    testScriptParser("x = (y + z) * a");
+    testScriptParser("x = y ? z : a");
+    testScriptParser("x = y && z");
+    testScriptParser("x = y || z");
+    testScriptParser("x = y & z");
+    testScriptParser("x = y | z");
+    testScriptParser("x = y << z");
+    testScriptParser("x = y >> z");
+    testScriptParser("x = y ^ z");
+    testScriptParser("x = y % z");
+    testScriptParser("x = -y");
+    testScriptParser("x = ~y");
+    testScriptParser("x = !y");
 }
 
 TEST(ScriptParser, ConditionalExpression)
@@ -194,6 +241,119 @@ TEST(ScriptParser, ComplexExpression)
     testScriptParser("true && (x == 10) ? \"valid\" : \"invalid\"");
     testScriptParser("(1 + 2 * 3 - 4) / 5 && 6 < 7");
     testScriptParser("!(x == 10) || (y != 20) && true");
+    
+    // 运算符优先级边界情况
+    testScriptParser("-a + b");
+    testScriptParser("-a * b");
+    testScriptParser("a + b * c + d");
+    testScriptParser("a * b + c * d");
+    testScriptParser("a && b || c && d");
+    testScriptParser("a || b && c || d");
+    testScriptParser("a == b && c != d");
+    testScriptParser("a < b || c > d");
+    testScriptParser("a & b | c & d");
+    testScriptParser("a | b & c | d");
+    testScriptParser("a << b >> c");
+    testScriptParser("a + b << c - d");
+    
+    // 复杂嵌套表达式
+    testScriptParser("(a + (b * (c - d))) / (e + f)");
+    testScriptParser("((a > b) ? (c + d) : (e - f)) * g");
+    testScriptParser("!(a == b || c != d) && e < f");
+    testScriptParser("a ^ (b * c) + d");
+    testScriptParser("(a & b) << (c | d)");
+}
+
+TEST(ScriptParser, InvalidSyntax)
+{
+    // 不完整的表达式
+    testInvalidScriptParser("1 +");
+    testInvalidScriptParser("(1 + 2");
+    testInvalidScriptParser("1 ? 2");
+    testInvalidScriptParser("1 ? : 2");
+    testInvalidScriptParser("? 1 : 2");
+    testInvalidScriptParser("1 + (2 * 3");
+    testInvalidScriptParser("1 + 2 *");
+    testInvalidScriptParser("x = ");
+    
+    // 无效的运算符使用
+    testInvalidScriptParser("1 + * 2");
+    testInvalidScriptParser("1 == = 2");
+    testInvalidScriptParser("1 + = 2");
+    testInvalidScriptParser("1 ^ ^ 2");
+    testInvalidScriptParser("1 & | 2");
+    testInvalidScriptParser("1 && || 2");
+    testInvalidScriptParser("1 << >> 2");
+    testInvalidScriptParser("1 +++ 2");
+    // testInvalidScriptParser("1 -- 2"); // Julia中这是有效的（递减运算符）
+    
+    // 无效的字面量
+    testInvalidScriptParser("0xG"); // 十六进制包含无效字符
+    testInvalidScriptParser("0x"); // 空的十六进制
+    testInvalidScriptParser("0b2"); // 二进制包含无效字符
+    testInvalidScriptParser("0b"); // 空的二进制
+    testInvalidScriptParser("0o8"); // 八进制包含无效字符
+    testInvalidScriptParser("0o"); // 空的八进制
+    testInvalidScriptParser("123."); // 不完整的浮点数
+    testInvalidScriptParser("1..2"); // 无效的浮点数
+    testInvalidScriptParser("0x123456789ABCDEF0G"); // 超长十六进制包含无效字符
+    testInvalidScriptParser("0xH");
+    testInvalidScriptParser("0bA");
+    testInvalidScriptParser("0o9");
+    // testInvalidScriptParser("1e"); // Julia中这是有效的（科学计数法的简写形式）
+    // testInvalidScriptParser("1e+"); // Julia中这是有效的
+    // testInvalidScriptParser("1e-"); // Julia中这是有效的
+    testInvalidScriptParser("1.2.3"); // 多个小数点
+    
+    // 无效的标识符
+    testInvalidScriptParser("1var = 10"); // 以数字开头的变量名
+    testInvalidScriptParser("var name = 10"); // 包含空格的变量名
+    testInvalidScriptParser("var@name = 10"); // 包含特殊字符的变量名
+    // testInvalidScriptParser("var-name = 10"); // Julia中允许连字符作为变量名
+    // testInvalidScriptParser("var/name = 10"); // Julia中这被解析为除法表达式
+    // testInvalidScriptParser("var%name = 10"); // Julia中这被解析为取模表达式
+    // testInvalidScriptParser("var^name = 10"); // Julia中这被解析为乘方表达式
+    // testInvalidScriptParser("var&name = 10"); // Julia中这被解析为按位与表达式
+    // testInvalidScriptParser("var|name = 10"); // Julia中这被解析为按位或表达式
+    testInvalidScriptParser("var~name = 10"); // 包含取反运算符的变量名
+    // testInvalidScriptParser("var<name = 10"); // Julia中这被解析为小于表达式
+    // testInvalidScriptParser("var>name = 10"); // Julia中这被解析为大于表达式
+    // testInvalidScriptParser("var=name = 10"); // Julia中这被解析为赋值表达式
+    testInvalidScriptParser("var!name = 10"); // 包含感叹号的变量名
+    testInvalidScriptParser("var?name = 10"); // 包含问号的变量名
+    testInvalidScriptParser("var:name = 10"); // 包含冒号的变量名
+    testInvalidScriptParser("var,name = 10"); // 包含逗号的变量名
+    testInvalidScriptParser("var;name = 10"); // 包含分号的变量名
+    // testInvalidScriptParser("var*name = 10"); // Julia中这被解析为乘法表达式
+    // testInvalidScriptParser("var+name = 10"); // Julia中这被解析为加法表达式
+    // testInvalidScriptParser("var.name = 10"); // Julia中这被解析为点操作表达式
+    
+    // 无效的字符串
+    testInvalidScriptParser("\"未闭合的字符串");
+    testInvalidScriptParser("'单引号字符串'"); // Julia使用双引号
+    testInvalidScriptParser("\"字符串\"中\"的\"引号"); // 未转义的引号
+    
+    // 括号不匹配
+    testInvalidScriptParser("(1 + 2))"); // 多余的右括号
+    testInvalidScriptParser("((1 + 2)"); // 多余的左括号
+    testInvalidScriptParser("(1 + (2 * 3)))"); // 括号不匹配
+    testInvalidScriptParser("(((1 + 2) * 3"); // 多层括号不匹配
+    testInvalidScriptParser("(1 + 2) * (3 + 4))"); // 外层括号不匹配
+    
+    // 其他无效语法
+    testInvalidScriptParser("true false"); // 两个布尔值之间没有运算符
+    testInvalidScriptParser("null null"); // 两个null之间没有运算符
+    testInvalidScriptParser("."); // 孤立的点
+    testInvalidScriptParser(":"); // 孤立的冒号
+    testInvalidScriptParser("?"); // 孤立的问号
+    testInvalidScriptParser("()"); // 空括号
+    testInvalidScriptParser(","); // 孤立的逗号
+    testInvalidScriptParser("1,,2"); // 多余的逗号
+    testInvalidScriptParser(";"); // 孤立的分号
+    testInvalidScriptParser("1;2"); // 分号分隔的表达式
+    testInvalidScriptParser("1 2"); // 两个数值之间没有运算符
+    testInvalidScriptParser("x y"); // 两个变量之间没有运算符
+    // testInvalidScriptParser("""多引号字符串"""); // 不支持的多行字符串语法 (注释掉，因为C++不支持三引号)
 }
 
 
