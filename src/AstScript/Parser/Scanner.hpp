@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 扫描器抽象基类
 /// @details 提供统一的字符读取接口，支持不同的输入源（FILE*、std::string、std::fstream等）
-class Scanner
+class AST_SCRIPT_API Scanner
 {
 public:
     virtual ~Scanner() = default;
@@ -59,7 +59,7 @@ public:
 
 /// @brief 字符串扫描器
 /// @details 处理std::string类型的输入源
-class StringScanner : public Scanner
+class AST_SCRIPT_API StringScanner : public Scanner
 {
 public:
     StringScanner(const std::string& str) 
@@ -84,7 +84,7 @@ private:
 
 /// @brief 文件扫描器
 /// @details 处理FILE*类型的输入源
-class FileScanner : public Scanner
+class AST_SCRIPT_API FileScanner : public Scanner
 {
 public:
     FileScanner(FILE* file) 
@@ -114,7 +114,7 @@ private:
 
 /// @brief 流扫描器
 /// @details 处理std::fstream类型的输入源
-class StreamScanner : public Scanner
+class AST_SCRIPT_API StreamScanner : public Scanner
 {
 public:
     StreamScanner(std::fstream& stream) 
