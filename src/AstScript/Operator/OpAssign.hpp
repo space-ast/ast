@@ -31,7 +31,7 @@ class OpAssign: public Op
 public:
     AST_EXPR(OpAssign)
 
-    OpAssign(OpAssignType op, Expr* left, Expr* right)
+    OpAssign(EOpAssignType op, Expr* left, Expr* right)
         :op_{op}
         ,left_{left}
         ,right_{right}
@@ -39,7 +39,7 @@ public:
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
 protected:
-    OpAssignType op_;
+    EOpAssignType op_;
     Expr* left_;
     Expr* right_;
 };

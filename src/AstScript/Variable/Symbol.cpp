@@ -19,9 +19,44 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Symbol.hpp"
+#include "AstScript/ScriptContext.hpp"
+#include "AstScript/SymbolScope.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
+Value *Symbol::eval() const
+{
+    auto expr = exec();
+    if(A_UNLIKELY(!expr))
+    {
+        // aError("symbol %s is not found", name_.c_str());
+        return nullptr;
+    }
+    return expr->eval();
+}
 
+Expr *Symbol::exec() const
+{
+    auto expr = aScriptContext_ResolveSymbol(this);
+    if(A_UNLIKELY(!expr))
+    {
+        aError("symbol %s is not found", name_.c_str());
+        return nullptr;
+    }
+    return expr->exec();  // @fixme: 这里是否需要递归执行？
+}
+
+err_t Symbol::setValue(Value *value)
+{
+    auto expr = exec();
+    if(A_UNLIKELY(!expr))
+    {
+        aError("symbol %s is not found", name_.c_str());
+        return err_t();
+    }
+    return expr->setValue(value);
+}
 
 AST_NAMESPACE_END
+

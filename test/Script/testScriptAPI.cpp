@@ -64,9 +64,6 @@ TEST_F(ScriptAPI2, VariableFunctions) {
     auto val4 = var3->eval();
     EXPECT_EQ(val4, val3);
     EXPECT_NE(var3, nullptr);
-    delete var3;
-    delete val3;
-    delete val;
 }
 
 // 测试符号创建函数
@@ -83,26 +80,26 @@ TEST_F(ScriptAPI2, OperatorFunctions) {
     Value* left = aNewValueInt(5);
     Value* right = aNewValueInt(3);
     
-    Expr* addExpr = aNewOpBin(OpBinType::eAdd, (Expr*)left, (Expr*)right);
+    Expr* addExpr = aNewOpBin(EOpBinType::eAdd, (Expr*)left, (Expr*)right);
     EXPECT_NE(addExpr, nullptr);
     delete addExpr;
     
-    Expr* subExpr = aNewOpBin(OpBinType::eSub, (Expr*)left, (Expr*)right);
+    Expr* subExpr = aNewOpBin(EOpBinType::eSub, (Expr*)left, (Expr*)right);
     EXPECT_NE(subExpr, nullptr);
     delete subExpr;
     
-    Expr* mulExpr = aNewOpBin(OpBinType::eMul, (Expr*)left, (Expr*)right);
+    Expr* mulExpr = aNewOpBin(EOpBinType::eMul, (Expr*)left, (Expr*)right);
     EXPECT_NE(mulExpr, nullptr);
     delete mulExpr;
     
     // 测试创建一元操作符表达式
-    Expr* negExpr = aNewOpUnary(OpUnaryType::eNeg, (Expr*)left);
+    Expr* negExpr = aNewOpUnary(EOpUnaryType::eNeg, (Expr*)left);
     EXPECT_NE(negExpr, nullptr);
     delete negExpr;
     
     // 测试创建赋值操作符表达式
     Symbol* sym = aNewSymbol("testVar");
-    Expr* assignExpr = aNewOpAssign(OpAssignType::eAssign, (Expr*)sym, (Expr*)left);
+    Expr* assignExpr = aNewOpAssign(EOpAssignType::eAssign, (Expr*)sym, (Expr*)left);
     EXPECT_NE(assignExpr, nullptr);
     delete assignExpr;
     delete sym;
@@ -216,7 +213,7 @@ TEST_F(ScriptAPI2, OperatorExecution) {
     Value* left = aNewValueInt(5);
     Value* right = aNewValueInt(3);
     
-    Value* addResult = aDoOpBin(OpBinType::eAdd, left, right);
+    Value* addResult = aDoOpBin(EOpBinType::eAdd, left, right);
     EXPECT_NE(addResult, nullptr);
     if (addResult) {
         EXPECT_EQ(aValueUnboxInt(addResult), 8);
@@ -224,7 +221,7 @@ TEST_F(ScriptAPI2, OperatorExecution) {
     }
     
     // 测试执行一元操作符
-    Value* negResult = aDoOpUnary(OpUnaryType::eNeg, left);
+    Value* negResult = aDoOpUnary(EOpUnaryType::eNeg, left);
     EXPECT_NE(negResult, nullptr);
     if (negResult) {
         EXPECT_EQ(aValueUnboxInt(negResult), -5);
@@ -249,7 +246,6 @@ TEST(ScriptAPI, VariableFunctions)
     EXPECT_TRUE(var2);
     // 注意：Variable类可能没有直接的expr()方法
     delete var2;
-    delete expr;
 }
 
 TEST(ScriptAPI, SymbolFunctions)
@@ -268,17 +264,17 @@ TEST(ScriptAPI, OperatorFunctions)
     Expr* right = aNewValueInt(20);
     
     // 测试aNewOpBin函数
-    Expr* opBin = aNewOpBin(OpBinType::eAdd, left, right);
+    Expr* opBin = aNewOpBin(EOpBinType::eAdd, left, right);
     EXPECT_TRUE(opBin);
     delete opBin;
     
     // 测试aNewOpAssign函数
-    Expr* opAssign = aNewOpAssign(OpAssignType::eAssign, left, right);
+    Expr* opAssign = aNewOpAssign(EOpAssignType::eAssign, left, right);
     EXPECT_TRUE(opAssign);
     delete opAssign;
     
     // 测试aNewOpUnary函数
-    Expr* opUnary = aNewOpUnary(OpUnaryType::eNeg, left);
+    Expr* opUnary = aNewOpUnary(EOpUnaryType::eNeg, left);
     EXPECT_TRUE(opUnary);
     delete opUnary;
     
@@ -447,32 +443,32 @@ TEST(ScriptAPI, OperatorExecutionFunctions)
     Value* boolVal = aNewValueBool(true);
     
     // 测试aDoOpBin函数
-    Value* addResult = aDoOpBin(OpBinType::eAdd, intVal1, intVal2);
+    Value* addResult = aDoOpBin(EOpBinType::eAdd, intVal1, intVal2);
     EXPECT_TRUE(addResult);
     EXPECT_TRUE(aValueIsInt(addResult));
     EXPECT_EQ(aValueUnboxInt(addResult), 30);
     delete addResult;
     
-    Value* subResult = aDoOpBin(OpBinType::eSub, intVal2, intVal1);
+    Value* subResult = aDoOpBin(EOpBinType::eSub, intVal2, intVal1);
     EXPECT_TRUE(subResult);
     EXPECT_TRUE(aValueIsInt(subResult));
     EXPECT_EQ(aValueUnboxInt(subResult), 10);
     delete subResult;
     
-    Value* mulResult = aDoOpBin(OpBinType::eMul, intVal1, intVal2);
+    Value* mulResult = aDoOpBin(EOpBinType::eMul, intVal1, intVal2);
     EXPECT_TRUE(mulResult);
     EXPECT_TRUE(aValueIsInt(mulResult));
     EXPECT_EQ(aValueUnboxInt(mulResult), 200);
     delete mulResult;
     
     // 测试aDoOpUnary函数
-    Value* negResult = aDoOpUnary(OpUnaryType::eNeg, intVal1);
+    Value* negResult = aDoOpUnary(EOpUnaryType::eNeg, intVal1);
     EXPECT_TRUE(negResult);
     EXPECT_TRUE(aValueIsInt(negResult));
     EXPECT_EQ(aValueUnboxInt(negResult), -10);
     delete negResult;
     
-    Value* notResult = aDoOpUnary(OpUnaryType::eNot, boolVal);
+    Value* notResult = aDoOpUnary(EOpUnaryType::eNot, boolVal);
     EXPECT_TRUE(notResult);
     EXPECT_TRUE(aValueIsBool(notResult));
     EXPECT_EQ(aValueUnboxBool(notResult), false);

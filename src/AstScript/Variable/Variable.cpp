@@ -23,9 +23,18 @@
 
 AST_NAMESPACE_BEGIN
 
+
+Variable::Variable(StringView name, Expr *expr, bool bind)
+    : name_(name.to_string()), expr_(expr), bind_(bind)
+{};
+
+Variable::Variable(Expr *expr, bool bind)
+    : name_{}, expr_(expr), bind_(bind)
+{};
+
 Value *Variable::eval() const
 {
-    if(expr_ == nullptr){
+    if(expr_.get() == nullptr) {
         return nullptr;
     }
     return expr_->eval();
@@ -44,6 +53,20 @@ err_t Variable::setValue(Value *val)
         expr_ = val;
         return eNoError;
     }
+}
+
+err_t Variable::setExpr(Expr *expr)
+{
+    expr_ = expr;
+    bind_ = false;
+    return eNoError;
+}
+
+err_t Variable::bind(Expr *expr)
+{
+    expr_ = expr;
+    bind_ = true;
+    return eNoError;
 }
 
 AST_NAMESPACE_END

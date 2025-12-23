@@ -25,7 +25,7 @@
 
 AST_NAMESPACE_BEGIN
 
-OpAssignFunc opassign_get_func(OpAssignType op, Class* leftType, Class* rightType);
+OpAssignFunc opassign_get_func(EOpAssignType op, Class* leftType, Class* rightType);
 
 
 AST_NAMESPACE_END

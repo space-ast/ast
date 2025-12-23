@@ -21,6 +21,10 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "SymbolTable.hpp"
+#include "SymbolScope.hpp"
+#include "CallStack.hpp"
+#include "ScriptContext.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -28,11 +32,53 @@ AST_NAMESPACE_BEGIN
 /// @brief 解释器
 /// @details
 /// 解释器用于解释执行脚本中的代码。
-class Interpreter
+class AST_SCRIPT_API Interpreter
 {
 public:
-    // @todo 实现解释器相关功能
+    Interpreter() = default;
+    ~Interpreter();
+
+    /// @brief 获取当前作用域
+    /// @details
+    /// 当前作用域是解释器当前正在执行的代码所在的作用域。
+    /// @return 当前作用域
+    SymbolScope* currentScope() { return &symbolScope_; }
+    
+    /// @brief 解释执行代码
+    /// @details
+    /// 解释执行代码时，会将代码解析为抽象语法树（AST），
+    /// 并根据符号表和调用栈执行代码。
+    /// @param code 要解释执行的代码
+    void interpret(StringView code);
+
+    
+protected:
+    SymbolScope symbolScope_;       ///< 当前作用域
 };
+
+/// @brief 解释器上下文守卫
+/// @details
+/// 解释器上下文守卫用于在解释器执行代码时，自动设置和移除当前解释器。
+/// @todo 暂时不支持子解释器，只能区分全局解释器和当前解释器。
+class InterpreterContext {
+public:
+    InterpreterContext(Interpreter& interpreter)
+        : InterpreterContext(&interpreter)
+    {
+    }
+    InterpreterContext(Interpreter* interpreter)
+        : interpreter_(interpreter)
+    {
+        aScriptContext_SetInterpreter(interpreter);
+    }
+    ~InterpreterContext()
+    {
+        aScriptContext_RemoveInterpreter(interpreter_);
+    }
+private:
+    Interpreter* interpreter_;
+};
+
 
 
 AST_NAMESPACE_END

@@ -50,7 +50,7 @@ public:
     OpBinRegistry() = default;
     ~OpBinRegistry() = default;
 
-    void* getFunc(OpBinType op, Class* leftType, Class* rightType)
+    void* getFunc(EOpBinType op, Class* leftType, Class* rightType)
     {
         auto key = OpBinKey{static_cast<int>(op), leftType, rightType};
         auto it = map_.find(key);
@@ -59,7 +59,7 @@ public:
         }
         return it->second;
     }
-    void regFunc(OpBinType op, Class* leftType, Class* rightType, void* func)
+    void regFunc(EOpBinType op, Class* leftType, Class* rightType, void* func)
     {
         map_[{static_cast<int>(op), leftType, rightType}] = func;
     }

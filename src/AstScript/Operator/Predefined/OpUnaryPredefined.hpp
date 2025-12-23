@@ -31,13 +31,13 @@ class Value;
 /// @param op 运算类型
 /// @param value 运算数
 /// @return 运算结果
-Value* opunary(OpUnaryType op, Value* value);
+Value* opunary(EOpUnaryType op, Value* value);
 
 /// @brief 获取一元运算函数指针
 /// @param op 运算类型
 /// @param type 运算数类型
 /// @return 运算函数指针
-AST_SCRIPT_CAPI OpUnaryFunc opunary_get_func(OpUnaryType op, Class* type);
+AST_SCRIPT_CAPI OpUnaryFunc opunary_get_func(EOpUnaryType op, Class* type);
 
 
 AST_NAMESPACE_END

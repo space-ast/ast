@@ -55,7 +55,7 @@ Symbol *aNewSymbol(StringView name)
     return new Symbol(name);
 }
 
-Expr *aNewOpAssign(OpAssignType op, Expr *left, Expr *right)
+Expr *aNewOpAssign(EOpAssignType op, Expr *left, Expr *right)
 {
     if(!left || !right){
         return nullptr;
@@ -63,7 +63,7 @@ Expr *aNewOpAssign(OpAssignType op, Expr *left, Expr *right)
     return new OpAssign(op, left, right);
 }
 
-Expr *aNewOpBin(OpBinType op, Expr *left, Expr *right)
+Expr *aNewOpBin(EOpBinType op, Expr *left, Expr *right)
 {
     if(!left || !right){
         return nullptr;
@@ -71,7 +71,7 @@ Expr *aNewOpBin(OpBinType op, Expr *left, Expr *right)
     return new OpBin(op, left, right);
 }
 
-Expr *aNewOpUnary(OpUnaryType op, Expr *expr)
+Expr *aNewOpUnary(EOpUnaryType op, Expr *expr)
 {
     if(!expr){
         return nullptr;
@@ -181,27 +181,124 @@ std::string aFormatExpr(Expr *expr, Object *context)
     return expr->getExpression(context);
 }
 
-OpBinFunc aGetOpBinFunc(OpBinType op, Class *leftType, Class *rightType)
+OpBinFunc aGetOpBinFunc(EOpBinType op, Class *leftType, Class *rightType)
 {
     return opbin_get_func(op, leftType, rightType);
 }
 
-OpAssignFunc aGetOpAssignFunc(OpAssignType op, Class *leftType, Class *rightType)
+OpAssignFunc aGetOpAssignFunc(EOpAssignType op, Class *leftType, Class *rightType)
 {
     return opassign_get_func(op, leftType, rightType);
 }
 
-Value* aDoOpUnary(OpUnaryType op, Value* value)
+Value* aDoOpUnary(EOpUnaryType op, Value* value)
 {
     return opunary(op, value);
 }
 
-OpUnaryFunc aGetOpUnaryFunc(OpUnaryType op, Class *type)
+static void assignop_split(EOpAssignType op, EOpBinType& opbin)
+{
+    switch (op)
+    {
+    case eAddAssign:
+        opbin = eAdd;
+        break;
+    case eSubAssign:
+        opbin = eSub;
+        break;
+    case eMulAssign:
+        opbin = eMul;
+        break;
+    case eDivAssign:
+        opbin = eDiv;
+        break;;
+    case eModAssign:
+        opbin = eMod;
+        break;
+    case ePowAssign:
+        opbin = ePow;
+        break;
+    case eElemMulAssign:
+        opbin = eElemMul;
+        break;
+    case eElemDivAssign:
+        opbin = eElemDiv;
+        break;
+    case eElemModAssign:
+        opbin = eElemMod;
+        break;
+    case eElemPowAssign:
+        opbin = eElemPow;
+        break;
+    case eElemAndAssign:
+        opbin = eElemAnd;
+        break;
+    case eElemOrAssign:
+        opbin = eElemOr;
+        break;
+    default:
+        break;
+    }
+    opbin = invalidOpBin; // 无效运算符
+}
+
+Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
+{
+    if(!left || !right){
+        aError("Left or right is null");
+        return nullptr;
+    }
+
+    switch (op)
+    {
+    case eAssign:
+    {
+        left->setValue(right->eval());
+        return left->eval();
+    }
+    case eDelayAssign:
+    {
+        if(auto var = dynamic_cast<Variable*>(left)){
+            var->setExpr(right);
+        }else{
+            aError("Left is not a variable");
+            return nullptr;
+        }
+        return left->eval();
+    }
+    case eBindAssign:
+    {
+        if(auto var = dynamic_cast<Variable*>(left)){
+            var->bind(right);
+        }else{
+            aError("Left is not a variable");
+            return nullptr;
+        }
+        return left->eval();
+    }
+    default:
+        break;
+    }
+    // 其他赋值运算符
+    {
+        EOpBinType opbin;
+        assignop_split(op, opbin);
+        if(opbin == invalidOpBin){
+            aError("Invalid assign operator");
+            return nullptr;
+        }
+        auto val = aDoOpBin(opbin, left->eval(), right->eval());
+        left->setValue(val);
+        return val;
+    }
+}
+
+OpUnaryFunc aGetOpUnaryFunc(EOpUnaryType op, Class *type)
 {
     return opunary_get_func(op, type);
 }
 
-Value *aDoOpBin(OpBinType op, Value *left, Value *right)
+Value *aDoOpBin(EOpBinType op, Value *left, Value *right)
 {
     return opbin(op, left, right);
 }

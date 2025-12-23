@@ -34,14 +34,14 @@ class OpUnary: public Op
 public:
     AST_EXPR(OpUnary)
 
-    OpUnary(OpUnaryType op, Expr* expr)
+    OpUnary(EOpUnaryType op, Expr* expr)
         : op_(op), expr_(expr)
     {};
     virtual ~OpUnary() = default;
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
 protected:
-    OpUnaryType   op_;                                    ///< 运算符
+    EOpUnaryType   op_;                                    ///< 运算符
     Expr*         expr_;                                  ///< 操作数
     mutable std::atomic<OpUnaryFunc> func_{nullptr};      ///< 运算符函数指针
     mutable std::atomic<Class*>  type_{nullptr};          ///< 运算数类型

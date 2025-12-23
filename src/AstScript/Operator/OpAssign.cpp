@@ -19,6 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OpAssign.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstScript/Value.hpp"
+#include "AstUtil/SharedPtr.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -44,21 +47,7 @@ static_assert(sizeof(OpAssignTypeStr)/sizeof(OpAssignTypeStr[0]) == static_cast<
 
 Value *OpAssign::eval() const
 {
-    // 先求右操作数的值
-    Value* rightValue = right_->eval();
-    if (!rightValue) {
-        return nullptr;
-    }
-    
-    // 将右操作数的值赋给左操作数
-    err_t err = left_->setValue(rightValue);
-    if (err != eNoError) {
-        delete rightValue;
-        return nullptr;
-    }
-    
-    // 返回赋值后的值
-    return rightValue;
+    return aDoOpAssign(op_, left_, right_);
 }
 
 std::string OpAssign::getExpression(Object *context) const

@@ -21,6 +21,7 @@
 #include "AstScript/ScriptAPI.hpp"
 #include "AstTest/AstTestMacro.h"
 #include "AstScript/ValString.hpp"
+#include "AstScript/Interpreter.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/IO.hpp"
 #ifdef _WIN32
@@ -33,12 +34,11 @@ AST_USING_NAMESPACE
 void testScriptEvalBool(StringView str, bool expectedValue)
 {
     ast_printf("testScriptEvalBool: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(aValueIsBool(value));
-        EXPECT_EQ(aValueUnboxBool(value), expectedValue);
-        delete value;
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(aValueIsBool(value.get()));
+        EXPECT_EQ(aValueUnboxBool(value.get()), expectedValue);
     }
 }
 
@@ -46,12 +46,11 @@ void testScriptEvalBool(StringView str, bool expectedValue)
 void testScriptEvalInt(StringView str, int expectedValue)
 {
     printf("testScriptEvalInt: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(aValueIsInt(value));
-        EXPECT_EQ(aValueUnboxInt(value), expectedValue);
-        delete value;
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(aValueIsInt(value.get()));
+        EXPECT_EQ(aValueUnboxInt(value.get()), expectedValue);
     }
 }
 
@@ -59,12 +58,11 @@ void testScriptEvalInt(StringView str, int expectedValue)
 void testScriptEvalDouble(StringView str, double expectedValue)
 {
     printf("testScriptEvalDouble: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(aValueIsDouble(value));
-        EXPECT_DOUBLE_EQ(aValueUnboxDouble(value), expectedValue);
-        delete value;
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(aValueIsDouble(value.get()));
+        EXPECT_DOUBLE_EQ(aValueUnboxDouble(value.get()), expectedValue);
     }
 }
 
@@ -358,6 +356,92 @@ TEST(ScriptEval, EvalRuntimeErrors)
     testScriptEvalRuntimeError("false >> 2");
     testScriptEvalRuntimeError("\"string\" << 1");
     testScriptEvalRuntimeError("\"string\" + 1");
+}
+
+
+
+class ScriptExec : public ::testing::Test {
+protected:
+    void SetUp() override {
+        // 设置测试环境
+        aScriptContext_SetInterpreter(&interpreter);
+    }
+
+    void TearDown() override {
+        // 清理测试环境
+        aScriptContext_RemoveInterpreter(&interpreter);
+    }
+protected:
+    Interpreter interpreter;
+};
+
+
+TEST_F(ScriptExec, Variable)
+{
+    testScriptEvalDouble("x = 1.0 + 2", 3.0);
+    testScriptEvalDouble("y = x * 2", 6.0);
+    testScriptEvalDouble("z = y / 3", 2.0);
+
+
+}
+
+
+TEST_F(ScriptExec, Interpreter)
+{
+    auto x = aScriptContext_FindSymbol("x");
+    auto y = aScriptContext_FindSymbol("y");
+    EXPECT_TRUE(x == nullptr);
+    EXPECT_TRUE(y == nullptr);
+
+    // 测试脚本执行上下文
+    {
+        Interpreter interpreter;
+        InterpreterContext context(&interpreter);
+        {
+            auto x = aScriptContext_FindSymbol("x");
+            auto y = aScriptContext_FindSymbol("y");
+            auto z = aScriptContext_FindSymbol("z");
+            EXPECT_TRUE(x == nullptr);
+            EXPECT_TRUE(y == nullptr);
+            EXPECT_TRUE(z == nullptr);
+        }
+
+        testScriptEvalInt("x = 1", 1);
+        testScriptEvalDouble("y = 1 + 1.2", 2.2);
+        testScriptEvalBool("z = (x > y)", false);
+
+        {        
+            auto x = aScriptContext_FindSymbol("x");
+            auto y = aScriptContext_FindSymbol("y");
+            auto z = aScriptContext_FindSymbol("z");
+            EXPECT_TRUE(x != nullptr);
+            EXPECT_TRUE(y != nullptr);
+            EXPECT_TRUE(z != nullptr);
+        }
+    }
+
+    {
+        auto x = aScriptContext_FindSymbol("x");
+        auto y = aScriptContext_FindSymbol("y");
+        auto z = aScriptContext_FindSymbol("z");
+        EXPECT_TRUE(x == nullptr);
+        EXPECT_TRUE(y == nullptr);
+        EXPECT_TRUE(z == nullptr);
+    }
+
+    testScriptEvalInt("x = 1", 1);
+    testScriptEvalDouble("y = 1 + 1.2", 2.2);
+    testScriptEvalBool("z = (x > y)", false);
+
+    {
+        auto x = aScriptContext_FindSymbol("x");
+        auto y = aScriptContext_FindSymbol("y");
+        auto z = aScriptContext_FindSymbol("z");
+        EXPECT_TRUE(x != nullptr);
+        EXPECT_TRUE(y != nullptr);
+        EXPECT_TRUE(z != nullptr);
+    }
+
 }
 
 GTEST_MAIN()
