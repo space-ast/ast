@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      testScriptParser.cpp
 /// @brief     ~
 /// @details   ~
@@ -57,12 +57,8 @@ Expr* parseByFileScanner(StringView str)
     Lexer lexer(&scanner);
     Parser parser(lexer);
     
-    auto expr = parser.parseExpression();
-    // 检查是否解析到文件末尾
-    if (expr && parser.currentTokenType() != Lexer::eEndOfFile) {
-        delete expr;
-        expr = nullptr;
-    }
+    auto expr = parser.parseBlockExpr();
+    
     std::fclose(file);
     deleteTestFile(filename);
     return expr;
@@ -78,12 +74,8 @@ Expr* parseByStreamScanner(StringView str)
     Lexer lexer(&scanner);
     Parser parser(lexer);
     
-    auto expr = parser.parseExpression();
-    // 检查是否解析到文件末尾
-    if (expr && parser.currentTokenType() != Lexer::eEndOfFile) {
-        delete expr;
-        expr = nullptr;
-    }
+    auto expr = parser.parseBlockExpr();
+    
     file.close();
     deleteTestFile(filename);
     return expr;
@@ -413,7 +405,7 @@ TEST(ScriptParser, InvalidSyntax)
     testInvalidScriptParser("var?name = 10"); // 包含问号的变量名
     testInvalidScriptParser("var:name = 10"); // 包含冒号的变量名
     testInvalidScriptParser("var,name = 10"); // 包含逗号的变量名
-    testInvalidScriptParser("var;name = 10"); // 包含分号的变量名
+    // testInvalidScriptParser("var;name = 10"); // 包含分号的变量名
     // testInvalidScriptParser("var*name = 10"); // Julia中这被解析为乘法表达式
     // testInvalidScriptParser("var+name = 10"); // Julia中这被解析为加法表达式
     // testInvalidScriptParser("var.name = 10"); // Julia中这被解析为点操作表达式
@@ -439,8 +431,8 @@ TEST(ScriptParser, InvalidSyntax)
     testInvalidScriptParser("()"); // 空括号
     testInvalidScriptParser(","); // 孤立的逗号
     testInvalidScriptParser("1,,2"); // 多余的逗号
-    testInvalidScriptParser(";"); // 孤立的分号
-    testInvalidScriptParser("1;2"); // 分号分隔的表达式
+    // testInvalidScriptParser(";"); // 孤立的分号
+    // testInvalidScriptParser("1;2"); // 分号分隔的表达式
     testInvalidScriptParser("1 2"); // 两个数值之间没有运算符
     testInvalidScriptParser("x y"); // 两个变量之间没有运算符
     // testInvalidScriptParser("""多引号字符串"""); // 不支持的多行字符串语法 (注释掉，因为C++不支持三引号)
@@ -545,6 +537,48 @@ TEST(ScriptParser, ParenthesisExpressionError) {
     testInvalidScriptParser("(+");
     testInvalidScriptParser("(1 +");
     testInvalidScriptParser("((1 +");
+}
+
+// 测试代码块表达式的正常分支
+TEST(ScriptParser, BlockExpression) {
+    // 测试简单的代码块
+    testScriptParser("begin 1 end");
+    
+    // 测试多个表达式的代码块
+    testScriptParser("begin 1; 2 end");
+    
+    // 测试带分号和不带分号的混合
+    testScriptParser("begin 1; 2; 3 end");
+    
+    // 测试带表达式的代码块
+    testScriptParser("begin x = 1; y = 2; x + y end");
+
+    // 测试换行符分隔的代码块
+    testScriptParser("begin 1\n2 end");
+
+    // 测试没有 begin 和 end 的代码块
+    testScriptParser("x = 1; x + 2");
+
+    // 测试没有 begin 和 end 的代码块
+    testScriptParser("y = 1\nx = 2");
+    
+    // 测试嵌套代码块
+    testScriptParser("begin begin 1 end end");
+
+    // 空代码块
+    testScriptParser("begin end");
+}
+
+// 测试代码块表达式的异常分支
+TEST(ScriptParser, BlockExpressionError) {
+    // 缺少end
+    testInvalidScriptParser("begin 1");
+    testInvalidScriptParser("begin x = 1");
+    
+    // 内部表达式解析失败
+    testInvalidScriptParser("begin 1 + end");
+    testInvalidScriptParser("begin x = + end");
+    
 }
 
 GTEST_MAIN()

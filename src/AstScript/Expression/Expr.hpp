@@ -49,6 +49,7 @@ public:
     virtual Value* eval() const = 0;
 
     /// @brief 执行
+    /// @details 这个方法可能用于脚本的解析期
     /// @return Expr* 执行结果
     virtual Expr* exec() const {return const_cast<Expr*>(this);};
     

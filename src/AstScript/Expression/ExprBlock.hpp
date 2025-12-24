@@ -21,7 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Expr.hpp"
+#include "AstScript/Expr.hpp"
+#include "AstUtil/SharedPtr.hpp"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -29,8 +31,34 @@ AST_NAMESPACE_BEGIN
 class ExprBlock: public Expr
 {
 public:
+    AST_EXPR(ExprBlock)
+
     ExprBlock() = default;
-    ~ExprBlock() = default;
+    ExprBlock(const std::vector<SharedPtr<Expr>>& exprs);
+    ~ExprBlock() override = default;
+
+    /// @brief 求值
+    /// @return Value* 求值结果
+    Value* eval() const override;
+
+    /// @brief 设置表达式的值
+    err_t setValue(Value* val) override;
+
+    /// @brief 获取表达式的字符串表示
+    /// @param context 可选的上下文对象，用于解析变量等
+    /// @return std::string 表达式的字符串表示
+    std::string getExpression(Object* context=nullptr) const override;
+
+    /// @brief 添加表达式到代码块
+    /// @param expr 要添加的表达式
+    void addExpr(Expr* expr);
+    
+    /// @brief 获取表达式的数量
+    /// @return 表达式的数量
+    size_t size() const { return exprs_.size(); }
+
+private:
+    std::vector<SharedPtr<Expr>> exprs_; ///< 代码块中的表达式列表
 };
 
 

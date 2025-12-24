@@ -38,6 +38,7 @@ class OpBin;
 class OpUnary;
 class Function;
 class Macro;
+class ExprBlock;
 
 class ExprVisitor{
 public:
@@ -56,6 +57,7 @@ public:
     virtual void visit(OpUnary& op) = 0;
     virtual void visit(Function& func) = 0;
     virtual void visit(Macro& macro) = 0;
+    virtual void visit(ExprBlock& block) = 0;
 };
 
 AST_NAMESPACE_END

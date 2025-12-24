@@ -91,11 +91,19 @@ public:
         eSemicolon,  ///< ;
         eColon,      ///< :
         eQuestion,   ///< ?
+
+        eNewline,    ///< \n (换行符)
+        
+        // 代码块关键字（参照Julia语言）
+        eBegin,      ///< begin
+        eEnd,        ///< end
     };
 
 public:
     Lexer(Scanner* scanner) 
-        : scanner_(scanner), line_(1), current_lexeme_() 
+        : scanner_(scanner)
+        // , line_(1)
+        , current_lexeme_() 
     {}
     
     /// @brief 获取下一个令牌
@@ -111,7 +119,7 @@ public:
     const char* getTokenEnd() const { return nullptr; }
     
     /// @brief 获取当前行号
-    size_t getLine() const { return line_; }
+    // size_t getLine() const { return line_; }
     
     /// @brief 跳过空白字符
     void skipWhitespace();
@@ -158,7 +166,7 @@ private:
     
 private:
     Scanner* scanner_;    ///< 扫描器指针
-    size_t line_;         ///< 当前行号
+    // size_t line_;         ///< 当前行号
     std::string current_lexeme_; ///< 当前令牌的字符串内容
 };
 
