@@ -408,6 +408,7 @@ namespace units
     
     Unit sec = Unit::Second();
     Unit s = sec;
+    Unit ms = Unit::MilliSecond();
     Unit min = Unit::Minute();
     Unit hour = Unit::Hour();
     Unit h = hour;

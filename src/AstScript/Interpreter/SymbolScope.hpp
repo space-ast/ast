@@ -54,12 +54,12 @@ public:
     /// @param name 符号名称
     /// @param expr 符号对应的表达式
     /// @return 是否添加成功（如果符号已存在则返回false）
-    bool addSymbol(StringView name, const SharedPtr<Expr>& expr);
+    bool addSymbol(StringView name, Expr* expr);
 
     /// @brief 添加或更新符号
     /// @param name 符号名称
     /// @param expr 符号对应的表达式
-    void setSymbol(StringView name, const SharedPtr<Expr>& expr);
+    void setSymbol(StringView name, Expr* expr);
 
     /// @brief 查找符号作用域中的符号
     /// @param name 符号名称

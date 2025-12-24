@@ -364,12 +364,12 @@ class ScriptExec : public ::testing::Test {
 protected:
     void SetUp() override {
         // 设置测试环境
-        aScriptContext_SetInterpreter(&interpreter);
+        aScript_SetInterpreter(&interpreter);
     }
 
     void TearDown() override {
         // 清理测试环境
-        aScriptContext_RemoveInterpreter(&interpreter);
+        aScript_RemoveInterpreter(&interpreter);
     }
 protected:
     Interpreter interpreter;
@@ -388,8 +388,8 @@ TEST_F(ScriptExec, Variable)
 
 TEST_F(ScriptExec, Interpreter)
 {
-    auto x = aScriptContext_FindSymbol("x");
-    auto y = aScriptContext_FindSymbol("y");
+    auto x = aScript_FindSymbol("x");
+    auto y = aScript_FindSymbol("y");
     EXPECT_TRUE(x == nullptr);
     EXPECT_TRUE(y == nullptr);
 
@@ -398,9 +398,9 @@ TEST_F(ScriptExec, Interpreter)
         Interpreter interpreter;
         InterpreterContext context(&interpreter);
         {
-            auto x = aScriptContext_FindSymbol("x");
-            auto y = aScriptContext_FindSymbol("y");
-            auto z = aScriptContext_FindSymbol("z");
+            auto x = aScript_FindSymbol("x");
+            auto y = aScript_FindSymbol("y");
+            auto z = aScript_FindSymbol("z");
             EXPECT_TRUE(x == nullptr);
             EXPECT_TRUE(y == nullptr);
             EXPECT_TRUE(z == nullptr);
@@ -411,9 +411,9 @@ TEST_F(ScriptExec, Interpreter)
         testScriptEvalBool("z = (x > y)", false);
 
         {        
-            auto x = aScriptContext_FindSymbol("x");
-            auto y = aScriptContext_FindSymbol("y");
-            auto z = aScriptContext_FindSymbol("z");
+            auto x = aScript_FindSymbol("x");
+            auto y = aScript_FindSymbol("y");
+            auto z = aScript_FindSymbol("z");
             EXPECT_TRUE(x != nullptr);
             EXPECT_TRUE(y != nullptr);
             EXPECT_TRUE(z != nullptr);
@@ -421,9 +421,9 @@ TEST_F(ScriptExec, Interpreter)
     }
 
     {
-        auto x = aScriptContext_FindSymbol("x");
-        auto y = aScriptContext_FindSymbol("y");
-        auto z = aScriptContext_FindSymbol("z");
+        auto x = aScript_FindSymbol("x");
+        auto y = aScript_FindSymbol("y");
+        auto z = aScript_FindSymbol("z");
         EXPECT_TRUE(x == nullptr);
         EXPECT_TRUE(y == nullptr);
         EXPECT_TRUE(z == nullptr);
@@ -434,9 +434,9 @@ TEST_F(ScriptExec, Interpreter)
     testScriptEvalBool("z = (x > y)", false);
 
     {
-        auto x = aScriptContext_FindSymbol("x");
-        auto y = aScriptContext_FindSymbol("y");
-        auto z = aScriptContext_FindSymbol("z");
+        auto x = aScript_FindSymbol("x");
+        auto y = aScript_FindSymbol("y");
+        auto z = aScript_FindSymbol("z");
         EXPECT_TRUE(x != nullptr);
         EXPECT_TRUE(y != nullptr);
         EXPECT_TRUE(z != nullptr);

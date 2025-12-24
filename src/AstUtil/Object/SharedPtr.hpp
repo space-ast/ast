@@ -61,7 +61,9 @@ public:
         }
         return *this;
     }
-    explicit operator _Object*() const
+    // 这里还是设置为支持隐式转换，因为在很多情况下，我们需要将SharedPtr转换为_Object*
+    // explicit 
+    operator _Object*() const
     {
         return m_object;
     }

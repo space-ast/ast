@@ -206,6 +206,11 @@ AST_SCRIPT_CAPI bool aValueIsDouble(Value* value);
 AST_SCRIPT_CAPI bool aValueIsInt(Value* value);
 
 
+/// @brief 判断值对象是否为量值
+/// @param value 值对象
+/// @return 是否为量值
+AST_SCRIPT_CAPI bool aValueIsQuantity(Value* value);
+
 
 /// @brief 解包布尔值
 /// @param value 值对象
@@ -223,6 +228,12 @@ AST_SCRIPT_CAPI double aValueUnboxDouble(Value* value);
 /// @param value 值对象
 /// @return 整数值
 AST_SCRIPT_CAPI int aValueUnboxInt(Value* value);
+
+
+/// @brief 解包量值
+/// @param value 值对象
+/// @return 量值
+AST_SCRIPT_CAPI Quantity aValueUnboxQuantity(Value* value);
 
 
 /// @brief 格式化表达式为字符串

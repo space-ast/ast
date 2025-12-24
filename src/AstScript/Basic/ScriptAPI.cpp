@@ -36,6 +36,7 @@
 #include "AstScript/OpUnaryPredefined.hpp"
 #include "AstScript/Types.hpp"
 #include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/Quantity.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -147,7 +148,13 @@ bool aValueIsInt(Value *value)
     return value && (value)->type() == &aValInt_Type;
 }
 
+bool aValueIsQuantity(Value *value)
+{
+    return value && (value)->type() == &aValQuantity_Type;
+}
 
+
+bool aValueIsQuantity(Value* value);
 
 bool aValueUnboxBool(Value *value)
 {
@@ -174,6 +181,15 @@ int aValueUnboxInt(Value *value)
         return 0;
     }
     return static_cast<ValInt*>(value)->value();
+}
+
+Quantity aValueUnboxQuantity(Value *value)
+{
+    if(!aValueIsQuantity(value)){
+        aError("Value is not a quantity");
+        return Quantity();
+    }
+    return static_cast<ValQuantity*>(value)->quantity();
 }
 
 std::string aFormatExpr(Expr *expr, Object *context)

@@ -33,19 +33,38 @@ UnitManager::UnitManager()
     addUnit(units::cm);
     addUnit(units::m);
     addUnit(units::km);
+    addUnit(units::dm);
+    addUnit(units::mm);
+    addUnit(units::in);
+    addUnit(units::ft);
+    addUnit(units::yd);
+    addUnit(units::mi);
+
     addUnit(units::kg);
     addUnit(units::g);
     addUnit(units::mg);
     addUnit(units::lb);
-    addUnit(units::N);
-    addUnit(units::deg);
+
     addUnit(units::rad);
-    addUnit(units::m2);
+    addUnit(units::deg);
+    addUnit("deg", units::deg);
+
     addUnit(units::s);
     addUnit(units::h);
     addUnit(units::day);
     addUnit(units::hour);
+    addUnit(units::min);
+    addUnit(units::ms);
+
     addUnit(units::A);
+
+    addUnit(units::N);
+
+    addUnit(units::m2);
+    addUnit("m2", units::m2);
+
+    addUnit("m3", units::m3);
+    addUnit(units::L);
 }
 
 UnitManager::~UnitManager()
@@ -58,12 +77,12 @@ UnitManager::~UnitManager()
 
 err_t UnitManager::addUnit(const Unit& unit)
 {
-    return addUnit(unit.name(), unit);
+    return _addUnit(unit.name(), unit);
 }
 
 err_t UnitManager::addUnit(StringView name, const Unit& unit)
 {
-    return addUnit(name.to_string(), unit);
+    return _addUnit(name.to_string(), unit);
 }
 
 Unit* UnitManager::getUnit(StringView name)
@@ -76,7 +95,7 @@ Unit* UnitManager::getUnit(StringView name)
     return it->second;
 }
 
-err_t UnitManager::addUnit(const std::string &name, const Unit &unit)
+err_t UnitManager::_addUnit(const std::string &name, const Unit &unit)
 {
     if (units_.find(name) != units_.end())
     {

@@ -25,6 +25,7 @@
 #include "AstScript/ValBool.hpp"
 #include "AstScript/ValString.hpp"
 #include "AstScript/ValNull.hpp"
+#include "AstScript/ValQuantity.hpp"
 #include "AstScript/OpBin.hpp"
 #include "AstScript/OpAssign.hpp"
 #include "AstScript/OpUnary.hpp"
@@ -32,6 +33,8 @@
 #include "AstScript/Symbol.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
+#include "AstUtil/QuantityParser.hpp"
+#include "AstUtil/UnitParser.hpp"
 
 #include <cstdlib>
 #include <cctype>
@@ -483,47 +486,69 @@ Expr* Parser::parsePrimaryExpr()
     
     if (currentTokenType() == Lexer::eNumber) {
         std::string numStr = currentLexeme().to_string();
+        advance();
         
-        // @todo: 下面的逻辑有待优化
-
-        // 检查是否为浮点数
-        if (numStr.find_first_of("eE.") != std::string::npos && numStr[1] != 'x') 
-        {
-            double value = std::strtod(numStr.data(), nullptr);
-            advance();
-            return new ValDouble(value);
-        } else {
-            long long value = 0;
-            if(numStr.size() >= 2 && numStr[0] == '0' && (numStr[1] == 'x' || numStr[1] == 'b' || numStr[1] == 'o')){
-                // 检查是否为十六进制数字
-                if ((numStr[1] == 'x')) {
-                    // 使用 strtoll 的十六进制解析功能
-                    value = std::strtoll(numStr.data(), nullptr, 16);
-                } 
-                // 检查是否为二进制数字
-                else if ((numStr[1] == 'b')) {
-                    // 使用stoll的二进制解析功能
-                    value = std::strtoll(numStr.data() + 2, nullptr, 2);
-                }
-                // 检查是否为八进制数字，参照Julia语法
-                else if ((numStr[1] == 'o')) {
-                    // 使用stoll的八进制解析功能
-                    value = std::strtoll(numStr.data() + 2, nullptr, 8);
-                }
-            }
-            // 十进制数字
-            else
-            {
-                value = std::strtoll(numStr.data(), nullptr, 10);
+        // 检查是否后面紧跟单位（支持 1.2[km/s]、12 [km]、1.2 [m] 格式）
+        if (match(Lexer::eLeftBracket)) {
+            // 解析单位部分
+            std::string unitStr;
+            
+            // 跳过可能的空白符
+            while (!match(Lexer::eRightBracket)) {
+                unitStr += currentLexeme().to_string();
+                advance();
             }
             
-            advance();
-            // 检查是否超出int范围
-            if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
-                // 超出int范围
+            // 组合成完整的数量字符串并解析
+            Unit unit;
+            err_t err = aUnitParse(unitStr, unit);
+            if (err != eNoError) {
+                aError("Invalid unit: %s", unitStr.c_str());
                 return nullptr;
             }
-            return new ValInt(static_cast<int>(value));
+            double value = std::strtod(numStr.data(), nullptr);
+            Quantity quantity {value, unit};
+            return aNewValueQuantity(quantity);
+        } else {
+            // 普通数字解析
+            // @todo: 下面的逻辑有待优化
+            // 检查是否为浮点数
+            if (numStr.find_first_of("eE.") != std::string::npos && numStr[1] != 'x') 
+            {
+                double value = std::strtod(numStr.data(), nullptr);
+                return new ValDouble(value);
+            } else {
+                long long value = 0;
+                if(numStr.size() >= 2 && numStr[0] == '0' && (numStr[1] == 'x' || numStr[1] == 'b' || numStr[1] == 'o')){
+                    // 检查是否为十六进制数字
+                    if ((numStr[1] == 'x')) {
+                        // 使用 strtoll 的十六进制解析功能
+                        value = std::strtoll(numStr.data(), nullptr, 16);
+                    } 
+                    // 检查是否为二进制数字
+                    else if ((numStr[1] == 'b')) {
+                        // 使用stoll的二进制解析功能
+                        value = std::strtoll(numStr.data() + 2, nullptr, 2);
+                    }
+                    // 检查是否为八进制数字，参照Julia语法
+                    else if ((numStr[1] == 'o')) {
+                        // 使用stoll的八进制解析功能
+                        value = std::strtoll(numStr.data() + 2, nullptr, 8);
+                    }
+                }
+                // 十进制数字
+                else
+                {
+                    value = std::strtoll(numStr.data(), nullptr, 10);
+                }
+                
+                // 检查是否超出int范围
+                if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
+                    // 超出int范围
+                    return nullptr;
+                }
+                return new ValInt(static_cast<int>(value));
+            }
         }
     }
     

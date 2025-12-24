@@ -56,6 +56,7 @@ namespace units
 
     extern AST_UTIL_API Unit sec;       ///< 秒
     extern AST_UTIL_API Unit s;         ///< 秒
+    extern AST_UTIL_API Unit ms;        ///< 毫秒
     extern AST_UTIL_API Unit min;       ///< 分钟
     extern AST_UTIL_API Unit hour;      ///< 小时
     extern AST_UTIL_API Unit h;         ///< 小时
@@ -201,6 +202,12 @@ public:
     {
         return Unit("day", 86400.0, EDimension::eTime);
     }
+    /// @brief 毫秒单位
+    static Unit MilliSecond()
+    {
+        return Unit("ms", 0.001, EDimension::eTime);
+    }
+
 
 
     /// @brief 米单位

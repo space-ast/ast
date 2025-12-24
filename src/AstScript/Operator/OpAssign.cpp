@@ -47,7 +47,7 @@ static_assert(sizeof(OpAssignTypeStr)/sizeof(OpAssignTypeStr[0]) == static_cast<
 
 Value *OpAssign::eval() const
 {
-    return aDoOpAssign(op_, left_, right_);
+    return aDoOpAssign(op_, left_.get(), right_.get());
 }
 
 std::string OpAssign::getExpression(Object *context) const

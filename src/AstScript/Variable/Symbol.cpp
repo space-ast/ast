@@ -38,7 +38,7 @@ Value *Symbol::eval() const
 
 Expr *Symbol::exec() const
 {
-    auto expr = aScriptContext_ResolveSymbol(this);
+    auto expr = aScript_ResolveSymbol(this);
     if(A_UNLIKELY(!expr))
     {
         aError("symbol %s is not found", name_.c_str());

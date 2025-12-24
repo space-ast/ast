@@ -34,41 +34,39 @@ class Symbol;               ///< 符号
 
 
 /// @brief     获取解释器指针
-/// @details   ~
 /// @return    Interpreter* 解释器指针
-AST_SCRIPT_CAPI Interpreter* aScriptContext_GetInterpreter();
+AST_SCRIPT_CAPI Interpreter* aScript_GetInterpreter();
 
 
 /// @brief     设置解释器指针
-/// @details   ~
 /// @param     interpreter 解释器指针
-AST_SCRIPT_CAPI void aScriptContext_SetInterpreter(Interpreter* interpreter);
+AST_SCRIPT_CAPI void aScript_SetInterpreter(Interpreter* interpreter);
 
 
 /// @brief     移除解释器指针
-/// @details   ~
+/// @details   如果解释器指针与传入指针相同，则移除解释器指针，然后将解释器上下文切换为全局解释器。
 /// @param     interpreter 解释器指针
-AST_SCRIPT_CAPI void aScriptContext_RemoveInterpreter(Interpreter* interpreter);
+AST_SCRIPT_CAPI void aScript_RemoveInterpreter(Interpreter* interpreter);
 
 
 /// @brief     获取当前符号作用域
 /// @details   ~
 /// @return    SymbolScope* 符号作用域指针
-AST_SCRIPT_CAPI SymbolScope* aScriptContext_CurrentSymbolScope();
+AST_SCRIPT_CAPI SymbolScope* aScript_CurrentSymbolScope();
 
 
 /// @brief     查找符号
 /// @details   ~
 /// @param     name 符号名
 /// @return    Expr* 表达式指针
-AST_SCRIPT_API Expr* aScriptContext_FindSymbol(StringView name);
+AST_SCRIPT_API Expr* aScript_FindSymbol(StringView name);
 
 
 /// @brief     查找符号
 /// @details   ~
 /// @param     symbol 符号指针
 /// @return    Expr* 表达式指针
-AST_SCRIPT_API Expr* aScriptContext_FindSymbol(const Symbol* symbol);
+AST_SCRIPT_API Expr* aScript_FindSymbol(const Symbol* symbol);
 
 
 
@@ -76,14 +74,34 @@ AST_SCRIPT_API Expr* aScriptContext_FindSymbol(const Symbol* symbol);
 /// @details   ~
 /// @param     name 符号名
 /// @return    Expr* 表达式指针
-AST_SCRIPT_API Expr* aScriptContext_ResolveSymbol(StringView name);
+AST_SCRIPT_API Expr* aScript_ResolveSymbol(StringView name);
 
 
 /// @brief     解析符号
 /// @details   ~
 /// @param     symbol 符号
 /// @return    Expr* 表达式指针
-AST_SCRIPT_API Expr* aScriptContext_ResolveSymbol(const Symbol* symbol);
+AST_SCRIPT_API Expr* aScript_ResolveSymbol(const Symbol* symbol);
+
+
+/// @brief     设置错误字符串
+/// @details   ~
+/// @param     err 错误字符串
+AST_SCRIPT_CAPI void aScript_SetErrString(StringView err);
+
+
+/// @brief     格式化错误字符串
+/// @details   ~
+/// @param     fmt 格式化字符串
+/// @param     args 可变参数列表
+AST_SCRIPT_CAPI void aScript_FormartErrStringV(StringView fmt, va_list args);
+
+
+/// @brief     格式化错误字符串
+/// @details   ~
+/// @param     fmt 格式化字符串
+/// @param     ... 可变参数
+AST_SCRIPT_CAPI void aScript_FormatErrString(StringView fmt, ...);
 
 
 

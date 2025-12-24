@@ -34,7 +34,8 @@ public:
     AST_EXPR(ValQuantity)
 
     ValQuantity(const Quantity& q)
-        : value_(q)
+        : Value(staticType())
+        , value_(q)
     {
     }
     std::string getExpression(Object* context=nullptr) const override;

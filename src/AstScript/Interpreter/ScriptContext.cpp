@@ -21,6 +21,7 @@
 #include "ScriptContext.hpp"
 #include "AstScript/Symbol.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/IO.hpp"
 #include "Interpreter.hpp"  
 #include <memory>           // for std::unique_ptr
 
@@ -67,18 +68,18 @@ static Interpreter gInterpreter{};                                   ///< 全局
 A_THREAD_LOCAL ScriptContext tCurrentScriptContext{&gInterpreter};   ///< 当前脚本上下文
 
 
-Interpreter *aScriptContext_GetInterpreter()
+Interpreter *aScript_GetInterpreter()
 {
     return tCurrentScriptContext.interpreter();
 }
 
 
-void aScriptContext_SetInterpreter(Interpreter* interpreter)
+void aScript_SetInterpreter(Interpreter* interpreter)
 {
     tCurrentScriptContext.setInterpreter(interpreter);
 }
 
-void aScriptContext_RemoveInterpreter(Interpreter* interpreter)
+void aScript_RemoveInterpreter(Interpreter* interpreter)
 {
     if(tCurrentScriptContext.interpreter() == interpreter)
     {
@@ -88,9 +89,9 @@ void aScriptContext_RemoveInterpreter(Interpreter* interpreter)
     }
 }
 
-SymbolScope *aScriptContext_CurrentSymbolScope()
+SymbolScope *aScript_CurrentSymbolScope()
 {
-    auto interpreter = aScriptContext_GetInterpreter();
+    auto interpreter = aScript_GetInterpreter();
     if(interpreter)
     {
         return interpreter->currentScope();
@@ -98,9 +99,9 @@ SymbolScope *aScriptContext_CurrentSymbolScope()
     return nullptr;
 }
 
-Expr *aScriptContext_FindSymbol(StringView name)
+Expr *aScript_FindSymbol(StringView name)
 {
-    auto symbolScope = aScriptContext_CurrentSymbolScope();
+    auto symbolScope = aScript_CurrentSymbolScope();
     if(A_UNLIKELY(!symbolScope))
     {
         aError("symbol scope is null");
@@ -109,19 +110,19 @@ Expr *aScriptContext_FindSymbol(StringView name)
     return symbolScope->findSymbol(name);
 }
 
-Expr *aScriptContext_FindSymbol(const Symbol *symbol)
+Expr *aScript_FindSymbol(const Symbol *symbol)
 {
     if(A_UNLIKELY(!symbol))
     {
         aError("symbol is null");
         return nullptr;
     }
-    return aScriptContext_FindSymbol(symbol->name());
+    return aScript_FindSymbol(symbol->name());
 }
 
-Expr *aScriptContext_ResolveSymbol(StringView name)
+Expr *aScript_ResolveSymbol(StringView name)
 {
-    auto symbolScope = aScriptContext_CurrentSymbolScope();
+    auto symbolScope = aScript_CurrentSymbolScope();
     if(A_UNLIKELY(!symbolScope))
     {
         aError("symbol scope is null");
@@ -130,14 +131,34 @@ Expr *aScriptContext_ResolveSymbol(StringView name)
     return symbolScope->resolveSymbol(name);
 }
 
-Expr *aScriptContext_ResolveSymbol(const Symbol *symbol)
+Expr *aScript_ResolveSymbol(const Symbol *symbol)
 {
     if(A_UNLIKELY(!symbol))
     {
         aError("symbol is null");
         return nullptr;
     }
-    return aScriptContext_ResolveSymbol(symbol->name());
+    return aScript_ResolveSymbol(symbol->name());
+}
+
+void aScript_SetErrString(StringView err)
+{
+    
+}
+
+void aScript_FormartErrStringV(StringView fmt, va_list args)
+{
+    char buf[1024] = {0};
+    vsnprintf(buf, sizeof(buf), fmt.data(), args);
+    aScript_SetErrString(buf);
+}
+
+void aScript_FormatErrString(StringView fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt);
+    aScript_FormartErrStringV(fmt, args);
+    va_end(args);
 }
 
 AST_NAMESPACE_END
