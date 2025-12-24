@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 
 Interpreter::~Interpreter()
 {
-    aScriptContext_RemoveInterpreter(this);
+    aScript_RemoveInterpreter(this);
 }
 
 void Interpreter::interpret(StringView code)

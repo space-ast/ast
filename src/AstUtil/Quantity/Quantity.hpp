@@ -123,6 +123,9 @@ public:
     Quantity(double value, const Unit& unit)
         : value_(value), unit_(unit)
     {}
+    Quantity(double value)
+        : value_(value), unit_(Unit::None())
+    {}
 public:
     /// @brief 获取数量值
     /// @return 数量值

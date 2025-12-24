@@ -81,6 +81,9 @@ public:
         eRightParen, ///< )
         eLeftBrace,  ///< {
         eRightBrace, ///< }
+
+        eLeftBracket,  ///< [
+        eRightBracket, ///< ]
         
         // 其他
         eComma,      ///< ,

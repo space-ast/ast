@@ -102,10 +102,7 @@ TEST_F(ScriptAPI2, OperatorFunctions) {
     Expr* assignExpr = aNewOpAssign(EOpAssignType::eAssign, (Expr*)sym, (Expr*)left);
     EXPECT_NE(assignExpr, nullptr);
     delete assignExpr;
-    delete sym;
     
-    delete left;
-    delete right;
 }
 
 // 测试值类型创建函数
@@ -278,8 +275,6 @@ TEST(ScriptAPI, OperatorFunctions)
     EXPECT_TRUE(opUnary);
     delete opUnary;
     
-    delete left;
-    delete right;
 }
 
 TEST(ScriptAPI, ValueCreationFunctions)

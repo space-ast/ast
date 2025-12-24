@@ -167,6 +167,10 @@ Lexer::ETokenType Lexer::getNextToken()
                 return Lexer::eXor;
             }
             return Lexer::eError;
+        case '[':
+            return Lexer::eLeftBracket;
+        case ']':
+            return Lexer::eRightBracket;
         default:
             return Lexer::eError;
     }

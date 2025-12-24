@@ -1,9 +1,9 @@
 ///
-/// @file      OpAssign.hpp
+/// @file      ExprFuncCall.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-24
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,27 +21,17 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Op.hpp"
-#include "AstScript/ScriptAPI.hpp"
+#include "Expr.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-class OpAssign: public Op
+/// @brief     函数调用表达式
+class ExprFuncCall: public Expr
 {
 public:
-    AST_EXPR(OpAssign)
-
-    OpAssign(EOpAssignType op, Expr* left, Expr* right)
-        :op_{op}
-        ,left_{left}
-        ,right_{right}
-    {};
-    Value* eval() const override;
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    EOpAssignType op_;
-    SharedPtr<Expr> left_;
-    SharedPtr<Expr> right_;
+    ExprFuncCall() = default;
+    ~ExprFuncCall() = default;
 };
 
 AST_NAMESPACE_END

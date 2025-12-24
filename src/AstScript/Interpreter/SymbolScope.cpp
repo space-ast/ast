@@ -23,7 +23,7 @@
 
 AST_NAMESPACE_BEGIN
 
-bool SymbolScope::addSymbol(StringView name, const SharedPtr<Expr>& expr)
+bool SymbolScope::addSymbol(StringView name, Expr* expr)
 {
     // 如果符号已存在，则返回false
     if (symbols_.find(name.to_string()) != symbols_.end()) {
@@ -34,7 +34,7 @@ bool SymbolScope::addSymbol(StringView name, const SharedPtr<Expr>& expr)
     return true;
 }
 
-void SymbolScope::setSymbol(StringView name, const SharedPtr<Expr>& expr)
+void SymbolScope::setSymbol(StringView name, Expr* expr)
 {
     symbols_[name.to_string()] = expr;
 }

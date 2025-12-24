@@ -25,6 +25,7 @@
 #include "SymbolScope.hpp"
 #include "CallStack.hpp"
 #include "ScriptContext.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -51,9 +52,29 @@ public:
     /// @param code 要解释执行的代码
     void interpret(StringView code);
 
-    
+
+    /// @brief 获取错误字符串
+    /// @details
+    /// 获取解释器执行代码时产生的错误字符串。
+    /// @return 错误字符串
+    const std::string& errString() const { return errString_; }
+
+
+    /// @brief 设置错误字符串
+    /// @details
+    /// 设置解释器执行代码时产生的错误字符串。
+    /// @param err 错误字符串
+    void setErrString(StringView err) { errString_ = err.to_string(); }
+
+
+    /// @brief 清除错误字符串
+    /// @details
+    /// 清除解释器执行代码时产生的错误字符串。
+    void clearErrString() { errString_.clear(); }
+
 protected:
     SymbolScope symbolScope_;       ///< 当前作用域
+    std::string errString_;        ///< 错误字符串
 };
 
 /// @brief 解释器上下文守卫
@@ -69,11 +90,11 @@ public:
     InterpreterContext(Interpreter* interpreter)
         : interpreter_(interpreter)
     {
-        aScriptContext_SetInterpreter(interpreter);
+        aScript_SetInterpreter(interpreter);
     }
     ~InterpreterContext()
     {
-        aScriptContext_RemoveInterpreter(interpreter_);
+        aScript_RemoveInterpreter(interpreter_);
     }
 private:
     Interpreter* interpreter_;

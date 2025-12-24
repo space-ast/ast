@@ -1,9 +1,9 @@
 ///
-/// @file      OpAssign.hpp
+/// @file      ExprBlock.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
-/// @date      2025-12-19
+/// @date      2025-12-24
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,30 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "Op.hpp"
-#include "AstScript/ScriptAPI.hpp"
+#include "ExprBlock.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class OpAssign: public Op
-{
-public:
-    AST_EXPR(OpAssign)
 
-    OpAssign(EOpAssignType op, Expr* left, Expr* right)
-        :op_{op}
-        ,left_{left}
-        ,right_{right}
-    {};
-    Value* eval() const override;
-    std::string getExpression(Object* context=nullptr) const override;
-protected:
-    EOpAssignType op_;
-    SharedPtr<Expr> left_;
-    SharedPtr<Expr> right_;
-};
+
 
 AST_NAMESPACE_END
