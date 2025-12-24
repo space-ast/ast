@@ -191,14 +191,21 @@ void Lexer::skipWhitespace()
                 line_++;
                 advance();
                 break;
-            case '/':
-                if (peekNext() == '/') {
-                    // 单行注释
-                    while (peek() != '\n' && !atEnd()) {
-                        advance();
-                    }
-                } else {
-                    return;
+            // 不支持//注释
+            // case '/':
+            //     if (peekNext() == '/') {
+            //         // 单行注释
+            //         while (peek() != '\n' && !atEnd()) {
+            //             advance();
+            //         }
+            //     } else {
+            //         return;
+            //     }
+            //     break;
+            case '#':
+                // Julia风格单行注释
+                while (peek() != '\n' && !atEnd()) {
+                    advance();
                 }
                 break;
             default:
