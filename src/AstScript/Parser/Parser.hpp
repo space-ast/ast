@@ -53,6 +53,9 @@ public:
     /// @brief 解析表达式
     Expr* parseExpression();
     
+    /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
+    Expr* parseStatements();
+    
     /// @brief 解析赋值表达式
     Expr* parseAssignExpr();
     
@@ -94,6 +97,15 @@ public:
     
     /// @brief 解析一元表达式
     Expr* parseUnaryExpr();
+    
+    /// @brief 解析带begin/end的代码块
+    Expr* parseBeginEndBlock();
+    
+    /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
+    Expr* parseStatementSequence();
+    
+    /// @brief 解析代码块表达式
+    Expr* parseBlockExpr();
     
     /// @brief 解析基本表达式
     Expr* parsePrimaryExpr();

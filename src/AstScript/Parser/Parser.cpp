@@ -31,6 +31,7 @@
 #include "AstScript/OpUnary.hpp"
 #include "AstScript/Variable.hpp"
 #include "AstScript/Symbol.hpp"
+#include "AstScript/ExprBlock.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
@@ -74,7 +75,7 @@ int Parser::currentTokenType() const { return currentTokenType_; }
 StringView Parser::currentLexeme() const { return lexer_.getCurrentLexeme(); }
     
 /// @brief 获取当前行号
-size_t Parser::getLine() const { return lexer_.getLine(); }
+// size_t Parser::getLine() const { return lexer_.getLine(); }
     
 /// @brief 前进到下一个令牌
 void Parser::advance() { currentTokenType_ = lexer_.getNextToken(); }
@@ -99,6 +100,12 @@ Expr* Parser::parseExpression()
 {
     return parseAssignExpr();
 }
+
+/// @brief 解析语句序列（多个表达式，用分号或换行分隔）
+// Expr* Parser::parseStatements()
+// {
+//     
+// }
 
 /// @brief 解析赋值表达式
 Expr* Parser::parseAssignExpr()
@@ -472,9 +479,95 @@ Expr* Parser::parseUnaryExpr()
     return parsePrimaryExpr();
 }
 
+/// @brief 解析带begin/end的代码块
+Expr* Parser::parseBeginEndBlock()
+{
+    if (!match(Lexer::eBegin)) {
+        return nullptr;
+    }
+
+    // 检查begin和end之间是否有表达式
+    int tokenType = currentTokenType();
+    if (tokenType == Lexer::eEnd) {
+        // 空代码块，直接返回一个空的ExprBlock
+        advance();
+        return (new ExprBlock());
+    }
+    
+    // 解析语句序列
+    Expr* statements = parseStatementSequence();
+    
+    // 匹配end关键字
+    if (!match(Lexer::eEnd)) {
+        delete statements;
+        return nullptr;
+    }
+    
+    return statements;
+}
+
+/// @brief 解析语句序列（多个表达式，用分号或换行分隔）
+Expr* Parser::parseStatementSequence()
+{
+    // 首先解析第一个表达式
+    Expr* firstExpr = parseExpression();
+    if (!firstExpr) {
+        return nullptr;
+    }
+    
+    // 检查是否到达文件末尾或end关键字
+    int tokenType = currentTokenType();
+    if (tokenType == Lexer::eEndOfFile || tokenType == Lexer::eEnd) {
+        // 如果只有一个表达式，直接返回
+        return firstExpr;
+    }
+    
+    // 创建一个代码块
+    SharedPtr<ExprBlock> block = new ExprBlock();
+    block->addExpr(firstExpr);
+    
+    // 解析剩余的所有表达式，直到文件末尾或end关键字
+    while (currentTokenType() != Lexer::eEndOfFile) {
+        tokenType = currentTokenType();
+        
+        // 检查是否有换行符或分号作为分隔符
+        if (tokenType == Lexer::eNewline || tokenType == Lexer::eSemicolon) {
+            advance();
+        } else if (tokenType == Lexer::eEnd) {
+            break;
+        } else {
+            return nullptr;
+        }
+        
+        // 解析下一个表达式
+        Expr* expr = parseExpression();
+        if (expr) {
+            block->addExpr(expr);
+        } else {
+            return nullptr;
+        }
+    }
+    
+    return block.take();
+}
+
+/// @brief 解析代码块表达式
+Expr* Parser::parseBlockExpr()
+{
+    // 先检查是否是带begin/end的代码块
+    Expr* block = parseBeginEndBlock();
+    if (block) {
+        return block;
+    }
+    
+    // 否则解析语句序列
+    return parseStatementSequence();
+}
+
 /// @brief 解析基本表达式
 Expr* Parser::parsePrimaryExpr()
 {
+    // 处理括号表达式
     if (match(Lexer::eLeftParen)) {
         Expr* expr = parseExpression();
         if (match(Lexer::eRightParen)) {
@@ -482,6 +575,12 @@ Expr* Parser::parsePrimaryExpr()
         }
         delete expr;
         return nullptr;
+    }
+    
+    // 处理嵌套的begin/end代码块
+    Expr* block = parseBeginEndBlock();
+    if (block) {
+        return block;
     }
     
     if (currentTokenType() == Lexer::eNumber) {
@@ -589,13 +688,8 @@ Expr* Parser::parseExpr(StringView script)
     Lexer lexer(&scanner);
     Parser context(lexer);
     
-    Expr* expr = context.parseExpression();
-    
-    // 检查是否解析到文件末尾
-    if (expr && context.currentTokenType() != Lexer::eEndOfFile) {
-        delete expr;
-        return nullptr;
-    }
+    // 使用parseStatements方法处理单个或多个表达式
+    Expr* expr = context.parseBlockExpr();
     
     return expr;
 }
