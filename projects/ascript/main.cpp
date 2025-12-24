@@ -24,6 +24,7 @@
 #include <cstdio>
 #include <string>
 #include <fstream>
+#include <iostream>
 
 AST_USING_NAMESPACE
 
@@ -34,7 +35,7 @@ int main(int argc, char* argv[])
         const char* filename = argv[1];
         
         // 打开文件
-        FILE* file = ast_fopen(filename, "r");
+        FILE* file = ast_fopen(filename, "rb");
         if (file == nullptr) {
             ast_printf("无法打开文件: %s\n", filename);
             return 1;
@@ -56,21 +57,31 @@ int main(int argc, char* argv[])
         
         // 执行脚本
         try {
-            Value* result = aEval(script);
+            Expr* expr = aParseExpr(script);
+            if (expr == nullptr) {
+                ast_printf("解析脚本失败: %s\n", filename);
+                return 1;
+            }
+            #ifndef NDEBUG
+            std::string exprStr = aFormatExpr(expr);
+            std::cout << "parse expr: " << std::endl << exprStr << std::endl;
+            #endif
+            Value* result = aEvalExpr(expr);
             
             if (result != nullptr) {
                 // 输出结果
                 if (aValueIsBool(result)) {
                     ast_printf("=> %s\n", (aValueUnboxBool(result) ? "true" : "false"));
-            } else if (aValueIsInt(result)) {
-                ast_printf("=> %d\n", aValueUnboxInt(result));
-            } else if (aValueIsDouble(result)) {
-                ast_printf("=> %g\n", aValueUnboxDouble(result));
-            } else if (aValueIsQuantity(result)) {
-                ast_printf("=> quantity\n");
-            } else {
-                ast_printf("=> value\n");
+                } else if (aValueIsInt(result)) {
+                    ast_printf("=> %d\n", aValueUnboxInt(result));
+                } else if (aValueIsDouble(result)) {
+                    ast_printf("=> %g\n", aValueUnboxDouble(result));
+                } else if (aValueIsQuantity(result)) {
+                    ast_printf("=> quantity\n");
+                } else {
+                    ast_printf("=> value\n");
                 }
+                return 0;
             } else {
                 ast_printf("执行结果为空\n");
                 return 1;

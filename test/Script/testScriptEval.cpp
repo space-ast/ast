@@ -80,6 +80,16 @@ void testScriptEvalString(StringView str, StringView expectedValue)
     }
 }
 
+void testScriptEval(StringView str)
+{
+    printf("testScriptEval: %s\n", str.to_string().c_str());
+    Value* value = aEval(str);
+    EXPECT_TRUE(value);
+    if(value){
+        delete value;
+    }
+}
+
 // 测试布尔值表达式
 TEST(ScriptEval, EvalBool)
 {
@@ -442,6 +452,17 @@ TEST_F(ScriptExec, Interpreter)
         EXPECT_TRUE(z != nullptr);
     }
 
+}
+
+
+TEST_F(ScriptExec, MutilLine)
+{
+    // 测试多行表达式
+    testScriptEval("v1 = 1.2[km/s]\nv2 = 12 [km]");
+    // 测试空行分隔的多行表达式
+    testScriptEval("v1 = 1.2[km/s]\n\nv2 = 12 [km]");
+    // 测试前置空行
+    testScriptEval("\n\nv1 = 1.2[km/s]\n\nv2 = 12 [km]");
 }
 
 GTEST_MAIN()

@@ -141,6 +141,8 @@ Lexer::ETokenType Lexer::getNextToken()
             return Lexer::eSlash;
         case '%':
             return Lexer::ePercent;
+        case '\r':
+            return Lexer::eNewline;
         case '\n':
             return Lexer::eNewline;
         
@@ -209,6 +211,10 @@ void Lexer::skipWhitespace()
             case '#':
                 // Julia风格单行注释
                 while (peek() != '\n' && !atEnd()) {
+                    advance();
+                }
+                // 消费换行符
+                if (peek() == '\n') {
                     advance();
                 }
                 break;

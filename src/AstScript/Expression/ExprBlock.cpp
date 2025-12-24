@@ -38,6 +38,9 @@ Value* ExprBlock::eval() const
     SharedPtr<Value> result = nullptr;
     for (auto expr : exprs_) {
         result = expr->eval();
+        if(!result) {
+            return nullptr;
+        }
     }
     return result.take();
 }
