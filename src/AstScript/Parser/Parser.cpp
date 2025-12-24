@@ -509,7 +509,18 @@ Expr* Parser::parseBeginEndBlock()
 /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
 Expr* Parser::parseStatementSequence()
 {
-    // 首先解析第一个表达式
+    // 跳过开头的所有连续分隔符（换行符和分号）
+    while (currentTokenType() == Lexer::eNewline || currentTokenType() == Lexer::eSemicolon) {
+        advance();
+    }
+    
+    // 检查是否已经到达文件末尾或end关键字
+    if (currentTokenType() == Lexer::eEndOfFile || currentTokenType() == Lexer::eEnd) {
+        // 空的语句序列，返回一个空的ExprBlock
+        return new ExprBlock();
+    }
+    
+    // 解析第一个表达式
     Expr* firstExpr = parseExpression();
     if (!firstExpr) {
         return nullptr;
@@ -532,11 +543,19 @@ Expr* Parser::parseStatementSequence()
         
         // 检查是否有换行符或分号作为分隔符
         if (tokenType == Lexer::eNewline || tokenType == Lexer::eSemicolon) {
-            advance();
+            // 跳过所有连续的分隔符
+            while (currentTokenType() == Lexer::eNewline || currentTokenType() == Lexer::eSemicolon) {
+                advance();
+            }
         } else if (tokenType == Lexer::eEnd) {
             break;
         } else {
             return nullptr;
+        }
+        
+        // 检查是否已经到达文件末尾或end关键字
+        if (currentTokenType() == Lexer::eEndOfFile || currentTokenType() == Lexer::eEnd) {
+            break;
         }
         
         // 解析下一个表达式
@@ -555,9 +574,9 @@ Expr* Parser::parseStatementSequence()
 Expr* Parser::parseBlockExpr()
 {
     // 先检查是否是带begin/end的代码块
-    Expr* block = parseBeginEndBlock();
-    if (block) {
-        return block;
+    // 如果已经匹配到begin关键字，就不应该再尝试解析语句序列
+    if (check(Lexer::eBegin)) {
+        return parseBeginEndBlock();
     }
     
     // 否则解析语句序列

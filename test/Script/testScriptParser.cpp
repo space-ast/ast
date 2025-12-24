@@ -411,9 +411,9 @@ TEST(ScriptParser, InvalidSyntax)
     // testInvalidScriptParser("var.name = 10"); // Julia中这被解析为点操作表达式
     
     // 无效的字符串
-    testInvalidScriptParser("\"未闭合的字符串");
-    testInvalidScriptParser("'单引号字符串'"); // Julia使用双引号
-    testInvalidScriptParser("\"字符串\"中\"的\"引号"); // 未转义的引号
+    testInvalidScriptParser("\"unclosed string");
+    testInvalidScriptParser("'unclosed string"); // Julia使用双引号
+    testInvalidScriptParser("\"string\" with \"quotes\""); // 未转义的引号
     
     // 括号不匹配
     testInvalidScriptParser("(1 + 2))"); // 多余的右括号

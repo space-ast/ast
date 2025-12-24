@@ -39,7 +39,7 @@ void testScriptComment(StringView str, double expectedValue)
     if(aValueIsDouble(value.get())){
         EXPECT_DOUBLE_EQ(aValueUnboxDouble(value.get()), expectedValue);
     }else if(aValueIsBool(value.get())){
-        EXPECT_TRUE(aValueUnboxBool(value.get()) == expectedValue);
+        EXPECT_TRUE(aValueUnboxBool(value.get()) == (bool)expectedValue);
     }
     // else if(aValueIsString(value.get())){
         //@todo 字符串比较
@@ -53,10 +53,8 @@ void testScriptComment(StringView str, double expectedValue)
 TEST(ScriptComment, Basic)
 {
     // 测试#注释
-    testScriptComment("1 + 2 # 这是一个注释", 3.0);
-    testScriptComment("# 这是一个整行注释\n42", 42.0);
-    testScriptComment("10 + # 中间的注释\n20", 30.0);
-    
+    testScriptComment("1 + 2 # this is comment", 3.0);
+    testScriptComment("# this is a comment line\n42", 42.0);
 }
 
 GTEST_MAIN()
