@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <stdarg.h>   // for va_list, va_start, va_end
 
 AST_NAMESPACE_BEGIN
 
