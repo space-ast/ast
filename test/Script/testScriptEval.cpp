@@ -70,24 +70,20 @@ void testScriptEvalDouble(StringView str, double expectedValue)
 void testScriptEvalString(StringView str, StringView expectedValue)
 {
     printf("testScriptEvalString: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(dynamic_cast<ValString*>(value) != nullptr);
-        ValString* strValue = static_cast<ValString*>(value);
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(dynamic_cast<ValString*>(value.get()) != nullptr);
+        ValString* strValue = static_cast<ValString*>(value.get());
         EXPECT_EQ(strValue->value(), expectedValue.to_string());
-        delete value;
     }
 }
 
 void testScriptEval(StringView str)
 {
     printf("testScriptEval: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        delete value;
-    }
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
 }
 
 // 测试布尔值表达式

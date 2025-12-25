@@ -34,7 +34,10 @@ static const std::unordered_map<StringView, Lexer::ETokenType> keywords = {
     {"and", Lexer::eAndAnd},
     {"or", Lexer::eOrOr},
     {"begin", Lexer::eBegin},
-    {"end", Lexer::eEnd}
+    {"end", Lexer::eEnd},
+    {"if", Lexer::eIf},
+    {"elseif", Lexer::eElseif},
+    {"else", Lexer::eElse}
 };
 
 /// @brief 获取下一个令牌

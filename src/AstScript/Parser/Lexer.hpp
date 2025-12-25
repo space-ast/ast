@@ -97,6 +97,11 @@ public:
         // 代码块关键字（参照Julia语言）
         eBegin,      ///< begin
         eEnd,        ///< end
+        
+        // 条件语句关键字
+        eIf,         ///< if
+        eElseif,     ///< elseif
+        eElse,       ///< else
     };
 
 public:

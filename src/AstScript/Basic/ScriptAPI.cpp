@@ -29,6 +29,7 @@
 #include "AstScript/OpBin.hpp"
 #include "AstScript/OpAssign.hpp"
 #include "AstScript/OpUnary.hpp"
+#include "AstScript/ExprCondition.hpp"
 #include "AstScript/Parser.hpp"
 #include "AstScript/Symbol.hpp"
 #include "AstScript/OpBinPredefined.hpp"
@@ -78,6 +79,14 @@ Expr *aNewOpUnary(EOpUnaryType op, Expr *expr)
         return nullptr;
     }
     return new OpUnary(op, expr);
+}
+
+Expr* aNewExprCondition(Expr* condition, Expr* thenExpr, Expr* elseExpr)
+{
+    if(!condition || !thenExpr ){
+        return nullptr;
+    }
+    return new ExprCondition(condition, thenExpr, elseExpr);
 }
 
 
