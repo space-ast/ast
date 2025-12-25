@@ -67,7 +67,8 @@ int main(int argc, char* argv[])
             }
             #ifndef NDEBUG
             std::string exprStr = aFormatExpr(expr);
-            std::cout << "parse expr: " << std::endl << exprStr << std::endl;
+            ast_printf(aText("parse expr: \n%s\n"), exprStr.c_str());
+            
             #endif
             SharedPtr<Value> result = aEvalExpr(expr);
             

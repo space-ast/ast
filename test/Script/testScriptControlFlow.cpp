@@ -86,5 +86,29 @@ true ? b : a
 }
 
 
+TEST_F(ScriptControlFlowTest, TestWhileLoop) {
+    // 测试while循环语句
+    const char* script1 = R"(
+    a = 0.0
+    while a < 10
+        a = a + 1
+    end
+    a
+    )";
+    testScriptControlFlowDouble(script1, 10.0);
+
+    const char* script2 = R"(
+    a = 0
+    s = 0.0
+    while a < 10
+        s = s + a
+        a = a + 1
+    end
+    s
+    )";
+    testScriptControlFlowDouble(script2, 45.0);
+}
+
+
 
 GTEST_MAIN()

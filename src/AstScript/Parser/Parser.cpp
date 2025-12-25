@@ -34,6 +34,7 @@
 #include "AstScript/ExprBlock.hpp"
 #include "AstScript/ExprCondition.hpp"
 #include "AstScript/ExprIf.hpp"
+#include "AstScript/ExprLoop.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
@@ -654,12 +655,46 @@ Expr* Parser::parseIfStatement() {
     return ifExpr.take();
 }
 
+/// @brief 解析while循环语句
+Expr* Parser::parseWhileLoop()
+{
+    if (!match(Lexer::eWhile)) {
+        return nullptr;
+    }
+    
+    // 解析条件表达式
+    Expr* condition = parseExpression();
+    if (!condition) {
+        return nullptr;
+    }
+    
+    // 解析循环体（代码块或单个表达式）
+    Expr* body = parseBlockExpr();
+    if (!body) {
+        delete condition;
+        return nullptr;
+    }
+    
+    // 匹配end关键字
+    if (!match(Lexer::eEnd)) {
+        delete condition;
+        delete body;
+        aError("Expected 'end' after while loop body");
+        return nullptr;
+    }
+    
+    // 创建并返回While循环表达式
+    return new ExprWhile(condition, body);
+}
+
 /// @brief 解析基本表达式
 Expr* Parser::parsePrimaryExpr()
 {
     // 处理if语句
     if(check(Lexer::eIf)){
         return parseIfStatement();
+    }else if(check(Lexer::eWhile)){
+        return parseWhileLoop();
     }else if(check(Lexer::eBegin)){
         return parseBeginEndBlock();
     }
