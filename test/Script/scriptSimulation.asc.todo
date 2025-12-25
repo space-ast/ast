@@ -1,0 +1,22 @@
+# coding: utf-8
+# ast script file
+# a simple simulation scenario
+#=
+使用julia的数组、矩阵拼接语法实现仿真场景的构建
+目前这只是一个蓝图，还未实现相关的功能
+
+hcat 水平拼接： 空格
+vcat 垂直拼接： 换行符、分号
+pcat 页面拼接： 两个分号
+=#
+
+
+Scenario("场景1")[
+    Satellite("卫星1")
+        .position(0, 0, 0)
+        .velocity(0, 0, 0)
+        .mass(1000)
+    Facility("设施1")
+        .position(0, 0, 0)
+        .velocity(0, 0, 0)
+]

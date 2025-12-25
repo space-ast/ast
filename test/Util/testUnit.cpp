@@ -897,4 +897,48 @@ TEST(Unit, ReductionAndSimplification)
     }
 }
 
+// 测试单位倒数运算
+TEST(Unit, Invert)
+{
+    // 测试基本单位的倒数
+    {
+        Unit meter = Unit::Meter();
+        Unit inverted = meter.invert();
+        EXPECT_EQ(inverted.dimension(), meter.dimension().invert());
+        EXPECT_DOUBLE_EQ(inverted.getScale(), 1.0 / meter.getScale());
+    }
+
+    // 测试复合单位的倒数
+    {
+        Unit speed = Unit::Meter() / Unit::Second(); // m/s
+        Unit inverted = speed.invert(); // s/m
+        EXPECT_EQ(inverted.dimension(), Dimension::Time() / Dimension::Length());
+        EXPECT_DOUBLE_EQ(inverted.getScale(), 1.0 / speed.getScale());
+    }
+
+    // 测试倒数的倒数是否等于原单位
+    {
+        Unit force = Unit::Newton(); // N
+        Unit inverted1 = force.invert();
+        Unit inverted2 = inverted1.invert();
+        EXPECT_TRUE(inverted2 == force);
+    }
+
+    // 测试带名称的单位的倒数
+    {
+        Unit kg = Unit::Kilogram();
+        Unit inverted = kg.invert();
+        // 倒数单位可能没有名称，所以只测试维度和缩放因子
+        EXPECT_EQ(inverted.dimension(), Dimension::Mass().invert());
+        EXPECT_DOUBLE_EQ(inverted.getScale(), 1.0);
+    }
+
+    // 测试特殊单位的倒数
+    {
+        Unit none = Unit::None();
+        Unit inverted = none.invert();
+        EXPECT_TRUE(inverted == none);
+    }
+}
+
 GTEST_MAIN()

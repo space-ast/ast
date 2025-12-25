@@ -26,3 +26,4 @@
 #include "AstScript/ValDouble.hpp"
 #include "AstScript/ValString.hpp"
 #include "AstScript/ValBool.hpp"
+#include "AstScript/ValQuantity.hpp"

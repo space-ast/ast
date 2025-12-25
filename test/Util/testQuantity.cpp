@@ -255,4 +255,50 @@ TEST(Quantity, ComplexOperations)
     ast_printf("Force: %s\n", str_force.c_str());
 }
 
+// 测试数量值倒数运算
+TEST(Quantity, Invert)
+{
+    // 测试标量的倒数
+    {
+        auto q = Quantity::Scalar(2.0);
+        auto inverted = q.invert();
+        EXPECT_EQ(inverted.value(), 0.5);
+        EXPECT_TRUE(inverted.unit() == Unit::None());
+    }
+
+    // 测试基本单位数量值的倒数
+    {
+        auto q = 10.0 * Unit::Meter(); // 10 m
+        auto inverted = q.invert(); // 0.1 m⁻¹
+        EXPECT_EQ(inverted.value(), 0.1);
+        EXPECT_EQ(inverted.dimension(), Dimension::Length().invert());
+    }
+
+    // 测试复合单位数量值的倒数
+    {
+        auto q = 5.0 * (Unit::Meter() / Unit::Second()); // 5 m/s
+        auto inverted = q.invert(); // 0.2 s/m
+        EXPECT_EQ(inverted.value(), 0.2);
+        EXPECT_EQ(inverted.dimension(), (Dimension::Length() / Dimension::Time()).invert());
+    }
+
+    // 测试倒数的倒数是否等于原数量值
+    {
+        auto q = 3.0 * Unit::Kilogram(); // 3 kg
+        auto inverted1 = q.invert();
+        auto inverted2 = inverted1.invert();
+        EXPECT_TRUE(inverted2 == q);
+    }
+
+    // 测试与其他运算的结合
+    {
+        auto speed = 100 * km / h; // 100 km/h
+        auto time = 2 * h;
+        auto distance = speed * time; // 200 km
+        auto inverted_speed = speed.invert(); // h/km
+        auto distance2 = time / inverted_speed; // 200 km
+        EXPECT_TRUE(distance == distance2);
+    }
+}
+
 GTEST_MAIN()

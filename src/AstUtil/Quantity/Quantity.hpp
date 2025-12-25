@@ -22,7 +22,8 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Unit.hpp"
-#include <string>
+#include <string>       
+#include <limits>       // for std::numeric_limits
 
 AST_NAMESPACE_BEGIN
 
@@ -80,6 +81,11 @@ AST_UTIL_API void aQuantityReduce(Quantity& q);
 /// @return 数量值的字符串表示
 AST_UTIL_API std::string aQuantityToString(const Quantity& q);
 
+A_ALWAYS_INLINE std::string aFormatQuantity(const Quantity& q)
+{
+    return aQuantityToString(q);
+}
+
 /// @brief 单位乘法运算符
 /// @param value 数值
 /// @param unit 单位
@@ -95,7 +101,8 @@ public:
     /// @brief 无效数量值
     static Quantity NaN()
     {
-        return Quantity(0.0, Unit::NaN());
+        // 无效数量值使用NaN表示
+        return Quantity(std::numeric_limits<double>::quiet_NaN(), Unit::NaN());
     }
 
     /// @brief 零数量值
@@ -190,6 +197,9 @@ public:
         return !(*this == value);
     }
 
+    /// @brief 数量值取倒数
+    Quantity invert() const { return Quantity(1.0 / value_, unit_.invert()); }
+
     /// @brief 数量值取正
     Quantity operator+() const { return *this; }
     /// @brief 数量值取负
@@ -240,6 +250,11 @@ private:
 inline Quantity operator*(double value, const Quantity& q)
 {
     return q * value;
+}
+
+inline Quantity operator/(double value, const Quantity& q)
+{
+    return value * q.invert();
 }
 
 AST_NAMESPACE_END
