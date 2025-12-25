@@ -32,6 +32,8 @@
 #include "AstScript/Variable.hpp"
 #include "AstScript/Symbol.hpp"
 #include "AstScript/ExprBlock.hpp"
+#include "AstScript/ExprCondition.hpp"
+#include "AstScript/ExprIf.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
@@ -149,10 +151,8 @@ Expr* Parser::parseConditionalExpr()
             return nullptr;
         }
         
-        // TODO: 实现条件表达式
-        // 暂时返回第一个表达式，后续需要添加条件表达式支持
-        delete thenExpr;
-        delete elseExpr;
+        // 创建条件表达式对象
+        return aNewExprCondition(expr, thenExpr, elseExpr);
     }
     
     return expr;
@@ -506,6 +506,17 @@ Expr* Parser::parseBeginEndBlock()
     return statements;
 }
 
+
+static bool isEndOfBlock(int tokenType)
+{
+    return 
+       tokenType == Lexer::eEndOfFile 
+    || tokenType == Lexer::eEnd
+    || tokenType == Lexer::eElse 
+    || tokenType == Lexer::eElseif
+    ;
+}
+
 /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
 Expr* Parser::parseStatementSequence()
 {
@@ -514,8 +525,8 @@ Expr* Parser::parseStatementSequence()
         advance();
     }
     
-    // 检查是否已经到达文件末尾或end关键字
-    if (currentTokenType() == Lexer::eEndOfFile || currentTokenType() == Lexer::eEnd) {
+    // 如果是标识block末尾的关键字，返回一个空的ExprBlock
+    if (isEndOfBlock(currentTokenType())) {
         // 空的语句序列，返回一个空的ExprBlock
         return new ExprBlock();
     }
@@ -528,7 +539,7 @@ Expr* Parser::parseStatementSequence()
     
     // 检查是否到达文件末尾或end关键字
     int tokenType = currentTokenType();
-    if (tokenType == Lexer::eEndOfFile || tokenType == Lexer::eEnd) {
+    if (isEndOfBlock(tokenType)) {
         // 如果只有一个表达式，直接返回
         return firstExpr;
     }
@@ -547,14 +558,14 @@ Expr* Parser::parseStatementSequence()
             while (currentTokenType() == Lexer::eNewline || currentTokenType() == Lexer::eSemicolon) {
                 advance();
             }
-        } else if (tokenType == Lexer::eEnd) {
+        } else if (isEndOfBlock(tokenType)) {
             break;
         } else {
             return nullptr;
         }
         
         // 检查是否已经到达文件末尾或end关键字
-        if (currentTokenType() == Lexer::eEndOfFile || currentTokenType() == Lexer::eEnd) {
+        if (isEndOfBlock(currentTokenType())) {
             break;
         }
         
@@ -583,9 +594,76 @@ Expr* Parser::parseBlockExpr()
     return parseStatementSequence();
 }
 
+/// @brief 解析if条件语句
+Expr* Parser::parseIfStatement() {
+    if (!match(Lexer::eIf)) {
+        return nullptr;
+    }
+    
+    // 解析条件表达式
+    Expr* condition = parseExpression();
+    if (!condition) {
+        return nullptr;
+    }
+    
+    // 解析then分支（代码块或单个表达式）
+    Expr* thenBlock = parseBlockExpr();
+    if (!thenBlock) {
+        delete condition;
+        return nullptr;
+    }
+    
+    // 创建if表达式
+    SharedPtr<ExprIf> ifExpr = new ExprIf(condition, thenBlock);
+    
+    // 解析所有elseif分支
+    while (match(Lexer::eElseif)) {
+        // 解析elseif条件
+        Expr* elseifCondition = parseExpression();
+        if (!elseifCondition) {
+            // delete ifExpr;
+            return nullptr;
+        }
+        
+        // 解析elseif代码块
+        Expr* elseifBlock = parseBlockExpr();
+        if (!elseifBlock) {
+            // delete ifExpr;
+            delete elseifCondition;
+            return nullptr;
+        }
+        
+        ifExpr->addElseif(elseifCondition, elseifBlock);
+    }
+    
+    // 解析else分支（可选）
+    if (match(Lexer::eElse)) {
+        Expr* elseBlock = parseBlockExpr();
+        if (!elseBlock) {
+            delete ifExpr;
+            return nullptr;
+        }
+        ifExpr->setElse(elseBlock);
+    }
+
+    if (!match(Lexer::eEnd)) {
+        aError("expect end");
+        return nullptr;
+    }
+    
+    return ifExpr.take();
+}
+
 /// @brief 解析基本表达式
 Expr* Parser::parsePrimaryExpr()
 {
+    // 处理if语句
+    if(check(Lexer::eIf)){
+        return parseIfStatement();
+    }else if(check(Lexer::eBegin)){
+        return parseBeginEndBlock();
+    }
+    
     // 处理括号表达式
     if (match(Lexer::eLeftParen)) {
         Expr* expr = parseExpression();

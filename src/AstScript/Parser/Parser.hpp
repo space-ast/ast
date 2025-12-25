@@ -65,6 +65,9 @@ public:
     /// @brief 解析逻辑或表达式
     Expr* parseLogicalOrExpr();
     
+    /// @brief 解析if语句
+    Expr* parseIfStatement();
+    
     /// @brief 解析逻辑与表达式
     Expr* parseLogicalAndExpr();
     

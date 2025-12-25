@@ -145,6 +145,14 @@ AST_SCRIPT_CAPI Expr* aNewOpBin(EOpBinType op, Expr* left, Expr* right);
 /// @return 一元运算符表达式对象
 AST_SCRIPT_CAPI Expr* aNewOpUnary(EOpUnaryType op, Expr* expr);
 
+/// @brief 创建条件表达式对象
+/// @param condition 条件表达式
+/// @param thenExpr 条件为真时的表达式
+/// @param elseExpr 条件为假时的表达式
+/// @warning 返回的指针由调用者拥有，需要管理其生命周期
+/// @return 条件表达式对象
+AST_SCRIPT_CAPI Expr* aNewExprCondition(Expr* condition, Expr* thenExpr, Expr* elseExpr=nullptr);
+
 /// @brief 创建字符串值对象
 /// @warning 返回的 `Value*` 指针由调用者拥有，需要管理其生命周期
 AST_SCRIPT_CAPI Value* aNewValueString(StringView value);

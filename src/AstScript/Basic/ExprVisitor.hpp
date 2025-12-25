@@ -24,21 +24,23 @@
 
 AST_NAMESPACE_BEGIN
 
-class Expr;
-class Symbol;
-class Variable;
-class ValNull;
-class ValBool;
-class ValInt;
-class ValDouble;
-class ValString;
-class ValQuantity;
-class OpAssign;
-class OpBin;
-class OpUnary;
-class Function;
-class Macro;
-class ExprBlock;
+class Expr; 
+class Symbol; 
+class Variable; 
+class ValNull; 
+class ValBool; 
+class ValInt; 
+class ValDouble; 
+class ValString; 
+class ValQuantity; 
+class OpAssign; 
+class OpBin; 
+class OpUnary; 
+class Function; 
+class Macro; 
+class ExprBlock; 
+class ExprCondition; 
+class ExprIf;
 
 class ExprVisitor{
 public:
@@ -58,6 +60,8 @@ public:
     virtual void visit(Function& func) = 0;
     virtual void visit(Macro& macro) = 0;
     virtual void visit(ExprBlock& block) = 0;
+    virtual void visit(ExprCondition& expr) = 0;
+    virtual void visit(ExprIf& expr) = 0;
 };
 
 AST_NAMESPACE_END

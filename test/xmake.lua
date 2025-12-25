@@ -48,7 +48,7 @@ for _, file in ipairs(asc_files) do
                 -- print(target:targetfile())
                 local targetfile = target:targetfile()
                 local runargs = {filepath}
-                local ok, syserrors = os.execv(targetfile, runargs)
+                local ok, syserrors = os.execv(targetfile, runargs, {try = true})
                 -- print(ok, syserrors)
                 local passed = ok == 0
                 return passed

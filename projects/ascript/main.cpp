@@ -20,6 +20,8 @@
 
 #include "repl.hpp"
 #include "AstScript/ScriptAPI.hpp"
+#include "AstScript/Value.hpp"
+#include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/IO.hpp"
 #include <cstdio>
 #include <string>
@@ -57,7 +59,7 @@ int main(int argc, char* argv[])
         
         // 执行脚本
         try {
-            Expr* expr = aParseExpr(script);
+            SharedPtr<Expr> expr = aParseExpr(script);
             if (expr == nullptr) {
                 ast_printf("解析脚本失败: %s\n", filename);
                 return 1;
@@ -66,7 +68,7 @@ int main(int argc, char* argv[])
             std::string exprStr = aFormatExpr(expr);
             std::cout << "parse expr: " << std::endl << exprStr << std::endl;
             #endif
-            Value* result = aEvalExpr(expr);
+            SharedPtr<Value> result = aEvalExpr(expr);
             
             if (result != nullptr) {
                 // 输出结果
@@ -94,7 +96,7 @@ int main(int argc, char* argv[])
             return 1;
         }
         
-        return 0;
+        return -1;
     }
     
     // 没有命令行参数时，启动REPL
