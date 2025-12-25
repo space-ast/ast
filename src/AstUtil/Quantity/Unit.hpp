@@ -101,6 +101,11 @@ AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent);
 /// @brief 单位幂
 AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent, StringView newname);
 
+/// @brief 单位倒数
+AST_UTIL_API Unit aUnitInvert(const Unit& unit);
+
+/// @brief 单位倒数
+AST_UTIL_API Unit aUnitInvert(const Unit& unit, StringView newname);
 
 /// @brief 单位分解
 /// @param[in] unit 分解前的单位
@@ -430,6 +435,9 @@ public: // operators
     /// @brief 单位克隆
     /// @return 新单位
     Unit clone() const { return Unit(std::make_shared<UnitRep>(*rep_)); }
+
+    /// @brief 单位倒数
+    Unit invert() const { return aUnitInvert(*this); }
 
     /// @brief 单位乘法
     /// @param newname 新单位名称

@@ -126,6 +126,72 @@ Value* opbin_pow_scalar_scalar(Value* left, Value* right)
     return aNewValue(_pow(leftval_common, rightval_common)); 
 }
 
+
+Value* opbin_mul_quantity_quantity(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValQuantity*>(left); 
+    auto rightval = static_cast<ValQuantity*>(right); 
+    return aNewValue(leftval->quantity() * rightval->quantity()); 
+}
+
+
+Value* opbin_div_quantity_quantity(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValQuantity*>(left); 
+    auto rightval = static_cast<ValQuantity*>(right); 
+    return aNewValue(leftval->quantity() / rightval->quantity()); 
+}
+
+template<typename Right>
+Value* opbin_mul_quantity_scalar(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValQuantity*>(left); 
+    auto rightval = static_cast<ValScalar<Right>*>(right); 
+    return aNewValue(leftval->quantity() * rightval->value()); 
+}
+
+template<typename Right>
+Value* opbin_div_quantity_scalar(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValQuantity*>(left); 
+    auto rightval = static_cast<ValScalar<Right>*>(right); 
+    return aNewValue(leftval->quantity() / rightval->value()); 
+}
+
+template<typename Left>
+Value* opbin_mul_scalar_quantity(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValScalar<Left>*>(left); 
+    auto rightval = static_cast<ValQuantity*>(right); 
+    return aNewValue(leftval->value() * rightval->quantity()); 
+}
+
+template<typename Left>
+Value* opbin_div_scalar_quantity(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValScalar<Left>*>(left); 
+    auto rightval = static_cast<ValQuantity*>(right); 
+    return aNewValue(leftval->value() / rightval->quantity()); 
+}
+
+
+Value* opbin_add_quantity_quantity(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValQuantity*>(left); 
+    auto rightval = static_cast<ValQuantity*>(right); 
+    return aNewValue(leftval->quantity() + rightval->quantity()); 
+}
+
+
+Value* opbin_sub_quantity_quantity(Value* left, Value* right)
+{
+    auto leftval = static_cast<ValQuantity*>(left); 
+    auto rightval = static_cast<ValQuantity*>(right); 
+    return aNewValue(leftval->quantity() - rightval->quantity()); 
+}
+
+
+
 #ifdef AST_ENABLE_REDUNDANT
 
 //  @brief 执行加法运算
@@ -473,6 +539,23 @@ void opbin_init_registry() {
     opbin_register_func(EOpBinType::eBitXor, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_xor_scalar_scalar<int, int>);
     opbin_register_func(EOpBinType::eBitLeftShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_left_shift_scalar_scalar<int, int>);
     opbin_register_func(EOpBinType::eBitRightShift, &aValInt_Type, &aValInt_Type, (OpBinFunc)opbin_bit_right_shift_scalar_scalar<int, int>);
+
+    // 注册数量类型运算函数
+    opbin_register_func(EOpBinType::eAdd, &aValQuantity_Type, &aValQuantity_Type, (OpBinFunc)opbin_add_quantity_quantity);
+    opbin_register_func(EOpBinType::eSub, &aValQuantity_Type, &aValQuantity_Type, (OpBinFunc)opbin_sub_quantity_quantity);
+    opbin_register_func(EOpBinType::eMul, &aValQuantity_Type, &aValQuantity_Type, (OpBinFunc)opbin_mul_quantity_quantity);
+    opbin_register_func(EOpBinType::eDiv, &aValQuantity_Type, &aValQuantity_Type, (OpBinFunc)opbin_div_quantity_quantity);
+
+    // 注册数量类型与标量类型运算函数
+    opbin_register_func(EOpBinType::eMul, &aValQuantity_Type, aValueType<double>(), (OpBinFunc)opbin_mul_quantity_scalar<double>);
+    opbin_register_func(EOpBinType::eDiv, &aValQuantity_Type, aValueType<double>(), (OpBinFunc)opbin_div_quantity_scalar<double>);
+    opbin_register_func(EOpBinType::eMul, &aValQuantity_Type, aValueType<int>(), (OpBinFunc)opbin_mul_quantity_scalar<int>);
+    opbin_register_func(EOpBinType::eDiv, &aValQuantity_Type, aValueType<int>(), (OpBinFunc)opbin_div_quantity_scalar<int>);
+    opbin_register_func(EOpBinType::eMul, aValueType<double>(),  &aValQuantity_Type, (OpBinFunc)opbin_mul_scalar_quantity<double>);
+    opbin_register_func(EOpBinType::eDiv, aValueType<double>(),  &aValQuantity_Type, (OpBinFunc)opbin_div_scalar_quantity<double>);
+    opbin_register_func(EOpBinType::eMul, aValueType<int>(),  &aValQuantity_Type, (OpBinFunc)opbin_mul_scalar_quantity<int>);
+    opbin_register_func(EOpBinType::eDiv, aValueType<int>(),  &aValQuantity_Type, (OpBinFunc)opbin_div_scalar_quantity<int>);
+  
 }
 
 // 初始化注册表

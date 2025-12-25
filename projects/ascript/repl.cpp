@@ -1,4 +1,4 @@
-///
+﻿///
 /// @file      repl.cpp
 /// @brief     交互式脚本解释器实现
 /// @details   使用replxx库提供命令行编辑功能的交互式脚本解释器实现
@@ -20,6 +20,7 @@
 
 #include "repl.hpp"
 #include "AstScript/ScriptAPI.hpp"
+#include "AstUtil/Quantity.hpp"
 #include "AstUtil/IO.hpp"
 #include <iostream>
 #include <string>
@@ -55,13 +56,13 @@ void Repl::init()
     m_replxx->set_no_color(false);
 #endif
     
-    ast_printf("=====================================\n");
-    ast_printf("         AST Script REPL             \n");
-    ast_printf("=====================================\n");
-    ast_printf("输入表达式进行计算，输入 '.exit' 退出\n");
-    ast_printf("支持的操作符: +, -, *, /, ^, %, &&, ||, ==, !=, <, <=, >, >= 等\n");
-    ast_printf("输入 '.help' 查看帮助信息\n");
-    ast_printf("=====================================\n");
+    ast_printf(aText("=====================================\n"));
+    ast_printf(aText("         AST Script REPL             \n"));
+    ast_printf(aText("=====================================\n"));
+    ast_printf(aText("输入表达式进行计算，输入 '.exit' 退出\n"));
+    ast_printf(aText("支持的操作符: +, -, *, /, ^, %, &&, ||, ==, !=, <, <=, >, >= 等\n"));
+    ast_printf(aText("输入 '.help' 查看帮助信息\n"));
+    ast_printf(aText("=====================================\n"));
 }
 
 int Repl::run()
@@ -78,7 +79,7 @@ int Repl::run()
         const char* input = m_replxx->input(prompt.c_str());
         if (input == nullptr) {
             // 用户按下了Ctrl+D
-            ast_printf("\n退出AST Script REPL\n");
+            ast_printf(aText("\n退出AST Script REPL\n"));
             break;
         }
         
@@ -94,7 +95,7 @@ int Repl::run()
         ast_printf("%s", prompt.c_str());
         if (!std::getline(std::cin, line)) {
             // 用户按下了Ctrl+D
-            ast_printf("\n退出AST Script REPL\n");
+            ast_printf(aText("\n退出AST Script REPL\n"));
             break;
         }
 #endif
@@ -143,11 +144,11 @@ void Repl::handleCommand(const std::string& input)
             ast_printf("退出AST Script REPL\n");
             exit(0);
         } else if (command == "help") {
-            ast_printf("AST Script REPL 帮助:\n");
-            ast_printf("  .exit   - 退出REPL\n");
-            ast_printf("  .help   - 显示帮助信息\n");
-            ast_printf("  .clear  - 清除屏幕\n");
-            ast_printf("  表达式  - 直接输入表达式进行计算\n");
+            ast_printf(aText("AST Script REPL 帮助:\n"));
+            ast_printf(aText("  .exit   - 退出REPL\n"));
+            ast_printf(aText("  .help   - 显示帮助信息\n"));
+            ast_printf(aText("  .clear  - 清除屏幕\n"));
+            ast_printf(aText("  表达式  - 直接输入表达式进行计算\n"));
         } else if (command == "clear") {
 #ifdef AST_WITH_REPLXX
             m_replxx->clear_screen();
@@ -155,8 +156,8 @@ void Repl::handleCommand(const std::string& input)
             system("cls");
 #endif
         } else {
-            ast_printf("未知命令: %s\n", trimmed.c_str());
-            ast_printf("输入 '.help' 查看可用命令\n");
+            ast_printf(aText("未知命令: %s\n"), trimmed.c_str());
+            ast_printf(aText("输入 '.help' 查看可用命令\n"));
         }
         return;
     }
@@ -180,19 +181,20 @@ void Repl::executeScript(const std::string& script)
             } else if (aValueIsDouble(result)) {
                 ast_printf("=> %g\n", aValueUnboxDouble(result));
             } else if (aValueIsQuantity(result)) {
-                ast_printf("=> quantity\n");
+                std::string quantityStr = aFormatQuantity(aValueUnboxQuantity(result));
+                ast_printf(aText("=> quantity %s\n"), quantityStr.c_str());
             } else {
-                ast_printf("=> value\n");
+                ast_printf(aText("=> value\n"));
             }
             
             // 注意：Value类是前向声明，不要直接delete，依赖API内部管理
         } else {
-            ast_printf("执行结果为空\n");
+            ast_printf(aText("执行结果为空\n"));
         }
     } catch (const std::exception& e) {
-        ast_printf("错误: %s\n", e.what());
+        ast_printf(aText("错误: %s\n"), e.what());
     } catch (...) {
-        ast_printf("发生未知错误\n");
+        ast_printf(aText("发生未知错误\n"));
     }
 }
 

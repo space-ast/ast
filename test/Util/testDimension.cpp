@@ -502,6 +502,42 @@ TEST(Dimension, SymbolAndName)
     }
 }
 
+// 测试量纲倒数运算
+TEST(Dimension, Invert)
+{
+    // 测试基本量纲的倒数
+    {
+        Dimension length = Dimension::Length();
+        Dimension inverted = length.invert();
+        EXPECT_EQ(inverted.getLength(), -1);
+        EXPECT_EQ(inverted.getMass(), 0);
+        EXPECT_EQ(inverted.getTime(), 0);
+    }
 
+    // 测试导出量纲的倒数
+    {
+        Dimension velocity = Dimension::Speed(); // L·T⁻¹
+        Dimension inverted = velocity.invert(); // L⁻¹·T
+        EXPECT_EQ(inverted.getLength(), -1);
+        EXPECT_EQ(inverted.getTime(), 1);
+    }
+
+    // 测试倒数的倒数是否等于原量纲
+    {
+        Dimension force = Dimension::Force(); // M·L·T⁻²
+        Dimension inverted1 = force.invert();
+        Dimension inverted2 = inverted1.invert();
+        EXPECT_EQ(force.value(), inverted2.value());
+    }
+
+    // 测试复合量纲的倒数
+    {
+        Dimension area = Dimension::Area(); // L²
+        Dimension volume = Dimension::Volume(); // L³
+        Dimension combined = area * volume; // L⁵
+        Dimension inverted = combined.invert(); // L⁻⁵
+        EXPECT_EQ(inverted.getLength(), -5);
+    }
+}
 
 GTEST_MAIN()
