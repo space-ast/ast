@@ -102,6 +102,9 @@ public:
         eIf,         ///< if
         eElseif,     ///< elseif
         eElse,       ///< else
+        
+        // 循环语句关键字
+        eWhile,      ///< while
     };
 
 public:

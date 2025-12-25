@@ -68,6 +68,9 @@ public:
     /// @brief 解析if语句
     Expr* parseIfStatement();
     
+    /// @brief 解析while循环语句
+    Expr* parseWhileLoop();
+    
     /// @brief 解析逻辑与表达式
     Expr* parseLogicalAndExpr();
     

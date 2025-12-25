@@ -62,7 +62,7 @@ std::string ExprBlock::getExpression(Object* context) const
     for (size_t i = 0; i < exprs_.size(); ++i) {
         result += exprs_[i]->getExpression(context);
         if (i < exprs_.size() - 1) {
-            result += "; ";
+            result += "; \n";
         }
     }
     result += " end";

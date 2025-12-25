@@ -40,7 +40,9 @@ class Function;
 class Macro; 
 class ExprBlock; 
 class ExprCondition; 
-class ExprIf;
+class ExprIf; 
+class ExprWhile; 
+class ExprForRange;
 
 class ExprVisitor{
 public:
@@ -62,6 +64,8 @@ public:
     virtual void visit(ExprBlock& block) = 0;
     virtual void visit(ExprCondition& expr) = 0;
     virtual void visit(ExprIf& expr) = 0;
+    virtual void visit(ExprWhile& expr) = 0;
+    virtual void visit(ExprForRange& expr) = 0;
 };
 
 AST_NAMESPACE_END
