@@ -49,7 +49,7 @@ Expr *Symbol::exec() const
 
 err_t Symbol::setValue(Value *value)
 {
-    auto expr = exec();
+    SharedPtr<Expr> expr = exec();
     if(A_UNLIKELY(!expr))
     {
         aError("symbol %s is not found", name_.c_str());

@@ -262,9 +262,9 @@ static void assignop_split(EOpAssignType op, EOpBinType& opbin)
         opbin = eElemOr;
         break;
     default:
+        opbin = invalidOpBin; // 无效运算符
         break;
     }
-    opbin = invalidOpBin; // 无效运算符
 }
 
 Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
@@ -283,7 +283,8 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eDelayAssign:
     {
-        if(auto var = dynamic_cast<Variable*>(left)){
+        SharedPtr<Expr> leftExpr = left->exec();
+        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
             var->setExpr(right);
         }else{
             aError("Left is not a variable");
@@ -293,7 +294,8 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eBindAssign:
     {
-        if(auto var = dynamic_cast<Variable*>(left)){
+        SharedPtr<Expr> leftExpr = left->exec();
+        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
             var->bind(right);
         }else{
             aError("Left is not a variable");

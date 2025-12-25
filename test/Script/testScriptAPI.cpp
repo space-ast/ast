@@ -82,25 +82,26 @@ TEST_F(ScriptAPI2, OperatorFunctions) {
     
     Expr* addExpr = aNewOpBin(EOpBinType::eAdd, (Expr*)left, (Expr*)right);
     EXPECT_NE(addExpr, nullptr);
-    delete addExpr;
     
     Expr* subExpr = aNewOpBin(EOpBinType::eSub, (Expr*)left, (Expr*)right);
     EXPECT_NE(subExpr, nullptr);
-    delete subExpr;
     
     Expr* mulExpr = aNewOpBin(EOpBinType::eMul, (Expr*)left, (Expr*)right);
     EXPECT_NE(mulExpr, nullptr);
-    delete mulExpr;
     
     // 测试创建一元操作符表达式
     Expr* negExpr = aNewOpUnary(EOpUnaryType::eNeg, (Expr*)left);
     EXPECT_NE(negExpr, nullptr);
-    delete negExpr;
     
     // 测试创建赋值操作符表达式
     Symbol* sym = aNewSymbol("testVar");
     Expr* assignExpr = aNewOpAssign(EOpAssignType::eAssign, (Expr*)sym, (Expr*)left);
     EXPECT_NE(assignExpr, nullptr);
+
+    delete addExpr;
+    delete subExpr;
+    delete mulExpr;
+    delete negExpr;
     delete assignExpr;
     
 }

@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
             return 1;
         }
         
-        return -1;
+        // return -1;
     }
     
     // 没有命令行参数时，启动REPL
