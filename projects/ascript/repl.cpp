@@ -153,7 +153,11 @@ void Repl::handleCommand(const std::string& input)
 #ifdef AST_WITH_REPLXX
             m_replxx->clear_screen();
 #else
+#if defined(_WIN32) || defined(_WIN64)
             system("cls");
+#else
+            system("clear");
+#endif
 #endif
         } else {
             ast_printf(aText("未知命令: %s\n"), trimmed.c_str());

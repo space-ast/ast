@@ -96,6 +96,10 @@ Lexer::ETokenType Lexer::getNextToken()
         case ';':
             return Lexer::eSemicolon;
         case ':':
+            if (match('=')) {
+                current_lexeme_ += '=';
+                return Lexer::eColonEqual;
+            }
             return Lexer::eColon;
         case '?':
             return Lexer::eQuestion;
@@ -111,6 +115,9 @@ Lexer::ETokenType Lexer::getNextToken()
             if (match('=')) {
                 current_lexeme_ += '=';
                 return Lexer::eEqualEqual;
+            } else if (match('&')) {
+                current_lexeme_ += '&';
+                return Lexer::eEqualAmpersand;
             }
             return Lexer::eEqual;
         case '<':

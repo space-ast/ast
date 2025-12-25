@@ -122,6 +122,20 @@ Expr* Parser::parseAssignExpr()
         }
         delete expr;
         return nullptr;
+    } else if (match(Lexer::eEqualAmpersand)) {
+        Expr* right = parseAssignExpr();
+        if (right) {
+            return aNewOpAssign(EOpAssignType::eBindAssign, expr, right);
+        }
+        delete expr;
+        return nullptr;
+    } else if (match(Lexer::eColonEqual)) {
+        Expr* right = parseAssignExpr();
+        if (right) {
+            return aNewOpAssign(EOpAssignType::eDelayAssign, expr, right);
+        }
+        delete expr;
+        return nullptr;
     }
     
     return expr;

@@ -461,4 +461,28 @@ TEST_F(ScriptExec, MutilLine)
     testScriptEval("\n\nv1 = 1.2[km/s]\n\nv2 = 12 [km]");
 }
 
+
+TEST_F(ScriptExec, DelayAssign)
+{
+    // 测试延迟赋值
+    aEval("x := y");
+    testScriptEval("y = 10");
+    testScriptEvalInt("x", 10);
+    testScriptEval("y = 1.123");
+    testScriptEvalDouble("x", 1.123);
+}
+
+TEST_F(ScriptExec, BindAssign)
+{
+    // 测试绑定赋值
+    aEval("x =& y");
+    testScriptEval("y = 10");
+    testScriptEvalInt("x", 10);
+    testScriptEval("x = 1.123");
+    testScriptEvalDouble("y", 1.123);
+    testScriptEval("y = 2.345");
+    testScriptEvalDouble("x", 2.345);
+
+}
+
 GTEST_MAIN()
