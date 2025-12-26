@@ -40,15 +40,21 @@ for _, file in ipairs(asc_files) do
         set_kind("phony")
         add_deps("ascript")
         add_tests("script")
-        local func = function(target)
+        local run = function(target)
             import("core.project.project")
+            import("core.base.option")
             local target = project.target("ascript")
             if target then
                 -- print(target:name())
                 -- print(target:targetfile())
                 local targetfile = target:targetfile()
                 local runargs = {filepath}
-                local ok, syserrors = os.execv(targetfile, runargs, {try = true})
+                local ok, syserrors
+                if option.get("verbose") then
+                    ok, syserrors = os.execv(targetfile, runargs, {try = true})
+                else
+                    ok, syserrors = os.execv(targetfile, runargs, {try = true, stdout = "./build/testoutput/" .. basename})
+                end
                 -- print(ok, syserrors)
                 local passed = ok == 0
                 return passed
@@ -56,7 +62,7 @@ for _, file in ipairs(asc_files) do
             -- import("core.base.task")
             -- task.run("run", {target="ascript", arguments={filepath}})
         end
-        on_test(func)
-        on_run(func)
+        on_test(run)
+        on_run(run)
         -- add_extrafiles("xmake.lua")
 end

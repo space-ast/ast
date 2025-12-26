@@ -36,6 +36,9 @@
 #include "AstScript/ExprCondition.hpp"
 #include "AstScript/ExprIf.hpp"
 #include "AstScript/ExprLoop.hpp"
+#include "AstScript/ExprVector.hpp"
+#include "AstScript/ExprCatHorizontal.hpp"
+#include "AstScript/ExprCatVertical.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
@@ -809,6 +812,82 @@ Expr* Parser::parsePrimaryExpr()
         }
         delete expr;
         return nullptr;
+    }
+    
+    // 处理数组和拼接语法 [1,2,3], [a,b,c], [1 2 3], [a b c], [1;2;3], [a;b;c]
+    if (match(Lexer::eLeftBracket)) {
+        // 解析第一个表达式
+        Expr* firstExpr = parseExpression();
+        if (!firstExpr) {
+            // 空数组 []
+            if (match(Lexer::eRightBracket)) {
+                return new ExprVector();
+            }
+            return nullptr;
+        }
+        
+        // 检查分隔符类型
+        if (match(Lexer::eComma)) {
+            // 逗号分隔的数组 [1,2,3], [a,b,c]
+            ExprVector* vector = new ExprVector();
+            vector->push_back(firstExpr);
+            
+            // 解析剩余的表达式
+            do {
+                Expr* expr = parseExpression();
+                if (!expr) {
+                    delete vector;
+                    return nullptr;
+                }
+                vector->push_back(expr);
+            } while (match(Lexer::eComma));
+            
+            if (match(Lexer::eRightBracket)) {
+                return vector;
+            }
+            delete vector;
+            return nullptr;
+        } else if (match(Lexer::eSemicolon)) {
+            // 分号分隔的垂直拼接 [1;2;3], [a;b;c]
+            ExprCatVertical* vertical = new ExprCatVertical();
+            vertical->push_back(firstExpr);
+            
+            // 解析剩余的表达式
+            do {
+                Expr* expr = parseExpression();
+                if (!expr) {
+                    delete vertical;
+                    return nullptr;
+                }
+                vertical->push_back(expr);
+            } while (match(Lexer::eSemicolon));
+            
+            if (match(Lexer::eRightBracket)) {
+                return vertical;
+            }
+            delete vertical;
+            return nullptr;
+        } else {
+            // 空格分隔的水平拼接 [1 2 3], [a b c]
+            ExprCatHorizontal* horizontal = new ExprCatHorizontal();
+            horizontal->push_back(firstExpr);
+            
+            // 解析剩余的表达式
+            while (check(Lexer::eRightBracket) == false) {
+                Expr* expr = parseExpression();
+                if (!expr) {
+                    delete horizontal;
+                    return nullptr;
+                }
+                horizontal->push_back(expr);
+            }
+            
+            if (match(Lexer::eRightBracket)) {
+                return horizontal;
+            }
+            delete horizontal;
+            return nullptr;
+        }
     }
     
     // 处理嵌套的begin/end代码块

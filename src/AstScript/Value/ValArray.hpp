@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstScript/Value.hpp"
 
 AST_NAMESPACE_BEGIN
 
