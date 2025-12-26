@@ -64,6 +64,10 @@ enum EOpBinType{
 
     numOpBinType,                 ///< 运算符类型数量
     invalidOpBin=numOpBinType,   ///< 无效运算符
+
+    // 下面的枚举为软件内部使用，不要直接调用
+    eCatVertical,       ///< 垂直拼接
+    eCatHorizontal,     ///< 水平拼接
 };
 
 enum EOpAssignType{
