@@ -43,12 +43,15 @@ class ExprCondition;
 class ExprIf; 
 class ExprWhile; 
 class ExprForRange;
+class ExprRange;
+class ValRange;
 
 class ExprVisitor{
 public:
     virtual ~ExprVisitor() = default;
     // virtual void visit(Expr& expr) = 0;
     virtual void visit(Symbol& symbol) = 0;
+    
     virtual void visit(Variable& var) = 0;
     virtual void visit(ValNull& val) = 0;
     virtual void visit(ValInt& val) = 0;
@@ -56,16 +59,22 @@ public:
     virtual void visit(ValString& val) = 0;
     virtual void visit(ValBool& val) = 0;
     virtual void visit(ValQuantity& val) = 0;
+    virtual void visit(ValRange& val) = 0;
+    
     virtual void visit(OpAssign& op) = 0;
     virtual void visit(OpBin& op) = 0;
     virtual void visit(OpUnary& op) = 0;
+
     virtual void visit(Function& func) = 0;
     virtual void visit(Macro& macro) = 0;
+    
     virtual void visit(ExprBlock& block) = 0;
     virtual void visit(ExprCondition& expr) = 0;
     virtual void visit(ExprIf& expr) = 0;
     virtual void visit(ExprWhile& expr) = 0;
     virtual void visit(ExprForRange& expr) = 0;
+    virtual void visit(ExprRange& expr) = 0;
+
 };
 
 AST_NAMESPACE_END

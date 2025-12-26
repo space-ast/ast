@@ -84,6 +84,10 @@ void testScriptEval(StringView str)
     printf("testScriptEval: %s\n", str.to_string().c_str());
     SharedPtr<Value> value = aEval(str);
     EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        std::string expr = aFormatExpr(value.get());
+        printf("expr: %s\n", expr.c_str());
+    }
 }
 
 // 测试布尔值表达式
@@ -483,6 +487,12 @@ TEST_F(ScriptExec, BindAssign)
     testScriptEval("y = 2.345");
     testScriptEvalDouble("x", 2.345);
 
+}
+
+TEST_F(ScriptExec, Range)
+{
+    testScriptEval("x = 1:10");
+    testScriptEval("y = 1.1:2.2:10.0");
 }
 
 GTEST_MAIN()

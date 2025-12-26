@@ -96,6 +96,9 @@ enum EOpUnaryType{
     eDec,       ///< 自减
     eBitNot,    ///< 按位取反
     numOpUnaryType,   ///< 运算符类型数量
+
+    // 下面的枚举为软件内部使用，不要直接调用
+    eIterate,    ///< 迭代器
 };
 
 class Expr;         ///< 表达式
@@ -152,6 +155,16 @@ AST_SCRIPT_CAPI Expr* aNewOpUnary(EOpUnaryType op, Expr* expr);
 /// @warning 返回的指针由调用者拥有，需要管理其生命周期
 /// @return 条件表达式对象
 AST_SCRIPT_CAPI Expr* aNewExprCondition(Expr* condition, Expr* thenExpr, Expr* elseExpr=nullptr);
+
+
+/// @brief 创建范围表达式对象
+/// @param start 范围的起始值表达式
+/// @param stop 范围的结束值表达式
+/// @param step 范围的步长表达式，可选，默认值为1
+/// @warning 返回的指针由调用者拥有，需要管理其生命周期
+/// @return 范围表达式对象
+AST_SCRIPT_CAPI Expr* aNewExprRange(Expr* start, Expr* stop, Expr* step=nullptr);
+
 
 /// @brief 创建字符串值对象
 /// @warning 返回的 `Value*` 指针由调用者拥有，需要管理其生命周期
@@ -214,11 +227,22 @@ AST_SCRIPT_CAPI bool aValueIsDouble(Value* value);
 AST_SCRIPT_CAPI bool aValueIsInt(Value* value);
 
 
+/// @brief 判断值对象是否为算术值（包括整数、浮点数值和布尔值）
+/// @param value 值对象
+/// @return 是否为算术值
+AST_SCRIPT_CAPI bool aValueIsArithmetic(Value* value);
+
+
 /// @brief 判断值对象是否为量值
 /// @param value 值对象
 /// @return 是否为量值
 AST_SCRIPT_CAPI bool aValueIsQuantity(Value* value);
 
+
+/// @brief 将值对象转换为双精度浮点数值
+/// @param value 值对象
+/// @return 双精度浮点数值
+AST_SCRIPT_CAPI double aValueToDouble(Value* value);
 
 /// @brief 解包布尔值
 /// @param value 值对象
@@ -259,6 +283,12 @@ typedef Value* (*OpAssignFunc)(Expr* left, Expr* right);    // right 采用表�
 typedef Value* (*OpUnaryFunc)(Value* value);
 
 
+enum {eIterBegin=0};  ///< 迭代开始标识
+
+/// @brief 迭代函数指针类型 
+typedef Value* (*IterateFunc)(Value* value, int& index);
+
+
 //  @brief 获取二进制运算函数指针
 //  @param op 运算类型
 //  @param leftType 左运算数类型
@@ -280,6 +310,12 @@ AST_SCRIPT_CAPI OpAssignFunc aGetOpAssignFunc(EOpAssignType op, Class* leftType,
 //  @param type 运算数类型
 //  @return 运算函数指针
 AST_SCRIPT_CAPI OpUnaryFunc aGetOpUnaryFunc(EOpUnaryType op, Class* type);
+
+
+/// @brief 获取迭代函数指针
+//  @param type 迭代对象类型
+//  @return 迭代函数指针
+AST_SCRIPT_CAPI IterateFunc aGetIterateFunc(Class* type);
 
 
 /// @brief 执行二元运算符
@@ -306,6 +342,20 @@ AST_SCRIPT_CAPI Value* aDoOpUnary(EOpUnaryType op, Value* value);
 /// @return 运算结果
 AST_SCRIPT_CAPI Value* aDoOpAssign(EOpAssignType op, Expr* left, Expr* right);
 
+
+/// @brief 执行迭代器的开始元素
+/// @param[in] container 迭代容器
+/// @param[out] index 迭代索引
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要管理其生命周期
+/// @return 开始元素
+AST_SCRIPT_CAPI Value* aIterateBegin(Value* container, int& index);
+
+/// @brief 执行迭代器的下一个元素
+/// @param[in] container 迭代容器
+/// @param[in,out] index 迭代索引
+/// @warning 返回的 `Value*` 指针由调用者拥有，需要管理其生命周期
+/// @return 下一个元素
+AST_SCRIPT_CAPI Value* aIterateNext(Value* container, int& index);
 
 
 // ALIAS
