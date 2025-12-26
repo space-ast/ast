@@ -24,19 +24,14 @@
 
 AST_NAMESPACE_BEGIN
 
-ExprBlock::ExprBlock(const std::vector<SharedPtr<Expr>> &exprs)
-    :exprs_(exprs)
-{
-    
-}
-
 
 /// @brief 求值
 /// @return Value* 求值结果
 Value* ExprBlock::eval() const
 {
     SharedPtr<Value> result = nullptr;
-    for (auto expr : exprs_) {
+    for (auto expr : this->children()) 
+    {
         result = expr->eval();
         if(!result) {
             return nullptr;
@@ -59,9 +54,9 @@ err_t ExprBlock::setValue(Value* val)
 std::string ExprBlock::getExpression(Object* context) const
 {
     std::string result = "begin ";
-    for (size_t i = 0; i < exprs_.size(); ++i) {
-        result += exprs_[i]->getExpression(context);
-        if (i < exprs_.size() - 1) {
+    for (size_t i = 0; i < this->size(); ++i) {
+        result += this->at(i)->getExpression(context);
+        if (i < this->size() - 1) {
             result += "; \n";
         }
     }
@@ -73,7 +68,7 @@ std::string ExprBlock::getExpression(Object* context) const
 /// @param expr 要添加的表达式
 void ExprBlock::addExpr(Expr* expr)
 {
-    exprs_.push_back(expr);
+    this->push_back(expr);
 }
 
 
