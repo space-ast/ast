@@ -47,7 +47,8 @@ static Unit::UnitRepHandle unit_new_dimenless(double scale)
 }
 
 /// @brief 单位名称分隔符
-const char* unit_name_separator = aText("·");
+//const char* unit_name_separator = aText("·");
+const char* unit_name_separator = aText("\u00b7");
 
 /// @brief 从单位子项列表生成单位名称
 /// @param subUnits 单位子项列表
@@ -368,6 +369,20 @@ Unit aUnitPower(const Unit& unit, int exponent, StringView newname)
     return retval;
 }
 
+Unit aUnitInvert(const Unit &unit)
+{
+    Unit retval = unit_power(unit, -1);
+    unit_setname(retval, unit_name_generate(retval));
+    return retval;
+}
+
+Unit aUnitInvert(const Unit &unit, StringView newname)
+{
+    Unit retval = unit_power(unit, -1);
+    unit_setname(retval, newname);
+    return retval;
+}
+
 void aUnitFactorize(const Unit &unit, Unit &newUnit, double &scale)
 {
     Unit::UnitRepHandleConst dimless;
@@ -408,6 +423,7 @@ namespace units
     
     Unit sec = Unit::Second();
     Unit s = sec;
+    Unit ms = Unit::MilliSecond();
     Unit min = Unit::Minute();
     Unit hour = Unit::Hour();
     Unit h = hour;

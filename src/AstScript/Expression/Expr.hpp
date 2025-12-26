@@ -44,12 +44,17 @@ public:
     /// @param visitor 表达式访问者对象
     virtual void accept(ExprVisitor& visitor) = 0;
 
-    /// @brief 求值表达式
+    /// @brief 求值
     /// @return Value* 求值结果
     virtual Value* eval() const = 0;
+
+    /// @brief 执行
+    /// @details 这个方法可能用于脚本的解析期
+    /// @return Expr* 执行结果
+    virtual Expr* exec() const {return const_cast<Expr*>(this);};
     
     /// @brief 设置表达式的值
-    virtual err_t setValue(Value* val) = 0;
+    virtual err_t setValue(Value* val) {return eErrorReadonly;};
 
     /// @brief 获取表达式的字符串表示
     /// @param context 可选的上下文对象，用于解析变量等

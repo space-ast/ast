@@ -53,6 +53,9 @@ public:
     /// @brief 解析表达式
     Expr* parseExpression();
     
+    /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
+    Expr* parseStatements();
+    
     /// @brief 解析赋值表达式
     Expr* parseAssignExpr();
     
@@ -80,6 +83,12 @@ public:
     /// @brief 解析关系表达式
     Expr* parseRelationalExpr();
     
+    /// @brief 解析范围表达式（如 1:10, 1:2:10）
+    Expr* parseRangeExpr();
+    
+    /// @brief 从给定的起始表达式解析范围表达式
+    Expr* parseRangeExprFrom(Expr* startExpr);
+    
     /// @brief 解析位移表达式
     Expr* parseShiftExpr();
     
@@ -95,8 +104,26 @@ public:
     /// @brief 解析一元表达式
     Expr* parseUnaryExpr();
     
+    /// @brief 解析带begin/end的代码块
+    Expr* parseBeginEndBlock();
+    
+    /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
+    Expr* parseStatementSequence();
+    
+    /// @brief 解析代码块表达式
+    Expr* parseBlockExpr();
+    
     /// @brief 解析基本表达式
     Expr* parsePrimaryExpr();
+    
+    /// @brief 解析if条件语句
+    Expr* parseIfStatement();
+    
+    /// @brief 解析while循环语句
+    Expr* parseWhileLoop();
+    
+    /// @brief 解析for循环语句（范围风格）
+    Expr* parseForRangeLoop();
     
     /// @brief 解析表达式
     /// @param script 脚本文本

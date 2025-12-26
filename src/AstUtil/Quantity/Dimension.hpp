@@ -166,6 +166,13 @@ constexpr int dim_pow(T dimension, int n) noexcept
     return result;
 }
 
+
+template<typename T>
+constexpr int dim_invert(T dimension) noexcept
+{
+    return dim_pow(dimension, -1);
+}
+
 /// @brief 量纲乘法运算符
 constexpr EDimension operator *(EDimension dim1, EDimension dim2) noexcept
 {
@@ -321,7 +328,16 @@ public:
     /// @brief 判断量纲是否为单位量纲
     bool isUnit() const noexcept { return aDimIsUnit(value()); }
 public:
-    
+    /// @brief 量纲指数幂
+    constexpr Dimension pow(int n) const noexcept
+    {
+        return EDimension(dim_pow(value(), n));
+    }
+    /// @brief 量纲倒数
+    constexpr Dimension invert() const noexcept
+    {
+        return EDimension(dim_invert(value()));
+    }
     /// @brief 量纲乘法运算符
     constexpr Dimension operator*(Dimension other) const noexcept
     {
@@ -343,11 +359,6 @@ public:
     {
         this->dimension_ = value() / other.value();
         return *this;
-    }
-    /// @brief 量纲指数幂运算符
-    constexpr Dimension pow(int n) const noexcept
-    {
-        return EDimension(dim_pow(value(), n));
     }
     /// @brief 量纲相等运算符
     constexpr bool operator==(Dimension other) const noexcept

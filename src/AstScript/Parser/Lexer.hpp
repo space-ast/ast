@@ -36,63 +36,86 @@ public:
     enum ETokenType
     {
         // 特殊令牌
-        eEndOfFile,  ///< 文件结束
-        eError,      ///< 错误令牌
-        
-        // 字面量
-        eNumber,     ///< 数字字面量
-        eString,     ///< 字符串字面量
-        eIdentifier, ///< 标识符
-        eTrue,       ///< 布尔值true
-        eFalse,      ///< 布尔值false
-        eNullLiteral,///< 空值null
-        
-        // 运算符
-        ePlus,       ///< +
-        eMinus,      ///< -
-        eStar,       ///< *
-        eSlash,      ///< /
-        ePercent,    ///< %
-        eCaret,      ///< ^
-        eTilde,      ///< ~ (按位取反)
-        
-        // 比较运算符
-        eEqual,      ///< =
-        eEqualEqual, ///< ==
-        eBang,       ///< !
-        eBangEqual,  ///< !=
-        eLess,       ///< <
-        eLessEqual,  ///< <=
-        eLessLess,   ///< << (逻辑/算术左移)
-        eGreater,    ///< >
-        eGreaterEqual,///< >=
-        eGreaterGreater,///< >> (算术右移)
-        eGreaterGreaterGreater,///< >>> (逻辑右移)
+        eEndOfFile,             ///< 文件结束
+        eError,                 ///< 错误令牌
+
+        // 字面量           
+        eNumber,                ///< 数字字面量
+        eString,                ///< 字符串字面量
+        eIdentifier,            ///< 标识符
+        eTrue,                  ///< 布尔值true
+        eFalse,                 ///< 布尔值false
+        eNullLiteral,           ///< 空值null
+
+        // 运算符           
+        ePlus,                  ///< +
+        eMinus,                 ///< -
+        eStar,                  ///< *
+        eSlash,                 ///< /
+        ePercent,               ///< %
+        eCaret,                 ///< ^
+        eTilde,                 ///< ~ (按位取反)
+
+        // 比较运算符           
+        eEqual,                 ///< =
+        eColonEqual,            ///< := (延迟赋值运算符)
+        eEqualAmpersand,        ///< =& (绑定赋值运算符)
+        eEqualEqual,            ///< ==
+        eBang,                  ///< !
+        eBangEqual,             ///< !=
+        eLess,                  ///< <
+        eLessEqual,             ///< <=
+        eLessLess,              ///< << (逻辑/算术左移)
+        eGreater,               ///< >
+        eGreaterEqual,          ///< >=
+        eGreaterGreater,        ///< >> (算术右移)  
+        eGreaterGreaterGreater, ///< >>> (逻辑右移)
         
         // 逻辑运算符
-        eAmpersand,      ///< & (按位与/逻辑与)
-        ePipe,           ///< | (按位或/逻辑或)
-        eXor,            ///< ⊻ (按位异或)
-        eAndAnd,         ///< && (逻辑与)
-        eOrOr,           ///< || (逻辑或)
+        eAmpersand,             ///< & (按位与/逻辑与)
+        ePipe,                  ///< | (按位或/逻辑或)
+        eXor,                   ///< ⊻ (按位异或)
+        eAndAnd,                ///< && (逻辑与)
+        eOrOr,                  ///< || (逻辑或)
         
         // 括号
-        eLeftParen,  ///< (
-        eRightParen, ///< )
-        eLeftBrace,  ///< {
-        eRightBrace, ///< }
+        eLeftParen,             ///< (
+        eRightParen,            ///< )
+        eLeftBrace,             ///< {
+        eRightBrace,            ///< }
+
+        eLeftBracket,           ///< [
+        eRightBracket,          ///< ]
         
         // 其他
-        eComma,      ///< ,
-        eDot,        ///< .
-        eSemicolon,  ///< ;
-        eColon,      ///< :
-        eQuestion,   ///< ?
+        eComma,                 ///< ,
+        eDot,                   ///< .
+        eSemicolon,             ///< ;
+        eColon,                 ///< :
+        eQuestion,              ///< ?
+
+        eNewline,               ///< \n (换行符)
+        
+        // 代码块关键字（参照Julia语言）
+        eBegin,                 ///< begin
+        eEnd,                   ///< end
+        
+        // 条件语句关键字
+        eIf,                    ///< if
+        eElseif,                ///< elseif
+        eElse,                  ///< else
+        
+        // 循环语句关键字
+        eWhile,                 ///< while
+        eFor,                   ///< for
+        eIn,                    ///< in (for循环中使用)
     };
 
 public:
     Lexer(Scanner* scanner) 
-        : scanner_(scanner), line_(1), current_lexeme_() 
+        : scanner_(scanner)
+        // , line_(1)
+        , current_lexeme_() 
     {}
     
     /// @brief 获取下一个令牌
@@ -108,7 +131,7 @@ public:
     const char* getTokenEnd() const { return nullptr; }
     
     /// @brief 获取当前行号
-    size_t getLine() const { return line_; }
+    // size_t getLine() const { return line_; }
     
     /// @brief 跳过空白字符
     void skipWhitespace();
@@ -155,7 +178,7 @@ private:
     
 private:
     Scanner* scanner_;    ///< 扫描器指针
-    size_t line_;         ///< 当前行号
+    // size_t line_;         ///< 当前行号
     std::string current_lexeme_; ///< 当前令牌的字符串内容
 };
 

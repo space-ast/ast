@@ -32,7 +32,15 @@ static const std::unordered_map<StringView, Lexer::ETokenType> keywords = {
     {"false", Lexer::eFalse},
     {"null", Lexer::eNullLiteral},
     {"and", Lexer::eAndAnd},
-    {"or", Lexer::eOrOr}
+    {"or", Lexer::eOrOr},
+    {"begin", Lexer::eBegin},
+    {"end", Lexer::eEnd},
+    {"if", Lexer::eIf},
+    {"elseif", Lexer::eElseif},
+    {"else", Lexer::eElse},
+    {"while", Lexer::eWhile},
+    {"for", Lexer::eFor},
+    {"in", Lexer::eIn}
 };
 
 /// @brief 获取下一个令牌
@@ -90,6 +98,10 @@ Lexer::ETokenType Lexer::getNextToken()
         case ';':
             return Lexer::eSemicolon;
         case ':':
+            if (match('=')) {
+                current_lexeme_ += '=';
+                return Lexer::eColonEqual;
+            }
             return Lexer::eColon;
         case '?':
             return Lexer::eQuestion;
@@ -105,6 +117,9 @@ Lexer::ETokenType Lexer::getNextToken()
             if (match('=')) {
                 current_lexeme_ += '=';
                 return Lexer::eEqualEqual;
+            } else if (match('&')) {
+                current_lexeme_ += '&';
+                return Lexer::eEqualAmpersand;
             }
             return Lexer::eEqual;
         case '<':
@@ -139,6 +154,10 @@ Lexer::ETokenType Lexer::getNextToken()
             return Lexer::eSlash;
         case '%':
             return Lexer::ePercent;
+        case '\r':
+            return Lexer::eNewline;
+        case '\n':
+            return Lexer::eNewline;
         
         // 字符串字面量
         case '"':
@@ -167,6 +186,10 @@ Lexer::ETokenType Lexer::getNextToken()
                 return Lexer::eXor;
             }
             return Lexer::eError;
+        case '[':
+            return Lexer::eLeftBracket;
+        case ']':
+            return Lexer::eRightBracket;
         default:
             return Lexer::eError;
     }
@@ -180,21 +203,32 @@ void Lexer::skipWhitespace()
         switch (c) {
             case ' ':
             case '\t':
-            case '\r':
+            // case '\r':
                 advance();
                 break;
-            case '\n':
-                line_++;
-                advance();
-                break;
-            case '/':
-                if (peekNext() == '/') {
-                    // 单行注释
-                    while (peek() != '\n' && !atEnd()) {
-                        advance();
-                    }
-                } else {
-                    return;
+            //case '\n':
+            //    line_++;
+            //    advance();
+            //    break;
+            // 不支持//注释
+            // case '/':
+            //     if (peekNext() == '/') {
+            //         // 单行注释
+            //         while (peek() != '\n' && !atEnd()) {
+            //             advance();
+            //         }
+            //     } else {
+            //         return;
+            //     }
+            //     break;
+            case '#':
+                // Julia风格单行注释
+                while (peek() != '\n' && !atEnd()) {
+                    advance();
+                }
+                // 消费换行符
+                if (peek() == '\n') {
+                    advance();
                 }
                 break;
             default:
@@ -356,9 +390,9 @@ Lexer::ETokenType Lexer::scanString()
     // current_lexeme_已经在getNextToken中清空
     
     while (peek() != '"' && !atEnd()) {
-        if (peek() == '\n') {
-            line_++;
-        }
+        // if (peek() == '\n') {
+        //     // line_++;
+        // }
         current_lexeme_ += advance();
     }
     

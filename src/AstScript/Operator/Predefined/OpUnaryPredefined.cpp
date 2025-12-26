@@ -106,23 +106,34 @@ OpUnaryRegister& get_opunary_registry() {
     return registry;
 }
 
-//  @brief 注册一元运算函数
-//  @param op 运算类型
-//  @param type 运算数类型
-//  @param func 运算函数指针
-void opunary_register_func(OpUnaryType op, Class* type, OpUnaryFunc func) {
-    static_assert(sizeof(OpUnaryFunc) == sizeof(void*), "OpUnaryFunc size must be equal to void* size");
-    get_opunary_registry().regFunc(op, type, (void*)func);
+
+void *opunary_get_funcptr(EOpUnaryType op, Class *type)
+{
+    return get_opunary_registry().getFunc(op, type);;
+}
+
+void opunary_register_funcptr(EOpUnaryType op, Class *type, void *func)
+{
+    get_opunary_registry().regFunc(op, type, func);
 }
 
 //  @brief 获取一元运算函数指针
 //  @param op 运算类型
 //  @param type 运算数类型
 //  @return 运算函数指针
-OpUnaryFunc opunary_get_func(OpUnaryType op, Class* type) 
+OpUnaryFunc opunary_get_func(EOpUnaryType op, Class* type) 
 {
     static_assert(sizeof(OpUnaryFunc) == sizeof(void*), "OpUnaryFunc size must be equal to void* size");
-    return (OpUnaryFunc)get_opunary_registry().getFunc(op, type);
+    return (OpUnaryFunc)opunary_get_funcptr(op, type);
+}
+
+//  @brief 注册一元运算函数
+//  @param op 运算类型
+//  @param type 运算数类型
+//  @param func 运算函数指针
+void opunary_register_func(EOpUnaryType op, Class* type, OpUnaryFunc func) {
+    static_assert(sizeof(OpUnaryFunc) == sizeof(void*), "OpUnaryFunc size must be equal to void* size");
+    opunary_register_funcptr(op, type, (void*)func);
 }
 
 
@@ -130,7 +141,7 @@ OpUnaryFunc opunary_get_func(OpUnaryType op, Class* type)
 //  @param op 运算类型
 //  @param value 运算数
 //  @return 运算结果
-Value* opunary(OpUnaryType op, Value* value)
+Value* opunary(EOpUnaryType op, Value* value)
 {
     // 首先检查输入是否有效
     if (!value) {
@@ -153,7 +164,7 @@ Value* opunary(OpUnaryType op, Value* value)
 
 // 注册标量类型运算函数
 #define REGISTER_OPUNARY(op, type, func) \
-    opunary_register_func(OpUnaryType::op, type, (OpUnaryFunc)func)
+    opunary_register_func(EOpUnaryType::op, type, (OpUnaryFunc)func)
 
 // 注册标量类型运算函数
 void register_scalar_opunary()

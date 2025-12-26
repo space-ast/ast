@@ -19,9 +19,23 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Interpreter.hpp"
+#include "ScriptContext.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
+Interpreter::~Interpreter()
+{
+    aScript_RemoveInterpreter(this);
+}
+
+void Interpreter::interpret(StringView code)
+{
+    InterpreterContext _(this);     ///< 解释器上下文守卫
+    
+    
+}
 
 AST_NAMESPACE_END
+
+
