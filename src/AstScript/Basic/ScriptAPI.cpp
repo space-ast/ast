@@ -19,23 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ScriptAPI.hpp"
-#include "AstScript/ValBool.hpp"
-#include "AstScript/ValInt.hpp"
-#include "AstScript/ValDouble.hpp"
-#include "AstScript/ValString.hpp"
-#include "AstScript/ValQuantity.hpp"
-#include "AstScript/ValNull.hpp"
-#include "AstScript/Variable.hpp"
-#include "AstScript/OpBin.hpp"
-#include "AstScript/OpAssign.hpp"
-#include "AstScript/OpUnary.hpp"
-#include "AstScript/ExprCondition.hpp"
-#include "AstScript/Parser.hpp"
-#include "AstScript/Symbol.hpp"
-#include "AstScript/OpBinPredefined.hpp"
-#include "AstScript/OpAssignPredefined.hpp"
-#include "AstScript/OpUnaryPredefined.hpp"
-#include "AstScript/Types.hpp"
+#include "AstScript/AllHeaders.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Quantity.hpp"
 
@@ -89,8 +73,15 @@ Expr* aNewExprCondition(Expr* condition, Expr* thenExpr, Expr* elseExpr)
     return new ExprCondition(condition, thenExpr, elseExpr);
 }
 
+Expr *aNewExprRange(Expr *start, Expr *stop, Expr *step)
+{
+    if(!start || !stop){
+        return nullptr;
+    }
+    return new ExprRange(start, stop, step);
+}
 
-Value* aNewValueString(StringView value)
+Value *aNewValueString(StringView value)
 {
     return new ValString(value);
 }
@@ -157,13 +148,34 @@ bool aValueIsInt(Value *value)
     return value && (value)->type() == &aValInt_Type;
 }
 
+bool aValueIsArithmetic(Value *value)
+{
+    if(!value){
+        return false;
+    }
+    auto type = value->type();
+    return type == &aValInt_Type || type == &aValDouble_Type || type == &aValBool_Type;
+}
+
 bool aValueIsQuantity(Value *value)
 {
     return value && (value)->type() == &aValQuantity_Type;
 }
 
-
-bool aValueIsQuantity(Value* value);
+double aValueToDouble(Value *value)
+{
+    if(aValueIsDouble(value)){
+        return static_cast<ValDouble*>(value)->value();
+    }
+    if(aValueIsInt(value)){
+        return static_cast<ValInt*>(value)->value();
+    }
+    if(aValueIsBool(value)){
+        return static_cast<ValBool*>(value)->value() ? 1.0 : 0.0;
+    }
+    aError("Value is not an arithmetic");
+    return std::numeric_limits<double>::quiet_NaN();
+}
 
 bool aValueUnboxBool(Value *value)
 {
@@ -320,16 +332,33 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
 }
 
+
+
 OpUnaryFunc aGetOpUnaryFunc(EOpUnaryType op, Class *type)
 {
     return opunary_get_func(op, type);
 }
+
+IterateFunc aGetIterateFunc(Class *type)
+{
+    return iterate_get_func(type);
+}
+
 
 Value *aDoOpBin(EOpBinType op, Value *left, Value *right)
 {
     return opbin(op, left, right);
 }
 
+Value *aIterateBegin(Value *container, int &index)
+{
+    return iterate_begin(container, index);
+}
+
+Value* aIterateNext(Value* container, int& index)
+{
+    return iterate_next(container, index);
+}
 
 
 AST_NAMESPACE_END

@@ -65,12 +65,6 @@ public:
     /// @brief 解析逻辑或表达式
     Expr* parseLogicalOrExpr();
     
-    /// @brief 解析if语句
-    Expr* parseIfStatement();
-    
-    /// @brief 解析while循环语句
-    Expr* parseWhileLoop();
-    
     /// @brief 解析逻辑与表达式
     Expr* parseLogicalAndExpr();
     
@@ -88,6 +82,12 @@ public:
     
     /// @brief 解析关系表达式
     Expr* parseRelationalExpr();
+    
+    /// @brief 解析范围表达式（如 1:10, 1:2:10）
+    Expr* parseRangeExpr();
+    
+    /// @brief 从给定的起始表达式解析范围表达式
+    Expr* parseRangeExprFrom(Expr* startExpr);
     
     /// @brief 解析位移表达式
     Expr* parseShiftExpr();
@@ -115,6 +115,12 @@ public:
     
     /// @brief 解析基本表达式
     Expr* parsePrimaryExpr();
+    
+    /// @brief 解析if条件语句
+    Expr* parseIfStatement();
+    
+    /// @brief 解析while循环语句
+    Expr* parseWhileLoop();
     
     /// @brief 解析表达式
     /// @param script 脚本文本

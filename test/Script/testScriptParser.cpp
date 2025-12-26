@@ -83,51 +83,93 @@ Expr* parseByStreamScanner(StringView str)
 
 void testScriptParser(StringView str)
 {
+    std::cout << "\n=== Testing expression: " << str << " ===" << std::endl;
+    
+    // 第一次解析：使用aParseExpr解析原始输入
     Expr* expr = aParseExpr(str);
+    std::cout << "1. Initial parse using aParseExpr: " << (expr ? "SUCCESS" : "FAILED") << std::endl;
     EXPECT_NE(expr, nullptr);
-    std::cout << "Input expression: " << str << std::endl;
+    
     if (expr) {
         std::string exprStr = aFormatExpr(expr);
-        std::cout << "1st Parsed expression: " << exprStr << std::endl;
+        std::cout << "   Formatted expression: " << exprStr << std::endl;
         delete expr;
-        {
-		    Expr* expr2 = aParseExpr(exprStr);
-		    EXPECT_NE(expr2, nullptr);
-            if (expr2) {
-                std::string exprStr2 = aFormatExpr(expr2);
-                std::cout << "2nd Parsed expression: " <<  exprStr2 << std::endl;
-                EXPECT_EQ(exprStr, exprStr2);
-	            delete expr2;
-            }else {
-	            std::cout << "Failed to re-parse expression." << std::endl;
+        
+        // 第二次解析：使用aParseExpr重新解析格式化后的表达式
+        Expr* expr2 = aParseExpr(exprStr);
+        std::cout << "2. Re-parse using aParseExpr: " << (expr2 ? "SUCCESS" : "FAILED") << std::endl;
+        EXPECT_NE(expr2, nullptr);
+        
+        if (expr2) {
+            std::string exprStr2 = aFormatExpr(expr2);
+            std::cout << "   Formatted expression: " << exprStr2 << std::endl;
+            
+            bool match = (exprStr == exprStr2);
+            std::cout << "   Format match: " << (match ? "YES" : "NO") << std::endl;
+            EXPECT_EQ(exprStr, exprStr2);
+            
+            delete expr2;
+            
+            if (!match) {
+                std::cout << "   Format mismatch detected!" << std::endl;
+                return; // 提前返回，避免后续测试
             }
+        }else {
+            std::cout << "   Failed to re-parse expression." << std::endl;
+            return; // 提前返回，避免后续测试
         }
-        {
-            Expr* expr3 = parseByFileScanner(exprStr);
-            EXPECT_NE(expr3, nullptr);
-            if (expr3) {
-                std::string exprStr3 = aFormatExpr(expr3);
-                std::cout << "3rd Parsed expression: " <<  exprStr3 << std::endl;
-                EXPECT_EQ(exprStr, exprStr3);
-                delete expr3;
-            }else {
-                std::cout << "Failed to re-parse expression." << std::endl;
+        
+        // 第三次解析：使用FileScanner解析格式化后的表达式
+        Expr* expr3 = parseByFileScanner(exprStr);
+        std::cout << "3. Parse using FileScanner: " << (expr3 ? "SUCCESS" : "FAILED") << std::endl;
+        EXPECT_NE(expr3, nullptr);
+        
+        if (expr3) {
+            std::string exprStr3 = aFormatExpr(expr3);
+            std::cout << "   Formatted expression: " << exprStr3 << std::endl;
+            
+            bool match = (exprStr == exprStr3);
+            std::cout << "   Format match: " << (match ? "YES" : "NO") << std::endl;
+            EXPECT_EQ(exprStr, exprStr3);
+            
+            delete expr3;
+            
+            if (!match) {
+                std::cout << "   Format mismatch detected!" << std::endl;
+                return; // 提前返回，避免后续测试
             }
+        }else {
+            std::cout << "   Failed to re-parse expression." << std::endl;
+            return; // 提前返回，避免后续测试
         }
-        {
-            Expr* expr4 = parseByStreamScanner(exprStr);
-            EXPECT_NE(expr4, nullptr);
-            if (expr4) {
-                std::string exprStr4 = aFormatExpr(expr4);
-                std::cout << "4th Parsed expression: " <<  exprStr4 << std::endl;
-                EXPECT_EQ(exprStr, exprStr4);
-                delete expr4;
-            }else {
-                std::cout << "Failed to re-parse expression." << std::endl;
+        
+        // 第四次解析：使用StreamScanner解析格式化后的表达式
+        Expr* expr4 = parseByStreamScanner(exprStr);
+        std::cout << "4. Parse using StreamScanner: " << (expr4 ? "SUCCESS" : "FAILED") << std::endl;
+        EXPECT_NE(expr4, nullptr);
+        
+        if (expr4) {
+            std::string exprStr4 = aFormatExpr(expr4);
+            std::cout << "   Formatted expression: " << exprStr4 << std::endl;
+            
+            bool match = (exprStr == exprStr4);
+            std::cout << "   Format match: " << (match ? "YES" : "NO") << std::endl;
+            EXPECT_EQ(exprStr, exprStr4);
+            
+            delete expr4;
+            
+            if (!match) {
+                std::cout << "   Format mismatch detected!" << std::endl;
             }
+        }else {
+            std::cout << "   Failed to re-parse expression." << std::endl;
         }
+        
+        std::cout << "=== Test completed successfully! ===\n" << std::endl;
     } else {
         std::cout << "Failed to parse expression." << std::endl;
+        
+        std::cout << "=== Test failed at initial parsing! ===\n" << std::endl;
     }
 }
 
@@ -283,6 +325,12 @@ TEST(ScriptParser, LiteralExpression)
     testScriptParser("null");
 }
 
+TEST(ScriptParser, SimpleAssignment)
+{
+    // 最简单的赋值表达式测试
+    testScriptParser("x = 10");
+}
+
 TEST(ScriptParser, AssignmentExpression)
 {
     // 赋值表达式
@@ -403,7 +451,7 @@ TEST(ScriptParser, InvalidSyntax)
     // testInvalidScriptParser("var=name = 10"); // Julia中这被解析为赋值表达式
     testInvalidScriptParser("var!name = 10"); // 包含感叹号的变量名
     testInvalidScriptParser("var?name = 10"); // 包含问号的变量名
-    testInvalidScriptParser("var:name = 10"); // 包含冒号的变量名
+    // testInvalidScriptParser("var:name = 10"); // 包含冒号的变量名，现在是合法的范围表达式
     testInvalidScriptParser("var,name = 10"); // 包含逗号的变量名
     // testInvalidScriptParser("var;name = 10"); // 包含分号的变量名
     // testInvalidScriptParser("var*name = 10"); // Julia中这被解析为乘法表达式
@@ -579,6 +627,31 @@ TEST(ScriptParser, BlockExpressionError) {
     testInvalidScriptParser("begin 1 + end");
     testInvalidScriptParser("begin x = + end");
     
+}
+
+// 测试Range表达式
+TEST(ScriptParser, RangeExpression) {
+    // 基本整数范围
+    testScriptParser("1:10");
+    
+    // 带步长的整数范围
+    testScriptParser("1:2:10");
+    
+    // 浮点数范围
+    testScriptParser("1.0:10.0");
+    
+    // 带步长的浮点数范围
+    testScriptParser("1.0:0.5:3.0");
+    
+    // 负数范围
+    testScriptParser("10:-1:1");
+    
+    // 负数步长的浮点数范围
+    testScriptParser("5.0:-0.5:3.0");
+    
+    // 嵌套在其他表达式中的范围
+    testScriptParser("x = 1:10");
+    testScriptParser("x:y:z");
 }
 
 GTEST_MAIN()

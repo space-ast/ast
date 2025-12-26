@@ -26,6 +26,7 @@
 #include "AstScript/ValString.hpp"
 #include "AstScript/ValNull.hpp"
 #include "AstScript/ValQuantity.hpp"
+#include "AstScript/ValRange.hpp"
 #include "AstScript/OpBin.hpp"
 #include "AstScript/OpAssign.hpp"
 #include "AstScript/OpUnary.hpp"
@@ -114,6 +115,9 @@ Expr* Parser::parseExpression()
 Expr* Parser::parseAssignExpr()
 {
     Expr* expr = parseConditionalExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     if (match(Lexer::eEqual)) {
         Expr* right = parseAssignExpr();
@@ -144,33 +148,41 @@ Expr* Parser::parseAssignExpr()
 /// @brief 解析条件表达式
 Expr* Parser::parseConditionalExpr()
 {
-    Expr* expr = parseLogicalOrExpr();
-    
-    if (match(Lexer::eQuestion)) {
-        Expr* thenExpr = parseExpression();
-        if (!thenExpr) {
-            delete expr;
-            return nullptr;
-        }
-        
-        if (!match(Lexer::eColon)) {
-            delete expr;
-            delete thenExpr;
-            return nullptr;
-        }
-        
-        Expr* elseExpr = parseConditionalExpr();
-        if (!elseExpr) {
-            delete expr;
-            delete thenExpr;
-            return nullptr;
-        }
-        
-        // 创建条件表达式对象
-        return aNewExprCondition(expr, thenExpr, elseExpr);
+    // 解析条件部分
+    Expr* condition = parseLogicalOrExpr();
+    if (!condition) {
+        return nullptr;
     }
     
-    return expr;
+    // 检查是否是条件表达式
+    if (match(Lexer::eQuestion)) {
+        // 解析then分支，使用parseShiftExpr()避免解析范围表达式，从而避免冒号被错误消耗
+        Expr* thenExpr = parseShiftExpr();
+        if (!thenExpr) {
+            delete condition;
+            return nullptr;
+        }
+        
+        // 确保能匹配到冒号
+        if (match(Lexer::eColon)) {
+            // 解析else分支，同样使用parseShiftExpr()避免解析范围表达式
+            Expr* elseExpr = parseShiftExpr();
+            if (!elseExpr) {
+                delete condition;
+                delete thenExpr;
+                return nullptr;
+            }
+            
+            // 创建条件表达式对象
+            return aNewExprCondition(condition, thenExpr, elseExpr);
+        } else {
+            delete condition;
+            delete thenExpr;
+            return nullptr;
+        }
+    }
+    
+    return condition;
 }
 
 /// @brief 解析逻辑或表达式
@@ -301,11 +313,12 @@ Expr* Parser::parseEqualityExpr()
 /// @brief 解析关系表达式
 Expr* Parser::parseRelationalExpr()
 {
-    Expr* expr = parseShiftExpr();
+    // 解析起始表达式（使用位移表达式，因为关系表达式优先级高于范围表达式）
+    Expr* expr = parseRangeExpr();
     
     while (true) {
         if (match(Lexer::eLess)) {
-            Expr* right = parseShiftExpr();
+            Expr* right = parseRangeExpr();
             if (right) {
                 expr = aNewOpBin(EOpBinType::eLt, expr, right);
             } else {
@@ -313,7 +326,7 @@ Expr* Parser::parseRelationalExpr()
                 return nullptr;
             }
         } else if (match(Lexer::eLessEqual)) {
-            Expr* right = parseShiftExpr();
+            Expr* right = parseRangeExpr();
             if (right) {
                 expr = aNewOpBin(EOpBinType::eLe, expr, right);
             } else {
@@ -321,7 +334,7 @@ Expr* Parser::parseRelationalExpr()
                 return nullptr;
             }
         } else if (match(Lexer::eGreater)) {
-            Expr* right = parseShiftExpr();
+            Expr* right = parseRangeExpr();
             if (right) {
                 expr = aNewOpBin(EOpBinType::eGt, expr, right);
             } else {
@@ -329,7 +342,7 @@ Expr* Parser::parseRelationalExpr()
                 return nullptr;
             }
         } else if (match(Lexer::eGreaterEqual)) {
-            Expr* right = parseShiftExpr();
+            Expr* right = parseRangeExpr();
             if (right) {
                 expr = aNewOpBin(EOpBinType::eGe, expr, right);
             } else {
@@ -340,8 +353,34 @@ Expr* Parser::parseRelationalExpr()
             break;
         }
     }
-    
+        
     return expr;
+}
+
+/// @brief 解析范围表达式（如 1:10, 1:2:10）
+Expr* Parser::parseRangeExpr()
+{
+    // 先解析起始值
+    SharedPtr<Expr> startExpr = parseShiftExpr();
+    if (!startExpr) {
+        return nullptr;
+    }
+    
+    // 检查是否有冒号
+    if (match(Lexer::eColon)) {
+        // 解析步长（可选）
+        SharedPtr<Expr> secondExpr = parseShiftExpr();
+        if (match(Lexer::eColon)) {
+            SharedPtr<Expr> thirdExpr = parseShiftExpr();
+            return aNewExprRange(startExpr, thirdExpr, secondExpr);
+        }
+        
+        // 创建Range表达式
+        return aNewExprRange(startExpr, secondExpr);
+    }
+    
+    // 如果没有冒号，返回起始值表达式
+    return startExpr.take();
 }
 
 /// @brief 解析移位表达式
