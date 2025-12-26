@@ -146,16 +146,27 @@ Value* ExprForRange::eval() const
     }
 
     // 计算范围表达式的值
-    Value* rangeValue = range_->eval();
+    SharedPtr<Value> rangeValue = range_->eval();
     if (!rangeValue) {
         aError("for loop range evaluation failed");
         return nullptr;
     }
-
-    // 简化实现：暂时不支持数组范围，直接报错
-    aError("for loop range type not supported yet");
-    delete rangeValue;
-    return nullptr;
+    int index;
+    SharedPtr<Value> iter = aIterateBegin(rangeValue, index);
+    SharedPtr<Value> lastValue;
+    while(iter){
+        // 绑定循环变量到当前索引值
+        variable_->setValue(iter);
+        
+        // 执行循环体
+        lastValue = body_->eval();
+        if (!lastValue) {
+            aError("for loop body evaluation failed");
+            return nullptr;
+        }
+        iter = aIterateNext(rangeValue, index);
+    }
+    return lastValue.take();
 }
 
 /// @brief 设置表达式的值

@@ -740,6 +740,53 @@ Expr* Parser::parseWhileLoop()
     return new ExprWhile(condition, body);
 }
 
+/// @brief 解析for循环语句（范围风格）
+Expr* Parser::parseForRangeLoop()
+{
+    if (!match(Lexer::eFor)) {
+        return nullptr;
+    }
+    
+    // 解析循环变量
+    Expr* variable = parsePrimaryExpr();
+    if (!variable) {
+        return nullptr;
+    }
+    
+    // 匹配in关键字
+    if (!match(Lexer::eIn) && !match(Lexer::eEqual)) {
+        delete variable;
+        return nullptr;
+    }
+    
+    // 解析范围表达式
+    Expr* range = parseExpression();
+    if (!range) {
+        delete variable;
+        return nullptr;
+    }
+    
+    // 解析循环体（代码块或单个表达式）
+    Expr* body = parseBlockExpr();
+    if (!body) {
+        delete variable;
+        delete range;
+        return nullptr;
+    }
+    
+    // 匹配end关键字
+    if (!match(Lexer::eEnd)) {
+        delete variable;
+        delete range;
+        delete body;
+        aError("Expected 'end' after for loop body");
+        return nullptr;
+    }
+    
+    // 创建并返回ForRange循环表达式
+    return new ExprForRange(variable, range, body);
+}
+
 /// @brief 解析基本表达式
 Expr* Parser::parsePrimaryExpr()
 {
@@ -748,6 +795,8 @@ Expr* Parser::parsePrimaryExpr()
         return parseIfStatement();
     }else if(check(Lexer::eWhile)){
         return parseWhileLoop();
+    }else if(check(Lexer::eFor)){
+        return parseForRangeLoop();
     }else if(check(Lexer::eBegin)){
         return parseBeginEndBlock();
     }

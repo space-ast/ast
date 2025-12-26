@@ -107,6 +107,8 @@ public:
         
         // 循环语句关键字
         eWhile,                 ///< while
+        eFor,                   ///< for
+        eIn,                    ///< in (for循环中使用)
     };
 
 public:
