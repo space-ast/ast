@@ -33,6 +33,7 @@ class ValInt;
 class ValDouble; 
 class ValString; 
 class ValQuantity; 
+class ValRange;
 class OpAssign; 
 class OpBin; 
 class OpUnary; 
@@ -44,8 +45,14 @@ class ExprIf;
 class ExprWhile; 
 class ExprForRange;
 class ExprRange;
-class ValRange;
+class ExprVector;
+class ExprCatHorizontal;
+class ExprCatVertical;
 
+
+
+/// @brief 表达式访问器
+/// @details 用于遍历表达式树的访问器。
 class ExprVisitor{
 public:
     virtual ~ExprVisitor() = default;
@@ -74,7 +81,10 @@ public:
     virtual void visit(ExprWhile& expr) = 0;
     virtual void visit(ExprForRange& expr) = 0;
     virtual void visit(ExprRange& expr) = 0;
-
+    virtual void visit(ExprVector& expr) = 0;
+    virtual void visit(ExprCatHorizontal& expr) = 0;
+    virtual void visit(ExprCatVertical& expr) = 0;
+    
 };
 
 AST_NAMESPACE_END
