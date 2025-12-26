@@ -38,7 +38,9 @@ static const std::unordered_map<StringView, Lexer::ETokenType> keywords = {
     {"if", Lexer::eIf},
     {"elseif", Lexer::eElseif},
     {"else", Lexer::eElse},
-    {"while", Lexer::eWhile}
+    {"while", Lexer::eWhile},
+    {"for", Lexer::eFor},
+    {"in", Lexer::eIn}
 };
 
 /// @brief 获取下一个令牌

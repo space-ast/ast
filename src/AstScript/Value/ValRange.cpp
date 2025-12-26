@@ -20,12 +20,14 @@
 
 #include "ValRange.hpp"
 #include "AstUtil/ParseFormat.hpp"
+#include "AstScript/Types.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
 ValRange::ValRange(double start, double stop, double step)
-    : start_(start), stop_(stop), step_(step)
+    :Value{&aValRange_Type} 
+    ,start_(start), stop_(stop), step_(step)
 {
 }
 

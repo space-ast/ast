@@ -21,6 +21,7 @@
 #include "AstScript/ScriptAPI.hpp"
 #include "AstScript/Interpreter.hpp"
 #include "AstTest/AstTestMacro.h"
+#include "AstScript/Value.hpp"
 
 AST_USING_NAMESPACE
 
@@ -42,7 +43,10 @@ protected:
 void testScriptControlFlowDouble(const char* script, double expect)
 {
     printf("script: %s\n", script);
-    Value* val = aEval(script);
+    SharedPtr<Expr> expr = aParseExpr(script);
+    std::string exprStr = aFormatExpr(expr);
+    printf("parsed: %s\n", exprStr.c_str());
+    SharedPtr<Value> val = aEvalExpr(expr);
     ASSERT_TRUE(val != nullptr);
     ASSERT_TRUE(aValueIsDouble(val));
     double result = aValueUnboxDouble(val);
@@ -109,6 +113,30 @@ TEST_F(ScriptControlFlowTest, TestWhileLoop) {
     testScriptControlFlowDouble(script2, 45.0);
 }
 
+/// @test      测试for循环语句（Julia风格）
+TEST_F(ScriptControlFlowTest, TestForLoop) {
+    // 测试for范围循环
+    const char* script1 = R"(
+    a = 0.0
+    for i in 1:5
+        a = a + i
+    end
+    a
+    )";
+    testScriptControlFlowDouble(script1, 15.0);
+
+    // 测试for循环嵌套
+    const char* script2 = R"(
+    a = 0.0
+    for i in 1:3
+        for j in 1:2
+            a = a + i * j
+        end
+    end
+    a
+    )";
+    testScriptControlFlowDouble(script2, 18.0);
+}
 
 
 GTEST_MAIN()

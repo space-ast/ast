@@ -122,6 +122,9 @@ public:
     /// @brief 解析while循环语句
     Expr* parseWhileLoop();
     
+    /// @brief 解析for循环语句（范围风格）
+    Expr* parseForRangeLoop();
+    
     /// @brief 解析表达式
     /// @param script 脚本文本
     /// @return Expr* 解析得到的表达式对象，解析失败返回nullptr

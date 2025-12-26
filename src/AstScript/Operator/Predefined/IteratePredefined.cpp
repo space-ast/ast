@@ -22,10 +22,30 @@
 #include "AstScript/OpUnaryRegister.hpp"
 #include "AstScript/OpUnaryPredefined.hpp"
 #include "AstScript/Value.hpp"
+#include "AstScript/ValRange.hpp"
+#include "AstScript/Types.hpp"
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
+
+Value* iterate_range(Value* value, int& index)
+{
+    if(!value)
+        return nullptr;
+    ValRange* range = static_cast<ValRange*>(value);
+    if(index == eIterBegin){
+        index = 1;
+        return aNewValueDouble(range->start());
+    }else{
+        if(index >= range->size()){
+            return nullptr;
+        }
+        double next = range->start() + index * range->step();
+        index++;
+        return aNewValueDouble(next);
+    }
+}
 
 
 IterateFunc iterate_get_func(Class *type)
@@ -68,5 +88,15 @@ Value *iterate_next(Value* container, int &index)
     }
     return cacheFunc(container, index);;
 }
+
+void iterate_init_registry()
+{
+    iterate_register_func(&aValRange_Type, iterate_range);
+}
+
+auto __iterate_registry_initializer = []() -> bool {
+    iterate_init_registry();
+    return true;
+}();
 
 AST_NAMESPACE_END
