@@ -629,6 +629,22 @@ TEST(ScriptParser, BlockExpressionError) {
     
 }
 
+// 测试宏调用表达式
+TEST(ScriptParser, MacroCallExpression) {
+    // 带括号的宏调用
+    testScriptParser("@macro(a, b, c)");
+    testScriptParser("@macro(1, 2, 3)");
+    testScriptParser("@macro(a + b, c * d)");
+    
+    // 不带括号的宏调用
+    testScriptParser("@macro a b c");
+    testScriptParser("@macro 1 2 3");
+    testScriptParser("@macro a a+b 1-2");
+    
+    // 空参数的宏调用
+    testScriptParser("@macro()");
+}
+
 // 测试Range表达式
 TEST(ScriptParser, RangeExpression) {
     // 基本整数范围

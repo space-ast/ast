@@ -1,5 +1,5 @@
 ///
-/// @file      ExprMacroExpand.hpp
+/// @file      ExprFuncCall.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -25,26 +25,25 @@
 #include "AstUtil/SharedPtr.hpp"
 #include <vector>
 
+
 AST_NAMESPACE_BEGIN
 
-class Macro;
 
-/// @brief     宏展开表达式
-class ExprMacroExpand: public Expr
+/// @brief     函数调用表达式
+class ExprCall: public Expr
 {
 public:
-    AST_EXPR(ExprMacroExpand)
+    AST_EXPR(ExprCall)
 
-    ExprMacroExpand() = default;
-    ~ExprMacroExpand() = default;
+    ExprCall() = default;
+    ~ExprCall() = default;
     
     /// @brief 构造函数
-    /// @param macro 被展开的宏对象
-    /// @param args 宏展开参数列表
-    ExprMacroExpand(Expr* macro, const std::vector<SharedPtr<Expr>>& args)
-        : macro_(macro), args_(args)
+    /// @param func 被调用的函数表达式
+    /// @param args 调用参数列表
+    ExprCall(Expr* func, const std::vector<SharedPtr<Expr>>& args)
+        : func_(func), args_(args)
     {}
-    
     
     /// @brief 求值
     /// @return Value* 求值结果
@@ -55,19 +54,17 @@ public:
     /// @return std::string 表达式的字符串表示
     std::string getExpression(Object* context=nullptr) const override;
     
-    /// @brief 获取被展开的宏对象
-    /// @return SharedPtr<Macro> 宏对象
-    Expr* getMacro() { return macro_; }
-    const Expr* getMacro() const { return macro_; }
+    /// @brief 获取被调用的函数表达式
+    /// @return SharedPtr<Expr> 函数表达式
+    Expr* getFunc() const { return func_.get(); }
     
-    /// @brief 获取宏展开参数列表
+    /// @brief 获取调用参数列表
     /// @return const std::vector<SharedPtr<Expr>>& 参数列表
     const std::vector<SharedPtr<Expr>>& getArgs() const { return args_; }
     
 private:
-    SharedPtr<Expr> macro_;           ///< 被展开的宏对象
-    std::vector<SharedPtr<Expr>> args_;        ///< 宏展开参数列表
+    SharedPtr<Expr> func_;           ///< 被调用的函数表达式
+    std::vector<SharedPtr<Expr>> args_;        ///< 调用参数列表
 };
-
 
 AST_NAMESPACE_END

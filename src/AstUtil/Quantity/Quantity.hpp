@@ -130,7 +130,7 @@ public:
     Quantity(double value, const Unit& unit)
         : value_(value), unit_(unit)
     {}
-    Quantity(double value)
+    explicit Quantity(double value)
         : value_(value), unit_(Unit::None())
     {}
 public:
