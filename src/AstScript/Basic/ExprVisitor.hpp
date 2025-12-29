@@ -48,6 +48,8 @@ class ExprRange;
 class ExprVector;
 class ExprCatHorizontal;
 class ExprCatVertical;
+class ExprCall;
+class ExprMacroExpand;
 
 
 
@@ -84,6 +86,8 @@ public:
     virtual void visit(ExprVector& expr) = 0;
     virtual void visit(ExprCatHorizontal& expr) = 0;
     virtual void visit(ExprCatVertical& expr) = 0;
+    virtual void visit(ExprCall& expr) = 0;
+    virtual void visit(ExprMacroExpand& expr) = 0;
     
 };
 

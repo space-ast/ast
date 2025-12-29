@@ -190,6 +190,8 @@ Lexer::ETokenType Lexer::getNextToken()
             return Lexer::eLeftBracket;
         case ']':
             return Lexer::eRightBracket;
+        case '@':
+            return Lexer::eAt;
         default:
             return Lexer::eError;
     }

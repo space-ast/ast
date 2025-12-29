@@ -1,5 +1,5 @@
 ///
-/// @file      ExprMacroExpand.cpp
+/// @file      ExprFuncCall.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    jinke18
@@ -18,33 +18,33 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ExprMacroExpand.hpp"
-#include "AstScript/ExprVisitor.hpp"
-#include "AstScript/Macro.hpp"
+#include "ExprCall.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-Value* ExprMacroExpand::eval() const
+Value* ExprCall::eval() const
 {
-    // Macro类目前只是一个空基类，没有实际的展开功能
-    // 这里可以根据实际需求添加展开逻辑
-    // 暂时返回nullptr
+    // 这里需要实现函数调用的求值逻辑
+    // 1. 先求值函数表达式，得到函数对象
+    // 2. 求值所有参数
+    // 3. 调用函数并返回结果
+    // 暂时返回 nullptr，需要根据实际的函数调用机制来实现
     return nullptr;
 }
 
-std::string ExprMacroExpand::getExpression(Object* context) const
+std::string ExprCall::getExpression(Object* context) const
 {
     std::string result;
     
-    // Macro类目前没有getName方法
-    if (macro_) {
-        result += "macro";
-    } else {
-        result += "unknown_macro";
-    }
+    // 如果函数表达式是变量或其他简单表达式，直接使用其字符串表示
+    // 如果是复杂表达式（如二元表达式），需要添加括号
+    bool needParentheses = false;
+    // 这里可以根据 m_func 的类型判断是否需要添加括号
+    // 暂时简化处理，直接调用 getExpression
+    result = func_->getExpression(context);
     
-    // 添加参数列表
+    // 添加参数列表，使用 Julia 语言的语法：func(args...)
     result += "(";
     for (size_t i = 0; i < args_.size(); ++i) {
         if (i > 0) {

@@ -95,6 +95,7 @@ public:
         eQuestion,              ///< ?
 
         eNewline,               ///< \n (换行符)
+        eAt,                    ///< @ (宏调用前缀)
         
         // 代码块关键字（参照Julia语言）
         eBegin,                 ///< begin

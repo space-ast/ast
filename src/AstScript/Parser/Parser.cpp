@@ -39,6 +39,8 @@
 #include "AstScript/ExprVector.hpp"
 #include "AstScript/ExprCatHorizontal.hpp"
 #include "AstScript/ExprCatVertical.hpp"
+#include "AstScript/ExprCall.hpp"
+#include "AstScript/ExprMacroExpand.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
@@ -814,6 +816,58 @@ Expr* Parser::parsePrimaryExpr()
         return nullptr;
     }
     
+    // 处理宏调用（@符号后面跟着标识符）
+    if (match(Lexer::eAt)) {
+        // 检查是否有标识符
+        if (currentTokenType() != Lexer::eIdentifier) {
+            return nullptr;
+        }
+        
+        // 解析宏名
+        auto macroName = aNewSymbol(currentLexeme());
+        advance();
+        
+        // 解析参数列表
+        std::vector<SharedPtr<Expr>> args;
+        
+        // 检查是否有左括号
+        if (match(Lexer::eLeftParen)) {
+            // 带括号的宏调用：@macro(a, b, c)
+            if (!check(Lexer::eRightParen)) {
+                do {
+                    Expr* arg = parseExpression();
+                    if (arg) {
+                        args.push_back(arg);
+                    } else {
+                        delete macroName;
+                        return nullptr;
+                    }
+                } while (match(Lexer::eComma));
+            }
+            
+            // 匹配右括号
+            if (!match(Lexer::eRightParen)) {
+                delete macroName;
+                return nullptr;
+            }
+        } else {
+            // 不带括号的宏调用：@macro a b c
+            // 解析参数直到遇到无法作为表达式开始的令牌
+            while (canStartExpression()) {
+                Expr* arg = parseExpression();
+                if (arg) {
+                    args.push_back(arg);
+                } else {
+                    delete macroName;
+                    return nullptr;
+                }
+            }
+        }
+        
+        // 创建宏调用表达式
+        return new ExprMacroExpand(macroName, args);
+    }
+    
     // 处理数组和拼接语法 [1,2,3], [a,b,c], [1 2 3], [a b c], [1;2;3], [a;b;c]
     if (match(Lexer::eLeftBracket)) {
         // 解析第一个表达式
@@ -984,12 +1038,78 @@ Expr* Parser::parsePrimaryExpr()
     }
     
     if (currentTokenType() == Lexer::eIdentifier) {
-        auto var = aNewSymbol(currentLexeme());
+        // 解析标识符
+        auto identifier = aNewSymbol(currentLexeme());
         advance();
-        return var;
+        
+        // 检查是否是函数调用（标识符后面跟着左括号）
+        if (match(Lexer::eLeftParen)) {
+            std::vector<SharedPtr<Expr>> args;
+            
+            // 解析参数列表
+            if (!check(Lexer::eRightParen)) {
+                do {
+                    Expr* arg = parseExpression();
+                    if (arg) {
+                        args.push_back(arg);
+                    } else {
+                        delete identifier;
+                        return nullptr;
+                    }
+                } while (match(Lexer::eComma));
+            }
+            
+            // 匹配右括号
+            if (!match(Lexer::eRightParen)) {
+                delete identifier;
+                return nullptr;
+            }
+            
+            // 创建函数调用表达式
+            return new ExprCall(identifier, args);
+        }
+        
+        return identifier;
     }
     
     return nullptr;
+}
+
+/// @brief 检查当前令牌是否可以作为表达式的开始
+bool Parser::canStartExpression() const
+{
+    // 检查当前令牌类型是否可以作为表达式的开始
+    switch (currentTokenType_) {
+        // 字面量
+        case Lexer::eNumber:
+        case Lexer::eString:
+        case Lexer::eTrue:
+        case Lexer::eFalse:
+        case Lexer::eNullLiteral:
+        
+        // 标识符
+        case Lexer::eIdentifier:
+        
+        // 括号表达式
+        case Lexer::eLeftParen:
+        case Lexer::eLeftBracket:
+        
+        // 一元运算符
+        case Lexer::ePlus:
+        case Lexer::eMinus:
+        case Lexer::eBang:
+        case Lexer::eTilde:
+        
+        // 关键字表达式
+        case Lexer::eIf:
+        case Lexer::eWhile:
+        case Lexer::eFor:
+        case Lexer::eBegin:
+            return true;
+            
+        default:
+            return false;
+    }
 }
 
 /// @brief 解析表达式
