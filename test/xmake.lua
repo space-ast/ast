@@ -53,7 +53,11 @@ for _, file in ipairs(asc_files) do
                 if option.get("verbose") then
                     ok, syserrors = os.execv(targetfile, runargs, {try = true})
                 else
-                    ok, syserrors = os.execv(targetfile, runargs, {try = true, stdout = "./build/testoutput/" .. basename})
+                    local testdir = "./build/testoutput/"
+                    if not os.exists(testdir) then
+                        os.mkdir(testdir)
+                    end
+                    ok, syserrors = os.execv(targetfile, runargs, {try = true, stdout = testdir .. basename})
                 end
                 -- print(ok, syserrors)
                 local passed = ok == 0
