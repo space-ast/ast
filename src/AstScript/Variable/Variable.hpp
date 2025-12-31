@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstScript/Expr.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/SharedPtr.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -37,23 +38,41 @@ class AST_SCRIPT_API Variable: public Expr
 public:
     AST_EXPR(Variable)
     
-    Variable(StringView name, Expr* expr, bool bind = false)
-        : name_(name.to_string()), expr_(expr), bind_(bind)
-    {};
-    Variable(Expr* expr, bool bind = false)
-        : name_{}, expr_(expr), bind_(bind)
-    {};
+    Variable(StringView name, Expr* expr=nullptr, bool bind = false);
+    Variable(Expr* expr=nullptr, bool bind = false);
+
+    /// @brief 计算变量的值
+    /// @return 变量的值
     Value* eval() const final;
+
+    /// @brief 设置变量的值
+    /// @param val 要设置的值
+    /// @return 错误码
     err_t setValue(Value* val) final;
+
+    /// @brief 设置变量的表达式
+    /// @param expr 要设置的表达式
+    /// @return 错误码
+    err_t setExpr(Expr* expr);
+
+    /// @brief 绑定变量到表达式
+    /// @param expr 要绑定的表达式
+    /// @return 错误码
+    err_t bind(Expr* expr);
+
+    
+    /// @brief 获取变量的表达式
+    /// @param context 上下文对象
+    /// @return 变量的表达式字符串
     std::string getExpression(Object* context=nullptr) const override{return name_;}
 public:
     const std::string& name() const { return name_; }
-    Expr* expr() const { return expr_; }
+    Expr* expr() const { return expr_.get(); }
     
 protected:
-    std::string name_;  ///< 变量的名称
-    Expr* expr_;        ///< 变量的值，或者绑定的表达式
-    bool bind_;         ///< 是否与表达式双向绑定
+    std::string name_;            ///< 变量的名称
+    SharedPtr<Expr> expr_;        ///< 变量的值，或者绑定的表达式
+    bool bind_;                   ///< 是否与表达式双向绑定
 };
 
 

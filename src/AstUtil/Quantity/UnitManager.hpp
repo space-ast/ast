@@ -81,7 +81,7 @@ protected:
     /// @param name 单位名称
     /// @param unit 要添加的单位
     /// @return err_t 错误码
-    err_t addUnit(const std::string& name, const Unit& unit);
+    err_t _addUnit(const std::string& name, const Unit& unit);
 
 protected:
     std::unordered_map<std::string, Unit*> units_;       ///< 单位映射表

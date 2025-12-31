@@ -19,23 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ScriptAPI.hpp"
-#include "AstScript/ValBool.hpp"
-#include "AstScript/ValInt.hpp"
-#include "AstScript/ValDouble.hpp"
-#include "AstScript/ValString.hpp"
-#include "AstScript/ValQuantity.hpp"
-#include "AstScript/ValNull.hpp"
-#include "AstScript/Variable.hpp"
-#include "AstScript/OpBin.hpp"
-#include "AstScript/OpAssign.hpp"
-#include "AstScript/OpUnary.hpp"
-#include "AstScript/Parser.hpp"
-#include "AstScript/Symbol.hpp"
-#include "AstScript/OpBinPredefined.hpp"
-#include "AstScript/OpAssignPredefined.hpp"
-#include "AstScript/OpUnaryPredefined.hpp"
-#include "AstScript/Types.hpp"
+#include "AstScript/AllHeaders.hpp"
 #include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/Quantity.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -55,7 +41,7 @@ Symbol *aNewSymbol(StringView name)
     return new Symbol(name);
 }
 
-Expr *aNewOpAssign(OpAssignType op, Expr *left, Expr *right)
+Expr *aNewOpAssign(EOpAssignType op, Expr *left, Expr *right)
 {
     if(!left || !right){
         return nullptr;
@@ -63,7 +49,7 @@ Expr *aNewOpAssign(OpAssignType op, Expr *left, Expr *right)
     return new OpAssign(op, left, right);
 }
 
-Expr *aNewOpBin(OpBinType op, Expr *left, Expr *right)
+Expr *aNewOpBin(EOpBinType op, Expr *left, Expr *right)
 {
     if(!left || !right){
         return nullptr;
@@ -71,7 +57,7 @@ Expr *aNewOpBin(OpBinType op, Expr *left, Expr *right)
     return new OpBin(op, left, right);
 }
 
-Expr *aNewOpUnary(OpUnaryType op, Expr *expr)
+Expr *aNewOpUnary(EOpUnaryType op, Expr *expr)
 {
     if(!expr){
         return nullptr;
@@ -79,8 +65,23 @@ Expr *aNewOpUnary(OpUnaryType op, Expr *expr)
     return new OpUnary(op, expr);
 }
 
+Expr* aNewExprCondition(Expr* condition, Expr* thenExpr, Expr* elseExpr)
+{
+    if(!condition || !thenExpr ){
+        return nullptr;
+    }
+    return new ExprCondition(condition, thenExpr, elseExpr);
+}
 
-Value* aNewValueString(StringView value)
+Expr *aNewExprRange(Expr *start, Expr *stop, Expr *step)
+{
+    if(!start || !stop){
+        return nullptr;
+    }
+    return new ExprRange(start, stop, step);
+}
+
+Value *aNewValueString(StringView value)
 {
     return new ValString(value);
 }
@@ -147,7 +148,34 @@ bool aValueIsInt(Value *value)
     return value && (value)->type() == &aValInt_Type;
 }
 
+bool aValueIsArithmetic(Value *value)
+{
+    if(!value){
+        return false;
+    }
+    auto type = value->type();
+    return type == &aValInt_Type || type == &aValDouble_Type || type == &aValBool_Type;
+}
 
+bool aValueIsQuantity(Value *value)
+{
+    return value && (value)->type() == &aValQuantity_Type;
+}
+
+double aValueToDouble(Value *value)
+{
+    if(aValueIsDouble(value)){
+        return static_cast<ValDouble*>(value)->value();
+    }
+    if(aValueIsInt(value)){
+        return static_cast<ValInt*>(value)->value();
+    }
+    if(aValueIsBool(value)){
+        return static_cast<ValBool*>(value)->value() ? 1.0 : 0.0;
+    }
+    aError("Value is not an arithmetic");
+    return std::numeric_limits<double>::quiet_NaN();
+}
 
 bool aValueUnboxBool(Value *value)
 {
@@ -176,36 +204,161 @@ int aValueUnboxInt(Value *value)
     return static_cast<ValInt*>(value)->value();
 }
 
+Quantity aValueUnboxQuantity(Value *value)
+{
+    if(!aValueIsQuantity(value)){
+        aError("Value is not a quantity");
+        return Quantity();
+    }
+    return static_cast<ValQuantity*>(value)->quantity();
+}
+
 std::string aFormatExpr(Expr *expr, Object *context)
 {
     return expr->getExpression(context);
 }
 
-OpBinFunc aGetOpBinFunc(OpBinType op, Class *leftType, Class *rightType)
+OpBinFunc aGetOpBinFunc(EOpBinType op, Class *leftType, Class *rightType)
 {
     return opbin_get_func(op, leftType, rightType);
 }
 
-OpAssignFunc aGetOpAssignFunc(OpAssignType op, Class *leftType, Class *rightType)
+OpAssignFunc aGetOpAssignFunc(EOpAssignType op, Class *leftType, Class *rightType)
 {
     return opassign_get_func(op, leftType, rightType);
 }
 
-Value* aDoOpUnary(OpUnaryType op, Value* value)
+Value* aDoOpUnary(EOpUnaryType op, Value* value)
 {
     return opunary(op, value);
 }
 
-OpUnaryFunc aGetOpUnaryFunc(OpUnaryType op, Class *type)
+static void assignop_split(EOpAssignType op, EOpBinType& opbin)
+{
+    switch (op)
+    {
+    case eAddAssign:
+        opbin = eAdd;
+        break;
+    case eSubAssign:
+        opbin = eSub;
+        break;
+    case eMulAssign:
+        opbin = eMul;
+        break;
+    case eDivAssign:
+        opbin = eDiv;
+        break;;
+    case eModAssign:
+        opbin = eMod;
+        break;
+    case ePowAssign:
+        opbin = ePow;
+        break;
+    case eElemMulAssign:
+        opbin = eElemMul;
+        break;
+    case eElemDivAssign:
+        opbin = eElemDiv;
+        break;
+    case eElemModAssign:
+        opbin = eElemMod;
+        break;
+    case eElemPowAssign:
+        opbin = eElemPow;
+        break;
+    case eElemAndAssign:
+        opbin = eElemAnd;
+        break;
+    case eElemOrAssign:
+        opbin = eElemOr;
+        break;
+    default:
+        opbin = invalidOpBin; // 无效运算符
+        break;
+    }
+}
+
+Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
+{
+    if(!left || !right){
+        aError("Left or right is null");
+        return nullptr;
+    }
+
+    switch (op)
+    {
+    case eAssign:
+    {
+        left->setValue(right->eval());
+        return left->eval();
+    }
+    case eDelayAssign:
+    {
+        SharedPtr<Expr> leftExpr = left->exec();
+        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
+            var->setExpr(right);
+        }else{
+            aError("Left is not a variable");
+            return nullptr;
+        }
+        return left->eval();
+    }
+    case eBindAssign:
+    {
+        SharedPtr<Expr> leftExpr = left->exec();
+        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
+            var->bind(right);
+        }else{
+            aError("Left is not a variable");
+            return nullptr;
+        }
+        return left->eval();
+    }
+    default:
+        break;
+    }
+    // 其他赋值运算符
+    {
+        EOpBinType opbin;
+        assignop_split(op, opbin);
+        if(opbin == invalidOpBin){
+            aError("Invalid assign operator");
+            return nullptr;
+        }
+        auto val = aDoOpBin(opbin, left->eval(), right->eval());
+        left->setValue(val);
+        return val;
+    }
+}
+
+
+
+OpUnaryFunc aGetOpUnaryFunc(EOpUnaryType op, Class *type)
 {
     return opunary_get_func(op, type);
 }
 
-Value *aDoOpBin(OpBinType op, Value *left, Value *right)
+IterateFunc aGetIterateFunc(Class *type)
+{
+    return iterate_get_func(type);
+}
+
+
+Value *aDoOpBin(EOpBinType op, Value *left, Value *right)
 {
     return opbin(op, left, right);
 }
 
+Value *aIterateBegin(Value *container, int &index)
+{
+    return iterate_begin(container, index);
+}
+
+Value* aIterateNext(Value* container, int& index)
+{
+    return iterate_next(container, index);
+}
 
 
 AST_NAMESPACE_END

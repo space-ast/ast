@@ -21,6 +21,7 @@
 #include "AstScript/ScriptAPI.hpp"
 #include "AstTest/AstTestMacro.h"
 #include "AstScript/ValString.hpp"
+#include "AstScript/Interpreter.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/IO.hpp"
 #ifdef _WIN32
@@ -33,12 +34,11 @@ AST_USING_NAMESPACE
 void testScriptEvalBool(StringView str, bool expectedValue)
 {
     ast_printf("testScriptEvalBool: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(aValueIsBool(value));
-        EXPECT_EQ(aValueUnboxBool(value), expectedValue);
-        delete value;
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(aValueIsBool(value.get()));
+        EXPECT_EQ(aValueUnboxBool(value.get()), expectedValue);
     }
 }
 
@@ -46,12 +46,11 @@ void testScriptEvalBool(StringView str, bool expectedValue)
 void testScriptEvalInt(StringView str, int expectedValue)
 {
     printf("testScriptEvalInt: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(aValueIsInt(value));
-        EXPECT_EQ(aValueUnboxInt(value), expectedValue);
-        delete value;
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(aValueIsInt(value.get()));
+        EXPECT_EQ(aValueUnboxInt(value.get()), expectedValue);
     }
 }
 
@@ -59,12 +58,11 @@ void testScriptEvalInt(StringView str, int expectedValue)
 void testScriptEvalDouble(StringView str, double expectedValue)
 {
     printf("testScriptEvalDouble: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(aValueIsDouble(value));
-        EXPECT_DOUBLE_EQ(aValueUnboxDouble(value), expectedValue);
-        delete value;
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(aValueIsDouble(value.get()));
+        EXPECT_DOUBLE_EQ(aValueUnboxDouble(value.get()), expectedValue);
     }
 }
 
@@ -72,13 +70,23 @@ void testScriptEvalDouble(StringView str, double expectedValue)
 void testScriptEvalString(StringView str, StringView expectedValue)
 {
     printf("testScriptEvalString: %s\n", str.to_string().c_str());
-    Value* value = aEval(str);
-    EXPECT_TRUE(value);
-    if(value){
-        EXPECT_TRUE(dynamic_cast<ValString*>(value) != nullptr);
-        ValString* strValue = static_cast<ValString*>(value);
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        EXPECT_TRUE(dynamic_cast<ValString*>(value.get()) != nullptr);
+        ValString* strValue = static_cast<ValString*>(value.get());
         EXPECT_EQ(strValue->value(), expectedValue.to_string());
-        delete value;
+    }
+}
+
+void testScriptEval(StringView str)
+{
+    printf("testScriptEval: %s\n", str.to_string().c_str());
+    SharedPtr<Value> value = aEval(str);
+    EXPECT_TRUE(value.get() != nullptr);
+    if(value.get()){
+        std::string expr = aFormatExpr(value.get());
+        printf("expr: %s\n", expr.c_str());
     }
 }
 
@@ -358,6 +366,133 @@ TEST(ScriptEval, EvalRuntimeErrors)
     testScriptEvalRuntimeError("false >> 2");
     testScriptEvalRuntimeError("\"string\" << 1");
     testScriptEvalRuntimeError("\"string\" + 1");
+}
+
+
+
+class ScriptExec : public ::testing::Test {
+protected:
+    void SetUp() override {
+        // 设置测试环境
+        aScript_SetInterpreter(&interpreter);
+    }
+
+    void TearDown() override {
+        // 清理测试环境
+        aScript_RemoveInterpreter(&interpreter);
+    }
+protected:
+    Interpreter interpreter;
+};
+
+
+TEST_F(ScriptExec, Variable)
+{
+    testScriptEvalDouble("x = 1.0 + 2", 3.0);
+    testScriptEvalDouble("y = x * 2", 6.0);
+    testScriptEvalDouble("z = y / 3", 2.0);
+
+
+}
+
+
+TEST_F(ScriptExec, Interpreter)
+{
+    auto x = aScript_FindSymbol("x");
+    auto y = aScript_FindSymbol("y");
+    EXPECT_TRUE(x == nullptr);
+    EXPECT_TRUE(y == nullptr);
+
+    // 测试脚本执行上下文
+    {
+        Interpreter interpreter;
+        InterpreterContext context(&interpreter);
+        {
+            auto x = aScript_FindSymbol("x");
+            auto y = aScript_FindSymbol("y");
+            auto z = aScript_FindSymbol("z");
+            EXPECT_TRUE(x == nullptr);
+            EXPECT_TRUE(y == nullptr);
+            EXPECT_TRUE(z == nullptr);
+        }
+
+        testScriptEvalInt("x = 1", 1);
+        testScriptEvalDouble("y = 1 + 1.2", 2.2);
+        testScriptEvalBool("z = (x > y)", false);
+
+        {        
+            auto x = aScript_FindSymbol("x");
+            auto y = aScript_FindSymbol("y");
+            auto z = aScript_FindSymbol("z");
+            EXPECT_TRUE(x != nullptr);
+            EXPECT_TRUE(y != nullptr);
+            EXPECT_TRUE(z != nullptr);
+        }
+    }
+
+    {
+        auto x = aScript_FindSymbol("x");
+        auto y = aScript_FindSymbol("y");
+        auto z = aScript_FindSymbol("z");
+        EXPECT_TRUE(x == nullptr);
+        EXPECT_TRUE(y == nullptr);
+        EXPECT_TRUE(z == nullptr);
+    }
+
+    testScriptEvalInt("x = 1", 1);
+    testScriptEvalDouble("y = 1 + 1.2", 2.2);
+    testScriptEvalBool("z = (x > y)", false);
+
+    {
+        auto x = aScript_FindSymbol("x");
+        auto y = aScript_FindSymbol("y");
+        auto z = aScript_FindSymbol("z");
+        EXPECT_TRUE(x != nullptr);
+        EXPECT_TRUE(y != nullptr);
+        EXPECT_TRUE(z != nullptr);
+    }
+
+}
+
+
+TEST_F(ScriptExec, MutilLine)
+{
+    // 测试多行表达式
+    testScriptEval("v1 = 1.2[km/s]\nv2 = 12 [km]");
+    // 测试空行分隔的多行表达式
+    testScriptEval("v1 = 1.2[km/s]\n\nv2 = 12 [km]");
+    // 测试前置空行
+    testScriptEval("\n\nv1 = 1.2[km/s]\n\nv2 = 12 [km]");
+}
+
+
+TEST_F(ScriptExec, DelayAssign)
+{
+    // 测试延迟赋值
+    aEval("x := y");
+    testScriptEval("y = 10");
+    testScriptEvalInt("x", 10);
+    testScriptEval("y = 1.123");
+    testScriptEvalDouble("x", 1.123);
+}
+
+TEST_F(ScriptExec, BindAssign)
+{
+    // 测试绑定赋值
+    aEval("x =& y");
+    testScriptEval("y = 10");
+    testScriptEvalInt("x", 10);
+    testScriptEval("x = 1.123");
+    testScriptEvalDouble("y", 1.123);
+    testScriptEval("y = 2.345");
+    testScriptEvalDouble("x", 2.345);
+
+}
+
+TEST_F(ScriptExec, Range)
+{
+    testScriptEval("x = 1:10");
+    testScriptEval("y = 1.1:2.2:10.0");
 }
 
 GTEST_MAIN()

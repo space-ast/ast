@@ -56,6 +56,7 @@ namespace units
 
     extern AST_UTIL_API Unit sec;       ///< 秒
     extern AST_UTIL_API Unit s;         ///< 秒
+    extern AST_UTIL_API Unit ms;        ///< 毫秒
     extern AST_UTIL_API Unit min;       ///< 分钟
     extern AST_UTIL_API Unit hour;      ///< 小时
     extern AST_UTIL_API Unit h;         ///< 小时
@@ -100,6 +101,11 @@ AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent);
 /// @brief 单位幂
 AST_UTIL_API Unit aUnitPower(const Unit& unit, int exponent, StringView newname);
 
+/// @brief 单位倒数
+AST_UTIL_API Unit aUnitInvert(const Unit& unit);
+
+/// @brief 单位倒数
+AST_UTIL_API Unit aUnitInvert(const Unit& unit, StringView newname);
 
 /// @brief 单位分解
 /// @param[in] unit 分解前的单位
@@ -201,6 +207,12 @@ public:
     {
         return Unit("day", 86400.0, EDimension::eTime);
     }
+    /// @brief 毫秒单位
+    static Unit MilliSecond()
+    {
+        return Unit("ms", 0.001, EDimension::eTime);
+    }
+
 
 
     /// @brief 米单位
@@ -423,6 +435,9 @@ public: // operators
     /// @brief 单位克隆
     /// @return 新单位
     Unit clone() const { return Unit(std::make_shared<UnitRep>(*rep_)); }
+
+    /// @brief 单位倒数
+    Unit invert() const { return aUnitInvert(*this); }
 
     /// @brief 单位乘法
     /// @param newname 新单位名称

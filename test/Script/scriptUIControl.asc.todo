@@ -1,0 +1,28 @@
+# coding: utf-8
+# ast script file
+# a simple ui control 
+#=
+使用julia的数组、矩阵拼接语法实现ui控件的拼接
+目前这只是一个蓝图，还未实现相关的功能
+
+hcat 水平拼接： 空格
+vcat 垂直拼接： 换行符、分号
+pcat 页面拼接： 两个分号
+=#
+
+@state Input1 = 0.0
+@state Input2 = 0.0
+
+Column[
+    Text("加法计算器")
+    Row[
+        Text("第一个数：")
+        InputField(Input1).font("宋体")
+        Text("第二个数：")
+        InputField(Input2).font("宋体")
+    ]
+    .padding(1)
+    Text("结果：")
+    Text(Input1 + Input2)
+]
+

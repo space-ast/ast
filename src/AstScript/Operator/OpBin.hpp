@@ -35,16 +35,16 @@ public:
     AST_EXPR(OpBin)
 
 public:
-    OpBin(OpBinType op, Expr* left, Expr* right)
+    OpBin(EOpBinType op, Expr* left, Expr* right)
         : op_(op), left_(left), right_(right)
     {};
     virtual ~OpBin() = default;
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
 protected:
-    OpBinType   op_;        ///< 运算符
-    Expr*       left_;      ///< 左操作数
-    Expr*       right_;     ///< 右操作数
+    EOpBinType   op_;        ///< 运算符
+    SharedPtr<Expr>       left_;      ///< 左操作数
+    SharedPtr<Expr>       right_;     ///< 右操作数
 
     mutable std::atomic<OpBinFunc> func_{nullptr};      ///< 运算符函数指针
     mutable std::atomic<Class*>    leftType_{nullptr};  ///< 左操作数类型

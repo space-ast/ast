@@ -20,6 +20,7 @@
 
 #include "ValQuantity.hpp"
 #include "AstUtil/ParseFormat.hpp"
+#include "AstScript/Types.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,6 +30,10 @@ std::string ValQuantity::getExpression(Object *context) const
     return aFormatDouble(value_.value()) + "[" + unit().name() + "]";
 }
 
+Class* ValQuantity::staticType()
+{
+    return &aValQuantity_Type;
+}
 
 
 AST_NAMESPACE_END
