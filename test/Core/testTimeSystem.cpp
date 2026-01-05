@@ -1,7 +1,7 @@
 ﻿/// @file      testTimeSystem.cpp
 /// @brief     测试时间类的功能
 /// @details   专门测试Time类和相关函数，包括aTimeFromTotalSecond
-/// @author    jinke18
+/// @author    axel
 /// @date      05.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

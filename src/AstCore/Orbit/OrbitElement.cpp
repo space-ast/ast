@@ -1,7 +1,7 @@
 /// @file      OrbitElement.cpp
 /// @brief     
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      20.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 
@@ -23,6 +23,8 @@
 #include "AstCore/Constants.h"      // for pi, std::array
 #include "AstCore/MathOperator.hpp" // for mod
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/ParseFormat.hpp"
+#include "AstUtil/Constants.h"
 #include <math.h>
 
 #define PI kPI
@@ -30,6 +32,18 @@
  
 AST_NAMESPACE_BEGIN
  
+
+std::string ModOrbElem::toString() const
+{
+    return std::string(
+        "ModOrbElem{rp: " + aFormatDouble(rp_) + "m" + 
+        ", e: " + aFormatDouble(e_) + 
+        ", i: " + aFormatDouble(i_ * kRadToDeg) + "deg" + 
+        ", raan: " + aFormatDouble(raan_ * kRadToDeg) + "deg" + 
+        ", argper: " + aFormatDouble(argper_ * kRadToDeg) + "deg" + 
+        ", true: " + aFormatDouble(trueA_ * kRadToDeg) + "deg" + 
+        "}");
+}
 
 
 err_t coe2rv(const double* coe, double gm, double* pos, double* vel)

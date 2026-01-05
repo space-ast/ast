@@ -3,7 +3,7 @@
 /// @file      Type.hpp
 /// @brief     ~
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-09
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

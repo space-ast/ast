@@ -32,6 +32,7 @@ end
 add_requires("openscenegraph", {shared = true, optional = true})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
 add_requires("eigen", {optional = true, headeronly = true})
+add_requires("fmt", {optional = true})
 -- add_requires("llvm", {optional = true})
 
 -- 可选：添加abseil库

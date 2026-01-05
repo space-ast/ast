@@ -1,7 +1,7 @@
 ﻿/// @file      testLiterals.cpp
 /// @brief     测试自定义字面量功能
 /// @details   测试所有单位转换字面量的正确性
-/// @author    jinke18
+/// @author    axel
 /// @date      21.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

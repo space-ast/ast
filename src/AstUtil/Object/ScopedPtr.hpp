@@ -2,7 +2,7 @@
 /// @file      ScopedPtr.hpp
 /// @brief     作用域指针
 /// @details   指针的生命周期限制在一个作用域内，作用域结束指针析构
-/// @author    jinke18
+/// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

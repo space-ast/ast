@@ -1,7 +1,7 @@
 ﻿/// @file      testOrbitElement.cpp
 /// @brief     轨道根数转换往返测试
 /// @details   测试各种轨道根数（经典轨道根数、修正轨道根数、春分点根数、改进春分点轨道根数、直角坐标）之间的双向转换精度。
-/// @author    jinke18
+/// @author    axel
 /// @date      20.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

@@ -2,7 +2,7 @@
 /// @file      repl.cpp
 /// @brief     交互式脚本解释器实现
 /// @details   使用replxx库提供命令行编辑功能的交互式脚本解释器实现
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-24
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

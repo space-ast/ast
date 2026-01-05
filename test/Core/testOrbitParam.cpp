@@ -1,7 +1,7 @@
 ﻿/// @file      testOrbitParam.cpp
 /// @brief     轨道参数转换往返测试
 /// @details   测试轨道参数之间的双向转换精度，验证A转到B再转回A的一致性。
-/// @author    jinke18
+/// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

@@ -1,7 +1,7 @@
 /// @file      UnitParser.cpp
 /// @brief     单位解析器实现，使用递归下降方法
 /// @details   解析复合单位表达式，支持乘除运算（左结合）和指数运算（右结合）
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-15
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

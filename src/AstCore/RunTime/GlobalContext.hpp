@@ -2,7 +2,7 @@
 /// @file      GlobalContext.hpp
 /// @brief     全局上下文及其相关接口
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      18.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

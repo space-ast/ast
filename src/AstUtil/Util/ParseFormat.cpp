@@ -2,7 +2,7 @@
 /// @file      ParseFormat.cpp
 /// @brief     ~
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-10
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
@@ -29,6 +29,10 @@
 #include <iomanip>
 #include <climits>
 #include <cmath>
+
+#ifdef AST_WITH_FMT
+#include <fmt/format.h>
+#endif
 
 #ifdef AST_WITH_ABSEIL
 #include "absl/strings/charconv.h"
@@ -340,7 +344,7 @@ err_t aFormatInt(int value, std::string& str)
 }
 
 
-err_t aFormatDouble(double value, std::string& str, int precision)
+err_t aFormatDouble_Printf(double value, std::string& str, int precision)
 {
     char double_buffer[32];
     int len;
@@ -359,6 +363,29 @@ err_t aFormatDouble(double value, std::string& str, int precision)
     str = std::string(double_buffer, len);
     return eNoError;
 }
+
+#ifdef AST_WITH_FMT
+err_t aFormatDouble_Fmt(double value, std::string& str, int precision)
+{
+    if (precision < 0)
+    {
+        str = fmt::format("{}", value);
+    }else{
+        str = fmt::format("{:.{}f}", value, precision);
+    }
+    return eNoError;
+}
+#endif
+
+err_t aFormatDouble(double value, std::string& str, int precision)
+{
+    #ifdef AST_WITH_FMT
+    return aFormatDouble_Fmt(value, str, precision);
+    #else
+    return aFormatDouble_Printf(value, str, precision);
+    #endif
+}
+
 
 
 err_t aFormatColor(Color value, std::string& str)

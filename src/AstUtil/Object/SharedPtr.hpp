@@ -2,7 +2,7 @@
 /// @file      SharedPtr.hpp
 /// @brief     共享指针
 /// @details   与std::shared_ptr功能类似
-/// @author    jinke18
+/// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

@@ -2,7 +2,7 @@
 /// @file      TimePoint.hpp
 /// @brief     绝对时间点
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      15.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
@@ -115,7 +115,16 @@ public:
         toTAI(jdTAI);
         return jdTAI;
     }
-
+    /// @brief 计算与另一个时间点的时间差（秒数）
+    double durationFrom(const TimePoint& other) const{
+        return duration_ - other.duration_;
+    }
+    /// @brief 时间点减法运算符
+    /// @param other 另一个时间点
+    /// @return 两个时间点的时间差（秒数）
+    double operator-(const TimePoint& other) const{
+        return durationFrom(other);
+    }
 public:
     LongDuration    duration_;
 };

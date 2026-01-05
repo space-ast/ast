@@ -2,7 +2,7 @@
 /// @file      Scanner.cpp
 /// @brief     扫描器具体实现
 /// @details   实现Scanner抽象类的子类，支持不同的输入源
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

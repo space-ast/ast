@@ -2,7 +2,7 @@
 /// @file      LeapSecond.hpp
 /// @brief     
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      29.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

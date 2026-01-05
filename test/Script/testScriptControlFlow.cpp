@@ -2,7 +2,7 @@
 /// @file      testScriptControlFlow.cpp
 /// @brief     测试控制流
 /// @details   测试控制流相关的脚本
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-25
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

@@ -2,7 +2,7 @@
 /// @file      OrbitParam.hpp
 /// @brief     轨道参数转换与计算接口
 /// @details   提供各种轨道参数之间的转换函数，包括近地点/远地点高度/半径、周期、平均角速度、偏心率等参数的相互转换。
-/// @author    jinke18
+/// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

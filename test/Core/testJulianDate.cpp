@@ -1,7 +1,7 @@
 /// @file      testJulianDate.cpp
 /// @brief     测试儒略日类的功能
 /// @details   测试 JulianDate 类及其相关转换函数
-/// @author    jinke18
+/// @author    axel
 /// @date      04.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

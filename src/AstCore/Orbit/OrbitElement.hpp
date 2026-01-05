@@ -2,7 +2,7 @@
 /// @file      OrbitElement.hpp
 /// @brief     轨道根数定义及转换接口
 /// @details   提供各种轨道根数（直角坐标、经典轨道根数、修正轨道根数、春分点根数、改进春分点轨道根数）之间的转换函数。
-/// @author    jinke18
+/// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
@@ -72,6 +72,19 @@ public:
     double raan_;       ///<升交点赤经
     double argper_;     ///<近拱点角
     double trueA_;      ///<真近点角
+public:
+    /// @brief 计算平均运动数
+    double getMeanMotion(double gm) const {return sqrt(gm / pow(getA(), 3));}
+    
+    /// @brief 计算半长轴
+    double getA() const {return rp_ / (1 - e_);}
+
+    /// @brief 计算半通径
+    double getP() const {return rp_ * (1 + e_);}
+
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
 public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, rp)

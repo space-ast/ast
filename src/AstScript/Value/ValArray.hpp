@@ -2,7 +2,7 @@
 /// @file      ValArray.hpp
 /// @brief     ~
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-26
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

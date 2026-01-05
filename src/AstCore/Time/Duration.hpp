@@ -2,7 +2,7 @@
 /// @file      Duration.hpp
 /// @brief     
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      21.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
@@ -41,10 +41,19 @@ public:
 class LongDuration
 {
 public:
+    /// @brief 获取整数秒部分
     int64_t integer() const{return integer_;}
     int64_t& integer(){return integer_;}
+    /// @brief 获取小数秒部分
     double fractional() const{return fractional_;}
     double& fractional(){return fractional_;}
+    
+    /// @brief 时长减法运算符
+    /// @param other 另一个时长
+    /// @return 两个时长的差值（秒数）
+    double operator-(const LongDuration& other) const{
+        return (integer_ - other.integer_) + (fractional_ - other.fractional_);
+    }
 public:
     int64_t integer_;       // 整数秒部分
     double  fractional_;    // 小数秒部分

@@ -2,7 +2,7 @@
 /// @file      ParseFormat.hpp
 /// @brief     解析和格式化字符串
 /// @details   
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-10
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

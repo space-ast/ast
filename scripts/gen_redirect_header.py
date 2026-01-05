@@ -1,4 +1,5 @@
 import os
+import traceback
 
 def gen_header(srcdir, incdir):
     if not os.path.exists(incdir):

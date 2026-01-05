@@ -1,10 +1,10 @@
 ///
-/// @file      Math.hpp
+/// @file      testFmt.cpp
 /// @brief     ~
 /// @details   ~
-/// @author    jinke18
-/// @date      2025-12-12
-/// @copyright 版权所有 (C) 2025-present, ast项目.
+/// @author    axel
+/// @date      2026-01-05
+/// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -18,26 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
+#include <fmt/format.h>
 
-#include "AstGlobal.h"
-#include <math.h>
-
-AST_NAMESPACE_BEGIN
-
-
-#ifdef A_GCC    //  GCC 内建 sincos 函数
-// #pragma message("Using GCC built-in sincos function")
-using ::sincos;
-
-#else
-
-A_ALWAYS_INLINE void sincos (double x, double *psin, double *pcos)
+int main()
 {
-    *psin = sin(x);
-    *pcos = cos(x);
+    fmt::print("{}", 6678137.12346);
+    fmt::format("{}", 6678137.12346);
 }
-
-#endif
-
-AST_NAMESPACE_END

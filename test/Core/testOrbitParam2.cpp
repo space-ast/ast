@@ -1,7 +1,7 @@
 ﻿/// @file      testOrbitParamSpecial.cpp
 /// @brief     轨道参数转换特殊情况测试
 /// @details   测试抛物线轨道、双曲线轨道和各种边界情况下的轨道参数转换。
-/// @author    jinke18
+/// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

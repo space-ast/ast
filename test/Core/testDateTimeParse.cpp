@@ -1,7 +1,7 @@
 ﻿/// @file      testDateTimeParse.cpp
 /// @brief     测试日期时间解析和格式化函数的功能
 /// @details   专门测试DateTimeParse.cpp中的函数，提升测试覆盖率
-/// @author    jinke18
+/// @author    axel
 /// @date      03.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

@@ -2,7 +2,7 @@
 /// @file      MockStringView.hpp
 /// @brief     
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      2.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

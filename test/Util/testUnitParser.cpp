@@ -2,7 +2,7 @@
 /// @file      testUnitParser.cpp
 /// @brief     UnitParser 测试文件
 /// @details   测试单位解析功能的正确性
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-15
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

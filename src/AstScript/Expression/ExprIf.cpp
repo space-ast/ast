@@ -2,7 +2,7 @@
 /// @file      ExprIf.cpp
 /// @brief     if条件语句表达式实现
 /// @details   实现if-elseif-else条件结构的求值和字符串表示
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-24
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

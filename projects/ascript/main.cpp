@@ -2,7 +2,7 @@
 /// @file      main.cpp
 /// @brief     AST Script REPL 主程序
 /// @details   交互式脚本解释器的入口程序
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-24
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

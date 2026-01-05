@@ -1,7 +1,7 @@
 ﻿/// @file      testDateTime.cpp
 /// @brief     测试日期时间类的功能
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      03.12.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 

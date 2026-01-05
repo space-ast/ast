@@ -2,7 +2,7 @@
 /// @file      INLPProblem.hpp
 /// @brief     非线性规划问题描述接口
 /// @details   ~
-/// @author    jinke18
+/// @author    axel
 /// @date      16.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

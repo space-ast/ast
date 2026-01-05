@@ -2,7 +2,7 @@
 /// @file      Scanner.hpp
 /// @brief     扫描器抽象基类和具体实现
 /// @details   提供统一的字符读取接口，支持不同的输入源
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///

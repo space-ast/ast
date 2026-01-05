@@ -2,7 +2,7 @@
 /// @file      Color.hpp
 /// @brief     颜色工具类
 /// @details   提供颜色值的预定义枚举和常量，方便在代码中使用。
-/// @author    jinke18
+/// @author    axel
 /// @date      2025-12-09
 /// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
