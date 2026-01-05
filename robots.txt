@@ -1,0 +1,4 @@
+User-agent:*
+Disallow:
+
+Sitemap: https://github.com/space-ast/ast/ast/sitemap.xml
