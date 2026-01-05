@@ -24,22 +24,38 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Quantity.hpp"
+#include "AstUtil/Encode.hpp"
 #include <cstdio>
 #include <string>
 #include <fstream>
 #include <iostream>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 AST_USING_NAMESPACE
+
 
 int main(int argc, char* argv[])
 {
     // 如果有命令行参数，执行脚本文件
     if (argc > 1) {
+        #ifdef _WIN32
+        int argc;
+        LPWSTR * wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
+        wchar_t* filenameW = wargv[1];
+        std::string filenameUTF8;
+        aWideToUtf8(filenameW, filenameUTF8);
+        const char* filename = filenameUTF8.c_str();
+        LocalFree(wargv);
+        #else
         const char* filename = argv[1];
-        
+        #endif
+
         // 打开文件
         FILE* file = ast_fopen(filename, "rb");
         if (file == nullptr) {
+            printf(aText("无法打开文件: %s\n"), filename);
             ast_printf(aText("无法打开文件: %s\n"), filename);
             return 1;
         }

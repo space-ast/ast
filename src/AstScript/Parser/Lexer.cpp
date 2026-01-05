@@ -362,7 +362,7 @@ Lexer::ETokenType Lexer::scanNumber()
     }
     
     // 小数部分
-    if (peek() == '.' && isDigit(peekNext())) {
+    if (peek() == '.') {
         current_lexeme_ += advance(); // 跳过小数点
         
         while (isDigit(peek())) {

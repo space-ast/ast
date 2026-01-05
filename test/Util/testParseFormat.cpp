@@ -233,7 +233,7 @@ TEST(ParseFormat, aFormatDouble) {
     
     err = aFormatDouble(0.0, str);
     EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(str, "0");
+    EXPECT_EQ(str, "0.");
     
     // 测试不同精度
     err = aFormatDouble(123.456789, str, 3);

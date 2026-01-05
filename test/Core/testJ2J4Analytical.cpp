@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstCore/J2Analytical.hpp"
+#include "AstCore/J4Analytical.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstTest/AstTestMacro.h"
@@ -26,7 +27,7 @@
 AST_USING_NAMESPACE
 using namespace _AST literals;
 
-TEST(J2Analytical, Prop)
+TEST(J2Analytical, J2Prop)
 {
     double gm = 398600441500000;
     double re = 6378135.3;
@@ -34,6 +35,20 @@ TEST(J2Analytical, Prop)
     ModOrbElem modOrbElem{6678137, 0.0, 28.5_deg, 0.0, 0.0, 0.0};
     double duration = 86400;
     aJ2AnalyticalProp(duration, gm, j2, re, modOrbElem);
+    EXPECT_NEAR(modOrbElem.raan(), 352.53739173_deg, 1e-3);
+
+    printf("modOrbElem: %s\n", modOrbElem.toString().c_str());
+}
+
+TEST(J4Analytical, J4Prop)
+{
+    double gm = 398600441500000;
+    double re = 6378135.3;
+    double j2 = 0.00108263;
+    double j4 = 0;
+    ModOrbElem modOrbElem{6678137, 0.0, 28.5_deg, 0.0, 0.0, 0.0};
+    double duration = 86400;
+    aJ4AnalyticalProp(duration, gm, j2, j4, re, modOrbElem);
     EXPECT_NEAR(modOrbElem.raan(), 352.53739173_deg, 1e-3);
 
     printf("modOrbElem: %s\n", modOrbElem.toString().c_str());

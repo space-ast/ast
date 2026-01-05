@@ -402,6 +402,23 @@ void aEquinElemToCart(
     Vector3d& pos,
     Vector3d& vel);
 
+
+
+
+/// @brief 直角坐标转换为修正轨道根数（类引用版本）
+/// @param pos 位置矢量 [m]
+/// @param vel 速度矢量 [m/s]
+/// @param gm 引力参数 [m^3/s^2]
+/// @return 修正轨道根数
+A_ALWAYS_INLINE
+ModOrbElem aCartToModOrbElem(const Vector3d& r, const Vector3d& v, double gm)
+{
+    ModOrbElem modOrbElem;
+    aCartToModOrbElem(r, v, gm, modOrbElem);
+    return modOrbElem;
+}
+
+
 AST_NAMESPACE_END
  
 AST_DECL_TYPE_ALIAS(CartState)

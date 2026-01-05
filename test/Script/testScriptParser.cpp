@@ -271,6 +271,7 @@ TEST(ScriptParser, LiteralExpression)
     
     // 数值字面量边界情况
     testScriptParser("0.0");
+    testScriptParser("12.");    // 以小数点结尾
     testScriptParser("-0.0");
     testScriptParser("1.0");
     testScriptParser("-1.0");
@@ -424,7 +425,7 @@ TEST(ScriptParser, InvalidSyntax)
     testInvalidScriptParser("0b"); // 空的二进制
     testInvalidScriptParser("0o8"); // 八进制包含无效字符
     testInvalidScriptParser("0o"); // 空的八进制
-    testInvalidScriptParser("123."); // 不完整的浮点数
+    // testInvalidScriptParser("123."); // 不完整的浮点数，这个现在是允许的
     testInvalidScriptParser("1..2"); // 无效的浮点数
     testInvalidScriptParser("0x123456789ABCDEF0G"); // 超长十六进制包含无效字符
     testInvalidScriptParser("0xH");

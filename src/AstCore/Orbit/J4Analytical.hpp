@@ -1,10 +1,10 @@
 ///
-/// @file      J2Analytical.hpp
+/// @file      J4Analytical.hpp
 /// @brief     ~
 /// @details   ~
-/// @author    jinke18
-/// @date      2025-12-31
-/// @copyright 版权所有 (C) 2025-present, ast项目.
+/// @author    axel
+/// @date      2026-01-05
+/// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -21,55 +21,53 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/OrbitElement.hpp"
-#include "AstCore/TimePoint.hpp"
 #include "J2J4Analytical.hpp"
 
 AST_NAMESPACE_BEGIN
 
+class ModOrbElem;
 
-class ModOrbElem;       ///< 改进轨道根数
-class TimePoint;        ///< 时间点
-
-class J2Analytical : public J2J4Analytical
+class J4Analytical: public J2J4Analytical
 {
 public:
     /// @brief     构造函数
     /// @details   ~
     /// @param     modOrbElem 改进轨道根数
-    /// @param     epoch      参考时间点
+    /// @param     epoch      历元
     /// @param     gm         引力常数
     /// @param     j2         J2项
+    /// @param     j4         J4项
     /// @param     re         天体半径
-    J2Analytical(const ModOrbElem& modOrbElem, const TimePoint& epoch, double gm, double j2, double re);
+    J4Analytical(const ModOrbElem& modOrbElem, const TimePoint& epoch, double gm, double j2, double j4, double re);
 
     /// @brief     构造函数
     /// @details   ~
-    /// @param     pos        位置向量
-    /// @param     vel        速度向量
-    /// @param     epoch      参考时间点
-    /// @param     gm         引力常数
-    /// @param     j2         J2项
-    /// @param     re         天体半径
-    J2Analytical(const Vector3d& pos, const Vector3d& vel, const TimePoint& epoch, double gm, double j2, double re);
+    /// @param     pos       位置向量
+    /// @param     vel       速度向量
+    /// @param     epoch     历元
+    /// @param     gm        引力常数
+    /// @param     j2        J2项
+    /// @param     j4        J4项
+    /// @param     re        天体半径
+    J4Analytical(const Vector3d& pos, const Vector3d& vel, const TimePoint& epoch, double gm, double j2,  double j4, double re);
 
-
-protected:
-    double j2_;              ///< J2项
-    double re_;              ///< 天体半径
+private:
+    double j2_;
+    double j4_;
+    double re_;
 };
-
 
 /// @brief     ~
 /// @details   ~
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
+/// @param     j4       J4项
 /// @param     re       天体半径
 /// @param     r        位置向量
 /// @param     v        速度向量
 /// @return    错误码
-AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, Vector3d& r, Vector3d& v);
+AST_CORE_API err_t aJ4AnalyticalProp(double duration, double gm, double j2, double j4, double re, Vector3d& r, Vector3d& v);
 
 
 /// @brief     ~
@@ -77,10 +75,14 @@ AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, doub
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
+/// @param     j4       J4项
 /// @param     re       天体半径
 /// @param     modOrbElem 改进轨道根数
 /// @return    错误码
-AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, ModOrbElem& modOrbElem);
+AST_CORE_API err_t aJ4AnalyticalProp(double duration, double gm, double j2, double j4, double re, ModOrbElem& modOrbElem);
+
+
+
 
 
 AST_NAMESPACE_END

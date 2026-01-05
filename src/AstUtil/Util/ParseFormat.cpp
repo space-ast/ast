@@ -369,7 +369,7 @@ err_t aFormatDouble_Fmt(double value, std::string& str, int precision)
 {
     if (precision < 0)
     {
-        str = fmt::format("{}", value);
+        str = fmt::format("{:#}", value);  // 加上#，保证一定有小数点
     }else{
         str = fmt::format("{:.{}f}", value, precision);
     }
