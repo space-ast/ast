@@ -22,6 +22,7 @@
  
 #include "AstGlobal.h"
 #include "AstCore/Vector.hpp"
+#include <string>
  
 AST_NAMESPACE_BEGIN
 
