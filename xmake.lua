@@ -29,10 +29,15 @@ elseif is_plat("windows") then
     add_cxflags("/wd4819") -- 忽略代码页警告
 end
 
+-- 添加自定义第三方库仓库
+add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
+
+-- 添加第三方库依赖
 add_requires("openscenegraph", {shared = true, optional = true})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
 add_requires("eigen", {optional = true, headeronly = true})
 add_requires("fmt", {optional = true})
+add_requires("sofa", {optional = true})
 -- add_requires("llvm", {optional = true})
 
 -- 可选：添加abseil库

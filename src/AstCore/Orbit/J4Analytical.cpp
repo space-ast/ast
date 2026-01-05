@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "J4Analytical.hpp"
+#include "AstUtil/Math.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -39,7 +40,7 @@ static void aGetJ2J4AnalyticalParams(const ModOrbElem &modOrbElem, double gm, do
     double sini4 = sini2 * sini2;                                    ///< 轨道倾角的正弦值的四次方
 
     meanAnomalyDot =  n - 3*n*re2*j2 * sqrt1me2 / (4 * p2) * (3 * sini2 - 2);
-    argPeriDot = 3 * n * j2 * re2 * (4 - 5 * sini2) / (4 * p2);
+    argPeriDot = 3 * n * j2 * re2 / (4 * p2) * (4 - 5 * sini2) ;
     raanDot = -3 * j2 * re2 * n * cosi / (2 * p2);
     
     if(j4_ptr != nullptr)

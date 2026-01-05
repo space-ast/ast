@@ -74,7 +74,7 @@ public:
     double argper_;     ///<近拱点角
     double trueA_;      ///<真近点角
 public:
-    /// @brief 计算平均运动数
+    /// @brief 计算平均角速度变化率
     double getMeanMotion(double gm) const {return sqrt(gm / pow(getA(), 3));}
     
     /// @brief 计算半长轴
