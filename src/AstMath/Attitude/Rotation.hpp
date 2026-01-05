@@ -24,8 +24,8 @@
 #include "AstMath/Quaternion.hpp"
 #include "AstMath/Matrix.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/AngleAxis.hpp"
 #include "AstMath/AttitudeConvert.hpp"
-
 
 AST_NAMESPACE_BEGIN
 
@@ -57,14 +57,26 @@ public:
     /// @param angle 旋转角度（弧度）
     Rotation(const Vector3d& axis, double angle);
 
+
+    /// @brief 从轴角构造旋转
+    /// @param aa 轴角
+    Rotation(const AngleAxis& aa);
+
     /// @brief 获取旋转矩阵
     /// @return 旋转矩阵
     const Matrix3d& getMatrix() const { return mat_; }
 
+    /// @brief 设置旋转矩阵
+    /// @param mat 旋转矩阵
+    void setMatrix(const Matrix3d& mat) { mat_ = mat; }
 
     /// @brief 获取四元数
     /// @return 四元数
     Quaternion getQuaternion() const;
+
+    /// @brief 设置四元数
+    /// @param quat 四元数
+    void setQuaternion(const Quaternion& quat);
 
     /// @brief 获取旋转轴
     /// @return 旋转轴
@@ -78,8 +90,21 @@ public:
     /// @brief 获取旋转轴和角度（弧度）
     /// @param axis 旋转轴
     /// @param angle 旋转角度（弧度）
-    void getAxisAngle(Vector3d& axis, double& angle) const;
+    void getAngleAxis(double& angle, Vector3d& axis) const;
 
+    
+    /// @brief 设置轴角
+    /// @param angle 旋转角度（弧度）
+    /// @param axis 旋转轴
+    void setAngleAxis(double angle, const Vector3d& axis);
+
+    /// @brief 获取轴角
+    /// @param aa 轴角
+    void getAngleAxis(AngleAxis& aa) const;
+
+    /// @brief 设置轴角
+    /// @param aa 轴角
+    void setAngleAxis(const AngleAxis& aa);
 
     /// @brief 组合旋转
     /// @param other 其他旋转
@@ -96,20 +121,77 @@ protected:
 };
 
 
-inline Rotation::Rotation()
-: mat_(Matrix3d::Identity())
+A_ALWAYS_INLINE Rotation::Rotation()
+    : mat_(Matrix3d::Identity())
 {
 }
 
-inline Rotation::Rotation(const Quaternion& quat)
+A_ALWAYS_INLINE Rotation::Rotation(const Quaternion& quat)
 {
     aQuatToMatrix(quat, mat_);
 }
 
 
-inline Rotation::Rotation(const Matrix3d& mat)
-: mat_(mat)
+A_ALWAYS_INLINE Rotation::Rotation(const Matrix3d& mat)
+    : mat_(mat)
 {
+}
+
+A_ALWAYS_INLINE Rotation::Rotation(const Vector3d &axis, double angle)
+    : Rotation(AngleAxis(angle, axis))
+{
+}
+
+A_ALWAYS_INLINE Rotation::Rotation(const AngleAxis &aa)
+    : mat_(aa.toRotationMatrix())
+{
+}
+
+A_ALWAYS_INLINE Quaternion Rotation::getQuaternion() const
+{
+    return aMatrixToQuat(mat_);
+}
+
+A_ALWAYS_INLINE void Rotation::setQuaternion(const Quaternion& quat)
+{
+    aQuatToMatrix(quat, mat_);
+}
+
+A_ALWAYS_INLINE Vector3d Rotation::getAxis() const
+{
+    AngleAxis aa;
+    aMatrixToAngleAxis(mat_, aa);
+    return aa.axis();
+}
+
+A_ALWAYS_INLINE double Rotation::getAngle() const
+{
+    AngleAxis aa;
+    aMatrixToAngleAxis(mat_, aa);
+    return aa.angle();
+}
+
+A_ALWAYS_INLINE void Rotation::getAngleAxis(double &angle, Vector3d &axis) const
+{
+    AngleAxis aa;
+    getAngleAxis(aa);
+    axis = aa.axis();
+    angle = aa.angle();
+}
+
+A_ALWAYS_INLINE void Rotation::setAngleAxis(double angle, const Vector3d &axis)
+{
+    setAngleAxis(AngleAxis(angle, axis));
+}
+
+A_ALWAYS_INLINE void Rotation::getAngleAxis(AngleAxis &aa) const
+{
+    aMatrixToAngleAxis(mat_, aa);
+}
+
+A_ALWAYS_INLINE void Rotation::setAngleAxis(const AngleAxis &aa)
+{
+    mat_ = aa.toRotationMatrix();
 }
 
 AST_NAMESPACE_END

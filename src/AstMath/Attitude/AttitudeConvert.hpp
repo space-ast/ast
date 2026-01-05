@@ -123,4 +123,6 @@ AST_MATH_CAPI void aAngleAxisToMatrix(const AngleAxis& aa, Matrix3d& mtx);
 AST_MATH_CAPI void aMatrixToAngleAxis(const Matrix3d& mtx, AngleAxis& aa);
 
 
+A_ALWAYS_INLINE	Quaternion aMatrixToQuat(const Matrix3d& mtx);
+
 AST_NAMESPACE_END

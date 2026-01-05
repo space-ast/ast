@@ -8,3 +8,6 @@ target("ascript")
         add_packages("replxx")
         add_defines("AST_WITH_REPLXX")
     end
+    if is_plat("windows") then 
+        add_syslinks("shell32")
+    end

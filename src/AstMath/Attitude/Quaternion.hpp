@@ -42,7 +42,12 @@ class Quaternion
 public:
 	/// @brief 创建单位四元数
 	static Quaternion Identity(){return Quaternion{1,0,0,0};}
-	
+
+	/// @brief 从旋转矩阵创建四元数
+	/// @param mtx 旋转矩阵
+	/// @return 四元数
+	static Quaternion FromRotationMatrix(const Matrix3d& mtx){return aMatrixToQuat(mtx);}
+
 	/// @brief 计算四元数的范数
 	/// @return 四元数的范数
 	double norm() const{return _ASTMATH norm(*this); }
@@ -149,6 +154,10 @@ public:
 };
 
 
+/// @brief 四元数乘积
+/// @param q1 四元数1
+/// @param q2 四元数2
+/// @return 四元数乘积
 inline Quaternion aQuatProduct(const Quaternion& q1, const Quaternion& q2)
 {
 	return {
@@ -159,6 +168,15 @@ inline Quaternion aQuatProduct(const Quaternion& q1, const Quaternion& q2)
 	};
 }
 
+/// @brief 矩阵转四元数
+/// @param mtx 旋转矩阵
+/// @return 四元数
+A_ALWAYS_INLINE	Quaternion aMatrixToQuat(const Matrix3d& mtx)
+{
+	Quaternion q;
+	aMatrixToQuat(mtx, q);
+	return q;
+}
 
 
 AST_NAMESPACE_END
