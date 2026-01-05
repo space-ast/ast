@@ -1,7 +1,7 @@
 ///
-/// @file      GfxEarth.cpp
-/// @brief     地球可视化
-/// @details   该类用于可视化地球
+/// @file      UiWidget.cpp
+/// @brief     ~
+/// @details   ~
 /// @author    axel
 /// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
@@ -18,7 +18,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "GfxEarth.hpp"
+#include "UiWidget.hpp"
 
 AST_NAMESPACE_BEGIN
 

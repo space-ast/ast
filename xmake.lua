@@ -33,9 +33,10 @@ end
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 
 -- 添加第三方库依赖
-add_requires("openscenegraph", {shared = true, optional = true})
+add_requires("openscenegraph", {optional = true, configs = {shared = true}})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
-add_requires("eigen", {optional = true, headeronly = true})
+add_requires("eigen", {optional = true, configs = {headeronly = true}})
+add_requires("opengl", {optional = true})
 add_requires("fmt", {optional = true})
 add_requires("sofa", {optional = true})
 -- add_requires("llvm", {optional = true})

@@ -1,7 +1,7 @@
 ///
-/// @file      GfxEarth.cpp
-/// @brief     地球可视化
-/// @details   该类用于可视化地球
+/// @file      CRT.hpp
+/// @brief     ~
+/// @details   ~
 /// @author    axel
 /// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
@@ -18,10 +18,22 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "GfxEarth.hpp"
+#pragma once
+
+#include "AstGlobal.h"
 
 AST_NAMESPACE_BEGIN
 
+
+struct args_t {
+    int argc;
+    char** argv;
+};
+
+
+/// @brief 获取命令行参数
+/// @return args_t 命令行参数结构体
+AST_UTIL_API args_t aArgsGet();
 
 
 AST_NAMESPACE_END
