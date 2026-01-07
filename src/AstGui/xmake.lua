@@ -9,3 +9,4 @@
     on_config(function (target)
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
     end)
+    set_default(false)

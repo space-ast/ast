@@ -25,23 +25,23 @@
 AST_NAMESPACE_BEGIN
 
 namespace{
-        /// @brief 零时刻点的儒略日数（地球时TT）
-    static JulianDate epochTTJulianDate() { return { (int)kJ2000Epoch, kTTMinusTAI}; }
+    /// @brief 零时刻点的儒略日数（地球时TT）
+    static const JulianDate epochTTJulianDate{ (int)kJ2000Epoch, kTTMinusTAI};
 
     /// @brief 零时刻点的儒略日数（原子时 TAI）
-    static JulianDate epochTAIJulianDate() { return { (int)kJ2000Epoch, 0}; }
+    static const JulianDate epochTAIJulianDate{ (int)kJ2000Epoch, 0};
 
     /// @brief 零时刻点的日期时间（地球时TT）
-    static DateTime epochTTDateTime(){return {2000,1,1,12,0,kTTMinusTAI}; }
+    static const DateTime epochTTDateTime{2000,1,1,12,0,kTTMinusTAI};
 
     /// @brief 零时刻点的日期时间（原子时 TAI）
-    static DateTime epochTAIDateTime() {return {2000,1,1,12,0,0};}
+    static const DateTime epochTAIDateTime{2000,1,1,12,0,0};
 }
 
 
 void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 {
-    jdTT = epochTTJulianDate();
+    jdTT = epochTTJulianDate;
     int day1 = time.integerPart()/86400;
     int day2 = time.fractionalPart()/86400;
     double sec1 = time.integerPart() - (day1)*86400;
@@ -53,7 +53,7 @@ void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 
 void aTimePointToTAI(const TimePoint &time, JulianDate &jdTAI)
 {
-    jdTAI = epochTAIJulianDate();
+    jdTAI = epochTAIJulianDate;
     int day1 = time.integerPart()/86400;
     int day2 = time.fractionalPart()/86400;
     double sec1 = time.integerPart() - (day1)*86400;
@@ -77,10 +77,22 @@ TimePoint TimePoint::FromUTC(const DateTime& dttmUTC)
     return TimePoint::FromTAI(jdTAI);
 }
 
+TimePoint TimePoint::FromUTC(int year, int month, int day, int hour, int minute, double second)
+{
+    return TimePoint::FromUTC({year, month, day, hour, minute, second});
+}
+
 TimePoint TimePoint::FromTAI(const JulianDate& jdTAI)
 {
-    auto epochTAI = epochTAIJulianDate();
+    auto epochTAI = epochTAIJulianDate;
     auto duration = jdTAI - epochTAI;
+    return {duration.day() * 86400, duration.second()};
+}
+
+TimePoint TimePoint::FromTT(const JulianDate &jdTT)
+{
+    auto epochTT = epochTTJulianDate;
+    auto duration = jdTT - epochTT;
     return {duration.day() * 86400, duration.second()};
 }
 

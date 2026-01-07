@@ -33,7 +33,7 @@ class Transform
 public:
 
     /// @brief 变换默认构造函数
-    Transform();
+    Transform() = default;
 
     /// @brief 获取旋转
     /// @return 旋转
@@ -51,16 +51,76 @@ public:
     /// @param translation 平移
     void setTranslation(const Vector3d& translation) { translation_ = translation; }
 
+    /// @brief 组合下一个变换
+    /// @warning 组合变换是先应用当前变换，再应用下一个变换。
+    /// @param next 下一个变换
+    Transform& compose(const Transform& next);
+
+    /// @brief 组合下一个变换
+    /// @warning 组合变换是先应用当前变换，再应用下一个变换。
+    /// @param next 下一个变换
+    /// @return 组合变换
+    Transform composed(const Transform& next) const;
+
+    /// @brief 组合下一个变换
+    /// @warning 组合变换是先应用当前变换，再应用下一个变换。
+    /// @param next 下一个变换
+    /// @return 组合变换
+    Transform operator*(const Transform& next) const;
+
+    /// @brief 组合下一个变换
+    /// @warning 组合变换是先应用当前变换，再应用下一个变换。
+    /// @param next 下一个变换
+    /// @return 组合变换
+    Transform& operator*=(const Transform& next);
+
+    /// @brief 获取逆变换
+    /// @param inversed 逆变换
+    void getInverse(Rotation& inversed) const;
+
+    /// @brief 获取逆变换
+    /// @return 逆变换
+    Rotation inverse() const;
+
+    /// @brief 变换位置
+    /// @param position 位置
+    /// @param positionOut 变换后的位置
+    void transformPosition(const Vector3d& position, Vector3d& positionOut) const;
+
+    /// @brief 变换位置
+    /// @param position 位置
+    /// @return 变换后的位置
+    Vector3d transformPosition(const Vector3d& position) const;
+
 protected:
     Vector3d translation_;  ///< 平移
     Rotation rotation_;     ///< 旋转
 };
 
 
-A_ALWAYS_INLINE Transform::Transform()
-    : rotation_()
-    , translation_(Vector3d::Zero())
+
+A_ALWAYS_INLINE void Transform::getInverse(Rotation &inversed) const
 {
+    // @todo 实现获取逆变换
+}
+
+A_ALWAYS_INLINE Rotation Transform::inverse() const
+{
+    Rotation retval;
+    this->getInverse(retval);
+    return retval;
+}
+
+A_ALWAYS_INLINE void Transform::transformPosition(const Vector3d &position, Vector3d &positionOut) const
+{
+    // @todo 实现变换位置
+}
+
+A_ALWAYS_INLINE Vector3d Transform::transformPosition(const Vector3d &position) const
+{
+    Vector3d retval;
+    this->transformPosition(position, retval);
+    return retval;
 }
 
 AST_NAMESPACE_END

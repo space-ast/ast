@@ -522,6 +522,23 @@ MatrixMN<_Scalar, I, K> operator* (
 }
 
 
+template<typename _Scalar, size_t I, size_t J>
+VectorN<_Scalar, I> operator*(
+    const MatrixMN<_Scalar, I, J>& left,
+    const VectorN<_Scalar, J>& right
+)
+{
+    VectorN<_Scalar, I> result;
+    for (size_t i = 0; i < I; ++i) {
+        _Scalar sum = 0;
+        for (size_t j = 0; j < J; ++j) {
+            sum += left(i, j) * right[j];
+        }
+        result[i] = sum;
+    }
+    return result;
+}
+
 template<typename _Scalar, size_t I, size_t J, size_t K>
 std::array<std::array<_Scalar, K>, I> mtimes(
     const _Scalar(&left)[I][J],

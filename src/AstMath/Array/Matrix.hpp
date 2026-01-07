@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstMath/MathOperator.hpp"
  
 AST_NAMESPACE_BEGIN
  
@@ -85,6 +86,13 @@ public:
     Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
     Scalar& operator()(size_t row, size_t col) {return data_[row][col]; }
 
+    Self transpose() const;
+    void transposeInPlace();
+    Self operator* (const Self& other) const;
+    Self& operator*=(const Self& other);
+
+    Vector3d operator*(const Vector3d& other) const;
+
 public:
     Scalar data_[Row][Col];
 };
@@ -92,11 +100,48 @@ public:
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
 
+template <typename _Scalar>
+A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self MatrixMN<_Scalar, 3, 3>::transpose() const
+{
+    return Self{
+        data_[0][0], data_[1][0], data_[2][0],
+        data_[0][1], data_[1][1], data_[2][1],
+        data_[0][2], data_[1][2], data_[2][2],
+    };
+}
 
+template <typename _Scalar>
+A_ALWAYS_INLINE void MatrixMN<_Scalar, 3, 3>::transposeInPlace()
+{
+    std::swap(data_[0][1], data_[1][0]);
+    std::swap(data_[0][2], data_[2][0]);
+    std::swap(data_[1][2], data_[2][1]);
+}
+
+template <typename _Scalar>
+A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self MatrixMN<_Scalar, 3, 3>::operator*(const Self &other) const
+{
+    using namespace _AST math;
+    return math::operator*(*this, other);
+}
+
+template <typename _Scalar>
+A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self &MatrixMN<_Scalar, 3, 3>::operator*=(const Self &other)
+{
+    using namespace _AST math;
+    *this = math::operator*(*this, other);
+    return *this;
+}
+
+template <typename _Scalar>
+A_ALWAYS_INLINE Vector3d MatrixMN<_Scalar, 3, 3>::operator*(const Vector3d &other) const
+{
+    using namespace _AST math;
+    return math::operator*(*this, other);
+}
 
 AST_NAMESPACE_END
 
 AST_DECL_TYPE_ALIAS(Matrix3d)
-
 
 

@@ -10,4 +10,5 @@
     end
     if not has_package("openscenegraph") then 
         set_enabled(false)
-    end 
+    end
+    set_default(false)

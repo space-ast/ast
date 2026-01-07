@@ -1,9 +1,9 @@
 ///
-/// @file      KinematicTransform.cpp
+/// @file      SOFA.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-05
+/// @date      2026-01-06
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,12 +18,23 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "KinematicTransform.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstUtil/Constants.h"
 
 AST_NAMESPACE_BEGIN
 
-static_assert(sizeof(KinematicTransform) == sizeof(Transform) + sizeof(Vector3d) * 2, "Memory layout of KinematicTransform must be compact");
-static_assert(sizeof(Transform) == sizeof(Rotation)  + sizeof(Vector3d), "Memory layout of Transform must be compact");
+
+/// @brief 计算给定时间点的岁差角，按照IAU1976规范
+/// @param tp 时间点
+/// @param zeta 输出的zeta角（弧度）
+/// @param z 输出的z角（弧度）
+/// @param theta 输出的theta角（弧度）
+AST_CORE_CAPI void aPrecession_IAU1976(const TimePoint& tp, double& zeta, double& z, double& theta);
+
+
+
+
 
 AST_NAMESPACE_END
-

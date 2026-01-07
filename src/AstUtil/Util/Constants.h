@@ -178,11 +178,13 @@ constexpr const double kSecToMicroSec = 1.0e+06;                ///< 秒到微�
 constexpr const double kSecToNanoSec = 1.0e+09;                 ///< 秒到纳秒
 constexpr const double kSecToPicoSec = 1.0e+12;                 ///< 秒到皮秒
 
+constexpr const double kDaysPerJulianCentury = 36525.0;          ///< 儒略世纪天数
+constexpr const double kSecPerDay   = 86400.0;                   ///< 一天的秒数
 // 角度单位转换常数
 
 constexpr const double kRadToDeg = 57.2957795130823208767;		                ///< 弧度到角度 180.0/kPI
-
 constexpr const double kDegToRad = 0.017453292519943295769236907684886;	        ///< 角度到弧度 kPI/180.0
+constexpr const double kArcSecToRad = 4.848136811095359935899141e-6;            ///< 弧秒到弧度
 
 
 AST_NAMESPACE_END

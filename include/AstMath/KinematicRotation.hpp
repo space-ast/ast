@@ -1,1 +1,1 @@
-#include "../../src/AstMath/Attitude/KinematicRotation.hpp"
+#include "../../src/AstMath/Transform/KinematicRotation.hpp"
