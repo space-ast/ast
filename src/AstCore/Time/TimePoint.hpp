@@ -104,6 +104,11 @@ public:
         return ((double)integerPart() / kSecPerDay) + (fractionalPart() + kTTMinusTAI) / kSecPerDay;
     }
 
+    /// @brief 计算时间点与 J2000  epoch 的时间差（儒略世纪）
+    double julianCenturyFromJ2000TT() const{
+        return daysFromJ2000TT() / kDaysPerJulianCentury;
+    }
+
     /// @brief 将时间点转换为儒略日数（地球时TT）
     void toTT(JulianDate& jdTT) const{
         aTimePointToTT(*this, jdTT);

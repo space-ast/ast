@@ -117,6 +117,18 @@ AST_CORE_CAPI err_t aJplDeGetPosICRF(
     Vector3d& pos
 );
 
+
+/// @brief 获取JPL DE星历数据的中章动角数据
+/// @param time 
+/// @param dpsi 
+/// @param deps 
+/// @return 
+AST_CORE_CAPI err_t aJplDeGetNutation(
+    const TimePoint& time,
+    double& dpsi,
+    double& deps
+);
+
 /// @brief 打开JPL DE星历数据文件
 /// @param filepath 
 /// @return 

@@ -114,6 +114,7 @@ TEST(AttitudeConvertTest, EulerAndMatrix)
     testEulerAndMatrix({ -1,1.1,3 });
     testEulerAndMatrix({ -1,1.2,-2 });
     testEulerAndMatrix({ -0.4,0.1,-2 });
+    testEulerAndMatrix({ -0.12, 0.14, 0.123 });
 }
 
 TEST(AttitudeConvertTest, Example1)

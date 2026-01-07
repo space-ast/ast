@@ -21,6 +21,7 @@ add_rules("plugin.vsxmake.autoupdate")
 
 -- 设置编译策略
 set_policy("build.progress_style", "multirow")
+-- set_policy("package.precompiled", false)
 
 -- linux平台添加rpath
 if is_plat("linux") then
@@ -40,6 +41,7 @@ add_requires("opengl", {optional = true})
 add_requires("fmt", {optional = true})
 add_requires("sofa", {optional = true})
 -- add_requires("llvm", {optional = true})
+-- set_toolchains("@llvm")
 
 -- 可选：添加abseil库
 -- add_requires("abseil", {optional = true})

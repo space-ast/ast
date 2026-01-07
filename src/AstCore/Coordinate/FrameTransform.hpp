@@ -127,12 +127,30 @@ AST_CORE_CAPI void aJ2000ToMODMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @return    err_t  错误码
 AST_CORE_CAPI void aJ2000ToMOD(const TimePoint& tp, const Vector3d& vecJ2000, Vector3d& vecMOD); 
 
+
+/// @brief     从MOD转换为TOD的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+/// @return    err_t  错误码
+AST_CORE_CAPI void aMODToTODTransform(const TimePoint& tp, Rotation& rotation);
+
+
 /// @brief     从MOD转换为TOD的坐标转换矩阵
 /// @details   ~
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
 /// @return    err_t  错误码
-AST_CORE_CAPI err_t aMODToTODMatrix(const TimePoint& tp, Matrix3d& matrix);
+AST_CORE_CAPI void aMODToTODMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+/// @brief     从MOD转换为TOD的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecMOD  MOD坐标
+/// @param     vecTOD  TOD坐标
+/// @return    err_t  错误码
+AST_CORE_CAPI void aMODToTOD(const TimePoint& tp, const Vector3d& vecMOD, Vector3d& vecTOD);
 
 
 AST_NAMESPACE_END

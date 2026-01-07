@@ -268,7 +268,14 @@ err_t aJplDeGetPosICRF(
     return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
 }
 
-err_t aJplDeOpen(const char* filepath)
+err_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
+{
+    auto context = aGlobalContext_Ensure();
+    // assert(context);
+    return context->jplDe()->getNutation(time, dpsi, deps);
+}
+
+err_t aJplDeOpen(const char *filepath)
 {
     auto context = aGlobalContext_Ensure();
     //assert(context);

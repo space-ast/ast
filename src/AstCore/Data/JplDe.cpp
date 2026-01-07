@@ -680,7 +680,7 @@ err_t JplDe::getNutation(
     double& nutLong,
     double& nutObl)
 {
-    double val[2];
+    double val[3]{};
     int res = this->getState(time, eDeNutation, val, nullptr);
     nutLong = val[0];
     nutObl = val[1];

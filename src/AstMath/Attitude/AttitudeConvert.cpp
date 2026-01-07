@@ -25,6 +25,7 @@
 #include "AstMath/MathOperator.hpp"
 #include "AstCore/Constants.h"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Math.hpp"
 
 #include <math.h>
  
@@ -227,10 +228,15 @@ void aEuler123ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
+	
 	mtx = {
-		cos(a2) * cos(a3),	cos(a1) * sin(a3) + cos(a3) * sin(a1) * sin(a2), sin(a1) * sin(a3) - cos(a1) * cos(a3) * sin(a2),
-		-cos(a2) * sin(a3), cos(a1) * cos(a3) - sin(a1) * sin(a2) * sin(a3), cos(a3) * sin(a1) + cos(a1) * sin(a2) * sin(a3),
-		sin(a2),            -cos(a2) * sin(a1),                              cos(a1) * cos(a2)
+		cosa2 * cosa3,	cosa1 * sina3 + cosa3 * sina1 * sina2, sina1 * sina3 - cosa1 * cosa3 * sina2,
+		-cosa2 * sina3, cosa1 * cosa3 - sina1 * sina2 * sina3, cosa3 * sina1 + cosa1 * sina2 * sina3,
+		sina2,            -cosa2 * sina1,                              cosa1 * cosa2
 	};
 }
 
@@ -255,10 +261,14 @@ void aEuler231ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cos(a2),								  sin(a2),           -cos(a2) * sin(a1),
-		sin(a1) * sin(a3) - cos(a1) * cos(a3) * sin(a2),  cos(a2) * cos(a3),  cos(a1) * sin(a3) + cos(a3) * sin(a1) * sin(a2),
-		cos(a3) * sin(a1) + cos(a1) * sin(a2) * sin(a3), -cos(a2) * sin(a3),  cos(a1) * cos(a3) - sin(a1) * sin(a2) * sin(a3)
+		cosa1 * cosa2,					  sina2,           -cosa2 * sina1,
+		sina1 * sina3 - cosa1 * cosa3 * sina2,  cosa2 * cosa3,  cosa1 * sina3 + cosa3 * sina1 * sina2,
+		cosa3 * sina1 + cosa1 * sina2 * sina3, -cosa2 * sina3,  cosa1 * cosa3 - sina1 * sina2 * sina3
 	};
 }
 
@@ -283,10 +293,14 @@ void aEuler312ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cos(a3) - sin(a1) * sin(a2) * sin(a3), cos(a3) * sin(a1) + cos(a1) * sin(a2) * sin(a3), -cos(a2) * sin(a3),
-		-cos(a2) * sin(a1),                           cos(a1) * cos(a2),          sin(a2),
-		cos(a1) * sin(a3) + cos(a3) * sin(a1) * sin(a2), sin(a1) * sin(a3) - cos(a1) * cos(a3) * sin(a2),  cos(a2) * cos(a3) 
+		cosa1 * cosa3 - sina1 * sina2 * sina3, cosa3 * sina1 + cosa1 * sina2 * sina3, -cosa2 * sina3,
+		-cosa2 * sina1,                           cosa1 * cosa2,          sina2,
+		cosa1 * sina3 + cosa3 * sina1 * sina2, sina1 * sina3 - cosa1 * cosa3 * sina2,  cosa2 * cosa3 
 	};
 }
 
@@ -313,10 +327,14 @@ void aEuler321ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cos(a2),                           cos(a2) * sin(a1),        -sin(a2),
-		cos(a1) * sin(a2) * sin(a3) - cos(a3) * sin(a1), cos(a1) * cos(a3) + sin(a1) * sin(a2) * sin(a3), cos(a2) * sin(a3),
-		sin(a1) * sin(a3) + cos(a1) * cos(a3) * sin(a2), cos(a3) * sin(a1) * sin(a2) - cos(a1) * sin(a3), cos(a2) * cos(a3)
+		cosa1 * cosa2,                           cosa2 * sina1,        -sina2,
+		cosa1 * sina2 * sina3 - cosa3 * sina1, cosa1 * cosa3 + sina1 * sina2 * sina3, cosa2 * sina3,
+		sina1 * sina3 + cosa1 * cosa3 * sina2, cosa3 * sina1 * sina2 - cosa1 * sina3, cosa2 * cosa3
 	};
 }
 
@@ -342,10 +360,14 @@ void aEuler213ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cos(a3) + sin(a1) * sin(a2) * sin(a3), cos(a2) * sin(a3), cos(a1) * sin(a2) * sin(a3) - cos(a3) * sin(a1),
-		cos(a3) * sin(a1) * sin(a2) - cos(a1) * sin(a3), cos(a2) * cos(a3), sin(a1) * sin(a3) + cos(a1) * cos(a3) * sin(a2),
-		cos(a2) * sin(a1),        -sin(a2),                           cos(a1) * cos(a2)
+		cosa1 * cosa3 + sina1 * sina2 * sina3, cosa2 * sina3, cosa1 * sina2 * sina3 - cosa3 * sina1,
+		cosa3 * sina1 * sina2 - cosa1 * sina3, cosa2 * cosa3, sina1 * sina3 + cosa1 * cosa3 * sina2,
+		cosa2 * sina1,        -sina2,                           cosa1 * cosa2
 	};
 }
 
@@ -370,10 +392,14 @@ void aEuler132ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a2) * cos(a3), sin(a1) * sin(a3) + cos(a1) * cos(a3) * sin(a2), cos(a3) * sin(a1) * sin(a2) - cos(a1) * sin(a3),
-		-sin(a2),                           cos(a1) * cos(a2),                           cos(a2) * sin(a1),
-		cos(a2) * sin(a3), cos(a1) * sin(a2) * sin(a3) - cos(a3) * sin(a1), cos(a1) * cos(a3) + sin(a1) * sin(a2) * sin(a3)
+		cosa2 * cosa3, sina1 * sina3 + cosa1 * cosa3 * sina2, cosa3 * sina1 * sina2 - cosa1 * sina3,
+		-sina2,                           cosa1 * cosa2,                           cosa2 * sina1,
+		cosa2 * sina3, cosa1 * sina2 * sina3 - cosa3 * sina1, cosa1 * cosa3 + sina1 * sina2 * sina3
 	};
 }
 
@@ -400,10 +426,14 @@ void aEuler121ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a2),            sin(a1) * sin(a2),                               -cos(a1) * sin(a2),
-		sin(a2) * sin(a3),  cos(a1) * cos(a3) - cos(a2) * sin(a1) * sin(a3),  cos(a3) * sin(a1) + cos(a1) * cos(a2) * sin(a3),
-		cos(a3) * sin(a2), -cos(a1) * sin(a3) - cos(a2) * cos(a3) * sin(a1),  cos(a1) * cos(a2) * cos(a3) - sin(a1) * sin(a3)
+		cosa2,            sina1 * sina2,                               -cosa1 * sina2,
+		sina2 * sina3,  cosa1 * cosa3 - cosa2 * sina1 * sina3,  cosa3 * sina1 + cosa1 * cosa2 * sina3,
+		cosa3 * sina2, -cosa1 * sina3 - cosa2 * cosa3 * sina1,  cosa1 * cosa2 * cosa3 - sina1 * sina3
 	};
 }
 
@@ -431,10 +461,14 @@ void aEuler232ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cos(a2) * cos(a3) - sin(a1) * sin(a3), cos(a3) * sin(a2), -cos(a1) * sin(a3) - cos(a2) * cos(a3) * sin(a1),
-		-cos(a1) * sin(a2),         cos(a2),                             sin(a1) * sin(a2),
-		cos(a3) * sin(a1) + cos(a1) * cos(a2) * sin(a3), sin(a2) * sin(a3),   cos(a1) * cos(a3) - cos(a2) * sin(a1) * sin(a3)
+		cosa1 * cosa2 * cosa3 - sina1 * sina3, cosa3 * sina2, -cosa1 * sina3 - cosa2 * cosa3 * sina1,
+		-cosa1 * sina2,         cosa2,                             sina1 * sina2,
+		cosa3 * sina1 + cosa1 * cosa2 * sina3, sina2 * sina3,   cosa1 * cosa3 - cosa2 * sina1 * sina3
 	};
 }
 
@@ -462,10 +496,14 @@ void aEuler313ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cos(a3) - cos(a2) * sin(a1) * sin(a3), cos(a3) * sin(a1) + cos(a1) * cos(a2) * sin(a3), sin(a2) * sin(a3),
-		-cos(a1) * sin(a3) - cos(a2) * cos(a3) * sin(a1), cos(a1) * cos(a2) * cos(a3) - sin(a1) * sin(a3), cos(a3) * sin(a2),
-		sin(a1) * sin(a2),                          -cos(a1) * sin(a2),         cos(a2)
+		cos(a1) * cosa3 - cosa2 * sina1 * sina3, cosa3 * sina1 + cosa1 * cosa2 * sina3, sina2 * sina3,
+		-cosa1 * sina3 - cosa2 * cosa3 * sina1, cosa1 * cosa2 * cosa3 - sina1 * sina3, cosa3 * sina2,
+		sina1 * sina2,                          -cosa1 * sina2,         cosa2
 	};
 }
 
@@ -494,10 +532,14 @@ void aEuler131ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a2),                             cos(a1) * sin(a2),                           sin(a1) * sin(a2),
-		-cos(a3) * sin(a2),   cos(a1) * cos(a2) * cos(a3) - sin(a1) * sin(a3), cos(a1) * sin(a3) + cos(a2) * cos(a3) * sin(a1),
-		sin(a2) * sin(a3), -cos(a3) * sin(a1) - cos(a1) * cos(a2) * sin(a3), cos(a1) * cos(a3) - cos(a2) * sin(a1) * sin(a3)
+		cosa2,                             cosa1 * sina2,                           sina1 * sina2,
+		-cosa3 * sina2,   cosa1 * cosa2 * cosa3 - sina1 * sina3, cosa1 * sina3 + cosa2 * cosa3 * sina1,
+		sina2 * sina3, -cosa3 * sina1 - cosa1 * cosa2 * sina3, cosa1 * cosa3 - cosa2 * sina1 * sina3
 	};
 }
 
@@ -524,11 +566,15 @@ void aEuler212ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
 
 	mtx = {
-		cos(a1) * cos(a3) - cos(a2) * sin(a1) * sin(a3),  sin(a2) * sin(a3), -cos(a3) * sin(a1) - cos(a1) * cos(a2) * sin(a3),
-		sin(a1) * sin(a2),          cos(a2),                             cos(a1) * sin(a2),
-		cos(a1) * sin(a3) + cos(a2) * cos(a3) * sin(a1), -cos(a3) * sin(a2),   cos(a1) * cos(a2) * cos(a3) - sin(a1) * sin(a3)
+		cosa1 * cosa3 - cosa2 * sina1 * sina3,  sina2 * sina3, -cosa3 * sina1 - cosa1 * cosa2 * sina3,
+		sina1 * sina2,          cosa2,                             cosa1 * sina2,
+		cosa1 * sina3 + cosa2 * cosa3 * sina1, -cosa3 * sina2,   cosa1 * cosa2 * cosa3 - sina1 * sina3
 	};
 }
 
@@ -558,10 +604,15 @@ void aEuler323ToMatrix(const Euler& euler, Matrix3d& mtx)
 	double a1 = euler.angle1();
 	double a2 = euler.angle2();
 	double a3 = euler.angle3();
+	double cosa1, sina1, cosa2, sina2, cosa3, sina3;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	sincos(a3, &sina3, &cosa3);
+	
 	mtx = {
-		cos(a1) * cos(a2) * cos(a3) - sin(a1) * sin(a3), cos(a1) * sin(a3) + cos(a2) * cos(a3) * sin(a1), -cos(a3) * sin(a2),
-		-cos(a3) * sin(a1) - cos(a1) * cos(a2) * sin(a3), cos(a1) * cos(a3) - cos(a2) * sin(a1) * sin(a3),  sin(a2) * sin(a3),
-		cos(a1) * sin(a2),                           sin(a1) * sin(a2),          cos(a2)
+		cosa1 * cosa2 * cosa3 - sina1 * sina3, cosa1 * sina3 + cosa2 * cosa3 * sina1, -cosa3 * sina2,
+		-cosa3 * sina1 - cosa1 * cosa2 * sina3, cosa1 * cosa3 - cosa2 * sina1 * sina3,  sina2 * sina3,
+		cosa1 * sina2,                           sina1 * sina2,          cosa2
 	};
 }
 

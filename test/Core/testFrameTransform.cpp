@@ -24,11 +24,27 @@
 #include "AstCore/DateTime.hpp"
 #include "AstTest/AstTestMacro.h"
 #include "AstUtil/Literals.hpp"
+#include "AstCore/RunTime.hpp"
+#include "AstCore/SOFA.hpp"
 
 AST_USING_NAMESPACE
 using namespace _AST literals;
 
-TEST(FrameTransform, J2000ToMOD)
+
+class FrameTransformTest : public ::testing::Test
+{
+protected:
+    void SetUp() override
+    {
+        aInitialize();
+    }
+    void TearDown() override
+    {
+        aUninitialize();
+    }
+};
+
+TEST_F(FrameTransformTest, J2000ToMOD)
 {
     {    
         TimePoint tp = TimePoint::FromUTC(2026, 1, 7, 12, 0, 0);
@@ -37,7 +53,7 @@ TEST(FrameTransform, J2000ToMOD)
         aJ2000ToMOD(tp, vecJ2000, vecMOD);
         EXPECT_NEAR(vecMOD[0], 980758.8704899253, 1e-9);
         EXPECT_NEAR(vecMOD[1], 2005.762527176539_km, 1e-9);
-        EXPECT_NEAR(vecMOD[2], 3002.503742300700_km, 1e-9);
+        EXPECT_NEAR(vecMOD[2], 3002.5037423006997_km, 1e-9);
         printf("vecMOD: %.15f, %.15f, %.15f\n", vecMOD[0], vecMOD[1], vecMOD[2]);
     }
     {
@@ -47,10 +63,40 @@ TEST(FrameTransform, J2000ToMOD)
         aJ2000ToMOD(tp, vecJ2000, vecMOD);
         EXPECT_NEAR(vecMOD[0], 2985774.6999846440, 1e-9);
         EXPECT_NEAR(vecMOD[1], 2017.414131093856_km, 1e-9);
-        EXPECT_NEAR(vecMOD[2], 1007.566208541370_km, 1e-9);
+        EXPECT_NEAR(vecMOD[2], 1007.5662085413698_km, 1e-9);
         printf("vecMOD: %.15f, %.15f, %.15f\n", vecMOD[0], vecMOD[1], vecMOD[2]);
     }
 }
 
+
+TEST_F(FrameTransformTest, MODToTOD)
+{
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 7, 12, 0, 0);
+        Vector3d vecMOD{1000_km, 2000_km, 3000_km};
+        Vector3d vecTOD;
+        // DE
+        aNutationMethodSet(ENutationMethod::eJplDe);
+
+        aMODToTOD(tp, vecMOD, vecTOD);
+        EXPECT_NEAR(vecTOD[0], 999.9078961179760654_km, 1e-9);
+        EXPECT_NEAR(vecTOD[1], 1999.9073241753194452_km, 1e-9);
+        EXPECT_NEAR(vecTOD[2], 3000.0924809063526482_km, 1e-9);
+        printf("vecTOD: %.15f, %.15f, %.15f\n", vecTOD[0], vecTOD[1], vecTOD[2]);
+    }
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 7, 12, 0, 0);
+        Vector3d vecMOD{1000_km, 2000_km, 3000_km};
+        Vector3d vecTOD;
+        // SOFA
+        aNutationMethodSet(ENutationMethod::eIAU1980);
+
+        aMODToTOD(tp, vecMOD, vecTOD);
+        EXPECT_NEAR(vecTOD[0], 999.9078963285318196_km, 1e-9);
+        EXPECT_NEAR(vecTOD[1], 1999.9073241197208972_km, 1e-9);
+        EXPECT_NEAR(vecTOD[2], 3000.0924808732393103_km, 1e-9);
+        printf("vecTOD: %.15f, %.15f, %.15f\n", vecTOD[0], vecTOD[1], vecTOD[2]);
+    }
+}
 
 GTEST_MAIN()

@@ -22,10 +22,16 @@
 #include "AstMath/Rotation.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/Euler.hpp"
+#include "AstCore/RunTime.hpp"
 #include "SOFA.hpp"
+
+// #define AST_DEBUG_FRAME 1
 
 
 AST_NAMESPACE_BEGIN
+
+
+// J2000 -> MOD 转换
 
 void aJ2000ToMODTransform(const TimePoint &tp, Rotation &rotation)
 {
@@ -41,17 +47,52 @@ void aJ2000ToMODMatrix(const TimePoint &tp, Matrix3d &matrix)
 }
 
 
-err_t aMODToTODMatrix(const TimePoint &tp, Matrix3d &matrix)
-{
-    return -1;
-}
-
 void aJ2000ToMOD(const TimePoint &tp, const Vector3d &vecJ2000, Vector3d &vecMOD)
 {
     Rotation rotation;
     aJ2000ToMODTransform(tp, rotation);
     vecMOD = rotation.transformVector(vecJ2000);
 }
+
+// MOD -> TOD 转换
+
+void aMODToTODTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aMODToTODMatrix(tp, rotation.getMatrix());
+}
+
+
+void aMODToTODMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    double t = tp.julianCenturyFromJ2000TT();
+    double moe = aMeanObliquity_IAU1980(t);
+    double dpsi, deps;
+    
+    aNutation(tp, dpsi, deps);
+
+    #ifdef AST_DEBUG_FRAME
+    
+    dpsi = 0; deps = 0;
+    aNutation_IAU1980(t, dpsi, deps);
+    printf("IAU1980: dpsi = %.20f, deps = %.20f\n", dpsi, deps);
+
+    dpsi = 0; deps = 0;
+    err_t err = aJplDeGetNutation(tp, dpsi, deps);
+    printf("JPL DE: dpsi = %.20f, deps = %.20f, err = %d\n", dpsi, deps, err);
+    
+    #endif
+
+    double toe = moe + deps;
+    aEuler131ToMatrix({moe, -dpsi, -toe}, matrix);
+}
+
+void aMODToTOD(const TimePoint &tp, const Vector3d &vecMOD, Vector3d &vecTOD)
+{
+    Rotation rotation;
+    aMODToTODTransform(tp, rotation);
+    vecTOD = rotation.transformVector(vecMOD);
+}
+
 
 AST_NAMESPACE_END
 
