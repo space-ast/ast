@@ -22,6 +22,7 @@
  
 #include "AstGlobal.h"
 #include "AstMath/MathOperator.hpp"
+#include "AstMath/Vector.hpp"
  
 AST_NAMESPACE_BEGIN
  

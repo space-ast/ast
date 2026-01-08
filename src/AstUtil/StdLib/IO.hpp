@@ -38,6 +38,13 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 格式化输出
+/// @param format 格式化字符串，utf-8编码
+/// @param ... 可变参数
+/// @return 输出字符数
+AST_UTIL_CAPI int ast_printf(const char* format, ...);
+
+
 #ifdef _WIN32 // windows
 
 /// @brief 打开文件
@@ -45,13 +52,6 @@ AST_NAMESPACE_BEGIN
 /// @param mode 文件打开模式
 /// @return 文件指针
 AST_UTIL_CAPI std::FILE* ast_fopen(const char* filepath, const char* mode);
-
-
-/// @brief 格式化输出
-/// @param format 格式化字符串，utf-8编码
-/// @param ... 可变参数
-/// @return 输出字符数
-AST_UTIL_CAPI int ast_printf(const char* format, ...);
 
 
 /// @brief 格式化输出
@@ -74,16 +74,8 @@ int vprintf(const char* format, va_list args)
     return ast_vprintf(format, args);
 }
 
-A_ALWAYS_INLINE
-int printf(const char* format, ...)
-{
-    va_list args;
-    int result;
-    va_start(args, format);
-    result = ast_vprintf(format, args);
-    va_end(args);
-    return result;
-}
+AST_UTIL_API
+int printf(const char* format, ...);
 
 
 #endif
@@ -102,8 +94,6 @@ int ast_vprintf(const char* format, va_list args)
     return vprintf(format, args);
 }
 
-AST_UTIL_CAPI
-int ast_printf(const char* format, ...);
 
 using std::fopen;
 using std::printf;

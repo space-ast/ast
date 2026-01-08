@@ -23,6 +23,9 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/GenericValue.hpp"
 
+
+// #define AST_DEBUG_SAX 1
+
 AST_NAMESPACE_BEGIN
 
 BKVSaxPrint::BKVSaxPrint()
@@ -53,12 +56,22 @@ void BKVSaxPrint::begin(StringView name)
 {
     fprintf(file_, "%*s", depth_ * indent_, "");
     depth_++;
+    
+    #ifdef AST_DEBUG_SAX
+    printf("depth_: %d\n", depth_);
+    #endif
+    
     fprintf(file_, "BEGIN %.*s\n", name.size(), name.data());
 }
 
 void BKVSaxPrint::end(StringView name)
 {
     depth_--;
+    
+    #ifdef AST_DEBUG_SAX
+    printf("depth_: %d\n", depth_);
+    #endif
+
     fprintf(file_, "%*s", depth_ * indent_, "");
     fprintf(file_, "END %.*s\n", name.size(), name.data());
 }

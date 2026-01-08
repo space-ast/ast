@@ -1,5 +1,5 @@
 ///
-/// @file      BKVBlock.hpp
+/// @file      BKVItem.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,24 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "BKVNode.hpp"
-#include <memory>
-#include <vector>
-#include <string>
+#include "BKVItem.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 键值对块节点（BlockKeyValueBlockNode）
-class BKVBlock : public BKVNode
-{
-public:
-    BKVBlock() : BKVNode(eBlock) {}
-public:
-    std::string name_;      // 块名
-    std::vector<std::unique_ptr<BKVNode>> children_;
-};
+
 
 AST_NAMESPACE_END

@@ -1,0 +1,19 @@
+VO_V110		
+InitializeSolarPanels		 Yes
+#comment1
+# comment 2
+ModelPath		 Space\satellite.glb 
+#
+ModelDefaultColorFromMarker		 No
+ModelScale		 1
+
+
+BEGIN Marker
+    Show		 No
+    Type		 LineGraphic
+    UseDirectionAngle		 No
+END
+BEGIN ModelReflectionEnvironment
+    StarMap		 "milkyway.jpg"
+    Resolution		 256
+END ModelReflectionEnvironment

@@ -25,12 +25,13 @@
 
 AST_NAMESPACE_BEGIN
 
-class EOP
+class AST_CORE_API EOP
 {
 public:
     struct Entry
     {
         int mjd;
+        int dat;
         double x, y;            ///< 极移
         double ut1_utc;         ///< ut1 - utc
         double lod;             ///< length of day
@@ -53,7 +54,8 @@ public:
     /// @return 错误码
     static err_t load(StringView filepath, std::vector<Entry>& data);
 
-    
+    /// @brief 获取数据大小
+    size_t size() const { return m_data.size(); }
 protected:
     std::vector<Entry> m_data;
 };

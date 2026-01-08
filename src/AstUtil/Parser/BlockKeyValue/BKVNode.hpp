@@ -24,6 +24,21 @@
 
 AST_NAMESPACE_BEGIN
 
-
+/// @brief 节点（BlockKeyValueNode）
+class BKVNode
+{
+public:
+    enum EType{
+        eBlock,
+        eItem,
+    };
+    BKVNode(EType type) : type_(type) {}
+    virtual ~BKVNode() = default;
+public:
+    /// @brief 获取节点类型
+    EType type() const { return type_; }
+public:
+    EType type_;
+};
 
 AST_NAMESPACE_END

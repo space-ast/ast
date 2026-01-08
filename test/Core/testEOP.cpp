@@ -1,5 +1,5 @@
 ///
-/// @file      BKVBlock.hpp
+/// @file      testEOP.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,24 +18,20 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
+#include "AstCore/EOP.hpp"
+#include "AstTest/Test.hpp"
+#include "AstCore/RunTime.hpp"
+#include "AstUtil/StringView.hpp"
 
-#include "AstGlobal.h"
-#include "BKVNode.hpp"
-#include <memory>
-#include <vector>
-#include <string>
+AST_USING_NAMESPACE
 
-AST_NAMESPACE_BEGIN
-
-/// @brief 键值对块节点（BlockKeyValueBlockNode）
-class BKVBlock : public BKVNode
+TEST(EOP, Parse)
 {
-public:
-    BKVBlock() : BKVNode(eBlock) {}
-public:
-    std::string name_;      // 块名
-    std::vector<std::unique_ptr<BKVNode>> children_;
-};
+    EOP eop;
+    err_t err = eop.load(aDataDirGet() + "/SolarSystem/Earth/EOP-All.txt");
+    EXPECT_EQ(err, 0);
+    EXPECT_TRUE(eop.size() > 0);
+}
 
-AST_NAMESPACE_END
+
+GTEST_MAIN();

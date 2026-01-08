@@ -27,9 +27,12 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 通用值类
+/// @details 该类通过字符串存储任意类型的值
+/// @todo 考虑参考variant进行存储，保留原始值
 class GenericValue
 {
 public:
+    GenericValue() = default;
     GenericValue(StringView value)
         : value_(value){}
     GenericValue(const char* value)

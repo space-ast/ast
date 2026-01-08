@@ -33,6 +33,9 @@ class ValueView;
 class BKVSax
 {
 public:
+    /// @brief 析构函数
+    virtual ~BKVSax() = default;
+
     /// @brief 开始解析一个块
     /// @param name 块名
     virtual void begin(StringView name) = 0;
@@ -46,6 +49,9 @@ public:
     /// @param value 值
     virtual void keyValue(StringView key, const GenericValue& value) = 0;
 
+    void begin() { begin(StringView{});}
+    void end() { end(StringView{});}
+    void keyValue(StringView key, const char* value){ keyValue(key, GenericValue(value)); }
     void keyValue(StringView key, int value){ keyValue(key, GenericValue(value)); }
     void keyValue(StringView key, bool value){ keyValue(key, GenericValue(value)); }
     void keyValue(StringView key, double value){ keyValue(key, GenericValue(value)); }

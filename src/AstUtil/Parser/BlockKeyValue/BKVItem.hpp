@@ -1,5 +1,5 @@
 ///
-/// @file      BKVBlock.hpp
+/// @file      BKVItem.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -22,20 +22,29 @@
 
 #include "AstGlobal.h"
 #include "BKVNode.hpp"
-#include <memory>
-#include <vector>
+#include "AstUtil/GenericValue.hpp"
+#include "AstUtil/ValueView.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 键值对块节点（BlockKeyValueBlockNode）
-class BKVBlock : public BKVNode
+/// @brief 键值对项节点（BlockKeyValueItemNode）
+class BKVItem : public BKVNode
 {
 public:
-    BKVBlock() : BKVNode(eBlock) {}
+    BKVItem() : BKVNode(eItem) {}
+    /// @brief 键值对项节点（BlockKeyValueItemNode）
+    BKVItem(StringView key, ValueView value)
+        : BKVNode{eItem}
+        , key_(key.to_string())
+        , value_(value.toValue()) 
+    {}
+    
 public:
-    std::string name_;      // 块名
-    std::vector<std::unique_ptr<BKVNode>> children_;
+    std::string key_;       // 键
+    GenericValue value_;    // 值
 };
+
+
 
 AST_NAMESPACE_END

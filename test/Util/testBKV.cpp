@@ -20,14 +20,17 @@
 
 #include "AstTest/Test.h"
 #include "AstUtil/BKVSaxPrint.hpp"
+#include "AstUtil/BKVParser.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Color.hpp"
 #include "AstUtil/ColorNamed.hpp"
-
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/IO.hpp"
+#include "AstCore/RunTime.hpp"
 
 AST_USING_NAMESPACE
 
-TEST(BKVSaxPrint, BeginEnd)
+TEST(BKVSaxPrint, SimplePrint)
 {
     BKVSaxPrint printer{};
     printer.begin("root");
@@ -46,5 +49,33 @@ TEST(BKVSaxPrint, BeginEnd)
     }
     printer.end("root");
 }
+
+TEST(BKVParser, Parser)
+{
+    {
+        BKVParser parser{};
+        BKVSaxPrint printer{};
+        fs::path filepath = fs::path(aDataDirGet()) / "Test/TestBKV.txt";
+        ast_printf("filepath: %s\n", filepath.string().c_str());
+        parser.parseFile(filepath.string(), printer);
+    }
+    if(1)
+    {
+        BKVParser parser{};
+        BKVSaxPrint printer{};
+        fs::path filepath = fs::path(aDataDirGet()) / "Test/Satellite.sa3";
+        ast_printf("filepath: %s\n", filepath.string().c_str());
+        parser.parseFile(filepath.string(), printer);
+    }
+    if(1)
+    {
+        BKVParser parser{};
+        BKVSaxPrint printer{};
+        fs::path filepath = fs::path(aDataDirGet()) / "Test/Satellite.sa";
+        ast_printf("filepath: %s\n", filepath.string().c_str());
+        parser.parseFile(filepath.string(), printer);
+    }
+}
+
 
 GTEST_MAIN()

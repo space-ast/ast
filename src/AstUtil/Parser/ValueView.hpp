@@ -24,6 +24,7 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/Color.hpp"
+#include "AstUtil/GenericValue.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,12 +32,15 @@ AST_NAMESPACE_BEGIN
 class ValueView
 {
 public:
+    ValueView() = default;
     ValueView(StringView value)
         : value_(value){}
     ValueView(const char* value)
         : value_(value){}
     ValueView(const std::string& value)
         : value_(value){}
+    ValueView(GenericValue value)
+        : value_(value.value()) {}
     
     /// @brief 获取值视图
     const StringView& value() const { return value_; }
@@ -65,6 +69,12 @@ public:
     /// @brief 转换为字符串视图
     const StringView& toStringView() const { return value_; }
 
+    /// @brief 转换为通用值
+    GenericValue toValue() const { return GenericValue(value_); }
+
+    operator StringView() const { return value_; }
+
+    const char* data() const { return value_.data(); }
 public:
     StringView  value_;
 };
