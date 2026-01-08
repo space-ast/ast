@@ -107,6 +107,37 @@ int ast_printf(const char* format, ...)
 }
 
 
+int aFileCurrentLine(std::FILE *file)
+{
+    if (file == NULL) {
+        return -1;  // 错误：文件指针为空
+    }
+    
+    long currentPos = ftell(file);  // 保存当前位置
+    if (currentPos == -1L) {
+        return -1;  // 错误：无法获取文件位置
+    }
+    
+    // 移动到文件开头
+    if (fseek(file, 0, SEEK_SET) != 0) {
+        return -1;  // 错误：无法移动文件指针
+    }
+    
+    int lineCount = 1;  // 行号从1开始
+    int ch;
+    
+    // 从文件开头读取到当前位置，统计换行符
+    while ((ch = fgetc(file)) != EOF && ftell(file) <= currentPos) {
+        if (ch == '\n') {
+            lineCount++;
+        }
+    }
+    
+    // 恢复原始位置
+    fseek(file, currentPos, SEEK_SET);
+    
+    return lineCount;
+}
 
 AST_NAMESPACE_END
  

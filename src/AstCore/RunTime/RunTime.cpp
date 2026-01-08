@@ -26,6 +26,7 @@
 
 #define AST_DEFAULT_FILE_LEAPSECOND "Time/Leap_Second.dat"
 #define AST_DEFAULT_FILE_JPLDE      "SolarSystem/plneph.430"
+#define AST_DEFAULT_FILE_EOP        "SolarSystem/Earth/EOP-All.txt"
 
 
 AST_NAMESPACE_BEGIN
@@ -60,12 +61,25 @@ err_t JplDe::openDefault()
     return err;
 }
 
+err_t EOP::loadDefault()
+{
+    fs::path filepath = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_EOP;
+    err_t err = load(filepath.string(), m_data);
+    if (err)
+    {
+        aWarning("failed to load eop from default data file:\n%s", filepath.string().c_str());
+    }
+    return err;
+}
+
+
 
 err_t aInitialize(GlobalContext* context)
 {
     err_t err = 0;
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
+    err |= context->eop()->loadDefault();
     if(err != eNoError) {
         aError("initialize failed: failed to load data.");
     }
@@ -292,5 +306,11 @@ void aJplDeClose()
     context->jplDe()->close();
 }
 
- 
+double aUT1MinusUTC_UTC(const JulianDate &jdUTC)
+{
+    auto context = aGlobalContext_Ensure();
+    // assert(context);
+    return context->eop()->ut1MinusUTC_UTC(jdUTC);
+}
+
 AST_NAMESPACE_END

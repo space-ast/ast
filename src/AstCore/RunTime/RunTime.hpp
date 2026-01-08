@@ -138,5 +138,10 @@ AST_CORE_CAPI err_t aJplDeOpen(const char* filepath);
 AST_CORE_CAPI void aJplDeClose();
 
 
+/// @brief 获取UT1时间与UTC时间的差值（秒）
+/// @param jdUTC 协调世界时（UTC）的儒略日数
+/// @return UT1时间与UTC时间的差值（秒）
+AST_CORE_CAPI double aUT1MinusUTC_UTC(const JulianDate& jdUTC);
+
 AST_NAMESPACE_END
  

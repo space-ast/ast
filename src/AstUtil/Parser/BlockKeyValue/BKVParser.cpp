@@ -102,6 +102,11 @@ BKVParser::~BKVParser()
     close();
 }
 
+int BKVParser::getCurrentLine()
+{
+    return aFileCurrentLine(file_);
+}
+
 BKVParser::EToken BKVParser::getNext(StringView &key, ValueView &value)
 {
 start:

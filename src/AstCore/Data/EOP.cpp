@@ -24,6 +24,11 @@
 #include "AstUtil/IO.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/BKVParser.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstCore/RunTime.hpp"
+#include "AstCore/JulianDate.hpp"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -52,6 +57,7 @@ static err_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& d
             &entry.dat
         );
         if(status!=13){
+            aError("parse line %d failed, status=%d", parser.getCurrentLine(), status);
             return eErrorParse;
         }
         if(!data.empty()){
@@ -67,9 +73,16 @@ static err_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& d
     return eNoError;
 }
 
+
+
 err_t EOP::load(StringView filepath)
 {
-    return load(filepath, m_data);
+    err_t err = load(filepath, m_data);
+    if(!m_data.empty()){
+        m_startMJD = m_data.front().mjd;
+        m_endMJD = m_data.back().mjd;
+    }
+    return err;
 }
 
 err_t EOP::load(StringView filepath, std::vector<Entry>& data)
@@ -90,28 +103,23 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "NUM_OBSERVED_POINTS")){
-                printf("EOP num_observed_points: %s\n", item.value().data());
                 num_observed_points = item.value().toInt();
             }else if(aEqualsIgnoreCase(item.key(), "NUM_PREDICTED_POINTS")){
-                printf("EOP num_predicted_points: %s\n", item.value().data());
                 num_predicted_points = item.value().toInt();
             }
-            if(aEqualsIgnoreCase(item.key(), "VERSION")){
-                printf("EOP version: %s\n", item.value().data());
-            }else if(aEqualsIgnoreCase(item.key(), "UPDATED")){
-                printf("EOP updated: %s\n", item.value().data());
-            }
-            // 键值对项
-            // printf("key: %s, value: %s\n", item.key().data(), item.value().data());
+            // if(aEqualsIgnoreCase(item.key(), "VERSION")){
+            // 
+            // }else if(aEqualsIgnoreCase(item.key(), "UPDATED")){
+            // 
+            // }
         }else if(token == BKVParser::eBegin){
             // 块开始
-            printf("begin: %s\n", item.value().data());
             if(aEqualsIgnoreCase(item.value(), "OBSERVED")){
                 err_t err = loadEOP(parser, num_observed_points, datalist);
                 if(err!=eNoError){
                     return err;
                 }
-            }else if(aEqualsIgnoreCase(item.value(), "OBSERVED_POINT")){
+            }else if(aEqualsIgnoreCase(item.value(), "PREDICTED")){
                 err_t err = loadEOP(parser, num_predicted_points, datalist);
                 if(err!=eNoError){
                     return err;
@@ -119,12 +127,77 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
             }
         }else if(token == BKVParser::eEnd){
             // 块结束
-            printf("end: %s\n", item.value().data());
         }
     }while(token != BKVParser::eError);
 
     data = std::move(datalist);
     return eNoError;
+}
+
+double EOP::ut1MinusUTC(const TimePoint &tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return ut1MinusUTC_UTC(jdUTC);
+}
+
+double EOP::ut1MinusUTC_UTC(const JulianDate &jdUTC) const
+{
+    double mjd = aJDToMJD_Imprecise(jdUTC);
+    return ut1MinusUTC_UTCMJD(mjd);
+}
+
+double EOP::ut1MinusUTC_UTCMJD(double mjdUTC) const
+{
+    size_t index = 0;
+    double frac = 0.0;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+    if(index >= m_data.size() - 1){
+        return m_data[index].ut1_utc;
+    }
+    return m_data[index].ut1_utc + frac * (m_data[index+1].ut1_utc - m_data[index].ut1_utc);
+}
+
+void EOP::findEntryIndex(double mjdUTC, size_t &index, double &frac) const
+{
+    // 猜测索引
+    index = (size_t)(mjdUTC - m_startMJD);
+    if(index < 0){
+        index = -1;
+        frac = 0;
+        return;
+    }
+    if(index >= m_data.size()){
+        index = m_data.size() - 1;
+        frac = 0;
+        return;
+    }
+    if(mjdUTC < this->m_data[index].mjd){
+        for(size_t i=index-1;i >=0;i--){
+            if(mjdUTC >= this->m_data[i].mjd){
+                index = i;
+                frac = (mjdUTC - m_data[index].mjd) / (m_data[index+1].mjd - m_data[index].mjd);
+                return;
+            }
+        }
+        index = -1;
+        frac = 0;
+        return;
+    }else{
+        for(size_t i=index+1;i < m_data.size();i++){
+            if(mjdUTC < this->m_data[i].mjd){
+                index = i-1;
+                frac = (mjdUTC - m_data[index].mjd) / (m_data[index+1].mjd - m_data[index].mjd);
+                return;
+            }
+        }
+        index = m_data.size() - 1;
+        frac = 0;
+        return;
+    }
 }
 
 AST_NAMESPACE_END

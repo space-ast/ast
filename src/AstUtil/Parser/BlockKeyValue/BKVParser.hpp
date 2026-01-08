@@ -48,6 +48,11 @@ public:
     BKVParser(StringView filepath);
     ~BKVParser();
 
+    /// @brief 获取当前行号
+    /// @details 获取当前解析器所在的行号。
+    /// @return 当前行号
+    int getCurrentLine();
+
     /// @brief 设置是否允许注释
     /// @details 设置是否允许解析注释行。
     /// @param allow 是否允许注释

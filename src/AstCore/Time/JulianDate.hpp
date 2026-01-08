@@ -92,6 +92,8 @@ public:
         aDateTimeToJD(dttm, jd);
         return jd;
     }
+    AST_CORE_API
+    static JulianDate FromDateTime(int year, int month, int day, int hour, int minute, double second);
 public:
     /// @brief 获取不精确的天数
     /// @return 不精确的天数
