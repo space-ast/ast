@@ -30,6 +30,7 @@
 #include <osg/Vec3>
 #include <osg/Vec4>
 #include <iostream>
+#include <algorithm>
 
 AST_NAMESPACE_BEGIN
 

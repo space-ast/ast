@@ -99,4 +99,21 @@ TEST_F(FrameTransformTest, MODToTOD)
     }
 }
 
+
+TEST_F(FrameTransformTest, TODToGTOD)
+{
+    GTEST_SKIP() << "TODToGTOD is not implemented";
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 7, 12, 0, 0);
+        Vector3d vecTOD{1000_km, 2000_km, 3000_km};
+        Vector3d vecGTOD;
+        aNutationMethodSet(ENutationMethod::eIAU1980);
+        aTODToGTOD(tp, vecTOD, vecGTOD);
+        EXPECT_NEAR(vecGTOD[0], 1000.0924809063526482_km, 1e-9);
+        EXPECT_NEAR(vecGTOD[1], 2000.0924808732393103_km, 1e-9);
+        EXPECT_NEAR(vecGTOD[2], 3000.0924808732393103_km, 1e-9);
+        printf("vecGTOD: %.15f, %.15f, %.15f\n", vecGTOD[0], vecGTOD[1], vecGTOD[2]);
+    }
+}
+
 GTEST_MAIN()

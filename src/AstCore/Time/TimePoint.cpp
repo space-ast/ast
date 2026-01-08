@@ -38,6 +38,11 @@ namespace{
     static const DateTime epochTAIDateTime{2000,1,1,12,0,0};
 }
 
+void aTimePointToUTC(const TimePoint &time, JulianDate &jdUTC)
+{
+    aTimePointToTAI(time, jdUTC);
+    aTAIToUTC(jdUTC, jdUTC);
+}
 
 void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 {
@@ -61,6 +66,13 @@ void aTimePointToTAI(const TimePoint &time, JulianDate &jdTAI)
     jdTAI.day() += day1 + day2;
     jdTAI.second() += sec1 + sec2;
 }
+
+void aTimePointToUT1(const TimePoint &time, JulianDate &jdUT1)
+{
+    aTimePointToUTC(time, jdUT1);
+    aUTCToUT1(jdUT1, jdUT1);
+}
+
 
 void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
 {

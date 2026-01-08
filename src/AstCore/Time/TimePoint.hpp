@@ -42,7 +42,7 @@ class UTCScale;
 
 class TimePoint;
 
-/// @brief 将时间点转换为儒略日数（UTC）
+/// @brief 将时间点转换为儒略日数（协调世界时 UTC）
 AST_CORE_API void aTimePointToUTC(const TimePoint& time, JulianDate& jdUTC);
 
 /// @brief 将时间点转换为儒略日数（地球时TT）
@@ -54,7 +54,10 @@ AST_CORE_API void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB);
 /// @brief 将时间点转换为儒略日数（原子时 TAI）
 AST_CORE_API void aTimePointToTAI(const TimePoint& time, JulianDate& jdTAI);
 
-/// @brief 将时间点转换为日期时间（UTC）
+/// @brief 将时间点转换为儒略日数（世界时 UT1）
+AST_CORE_API void aTimePointToUT1(const TimePoint& time, JulianDate& jdUT1);
+
+/// @brief 将时间点转换为日期时间（协调世界时 UTC）
 AST_CORE_API void aTimePointToUTC(const TimePoint& time, DateTime& dttmUTC);
 
 /// @brief 将时间点转换为日期时间（地球时TT）
@@ -65,6 +68,10 @@ AST_CORE_API void aTimePointToTDB(const TimePoint& time, DateTime& dttmTDB);
 
 /// @brief 将时间点转换为日期时间（原子时 TAI）
 AST_CORE_API void aTimePointToTAI(const TimePoint& time, DateTime& dttmTAI);
+
+/// @brief 将时间点转换为日期时间（世界时 UT1）
+AST_CORE_API void aTimePointToUT1(const TimePoint& time, DateTime& dttmUT1);
+
 
 /// @brief 绝对时间点
 class TimePoint
@@ -101,7 +108,7 @@ public:
 public:
     /// @brief 计算时间点与 J2000  epoch 的时间差（天）
     double daysFromJ2000TT() const{
-        return ((double)integerPart() / kSecPerDay) + (fractionalPart() + kTTMinusTAI) / kSecPerDay;
+        return ((double)integerPart() / kSecondsPerDay) + (fractionalPart() + kTTMinusTAI) / kSecondsPerDay;
     }
 
     /// @brief 计算时间点与 J2000  epoch 的时间差（儒略世纪）

@@ -28,6 +28,36 @@ class TimePoint;
 class Rotation;
 class KinematicRotation;
 
+
+/*
+ * 
+ * 坐标系定义：
+ * 
+ * ECI(Earth Centered Inertial Frame): 地球惯性系，根据相关的配置，ECI可能为ICRF或J2000
+ * ICRF(International Celestial Reference Frame): 国际天球参考系
+ * J2000: 地球时(TT)2000年1月1日12时0分0秒的地球平赤道系
+ * MOD(Mean of Date): 平赤道系，考虑岁差
+ * TOD(True of Date): 真赤道系，考虑岁差和章动
+ * GTOD(Greenwich True of Date): 格林尼治真赤道系，XY平面为赤道平面，正X轴指向本初子午线，随地球旋转
+ *      参考NASA文档：https://science-data.larc.nasa.gov/LITE/level1doc/gtod.html
+ *      其又称为：
+ *      - TDR(True of Date Rotating frame) 旋转真赤道系，参考orekit文档: https://www.orekit.org/site-orekit-12.0/apidocs/org/orekit/frames/GTODProvider.html
+ *      - GCR(Greenwich Rotating Coordinate frame) 格林尼治旋转系，参考orekit文档
+ *      - PEF(Pseudo Earth-fixed) 伪地球固连系，参考 Kayhan Space: https://app.kayhan.io/docs/data-standards/reference-frames/
+ *      - EFG(Earth-Fixed Greenwich) 地球固连格林尼治系，参考 Kayhan Space
+ *      
+ * ECF(Earth Centered Fixed Frame): 地球固连系，在GTOD基础上考虑了极移
+ * 
+ */
+
+
+
+
+//----------------
+// ECI -> ECF
+//----------------
+
+
 /// @brief     从ECI转换为ECF的坐标旋转变换
 /// @details   ~
 /// @param     tp  时间点
@@ -51,6 +81,9 @@ AST_CORE_API err_t aECIToECFTransform(const TimePoint& tp, KinematicRotation& ro
 /// @return    err_t  错误码
 AST_CORE_CAPI err_t aECIToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 
+//----------------
+// J2000 -> ECF
+//----------------
 
 /// @brief     从J2000转换为ECF的坐标旋转变换
 /// @details   ~
@@ -77,6 +110,10 @@ AST_CORE_API err_t aJ2000ToECFTransform(const TimePoint& tp, KinematicRotation& 
 AST_CORE_API err_t aJ2000ToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
+//----------------
+// ICRF -> ECF
+//----------------
+
 
 /// @brief     从ICRF转换为ECF的坐标旋转变换
 /// @details   ~
@@ -100,6 +137,11 @@ AST_CORE_API err_t aICRFToECFTransform(const TimePoint& tp, KinematicRotation& r
 /// @param     matrix  坐标转换矩阵
 /// @return    err_t  错误码
 AST_CORE_CAPI err_t aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+//----------------
+// J2000 -> MOD
+//----------------
 
 
 /// @brief     从J2000转换为MOD的坐标旋转变换
@@ -128,6 +170,11 @@ AST_CORE_CAPI void aJ2000ToMODMatrix(const TimePoint& tp, Matrix3d& matrix);
 AST_CORE_CAPI void aJ2000ToMOD(const TimePoint& tp, const Vector3d& vecJ2000, Vector3d& vecMOD); 
 
 
+//----------------
+// MOD -> TOD
+//----------------
+
+
 /// @brief     从MOD转换为TOD的坐标旋转变换
 /// @details   ~
 /// @param     tp  时间点
@@ -151,6 +198,41 @@ AST_CORE_CAPI void aMODToTODMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     vecTOD  TOD坐标
 /// @return    err_t  错误码
 AST_CORE_CAPI void aMODToTOD(const TimePoint& tp, const Vector3d& vecMOD, Vector3d& vecTOD);
+
+
+
+
+//----------------
+// TOD -> GTOD
+//----------------
+
+
+/// @brief     从TOD转换为GTOD的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+/// @return    err_t  错误码
+AST_CORE_CAPI void aTODToGTODTransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从TOD转换为GTOD的坐标转换矩阵
+/// @details   ~
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+/// @return    err_t  错误码
+AST_CORE_CAPI void aTODToGTODMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+/// @brief     从TOD转换为GTOD的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecTOD  TOD坐标
+/// @param     vecGTOD  GTOD坐标
+/// @return    err_t  错误码
+AST_CORE_CAPI void aTODToGTOD(const TimePoint& tp, const Vector3d& vecTOD, Vector3d& vecGTOD);
+
+
+
 
 
 AST_NAMESPACE_END

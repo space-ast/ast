@@ -82,6 +82,9 @@ err_t aInitialize()
 err_t aUninitialize()
 {
     if (g_defaultGlobalContext) {
+        if (t_currentGlobalContext == g_defaultGlobalContext.get()) {
+            t_currentGlobalContext = nullptr;
+        }
         g_defaultGlobalContext = nullptr;
     }
     // 线程局部变量 t_currentGlobalContext 通常不需要在此处显式删除，

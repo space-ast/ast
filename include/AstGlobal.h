@@ -208,10 +208,10 @@ typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, pow
 typedef int err_t;           ///< 错误码类型
 typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不够)
 typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
-typedef uint32_t Color;      ///< 颜色值
-
+typedef uint32_t color_t;    ///< 颜色值
 
 #ifdef __cplusplus
+
 template<typename _Scalar, size_t N>
 class VectorN;
 
@@ -227,19 +227,20 @@ class StringViewBasic;
 
 typedef StringViewBasic<char>     StringView;
 
+class Color;                 ///< 颜色
 
-class Quaternion;
+class Quaternion;            ///< 四元数
 
-class Euler;
+class Euler;                 ///< 欧拉角
 
-class Object;
-class Class;
-using Type = Class;
+class Object;                ///< 对象
+class Class;                 ///< 类
+using Type = Class;          ///< 类型
 
-class AbsTime;
-class TimePoint;
-class JulianDate;
-class ModJulianDate;
+class AbsTime;              
+class TimePoint;            ///< 时间点
+class JulianDate;           ///< 儒略日
+class ModJulianDate;        ///< 简约儒略日
 
 class System;
 class Axes;

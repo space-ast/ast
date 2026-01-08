@@ -1,9 +1,9 @@
 ///
-/// @file      EOP.cpp
+/// @file      BKVSaxPrint.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-07
+/// @date      2026-01-08
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,35 +18,28 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "EOP.hpp"
-#include "AstUtil/StringView.hpp"
-#include "AstUtil/String.hpp"
-#include "AstUtil/IO.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "BKVSax.hpp"
 #include "AstUtil/ScopedPtr.hpp"
+#include <stdio.h>
 
 AST_NAMESPACE_BEGIN
 
-
-err_t EOP::load(StringView filepath)
+class AST_UTIL_API  BKVSaxPrint : public BKVSax
 {
-    return load(filepath, m_data);
-}
-
-err_t EOP::load(StringView filepath, std::vector<Entry>& data)
-{
-    // 打开文件
-    ScopedPtr<FILE> file = ast_fopen(filepath.data(), "r");
-    if (!file)
-    {
-        return eErrorInvalidFile; // 文件打开失败
-    }
-
-    // 清空数据容器
-    data.clear();
-
-    char line[256];
-    std::string str;
-    
-}
+public:
+    BKVSaxPrint();
+    BKVSaxPrint(StringView filepath);
+    ~BKVSaxPrint();
+    void begin(StringView name) override;
+    void end(StringView name) override;
+    void keyValue(StringView key, const GenericValue& value) override;
+protected:
+    FILE* file_;
+    int indent_;
+    int depth_;
+};
 
 AST_NAMESPACE_END

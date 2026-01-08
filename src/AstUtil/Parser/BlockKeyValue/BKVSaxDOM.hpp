@@ -1,10 +1,10 @@
 ///
-/// @file      Color.cpp
+/// @file      BKVSaxDOM.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2025-12-09
-/// @copyright 版权所有 (C) 2025-present, ast项目.
+/// @date      2026-01-08
+/// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -18,10 +18,20 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Color.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "BKVSax.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+/// @brief     键值对DOM树解析器（BlockKeyValueSaxDOM）
+/// @details   本类实现了键值对解析器，用于解析键值对格式的文本。
+class BKVSaxDOM : public BKVSax
+{
+public:
+    BKVSaxDOM() = default;
+    ~BKVSaxDOM() = default;
+};
 
 AST_NAMESPACE_END

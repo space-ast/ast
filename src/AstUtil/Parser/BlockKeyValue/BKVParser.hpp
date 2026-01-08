@@ -1,9 +1,9 @@
 ///
-/// @file      EOP.cpp
+/// @file      BlockKeyValueParser.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-07
+/// @date      2026-01-08
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,35 +18,34 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "EOP.hpp"
+#pragma once
+
+#include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
-#include "AstUtil/String.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstUtil/ScopedPtr.hpp"
+#include <stdio.h>
 
 AST_NAMESPACE_BEGIN
 
+class BKVSax;
 
-err_t EOP::load(StringView filepath)
+/// @brief 键值对解析器（BlockKeyValueParser）
+/// @details 本类实现了键值对解析器，用于解析键值对格式的文本。
+class AST_UTIL_API BKVParser 
 {
-    return load(filepath, m_data);
-}
-
-err_t EOP::load(StringView filepath, std::vector<Entry>& data)
-{
-    // 打开文件
-    ScopedPtr<FILE> file = ast_fopen(filepath.data(), "r");
-    if (!file)
-    {
-        return eErrorInvalidFile; // 文件打开失败
-    }
-
-    // 清空数据容器
-    data.clear();
-
-    char line[256];
-    std::string str;
+public:
+    BKVParser();
+    BKVParser(StringView filepath);
+    ~BKVParser();
     
-}
+    err_t parseFile(const StringView filepath, BKVSax& sax);
+    err_t parse(BKVSax& sax);
+protected:
+    void closeFile();
+    void openFile(StringView filepath);
+    FILE* getFile() const { return file_; }
+protected:
+    FILE* file_;
+};
+
 
 AST_NAMESPACE_END

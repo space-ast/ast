@@ -1,9 +1,9 @@
 ///
-/// @file      EOP.cpp
+/// @file      GenericValue.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-07
+/// @date      2026-01-08
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,35 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "EOP.hpp"
-#include "AstUtil/StringView.hpp"
-#include "AstUtil/String.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstUtil/ScopedPtr.hpp"
+#include "GenericValue.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-err_t EOP::load(StringView filepath)
-{
-    return load(filepath, m_data);
-}
-
-err_t EOP::load(StringView filepath, std::vector<Entry>& data)
-{
-    // 打开文件
-    ScopedPtr<FILE> file = ast_fopen(filepath.data(), "r");
-    if (!file)
-    {
-        return eErrorInvalidFile; // 文件打开失败
-    }
-
-    // 清空数据容器
-    data.clear();
-
-    char line[256];
-    std::string str;
-    
-}
 
 AST_NAMESPACE_END

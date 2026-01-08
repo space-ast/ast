@@ -22,6 +22,7 @@
  
 #include "AstGlobal.h"
 #include "Duration.hpp"
+#include "AstUtil/Constants.h"
  
 AST_NAMESPACE_BEGIN
 
@@ -70,6 +71,7 @@ AST_CORE_CAPI void aJDToDateTime(const JulianDate& jd, DateTime& dttm);
 
 /// @brief 儒略日
 /// @details 儒略日（Julian Date）是一种用于表示时间的方法，常用于天文学和计算机科学中。
+/// ast项目将其实现为整数天 + 小数秒的形式，保证数值精度
 class JulianDate
 {
 public:
@@ -122,11 +124,16 @@ public:
 public:
     /// @brief 获取小数部分的日数
     double dayFractional() const{
-        return second_ / 86400.0;
+        return second_ / kSecondsPerDay;
     }
     /// @brief 设置小数部分的日数
     void setDayFractional(double df){
-        second_ = df * 86400.0;
+        second_ = df * kSecondsPerDay;
+    }
+public:
+    /// @brief 计算儒略日与 J2000.0 历元的时间差（儒略世纪）
+    double julianCenturyFromJ2000() const{
+        return ((day_ - kJ2000Epoch) + dayFractional())/ kDaysPerJulianCentury;
     }
 public:
     JulianDate& operator += (double sec)

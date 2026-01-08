@@ -33,9 +33,38 @@ AST_NAMESPACE_BEGIN
 #define DJ00 (kJ2000Epoch)
 #define D2PI (kTwoPI)
 #define DPI (kPI)
+#define DAYSEC (kSecondsPerDay)
+#define DS2R (kTimeSecToRad)
 #define dsign(A,B) ((B)<0.0?-fabs(A):fabs(A))
 
 
+static double astAnpm(double a)
+{
+    /*
+    参考sofa库的 iauAnpm 函数
+    根据sofa库的许可证要求，衍生作品不能使用iau或sofa前缀作为函数名，故更改了函数前缀
+    */
+    double w;
+    w = fmod(a, D2PI);
+    if (fabs(w) >= DPI) w -= dsign(D2PI, a);
+
+    return w;
+}
+
+
+static double astAnp(double a)
+{
+    /*
+    参考sofa库的 iauAnpm 函数
+    根据sofa库的许可证要求，衍生作品不能使用iau或sofa前缀作为函数名，故更改了函数前缀
+    */
+    double w;
+
+    w = fmod(a, D2PI);
+    if (w < 0) w += D2PI;
+
+    return w;
+}
 
 void aPrecession_IAU1976(double t, double &zeta, double &z, double &theta)
 {
@@ -86,18 +115,6 @@ double aMeanObliquity_IAU1980(double t)
 
 
 
-static double astAnpm(double a)
-{
-    /*
-    参考sofa库的 iauAnpm 函数
-    根据sofa库的许可证要求，衍生作品不能使用iau或sofa前缀作为函数名，故更改了函数前缀
-    */
-    double w;
-    w = fmod(a, D2PI);
-    if (fabs(w) >= DPI) w -= dsign(D2PI, a);
-
-    return w;
-}
 
 void aNutation_IAU1980(double t, double &dpsi, double &deps)
 {
@@ -384,6 +401,33 @@ ENutationMethod aNutationMethodGet()
     else{
         return ENutationMethod::eUser;
     }
+}
+
+
+double aGMST_IAU1982(const TimePoint& tp)
+{
+/* Coefficients of IAU 1982 GMST-UT1 model */
+   double A = 24110.54841  -  DAYSEC / 2.0;
+   double B = 8640184.812866;
+   double C = 0.093104;
+   double D =  -6.2e-6;
+
+/* The first constant, A, has to be adjusted by 12 hours because the */
+/* UT1 is supplied as a Julian date, which begins at noon.           */
+
+   double d1, d2, t, f, gmst;
+
+
+/* Julian centuries since fundamental epoch. */
+   t = tp.julianCenturyFromJ2000TT(); //(d1 + (d2 - DJ00)) / DJC;
+
+/* Fractional part of JD(UT1), in seconds. */
+   f = DAYSEC * (fmod(d1, 1.0) + fmod(d2, 1.0));
+
+/* GMST at this UT1. */
+   gmst = astAnp(DS2R * ((A + (B + (C + D * t) * t) * t) + f));
+
+   return gmst;
 }
 
 AST_NAMESPACE_END

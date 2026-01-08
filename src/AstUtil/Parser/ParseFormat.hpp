@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Color.hpp"
 #include <string>
 
 

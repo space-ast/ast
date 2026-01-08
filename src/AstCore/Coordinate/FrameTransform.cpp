@@ -93,6 +93,23 @@ void aMODToTOD(const TimePoint &tp, const Vector3d &vecMOD, Vector3d &vecTOD)
     vecTOD = rotation.transformVector(vecMOD);
 }
 
+// TOD -> GTOD 转换
+
+void aTODToGTODTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aTODToGTODMatrix(tp, rotation.getMatrix());
+}
+
+void aTODToGTODMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+}
+
+void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, Vector3d &vecGTOD)
+{
+    Rotation rotation;
+    aTODToGTODTransform(tp, rotation);
+    vecGTOD = rotation.transformVector(vecTOD);
+}
 
 AST_NAMESPACE_END
 
