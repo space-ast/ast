@@ -66,6 +66,19 @@ static double astAnp(double a)
     return w;
 }
 
+/// @brief IAU Resolution C7 
+/// @param om 
+/// @return 
+inline double aIAUResolutionC7(double om)
+{
+    /*
+    参考SOFA函数 iauEqeq94
+    */
+
+    return DAS2R*(0.00264*sin(om) + 0.000063*sin(om+om));
+}
+
+
 void aPrecession_IAU1976(double t, double &zeta, double &z, double &theta)
 {
 
@@ -116,7 +129,7 @@ double aMeanObliquity_IAU1980(double t)
 
 
 
-void aNutation_IAU1980(double t, double &dpsi, double &deps)
+void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr)
 {
 
     /*
@@ -337,6 +350,9 @@ void aNutation_IAU1980(double t, double &dpsi, double &deps)
 /* Convert results from 0.1 mas units to radians. */
     dpsi = dp * U2R;
     deps = de * U2R;
+    if(eqecorr){
+        *eqecorr = aIAUResolutionC7(om);
+    }
 }
 
 
@@ -406,28 +422,74 @@ ENutationMethod aNutationMethodGet()
 
 double aGMST_IAU1982(const TimePoint& tp)
 {
+    JulianDate jdUT1;
+    aTimePointToUT1(tp, jdUT1);
+    return aGMST_UT1_IAU1982(jdUT1);
+}
+
+double aGMST_UT1_IAU1982(const JulianDate &jdUT1)
+{
+    /*
+    参考SOFA函数 iauGmst82
+    */
+
 /* Coefficients of IAU 1982 GMST-UT1 model */
-   double A = 24110.54841  -  DAYSEC / 2.0;
-   double B = 8640184.812866;
-   double C = 0.093104;
-   double D =  -6.2e-6;
+    double A = 24110.54841  -  DAYSEC / 2.0;
+    double B = 8640184.812866;
+    double C = 0.093104;
+    double D =  -6.2e-6;
 
 /* The first constant, A, has to be adjusted by 12 hours because the */
 /* UT1 is supplied as a Julian date, which begins at noon.           */
 
-   double d1, d2, t, f, gmst;
-
+    double t, f, gmst;
 
 /* Julian centuries since fundamental epoch. */
-   t = tp.julianCenturyFromJ2000TT(); //(d1 + (d2 - DJ00)) / DJC;
+    t = jdUT1.julianCenturyFromJ2000(); //(d1 + (d2 - DJ00)) / DJC;
 
 /* Fractional part of JD(UT1), in seconds. */
-   f = DAYSEC * (fmod(d1, 1.0) + fmod(d2, 1.0));
+    f = jdUT1.second();
 
 /* GMST at this UT1. */
-   gmst = astAnp(DS2R * ((A + (B + (C + D * t) * t) * t) + f));
+    gmst = astAnp(DS2R * ((A + (B + (C + D * t) * t) * t) + f));
 
-   return gmst;
+    return gmst;
+}
+
+
+double aEquationOfEquinoxes_IAU1994(double t)
+{
+    /*
+    参考SOFA函数 iauEqeq94
+    */
+    double dpsi,  deps,  eps0, ee, eqecorr;
+
+/* Interval between fundamental epoch J2000.0 and given date (JC). */
+   // t = ((date1 - DJ00) + date2) / DJC;
+
+/* Nutation components and mean obliquity. */
+   aNutation_IERS1996(t, dpsi, deps, &eqecorr);
+   eps0 = aMeanObliquity_IAU1980(t);
+
+/* Equation of the equinoxes. */
+   ee = dpsi*cos(eps0) + eqecorr;
+
+   return ee;
+
+}
+
+double aGAST_IAU1994(const TimePoint &tp)
+{
+    /*
+    参考SOFA函数 iauGst94
+    */
+    double gmst82, eqeq94, gst;
+
+    gmst82 = aGMST_IAU1982(tp);
+    eqeq94 = aEquationOfEquinoxes_IAU1994(tp);
+    gst = astAnp(gmst82  + eqeq94);
+
+    return gst;
 }
 
 AST_NAMESPACE_END

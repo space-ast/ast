@@ -64,7 +64,7 @@ err_t JplDe::openDefault()
 err_t EOP::loadDefault()
 {
     fs::path filepath = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_EOP;
-    err_t err = load(filepath.string(), m_data);
+    err_t err = load(filepath.string());
     if (err)
     {
         aWarning("failed to load eop from default data file:\n%s", filepath.string().c_str());
@@ -239,6 +239,12 @@ void aGlobalContext_SetCurrent(GlobalContext* context)
     t_currentGlobalContext = context;
 }
 
+EOP * aGlobalContext_GetEOP()
+{
+    auto context = aGlobalContext_Ensure();
+    return context->eop();
+}
+
 GlobalContext* aGlobalContext_New()
 {
     return new GlobalContext{};
@@ -247,14 +253,12 @@ GlobalContext* aGlobalContext_New()
 double aLeapSecondUTC(double jdUTC)
 {
     auto context = aGlobalContext_Ensure();
-    assert(context);
     return context->leapSecond()->leapSecondUTC(jdUTC);
 }
 
 double aLeapSecondUTCMJD(double mjdUTC)
 {
     auto context = aGlobalContext_Ensure();
-    assert(context);
     return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
 
@@ -269,7 +273,6 @@ err_t aJplDeGetPosVelICRF(
 )
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     return context->jplDe()->getPosVelICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos, vel);
 }
 
@@ -281,36 +284,49 @@ err_t aJplDeGetPosICRF(
 )
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
 }
 
 err_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     return context->jplDe()->getNutation(time, dpsi, deps);
 }
 
 err_t aJplDeOpen(const char *filepath)
 {
     auto context = aGlobalContext_Ensure();
-    //assert(context);
     return context->jplDe()->open(filepath);
 }
 
 void aJplDeClose()
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     context->jplDe()->close();
 }
 
 double aUT1MinusUTC_UTC(const JulianDate &jdUTC)
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
-    return context->eop()->ut1MinusUTC_UTC(jdUTC);
+    return context->eop()->getUT1MinusUTC_UTC(jdUTC);
+}
+
+void aPoleMotion(const TimePoint &tp, double &x, double &y)
+{
+    auto context = aGlobalContext_Ensure();
+    context->eop()->getPoleMotion(tp, x, y);
+}
+
+void aPoleMotionUTC(const JulianDate &jdUTC, double &x, double &y)
+{
+    auto context = aGlobalContext_Ensure();
+    context->eop()->getPoleMotionUTC(jdUTC, x, y);
+}
+
+double aLOD(const TimePoint &tp)
+{
+    auto context = aGlobalContext_Ensure();
+    return context->eop()->getLOD(tp);
 }
 
 AST_NAMESPACE_END

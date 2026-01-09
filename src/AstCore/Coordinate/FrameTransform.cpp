@@ -20,9 +20,11 @@
 
 #include "FrameTransform.hpp"
 #include "AstMath/Rotation.hpp"
+#include "AstMath/KinematicRotation.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/Euler.hpp"
 #include "AstCore/RunTime.hpp"
+#include "AstUtil/Math.hpp"
 #include "SOFA.hpp"
 
 // #define AST_DEBUG_FRAME 1
@@ -100,8 +102,15 @@ void aTODToGTODTransform(const TimePoint &tp, Rotation &rotation)
     return aTODToGTODMatrix(tp, rotation.getMatrix());
 }
 
+void aTODToGTODTransform(const TimePoint &tp, KinematicRotation &rotation)
+{
+    aTODToGTODTransform(tp, rotation.getRotation());
+}
+
 void aTODToGTODMatrix(const TimePoint &tp, Matrix3d &matrix)
 {
+    double gast = aGAST_IAU1994(tp);
+    aRotationZMatrix(gast, matrix);
 }
 
 void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, Vector3d &vecGTOD)
@@ -109,6 +118,62 @@ void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, Vector3d &vecGTOD)
     Rotation rotation;
     aTODToGTODTransform(tp, rotation);
     vecGTOD = rotation.transformVector(vecTOD);
+}
+
+void aGTODToECFTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aGTODToECFMatrix(tp, rotation.getMatrix());
+}
+
+A_ALWAYS_INLINE double poleMotionS(const TimePoint &tp)
+{
+    const double S_PRIME_RATE = -47e-6 * kArcSecToRad;
+    return S_PRIME_RATE * tp.julianCenturyFromJ2000TT();
+}
+struct SXY{
+    double s, x, y;
+};
+
+#if 0
+static void aPoleMotionMatrix_1(const SXY& sxy, Matrix3d &matrix)
+{
+    double cosx, sinx, cosy, siny;
+    sincos(sxy.x, &sinx, &cosx);
+    sincos(sxy.y, &siny, &cosy);
+    matrix= {
+        cosx, sinx * siny, sinx * cosy,
+        0, cosy, -siny,
+        -sinx, cosx*siny,cosx*cosy
+    };
+}
+
+static void aPoleMotionMatrix_2(const SXY& sxy, Matrix3d &matrix)
+{
+    aEuler321ToMatrix({0, -sxy.x, -sxy.y}, matrix);
+}
+#endif
+
+static void aPoleMotionMatrix_3(const SXY& sxy, Matrix3d &matrix)
+{
+    aEuler321ToMatrix({sxy.s, -sxy.x, -sxy.y}, matrix);
+}
+
+void aGTODToECFMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    SXY sxy;
+    sxy.s = poleMotionS(tp);
+    aPoleMotion(tp, sxy.x, sxy.y);
+    // printf("sp = %.20g, x = %.20g, y = %.20g\n", sxy.s, sxy.x, sxy.y);
+    // aPoleMotionMatrix_1(sxy, matrix);
+    // aPoleMotionMatrix_2(sxy, matrix);
+    aPoleMotionMatrix_3(sxy, matrix);
+}
+
+void aGTODToECF(const TimePoint &tp, const Vector3d &vecGTOD, Vector3d &vecECF)
+{
+    Rotation rotation;
+    aGTODToECFTransform(tp, rotation);
+    vecECF = rotation.transformVector(vecGTOD);
 }
 
 AST_NAMESPACE_END

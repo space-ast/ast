@@ -44,6 +44,8 @@ public:
     /// @brief 获取旋转
     /// @return 旋转
     const Rotation& getRotation() const { return *this; }
+    Rotation& getRotation() { return *this; }
+
 
     /// @brief 设置旋转
     /// @param rot 旋转

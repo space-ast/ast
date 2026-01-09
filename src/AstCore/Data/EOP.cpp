@@ -56,6 +56,13 @@ static err_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& d
             &entry.dx, &entry.dy,
             &entry.dat
         );
+        entry.x *= kArcSecToRad;
+        entry.y *= kArcSecToRad;
+        entry.dpsi *= kArcSecToRad;
+        entry.deps *= kArcSecToRad;
+        entry.dx *= kArcSecToRad;
+        entry.dy *= kArcSecToRad;
+
         if(status!=13){
             aError("parse line %d failed, status=%d", parser.getCurrentLine(), status);
             return eErrorParse;
@@ -134,20 +141,43 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
     return eNoError;
 }
 
-double EOP::ut1MinusUTC(const TimePoint &tp) const
+const EOP::Entry *EOP::getEntry(int mjd) const
+{
+    size_t index = 0;
+    double frac = 0.0;
+    findEntryIndex(mjd, index, frac);
+    if(index < 0 || index >= m_data.size() - 1){
+        return nullptr;
+    }
+    return &m_data[index];
+}
+
+err_t EOP::setEntry(int mjd, const Entry &entry)
+{
+    size_t index = 0;
+    double frac = 0.0;
+    findEntryIndex(mjd, index, frac);
+    if(index < 0 || index >= m_data.size() - 1){
+        return eErrorInvalidParam;
+    }
+    m_data[index] = entry;
+    return eNoError;
+}
+
+double EOP::getUT1MinusUTC(const TimePoint &tp) const
 {
     JulianDate jdUTC;
     aTimePointToUTC(tp, jdUTC);
-    return ut1MinusUTC_UTC(jdUTC);
+    return getUT1MinusUTC_UTC(jdUTC);
 }
 
-double EOP::ut1MinusUTC_UTC(const JulianDate &jdUTC) const
+double EOP::getUT1MinusUTC_UTC(const JulianDate &jdUTC) const
 {
     double mjd = aJDToMJD_Imprecise(jdUTC);
-    return ut1MinusUTC_UTCMJD(mjd);
+    return getUT1MinusUTC_UTCMJD(mjd);
 }
 
-double EOP::ut1MinusUTC_UTCMJD(double mjdUTC) const
+double EOP::getUT1MinusUTC_UTCMJD(double mjdUTC) const
 {
     size_t index = 0;
     double frac = 0.0;
@@ -156,9 +186,60 @@ double EOP::ut1MinusUTC_UTCMJD(double mjdUTC) const
         return 0.0;
     }
     if(index >= m_data.size() - 1){
-        return m_data[index].ut1_utc;
+        return 0.0; 
     }
-    return m_data[index].ut1_utc + frac * (m_data[index+1].ut1_utc - m_data[index].ut1_utc);
+    return getValue<&Entry::ut1_utc>(index, frac);
+}
+
+void EOP::getPoleMotion(const TimePoint &tp, double &x, double &y) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getPoleMotionUTC(jdUTC, x, y);
+}
+
+void EOP::getPoleMotionUTC(const JulianDate &jdUTC, double &x, double &y) const
+{
+    double mjdUTC = aJDToMJD_Imprecise(jdUTC);
+    return getPoleMotionUTCMJD(mjdUTC, x, y);
+}
+
+void EOP::getPoleMotionUTCMJD(double mjdUTC, double &x, double &y) const
+{
+    size_t index = 0;
+    double frac = 0.0;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0 || index >= m_data.size() - 1){
+        x = 0.0;
+        y = 0.0;
+        return;
+    }
+    x = getValue<&Entry::x>(index, frac);
+    y = getValue<&Entry::y>(index, frac);
+}
+
+double EOP::getLOD(const TimePoint &tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getLOD_UTC(jdUTC);
+}
+
+double EOP::getLOD_UTC(const JulianDate &jdUTC) const
+{
+    double mjdUTC = aJDToMJD_Imprecise(jdUTC);
+    return getLOD_UTCMJD(mjdUTC);
+}
+
+double EOP::getLOD_UTCMJD(double mjdUTC) const
+{
+    size_t index = 0;
+    double frac = 0.0;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0 || index >= m_data.size() - 1){
+        return 0.0;
+    }
+    return getValue<&Entry::lod>(index, frac);
 }
 
 void EOP::findEntryIndex(double mjdUTC, size_t &index, double &frac) const

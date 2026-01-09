@@ -89,16 +89,14 @@ AST_CORE_CAPI err_t aECIToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
-/// @return    err_t  错误码
-AST_CORE_API err_t aJ2000ToECFTransform(const TimePoint& tp, Rotation& rotation);
+AST_CORE_API void aJ2000ToECFTransform(const TimePoint& tp, Rotation& rotation);
 
 
 /// @brief     从J2000转换为ECF的坐标旋转变换
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换，带角速度信息
-/// @return    err_t  错误码
-AST_CORE_API err_t aJ2000ToECFTransform(const TimePoint& tp, KinematicRotation& rotation);
+AST_CORE_API void aJ2000ToECFTransform(const TimePoint& tp, KinematicRotation& rotation);
 
 
 
@@ -106,8 +104,7 @@ AST_CORE_API err_t aJ2000ToECFTransform(const TimePoint& tp, KinematicRotation& 
 /// @details   ~
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
-/// @return    err_t  错误码
-AST_CORE_API err_t aJ2000ToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+AST_CORE_API void aJ2000ToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
 //----------------
@@ -119,24 +116,21 @@ AST_CORE_API err_t aJ2000ToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
-/// @return    err_t  错误码
-AST_CORE_API err_t aICRFToECFTransform(const TimePoint& tp, Rotation& rotation);
+AST_CORE_API void aICRFToECFTransform(const TimePoint& tp, Rotation& rotation);
 
 
 /// @brief     从ICRF转换为ECF的坐标旋转变换
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换，带角速度信息
-/// @return    err_t  错误码
-AST_CORE_API err_t aICRFToECFTransform(const TimePoint& tp, KinematicRotation& rotation);
+AST_CORE_API void aICRFToECFTransform(const TimePoint& tp, KinematicRotation& rotation);
 
 
 /// @brief     从ICRF转换为ECF的坐标转换矩阵
 /// @details   ~
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
-/// @return    err_t  错误码
-AST_CORE_CAPI err_t aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+AST_CORE_CAPI void aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
 //----------------
@@ -148,7 +142,6 @@ AST_CORE_CAPI err_t aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
-/// @return    err_t  错误码
 AST_CORE_CAPI void aJ2000ToMODTransform(const TimePoint& tp, Rotation& rotation);
 
 
@@ -156,7 +149,6 @@ AST_CORE_CAPI void aJ2000ToMODTransform(const TimePoint& tp, Rotation& rotation)
 /// @details   ~
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
-/// @return    err_t  错误码
 AST_CORE_CAPI void aJ2000ToMODMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
@@ -166,7 +158,6 @@ AST_CORE_CAPI void aJ2000ToMODMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     tp  时间点
 /// @param     vecJ2000  J2000坐标
 /// @param     vecMOD  MOD坐标
-/// @return    err_t  错误码
 AST_CORE_CAPI void aJ2000ToMOD(const TimePoint& tp, const Vector3d& vecJ2000, Vector3d& vecMOD); 
 
 
@@ -179,7 +170,6 @@ AST_CORE_CAPI void aJ2000ToMOD(const TimePoint& tp, const Vector3d& vecJ2000, Ve
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
-/// @return    err_t  错误码
 AST_CORE_CAPI void aMODToTODTransform(const TimePoint& tp, Rotation& rotation);
 
 
@@ -187,7 +177,6 @@ AST_CORE_CAPI void aMODToTODTransform(const TimePoint& tp, Rotation& rotation);
 /// @details   ~
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
-/// @return    err_t  错误码
 AST_CORE_CAPI void aMODToTODMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
@@ -196,7 +185,6 @@ AST_CORE_CAPI void aMODToTODMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     tp  时间点
 /// @param     vecMOD  MOD坐标
 /// @param     vecTOD  TOD坐标
-/// @return    err_t  错误码
 AST_CORE_CAPI void aMODToTOD(const TimePoint& tp, const Vector3d& vecMOD, Vector3d& vecTOD);
 
 
@@ -211,16 +199,21 @@ AST_CORE_CAPI void aMODToTOD(const TimePoint& tp, const Vector3d& vecMOD, Vector
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
-/// @return    err_t  错误码
-AST_CORE_CAPI void aTODToGTODTransform(const TimePoint& tp, Rotation& rotation);
+AST_CORE_API void aTODToGTODTransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从TOD转换为GTOD的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换，带角速度信息
+AST_CORE_API void aTODToGTODTransform(const TimePoint& tp, KinematicRotation& rotation);
 
 
 /// @brief     从TOD转换为GTOD的坐标转换矩阵
 /// @details   ~
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
-/// @return    err_t  错误码
-AST_CORE_CAPI void aTODToGTODMatrix(const TimePoint& tp, Matrix3d& matrix);
+AST_CORE_API void aTODToGTODMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
 /// @brief     从TOD转换为GTOD的坐标转换
@@ -228,10 +221,35 @@ AST_CORE_CAPI void aTODToGTODMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     tp  时间点
 /// @param     vecTOD  TOD坐标
 /// @param     vecGTOD  GTOD坐标
-/// @return    err_t  错误码
 AST_CORE_CAPI void aTODToGTOD(const TimePoint& tp, const Vector3d& vecTOD, Vector3d& vecGTOD);
 
 
+//----------------
+// GTOD -> ECF
+//----------------
+
+
+/// @brief     从GTOD转换为ECF的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_CAPI void aGTODToECFTransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从GTOD转换为ECF的坐标转换矩阵
+/// @details   ~
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_CAPI void aGTODToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+
+/// @brief     从GTOD转换为ECF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecGTOD  GTOD坐标
+/// @param     vecECF  ECF坐标
+AST_CORE_CAPI void aGTODToECF(const TimePoint& tp, const Vector3d& vecGTOD, Vector3d& vecECF);
 
 
 

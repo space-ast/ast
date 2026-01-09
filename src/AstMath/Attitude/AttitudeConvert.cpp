@@ -35,40 +35,57 @@
 
 AST_NAMESPACE_BEGIN
 
-namespace
+
+
+err_t aRotationMatrix(double angle, int axis, Matrix3d &mtx)
 {
+	assert(Euler::eX <= axis && axis <= Euler::eZ);
 
-	err_t aEulerToMatrix(double angle, int axis, Matrix3d& mtx)
+	switch (axis)
 	{
-		assert(Euler::eX <= axis && axis <= Euler::eZ);
-
-		double c = cos(angle);
-		double s = sin(angle);
-		switch (axis)
-		{
-			case Euler::eX:
-				mtx(0, 0) = 1.0;	mtx(0, 1) = 0.0;	mtx(0, 2) = 0.0;
-				mtx(1, 0) = 0.0;	mtx(1, 1) = c;		mtx(1, 2) = s;
-				mtx(2, 0) = 0.0;	mtx(2, 1) = -s;		mtx(2, 2) = c;
-				return 0;
-			case Euler::eY:
-				mtx(0, 0) = c;		mtx(0, 1) = 0.0;	mtx(0, 2) = -s;
-				mtx(1, 0) = 0.0;	mtx(1, 1) = 1.0;	mtx(1, 2) = 0.0;
-				mtx(2, 0) = s;		mtx(2, 1) = 0.0;	mtx(2, 2) = c;
-				return 0;
-			case Euler::eZ:
-				mtx(0, 0) = c;		mtx(0, 1) = s;		mtx(0, 2) = 0.0;
-				mtx(1, 0) = -s;		mtx(1, 1) = c;		mtx(1, 2) = 0.0;
-				mtx(2, 0) = 0.0;	mtx(2, 1) = 0.0;	mtx(2, 2) = 1.0;
-				return 0;
-		}
-		// error: invalid parameter
-		aError("invalid axis: %d", axis);
-		return eErrorInvalidParam;
+		case Euler::eX:
+			aRotationXMatrix(angle, mtx);
+			return 0;
+		case Euler::eY:
+			aRotationYMatrix(angle, mtx);
+			return 0;
+		case Euler::eZ:
+			aRotationZMatrix(angle, mtx);
+			return 0;
 	}
-};
-// namespace end
- 
+	// error: invalid parameter
+	aError("invalid axis: %d", axis);
+	return eErrorInvalidParam;
+}
+
+void aRotationXMatrix(double angle, Matrix3d& mtx)
+{
+	double s, c;
+	sincos(angle, &s, &c);
+	mtx(0, 0) = 1.0;	mtx(0, 1) = 0.0;	mtx(0, 2) = 0.0;
+	mtx(1, 0) = 0.0;	mtx(1, 1) = c;		mtx(1, 2) = s;
+	mtx(2, 0) = 0.0;	mtx(2, 1) = -s;		mtx(2, 2) = c;
+}
+
+void aRotationYMatrix(double angle, Matrix3d& mtx)
+{
+	double s, c;
+	sincos(angle, &s, &c);
+	mtx(0, 0) = c;		mtx(0, 1) = 0.0;	mtx(0, 2) = -s;
+	mtx(1, 0) = 0.0;	mtx(1, 1) = 1.0;	mtx(1, 2) = 0.0;
+	mtx(2, 0) = s;		mtx(2, 1) = 0.0;	mtx(2, 2) = c;
+}
+
+
+void aRotationZMatrix(double angle, Matrix3d& mtx)
+{
+	double s, c;
+	sincos(angle, &s, &c);
+	mtx(0, 0) = c;		mtx(0, 1) = s;		mtx(0, 2) = 0.0;
+	mtx(1, 0) = -s;		mtx(1, 1) = c;		mtx(1, 2) = 0.0;
+	mtx(2, 0) = 0.0;	mtx(2, 1) = 0.0;	mtx(2, 2) = 1.0;
+}
+
 
 void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 {
@@ -206,15 +223,15 @@ err_t _aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx)
 	Matrix3d mat;
 
 	axis = seq / 100;
-	rc = aEulerToMatrix(euler.angle1(), axis, mtx);
+	rc = aRotationMatrix(euler.angle1(), axis, mtx);
 
 	seq = seq - axis * 100;
 	axis = seq / 10;
-	rc |= aEulerToMatrix(euler.angle2(), axis, mat);
+	rc |= aRotationMatrix(euler.angle2(), axis, mat);
 	mtx = mat * mtx;
 
 	seq = seq - axis * 10;
-	rc |= aEulerToMatrix(euler.angle3(), seq, mat);
+	rc |= aRotationMatrix(euler.angle3(), seq, mat);
 	mtx = mat * mtx;
 
 	return rc;
