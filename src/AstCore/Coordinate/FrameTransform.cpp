@@ -23,6 +23,8 @@
 #include "AstMath/KinematicRotation.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/Euler.hpp"
+#include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/Math.hpp"
 #include "SOFA.hpp"
@@ -32,6 +34,58 @@
 
 AST_NAMESPACE_BEGIN
 
+void aJ2000ToECFTransform(const TimePoint &tp, Rotation &rotation)
+{
+    aJ2000ToECFMatrix(tp, rotation.getMatrix());
+}
+
+void aJ2000ToECFTransform(const TimePoint & tp, KinematicRotation & rotationOut)
+{
+    KinematicRotation rotation;
+    KinematicRotation temp;
+    
+    aJ2000ToMODTransform(tp, rotation.getRotation());
+    
+    aMODToTODTransform(tp, temp.getRotation());
+    rotation.getRotation() *= temp.getRotation();
+
+    aTODToGTODTransform(tp, temp);
+    rotation.setRotationRate(temp.getRotationRate() * rotation.getRotation().getMatrix());
+    rotation.getRotation() *= temp.getRotation();
+
+    aGTODToECFTransform(tp, temp);
+    rotation.getRotation() *= temp.getRotation();
+
+    rotationOut = rotation;
+}
+
+void aJ2000ToECFMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    Rotation rotation;
+    Rotation temp;
+    aJ2000ToMODTransform(tp, rotation);
+    aMODToTODTransform(tp, temp);
+    rotation *= temp;
+    aTODToGTODTransform(tp, temp);
+    rotation *= temp;
+    aGTODToECFTransform(tp, temp);
+    rotation *= temp;
+    matrix = rotation.getMatrix();
+}
+
+void aJ2000ToECF(const TimePoint &tp, const Vector3d &vecJ2000, Vector3d &vecECF)
+{
+    Rotation rotation;
+    aJ2000ToECFTransform(tp, rotation);
+    rotation.transformVector(vecJ2000, vecECF);
+}
+
+void aJ2000ToECF(const TimePoint &tp, const Vector3d &vecJ2000, const Vector3d &velJ2000, Vector3d &vecECF, Vector3d &velECF)
+{
+    KinematicRotation rotation;
+    aJ2000ToECFTransform(tp, rotation);
+    rotation.transformVectorVelocity(vecJ2000, velJ2000, vecECF, velECF);
+}
 
 // J2000 -> MOD 转换
 
@@ -105,6 +159,9 @@ void aTODToGTODTransform(const TimePoint &tp, Rotation &rotation)
 void aTODToGTODTransform(const TimePoint &tp, KinematicRotation &rotation)
 {
     aTODToGTODTransform(tp, rotation.getRotation());
+    double lod = aLOD(tp);
+    double omp = kEarthAngVel * (1 - lod / kSecondsPerDay);
+    rotation.setRotationRate({0, 0, omp});
 }
 
 void aTODToGTODMatrix(const TimePoint &tp, Matrix3d &matrix)
@@ -118,6 +175,13 @@ void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, Vector3d &vecGTOD)
     Rotation rotation;
     aTODToGTODTransform(tp, rotation);
     vecGTOD = rotation.transformVector(vecTOD);
+}
+
+void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, const Vector3d &velTOD, Vector3d &vecGTOC, Vector3d &velGTOC)
+{
+    KinematicRotation rotation;
+    aTODToGTODTransform(tp, rotation);
+    rotation.transformVectorVelocity(vecTOD, velTOD, vecGTOC, velGTOC);
 }
 
 void aGTODToECFTransform(const TimePoint &tp, Rotation &rotation)

@@ -87,7 +87,7 @@ public:
     /// @param velocity 速度
     /// @param vectorOut 变换后的向量
     /// @param velocityOut 变换后的速度
-    void transformVectorVelocity(const Vector3d& vector, const Vector3d& velocity, Vector3d vectorOut, Vector3d& velocityOut) const;
+    void transformVectorVelocity(const Vector3d& vector, const Vector3d& velocity, Vector3d& vectorOut, Vector3d& velocityOut) const;
 
 
 protected:
@@ -108,10 +108,11 @@ A_ALWAYS_INLINE KinematicRotation KinematicRotation::inverse() const
     return retval;
 }
 
-A_ALWAYS_INLINE void KinematicRotation::transformVectorVelocity(const Vector3d &vector, const Vector3d &velocity, Vector3d vectorOut, Vector3d &velocityOut) const
+A_ALWAYS_INLINE void KinematicRotation::transformVectorVelocity(const Vector3d &vector, const Vector3d &velocity, Vector3d& vectorOut, Vector3d &velocityOut) const
 {
+    // 注意：这里要先计算velocityOut，防止vector和vectorOut地址相同时值被覆盖
+    velocityOut = this->matrix_ * (velocity - this->angvel_.cross(vector));
     vectorOut = this->matrix_ * vector;
-    velocityOut = this->matrix_ * velocity - this->angvel_.cross(vector);
 }
 
 AST_NAMESPACE_END

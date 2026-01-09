@@ -56,6 +56,9 @@ public:
     /// @return 错误码
     err_t load(StringView filepath);
 
+    /// @brief 卸载EOP数据
+    void unload();
+
     /// @brief 加载EOP数据
     /// @param filepath 文件路径
     /// @param data 数据容器

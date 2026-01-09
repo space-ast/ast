@@ -130,6 +130,29 @@ TEST_F(FrameTransformTest, TODToGTOD)
     }
 }
 
+
+TEST_F(FrameTransformTest, TODToGTODWithVelocity)
+{
+    aUninitialize(); // 不依赖EOP数据进行计算
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 9, 0, 0, 0);
+        Vector3d vecTOD{1000_km, 2000_km, 3000_km};
+        Vector3d velTOD{1000, 2000, 3000};
+        Vector3d vecGTOD;
+        Vector3d velGTOD;
+        aNutationMethodSet(ENutationMethod::eIAU1980);
+        aTODToGTOD(tp, vecTOD, velTOD, vecGTOD, velGTOD);
+        EXPECT_NEAR(vecGTOD[0], 1578.026663010245_km, 1e-7);
+        EXPECT_NEAR(vecGTOD[1], -1584.24488347879_km, 1e-7);
+        EXPECT_NEAR(vecGTOD[2], 3000.0_km, 1e-9);
+        EXPECT_NEAR(velGTOD[0], 1462.5017019144806, 1e-7);
+        EXPECT_NEAR(velGTOD[1], -1699.3164047797761, 1e-7);
+        EXPECT_NEAR(velGTOD[2], 3000, 1e-9);
+        printf("vecGTOD: %.15f, %.15f, %.15f\n", vecGTOD[0], vecGTOD[1], vecGTOD[2]);
+        printf("velGTOD: %.15f, %.15f, %.15f\n", velGTOD[0], velGTOD[1], velGTOD[2]);
+    }
+}
+
 void changeEOPData()
 {
     {
@@ -190,6 +213,64 @@ TEST_F(FrameTransformTest, GTODToECF)
         EXPECT_NEAR(vecECF[1], 19999.98797891128_km, 1e-2);
         EXPECT_NEAR(vecECF[2], 10000.01551651887_km, 1e-8);
         printf("vecECF: %.15f, %.15f, %.15f\n", vecECF[0], vecECF[1], vecECF[2]);
+    }
+}
+
+
+TEST_F(FrameTransformTest, J2000ToECF)
+{
+    aGlobalContext_GetEOP()->unload();
+    aNutationMethodSet(ENutationMethod::eJplDe);
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0);
+        Vector3d vecJ2000{1000_km, 2000_km, 3000_km};
+        Vector3d vecECF;
+        Vector3d vecMOD;
+        Vector3d vecTOD;
+        Vector3d vecGTOD;
+
+        aJ2000ToMOD(tp, vecJ2000, vecMOD);
+        printf("vecMOD: %.15f, %.15f, %.15f\n", vecMOD[0], vecMOD[1], vecMOD[2]);
+
+        aMODToTOD(tp, vecMOD, vecTOD);
+        printf("vecTOD: %.15f, %.15f, %.15f\n", vecTOD[0], vecTOD[1], vecTOD[2]);
+
+        aTODToGTOD(tp, vecTOD, vecGTOD);
+        printf("vecGTOD: %.15f, %.15f, %.15f\n", vecGTOD[0], vecGTOD[1], vecGTOD[2]);
+
+        aGTODToECF(tp, vecGTOD, vecECF);
+        printf("vecECF: %.15f, %.15f, %.15f\n", vecECF[0], vecECF[1], vecECF[2]);
+
+        aJ2000ToECF(tp, vecJ2000, vecECF);
+        printf("vecECF: %.15f, %.15f, %.15f\n", vecECF[0], vecECF[1], vecECF[2]);
+
+        EXPECT_NEAR(vecECF[0], 1789.5903328549421_km, 1e-3);
+        EXPECT_NEAR(vecECF[1], -1334.846725809680_km, 1e-3);
+        EXPECT_NEAR(vecECF[2], 3002.590657939792_km, 1e-8);
+    }
+
+}
+
+
+TEST_F(FrameTransformTest, J2000ToECFWithVelocity)
+{
+    aGlobalContext_GetEOP()->unload();
+    aNutationMethodSet(ENutationMethod::eJplDe);
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0);
+        Vector3d vecJ2000{1000_km, 2000_km, 3000_km};
+        Vector3d velJ2000{100_km/s, 200_km/s, 300_km/s};
+        Vector3d vecECF;
+        Vector3d velECF;
+        aJ2000ToECF(tp, vecJ2000, velJ2000, vecECF, velECF);
+        printf("vecECF: %.15f, %.15f, %.15f\n", vecECF[0], vecECF[1], vecECF[2]);
+        printf("velECF: %.15f, %.15f, %.15f\n", velECF[0], velECF[1], velECF[2]);
+        EXPECT_NEAR(vecECF[0], 1789.5903328549421_km, 1e-3);
+        EXPECT_NEAR(vecECF[1], -1334.846725809680_km, 1e-3);
+        EXPECT_NEAR(vecECF[2], 3002.590657939792_km, 1e-8);
+        EXPECT_NEAR(velECF[0], 178.86169472521609_km/s, 1e-4);
+        EXPECT_NEAR(velECF[1], -133.61517156869408_km/s, 1e-4);
+        EXPECT_NEAR(velECF[2], 300.25906579397923_km/s, 1e-8);
     }
 }
 

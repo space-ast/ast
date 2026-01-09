@@ -89,10 +89,7 @@ public:
 
     Self transpose() const;
     void transposeInPlace();
-    Self operator* (const Self& other) const;
     Self& operator*=(const Self& other);
-
-    Vector3d operator*(const Vector3d& other) const;
 
 public:
     Scalar data_[Row][Col];
@@ -120,26 +117,14 @@ A_ALWAYS_INLINE void MatrixMN<_Scalar, 3, 3>::transposeInPlace()
 }
 
 template <typename _Scalar>
-A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self MatrixMN<_Scalar, 3, 3>::operator*(const Self &other) const
-{
-    using namespace _AST math;
-    return math::operator*(*this, other);
-}
-
-template <typename _Scalar>
 A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self &MatrixMN<_Scalar, 3, 3>::operator*=(const Self &other)
 {
     using namespace _AST math;
-    *this = math::operator*(*this, other);
+    *this = operator*(*this, other);
     return *this;
 }
 
-template <typename _Scalar>
-A_ALWAYS_INLINE Vector3d MatrixMN<_Scalar, 3, 3>::operator*(const Vector3d &other) const
-{
-    using namespace _AST math;
-    return math::operator*(*this, other);
-}
+
 
 AST_NAMESPACE_END
 

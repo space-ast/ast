@@ -92,6 +92,13 @@ err_t EOP::load(StringView filepath)
     return err;
 }
 
+void EOP::unload()
+{
+    m_data.clear();
+    m_startMJD = 0.0;
+    m_endMJD = 0.0;
+}
+
 err_t EOP::load(StringView filepath, std::vector<Entry>& data)
 {
     BKVParser parser(filepath);
