@@ -589,4 +589,107 @@ TEST(OrbitElement, OrbitalConsistency) {
     }
 }
 
+/// @brief 测试Delaunay轨道根数与经典轨道根数之间的转换
+TEST(OrbitElement, DelaunayConversion)
+{
+    printf("测试: Delaunay轨道根数 ←→ 经典轨道根数\n");
+    
+    // 测试用例1：正常轨道
+    {
+        // 初始经典轨道根数
+        OrbElem coe_original = {
+            7000000.0,  // 长半轴 [m]
+            0.01,       // 偏心率
+            0.1,        // 轨道倾角 [rad]
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 转换到Delaunay轨道根数
+        DelaunayElem dela;
+        err_t err = aOrbElemToDelaunay(coe_original, GM, dela);
+        EXPECT_EQ(err, eNoError);
+        
+        // 转换回经典轨道根数
+        OrbElem coe_back;
+        err = aDelaunayToOrbElem(dela, GM, coe_back);
+        EXPECT_EQ(err, eNoError);
+        
+        // 验证转换精度
+        EXPECT_NEAR(coe_original.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_original.e(), coe_back.e(), EPS);
+        EXPECT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
+        
+        // 角度参数需要考虑模2π的情况
+        double raan_diff = fabs(coe_original.raan() - coe_back.raan());
+        if (raan_diff > kPI) raan_diff = 2 * kPI - raan_diff;
+        EXPECT_NEAR(raan_diff, 0.0, ANGLE_EPS);
+        
+        double argper_diff = fabs(coe_original.argper() - coe_back.argper());
+        if (argper_diff > kPI) argper_diff = 2 * kPI - argper_diff;
+        EXPECT_NEAR(argper_diff, 0.0, ANGLE_EPS);
+        
+        double trueA_diff = fabs(coe_original.trueA() - coe_back.trueA());
+        if (trueA_diff > kPI) trueA_diff = 2 * kPI - trueA_diff;
+        EXPECT_NEAR(trueA_diff, 0.0, ANGLE_EPS);
+    }
+    
+    // 测试用例2：近圆轨道
+    {
+        // 初始经典轨道根数（近圆轨道）
+        OrbElem coe_original = {
+            7000000.0,  // 长半轴 [m]
+            1e-7,       // 接近0的偏心率
+            0.1,        // 轨道倾角 [rad]
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 转换到Delaunay轨道根数
+        DelaunayElem dela;
+        err_t err = aOrbElemToDelaunay(coe_original, GM, dela);
+        EXPECT_EQ(err, eNoError);
+        
+        // 转换回经典轨道根数
+        OrbElem coe_back;
+        err = aDelaunayToOrbElem(dela, GM, coe_back);
+        EXPECT_EQ(err, eNoError);
+        
+        // 验证转换精度（近圆轨道）
+        EXPECT_NEAR(coe_original.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_original.e(), coe_back.e(), 1e-6); // 放宽偏心率精度要求
+        EXPECT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
+    }
+    
+    // 测试用例3：零倾角轨道
+    {
+        // 初始经典轨道根数（零倾角轨道）
+        OrbElem coe_original = {
+            7000000.0,  // 长半轴 [m]
+            0.01,       // 偏心率
+            0.0,        // 零轨道倾角
+            0.2,        // 升交点赤经 [rad]
+            0.3,        // 近拱点角 [rad]
+            0.4         // 真近点角 [rad]
+        };
+        
+        // 转换到Delaunay轨道根数
+        DelaunayElem dela;
+        err_t err = aOrbElemToDelaunay(coe_original, GM, dela);
+        EXPECT_EQ(err, eNoError);
+        
+        // 转换回经典轨道根数
+        OrbElem coe_back;
+        err = aDelaunayToOrbElem(dela, GM, coe_back);
+        EXPECT_EQ(err, eNoError);
+        
+        // 验证转换精度（零倾角轨道）
+        EXPECT_NEAR(coe_original.a(), coe_back.a(), EPS);
+        EXPECT_NEAR(coe_original.e(), coe_back.e(), EPS);
+        EXPECT_NEAR(coe_original.i(), coe_back.i(), ANGLE_EPS);
+    }
+}
+
 GTEST_MAIN()
