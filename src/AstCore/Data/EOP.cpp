@@ -126,7 +126,7 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
             // }else if(aEqualsIgnoreCase(item.key(), "UPDATED")){
             // 
             // }
-        }else if(token == BKVParser::eBegin){
+        }else if(token == BKVParser::eBlockBegin){
             // 块开始
             if(aEqualsIgnoreCase(item.value(), "OBSERVED")){
                 err_t err = loadEOP(parser, num_observed_points, datalist);
@@ -139,10 +139,10 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
                     return err;
                 }
             }
-        }else if(token == BKVParser::eEnd){
+        }else if(token == BKVParser::eBlockEnd){
             // 块结束
         }
-    }while(token != BKVParser::eError);
+    }while(token != BKVParser::eEOF);
 
     data = std::move(datalist);
     return eNoError;
@@ -247,6 +247,32 @@ double EOP::getLOD_UTCMJD(double mjdUTC) const
         return 0.0;
     }
     return getValue<&Entry::lod>(index, frac);
+}
+
+void EOP::getXYCorrection(const TimePoint &tp, array2d &xyCorrection) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getXYCorrectionUTC(jdUTC, xyCorrection);
+}
+
+void EOP::getXYCorrectionUTC(const JulianDate &jdUTC, array2d &xyCorrection) const
+{
+    double mjdUTC = aJDToMJD_Imprecise(jdUTC);
+    return getXYCorrectionUTCMJD(mjdUTC, xyCorrection);
+}
+
+void EOP::getXYCorrectionUTCMJD(double mjdUTC, array2d &xyCorrection) const
+{
+    size_t index = 0;
+    double frac = 0.0;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0 || index >= m_data.size() - 1){
+        xyCorrection = {0, 0};
+        return;
+    }
+    xyCorrection[0] = getValue<&Entry::dx>(index, frac);
+    xyCorrection[1] = getValue<&Entry::dy>(index, frac);
 }
 
 void EOP::findEntryIndex(double mjdUTC, size_t &index, double &frac) const

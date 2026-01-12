@@ -463,6 +463,21 @@ double aGMST_UT1_IAU1982(const JulianDate &jdUT1)
     return gmst;
 }
 
+double aGAST_IAU1994(const TimePoint &tp)
+{
+    /*
+    参考SOFA函数 iauGst94
+    */
+    double gmst82, eqeq94, gst;
+
+    gmst82 = aGMST_IAU1982(tp);
+    eqeq94 = aEquationOfEquinoxes_IAU1994(tp);
+    gst = astAnp(gmst82  + eqeq94);
+
+    return gst;
+}
+
+
 
 double aEquationOfEquinoxes_IAU1994(double t)
 {
@@ -485,18 +500,33 @@ double aEquationOfEquinoxes_IAU1994(double t)
 
 }
 
-double aGAST_IAU1994(const TimePoint &tp)
+double aEarthRotationAngle_IAU2000(const TimePoint &tp)
+{
+    JulianDate jdUT1;
+    aTimePointToUT1(tp, jdUT1);
+    return aEarthRotationAngleUT1_IAU2000(jdUT1);
+}
+
+double aEarthRotationAngleUT1_IAU2000(const JulianDate &jdUT1)
 {
     /*
-    参考SOFA函数 iauGst94
+    参考SOFA函数 iauEra00
     */
-    double gmst82, eqeq94, gst;
 
-    gmst82 = aGMST_IAU1982(tp);
-    eqeq94 = aEquationOfEquinoxes_IAU1994(tp);
-    gst = astAnp(gmst82  + eqeq94);
+    double t, f, theta;
 
-    return gst;
+    /* Days since fundamental epoch. */
+   
+    t = jdUT1.julianCenturyFromJ2000();
+
+    /* Fractional part of T (days). */
+    f = jdUT1.dayFractional();
+
+    /* Earth rotation angle at this UT1. */
+    theta = astAnp(D2PI * (f + 0.7790572732640
+                            + 0.00273781191135448 * t));
+
+    return theta;
 }
 
 AST_NAMESPACE_END

@@ -25,7 +25,32 @@
 AST_NAMESPACE_BEGIN
 
 
-/// @brief 章动理论所涉及的行星基本轨道参数
+class FundamentalArguments;
+
+
+/// @brief 计算IERS 2010年规范章动理论所涉及的行星基本轨道参数
+/// @details 
+/// 参考IERS技术手册36(IERS Technical Note 36)的公式5.43和公式5.44
+/// https://www.iers.org/IERS/EN/Publications/TechnicalNotes/TechnicalNotes
+/// @param t 儒略世纪数（Julian Century），以2000年1月1日12:00:00 TDB为基准
+/// @param fundargs 输出行星基本轨道参数
+AST_CORE_CAPI void aFundamentalArguments_IERS2010(double t, FundamentalArguments& fundargs);
+
+
+/// @brief 计算IERS 2003年规范章动理论所涉及的行星基本轨道参数
+/// @details 
+/// 参考IERS技术手册32(IERS Technical Note 32)的公式 40 和公式 41
+/// https://www.iers.org/IERS/EN/Publications/TechnicalNotes/TechnicalNotes
+/// @param t 儒略世纪数（Julian Century），以2000年1月1日12:00:00 TDB为基准
+/// @param fundargs 输出行星基本轨道参数
+AST_CORE_CAPI void aFundamentalArguments_IERS2003(double t, FundamentalArguments& fundargs);
+
+
+/// @brief 归一化章动理论所涉及的行星基本轨道参数的角度到[0, 2π)区间
+/// @param fundargs 输入输出行星基本轨道参数
+AST_CORE_CAPI void aFundamentalArgumentsNormalizeAngle0To2Pi(FundamentalArguments& fundargs);
+
+/// @brief IERS规范中章动理论所涉及的行星基本轨道参数
 class FundamentalArguments
 {
 public:

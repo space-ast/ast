@@ -293,5 +293,113 @@ AST_CORE_API void aICRFToECFTransform(const TimePoint& tp, KinematicRotation& ro
 AST_CORE_CAPI void aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 
 
+/// @brief     从ICRF转换为ECF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecICRF  ICRF坐标
+/// @param     vecECF  ECF坐标
+AST_CORE_CAPI void aICRFToECF(const TimePoint& tp, const Vector3d& vecICRF, Vector3d& vecECF);
+
+
+// ----------------
+// ICRF -> CIRF
+// ----------------
+
+
+/// @brief     从ICRF转换为CIRF的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_CAPI void aICRFToCIRFTransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从ICRF转换为CIRF的坐标转换矩阵
+/// @details   ~
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_CAPI void aICRFToCIRFMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+/// @brief     从ICRF转换为CIRF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecICRF  ICRF坐标
+/// @param     vecCIRF  CIRF坐标
+AST_CORE_CAPI void aICRFToCIRF(const TimePoint& tp, const Vector3d& vecICRF, Vector3d& vecCIRF);
+
+
+
+// ----------------
+// CIRF -> TIRF
+// ----------------
+
+/// @brief     从CIRF转换为TIRF的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_API void aCIRFToTIRFTransform(const TimePoint& tp, Rotation& rotation);
+
+/// @brief     从CIRF转换为TIRF的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换，带角速度信息
+AST_CORE_API void aCIRFToTIRFTransform(const TimePoint& tp, KinematicRotation& rotation);
+
+/// @brief     从CIRF转换为TIRF的坐标转换矩阵
+/// @details   ~
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_CAPI void aCIRFToTIRFMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+/// @brief     从CIRF转换为TIRF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecCIRF  CIRF坐标
+/// @param     vecTIRF  TIRF坐标
+AST_CORE_API void aCIRFToTIRF(const TimePoint& tp, const Vector3d& vecCIRF, Vector3d& vecTIRF);
+
+
+/// @brief     从CIRF转换为TIRF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecCIRF  CIRF坐标
+/// @param     velCIRF  CIRF速度
+/// @param     vecTIRF  TIRF坐标
+/// @param     velTIRF  TIRF速度
+AST_CORE_API void aCIRFToTIRF(
+    const TimePoint& tp, 
+     const Vector3d& vecCIRF, const Vector3d& velCIRF,
+     Vector3d& vecTIRF, Vector3d& velTIRF
+);
+
+
+// ----------------
+// TIRF -> ECF
+// ----------------
+
+
+/// @brief     从TIRF转换为ECF的坐标旋转变换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_CAPI void aTIRFToECFTransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从TIRF转换为ECF的坐标转换矩阵
+/// @details   ~
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_CAPI void aTIRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+/// @brief     从TIRF转换为ECF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecTIRF  TIRF坐标
+/// @param     vecECF  ECF坐标
+AST_CORE_CAPI void aTIRFToECF(const TimePoint& tp, const Vector3d& vecTIRF, Vector3d& vecECF);
+
+
+
 
 AST_NAMESPACE_END

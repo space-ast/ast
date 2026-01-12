@@ -184,6 +184,8 @@ void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, const Vector3d &vel
     rotation.transformVectorVelocity(vecTOD, velTOD, vecGTOC, velGTOC);
 }
 
+// GTOD -> ECF 转换
+
 void aGTODToECFTransform(const TimePoint &tp, Rotation &rotation)
 {
     return aGTODToECFMatrix(tp, rotation.getMatrix());
@@ -194,12 +196,13 @@ A_ALWAYS_INLINE double poleMotionS(const TimePoint &tp)
     const double S_PRIME_RATE = -47e-6 * kArcSecToRad;
     return S_PRIME_RATE * tp.julianCenturyFromJ2000TT();
 }
-struct SXY{
+
+struct PoleMotionSXY{
     double s, x, y;
 };
 
 #if 0
-static void aPoleMotionMatrix_1(const SXY& sxy, Matrix3d &matrix)
+static void aPoleMotionMatrix_1(const PoleMotionSXY& sxy, Matrix3d &matrix)
 {
     double cosx, sinx, cosy, siny;
     sincos(sxy.x, &sinx, &cosx);
@@ -211,20 +214,20 @@ static void aPoleMotionMatrix_1(const SXY& sxy, Matrix3d &matrix)
     };
 }
 
-static void aPoleMotionMatrix_2(const SXY& sxy, Matrix3d &matrix)
+static void aPoleMotionMatrix_2(const PoleMotionSXY& sxy, Matrix3d &matrix)
 {
     aEuler321ToMatrix({0, -sxy.x, -sxy.y}, matrix);
 }
 #endif
 
-static void aPoleMotionMatrix_3(const SXY& sxy, Matrix3d &matrix)
+static void aPoleMotionMatrix_3(const PoleMotionSXY& sxy, Matrix3d &matrix)
 {
     aEuler321ToMatrix({sxy.s, -sxy.x, -sxy.y}, matrix);
 }
 
 void aGTODToECFMatrix(const TimePoint &tp, Matrix3d &matrix)
 {
-    SXY sxy;
+    PoleMotionSXY sxy;
     sxy.s = poleMotionS(tp);
     aPoleMotion(tp, sxy.x, sxy.y);
     // printf("sp = %.20g, x = %.20g, y = %.20g\n", sxy.s, sxy.x, sxy.y);
@@ -238,6 +241,122 @@ void aGTODToECF(const TimePoint &tp, const Vector3d &vecGTOD, Vector3d &vecECF)
     Rotation rotation;
     aGTODToECFTransform(tp, rotation);
     vecECF = rotation.transformVector(vecGTOD);
+}
+
+// ICRF -> ECF 转换
+
+void aICRFToECFTransform(const TimePoint & tp, Rotation & rotation)
+{
+    return aICRFToECFMatrix(tp, rotation.getMatrix());
+}
+
+void aICRFToECFMatrix(const TimePoint & tp, Matrix3d & matrix)
+{
+    Rotation rotation;
+    Rotation temp;
+    aICRFToCIRFTransform(tp, rotation);
+    aCIRFToTIRFTransform(tp, temp);
+    rotation *= temp;
+    aTIRFToECFTransform(tp, temp);
+    rotation *= temp;
+    matrix = rotation.getMatrix();
+}
+
+void aICRFToECF(const TimePoint & tp, const Vector3d & vecICRF, Vector3d & vecECF)
+{
+    Rotation rotation;
+    aICRFToECFTransform(tp, rotation);
+    vecECF = rotation.transformVector(vecICRF);
+}
+
+
+
+// ICRF -> CIRF 转换
+
+void aICRFToCIRFTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aICRFToCIRFMatrix(tp, rotation.getMatrix());
+}
+
+
+/// @brief 根据xys值计算ICRF到CIRF的旋转矩阵
+/// @detail 参考SOFA库函数 iauC2ixys
+/// @param xys 
+/// @param matrix 
+static void aXYSMatrix_ICRFToCIRF(const array3d& xys, Matrix3d &matrix)
+{
+    /*
+    参考SOFA库函数 iauC2ixys
+    */
+
+    double r2, e, d;
+
+    double x = xys[0];
+    double y = xys[1];
+    double s = xys[2];
+
+    /* Obtain the spherical angles E and d. */
+    r2 = x*x + y*y;
+    e = (r2 > 0.0) ? atan2(y, x) : 0.0;
+    d = atan(sqrt(r2 / (1.0 - r2)));
+
+    /* Form the matrix. */
+    aEuler323ToMatrix({e, d, -(e+s)}, matrix);
+}
+
+void aICRFToCIRFMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    array3d xys;
+    aXYS(tp, xys);
+    aXYSMatrix_ICRFToCIRF(xys, matrix);
+}
+
+void aICRFToCIRF(const TimePoint &tp, const Vector3d &vecICRF, Vector3d &vecCIRF)
+{
+    Rotation rotation;
+    aICRFToCIRFTransform(tp, rotation);
+    vecCIRF = rotation.transformVector(vecICRF);
+}
+
+
+
+// CIRF -> TIRF 转换
+
+void aCIRFToTIRFTransform(const TimePoint & tp, Rotation & rotation)
+{
+    return aCIRFToTIRFMatrix(tp, rotation.getMatrix());
+}
+
+void aCIRFToTIRFMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    double angle = aEarthRotationAngle_IAU2000(tp);
+    aRotationZMatrix(angle, matrix);
+}
+
+void aCIRFToTIRF(const TimePoint & tp, const Vector3d & vecCIRF, Vector3d & vecTIRF)
+{
+    Rotation rotation;
+    aCIRFToTIRFTransform(tp, rotation);
+    vecTIRF = rotation.transformVector(vecCIRF);
+}
+
+// TIRF -> ECF 转换
+
+void aTIRFToECFTransform(const TimePoint & tp, Rotation & rotation)
+{
+    return aTIRFToECFMatrix(tp, rotation.getMatrix());
+}
+
+void aTIRFToECFMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    return aGTODToECFMatrix(tp, matrix);
+}
+
+void aTIRFToECF(const TimePoint & tp, const Vector3d & vecTIRF, Vector3d & vecECF)
+{
+    Rotation rotation;
+    aTIRFToECFTransform(tp, rotation);
+    vecECF = rotation.transformVector(vecTIRF);
 }
 
 AST_NAMESPACE_END

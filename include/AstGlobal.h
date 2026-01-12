@@ -41,7 +41,9 @@
 
 #include <stddef.h>         // for size_t
 #include <stdint.h>         // for uint32_t
-
+#ifdef __cplusplus
+#include <array>            // for array
+#endif
 
 // 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
 // 有些宏定义会改变项目的二进制接口(ABI)，使用不同宏定义编译的库文件互相不兼容
@@ -212,6 +214,12 @@ typedef uint32_t color_t;    ///< 颜色值
 typedef double real_t;       ///< 实数类型
 
 #ifdef __cplusplus
+
+typedef std::array<double, 6> array6d;
+typedef std::array<double, 4> array4d;
+typedef std::array<double, 3> array3d;
+typedef std::array<double, 2> array2d;
+
 
 template<typename _Scalar, size_t N>
 class VectorN;

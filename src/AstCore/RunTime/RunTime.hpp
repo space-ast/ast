@@ -183,6 +183,15 @@ A_ALWAYS_INLINE void aPoleMotion(const TimePoint& tp, PoleMotion& pm)
 AST_CORE_CAPI double aLOD(const TimePoint& tp);
 
 
+/// @brief 获取给定时间点的IAU XYS数据的修正项
+/// @param tp 时间点
+/// @param xyCorrection iau xys修正项
+AST_CORE_CAPI void aXYCorrection(const TimePoint& tp, array2d& xyCorrection);
+
+/// @brief 获取给定时间点的IAU XYS数据
+/// @param tp 时间点
+/// @param xys iau xys数据
+AST_CORE_CAPI void aXYS(const TimePoint& tp, array3d& xys);
 
 
 AST_NAMESPACE_END

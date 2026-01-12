@@ -40,10 +40,10 @@ class AST_UTIL_API BKVParser
 {
 public:
     enum EToken{
-        eBegin,         ///< 块开始
-        eEnd,           ///< 块结束
-        eKeyValue,      ///< 键值对
-        eError,         ///< 错误
+        eBlockBegin,         ///< 块开始
+        eBlockEnd,           ///< 块结束
+        eKeyValue,           ///< 键值对
+        eEOF,                ///< 文件结束
     };
 
     BKVParser();

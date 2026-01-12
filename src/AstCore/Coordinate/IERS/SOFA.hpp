@@ -193,6 +193,20 @@ A_ALWAYS_INLINE double aEquationOfEquinoxes_IAU1994(const TimePoint& tp)
 }
 
 
+/// @brief 计算给定时间点的地球自转角度，依据IAU2000规范
+/// @details 参考SOFA函数 iauEra00
+/// @param[in] tp 时间点
+/// @return 对应时间点的地球自转角度（弧度）
+AST_CORE_CAPI double aEarthRotationAngle_IAU2000(const TimePoint& tp);
+
+
+/// @brief 计算给定UT1时间的地球自转角度，依据IAU2000规范
+/// @details 参考SOFA函数 iauEra00
+/// @param[in] jdUT1 UT1时间（儒略日）
+/// @return 对应UT1时间的地球自转角度（弧度）
+AST_CORE_CAPI double aEarthRotationAngleUT1_IAU2000(const JulianDate& jdUT1);
+
+
 AST_NAMESPACE_END
 
 

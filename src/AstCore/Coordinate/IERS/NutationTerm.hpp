@@ -25,7 +25,8 @@
 AST_NAMESPACE_BEGIN
 
 
-
+/// @brief IERS 2003/2010 岁差章动模型XYS系数
+/// 参考 NutationSeries 类
 class NutationTerm
 {
 public:

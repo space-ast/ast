@@ -150,6 +150,29 @@ public:
     /// @return LOD值
     double getLOD_UTCMJD(double mjdUTC) const;
 
+
+    //----------------
+    // xy correction
+    //----------------
+
+    /// @brief 获取IAU XY修正项
+    /// @details 线性插值获取指定时间点的IAU XY修正项。
+    /// @param tp 时间点
+    /// @param xyCorrection 修正项
+    void getXYCorrection(const TimePoint& tp, array2d& xyCorrection) const;
+
+    /// @brief 获取IAU XY修正项（UTC）
+    /// @details 线性插值获取指定时间点的IAU XY修正项（UTC）。
+    /// @param jdUTC 时间点（UTC）
+    /// @param xyCorrection 修正项
+    void getXYCorrectionUTC(const JulianDate& jdUTC, array2d& xyCorrection) const;
+
+    /// @brief 获取IAU XY修正项（UTC）
+    /// @details 线性插值获取指定时间点的IAU XY修正项（UTC）。
+    /// @param mjdUTC 时间点（UTC）的MJD值
+    /// @param xyCorrection 修正项
+    void getXYCorrectionUTCMJD(double mjdUTC, array2d& xyCorrection) const;
+    
 protected:
     /// @brief 获取指定索引和插值系数的成员值
     /// @details 获取指定索引和插值系数的成员值，用于线性插值。

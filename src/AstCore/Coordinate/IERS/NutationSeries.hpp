@@ -28,7 +28,12 @@
 AST_NAMESPACE_BEGIN
 
 class BKVParser;
+class FundamentalArguments;
 
+/// @brief IERS 2003/2010 岁差章动模型XYS系数表
+/// @details 
+/// 参考IERS技术手册36的表5.2a 5.2b 5.2d
+/// 下载地址：ftp://tai.bipm.org
 class AST_CORE_API NutationSeries{
 public:
     /// @brief 从文件加载nutation series
@@ -46,8 +51,17 @@ public:
     /// @return err_t
     err_t loadIERS(StringView filepath);
 
+    /// @brief 根据系数表计算值
+    /// @param t 时间
+    /// @param args 章动理论所涉及的行星基本轨道参数
+    /// @return double
+    double eval(double t, const FundamentalArguments& fundargs) const;
 
-    double eval();
+    /// @brief 根据系数表计算值
+    /// @param tp 时间点
+    /// @param args 章动理论所涉及的行星基本轨道参数
+    /// @return double
+    double eval(const TimePoint& tp, const FundamentalArguments& fundargs) const;
 protected:
     
     err_t loadSTK(BKVParser& parser);

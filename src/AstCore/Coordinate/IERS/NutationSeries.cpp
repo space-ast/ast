@@ -19,7 +19,12 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "NutationSeries.hpp"
+#include "AstCore/FundamentalArguments.hpp"
+#include "AstCore/TimePoint.hpp"
 #include "AstUtil/BKVParser.hpp"
+#include "AstUtil/String.hpp"
+#include "AstUtil/Math.hpp"
+#include <numeric>
 
 AST_NAMESPACE_BEGIN
 
@@ -38,6 +43,8 @@ static err_t parseTerm(StringView line, int& index, NutationTerm &term)
         &term.nMe(), &term.nVe(), &term.nE(), &term.nMa(), &term.nJu(), 
         &term.nSa(), &term.nUr(), &term.nNe(), &term.nPa()
     );
+    term.sinCoeff() *= 1e-6 * kArcSecToRad;
+    term.cosCoeff() *= 1e-6 * kArcSecToRad;
     if(status != 17){
         return eErrorParse;
     }
@@ -53,7 +60,7 @@ static err_t parseJList(StringView line, int &j, int& numTerms)
 {
     int status = sscanf(
         line.data(), 
-        "j = %d %*[^0-9=] = %d", 
+        " j = %d %*[^0-9=] = %d", 
         &j, 
         &numTerms
     );
@@ -63,15 +70,38 @@ static err_t parseJList(StringView line, int &j, int& numTerms)
     return eNoError;
 }
 
+/// @brief     检查 nutation series 是否有效
+/// @details   ~
+/// @param     terms  
+/// @param     jlist 
+/// @return    是否有效
+static bool checkValid(const std::vector<NutationTerm>& terms, const std::vector<int>& jlist)
+{
+    if(terms.empty() || jlist.empty()){
+        aError("invalid nutation series, number of terms: %zu, number of jlist: %zu\n", terms.size(), jlist.size());
+        return false;
+    }
+    int sum = std::accumulate(jlist.begin(), jlist.end(), 0);
+    if(sum != terms.size()){
+        aError("invalid nutation series, number of terms: %zu, number of jlist: %zu, sum of jlist: %d\n", terms.size(), jlist.size(), sum);
+        return false;
+    }
+    return true;
+}
+
 err_t NutationSeries::load(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
         return eErrorInvalidFile;
     }
-    
-
-    return err_t();
+    StringView line = parser.getLine();
+    parser.seek(0, std::ios::beg);
+    if(line.starts_with("VERSION")){
+        return loadSTK(parser);
+    }else{
+        return loadIERS(parser);
+    }
 }
 
 err_t NutationSeries::loadSTK(StringView filepath)
@@ -92,6 +122,54 @@ err_t NutationSeries::loadIERS(StringView filepath)
     return loadIERS(parser);
 }
 
+double NutationSeries::eval(double t, const FundamentalArguments &fundargs) const
+{
+    /*
+
+     * Sum_i[C_{s,0})_i * sin(ARG) + C_{c,0})_i * cos(ARG)] 
+     * + Sum_i,j=1,4 [C_{s,j})_i * sin(ARG) + C_{c,j})_i * cos(ARG)] * t^j
+     * 
+     */
+    
+    double polyPart = polynomial_.eval(t);
+    int end = terms_.size();
+    double nonPolyPart = 0;
+    for(int j=jlist_.size()-1; j>=0; j--){
+        double coeff = 0;
+        int start = end - jlist_[j];
+        for(int i=end-1; i>=start; i--){
+            auto& term = terms_[i];
+            double arg = 
+               term.nL() * fundargs.l() 
+             + term.nLP() * fundargs.lP()
+             + term.nF() * fundargs.f()
+             + term.nD() * fundargs.d()
+             + term.nOm() * fundargs.om()
+             + term.nMe() * fundargs.lMe()
+             + term.nVe() * fundargs.lVe()
+             + term.nE() * fundargs.lE()
+             + term.nMa() * fundargs.lMa()
+             + term.nJu() * fundargs.lJu()
+             + term.nSa() * fundargs.lSa()
+             + term.nUr() * fundargs.lUr()
+             + term.nNe() * fundargs.lNe()
+             + term.nPa() * fundargs.pa();
+            double sina, cosa;
+            sincos(arg, &sina, &cosa);
+            coeff += term.sinCoeff() * sina + term.cosCoeff() * cosa;
+        }
+        end = start;
+        nonPolyPart *= t;
+        nonPolyPart += coeff;
+    }
+    return polyPart + nonPolyPart;
+}
+
+double NutationSeries::eval(const TimePoint &tp, const FundamentalArguments &fundargs) const
+{
+    return eval(tp.julianCenturyFromJ2000TT(), fundargs);
+}
+
 err_t NutationSeries::loadSTK(BKVParser &parser)
 {
     BKVParser::EToken token;
@@ -104,7 +182,7 @@ err_t NutationSeries::loadSTK(BKVParser &parser)
     std::vector<NutationTerm> terms;
     do{
         token = parser.getNext(item);
-        if(token == BKVParser::eBegin){
+        if(token == BKVParser::eBlockBegin){
             // printf("begin %s\n", item.value().data());
             if(aEqualsIgnoreCase(item.value(), "POLYTABLE"))
             {
@@ -116,6 +194,7 @@ err_t NutationSeries::loadSTK(BKVParser &parser)
                         aError("expect double, error %d, line %d, %s\n", err, parser.getLineNumber(), line.data());
                         return err;
                     }
+                    val *= 1e-6 * kArcSecToRad;
                     polycoeffs.push_back(val);
                 }
             }
@@ -145,7 +224,7 @@ err_t NutationSeries::loadSTK(BKVParser &parser)
                     terms.push_back(term);
                 }
             }
-        }else if(token == BKVParser::eEnd){
+        }else if(token == BKVParser::eBlockEnd){
             // printf("end %s\n", item.value().data());
         }else if(token == BKVParser::eKeyValue){
             // printf("key %s, value %s\n", item.key().data(), item.value().data());
@@ -157,9 +236,14 @@ err_t NutationSeries::loadSTK(BKVParser &parser)
                 num_points = item.value().toInt();
             }
         }
-    }while(token != BKVParser::eError);
+    }while(token != BKVParser::eEOF);
     // printf("max_polyindex=%d, max_jindex=%d, num_points=%d\n", max_polyindex, max_jindex, num_points);
     // printf("%zu, %zu, %zu\n", polycoeffs.size(), jlist.size(), terms.size());
+    if(!checkValid(terms, jlist)){
+        // aError("invalid nutation series, number of terms: %zu, number of jlist: %zu\n", terms.size(), jlist.size());
+        return eErrorParse;
+    }
+
     this->polynomial_.coeffs() = std::move(polycoeffs);
     this->jlist_ = std::move(jlist);
     this->terms_ = std::move(terms);
@@ -189,12 +273,20 @@ err_t NutationSeries::loadIERS(BKVParser &parser)
                 jlist.push_back(numTerms);
             }else if(polynomial.coeffs().empty()){
                 polynomial.parse(line.to_string());
+                if(!polynomial.coeffs().empty()){
+                    for(auto& val : polynomial.coeffs()){
+                        val *= 1e-6 * kArcSecToRad;
+                    }
+                }
             }
         }
     }while(!parser.eof());
     
     // printf("%zu, %zu, %zu\n", polynomial.coeffs().size(), jlist.size(), terms.size());
-    
+    if(!checkValid(terms, jlist)){
+        return eErrorParse;
+    }
+
     this->terms_ = std::move(terms);
     this->polynomial_ = std::move(polynomial);
     this->jlist_ = std::move(jlist);

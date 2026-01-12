@@ -139,13 +139,13 @@ start:
 
             char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
             value = StringView(line);
-            return eBegin;
+            return eBlockBegin;
         }
         else if(stricmp(keyBuffer.data(), "END") == 0)
         {
             char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
             value = StringView(line);
-            return eEnd;
+            return eBlockEnd;
         }else{
             long pos = ftell(file_);        // 记录当前位置
             char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
@@ -158,7 +158,7 @@ start:
             return eKeyValue;
         }
     }
-    return eError;
+    return eEOF;
 }
 
 BKVParser::EToken BKVParser::getNext(BKVItemView &item)
@@ -210,14 +210,14 @@ err_t BKVParser::parse(BKVSax &sax)
         if(token == eKeyValue)
         {
             sax.keyValue(item.key(), item.value().toValue());
-        }else if(token == eBegin)
+        }else if(token == eBlockBegin)
         {
             sax.begin(item.value().toStringView());
-        }else if(token == eEnd)
+        }else if(token == eBlockEnd)
         {
             sax.end(item.value().toStringView());
         }
-    }while(token != eError);
+    }while(token != eEOF);
     return eNoError;
 }
 
