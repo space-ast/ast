@@ -45,6 +45,7 @@
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
 #include "AstUtil/UnitParser.hpp"
+#include "AstUtil/String.hpp"
 
 #include <cstdlib>
 #include <cctype>

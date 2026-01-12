@@ -21,7 +21,6 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "String.hpp"
 #include <algorithm>
 #include <cstring>
 #include <ostream>
