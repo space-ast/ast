@@ -81,6 +81,18 @@ static char* fgetlinetrim(char* buffer, int size, FILE* file)
 }
 
 
+static bool isCommentLine(StringView line)
+{
+    for(char c : line)
+    {
+        if(!isspace(static_cast<unsigned char>(c)))
+        {
+            return c == '#';
+        }
+    }
+    return true;
+}
+
 BKVParser::BKVParser()
     : file_(nullptr)
     , allowComment_(true)
@@ -102,9 +114,10 @@ BKVParser::~BKVParser()
     close();
 }
 
-int BKVParser::getCurrentLine()
+
+int BKVParser::getLineNumber()
 {
-    return aFileCurrentLine(file_);
+    return aCurrentLineNumber(file_);
 }
 
 BKVParser::EToken BKVParser::getNext(StringView &key, ValueView &value)
@@ -167,6 +180,15 @@ StringView BKVParser::getLineTrim()
     return StringView(line);
 }
 
+StringView BKVParser::getLineSkipComment()
+{
+    StringView line;
+    do{
+        line = getLine();
+    }while(isCommentLine(line));
+    return line;
+}
+
 err_t BKVParser::parseFile(const StringView filepath, BKVSax &sax)
 {
     open(filepath);
@@ -217,6 +239,20 @@ void BKVParser::close()
     file_ = nullptr;
 }
 
+void BKVParser::seek(std::streamoff pos, std::ios::seekdir dir)
+{
+    if (file_ != nullptr)
+    {
+        fseek(file_, pos, dir);
+    }
+    static_assert(std::ios::beg == SEEK_SET);
+    static_assert(std::ios::cur == SEEK_CUR);
+    static_assert(std::ios::end == SEEK_END);
+}
 
+std::streamoff BKVParser::tell()
+{
+    return std::streamoff(ftell(file_));
+}
 
 AST_NAMESPACE_END

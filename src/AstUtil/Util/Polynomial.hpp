@@ -86,6 +86,11 @@ public:
     {
         return aFormatPolynomial(coeffs_, varname);
     }
+
+    const std::vector<double>& coeffs() const { return coeffs_; }
+    std::vector<double>& coeffs() { return coeffs_; }
+    void setCoeffs(const std::vector<double>& coeffs){ coeffs_ = coeffs; }
+    void setCoeffs(std::vector<double>&& coeffs){ coeffs_ = std::move(coeffs); }
     
     /// @brief 计算多项式在给定值x处的函数值
     /// @param x 给定值
@@ -115,6 +120,16 @@ inline double Polynomial::eval(double x) const
         }
         return temp;
     }
+}
+
+A_ALWAYS_INLINE err_t aParsePolynomial(StringView content, Polynomial& poly)
+{
+    return poly.parse(content);
+}
+
+A_ALWAYS_INLINE err_t aParsePolynomial(StringView content, StringView varname, Polynomial& poly)
+{
+    return poly.parse(content, varname);
 }
 
 AST_NAMESPACE_END

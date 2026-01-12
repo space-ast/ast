@@ -292,6 +292,13 @@ void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr)
 /* Interval between fundamental epoch J2000.0 and given date (JC). */
     // t = tp.julianCenturyFromJ2000TT(); // ((date1 - DJ00) + date2) / DJC;
 
+/* 
+   这里要注意：
+   sofa库所使用的行星基本参数与 IERS 1996 Technical Note 21 的参数不同
+   下面之间使用是sofa库所使用的参数：
+*/
+
+
 /* --------------------- */
 /* Fundamental arguments */
 /* --------------------- */

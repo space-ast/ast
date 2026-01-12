@@ -105,7 +105,7 @@ using std::vprintf;
 /// @brief 获取文件当前行号
 /// @param file 文件指针
 /// @return 当前行号，从1开始计数
-AST_UTIL_API int aFileCurrentLine(std::FILE* file);
+AST_UTIL_API int aCurrentLineNumber(std::FILE* file);
 
 
 AST_NAMESPACE_END

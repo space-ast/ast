@@ -1,9 +1,9 @@
-﻿///
-/// @file      bmThreadLocal.cpp
+///
+/// @file      FundamentalArguments.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2025-11-29
+/// @date      2026-01-10
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,35 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include <benchmark/benchmark.h>
-#include "AstCore/RunTime.hpp"
+#include "FundamentalArguments.hpp"
 
-AST_USING_NAMESPACE
-
-
-static void getStatic(benchmark::State& state)
-{
-    for (auto _ : state) {
-        auto context = aGlobalContext_GetDefault();
-        benchmark::DoNotOptimize(context);
-    }
-}
-BENCHMARK(getStatic);
-
-static void getThreadLoad(benchmark::State& state)
-{
-    aGlobalContext_Ensure();
-    for (auto _ : state) {
-        auto context = aGlobalContext_GetCurrent();
-        benchmark::DoNotOptimize(context);
-    }
-}
-BENCHMARK(getThreadLoad);
+AST_NAMESPACE_BEGIN
 
 
 
+AST_NAMESPACE_END
 
-
-
-
-BENCHMARK_MAIN();

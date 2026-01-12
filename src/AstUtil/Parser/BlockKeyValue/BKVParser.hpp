@@ -26,6 +26,8 @@
 #include <stdio.h>
 #include <vector>
 
+#include <fstream>
+
 AST_NAMESPACE_BEGIN
 
 class BKVSax;
@@ -48,10 +50,11 @@ public:
     BKVParser(StringView filepath);
     ~BKVParser();
 
+
     /// @brief 获取当前行号
     /// @details 获取当前解析器所在的行号。
     /// @return 当前行号
-    int getCurrentLine();
+    int getLineNumber();
 
     /// @brief 设置是否允许注释
     /// @details 设置是否允许解析注释行。
@@ -85,6 +88,11 @@ public:
     /// @details 获取当前行的内容，不包含行结束符。
     /// @return 当前行的内容（去除首尾空格）
     StringView getLineTrim();
+
+    /// @brief 获取当前行（跳过注释行）
+    /// @details 获取当前行的内容，不包含行结束符。
+    /// @return 当前行的内容（去除首尾空格）
+    StringView getLineSkipComment();
     
     /// @brief 解析文件
     /// @details 解析指定路径的文件，将解析结果传递给指定的 sax 解析器。
@@ -112,6 +120,22 @@ public:
     /// @brief 关闭文件
     /// @details 关闭当前打开的文件。
     void close();
+
+    /// @brief 移动文件指针
+    /// @details 移动当前打开文件的指针到指定位置。
+    /// @param pos 偏移量，指定要移动的字节数。
+    /// @param dir 方向，指定移动的方向（如 std::ios::beg, std::ios::cur, std::ios::end）。
+    void seek(std::streamoff pos, std::ios::seekdir dir);
+
+    /// @brief 获取当前文件指针位置
+    /// @details 获取当前打开文件的指针位置。
+    /// @return 当前文件指针位置
+    std::streamoff tell();
+
+    /// @brief 是否到达文件末尾
+    /// @details 判断当前文件指针是否到达文件末尾。
+    /// @return 如果到达文件末尾则返回 true，否则返回 false。
+    bool eof() const { return feof(file_); }
 
 protected:
     FILE* getFile() const { return file_; }

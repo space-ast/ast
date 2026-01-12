@@ -27,7 +27,7 @@
 #include "AstMath/Matrix.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/Math.hpp"
-#include "SOFA.hpp"
+#include "AstCore/SOFA.hpp"
 
 // #define AST_DEBUG_FRAME 1
 

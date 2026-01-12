@@ -107,7 +107,7 @@ int ast_printf(const char* format, ...)
 }
 
 
-int aFileCurrentLine(std::FILE *file)
+int aCurrentLineNumber(std::FILE *file)
 {
     if (file == NULL) {
         return -1;  // 错误：文件指针为空

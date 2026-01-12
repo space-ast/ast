@@ -64,7 +64,7 @@ static err_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& d
         entry.dy *= kArcSecToRad;
 
         if(status!=13){
-            aError("parse line %d failed, status=%d", parser.getCurrentLine(), status);
+            aError("parse line %d failed, status=%d", parser.getLineNumber(), status);
             return eErrorParse;
         }
         if(!data.empty()){

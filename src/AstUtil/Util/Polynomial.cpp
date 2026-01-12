@@ -41,7 +41,7 @@ err_t aParsePolynomial(StringView content, StringView varname, std::vector<doubl
     while (i < len)
     {
         // 跳过空格
-        while (i < len && (content[i] == ' ' || content[i] == '\t' || content[i] == '\n'))
+        while (i < len && std::isspace(static_cast<unsigned char>(content[i])))
         {
             ++i;
         }
@@ -63,7 +63,7 @@ err_t aParsePolynomial(StringView content, StringView varname, std::vector<doubl
         }
 
         // 跳过空格
-        while (i < len && (content[i] == ' ' || content[i] == '\t' || content[i] == '\n'))
+        while (i < len && std::isspace(static_cast<unsigned char>(content[i])))
         {
             ++i;
         }
@@ -88,7 +88,7 @@ err_t aParsePolynomial(StringView content, StringView varname, std::vector<doubl
         }
 
         // 跳过空格
-        while (i < len && (content[i] == ' ' || content[i] == '\t' || content[i] == '\n'))
+        while (i < len && std::isspace(static_cast<unsigned char>(content[i])))
         {
             ++i;
         }
@@ -114,7 +114,7 @@ err_t aParsePolynomial(StringView content, StringView varname, std::vector<doubl
             exp = 1;
 
             // 跳过空格
-            while (i < len && (content[i] == ' ' || content[i] == '\t' || content[i] == '\n'))
+            while (i < len && std::isspace(static_cast<unsigned char>(content[i])))
             {
                 ++i;
             }
@@ -125,7 +125,7 @@ err_t aParsePolynomial(StringView content, StringView varname, std::vector<doubl
                 ++i;
 
                 // 跳过空格
-                while (i < len && (content[i] == ' ' || content[i] == '\t' || content[i] == '\n'))
+                while (i < len && std::isspace(static_cast<unsigned char>(content[i])))
                 {
                     ++i;
                 }
