@@ -499,6 +499,36 @@ inline std::array<double, N1> operator+(const double (&vec1)[N1], const double (
 /// 矩阵乘法
 
 
+template<typename _Scalar, size_t I, size_t J, size_t K>
+std::array<std::array<_Scalar, K>, I> mtimes(
+    const _Scalar(&left)[I][J],
+    const _Scalar(&right)[J][K]
+)
+{
+    std::array<std::array<_Scalar, K>, I> retval;
+    for (size_t i = 0; i < I; i++)
+    {
+        for (size_t k = 0; k < K ; k++) {
+            _Scalar value = 0;
+            for (size_t j = 0; j < J; j++)
+            {
+                value += left[i][j] * right[j][k];
+            }
+            retval[i][k] = value;
+        }
+    }
+    return retval;
+}
+
+}
+
+#define _ASTMATH _AST math::
+
+#ifdef AST_BUILD_LIB  // 防止与其他库使用时出现冲突，默认只在编译时使用，否则需要主动开启
+using namespace math;
+#endif
+
+
 
 template<typename _Scalar, size_t I, size_t J, size_t K>
 MatrixMN<_Scalar, I, K> operator* (
@@ -539,34 +569,19 @@ VectorN<_Scalar, I> operator*(
     return result;
 }
 
-template<typename _Scalar, size_t I, size_t J, size_t K>
-std::array<std::array<_Scalar, K>, I> mtimes(
-    const _Scalar(&left)[I][J],
-    const _Scalar(&right)[J][K]
+template<typename _Scalar, size_t I, size_t J>
+VectorN<_Scalar, J> operator*(
+    const VectorN<_Scalar, I>& left,
+    const MatrixMN<_Scalar, I, J>& right
 )
 {
-    std::array<std::array<_Scalar, K>, I> retval;
-    for (size_t i = 0; i < I; i++)
-    {
-        for (size_t k = 0; k < K ; k++) {
-            _Scalar value = 0;
-            for (size_t j = 0; j < J; j++)
-            {
-                value += left[i][j] * right[j][k];
-            }
-            retval[i][k] = value;
+    VectorN<_Scalar, J> result{};
+    for(size_t i=0;i<I;++i){
+        for(size_t j=0;j<J;++j){
+            result[j] += left[i] * right(i, j);
         }
     }
-    return retval;
+    return result;
 }
-
-
-}
-
-#define _ASTMATH _AST math::
-
-#ifdef AST_BUILD_LIB  // 防止与其他库使用时出现冲突，默认只在编译时使用，否则需要主动开启
-using namespace math;
-#endif
 
 AST_NAMESPACE_END

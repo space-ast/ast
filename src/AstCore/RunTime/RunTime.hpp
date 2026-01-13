@@ -30,6 +30,7 @@
 AST_NAMESPACE_BEGIN
 
 class GlobalContext;
+class EOP;
 
 
 /// @brief 初始化
@@ -75,6 +76,9 @@ AST_CORE_CAPI GlobalContext* aGlobalContext_Ensure();
 
 /// @brief 设置当前全局上下文
 AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
+
+/// @brief 获取当前全局上下文的EOP
+AST_CORE_CAPI EOP* aGlobalContext_GetEOP();
 
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_New();
@@ -136,6 +140,58 @@ AST_CORE_CAPI err_t aJplDeOpen(const char* filepath);
 
 /// @brief 关闭JPL DE星历数据文件
 AST_CORE_CAPI void aJplDeClose();
+
+
+/// @brief 获取UT1时间与UTC时间的差值（秒）
+/// @param jdUTC 协调世界时（UTC）的儒略日数
+/// @return UT1时间与UTC时间的差值（秒）
+AST_CORE_CAPI double aUT1MinusUTC_UTC(const JulianDate& jdUTC);
+
+
+struct PoleMotion
+{
+    double x, y;            ///< 极移
+};
+
+/// @brief 获取给定时间点的极移
+/// @param tp 时间点
+/// @param x 极移x
+/// @param y 极移y
+AST_CORE_CAPI void aPoleMotion(const TimePoint& tp, double& x, double& y);
+
+
+/// @brief 获取给定UTC时间的极移
+/// @param jdUTC 协调世界时（UTC）的儒略日数
+/// @param x 极移x
+/// @param y 极移y
+AST_CORE_CAPI void aPoleMotionUTC(const JulianDate& jdUTC, double& x, double& y);
+
+
+/// @brief 获取给定时间点的极移
+/// @param tp 时间点
+/// @param pm 极移
+A_ALWAYS_INLINE void aPoleMotion(const TimePoint& tp, PoleMotion& pm)
+{
+    return aPoleMotion(tp, pm.x, pm.y);
+}
+
+
+
+/// @brief 获取给定时间点的LOD（秒）
+/// @param tp 时间点
+/// @return LOD（秒）
+AST_CORE_CAPI double aLOD(const TimePoint& tp);
+
+
+/// @brief 获取给定时间点的IAU XYS数据的修正项
+/// @param tp 时间点
+/// @param xyCorrection iau xys修正项
+AST_CORE_CAPI void aXYCorrection(const TimePoint& tp, array2d& xyCorrection);
+
+/// @brief 获取给定时间点的IAU XYS数据
+/// @param tp 时间点
+/// @param xys iau xys数据
+AST_CORE_CAPI void aXYS(const TimePoint& tp, array3d& xys);
 
 
 AST_NAMESPACE_END

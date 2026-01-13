@@ -23,9 +23,5 @@
 
 AST_NAMESPACE_BEGIN
 
-bool aEqualsIgnoreCase(StringView piece1, StringView piece2) noexcept
-{
-    return piece1.size() == piece2.size() && (strnicmp(piece1.data(), piece2.data(), piece1.size()) == 0);
-}
 
 AST_NAMESPACE_END

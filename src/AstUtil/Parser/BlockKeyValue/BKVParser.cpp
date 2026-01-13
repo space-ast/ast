@@ -81,6 +81,18 @@ static char* fgetlinetrim(char* buffer, int size, FILE* file)
 }
 
 
+static bool isCommentLine(StringView line)
+{
+    for(char c : line)
+    {
+        if(!isspace(static_cast<unsigned char>(c)))
+        {
+            return c == '#';
+        }
+    }
+    return true;
+}
+
 BKVParser::BKVParser()
     : file_(nullptr)
     , allowComment_(true)
@@ -102,6 +114,12 @@ BKVParser::~BKVParser()
     close();
 }
 
+
+int BKVParser::getLineNumber()
+{
+    return aCurrentLineNumber(file_);
+}
+
 BKVParser::EToken BKVParser::getNext(StringView &key, ValueView &value)
 {
 start:
@@ -121,13 +139,13 @@ start:
 
             char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
             value = StringView(line);
-            return eBegin;
+            return eBlockBegin;
         }
         else if(stricmp(keyBuffer.data(), "END") == 0)
         {
             char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
             value = StringView(line);
-            return eEnd;
+            return eBlockEnd;
         }else{
             long pos = ftell(file_);        // 记录当前位置
             char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
@@ -140,7 +158,7 @@ start:
             return eKeyValue;
         }
     }
-    return eError;
+    return eEOF;
 }
 
 BKVParser::EToken BKVParser::getNext(BKVItemView &item)
@@ -160,6 +178,15 @@ StringView BKVParser::getLineTrim()
     // @todo: 这个是不是需要跳过空行和注释行
     char* line = fgetlinetrim(valueBuffer.data(), valueBuffer.size(), file_);
     return StringView(line);
+}
+
+StringView BKVParser::getLineSkipComment()
+{
+    StringView line;
+    do{
+        line = getLine();
+    }while(isCommentLine(line));
+    return line;
 }
 
 err_t BKVParser::parseFile(const StringView filepath, BKVSax &sax)
@@ -183,14 +210,14 @@ err_t BKVParser::parse(BKVSax &sax)
         if(token == eKeyValue)
         {
             sax.keyValue(item.key(), item.value().toValue());
-        }else if(token == eBegin)
+        }else if(token == eBlockBegin)
         {
             sax.begin(item.value().toStringView());
-        }else if(token == eEnd)
+        }else if(token == eBlockEnd)
         {
             sax.end(item.value().toStringView());
         }
-    }while(token != eError);
+    }while(token != eEOF);
     return eNoError;
 }
 
@@ -212,6 +239,20 @@ void BKVParser::close()
     file_ = nullptr;
 }
 
+void BKVParser::seek(std::streamoff pos, std::ios::seekdir dir)
+{
+    if (file_ != nullptr)
+    {
+        fseek(file_, pos, dir);
+    }
+    static_assert(std::ios::beg == SEEK_SET);
+    static_assert(std::ios::cur == SEEK_CUR);
+    static_assert(std::ios::end == SEEK_END);
+}
 
+std::streamoff BKVParser::tell()
+{
+    return std::streamoff(ftell(file_));
+}
 
 AST_NAMESPACE_END

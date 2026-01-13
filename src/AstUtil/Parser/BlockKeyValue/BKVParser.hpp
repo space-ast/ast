@@ -26,6 +26,8 @@
 #include <stdio.h>
 #include <vector>
 
+#include <fstream>
+
 AST_NAMESPACE_BEGIN
 
 class BKVSax;
@@ -38,15 +40,21 @@ class AST_UTIL_API BKVParser
 {
 public:
     enum EToken{
-        eBegin,         ///< 块开始
-        eEnd,           ///< 块结束
-        eKeyValue,      ///< 键值对
-        eError,         ///< 错误
+        eBlockBegin,         ///< 块开始
+        eBlockEnd,           ///< 块结束
+        eKeyValue,           ///< 键值对
+        eEOF,                ///< 文件结束
     };
 
     BKVParser();
     BKVParser(StringView filepath);
     ~BKVParser();
+
+
+    /// @brief 获取当前行号
+    /// @details 获取当前解析器所在的行号。
+    /// @return 当前行号
+    int getLineNumber();
 
     /// @brief 设置是否允许注释
     /// @details 设置是否允许解析注释行。
@@ -80,6 +88,11 @@ public:
     /// @details 获取当前行的内容，不包含行结束符。
     /// @return 当前行的内容（去除首尾空格）
     StringView getLineTrim();
+
+    /// @brief 获取当前行（跳过注释行）
+    /// @details 获取当前行的内容，不包含行结束符。
+    /// @return 当前行的内容（去除首尾空格）
+    StringView getLineSkipComment();
     
     /// @brief 解析文件
     /// @details 解析指定路径的文件，将解析结果传递给指定的 sax 解析器。
@@ -107,6 +120,22 @@ public:
     /// @brief 关闭文件
     /// @details 关闭当前打开的文件。
     void close();
+
+    /// @brief 移动文件指针
+    /// @details 移动当前打开文件的指针到指定位置。
+    /// @param pos 偏移量，指定要移动的字节数。
+    /// @param dir 方向，指定移动的方向（如 std::ios::beg, std::ios::cur, std::ios::end）。
+    void seek(std::streamoff pos, std::ios::seekdir dir);
+
+    /// @brief 获取当前文件指针位置
+    /// @details 获取当前打开文件的指针位置。
+    /// @return 当前文件指针位置
+    std::streamoff tell();
+
+    /// @brief 是否到达文件末尾
+    /// @details 判断当前文件指针是否到达文件末尾。
+    /// @return 如果到达文件末尾则返回 true，否则返回 false。
+    bool eof() const { return feof(file_); }
 
 protected:
     FILE* getFile() const { return file_; }

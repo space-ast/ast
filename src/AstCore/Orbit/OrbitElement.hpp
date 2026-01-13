@@ -139,6 +139,35 @@ public:
 
 
 
+/// @brief 德洛奈根数 
+/// @details 
+/// 德洛奈根数是天体力学中的一组正则共轭变量
+/// 由法国学者Delaunay,C.E.于19世纪60年代研究月球运动时提出
+/// 常用于解析轨道理论
+/// 依据：
+///     《英汉天文学名词》李竞、许邦信主编，上海科技教育出版社，2000
+///     《英汉天文学名词》，中国科学技术出版社，2015
+class DelaunayElem
+{
+
+public:
+    double L_;
+    double G_;
+    double H_;
+    double l_;
+    double g_;
+    double h_;
+public:
+    A_DEF_POD_ITERABLE(double)
+    AST_DEF_ACCESS_METHOD(double, L)
+    AST_DEF_ACCESS_METHOD(double, G)
+    AST_DEF_ACCESS_METHOD(double, H)
+    AST_DEF_ACCESS_METHOD(double, l)
+    AST_DEF_ACCESS_METHOD(double, g)
+    AST_DEF_ACCESS_METHOD(double, h)
+};
+
+
 /// @brief 经典轨道根数转换为直角坐标
 /// @param coe 经典轨道根数 [长半轴, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
 /// @param gm 引力参数 [m^3/s^2]
@@ -264,7 +293,17 @@ AST_CORE_CAPI void mee2ee(const double* mee, double* ee);
 AST_CORE_CAPI void mee2moe(const double* mee, double* moe);
 
 
+/// @brief 经典轨道根数转换为德洛奈根数
+/// @param coe 经典轨道根数 [长半轴, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
+/// @param gm 引力参数 [m^3/s^2]
+/// @param del 输出德洛奈根数, see DelaunayElem
+AST_CORE_CAPI err_t coe2dela(const double* coe, double gm, double* dela);
 
+
+/// @brief 德洛奈根数转换为经典轨道根数
+/// @param del 德洛奈根数, see DelaunayElem
+/// @param coe 输出经典轨道根数 [长半轴, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
+AST_CORE_CAPI err_t dela2coe(const double* dela, double gm, double* coe);
 
 
 /// @brief 改进春分点轨道根数转换为直角坐标（类引用版本）
@@ -403,6 +442,26 @@ void aEquinElemToCart(
     Vector3d& vel);
 
 
+/// @brief 经典轨道根数转换为修正轨道根数（类引用版本）
+/// @param elem 经典轨道根数
+/// @param gm 引力参数 [m^3/s^2]
+/// @param delaunay 输出修正轨道根数
+AST_CORE_CAPI 
+err_t aOrbElemToDelaunay(
+    const OrbElem& elem,
+    double gm,
+    DelaunayElem& delaunay);
+
+
+/// @brief 修正轨道根数转换为经典轨道根数（类引用版本）
+/// @param delaunay 修正轨道根数
+/// @param gm 引力参数 [m^3/s^2]
+/// @param elem 输出经典轨道根数
+AST_CORE_CAPI 
+err_t aDelaunayToOrbElem(
+    const DelaunayElem& delaunay,
+    double gm,
+    OrbElem& elem);
 
 
 /// @brief 直角坐标转换为修正轨道根数（类引用版本）

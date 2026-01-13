@@ -92,6 +92,8 @@ public:
         aDateTimeToJD(dttm, jd);
         return jd;
     }
+    AST_CORE_API
+    static JulianDate FromDateTime(int year, int month, int day, int hour, int minute, double second);
 public:
     /// @brief 获取不精确的天数
     /// @return 不精确的天数
@@ -133,7 +135,11 @@ public:
 public:
     /// @brief 计算儒略日与 J2000.0 历元的时间差（儒略世纪）
     double julianCenturyFromJ2000() const{
-        return ((day_ - kJ2000Epoch) + dayFractional())/ kDaysPerJulianCentury;
+        return julianDayFromJ2000() / kDaysPerJulianCentury;
+    }
+    /// @brief 计算儒略日与 J2000.0 历元的时间差（儒略日）
+    double julianDayFromJ2000() const{
+        return ((day_ - kJ2000Epoch) + dayFractional());
     }
 public:
     JulianDate& operator += (double sec)

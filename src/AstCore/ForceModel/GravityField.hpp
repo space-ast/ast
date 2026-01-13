@@ -21,9 +21,20 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
+
+class GravityField{
+public:
+
+
+protected:
+    std::vector<double> zonalCoeff_;
+    std::vector<double> sinCoeff_;
+    std::vector<double> cosCoeff_;
+};
 
 
 AST_NAMESPACE_END

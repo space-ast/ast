@@ -26,6 +26,7 @@
 #include "AstCore/EOP.hpp"
 #include "AstCore/LeapSecond.hpp"
 #include "AstCore/JplDe.hpp"
+#include "AstCore/IAUXYS.hpp"
 #include "AstUtil/StringView.hpp"
 #include <string>
  
@@ -64,11 +65,16 @@ public:
     const JplDe* jplDe() const {return &m_jplDe;}
     JplDe* jplDe() {return &m_jplDe;}
 
+	/// @brief IAU XYS数据
+	const IAUXYS* iauXYS() const {return &m_iauXYS;}
+    IAUXYS* iauXYS() {return &m_iauXYS;}
+
 protected:
 	SolarSystem  			m_solarSystem;
 	EOP		    			m_eop;	
 	LeapSecond  			m_leapSecond;
     JplDe                   m_jplDe;
+	IAUXYS                  m_iauXYS;
     std::string     		m_dataDir;
 };
 

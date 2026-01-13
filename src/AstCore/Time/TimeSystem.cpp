@@ -82,7 +82,8 @@ void aUTCToTT(const DateTime& dttmUTC, DateTime& dttmTT)
 
 void aUTCToUT1(const JulianDate &jdUTC, JulianDate &jdUT1)
 {
-    //@todo
+    double ut1_minus_utc = aUT1MinusUTC_UTC(jdUTC);
+    jdUT1 = jdUTC + ut1_minus_utc;
 }
 
 void aTTToUTC(const JulianDate &jdTT, JulianDate &jdUTC)

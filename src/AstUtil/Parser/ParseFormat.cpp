@@ -20,6 +20,7 @@
 
 #include "ParseFormat.hpp"
 #include "AstUtil/Color.hpp"
+#include "AstUtil/String.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -53,16 +54,12 @@ err_t aParseBool(StringView str, bool& value)
         return eErrorNullInput;
     }
 
-    // 转换为小写进行比较
-    std::string lower_str(str.data(), str.size());
-    std::transform(lower_str.begin(), lower_str.end(), lower_str.begin(), ::tolower);
-
-    if (lower_str == "true" || lower_str == "1")
+    if (aEqualsIgnoreCase(str, "true") || (str == "1"))
     {
         value = true;
         return eNoError;
     }
-    else if (lower_str == "false" || lower_str == "0")
+    else if (aEqualsIgnoreCase(str, "false") || (str == "0"))
     {
         value = false;
         return eNoError;
@@ -127,7 +124,8 @@ err_t _aParseInt_LibC_2(StringView str, int& value)
 #if A_CXX_VERSION >= 17
 err_t _aParseInt_FromChars(StringView str, int &value)
 {
-    auto result = std::from_chars(str.data(), str.data() + str.size(), value);
+    str = aStripAsciiWhitespace(str);
+    auto result = std::from_chars(str.begin(), str.end(), value);
     return result.ec == std::errc() ? eNoError : eErrorParse;
 }
 #endif
@@ -253,7 +251,8 @@ err_t _aParseDouble_LibC_2(StringView str, double& value)
 #if A_CXX_VERSION >= 17
 err_t _aParseDouble_FromChars(StringView str, double &value)
 {
-    auto result = std::from_chars(str.data(), str.data() + str.size(), value);
+    str = aStripAsciiWhitespace(str);
+    auto result = std::from_chars(str.begin(), str.end(), value);
     return result.ec == std::errc() ? eNoError : eErrorParse;
 }
 
@@ -262,7 +261,8 @@ err_t _aParseDouble_FromChars(StringView str, double &value)
 #ifdef AST_WITH_ABSEIL
 err_t _aParseDouble_FromChars_Abseil(StringView str, double &value)
 {
-    auto result = absl::from_chars(str.data(), str.data() + str.size(), value);
+    str = aStripAsciiWhitespace(str);
+    auto result = absl::from_chars(str.begin(), str.end(), value);
     return result.ec == std::errc() ? eNoError : eErrorParse;
 }
 #endif

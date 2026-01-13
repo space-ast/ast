@@ -393,6 +393,23 @@ namespace literals
     {
         return val * kDegToRad;
     }
+
+    //----------------
+    // unit literals
+    //----------------
+
+    constexpr double m = 1_m;
+    constexpr double km = 1_km;
+    constexpr double cm = 1_cm;
+
+    constexpr double deg = 1_deg;
+    constexpr double rad = 1_rad;
+
+    constexpr double s = 1_s;
+    constexpr double sec = 1_s;
+    constexpr double ms = 1_ms;
+    constexpr double min = 60_s;
+    constexpr double h = 3600_s;
 }
 
 // 导入字面量命名空间到ast命名空间，便于使用

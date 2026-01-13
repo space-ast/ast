@@ -28,6 +28,11 @@
 AST_NAMESPACE_BEGIN
 
 
+JulianDate JulianDate::FromDateTime(int year, int month, int day, int hour, int minute, double second)
+{
+    return JulianDate::FromDateTime({year, month, day, hour, minute, second});
+}
+
 void aJDToMJD(const JulianDate& jd, ModJulianDate& mjd)
 {
 	// mjd = jd;
@@ -87,4 +92,5 @@ void aJDToDateTime(const JulianDate& jd, DateTime& dttm)
 
 
 AST_NAMESPACE_END
- 
+
+

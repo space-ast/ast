@@ -26,6 +26,32 @@ AST_NAMESPACE_BEGIN
 
 class AngleAxis;
 
+
+/// @brief 坐标旋转矩阵
+/// @param angle 旋转角度（弧度）
+/// @param axis 旋转轴（1:X轴, 2:Y轴, 3:Z轴）
+/// @param mtx 输出矩阵
+AST_MATH_CAPI err_t aRotationMatrix(double angle, int axis, Matrix3d& mtx);
+
+
+/// @brief 绕X轴坐标旋转矩阵
+/// @param angle 旋转角度（弧度）
+/// @param mtx 输出矩阵
+AST_MATH_CAPI void aRotationXMatrix(double angle, Matrix3d& mtx);
+
+
+/// @brief 绕Y轴坐标旋转矩阵
+/// @param angle 旋转角度（弧度）
+/// @param mtx 输出矩阵
+AST_MATH_CAPI void aRotationYMatrix(double angle, Matrix3d& mtx);
+
+
+/// @brief 绕Z轴坐标旋转矩阵
+/// @param angle 旋转角度（弧度）
+/// @param mtx 输出矩阵
+AST_MATH_CAPI void aRotationZMatrix(double angle, Matrix3d& mtx);
+
+
 /// @brief 四元数转矩阵
 /// @param quat 
 /// @param mtx 

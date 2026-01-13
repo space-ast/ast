@@ -22,10 +22,16 @@
 #include "GlobalContext.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstCore/FundamentalArguments.hpp"
 #include <assert.h>
 
 #define AST_DEFAULT_FILE_LEAPSECOND "Time/Leap_Second.dat"
 #define AST_DEFAULT_FILE_JPLDE      "SolarSystem/plneph.430"
+#define AST_DEFAULT_FILE_EOP        "SolarSystem/Earth/EOP-All.txt"
+#define AST_DEFAULT_FILE_IAUX       "IERS-conventions/2010/tab5.2a.txt"
+#define AST_DEFAULT_FILE_IAUY       "IERS-conventions/2010/tab5.2b.txt"
+#define AST_DEFAULT_FILE_IAUS       "IERS-conventions/2010/tab5.2d.txt"
 
 
 AST_NAMESPACE_BEGIN
@@ -60,12 +66,40 @@ err_t JplDe::openDefault()
     return err;
 }
 
+err_t EOP::loadDefault()
+{
+    fs::path filepath = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_EOP;
+    err_t err = load(filepath.string());
+    if (err)
+    {
+        aWarning("failed to load eop from default data file:\n%s", filepath.string().c_str());
+    }
+    return err;
+}
+
+
+err_t IAUXYS::loadDefault()
+{
+    fs::path filepathX = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_IAUX;
+    fs::path filepathY = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_IAUY;
+    fs::path filepathS = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_IAUS;
+    err_t err = load(filepathX.string(), filepathY.string(), filepathS.string());
+    if (err)
+    {
+        aWarning("failed to load iaux from default data file:\n%s", filepathX.string().c_str());
+    }
+    return err;
+}
+
+
 
 err_t aInitialize(GlobalContext* context)
 {
     err_t err = 0;
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
+    err |= context->eop()->loadDefault();
+    err |= context->iauXYS()->loadDefault();
     if(err != eNoError) {
         aError("initialize failed: failed to load data.");
     }
@@ -225,6 +259,12 @@ void aGlobalContext_SetCurrent(GlobalContext* context)
     t_currentGlobalContext = context;
 }
 
+EOP * aGlobalContext_GetEOP()
+{
+    auto context = aGlobalContext_Ensure();
+    return context->eop();
+}
+
 GlobalContext* aGlobalContext_New()
 {
     return new GlobalContext{};
@@ -233,14 +273,12 @@ GlobalContext* aGlobalContext_New()
 double aLeapSecondUTC(double jdUTC)
 {
     auto context = aGlobalContext_Ensure();
-    assert(context);
     return context->leapSecond()->leapSecondUTC(jdUTC);
 }
 
 double aLeapSecondUTCMJD(double mjdUTC)
 {
     auto context = aGlobalContext_Ensure();
-    assert(context);
     return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
 
@@ -255,7 +293,6 @@ err_t aJplDeGetPosVelICRF(
 )
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     return context->jplDe()->getPosVelICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos, vel);
 }
 
@@ -267,30 +304,79 @@ err_t aJplDeGetPosICRF(
 )
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
 }
 
 err_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     return context->jplDe()->getNutation(time, dpsi, deps);
 }
 
 err_t aJplDeOpen(const char *filepath)
 {
     auto context = aGlobalContext_Ensure();
-    //assert(context);
     return context->jplDe()->open(filepath);
 }
 
 void aJplDeClose()
 {
     auto context = aGlobalContext_Ensure();
-    // assert(context);
     context->jplDe()->close();
 }
 
- 
+double aUT1MinusUTC_UTC(const JulianDate &jdUTC)
+{
+    auto context = aGlobalContext_Ensure();
+    return context->eop()->getUT1MinusUTC_UTC(jdUTC);
+}
+
+void aPoleMotion(const TimePoint &tp, double &x, double &y)
+{
+    auto context = aGlobalContext_Ensure();
+    context->eop()->getPoleMotion(tp, x, y);
+}
+
+void aPoleMotionUTC(const JulianDate &jdUTC, double &x, double &y)
+{
+    auto context = aGlobalContext_Ensure();
+    context->eop()->getPoleMotionUTC(jdUTC, x, y);
+}
+
+double aLOD(const TimePoint &tp)
+{
+    auto context = aGlobalContext_Ensure();
+    return context->eop()->getLOD(tp);
+}
+
+static void aXYS_IERS2010(const TimePoint& tp, array3d& xys)
+{
+    auto context = aGlobalContext_Ensure();
+    // 根据IERS 2010规范，计算行星基础参数
+    FundamentalArguments fundargs;
+    double t = tp.julianCenturyFromJ2000TT();
+    aFundamentalArguments_IERS2010(t, fundargs);
+    // 根据IERS 2010规范，计算xys值
+    context->iauXYS()->eval(t, fundargs, xys);
+    // 应用EOP中的XY修正量
+    // 参考IERS 2010规范 5.9节 P71 的相关说明
+    // 应该先计算得到S，然后再应用XY修正量？
+    // 这个先后顺序应该影响很小
+    array2d xyCorrection;
+    aXYCorrection(tp, xyCorrection);
+    xys[0] += xyCorrection[0];
+    xys[1] += xyCorrection[1];
+}
+
+void aXYCorrection(const TimePoint &tp, array2d &xyCorrection)
+{
+    auto context = aGlobalContext_Ensure();
+    context->eop()->getXYCorrection(tp, xyCorrection);
+}
+
+void aXYS(const TimePoint &tp, array3d &xys)
+{
+    return aXYS_IERS2010(tp, xys);
+}
+
 AST_NAMESPACE_END

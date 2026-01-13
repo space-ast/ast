@@ -30,6 +30,10 @@ elseif is_plat("windows") then
     add_cxflags("/wd4819") -- 忽略代码页警告
 end
 
+-- 生成汇编文件
+-- add_cxflags("-save-temps")
+-- add_cxflags("/FA")
+
 -- 添加自定义第三方库仓库
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 

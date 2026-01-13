@@ -78,14 +78,25 @@ AST_CORE_CAPI void aPrecession_IAU1976(double t, double& zeta, double& z, double
 AST_CORE_CAPI double aMeanObliquity_IAU1980(double t);
 
 
+
+
+/// @brief 计算给定时间差的章动角，依据IERS1996规范
+/// @details 参考SOFA函数 iauNut06
+/// @param[in] t 与J2000.0 TT 的时间差（儒略世纪）
+/// @param[out] dpsi 黄经章动角dpsi（弧度）
+/// @param[out] deps 交角章动角deps（弧度）
+/// @param[out] eqecorr 赤经章动修正量
+AST_CORE_CAPI void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr);
+
 /// @brief 计算给定时间差的章动角，依据IAU1980规范
 /// @details 参考SOFA函数 iauNut80
 /// @param[in] t 与J2000.0 TT 的时间差（儒略世纪）
-/// @param[out] dpsi 章动角dpsi（弧度）
-/// @param[out] deps 章动角deps（弧度）
-AST_CORE_CAPI void aNutation_IAU1980(double t, double &dpsi, double &deps);
-
-
+/// @param[out] dpsi 黄经章动角dpsi（弧度）
+/// @param[out] deps 交角章动角deps（弧度）
+A_ALWAYS_INLINE void aNutation_IAU1980(double t, double &dpsi, double &deps)
+{
+    aNutation_IERS1996(t, dpsi, deps, nullptr);
+}
 
 
 A_ALWAYS_INLINE void aPrecession_IAU1976(const TimePoint& tp, double& zeta, double& z, double& theta){
@@ -150,6 +161,50 @@ AST_CORE_CAPI ENutationMethod aNutationMethodGet();
 /// @param[in] tp 时间点
 /// @return 对应时间点的格林尼治平恒星时 GMST（弧度）
 AST_CORE_CAPI double aGMST_IAU1982(const TimePoint& tp);
+
+
+/// @brief 计算给定UT1时间的格林尼治平恒星时（GMST），依据IAU1982规范
+/// @details 参考SOFA函数 iauGmst82
+/// @param[in] jdUT1 UT1时间（儒略日）
+/// @return 对应UT1时间的格林尼治平恒星时 GMST（弧度）
+AST_CORE_CAPI double aGMST_UT1_IAU1982(const JulianDate& jdUT1);
+
+
+/// @brief 计算给定时间点的格林尼治视恒星时（GAST），依据IAU1982规范
+/// @details 参考SOFA函数 iauGst94
+/// @param[in] tp 时间点
+/// @return 对应时间点的格林尼治视恒星时 GAST（弧度）
+AST_CORE_CAPI double aGAST_IAU1994(const TimePoint& tp);
+
+
+/// @brief 计算给定时间点的赤经章动，依据IAU1994规范
+/// @details 赤经章动是真春分点平春分点之间的时角差，
+/// 用于将格林尼治平恒星时（GMST）转换为格林尼治视恒星时（GAST）
+/// 公式：GAST = GMST + Equation Of Equinoxes
+/// @details 参考SOFA函数 iauEqeq94
+/// @param[in] t 与J2000.0 TDB 的时间差（儒略世纪）
+/// @return 赤经章动（弧度）
+AST_CORE_CAPI double aEquationOfEquinoxes_IAU1994(double t);
+
+A_ALWAYS_INLINE double aEquationOfEquinoxes_IAU1994(const TimePoint& tp)
+{
+    /// 直接将TT作为TDB使用是可行的吗？
+    return aEquationOfEquinoxes_IAU1994(tp.julianCenturyFromJ2000TT());
+}
+
+
+/// @brief 计算给定时间点的地球自转角度，依据IAU2000规范
+/// @details 参考SOFA函数 iauEra00
+/// @param[in] tp 时间点
+/// @return 对应时间点的地球自转角度（弧度）
+AST_CORE_CAPI double aEarthRotationAngle_IAU2000(const TimePoint& tp);
+
+
+/// @brief 计算给定UT1时间的地球自转角度，依据IAU2000规范
+/// @details 参考SOFA函数 iauEra00
+/// @param[in] jdUT1 UT1时间（儒略日）
+/// @return 对应UT1时间的地球自转角度（弧度）
+AST_CORE_CAPI double aEarthRotationAngleUT1_IAU2000(const JulianDate& jdUT1);
 
 
 AST_NAMESPACE_END

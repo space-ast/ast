@@ -908,8 +908,98 @@ void mee2moe(const double* mee, double* moe)
     }
 }
 
+err_t coe2dela(const double *coeIn, double gm, double *delaOut)
+{
+    const OrbElem* keplerian = (const OrbElem*)coeIn;
+    DelaunayElem* dela = (DelaunayElem*)delaOut;
+	double sma= keplerian->a();
+	double ecc= keplerian->e();
+	double inc= keplerian->i();
+	double ta= keplerian->trueA();
+    if(ecc < 0.0)
+    {
+        aWarning("ecc < 0.0, not supported.");
+        ecc = -ecc;
+    }
+    if ((sma > 0.0) && (ecc > 1.0))
+    {
+        aWarning("sma > 0 while ecc > 1.0, not supported.");
+        sma = -sma;
+    }
+   
+    if ((sma < 0.0) && (ecc < 1.0))
+    {
+        aWarning("sma < 0 while ecc < 1.0, not supported.");
+        sma = -sma;
+    }
+   
+    if (gm < 1e-15)
+    {
+        aError("Gravitational constant (gm=%e) is too small to convert from Keplerian to Delaunay.", gm);
+        return eErrorInvalidParam;
+    }
+   
+    if ( ecc >= 1.0)
+    {
+        aError("ecc >= 1.0, not supported.");
+        return eErrorInvalidParam;
+    }
+   
+    double L_dela= sqrt(gm * sma);
+    double G_dela= L_dela * sqrt(1 - ecc*ecc);
+    double H_dela= G_dela * cos(inc);
+    double ll_dela= aTrueToMean(ta, ecc);
+    double gg_dela= keplerian->argper();
+    double hh_dela= keplerian->raan();
 
+    dela->L() = L_dela;
+    dela->G() = G_dela;
+    dela->H() = H_dela;
+    dela->l() = ll_dela;
+    dela->g() = gg_dela;
+    dela->h() = hh_dela;
+   
+    return eNoError;
+}
 
+err_t dela2coe(const double *delaIn, double gm, double *coeOut)
+{
+    const DelaunayElem* dela = (const DelaunayElem*)delaIn;
+    OrbElem* coe = (OrbElem*) coeOut;
+    
+    double L_dela= dela->L();
+    double G_dela= dela->G();
+    double H_dela= dela->H();
+    double ll_dela= dela->l();
+    
+    if (abs(H_dela) > abs(G_dela))
+    {
+        aError("The magnitude of DelaunayH must be less than or equal to the magnitude of DelaunayG.");
+        return eErrorInvalidParam;
+    }
+    if ((G_dela / L_dela) > 1.0)
+    {
+        aError("It is required that (DelaunayG / DelaunayL) <= 1.");
+        return eErrorInvalidParam;
+    }
+ 
+    double GdL = G_dela / L_dela;
+    double sma= L_dela*L_dela / gm;
+    double ecc= sqrt ( 1 - GdL*GdL );
+    double inc= acos(H_dela / G_dela) ;
+    double aop= dela->g();
+    double raan= dela->h();
+    double ta= aMeanToTrue(ll_dela, ecc) ;
+
+    coe->a() = sma;
+    coe->e() = ecc;
+    coe->i() = inc;
+    coe->argper() = aop;
+    coe->raan() = raan;
+    coe->trueA() = ta;
+
+    return eNoError;
+}
 
 void aModEquinElemToCart(
     const ModEquinElem& mee,
@@ -1035,6 +1125,15 @@ void aEquinElemToCart(
     return ee2rv(equinElem.data(), gm, pos.data(), vel.data());
 }
 
- 
+err_t aOrbElemToDelaunay(const OrbElem &elem, double gm, DelaunayElem &delaunay)
+{
+    return coe2dela(elem.data(), gm, delaunay.data());
+}
+
+err_t aDelaunayToOrbElem(const DelaunayElem &delaunay, double gm, OrbElem &elem)
+{
+    return dela2coe(delaunay.data(), gm, elem.data());
+}
+
 AST_NAMESPACE_END
  
