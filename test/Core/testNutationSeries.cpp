@@ -22,6 +22,7 @@
 #include "AstCore/RunTime.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/FundamentalArguments.hpp"
+#include "AstCore/RunTime.hpp"
 #include "AstTest/Test.h"
 
 
@@ -166,6 +167,36 @@ TEST(NutationSeries, evaluate)
         y2 = YSeries.eval(t, fundargs);
         EXPECT_EQ(x2, x);
         EXPECT_EQ(y2, y);
+    }
+    {
+        aInitialize();
+        auto tp = TimePoint::FromUTC(2068, 1, 19, 0,0,0);
+        array3d xys;
+        aXYS(tp, xys);
+        printf("xys = %.20g, %.20g, %.20g\n", xys[0], xys[1], xys[2]);
+        EXPECT_NEAR(xys[0], 6.6442152484853488e-3, 1e-17);
+        EXPECT_NEAR(xys[1], -6.8441888981538723e-5, 1e-17);
+        EXPECT_NEAR(xys[2], 1.3925953919423401e-7, 1e-17);
+    }
+    {
+        aInitialize();
+        auto tp = TimePoint::FromUTC(2068, 1, 20, 0,0,0);
+        array3d xys;
+        aXYS(tp, xys);
+        printf("xys = %.20g, %.20g, %.20g\n", xys[0], xys[1], xys[2]);
+        EXPECT_NEAR(xys[0], 6.6445599096450333e-3, 1e-17);
+        EXPECT_NEAR(xys[1], -6.8223277715920722e-5, 1e-17);
+        EXPECT_NEAR(xys[2], 1.3852151868802670e-7, 1e-17);
+    }
+    {
+        aInitialize();
+        auto tp = TimePoint::FromUTC(3068, 1, 21, 0,0,0);
+        array3d xys;
+        aXYS(tp, xys);
+        printf("xys = %.20g, %.20g, %.20g\n", xys[0], xys[1], xys[2]);
+        EXPECT_NEAR(xys[0], 1.0238780782102140e-1, 1e-16);
+        EXPECT_NEAR(xys[1], -1.2272820066544760e-2, 1e-16);
+        EXPECT_NEAR(xys[2], 2.1183034041984700e-4, 1e-17);
     }
 }
 

@@ -62,24 +62,46 @@ class KinematicRotation;
 /// @details   ~
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
-/// @return    err_t  错误码
-AST_CORE_API err_t aECIToECFTransform(const TimePoint& tp, Rotation& rotation);
+AST_CORE_API void aECIToECFTransform(const TimePoint& tp, Rotation& rotation);
 
 
 /// @brief     从ECI转换为ECF的坐标旋转变换
 /// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换，带角速度信息
-/// @return    err_t  错误码
-AST_CORE_API err_t aECIToECFTransform(const TimePoint& tp, KinematicRotation& rotation);
+AST_CORE_API void aECIToECFTransform(const TimePoint& tp, KinematicRotation& rotation);
 
 
 /// @brief     从ECI转换为ECF的坐标转换矩阵
 /// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
 /// @param     tp  时间点
 /// @param     matrix  坐标转换矩阵
-/// @return    err_t  错误码
-AST_CORE_CAPI err_t aECIToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+AST_CORE_CAPI void aECIToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+/// @brief     从ECI转换为ECF的坐标转换
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     vecECI  ECI坐标
+/// @param     vecECF  ECF坐标
+AST_CORE_API void aECIToECF(const TimePoint& tp, const Vector3d& vecECI, Vector3d& vecECF);
+
+
+
+/// @brief     从ECI转换为ECF的坐标转换
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     vecECI  ECI坐标
+/// @param     velECI  ECI速度
+/// @param     vecECF  ECF坐标
+/// @param     velECF  ECF速度
+AST_CORE_API void aECIToECF(
+    const TimePoint& tp,
+    const Vector3d& vecECI,
+    const Vector3d& velECI,
+    Vector3d& vecECF,
+    Vector3d& velECF
+);
 
 //----------------
 // J2000 -> ECF
@@ -298,8 +320,21 @@ AST_CORE_CAPI void aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     tp  时间点
 /// @param     vecICRF  ICRF坐标
 /// @param     vecECF  ECF坐标
-AST_CORE_CAPI void aICRFToECF(const TimePoint& tp, const Vector3d& vecICRF, Vector3d& vecECF);
+AST_CORE_API void aICRFToECF(const TimePoint& tp, const Vector3d& vecICRF, Vector3d& vecECF);
 
+
+/// @brief     从ICRF转换为ECF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecICRF  ICRF坐标
+/// @param     velICRF  ICRF速度
+/// @param     vecECF  ECF坐标
+/// @param     velECF  ECF速度
+AST_CORE_API void aICRFToECF(
+    const TimePoint& tp, 
+    const Vector3d& vecICRF, const Vector3d& velICRF, 
+    Vector3d& vecECF, Vector3d& velECF
+);
 
 // ----------------
 // ICRF -> CIRF

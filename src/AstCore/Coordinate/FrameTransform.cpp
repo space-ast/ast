@@ -34,6 +34,31 @@
 
 AST_NAMESPACE_BEGIN
 
+void aECIToECFTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aICRFToECFTransform(tp, rotation);
+}
+
+void aECIToECFTransform(const TimePoint &tp, KinematicRotation &rotation)
+{
+    return aICRFToECFTransform(tp, rotation);
+}
+
+void aECIToECFMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    return aICRFToECFMatrix(tp, matrix);
+}
+
+void aECIToECF(const TimePoint &tp, const Vector3d &vecECI, Vector3d &vecECF)
+{
+    return aICRFToECF(tp, vecECI, vecECF);
+}
+
+void aECIToECF(const TimePoint &tp, const Vector3d &vecECI, const Vector3d &velECI, Vector3d &vecECF, Vector3d &velECF)
+{
+    return aICRFToECF(tp, vecECI, velECI, vecECF, velECF);
+}
+
 void aJ2000ToECFTransform(const TimePoint &tp, Rotation &rotation)
 {
     aJ2000ToECFMatrix(tp, rotation.getMatrix());
@@ -250,6 +275,23 @@ void aICRFToECFTransform(const TimePoint & tp, Rotation & rotation)
     return aICRFToECFMatrix(tp, rotation.getMatrix());
 }
 
+void aICRFToECFTransform(const TimePoint &tp, KinematicRotation &rotationOut)
+{
+    KinematicRotation rotation;
+    KinematicRotation temp;
+    
+    aICRFToCIRFTransform(tp, rotation.getRotation());
+    
+    aCIRFToTIRFTransform(tp, temp);
+    rotation.setRotationRate(temp.getRotationRate() * rotation.getRotation().getMatrix());
+    rotation.getRotation() *= temp.getRotation();
+
+    aTIRFToECFTransform(tp, temp);
+    rotation.getRotation() *= temp.getRotation();
+
+    rotationOut = rotation;
+}
+
 void aICRFToECFMatrix(const TimePoint & tp, Matrix3d & matrix)
 {
     Rotation rotation;
@@ -269,7 +311,12 @@ void aICRFToECF(const TimePoint & tp, const Vector3d & vecICRF, Vector3d & vecEC
     vecECF = rotation.transformVector(vecICRF);
 }
 
-
+void aICRFToECF(const TimePoint &tp, const Vector3d &vecICRF, const Vector3d &velICRF, Vector3d &vecECF, Vector3d &velECF)
+{
+    KinematicRotation rotation;
+    aICRFToECFTransform(tp, rotation);
+    rotation.transformVectorVelocity(vecICRF, velICRF, vecECF, velECF);
+}
 
 // ICRF -> CIRF 转换
 
@@ -327,6 +374,14 @@ void aCIRFToTIRFTransform(const TimePoint & tp, Rotation & rotation)
     return aCIRFToTIRFMatrix(tp, rotation.getMatrix());
 }
 
+void aCIRFToTIRFTransform(const TimePoint &tp, KinematicRotation &rotation)
+{
+    aCIRFToTIRFTransform(tp, rotation.getRotation());
+    double lod = aLOD(tp);
+    double omp = kEarthAngVel * (1 - lod / kSecondsPerDay);
+    rotation.setRotationRate({0, 0, omp});
+}
+
 void aCIRFToTIRFMatrix(const TimePoint &tp, Matrix3d &matrix)
 {
     double angle = aEarthRotationAngle_IAU2000(tp);
@@ -338,6 +393,13 @@ void aCIRFToTIRF(const TimePoint & tp, const Vector3d & vecCIRF, Vector3d & vecT
     Rotation rotation;
     aCIRFToTIRFTransform(tp, rotation);
     vecTIRF = rotation.transformVector(vecCIRF);
+}
+
+void aCIRFToTIRF(const TimePoint &tp, const Vector3d &vecCIRF, const Vector3d &velCIRF, Vector3d &vecTIRF, Vector3d &velTIRF)
+{
+    KinematicRotation rotation;
+    aCIRFToTIRFTransform(tp, rotation);
+    rotation.transformVectorVelocity(vecCIRF, velCIRF, vecTIRF, velTIRF);
 }
 
 // TIRF -> ECF 转换

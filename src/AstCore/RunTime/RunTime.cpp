@@ -29,9 +29,9 @@
 #define AST_DEFAULT_FILE_LEAPSECOND "Time/Leap_Second.dat"
 #define AST_DEFAULT_FILE_JPLDE      "SolarSystem/plneph.430"
 #define AST_DEFAULT_FILE_EOP        "SolarSystem/Earth/EOP-All.txt"
-#define AST_DEFAULT_FILE_IAUX       "ERS-conventions/2010/tab5.2a.txt"
-#define AST_DEFAULT_FILE_IAUY       "ERS-conventions/2010/tab5.2b.txt"
-#define AST_DEFAULT_FILE_IAUS       "ERS-conventions/2010/tab5.2d.txt"
+#define AST_DEFAULT_FILE_IAUX       "IERS-conventions/2010/tab5.2a.txt"
+#define AST_DEFAULT_FILE_IAUY       "IERS-conventions/2010/tab5.2b.txt"
+#define AST_DEFAULT_FILE_IAUS       "IERS-conventions/2010/tab5.2d.txt"
 
 
 AST_NAMESPACE_BEGIN

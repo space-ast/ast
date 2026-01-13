@@ -274,4 +274,64 @@ TEST_F(FrameTransformTest, J2000ToECFWithVelocity)
     }
 }
 
+TEST_F(FrameTransformTest, ICRFToCIRF)
+{
+    aGlobalContext_GetEOP()->unload();
+    {
+        TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
+        Vector3d vecICRF{1000_km, 2000_km, 3000_km};
+        Vector3d vecCIRF;
+        aICRFToCIRF(tp, vecICRF, vecCIRF);
+        printf("vecCIRF: %.15f, %.15f, %.15f\n", vecCIRF[0], vecCIRF[1], vecCIRF[2]);
+        EXPECT_NEAR(vecCIRF[0], 979521.6677, 1e-4);
+        EXPECT_NEAR(vecCIRF[1], 2000283.81514, 1e-4);
+        EXPECT_NEAR(vecCIRF[2], 3006559.82166, 1e-4);
+    }
+}
+
+TEST_F(FrameTransformTest, EarthRotationAngle)
+{
+    aGlobalContext_GetEOP()->unload();
+    {
+        TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
+        double angle = aEarthRotationAngle_IAU2000(tp);
+        printf("angle = %.15f rad\n", angle);
+        EXPECT_NEAR(angle, 1.7471233467, 1e-11);
+    }
+}
+
+
+TEST_F(FrameTransformTest, CIRFToTIRF)
+{
+    aGlobalContext_GetEOP()->unload();
+    {
+        TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
+        Vector3d vecCIRF{1000_km, 2000_km, 3000_km};
+        Vector3d vecTIRF;
+        aCIRFToTIRF(tp, vecCIRF, vecTIRF);
+        printf("vecTIRF: %.15f, %.15f, %.15f\n", vecTIRF[0], vecTIRF[1], vecTIRF[2]);
+        EXPECT_NEAR(vecTIRF[0],  1793574.5182948, 1e-7);
+        EXPECT_NEAR(vecTIRF[1], -1335324.0982337, 1e-7);
+        EXPECT_EQ(vecTIRF[2], 3000_km);
+    }
+}
+
+
+TEST_F(FrameTransformTest, ICRFToECF)
+{
+    // 不依赖EOP数据
+    aGlobalContext_GetEOP()->unload();
+    {
+        TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
+        Vector3d vecICRF{1000_km, 2000_km, 3000_km};
+        Vector3d vecECF;
+        aICRFToECF(tp, vecICRF, vecECF);
+        printf("vecECF: %.15f, %.15f, %.15f\n", vecECF[0], vecECF[1], vecECF[2]);
+        EXPECT_NEAR(vecECF[0],  1797446.134222130, 1e-6);
+        EXPECT_NEAR(vecECF[1], -1315213.075245136, 1e-4);
+        EXPECT_NEAR(vecECF[2],  3006559.821668970, 1e-4);
+    }
+
+}
+
 GTEST_MAIN()

@@ -49,8 +49,8 @@ void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
     jdTT = epochTTJulianDate;
     int day1 = time.integerPart()/86400;
     int day2 = time.fractionalPart()/86400;
-    double sec1 = time.integerPart() - (day1)*86400;
-    double sec2 = time.fractionalPart() - (day2)*86400;
+    double sec1 = time.integerPart() - (day1)*86400LL;
+    double sec2 = time.fractionalPart() - (day2)*86400LL;
     jdTT.day() += day1 + day2;
     jdTT.second() += sec1 + sec2;
 }
@@ -61,8 +61,8 @@ void aTimePointToTAI(const TimePoint &time, JulianDate &jdTAI)
     jdTAI = epochTAIJulianDate;
     int day1 = time.integerPart()/86400;
     int day2 = time.fractionalPart()/86400;
-    double sec1 = time.integerPart() - (day1)*86400;
-    double sec2 = time.fractionalPart() - (day2)*86400;
+    double sec1 = time.integerPart() - (day1)*86400LL;
+    double sec2 = time.fractionalPart() - (day2)*86400LL;
     jdTAI.day() += day1 + day2;
     jdTAI.second() += sec1 + sec2;
 }
@@ -73,6 +73,12 @@ void aTimePointToUT1(const TimePoint &time, JulianDate &jdUT1)
     aUTCToUT1(jdUT1, jdUT1);
 }
 
+void aTimePointToUTC(const TimePoint &time, DateTime &dttmUTC)
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(time, jdUTC);
+    aJDToDateTime(jdUTC, dttmUTC);
+}
 
 void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
 {
@@ -98,14 +104,14 @@ TimePoint TimePoint::FromTAI(const JulianDate& jdTAI)
 {
     auto epochTAI = epochTAIJulianDate;
     auto duration = jdTAI - epochTAI;
-    return {duration.day() * 86400, duration.second()};
+    return {duration.day() * 86400LL, duration.second()};
 }
 
 TimePoint TimePoint::FromTT(const JulianDate &jdTT)
 {
     auto epochTT = epochTTJulianDate;
     auto duration = jdTT - epochTT;
-    return {duration.day() * 86400, duration.second()};
+    return {duration.day() * 86400LL, duration.second()};
 }
 
 TimePoint TimePoint::FromIntegerFractional(int64_t integer, double fractional)
