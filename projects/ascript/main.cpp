@@ -55,7 +55,6 @@ int main(int argc, char* argv[])
         // 打开文件
         FILE* file = ast_fopen(filename, "rb");
         if (file == nullptr) {
-            printf(aText("无法打开文件: %s\n"), filename);
             ast_printf(aText("无法打开文件: %s\n"), filename);
             return 1;
         }
