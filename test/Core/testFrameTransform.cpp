@@ -331,7 +331,22 @@ TEST_F(FrameTransformTest, ICRFToECF)
         EXPECT_NEAR(vecECF[1], -1315213.075245136, 1e-4);
         EXPECT_NEAR(vecECF[2],  3006559.821668970, 1e-4);
     }
-
+    {
+        TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
+        Vector3d posICRF{1000_km, 2000_km, 3000_km};
+        Vector3d velICRF{1000_km/s, 2000_km/s, 3000_km/s};
+        Vector3d vecECF;
+        Vector3d velECF;
+        aICRFToECF(tp, posICRF, velICRF, vecECF, velECF);
+        printf("vecECF: %.15f, %.15f, %.15f\n", vecECF[0], vecECF[1], vecECF[2]);
+        printf("velECF: %.15f, %.15f, %.15f\n", velECF[0], velECF[1], velECF[2]);
+        EXPECT_NEAR(vecECF[0],  1797446.134222130, 1e-6);
+        EXPECT_NEAR(vecECF[1], -1315213.075245136, 1e-4);
+        EXPECT_NEAR(vecECF[2],  3006559.821668970, 1e-4);
+        EXPECT_NEAR(velECF[0],  1797.350227370258_km/s, 1e-5);
+        EXPECT_NEAR(velECF[1], -1315.344147086944_km/s, 1e-4);
+        EXPECT_NEAR(velECF[2],  3006.559821668970_km/s, 1e-4);
+    }
 }
 
 GTEST_MAIN()

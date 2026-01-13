@@ -37,7 +37,7 @@ class Polynomial;
 AST_UTIL_API err_t aParsePolynomial(StringView content, StringView varname, std::vector<double>& coeffs);
 
 
-/// @brief 解析多项式表达式（默认变量名 "x"）
+/// @brief 解析多项式表达式
 /// @param content 多项式表达式字符串，例如 "2x^2 + 3x - 1"
 /// @param coeffs 输出参数，用于存储解析后的系数
 /// @return 错误码
