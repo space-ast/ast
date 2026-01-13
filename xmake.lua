@@ -21,6 +21,7 @@ add_rules("plugin.vsxmake.autoupdate")
 
 -- 设置编译策略
 set_policy("build.progress_style", "multirow")
+-- set_policy("package.precompiled", false)
 
 -- linux平台添加rpath
 if is_plat("linux") then
@@ -29,11 +30,18 @@ elseif is_plat("windows") then
     add_cxflags("/wd4819") -- 忽略代码页警告
 end
 
-add_requires("openscenegraph", {shared = true, optional = true})
+-- 添加自定义第三方库仓库
+add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
+
+-- 添加第三方库依赖
+add_requires("openscenegraph", {optional = true, configs = {shared = true}})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
-add_requires("eigen", {optional = true, headeronly = true})
+add_requires("eigen", {optional = true, configs = {headeronly = true}})
+add_requires("opengl", {optional = true})
 add_requires("fmt", {optional = true})
+add_requires("sofa", {optional = true})
 -- add_requires("llvm", {optional = true})
+-- set_toolchains("@llvm")
 
 -- 可选：添加abseil库
 -- add_requires("abseil", {optional = true})

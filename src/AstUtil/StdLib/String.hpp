@@ -33,17 +33,30 @@ typedef std::string String;
 // 比较两个字符串是否相等（不区分大小写）
 #ifdef _WIN32
 using ::stricmp;
+using ::strnicmp;
 A_ALWAYS_INLINE int strcasecmp(const char* str1, const char* str2)
 {
 	return ::stricmp(str1, str2);
 }
+A_ALWAYS_INLINE int strncasecmp(const char* str1, const char* str2, size_t n)
+{
+	return ::strnicmp(str1, str2, n);
+}
 #else
 using ::strcasecmp;
+using ::strncasecmp;
 A_ALWAYS_INLINE int stricmp(const char* str1, const char* str2)
 {
 	return ::strcasecmp(str1, str2);
 }
+A_ALWAYS_INLINE int strnicmp(const char* str1, const char* str2, size_t n)
+{
+	return ::strncasecmp(str1, str2, n);
+}
 #endif
+
+AST_UTIL_CAPI bool aEqualsIgnoreCase(StringView piece1, StringView piece2) noexcept;
+
  
 AST_NAMESPACE_END
  

@@ -48,7 +48,7 @@ public:
     /// @brief 设置高度
     void setAltitude(double alt) { alt_ = alt; }
 
-properties:
+PROPERTIES:
     angle_d  lat_;  ///< 纬度
     angle_d  lon_;  ///< 经度
     length_d alt_;  ///< 高度

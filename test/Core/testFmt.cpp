@@ -19,9 +19,17 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include <fmt/format.h>
+#include <vector>
 
 int main()
 {
-    fmt::print("{}", 6678137.12346);
-    fmt::format("{}", 6678137.12346);
+    std::vector<double> v = {10000000000., 6678137.1234678901, 1.234567890123456789e-10, 1.234567890123456789e+10};
+    for (auto d : v)
+    {
+        fmt::println("{}", d);
+        fmt::println("{:g}", d);
+        fmt::println("{:#g}", d);
+        fmt::println("{:#}", d);
+        fmt::println("");
+    }
 }

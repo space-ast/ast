@@ -1,0 +1,119 @@
+///
+/// @file      bmStrSwich.cpp
+/// @brief     ~
+/// @details   ~
+/// @author    axel
+/// @date      2026-01-07
+/// @copyright 版权所有 (C) 2026-present, ast项目.
+///
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+
+#include <string>
+#include <unordered_map>
+#include <benchmark/benchmark.h>
+
+int find_ifelse(const std::string& str) {
+    if (str == "0") return 0;
+    if (str == "1") return 1;
+    if (str == "2") return 2;
+    if (str == "3") return 3;
+    if (str == "4") return 4;
+    if (str == "5") return 5;
+    if (str == "6") return 6;
+    if (str == "7") return 7;
+    if (str == "8") return 8;
+    if (str == "9") return 9;
+    if (str == "10") return 10;
+    
+    if (str == "apple") return 1;
+    if (str == "banana") return 2;
+    if (str == "orange") return 3;
+    if (str == "grape") return 4;
+    if (str == "mango") return 5;
+    if (str == "peach") return 6;
+    if (str == "watermelon") return 7;
+    if (str == "1234") return 8;
+    if (str == "123433") return 9;
+
+    return -1;
+}
+
+// unordered_map方式
+int find_map(const std::string& str) {
+    static const std::unordered_map<std::string, int> map = {
+        {"0", 0}, {"1", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}, {"10", 10},
+        {"apple", 1}, {"banana", 2}, {"orange", 3},
+        {"grape", 4}, {"mango", 5}, {"peach", 6}, {"watermelon", 7}, {"1234", 8}, {"123433", 9}
+    };
+    auto it = map.find(str);
+    return it != map.end() ? it->second : -1;
+}
+
+
+static void bmFindIfElse(benchmark::State& state)
+{
+    int value;
+    for (auto _ : state)
+    {
+        // value = find_ifelse("apple");
+        // benchmark::DoNotOptimize(value);
+        // value = find_ifelse("banana");
+        // benchmark::DoNotOptimize(value);
+        // value = find_ifelse("orange");
+        // benchmark::DoNotOptimize(value);
+        // value = find_ifelse("grape");
+        // benchmark::DoNotOptimize(value);
+        // value = find_ifelse("mango");
+        // benchmark::DoNotOptimize(value);
+        // value = find_ifelse("peach");
+        // benchmark::DoNotOptimize(value);
+        // value = find_ifelse("watermelon");
+        // benchmark::DoNotOptimize(value);
+        value = find_ifelse("1234");
+        benchmark::DoNotOptimize(value);
+        value = find_ifelse("123433");
+        benchmark::DoNotOptimize(value);
+    }
+}
+BENCHMARK(bmFindIfElse);
+
+
+static void bmFindMap(benchmark::State& state)
+{
+    int value;
+    for (auto _ : state)
+    {
+        // value = find_map("apple");
+        // benchmark::DoNotOptimize(value);
+        // value = find_map("banana");
+        // benchmark::DoNotOptimize(value);
+        // value = find_map("orange");
+        // benchmark::DoNotOptimize(value);
+        // value = find_map("grape");
+        // benchmark::DoNotOptimize(value);
+        // value = find_map("mango");
+        // benchmark::DoNotOptimize(value);
+        // value = find_map("peach");
+        // benchmark::DoNotOptimize(value);
+        // value = find_map("watermelon");
+        // benchmark::DoNotOptimize(value);
+        value = find_map("1234");
+        benchmark::DoNotOptimize(value);
+        value = find_map("123433");
+        benchmark::DoNotOptimize(value);
+    }
+}
+BENCHMARK(bmFindMap);
+
+BENCHMARK_MAIN();
+

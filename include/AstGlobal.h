@@ -91,7 +91,7 @@
 #else
 #   define AST_PROPERTIES public
 #endif
-#define properties AST_PROPERTIES
+#define PROPERTIES AST_PROPERTIES
 
 
 // 字符串宏，用于在编译时将字符串转换为ast项目内部运行时编码
@@ -149,6 +149,24 @@
 #endif
 #define AST_MOCK_CAPI A_DECL_EXTERN_C AST_MOCK_API
 
+// ast项目GUI模块导出声明
+#ifdef AST_BUILD_LIB_GUI
+#    define AST_GUI_API A_DECL_EXPORT
+#else
+#    define AST_GUI_API A_DECL_IMPORT
+#endif
+#define AST_GUI_CAPI A_DECL_EXTERN_C AST_GUI_API
+
+// ast项目可视化模块导出声明
+#ifdef AST_BUILD_LIB_GFX
+#    define AST_GFX_API A_DECL_EXPORT
+#else
+#    define AST_GFX_API A_DECL_IMPORT
+#endif
+#define AST_GFX_CAPI A_DECL_EXTERN_C AST_GFX_API
+
+
+
 AST_NAMESPACE_BEGIN
 
 /// ast项目公共枚举
@@ -190,10 +208,10 @@ typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, pow
 typedef int err_t;           ///< 错误码类型
 typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不够)
 typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
-typedef uint32_t Color;      ///< 颜色值
-
+typedef uint32_t color_t;    ///< 颜色值
 
 #ifdef __cplusplus
+
 template<typename _Scalar, size_t N>
 class VectorN;
 
@@ -209,19 +227,20 @@ class StringViewBasic;
 
 typedef StringViewBasic<char>     StringView;
 
+class Color;                 ///< 颜色
 
-class Quaternion;
+class Quaternion;            ///< 四元数
 
-class Euler;
+class Euler;                 ///< 欧拉角
 
-class Object;
-class Class;
-using Type = Class;
+class Object;                ///< 对象
+class Class;                 ///< 类
+using Type = Class;          ///< 类型
 
-class AbsTime;
-class TimePoint;
-class JulianDate;
-class ModJulianDate;
+class AbsTime;              
+class TimePoint;            ///< 时间点
+class JulianDate;           ///< 儒略日
+class ModJulianDate;        ///< 简约儒略日
 
 class System;
 class Axes;

@@ -82,6 +82,9 @@ err_t aInitialize()
 err_t aUninitialize()
 {
     if (g_defaultGlobalContext) {
+        if (t_currentGlobalContext == g_defaultGlobalContext.get()) {
+            t_currentGlobalContext = nullptr;
+        }
         g_defaultGlobalContext = nullptr;
     }
     // 线程局部变量 t_currentGlobalContext 通常不需要在此处显式删除，
@@ -268,7 +271,14 @@ err_t aJplDeGetPosICRF(
     return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
 }
 
-err_t aJplDeOpen(const char* filepath)
+err_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
+{
+    auto context = aGlobalContext_Ensure();
+    // assert(context);
+    return context->jplDe()->getNutation(time, dpsi, deps);
+}
+
+err_t aJplDeOpen(const char *filepath)
 {
     auto context = aGlobalContext_Ensure();
     //assert(context);

@@ -149,6 +149,10 @@ A_ALWAYS_INLINE DateTime aUTCToTT(const DateTime& dttmUTC)
     return dttmTT;
 }
 
+/// @brief 从协调世界时(UTC) 转换为 世界时(UT1)
+AST_CORE_API void aUTCToUT1(const JulianDate& jdUTC, JulianDate& jdUT1);
+AST_CORE_API void aUTCToUT1(const DateTime& dttmUTC, DateTime& dttmUT1);
+
 /// @brief 从地球时(TT) 转换为 协调世界时(UTC)
 /// @param jdTT 地球时(TT)
 /// @param jdUTC 协调世界时(UTC)

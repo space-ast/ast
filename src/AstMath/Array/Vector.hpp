@@ -71,7 +71,9 @@ public:
     _Scalar& at(size_t idx) {return data()[idx]; }
     void normalize(){_ASTMATH normalize(*this);}
     double norm() const{return _ASTMATH norm(*this);}
+    Vector3d cross(const Vector3d& other) const{return _ASTMATH cross(*this, other);}
     Self operator-() const{return Self{-x_, -y_, -z_};}
+    Vector3d operator-(const Vector3d& other) const{return _ASTMATH operator-(*this, other);}
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化

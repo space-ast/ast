@@ -80,7 +80,12 @@ void aUTCToTT(const DateTime& dttmUTC, DateTime& dttmTT)
     aTAIToTT(dttmTT, dttmTT);
 }
 
-void aTTToUTC(const JulianDate& jdTT, JulianDate& jdUTC)
+void aUTCToUT1(const JulianDate &jdUTC, JulianDate &jdUT1)
+{
+    //@todo
+}
+
+void aTTToUTC(const JulianDate &jdTT, JulianDate &jdUTC)
 {
     aTTToTAI(jdTT, jdUTC);
     aTAIToUTC(jdUTC, jdUTC);

@@ -23,7 +23,6 @@
 #include "AstGlobal.h"
 #include "Duration.hpp"             // for LongDuration
 #include "AstCore/Constants.h"      // for kJ2000XXXX
-#include "AstCore/Constants.h"
 #include "AstCore/JulianDate.hpp"    
 #include "AstCore/DateTime.hpp"
 #include <stdint.h>                 // for int64_t
@@ -43,7 +42,7 @@ class UTCScale;
 
 class TimePoint;
 
-/// @brief 将时间点转换为儒略日数（UTC）
+/// @brief 将时间点转换为儒略日数（协调世界时 UTC）
 AST_CORE_API void aTimePointToUTC(const TimePoint& time, JulianDate& jdUTC);
 
 /// @brief 将时间点转换为儒略日数（地球时TT）
@@ -55,7 +54,10 @@ AST_CORE_API void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB);
 /// @brief 将时间点转换为儒略日数（原子时 TAI）
 AST_CORE_API void aTimePointToTAI(const TimePoint& time, JulianDate& jdTAI);
 
-/// @brief 将时间点转换为日期时间（UTC）
+/// @brief 将时间点转换为儒略日数（世界时 UT1）
+AST_CORE_API void aTimePointToUT1(const TimePoint& time, JulianDate& jdUT1);
+
+/// @brief 将时间点转换为日期时间（协调世界时 UTC）
 AST_CORE_API void aTimePointToUTC(const TimePoint& time, DateTime& dttmUTC);
 
 /// @brief 将时间点转换为日期时间（地球时TT）
@@ -67,17 +69,36 @@ AST_CORE_API void aTimePointToTDB(const TimePoint& time, DateTime& dttmTDB);
 /// @brief 将时间点转换为日期时间（原子时 TAI）
 AST_CORE_API void aTimePointToTAI(const TimePoint& time, DateTime& dttmTAI);
 
+/// @brief 将时间点转换为日期时间（世界时 UT1）
+AST_CORE_API void aTimePointToUT1(const TimePoint& time, DateTime& dttmUT1);
+
+
 /// @brief 绝对时间点
 class TimePoint
 {
 public:
+    /// @brief 从UTC日期时间创建时间点
     AST_CORE_API
     static TimePoint FromUTC(const DateTime& dttmUTC);
 
+    /// @brief 从UTC日期时间创建时间点
+    AST_CORE_API
+    static TimePoint FromUTC(int year, int month, int day, int hour, int minute, double second);
+
+    /// @brief 从原子时TAI创建时间点
     AST_CORE_API 
     static TimePoint FromTAI(const JulianDate& jdTAI);
-protected:
-    static TimePoint FromIntegerFractional(int64_t integer, double fractional);
+
+    /// @brief 从地球时TT创建时间点
+    AST_CORE_API
+    static TimePoint FromTT(const JulianDate& jdTT);
+
+    /// @brief J2000.0 TT 时间点
+    static TimePoint J2000TT(){
+        return {0, -kTTMinusTAI};
+    }
+
+
 public:
     /// @brief 时间点的整数秒数部分
     int64_t integerPart() const { return duration_.integer_; }
@@ -85,6 +106,16 @@ public:
     /// @brief 时间点的小数秒数部分
     double fractionalPart() const { return duration_.fractional_; }
 public:
+    /// @brief 计算时间点与 J2000  epoch 的时间差（天）
+    double daysFromJ2000TT() const{
+        return ((double)integerPart() / kSecondsPerDay) + (fractionalPart() + kTTMinusTAI) / kSecondsPerDay;
+    }
+
+    /// @brief 计算时间点与 J2000  epoch 的时间差（儒略世纪）
+    double julianCenturyFromJ2000TT() const{
+        return daysFromJ2000TT() / kDaysPerJulianCentury;
+    }
+
     /// @brief 将时间点转换为儒略日数（地球时TT）
     void toTT(JulianDate& jdTT) const{
         aTimePointToTT(*this, jdTT);
@@ -125,6 +156,8 @@ public:
     double operator-(const TimePoint& other) const{
         return durationFrom(other);
     }
+protected:
+    static TimePoint FromIntegerFractional(int64_t integer, double fractional);
 public:
     LongDuration    duration_;
 };

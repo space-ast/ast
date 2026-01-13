@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/TimePoint.hpp"
+#include "J2J4Analytical.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -30,7 +31,7 @@ AST_NAMESPACE_BEGIN
 class ModOrbElem;       ///< 改进轨道根数
 class TimePoint;        ///< 时间点
 
-class J2Analytical
+class J2Analytical : public J2J4Analytical
 {
 public:
     /// @brief     构造函数
@@ -52,62 +53,10 @@ public:
     /// @param     re         天体半径
     J2Analytical(const Vector3d& pos, const Vector3d& vel, const TimePoint& epoch, double gm, double j2, double re);
 
-    /// @brief     轨道预报函数
-    /// @details   ~
-    /// @param     duration 时间间隔
-    /// @param     gm       引力常数
-    /// @param     j2       J2项
-    /// @param     r        位置向量
-    /// @param     v        速度向量
-    /// @return    错误码
-    err_t prop(double duration, Vector3d& r, Vector3d& v);
-
-    /// @brief     轨道预报函数
-    /// @details   ~
-    /// @param     duration 时间间隔
-    /// @param     gm       引力常数
-    /// @param     j2       J2项
-    /// @param     modOrbElem 改进轨道根数
-    /// @return    错误码
-    err_t prop(double duration, ModOrbElem& modOrbElem);
-
-
-    /// @brief     轨道预报函数
-    /// @details   ~
-    /// @param     epoch    时间点
-    /// @param     gm       引力常数
-    /// @param     j2       J2项
-    /// @param     r        位置向量
-    /// @param     v        速度向量
-    /// @return    错误码
-    err_t prop(const TimePoint& epoch, Vector3d& r, Vector3d& v);
-
-    /// @brief     轨道预报函数
-    /// @details   ~
-    /// @param     epoch    时间点
-    /// @param     gm       引力常数
-    /// @param     j2       J2项
-    /// @param     modOrbElem 改进轨道根数
-    /// @return    错误码
-    err_t prop(const TimePoint& epoch, ModOrbElem& modOrbElem);
-protected:
-    /// @brief     轨道预报函数（不规范化角度）
-    /// @details   ~
-    /// @param     duration 时间间隔
-    /// @param     modOrbElem 改进轨道根数
-    /// @return    错误码
-    err_t propNoNormalize(double duration, ModOrbElem& modOrbElem);
-
 
 protected:
-    ModOrbElem modOrbElem_;  ///< 改进轨道根数
-    TimePoint epoch_;        ///< 参考时间点
-    double gm_;              ///< 引力常数
     double j2_;              ///< J2项
     double re_;              ///< 天体半径
-    double raanDot_;         ///< 升交点角速度
-    double argPeriDot_;      ///< 近心点角速度
-    double meanAnomalyDot_;  ///< 平近点角速度
 };
 
 
@@ -116,14 +65,22 @@ protected:
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
+/// @param     re       天体半径
 /// @param     r        位置向量
 /// @param     v        速度向量
 /// @return    错误码
 AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, Vector3d& r, Vector3d& v);
 
 
-
-AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re,ModOrbElem& modOrbElem);
+/// @brief     ~
+/// @details   ~
+/// @param     duration 时间间隔
+/// @param     gm       引力常数
+/// @param     j2       J2项
+/// @param     re       天体半径
+/// @param     modOrbElem 改进轨道根数
+/// @return    错误码
+AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, ModOrbElem& modOrbElem);
 
 
 AST_NAMESPACE_END

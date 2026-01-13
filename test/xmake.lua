@@ -19,7 +19,7 @@ if has_package("gtest") then
 end
 
 if has_package("benchmark") then
-    local bm_files = os.files("**/bm*.c*")
+    local bm_files = os.files("**/bm*.cpp", "**/bm*.c")
     for _, file in ipairs(bm_files) do
         local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
         local basename = path.basename(file)

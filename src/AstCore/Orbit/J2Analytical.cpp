@@ -25,85 +25,21 @@
 
 AST_NAMESPACE_BEGIN
 
-
-/*
-
-参考文献：
-[1] Vallado D A .Fundamentals of Astrodynamics and Applications, 4th ed.
-9.6节 Linearized Perturbations and Effects里的J2长期项表达式
-
-*/
-
-
-static ModOrbElem aCartToModOrbElem(const Vector3d& r, const Vector3d& v, double gm)
-{
-    ModOrbElem modOrbElem;
-    aCartToModOrbElem(r, v, gm, modOrbElem);
-    return modOrbElem;
-}
+/// @see J4Analytical.cpp
+extern void aGetJ2AnalyticalParams(const ModOrbElem &modOrbElem, double gm, double j2, double re, double &meanAnomalyDot, double &raanDot, double &argPeriDot);
 
 
 J2Analytical::J2Analytical(const ModOrbElem &modOrbElem, const TimePoint &epoch, double gm, double j2, double re)
-    : modOrbElem_(modOrbElem), epoch_(epoch), gm_(gm), j2_(j2), re_(re)
-    , raanDot_{0}
-    , argPeriDot_{0}
-    , meanAnomalyDot_{0}
+    : J2J4Analytical(modOrbElem, epoch, gm)
+    , j2_(j2), re_(re)
 {
-    double n = modOrbElem_.getMeanMotion(gm_);                      ///< 平均运动数
-    double p = modOrbElem_.getP();                                  ///< 半通径
-    double p2 = p * p;                                              ///< 半通径的平方
-    double sqrt1me2 = sqrt(1 - modOrbElem_.e()*modOrbElem_.e());    ///< 1 - e^2 的平方根
-    double re2 = re_ * re_;                                         ///< 地球半径的平方
-    double sini, cosi;
-    sincos(modOrbElem_.i(), &sini, &cosi);
-    double sini2 = sini * sini;                                     ///< 轨道倾角的正弦值的平方
-
-    meanAnomalyDot_ =  n - 3*n*re2*j2_ * sqrt1me2 / (4 * p2) * (3 * sini2 - 2);
-    raanDot_ = -3 * j2_ * re2 * n * cosi / (2 * p2);
-    argPeriDot_ = 3 * n * j2_ * re2 * (4 - 5 * sini2) / (4 * p2);
+    aGetJ2AnalyticalParams(modOrbElem, gm, j2, re, meanAnomalyDot_, raanDot_, argPeriDot_);
 }
 
 
 J2Analytical::J2Analytical(const Vector3d &pos, const Vector3d &vel, const TimePoint &epoch, double gm, double j2, double re)
     : J2Analytical(aCartToModOrbElem(pos, vel, gm), epoch, gm, j2, re)
 {
-}
-
-err_t J2Analytical::prop(double duration, Vector3d &r, Vector3d &v)
-{
-    err_t err = this->propNoNormalize(duration, modOrbElem_);
-    aModOrbElemToCart(modOrbElem_, gm_, r, v);
-    return err;
-}
-
-err_t J2Analytical::prop(double duration, ModOrbElem &modOrbElem)
-{
-    err_t err = this->propNoNormalize(duration, modOrbElem);
-    modOrbElem.trueA() = aNormalizeAngle0To2Pi(modOrbElem.trueA());
-    modOrbElem.raan() = aNormalizeAngle0To2Pi(modOrbElem.raan());
-    modOrbElem.argper() = aNormalizeAngle0To2Pi(modOrbElem.argper());
-    return err;
-}
-
-err_t J2Analytical::prop(const TimePoint &epoch, Vector3d &r, Vector3d &v)
-{
-    double duration = (epoch - epoch_);
-    return this->prop(duration, r, v);
-}
-
-err_t J2Analytical::prop(const TimePoint &epoch, ModOrbElem &modOrbElem)
-{
-    double duration = (epoch - epoch_);
-    return this->prop(duration, modOrbElem);
-}
-
-err_t J2Analytical::propNoNormalize(double duration, ModOrbElem &modOrbElem)
-{
-    modOrbElem = this->modOrbElem_;
-    modOrbElem.trueA() += meanAnomalyDot_ * duration;
-    modOrbElem.raan() += raanDot_ * duration;
-    modOrbElem.argper() += argPeriDot_ * duration;
-    return 0;
 }
 
 err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, Vector3d& r, Vector3d& v)
