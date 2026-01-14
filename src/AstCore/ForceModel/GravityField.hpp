@@ -21,20 +21,75 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include <vector>
+#include "AstMath/LowerMatrix.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
+class BKVParser;
 
-class GravityField{
+class AST_CORE_API GravityField{
 public:
+    GravityField();
+    ~GravityField() = default;
 
+    const std::string& getModelName() const { return model_; }
+    const std::string& getCentralBodyName() const { return centralBody_; }
+    int getMaxDegree() const { return maxDegree_; }
+    int getMaxOrder() const { return maxOrder_; }
+    double getGM() const { return gm_; }
+    double getRefDistance() const { return refDistance_; }
+    bool isNormalized() const { return normalized_; }
+    bool isIncludesPermTide() const { return includesPermTide_; }
+    
+    double getSnm(int n, int m) const;
+    double getCnm(int n, int m) const;
+    double getSnmNormalized(int n, int m) const;
+    double getCnmNormalized(int n, int m) const;
+    double getSnmUnnormalized(int n, int m) const;
+    double getCnmUnnormalized(int n, int m) const;
+
+    err_t load(StringView filepath);
 
 protected:
-    std::vector<double> zonalCoeff_;
-    std::vector<double> sinCoeff_;
-    std::vector<double> cosCoeff_;
+    err_t loadSTK(BKVParser& parser);
+    err_t loadGMAT(BKVParser& parser);
+    double& snm(int n, int m);
+    double& cnm(int n, int m);
+    void initCoeffMatrices();
+protected:
+    int maxDegree_;
+    int maxOrder_;
+    std::string centralBody_;
+    std::string model_;
+    double gm_;
+    double refDistance_;
+    bool normalized_;
+    bool includesPermTide_;
+
+    LowerMatrixd sinCoeff_;
+    LowerMatrixd cosCoeff_;
 };
+
+inline double &GravityField::snm(int n, int m)
+{
+    return sinCoeff_(n, m);
+}
+
+inline double &GravityField::cnm(int n, int m)
+{
+    return cosCoeff_(n, m);
+}
+
+inline double GravityField::getSnm(int n, int m) const
+{
+    return sinCoeff_(n, m);
+}
+
+inline double GravityField::getCnm(int n, int m) const
+{
+    return cosCoeff_(n, m);
+}
 
 
 AST_NAMESPACE_END
