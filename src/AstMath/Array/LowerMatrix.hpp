@@ -73,10 +73,10 @@ inline void LowerMatrix<_Scalar>::resize(size_t rowcol)
 
 template <typename _Scalar>
 inline LowerMatrix<_Scalar>::LowerMatrix(const LowerMatrix &other)
+    :LowerMatrix()
 {
     resize(other.rowcol_);
-    for(size_t i = 0; i < capacity(rowcol_); ++i)
-        data_[i] = other.data_[i];
+    memcpy(data_, other.data_, sizeof(_Scalar) * capacity(rowcol_));
 }
 
 template <typename _Scalar>
@@ -85,8 +85,7 @@ inline LowerMatrix<_Scalar> &LowerMatrix<_Scalar>::operator=(const LowerMatrix &
     if(this != &other)
     {
         resize(other.rowcol_);
-        for(size_t i = 0; i < capacity(rowcol_); ++i)
-            data_[i] = other.data_[i];
+        memcpy(data_, other.data_, sizeof(_Scalar) * capacity(rowcol_));
     }
     return *this;
 }

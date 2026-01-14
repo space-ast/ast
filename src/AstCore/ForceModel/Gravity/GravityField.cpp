@@ -22,10 +22,21 @@
 #include "AstUtil/BKVParser.hpp"
 #include "AstUtil/String.hpp"
 #include "AstUtil/Logger.hpp"
+#include <cmath>
 
 
 
 AST_NAMESPACE_BEGIN
+
+void aGravityFieldNormalize(GravityField &gf)
+{
+    gf.normalize();
+}
+
+void aGravityFieldUnnormalize(GravityField &gf)
+{
+    gf.unnormalize();
+}
 
 GravityField::GravityField()
     : maxDegree_(0)
@@ -58,6 +69,76 @@ err_t GravityField::load(StringView filepath)
         firstline.data(), filepath.data()
     );
     return eErrorParse;
+}
+
+/// @brief 计算重力场系数的归一化因子
+/// @param n 阶数 degree
+/// @param m 次阶数 order
+/// @return 归一化因子
+static double gfNormalizeFactor(int n, int m)
+{
+    /*
+    参考：航天器轨道力学理论与方法 附录C 公式C-1-3
+    */
+    int delta;
+    if(m == 0)
+        delta = 0;
+    else
+        delta = 1;
+
+    double factor = 1.0;
+    // if(m > 0){
+        for(int i = n - m + 1; i <= n + m; i++)
+            factor *= i;
+    // }
+    factor = sqrt(factor / ((1 + delta)*(2 * n + 1)) );
+    return factor;
+}
+
+void GravityField::normalize()
+{
+    if(normalized_)
+        return;
+    normalized_ = true;
+    for(int n = 0; n <= maxDegree_; n++)
+    {
+        for(int m = 0; m <= n; m++)
+        {
+            double factor = gfNormalizeFactor(n, m);
+            snm(n, m) *= factor;
+            cnm(n, m) *= factor;
+        }
+    }
+}
+
+void GravityField::unnormalize() 
+{
+    if(!normalized_)
+        return;
+    normalized_ = false;
+    for(int n = 0; n <= maxDegree_; n++)
+    {
+        for(int m = 0; m <= n; m++)
+        {
+            double factor = gfNormalizeFactor(n, m);
+            snm(n, m) /= factor;
+            cnm(n, m) /= factor;
+        }
+    }
+}
+
+GravityField GravityField::normalized() const
+{
+    GravityField gf_normalized = *this;
+    aGravityFieldNormalize(gf_normalized);
+    return gf_normalized;
+}
+
+GravityField GravityField::unnormalized() const
+{
+    GravityField gf_unnormalized = *this;
+    aGravityFieldUnnormalize(gf_unnormalized);
+    return gf_unnormalized;
 }
 
 err_t GravityField::loadSTK(BKVParser &parser)
@@ -212,5 +293,4 @@ void GravityField::initCoeffMatrices()
 
 
 AST_NAMESPACE_END
-
 

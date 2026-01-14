@@ -1,1 +1,1 @@
-#include "../../src/AstCore/ForceModel/GravityField.hpp"
+#include "../../src/AstCore/ForceModel/Gravity/GravityField.hpp"

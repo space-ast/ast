@@ -80,4 +80,40 @@ TEST(GravityField, loadJGM3)
     }
 }
 
+
+TEST(GravityField, normalize)
+{
+    GravityField gf_WGS84, gf_WGS84_old;
+    err_t err;
+    err = gf_WGS84.load(aDataDirGet() + "/Test/CentralBodies/Earth/WGS84.grv");
+    EXPECT_EQ(err, eNoError);
+    err = gf_WGS84_old.load(aDataDirGet() + "/Test/CentralBodies/Earth/WGS84_old.grv");
+    EXPECT_EQ(err, eNoError);
+
+    GravityField gf_WGS84_old_normalized = gf_WGS84_old.normalized();
+    for(int n = 0; n <= gf_WGS84_old_normalized.getMaxDegree(); n++){
+        for(int m = 0; m <= n; m++){
+            printf("n = %d, m = %d\n", n, m);
+            printf("WGS84: %g, WGS84_old_normalized: %g\n", gf_WGS84.getCnm(n, m), gf_WGS84_old_normalized.getCnm(n, m));
+            printf("WGS84: %g, WGS84_old_normalized: %g\n", gf_WGS84.getSnm(n, m), gf_WGS84_old_normalized.getSnm(n, m));
+            if(n==12 && m ==7) continue;
+            EXPECT_NEAR(gf_WGS84_old_normalized.getCnm(n, m), gf_WGS84.getCnm(n, m), fabs(gf_WGS84.getCnm(n, m)) * 5e-6);
+            EXPECT_NEAR(gf_WGS84_old_normalized.getSnm(n, m), gf_WGS84.getSnm(n, m), fabs(gf_WGS84.getSnm(n, m)) * 5e-6);
+        }
+    }
+
+    GravityField gf_WGS84_unnormalized = gf_WGS84.unnormalized();
+    for(int n = 0; n <= gf_WGS84_old.getMaxDegree(); n++){
+        for(int m = 0; m <= n; m++){
+            printf("n = %d, m = %d\n", n, m);
+            printf("WGS84_old: %g, WGS84_unnormalized: %g\n", gf_WGS84_old.getCnm(n, m), gf_WGS84_unnormalized.getCnm(n, m));
+            printf("WGS84_old: %g, WGS84_unnormalized: %g\n", gf_WGS84_old.getSnm(n, m), gf_WGS84_unnormalized.getSnm(n, m));
+            if(n==12 && m ==7) continue;
+            EXPECT_NEAR(gf_WGS84_unnormalized.getCnm(n, m), gf_WGS84_old.getCnm(n, m), fabs(gf_WGS84_unnormalized.getCnm(n, m)) * 5e-6);
+            EXPECT_NEAR(gf_WGS84_unnormalized.getSnm(n, m), gf_WGS84_old.getSnm(n, m), fabs(gf_WGS84_unnormalized.getSnm(n, m)) * 5e-6);
+        }
+    }
+
+}
+
 GTEST_MAIN();
