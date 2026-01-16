@@ -71,6 +71,7 @@ public:
     _Scalar& at(size_t idx) {return data()[idx]; }
     void normalize(){_ASTMATH normalize(*this);}
     double norm() const{return _ASTMATH norm(*this);}
+    double squaredNorm() const{return _ASTMATH squaredNorm(*this);}
     Vector3d cross(const Vector3d& other) const{return _ASTMATH cross(*this, other);}
     Self operator-() const{return Self{-x_, -y_, -z_};}
     Vector3d operator-(const Vector3d& other) const{return _ASTMATH operator-(*this, other);}
@@ -90,6 +91,7 @@ public:
     ~VectorX();
 
     void resize(size_t size);
+    void setZero();
     A_DEF_ITERABLE(_Scalar, data_, size_)
 public:
     _Scalar* data_;
@@ -135,7 +137,12 @@ inline void VectorX<_Scalar>::resize(size_t size)
     size_ = size;
 }
 
-
+template <typename _Scalar>
+inline void VectorX<_Scalar>::setZero()
+{
+    if(data_)
+        memset(data_, 0, sizeof(_Scalar) * size_);
+}
 
 typedef VectorX<double> VectorXd;
 

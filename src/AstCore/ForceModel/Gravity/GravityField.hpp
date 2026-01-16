@@ -87,10 +87,10 @@ public:
     /// @return Cnm系数
     double getCnm(int n, int m) const;
     
-    double getSnmNormalized(int n, int m) const;
-    double getCnmNormalized(int n, int m) const;
-    double getSnmUnnormalized(int n, int m) const;
-    double getCnmUnnormalized(int n, int m) const;
+    // double getSnmNormalized(int n, int m) const;
+    // double getCnmNormalized(int n, int m) const;
+    // double getSnmUnnormalized(int n, int m) const;
+    // double getCnmUnnormalized(int n, int m) const;
 
     /// @brief 从文件加载重力场
     /// @param filepath 重力场文件路径
