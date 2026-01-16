@@ -1,0 +1,21 @@
+stk.v.5.0
+
+#
+# The coefficients listed here are consistent with values used by SGP4
+# as written in SpaceTrack Report No. 3, see
+# http://celestrak.com/NORAD/documentation/spacetrk.pdf
+#
+
+Model 			WGS72_ZonalsToJ4
+CentralBody			Earth
+Degree 			4
+Order 			0
+GM 				3.986007996E+14
+RefDistance 	6378135.0 
+Normalized 		No
+
+Begin Coefficients
+2 0 -1.082616e-3	0.0
+3 0  0.253881e-5	0.0
+4 0  1.655970e-6	0.0
+End Coefficients

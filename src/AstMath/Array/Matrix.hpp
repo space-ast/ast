@@ -31,20 +31,106 @@ template<typename _Scalar>
 class Matrix
 {
 public:
-    Matrix()
-        : m_row{0}
-        , m_col{0}
-        , m_data{nullptr}
-    {}
+    Matrix();
+    Matrix(const Matrix& other);
+    Matrix(Matrix&& other);
+    ~Matrix();
+    Matrix& operator=(const Matrix& other);
+    Matrix& operator=(Matrix&& other);
+    void resize(size_t row, size_t col);
+    void setZero();
     size_t size() const{return m_row * m_col;}
     size_t row() const{return m_row;}
     size_t col() const{return m_col;}
     _Scalar* data() const{return m_data;}
+    _Scalar& operator()(size_t row, size_t col){return m_data[row * m_col + col];}
+    _Scalar operator()(size_t row, size_t col) const{return m_data[row * m_col + col];}
 protected:
     size_t m_row;
     size_t m_col;
     _Scalar* m_data;
 };
+
+typedef Matrix<double> MatrixXd;
+
+template <typename _Scalar>
+inline Matrix<_Scalar>::Matrix()
+    : m_row{0}
+    , m_col{0}
+    , m_data{nullptr}
+{}
+
+template <typename _Scalar>
+inline Matrix<_Scalar>::~Matrix()
+{
+    if(m_data)
+        free(m_data);
+}
+
+template <typename _Scalar>
+inline Matrix<_Scalar>::Matrix(const Matrix& other)
+    : m_row{other.m_row}
+    , m_col{other.m_col}
+    , m_data{nullptr}
+{
+    if (other.m_data) {
+        this->m_data = (_Scalar*)malloc(other.size() * sizeof(_Scalar));
+        memcpy(m_data, other.m_data, other.size() * sizeof(_Scalar));
+    }
+}
+
+template <typename _Scalar>
+inline Matrix<_Scalar>& Matrix<_Scalar>::operator=(const Matrix& other)
+{
+    if(this != &other){
+        resize(other.row(), other.col());
+        if (other.m_data) {
+            memcpy(m_data, other.m_data, other.size() * sizeof(_Scalar));
+        }
+    }
+    return *this;
+}
+
+template <typename _Scalar>
+inline Matrix<_Scalar>::Matrix(Matrix&& other)
+    : m_row{other.m_row}
+    , m_col{other.m_col}
+    , m_data{other.m_data}
+{
+    other.m_row = 0;
+    other.m_col = 0;
+    other.m_data = nullptr;
+}
+
+template <typename _Scalar>
+inline Matrix<_Scalar>& Matrix<_Scalar>::operator=(Matrix&& other)
+{
+    if(this != &other){
+        std::swap(m_row, other.m_row);
+        std::swap(m_col, other.m_col);
+        std::swap(m_data, other.m_data);
+    }
+    return *this;
+}
+
+template <typename _Scalar>
+inline void Matrix<_Scalar>::resize(size_t row, size_t col)
+{
+    if(m_data)
+        free(m_data);
+    m_row = row;
+    m_col = col;
+    m_data = (_Scalar*)malloc(row * col * sizeof(_Scalar));
+}
+
+
+template <typename _Scalar>
+inline void Matrix<_Scalar>::setZero()
+{
+    if(m_data)
+        memset(m_data, 0, size() * sizeof(_Scalar));
+}
+
 
 template<typename _Scalar, size_t Row, size_t Col>
 class MatrixMN
@@ -76,7 +162,8 @@ public:
     typedef MatrixMN< _Scalar, 3, 3> Self;
     typedef _Scalar Scalar;
     static Self Identity(){return Self{1,0,0,0,1,0,0,0,1};}
-
+    static Self Zero(){return Self{0,0,0,0,0,0,0,0,0};}
+    
     constexpr size_t size() const{return Row*Col;}
     constexpr size_t row() const{return Row;}
     constexpr size_t col() const{return Col;}
@@ -129,5 +216,6 @@ A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self &MatrixMN<_Scalar, 3, 3>:
 AST_NAMESPACE_END
 
 AST_DECL_TYPE_ALIAS(Matrix3d)
+
 
 

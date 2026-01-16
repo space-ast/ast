@@ -1,4 +1,291 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 
+	<!-- Vector classes visualization -->
+
+	<!-- VectorN<Scalar, N> - Fixed size vector -->
+	<Type Name="ast::VectorN&lt;*,*&gt;">
+		<DisplayString>[{Dimension}] (fixed vector)</DisplayString>
+		<Expand>
+			<Item Name="Size">Dimension</Item>
+			<ArrayItems>
+				<Size>Dimension</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- VectorN<Scalar, 3> - 3D vector specialization -->
+	<Type Name="ast::VectorN&lt;*, 3&gt;">
+		<DisplayString>[3] ({x_}, {y_}, {z_})</DisplayString>
+		<Expand>
+			<Item Name="Size">3</Item>
+			<Item Name="x">x_</Item>
+			<Item Name="y">y_</Item>
+			<Item Name="z">z_</Item>
+			<ArrayItems>
+				<Size>3</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- VectorN<Scalar, 2> - 2D vector specialization -->
+	<Type Name="ast::VectorN&lt;*, 2&gt;">
+		<DisplayString>[2] ({x_}, {y_})</DisplayString>
+		<Expand>
+			<Item Name="Size">2</Item>
+			<Item Name="x">x_</Item>
+			<Item Name="y">y_</Item>
+			<ArrayItems>
+				<Size>2</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- VectorN<Scalar, 4> - 4D vector specialization -->
+	<Type Name="ast::VectorN&lt;*, 4&gt;">
+		<DisplayString>[4] ({x_}, {y_}, {z_}, {w_})</DisplayString>
+		<Expand>
+			<Item Name="Size">4</Item>
+			<Item Name="x">x_</Item>
+			<Item Name="y">y_</Item>
+			<Item Name="z">z_</Item>
+			<Item Name="w">w_</Item>
+			<ArrayItems>
+				<Size>4</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- VectorX<Scalar> - Dynamic size vector -->
+	<Type Name="ast::VectorX&lt;*&gt;">
+		<DisplayString Condition="data_ == 0">empty</DisplayString>
+		<DisplayString Condition="data_ != 0">[{size_}] (dynamic vector)</DisplayString>
+		<Expand>
+			<Item Name="Size">size_</Item>
+			<ArrayItems>
+				<Size>size_</Size>
+				<ValuePointer>data_</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- Matrix classes visualization -->
+
+	<!-- Matrix<Scalar> - Dynamic size matrix -->
+	<Type Name="ast::Matrix&lt;*&gt;">
+		<DisplayString Condition="m_data == 0">empty</DisplayString>
+		<DisplayString Condition="m_data != 0">[{m_row}, {m_col}] (dynamic matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">m_row</Item>
+			<Item Name="Cols">m_col</Item>
+			<Item Name="Size">m_row * m_col</Item>
+			<ArrayItems>
+				<Rank>2</Rank>
+				<Size>$i==0 ? m_row : m_col</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- MatrixMN<Scalar, Row, Col> - Fixed size matrix -->
+	<Type Name="ast::MatrixMN&lt;*, *, *&gt;">
+		<DisplayString>[{Row}, {Col}] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">Row</Item>
+			<Item Name="Cols">Col</Item>
+			<Item Name="Size">Row * Col</Item>
+			<ArrayItems>
+				<Rank>2</Rank>
+				<Size>$i==0 ? Row : Col</Size>
+				<ValuePointer>data()</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<!-- MatrixMN<Scalar, 2, 2> - 2x2 matrix specialization -->
+	<Type Name="ast::MatrixMN&lt;*, 2, 2&gt;">
+		<DisplayString>[2, 2] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">2</Item>
+			<Item Name="Cols">2</Item>
+			<Synthetic Name="[row 0]">
+				<DisplayString>({data()[0]}, {data()[2]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 1]">
+				<DisplayString>({data()[1]}, {data()[3]})</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<!-- MatrixMN<Scalar, 3, 3> - 3x3 matrix specialization -->
+	<Type Name="ast::MatrixMN&lt;*, 3, 3&gt;">
+		<DisplayString>[3, 3] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">3</Item>
+			<Item Name="Cols">3</Item>
+			<Synthetic Name="[row 0]">
+				<DisplayString>({data()[0]}, {data()[3]}, {data()[6]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 1]">
+				<DisplayString>({data()[1]}, {data()[4]}, {data()[7]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 2]">
+				<DisplayString>({data()[2]}, {data()[5]}, {data()[8]})</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<!-- MatrixMN<Scalar, 4, 4> - 4x4 matrix specialization -->
+	<Type Name="ast::MatrixMN&lt;*, 4, 4&gt;">
+		<DisplayString>[4, 4] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">4</Item>
+			<Item Name="Cols">4</Item>
+			<Synthetic Name="[row 0]">
+				<DisplayString>({data()[0]}, {data()[4]}, {data()[8]}, {data()[12]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 1]">
+				<DisplayString>({data()[1]}, {data()[5]}, {data()[9]}, {data()[13]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 2]">
+				<DisplayString>({data()[2]}, {data()[6]}, {data()[10]}, {data()[14]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 3]">
+				<DisplayString>({data()[3]}, {data()[7]}, {data()[11]}, {data()[15]})</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<!-- Type aliases - 使用AlternativeType替代Inherits -->
+	<Type Name="ast::Vector2d">
+		<AlternativeType Name="ast::VectorN&lt;double, 2&gt;" />
+		<DisplayString>[2] ({x_}, {y_})</DisplayString>
+		<Expand>
+			<Item Name="Size">2</Item>
+			<Item Name="x">x_</Item>
+			<Item Name="y">y_</Item>
+			<ArrayItems>
+				<Size>2</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::Vector3d">
+		<AlternativeType Name="ast::VectorN&lt;double, 3&gt;" />
+		<DisplayString>[3] ({x_}, {y_}, {z_})</DisplayString>
+		<Expand>
+			<Item Name="Size">3</Item>
+			<Item Name="x">x_</Item>
+			<Item Name="y">y_</Item>
+			<Item Name="z">z_</Item>
+			<ArrayItems>
+				<Size>3</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::Vector4d">
+		<AlternativeType Name="ast::VectorN&lt;double, 4&gt;" />
+		<DisplayString>[4] ({x_}, {y_}, {z_}, {w_})</DisplayString>
+		<Expand>
+			<Item Name="Size">4</Item>
+			<Item Name="x">x_</Item>
+			<Item Name="y">y_</Item>
+			<Item Name="z">z_</Item>
+			<Item Name="w">w_</Item>
+			<ArrayItems>
+				<Size>4</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::VectorXd">
+		<AlternativeType Name="ast::VectorX&lt;double&gt;" />
+		<DisplayString Condition="data_ == 0">empty</DisplayString>
+		<DisplayString Condition="data_ != 0">[{size_}] (dynamic vector)</DisplayString>
+		<Expand>
+			<Item Name="Size">size_</Item>
+			<ArrayItems>
+				<Size>size_</Size>
+				<ValuePointer>data_</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::Matrix2d">
+		<AlternativeType Name="ast::MatrixMN&lt;double, 2, 2&gt;" />
+		<DisplayString>[2, 2] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">2</Item>
+			<Item Name="Cols">2</Item>
+			<Synthetic Name="[row 0]">
+				<DisplayString>({data()[0]}, {data()[2]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 1]">
+				<DisplayString>({data()[1]}, {data()[3]})</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::Matrix3d">
+		<AlternativeType Name="ast::MatrixMN&lt;double, 3, 3&gt;" />
+		<DisplayString>[3, 3] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">3</Item>
+			<Item Name="Cols">3</Item>
+			<Synthetic Name="[row 0]">
+				<DisplayString>({data()[0]}, {data()[3]}, {data()[6]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 1]">
+				<DisplayString>({data()[1]}, {data()[4]}, {data()[7]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 2]">
+				<DisplayString>({data()[2]}, {data()[5]}, {data()[8]})</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::Matrix4d">
+		<AlternativeType Name="ast::MatrixMN&lt;double, 4, 4&gt;" />
+		<DisplayString>[4, 4] (fixed matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">4</Item>
+			<Item Name="Cols">4</Item>
+			<Synthetic Name="[row 0]">
+				<DisplayString>({data()[0]}, {data()[4]}, {data()[8]}, {data()[12]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 1]">
+				<DisplayString>({data()[1]}, {data()[5]}, {data()[9]}, {data()[13]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 2]">
+				<DisplayString>({data()[2]}, {data()[6]}, {data()[10]}, {data()[14]})</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[row 3]">
+				<DisplayString>({data()[3]}, {data()[7]}, {data()[11]}, {data()[15]})</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<Type Name="ast::MatrixXd">
+		<AlternativeType Name="ast::Matrix&lt;double&gt;" />
+		<DisplayString Condition="m_data == 0">empty</DisplayString>
+		<DisplayString Condition="m_data != 0">[{m_row}, {m_col}] (dynamic matrix)</DisplayString>
+		<Expand>
+			<Item Name="Rows">m_row</Item>
+			<Item Name="Cols">m_col</Item>
+			<Item Name="Size">m_row * m_col</Item>
+			<ArrayItems>
+				<Rank>2</Rank>
+				<Size>$i==0 ? m_row : m_col</Size>
+				<ValuePointer>m_data</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
 </AutoVisualizer>

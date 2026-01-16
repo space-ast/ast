@@ -1,0 +1,162 @@
+///
+/// @file      GravityField.hpp
+/// @brief     ~
+/// @details   ~
+/// @author    axel
+/// @date      2026-01-05
+/// @copyright 版权所有 (C) 2026-present, ast项目.
+///
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstMath/LowerMatrix.hpp"
+#include <string>
+
+AST_NAMESPACE_BEGIN
+
+class GravityField;
+class BKVParser;
+
+/// @brief 归一化重力场
+/// @param gf 待归一化的重力场
+void aGravityFieldNormalize(GravityField& gf);
+
+/// @brief 反归一化重力场
+/// @param gf 待反归一化的重力场
+void aGravityFieldUnnormalize(GravityField& gf);
+
+/// @brief 重力场系数
+class AST_CORE_API GravityField{
+public:
+    GravityField();
+    ~GravityField() = default;
+
+    /// @brief 获取重力场模型名称
+    /// @return 重力场模型名称
+    const std::string& getModelName() const { return model_; }
+    
+    /// @brief 获取中心天体名称
+    /// @return 中心天体名称
+    const std::string& getCentralBodyName() const { return centralBody_; }
+
+    /// @brief 获取最大阶数
+    /// @return 最大阶数
+    /// @return 最大阶数
+    int getMaxDegree() const { return maxDegree_; }
+    /// @brief 获取最大次数
+    /// @return 最大次数
+    int getMaxOrder() const { return maxOrder_; }
+
+    /// @brief 获取中心天体重力常数
+    /// @return 中心天体重力常数
+    double getGM() const { return gm_; }
+
+    /// @brief 获取参考距离
+    /// @return 参考距离
+    double getRefDistance() const { return refDistance_; }
+
+    /// @brief 是否归一化
+    /// @return 是否归一化
+    bool isNormalized() const { return normalized_; }
+    
+    /// @brief 是否包含潮汐
+    /// @return 是否包含潮汐
+    bool isIncludesPermTide() const { return includesPermTide_; }
+    
+    /// @brief 获取Snm系数
+    /// @param n 阶数
+    /// @param m 次数
+    /// @return Snm系数
+    double getSnm(int n, int m) const;
+    
+    /// @brief 获取Cnm系数
+    /// @param n 阶数
+    /// @param m 次数
+    /// @return Cnm系数
+    double getCnm(int n, int m) const;
+    
+    // double getSnmNormalized(int n, int m) const;
+    // double getCnmNormalized(int n, int m) const;
+    // double getSnmUnnormalized(int n, int m) const;
+    // double getCnmUnnormalized(int n, int m) const;
+
+    /// @brief 从文件加载重力场
+    /// @param filepath 重力场文件路径
+    /// @return 加载状态
+    err_t load(StringView filepath);
+    
+    /// @brief 归一化重力场
+    void normalize();
+
+    /// @brief 反归一化重力场
+    void unnormalize() ;
+
+    /// @brief 获取归一化后的重力场
+    /// @return 归一化后的重力场
+    GravityField normalized() const;
+
+    /// @brief 获取反归一化后的重力场
+    /// @return 反归一化后的重力场
+    GravityField unnormalized() const;
+protected:
+    /// @brief 从STK文件加载重力场
+    /// @param parser STK文件解析器
+    /// @return 加载状态
+    err_t loadSTK(BKVParser& parser);
+
+    /// @brief 从GMAT文件加载重力场
+    /// @param parser GMAT文件解析器
+    /// @return 加载状态
+    err_t loadGMAT(BKVParser& parser);
+    double& snm(int n, int m);
+    double& cnm(int n, int m);
+    /// @brief 初始化系数矩阵
+    void initCoeffMatrices();
+protected:
+    int maxDegree_;                 ///< 最大阶数
+    int maxOrder_;                  ///< 最大次数
+    std::string centralBody_;       ///< 中心天体名称
+    std::string model_;             ///< 重力场模型名称
+    double gm_;                     ///< 中心天体重力常数
+    double refDistance_;            ///< 参考距离
+    bool normalized_;               ///< 是否归一化
+    bool includesPermTide_;         ///< 是否包含潮汐
+
+    LowerMatrixd sinCoeff_;         ///< Snm系数
+    LowerMatrixd cosCoeff_;         ///< Cnm系数    
+};
+
+inline double &GravityField::snm(int n, int m)
+{
+    return sinCoeff_(n, m);
+}
+
+inline double &GravityField::cnm(int n, int m)
+{
+    return cosCoeff_(n, m);
+}
+
+inline double GravityField::getSnm(int n, int m) const
+{
+    return sinCoeff_(n, m);
+}
+
+inline double GravityField::getCnm(int n, int m) const
+{
+    return cosCoeff_(n, m);
+}
+
+
+AST_NAMESPACE_END

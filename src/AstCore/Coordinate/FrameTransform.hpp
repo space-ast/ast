@@ -33,8 +33,9 @@ class KinematicRotation;
  * 
  * 坐标系定义：
  * 
+ * CBI(Central Body Inertial Frame): 中心天体惯性系
+ * CBF(Central Body Fixed Frame): 中心天体固连系
  * ECI(Earth Centered Inertial Frame): 地球惯性系，根据相关的配置，ECI可能为ICRF或J2000
- * ICRF(International Celestial Reference Frame): 国际天球参考系
  * J2000: 地球时(TT)2000年1月1日12时0分0秒的地球平赤道系
  * MOD(Mean of Date): 平赤道系，考虑岁差
  * TOD(True of Date): 真赤道系，考虑岁差和章动
@@ -48,6 +49,20 @@ class KinematicRotation;
  *      
  * ECF(Earth Centered Fixed Frame): 地球固连系，在GTOD基础上考虑了极移
  * 
+ * ICRF(International Celestial Reference Frame): 国际天球参考系
+ * CIRF(Celestial Intermediate Reference Frame): 天球中间参考系
+ *      天球中间参考系的第一极（z轴方向）为给定时刻的天球中间极（CIP），
+ *      与之等价的基本平面为与该时刻的天球中间极垂直的中间赤道，经度坐标起量点为天球中间零点。
+ *      它类似于传统说法中的真赤道和真春分点参考系，两者基本平面完全相同，
+ *      不同之处在于天球中间参考系的赤经零点为天球中间零点，而真赤道参考系的赤经零点为春分点。
+ *      两个参考系的转换为绕着天球中间极旋转一个角度EO，称为零点差，它的表达式为EO=ERA-GAST，即地球自转角与真恒星时之差。
+ *      由此可以看出，真赤道真春分点参考系可以认为基于春分点的转换中的天球中间参考系。
+ *      由于天球中间参考系的首字母缩略语与国际天球参考系（ICRF）非常接近，因此，在提及该参考系时建议尽量使用全名
+ * TIRF(Terrestrial Intermediate Reference Frame): 地球中间参考系
+ *      TIRF与国际地球参考系（ITRF）的联系由极移和地球中间零点的定位角确定。
+ *      它通过绕天球中间极CIP的转动角度即地球自转角（ERA）与天球中间参考系（CIRS）相联系。
+ *      天球中间极是这两个中间参考系TIRS和CIRS共同的Z轴。
+ *      因为地球中间参考系的首字母缩写词与国际地球参考系ITRF接近，建议使用全名。
  */
 
 
