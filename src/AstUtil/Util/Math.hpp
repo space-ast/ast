@@ -42,6 +42,35 @@ A_ALWAYS_INLINE void sincos (double x, double *psin, double *pcos)
 #endif
 
 
+/// @brief 包含 sin(x) 和 cos(x) 值的结构体
+class SinCos {
+public:
+    A_ALWAYS_INLINE
+    double sin() const { return sin_; }
+    A_ALWAYS_INLINE
+    double& sin() { return sin_; }
+    A_ALWAYS_INLINE
+    double cos() const { return cos_; }
+    A_ALWAYS_INLINE
+    double& cos() { return cos_; }
+public:
+    double sin_;
+    double cos_;
+};
+
+
+/// @brief 计算 sin 和 cos 值
+/// @param x 输入角度（弧度）
+/// @return SinCos 对象，包含 sin(x) 和 cos(x) 的值
+A_ALWAYS_INLINE SinCos sincos(double x)
+{
+    SinCos sc;
+    sincos(x, &sc.sin_, &sc.cos_);
+    return sc;
+}
+
+
+
 /// @brief 计算两个数中的较大值
 template<typename Scalar>
 Scalar aMax(Scalar a, Scalar b)

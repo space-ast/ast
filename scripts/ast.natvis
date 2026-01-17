@@ -128,13 +128,13 @@
 			<Item Name="Rows">3</Item>
 			<Item Name="Cols">3</Item>
 			<Synthetic Name="[row 0]">
-				<DisplayString>({data()[0]}, {data()[3]}, {data()[6]})</DisplayString>
+				<DisplayString>({data()[0]}, {data()[1]}, {data()[2]})</DisplayString>
 			</Synthetic>
 			<Synthetic Name="[row 1]">
-				<DisplayString>({data()[1]}, {data()[4]}, {data()[7]})</DisplayString>
+				<DisplayString>({data()[3]}, {data()[4]}, {data()[5]})</DisplayString>
 			</Synthetic>
 			<Synthetic Name="[row 2]">
-				<DisplayString>({data()[2]}, {data()[5]}, {data()[8]})</DisplayString>
+				<DisplayString>({data()[6]}, {data()[7]}, {data()[8]})</DisplayString>
 			</Synthetic>
 		</Expand>
 	</Type>

@@ -73,7 +73,7 @@ err_t GravityField::load(StringView filepath)
 
 /// @brief 计算重力场系数的归一化因子
 /// @param n 阶数 degree
-/// @param m 次阶数 order
+/// @param m 次数 order
 /// @return 归一化因子
 static double gfNormalizeFactor(int n, int m)
 {
