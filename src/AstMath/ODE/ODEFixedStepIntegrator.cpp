@@ -19,11 +19,28 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ODEFixedStepIntegrator.hpp"
+#include "AstMath/MathOperator.hpp"
 #include <limits>
+#include <cmath>
+#include <algorithm>
 
 AST_NAMESPACE_BEGIN
 
+using namespace _AST math;
+
 ODEFixedStepIntegrator::Workspace::Workspace()
+    : numSteps_(0)
+    , largestStepSize_(0)
+    , smallestStepSize_(std::numeric_limits<double>::max())
+    , dimension_(0)
+    , stage_(0)
+    , KArr_(nullptr)
+    , absErrPerLen_(nullptr)
+    , ymid_(nullptr)
+    , y_(nullptr)
+    , ynew_(nullptr)
+    , ystep_(nullptr)
+    , nextAbsStepSize_(0)
 {
 
 }
@@ -53,31 +70,103 @@ void ODEFixedStepIntegrator::Workspace::reset(int dimension, int stage)
 
 void ODEFixedStepIntegrator::Workspace::clear()
 {
-    // 清空中间结果数组
-    for(int i = 0; i < stage_; i++)
+    if(KArr_ != nullptr)
     {
-        delete[] KArr_[i];
+        // 清空中间结果数组
+        for(int i = 0; i < stage_; i++)
+        {
+            delete[] KArr_[i];
+        }
+        delete[] KArr_;
     }
-    delete[] KArr_;
-    delete[] absErrPerLen_;
-    delete[] ymid_;
-    delete[] y_;
-    delete[] ynew_;
+    if(absErrPerLen_ != nullptr)
+    {
+        delete[] absErrPerLen_;
+    }
+    if(ymid_ != nullptr)
+    {
+        delete[] ymid_;
+    }
+    if(y_ != nullptr)
+    {
+        delete[] y_;
+    }
+    if(ynew_ != nullptr)
+    {
+        delete[] ynew_;
+    }
+    if(ystep_ != nullptr)
+    {
+        delete[] ystep_;
+    }
 }
 
 
 ODEFixedStepIntegrator::Workspace::~Workspace()
 {
-
+    clear();
 }
 
 ODEFixedStepIntegrator::ODEFixedStepIntegrator()
+    : stepSize_(60)
 {
 
 }
 
 ODEFixedStepIntegrator::~ODEFixedStepIntegrator()
 {
+
+}
+
+err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
+{
+    err_t err = eNoError;
+    double stepSize = this->stepSize_;
+    if(stepSize <= 0)
+    {
+        stepSize = 60;
+    }
+    double habs = std::min(fabs(stepSize), fabs(tf - t0));
+    int ndim = ode.getDimension();
+    int tdir = sign(tf - t0);
+    double step = tdir * habs;
+    int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
+    double t = t0;
+    std::copy_n(y0, ndim, yf);
+    for(int i=0;i<numSteps;i++)
+    {
+        err = this->singleStep(ode, t, step, yf, yf);
+        if(err != eNoError)
+        {
+            return err;
+        }
+        t += step;
+    }
+    if(t != tf)
+    {
+        return this->singleStep(ode, t, tf - t, yf, yf);
+    }
+    return eNoError;
+}
+
+err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
+{
+    double absh = this->stepSize_;
+    double step = tf - t;
+    int tdir = sign(step);
+    double stepabs = abs(step);
+    if(stepabs < absh)
+    {
+        absh = stepabs;
+    }
+    double h = absh * tdir;
+    err_t err = this->singleStep(ode, t, h, y0, y);
+    if(err != eNoError)
+    {
+        return err;
+    }
+    t += h;
+    return eNoError;
 }
 
 AST_NAMESPACE_END

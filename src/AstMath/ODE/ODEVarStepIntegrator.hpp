@@ -34,6 +34,19 @@ public:
     ODEVarStepIntegrator();
     ~ODEVarStepIntegrator();
 
+    /// @see ODEIntegrator
+    err_t integrate(ODE& ode, double t0, double tf, const double* y0, double* yf) final;
+
+    /// @see ODEIntegrator
+    err_t integrateStep(ODE& ode, double& t, double tf, const double* y0, double* y) final;
+
+protected:
+    /// @brief 判断是否满足误差要求
+    /// @param absh 绝对步长
+    /// @param y 当前状态向量
+    /// @param ynew 新状态向量
+    /// @return 是否满足误差要求
+    bool isErrorMeet(double& absh, const double* y, const double* ynew);
 private:
     bool useMinStep_;           ///< 是否使用最小步长
     bool useMaxStep_;           ///< 是否使用最大步长
@@ -42,6 +55,8 @@ private:
     int  maxStepAttempts_;      ///< 自适应步长尝试次数
     double minStepSize_;        ///< 最小步长
     double maxStepSize_;        ///< 最大步长
+    double maxAbsErr_;          ///< 最大绝对误差
+    double maxRelErr_;          ///< 最大相对误差
     double minStepScaleFactor_; ///< 最小步长缩放因子
     double maxStepScaleFactor_; ///< 最大步长缩放因子
     double safetyCoeffLow_;     ///< 低安全系数

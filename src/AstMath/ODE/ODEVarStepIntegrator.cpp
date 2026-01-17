@@ -19,10 +19,30 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ODEVarStepIntegrator.hpp"
+#include "AstMath/MathOperator.hpp"
+#include "AstUtil/Logger.hpp"
+#include <cmath>
+#include <algorithm>
 
 AST_NAMESPACE_BEGIN
+using namespace _AST math;
 
 ODEVarStepIntegrator::ODEVarStepIntegrator()
+    : minStepSize_{1}
+    , maxStepSize_{600}
+    , maxAbsErr_{1e-10}
+    , maxRelErr_{1e-13}
+    , useMinStep_{true}
+    , useMaxStep_{true}
+    , useFixedStepSize_{false}
+    , warnOnMinStep_{true}
+    , maxStepAttempts_{50}
+    , minStepScaleFactor_{0.5}
+    , maxStepScaleFactor_{2.0}
+    , safetyCoeffLow_{0.8}
+    , safetyCoeffHigh_{0.9}
+    , errCtrPowthLow_{-0.25}
+    , errCtrPowthHigh_{-0.1}
 {
 
 }
@@ -32,6 +52,174 @@ ODEVarStepIntegrator::~ODEVarStepIntegrator()
     
 }
 
+err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
+{
+    auto& wrk = this->getWorkspace();
+    double absh, h, hmin, hmax;
+    double t, tnew;
+    if(this->useMinStep_){
+        hmin = this->minStepSize_;
+    }else{
+        hmin = 16 * eps(t0);
+    }
+    if(this->useMaxStep_){
+        hmax = this->maxStepSize_;
+    }else{
+        hmax = tf - t0;
+    }
+
+    t = t0;
+    int tdir = sign(tf - t);
+    bool final = false;
+    int numAttempts = 0;
+    while(1)
+    {
+        if(!this->useMinStep_){
+            hmin = 16 * eps(t);
+        }
+        absh = clamp(absh, hmin, hmax);
+        if(!(1.1 * absh < abs(tf - t)))
+        {
+            h = tf - t;
+            absh = abs(h);
+            tnew = tf;
+            final = true;
+        }else{
+            h = absh * tdir;
+            tnew = t + h;
+        }
+        if(err_t rc = this->singleStep(ode, t, h, wrk.y_, wrk.ynew_))
+        {
+            return rc;
+        }
+        bool isOK = this->isErrorMeet(absh, wrk.y_, wrk.ynew_);
+        if(isOK)
+        {
+            wrk.numSteps_ ++;
+            if(final){
+                break;
+            }
+            numAttempts = 0;
+            std::swap(wrk.y_, wrk.ynew_);
+            t = tnew;
+        }else{
+            final = false;
+            numAttempts ++;
+            if(numAttempts >= this->maxStepAttempts_)
+            {
+                aWarning("Max iteration reached.");
+                return EError::eErrorMaxIter;
+            }
+        }
+    }
+    std::copy_n(wrk.y_, wrk.dimension_, yf);
+    return eNoError;
+}
+
+err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
+{
+    auto& wrk = this->getWorkspace();
+    double& absh = wrk.nextAbsStepSize_;
+    double step = tf - t;
+    int tdir = sign(step);
+    double stepabs = abs(step);
+    if(stepabs < absh)
+    {
+        absh = stepabs;
+    }
+    err_t err;
+    bool isOK = false;
+    int numAttempts = 0;
+    double h;
+    do{
+        h = absh * tdir;
+        if(err_t rc = this->singleStep(ode, t, h, y0, y))
+        {
+            return rc;
+        }
+        isOK = this->isErrorMeet(absh, y0, y);
+        if(this->useMinStep_){
+            absh = std::max(absh, this->minStepSize_);
+        }
+        if(this->useMaxStep_){
+            absh = std::min(absh, this->maxStepSize_);
+        }
+        if(numAttempts ++ >= this->maxStepAttempts_)
+        {
+            aWarning("Max iteration reached.");
+            return EError::eErrorMaxIter;
+        }
+    }while(!isOK);
+    t += h;
+    return eNoError;
+}
+
+bool ODEVarStepIntegrator::isErrorMeet(double &absh, const double *y, const double *ynew)
+{
+    using std::max;
+    using std::abs;
+
+    double maxErrRatio;
+    double err;
+    auto& wrk = this->getWorkspace();
+    int dim = std::min(6, wrk.dimension_);  // @fixme!
+    double threshold = this->maxAbsErr_ / this->maxRelErr_;
+    double rtol = this->maxRelErr_;
+
+    // 计算 maxErrRatio
+
+    // L2范数误差控制
+    #if 0
+    {
+        double normynew = norm(ynew, dim);
+        double errwt = max(normynew, threshold);
+        err = absh * (norm(wrk.absErrPerLen_, dim) / errwt);
+        maxErrRatio = err / rtol;
+    }
+    #endif
+
+    // L∞范数误差控制
+    {
+        int maxTemp = 0;
+        for (int i = 0; i < dim; i++)
+        {
+            double temp = abs(wrk.absErrPerLen_[i]) / max(max(abs(ynew[i]), abs(y[i])), threshold);
+            if(temp > maxTemp)
+            {
+                maxTemp = temp;
+            }
+        }
+        err = absh * maxTemp;
+        maxErrRatio = err / rtol;
+    }
+
+    // 计算下一个步长，判断是否满足误差要求
+    bool isOK;
+    {
+        if(maxErrRatio > 1)
+        {
+            if(absh <= this->minStepSize_)
+            {
+                if(this->warnOnMinStep_)
+                {
+                    aWarning("Step size is too small.");
+                }
+                isOK = true;
+            }else{
+                double scale = this->safetyCoeffLow_ * pow(maxErrRatio, -this->errCtrPowthLow_);
+                scale = std::max(scale, this->minStepScaleFactor_);
+                absh *= scale;
+                isOK = false;
+            }
+        }else{
+            double scale = this->safetyCoeffHigh_ * pow(maxErrRatio, -this->errCtrPowthHigh_);
+            scale = std::min(scale, this->maxStepScaleFactor_);
+            absh *= scale;
+            isOK = true;
+        }
+    }
+    return isOK;
+}
 
 AST_NAMESPACE_END
 

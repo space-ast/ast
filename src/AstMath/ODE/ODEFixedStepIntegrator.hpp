@@ -44,6 +44,14 @@ public:
 
     /// @brief 获取工作空间
     const Workspace& getWorkspace() const{ return workspace_; }
+    Workspace& getWorkspace(){ return workspace_; }
+
+    /// @see ODEIntegrator
+    err_t integrate(ODE& ode, double t0, double tf, const double* y0, double* yf) override;
+
+    /// @see ODEIntegrator
+    err_t integrateStep(ODE& ode, double& t, double tf, const double* y0, double* y) override;
+
 public:
     /// @brief 固定步长积分器工作空间
     class Workspace : public ODEWorkspace

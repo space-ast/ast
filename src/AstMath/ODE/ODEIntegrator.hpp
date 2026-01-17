@@ -45,7 +45,6 @@ public:
     /// @details 积分ODE一步，将积分结果存储在y中
     ///          如果是变步长积分器，步长会根据误差自动调整
     ///          如果是定步长积分器，步长会固定为初始步长
-    /// @param nstep 积分步数
     /// @param ode 常微分方程对象
     /// @param[in,out] t 当前时间
     /// @param[in] tf 最终时间

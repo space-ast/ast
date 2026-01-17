@@ -184,6 +184,7 @@ typedef enum EError
     eErrorInvalidFile,  ///< 文件格式错误
     eErrorParse,        ///< 解析错误
     eErrorReadonly,     ///< 只读属性
+    eErrorMaxIter,      ///< 最大迭代次数
 } AEError;
 
 
