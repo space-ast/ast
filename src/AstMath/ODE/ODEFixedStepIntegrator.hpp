@@ -29,7 +29,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 固定步长积分器
 /// @details 固定步长积分器是一种简单的积分器，每步积分的时间间隔相同。
-class ODEFixedStepIntegrator : public ODEIntegrator
+class AST_MATH_API ODEFixedStepIntegrator : public ODEIntegrator
 {
 public:
     class Workspace;
@@ -40,7 +40,7 @@ public:
     int getStepSize() const{ return stepSize_; }
     
     /// @brief 设置步长
-    void setStepSize(int stepSize){ stepSize_ = stepSize; }
+    void setStepSize(double stepSize){ stepSize_ = stepSize; }
 
     /// @brief 获取工作空间
     const Workspace& getWorkspace() const{ return workspace_; }
@@ -63,10 +63,10 @@ public:
         void clear();
     public:
         int numSteps_;              ///< 总步数(统计数据)
-        int largestStepSize_;       ///< 最大步长(统计数据)
-        int smallestStepSize_;      ///< 最小步长(统计数据)
         int dimension_;             ///< 状态向量维度
         int stage_;                 ///< 多步法阶数
+        double largestStepSize_;    ///< 最大步长(统计数据)
+        double smallestStepSize_;   ///< 最小步长(统计数据)
         double** KArr_;             ///< 多步法中间结果数组
         double* absErrPerLen_;      ///< 每步绝对误差数组
         double* ymid_;              ///< 每步中点状态向量

@@ -21,7 +21,16 @@
 #include "RKV8.hpp"
 #include <cmath>
 
+
 AST_NAMESPACE_BEGIN
+
+err_t RKV8::init(ODE &ode)
+{
+    // 重置工作空间
+    this->getWorkspace().reset(ode.getDimension(), 11);
+    return eNoError;
+}
+
 
 err_t RKV8::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
 {

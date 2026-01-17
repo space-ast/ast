@@ -45,6 +45,13 @@ static const double
 const double err_factor = -41.0 / 840.0;
 const int num_stage_rkf78 = 13;
 
+err_t RKF78::init(ODE &ode)
+{
+    // 重置工作空间
+    this->getWorkspace().reset(ode.getDimension(), num_stage_rkf78);
+    return eNoError;
+}
+
 err_t RKF78::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
 {
     auto& wrk = getWorkspace();

@@ -34,9 +34,14 @@ static const double
         {439./216.  ,-8.          ,3680./513. , -845./4104 , 0.      },
         {-8./27.    ,2.           ,-3544./2565, 1859./4104., -11/40.}};
 
-
-
         
+err_t RKF45::init(ODE &ode)
+{
+    // 重置工作空间
+    this->getWorkspace().reset(ode.getDimension(), 6);
+    return eNoError;
+}
+
 err_t RKF45::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
 {
     auto& wrk = this->getWorkspace();

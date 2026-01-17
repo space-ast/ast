@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 可变步长积分器
 /// @details 可变步长积分器每步积分的步长自适应调整，以达到目标误差。
-class ODEVarStepIntegrator : public ODEFixedStepIntegrator
+class AST_MATH_API ODEVarStepIntegrator : public ODEFixedStepIntegrator
 {
 public:
     ODEVarStepIntegrator();
@@ -40,6 +40,19 @@ public:
     /// @see ODEIntegrator
     err_t integrateStep(ODE& ode, double& t, double tf, const double* y0, double* y) final;
 
+    /// @brief 设置最大绝对误差
+    void setMaxAbsErr(double maxAbsErr){maxAbsErr_ = maxAbsErr;};
+    /// @brief 设置最大相对误差
+    void setMaxRelErr(double maxRelErr){maxRelErr_ = maxRelErr;};
+
+    /// @brief 获取积分过程中统计到的最大步长
+    double getLargestStepSize() const;
+
+    /// @brief 获取积分过程中统计到的最小步长
+    double getSmallestStepSize() const;
+
+    /// @brief 获取积分过程中统计到的积分步数
+    int getNumSteps() const;
 protected:
     /// @brief 判断是否满足误差要求
     /// @param absh 绝对步长

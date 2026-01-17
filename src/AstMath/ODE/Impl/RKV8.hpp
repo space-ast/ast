@@ -29,9 +29,11 @@ AST_NAMESPACE_BEGIN
 /// @brief     RKV8 积分器
 /// @details  
 /// 参考文献：Verner "Some Explicit Runge-Kutta Methods of High Order" 1972 
-class RKV8 : public ODEFixedStepIntegrator
+class AST_MATH_API RKV8 : public ODEFixedStepIntegrator
 {
 public:
+    err_t init(ODE& ode) final;
+    
     err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
 };
 

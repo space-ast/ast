@@ -29,9 +29,11 @@ AST_NAMESPACE_BEGIN
 /// @details   
 /// 10级8阶龙格库塔方法 (The 10 stage 8th order Runge-Kutta method)
 /// 参考文献：Shanks, E. Baylis "Solutions of Differential Equations by Evaluations of Functions"
-class RK8 : public ODEFixedStepIntegrator
+class AST_MATH_API RK8 : public ODEFixedStepIntegrator
 {
 public:
+    err_t init(ODE& ode) final;
+
     err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
 };
 

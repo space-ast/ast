@@ -23,6 +23,15 @@
 
 AST_NAMESPACE_BEGIN
 
+err_t RKCK::init(ODE &ode)
+{
+    // 重置工作空间
+    this->getWorkspace().reset(ode.getDimension(), 6);
+    return eNoError;
+}
+
+
+
 err_t RKCK::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
 {
     /* Cash-Karp 方法系数 */

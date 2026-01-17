@@ -25,15 +25,15 @@
 #include <algorithm>
 
 AST_NAMESPACE_BEGIN
-using namespace _AST math;
+using namespace math;
 
 ODEVarStepIntegrator::ODEVarStepIntegrator()
     : minStepSize_{1}
-    , maxStepSize_{600}
+    , maxStepSize_{86400}
     , maxAbsErr_{1e-10}
     , maxRelErr_{1e-13}
-    , useMinStep_{true}
-    , useMaxStep_{true}
+    , useMinStep_{false}
+    , useMaxStep_{false}
     , useFixedStepSize_{false}
     , warnOnMinStep_{true}
     , maxStepAttempts_{50}
@@ -41,8 +41,8 @@ ODEVarStepIntegrator::ODEVarStepIntegrator()
     , maxStepScaleFactor_{2.0}
     , safetyCoeffLow_{0.8}
     , safetyCoeffHigh_{0.9}
-    , errCtrPowthLow_{-0.25}
-    , errCtrPowthHigh_{-0.1}
+    , errCtrPowthLow_{0.25}
+    , errCtrPowthHigh_{0.1}
 {
 
 }
@@ -52,8 +52,27 @@ ODEVarStepIntegrator::~ODEVarStepIntegrator()
     
 }
 
+/// @brief 获取积分过程中统计到的最大步长
+double ODEVarStepIntegrator::getLargestStepSize() const
+{
+    return this->getWorkspace().largestStepSize_;
+}
+
+/// @brief 获取积分过程中统计到的最小步长
+double ODEVarStepIntegrator::getSmallestStepSize() const
+{
+    return this->getWorkspace().smallestStepSize_;
+}
+
+/// @brief 获取积分过程中统计到的积分步数
+int ODEVarStepIntegrator::getNumSteps() const
+{
+    return this->getWorkspace().numSteps_;
+}
+
 err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
 {
+    this->init(ode);
     auto& wrk = this->getWorkspace();
     double absh, h, hmin, hmax;
     double t, tnew;
@@ -68,10 +87,12 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
         hmax = tf - t0;
     }
 
+    absh = abs(this->getStepSize());
     t = t0;
     int tdir = sign(tf - t);
     bool final = false;
     int numAttempts = 0;
+    std::copy_n(y0, wrk.dimension_, wrk.y_);
     while(1)
     {
         if(!this->useMinStep_){
@@ -96,23 +117,26 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
         if(isOK)
         {
             wrk.numSteps_ ++;
+            wrk.largestStepSize_ = std::max(wrk.largestStepSize_, absh);
+            wrk.smallestStepSize_ = std::min(wrk.smallestStepSize_, absh);
             if(final){
                 break;
             }
             numAttempts = 0;
-            std::swap(wrk.y_, wrk.ynew_);
-            t = tnew;
         }else{
             final = false;
             numAttempts ++;
             if(numAttempts >= this->maxStepAttempts_)
             {
                 aWarning("Max iteration reached.");
-                return EError::eErrorMaxIter;
+            }else{
+                continue;
             }
         }
+        std::swap(wrk.y_, wrk.ynew_);
+        t = tnew;
     }
-    std::copy_n(wrk.y_, wrk.dimension_, yf);
+    std::copy_n(wrk.ynew_, wrk.dimension_, yf);
     return eNoError;
 }
 
@@ -180,7 +204,7 @@ bool ODEVarStepIntegrator::isErrorMeet(double &absh, const double *y, const doub
 
     // L∞范数误差控制
     {
-        int maxTemp = 0;
+        double maxTemp = 0;
         for (int i = 0; i < dim; i++)
         {
             double temp = abs(wrk.absErrPerLen_[i]) / max(max(abs(ynew[i]), abs(y[i])), threshold);
@@ -198,19 +222,10 @@ bool ODEVarStepIntegrator::isErrorMeet(double &absh, const double *y, const doub
     {
         if(maxErrRatio > 1)
         {
-            if(absh <= this->minStepSize_)
-            {
-                if(this->warnOnMinStep_)
-                {
-                    aWarning("Step size is too small.");
-                }
-                isOK = true;
-            }else{
-                double scale = this->safetyCoeffLow_ * pow(maxErrRatio, -this->errCtrPowthLow_);
-                scale = std::max(scale, this->minStepScaleFactor_);
-                absh *= scale;
-                isOK = false;
-            }
+            double scale = this->safetyCoeffLow_ * pow(maxErrRatio, -this->errCtrPowthLow_);
+            scale = std::max(scale, this->minStepScaleFactor_);
+            absh *= scale;
+            isOK = false;
         }else{
             double scale = this->safetyCoeffHigh_ * pow(maxErrRatio, -this->errCtrPowthHigh_);
             scale = std::min(scale, this->maxStepScaleFactor_);
@@ -222,4 +237,3 @@ bool ODEVarStepIntegrator::isErrorMeet(double &absh, const double *y, const doub
 }
 
 AST_NAMESPACE_END
-

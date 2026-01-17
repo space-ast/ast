@@ -27,9 +27,11 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     RK4 积分器
 /// @details   4阶龙格库塔方法 (The 4th order Runge-Kutta method)
-class RK4 : public ODEFixedStepIntegrator
+class AST_MATH_API RK4 : public ODEFixedStepIntegrator
 {
 public:
+    err_t init(ODE& ode) final;
+
     err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
 };
 

@@ -28,9 +28,11 @@ AST_NAMESPACE_BEGIN
 /// @brief  Runge-Kutta Cash-Karp 方法
 /// @details  
 /// 参考文献：A Variable Order Runge-Kutta Method for Initial Value Problems with Rapidly Varying Right-Hand Sides
-class RKCK : public ODEVarStepIntegrator
+class AST_MATH_API RKCK : public ODEVarStepIntegrator
 {
 public:
+    err_t init(ODE& ode) final;
+
     err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
 };
 

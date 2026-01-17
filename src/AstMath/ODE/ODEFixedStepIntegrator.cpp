@@ -26,7 +26,7 @@
 
 AST_NAMESPACE_BEGIN
 
-using namespace _AST math;
+using namespace math;
 
 ODEFixedStepIntegrator::Workspace::Workspace()
     : numSteps_(0)
@@ -47,25 +47,27 @@ ODEFixedStepIntegrator::Workspace::Workspace()
 
 void ODEFixedStepIntegrator::Workspace::reset(int dimension, int stage)
 {
-    clear();
-
+    if(dimension > this->dimension_ || stage > this->stage_)
+    {
+        clear();
+        // 重置多步法中间结果数组
+        KArr_ = new double*[stage];
+        for(int i = 0; i < stage; i++)
+        {
+            KArr_[i] = new double[dimension];
+        }
+        absErrPerLen_ = new double[dimension];
+        ymid_ = new double[dimension];
+        y_ = new double[dimension];
+        ynew_ = new double[dimension];
+        ystep_ = new double[dimension];
+    }
     // 重置统计数据
     numSteps_ = 0;
     largestStepSize_ = 0;
     smallestStepSize_ = std::numeric_limits<double>::max();
-
-    // 重置多步法中间结果数组
-    KArr_ = new double*[stage];
-    for(int i = 0; i < stage; i++)
-    {
-        KArr_[i] = new double[dimension];
-    }
-    absErrPerLen_ = new double[dimension];
-    ymid_ = new double[dimension];
-    y_ = new double[dimension];
-    ynew_ = new double[dimension];
-    ystep_ = new double[dimension];
-
+    dimension_ = dimension;
+    stage_ = stage;
 }
 
 void ODEFixedStepIntegrator::Workspace::clear()
@@ -120,6 +122,9 @@ ODEFixedStepIntegrator::~ODEFixedStepIntegrator()
 
 err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
 {
+    // 初始化积分器
+    this->init(ode);
+    
     err_t err = eNoError;
     double stepSize = this->stepSize_;
     if(stepSize <= 0)
@@ -151,6 +156,9 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
 
 err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
 {
+    // 初始化积分器
+    // this->init(ode);
+    
     double absh = this->stepSize_;
     double step = tf - t;
     int tdir = sign(step);
@@ -170,5 +178,3 @@ err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, cons
 }
 
 AST_NAMESPACE_END
-
-

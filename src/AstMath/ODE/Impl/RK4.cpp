@@ -20,8 +20,16 @@
 
 #include "RK4.hpp"
 
+
+
 AST_NAMESPACE_BEGIN
 
+err_t RK4::init(ODE &ode)
+{
+    // 重置工作空间
+    this->getWorkspace().reset(ode.getDimension(), 4);
+    return eNoError;
+}
 
 err_t RK4::singleStep(ODE &ode, double t0, double step, const double *y0, double *yf)
 {
