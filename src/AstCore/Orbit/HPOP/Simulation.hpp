@@ -20,10 +20,8 @@
 
 #pragma once
 
-#include "AstGlobal.h"
-
-AST_NAMESPACE_BEGIN
-
-
-
-AST_NAMESPACE_END
+#include "AstCore/BlockSin.hpp"
+#include "AstCore/BlockAdd.hpp"
+#include "AstCore/BlockGain.hpp"
+#include "AstCore/Simulation.hpp"
+#include "AstCore/DataPort.hpp"

@@ -1,9 +1,9 @@
 ///
-/// @file      HPOP.hpp
+/// @file      DataPort.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-17
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,18 +18,23 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
+#include "DataPort.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 高精度轨道预报
-class HPOP
+err_t DataPort::connect(DataPort* src, DataPort* dst)
 {
-public:
-    HPOP() = default;
-    ~HPOP() = default;
-};
+    if(!dst || !src)
+        return eErrorNullInput;
+    if(!dst->signal_ || !src->signal_)
+        return eErrorNullInput;
+    *dst->signal_ = *src->signal_;
+    return eNoError;
+}
+
+err_t DataPort::connect(DataPort *dst)
+{
+    return connect(this, dst);
+}
 
 AST_NAMESPACE_END

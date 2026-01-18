@@ -1,9 +1,9 @@
 ///
-/// @file      HPOP.hpp
+/// @file      BlockSin.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-18
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,18 +18,40 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
+#include "BlockSin.hpp"
+#include "AstUtil/IdentifierAPI.hpp"
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 高精度轨道预报
-class HPOP
+BlockSin::BlockSin()
+    : FuncBlock()
+    , output_(&outputBuffer_)
+    , outputBuffer_(0.0)
 {
-public:
-    HPOP() = default;
-    ~HPOP() = default;
-};
+    static auto identifier_sin = aIdentifier("sin");
+
+    outputPorts_ = {
+        DataPort{
+            identifier_sin,
+            (ptr_t*)&output_,
+            1,
+            DataPort::eDouble,
+        },
+    };
+}
+
+
+err_t BlockSin::evaluate(const SimTime &simTime)
+{
+    if (output_ == nullptr)
+    {
+        return eErrorNullInput;
+    }
+    *output_ = std::sin(simTime.elapsedTime());
+    return eNoError;
+}
+
 
 AST_NAMESPACE_END
+

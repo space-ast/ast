@@ -1,9 +1,9 @@
 ///
-/// @file      HPOP.hpp
+/// @file      BlockSin.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-18
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,15 +21,21 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/FuncBlock.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 高精度轨道预报
-class HPOP
+/// @brief 正弦块
+class AST_CORE_API BlockSin : public FuncBlock
 {
 public:
-    HPOP() = default;
-    ~HPOP() = default;
+    BlockSin();
+    ~BlockSin() = default;
+
+    err_t evaluate(const SimTime& simTime) final;
+protected:
+    double* output_{&outputBuffer_};
+    double outputBuffer_{0.0};
 };
 
 AST_NAMESPACE_END

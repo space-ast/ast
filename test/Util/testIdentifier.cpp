@@ -1,9 +1,9 @@
 ///
-/// @file      HPOP.hpp
+/// @file      testIdentifier.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-18
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,18 +18,21 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
+#include "AstUtil/IdentifierAPI.hpp"
+#include "AstUtil/Identifier.hpp"
+#include "AstTest/Test.h"
 
-#include "AstGlobal.h"
+AST_USING_NAMESPACE
 
-AST_NAMESPACE_BEGIN
+TEST(IdentifierTest, BasicOperations) {
+    auto id1 = aIdentifier("testIdentifier");
+    auto id2 = aIdentifier(std::string("testIdentifier"));
+    auto id3 = aIdentifier("testIdentifier");
+    printf("id1: %s, id2: %s, id3: %s\n", id1->c_str(), id2->c_str(), id3->c_str());
+    EXPECT_EQ(id1, id2);
+    EXPECT_EQ(id2, id3);
+    EXPECT_EQ(id3, id1);
+}
 
-/// @brief 高精度轨道预报
-class HPOP
-{
-public:
-    HPOP() = default;
-    ~HPOP() = default;
-};
 
-AST_NAMESPACE_END
+GTEST_MAIN()
