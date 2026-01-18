@@ -25,8 +25,8 @@
 AST_NAMESPACE_BEGIN
 
 /// @class     OrdinaryDifferentialEquation
-/// @brief     普通微分方程基类。
-/// @details   该类定义了普通微分方程的接口，包括获取维度和评估导数。
+/// @brief     常微分方程基接口
+/// @details   该类定义了常微分方程的接口，包括获取维度和计算导数。
 class OrdinaryDifferentialEquation
 {
 public:
@@ -36,12 +36,14 @@ public:
     /// @return 微分方程的维度。
     virtual int getDimension() const = 0;
 
-    /// @brief 评估微分方程在给定时间点和状态下的导数。
+    /// @brief 计算常微分方程在给定时间点和状态下的导数。
     /// @param t 时间点。
     /// @param y 状态向量。
     /// @param dy 输出导数向量。
     /// @return 错误码。
     virtual err_t evaluate(const double t, const double* y, double* dy) const = 0;
 };
+
+using ODE = OrdinaryDifferentialEquation;       ///< 常微分方程别名
 
 AST_NAMESPACE_END

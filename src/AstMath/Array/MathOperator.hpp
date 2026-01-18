@@ -25,6 +25,7 @@
 #include <type_traits>  // for std::is_pointer
 #include <array>        // for std::array
 #include <iterator>     // for std::size in C++17
+#include <assert.h>     // for assert
  
 AST_NAMESPACE_BEGIN
 
@@ -582,6 +583,21 @@ VectorN<_Scalar, J> operator*(
         }
     }
     return result;
+}
+
+
+
+template<typename T>
+constexpr const T& clamp(const T& val, const T& low, const T& high)
+{
+    assert(low <= high && "low must be less than or equal to high");
+    if(val < low){
+        return low;
+    }
+    if(val > high){
+        return high;
+    }
+    return val;
 }
 
 AST_NAMESPACE_END
