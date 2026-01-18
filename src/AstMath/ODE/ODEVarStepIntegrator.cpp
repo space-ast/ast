@@ -128,6 +128,7 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
             numAttempts ++;
             if(numAttempts >= this->maxStepAttempts_)
             {
+                // @fixme! 这里是否直接停止积分？
                 aWarning("Max iteration reached.");
             }else{
                 continue;

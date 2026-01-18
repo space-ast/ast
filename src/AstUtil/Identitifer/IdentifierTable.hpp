@@ -24,8 +24,9 @@
 #include "Identifier.hpp"
 #include <vector>
 #include <mutex>
-#include <algorithm>
-#include <unordered_map>
+#include <algorithm>        
+#include <unordered_map>    //  for std::unordered_map
+#include <memory>           //  for std::unique_ptr
 
 AST_NAMESPACE_BEGIN
 
