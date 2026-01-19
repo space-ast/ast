@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Orbit/HPOP/FuncBlock/BlockGain.hpp"
+#include "../../src/AstCore/Orbit/HPOP/BlockCommon/BlockGain.hpp"

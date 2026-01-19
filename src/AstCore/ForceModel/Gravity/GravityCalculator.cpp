@@ -19,6 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "GravityCalculator.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/StringView.hpp"
+#include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -43,6 +46,22 @@ GravityCalculator::GravityCalculator(const GravityField &gravityField, int degre
     degree_ = std::min(gravityField_.getMaxDegree(), degree);
     order_ = std::min(gravityField_.getMaxOrder(), order);
 }
+
+GravityCalculator::GravityCalculator(StringView gravityFilePath, int degree, int order)
+    : gravityField_()
+    , degree_(degree)
+    , order_(order)
+{
+    err_t err = gravityField_.load(gravityFilePath);
+    if(err != eNoError)
+    {
+        aError("Failed to load gravity file: %s", gravityFilePath.data());
+    }
+    degree_ = std::min(gravityField_.getMaxDegree(), degree);
+    order_ = std::min(gravityField_.getMaxOrder(), order);
+}
+
+
 
 void GravityCalculator::calcTotalAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF)
 {

@@ -1,5 +1,5 @@
 ///
-/// @file      BlockAdd.cpp
+/// @file      BlockSum.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,12 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "BlockAdd.hpp"
+#include "BlockSum.hpp"
 #include "AstUtil/IdentifierAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
-BlockAdd::BlockAdd()
+BlockSum::BlockSum()
     : input1_(nullptr)
     , input2_(nullptr)
     , output_(&outputBuffer_)
@@ -57,7 +57,7 @@ BlockAdd::BlockAdd()
     };
 }
 
-err_t BlockAdd::evaluate(const SimTime &simTime)
+err_t BlockSum::evaluate(const SimTime &simTime)
 {
     if (input1_ == nullptr || input2_ == nullptr || output_ == nullptr)
     {

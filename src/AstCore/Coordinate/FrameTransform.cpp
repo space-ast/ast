@@ -311,6 +311,13 @@ void aICRFToECF(const TimePoint & tp, const Vector3d & vecICRF, Vector3d & vecEC
     vecECF = rotation.transformVector(vecICRF);
 }
 
+void aECFToICRF(const TimePoint &tp, const Vector3d &vecECF, Vector3d &vecICRF)
+{
+    Matrix3d matrix;
+    aICRFToECFMatrix(tp, matrix);
+    vecICRF = vecECF * matrix;
+}
+
 void aICRFToECF(const TimePoint &tp, const Vector3d &vecICRF, const Vector3d &velICRF, Vector3d &vecECF, Vector3d &velECF)
 {
     KinematicRotation rotation;

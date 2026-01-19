@@ -337,6 +337,12 @@ AST_CORE_CAPI void aICRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     vecECF  ECF坐标
 AST_CORE_API void aICRFToECF(const TimePoint& tp, const Vector3d& vecICRF, Vector3d& vecECF);
 
+/// @brief     从ECF转换为ICRF的坐标转换
+/// @details   ~
+/// @param     tp  时间点
+/// @param     vecECF  ECF坐标
+/// @param     vecICRF  ICRF坐标
+AST_CORE_API void aECFToICRF(const TimePoint& tp, const Vector3d& vecECF, Vector3d& vecICRF);
 
 /// @brief     从ICRF转换为ECF的坐标转换
 /// @details   ~

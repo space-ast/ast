@@ -27,7 +27,7 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 函数块
+/// @brief 函数块/功能块
 class AST_CORE_API FuncBlock
 {
 public:

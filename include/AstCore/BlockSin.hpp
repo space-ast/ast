@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Orbit/HPOP/FuncBlock/BlockSin.hpp"
+#include "../../src/AstCore/Orbit/HPOP/BlockCommon/BlockSin.hpp"
