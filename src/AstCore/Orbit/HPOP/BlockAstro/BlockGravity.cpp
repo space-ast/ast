@@ -22,6 +22,7 @@
 #include "AstCore/FrameTransform.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstMath/Matrix.hpp"
+#include "AstUtil/IdentifierAPI.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -32,6 +33,26 @@ BlockGravity::BlockGravity()
     , accGravity{&vectorBuffer}
     , vectorBuffer{}
 {
+    static auto identifierPos = aIdentifier(kIdentifierPos);
+    static auto identifierAccGravity = aIdentifier(kIdentifierAccGravity);
+
+    inputPorts_ = {
+        {
+            identifierPos,
+            (ptr_t*)&posCBI,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+    outputPorts_ = {
+        {
+            identifierAccGravity,
+            (ptr_t*)&accGravity,
+            3,
+            DataPort::eDouble
+        }
+    };
 }
 
 err_t BlockGravity::evaluate(const SimTime& simTime)

@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "GravityField.hpp"
+#include "AstUtil/StringView.hpp"
 // #include "AstMath/Matrix.hpp"
 // #include "AstMath/Vector.hpp"
 #include <cmath>

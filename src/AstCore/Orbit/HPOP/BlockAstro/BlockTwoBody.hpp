@@ -21,9 +21,26 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/BlockAstro.hpp"
+#include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
+/// @brief     二体运动函数块
+/// @details   ~
+class AST_CORE_API BlockTwoBody : public BlockAstro
+{
+public:
+    BlockTwoBody();
 
+    err_t evaluate(const SimTime& simTime) override;
+
+private:
+    Vector3d* posCBI;
+    Vector3d* accTwoBody;
+    Vector3d  vectorBuffer;
+PROPERTIES:
+    double    twoBodyGM_;          ///< 中心天体的引力参数
+};
 
 AST_NAMESPACE_END

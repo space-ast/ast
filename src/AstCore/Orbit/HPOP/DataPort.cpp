@@ -26,9 +26,9 @@ err_t DataPort::connect(DataPort* src, DataPort* dst)
 {
     if(!dst || !src)
         return eErrorNullInput;
-    if(!dst->signal_ || !src->signal_)
+    if(!dst->signalPtr_ || !src->signalPtr_)
         return eErrorNullInput;
-    *dst->signal_ = *src->signal_;
+    *dst->signalPtr_ = *src->signalPtr_;
     return eNoError;
 }
 

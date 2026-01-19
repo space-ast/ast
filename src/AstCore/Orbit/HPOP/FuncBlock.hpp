@@ -77,6 +77,52 @@ public:
     /// @return 输出端口指针
     DataPort* getOutputPort(size_t portIndex);
 
+    /// @brief 获取输入端口数据类型
+    /// @param portIndex 端口索引
+    /// @return 输入端口数据类型
+    DataPort::EValueType getInputPortDataType(size_t portIndex);
+
+
+    /// @brief 获取输出端口数据类型
+    /// @param portIndex 端口索引
+    /// @return 输出端口数据类型
+    DataPort::EValueType getOutputPortDataType(size_t portIndex);
+
+    /// @brief 获取输入端口信号
+    /// @param portIndex 端口索引
+    /// @return 输入端口信号指针
+    void* getInputPortSignal(size_t portIndex);
+
+
+    /// @brief 获取输出端口信号
+    /// @param portIndex 端口索引
+    /// @return 输出端口信号指针
+    void* getOutputPortSignal(size_t portIndex);
+
+
+    /// @brief 获取输入端口实数值信号
+    /// @param portIndex 端口索引
+    /// @return 输入端口实数值信号指针
+    double* getInputPortRealSignal(size_t portIndex);
+
+
+    /// @brief 获取输出端口实数值信号
+    /// @param portIndex 端口索引
+    /// @return 输出端口实数值信号指针
+    double* getOutputPortRealSignal(size_t portIndex);
+
+    
+    /// @brief 获取输入端口宽度
+    /// @param portIndex 端口索引
+    /// @return 输入端口宽度
+    int getInputPortWidth(size_t portIndex);
+
+
+    /// @brief 获取输出端口宽度
+    /// @param portIndex 端口索引
+    /// @return 输出端口宽度
+    int getOutputPortWidth(size_t portIndex);
+
     /// @brief 连接函数块的端口
     /// @param src 源函数块
     /// @param srcPortName 源端口名称

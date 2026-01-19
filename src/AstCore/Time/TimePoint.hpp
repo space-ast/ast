@@ -156,6 +156,12 @@ public:
     double operator-(const TimePoint& other) const{
         return durationFrom(other);
     }
+    /// @brief 时间点加法运算符
+    /// @param second 秒数
+    /// @return 新的时间点
+    TimePoint operator+(double second) const{
+        return {integerPart(), fractionalPart() + second};
+    }
 protected:
     static TimePoint FromIntegerFractional(int64_t integer, double fractional);
 public:

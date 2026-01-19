@@ -21,15 +21,36 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 高精度轨道预报
+/// @brief 高精度轨道预报力模型
+class HPOPForceModel
+{
+public:
+    struct Gravity
+    {
+        std::string gravityModel_ = "";     ///< 中心天体重力场模型(模型名称或者引力场文件路径)
+        int degree_ = 2;                    ///< 中心天体重力场计算阶数
+        int order_ = 0;                     ///< 中心天体重力场计算次数
+    };
+public:
+    Gravity gravity_;                       ///< 中心天体重力场
+    bool useMoonGravity_ = false;           ///< 是否使用月球引力
+};
+
+/// @brief 高精度轨道预报接口类
 class HPOP
 {
 public:
     HPOP() = default;
     ~HPOP() = default;
+public:
+    void setForceModel(const HPOPForceModel& forcemodel){forcemodel_ = forcemodel;}
+
+protected:
+    HPOPForceModel forcemodel_;     ///< 高精度轨道预报力模型
 };
 
 AST_NAMESPACE_END

@@ -42,30 +42,21 @@ int aGetInputPortDataType(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return -1;
-    auto port = block->getInputPort(portIndex);
-    if(!port)
-        return -1;
-    return port->getDataType();
+    return block->getInputPortDataType(portIndex);
 }
 
 int aGetOutputPortDataType(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return -1;
-    auto port = block->getOutputPort(portIndex);
-    if(!port)
-        return -1;
-    return port->getDataType();
+    return block->getOutputPortDataType(portIndex);
 }
 
 const void* aGetInputPortSignal(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return nullptr;
-    auto port = block->getInputPort(portIndex);
-    if(!port)
-        return nullptr;
-    return port->getSignal();
+    return block->getInputPortSignal(portIndex);
 }
 
 
@@ -73,10 +64,7 @@ void* aGetOutputPortSignal(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return nullptr;
-    auto port = block->getOutputPort(portIndex);
-    if(!port)
-        return nullptr;
-    return port->getSignal();
+    return block->getOutputPortSignal(portIndex);
 }
 
 
@@ -84,10 +72,7 @@ double* aGetInputPortRealSignal(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return nullptr;
-    auto port = block->getInputPort(portIndex);
-    if(!port)
-        return nullptr;
-    return port->getSignalDouble();
+    return block->getInputPortRealSignal(portIndex);
 }
 
 
@@ -95,32 +80,50 @@ double* aGetOutputPortRealSignal(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return nullptr;
-    auto port = block->getOutputPort(portIndex);
-    if(!port)
-        return nullptr;
-    return port->getSignalDouble();
+    return block->getOutputPortRealSignal(portIndex);
 }
 
 int aGetInputPortWidth(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return -1;
-    auto port = block->getInputPort(portIndex);
-    if(!port)
-        return -1;
-    return port->getWidth();
+    return block->getInputPortWidth(portIndex);
 }
 
 int aGetOutputPortWidth(FuncBlock* block, size_t portIndex)
 {
     if(!block)
         return -1;
+    return block->getOutputPortWidth(portIndex);
+}
+
+
+// -----------------
+// 扩展接口
+// -----------------
+
+
+err_t aSetInputPortRealSignal(FuncBlock* block, size_t portIndex, double* signal)
+{
+    if(!block)
+        return -1;
+    auto port = block->getInputPort(portIndex);
+    if(!port)
+        return -1;
+    port->setSignalDouble(signal);
+    return 0;
+}
+
+err_t aSetOutputPortRealSignal(FuncBlock* block, size_t portIndex, double* signal)
+{
+    if(!block)
+        return -1;
     auto port = block->getOutputPort(portIndex);
     if(!port)
         return -1;
-    return port->getWidth();
+    port->setSignalDouble(signal);
+    return 0;
 }
-
 
 
 

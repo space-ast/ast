@@ -61,6 +61,84 @@ DataPort* FuncBlock::getOutputPort(size_t index)
     return &outputPorts_[index];
 }
 
+DataPort::EValueType FuncBlock::getInputPortDataType(size_t portIndex)
+{
+    auto port = getInputPort(portIndex);
+    if(port == nullptr){
+        return DataPort::EValueType::eInvalid;
+    }
+    return port->getDataType();
+}
+
+
+
+DataPort::EValueType FuncBlock::getOutputPortDataType(size_t portIndex)
+{
+    auto port = getOutputPort(portIndex);
+    if(port == nullptr){
+        return DataPort::EValueType::eInvalid;
+    }
+    return port->getDataType();
+}
+
+
+
+void* FuncBlock::getInputPortSignal(size_t portIndex)
+{
+    auto port = getInputPort(portIndex);
+    if(port == nullptr){
+        return nullptr;
+    }
+    return port->getSignal();
+}
+
+
+void* FuncBlock::getOutputPortSignal(size_t portIndex)
+{
+    auto port = getOutputPort(portIndex);
+    if(port == nullptr){
+        return nullptr;
+    }
+    return port->getSignal();
+}
+
+double* FuncBlock::getInputPortRealSignal(size_t portIndex)
+{
+    auto port = getInputPort(portIndex);
+    if(port == nullptr){
+        return nullptr;
+    }
+    return port->getSignalDouble();
+}
+
+double* FuncBlock::getOutputPortRealSignal(size_t portIndex)
+{
+    auto port = getOutputPort(portIndex);
+    if(port == nullptr){
+        return nullptr;
+    }
+    return port->getSignalDouble();
+}
+
+
+int FuncBlock::getInputPortWidth(size_t portIndex)
+{
+    auto port = getInputPort(portIndex);
+    if(port == nullptr){
+        return 0;
+    }
+    return port->getWidth();
+}
+
+
+int FuncBlock::getOutputPortWidth(size_t portIndex)
+{
+    auto port = getOutputPort(portIndex);
+    if(port == nullptr){
+        return 0;
+    }
+    return port->getWidth();
+}
 
 err_t FuncBlock::connect(FuncBlock* src, StringView srcPortName, FuncBlock* dst, StringView dstPortName)
 {

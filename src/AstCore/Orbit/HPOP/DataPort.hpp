@@ -30,10 +30,13 @@ class DataPort
 {
 public:
     enum EValueType{
-        eDouble,
-        eFloat,
+        eInvalid=-1,
+        eDouble=0,
+        eFloat=1,
         eInt,
+        eBoolean,
     };
+    typedef ptr_t signal_t;
     DataPort() = default;
     ~DataPort() = default;
 
@@ -60,30 +63,51 @@ public:
     /// @return 实数值指针
     double* getSignalDouble() const{ return this->getSignal<double>(); }
 
+    /// @brief 设置数据端口的实数值指针
+    /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
+    /// @param signal 信号(指向数据的指针)
+    void setSignalDouble(double* signal){ this->setSignal<double>(signal); }
+
     /// @brief 获取数据端口的整数值指针
     /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
     /// @return 整数值指针
     int* getSignalInt() const{ return this->getSignal<int>(); }
 
+    /// @brief 设置数据端口的整数值指针
+    /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
+    /// @param signal 信号(指向数据的指针)
+    void setSignalInt(int* signal){ this->setSignal<int>(signal); }
+
     /// @brief 获取数据端口的向量3值指针
     /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
     /// @return 向量3值指针
     Vector3d* getSignalVector3d() const{ return this->getSignal<Vector3d>(); }
+
+    /// @brief 设置数据端口的向量3值指针
+    /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
+    /// @param signal 信号(指向数据的指针)
+    void setSignalVector3d(Vector3d* signal){ this->setSignal<Vector3d>(signal); }
     
     /// @brief 获取数据端口的任意类型值指针
     /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
     /// @return 任意类型值指针
     template<typename T=void>
-    T* getSignal() const{ return (T*)*signal_; }
+    T* getSignal() const{ return (T*)*signalPtr_; }
+
+    /// @brief 设置数据端口的信号指针(指向数据指针的指针)
+    /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
+    /// @param signal 信号(指向数据的指针)
+    template<typename T=void>
+    void setSignal(T* signal){ *signalPtr_ = signal; }
 
     /// @brief 获取数据端口的信号指针(指向数据指针的指针)
     /// @warning 该接口不保证类型安全，调用者需自行确保类型匹配
     /// @return 信号指针(指向数据指针的指针)
-    ptr_t* getSignalPtr() const{ return signal_; }
+    signal_t* getSignalPtr() const{ return signalPtr_; }
 
 public:
     Identifier* name_;              ///< 端口名称
-    ptr_t*      signal_;            ///< 信号指针(指向数据指针的指针)
+    signal_t*   signalPtr_;         ///< 信号指针(指向数据指针的指针)
     int         width_;             ///< 数据宽度
     EValueType  type_;              ///< 数据类型
     // Dimension   dimension_;      ///< 数据量纲 @todo: 支持数据量纲

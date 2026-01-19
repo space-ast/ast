@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      AstGlobal.h
 /// @brief     
 /// @details   ~
@@ -185,6 +185,7 @@ typedef enum EError
     eErrorParse,        ///< 解析错误
     eErrorReadonly,     ///< 只读属性
     eErrorMaxIter,      ///< 最大迭代次数
+    eErrorDivideByZero, ///< 除零错误
 } AEError;
 
 

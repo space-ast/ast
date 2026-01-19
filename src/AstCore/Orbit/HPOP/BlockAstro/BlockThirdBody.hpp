@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     三体引力函数块
 /// @details   ~
-class BlockThirdBody : public BlockAstro
+class AST_CORE_API BlockThirdBody : public BlockAstro
 {
 public:
     BlockThirdBody();

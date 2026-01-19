@@ -19,8 +19,51 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "BlockTwoBody.hpp"
+#include "AstUtil/IdentifierAPI.hpp"
+#include "AstMath/MathOperator.hpp"
 
 AST_NAMESPACE_BEGIN
+
+using namespace math;
+
+BlockTwoBody::BlockTwoBody()
+    : BlockAstro{}
+    , posCBI{&vectorBuffer}
+    , accTwoBody{&vectorBuffer}
+    , vectorBuffer{}
+    , twoBodyGM_(kEarthGrav)
+{
+    static auto identifierPos = aIdentifier(kIdentifierPos);
+    static auto identifierAccTwoBody = aIdentifier(kIdentifierAccTwoBody);
+
+    inputPorts_ = {
+        {
+            identifierPos,
+            (ptr_t*)&posCBI,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+    outputPorts_ = {
+        {
+            identifierAccTwoBody,
+            (ptr_t*)&accTwoBody,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+}
+
+err_t BlockTwoBody::evaluate(const SimTime &simTime)
+{
+    double rSqr = posCBI->squaredNorm();
+    double r = std::sqrt(rSqr);
+    double factor = -twoBodyGM_ / (r * rSqr);
+    *accTwoBody = factor * (*posCBI);
+    return eNoError;
+}
 
 
 

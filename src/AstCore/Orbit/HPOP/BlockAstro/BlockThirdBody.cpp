@@ -22,6 +22,7 @@
 #include "AstCore/RunTime.hpp"
 #include "AstCore/JplDe.hpp"
 #include "AstUtil/Constants.h"
+#include "AstUtil/IdentifierAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -34,7 +35,26 @@ BlockThirdBody::BlockThirdBody()
     // 现在只支持计算月球三体引力
     , thirdBodyGM_{kMoonGrav}  // 
 {
+    static auto identifierPos = aIdentifier(kIdentifierPos);
+    static auto identifierAccThirdBody = aIdentifier(kIdentifierAccThirdBody);
 
+    inputPorts_ = {
+        {
+            identifierPos,
+            (ptr_t*)&posCBI,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+    outputPorts_ = {
+        {
+            identifierAccThirdBody,
+            (ptr_t*)&accThirdBody,
+            3,
+            DataPort::eDouble
+        }
+    };
 }
 
 
