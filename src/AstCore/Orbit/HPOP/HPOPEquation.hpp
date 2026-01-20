@@ -1,5 +1,5 @@
 ///
-/// @file      HPOPEngine.hpp
+/// @file      HPOPEquation.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -31,34 +31,43 @@
 AST_NAMESPACE_BEGIN
 
 class FuncBlock;
+class BlockDerivative;
+class HPOPForceModel;
 
-/// @brief     HPOP仿真引擎
-/// @details   ~
-class AST_CORE_API HPOPEngine : public OrdinaryDifferentialEquation
+/// @brief     高精度轨道预报方程
+/// @details   
+/// 该类继承自 OrdinaryDifferentialEquation ，用于求解轨道动力学问题。
+/// 其内部包含一个动力学系统 BlockDynamicSystem
+/// 动力学系统 BlockDynamicSystem 由多个独立的函数块 FuncBlock 组成。
+/// 每个函数块 FuncBlock 负责计算系统的一个或多个状态量或者导数。
+/// 函数块之间可以通过输入输出端口进行信号连接，实现复杂的动力学模型。
+class AST_CORE_API HPOPEquation : public OrdinaryDifferentialEquation
 {
 public:
-    HPOPEngine();
-    ~HPOPEngine();
+    HPOPEquation();
+    ~HPOPEquation();
 
-    int getDimension() const override;
+    int getDimension() const final;
 
-    err_t evaluate(const double t, const double* y, double* dy) override;
+    err_t evaluate(const double t, const double* y, double* dy) final;
     
     /// @brief 设置仿真的参考历元
     void setEpoch(const TimePoint& epoch){ epoch_ = epoch; }
     
+
+
+
+    /// @brief 设置HPOP力模型
+    err_t setForceModel(const HPOPForceModel& forceModel);
+protected:
     /// @brief 添加函数块
     void addBlock(FuncBlock* block);
+    void addBlock(BlockDerivative* block);
+    
+    void clearBlocks();
 
     /// @brief 初始化仿真引擎
-    void initialize();
-
-    /// @brief 对函数块进行排序
-    void sortBlocks();
-
-    /// @brief 连接函数块的信号
-    void connectSignals();
-
+    err_t initialize();
 protected:
     BlockDynamicSystem      dynamicSystem_; ///< 动力学系统
     TimePoint               epoch_;         ///< 仿真的参考历元

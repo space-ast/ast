@@ -19,9 +19,19 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "HPOP.hpp"
+#include "HPOPEquation.hpp"
+#include "AstMath/ODEIntegrator.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+HPOP::~HPOP()
+{
+    if (equation_)
+        delete equation_;
+    if (integrator_)
+        delete integrator_;
+}
 
 AST_NAMESPACE_END
+
+

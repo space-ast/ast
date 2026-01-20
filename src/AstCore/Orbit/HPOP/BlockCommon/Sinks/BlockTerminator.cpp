@@ -32,7 +32,7 @@ BlockTerminator::BlockTerminator()
     inputPorts_ = {
         DataPort{
             identifier_input,
-            (ptr_t*)&input_,
+            (signal_t*)&input_,
             1,
             DataPort::eDouble,
         },

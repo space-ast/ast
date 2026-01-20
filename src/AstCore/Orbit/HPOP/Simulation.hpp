@@ -38,3 +38,12 @@
 #include "AstCore/BlockSaturation.hpp"
 #include "AstCore/BlockDeadZone.hpp"
 #include "AstCore/BlockConstant.hpp"
+// Astrodynamics blocks
+#include "AstCore/BlockDynamicSystem.hpp"
+#include "AstCore/BlockRelativity.hpp"
+#include "AstCore/BlockThirdBody.hpp"
+#include "AstCore/BlockTwoBody.hpp"
+#include "AstCore/BlockGravity.hpp"
+#include "AstCore/BlockMotion.hpp"
+#include "AstCore/BlockDrag.hpp"
+#include "AstCore/BlockSRP.hpp"

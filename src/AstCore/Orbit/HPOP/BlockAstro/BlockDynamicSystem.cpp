@@ -19,6 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "BlockDynamicSystem.hpp"
+#include "AstCore/BlockDerivative.hpp"
+#include "AstUtil/Identifier.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -47,7 +50,35 @@ static bool aAstroBlockDependentOn(FuncBlock* block, FuncBlock* other)
 }
 
 
-void BlockDynamicSystem::sortBlocks()
+void BlockDynamicSystem::addDerivativeBlock(BlockDerivative* block)
+{
+    this->derivativeBlocks_.push_back(block);
+    this->BlockSystem::addBlock(block);
+}
+
+void BlockDynamicSystem::addBlock(BlockDerivative* block)
+{
+    return addDerivativeBlock(block);
+}
+
+err_t BlockDynamicSystem::initialize()
+{
+    // 1. 模型排序
+    err_t err = sortBlocks();
+    if(err!=0)
+        return err;
+
+    // 2. 创建状态量映射表
+    err = createStateMap();
+    if(err!=0)
+        return err;
+
+    // 3. 连接信号
+    return connectSignalsByNames();
+}
+
+
+err_t BlockDynamicSystem::sortBlocks()
 {
     size_t size = blocks_.size();
     for(size_t index=0;index<size;index++)
@@ -62,11 +93,112 @@ void BlockDynamicSystem::sortBlocks()
             }
         }
     }
+    return 0;
 }
 
-void BlockDynamicSystem::connectSignalsByNames()
+/// @brief 创建状态量映射表
+err_t BlockDynamicSystem::createStateMap()
 {
+    size_t size = derivativeBlocks_.size();
+    int totalStateDimension = 0;
+    std::vector<int> stateDimensions;           // 状态量维度
+    std::vector<Identifier*> stateIdentifiers;  // 状态量标识符
+
+    for(auto block: blocks_)
+    {
+        // 遍历该函数块的所有输出端口
+        auto& outputPorts = block->getOutputPorts();
+        for(auto& port : outputPorts)
+        {
+            // 汇总所有状态量信号
+            auto name = port.name_;
+            stateMap_[name] = port.getSignal<double>();
+        }
+    }
+
+    // 遍历所有的状态量导数，统计微分状态量的维度
+    for(auto block:derivativeBlocks_)
+    {
+        // 遍历该函数块的所有导数端口
+        auto& derivativePorts = block->getDerivativePorts();
+        for(auto& port : derivativePorts)
+        {
+            auto name = port.name_;
+            auto iter = std::find(stateIdentifiers.begin(), stateIdentifiers.end(), name);
+            if(iter == stateIdentifiers.end())
+            {
+                // 未添加过该状态量
+                int width = port.getWidth();
+                stateIdentifiers.push_back(name);
+                stateDimensions.push_back(width);
+                totalStateDimension += width;
+            }else{
+                // 已经添加过该状态量
+                // 检查状态量维度是否一致
+                if(port.getWidth() != stateDimensions[iter - stateIdentifiers.begin()])
+                {
+                    aError("state dimension of %s is not consistent", name->c_str());
+                    return -1;
+                }
+                // @todo: 检测状态量是否支持累加，避免意外的覆盖
+            }
+        }
+    }
     
+    // 分配状态量和导数向量
+    state_.resize(totalStateDimension);
+    derivative_.resize(totalStateDimension);
+
+    // 初始化状态量映射表
+    int offset = 0;
+    for(size_t index=0;index<stateIdentifiers.size();index++)
+    {
+        auto name = stateIdentifiers[index];
+        auto width = stateDimensions[index];
+        stateMap_[name] = state_.data() + offset;
+        derivativeMap_[name] = derivative_.data() + offset;
+        offset += width;
+    }
+    return 0;
+}
+
+
+
+err_t BlockDynamicSystem::connectSignalsByNames()
+{
+    for(auto block: blocks_)
+    {
+        // 遍历该函数块的所有输入端口
+        auto& inputPorts = block->getInputPorts();
+        for(auto& port : inputPorts)
+        {
+            // 连接信号
+            auto name = port.name_;
+            auto iter = stateMap_.find(name);
+            if(iter != stateMap_.end())
+            {
+                // 连接状态量信号
+                port.setSignal(iter->second);
+            }
+        }
+    }
+    for(auto block: derivativeBlocks_)
+    {
+        // 遍历该函数块的所有导数端口
+        auto& derivativePorts = block->getDerivativePorts();
+        for(auto& port : derivativePorts)
+        {
+            // 连接信号
+            auto name = port.name_;
+            auto iter = derivativeMap_.find(name);
+            if(iter != derivativeMap_.end())
+            {
+                // 连接导数信号
+                port.setSignal(iter->second);
+            }
+        }
+    }
+    return 0;
 }
 
 

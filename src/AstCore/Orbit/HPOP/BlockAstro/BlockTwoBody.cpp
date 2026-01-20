@@ -27,28 +27,42 @@ AST_NAMESPACE_BEGIN
 using namespace math;
 
 BlockTwoBody::BlockTwoBody()
-    : BlockAstro{}
+    : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accTwoBody{&vectorBuffer}
+    , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
     , twoBodyGM_(kEarthGrav)
 {
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccTwoBody = aIdentifier(kIdentifierAccTwoBody);
+    static auto identifierVel = aIdentifier(kIdentifierVel);
 
     inputPorts_ = {
+        // 位置
         {
             identifierPos,
-            (ptr_t*)&posCBI,
+            (signal_t*)&posCBI,
             3,
             DataPort::eDouble
         }
     };
 
     outputPorts_ = {
+        // 二体加速度
         {
             identifierAccTwoBody,
-            (ptr_t*)&accTwoBody,
+            (signal_t*)&accTwoBody,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+    derivativePorts_ = {
+        // 速度导数
+        {
+            identifierVel,
+            (signal_t*)&velocityDerivative_,
             3,
             DataPort::eDouble
         }

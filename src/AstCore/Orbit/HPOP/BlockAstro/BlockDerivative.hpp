@@ -1,9 +1,9 @@
 ///
-/// @file      BlockThirdBody.hpp
+/// @file      BlockDerivative.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-19
+/// @date      2026-01-20
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,27 +21,27 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/BlockAstro.hpp"
-#include "AstCore/BlockDerivative.hpp"
-#include "AstMath/Vector.hpp"
+#include "AstCore/FuncBlock.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief     三体引力函数块
-/// @details   ~
-class AST_CORE_API BlockThirdBody : public BlockDerivative
+
+/// @brief 导数函数块
+/// @details 
+/// 导数函数块是一个特殊的函数块，在普通函数块的基础上，添加了导数端口
+/// 导数端口用于与动力学系统自动建立连接关系(详细实现机制见BlockDynamicSystem)
+class AST_CORE_API BlockDerivative: public FuncBlock
 {
 public:
-    BlockThirdBody();
+    /// @brief 析构函数
+    ~BlockDerivative() override = default;
 
-    err_t evaluate(const SimTime& simTime) override;
+    /// @brief 获取导数端口
+    const std::vector<DataPort>& getDerivativePorts() const { return derivativePorts_; }
+    std::vector<DataPort>& getDerivativePorts() { return derivativePorts_; }
+    
 protected:
-    Vector3d* posCBI{};                             ///< 位置
-    Vector3d* accThirdBody{&vectorBuffer};          ///< 三体加速度
-    Vector3d* velocityDerivative_{&vectorBuffer};   ///< 速度导数
-    Vector3d vectorBuffer{};                        ///< 向量缓冲区
-PROPERTIES:
-    double   thirdBodyGM_;                          ///< 三体引力常量
-};  
+    std::vector<DataPort> derivativePorts_;  // 导数端口
+};
 
 AST_NAMESPACE_END

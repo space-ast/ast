@@ -27,9 +27,10 @@
 AST_NAMESPACE_BEGIN
 
 BlockThirdBody::BlockThirdBody()
-    : BlockAstro{}
+    : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accThirdBody{&vectorBuffer}
+    , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
     // @fixme
     // 现在只支持计算月球三体引力
@@ -37,24 +38,39 @@ BlockThirdBody::BlockThirdBody()
 {
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccThirdBody = aIdentifier(kIdentifierAccThirdBody);
+    static auto identifierVel = aIdentifier(kIdentifierVel);
 
     inputPorts_ = {
+        // 位置
         {
             identifierPos,
-            (ptr_t*)&posCBI,
+            (signal_t*)&posCBI,
             3,
             DataPort::eDouble
         }
     };
 
     outputPorts_ = {
+        // 三体加速度
         {
             identifierAccThirdBody,
-            (ptr_t*)&accThirdBody,
+            (signal_t*)&accThirdBody,
             3,
             DataPort::eDouble
         }
     };
+
+    derivativePorts_ = {
+        // 速度导数
+        {
+            identifierVel,
+            (signal_t*)&velocityDerivative_,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+
 }
 
 

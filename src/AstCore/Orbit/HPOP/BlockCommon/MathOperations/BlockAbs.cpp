@@ -34,7 +34,7 @@ BlockAbs::BlockAbs()
     inputPorts_ = {
         DataPort{
             identifier_input,
-            (ptr_t*)&input_,
+            (signal_t*)&input_,
             1,
             DataPort::eDouble,
         },
@@ -42,7 +42,7 @@ BlockAbs::BlockAbs()
     outputPorts_ = {
         DataPort{
             identifier_output,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eDouble,
         },

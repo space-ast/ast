@@ -35,13 +35,13 @@ BlockDivide::BlockDivide()
     inputPorts_ = {
         DataPort{
             identifier_numerator,
-            (ptr_t*)&numerator_,
+            (signal_t*)&numerator_,
             1,
             DataPort::eDouble,
         },
         DataPort{
             identifier_denominator,
-            (ptr_t*)&denominator_,
+            (signal_t*)&denominator_,
             1,
             DataPort::eDouble,
         },
@@ -49,7 +49,7 @@ BlockDivide::BlockDivide()
     outputPorts_ = {
         DataPort{
             identifier_output,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eDouble,
         },

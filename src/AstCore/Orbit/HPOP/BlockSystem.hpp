@@ -42,6 +42,9 @@ public:
     /// @param block 要添加的函数块指针
     void addBlock(FuncBlock* block);
 
+    /// @brief 清除子系统中的所有函数块
+    void clearBlocks();
+
 protected:
     std::vector<FuncBlock*> blocks_;    // 子系统块中的函数块
 };

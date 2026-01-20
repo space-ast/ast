@@ -39,7 +39,7 @@ BlockLogicalOperator::BlockLogicalOperator(ELogicalOperatorType type)
         inputPorts_ = {
             DataPort{
                 identifier_input1,
-                (ptr_t*)&input1_,
+                (signal_t*)&input1_,
                 1,
                 DataPort::eInt,
             },
@@ -51,13 +51,13 @@ BlockLogicalOperator::BlockLogicalOperator(ELogicalOperatorType type)
         inputPorts_ = {
             DataPort{
                 identifier_input1,
-                (ptr_t*)&input1_,
+                (signal_t*)&input1_,
                 1,
                 DataPort::eInt,
             },
             DataPort{
                 identifier_input2,
-                (ptr_t*)&input2_,
+                (signal_t*)&input2_,
                 1,
                 DataPort::eInt,
             },
@@ -67,7 +67,7 @@ BlockLogicalOperator::BlockLogicalOperator(ELogicalOperatorType type)
     outputPorts_ = {
         DataPort{
             identifier_output,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eInt,
         },
@@ -135,7 +135,7 @@ void BlockLogicalOperator::setOperatorType(ELogicalOperatorType type)
         inputPorts_ = {
             DataPort{
                 identifier_input1,
-                (ptr_t*)&input1_,
+                (signal_t*)&input1_,
                 1,
                 DataPort::eInt,
             },
@@ -147,13 +147,13 @@ void BlockLogicalOperator::setOperatorType(ELogicalOperatorType type)
         inputPorts_ = {
             DataPort{
                 identifier_input1,
-                (ptr_t*)&input1_,
+                (signal_t*)&input1_,
                 1,
                 DataPort::eInt,
             },
             DataPort{
                 identifier_input2,
-                (ptr_t*)&input2_,
+                (signal_t*)&input2_,
                 1,
                 DataPort::eInt,
             },

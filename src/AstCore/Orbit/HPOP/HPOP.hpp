@@ -25,13 +25,16 @@
 
 AST_NAMESPACE_BEGIN
 
+class HPOPEquation; 
+class ODEIntegrator;
+
 /// @brief 高精度轨道预报力模型
 class HPOPForceModel
 {
 public:
     struct Gravity
     {
-        std::string gravityModel_ = "";     ///< 中心天体重力场模型(模型名称或者引力场文件路径)
+        std::string model_ = "";     ///< 中心天体重力场模型(模型名称或者引力场文件路径)
         int degree_ = 2;                    ///< 中心天体重力场计算阶数
         int order_ = 0;                     ///< 中心天体重力场计算次数
     };
@@ -45,12 +48,14 @@ class HPOP
 {
 public:
     HPOP() = default;
-    ~HPOP() = default;
+    ~HPOP();
 public:
     void setForceModel(const HPOPForceModel& forcemodel){forcemodel_ = forcemodel;}
 
 protected:
-    HPOPForceModel forcemodel_;     ///< 高精度轨道预报力模型
+    HPOPForceModel forcemodel_;             ///< 高精度轨道预报力模型
+    HPOPEquation* equation_{nullptr};       ///< 高精度轨道预报方程
+    ODEIntegrator* integrator_{nullptr};    ///< 高精度轨道预报积分器
 };
 
 AST_NAMESPACE_END

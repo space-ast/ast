@@ -28,27 +28,57 @@
 AST_NAMESPACE_BEGIN
 
 BlockGravity::BlockGravity()
-    : BlockAstro{}
+    : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accGravity{&vectorBuffer}
+    , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
+{
+    init();
+}
+
+BlockGravity::BlockGravity(StringView gravityModel, int degree, int order)
+    : BlockDerivative{}
+    , posCBI{&vectorBuffer}
+    , accGravity{&vectorBuffer}
+    , velocityDerivative_{&vectorBuffer}
+    , vectorBuffer{}
+    , gravityCalculator(gravityModel, degree, order)
+{
+    init();
+}
+
+void BlockGravity::init()
 {
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccGravity = aIdentifier(kIdentifierAccGravity);
-
+    static auto identifierVel = aIdentifier(kIdentifierVel);
+    
     inputPorts_ = {
+        // 位置
         {
             identifierPos,
-            (ptr_t*)&posCBI,
+            (signal_t*)&posCBI,
             3,
             DataPort::eDouble
         }
     };
 
     outputPorts_ = {
+        // 重力加速度
         {
             identifierAccGravity,
-            (ptr_t*)&accGravity,
+            (signal_t*)&accGravity,
+            3,
+            DataPort::eDouble
+        }
+    };
+
+    derivativePorts_ = {
+        // 速度导数
+        {
+            identifierVel,
+            (signal_t*)&velocityDerivative_,
             3,
             DataPort::eDouble
         }

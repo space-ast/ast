@@ -28,6 +28,13 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 函数块/功能块
+/// @details 
+/// 函数块是一个基本的计算单元，用于执行特定的数学或逻辑操作。
+/// 每个函数块都有输入端口和输出端口，用于接收和发送信号。
+/// 在函数块中，信号指的是指向数据的指针
+/// 
+/// 输入和输出信号可以与其他函数块的端口进行连接，形成信号流/数据流。
+/// 函数块的具体计算逻辑由派生类实现。
 class AST_CORE_API FuncBlock
 {
 public:
@@ -43,10 +50,12 @@ public:
     /// @brief 获取输入端口
     /// @param ports 输入端口向量
     const std::vector<DataPort>& getInputPorts() const { return inputPorts_; }
+    std::vector<DataPort>& getInputPorts() { return inputPorts_; }
 
     /// @brief 获取输出端口
     /// @param ports 输出端口向量
     const std::vector<DataPort>& getOutputPorts() const { return outputPorts_; }
+    std::vector<DataPort>& getOutputPorts() { return outputPorts_; }
 
 
     /// @brief 获取输入端口数量

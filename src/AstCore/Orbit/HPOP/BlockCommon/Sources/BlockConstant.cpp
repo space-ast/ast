@@ -32,7 +32,7 @@ BlockConstant::BlockConstant(double value)
     outputPorts_ = {
         DataPort{
             identifier_output,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eDouble,
         },

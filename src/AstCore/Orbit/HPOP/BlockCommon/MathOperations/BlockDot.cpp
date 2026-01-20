@@ -36,13 +36,13 @@ BlockDot::BlockDot()
     inputPorts_ = {
         DataPort{
             identifier_vector1,
-            (ptr_t*)&vector1_,
+            (signal_t*)&vector1_,
             static_cast<int>(vectorSize_),
             DataPort::eDouble,
         },
         DataPort{
             identifier_vector2,
-            (ptr_t*)&vector2_,
+            (signal_t*)&vector2_,
             static_cast<int>(vectorSize_),
             DataPort::eDouble,
         },
@@ -50,7 +50,7 @@ BlockDot::BlockDot()
     outputPorts_ = {
         DataPort{
             identifier_output,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eDouble,
         },
