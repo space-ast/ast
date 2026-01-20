@@ -57,22 +57,19 @@ static err_t openGravityFile(BKVParser &parser, StringView model)
             // 模型名称，添加默认路径
             static const char* suffixes[]{ ".grv", ".cof" };
             std::string datadir = aDataDirGet() + "/SolarSystem/Earth/"; // @fixme: 非地球如何处理？
-            bool found = false;
+            // bool found = false;
             for(const char* suffix : suffixes)
             {
                 std::string newfilepath = datadir + "/" + model.to_string() + suffix;
                 if(fs::exists(newfilepath))
                 {
                     parser.open(newfilepath);
-                    break;
+                    if(parser.isOpen())
+                        return 0;
                 }
             }
-            if(!parser.isOpen()){
-                return eErrorInvalidFile;
-            }
-        }else{
-            return eErrorInvalidFile;
         }
+        return eErrorInvalidFile;
     }
     return 0;
 }

@@ -194,6 +194,10 @@ err_t BlockDynamicSystem::connectSignalsByNames()
             {
                 // 连接状态量信号
                 port.setSignal(iter->second);
+            }else{
+                // 未找到该状态量
+                aError("state %s is not found for block", name->c_str());
+                return -1;
             }
         }
     }

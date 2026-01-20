@@ -173,5 +173,63 @@ TEST_F(HPOPTest, OnlyGravity_20_20)
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
 }
 
+TEST_F(HPOPTest, MoonThirdBody)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.useMoonGravity_ = true;
+    forcemodel.moonGravity_ = 4.90280030555540e12;
+    forcemodel.gravity_.model_ = "JGM3";
+    forcemodel.gravity_.degree_ = 0;
+    forcemodel.gravity_.order_ = 0;
+    HPOP propagator;
+    err_t err = propagator.setForceModel(forcemodel);
+    EXPECT_EQ(err, 0);
+    auto start = TimePoint::FromUTC(2028, 6, 24, 17, 32, 54.47325613);
+    auto end   = TimePoint::FromUTC(2028, 6, 27, 11, 7,  45.21180341);
+    Vector3d pos{ 6354014.813902841881, -1376122.664308371721, -781613.513150640414};
+    Vector3d vel{ 1746.646187542246, 10168.796191792746, -3704.293552428442};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+    Vector3d posExpect{ -343181741.5553657, 132364959.4210277, 31096923.2826433145 };
+    Vector3d velExpect{ 615.919587695, 1171.545013541995, 749.472303573647 };
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-4);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-8);
+}
+
+TEST_F(HPOPTest, MoonFreeReturn)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.useMoonGravity_ = true;
+    forcemodel.moonGravity_ = 4.90280030555540e12;
+    forcemodel.gravity_.model_ = "JGM3";
+    forcemodel.gravity_.degree_ = 0;
+    forcemodel.gravity_.order_ = 0;
+    HPOP propagator;
+    err_t err = propagator.setForceModel(forcemodel);
+    EXPECT_EQ(err, 0);
+    auto start = TimePoint::FromUTC(2028, 6, 24, 17, 36, 59.83014802);
+    auto end   = TimePoint::FromUTC(2028, 6, 30,  2, 59, 52.66388130);
+    Vector3d pos{ 6354566.839031312615, -1373571.305321738357, -781613.513150649029};
+    Vector3d vel{ 1742.576871508756, 10169.577066826638, -3704.322833361938};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+    Vector3d posExpect{ 5533457.951033574529, -3028079.859784354921, -1237950.223206555471 };
+    Vector3d velExpect{ 5206.902914248729, 6554.495771193961, 7241.520277290054};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-2);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-2);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-2);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
+}
+
 GTEST_MAIN();
 

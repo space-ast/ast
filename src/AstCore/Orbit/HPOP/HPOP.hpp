@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Constants.h"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -41,6 +42,7 @@ public:
 public:
     Gravity gravity_;                       ///< 中心天体重力场
     bool useMoonGravity_{false};            ///< 是否使用月球引力
+    double moonGravity_{kMoonGrav};      ///< 月球引力系数
 };
 
 /// @brief 高精度轨道预报接口类

@@ -27,7 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief     运动学块
-/// @details   ~
+/// @details   求解位置的导数
 class BlockMotion : public BlockDerivative
 {
 public:

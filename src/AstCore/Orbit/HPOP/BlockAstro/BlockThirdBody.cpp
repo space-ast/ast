@@ -23,18 +23,23 @@
 #include "AstCore/JplDe.hpp"
 #include "AstUtil/Constants.h"
 #include "AstUtil/IdentifierAPI.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
 BlockThirdBody::BlockThirdBody()
+    : BlockThirdBody{kMoonGrav}
+{
+
+}
+
+BlockThirdBody::BlockThirdBody(double thirdBodyGM)
     : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accThirdBody{&vectorBuffer}
     , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
-    // @fixme
-    // 现在只支持计算月球三体引力
-    , thirdBodyGM_{kMoonGrav}  // 
+    , thirdBodyGM_{thirdBodyGM}  // 
 {
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccThirdBody = aIdentifier(kIdentifierAccThirdBody);
@@ -69,19 +74,21 @@ BlockThirdBody::BlockThirdBody()
             DataPort::eDouble
         }
     };
-
-
 }
 
-
-err_t BlockThirdBody::evaluate(const SimTime& simTime)
+err_t BlockThirdBody::evaluate(const SimTime &simTime)
 {
     // @fixme
     // 现在只支持计算月球三体引力
     // 后续再支持其他天体
     auto& tp = simTime.timePoint();
     Vector3d thirdBodyPos;
-    aJplDeGetPosICRF(tp, JplDe::eMoon, JplDe::eEarth, thirdBodyPos);
+    err_t err = aJplDeGetPosICRF(tp, JplDe::eMoon, JplDe::eEarth, thirdBodyPos);
+    if (A_UNLIKELY(err != eNoError))
+    {
+        aError("failed to get third body position");
+        return err;
+    }
     // 间接引力
     double magThirdBodyPosSqr = thirdBodyPos.squaredNorm();
     double magThirdBodyPos = std::sqrt(magThirdBodyPosSqr);
@@ -92,7 +99,9 @@ err_t BlockThirdBody::evaluate(const SimTime& simTime)
     double magThirdBodyRelPos = std::sqrt(magThirdBodyRelPosSqr);
     double direct = thirdBodyGM_ / (magThirdBodyRelPos * magThirdBodyRelPosSqr);
     // 总引力
-    *accThirdBody = direct * thirdBodyRelPos - indirect * thirdBodyPos;
+    Vector3d accTotal = direct * thirdBodyRelPos - indirect * thirdBodyPos;
+    *accThirdBody = accTotal;
+    *velocityDerivative_ += accTotal;
     return eNoError;
 }
 

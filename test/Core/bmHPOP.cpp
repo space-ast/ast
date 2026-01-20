@@ -28,6 +28,7 @@ void bmSetForceModel(benchmark::State& state)
 {
     HPOPEquation equation;
     HPOPForceModel forcemodel;
+    forcemodel.gravity_.model_ = "JGM3";
     forcemodel.useMoonGravity_ = true;
     for(auto _ : state)
     {

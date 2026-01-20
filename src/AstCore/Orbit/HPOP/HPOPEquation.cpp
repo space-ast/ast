@@ -119,7 +119,7 @@ err_t HPOPEquation::setForceModel(const HPOPForceModel& forceModel)
     // 添加月球引力函数块
     if(forceModel.useMoonGravity_)
     {
-        derivativeBlock = new BlockThirdBody();
+        derivativeBlock = new BlockThirdBody(forceModel.moonGravity_);
         this->addBlock(derivativeBlock);
     }
 
