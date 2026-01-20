@@ -37,7 +37,7 @@ public:
     ~ODEFixedStepIntegrator();
 
     /// @brief 获取步长
-    int getStepSize() const{ return stepSize_; }
+    double getStepSize() const{ return stepSize_; }
     
     /// @brief 设置步长
     void setStepSize(double stepSize){ stepSize_ = stepSize; }

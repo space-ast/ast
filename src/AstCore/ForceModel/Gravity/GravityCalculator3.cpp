@@ -20,6 +20,8 @@
 
 #include "GravityCalculator.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/StringView.hpp"
+#include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -71,9 +73,33 @@ static void DeallocateArray(Real*& a, const Integer& nn, const Integer& excess)
     }
 }
 
+GravityCalculator3::GravityCalculator3()
+    : GravityCalculator()
+    , Factor(0.0)
+{
+    init();
+}
+
 GravityCalculator3::GravityCalculator3(const GravityField &gravityField, int degree, int order)
     : GravityCalculator(gravityField, degree, order)
     , Factor(0.0)
+{
+    init();
+}
+
+GravityCalculator3::GravityCalculator3(StringView gravityFilePath, int degree, int order)
+    : GravityCalculator(gravityFilePath, degree, order)
+    , Factor(0.0)
+{
+    init();
+}
+
+GravityCalculator3::~GravityCalculator3()
+{
+    deinit();
+}
+
+void GravityCalculator3::init()
 {
     getGravityField().normalize();
     const int MM = getOrder();
@@ -145,7 +171,7 @@ GravityCalculator3::GravityCalculator3(const GravityField &gravityField, int deg
     }
 }
 
-GravityCalculator3::~GravityCalculator3()
+void GravityCalculator3::deinit()
 {
     const int MM = getOrder();
     const int NN = getDegree();

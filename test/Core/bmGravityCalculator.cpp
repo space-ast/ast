@@ -21,6 +21,7 @@
 #include "AstCore/GravityCalculator.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/String.hpp"
+#include "AstMath/Vector.hpp"
 #include <benchmark/benchmark.h>
 
 AST_USING_NAMESPACE

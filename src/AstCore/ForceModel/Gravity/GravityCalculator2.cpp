@@ -20,6 +20,8 @@
 
 #include "GravityCalculator.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
 #include <cmath>
 #include <vector>
 #include <algorithm>

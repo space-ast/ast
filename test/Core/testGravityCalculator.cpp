@@ -22,6 +22,9 @@
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/String.hpp"
 #include "AstTest/Test.h"
+#include "AstMath/Vector.hpp"
+
+
 
 AST_USING_NAMESPACE 
 

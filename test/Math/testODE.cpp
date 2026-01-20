@@ -37,7 +37,7 @@ public:
         return 1;
     }
     
-    ast::err_t evaluate(const double t, const double* y, double* dy) const override {
+    ast::err_t evaluate(const double t, const double* y, double* dy) override {
         (void)t; // 未使用的参数
         dy[0] = -y[0];
         return ast::eNoError;

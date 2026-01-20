@@ -41,7 +41,7 @@ public:
     /// @param y 状态向量。
     /// @param dy 输出导数向量。
     /// @return 错误码。
-    virtual err_t evaluate(const double t, const double* y, double* dy) const = 0;
+    virtual err_t evaluate(const double t, const double* y, double* dy) = 0;
 };
 
 using ODE = OrdinaryDifferentialEquation;       ///< 常微分方程别名

@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      AstGlobal.h
 /// @brief     
 /// @details   ~
@@ -185,6 +185,7 @@ typedef enum EError
     eErrorParse,        ///< 解析错误
     eErrorReadonly,     ///< 只读属性
     eErrorMaxIter,      ///< 最大迭代次数
+    eErrorDivideByZero, ///< 除零错误
 } AEError;
 
 
@@ -213,6 +214,7 @@ typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不
 typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
 typedef uint32_t color_t;    ///< 颜色值
 typedef double real_t;       ///< 实数类型
+typedef void* ptr_t;         ///< 指针类型
 
 #ifdef __cplusplus
 
@@ -255,6 +257,8 @@ class ModJulianDate;        ///< 简约儒略日
 class System;
 class Axes;
 class Point;
+
+class Identifier;           ///< 标识符
 
 #endif
 

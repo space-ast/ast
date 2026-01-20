@@ -22,8 +22,9 @@
 
 #include "AstGlobal.h"
 #include "GravityField.hpp"
-#include "AstMath/Matrix.hpp"
-#include "AstMath/Vector.hpp"
+#include "AstUtil/StringView.hpp"
+// #include "AstMath/Matrix.hpp"
+// #include "AstMath/Vector.hpp"
 #include <cmath>
 #include <vector>
 #include <memory>
@@ -37,12 +38,24 @@ class GravityCalculator3;
 //#define _AST_ENABLE_GRAVITY_CALCULATOR_1
 using GravityCalculatorDefault = GravityCalculator3;
 
+/// @brief 重力加速度计算类
 class AST_CORE_API GravityCalculator
 {
 public:
     GravityCalculator();
+    /// @brief 构造函数
+    /// @param gravityField 重力场系数
     GravityCalculator(const GravityField &gravityField);
+    /// @brief 构造函数
+    /// @param gravityField 重力场系数
+    /// @param degree 计算所使用的阶数
+    /// @param order 计算所使用的次数
     GravityCalculator(const GravityField &gravityField, int degree, int order);
+    /// @brief 构造函数
+    /// @param gravityFilePath 重力场系数文件路径
+    /// @param degree 计算所使用的阶数
+    /// @param order 计算所使用的次数
+    GravityCalculator(StringView gravityFilePath, int degree, int order);
 
     /// @brief 获取重力场系数
     /// @return 重力场系数
@@ -141,10 +154,16 @@ private:
 class AST_CORE_API GravityCalculator3: public GravityCalculator
 {
 public:
+    GravityCalculator3();
     GravityCalculator3(const GravityField &gravityField, int degree, int order);
+    GravityCalculator3(StringView gravityFilePath, int degree, int order);
+
     ~GravityCalculator3() override;
     
     void calcPertAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF) final;
+protected:
+    void init();
+    void deinit();
 private:
     double        Factor;  // Factor = 1 (magnetic) or -mu (gravity)
     double**      C;       // Normalized harmonic coefficients

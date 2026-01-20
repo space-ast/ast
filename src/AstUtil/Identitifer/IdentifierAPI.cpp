@@ -1,9 +1,9 @@
 ///
-/// @file      ModelBlock.hpp
+/// @file      IdentifierAPI.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-18
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,12 +18,32 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
+#include "IdentifierAPI.hpp"
+#include "IdentifierTable.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
+A_ALWAYS_INLINE IdentifierTable& getIdentifierTable()
+{
+    static IdentifierTable sIdentifierTable;
+    return sIdentifierTable;
+}
+
+
+Identifier* aIdentifier(const std::string& str)
+{
+    return getIdentifierTable().intern(str);
+}
+
+Identifier* aIdentifier(const StringView& str)
+{
+    return getIdentifierTable().intern(str.data(), str.size());
+}
+
+Identifier *aIdentifier(const char *str, size_t len)
+{
+    return getIdentifierTable().intern(str, len);
+}
 
 AST_NAMESPACE_END

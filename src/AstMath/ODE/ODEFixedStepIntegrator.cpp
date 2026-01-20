@@ -135,21 +135,16 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
     int ndim = ode.getDimension();
     int tdir = sign(tf - t0);
     double step = tdir * habs;
-    int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
+    // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
     double t = t0;
     std::copy_n(y0, ndim, yf);
-    for(int i=0;i<numSteps;i++)
-    {
-        err = this->singleStep(ode, t, step, yf, yf);
-        if(err != eNoError)
-        {
+    while (tdir * (tf - t) > 0) {
+        double h = tdir * std::min(habs, std::abs(tf - t));
+        err = this->singleStep(ode, t, h, yf, yf);
+        if (err != eNoError) {
             return err;
         }
-        t += step;
-    }
-    if(t != tf)
-    {
-        return this->singleStep(ode, t, tf - t, yf, yf);
+        t += h;
     }
     return eNoError;
 }

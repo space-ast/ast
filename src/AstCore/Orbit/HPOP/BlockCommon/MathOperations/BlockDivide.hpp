@@ -1,9 +1,8 @@
 ///
-/// @file      ModelBlock.cpp
+/// @file      BlockDivide.hpp
 /// @brief     ~
-/// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-19
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,10 +17,25 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ModelBlock.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstCore/FuncBlock.hpp"
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 除法块
+class AST_CORE_API BlockDivide : public FuncBlock
+{
+public:
+    BlockDivide();
 
+    err_t evaluate(const SimTime &simTime) override;
+protected:
+    double* numerator_{nullptr};  // 分子
+    double* denominator_{nullptr};  // 分母
+    double* output_{&outputBuffer_};
+    double outputBuffer_{0.0};
+};
 
 AST_NAMESPACE_END

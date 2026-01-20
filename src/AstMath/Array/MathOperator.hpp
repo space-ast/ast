@@ -25,7 +25,7 @@
 #include <type_traits>  // for std::is_pointer
 #include <array>        // for std::array
 #include <iterator>     // for std::size in C++17
-#include <assert.h>     // for assert
+#include <cassert>      // for assert
  
 AST_NAMESPACE_BEGIN
 

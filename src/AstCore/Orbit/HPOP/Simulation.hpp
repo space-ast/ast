@@ -20,10 +20,21 @@
 
 #pragma once
 
-#include "AstGlobal.h"
-
-AST_NAMESPACE_BEGIN
-
-
-
-AST_NAMESPACE_END
+#include "AstCore/SimulationAPI.hpp"
+#include "AstCore/DataPort.hpp"
+#include "AstCore/BlockSin.hpp"
+#include "AstCore/BlockAdd.hpp"
+#include "AstCore/BlockGain.hpp"
+#include "AstCore/BlockSum.hpp"
+#include "AstCore/BlockSubtract.hpp"
+#include "AstCore/BlockProduct.hpp"
+#include "AstCore/BlockDivide.hpp"
+#include "AstCore/BlockGain.hpp"
+#include "AstCore/BlockUnaryMinus.hpp"
+#include "AstCore/BlockAbs.hpp"
+#include "AstCore/BlockSign.hpp"
+#include "AstCore/BlockLogicalOperator.hpp"
+#include "AstCore/BlockRelationalOperator.hpp"
+#include "AstCore/BlockSaturation.hpp"
+#include "AstCore/BlockDeadZone.hpp"
+#include "AstCore/BlockConstant.hpp"
