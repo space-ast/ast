@@ -27,33 +27,57 @@ AST_NAMESPACE_BEGIN
 using namespace math;
 
 BlockTwoBody::BlockTwoBody()
-    : BlockAstro{}
+    : BlockTwoBody{kEarthGrav}
+{
+    
+}
+
+BlockTwoBody::BlockTwoBody(double twoBodyGM)
+    : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accTwoBody{&vectorBuffer}
+    , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
-    , twoBodyGM_(kEarthGrav)
+    , twoBodyGM_(twoBodyGM)
+{
+    init();
+}
+
+void BlockTwoBody::init()
 {
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccTwoBody = aIdentifier(kIdentifierAccTwoBody);
+    static auto identifierVel = aIdentifier(kIdentifierVel);
 
     inputPorts_ = {
+        // 位置
         {
             identifierPos,
-            (ptr_t*)&posCBI,
+            (signal_t*)&posCBI,
             3,
             DataPort::eDouble
         }
     };
 
     outputPorts_ = {
+        // 二体加速度
         {
             identifierAccTwoBody,
-            (ptr_t*)&accTwoBody,
+            (signal_t*)&accTwoBody,
             3,
             DataPort::eDouble
         }
     };
 
+    derivativePorts_ = {
+        // 速度导数
+        {
+            identifierVel,
+            (signal_t*)&velocityDerivative_,
+            3,
+            DataPort::eDouble
+        }
+    };
 }
 
 err_t BlockTwoBody::evaluate(const SimTime &simTime)
@@ -61,7 +85,9 @@ err_t BlockTwoBody::evaluate(const SimTime &simTime)
     double rSqr = posCBI->squaredNorm();
     double r = std::sqrt(rSqr);
     double factor = -twoBodyGM_ / (r * rSqr);
-    *accTwoBody = factor * (*posCBI);
+    Vector3d accCBI = factor * (*posCBI);
+    *accTwoBody = accCBI;
+    *velocityDerivative_ += accCBI;
     return eNoError;
 }
 

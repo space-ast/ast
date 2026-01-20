@@ -92,14 +92,14 @@ namespace
             char buf[32];
             if (width > 0) {
                 if (zeroPad) {
-                    std::snprintf(buf, sizeof(buf), "%0*ld", width, num);
+                    std::snprintf(buf, sizeof(buf), "%0*lld", width, num);
                 }
                 else {
-                    std::snprintf(buf, sizeof(buf), "%*ld", width, num);
+                    std::snprintf(buf, sizeof(buf), "%*lld", width, num);
                 }
             }
             else {
-                std::snprintf(buf, sizeof(buf), "%ld", num);
+                std::snprintf(buf, sizeof(buf), "%lld", num);
             }
             str_.append(buf);
         }

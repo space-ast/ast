@@ -21,9 +21,13 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Constants.h"
 #include <string>
 
 AST_NAMESPACE_BEGIN
+
+class HPOPEquation; 
+class ODEIntegrator;
 
 /// @brief 高精度轨道预报力模型
 class HPOPForceModel
@@ -31,26 +35,43 @@ class HPOPForceModel
 public:
     struct Gravity
     {
-        std::string gravityModel_ = "";     ///< 中心天体重力场模型(模型名称或者引力场文件路径)
-        int degree_ = 2;                    ///< 中心天体重力场计算阶数
-        int order_ = 0;                     ///< 中心天体重力场计算次数
+        std::string model_{};               ///< 中心天体重力场模型(模型名称或者引力场文件路径)
+        int degree_{2};                     ///< 中心天体重力场计算阶数
+        int order_{0};                      ///< 中心天体重力场计算次数
     };
 public:
     Gravity gravity_;                       ///< 中心天体重力场
-    bool useMoonGravity_ = false;           ///< 是否使用月球引力
+    bool useMoonGravity_{false};            ///< 是否使用月球引力
+    double moonGravity_{kMoonGrav};      ///< 月球引力系数
 };
 
 /// @brief 高精度轨道预报接口类
-class HPOP
+class AST_CORE_API HPOP
 {
 public:
     HPOP() = default;
-    ~HPOP() = default;
+    ~HPOP();
 public:
-    void setForceModel(const HPOPForceModel& forcemodel){forcemodel_ = forcemodel;}
+    /// @brief 设置力模型
+    err_t setForceModel(const HPOPForceModel& forcemodel);
 
+    /// @brief 设置积分器
+    void setIntegrator(ODEIntegrator* integrator);
+
+    /// @brief 轨道预报
+    /// @param[in]      start       仿真起始历元
+    /// @param[in]      end         仿真结束历元
+    /// @param[in,out]  position    输出位置向量
+    /// @param[in,out]  velocity    输出速度向量
+    /// @return err_t  错误码
+    err_t propagate(const TimePoint& start, const TimePoint& end, Vector3d& position, Vector3d& velocity);
+
+    /// @brief 初始化
+    err_t initialize();
 protected:
-    HPOPForceModel forcemodel_;     ///< 高精度轨道预报力模型
+    HPOPEquation* equation_{nullptr};       ///< 高精度轨道预报方程
+    ODEIntegrator* integrator_{nullptr};    ///< 高精度轨道预报积分器
+    HPOPForceModel forcemodel_;             ///< 力模型配置
 };
 
 AST_NAMESPACE_END

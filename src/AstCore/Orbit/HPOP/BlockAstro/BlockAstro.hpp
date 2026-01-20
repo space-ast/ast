@@ -36,11 +36,7 @@ constexpr const char* kIdentifierAccRelativity = "AccRelativity";
 constexpr const char* kIdentifierAccDrag = "AccDrag";
 constexpr const char* kIdentifierAccSRP = "AccSRP";
 
-/// @brief 航天相关的函数块
-class BlockAstro: public FuncBlock
-{
-public:
-    // @todo: 提取航天相关函数块的公共接口
-};
+using BlockAstro = FuncBlock; // @todo;
+
 
 AST_NAMESPACE_END

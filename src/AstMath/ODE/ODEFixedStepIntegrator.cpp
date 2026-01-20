@@ -123,7 +123,7 @@ ODEFixedStepIntegrator::~ODEFixedStepIntegrator()
 err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
 {
     // 初始化积分器
-    this->init(ode);
+    this->initialize(ode);
     
     err_t err = eNoError;
     double stepSize = this->stepSize_;

@@ -55,7 +55,7 @@ GravityCalculator::GravityCalculator(StringView gravityFilePath, int degree, int
     err_t err = gravityField_.load(gravityFilePath);
     if(err != eNoError)
     {
-        aError("Failed to load gravity file: %s", gravityFilePath.data());
+        aError("Failed to load gravity file: %s", gravityFilePath.empty()?"(empty)":gravityFilePath.data());
     }
     degree_ = std::min(gravityField_.getMaxDegree(), degree);
     order_ = std::min(gravityField_.getMaxOrder(), order);

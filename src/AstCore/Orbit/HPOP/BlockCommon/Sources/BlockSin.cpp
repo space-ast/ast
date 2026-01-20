@@ -34,7 +34,7 @@ BlockSin::BlockSin()
     outputPorts_ = {
         DataPort{
             identifier_sin,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eDouble,
         },

@@ -38,7 +38,7 @@ static const double
         {-11./640. , 0.      ,11./256. ,-11./160. , 11./256., 0. , 0.},
         {93./640.  , -18./5. ,803./256.,-11./160. , 99./256., 0. , 1.}};
 
-err_t RKF56::init(ODE &ode)
+err_t RKF56::initialize(ODE &ode)
 {
     // 重置工作空间
     this->getWorkspace().reset(ode.getDimension(), 8);

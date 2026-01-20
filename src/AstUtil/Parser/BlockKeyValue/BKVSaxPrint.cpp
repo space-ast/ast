@@ -40,7 +40,7 @@ BKVSaxPrint::BKVSaxPrint(StringView filepath)
     file_ = fopen(filepath.data(), "w");
     if (file_ == nullptr)
     {
-        aError("failed to open file: %s", filepath.data());
+        aError("failed to open file: %.*s", static_cast<int>(filepath.size()), filepath.data());
     }
 }
 
@@ -61,7 +61,7 @@ void BKVSaxPrint::begin(StringView name)
     printf("depth_: %d\n", depth_);
     #endif
     
-    fprintf(file_, "BEGIN %.*s\n", name.size(), name.data());
+    fprintf(file_, "BEGIN %.*s\n", static_cast<int>(name.size()), name.data());
 }
 
 void BKVSaxPrint::end(StringView name)
@@ -73,13 +73,13 @@ void BKVSaxPrint::end(StringView name)
     #endif
 
     fprintf(file_, "%*s", depth_ * indent_, "");
-    fprintf(file_, "END %.*s\n", name.size(), name.data());
+    fprintf(file_, "END %.*s\n", static_cast<int>(name.size()), name.data());
 }
 
 void BKVSaxPrint::keyValue(StringView key, const GenericValue &value)
 {
     fprintf(file_, "%*s", depth_ * indent_, "");
-    fprintf(file_, "%.*s %s\n", key.size(), key.data(), value.c_str());
+    fprintf(file_, "%.*s %s\n", static_cast<int>(key.size()), key.data(), value.c_str());
 }
 
 AST_NAMESPACE_END

@@ -36,7 +36,7 @@ AST_NAMESPACE_BEGIN
 class IdentifierTable {
 private:
     // 使用哈希表存储符号
-    std::unordered_map<size_t, std::unique_ptr<Identifier>> table_;
+    std::unordered_multimap<size_t, std::unique_ptr<Identifier>> table_;
 #ifdef _AST_ENABLE_IDENTIFIER_TABLE_MUTEX
     mutable std::mutex mutex_;
 #endif

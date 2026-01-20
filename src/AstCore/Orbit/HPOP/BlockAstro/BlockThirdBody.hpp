@@ -22,23 +22,27 @@
 
 #include "AstGlobal.h"
 #include "AstCore/BlockAstro.hpp"
+#include "AstCore/BlockDerivative.hpp"
 #include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief     三体引力函数块
 /// @details   ~
-class AST_CORE_API BlockThirdBody : public BlockAstro
+class AST_CORE_API BlockThirdBody : public BlockDerivative
 {
 public:
     BlockThirdBody();
+    BlockThirdBody(double thirdBodyGM);
 
     err_t evaluate(const SimTime& simTime) override;
 protected:
-    Vector3d* posCBI{};
-    Vector3d* accThirdBody{&vectorBuffer};
-    Vector3d vectorBuffer{};
-    double   thirdBodyGM_;
+    Vector3d* posCBI{};                             ///< 位置
+    Vector3d* accThirdBody{&vectorBuffer};          ///< 三体加速度
+    Vector3d* velocityDerivative_{&vectorBuffer};   ///< 速度导数
+    Vector3d vectorBuffer{};                        ///< 向量缓冲区
+PROPERTIES:
+    double   thirdBodyGM_;                          ///< 三体引力常量
 };  
 
 AST_NAMESPACE_END

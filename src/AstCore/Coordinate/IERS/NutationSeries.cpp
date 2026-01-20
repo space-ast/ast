@@ -133,6 +133,9 @@ double NutationSeries::eval(double t, const FundamentalArguments &fundargs) cons
     
     double polyPart = polynomial_.eval(t);
     int end = terms_.size();
+    if(A_UNLIKELY(end == 0)){
+        aError("nutation series is empty, please call `aInitialize()` first");
+    }
     double nonPolyPart = 0;
     for(int j=jlist_.size()-1; j>=0; j--){
         double coeff = 0;

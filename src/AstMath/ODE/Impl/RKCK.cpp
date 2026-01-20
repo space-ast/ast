@@ -23,7 +23,7 @@
 
 AST_NAMESPACE_BEGIN
 
-err_t RKCK::init(ODE &ode)
+err_t RKCK::initialize(ODE &ode)
 {
     // 重置工作空间
     this->getWorkspace().reset(ode.getDimension(), 6);

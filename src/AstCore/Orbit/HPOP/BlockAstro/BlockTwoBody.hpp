@@ -22,25 +22,29 @@
 
 #include "AstGlobal.h"
 #include "AstCore/BlockAstro.hpp"
+#include "AstCore/BlockDerivative.hpp"
 #include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief     二体运动函数块
 /// @details   ~
-class AST_CORE_API BlockTwoBody : public BlockAstro
+class AST_CORE_API BlockTwoBody : public BlockDerivative
 {
 public:
     BlockTwoBody();
+    BlockTwoBody(double twoBodyGM);
 
     err_t evaluate(const SimTime& simTime) override;
-
 private:
-    Vector3d* posCBI;
-    Vector3d* accTwoBody;
-    Vector3d  vectorBuffer;
+    void init();
+private:
+    Vector3d* posCBI;                               ///< 位置
+    Vector3d* accTwoBody;                           ///< 二体加速度
+    Vector3d* velocityDerivative_{&vectorBuffer};   ///< 速度导数
+    Vector3d  vectorBuffer;                         ///< 向量缓冲区
 PROPERTIES:
-    double    twoBodyGM_;          ///< 中心天体的引力参数
+    double    twoBodyGM_;                           ///< 中心天体的引力参数
 };
 
 AST_NAMESPACE_END

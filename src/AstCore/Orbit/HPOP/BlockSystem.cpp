@@ -29,10 +29,7 @@ BlockSystem::BlockSystem()
 
 BlockSystem::~BlockSystem()
 {
-    for (auto block : blocks_)
-    {
-        delete block;
-    }
+    clearBlocks();
 }
 
 
@@ -51,5 +48,13 @@ void BlockSystem::addBlock(FuncBlock* block)
     blocks_.push_back(block);
 }
 
+void BlockSystem::clearBlocks()
+{
+    for (auto block : blocks_)
+    {
+        delete block;
+    }
+    blocks_.clear();
+}
 
 AST_NAMESPACE_END

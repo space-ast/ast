@@ -20,7 +20,7 @@
 
 #include "GUI.hpp"
 #include <cstdlib>
-#include <string>
+#include <string.h>
 
 AST_NAMESPACE_BEGIN
 
@@ -43,8 +43,7 @@ bool aCanDisplayGUI() {
         
         // 检查是否在图形会话中
         if (xdg_session != nullptr) {
-            std::string session(xdg_session);
-            return session == "x11" || session == "wayland";
+            return strcmp(xdg_session, "x11") == 0 || strcmp(xdg_session, "wayland") == 0;
         }
         
         return false;

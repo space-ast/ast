@@ -26,7 +26,7 @@
 
 AST_NAMESPACE_BEGIN
 
-err_t RK8::init(ODE &ode)
+err_t RK8::initialize(ODE &ode)
 {
     // 重置工作空间
     this->getWorkspace().reset(ode.getDimension(), 10);

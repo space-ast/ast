@@ -36,13 +36,13 @@ BlockRelationalOperator::BlockRelationalOperator(ERelationalOperatorType type)
     inputPorts_ = {
         DataPort{
             identifier_input1,
-            (ptr_t*)&input1_,
+            (signal_t*)&input1_,
             1,
             DataPort::eDouble,
         },
         DataPort{
             identifier_input2,
-            (ptr_t*)&input2_,
+            (signal_t*)&input2_,
             1,
             DataPort::eDouble,
         },
@@ -51,7 +51,7 @@ BlockRelationalOperator::BlockRelationalOperator(ERelationalOperatorType type)
     outputPorts_ = {
         DataPort{
             identifier_output,
-            (ptr_t*)&output_,
+            (signal_t*)&output_,
             1,
             DataPort::eInt,
         },

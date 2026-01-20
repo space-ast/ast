@@ -25,6 +25,9 @@
 
 AST_NAMESPACE_BEGIN
 
+typedef ptr_t  signal_t;                // 信号(指向数据的指针)
+typedef signal_t* signalsignal_t;       // 信号指针(指向信号的指针/指向数据指针的指针)
+
 /// @brief 数据端口
 class DataPort
 {
@@ -36,7 +39,6 @@ public:
         eInt,
         eBoolean,
     };
-    typedef ptr_t signal_t;
     DataPort() = default;
     ~DataPort() = default;
 

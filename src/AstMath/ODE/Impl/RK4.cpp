@@ -24,7 +24,7 @@
 
 AST_NAMESPACE_BEGIN
 
-err_t RK4::init(ODE &ode)
+err_t RK4::initialize(ODE &ode)
 {
     // 重置工作空间
     this->getWorkspace().reset(ode.getDimension(), 4);

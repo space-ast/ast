@@ -23,21 +23,27 @@
 #include "AstGlobal.h"
 #include "BlockAstro.hpp"
 #include "AstCore/GravityCalculator.hpp"
+#include "AstCore/BlockDerivative.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief 重力场函数块
-class AST_CORE_API BlockGravity: public BlockAstro
+class AST_CORE_API BlockGravity: public BlockDerivative
 {
 public:
     BlockGravity();
+    BlockGravity(StringView gravityModel, int degree, int order);
     err_t evaluate(const SimTime& simTime) final;
+private:
+    void init();
 protected:
-    Vector3d*                posCBI{&vectorBuffer};
-    Vector3d*                accGravity{&vectorBuffer};
-    Vector3d                 vectorBuffer{};
-    GravityCalculatorDefault gravityCalculator;
+    Vector3d*                posCBI{&vectorBuffer};                 ///< 位置
+    Vector3d*                accGravity{&vectorBuffer};             ///< 重力加速度
+    Vector3d*                velocityDerivative_{&vectorBuffer};    ///< 速度导数
+    Vector3d                 vectorBuffer{};                        ///< 向量缓冲区
+    GravityCalculatorDefault gravityCalculator;                     ///< 重力计算器
 };
 
 
