@@ -1,9 +1,9 @@
 ///
-/// @file      RKF78.hpp
+/// @file      bmHPOP.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-20
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,22 +18,26 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
+#include "AstCore/HPOPEquation.hpp"
+#include "AstCore/HPOP.hpp"
+#include <benchmark/benchmark.h>
 
-#include "AstGlobal.h"
-#include "AstMath/ODEVarStepIntegrator.hpp"
+AST_USING_NAMESPACE
 
-AST_NAMESPACE_BEGIN
-
-/// @brief     RKF78 积分器
-/// @details   
-/// 参考文献：Classical Fifth-, Sixth-, Seventh-, and Eighth-Order Runge-Kutta Formulas with Stepsize Control
-class AST_MATH_API RKF78 : public ODEVarStepIntegrator
+void bmSetForceModel(benchmark::State& state)
 {
-public:
-    err_t initialize(ODE& ode) final;
+    HPOPEquation equation;
+    HPOPForceModel forcemodel;
+    forcemodel.useMoonGravity_ = true;
+    for(auto _ : state)
+    {
+        err_t err = equation.setForceModel(forcemodel);
+        benchmark::DoNotOptimize(err);
+    }
+}
 
-    err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
-};
+BENCHMARK(bmSetForceModel);
 
-AST_NAMESPACE_END
+BENCHMARK_MAIN();
+
+

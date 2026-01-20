@@ -35,7 +35,7 @@ public:
     /// @brief 初始化积分器
     /// @details 初始化积分器，设置ODE的维度和步长等参数
     /// @param ode 常微分方程对象
-    virtual err_t init(ODE& ode) = 0;
+    virtual err_t initialize(ODE& ode) = 0;
 
     /// @brief 积分ODE
     /// @param ode 常微分方程对象

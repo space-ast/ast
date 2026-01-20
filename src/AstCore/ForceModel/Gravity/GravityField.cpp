@@ -22,6 +22,8 @@
 #include "AstUtil/BKVParser.hpp"
 #include "AstUtil/String.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstCore/RunTime.hpp"
 #include <cmath>
 
 
@@ -38,37 +40,83 @@ void aGravityFieldUnnormalize(GravityField &gf)
     gf.unnormalize();
 }
 
+static err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityField *coeff);
+static err_t loadGravityFieldSTK(BKVParser &parser, GravityFieldHead *head, GravityField *coeff);
+static err_t loadGravityField(StringView filepath, GravityFieldHead *head, GravityField *coeff);
+
+
+static err_t openGravityFile(BKVParser &parser, StringView model)
+{
+    parser.open(model);
+    if(!parser.isOpen()){
+        // 判断是不是模型名称
+        bool has_dot = model.rfind('.') != StringView::npos;
+	    bool has_dir_sep = model.rfind('/') != StringView::npos;
+        if(!has_dot && !has_dir_sep)
+        {
+            // 模型名称，添加默认路径
+            static const char* suffixes[]{ ".grv", ".cof" };
+            std::string datadir = aDataDirGet() + "/SolarSystem/Earth/"; // @fixme: 非地球如何处理？
+            bool found = false;
+            for(const char* suffix : suffixes)
+            {
+                std::string newfilepath = datadir + "/" + model.to_string() + suffix;
+                if(fs::exists(newfilepath))
+                {
+                    parser.open(newfilepath);
+                    break;
+                }
+            }
+            if(!parser.isOpen()){
+                return eErrorInvalidFile;
+            }
+        }else{
+            return eErrorInvalidFile;
+        }
+    }
+    return 0;
+}
+
+
+err_t GravityFieldHead::load(StringView filepath)
+{
+    return loadGravityField(filepath, this, nullptr);
+}
+
+
 GravityField::GravityField()
-    : maxDegree_(0)
-    , maxOrder_(0)
-    , gm_(0.0)
-    , refDistance_(0.0)
-    , normalized_(false)
-    , includesPermTide_(false)
+    : GravityFieldHead()
 {
 
 }
 
-err_t GravityField::load(StringView filepath)
+err_t loadGravityField(StringView filepath, GravityFieldHead *head, GravityField *coeff)
 {
     BKVParser parser;
     parser.open(filepath);
-    if(!parser.isOpen())
-        return eErrorInvalidFile;
+    if(err_t err = openGravityFile(parser, filepath))
+    {
+        return err;
+    }
     StringView firstline = parser.getLine();
     if(firstline.starts_with("COMMENT") || filepath.ends_with(".cof"))
     {
-        return loadGMAT(parser);
+        return loadGravityFieldGMAT(parser, head, coeff);
     }
     else if(firstline.starts_with("stk") || filepath.ends_with(".grv"))
     {
-        return loadSTK(parser);
+        return loadGravityFieldSTK(parser, head, coeff);
     }
     aError(
         "unsupported gravity field format, checking by first line: %s and filepath: %s", 
         firstline.data(), filepath.data()
     );
     return eErrorParse;
+}
+
+err_t GravityField::load(StringView filepath)
+{
+    return loadGravityField(filepath, nullptr, this);
 }
 
 /// @brief 计算重力场系数的归一化因子
@@ -100,7 +148,7 @@ void GravityField::normalize()
     if(normalized_)
         return;
     normalized_ = true;
-    for(int n = 0; n <= maxDegree_; n++)
+    for(int n = 2; n <= maxDegree_; n++)
     {
         for(int m = 0; m <= n; m++)
         {
@@ -141,16 +189,17 @@ GravityField GravityField::unnormalized() const
     return gf_unnormalized;
 }
 
-err_t GravityField::loadSTK(BKVParser &parser)
+err_t loadGravityFieldSTK(BKVParser &parser, GravityFieldHead *head, GravityField *coeff)
 {
     BKVParser::EToken token;
     BKVItemView item;
     GravityField gf;
+    bool loadCoeff = coeff != nullptr;
     do{
         token = parser.getNext(item);
         if(token == BKVParser::eBlockBegin)
         {
-            if(aEqualsIgnoreCase(item.value(), "Coefficients"))
+            if(aEqualsIgnoreCase(item.value(), "Coefficients") && loadCoeff)
             {
                 gf.initCoeffMatrices();
                 while(1)
@@ -213,13 +262,22 @@ err_t GravityField::loadSTK(BKVParser &parser)
             }
         }
     }while(token != BKVParser::EToken::eEOF);
-    *this = std::move(gf);
+    if(head)
+        *head = gf;
+    if(loadCoeff)
+        *coeff = std::move(gf);
     return eNoError;
 }
 
-err_t GravityField::loadGMAT(BKVParser &parser)
+err_t GravityField::loadSTK(BKVParser &parser)
+{
+    return loadGravityFieldSTK(parser, nullptr, this);
+}
+
+err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityField *coeff)
 {
     GravityField gf;
+    bool loadCoeff = coeff != nullptr;
     while(1)
     {
         StringView line = parser.getLine();
@@ -244,6 +302,9 @@ err_t GravityField::loadGMAT(BKVParser &parser)
         }
         else if(line.starts_with("RECOEF"))
         {
+            if(!loadCoeff){
+                break;
+            }
             int degree = aParseInt(line.substr(8, 3));
             int order = aParseInt(line.substr(11, 3));
             double cnm, snm;
@@ -269,17 +330,24 @@ err_t GravityField::loadGMAT(BKVParser &parser)
                 );
                 return eErrorParse;
             }
-
         }
         else if(line.starts_with("END"))
         {
             // end of coefficients
         }
     }
-    *this = std::move(gf);
+    if(head)
+        *head = gf;
+    if(loadCoeff)
+        *coeff = std::move(gf);
     return eNoError;
 }
 
+
+err_t GravityField::loadGMAT(BKVParser &parser)
+{
+    return loadGravityFieldGMAT(parser, nullptr, this);
+}
 
 void GravityField::initCoeffMatrices()
 {

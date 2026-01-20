@@ -43,7 +43,7 @@ BlockMotion::BlockMotion()
         }
     };
 
-    outputPorts_ = {
+    derivativePorts_ = {
         // 位置导数
         {
             identifierPos,

@@ -35,7 +35,7 @@ static const double
         {-8./27.    ,2.           ,-3544./2565, 1859./4104., -11/40.}};
 
         
-err_t RKF45::init(ODE &ode)
+err_t RKF45::initialize(ODE &ode)
 {
     // 重置工作空间
     this->getWorkspace().reset(ode.getDimension(), 6);

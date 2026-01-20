@@ -33,9 +33,11 @@ class AST_CORE_API BlockTwoBody : public BlockDerivative
 {
 public:
     BlockTwoBody();
+    BlockTwoBody(double twoBodyGM);
 
     err_t evaluate(const SimTime& simTime) override;
-
+private:
+    void init();
 private:
     Vector3d* posCBI;                               ///< 位置
     Vector3d* accTwoBody;                           ///< 二体加速度

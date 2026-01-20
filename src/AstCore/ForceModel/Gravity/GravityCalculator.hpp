@@ -52,10 +52,10 @@ public:
     /// @param order 计算所使用的次数
     GravityCalculator(const GravityField &gravityField, int degree, int order);
     /// @brief 构造函数
-    /// @param gravityFilePath 重力场系数文件路径
+    /// @param gravityModel 重力场模型文件路径，或者模型名称
     /// @param degree 计算所使用的阶数
     /// @param order 计算所使用的次数
-    GravityCalculator(StringView gravityFilePath, int degree, int order);
+    GravityCalculator(StringView gravityModel, int degree, int order);
 
     /// @brief 获取重力场系数
     /// @return 重力场系数
@@ -156,7 +156,7 @@ class AST_CORE_API GravityCalculator3: public GravityCalculator
 public:
     GravityCalculator3();
     GravityCalculator3(const GravityField &gravityField, int degree, int order);
-    GravityCalculator3(StringView gravityFilePath, int degree, int order);
+    GravityCalculator3(StringView gravityModel, int degree, int order);
 
     ~GravityCalculator3() override;
     

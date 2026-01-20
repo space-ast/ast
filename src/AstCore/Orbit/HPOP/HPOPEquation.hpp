@@ -45,6 +45,7 @@ class AST_CORE_API HPOPEquation : public OrdinaryDifferentialEquation
 {
 public:
     HPOPEquation();
+    HPOPEquation(const HPOPForceModel& forceModel);
     ~HPOPEquation();
 
     int getDimension() const final;
@@ -53,9 +54,6 @@ public:
     
     /// @brief 设置仿真的参考历元
     void setEpoch(const TimePoint& epoch){ epoch_ = epoch; }
-    
-
-
 
     /// @brief 设置HPOP力模型
     err_t setForceModel(const HPOPForceModel& forceModel);
@@ -65,12 +63,14 @@ protected:
     void addBlock(BlockDerivative* block);
     
     void clearBlocks();
+    void reset();
 
     /// @brief 初始化仿真引擎
     err_t initialize();
 protected:
     BlockDynamicSystem      dynamicSystem_; ///< 动力学系统
     TimePoint               epoch_;         ///< 仿真的参考历元
+    // HPOPForceModel          forcemodel_;    ///< 力模型配置
 };
 
 AST_NAMESPACE_END

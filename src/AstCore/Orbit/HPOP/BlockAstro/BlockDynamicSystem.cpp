@@ -56,6 +56,21 @@ void BlockDynamicSystem::addDerivativeBlock(BlockDerivative* block)
     this->BlockSystem::addBlock(block);
 }
 
+void BlockDynamicSystem::clearBlocks()
+{
+    this->BlockSystem::clearBlocks();
+    this->derivativeBlocks_.clear();
+}
+
+void BlockDynamicSystem::reset()
+{
+    this->clearBlocks();
+    this->state_.clear();
+    this->derivative_.clear();
+    this->stateMap_.clear();
+    this->derivativeMap_.clear();
+}
+
 void BlockDynamicSystem::addBlock(BlockDerivative* block)
 {
     return addDerivativeBlock(block);

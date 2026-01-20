@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstMath/MathOperator.hpp"
 #include <stdlib.h>    // for malloc
+#include <string>      // for std::string
  
 AST_NAMESPACE_BEGIN
 
@@ -76,6 +77,8 @@ public:
     Self operator-() const{return Self{-x_, -y_, -z_};}
     Vector3d operator-(const Vector3d& other) const{return _ASTMATH operator-(*this, other);}
     Vector3d operator+(const Vector3d& other) const{return _ASTMATH operator+(*this, other);}
+    Vector3d& operator+=(const Vector3d& other){return *this = _ASTMATH operator+(*this, other);}
+    std::string toString() const;
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:
     double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化

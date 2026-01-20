@@ -97,7 +97,9 @@ err_t BlockGravity::evaluate(const SimTime& simTime)
     aICRFToECFMatrix(tp, matrix);
     posCBF = matrix * (*posCBI);
     gravityCalculator.calcTotalAcceleration(posCBF, accCBF);
-    *accGravity = accCBF * matrix;
+    Vector3d accCBI = accCBF * matrix;
+    *accGravity = accCBI;
+    *velocityDerivative_ += accCBI;
     return eNoError;
 }
 

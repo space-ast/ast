@@ -37,8 +37,26 @@ void aGravityFieldNormalize(GravityField& gf);
 /// @param gf 待反归一化的重力场
 void aGravityFieldUnnormalize(GravityField& gf);
 
+/// @brief 重力场头信息
+class AST_CORE_API GravityFieldHead
+{
+public:
+    err_t load(StringView filepath);
+public:
+    int maxDegree_{0};                      ///< 最大阶数
+    int maxOrder_{0};                       ///< 最大次数
+    std::string centralBody_;               ///< 中心天体名称
+    std::string model_;                     ///< 重力场模型名称
+    double gm_{0};                          ///< 中心天体重力常数
+    double refDistance_{0};                 ///< 参考距离
+    bool normalized_{false};                ///< 是否归一化
+    bool includesPermTide_{false};          ///< 是否包含潮汐
+};
+
+
 /// @brief 重力场系数
-class AST_CORE_API GravityField{
+class AST_CORE_API GravityField: public GravityFieldHead
+{
 public:
     GravityField();
     ~GravityField() = default;
@@ -93,9 +111,9 @@ public:
     // double getCnmUnnormalized(int n, int m) const;
 
     /// @brief 从文件加载重力场
-    /// @param filepath 重力场文件路径
+    /// @param model 重力场模型文件路径，或者模型名称
     /// @return 加载状态
-    err_t load(StringView filepath);
+    err_t load(StringView model);
     
     /// @brief 归一化重力场
     void normalize();
@@ -120,20 +138,12 @@ protected:
     /// @param parser GMAT文件解析器
     /// @return 加载状态
     err_t loadGMAT(BKVParser& parser);
+public:
     double& snm(int n, int m);
     double& cnm(int n, int m);
     /// @brief 初始化系数矩阵
     void initCoeffMatrices();
 protected:
-    int maxDegree_;                 ///< 最大阶数
-    int maxOrder_;                  ///< 最大次数
-    std::string centralBody_;       ///< 中心天体名称
-    std::string model_;             ///< 重力场模型名称
-    double gm_;                     ///< 中心天体重力常数
-    double refDistance_;            ///< 参考距离
-    bool normalized_;               ///< 是否归一化
-    bool includesPermTide_;         ///< 是否包含潮汐
-
     LowerMatrixd sinCoeff_;         ///< Snm系数
     LowerMatrixd cosCoeff_;         ///< Cnm系数    
 };

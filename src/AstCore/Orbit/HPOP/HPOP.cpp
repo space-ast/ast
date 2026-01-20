@@ -20,7 +20,9 @@
 
 #include "HPOP.hpp"
 #include "HPOPEquation.hpp"
-#include "AstMath/ODEIntegrator.hpp"
+#include "AstMath/ODE.hpp"
+#include "AstMath/Vector.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -32,6 +34,49 @@ HPOP::~HPOP()
         delete integrator_;
 }
 
-AST_NAMESPACE_END
+err_t HPOP::setForceModel(const HPOPForceModel& forcemodel)
+{
+    if(!equation_){
+        equation_ = new HPOPEquation();
+    }
+    forcemodel_ = forcemodel;
+    return equation_->setForceModel(forcemodel);
+}
 
+err_t HPOP::initialize()
+{
+    if (!equation_){
+        equation_ = new HPOPEquation(forcemodel_);
+    }
+    if (!integrator_){
+        integrator_ = new RKF78();
+    }
+    // err |= integrator_->initialize(equation_);
+    return 0;
+}
+
+
+
+
+err_t HPOP::propagate(const TimePoint &start, const TimePoint &end, Vector3d &position, Vector3d &velocity)
+{
+    err_t err = this->initialize();
+    if (err)
+        return err;
+    int dim = equation_->getDimension();
+    if (dim != 6){
+        aError("dimension of equation is not 6");
+        return -1;
+    }
+    equation_->setEpoch(start);
+    array6d y0 = {position.x(), position.y(), position.z(), velocity.x(), velocity.y(), velocity.z()};
+    array6d yf;
+    double duration = end - start;
+    err = integrator_->integrate(*equation_, 0, duration, y0.data(), yf.data());
+    position = {yf[0], yf[1], yf[2]};
+    velocity = {yf[3], yf[4], yf[5]};
+    return err;
+}
+
+AST_NAMESPACE_END
 

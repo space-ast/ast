@@ -1,9 +1,9 @@
 ///
-/// @file      RKF78.hpp
+/// @file      Environment.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-20
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,19 +21,11 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstMath/ODEVarStepIntegrator.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief     RKF78 积分器
-/// @details   
-/// 参考文献：Classical Fifth-, Sixth-, Seventh-, and Eighth-Order Runge-Kutta Formulas with Stepsize Control
-class AST_MATH_API RKF78 : public ODEVarStepIntegrator
-{
-public:
-    err_t initialize(ODE& ode) final;
-
-    err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
-};
+/// @brief 检查是否在持续集成环境中运行
+/// @return 如果在CI环境中运行，返回true；否则返回false
+AST_UTIL_CAPI bool aIsCI();
 
 AST_NAMESPACE_END

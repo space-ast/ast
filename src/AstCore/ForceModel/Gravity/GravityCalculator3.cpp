@@ -80,8 +80,8 @@ GravityCalculator3::GravityCalculator3()
     init();
 }
 
-GravityCalculator3::GravityCalculator3(const GravityField &gravityField, int degree, int order)
-    : GravityCalculator(gravityField, degree, order)
+GravityCalculator3::GravityCalculator3(const GravityField &gravityModel, int degree, int order)
+    : GravityCalculator(gravityModel, degree, order)
     , Factor(0.0)
 {
     init();

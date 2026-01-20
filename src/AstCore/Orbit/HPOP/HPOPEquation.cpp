@@ -20,6 +20,7 @@
 
 #include "HPOPEquation.hpp"
 #include "HPOP.hpp"                 // for HPOPForceModel
+#include "AstUtil/Logger.hpp"
 #include "AstCore/Simulation.hpp"   // for blocks
 
 AST_NAMESPACE_BEGIN
@@ -29,6 +30,14 @@ HPOPEquation::HPOPEquation()
 
 }
 
+HPOPEquation::HPOPEquation(const HPOPForceModel& forceModel)
+    : HPOPEquation{}
+{
+    this->setForceModel(forceModel);
+}
+
+
+
 HPOPEquation::~HPOPEquation()
 {
 
@@ -36,10 +45,14 @@ HPOPEquation::~HPOPEquation()
 
 err_t HPOPEquation::evaluate(const double t, const double* y, double* dy)
 {
-    SimTime time;                       // 仿真时间
-    time.setTimePoint(epoch_ + t);      // 设置仿真时间点
-    time.setElapsedTime(t);             // 设置仿真的相对时间
-    return dynamicSystem_.evaluate(time);
+    SimTime time;                                   // 仿真时间
+    time.setTimePoint(epoch_ + t);                  // 设置仿真时间点
+    time.setElapsedTime(t);                         // 设置仿真的相对时间
+    dynamicSystem_.fillDerivativeData(0.0);         // 填充导数数据为0
+    dynamicSystem_.setStateData(y);                 // 设置状态数据
+    err_t err = dynamicSystem_.evaluate(time);      // 执行动力学系统
+    dynamicSystem_.getDerivativeData(dy);           // 获取导数数据
+    return err;                                     // 返回错误码
 }
 
 int HPOPEquation::getDimension() const
@@ -70,22 +83,38 @@ void HPOPEquation::clearBlocks()
     dynamicSystem_.clearBlocks();
 }
 
+void HPOPEquation::reset()
+{
+    dynamicSystem_.reset();
+}
+
 err_t HPOPEquation::setForceModel(const HPOPForceModel& forceModel)
 {
     // 将力模型配置转换为动力学系统的一个个函数块
     BlockDerivative* derivativeBlock;
     auto& gravity = forceModel.gravity_;
 
-    // 清除旧的函数块
-    this->clearBlocks();
+    // 重置动力学系统
+    this->reset();
 
     // 添加运动学函数块
     derivativeBlock = new BlockMotion();
     this->addBlock(derivativeBlock);
 
     // 添加重力函数块
-    derivativeBlock = new BlockGravity(gravity.model_, gravity.degree_, gravity.order_);
-    this->addBlock(derivativeBlock);
+    if(0 == gravity.degree_){
+        GravityFieldHead gfHead;
+        err_t err = gfHead.load(gravity.model_);
+        if(err != eNoError){
+            aError("Failed to load gravity field head from file: %s", gravity.model_.c_str());
+            return err;
+        }
+        derivativeBlock = new BlockTwoBody(gfHead.gm_);
+        this->addBlock(derivativeBlock);
+    }else{
+        derivativeBlock = new BlockGravity(gravity.model_, gravity.degree_, gravity.order_);
+        this->addBlock(derivativeBlock);
+    }
 
     // 添加月球引力函数块
     if(forceModel.useMoonGravity_)

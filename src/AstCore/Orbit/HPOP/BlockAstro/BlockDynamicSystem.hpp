@@ -61,6 +61,18 @@ public:
     /// @return 状态量导数数据指针
     const double* getDerivativeData() const { return derivative_.data(); }
 
+    /// @brief 填充状态量数据
+    /// @param y 状态量数据指针
+    void setStateData(const double* y) { std::copy(y, y + this->size(), state_.begin()); }
+
+    /// @brief 获取状态量导数数据指针
+    /// @param dydt 状态量导数数据指针
+    void getDerivativeData(double* dydt) const { std::copy(derivative_.begin(), derivative_.end(), dydt); }
+
+    /// @brief 填充状态量导数数据
+    /// @param value 状态量导数值
+    void fillDerivativeData(double value) { std::fill(derivative_.begin(), derivative_.end(), value); }
+
     /// @brief 初始化
     err_t initialize();
 
@@ -84,6 +96,12 @@ public:
     /// @brief 添加函数块
     /// @param block 函数块指针
     using BlockSystem::addBlock;
+
+    /// @brief 清除所有函数块
+    void clearBlocks();
+
+    /// @brief 重置动力学系统
+    void reset();
 
 protected:
     using StateMap = std::unordered_map<Identifier*, double*>;

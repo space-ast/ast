@@ -72,7 +72,7 @@ int ODEVarStepIntegrator::getNumSteps() const
 
 err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
 {
-    this->init(ode);
+    this->initialize(ode);
     auto& wrk = this->getWorkspace();
     double absh, h, hmin, hmax;
     double t, tnew;

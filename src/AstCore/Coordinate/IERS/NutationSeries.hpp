@@ -70,8 +70,8 @@ protected:
 
 protected:
     Polynomial polynomial_;             ///< nutation series多项式
-    std::vector<NutationTerm> terms_;   ///< 
-    std::vector<int> jlist_;         ///< 
+    std::vector<NutationTerm> terms_;   ///< nutation series系数表
+    std::vector<int> jlist_;            ///< 
 };
 
 

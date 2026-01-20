@@ -27,12 +27,23 @@ AST_NAMESPACE_BEGIN
 using namespace math;
 
 BlockTwoBody::BlockTwoBody()
+    : BlockTwoBody{kEarthGrav}
+{
+    
+}
+
+BlockTwoBody::BlockTwoBody(double twoBodyGM)
     : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accTwoBody{&vectorBuffer}
     , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
-    , twoBodyGM_(kEarthGrav)
+    , twoBodyGM_(twoBodyGM)
+{
+    init();
+}
+
+void BlockTwoBody::init()
 {
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccTwoBody = aIdentifier(kIdentifierAccTwoBody);
@@ -67,7 +78,6 @@ BlockTwoBody::BlockTwoBody()
             DataPort::eDouble
         }
     };
-
 }
 
 err_t BlockTwoBody::evaluate(const SimTime &simTime)
@@ -75,7 +85,9 @@ err_t BlockTwoBody::evaluate(const SimTime &simTime)
     double rSqr = posCBI->squaredNorm();
     double r = std::sqrt(rSqr);
     double factor = -twoBodyGM_ / (r * rSqr);
-    *accTwoBody = factor * (*posCBI);
+    Vector3d accCBI = factor * (*posCBI);
+    *accTwoBody = accCBI;
+    *velocityDerivative_ += accCBI;
     return eNoError;
 }
 
