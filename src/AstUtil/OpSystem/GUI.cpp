@@ -20,6 +20,7 @@
 
 #include "GUI.hpp"
 #include <cstdlib>
+#include <string.h>
 
 AST_NAMESPACE_BEGIN
 
