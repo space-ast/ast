@@ -141,8 +141,9 @@ TEST_F(HPOPTest, OnlyGravity_70_50)
 
 TEST_F(HPOPTest, OnlyGravity_20_20)
 {
-    if(!aIsCI())
+    if(!aIsCI()){
         GTEST_SKIP();
+    }
     HPOPForceModel forcemodel;
     forcemodel.useMoonGravity_ = false;
     forcemodel.gravity_.model_ = "JGM3";
