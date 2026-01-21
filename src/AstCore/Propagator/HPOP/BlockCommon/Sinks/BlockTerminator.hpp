@@ -31,7 +31,7 @@ class AST_CORE_API BlockTerminator: public FuncBlock
 public:
     BlockTerminator();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
     
     /// @brief 获取输入值
     /// @return 输入值

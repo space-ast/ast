@@ -76,7 +76,7 @@ BlockThirdBody::BlockThirdBody(double thirdBodyGM)
     };
 }
 
-err_t BlockThirdBody::evaluate(const SimTime &simTime)
+err_t BlockThirdBody::run(const SimTime &simTime)
 {
     // @fixme
     // 现在只支持计算月球三体引力

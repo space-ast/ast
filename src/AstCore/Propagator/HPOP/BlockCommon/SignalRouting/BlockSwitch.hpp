@@ -31,7 +31,7 @@ class AST_CORE_API BlockSwitch: public FuncBlock
 public:
     BlockSwitch();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
     
     /// @brief 设置阈值
     /// @param threshold 阈值

@@ -57,7 +57,7 @@ BlockDot::BlockDot()
     };
 }
 
-err_t BlockDot::evaluate(const SimTime &simTime)
+err_t BlockDot::run(const SimTime &simTime)
 {
     if (vector1_ == nullptr || vector2_ == nullptr || output_ == nullptr)
     {

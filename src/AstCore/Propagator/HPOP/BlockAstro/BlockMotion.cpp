@@ -56,7 +56,7 @@ BlockMotion::BlockMotion()
 }
 
 
-err_t BlockMotion::evaluate(const SimTime& simTime)
+err_t BlockMotion::run(const SimTime& simTime)
 {
     // @fixme: 需要使用 += 适应未来可能出现的、有多个函数块共同贡献同一个状态量导数的情况吗？
     // *positionDerivative_ += *velocity_;

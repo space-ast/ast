@@ -78,7 +78,7 @@ void BlockDynamicSystem::addBlock(BlockDerivative* block)
 
 err_t BlockDynamicSystem::initialize()
 {
-    // 1. 模型排序
+    // 1. 函数块排序
     err_t err = sortBlocks();
     if(err!=0)
         return err;
@@ -190,12 +190,12 @@ err_t BlockDynamicSystem::connectSignalsByNames()
             // 连接信号
             auto name = port.name_;
             auto iter = stateMap_.find(name);
-            if(iter != stateMap_.end())
+            if(A_LIKELY(iter != stateMap_.end()))
             {
                 // 连接状态量信号
                 port.setSignal(iter->second);
             }else{
-                // 未找到该状态量
+                // 未找到所需状态量信号
                 aError("state %s is not found for block", name->c_str());
                 return -1;
             }
@@ -210,10 +210,14 @@ err_t BlockDynamicSystem::connectSignalsByNames()
             // 连接信号
             auto name = port.name_;
             auto iter = derivativeMap_.find(name);
-            if(iter != derivativeMap_.end())
+            if(A_LIKELY(iter != derivativeMap_.end()))
             {
                 // 连接导数信号
                 port.setSignal(iter->second);
+            }else{
+                // 未找到所需导数信号
+                aError("derivative %s is not found for block", name->c_str());
+                return -1;
             }
         }
     }

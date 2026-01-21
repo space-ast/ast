@@ -33,7 +33,7 @@ class BlockMotion : public BlockDerivative
 public:
     BlockMotion();
 
-    err_t evaluate(const SimTime& simTime) final;
+    err_t run(const SimTime& simTime) final;
 
 protected:
     Vector3d* velocity_{&vectorBuffer};            ///< 速度

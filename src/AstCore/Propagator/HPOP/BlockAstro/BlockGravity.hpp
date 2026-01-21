@@ -35,7 +35,7 @@ class AST_CORE_API BlockGravity: public BlockDerivative
 public:
     BlockGravity();
     BlockGravity(StringView gravityModel, int degree, int order);
-    err_t evaluate(const SimTime& simTime) final;
+    err_t run(const SimTime& simTime) final;
 private:
     void init();
 protected:

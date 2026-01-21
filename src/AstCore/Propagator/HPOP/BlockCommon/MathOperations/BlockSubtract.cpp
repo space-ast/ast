@@ -56,7 +56,7 @@ BlockSubtract::BlockSubtract()
     };
 }
 
-err_t BlockSubtract::evaluate(const SimTime &simTime)
+err_t BlockSubtract::run(const SimTime &simTime)
 {
     if (input1_ == nullptr || input2_ == nullptr || output_ == nullptr)
     {

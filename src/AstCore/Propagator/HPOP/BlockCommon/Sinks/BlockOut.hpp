@@ -31,7 +31,7 @@ class AST_CORE_API BlockOut: public FuncBlock
 public:
     BlockOut();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
     
     /// @brief 获取输出值
     /// @return 输出值
