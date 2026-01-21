@@ -23,6 +23,8 @@
 #include "AstGlobal.h"
 #include "AstUtil/Constants.h"
 #include <string>
+#include <vector>
+
 
 AST_NAMESPACE_BEGIN
 
