@@ -25,10 +25,10 @@ int main()
     aJ2000ToECF(tp, vecJ2000, velJ2000, vecECF, velECF);
     
     // 输出结果
-    printf("J2000坐标: %.3f km, %.3f km, %.3f km\n", vecJ2000[0], vecJ2000[1], vecJ2000[2]);
-    printf("J2000速度: %.3f km/s, %.3f km/s, %.3f km/s\n", velJ2000[0], velJ2000[1], velJ2000[2]);
-    printf("ECF坐标: %.3f km, %.3f km, %.3f km\n", vecECF[0], vecECF[1], vecECF[2]);
-    printf("ECF速度: %.3f km/s, %.3f km/s, %.3f km/s\n", velECF[0], velECF[1], velECF[2]);
+    printf("J2000坐标: %.3f m, %.3f m, %.3f m\n", vecJ2000[0], vecJ2000[1], vecJ2000[2]);
+    printf("J2000速度: %.3f m/s, %.3f m/s, %.3f m/s\n", velJ2000[0], velJ2000[1], velJ2000[2]);
+    printf("ECF坐标: %.3f m, %.3f m, %.3f m\n", vecECF[0], vecECF[1], vecECF[2]);
+    printf("ECF速度: %.3f m/s, %.3f m/s, %.3f m/s\n", velECF[0], velECF[1], velECF[2]);
     
     // 清理资源
     aUninitialize();

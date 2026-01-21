@@ -39,10 +39,28 @@ public:
         int degree_{2};                     ///< 中心天体重力场计算阶数
         int order_{0};                      ///< 中心天体重力场计算次数
     };
+    struct Drag
+    {
+        // @todo;
+    };
+    struct SRP
+    {
+        // @todo;
+    };
+    struct ThirdBody
+    {
+        // @todo;
+    };
+    using ThirdBodyList = std::vector<ThirdBody>;
 public:
-    Gravity gravity_;                       ///< 中心天体重力场
-    bool useMoonGravity_{false};            ///< 是否使用月球引力
-    double moonGravity_{kMoonGrav};      ///< 月球引力系数
+    bool            useDrag_{false};                    ///< 是否使用阻力模型
+    bool            useSRP_{false};                     ///< 是否使用太阳辐射压模型
+    bool            useMoonGravity_{false};             ///< 是否使用月球引力
+    Gravity         gravity_;                           ///< 中心天体重力场
+    Drag            drag_;                              ///< 阻力模型
+    SRP             srp_;                               ///< 太阳辐射压模型
+    double          moonGravity_{kMoonGrav};            ///< 月球引力系数
+    ThirdBodyList   thirdBodies_;                       ///< 三体引力
 };
 
 /// @brief 高精度轨道预报接口类
