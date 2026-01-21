@@ -85,6 +85,8 @@ public:
     constexpr Color(uint8_t r, uint8_t g, uint8_t b) noexcept: value_(rgb(r, g, b)) {}
     constexpr Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) noexcept: value_(rgba(r, g, b, a)) {}
     constexpr operator color_t() const noexcept { return value_; }
+	constexpr color_t value() const noexcept { return value_; }
+	constexpr color_t& value() noexcept { return value_; }
 private:
     color_t value_;
 };

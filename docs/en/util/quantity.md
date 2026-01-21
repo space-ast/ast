@@ -1,5 +1,7 @@
 # Unit Dimension System
 
+*Note: This document is AI-translated.*
+
 The unit dimension system is a core utility module in the ast library for handling units and dimensions of physical quantities. This system supports numerical operations with units, automatic unit conversion, and dimension consistency checks to ensure the correctness of physical calculations.
 
 ## Core Concepts

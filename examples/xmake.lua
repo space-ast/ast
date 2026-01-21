@@ -10,4 +10,7 @@ local files = os.files("**/*.c*")
             add_files(file)
             set_kind("binary")
             add_tests("example")
+            if is_plat("windows") then
+                add_cxflags("/utf-8")
+            end
     end

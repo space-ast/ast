@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Orbit/HPOP/BlockCommon/LogicAndBitOperations/BlockLogicalOperator.hpp"
+#include "../../src/AstCore/Propagator/HPOP/BlockCommon/LogicAndBitOperations/BlockLogicalOperator.hpp"

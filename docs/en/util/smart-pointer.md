@@ -1,5 +1,7 @@
 # Smart Pointers
 
+*Note: This document is AI-translated.*
+
 The ast project provides three smart pointer implementations for safely managing object lifecycles, avoiding memory leaks and dangling pointer issues.
 
 ## SharedPtr

@@ -27,12 +27,12 @@ int main()
     Vector3d vecMOD = matrix * vecJ2000;
     
     // 输出结果
-    printf("J2000坐标: %.3f km, %.3f km, %.3f km\n", vecJ2000[0], vecJ2000[1], vecJ2000[2]);
+    printf("J2000坐标: %.3f m, %.3f m, %.3f m\n", vecJ2000[0], vecJ2000[1], vecJ2000[2]);
     printf("转换矩阵:\n");
     printf("%.9f %.9f %.9f\n", matrix(0,0), matrix(0,1), matrix(0,2));
     printf("%.9f %.9f %.9f\n", matrix(1,0), matrix(1,1), matrix(1,2));
     printf("%.9f %.9f %.9f\n", matrix(2,0), matrix(2,1), matrix(2,2));
-    printf("MOD坐标: %.3f km, %.3f km, %.3f km\n", vecMOD[0], vecMOD[1], vecMOD[2]);
+    printf("MOD坐标: %.3f m, %.3f m, %.3f m\n", vecMOD[0], vecMOD[1], vecMOD[2]);
     
     // 清理资源
     aUninitialize();

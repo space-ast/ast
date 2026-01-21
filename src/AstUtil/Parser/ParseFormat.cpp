@@ -392,7 +392,7 @@ err_t aFormatColor(Color value, std::string& str)
 {
     char color_buffer[32];
     // 格式化为#RRGGBBAA
-    int len = std::snprintf(color_buffer, sizeof(color_buffer), "#%08X", value);
+    int len = std::snprintf(color_buffer, sizeof(color_buffer), "#%08X", value.value());
     if (len < 0 || len >= static_cast<int>(sizeof(color_buffer)))
     {
         return eErrorInvalidParam;
