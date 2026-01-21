@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 class ModOrbElem;       ///< 改进轨道根数
 class TimePoint;        ///< 时间点
 
-class J2Analytical : public J2J4Analytical
+class AST_CORE_API J2Analytical : public J2J4Analytical
 {
 public:
     /// @brief     构造函数

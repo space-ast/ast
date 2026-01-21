@@ -1,5 +1,7 @@
 # SOFA Astronomical Calculation Module
 
+*Note: This document is AI-translated.*
+
 ## Module Overview
 
 The SOFA module is the core astronomical calculation module in the ast project, implemented based on the SOFA (Standards of Fundamental Astronomy) library from the International Astronomical Union (IAU). This module provides a series of high-precision astronomical calculation functions for processing astronomical phenomena such as precession, nutation, and sidereal time.

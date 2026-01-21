@@ -1,6 +1,6 @@
 # Mathematical Operations
 
-*Note: This document aims to help understand the module functionality. Please refer to the source code for specific APIs and behaviors.*
+*Note: This document is AI-translated. Please refer to the source code for specific APIs and behaviors.*
 
 ## Overview
 

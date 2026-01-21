@@ -34,7 +34,7 @@ class TimePoint;        ///< 时间点
 /// 参考文献：
 /// Vallado D A .Fundamentals of Astrodynamics and Applications, 4th ed.
 /// 9.6节 Linearized Perturbations and Effects里的带谐项摄动对轨道根数的长期项表达式
-class J2J4Analytical
+class AST_CORE_API J2J4Analytical
 {
 public:
     J2J4Analytical(const ModOrbElem& modOrbElem, const TimePoint& epoch, double gm)

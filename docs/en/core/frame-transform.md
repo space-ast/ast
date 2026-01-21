@@ -1,6 +1,6 @@
 # Frame Transform Module
 
-*Note: This document aims to help understand module functionality. For specific APIs and behaviors, please refer to the source code.*
+*Note: This document is AI-translated. For specific APIs and behaviors, please refer to the source code.*
 
 ## Module Overview
 

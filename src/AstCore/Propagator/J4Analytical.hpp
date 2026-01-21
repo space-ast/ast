@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 
 class ModOrbElem;
 
-class J4Analytical: public J2J4Analytical
+class AST_CORE_API J4Analytical: public J2J4Analytical
 {
 public:
     /// @brief     构造函数

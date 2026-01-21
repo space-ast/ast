@@ -45,6 +45,9 @@ public:
     /// @brief 设置最大相对误差
     void setMaxRelErr(double maxRelErr){maxRelErr_ = maxRelErr;};
 
+    /// @brief 设置初始步长
+    void setInitialStepSize(double initialStepSize){setStepSize(initialStepSize);};
+
     /// @brief 获取积分过程中统计到的最大步长
     double getLargestStepSize() const;
 
