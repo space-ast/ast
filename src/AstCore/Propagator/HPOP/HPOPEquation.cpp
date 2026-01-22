@@ -50,7 +50,7 @@ err_t HPOPEquation::evaluate(const double t, const double* y, double* dy)
     time.setElapsedTime(t);                         // 设置仿真的相对时间
     dynamicSystem_.fillDerivativeData(0.0);         // 填充导数数据为0
     dynamicSystem_.setStateData(y);                 // 设置状态数据
-    err_t err = dynamicSystem_.evaluate(time);      // 执行动力学系统
+    err_t err = dynamicSystem_.run(time);      // 执行动力学系统
     dynamicSystem_.getDerivativeData(dy);           // 获取导数数据
     return err;                                     // 返回错误码
 }

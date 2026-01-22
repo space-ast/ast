@@ -31,7 +31,7 @@ class AST_CORE_API BlockProduct: public FuncBlock
 public:
     BlockProduct();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
 
 protected:
     double* input1_{nullptr};

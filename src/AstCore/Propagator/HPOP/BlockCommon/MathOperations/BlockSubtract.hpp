@@ -30,7 +30,7 @@ class AST_CORE_API BlockSubtract : public FuncBlock
 public:
     BlockSubtract();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
 protected:
     double* input1_{nullptr};  // 被减数
     double* input2_{nullptr};  // 减数

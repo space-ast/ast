@@ -49,7 +49,7 @@ BlockAbs::BlockAbs()
     };
 }
 
-err_t BlockAbs::evaluate(const SimTime &simTime)
+err_t BlockAbs::run(const SimTime &simTime)
 {
     if (input_ == nullptr || output_ == nullptr)
     {

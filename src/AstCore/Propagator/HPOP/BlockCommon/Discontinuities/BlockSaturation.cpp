@@ -51,7 +51,7 @@ BlockSaturation::BlockSaturation(double lowerLimit, double upperLimit)
     };
 }
 
-err_t BlockSaturation::evaluate(const SimTime &simTime)
+err_t BlockSaturation::run(const SimTime &simTime)
 {
     if (input_ == nullptr || output_ == nullptr)
     {

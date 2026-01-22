@@ -57,7 +57,7 @@ BlockSum::BlockSum()
     };
 }
 
-err_t BlockSum::evaluate(const SimTime &simTime)
+err_t BlockSum::run(const SimTime &simTime)
 {
     if (input1_ == nullptr || input2_ == nullptr || output_ == nullptr)
     {

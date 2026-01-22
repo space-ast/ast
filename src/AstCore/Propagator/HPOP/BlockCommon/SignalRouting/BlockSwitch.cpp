@@ -66,7 +66,7 @@ BlockSwitch::BlockSwitch()
     };
 }
 
-err_t BlockSwitch::evaluate(const SimTime &simTime)
+err_t BlockSwitch::run(const SimTime &simTime)
 {
     if (control_ == nullptr || output_ == nullptr)
     {

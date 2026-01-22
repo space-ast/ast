@@ -44,7 +44,7 @@ public:
     /// @brief 计算函数块
     /// @param simTime 仿真时间
     /// @return 错误码
-    virtual err_t evaluate(const SimTime& simTime) = 0;
+    virtual err_t run(const SimTime& simTime) = 0;
 
 
     /// @brief 获取输入端口

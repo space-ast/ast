@@ -48,7 +48,7 @@ BlockUnaryMinus::BlockUnaryMinus()
     };
 }
 
-err_t BlockUnaryMinus::evaluate(const SimTime &simTime)
+err_t BlockUnaryMinus::run(const SimTime &simTime)
 {
     if (input_ == nullptr || output_ == nullptr)
     {

@@ -1,8 +1,9 @@
 ///
-/// @file      BlockDot.hpp
+/// @file      UnaryFunc.hpp
 /// @brief     ~
+/// @details   ~
 /// @author    axel
-/// @date      2026-01-19
+/// @date      2026-01-22
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -20,23 +21,23 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/FuncBlock.hpp"
+#include "VectorFunc.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 点积块
-class AST_CORE_API BlockDot : public FuncBlock
+/// @brief 标量函数接口
+class ScalarFunc: public VectorFunc
 {
 public:
-    BlockDot();
+    virtual ~ScalarFunc() = default;
+    /// @brief 计算标量方程值
+    /// @param x 输入值
+    /// @param out 输出标量
+    virtual void evaluate(double x, double* out) const override = 0;
 
-    err_t run(const SimTime &simTime) override;
-protected:
-    double* vector1_{nullptr};  // 第一个向量
-    double* vector2_{nullptr};  // 第二个向量
-    double* output_{&outputBuffer_};
-    double outputBuffer_{0.0};
-    size_t vectorSize_{3};  // 向量大小，默认为3（用于三维空间）
+    /// @brief 获取方程维度
+    /// @return 方程维度
+    int getDimension() const final{ return 1; }
 };
 
 AST_NAMESPACE_END

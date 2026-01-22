@@ -31,7 +31,7 @@ class AST_CORE_API BlockIn: public FuncBlock
 public:
     BlockIn();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
     
     /// @brief 设置输入值
     /// @param value 输入值

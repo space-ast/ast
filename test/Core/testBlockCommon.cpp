@@ -34,8 +34,8 @@ TEST(BlockCommon, SimpleCase)
     SimTime time;                                           // 仿真时间
     time.setElapsedTime(1);
 
-    sinBlock.evaluate(time);                                // 执行正弦函数块
-    gainBlock.evaluate(time);                               // 执行增益函数块
+    sinBlock.run(time);                                // 执行正弦函数块
+    gainBlock.run(time);                               // 执行增益函数块
     auto port = gainBlock.getOutputPort(0);                 // 获取增益函数块的输出端口
     double* result = port->getSignalDouble();               // 获取增益函数块的输出端口的双精度信号指针
     EXPECT_TRUE(result != nullptr);
@@ -66,9 +66,9 @@ TEST(BlockCommon, MathOperations)
         FuncBlock::connect(&const1, 0, &sum, 0);
         FuncBlock::connect(&const2, 0, &sum, 1);
         
-        const1.evaluate(time);
-        const2.evaluate(time);
-        sum.evaluate(time);
+        const1.run(time);
+        const2.run(time);
+        sum.run(time);
         
         double* result = aGetOutputPortRealSignal(&sum, 0);
         EXPECT_TRUE(result != nullptr);
@@ -87,9 +87,9 @@ TEST(BlockCommon, MathOperations)
         FuncBlock::connect(&const1, 0, &subtract, 0);
         FuncBlock::connect(&const2, 0, &subtract, 1);
         
-        const1.evaluate(time);
-        const2.evaluate(time);
-        subtract.evaluate(time);
+        const1.run(time);
+        const2.run(time);
+        subtract.run(time);
         
         double* result = aGetOutputPortRealSignal(&subtract, 0);
         EXPECT_TRUE(result != nullptr);
@@ -108,9 +108,9 @@ TEST(BlockCommon, MathOperations)
         FuncBlock::connect(&const1, 0, &product, 0);
         FuncBlock::connect(&const2, 0, &product, 1);
         
-        const1.evaluate(time);
-        const2.evaluate(time);
-        product.evaluate(time);
+        const1.run(time);
+        const2.run(time);
+        product.run(time);
         
         double* result = aGetOutputPortRealSignal(&product, 0);
         EXPECT_TRUE(result != nullptr);
@@ -129,9 +129,9 @@ TEST(BlockCommon, MathOperations)
         FuncBlock::connect(&const1, 0, &divide, 0);
         FuncBlock::connect(&const2, 0, &divide, 1);
         
-        const1.evaluate(time);
-        const2.evaluate(time);
-        divide.evaluate(time);
+        const1.run(time);
+        const2.run(time);
+        divide.run(time);
         
         double* result = aGetOutputPortRealSignal(&divide, 0);
         EXPECT_TRUE(result != nullptr);
@@ -148,8 +148,8 @@ TEST(BlockCommon, MathOperations)
         
         FuncBlock::connect(&const1, 0, &gain, 0);
         
-        const1.evaluate(time);
-        gain.evaluate(time);
+        const1.run(time);
+        gain.run(time);
         
         double* result = aGetOutputPortRealSignal(&gain, 0);
         EXPECT_TRUE(result != nullptr);
@@ -179,7 +179,7 @@ TEST(BlockCommon, LogicalOperations)
         *input1Ptr = &temp1;
         *input2Ptr = &temp2;
         
-        logicOp.evaluate(time);
+        logicOp.run(time);
         
         int* result = (int*)logicOp.getOutputPort(0)->getSignal();
         EXPECT_TRUE(result != nullptr);
@@ -202,7 +202,7 @@ TEST(BlockCommon, LogicalOperations)
         *input1Ptr = &temp1;
         *input2Ptr = &temp2;
         
-        logicOp.evaluate(time);
+        logicOp.run(time);
         
         int* result = (int*)logicOp.getOutputPort(0)->getSignal();
         EXPECT_TRUE(result != nullptr);
@@ -222,7 +222,7 @@ TEST(BlockCommon, LogicalOperations)
         // 分配临时变量的地址
         *input1Ptr = &temp1;
         
-        logicOp.evaluate(time);
+        logicOp.run(time);
         
         int* result = (int*)logicOp.getOutputPort(0)->getSignal();
         EXPECT_TRUE(result != nullptr);
@@ -248,9 +248,9 @@ TEST(BlockCommon, RelationalOperations)
         FuncBlock::connect(&const1, 0, &relationalOp, 0);
         FuncBlock::connect(&const2, 0, &relationalOp, 1);
         
-        const1.evaluate(time);
-        const2.evaluate(time);
-        relationalOp.evaluate(time);
+        const1.run(time);
+        const2.run(time);
+        relationalOp.run(time);
         
         int* result = (int*)relationalOp.getOutputPort(0)->getSignal();
         EXPECT_TRUE(result != nullptr);
@@ -269,9 +269,9 @@ TEST(BlockCommon, RelationalOperations)
         FuncBlock::connect(&const1, 0, &relationalOp, 0);
         FuncBlock::connect(&const2, 0, &relationalOp, 1);
         
-        const1.evaluate(time);
-        const2.evaluate(time);
-        relationalOp.evaluate(time);
+        const1.run(time);
+        const2.run(time);
+        relationalOp.run(time);
         
         int* result = (int*)relationalOp.getOutputPort(0)->getSignal();
         EXPECT_TRUE(result != nullptr);
@@ -298,8 +298,8 @@ TEST(BlockCommon, Discontinuities)
         const1.setValue(15.0);
         FuncBlock::connect(&const1, 0, &saturation, 0);
         
-        const1.evaluate(time);
-        saturation.evaluate(time);
+        const1.run(time);
+        saturation.run(time);
         
         double* result = aGetOutputPortRealSignal(&saturation, 0);
         EXPECT_TRUE(result != nullptr);

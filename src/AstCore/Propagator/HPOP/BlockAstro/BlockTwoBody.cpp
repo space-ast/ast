@@ -80,7 +80,7 @@ void BlockTwoBody::init()
     };
 }
 
-err_t BlockTwoBody::evaluate(const SimTime &simTime)
+err_t BlockTwoBody::run(const SimTime &simTime)
 {
     double rSqr = posCBI->squaredNorm();
     double r = std::sqrt(rSqr);

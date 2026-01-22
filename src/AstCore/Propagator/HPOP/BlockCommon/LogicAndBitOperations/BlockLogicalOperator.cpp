@@ -74,7 +74,7 @@ BlockLogicalOperator::BlockLogicalOperator(ELogicalOperatorType type)
     };
 }
 
-err_t BlockLogicalOperator::evaluate(const SimTime &simTime)
+err_t BlockLogicalOperator::run(const SimTime &simTime)
 {
     if (output_ == nullptr)
     {

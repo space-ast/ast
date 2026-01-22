@@ -41,7 +41,7 @@ class AST_CORE_API BlockRelationalOperator: public FuncBlock
 public:
     BlockRelationalOperator(ERelationalOperatorType type = ERelationalOperatorType::eEqual);
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
     
     /// @brief 设置关系运算符类型
     /// @param type 关系运算符类型

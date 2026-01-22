@@ -39,7 +39,7 @@ BlockOut::BlockOut()
     };
 }
 
-err_t BlockOut::evaluate(const SimTime &simTime)
+err_t BlockOut::run(const SimTime &simTime)
 {
     if (input_ == nullptr)
     {

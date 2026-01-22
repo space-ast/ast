@@ -32,7 +32,7 @@ public:
     BlockSin();
     ~BlockSin() = default;
 
-    err_t evaluate(const SimTime& simTime) final;
+    err_t run(const SimTime& simTime) final;
 protected:
     double* output_{&outputBuffer_};
     double outputBuffer_{0.0};

@@ -42,7 +42,7 @@ BlockSin::BlockSin()
 }
 
 
-err_t BlockSin::evaluate(const SimTime &simTime)
+err_t BlockSin::run(const SimTime &simTime)
 {
     if (output_ == nullptr)
     {

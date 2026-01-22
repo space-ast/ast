@@ -36,7 +36,7 @@ public:
     BlockSystem();
     ~BlockSystem();
 
-    err_t evaluate(const SimTime& simTime) final;
+    err_t run(const SimTime& simTime) final;
 
     /// @brief 添加函数块到子系统中
     /// @param block 要添加的函数块指针

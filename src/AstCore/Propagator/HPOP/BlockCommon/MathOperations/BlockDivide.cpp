@@ -56,7 +56,7 @@ BlockDivide::BlockDivide()
     };
 }
 
-err_t BlockDivide::evaluate(const SimTime &simTime)
+err_t BlockDivide::run(const SimTime &simTime)
 {
     if (numerator_ == nullptr || denominator_ == nullptr || output_ == nullptr)
     {

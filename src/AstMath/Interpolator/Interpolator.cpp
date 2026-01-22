@@ -1,9 +1,9 @@
 ///
-/// @file      BlockIn.cpp
+/// @file      Interpolator.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-19
+/// @date      2026-01-21
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,41 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "BlockIn.hpp"
-#include "AstUtil/IdentifierAPI.hpp"
+#include "Interpolator.hpp"
 
 AST_NAMESPACE_BEGIN
 
-BlockIn::BlockIn()
-    : value_(0.0)
-    , output_(&value_)
-{
-    static auto identifier_output = aIdentifier("y");
 
-    outputPorts_ = {
-        DataPort{
-            identifier_output,
-            (signal_t*)&output_,
-            1,
-            DataPort::eDouble,
-        },
-    };
-}
-
-err_t BlockIn::run(const SimTime &simTime)
-{
-    // 输入块不需要计算，直接返回当前值
-    return eNoError;
-}
-
-void BlockIn::setValue(double value)
-{
-    value_ = value;
-}
-
-double BlockIn::getValue() const
-{
-    return value_;
-}
 
 AST_NAMESPACE_END

@@ -40,7 +40,7 @@ BlockTerminator::BlockTerminator()
     // 终止块没有输出端口
 }
 
-err_t BlockTerminator::evaluate(const SimTime &simTime)
+err_t BlockTerminator::run(const SimTime &simTime)
 {
     if (input_ == nullptr)
     {

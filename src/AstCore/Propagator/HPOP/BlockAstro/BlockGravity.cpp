@@ -85,7 +85,7 @@ void BlockGravity::init()
     };
 }
 
-err_t BlockGravity::evaluate(const SimTime& simTime)
+err_t BlockGravity::run(const SimTime& simTime)
 {
     // @fixme
     // 现在只支持地球的计算

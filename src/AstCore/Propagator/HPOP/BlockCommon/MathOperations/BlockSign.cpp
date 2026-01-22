@@ -48,7 +48,7 @@ BlockSign::BlockSign()
     };
 }
 
-err_t BlockSign::evaluate(const SimTime &simTime)
+err_t BlockSign::run(const SimTime &simTime)
 {
     if (input_ == nullptr || output_ == nullptr)
     {

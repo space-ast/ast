@@ -30,7 +30,7 @@ class AST_CORE_API BlockDeadZone : public FuncBlock
 public:
     BlockDeadZone();
 
-    err_t evaluate(const SimTime &simTime) override;
+    err_t run(const SimTime &simTime) override;
     
     /// @brief 设置死区下限
     /// @param lowerLimit 死区下限
