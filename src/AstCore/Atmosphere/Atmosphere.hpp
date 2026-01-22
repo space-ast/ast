@@ -1,5 +1,5 @@
 ///
-/// @file      ScalarFunc.hpp
+/// @file      Atmosphere.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -21,23 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "VectorFunc.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 标量函数接口
-class ScalarFunc: public VectorFunc
-{
-public:
-    virtual ~ScalarFunc() = default;
-    /// @brief 计算标量方程值
-    /// @param x 输入值
-    /// @param out 输出标量
-    virtual void evaluate(double x, double* out) const override = 0;
 
-    /// @brief 获取方程维度
-    /// @return 方程维度
-    int getDimension() const final{ return 1; }
-};
+AST_CORE_CAPI double aAtmDensUSSA1976(double alt);
+
+
 
 AST_NAMESPACE_END
