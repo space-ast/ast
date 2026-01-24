@@ -1,9 +1,9 @@
 ///
-/// @file      FreeReturnPlan.cpp
+/// @file      MockBuffer.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-20
+/// @date      2026-01-23
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,14 +18,20 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/FrameTransform.hpp"
-#include "AstCore/HPOP.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/Vector.hpp"
+#pragma once
 
-AST_USING_NAMESPACE
+#include "AstGlobal.h"
 
-int main()
-{
-    return 0;
-}
+AST_NAMESPACE_BEGIN
+
+AST_MOCK_API void mockBufferMalloc(unsigned int size);
+
+AST_MOCK_API void mockBufferNew(unsigned int size);
+
+AST_MOCK_API void mockBufferStack(unsigned int size);
+
+
+AST_MOCK_API void mockBufferAlloca(unsigned int size);
+
+
+AST_NAMESPACE_END

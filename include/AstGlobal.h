@@ -186,6 +186,7 @@ typedef enum EError
     eErrorReadonly,     ///< 只读属性
     eErrorMaxIter,      ///< 最大迭代次数
     eErrorDivideByZero, ///< 除零错误
+    eErrorOutOfRange,   ///< 超出范围
 } AEError;
 
 

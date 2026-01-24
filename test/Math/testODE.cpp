@@ -27,7 +27,8 @@
 #include "AstMath/RKCK.hpp"
 #include "AstTest/Test.h"
 
-using namespace ast;
+AST_USING_NAMESPACE
+
 
 
 // 定义一个简单的ODE类：dy/dt = -y

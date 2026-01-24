@@ -64,6 +64,22 @@ namespace literals
         return val * kDegToRad;
     }
 
+    /// @brief 将长双精度浮点数值从弧秒转换为弧度
+    /// @param val 弧秒值
+    /// @return 对应的弧度值（弧秒值 * kArcSecToRad）
+    inline constexpr double operator "" _arcsec(long double val)
+    {
+        return val * kArcSecToRad;
+    }
+    
+    /// @brief 将无符号长整数值从弧秒转换为弧度
+    /// @param val 弧秒值
+    /// @return 对应的弧度值（弧秒值 * kArcSecToRad）
+    inline constexpr double operator "" _arcsec(unsigned long long val)
+    {
+        return val * kArcSecToRad;
+    }
+
     // 长度单位 - 基于米的单位制. 所有长度转换最终表示为米
 
     /// @brief 将长双精度浮点数值从千米转换为米
@@ -161,6 +177,23 @@ namespace literals
     {
         return val * kNanometerToMeter;
     }
+
+    /// @brief 将长双精度浮点数值从天文学单位转换为米
+    /// @param val 天文单位值
+    /// @return 对应的米值（天文单位值 * kAU）
+    inline constexpr double operator "" _au(long double val)
+    {
+        return val * kAU;
+    }
+    
+    /// @brief 将无符号长整数值从天文学单位转换为米
+    /// @param val 天文单位值
+    /// @return 对应的米值（天文单位值 * kAU）
+    inline constexpr double operator "" _au(unsigned long long val)
+    {
+        return val * kAU;
+    }
+
 
     // 时间单位 - 基于秒的单位制. 所有时间转换最终表示为秒
     
@@ -292,23 +325,6 @@ namespace literals
         return val * kPicoSecToSec;
     }
 
-    // 天文单位 - 基于米的单位制
-    
-    /// @brief 将长双精度浮点数值从天文学单位转换为米
-    /// @param val 天文单位值
-    /// @return 对应的米值（天文单位值 * kAU）
-    inline constexpr double operator "" _au(long double val)
-    {
-        return val * kAU;
-    }
-    
-    /// @brief 将无符号长整数值从天文学单位转换为米
-    /// @param val 天文单位值
-    /// @return 对应的米值（天文单位值 * kAU）
-    inline constexpr double operator "" _au(unsigned long long val)
-    {
-        return val * kAU;
-    }
 
     // 速度单位 - 基于m/s的单位制
     
@@ -398,18 +414,21 @@ namespace literals
     // unit literals
     //----------------
 
+    constexpr double deg = 1_deg;
+    constexpr double rad = 1_rad;
+    constexpr double arcsec = 1_arcsec;
+
     constexpr double m = 1_m;
     constexpr double km = 1_km;
     constexpr double cm = 1_cm;
-
-    constexpr double deg = 1_deg;
-    constexpr double rad = 1_rad;
+    constexpr double au = 1_au;
+    
 
     constexpr double s = 1_s;
     constexpr double sec = 1_s;
     constexpr double ms = 1_ms;
-    constexpr double min = 60_s;
-    constexpr double h = 3600_s;
+    constexpr double min = 1_min;
+    constexpr double h = 1_h;
 }
 
 // 导入字面量命名空间到ast命名空间，便于使用

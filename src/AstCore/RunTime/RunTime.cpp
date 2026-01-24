@@ -26,13 +26,13 @@
 #include "AstCore/FundamentalArguments.hpp"
 #include <assert.h>
 
-#define AST_DEFAULT_FILE_LEAPSECOND "Time/Leap_Second.dat"
-#define AST_DEFAULT_FILE_JPLDE      "SolarSystem/plneph.430"
-#define AST_DEFAULT_FILE_EOP        "SolarSystem/Earth/EOP-All.txt"
-#define AST_DEFAULT_FILE_IAUX       "IERS-conventions/2010/tab5.2a.txt"
-#define AST_DEFAULT_FILE_IAUY       "IERS-conventions/2010/tab5.2b.txt"
-#define AST_DEFAULT_FILE_IAUS       "IERS-conventions/2010/tab5.2d.txt"
-
+#define AST_DEFAULT_FILE_LEAPSECOND             "Time/Leap_Second.dat"
+#define AST_DEFAULT_FILE_JPLDE                  "SolarSystem/plneph.430"
+#define AST_DEFAULT_FILE_EOP                    "SolarSystem/Earth/EOP-All.txt"
+#define AST_DEFAULT_FILE_IAUX                   "IERS-conventions/2010/tab5.2a.txt"
+#define AST_DEFAULT_FILE_IAUY                   "IERS-conventions/2010/tab5.2b.txt"
+#define AST_DEFAULT_FILE_IAUS                   "IERS-conventions/2010/tab5.2d.txt"
+#define AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED     "Test/ICRF/IAU2006_XYS.dat"
 
 AST_NAMESPACE_BEGIN
 
@@ -92,6 +92,18 @@ err_t IAUXYS::loadDefault()
 }
 
 
+err_t IAUXYSPrecomputed::loadDefault()
+{
+    fs::path filepath = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED;
+    err_t err = load(filepath.string());
+    if (err)
+    {
+        aWarning("failed to load iauxys precomputed from default data file:\n%s", filepath.string().c_str());
+    }
+    return err;
+}
+
+
 
 err_t aInitialize(GlobalContext* context)
 {
@@ -100,6 +112,8 @@ err_t aInitialize(GlobalContext* context)
     err |= context->jplDe()->openDefault();
     err |= context->eop()->loadDefault();
     err |= context->iauXYS()->loadDefault();
+    err |= context->iauXYSPrecomputed()->loadDefault();
+
     if(err != eNoError) {
         aError("initialize failed: failed to load data.");
     }
@@ -265,6 +279,12 @@ EOP * aGlobalContext_GetEOP()
     return context->eop();
 }
 
+IAUXYSPrecomputed* aGlobalContext_GetIAUXYSPrecomputed()
+{
+    auto context = aGlobalContext_Ensure();
+    return context->iauXYSPrecomputed();
+}
+
 GlobalContext* aGlobalContext_New()
 {
     return new GlobalContext{};
@@ -349,7 +369,7 @@ double aLOD(const TimePoint &tp)
     return context->eop()->getLOD(tp);
 }
 
-static void aXYS_IERS2010(const TimePoint& tp, array3d& xys)
+void aXYS_IERS2010_NoCorrection(const TimePoint& tp, array3d& xys)
 {
     auto context = aGlobalContext_Ensure();
     // 根据IERS 2010规范，计算行星基础参数
@@ -358,6 +378,43 @@ static void aXYS_IERS2010(const TimePoint& tp, array3d& xys)
     aFundamentalArguments_IERS2010(t, fundargs);
     // 根据IERS 2010规范，计算xys值
     context->iauXYS()->eval(t, fundargs, xys);
+}
+
+void aXYS_IERS2010_NoCorrection_TT(const JulianDate& jdTT, array3d& xys)
+{
+    auto context = aGlobalContext_Ensure();
+    // 根据IERS 2010规范，计算行星基础参数
+    FundamentalArguments fundargs;
+    double t = jdTT.julianCenturyFromJ2000();
+    aFundamentalArguments_IERS2010(t, fundargs);
+    // 根据IERS 2010规范，计算xys值
+    context->iauXYS()->eval(t, fundargs, xys);
+}
+
+err_t aXYS_Precomputed_NoCorrection(const TimePoint& tp, array3d& xys)
+{
+    auto context = aGlobalContext_Ensure();
+    return context->iauXYSPrecomputed()->getValue(tp, xys);
+}
+
+
+void aXYS_NoCorrection(const TimePoint& tp, array3d& xys)
+{
+    if (aXYS_Precomputed_NoCorrection(tp, xys) != eNoError) {
+        aXYS_IERS2010_NoCorrection(tp, xys);
+    }
+}
+
+
+void aXYCorrection(const TimePoint &tp, array2d &xyCorrection)
+{
+    auto context = aGlobalContext_Ensure();
+    context->eop()->getXYCorrection(tp, xyCorrection);
+}
+
+void aXYS_IERS2010_WithCorrection(const TimePoint& tp, array3d& xys)
+{
+    aXYS_IERS2010_NoCorrection(tp, xys);
     // 应用EOP中的XY修正量
     // 参考IERS 2010规范 5.9节 P71 的相关说明
     // 应该先计算得到S，然后再应用XY修正量？
@@ -368,15 +425,18 @@ static void aXYS_IERS2010(const TimePoint& tp, array3d& xys)
     xys[1] += xyCorrection[1];
 }
 
-void aXYCorrection(const TimePoint &tp, array2d &xyCorrection)
-{
-    auto context = aGlobalContext_Ensure();
-    context->eop()->getXYCorrection(tp, xyCorrection);
-}
 
 void aXYS(const TimePoint &tp, array3d &xys)
 {
-    return aXYS_IERS2010(tp, xys);
+    aXYS_NoCorrection(tp, xys);
+    // 应用EOP中的XY修正量
+    // 参考IERS 2010规范 5.9节 P71 的相关说明
+    // 应该先计算得到S，然后再应用XY修正量？
+    // 这个先后顺序应该影响很小
+    array2d xyCorrection;
+    aXYCorrection(tp, xyCorrection);
+    xys[0] += xyCorrection[0];
+    xys[1] += xyCorrection[1];
 }
 
 AST_NAMESPACE_END

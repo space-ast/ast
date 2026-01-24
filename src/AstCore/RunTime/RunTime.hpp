@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
 
 class GlobalContext;
 class EOP;
+class IAUXYSPrecomputed;
 
 
 /// @brief 初始化
@@ -79,6 +80,10 @@ AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
 
 /// @brief 获取当前全局上下文的EOP
 AST_CORE_CAPI EOP* aGlobalContext_GetEOP();
+
+/// @brief 获取当前全局上下文的IAUXYSPrecomputed
+AST_CORE_CAPI IAUXYSPrecomputed* aGlobalContext_GetIAUXYSPrecomputed();
+
 
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI GlobalContext* aGlobalContext_New();
@@ -183,15 +188,39 @@ A_ALWAYS_INLINE void aPoleMotion(const TimePoint& tp, PoleMotion& pm)
 AST_CORE_CAPI double aLOD(const TimePoint& tp);
 
 
+/// @brief 获取给定时间点的IAU XYS数据（IERS 2010规范）
+/// @param tp 时间点
+/// @param xys iau xys数据
+AST_CORE_CAPI void aXYS_IERS2010_NoCorrection(const TimePoint& tp, array3d& xys);
+
+
+/// @brief 获取给定时间点的IAU XYS数据（IERS 2010规范）
+/// @param jdTT 时间点的儒略日数（TT）
+/// @param xys iau xys数据
+AST_CORE_CAPI void aXYS_IERS2010_NoCorrection_TT(const JulianDate& jdTT, array3d& xys);
+
+
+/// @brief 获取给定时间点的IAU XYS数据（预计算数据）
+AST_CORE_CAPI err_t aXYS_Precomputed_NoCorrection(const TimePoint& tp, array3d& xys);
+
+
+/// @brief 获取给定时间点的IAU XYS数据（IERS 2010规范，包含修正项）
+/// @param tp 时间点
+/// @param xys iau xys数据
+AST_CORE_CAPI void aXYS_IERS2010_WithCorrection(const TimePoint& tp, array3d& xys);
+
+
 /// @brief 获取给定时间点的IAU XYS数据的修正项
 /// @param tp 时间点
 /// @param xyCorrection iau xys修正项
 AST_CORE_CAPI void aXYCorrection(const TimePoint& tp, array2d& xyCorrection);
 
+
 /// @brief 获取给定时间点的IAU XYS数据
 /// @param tp 时间点
 /// @param xys iau xys数据
 AST_CORE_CAPI void aXYS(const TimePoint& tp, array3d& xys);
+
 
 
 AST_NAMESPACE_END

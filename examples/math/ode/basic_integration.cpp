@@ -2,7 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-using namespace ast;
+AST_USING_NAMESPACE
+
 
 /// @brief 简单的指数衰减ODE：dy/dt = -y
 class ExponentialDecayODE : public ODE {
