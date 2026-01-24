@@ -51,10 +51,15 @@ public:
     /// @param s 输出S+XY/2系数
     void eval(double t, const FundamentalArguments& fundargs, array3d& xys) const;
 
+    /// @brief 检查是否加载了系数表
+    /// @return bool
+    bool isLoaded() const {return isLoaded_;}
+    
 protected:
     NutationSeries xSeries_;        ///< 岁差章动模型X系数
     NutationSeries ySeries_;        ///< 岁差章动模型Y系数
     NutationSeries spxy2Series_;    ///< 岁差章动模型S+XY/2
+    bool isLoaded_ {false};         ///< 检查是否加载了系数表
 };
 
 

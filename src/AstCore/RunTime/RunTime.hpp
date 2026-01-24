@@ -31,7 +31,9 @@
 AST_NAMESPACE_BEGIN
 
 class DataContext;
+class GlobalContext;
 class EOP;
+class IAUXYS;
 class IAUXYSPrecomputed;
 
 
@@ -57,6 +59,19 @@ AST_CORE_CAPI err_t aDataDirSet(StringView dirpath);
 /// 4. 当前运行目录的data文件夹(AST_DATA_DIR_NAME)
 /// @return 
 AST_CORE_API std::string aDataDirGetDefault();
+
+
+
+// global context
+
+/// @brief 获取全局上下文
+AST_CORE_CAPI GlobalContext* aGlobalContext_Get();
+
+/// @brief 获取全局上下文的IAUXYS
+AST_CORE_CAPI IAUXYS* aGlobalContext_GetIAUXYS();
+
+
+// data context
 
 /// @brief 获取当前线程的数据上下文
 /// @return 
@@ -89,7 +104,6 @@ AST_CORE_CAPI IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed();
 
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI DataContext* aDataContext_New();
-
 
 
 AST_NAMESPACE_END

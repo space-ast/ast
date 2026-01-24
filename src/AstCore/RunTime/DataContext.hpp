@@ -66,10 +66,6 @@ public:
     const JplDe* jplDe() const {return &m_jplDe;}
     JplDe* jplDe() {return &m_jplDe;}
 
-	/// @brief IAU XYS数据
-	const IAUXYS* iauXYS() const {return &m_iauXYS;}
-    IAUXYS* iauXYS() {return &m_iauXYS;}
-
 	/// @brief IAU XYS预计算数据
 	const IAUXYSPrecomputed* iauXYSPrecomputed() const {return &m_iauXYSPrecomputed;}
     IAUXYSPrecomputed* iauXYSPrecomputed() {return &m_iauXYSPrecomputed;}
@@ -79,7 +75,6 @@ protected:
 	EOP		    			m_eop;	
 	LeapSecond  			m_leapSecond;
     JplDe                   m_jplDe;
-	IAUXYS                  m_iauXYS;				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
 	IAUXYSPrecomputed       m_iauXYSPrecomputed;	///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
     std::string     		m_dataDir;				
 };

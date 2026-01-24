@@ -159,7 +159,7 @@ void IAUXYSPrecomputed::precompute(double start_jed, double stop_jed, double ste
     for(int i=0;i<size;i++)
     {
         array3d xys;
-        aXYS_IERS2010_NoCorrection_TT(jdTT, xys);
+        aTheoreticalXYS_IERS2010_TT(jdTT, xys);
         xys_points.push_back(xys);
         jdTT.day() += dayStep;
         jdTT.second() += secStep;

@@ -62,6 +62,10 @@ public:
     /// @param args 章动理论所涉及的行星基本轨道参数
     /// @return double
     double eval(const TimePoint& tp, const FundamentalArguments& fundargs) const;
+
+    /// @brief 检查是否加载了系数表
+    /// @return bool
+    bool isLoaded() const {return !terms_.empty();}
 protected:
     
     err_t loadSTK(BKVParser& parser);

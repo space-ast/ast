@@ -21,7 +21,58 @@
 #include "AstCore/RunTime.hpp"
 #include "benchmark/benchmark.h"
 
+AST_USING_NAMESPACE
 
+void bmTheoreticalXYS_IERS2010_Cache_Repeat(benchmark::State& state)
+{
+    aInitialize();
+    double t = 1.2345678;
+    array3d xys;
+    for (auto _ : state) {
+        aTheoreticalXYS_IERS2010_Cache(t, xys);
+        benchmark::DoNotOptimize(xys);
+    }
+}
+BENCHMARK(bmTheoreticalXYS_IERS2010_Cache_Repeat);
+
+void bmTheoreticalXYS_IERS2010_Repeat(benchmark::State& state)
+{
+    aInitialize();
+    double t = 1.2345678;
+    array3d xys;
+    for (auto _ : state) {
+        aTheoreticalXYS_IERS2010(t, xys);
+        benchmark::DoNotOptimize(xys);
+    }
+}
+BENCHMARK(bmTheoreticalXYS_IERS2010_Repeat);
+
+
+void bmTheoreticalXYS_IERS2010(benchmark::State& state)
+{
+    aInitialize();
+    double t = 1.2345678;
+    array3d xys;
+    for (auto _ : state) {
+        t += 1./16.;
+        aTheoreticalXYS_IERS2010(t, xys);
+        benchmark::DoNotOptimize(xys);
+    }
+}
+BENCHMARK(bmTheoreticalXYS_IERS2010);
+
+void bmTheoreticalXYS_IERS2010_Cache(benchmark::State& state)
+{
+    aInitialize();
+    double t = 1.2345678;
+    array3d xys;
+    for (auto _ : state) {
+        t += 1./16.;
+        aTheoreticalXYS_IERS2010_Cache(t, xys);
+        benchmark::DoNotOptimize(xys);
+    }
+}
+BENCHMARK(bmTheoreticalXYS_IERS2010_Cache);
 
 BENCHMARK_MAIN();
 

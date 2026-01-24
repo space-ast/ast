@@ -24,6 +24,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/FundamentalArguments.hpp"
+#include "AstCore/GlobalContext.hpp"
 #include <assert.h>
 
 #define AST_DEFAULT_FILE_LEAPSECOND             "Time/Leap_Second.dat"
@@ -41,6 +42,17 @@ AST_NAMESPACE_BEGIN
 // 线程本地存储的当前全局上下文指针
 A_THREAD_LOCAL DataContext* t_currentDataContext = nullptr;
 std::unique_ptr<DataContext> g_defaultDataContext = nullptr;
+static GlobalContext s_globalContext;
+
+GlobalContext *aGlobalContext_Get()
+{
+    return &s_globalContext;
+}
+
+IAUXYS* aGlobalContext_GetIAUXYS()
+{
+    return s_globalContext.iauXYS();
+}
 
 
 err_t LeapSecond::loadDefault()
@@ -108,10 +120,18 @@ err_t IAUXYSPrecomputed::loadDefault()
 err_t aInitialize(DataContext* context)
 {
     err_t err = 0;
+    
+    // global context
+    auto globalCxt = aGlobalContext_Get();
+    if(!globalCxt->iauXYS()->isLoaded())
+    {
+        err |= globalCxt->iauXYS()->loadDefault();
+    }
+    
+    // local data context
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
     err |= context->eop()->loadDefault();
-    err |= context->iauXYS()->loadDefault();
     err |= context->iauXYSPrecomputed()->loadDefault();
 
     if(err != eNoError) {
@@ -370,39 +390,58 @@ double aLOD(const TimePoint &tp)
     return context->eop()->getLOD(tp);
 }
 
-void aXYS_IERS2010_NoCorrection(const TimePoint& tp, array3d& xys)
+void aTheoreticalXYS_IERS2010(double t, array3d& xys)
 {
-    auto context = aDataContext_EnsureCurrent();
+    auto globalCxt = aGlobalContext_Get();
     // 根据IERS 2010规范，计算行星基础参数
     FundamentalArguments fundargs;
+    aFundamentalArguments_IERS2010(t, fundargs);
+    // 根据IERS 2010规范，计算xys值
+    globalCxt->iauXYS()->eval(t, fundargs, xys);
+}
+
+struct XYSCache
+{
+    double t;
+    array3d xys;
+};
+
+A_THREAD_LOCAL XYSCache tXYSCache{std::numeric_limits<double>::quiet_NaN(), {0.0, 0.0, 0.0}};
+
+void aTheoreticalXYS_IERS2010_Cache(double t, array3d& xys)
+{
+    if (t == tXYSCache.t) {
+        xys = tXYSCache.xys;
+    }else{
+        aTheoreticalXYS_IERS2010(t, xys);
+        tXYSCache.t = t;
+        tXYSCache.xys = xys;
+    }
+}
+
+void aTheoreticalXYS_IERS2010(const TimePoint& tp, array3d& xys)
+{
     double t = tp.julianCenturyFromJ2000TT();
-    aFundamentalArguments_IERS2010(t, fundargs);
-    // 根据IERS 2010规范，计算xys值
-    context->iauXYS()->eval(t, fundargs, xys);
+    aTheoreticalXYS_IERS2010_Cache(t, xys);
 }
 
-void aXYS_IERS2010_NoCorrection_TT(const JulianDate& jdTT, array3d& xys)
+void aTheoreticalXYS_IERS2010_TT(const JulianDate& jdTT, array3d& xys)
 {
-    auto context = aDataContext_EnsureCurrent();
-    // 根据IERS 2010规范，计算行星基础参数
-    FundamentalArguments fundargs;
     double t = jdTT.julianCenturyFromJ2000();
-    aFundamentalArguments_IERS2010(t, fundargs);
-    // 根据IERS 2010规范，计算xys值
-    context->iauXYS()->eval(t, fundargs, xys);
+    aTheoreticalXYS_IERS2010_Cache(t, xys);
 }
 
-err_t aXYS_Precomputed_NoCorrection(const TimePoint& tp, array3d& xys)
+err_t aTheoreticalXYS_IERS2010Precomputed(const TimePoint& tp, array3d& xys)
 {
     auto context = aDataContext_EnsureCurrent();
     return context->iauXYSPrecomputed()->getValue(tp, xys);
 }
 
 
-void aXYS_NoCorrection(const TimePoint& tp, array3d& xys)
+void aTheoreticalXYS(const TimePoint& tp, array3d& xys)
 {
-    if (aXYS_Precomputed_NoCorrection(tp, xys) != eNoError) {
-        aXYS_IERS2010_NoCorrection(tp, xys);
+    if (aTheoreticalXYS_IERS2010Precomputed(tp, xys) != eNoError) {
+        aTheoreticalXYS_IERS2010(tp, xys);
     }
 }
 
@@ -413,9 +452,9 @@ void aXYCorrection(const TimePoint &tp, array2d &xyCorrection)
     context->eop()->getXYCorrection(tp, xyCorrection);
 }
 
-void aXYS_IERS2010_WithCorrection(const TimePoint& tp, array3d& xys)
+void aXYS_IERS2010(const TimePoint& tp, array3d& xys)
 {
-    aXYS_IERS2010_NoCorrection(tp, xys);
+    aTheoreticalXYS_IERS2010(tp, xys);
     // 应用EOP中的XY修正量
     // 参考IERS 2010规范 5.9节 P71 的相关说明
     // 应该先计算得到S，然后再应用XY修正量？
@@ -429,7 +468,7 @@ void aXYS_IERS2010_WithCorrection(const TimePoint& tp, array3d& xys)
 
 void aXYS(const TimePoint &tp, array3d &xys)
 {
-    aXYS_NoCorrection(tp, xys);
+    aTheoreticalXYS(tp, xys);
     // 应用EOP中的XY修正量
     // 参考IERS 2010规范 5.9节 P71 的相关说明
     // 应该先计算得到S，然后再应用XY修正量？
