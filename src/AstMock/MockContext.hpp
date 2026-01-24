@@ -1,5 +1,5 @@
 ///
-/// @file      MockCache.hpp
+/// @file      MockContext.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -22,18 +22,17 @@
 
 #include "AstGlobal.h"
 
+
 AST_NAMESPACE_BEGIN
 
+class EOP;
 
-AST_MOCK_CAPI int aMockCacheStatic(int k);
-
-
-AST_MOCK_CAPI int aMockCacheExtern(int k);
-
-
-AST_MOCK_CAPI int aMockCacheStaticTL(int k);
-
-
-AST_MOCK_CAPI int aMockCacheExternTL(int k);
+AST_MOCK_CAPI EOP* aMockGetEOP_Extern();
+AST_MOCK_CAPI EOP* aMockGetEOP_Static();
+AST_MOCK_CAPI EOP* aMockGetEOP_Lazy();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextExtern();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextStatic();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextExternTL();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextStaticTL();
 
 AST_NAMESPACE_END

@@ -6,7 +6,7 @@
     add_headerfiles("**.h")
     add_headerfiles("../../(include/AstGlobal.h)")
     add_defines("AST_BUILD_LIB_MOCK")
-    add_deps("AstUtil", "AstMath")
+    add_deps("AstUtil", "AstMath", "AstCore")
     
     if is_plat("windows") then
         add_rules("utils.symbols.export_list", {

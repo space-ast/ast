@@ -19,7 +19,7 @@
  
  
 #include "RunTime.hpp"
-#include "GlobalContext.hpp"
+#include "DataContext.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/TimePoint.hpp"
@@ -39,8 +39,8 @@ AST_NAMESPACE_BEGIN
 
 
 // 线程本地存储的当前全局上下文指针
-A_THREAD_LOCAL GlobalContext* t_currentGlobalContext = nullptr;
-std::unique_ptr<GlobalContext> g_defaultGlobalContext = nullptr;
+A_THREAD_LOCAL DataContext* t_currentDataContext = nullptr;
+std::unique_ptr<DataContext> g_defaultDataContext = nullptr;
 
 
 err_t LeapSecond::loadDefault()
@@ -105,7 +105,7 @@ err_t IAUXYSPrecomputed::loadDefault()
 
 
 
-err_t aInitialize(GlobalContext* context)
+err_t aInitialize(DataContext* context)
 {
     err_t err = 0;
     err |= context->leapSecond()->loadDefault();
@@ -123,26 +123,26 @@ err_t aInitialize(GlobalContext* context)
 
 err_t aInitialize()
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return aInitialize(context);
 }
 
 err_t aUninitialize()
 {
-    if (g_defaultGlobalContext) {
-        if (t_currentGlobalContext == g_defaultGlobalContext.get()) {
-            t_currentGlobalContext = nullptr;
+    if (g_defaultDataContext) {
+        if (t_currentDataContext == g_defaultDataContext.get()) {
+            t_currentDataContext = nullptr;
         }
-        g_defaultGlobalContext = nullptr;
+        g_defaultDataContext = nullptr;
     }
-    // 线程局部变量 t_currentGlobalContext 通常不需要在此处显式删除，
+    // 线程局部变量 t_currentDataContext 通常不需要在此处显式删除，
     // 因为它指向的是 g_defaultGlobalContext，并且会在线程退出时自动销毁。
     return eNoError;
 }
 
 std::string aDataDirGet()
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     if (context->dataDir().empty()) {
         aDataDirSet(aDataDirGetDefault());
     }
@@ -155,7 +155,7 @@ err_t aDataDirSet(StringView dirpath)
         aError("dirpath is not a directory.");
         return eErrorInvalidParam;
     }
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     context->setDataDir(dirpath);
     return eNoError;
 }
@@ -240,65 +240,66 @@ std::string aDataDirGetDefault()
 }
 
 
-GlobalContext* aGlobalContext_GetCurrent()
+DataContext* aDataContext_GetCurrent()
 {
-    assert(t_currentGlobalContext && "Current GlobalContext is null!");
-    return t_currentGlobalContext;
+    assert(t_currentDataContext && "Current DataContext is null!");
+    return t_currentDataContext;
 }
 
-GlobalContext* aGlobalContext_GetDefault()
+DataContext* aDataContext_GetDefault()
 {
-    return g_defaultGlobalContext.get();
+    return g_defaultDataContext.get();
 }
 
-GlobalContext* aGlobalContext_EnsureDefault()
+
+DataContext* aDataContext_EnsureDefault()
 {
-    if (!g_defaultGlobalContext) {
-        g_defaultGlobalContext.reset(aGlobalContext_New());
+    if (!g_defaultDataContext) {
+        g_defaultDataContext.reset(aDataContext_New());
     }
-    return g_defaultGlobalContext.get();
+    return g_defaultDataContext.get();
 }
 
-GlobalContext* aGlobalContext_Ensure()
+DataContext* aDataContext_EnsureCurrent()
 {
-    if (A_UNLIKELY(!t_currentGlobalContext))
+    if (A_UNLIKELY(!t_currentDataContext))
     {
-        aGlobalContext_SetCurrent(aGlobalContext_EnsureDefault());
+        aDataContext_SetCurrent(aDataContext_EnsureDefault());
     }
-    return t_currentGlobalContext;
+    return t_currentDataContext;
 }
 
-void aGlobalContext_SetCurrent(GlobalContext* context)
+void aDataContext_SetCurrent(DataContext* context)
 {
-    t_currentGlobalContext = context;
+    t_currentDataContext = context;
 }
 
-EOP * aGlobalContext_GetEOP()
+EOP * aDataContext_GetEOP()
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->eop();
 }
 
-IAUXYSPrecomputed* aGlobalContext_GetIAUXYSPrecomputed()
+IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed()
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->iauXYSPrecomputed();
 }
 
-GlobalContext* aGlobalContext_New()
+DataContext* aDataContext_New()
 {
-    return new GlobalContext{};
+    return new DataContext{};
 }
 
 double aLeapSecondUTC(double jdUTC)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->leapSecond()->leapSecondUTC(jdUTC);
 }
 
 double aLeapSecondUTCMJD(double mjdUTC)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
 
@@ -312,7 +313,7 @@ err_t aJplDeGetPosVelICRF(
     Vector3d& vel
 )
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->jplDe()->getPosVelICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos, vel);
 }
 
@@ -323,55 +324,55 @@ err_t aJplDeGetPosICRF(
     Vector3d& pos
 )
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->jplDe()->getPosICRF(time, (JplDe::EDataCode)target, (JplDe::EDataCode)referenceBody, pos);
 }
 
 err_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->jplDe()->getNutation(time, dpsi, deps);
 }
 
 err_t aJplDeOpen(const char *filepath)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->jplDe()->open(filepath);
 }
 
 void aJplDeClose()
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     context->jplDe()->close();
 }
 
 double aUT1MinusUTC_UTC(const JulianDate &jdUTC)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->eop()->getUT1MinusUTC_UTC(jdUTC);
 }
 
 void aPoleMotion(const TimePoint &tp, double &x, double &y)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     context->eop()->getPoleMotion(tp, x, y);
 }
 
 void aPoleMotionUTC(const JulianDate &jdUTC, double &x, double &y)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     context->eop()->getPoleMotionUTC(jdUTC, x, y);
 }
 
 double aLOD(const TimePoint &tp)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->eop()->getLOD(tp);
 }
 
 void aXYS_IERS2010_NoCorrection(const TimePoint& tp, array3d& xys)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     // 根据IERS 2010规范，计算行星基础参数
     FundamentalArguments fundargs;
     double t = tp.julianCenturyFromJ2000TT();
@@ -382,7 +383,7 @@ void aXYS_IERS2010_NoCorrection(const TimePoint& tp, array3d& xys)
 
 void aXYS_IERS2010_NoCorrection_TT(const JulianDate& jdTT, array3d& xys)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     // 根据IERS 2010规范，计算行星基础参数
     FundamentalArguments fundargs;
     double t = jdTT.julianCenturyFromJ2000();
@@ -393,7 +394,7 @@ void aXYS_IERS2010_NoCorrection_TT(const JulianDate& jdTT, array3d& xys)
 
 err_t aXYS_Precomputed_NoCorrection(const TimePoint& tp, array3d& xys)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     return context->iauXYSPrecomputed()->getValue(tp, xys);
 }
 
@@ -408,7 +409,7 @@ void aXYS_NoCorrection(const TimePoint& tp, array3d& xys)
 
 void aXYCorrection(const TimePoint &tp, array2d &xyCorrection)
 {
-    auto context = aGlobalContext_Ensure();
+    auto context = aDataContext_EnsureCurrent();
     context->eop()->getXYCorrection(tp, xyCorrection);
 }
 

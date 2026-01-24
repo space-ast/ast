@@ -1,6 +1,6 @@
 ///
-/// @file      GlobalContext.hpp
-/// @brief     全局上下文及其相关接口
+/// @file      DataContext.hpp
+/// @brief     数据上下文及其相关接口
 /// @details   ~
 /// @author    axel
 /// @date      18.11.2025
@@ -39,8 +39,8 @@ class EOP;
 class LeapSecond;
 
 
-/// @brief 全局上下文
-class GlobalContext
+/// @brief 数据上下文
+class DataContext
 {
 public:
 
@@ -79,13 +79,13 @@ protected:
 	EOP		    			m_eop;	
 	LeapSecond  			m_leapSecond;
     JplDe                   m_jplDe;
-	IAUXYS                  m_iauXYS;
-	IAUXYSPrecomputed       m_iauXYSPrecomputed;
-    std::string     		m_dataDir;
+	IAUXYS                  m_iauXYS;				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
+	IAUXYSPrecomputed       m_iauXYSPrecomputed;	///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
+    std::string     		m_dataDir;				
 };
 
 
-constexpr size_t kSizeOfGlobalContext = sizeof(GlobalContext);
+constexpr size_t kSizeOfDataContext = sizeof(DataContext);
  
 AST_NAMESPACE_END
  

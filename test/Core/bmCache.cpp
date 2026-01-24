@@ -1,9 +1,9 @@
 ///
-/// @file      bmBuffer.cpp
+/// @file      bmCache.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-23
+/// @date      2026-01-24
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,56 +18,63 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstMock/MockBuffer.hpp"
-#include "benchmark/benchmark.h"
 
+#include "AstMock/MockCache.hpp"
+#include "benchmark/benchmark.h"
 
 AST_USING_NAMESPACE
 
-const int size = 6;
-
-void bmBufferMalloc(benchmark::State& state)
+void bmCacheStatic(benchmark::State& state)
 {
+    int k = 1;
     for (auto _ : state)
     {
-        aMockBufferMalloc(size);
+        int v = aMockCacheStatic(k);
+        benchmark::DoNotOptimize(v);
     }
 }
 
-BENCHMARK(bmBufferMalloc);
+BENCHMARK(bmCacheStatic);
 
 
-
-
-void bmBufferNew(benchmark::State& state)
+void bmCacheExtern(benchmark::State& state)
 {
+    int k = 1;
     for (auto _ : state)
     {
-        aMockBufferNew(size);
+        int v = aMockCacheExtern(k);
+        benchmark::DoNotOptimize(v);
     }
 }
 
-BENCHMARK(bmBufferNew);
+BENCHMARK(bmCacheExtern);
 
-void bmBufferStack(benchmark::State& state)
+
+void bmCacheStaticTL(benchmark::State& state)
 {
+    int k = 1;
     for (auto _ : state)
     {
-        aMockBufferStack(size);
+        int v = aMockCacheStaticTL(k);
+        benchmark::DoNotOptimize(v);
     }
 }
 
-BENCHMARK(bmBufferStack);
+BENCHMARK(bmCacheStaticTL);
 
 
-void bmBufferAlloca(benchmark::State& state)
+void bmCacheExternTL(benchmark::State& state)
 {
+    int k = 1;
     for (auto _ : state)
     {
-        aMockBufferAlloca(size);
+        int v = aMockCacheExternTL(k);
+        benchmark::DoNotOptimize(v);
     }
 }
 
-BENCHMARK(bmBufferAlloca);
+BENCHMARK(bmCacheExternTL);
+
 
 BENCHMARK_MAIN();
+

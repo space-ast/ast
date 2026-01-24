@@ -156,7 +156,7 @@ TEST_F(FrameTransformTest, TODToGTODWithVelocity)
 void changeEOPData()
 {
     {
-        auto eop = aGlobalContext_GetEOP();
+        auto eop = aDataContext_GetEOP();
         ASSERT_TRUE(eop != nullptr) << "EOP data is not loaded";
         JulianDate jdUTC1 = JulianDate::FromDateTime(2018, 1, 1, 0, 0, 0);
         auto mjd1 = aJDToMJD_Imprecise(jdUTC1);
@@ -219,7 +219,7 @@ TEST_F(FrameTransformTest, GTODToECF)
 
 TEST_F(FrameTransformTest, J2000ToECF)
 {
-    aGlobalContext_GetEOP()->unload();
+    aDataContext_GetEOP()->unload();
     aNutationMethodSet(ENutationMethod::eJplDe);
     {
         TimePoint tp = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0);
@@ -254,7 +254,7 @@ TEST_F(FrameTransformTest, J2000ToECF)
 
 TEST_F(FrameTransformTest, J2000ToECFWithVelocity)
 {
-    aGlobalContext_GetEOP()->unload();
+    aDataContext_GetEOP()->unload();
     aNutationMethodSet(ENutationMethod::eJplDe);
     {
         TimePoint tp = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0);
@@ -276,7 +276,7 @@ TEST_F(FrameTransformTest, J2000ToECFWithVelocity)
 
 TEST_F(FrameTransformTest, ICRFToCIRF)
 {
-    aGlobalContext_GetEOP()->unload();
+    aDataContext_GetEOP()->unload();
     {
         TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
         Vector3d vecICRF{1000_km, 2000_km, 3000_km};
@@ -291,7 +291,7 @@ TEST_F(FrameTransformTest, ICRFToCIRF)
 
 TEST_F(FrameTransformTest, EarthRotationAngle)
 {
-    aGlobalContext_GetEOP()->unload();
+    aDataContext_GetEOP()->unload();
     {
         TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
         double angle = aEarthRotationAngle_IAU2000(tp);
@@ -303,7 +303,7 @@ TEST_F(FrameTransformTest, EarthRotationAngle)
 
 TEST_F(FrameTransformTest, CIRFToTIRF)
 {
-    aGlobalContext_GetEOP()->unload();
+    aDataContext_GetEOP()->unload();
     {
         TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
         Vector3d vecCIRF{1000_km, 2000_km, 3000_km};
@@ -320,7 +320,7 @@ TEST_F(FrameTransformTest, CIRFToTIRF)
 TEST_F(FrameTransformTest, ICRFToECF)
 {
     // 不依赖EOP数据
-    aGlobalContext_GetEOP()->unload();
+    aDataContext_GetEOP()->unload();
     {
         TimePoint tp = TimePoint::FromUTC(2070, 1, 1, 0, 0, 0);
         Vector3d vecICRF{1000_km, 2000_km, 3000_km};

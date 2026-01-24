@@ -27,7 +27,7 @@ AST_USING_NAMESPACE
 static void getStatic(benchmark::State& state)
 {
     for (auto _ : state) {
-        auto context = aGlobalContext_GetDefault();
+        auto context = aDataContext_GetDefault();
         benchmark::DoNotOptimize(context);
     }
 }
@@ -35,9 +35,9 @@ BENCHMARK(getStatic);
 
 static void getThreadLoad(benchmark::State& state)
 {
-    aGlobalContext_Ensure();
+    aDataContext_EnsureCurrent();
     for (auto _ : state) {
-        auto context = aGlobalContext_GetCurrent();
+        auto context = aDataContext_GetCurrent();
         benchmark::DoNotOptimize(context);
     }
 }

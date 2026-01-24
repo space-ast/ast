@@ -29,7 +29,7 @@ const double y[6][3] = {{1,2,3},{4,5,6},{7,8,9},{10,11,12},{13,14,15},{16,17,18}
 
 /// @brief     测试 malloc 分配内存
 /// @details   ~
-void mockBufferMalloc(unsigned int size)
+void aMockBufferMalloc(unsigned int size)
 {
     double y_interp[3] = {0.0};
     double* workArray = (double*)malloc(size * sizeof(double));
@@ -39,7 +39,7 @@ void mockBufferMalloc(unsigned int size)
 
 /// @brief     测试 new 分配内存
 /// @details   ~
-void mockBufferNew(unsigned int size)
+void aMockBufferNew(unsigned int size)
 {
     double y_interp[3] = {0.0};
     double* workArray = new double[size];
@@ -49,7 +49,7 @@ void mockBufferNew(unsigned int size)
 
 /// @brief     测试栈分配内存
 /// @details   ~
-void mockBufferStack(unsigned int size)
+void aMockBufferStack(unsigned int size)
 {
     double y_interp[3] = {0.0};
     double workArray[20];
@@ -58,7 +58,7 @@ void mockBufferStack(unsigned int size)
 
 /// @brief     测试 alloca 分配内存
 /// @details   ~
-void mockBufferAlloca(unsigned int size)
+void aMockBufferAlloca(unsigned int size)
 {
     double y_interp[3] = {0.0};
     double* workArray = (double*)alloca(size * sizeof(double));

@@ -1,5 +1,5 @@
 ///
-/// @file      MockCache.hpp
+/// @file      bmXYS.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,22 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-
-AST_NAMESPACE_BEGIN
+#include "AstCore/RunTime.hpp"
+#include "benchmark/benchmark.h"
 
 
-AST_MOCK_CAPI int aMockCacheStatic(int k);
 
+BENCHMARK_MAIN();
 
-AST_MOCK_CAPI int aMockCacheExtern(int k);
-
-
-AST_MOCK_CAPI int aMockCacheStaticTL(int k);
-
-
-AST_MOCK_CAPI int aMockCacheExternTL(int k);
-
-AST_NAMESPACE_END

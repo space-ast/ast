@@ -111,7 +111,7 @@ using namespace _AST literals;
 void testEps()
 {
     {
-        auto xysData = aGlobalContext_GetIAUXYSPrecomputed();
+        auto xysData = aDataContext_GetIAUXYSPrecomputed();
         EXPECT_NE(xysData, nullptr);
         double refepoch_jed = xysData->getRefEpochJED();
         array3d xys_precomputed;
@@ -148,7 +148,7 @@ TEST(IAUXYSPrecomputed, precompute)
     }
     aInitialize();
     {    
-        auto xys = aGlobalContext_GetIAUXYSPrecomputed();
+        auto xys = aDataContext_GetIAUXYSPrecomputed();
         EXPECT_NE(xys, nullptr);
         double start = 2451545.0;
         double duration = 27426.0;

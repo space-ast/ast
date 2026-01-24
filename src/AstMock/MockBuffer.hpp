@@ -24,14 +24,17 @@
 
 AST_NAMESPACE_BEGIN
 
-AST_MOCK_API void mockBufferMalloc(unsigned int size);
 
-AST_MOCK_API void mockBufferNew(unsigned int size);
-
-AST_MOCK_API void mockBufferStack(unsigned int size);
+AST_MOCK_CAPI void aMockBufferMalloc(unsigned int size);
 
 
-AST_MOCK_API void mockBufferAlloca(unsigned int size);
+AST_MOCK_CAPI void aMockBufferNew(unsigned int size);
+
+
+AST_MOCK_CAPI void aMockBufferStack(unsigned int size);
+
+
+AST_MOCK_CAPI void aMockBufferAlloca(unsigned int size);
 
 
 AST_NAMESPACE_END
