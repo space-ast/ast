@@ -6,7 +6,8 @@
 #include <vector>
 #include <iomanip>
 
-using namespace ast;
+AST_USING_NAMESPACE
+
 
 /// @brief 范德波尔振荡器：d²x/dt² - μ(1-x²)dx/dt + x = 0
 class VanDerPolOscillator : public ODE {

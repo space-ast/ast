@@ -270,3 +270,7 @@
 #define A_DEF_POD_ITERABLE(Scalar)                                      \
     A_DEF_ITERABLE(Scalar, (Scalar*)this, sizeof(*this)/sizeof(Scalar))
 
+/// 禁用拷贝构造和赋值
+#define A_DISABLE_COPY(Class) \
+    Class(const Class&) = delete; \
+    Class& operator=(const Class&) = delete;

@@ -135,10 +135,10 @@ public:
 public:
     /// @brief 计算儒略日与 J2000.0 历元的时间差（儒略世纪）
     double julianCenturyFromJ2000() const{
-        return julianDayFromJ2000() / kDaysPerJulianCentury;
+        return daysFromJ2000TT() / kDaysPerJulianCentury;
     }
     /// @brief 计算儒略日与 J2000.0 历元的时间差（儒略日）
-    double julianDayFromJ2000() const{
+    double daysFromJ2000TT() const{
         return ((day_ - kJ2000Epoch) + dayFractional());
     }
 public:

@@ -50,13 +50,16 @@ xmake
 
 ```
 ast/
-├── 3rdparty/      # 第三方库
+├── data/          # 数据
 ├── docs/          # 文档
+├── examples/      # 示例代码片段
 ├── include/       # 头文件
 ├── projects/      # 示例工程
+├── repo/          # 第三方库配置文件
 ├── scripts/       # 工具脚本
 ├── src/           # 源文件
-└── test/          # 测试工程
+├── test/          # 测试工程
+└── thirdparty/    # 第三方库
 ```
 
 ## 🎯 API 设计理念
@@ -122,6 +125,7 @@ const kEps15 = 1e-15;
 - AstCore:   动力学核心
 - AstOpt:    非线性规划接口库
 - AstOCP:    最优控制问题求解
+- AstSim:    仿真引擎
 
 下面的模块将通过AI辅助进行开发，此README也是AI辅助生成的
 
@@ -132,6 +136,7 @@ const kEps15 = 1e-15;
 - AstWasm:   Web Assembly封装
 - AstGfx:    可视化
 - AstGui:    图形化界面
+- AstCoder:  代码生成器
 
 
 ## 📞 联系我们

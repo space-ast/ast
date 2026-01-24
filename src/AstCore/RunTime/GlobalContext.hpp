@@ -27,6 +27,7 @@
 #include "AstCore/LeapSecond.hpp"
 #include "AstCore/JplDe.hpp"
 #include "AstCore/IAUXYS.hpp"
+#include "AstCore/IAUXYSPrecomputed.hpp"
 #include "AstUtil/StringView.hpp"
 #include <string>
  
@@ -69,12 +70,17 @@ public:
 	const IAUXYS* iauXYS() const {return &m_iauXYS;}
     IAUXYS* iauXYS() {return &m_iauXYS;}
 
+	/// @brief IAU XYS预计算数据
+	const IAUXYSPrecomputed* iauXYSPrecomputed() const {return &m_iauXYSPrecomputed;}
+    IAUXYSPrecomputed* iauXYSPrecomputed() {return &m_iauXYSPrecomputed;}
+	
 protected:
 	SolarSystem  			m_solarSystem;
 	EOP		    			m_eop;	
 	LeapSecond  			m_leapSecond;
     JplDe                   m_jplDe;
 	IAUXYS                  m_iauXYS;
+	IAUXYSPrecomputed       m_iauXYSPrecomputed;
     std::string     		m_dataDir;
 };
 

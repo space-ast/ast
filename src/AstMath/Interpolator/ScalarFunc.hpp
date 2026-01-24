@@ -1,5 +1,5 @@
 ///
-/// @file      UnaryFunc.hpp
+/// @file      ScalarFunc.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel

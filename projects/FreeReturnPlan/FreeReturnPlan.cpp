@@ -20,6 +20,10 @@
 
 #include "AstCore/FrameTransform.hpp"
 #include "AstCore/HPOP.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstMath/Vector.hpp"
+
+AST_USING_NAMESPACE
 
 int main()
 {

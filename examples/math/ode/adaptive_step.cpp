@@ -5,7 +5,7 @@
 #include <vector>
 #include <memory>
 
-using namespace ast;
+AST_USING_NAMESPACE
 
 /// @brief 刚性方程示例：dy/dt = -1000(y - sin(t)) + cos(t)
 class StiffODE : public ODE {

@@ -31,7 +31,7 @@ class Interpolator: public VectorFunc
 public:
     virtual ~Interpolator() = default;
     
-    /// @brief 计算插值值
+    /// @brief 计算插值结果
     /// @param x 输入值
     /// @param out 输出向量，长度需大于等于向量维度
     virtual void evaluate(double x, double* out) const override = 0;
