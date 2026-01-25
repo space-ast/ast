@@ -33,7 +33,7 @@ class HPOPTest : public ::testing::Test
     void SetUp() override
     {
         aInitialize();
-        aGlobalContext_GetEOP()->unload();  // 卸载EOP数据，确保测试不受EOP修正数据的影响
+        aDataContext_GetEOP()->unload();  // 卸载EOP数据，确保测试不受EOP修正数据的影响
     }
 
     void TearDown() override

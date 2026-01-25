@@ -87,6 +87,7 @@ AST_CORE_CAPI double aMeanObliquity_IAU1980(double t);
 /// @param[out] deps 交角章动角deps（弧度）
 /// @param[out] eqecorr 赤经章动修正量
 AST_CORE_CAPI void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr);
+AST_CORE_CAPI void aNutation_IERS1996_Cache(double t, double &dpsi, double &deps, double* eqecorr);
 
 /// @brief 计算给定时间差的章动角，依据IAU1980规范
 /// @details 参考SOFA函数 iauNut80
@@ -97,6 +98,11 @@ A_ALWAYS_INLINE void aNutation_IAU1980(double t, double &dpsi, double &deps)
 {
     aNutation_IERS1996(t, dpsi, deps, nullptr);
 }
+A_ALWAYS_INLINE void aNutation_IAU1980_Cache(double t, double &dpsi, double &deps)
+{
+    aNutation_IERS1996_Cache(t, dpsi, deps, nullptr);
+}
+
 
 
 A_ALWAYS_INLINE void aPrecession_IAU1976(const TimePoint& tp, double& zeta, double& z, double& theta){

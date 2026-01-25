@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "RunTimeData.hpp"
 #include <string>
  
 #define AST_ENV_DATA_DIR  "AST_DATA_DIR"         // 环境变量 AST_DATA_DIR：数据文件夹路径
@@ -29,8 +30,10 @@
 
 AST_NAMESPACE_BEGIN
 
+class DataContext;
 class GlobalContext;
 class EOP;
+class IAUXYS;
 class IAUXYSPrecomputed;
 
 
@@ -57,170 +60,50 @@ AST_CORE_CAPI err_t aDataDirSet(StringView dirpath);
 /// @return 
 AST_CORE_API std::string aDataDirGetDefault();
 
-/// @brief 获取当前全局上下文
-AST_CORE_CAPI GlobalContext* aGlobalContext_GetCurrent();
 
 
-/// @brief 获取默认全局上下文
-AST_CORE_CAPI GlobalContext* aGlobalContext_GetDefault();
+// global context
 
-/// @brief 确保默认全局上下文存在
-/// 如果默认全局上下文不存在，则创建一个新的默认全局上下文。
+/// @brief 获取全局上下文
+AST_CORE_CAPI GlobalContext* aGlobalContext_Get();
+
+/// @brief 获取全局上下文的IAUXYS
+AST_CORE_CAPI IAUXYS* aGlobalContext_GetIAUXYS();
+
+
+// data context
+
+/// @brief 获取当前线程的数据上下文
 /// @return 
-AST_CORE_CAPI GlobalContext* aGlobalContext_EnsureDefault();
+AST_CORE_CAPI DataContext* aDataContext_GetCurrent();
+
+/// @brief 获取默认数据上下文
+AST_CORE_CAPI DataContext* aDataContext_GetDefault();
 
 
-/// @brief 确保当前全局上下文存在
-/// 如果当前全局上下文不存在，则创建一个新的全局上下文。
+/// @brief 确保默认数据上下文存在
+/// 如果默认数据上下文不存在，则创建一个新的默认数据上下文。
 /// @return 
-AST_CORE_CAPI GlobalContext* aGlobalContext_Ensure();
+AST_CORE_CAPI DataContext* aDataContext_EnsureDefault();
 
-/// @brief 设置当前全局上下文
-AST_CORE_CAPI void aGlobalContext_SetCurrent(GlobalContext* context);
+
+/// @brief 确保当前线程的数据上下文存在
+/// 如果当前线程的数据上下文不存在，则将默认数据上下文设置为当前线程的数据上下文。
+/// @return 
+AST_CORE_CAPI DataContext* aDataContext_EnsureCurrent();
+
+/// @brief 设置当前线程的数据上下文
+AST_CORE_CAPI void aDataContext_SetCurrent(DataContext* context);
 
 /// @brief 获取当前全局上下文的EOP
-AST_CORE_CAPI EOP* aGlobalContext_GetEOP();
+AST_CORE_CAPI EOP* aDataContext_GetEOP();
 
-/// @brief 获取当前全局上下文的IAUXYSPrecomputed
-AST_CORE_CAPI IAUXYSPrecomputed* aGlobalContext_GetIAUXYSPrecomputed();
+/// @brief 获取当前线程的数据上下文的IAUXYSPrecomputed
+AST_CORE_CAPI IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed();
 
 
 /// @brief 创建一个新的全局上下文
-AST_CORE_CAPI GlobalContext* aGlobalContext_New();
-
-/// @brief 获取UTC时间的闰秒数
-/// @param jdUTC 
-/// @return 
-AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
-
-/// @brief 获取UTC时间的闰秒数（MJD）
-/// @param mjdUTC 
-/// @return 
-AST_CORE_CAPI double aLeapSecondUTCMJD(double mjdUTC);
-
-/// @brief 获取JPL DE星历数据的位置和速度（ICRF）
-/// @param time 
-/// @param target 
-/// @param referenceBody 
-/// @param pos 
-/// @param vel 
-/// @return 
-AST_CORE_CAPI err_t aJplDeGetPosVelICRF(
-    const TimePoint& time, 
-    int target, 
-    int referenceBody, 
-    Vector3d& pos,
-    Vector3d& vel
-);
-
-/// @brief 获取JPL DE星历数据的位置（ICRF）
-/// @param time 
-/// @param target 
-/// @param referenceBody 
-/// @param pos 
-/// @return 
-AST_CORE_CAPI err_t aJplDeGetPosICRF(
-    const TimePoint& time,
-    int target,
-    int referenceBody,
-    Vector3d& pos
-);
-
-
-/// @brief 获取JPL DE星历数据的中章动角数据
-/// @param time 
-/// @param dpsi 
-/// @param deps 
-/// @return 
-AST_CORE_CAPI err_t aJplDeGetNutation(
-    const TimePoint& time,
-    double& dpsi,
-    double& deps
-);
-
-/// @brief 打开JPL DE星历数据文件
-/// @param filepath 
-/// @return 
-AST_CORE_CAPI err_t aJplDeOpen(const char* filepath);
-
-/// @brief 关闭JPL DE星历数据文件
-AST_CORE_CAPI void aJplDeClose();
-
-
-/// @brief 获取UT1时间与UTC时间的差值（秒）
-/// @param jdUTC 协调世界时（UTC）的儒略日数
-/// @return UT1时间与UTC时间的差值（秒）
-AST_CORE_CAPI double aUT1MinusUTC_UTC(const JulianDate& jdUTC);
-
-
-struct PoleMotion
-{
-    double x, y;            ///< 极移
-};
-
-/// @brief 获取给定时间点的极移
-/// @param tp 时间点
-/// @param x 极移x
-/// @param y 极移y
-AST_CORE_CAPI void aPoleMotion(const TimePoint& tp, double& x, double& y);
-
-
-/// @brief 获取给定UTC时间的极移
-/// @param jdUTC 协调世界时（UTC）的儒略日数
-/// @param x 极移x
-/// @param y 极移y
-AST_CORE_CAPI void aPoleMotionUTC(const JulianDate& jdUTC, double& x, double& y);
-
-
-/// @brief 获取给定时间点的极移
-/// @param tp 时间点
-/// @param pm 极移
-A_ALWAYS_INLINE void aPoleMotion(const TimePoint& tp, PoleMotion& pm)
-{
-    return aPoleMotion(tp, pm.x, pm.y);
-}
-
-
-
-/// @brief 获取给定时间点的LOD（秒）
-/// @param tp 时间点
-/// @return LOD（秒）
-AST_CORE_CAPI double aLOD(const TimePoint& tp);
-
-
-/// @brief 获取给定时间点的IAU XYS数据（IERS 2010规范）
-/// @param tp 时间点
-/// @param xys iau xys数据
-AST_CORE_CAPI void aXYS_IERS2010_NoCorrection(const TimePoint& tp, array3d& xys);
-
-
-/// @brief 获取给定时间点的IAU XYS数据（IERS 2010规范）
-/// @param jdTT 时间点的儒略日数（TT）
-/// @param xys iau xys数据
-AST_CORE_CAPI void aXYS_IERS2010_NoCorrection_TT(const JulianDate& jdTT, array3d& xys);
-
-
-/// @brief 获取给定时间点的IAU XYS数据（预计算数据）
-AST_CORE_CAPI err_t aXYS_Precomputed_NoCorrection(const TimePoint& tp, array3d& xys);
-
-
-/// @brief 获取给定时间点的IAU XYS数据（IERS 2010规范，包含修正项）
-/// @param tp 时间点
-/// @param xys iau xys数据
-AST_CORE_CAPI void aXYS_IERS2010_WithCorrection(const TimePoint& tp, array3d& xys);
-
-
-/// @brief 获取给定时间点的IAU XYS数据的修正项
-/// @param tp 时间点
-/// @param xyCorrection iau xys修正项
-AST_CORE_CAPI void aXYCorrection(const TimePoint& tp, array2d& xyCorrection);
-
-
-/// @brief 获取给定时间点的IAU XYS数据
-/// @param tp 时间点
-/// @param xys iau xys数据
-AST_CORE_CAPI void aXYS(const TimePoint& tp, array3d& xys);
-
+AST_CORE_CAPI DataContext* aDataContext_New();
 
 
 AST_NAMESPACE_END

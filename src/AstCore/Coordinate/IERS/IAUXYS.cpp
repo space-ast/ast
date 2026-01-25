@@ -40,7 +40,12 @@ err_t IAUXYS::load(StringView xSeriesPath, StringView ySeriesPath, StringView sp
     {
         aError("failed to load spxy2 series file: %s", spxy2SeriesPath.data());
     }
-    return err_t(ret1 | ret2 | ret3);
+    err_t ret = ret1 | ret2 | ret3;
+    if (ret == 0)
+    {
+        isLoaded_ = true;
+    }
+    return ret;
 }
 
 

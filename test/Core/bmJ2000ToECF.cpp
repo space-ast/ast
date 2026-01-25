@@ -1,5 +1,5 @@
 ///
-/// @file      GlobalContext.cpp
+/// @file      bmJ2000ToECF.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,11 +18,30 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "GlobalContext.hpp"
+#include "AstCore/FrameTransform.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstMath/Matrix.hpp"
+#include "benchmark/benchmark.h"
 
-AST_NAMESPACE_BEGIN
+
+AST_USING_NAMESPACE
+
+void bmJ2000ToECF(benchmark::State& state)
+{
+    // aInitialize();
+    TimePoint tp = TimePoint::FromUTC(2010, 1, 1, 0, 0, 0);
+    for (auto _ : state)
+    {
+        tp = tp + 1;
+        Matrix3d mtx;
+        aJ2000ToECFMatrix(tp, mtx);
+        benchmark::DoNotOptimize(mtx);
+    }
+}
 
 
+BENCHMARK(bmJ2000ToECF);
 
-AST_NAMESPACE_END
+BENCHMARK_MAIN();
+
 

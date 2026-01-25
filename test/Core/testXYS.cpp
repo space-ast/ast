@@ -111,7 +111,7 @@ using namespace _AST literals;
 void testEps()
 {
     {
-        auto xysData = aGlobalContext_GetIAUXYSPrecomputed();
+        auto xysData = aDataContext_GetIAUXYSPrecomputed();
         EXPECT_NE(xysData, nullptr);
         double refepoch_jed = xysData->getRefEpochJED();
         array3d xys_precomputed;
@@ -119,8 +119,8 @@ void testEps()
         TimePoint tp = TimePoint::FromUTC(2000, 1, 1, 0, 0, 0);
         for(int i = 0; i < 1000; i++){
             tp = tp + 10_day;
-            aXYS_IERS2010_NoCorrection(tp, xys_iers2010);
-            err_t ret = aXYS_Precomputed_NoCorrection(tp, xys_precomputed);
+            aTheoreticalXYS_IERS2010(tp, xys_iers2010);
+            err_t ret = aTheoreticalXYS_IERS2010Precomputed(tp, xys_precomputed);
             EXPECT_EQ(ret, 0);
             auto delta = xys_precomputed - xys_iers2010;
             // printf("xys_precompu: %.15lf %.15lf %.15lf\n", xys_precomputed[0], xys_precomputed[1], xys_precomputed[2]);
@@ -148,7 +148,7 @@ TEST(IAUXYSPrecomputed, precompute)
     }
     aInitialize();
     {    
-        auto xys = aGlobalContext_GetIAUXYSPrecomputed();
+        auto xys = aDataContext_GetIAUXYSPrecomputed();
         EXPECT_NE(xys, nullptr);
         double start = 2451545.0;
         double duration = 27426.0;

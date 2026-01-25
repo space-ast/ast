@@ -362,6 +362,37 @@ void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr)
     }
 }
 
+struct NutationCache
+{
+    double t;
+    double dpsi;
+    double deps;
+    double eqecorr;
+};
+
+A_THREAD_LOCAL NutationCache tNutationCache{std::numeric_limits<double>::quiet_NaN(), 0.0, 0.0, 0.0};
+
+void aNutation_IERS1996_Cache(double t, double &dpsi, double &deps, double* eqecorr)
+{
+    if(tNutationCache.t == t){
+        dpsi = tNutationCache.dpsi;
+        deps = tNutationCache.deps;
+        if(eqecorr){
+            *eqecorr = tNutationCache.eqecorr;
+        }
+    }else{
+        double eqecorr_temp;
+        aNutation_IERS1996(t, dpsi, deps, &eqecorr_temp);
+        tNutationCache.t = t;
+        tNutationCache.dpsi = dpsi;
+        tNutationCache.deps = deps;
+        tNutationCache.eqecorr = eqecorr_temp;
+        if(eqecorr){
+            *eqecorr = eqecorr_temp;
+        }
+    }
+}
+
 
 /// @brief 计算章动角（IAU1980模型）
 /// @details 计算给定时间点的章动角，使用IAU1980模型
@@ -371,7 +402,7 @@ void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr)
 /// @return err_t 错误码，0表示成功，其他值表示失败
 static err_t aNutation_IAU1980_Impl(const TimePoint& tp, double &dpsi, double &deps)
 {
-    aNutation_IAU1980(tp.julianCenturyFromJ2000TT(), dpsi, deps);
+    aNutation_IAU1980_Cache(tp.julianCenturyFromJ2000TT(), dpsi, deps);
     return 0;
 }
 
@@ -393,7 +424,7 @@ static err_t aNutation_JplDe_Impl(const TimePoint& tp, double &dpsi, double &dep
 }
 
 
-//@fixme: 全局变量，需要考虑多DataContext互相冲突的问题，考虑移动到GlobalContext?
+//@fixme: 全局变量，需要考虑多DataContext互相冲突的问题，考虑移动到DataContext里？
 NutationFunc aNutation = &aNutation_IAU1980_Impl;  
 // NutationFunc aNutation = &aNutation_JplDe_Impl;
 
@@ -490,7 +521,7 @@ double aEquationOfEquinoxes_IAU1994(double t)
    // t = ((date1 - DJ00) + date2) / DJC;
 
 /* Nutation components and mean obliquity. */
-   aNutation_IERS1996(t, dpsi, deps, &eqecorr);
+   aNutation_IERS1996_Cache(t, dpsi, deps, &eqecorr);
    eps0 = aMeanObliquity_IAU1980(t);
 
 /* Equation of the equinoxes. */

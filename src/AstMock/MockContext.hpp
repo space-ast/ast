@@ -1,5 +1,5 @@
 ///
-/// @file      GlobalContext.cpp
+/// @file      MockContext.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,11 +18,21 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "GlobalContext.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+
 
 AST_NAMESPACE_BEGIN
 
+class EOP;
 
+AST_MOCK_CAPI EOP* aMockGetEOP_Extern();
+AST_MOCK_CAPI EOP* aMockGetEOP_Static();
+AST_MOCK_CAPI EOP* aMockGetEOP_Lazy();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextExtern();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextStatic();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextExternTL();
+AST_MOCK_CAPI EOP* aMockGetEOP_ContextStaticTL();
 
 AST_NAMESPACE_END
-
