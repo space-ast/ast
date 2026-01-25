@@ -70,7 +70,7 @@ EOP* aMockGetEOP_ContextExternTL()
 
 EOP* aMockGetEOP_ContextStaticTL()
 {
-    static DataContext context;
+    static A_THREAD_LOCAL DataContext context;
     return context.eop();
 }
 

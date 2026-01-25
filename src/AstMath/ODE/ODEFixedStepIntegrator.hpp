@@ -35,12 +35,16 @@ public:
     class Workspace;
     ODEFixedStepIntegrator();
     ~ODEFixedStepIntegrator();
+    using ODEIntegrator::integrate;
 
     /// @brief 获取步长
     double getStepSize() const{ return stepSize_; }
     
     /// @brief 设置步长
     void setStepSize(double stepSize){ stepSize_ = stepSize; }
+
+    /// @brief 获取积分过程中统计到的积分步数
+    int getNumSteps() const;
 
     /// @brief 获取工作空间
     const Workspace& getWorkspace() const{ return workspace_; }

@@ -20,6 +20,7 @@
 
 #include "ODEFixedStepIntegrator.hpp"
 #include "AstMath/MathOperator.hpp"
+#include "AstMath/ODEStepHandler.hpp"
 #include <limits>
 #include <cmath>
 #include <algorithm>
@@ -120,10 +121,16 @@ ODEFixedStepIntegrator::~ODEFixedStepIntegrator()
 
 }
 
+int ODEFixedStepIntegrator::getNumSteps() const
+{
+    return this->getWorkspace().numSteps_;
+}
+
 err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
 {
     // 初始化积分器
     this->initialize(ode);
+    auto& wrk = this->getWorkspace();
     
     err_t err = eNoError;
     double stepSize = this->stepSize_;
@@ -138,6 +145,13 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
     // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
     double t = t0;
     std::copy_n(y0, ndim, yf);
+    if(stepHandler_)
+    {
+        if(stepHandler_->handleStep(t, yf) != eNoError)
+        {
+            return eNoError;
+        }
+    }
     while (tdir * (tf - t) > 0) {
         double h = tdir * std::min(habs, std::abs(tf - t));
         err = this->singleStep(ode, t, h, yf, yf);
@@ -145,6 +159,14 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
             return err;
         }
         t += h;
+        wrk.numSteps_++;
+        if(stepHandler_)
+        {
+            if(stepHandler_->handleStep(t, yf) != eNoError)
+            {
+                return eNoError;
+            }
+        }
     }
     return eNoError;
 }

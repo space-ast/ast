@@ -22,15 +22,18 @@
 
 #include "AstGlobal.h"
 #include "OrdinaryDifferentialEquation.hpp"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
-/// @brief ODE 积分器基类
+class ODEStepHandler;
+
+/// @brief ODE 积分器接口类
 /// @details ~
-class ODEIntegrator
+class IODEIntegrator
 {
 public:
-    virtual ~ODEIntegrator() {};
+    virtual ~IODEIntegrator() {};
 
     /// @brief 初始化积分器
     /// @details 初始化积分器，设置ODE的维度和步长等参数
@@ -66,4 +69,34 @@ public:
     virtual err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) = 0;
 };
 
+
+/// @brief ODE 积分器
+/// @details ~
+class AST_MATH_API ODEIntegrator : public IODEIntegrator
+{
+public:
+    ~ODEIntegrator() override;
+
+    using IODEIntegrator::integrate;
+
+    /// @brief 积分ODE
+    /// @details 
+    /// 积分ODE，将积分结果存储在y中，
+    /// 同时将时间点和状态向量存储在xlist和ylist中
+    /// @param ode 常微分方程对象
+    /// @param t0 初始时间
+    /// @param tf 最终时间
+    /// @param y0 初始状态向量
+    /// @param y 输出状态向量
+    /// @param xlist 时间点列表
+    /// @param ylist 状态向量列表
+    err_t integrate(
+        ODE& ode, double t0, double tf, const double* y0, double* y,
+        std::vector<double>& xlist, std::vector<std::vector<double>>& ylist
+    );
+
+
+protected:
+    ODEStepHandler* stepHandler_{nullptr};
+};
 AST_NAMESPACE_END

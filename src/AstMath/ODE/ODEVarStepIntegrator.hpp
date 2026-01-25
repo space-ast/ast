@@ -33,6 +33,7 @@ class AST_MATH_API ODEVarStepIntegrator : public ODEFixedStepIntegrator
 public:
     ODEVarStepIntegrator();
     ~ODEVarStepIntegrator();
+    using ODEFixedStepIntegrator::integrate;
 
     /// @see ODEIntegrator
     err_t integrate(ODE& ode, double t0, double tf, const double* y0, double* yf) final;
@@ -54,8 +55,7 @@ public:
     /// @brief 获取积分过程中统计到的最小步长
     double getSmallestStepSize() const;
 
-    /// @brief 获取积分过程中统计到的积分步数
-    int getNumSteps() const;
+    using ODEFixedStepIntegrator::getNumSteps;
 protected:
     /// @brief 判断是否满足误差要求
     /// @param absh 绝对步长

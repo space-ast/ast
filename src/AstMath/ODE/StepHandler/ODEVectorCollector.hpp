@@ -1,9 +1,9 @@
 ///
-/// @file      ODEStepHandler.hpp
+/// @file      ODEVectorCollector.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-25
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,25 +21,28 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstMath/ODEStepHandler.hpp"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
-enum EODEAction
-{
-    eContinue = 0,
-    eStop = 1,
-};
-
-/// @brief ODE积分步长处理类
-class ODEStepHandler
+/// @brief ODE积分的向量收集器
+/// @details 
+/// 该类用于收集ODE积分过程中的状态向量。
+class AST_MATH_API ODEVectorCollector: public ODEStepHandler
 {
 public:
-    virtual ~ODEStepHandler() = default;
+    ODEVectorCollector(int ndim);
+    ~ODEVectorCollector() = default;
 
-    /// @brief 积分步长处理函数
-    /// @param x 当前积分变量
-    /// @param y 当前状态向量
-    virtual EODEAction handleStep(double x, const double* y) = 0;
+    EODEAction handleStep(double x, const double* y) override;
+
+    std::vector<double>& x(){ return x_; };
+    std::vector<std::vector<double>>& y(){ return y_; };
+protected:
+    int ndim_;
+    std::vector<double> x_;
+    std::vector<std::vector<double>> y_;
 };
 
 AST_NAMESPACE_END

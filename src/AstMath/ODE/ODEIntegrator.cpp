@@ -19,9 +19,32 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ODEIntegrator.hpp"
+#include "ODEStepHandler.hpp"
+#include "AstMath/ODEVectorCollector.hpp"
 
 AST_NAMESPACE_BEGIN
 
+ODEIntegrator::~ODEIntegrator()
+{
+    if (stepHandler_)
+    {
+        delete stepHandler_;
+    }
+}
+
+
+err_t ODEIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *y, std::vector<double> &xlist, std::vector<std::vector<double>> &ylist)
+{
+    ODEVectorCollector collector{ode.getDimension()};
+    ODEStepHandler* oldStepHandler = stepHandler_;
+    stepHandler_ = &collector;
+    err_t rc = this->integrate(ode, t0, tf, y0, y);
+    stepHandler_ = oldStepHandler;
+    xlist = std::move(collector.x());
+    ylist = std::move(collector.y());
+    return rc;
+}
 
 
 AST_NAMESPACE_END
+

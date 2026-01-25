@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ODEVarStepIntegrator.hpp"
+#include "AstMath/ODEStepHandler.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "AstUtil/Logger.hpp"
 #include <cmath>
@@ -64,11 +65,6 @@ double ODEVarStepIntegrator::getSmallestStepSize() const
     return this->getWorkspace().smallestStepSize_;
 }
 
-/// @brief 获取积分过程中统计到的积分步数
-int ODEVarStepIntegrator::getNumSteps() const
-{
-    return this->getWorkspace().numSteps_;
-}
 
 err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
 {
@@ -93,6 +89,12 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
     bool final = false;
     int numAttempts = 0;
     std::copy_n(y0, wrk.dimension_, wrk.y_);
+    if(stepHandler_){
+        if(stepHandler_->handleStep(t, wrk.y_) == eStop)
+        {
+            return 0;
+        }
+    }
     while(1)
     {
         if(!this->useMinStep_){
@@ -116,6 +118,12 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
         bool isOK = this->isErrorMeet(absh, wrk.y_, wrk.ynew_);
         if(isOK)
         {
+            if(stepHandler_){
+                if(stepHandler_->handleStep(tnew, wrk.ynew_) == eStop)
+                {
+                    break;
+                }
+            }
             wrk.numSteps_ ++;
             wrk.largestStepSize_ = std::max(wrk.largestStepSize_, absh);
             wrk.smallestStepSize_ = std::min(wrk.smallestStepSize_, absh);
