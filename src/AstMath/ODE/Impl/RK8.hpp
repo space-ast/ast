@@ -34,7 +34,7 @@ class AST_MATH_API RK8 : public ODEFixedStepIntegrator
 public:
     err_t initialize(ODE& ode) final;
 
-    err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) final;
+    err_t singleStep(ODE& ode, double* y, double t0, double step) final;
 };
 
 

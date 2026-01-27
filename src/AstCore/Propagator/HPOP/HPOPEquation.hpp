@@ -50,7 +50,7 @@ public:
 
     int getDimension() const final;
 
-    err_t evaluate(const double t, const double* y, double* dy) final;
+    err_t evaluate(const double* y, double* dy, const double t) final;
     
     /// @brief 设置仿真的参考历元
     void setEpoch(const TimePoint& epoch){ epoch_ = epoch; }

@@ -17,7 +17,7 @@ private:
 public:
     VanDerPolOscillator(double mu = 1.0) : mu_(mu) {}
     
-    err_t evaluate(double t, const double* y, double* ydot) override {
+    err_t evaluate(const double* y, double* ydot, double t) override {
         // y[0] = x, y[1] = dx/dt
         ydot[0] = y[1];  // dx/dt = v
         ydot[1] = mu_ * (1.0 - y[0] * y[0]) * y[1] - y[0];  // dv/dt = μ(1-x²)v - x
@@ -61,8 +61,9 @@ int main() {
     reference_integrator.setInitialStepSize(0.5);
     reference_integrator.initialize(vdpODE);
     
-    double y_ref[2];
-    err_t err = reference_integrator.integrate(vdpODE, t0, tf, y0, y_ref);
+    double y_ref[2]{y0[0], y0[1]};
+    double t = t0;
+    err_t err = reference_integrator.integrate(vdpODE, y_ref, t, tf);
     
     printf("err = %d\n", err);
     std::cout << "参考解: x(" << tf << ") = " << y_ref[0] << ", v(" << tf << ") = " << y_ref[1] << std::endl;
@@ -119,8 +120,9 @@ int main() {
         // 测量执行时间
         auto start_time = std::chrono::high_resolution_clock::now();
         
-        double yf[2];
-        err_t result = integrator->integrate(vdpODE, t0, tf, y0, yf);
+        double yf[2]{y0[0], y0[1]};
+        t = t0;
+        err_t result = integrator->integrate(vdpODE, yf, t, tf);
         
         auto end_time = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time);
@@ -202,11 +204,8 @@ int main() {
                 actual_step = tf - t;
             }
             
-            double y_next[2];
-            rk4.singleStep(vdpODE, t, actual_step, y_current, y_next);
+            rk4.singleStep(vdpODE, y_current, t, actual_step);
             
-            y_current[0] = y_next[0];
-            y_current[1] = y_next[1];
             t += actual_step;
             step_count++;
         }

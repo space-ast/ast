@@ -35,7 +35,7 @@ public:
     ODEVectorCollector(int ndim);
     ~ODEVectorCollector() = default;
 
-    EODEAction handleStep(double x, const double* y) override;
+    EODEAction handleStep(const double* y, double x) override;
 
     std::vector<double>& x(){ return x_; };
     std::vector<std::vector<double>>& y(){ return y_; };

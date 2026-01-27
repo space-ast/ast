@@ -69,12 +69,12 @@ err_t HPOP::propagate(const TimePoint &start, const TimePoint &end, Vector3d &po
         return -1;
     }
     equation_->setEpoch(start);
-    array6d y0 = {position.x(), position.y(), position.z(), velocity.x(), velocity.y(), velocity.z()};
-    array6d yf;
+    array6d y = {position.x(), position.y(), position.z(), velocity.x(), velocity.y(), velocity.z()};
     double duration = end - start;
-    err = integrator_->integrate(*equation_, 0, duration, y0.data(), yf.data());
-    position = {yf[0], yf[1], yf[2]};
-    velocity = {yf[3], yf[4], yf[5]};
+    double t = 0;
+    err = integrator_->integrate(*equation_,  y.data(), t, duration);
+    position = {y[0], y[1], y[2]};
+    velocity = {y[3], y[4], y[5]};
     return err;
 }
 

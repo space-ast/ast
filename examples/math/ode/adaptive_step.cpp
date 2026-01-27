@@ -10,7 +10,7 @@ AST_USING_NAMESPACE
 /// @brief 刚性方程示例：dy/dt = -1000(y - sin(t)) + cos(t)
 class StiffODE : public ODE {
 public:
-    err_t evaluate(double t, const double* y, double* ydot) override {
+    err_t evaluate(const double* y, double* ydot, double t) override {
         ydot[0] = -1000.0 * (y[0] - std::sin(t)) + std::cos(t);
         return eNoError;
     }
@@ -52,8 +52,9 @@ int main() {
         double y0[1] = {2.0};  // y(0) = 2
         
         // 使用积分器进行积分
-        double yf[1];
-        err_t result = integrator->integrate(stiffODE, t0, tf, y0, yf);
+        double t = t0;
+        double yf[1]{y0[0]};
+        err_t result = integrator->integrate(stiffODE, yf, t, tf);
         
         if (result == eNoError) {
             // 获取积分统计信息
@@ -95,9 +96,10 @@ int main() {
         double t0 = 0.0;
         double tf = 0.5;
         double y0[1] = {2.0};
-        double yf[1];
+        double yf[1]{y0[0]};
+        double t = t0;
         
-        err_t result = integrator.integrate(stiffODE, t0, tf, y0, yf);
+        err_t result = integrator.integrate(stiffODE, yf, t, tf);
         
         if (result == eNoError) {
             double exact = std::sin(tf) + (y0[0] - std::sin(t0)) * std::exp(-1000.0 * (tf - t0));

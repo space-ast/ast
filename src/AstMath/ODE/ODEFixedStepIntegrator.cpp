@@ -126,7 +126,7 @@ int ODEFixedStepIntegrator::getNumSteps() const
     return this->getWorkspace().numSteps_;
 }
 
-err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
+err_t ODEFixedStepIntegrator::integrate(ODE& ode, double* y, double& t, double tf)
 {
     // 初始化积分器
     this->initialize(ode);
@@ -138,23 +138,24 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
     {
         stepSize = 60;
     }
+    double t0 = t;
     double habs = std::min(fabs(stepSize), fabs(tf - t0));
     int ndim = ode.getDimension();
     int tdir = sign(tf - t0);
     double step = tdir * habs;
     // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
-    double t = t0;
-    std::copy_n(y0, ndim, yf);
+    // double t = t0;
+    // std::copy_n(y0, ndim, yf);
     if(stepHandler_)
     {
-        if(stepHandler_->handleStep(t, yf) != eNoError)
+        if(stepHandler_->handleStep(t, y) != eNoError)
         {
             return eNoError;
         }
     }
     while (tdir * (tf - t) > 0) {
         double h = tdir * std::min(habs, std::abs(tf - t));
-        err = this->singleStep(ode, t, h, yf, yf);
+        err = this->singleStep(ode, y, t, h);
         if (err != eNoError) {
             return err;
         }
@@ -162,7 +163,7 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
         wrk.numSteps_++;
         if(stepHandler_)
         {
-            if(stepHandler_->handleStep(t, yf) != eNoError)
+            if(stepHandler_->handleStep(t, y) != eNoError)
             {
                 return eNoError;
             }
@@ -171,7 +172,7 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
     return eNoError;
 }
 
-err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
+err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double *y, double &t, double tf)
 {
     // 初始化积分器
     // this->init(ode);
@@ -185,7 +186,7 @@ err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, cons
         absh = stepabs;
     }
     double h = absh * tdir;
-    err_t err = this->singleStep(ode, t, h, y0, y);
+    err_t err = this->singleStep(ode, y, t, h);
     if(err != eNoError)
     {
         return err;

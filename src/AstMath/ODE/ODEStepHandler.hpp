@@ -37,9 +37,13 @@ public:
     virtual ~ODEStepHandler() = default;
 
     /// @brief 积分步长处理函数
-    /// @param x 当前积分变量
     /// @param y 当前状态向量
-    virtual EODEAction handleStep(double x, const double* y) = 0;
+    /// @param x 当前积分变量
+    virtual EODEAction handleStep(const double* y, double x) = 0;
+
+    /// 兼容性处理
+    A_ALWAYS_INLINE
+    EODEAction handleStep(double x, const double* y){return handleStep(y, x);}
 };
 
 AST_NAMESPACE_END

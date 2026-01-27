@@ -37,11 +37,20 @@ public:
     virtual int getDimension() const = 0;
 
     /// @brief 计算常微分方程在给定时间点和状态下的导数。
-    /// @param t 时间点。
+    /// @details 
+    /// 为什么将时间作为最后一个参数
+    /// 1. 在很多情况下，ODE 系统是自洽系统（时间无关）
+    /// 2. 与 Boost.Odeint 库的接口设计保持一致
+    /// 3. 与 Julia 语言的ODE求解器设计保持一致
     /// @param y 状态向量。
     /// @param dy 输出导数向量。
+    /// @param t 时间点。
     /// @return 错误码。
-    virtual err_t evaluate(const double t, const double* y, double* dy) = 0;
+    virtual err_t evaluate(const double* y, double* dy, const double t) = 0;
+
+    /// 兼容性处理
+    A_ALWAYS_INLINE 
+    err_t evaluate(const double t,const double* y, double* dy){return evaluate(y, dy, t);}
 };
 
 using ODE = OrdinaryDifferentialEquation;       ///< 常微分方程别名

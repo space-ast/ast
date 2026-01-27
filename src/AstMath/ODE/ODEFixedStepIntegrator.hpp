@@ -51,10 +51,10 @@ public:
     Workspace& getWorkspace(){ return workspace_; }
 
     /// @see ODEIntegrator
-    err_t integrate(ODE& ode, double t0, double tf, const double* y0, double* yf) override;
+    err_t integrate(ODE& ode, double* y, double& t, double tf) override;
 
     /// @see ODEIntegrator
-    err_t integrateStep(ODE& ode, double& t, double tf, const double* y0, double* y) override;
+    err_t integrateStep(ODE& ode, double* y, double& t, double tf) override;
 
 public:
     /// @brief 固定步长积分器工作空间

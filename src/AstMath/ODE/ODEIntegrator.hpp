@@ -40,33 +40,32 @@ public:
     /// @param ode 常微分方程对象
     virtual err_t initialize(ODE& ode) = 0;
 
+
     /// @brief 积分ODE
-    /// @param ode 常微分方程对象
-    /// @param t0 初始时间
-    /// @param tf 最终时间
-    /// @param y0 初始状态向量
-    /// @param yf 输出状态向量
-    virtual err_t integrate(ODE& ode, double t0, double tf, const double* y0, double* yf) = 0;
+    /// @details 积分ODE，将积分结果存储在y中
+    /// @param[in] ode 常微分方程对象
+    /// @param[in,out] y 状态向量
+    /// @param[in,out] t 当前时间
+    /// @param[in] tf 最终时间
+    virtual err_t integrate(ODE& ode, double* y,double& t, double tf) = 0;
 
 
     /// @brief 积分ODE一步
     /// @details 积分ODE一步，将积分结果存储在y中
     ///          如果是变步长积分器，步长会根据误差自动调整
     ///          如果是定步长积分器，步长会固定为初始步长
-    /// @param ode 常微分方程对象
+    /// @param[in] ode 常微分方程对象
+    /// @param[in,out] y 状态向量
     /// @param[in,out] t 当前时间
     /// @param[in] tf 最终时间
-    /// @param[in] y0 初始状态向量
-    /// @param[out] y 输出状态向量
-    virtual err_t integrateStep(ODE& ode, double& t, double tf, const double* y0, double* y) = 0;
+    virtual err_t integrateStep(ODE& ode, double* y, double& t, double tf) = 0;
 
     /// @brief 执行一步积分
     /// @param ode 常微分方程对象
+    /// @param[in,out] y 状态向量
     /// @param t0 当前时间
     /// @param step 时间步长
-    /// @param y0 初始状态向量
-    /// @param yf 输出状态向量
-    virtual err_t singleStep(ODE& ode, double t0, double step, const double* y0, double* yf) = 0;
+    virtual err_t singleStep(ODE& ode, double* y, double t0, double step) = 0;
 };
 
 
@@ -80,18 +79,16 @@ public:
     using IODEIntegrator::integrate;
 
     /// @brief 积分ODE
-    /// @details 
-    /// 积分ODE，将积分结果存储在y中，
-    /// 同时将时间点和状态向量存储在xlist和ylist中
-    /// @param ode 常微分方程对象
-    /// @param t0 初始时间
-    /// @param tf 最终时间
-    /// @param y0 初始状态向量
-    /// @param y 输出状态向量
-    /// @param xlist 时间点列表
-    /// @param ylist 状态向量列表
+    /// @details 积分ODE，将积分结果存储在y中
+    ///          同时将时间点和状态向量存储在xlist和ylist中
+    /// @param[in] ode 常微分方程对象
+    /// @param[in,out] y 状态向量
+    /// @param[in,out] t 当前时间
+    /// @param[in] tf 最终时间
+    /// @param[out] xlist 时间点列表
+    /// @param[out] ylist 状态向量列表
     err_t integrate(
-        ODE& ode, double t0, double tf, const double* y0, double* y,
+        ODE& ode, double* y, double& t, double tf,
         std::vector<double>& xlist, std::vector<std::vector<double>>& ylist
     );
 

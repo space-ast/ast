@@ -73,7 +73,11 @@ std::FILE* ast_fopen(const char* filepath, const char* mode)
     return ::_wfopen(wpath.c_str(), wmode.c_str());
 }
 
-int _AST printf(const char* format, ...)
+#ifdef AST_ENABLE_NAMESPACE
+int printf(const char* format, ...)
+#else
+int ::printf(const char* format, ...)
+#endif
 {
     va_list args;
     int result;

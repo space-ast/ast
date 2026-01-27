@@ -29,7 +29,7 @@ ODEVectorCollector::ODEVectorCollector(int ndim)
     // y_.reserve(1024);
 }
 
-EODEAction ODEVectorCollector::handleStep(double x, const double* y)
+EODEAction ODEVectorCollector::handleStep(const double* y, double x)
 {
     x_.push_back(x);
     y_.push_back(std::vector<double>(y, y + ndim_));

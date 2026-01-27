@@ -8,7 +8,7 @@ AST_USING_NAMESPACE
 /// @brief 简单的指数衰减ODE：dy/dt = -y
 class ExponentialDecayODE : public ODE {
 public:
-    err_t evaluate(double t, const double* y, double* ydot) override {
+    err_t evaluate(const double* y, double* ydot, double t) override {
         ydot[0] = -y[0];  // dy/dt = -y
         return eNoError;
     }
@@ -26,7 +26,7 @@ private:
 public:
     HarmonicOscillatorODE(double omega = 1.0) : omega_(omega) {}
     
-    err_t evaluate(double t, const double* y, double* ydot) override {
+    err_t evaluate(const double* y, double* ydot, double t) override {
         // y[0] = x, y[1] = dx/dt
         // dx/dt = v
         // dv/dt = -ω²x
@@ -57,9 +57,9 @@ int main() {
     double t0 = 0.0;
     double tf = 2.0;
     double y0[1] = {1.0};  // y(0) = 1
-    double yf_rk4[1];
-    
-    err_t result = rk4.integrate(expODE, t0, tf, y0, yf_rk4);
+    double yf_rk4[1]{y0[0]};
+    double t = t0;
+    err_t result = rk4.integrate(expODE, yf_rk4, t, tf);
     if (result == eNoError) {
         double exact = y0[0] * std::exp(-tf);
         double error = std::abs(yf_rk4[0] - exact);
@@ -74,8 +74,9 @@ int main() {
     rkf45.setMaxRelErr(1e-8);
     rkf45.initialize(expODE);
     
-    double yf_rkf45[1];
-    result = rkf45.integrate(expODE, t0, tf, y0, yf_rkf45);
+    double yf_rkf45[1]{y0[0]};
+    t = t0;
+    result = rkf45.integrate(expODE, yf_rkf45, t, tf);
     if (result == eNoError) {
         double exact = y0[0] * std::exp(-tf);
         double error = std::abs(yf_rkf45[0] - exact);
@@ -93,11 +94,12 @@ int main() {
     
     // 初始条件：x(0)=1, v(0)=0
     double y0_harmonic[2] = {1.0, 0.0};
-    double yf_harmonic[2];
+    double yf_harmonic[2]{y0_harmonic[0], y0_harmonic[1]};
     
     // 使用RKF45积分
     rkf45.initialize(harmonicODE);
-    result = rkf45.integrate(harmonicODE, t0, tf, y0_harmonic, yf_harmonic);
+    t = t0;
+    result = rkf45.integrate(harmonicODE, yf_harmonic, t, tf);
     
     if (result == eNoError) {
         double exact_x = std::cos(omega * tf);  // x(t) = cos(ωt)

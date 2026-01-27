@@ -1,9 +1,9 @@
 ///
-/// @file      RKF45.hpp
+/// @file      ODEEventWatcher.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-17
+/// @date      2026-01-27
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,19 +21,20 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstMath/ODEVarStepIntegrator.hpp"
+#include "AstMath/ODEStepHandler.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief     Runge-Kutta-Fehlberg 4(5) 积分器
-/// @details   
-/// 参考文献：Classical fourth- and lower order Runge-Kutta formulas with stepsize control and their application to heat transfer problems
-class AST_MATH_API RKF45 : public ODEVarStepIntegrator
+class ODEEventDetector;
+
+class ODEEventWatcher: public ODEStepHandler
 {
 public:
-    err_t initialize(ODE& ode) final;
-    
-    err_t singleStep(ODE& ode, double* y, double t0, double step) final;
+    ODEEventWatcher() = default;
+    ~ODEEventWatcher() override = default;
+protected:
+    EODEAction handleStep(const double* y, double x) override;
+
 };
 
 AST_NAMESPACE_END

@@ -66,12 +66,13 @@ double ODEVarStepIntegrator::getSmallestStepSize() const
 }
 
 
-err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
+err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
 {
     this->initialize(ode);
     auto& wrk = this->getWorkspace();
     double absh, h, hmin, hmax;
-    double t, tnew;
+    double tnew;
+    double t0 = t;
     if(this->useMinStep_){
         hmin = this->minStepSize_;
     }else{
@@ -84,10 +85,12 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
     }
 
     absh = abs(this->getStepSize());
-    t = t0;
+    // t = t0;
     int tdir = sign(tf - t);
     bool final = false;
     int numAttempts = 0;
+    const double* y0 = y;
+    double* yf = y;
     std::copy_n(y0, wrk.dimension_, wrk.y_);
     if(stepHandler_){
         if(stepHandler_->handleStep(t, wrk.y_) == eStop)
@@ -111,7 +114,8 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
             h = absh * tdir;
             tnew = t + h;
         }
-        if(err_t rc = this->singleStep(ode, t, h, wrk.y_, wrk.ynew_))
+        std::copy_n(wrk.y_, wrk.dimension_, wrk.ynew_);
+        if(err_t rc = this->singleStep(ode, wrk.ynew_, t, h))
         {
             return rc;
         }
@@ -149,7 +153,7 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
     return eNoError;
 }
 
-err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
+err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double* y, double &t, double tf)
 {
     auto& wrk = this->getWorkspace();
     double& absh = wrk.nextAbsStepSize_;
@@ -163,10 +167,12 @@ err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const 
     err_t err;
     bool isOK = false;
     int numAttempts = 0;
+    const double* y0 = y;
+    double* yf = y;
     double h;
     do{
         h = absh * tdir;
-        if(err_t rc = this->singleStep(ode, t, h, y0, y))
+        if(err_t rc = this->singleStep(ode, y, t, h))
         {
             return rc;
         }

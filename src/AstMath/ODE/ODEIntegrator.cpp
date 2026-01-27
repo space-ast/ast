@@ -33,12 +33,15 @@ ODEIntegrator::~ODEIntegrator()
 }
 
 
-err_t ODEIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *y, std::vector<double> &xlist, std::vector<std::vector<double>> &ylist)
+err_t ODEIntegrator::integrate(
+    ODE& ode, double* y, double& t, double tf,
+    std::vector<double>& xlist, std::vector<std::vector<double>>& ylist
+)
 {
     ODEVectorCollector collector{ode.getDimension()};
     ODEStepHandler* oldStepHandler = stepHandler_;
     stepHandler_ = &collector;
-    err_t rc = this->integrate(ode, t0, tf, y0, y);
+    err_t rc = this->integrate(ode, y, t, tf);
     stepHandler_ = oldStepHandler;
     xlist = std::move(collector.x());
     ylist = std::move(collector.y());

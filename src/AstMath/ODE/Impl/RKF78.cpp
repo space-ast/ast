@@ -52,13 +52,15 @@ err_t RKF78::initialize(ODE &ode)
     return eNoError;
 }
 
-err_t RKF78::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
+err_t RKF78::singleStep(ODE &ode, double* y, double t0, double h)
 {
     auto& wrk = getWorkspace();
     auto KArr = wrk.KArr_;
     auto absErrPerLen = wrk.absErrPerLen_;
     double* ymid = wrk.ymid_;
     int ndim = wrk.dimension_;
+    const double* y0 = y;
+    double* yf = y;
     
     for (int k = 0; k < num_stage_rkf78; k++) {
         for (int i = 0; i < ndim; i++) {

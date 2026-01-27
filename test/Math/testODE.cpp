@@ -38,7 +38,7 @@ public:
         return 1;
     }
     
-    err_t evaluate(const double t, const double* y, double* dy) override {
+    err_t evaluate(const double* y, double* dy, const double t) override {
         (void)t; // 未使用的参数
         dy[0] = -y[0];
         return eNoError;
@@ -61,10 +61,11 @@ void TestVarStepIntegrator(IntegratorType& integrator, double maxAbsErr, double 
     
     // 积分到t=1.0
     double tf = 1.0;
-    double yf[1];
+    double t = t0;
+    double y[1]{y0[0]};
     
     // 执行积分
-    err_t result = integrator.integrate(ode, t0, tf, y0, yf);
+    err_t result = integrator.integrate(ode, y, t, tf);
     
     // 检查是否成功
     EXPECT_EQ(result, eNoError);
@@ -73,7 +74,7 @@ void TestVarStepIntegrator(IntegratorType& integrator, double maxAbsErr, double 
     double analyticalSolution = exp(-tf);
     
     // 检查数值解与解析解的误差
-    EXPECT_NEAR(yf[0], analyticalSolution, tolerance);
+    EXPECT_NEAR(y[0], analyticalSolution, tolerance);
 
     printf("largestStepSize_ = %f\n", integrator.getLargestStepSize());
     printf("smallestStepSize_ = %f\n", integrator.getSmallestStepSize());
@@ -95,18 +96,19 @@ void TestVarStepIntegratorVectorCollector(IntegratorType& integrator, double max
     
     // 积分到t=1.0
     double tf = 1.0;
-    double yf[1];
+    double t = t0;
+    double y[1]{y0[0]};
     
     // 执行积分
-    std::vector<double> x;
-    std::vector<std::vector<double>> y;
-    err_t result = integrator.integrate(ode, t0, tf, y0, yf, x, y);
-    EXPECT_EQ(x.size(), y.size());
-    ASSERT_EQ(x.size(), integrator.getNumSteps() + 1);
-    EXPECT_EQ(y[0][0], y0[0]);
-    EXPECT_EQ(y[x.size() - 1][0], yf[0]);
-    EXPECT_EQ(x[x.size() - 1], tf);
-    EXPECT_EQ(x[0], t0);
+    std::vector<double> xlist;
+    std::vector<std::vector<double>> ylist;
+    err_t result = integrator.integrate(ode, y, t, tf, xlist, ylist);
+    EXPECT_EQ(xlist.size(), ylist.size());
+    ASSERT_EQ(xlist.size(), integrator.getNumSteps() + 1);
+    EXPECT_EQ(ylist[0][0], y0[0]);
+    EXPECT_EQ(ylist[xlist.size() - 1][0], y[0]);
+    EXPECT_EQ(xlist[xlist.size() - 1], tf);
+    EXPECT_EQ(xlist[0], t0);
     
     // 检查是否成功
     EXPECT_EQ(result, eNoError);
@@ -115,13 +117,13 @@ void TestVarStepIntegratorVectorCollector(IntegratorType& integrator, double max
     double analyticalSolution = exp(-tf);
     
     // 检查数值解与解析解的误差
-    EXPECT_NEAR(yf[0], analyticalSolution, tolerance);
+    EXPECT_NEAR(y[0], analyticalSolution, tolerance);
 
     printf("largestStepSize_ = %f\n", integrator.getLargestStepSize());
     printf("smallestStepSize_ = %f\n", integrator.getSmallestStepSize());
     printf("numSteps_ = %d\n", integrator.getNumSteps());
-    printf("x.size() = %zu\n", x.size());
-    printf("y.size() = %zu\n", y.size());
+    printf("x.size() = %zu\n", xlist.size());
+    printf("y.size() = %zu\n", ylist.size());
 }
 
 // 通用测试函数 - 固定步长积分器
@@ -139,10 +141,11 @@ void TestFixedStepIntegrator(IntegratorType& integrator, double stepSize, double
     
     // 积分到t=1.0
     double tf = 1.0;
-    double yf[1];
+    double t = t0;
+    double y[1]{y0[0]};
     
     // 执行积分
-    err_t result = integrator.integrate(ode, t0, tf, y0, yf);
+    err_t result = integrator.integrate(ode, y, t, tf);
     
     // 检查是否成功
     EXPECT_EQ(result, eNoError);
@@ -151,7 +154,7 @@ void TestFixedStepIntegrator(IntegratorType& integrator, double stepSize, double
     double analyticalSolution = exp(-tf);
     
     // 检查数值解与解析解的误差
-    EXPECT_NEAR(yf[0], analyticalSolution, tolerance);
+    EXPECT_NEAR(y[0], analyticalSolution, tolerance);
 }
 
 template <typename IntegratorType>
@@ -168,18 +171,19 @@ void TestFixedStepIntegratorVectorCollector(IntegratorType& integrator, double s
     
     // 积分到t=1.0
     double tf = 1.0;
-    double yf[1];
+    double t = t0;
+    double y[1]{y0[0]};
     
     // 执行积分
-    std::vector<double> x;
-    std::vector<std::vector<double>> y;
-    err_t result = integrator.integrate(ode, t0, tf, y0, yf, x, y);
-    EXPECT_EQ(x.size(), y.size());
-    ASSERT_EQ(x.size(), integrator.getNumSteps() + 1);
-    EXPECT_EQ(y[0][0], y0[0]);
-    EXPECT_EQ(y[x.size() - 1][0], yf[0]);
-    EXPECT_EQ(x[x.size() - 1], tf);
-    EXPECT_EQ(x[0], t0);
+    std::vector<double> xlist;
+    std::vector<std::vector<double>> ylist;
+    err_t result = integrator.integrate(ode, y, t, tf, xlist, ylist);
+    EXPECT_EQ(xlist.size(), ylist.size());
+    ASSERT_EQ(xlist.size(), integrator.getNumSteps() + 1);
+    EXPECT_EQ(ylist[0][0], y0[0]);
+    EXPECT_EQ(ylist[xlist.size() - 1][0], y[0]);
+    EXPECT_EQ(xlist[xlist.size() - 1], tf);
+    EXPECT_EQ(xlist[0], t0);
     
     // 检查是否成功
     EXPECT_EQ(result, eNoError);
@@ -188,10 +192,10 @@ void TestFixedStepIntegratorVectorCollector(IntegratorType& integrator, double s
     double analyticalSolution = exp(-tf);
     
     // 检查数值解与解析解的误差
-    EXPECT_NEAR(yf[0], analyticalSolution, tolerance);
+    EXPECT_NEAR(y[0], analyticalSolution, tolerance);
     printf("numSteps_ = %d\n", integrator.getNumSteps());
-    printf("x.size() = %zu\n", x.size());
-    printf("y.size() = %zu\n", y.size());
+    printf("x.size() = %zu\n", xlist.size());
+    printf("y.size() = %zu\n", ylist.size());
 }
 
 

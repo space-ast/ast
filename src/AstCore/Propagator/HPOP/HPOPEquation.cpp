@@ -43,7 +43,7 @@ HPOPEquation::~HPOPEquation()
 
 }
 
-err_t HPOPEquation::evaluate(const double t, const double* y, double* dy)
+err_t HPOPEquation::evaluate(const double* y, double* dy, const double t)
 {
     SimTime time;                                   // 仿真时间
     time.setTimePoint(epoch_ + t);                  // 设置仿真时间点
