@@ -1,9 +1,9 @@
 ///
-/// @file      ScalarFunc.hpp
+/// @file      BisectionSolver.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-22
+/// @date      2026-01-26
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,23 +21,21 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "VectorFunc.hpp"
+#include "AstMath/UnarySolver.hpp"
+
+
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 标量函数接口
-class ScalarFunc: public VectorFunc
+/// @brief 二分法求解器
+class AST_MATH_API BisectionSolver: public UnarySolver
 {
 public:
-    virtual ~ScalarFunc() = default;
-    /// @brief 计算标量方程值
-    /// @param x 输入值
-    /// @param out 输出标量
-    virtual void evaluate(double x, double* out) const override = 0;
-
-    /// @brief 获取方程维度
-    /// @return 方程维度
-    int getDimension() const final{ return 1; }
+    BisectionSolver() = default;
+    ~BisectionSolver() = default;
+    err_t solve(UnaryScalarFunc& func, double min, double max, double& result) override;
 };
+
+
 
 AST_NAMESPACE_END

@@ -1,6 +1,6 @@
 {
     "C++ Source File": {
-		"scope": "cpp",
+		"scope": "cpp,c",
         "prefix": "ast-source",
         "body": [
             "///",

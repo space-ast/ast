@@ -1,6 +1,6 @@
 {
     "C++ Header File": {
-        "scope": "cpp",
+        "scope": "cpp,c",
         "prefix": "ast-header",
         "body": [
             "///",

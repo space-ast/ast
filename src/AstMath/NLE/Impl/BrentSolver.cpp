@@ -1,9 +1,9 @@
 ///
-/// @file      VectorFunc.hpp
+/// @file      BrentSolver.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-22
+/// @date      2026-01-26
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,26 +18,19 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
+#include "BrentSolver.hpp"
+#include <math.h>
+#include "AstMath/zeros.h"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 向量方程接口
-class VectorFunc
+err_t BrentSolver::solve(UnaryScalarFunc &func, double min, double max, double &result)
 {
-public:
-    virtual ~VectorFunc() = default;
-
-    /// @brief 计算向量方程值
-    /// @param x 输入值
-    /// @param out 输出向量，长度需大于等于向量维度
-    virtual void evaluate(double x, double* out) const = 0;
-
-    /// @brief 获取方程维度
-    /// @return 方程维度
-    virtual int getDimension() const = 0;
-};
+    scipy_zeros_info info;
+    result = brentq(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &info);
+    return info.error_num;
+}
 
 AST_NAMESPACE_END
+
+

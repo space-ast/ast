@@ -1,1 +1,1 @@
-#include "../../src/AstMath/Interpolator/VectorFunc.hpp"
+#include "../../src/AstMath/Function/VectorFunc.hpp"

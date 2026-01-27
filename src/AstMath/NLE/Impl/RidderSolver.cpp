@@ -1,9 +1,9 @@
 ///
-/// @file      Interpolator.hpp
+/// @file      RidderSolver.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-21
+/// @date      2026-01-27
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,28 +18,18 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
-#include "AstMath/VectorFunc.hpp"
+#include "RidderSolver.hpp"
+#include "AstMath/zeros.h"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 插值器接口
-class Interpolator: public VectorFunc
+err_t RidderSolver::solve(UnaryScalarFunc &func, double min, double max, double &result)
 {
-public:
-    virtual ~Interpolator() = default;
-    
-    /// @brief 计算插值结果
-    /// @param x 输入值
-    /// @param out 输出向量，长度需大于等于向量维度
-    virtual void evaluate(double x, double* out) const override = 0;
+    scipy_zeros_info info;
+    result = ridder(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &info);
+    return info.error_num;
+}
 
-    /// @brief 获取维度
-    /// @return 维度
-    virtual int getDimension() const override = 0;
-
-};
 
 AST_NAMESPACE_END
+

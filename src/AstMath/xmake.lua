@@ -1,6 +1,6 @@
 ﻿target("AstMath")
     set_kind("shared")
-    add_files("*.c")
+    add_files("**.c")
     add_files("**.cpp")
     add_deps("AstUtil")
     add_defines("AST_BUILD_LIB_MATH")

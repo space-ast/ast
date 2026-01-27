@@ -1,9 +1,9 @@
 ///
-/// @file      Interpolator.hpp
+/// @file      SecantSolver.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-21
+/// @date      2026-01-26
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,24 +21,18 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstMath/VectorFunc.hpp"
+#include "AstMath/UnarySolver.hpp"
+#include "AstMath/zeros.h"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 插值器接口
-class Interpolator: public VectorFunc
+/// @brief 割线法求解器
+class AST_MATH_API SecantSolver: public UnarySolver
 {
 public:
-    virtual ~Interpolator() = default;
-    
-    /// @brief 计算插值结果
-    /// @param x 输入值
-    /// @param out 输出向量，长度需大于等于向量维度
-    virtual void evaluate(double x, double* out) const override = 0;
-
-    /// @brief 获取维度
-    /// @return 维度
-    virtual int getDimension() const override = 0;
+    SecantSolver() = default;
+    ~SecantSolver() = default;
+    err_t solve(UnaryScalarFunc& func, double min, double max, double& result) override;
 
 };
 
