@@ -29,7 +29,7 @@
 // 定义π的值，因为C++11不支持std::numbers::pi
 #define PI 3.14159265358979323846
 
-using namespace ast;
+AST_USING_NAMESPACE
 
 // 测试函数：f(x) = x - 2
 class LinearFunction : public UnaryScalarFunc {

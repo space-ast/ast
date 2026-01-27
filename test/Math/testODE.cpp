@@ -32,16 +32,16 @@ AST_USING_NAMESPACE
 
 
 // 定义一个简单的ODE类：dy/dt = -y
-class SimpleODE : public ast::ODE {
+class SimpleODE : public ODE {
 public:
     int getDimension() const override {
         return 1;
     }
     
-    ast::err_t evaluate(const double t, const double* y, double* dy) override {
+    err_t evaluate(const double t, const double* y, double* dy) override {
         (void)t; // 未使用的参数
         dy[0] = -y[0];
-        return ast::eNoError;
+        return eNoError;
     }
 };
 
