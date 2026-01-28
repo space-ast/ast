@@ -76,7 +76,7 @@ public:
 
 
 private:
-    int         repeatCount_{0};    ///< 事件触发后的重复次数
+    int         repeatCount_{1};    ///< 事件触发后的重复次数
     EDirection  direction_{eBoth};  ///< 事件检测开关函数的方向
     double      threshold_{1e-10};  ///< 事件检测开关函数的阈值
     double      goal_{0.0};         ///< 事件检测的目标值

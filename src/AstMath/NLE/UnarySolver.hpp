@@ -82,6 +82,11 @@ public:
     /// @param absTol 绝对误差容限
     /// @param maxIter 最大迭代次数
     UnarySolver(double relTol, double absTol, int maxIter);
+    
+    /// @brief 构造函数
+    /// @param absTol 绝对误差容限
+    UnarySolver(double absTol);
+
     ~UnarySolver() override = default;
 
     /// @brief 获取相对误差容限

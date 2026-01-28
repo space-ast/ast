@@ -28,6 +28,7 @@ EODEAction ODEInnerStateObserver::onStateUpdate(double *y, double &x, ODEIntegra
     EODEAction action = integrator_->eventDetectorList_.onStateUpdate(y, x, integrator);
     if (action == EODEAction::eStop)
     {
+        integrator_->stateObserverList_.onStateUpdate(y, x, integrator);
         return action;
     }
     return integrator_->stateObserverList_.onStateUpdate(y, x, integrator);

@@ -126,6 +126,10 @@ ODEFixedStepIntegrator::~ODEFixedStepIntegrator()
     {
         delete[] stateAtStepEnd_;
     }
+    if(stateTemp_)
+    {
+        delete[] stateTemp_;
+    }
 }
 
 int ODEFixedStepIntegrator::getNumSteps() const
@@ -214,8 +218,13 @@ void ODEFixedStepIntegrator::resetWorkspace(int dimension, int stage)
         {
             delete[] stateAtStepEnd_;
         }
+        if(stateTemp_)
+        {
+            delete[] stateTemp_;
+        }
         stateAtStepStart_ = new double[dimension];
         stateAtStepEnd_ = new double[dimension];
+        stateTemp_ = new double[dimension];
     }
     this->getWorkspace().reset(dimension, stage);
 }

@@ -20,9 +20,12 @@
 
 #include "AstMath/ODE.hpp"
 #include "AstMath/ODEEventDetector.hpp"
+#include "AstUtil/Constants.h"
+#include "AstUtil/Literals.hpp"
 #include "AstTest/Test.h"
 
 AST_USING_NAMESPACE
+using namespace _AST literals;
 
 // 简单的指数衰减ODE: dy/dt = -y
 class SimpleODE : public ODE {
@@ -72,10 +75,10 @@ private:
 // 检测简谐振动达到最大值的事件检测器
 class HarmonicMaxEventDetector : public ODEEventDetector {
 public:
-    HarmonicMaxEventDetector() {
+    HarmonicMaxEventDetector(double goal=0.0) {
         this->setDirection(eDecrease); // 当速度从正变负时触发（最大值）
         this->setThreshold(1e-10);
-        this->setGoal(0.0); // 检测速度为0的点
+        this->setGoal(goal); // 检测速度为0的点
     }
 
     double getValue(const double* y, double x) const override {
@@ -153,7 +156,7 @@ TEST(ODEEventDetector, HarmonicOscillatorEvent) {
 }
 
 // 测试带事件检测器的积分过程
-TEST(ODEEventDetector, IntegrationWithEventDetector) {
+TEST(ODEEventDetector, EventDetector) {
     SimpleODE ode;
     RKF45 integrator;
     
@@ -165,7 +168,7 @@ TEST(ODEEventDetector, IntegrationWithEventDetector) {
     // 创建事件检测器，检测y=0.5的事件
     // 由于SimpleODE的解是y(t) = e^(-t)，所以在t=ln(2)≈0.693时，y值将达到0.5
     SimpleEventDetector* detector = new SimpleEventDetector(0.5);
-    
+
     // 将事件检测器添加到积分器
     integrator.addEventDetector(detector);
     
@@ -176,10 +179,141 @@ TEST(ODEEventDetector, IntegrationWithEventDetector) {
     EXPECT_EQ(result, eNoError);
     
     // 验证事件检测时间
-    EXPECT_NEAR(t, log(2.0), 1e-6);
+    EXPECT_NEAR(t, log(2.0), 1e-8);
+    // 验证事件检测时的状态向量
+    EXPECT_NEAR(y[0], 0.5, 1e-8);
     
     // 移除事件检测器
     integrator.removeEventDetector(detector);
 }
+
+
+TEST(ODEEventDetector, MultipleEventDetector) {
+
+    SimpleODE ode;
+    RKF45 integrator;
+    
+    // 初始条件：y(0) = 1.0
+    double y[1] = {1.0};
+    double t = 0.0;
+    double tf = 1.0; // 积分到t=1.0
+    
+    // 创建事件检测器，检测y=0.49, y=0.48的事件
+    SimpleEventDetector* detector2 = new SimpleEventDetector(0.48);
+    SimpleEventDetector* detector1 = new SimpleEventDetector(0.49);
+    
+    // 将事件检测器添加到积分器
+    integrator.addEventDetector(detector1);
+    integrator.addEventDetector(detector2);
+    
+    // 执行积分
+    err_t result = integrator.integrate(ode, y, t, tf);
+    
+    // 验证积分成功
+    EXPECT_EQ(result, eNoError);
+    
+    // 验证事件检测时间
+    EXPECT_NEAR(t, log(1.0/0.49), 1e-8);
+    // 验证事件检测时的状态向量
+    EXPECT_NEAR(y[0], 0.49, 1e-8);
+    
+    // 移除事件检测器
+    integrator.removeEventDetector(detector1);
+    integrator.removeEventDetector(detector2);
+}
+
+TEST(ODEEventDetector, EventDetectorRepeatCount) {
+    HarmonicOscillatorODE ode;
+    RKF45 integrator;
+
+    // 初始条件：x=0, v=1（速度最大，位置为0）
+    double y[2] = {0.0, 1.0};
+    double t = 0.0;
+    double tf = 10.0; // 积分到t=10.0
+    // 创建事件检测器，检测x=0的事件
+    SimpleEventDetector* detector = new SimpleEventDetector(0.5);
+    detector->setRepeatCount(2);
+    integrator.addEventDetector(detector);
+
+    // 执行积分
+    err_t result = integrator.integrate(ode, y, t, tf);
+    
+    // 验证积分成功
+    EXPECT_EQ(result, eNoError);
+    
+    // 验证事件检测时间
+    EXPECT_NEAR(t, 5./6. * kPI, 1e-8);
+    printf("t=%lf rad, %lf deg\n", t, t * kRadToDeg);
+    // 验证事件检测时的状态向量
+    EXPECT_NEAR(y[0], 0.5, 1e-8);
+    EXPECT_NEAR(y[1], cos(150_deg), 1e-8);
+    
+    // 移除事件检测器
+    integrator.removeEventDetector(detector);
+}
+
+TEST(ODEEventDetector, EventDetectorDirection) {
+    HarmonicOscillatorODE ode;
+    RKF45 integrator;
+
+    // 初始条件：x=0, v=1（速度最大，位置为0）
+    double y[2] = {0.0, 1.0};
+    double t = 0.0;
+    double tf = 10.0; // 积分到t=10.0
+    // 创建事件检测器，检测x=0的事件
+    SimpleEventDetector* detector = new SimpleEventDetector(0.5);
+    detector->setDirection(ODEEventDetector::eDecrease);
+    integrator.addEventDetector(detector);
+
+    // 执行积分
+    err_t result = integrator.integrate(ode, y, t, tf);
+    
+    // 验证积分成功
+    EXPECT_EQ(result, eNoError);
+    
+    // 验证事件检测时间
+    EXPECT_NEAR(t, 5./6. * kPI, 1e-8);
+    printf("t=%lf rad, %lf deg\n", t, t * kRadToDeg);
+    // 验证事件检测时的状态向量
+    EXPECT_NEAR(y[0], 0.5, 1e-8);
+    EXPECT_NEAR(y[1], cos(150_deg), 1e-8);
+    
+    // 移除事件检测器
+    integrator.removeEventDetector(detector);
+}
+
+
+TEST(ODEEventDetector, EventDetectorDirectionAndRepeat) {
+    HarmonicOscillatorODE ode;
+    RKF45 integrator;
+
+    // 初始条件：x=0, v=1（速度最大，位置为0）
+    double y[2] = {0.0, 1.0};
+    double t = 0.0;
+    double tf = 10.0; // 积分到t=10.0
+    // 创建事件检测器，检测x=0的事件
+    SimpleEventDetector* detector = new SimpleEventDetector(0.5);
+    detector->setDirection(ODEEventDetector::eIncrease);
+    detector->setRepeatCount(2);
+    integrator.addEventDetector(detector);
+
+    // 执行积分
+    err_t result = integrator.integrate(ode, y, t, tf);
+    
+    // 验证积分成功
+    EXPECT_EQ(result, eNoError);
+    
+    // 验证事件检测时间
+    EXPECT_NEAR(t, 13./6. * kPI, 1e-8);
+    printf("t=%lf rad, %lf deg\n", t, t * kRadToDeg);
+    // 验证事件检测时的状态向量
+    EXPECT_NEAR(y[0], 0.5, 1e-8);
+    EXPECT_NEAR(y[1], cos(390_deg), 1e-8);
+    
+    // 移除事件检测器
+    integrator.removeEventDetector(detector);
+}
+
+
 
 GTEST_MAIN()

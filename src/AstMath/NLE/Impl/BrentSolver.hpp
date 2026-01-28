@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
 class AST_MATH_API BrentSolver: public UnarySolver
 {
 public:
+    using UnarySolver::UnarySolver;
     BrentSolver() = default;
     ~BrentSolver() = default;
     using UnarySolver::solve;

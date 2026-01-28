@@ -36,11 +36,15 @@ public:
     ~ODEEventObserver() override;
     EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) final;
     ODEEventDetector* getEventDetector() const { return detector_; }
+    bool isEventOccurred(double* y, double& x);
+    err_t findEventTime(double x1, double x2, double& result, ODEIntegrator* integrator);
 protected:
+    friend class ODEEventDetectorList;
     ODEEventDetector* detector_ {nullptr};
     double lastDifference_ {std::numeric_limits<double>::quiet_NaN()};
     double lastTime_{std::numeric_limits<double>::quiet_NaN()};
-    int    repeatCount_{0};
+    double eventTime_{std::numeric_limits<double>::quiet_NaN()};
+    int    repeatCount_{-1};
 };
 
 AST_NAMESPACE_END

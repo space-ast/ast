@@ -41,6 +41,11 @@ UnarySolver::UnarySolver(double relTol, double absTol, int maxIter)
 {
 }
 
+UnarySolver::UnarySolver(double absTol)
+    : relTol_(kDefaultRelTol), absTol_(absTol), maxIter_(kDefaultMaxIter)
+{
+}
+
 double UnarySolver::unarycfunc(double x, void* params)
 {
     UnaryScalarFunc* func = (UnaryScalarFunc*)params;

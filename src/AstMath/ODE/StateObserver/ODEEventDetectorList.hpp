@@ -44,10 +44,10 @@ public:
 
     size_t size() const { return eventObservers_.size(); }
 
-    ODEEventObserver& operator[](size_t index) { return eventObservers_[index]; }
-    const ODEEventObserver& operator[](size_t index) const { return eventObservers_[index]; }
+    ODEEventObserver& operator[](size_t index) { return *eventObservers_[index]; }
+    const ODEEventObserver& operator[](size_t index) const { return *eventObservers_[index]; }
 protected:
-    std::vector<ODEEventObserver> eventObservers_;
+    std::vector<ODEEventObserver*> eventObservers_;
 };
 
 

@@ -143,8 +143,11 @@ public:
     /// @details 获取当前积分步的结束时间
     /// @return 当前积分步的结束时间
     double& timeAtStepEnd() { return timeAtStepEnd_; }
-protected:
-    
+
+    /// @brief 获取临时状态向量
+    /// @details 获取当前积分步的临时状态向量
+    /// @return 当前积分步的临时状态向量
+    double* stateTemp() { return stateTemp_; }
 protected:
     friend class ODEInnerStateObserver;
     void initWorkStateObserver();
@@ -157,6 +160,7 @@ protected:
     ODEInnerStateObserver* innerStateObserver_{nullptr};    ///< 内部状态观察者
     double* stateAtStepStart_{nullptr};                     ///< 当前积分步的开始状态
     double* stateAtStepEnd_{nullptr};                       ///< 当前积分步的结束状态
+    double* stateTemp_{nullptr};                            ///< 临时状态向量
     double timeAtStepStart_{0.0};                           ///< 当前积分步的开始时间   
     double timeAtStepEnd_{0.0};                             ///< 当前积分步的结束时间
 };
