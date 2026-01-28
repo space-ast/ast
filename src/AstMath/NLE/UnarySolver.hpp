@@ -22,6 +22,8 @@
 
 #include "AstGlobal.h"
 #include "AstMath/Function.hpp"
+#include "AstMath/SolverStats.h"
+
 
 AST_NAMESPACE_BEGIN
 
@@ -37,6 +39,23 @@ constexpr const int kDefaultMaxIter = 100;
 /// @param absTol 绝对误差容限
 /// @return 如果两个数接近，则返回true；否则返回false
 bool aIsClose(double a, double b, double relTol = kDefaultRelTol, double absTol = kDefaultAbsTol);
+
+
+/// @brief Lambda函数适配器（模板类）
+template<typename Func>
+class LambdaUnaryScalarFunc : public UnaryScalarFunc {
+public:
+    explicit LambdaUnaryScalarFunc(Func func) 
+        : func_(std::move(func)) 
+    {}
+    
+    void evaluate(double x, double* out) const override {
+        *out = func_(x);
+    }
+    
+private:
+    Func func_;
+};
 
 /// @brief 一元方程求解器接口
 class IUnarySolver
@@ -78,14 +97,31 @@ public:
     void setAbsTol(double absTol){absTol_ = absTol;};
     /// @brief 设置最大迭代次数
     void setMaxIter(int maxIter){maxIter_ = maxIter;};
+
+    /// @brief 获取求解器统计信息
+    const SolverStats& getStats() const{return stats_;};
+
+    /// @brief 求解一元方程（支持lambda函数）
+    /// @tparam Func lambda或可调用对象类型
+    /// @param func lambda函数
+    /// @param min 搜索下限
+    /// @param max 搜索上限
+    /// @param result 输出解
+    template<typename Func>
+    err_t solveFunc(Func func, double min, double max, double& result) {
+        LambdaUnaryScalarFunc<Func> adapter(std::move(func));
+        return solve(adapter, min, max, result);
+    }
 protected:
     static double unarycfunc(double x, void* params);
 protected:
-    double relTol_;     ///< 相对误差容限
-    double absTol_;     ///< 绝对误差容限
-    int maxIter_;       ///< 最大迭代次数
+    double relTol_;         ///< 相对误差容限
+    double absTol_;         ///< 绝对误差容限
+    int maxIter_;           ///< 最大迭代次数
+    SolverStats stats_;     ///< 求解器统计信息
 };
 
 using UnaryScalarSolver = UnarySolver;
+
 
 AST_NAMESPACE_END

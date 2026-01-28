@@ -1,5 +1,5 @@
 ///
-/// @file      ODEStepHandlerList.cpp
+/// @file      EventDetector.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,24 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ODEStepHandlerList.hpp"
+#include "EventDetector.hpp"
 
 AST_NAMESPACE_BEGIN
 
-EODEAction ODEStepHandlerList::handleStep(const double* y, double x)
-{
-    EODEAction action = EODEAction::eContinue;
-    for (auto handler : handlers_)
-    {
-        action = handler->handleStep(x, y);
-        if (action != EODEAction::eContinue)
-        {
-            break;
-        }
-    }
-    return action;
-}
+
 
 AST_NAMESPACE_END
-
-

@@ -47,8 +47,9 @@ const int num_stage_rkf78 = 13;
 
 err_t RKF78::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), num_stage_rkf78);
+    this->resetWorkspace(ode.getDimension(), num_stage_rkf78);
     return eNoError;
 }
 

@@ -19,16 +19,19 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "BrentSolver.hpp"
-#include <math.h>
+#include <cmath>
+#include <cstdio>
 #include "AstMath/zeros.h"
 
 AST_NAMESPACE_BEGIN
 
 err_t BrentSolver::solve(UnaryScalarFunc &func, double min, double max, double &result)
 {
-    scipy_zeros_info info;
-    result = brentq(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &info);
-    return info.error_num;
+    this->stats_ = {};
+    result = brentq(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &stats_);
+    // printf("num of iter: %d, funcalls: %d\n", stats_.iterations, stats_.funcalls);
+    // printf("abs tol: %e, rel tol: %e\n", absTol_, relTol_);
+    return stats_.error_num;
 }
 
 AST_NAMESPACE_END

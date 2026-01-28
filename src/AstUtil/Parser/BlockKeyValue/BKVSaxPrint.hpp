@@ -23,7 +23,7 @@
 #include "AstGlobal.h"
 #include "BKVSax.hpp"
 #include "AstUtil/ScopedPtr.hpp"
-#include <stdio.h>
+#include <cstdio>
 
 AST_NAMESPACE_BEGIN
 

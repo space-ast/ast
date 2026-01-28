@@ -1,9 +1,9 @@
 ///
-/// @file      ODEStepHandler.cpp
+/// @file      ODEInnerStateObserver.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-28
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,10 +18,24 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ODEStepHandler.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstMath/ODEStateObserver.hpp"
 
 AST_NAMESPACE_BEGIN
 
+class ODEIntegrator;
 
+class ODEInnerStateObserver : public ODEStateObserver
+{
+public:
+    ODEInnerStateObserver(ODEIntegrator* integrator) 
+        : integrator_(integrator) {}
+    ~ODEInnerStateObserver() = default;
+    EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) final;
+protected:
+    ODEIntegrator* integrator_ = nullptr;
+};
 
 AST_NAMESPACE_END

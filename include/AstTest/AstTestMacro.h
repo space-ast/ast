@@ -22,7 +22,7 @@
  
 #include "AstGlobal.h"
 #include <math.h>	// for fabs
-#include <stdio.h>	// for printf
+#include <cstdio>	// for printf
 #include <iostream> // for std::cout 
 #include <gtest/gtest.h>
 

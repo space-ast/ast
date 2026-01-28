@@ -1,5 +1,5 @@
 ///
-/// @file      ODEStepHandlerList.hpp
+/// @file      ODEEventsHandler.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -21,20 +21,34 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstMath/ODEStepHandler.hpp"
+#include "AstMath/ODEEventObserver.hpp"
 #include <vector>
 
 AST_NAMESPACE_BEGIN
 
-class ODEStepHandlerList: public ODEStepHandler
+class ODEEventObserver;
+
+class ODEEventDetectorList: public ODEStateObserver
 {
 public:
-    ODEStepHandlerList() = default;
-    ~ODEStepHandlerList() override = default;
+    ~ODEEventDetectorList() override;
+    ODEEventDetectorList() = default;
     
-    EODEAction handleStep(const double* y, double x) override;
+    EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) final;
+
+    void addEventDetector(ODEEventDetector* detector);
+
+    void removeEventDetector(ODEEventDetector* detector);
+
+    bool empty() const { return eventObservers_.empty(); }
+
+    size_t size() const { return eventObservers_.size(); }
+
+    ODEEventObserver& operator[](size_t index) { return eventObservers_[index]; }
+    const ODEEventObserver& operator[](size_t index) const { return eventObservers_[index]; }
 protected:
-    std::vector<ODEStepHandler*> handlers_;
+    std::vector<ODEEventObserver> eventObservers_;
 };
+
 
 AST_NAMESPACE_END

@@ -1,9 +1,9 @@
 ///
-/// @file      ODEStepHandler.hpp
+/// @file      ODEEventWatcher.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-16
+/// @date      2026-01-27
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,29 +21,26 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstMath/ODEStateObserver.hpp"
+#include "AstMath/ODEEventDetector.hpp"
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 
-enum EODEAction
-{
-    eContinue = 0,
-    eStop = 1,
-};
 
-/// @brief ODE积分步长处理类
-class ODEStepHandler
+class ODEEventObserver: public ODEStateObserver
 {
 public:
-    virtual ~ODEStepHandler() = default;
-
-    /// @brief 积分步长处理函数
-    /// @param y 当前状态向量
-    /// @param x 当前积分变量
-    virtual EODEAction handleStep(const double* y, double x) = 0;
-
-    /// 兼容性处理
-    A_ALWAYS_INLINE
-    EODEAction handleStep(double x, const double* y){return handleStep(y, x);}
+    ODEEventObserver() = default;
+    explicit ODEEventObserver(ODEEventDetector* detector);
+    ~ODEEventObserver() override;
+    EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) final;
+    ODEEventDetector* getEventDetector() const { return detector_; }
+protected:
+    ODEEventDetector* detector_ {nullptr};
+    double lastDifference_ {std::numeric_limits<double>::quiet_NaN()};
+    double lastTime_{std::numeric_limits<double>::quiet_NaN()};
+    int    repeatCount_{0};
 };
 
 AST_NAMESPACE_END

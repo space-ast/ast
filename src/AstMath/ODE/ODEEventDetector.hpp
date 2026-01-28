@@ -46,35 +46,39 @@ public:
     /// @param x 当前积分变量
     /// @param y 当前状态向量
     /// @return 用于事件检测的开关函数值与目标值的差值
-    virtual double getDifference(double x, const double* y) const{return getValue(x, y) - goal_;}
+    virtual double getDifference(const double* y,double x) const{return getValue(y, x) - goal_;}
 
     /// @brief 用于事件检测的开关函数值
-    /// @param x 当前积分变量
     /// @param y 当前状态向量
+    /// @param x 当前积分变量
     /// @return 用于事件检测的开关函数值
-    virtual double getValue(double x, const double* y) const = 0;
+    virtual double getValue(const double* y,double x) const = 0;
 
     /// @brief 事件触发后的重复次数
     /// @return 事件触发后的重复次数
     int getRepeatCount() const { return repeatCount_; }
+    void setRepeatCount(int repeatCount) { repeatCount_ = repeatCount; }
 
     /// @brief 事件检测开关函数的方向
     /// @return 事件检测开关函数的方向
     EDirection getDirection() const { return direction_; }
+    void setDirection(EDirection direction) { direction_ = direction; }
 
     /// @brief 事件检测开关函数的阈值
     /// @return 事件检测开关函数的阈值
     double getThreshold() const { return threshold_; }
+    void setThreshold(double threshold) { threshold_ = threshold; }
 
     /// @brief 事件检测的目标值
     /// @return 事件检测的目标值
     double getGoal() const { return goal_; }
+    void setGoal(double goal) { goal_ = goal; }
 
 
-protected:
+private:
     int         repeatCount_{0};    ///< 事件触发后的重复次数
     EDirection  direction_{eBoth};  ///< 事件检测开关函数的方向
-    double      threshold_{0.0};    ///< 事件检测开关函数的阈值
+    double      threshold_{1e-10};  ///< 事件检测开关函数的阈值
     double      goal_{0.0};         ///< 事件检测的目标值
 };
 

@@ -25,8 +25,9 @@ AST_NAMESPACE_BEGIN
 
 err_t RKCK::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 6);
+    this->resetWorkspace(ode.getDimension(), 6);
     return eNoError;
 }
 

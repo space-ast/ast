@@ -1,9 +1,9 @@
 ///
-/// @file      ODEVectorCollector.cpp
+/// @file      ODEStepObserver.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-25
+/// @date      2026-01-28
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,24 +18,31 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ODEVectorCollector.hpp"
+#pragma once
+
+#include "AstGlobal.h"
 
 AST_NAMESPACE_BEGIN
 
-ODEVectorCollector::ODEVectorCollector(int ndim)
-    : ndim_(ndim)
+class ODEIntegrator;
+
+enum EODEAction
 {
-    // x_.reserve(1024);
-    // y_.reserve(1024);
-}
+    eContinue = 0,
+    eStop = 1,
+};
 
-EODEAction ODEVectorCollector::handleStep(const double* y, double x)
+/// @brief ODE状态量观察者
+class ODEStateObserver
 {
-    x_.push_back(x);
-    y_.push_back(std::vector<double>(y, y + ndim_));
-    return EODEAction::eContinue;
-}
+public:
+    virtual ~ODEStateObserver() = default;
 
+    /// @brief 状态更新处理函数
+    /// @param y 当前状态向量
+    /// @param x 当前积分变量
+    virtual EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) = 0;
 
+};
 
 AST_NAMESPACE_END

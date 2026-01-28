@@ -1,5 +1,5 @@
 ///
-/// @file      RidderSolver.hpp
+/// @file      ODEEventsHandler.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,19 +18,36 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
+#include "ODEEventDetectorList.hpp"
+#include <algorithm>
 
-#include "AstGlobal.h"
-#include "AstMath/UnarySolver.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/// @brief Ridder 方法求解器
-class AST_MATH_API RidderSolver: public UnarySolver
+ODEEventDetectorList::~ODEEventDetectorList()
 {
-public:
-    using UnarySolver::solve;
-    err_t solve(UnaryScalarFunc& func, double min, double max, double& result) override;
-};
+}
+
+
+EODEAction ODEEventDetectorList::onStateUpdate(double* y, double& x, ODEIntegrator* integrator)
+{
+    return EODEAction();
+}
+
+void ODEEventDetectorList::addEventDetector(ODEEventDetector *detector)
+{
+    eventObservers_.emplace_back(detector);
+}
+
+void ODEEventDetectorList::removeEventDetector(ODEEventDetector *detector)
+{
+    auto it = std::find_if(eventObservers_.begin(), eventObservers_.end(), [detector](ODEEventObserver& obs) { return obs.getEventDetector() == detector; });
+    if(it != eventObservers_.end())
+    {
+        eventObservers_.erase(it);
+    }
+}
 
 AST_NAMESPACE_END
+
+

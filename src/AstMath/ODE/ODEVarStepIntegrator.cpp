@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ODEVarStepIntegrator.hpp"
-#include "AstMath/ODEStepHandler.hpp"
+#include "AstMath/ODEStateObserver.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "AstUtil/Logger.hpp"
 #include <cmath>
@@ -91,11 +91,12 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
     int numAttempts = 0;
     const double* y0 = y;
     double* yf = y;
-    std::copy_n(y0, wrk.dimension_, wrk.y_);
-    if(stepHandler_){
-        if(stepHandler_->handleStep(t, wrk.y_) == eStop)
+    std::copy_n(y0, wrk.dimension_, this->stateAtStepStart_);
+    this->timeAtStepStart_ = t0;
+    if(workStateObserver_){
+        if(workStateObserver_->onStateUpdate(this->stateAtStepStart_, t, this) == EODEAction::eStop)
         {
-            return 0;
+            return eNoError;
         }
     }
     while(1)
@@ -114,16 +115,17 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
             h = absh * tdir;
             tnew = t + h;
         }
-        std::copy_n(wrk.y_, wrk.dimension_, wrk.ynew_);
-        if(err_t rc = this->singleStep(ode, wrk.ynew_, t, h))
+        std::copy_n(this->stateAtStepStart_, wrk.dimension_, this->stateAtStepEnd_);
+        this->timeAtStepEnd_ = tnew;
+        if(err_t rc = this->singleStep(ode, this->stateAtStepEnd_, t, h))
         {
             return rc;
         }
-        bool isOK = this->isErrorMeet(absh, wrk.y_, wrk.ynew_);
+        bool isOK = this->isErrorMeet(absh, this->stateAtStepStart_, this->stateAtStepEnd_);
         if(isOK)
         {
-            if(stepHandler_){
-                if(stepHandler_->handleStep(tnew, wrk.ynew_) == eStop)
+            if(workStateObserver_){
+                if(workStateObserver_->onStateUpdate(this->stateAtStepEnd_, tnew, this) == EODEAction::eStop)
                 {
                     break;
                 }
@@ -146,10 +148,12 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
                 continue;
             }
         }
-        std::swap(wrk.y_, wrk.ynew_);
+        std::swap(this->stateAtStepStart_, this->stateAtStepEnd_);
+        this->timeAtStepStart_ = tnew;
         t = tnew;
     }
-    std::copy_n(wrk.ynew_, wrk.dimension_, yf);
+    std::copy_n(this->stateAtStepEnd(), wrk.dimension_, yf);
+    t = tnew;
     return eNoError;
 }
 

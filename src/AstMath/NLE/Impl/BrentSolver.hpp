@@ -32,6 +32,7 @@ class AST_MATH_API BrentSolver: public UnarySolver
 public:
     BrentSolver() = default;
     ~BrentSolver() = default;
+    using UnarySolver::solve;
     err_t solve(UnaryScalarFunc& func, double min, double max, double& result) override;
 };
 

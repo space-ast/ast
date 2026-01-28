@@ -21,7 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <stdio.h>
+#include <cstdio>
 #include <vector>
 
 AST_NAMESPACE_BEGIN

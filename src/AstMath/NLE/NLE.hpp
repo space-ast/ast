@@ -1,9 +1,9 @@
 ///
-/// @file      BisectionSolver.cpp
+/// @file      NLE.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-26
+/// @date      2026-01-28
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,17 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "BisectionSolver.hpp"
-#include "AstMath/zeros.h"
+#pragma once
 
-AST_NAMESPACE_BEGIN
-
-err_t BisectionSolver::solve(UnaryScalarFunc &func, double min, double max, double &result)
-{
-    this->stats_ = {};
-    result = bisect(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &stats_);
-    return stats_.error_num;
-}
-
-
-AST_NAMESPACE_END
+#include "AstMath/SecantSolver.hpp"
+#include "AstMath/RidderSolver.hpp"
+#include "AstMath/BrentSolver.hpp"
+#include "AstMath/BisectionSolver.hpp"

@@ -25,9 +25,9 @@ AST_NAMESPACE_BEGIN
 
 err_t SecantSolver::solve(UnaryScalarFunc &func, double min, double max, double &result)
 {
-    scipy_zeros_info info;
-    result = secant(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &info);
-    return info.error_num;
+    this->stats_ = {};
+    result = secant(unarycfunc, min, max, absTol_, relTol_, maxIter_, &func, &stats_);
+    return stats_.error_num;
 }
 
 AST_NAMESPACE_END

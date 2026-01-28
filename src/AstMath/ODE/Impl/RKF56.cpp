@@ -40,8 +40,9 @@ static const double
 
 err_t RKF56::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 8);
+    this->resetWorkspace(ode.getDimension(), 8);
     return eNoError;
 }
 

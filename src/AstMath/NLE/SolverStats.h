@@ -1,9 +1,9 @@
 ///
-/// @file      ODEEventWatcher.hpp
+/// @file      SolverStats.h
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-27
+/// @date      2026-01-28
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,20 +21,14 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstMath/ODEStepHandler.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class ODEEventDetector;
-
-class ODEEventWatcher: public ODEStepHandler
-{
-public:
-    ODEEventWatcher() = default;
-    ~ODEEventWatcher() override = default;
-protected:
-    EODEAction handleStep(const double* y, double x) override;
-
-};
+/// @brief 求解器统计信息
+typedef struct SolverStats{
+    int funcalls;
+    int iterations;
+    int error_num;
+} SolverStats;
 
 AST_NAMESPACE_END

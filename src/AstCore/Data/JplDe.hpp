@@ -22,7 +22,7 @@
  
 #include "AstGlobal.h"
 #include <stdint.h>      // for uint32_t
-#include <stdio.h>       // for FILE
+#include <cstdio>       // for FILE
 #include <mutex>         // for std::mutex
  
 AST_NAMESPACE_BEGIN

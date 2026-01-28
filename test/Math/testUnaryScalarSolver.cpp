@@ -211,4 +211,15 @@ TEST(RidderSolverTest, ExpFunction) {
     EXPECT_NEAR(result, std::log(2.0), 1e-10);
 }
 
+
+TEST(UnarySolverTest, LambdaFunction) {
+    SecantSolver solver;
+    double value = 4.0;
+    auto func = [&](double x) -> double { return x * x - value; };
+    double result;
+    err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+    ASSERT_EQ(err, eNoError);
+    EXPECT_NEAR(result, 2.0, 1e-10);
+}
+
 GTEST_MAIN()

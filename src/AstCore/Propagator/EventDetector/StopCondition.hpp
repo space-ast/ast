@@ -1,5 +1,5 @@
 ///
-/// @file      ODEEventsHandler.cpp
+/// @file      StopCondition.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,15 +18,22 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ODEEventsHandler.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "EventDetector.hpp"
 
 AST_NAMESPACE_BEGIN
 
-EODEAction ODEEventsHandler::handleStep(const double* y, double x)
+/// @brief 停止条件检测基类
+/// 参考GMAT的StopCondition类
+class AST_CORE_API StopCondition : public EventDetector
 {
-    return EODEAction();
-}
+public:
+    StopCondition() = default;
+    virtual ~StopCondition() = default;
+};
+
+
 
 AST_NAMESPACE_END
-
-

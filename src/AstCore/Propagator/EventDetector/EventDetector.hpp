@@ -1,5 +1,5 @@
 ///
-/// @file      ODEEventsHandler.hpp
+/// @file      EventDetector.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -21,16 +21,17 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstMath/ODEStepHandler.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class ODEEventsHandler: public ODEStepHandler
+/// @brief 事件检测基类
+/// 事件检测基类，用于检测事件是否发生。
+/// 参考orekit的EventDetector类
+class AST_CORE_API EventDetector
 {
 public:
-    ~ODEEventsHandler() override = default;
-
-    EODEAction handleStep(const double* y, double x) override;
+    EventDetector() = default;
+    virtual ~EventDetector() = default;
 };
 
 AST_NAMESPACE_END

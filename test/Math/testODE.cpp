@@ -18,13 +18,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstMath/RK4.hpp"
-#include "AstMath/RK8.hpp"
-#include "AstMath/RKV8.hpp"
-#include "AstMath/RKF45.hpp"
-#include "AstMath/RKF56.hpp"
-#include "AstMath/RKF78.hpp"
-#include "AstMath/RKCK.hpp"
+#include "AstMath/ODE.hpp"
 #include "AstTest/Test.h"
 
 AST_USING_NAMESPACE
@@ -75,6 +69,7 @@ void TestVarStepIntegrator(IntegratorType& integrator, double maxAbsErr, double 
     
     // 检查数值解与解析解的误差
     EXPECT_NEAR(y[0], analyticalSolution, tolerance);
+    EXPECT_EQ(t, tf);
 
     printf("largestStepSize_ = %f\n", integrator.getLargestStepSize());
     printf("smallestStepSize_ = %f\n", integrator.getSmallestStepSize());
@@ -109,6 +104,7 @@ void TestVarStepIntegratorVectorCollector(IntegratorType& integrator, double max
     EXPECT_EQ(ylist[xlist.size() - 1][0], y[0]);
     EXPECT_EQ(xlist[xlist.size() - 1], tf);
     EXPECT_EQ(xlist[0], t0);
+    EXPECT_EQ(t, tf);
     
     // 检查是否成功
     EXPECT_EQ(result, eNoError);

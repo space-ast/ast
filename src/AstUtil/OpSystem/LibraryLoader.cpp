@@ -20,7 +20,7 @@
  
 #include "LibraryLoader.hpp"
 #include "AstUtil/Encode.hpp"
-#include <stdio.h>
+#include <cstdio>
 #include <cstring>
 
 // 平台特定的头文件包含

@@ -56,6 +56,8 @@ public:
     /// @see ODEIntegrator
     err_t integrateStep(ODE& ode, double* y, double& t, double tf) override;
 
+protected:
+    void resetWorkspace(int dimension, int stage);
 public:
     /// @brief 固定步长积分器工作空间
     class Workspace : public ODEWorkspace
@@ -74,9 +76,6 @@ public:
         double** KArr_;             ///< 多步法中间结果数组
         double* absErrPerLen_;      ///< 每步绝对误差数组
         double* ymid_;              ///< 每步中点状态向量
-        double* y_;                 ///< 每步状态向量
-        double* ynew_;              ///< 每步新状态向量
-        double* ystep_;             ///< 每步状态向量增量
         double  nextAbsStepSize_;   ///< 下一步绝对步长，用于步长自适应调整
     };
 private:

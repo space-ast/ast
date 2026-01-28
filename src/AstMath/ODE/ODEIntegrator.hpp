@@ -21,12 +21,15 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "OrdinaryDifferentialEquation.hpp"
+#include "AstMath/ODEEventDetectorList.hpp"
+#include "AstMath/ODEStateObserverList.hpp"
+#include "AstMath/ODEInnerStateObserver.hpp"
+#include "AstMath/OrdinaryDifferentialEquation.hpp"
 #include <vector>
 
 AST_NAMESPACE_BEGIN
 
-class ODEStepHandler;
+class ODEEventDetector;
 
 /// @brief ODE 积分器接口类
 /// @details ~
@@ -74,9 +77,13 @@ public:
 class AST_MATH_API ODEIntegrator : public IODEIntegrator
 {
 public:
+    ODEIntegrator() = default;
     ~ODEIntegrator() override;
 
     using IODEIntegrator::integrate;
+
+    err_t initialize(ODE& ode) override;
+
 
     /// @brief 积分ODE
     /// @details 积分ODE，将积分结果存储在y中
@@ -92,8 +99,67 @@ public:
         std::vector<double>& xlist, std::vector<std::vector<double>>& ylist
     );
 
+    /// @brief 添加事件检测器
+    /// @details 添加一个事件检测器，用于检测ODE的事件
+    /// @param detector 事件检测器对象
+    void addEventDetector(ODEEventDetector* detector);
 
+    /// @brief 删除事件检测器
+    /// @details 删除一个事件检测器
+    /// @param detector 事件检测器对象
+    void removeEventDetector(ODEEventDetector* detector);
+
+    /// @brief 添加状态观察者
+    /// @details 添加一个状态观察者，用于观察ODE的状态
+    /// @param observer 状态观察者对象
+    void addStateObserver(ODEStateObserver* observer);
+
+    /// @brief 删除状态观察者
+    /// @details 删除一个状态观察者
+    /// @param observer 状态观察者对象
+    void removeStateObserver(ODEStateObserver* observer);
+
+    /// @brief 获取ODE方程
+    /// @details 获取当前积分器关联的ODE方程
+    /// @return ODE方程
+    ODE* getODE() { return ode_; }
+
+    /// @brief 获取当前积分步的开始状态
+    /// @details 获取当前积分步的开始状态
+    /// @return 当前积分步的开始状态
+    double* stateAtStepStart() { return stateAtStepStart_; }
+   
+    /// @brief 获取当前积分步的结束状态
+    /// @details 获取当前积分步的结束状态
+    /// @return 当前积分步的结束状态
+    double* stateAtStepEnd() { return stateAtStepEnd_; }
+    
+    /// @brief 获取当前积分步的开始时间
+    /// @details 获取当前积分步的开始时间
+    /// @return 当前积分步的开始时间
+    double& timeAtStepStart() { return timeAtStepStart_; }
+    
+    /// @brief 获取当前积分步的结束时间
+    /// @details 获取当前积分步的结束时间
+    /// @return 当前积分步的结束时间
+    double& timeAtStepEnd() { return timeAtStepEnd_; }
 protected:
-    ODEStepHandler* stepHandler_{nullptr};
+    
+protected:
+    friend class ODEInnerStateObserver;
+    void initWorkStateObserver();
+    A_DISABLE_COPY(ODEIntegrator);
+protected:
+    ODE* ode_{nullptr};                                     ///< ODE方程
+    ODEStateObserver* workStateObserver_{nullptr};          ///< 状态观察者
+    ODEEventDetectorList eventDetectorList_;                ///< 事件检测器列表
+    ODEStateObserverList stateObserverList_;                ///< 状态观察者列表
+    ODEInnerStateObserver* innerStateObserver_{nullptr};    ///< 内部状态观察者
+    double* stateAtStepStart_{nullptr};                     ///< 当前积分步的开始状态
+    double* stateAtStepEnd_{nullptr};                       ///< 当前积分步的结束状态
+    double timeAtStepStart_{0.0};                           ///< 当前积分步的开始时间   
+    double timeAtStepEnd_{0.0};                             ///< 当前积分步的结束时间
 };
+
+
 AST_NAMESPACE_END

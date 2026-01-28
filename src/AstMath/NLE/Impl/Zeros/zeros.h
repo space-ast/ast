@@ -3,16 +3,23 @@
 /* Modified to not depend on Python everywhere by Travis Oliphant.
  */
 
+/*
+ * Modified to be used in ast project.
+ */
+
 #include "AstGlobal.h"
+#include "AstMath/SolverStats.h"
 
 #ifndef ZEROS_H
 #define ZEROS_H
 
-typedef struct {
-    int funcalls;
-    int iterations;
-    int error_num;
-} scipy_zeros_info;
+// typedef struct {
+//     int funcalls;
+//     int iterations;
+//     int error_num;
+// } scipy_zeros_info;
+
+typedef struct _AST SolverStats scipy_zeros_info;
 
 
 /* Must agree with _ECONVERGED, _ESIGNERR, _ECONVERR  in zeros.py */

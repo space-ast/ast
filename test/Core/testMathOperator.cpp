@@ -25,7 +25,7 @@
 #include "AstTest/AstTestMacro.h"
 #include <vector>
 #include <array>
-#include <stdio.h>
+#include <cstdio>
 
 using namespace _AST math;
 
