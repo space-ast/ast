@@ -141,6 +141,92 @@ TEST(DateTime, Normalize)
     EXPECT_DOUBLE_EQ(dt3.second(), 59);
 }
 
+
+TEST(DateTime, NormalizeEdgeCase) 
+{
+    AST_USING_NAMESPACE
+
+    // 测试边界值
+    {
+        DateTime dttm;
+        dttm.year() = 2023;
+        dttm.month() = 2;
+        dttm.day() = 29;  
+        dttm.hour() = 23;
+        dttm.minute() = 59;
+        dttm.second() = 60;
+        
+        dttm.normalize();
+        printf("dttm: %s\n", dttm.toString().c_str());
+        
+        // 预期结果: 2023-03-02 00:00:00
+        EXPECT_EQ(dttm.year(), 2023);
+        EXPECT_EQ(dttm.month(), 3);
+        EXPECT_EQ(dttm.day(), 2);
+        EXPECT_EQ(dttm.hour(), 0);
+        EXPECT_EQ(dttm.minute(), 0);
+        EXPECT_DOUBLE_EQ(dttm.second(), 0);
+    }
+    {
+        DateTime dttm;
+        dttm.year() = 2023;
+        dttm.month() = 2;
+        dttm.day() = 0;  
+        dttm.hour() = 23;
+        dttm.minute() = 59;
+        dttm.second() = 59;
+        dttm.normalize();
+
+        printf("dttm: %s\n", dttm.toString().c_str());
+        // 预期结果: 2023-01-31 23:59:59
+        EXPECT_EQ(dttm.year(), 2023);
+        EXPECT_EQ(dttm.month(), 1);
+        EXPECT_EQ(dttm.day(), 31);
+        EXPECT_EQ(dttm.hour(), 23);
+        EXPECT_EQ(dttm.minute(), 59);
+        EXPECT_DOUBLE_EQ(dttm.second(), 59);
+    }
+    {
+        DateTime dttm;
+        dttm.year() = 2023;
+        dttm.month() = 2;
+        dttm.day() = -30;  
+        dttm.hour() = 23;
+        dttm.minute() = 59;
+        dttm.second() = 59;
+        dttm.normalize();
+
+        printf("dttm: %s\n", dttm.toString().c_str());
+        // 预期结果: 2023-01-01 23:59:59
+        EXPECT_EQ(dttm.year(), 2023);
+        EXPECT_EQ(dttm.month(), 1);
+        EXPECT_EQ(dttm.day(), 1);
+        EXPECT_EQ(dttm.hour(), 23);
+        EXPECT_EQ(dttm.minute(), 59);
+        EXPECT_DOUBLE_EQ(dttm.second(), 59);
+    }
+    {
+        DateTime dttm;
+        dttm.year() = 2023;
+        dttm.month() = 2;
+        dttm.day() = -31;  
+        dttm.hour() = 23;
+        dttm.minute() = 59;
+        dttm.second() = 59;
+        dttm.normalize();
+
+        printf("dttm: %s\n", dttm.toString().c_str());
+        // 预期结果: 2022-12-31 23:59:59
+        EXPECT_EQ(dttm.year(), 2022);
+        EXPECT_EQ(dttm.month(), 12);
+        EXPECT_EQ(dttm.day(), 31);
+        EXPECT_EQ(dttm.hour(), 23);
+        EXPECT_EQ(dttm.minute(), 59);
+        EXPECT_DOUBLE_EQ(dttm.second(), 59);
+    }
+
+}
+
 TEST(DateTime, FromString) 
 {
     AST_USING_NAMESPACE
