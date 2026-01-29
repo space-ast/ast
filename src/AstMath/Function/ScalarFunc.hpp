@@ -21,12 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "UnaryVectorFunc.hpp"
+#include "UnaryScalarFunc.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-using UnaryFunc = UnaryVectorFunc;
-using ScalarFunc = UnaryVectorFunc;
+using UnaryFunc = UnaryScalarFunc;
+using ScalarFunc = UnaryScalarFunc;
 
 AST_NAMESPACE_END

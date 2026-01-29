@@ -73,7 +73,7 @@ public:
 
 
 /// @brief 一元方程求解器
-class UnarySolver: public IUnarySolver
+class AST_MATH_API UnarySolver: public IUnarySolver
 {
 public:
     UnarySolver();

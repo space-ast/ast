@@ -26,15 +26,28 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief Brent法求解器
-class AST_MATH_API BrentSolver: public UnarySolver
+/// @brief Brentq法求解器
+class AST_MATH_API BrentqSolver: public UnarySolver
 {
 public:
     using UnarySolver::UnarySolver;
-    BrentSolver() = default;
-    ~BrentSolver() = default;
+    BrentqSolver() = default;
+    ~BrentqSolver() = default;
     using UnarySolver::solve;
     err_t solve(UnaryScalarFunc& func, double min, double max, double& result) override;
 };
+
+/// @brief Brenth法求解器
+class AST_MATH_API BrenthSolver: public UnarySolver
+{
+public:
+    using UnarySolver::UnarySolver;
+    BrenthSolver() = default;
+    ~BrenthSolver() = default;
+    using UnarySolver::solve;
+    err_t solve(UnaryScalarFunc& func, double min, double max, double& result) override;
+};
+
+using BrentSolver = BrentqSolver;
 
 AST_NAMESPACE_END

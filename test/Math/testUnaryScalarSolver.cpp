@@ -18,6 +18,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
+#include "AstMath/Zeros.hpp"
 #include "AstMath/SecantSolver.hpp"
 #include "AstMath/BrentSolver.hpp"
 #include "AstMath/BisectionSolver.hpp"
@@ -100,9 +101,9 @@ TEST(BisectionSolverTest, ExpFunction) {
     EXPECT_NEAR(result, std::log(2.0), 1e-10);
 }
 
-// Brent法求解器测试
-TEST(BrentSolverTest, LinearFunction) {
-    BrentSolver solver;
+// Brentq法求解器测试
+TEST(BrentqSolverTest, LinearFunction) {
+    BrentqSolver solver;
     LinearFunction func;
     double result;
     err_t err = solver.solve(func, 0.0, 5.0, result);
@@ -110,8 +111,8 @@ TEST(BrentSolverTest, LinearFunction) {
     EXPECT_NEAR(result, 2.0, 1e-10);
 }
 
-TEST(BrentSolverTest, QuadraticFunction) {
-    BrentSolver solver;
+TEST(BrentqSolverTest, QuadraticFunction) {
+    BrentqSolver solver;
     QuadraticFunction func;
     double result;
     err_t err = solver.solve(func, 0.0, 5.0, result);
@@ -119,8 +120,8 @@ TEST(BrentSolverTest, QuadraticFunction) {
     EXPECT_NEAR(result, 2.0, 1e-10);
 }
 
-TEST(BrentSolverTest, SinFunction) {
-    BrentSolver solver;
+TEST(BrentqSolverTest, SinFunction) {
+    BrentqSolver solver;
     SinFunction func;
     double result;
     err_t err = solver.solve(func, 0.5, 3.5, result);
@@ -128,14 +129,54 @@ TEST(BrentSolverTest, SinFunction) {
     EXPECT_NEAR(result, PI, 1e-10);
 }
 
-TEST(BrentSolverTest, ExpFunction) {
-    BrentSolver solver;
+TEST(BrentqSolverTest, ExpFunction) {
+    BrentqSolver solver;
     ExpFunction func;
     double result;
     err_t err = solver.solve(func, 0.0, 2.0, result);
     ASSERT_EQ(err, eNoError);
     EXPECT_NEAR(result, std::log(2.0), 1e-10);
 }
+
+
+// Brenth法求解器测试
+TEST(BrenthSolverTest, LinearFunction) {
+    BrenthSolver solver;
+    LinearFunction func;
+    double result;
+    err_t err = solver.solve(func, 0.0, 5.0, result);
+    ASSERT_EQ(err, eNoError);
+    EXPECT_NEAR(result, 2.0, 1e-10);
+}
+
+TEST(BrenthSolverTest, QuadraticFunction) {
+    BrenthSolver solver;
+    QuadraticFunction func;
+    double result;
+    err_t err = solver.solve(func, 0.0, 5.0, result);
+    ASSERT_EQ(err, eNoError);
+    EXPECT_NEAR(result, 2.0, 1e-10);
+}
+
+TEST(BrenthSolverTest, SinFunction) {
+    BrenthSolver solver;
+    SinFunction func;
+    double result;
+    err_t err = solver.solve(func, 0.5, 3.5, result);
+    ASSERT_EQ(err, eNoError);
+    EXPECT_NEAR(result, PI, 1e-10);
+}
+
+TEST(BrenthSolverTest, ExpFunction) {
+    BrenthSolver solver;
+    ExpFunction func;
+    double result;
+    err_t err = solver.solve(func, 0.0, 2.0, result);
+    ASSERT_EQ(err, eNoError);
+    EXPECT_NEAR(result, std::log(2.0), 1e-10);
+}
+
+
 
 // 割线法求解器测试
 TEST(SecantSolverTest, LinearFunction) {
@@ -213,13 +254,71 @@ TEST(RidderSolverTest, ExpFunction) {
 
 
 TEST(UnarySolverTest, LambdaFunction) {
-    SecantSolver solver;
     double value = 4.0;
     auto func = [&](double x) -> double { return x * x - value; };
     double result;
-    err_t err = solver.solveFunc(func, 0.0, 5.0, result);
-    ASSERT_EQ(err, eNoError);
-    EXPECT_NEAR(result, 2.0, 1e-10);
+    {
+        SecantSolver solver;
+        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        ASSERT_EQ(err, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        BrentqSolver solver;
+        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        ASSERT_EQ(err, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        BrenthSolver solver;
+        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        ASSERT_EQ(err, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        RidderSolver solver;
+        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        ASSERT_EQ(err, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        SecantSolver solver;
+        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        ASSERT_EQ(err, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+}
+
+TEST(UnarySolverTest, LambdaFunction2) {
+    SecantSolver solver;
+    double value = 4.0;
+    auto func = [&](double x) -> double { return x * x - value; };
+    SolverStats stats;
+    {
+        double result = bisect(func, 0.0, 5.0, 1e-10, 1e-10, 100, stats);
+        ASSERT_EQ(stats.error_num, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        double result = brentq(func, 0.0, 5.0, 1e-10, 1e-10, 100, stats);
+        ASSERT_EQ(stats.error_num, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        double result = brenth(func, 0.0, 5.0, 1e-10, 1e-10, 100, stats);
+        ASSERT_EQ(stats.error_num, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        double result = ridder(func, 0.0, 5.0, 1e-10, 1e-10, 100, stats);
+        ASSERT_EQ(stats.error_num, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
+    {
+        double result = secant(func, 0.0, 5.0, 1e-10, 1e-10, 100, stats);
+        ASSERT_EQ(stats.error_num, eNoError);
+        EXPECT_NEAR(result, 2.0, 1e-10);
+    }
 }
 
 GTEST_MAIN()
