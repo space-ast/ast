@@ -82,5 +82,23 @@ private:
     double      goal_{0.0};         ///< 事件检测的目标值
 };
 
+/// @brief 泛型ODE积分的事件检测器
+/// @details 
+template<typename Func>
+class ODEEventDetectorGeneric: public ODEEventDetector
+{
+public:
+    explicit ODEEventDetectorGeneric(Func func) 
+        : func_(std::move(func)) 
+    {}
+    
+    double getValue(const double* y,double x) const override {
+        return func_(y, x);
+    }
+    
+private:
+    Func func_;
+};
+
 
 AST_NAMESPACE_END

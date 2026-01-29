@@ -56,4 +56,42 @@ public:
 
 using ODE = OrdinaryDifferentialEquation;       ///< 常微分方程别名
 
+
+
+/// @brief 泛型常微分方程
+template<typename Func>
+class ODEGeneric: public ODE
+{
+public:
+    ODEGeneric(Func func, int dim) 
+        : func_(std::move(func))
+        , dim_(dim) 
+    {}
+    
+    int getDimension() const override {
+        return dim_;
+    }
+    
+    err_t evaluate(const double* y, double* dy, const double t) override {
+        return func_(y, dy, t);
+    }
+    
+private:
+    Func func_;
+    int dim_;
+};
+
+
+/// @brief 创建一个常微分方程
+template<typename Func>
+ODEGeneric<Func> make_ode(Func func, int dim) {
+    return ODEGeneric<Func>(func, dim);
+}
+
+/// @brief 创建一个常微分方程
+template<typename Func>
+ODEGeneric<Func> make_ode(int dim, Func func) {
+    return ODEGeneric<Func>(func, dim);
+}
+
 AST_NAMESPACE_END

@@ -259,31 +259,31 @@ TEST(UnarySolverTest, LambdaFunction) {
     double result;
     {
         SecantSolver solver;
-        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        err_t err = solver.solve(func, 0.0, 5.0, result);
         ASSERT_EQ(err, eNoError);
         EXPECT_NEAR(result, 2.0, 1e-10);
     }
     {
         BrentqSolver solver;
-        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        err_t err = solver.solve(func, 0.0, 5.0, result);
         ASSERT_EQ(err, eNoError);
         EXPECT_NEAR(result, 2.0, 1e-10);
     }
     {
         BrenthSolver solver;
-        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        err_t err = solver.solve(func, 0.0, 5.0, result);
         ASSERT_EQ(err, eNoError);
         EXPECT_NEAR(result, 2.0, 1e-10);
     }
     {
         RidderSolver solver;
-        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        err_t err = solver.solve(func, 0.0, 5.0, result);
         ASSERT_EQ(err, eNoError);
         EXPECT_NEAR(result, 2.0, 1e-10);
     }
     {
         SecantSolver solver;
-        err_t err = solver.solveFunc(func, 0.0, 5.0, result);
+        err_t err = solver.solve(func, 0.0, 5.0, result);
         ASSERT_EQ(err, eNoError);
         EXPECT_NEAR(result, 2.0, 1e-10);
     }

@@ -45,4 +45,21 @@ public:
 
 };
 
+/// @brief 泛型ODE状态量观察者
+template<typename Func>
+class ODEStateObserverGeneric: public ODEStateObserver
+{
+public:
+    explicit ODEStateObserverGeneric(Func func) 
+        : func_(std::move(func)) 
+    {}
+    
+    EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) override {
+        return func_(y, x, integrator);
+    }
+    
+private:
+    Func func_;
+};
+
 AST_NAMESPACE_END

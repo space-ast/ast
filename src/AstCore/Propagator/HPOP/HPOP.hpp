@@ -78,6 +78,9 @@ public:
     /// @brief 设置积分器
     void setIntegrator(ODEIntegrator* integrator);
 
+    /// @brief 获取积分器
+    ODEIntegrator* getIntegrator() const;
+
     /// @brief 轨道预报
     /// @param[in]      start       仿真起始历元
     /// @param[in]      end         仿真结束历元
