@@ -35,6 +35,7 @@ public:
     class Workspace;
     ODEFixedStepIntegrator();
     ~ODEFixedStepIntegrator();
+    using ODEIntegrator::integrate;
 
     /// @brief 获取步长
     double getStepSize() const{ return stepSize_; }
@@ -42,16 +43,21 @@ public:
     /// @brief 设置步长
     void setStepSize(double stepSize){ stepSize_ = stepSize; }
 
+    /// @brief 获取积分过程中统计到的积分步数
+    int getNumSteps() const;
+
     /// @brief 获取工作空间
     const Workspace& getWorkspace() const{ return workspace_; }
     Workspace& getWorkspace(){ return workspace_; }
 
     /// @see ODEIntegrator
-    err_t integrate(ODE& ode, double t0, double tf, const double* y0, double* yf) override;
+    err_t integrate(ODE& ode, double* y, double& t, double tf) override;
 
     /// @see ODEIntegrator
-    err_t integrateStep(ODE& ode, double& t, double tf, const double* y0, double* y) override;
+    err_t integrateStep(ODE& ode, double* y, double& t, double tf) override;
 
+protected:
+    void resetWorkspace(int dimension, int stage);
 public:
     /// @brief 固定步长积分器工作空间
     class Workspace : public ODEWorkspace
@@ -70,9 +76,6 @@ public:
         double** KArr_;             ///< 多步法中间结果数组
         double* absErrPerLen_;      ///< 每步绝对误差数组
         double* ymid_;              ///< 每步中点状态向量
-        double* y_;                 ///< 每步状态向量
-        double* ynew_;              ///< 每步新状态向量
-        double* ystep_;             ///< 每步状态向量增量
         double  nextAbsStepSize_;   ///< 下一步绝对步长，用于步长自适应调整
     };
 private:

@@ -26,12 +26,13 @@ AST_NAMESPACE_BEGIN
 
 err_t RK4::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 4);
+    this->resetWorkspace(ode.getDimension(), 4);
     return eNoError;
 }
 
-err_t RK4::singleStep(ODE &ode, double t0, double step, const double *y0, double *yf)
+err_t RK4::singleStep(ODE &ode, double* y, double t0, double step)
 {
     int err;
     auto& wrk = this->getWorkspace();
@@ -44,6 +45,8 @@ err_t RK4::singleStep(ODE &ode, double t0, double step, const double *y0, double
     double* ymid = wrk.ymid_;
 
     double hh = step * 0.5;
+    const double* y0 = y;
+    double* yf = y;
 
     // 计算 k1
     err = ode.evaluate(t, y0, k1);

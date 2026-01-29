@@ -20,6 +20,7 @@
 
 #include "ODEFixedStepIntegrator.hpp"
 #include "AstMath/MathOperator.hpp"
+#include "AstMath/ODEStateObserver.hpp"
 #include <limits>
 #include <cmath>
 #include <algorithm>
@@ -37,9 +38,9 @@ ODEFixedStepIntegrator::Workspace::Workspace()
     , KArr_(nullptr)
     , absErrPerLen_(nullptr)
     , ymid_(nullptr)
-    , y_(nullptr)
-    , ynew_(nullptr)
-    , ystep_(nullptr)
+    // , y_(nullptr)
+    // , ynew_(nullptr)
+    // , ystep_(nullptr)
     , nextAbsStepSize_(0)
 {
 
@@ -58,9 +59,9 @@ void ODEFixedStepIntegrator::Workspace::reset(int dimension, int stage)
         }
         absErrPerLen_ = new double[dimension];
         ymid_ = new double[dimension];
-        y_ = new double[dimension];
-        ynew_ = new double[dimension];
-        ystep_ = new double[dimension];
+        // y_ = new double[dimension];
+        // ynew_ = new double[dimension];
+        // ystep_ = new double[dimension];
     }
     // 重置统计数据
     numSteps_ = 0;
@@ -89,18 +90,18 @@ void ODEFixedStepIntegrator::Workspace::clear()
     {
         delete[] ymid_;
     }
-    if(y_ != nullptr)
-    {
-        delete[] y_;
-    }
-    if(ynew_ != nullptr)
-    {
-        delete[] ynew_;
-    }
-    if(ystep_ != nullptr)
-    {
-        delete[] ystep_;
-    }
+    // if(y_ != nullptr)
+    // {
+    //     delete[] y_;
+    // }
+    // if(ynew_ != nullptr)
+    // {
+    //     delete[] ynew_;
+    // }
+    // if(ystep_ != nullptr)
+    // {
+    //     delete[] ystep_;
+    // }
 }
 
 
@@ -117,13 +118,30 @@ ODEFixedStepIntegrator::ODEFixedStepIntegrator()
 
 ODEFixedStepIntegrator::~ODEFixedStepIntegrator()
 {
-
+    if(stateAtStepStart_)
+    {
+        delete[] stateAtStepStart_;
+    }
+    if(stateAtStepEnd_)
+    {
+        delete[] stateAtStepEnd_;
+    }
+    if(stateTemp_)
+    {
+        delete[] stateTemp_;
+    }
 }
 
-err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
+int ODEFixedStepIntegrator::getNumSteps() const
+{
+    return this->getWorkspace().numSteps_;
+}
+
+err_t ODEFixedStepIntegrator::integrate(ODE& ode, double* y, double& t, double tf)
 {
     // 初始化积分器
     this->initialize(ode);
+    auto& wrk = this->getWorkspace();
     
     err_t err = eNoError;
     double stepSize = this->stepSize_;
@@ -131,25 +149,41 @@ err_t ODEFixedStepIntegrator::integrate(ODE &ode, double t0, double tf, const do
     {
         stepSize = 60;
     }
+    double t0 = t;
     double habs = std::min(fabs(stepSize), fabs(tf - t0));
     int ndim = ode.getDimension();
     int tdir = sign(tf - t0);
     double step = tdir * habs;
     // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
-    double t = t0;
-    std::copy_n(y0, ndim, yf);
+    // double t = t0;
+    // std::copy_n(y0, ndim, yf);
+    if(workStateObserver_)
+    {
+        if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
+        {
+            return eNoError;
+        }
+    }
     while (tdir * (tf - t) > 0) {
         double h = tdir * std::min(habs, std::abs(tf - t));
-        err = this->singleStep(ode, t, h, yf, yf);
+        err = this->singleStep(ode, y, t, h);
         if (err != eNoError) {
             return err;
         }
         t += h;
+        wrk.numSteps_++;
+        if(workStateObserver_)
+        {
+            if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
+            {
+                return eNoError;
+            }
+        }
     }
     return eNoError;
 }
 
-err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
+err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double *y, double &t, double tf)
 {
     // 初始化积分器
     // this->init(ode);
@@ -163,13 +197,36 @@ err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double &t, double tf, cons
         absh = stepabs;
     }
     double h = absh * tdir;
-    err_t err = this->singleStep(ode, t, h, y0, y);
+    err_t err = this->singleStep(ode, y, t, h);
     if(err != eNoError)
     {
         return err;
     }
     t += h;
     return eNoError;
+}
+
+void ODEFixedStepIntegrator::resetWorkspace(int dimension, int stage)
+{
+    if(dimension > this->getWorkspace().dimension_)
+    {
+        if(stateAtStepStart_)
+        {
+            delete[] stateAtStepStart_;
+        }
+        if(stateAtStepEnd_)
+        {
+            delete[] stateAtStepEnd_;
+        }
+        if(stateTemp_)
+        {
+            delete[] stateTemp_;
+        }
+        stateAtStepStart_ = new double[dimension];
+        stateAtStepEnd_ = new double[dimension];
+        stateTemp_ = new double[dimension];
+    }
+    this->getWorkspace().reset(dimension, stage);
 }
 
 AST_NAMESPACE_END

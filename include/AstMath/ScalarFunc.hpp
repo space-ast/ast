@@ -1,1 +1,1 @@
-#include "../../src/AstMath/Interpolator/ScalarFunc.hpp"
+#include "../../src/AstMath/Function/ScalarFunc.hpp"

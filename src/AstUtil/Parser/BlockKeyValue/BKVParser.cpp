@@ -23,7 +23,7 @@
 #include "AstUtil/BKVSax.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/BKVItemView.hpp"
-#include <stdio.h>
+#include <cstdio>
 
 AST_NAMESPACE_BEGIN
 

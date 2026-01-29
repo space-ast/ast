@@ -25,14 +25,15 @@ AST_NAMESPACE_BEGIN
 
 err_t RKCK::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 6);
+    this->resetWorkspace(ode.getDimension(), 6);
     return eNoError;
 }
 
 
 
-err_t RKCK::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
+err_t RKCK::singleStep(ODE &ode, double* y, double t0, double h)
 {
     /* Cash-Karp 方法系数 */
     static const double ah[] = { 1.0 / 5.0, 0.3, 3.0 / 5.0, 1.0, 7.0 / 8.0 };
@@ -72,6 +73,9 @@ err_t RKCK::singleStep(ODE &ode, double t0, double h, const double *y0, double *
         * f5 = KArr[4],
         * f6 = KArr[5];
     double* ymid = wrk.ymid_;
+
+    const double* y0 = y;
+    double* yf = y;
 
     err_t err;
 

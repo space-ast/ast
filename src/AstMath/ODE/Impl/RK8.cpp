@@ -28,12 +28,13 @@ AST_NAMESPACE_BEGIN
 
 err_t RK8::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 10);
+    this->resetWorkspace(ode.getDimension(), 10);
     return eNoError;
 }
 
-err_t RK8::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
+err_t RK8::singleStep(ODE &ode, double* y, double t0, double h)
 {
     const double c2 = 4.0 / 27.0;
     const double c3 = 2.0 / 9.0;
@@ -112,6 +113,8 @@ err_t RK8::singleStep(ODE &ode, double t0, double h, const double *y0, double *y
     ASSERT_EQ(1, a10_1 + +a10_3 + a10_4 + a10_5 + a10_6 + a10_7 + a10_8 + a10_9);
     ASSERT_EQ(1, b1 + b4 + b5 + b6 + b7 + b9 + b10);
 #endif
+    const double* y0 = y;
+    double* yf = y;
 
     auto& wrk = this->getWorkspace();
     int n = wrk.dimension_;

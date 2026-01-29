@@ -40,12 +40,13 @@ static const double
 
 err_t RKF56::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 8);
+    this->resetWorkspace(ode.getDimension(), 8);
     return eNoError;
 }
 
-err_t RKF56::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
+err_t RKF56::singleStep(ODE &ode, double* y, double t0, double h)
 {
     const double err_factor = -5.0 / 66.0;
 
@@ -53,6 +54,8 @@ err_t RKF56::singleStep(ODE &ode, double t0, double h, const double *y0, double 
     int ndim = wrk.dimension_;
     auto KArr = wrk.KArr_;
     double* ymid = wrk.ymid_;
+    const double* y0 = y;
+    double* yf = y;
 
     for (int k = 0; k < 8; k++) {
         for (int i = 0; i < ndim; i++) {

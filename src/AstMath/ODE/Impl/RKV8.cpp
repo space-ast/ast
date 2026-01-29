@@ -26,13 +26,14 @@ AST_NAMESPACE_BEGIN
 
 err_t RKV8::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 11);
+    this->resetWorkspace(ode.getDimension(), 11);
     return eNoError;
 }
 
 
-err_t RKV8::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
+err_t RKV8::singleStep(ODE &ode, double* y, double t0, double h)
 {
     const double sqrt21 = sqrt(21.0);
 
@@ -116,6 +117,10 @@ err_t RKV8::singleStep(ODE &ode, double t0, double h, const double *y0, double *
     double* ymid = wrk.ymid_;
 
     double c1h = c1 * h, c2h = c2 * h, c3h = c3 * h;
+
+    const double* y0 = y;
+    double* yf = y;
+
     err_t err;
     // 计算k1
     err = ode.evaluate(t0, y0, k1);

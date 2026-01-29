@@ -1,7 +1,7 @@
 #include "AstCore/OrbitElement.hpp"
 #include <iostream>
 
-using namespace AST_NAMESPACE;
+AST_USING_NAMESPACE
 
 int main() {
     // 定义经典轨道根数

@@ -20,7 +20,7 @@
 
 #include "AstCore/Date.hpp"
 #include "AstTest/AstTestMacro.h"
-#include <stdio.h>
+#include <cstdio>
 
 
 TEST(Date, BasicConstructor) 

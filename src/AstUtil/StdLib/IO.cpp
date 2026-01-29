@@ -73,12 +73,16 @@ std::FILE* ast_fopen(const char* filepath, const char* mode)
     return ::_wfopen(wpath.c_str(), wmode.c_str());
 }
 
+#ifdef AST_ENABLE_NAMESPACE
 int printf(const char* format, ...)
+#else
+int ::printf(const char* format, ...)
+#endif
 {
     va_list args;
     int result;
     va_start(args, format);
-    result = ast_vprintf(format, args);
+    result = _AST ast_vprintf(format, args);
     va_end(args);
     return result;
 }
@@ -140,4 +144,4 @@ int aCurrentLineNumber(std::FILE *file)
 }
 
 AST_NAMESPACE_END
- 
+

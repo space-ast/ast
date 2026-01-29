@@ -30,3 +30,5 @@
 #include "AstMath/RKF78.hpp"
 #include "AstMath/RKV8.hpp"
 
+// AST_MATH_CAPI err_t aIntegrateConst(ODEIntegrator& integrator, ODE& ode, double* y, double t0, double tf);
+

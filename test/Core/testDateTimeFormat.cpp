@@ -20,7 +20,7 @@
 
 #include "AstCore/DateTime.hpp"
 #include "AstTest/AstTestMacro.h"
-#include <stdio.h>
+#include <cstdio>
 #include <time.h>
 #include <utility>
 #include <cstring>

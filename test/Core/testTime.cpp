@@ -20,7 +20,7 @@
 
 #include "AstCore/Time.hpp"
 #include "AstTest/AstTestMacro.h"
-#include <stdio.h>
+#include <cstdio>
 
 TEST(Time, BasicConstructor) 
 {

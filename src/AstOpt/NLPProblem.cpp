@@ -23,7 +23,7 @@
 #include "AstUtil/LocalBuffer.hpp"
 #include <memory>			// for std::shared_ptr
 #include <algorithm>		// for std::copy_n std::fill_n
-#include <stdio.h>			// for printf
+#include <cstdio>			// for printf
 #include <cmath>			// for std::isnan
 
 #define INFBND 1.1e20

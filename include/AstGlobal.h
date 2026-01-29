@@ -70,7 +70,11 @@
 #	define AST_PREPEND_NAMESPACE(name) ::AST_NAMESPACE::name
 #	define AST_DECL_TYPE_ALIAS(name) typedef AST_PREPEND_NAMESPACE(name) A##name;
 #else
-#   define _AST ::
+#   ifdef __cplusplus
+#       define _AST ::
+#   else
+#       define _AST 
+#   endif
 #	define AST_NAMESPACE 
 #	define AST_NAMESPACE_BEGIN 
 #	define AST_NAMESPACE_END   

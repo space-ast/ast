@@ -151,21 +151,36 @@ ast项目的开发参考和使用了很多资料与工具，感谢所有开源�
 
 ### 开源代码
 
-- [AstroLib](https://gitee.com/wanghmail/AstroLib): 航天/卫星建模与仿真算法库AstroLib
-- [GMAT](https://gmat.atlassian.net/): 通用任务分析工具，NASA开源的航天任务分析软件
 - [Orekit](https://www.orekit.org/): Java语言编写的航天动力学库，提供丰富的轨道和姿态算法
+- [GMAT](https://gmat.atlassian.net/): 通用任务分析工具，NASA开源的航天任务分析软件
+- [AstroLib](https://gitee.com/wanghmail/AstroLib): 航天/卫星建模与仿真算法库AstroLib
 - [Pagmo2](https://esa.github.io/pagmo2/): 欧洲空间局开发的并行全局优化库
 - [PyGMO2](https://esa.github.io/pygmo2/): Pagmo2的Python绑定，用于科学计算的优化工具
 - [PyKEP](https://esa.github.io/pykep/): 欧洲空间局的航天动力学Python库，专注于轨道优化
 - [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
+- [Scipy](https://scipy.org/): 一个Python库，用于科学计算和技术计算，提供了许多数学、科学和工程领域的功能
 - [GNU Octave](https://octave.org/): 开源数值计算软件，提供与MATLAB兼容的语法
 - [Hipparchus](https://hipparchus.org/): 一个Java数学库，提供了丰富的数学函数和算法
 - [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
 - [Python](https://www.python.org/): 流行的通用编程语言，在科学计算领域广泛应用
+- [julia](https://julialang.org/): 一种高性能的动态编程语言，专为科学计算和数值分析而设计
+- [glibc](https://www.gnu.org/software/libc/): GNU C库，提供了C语言标准库的实现
+- [abseil](https://abseil.io/): 一个C++库，提供了许多常用的功能，如字符串处理、内存管理、并发编程等，是Google开源的一个项目
 
-### 工具链与第三方库
+## 项目依赖
+
+### 工具链
 
 - [Xmake](https://xmake.io/): 基于Lua的现代化C/C++构建工具
+
+### 第三方库
+
+- [iau-sofa](https://www.iausofa.org/): 一个C库，提供了许多常用的天文计算函数
+- [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
+- [fmt](https://fmt.dev/): 一个用于格式化字符串的C++库，提供了类似于Python的格式化语法
+- [openscenegraph](https://www.openscenegraph.org/): 一个跨平台的3D图形库，用于渲染和交互显示3D场景
+- [opengl](https://www.opengl.org/): 一个跨平台的3D图形库，用于渲染和交互显示3D场景
+- [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
 
 
 ## 🌌 项目名称灵感

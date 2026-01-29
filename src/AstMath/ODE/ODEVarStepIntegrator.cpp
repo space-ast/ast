@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ODEVarStepIntegrator.hpp"
+#include "AstMath/ODEStateObserver.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "AstUtil/Logger.hpp"
 #include <cmath>
@@ -64,18 +65,14 @@ double ODEVarStepIntegrator::getSmallestStepSize() const
     return this->getWorkspace().smallestStepSize_;
 }
 
-/// @brief 获取积分过程中统计到的积分步数
-int ODEVarStepIntegrator::getNumSteps() const
-{
-    return this->getWorkspace().numSteps_;
-}
 
-err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const double *y0, double *yf)
+err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
 {
     this->initialize(ode);
     auto& wrk = this->getWorkspace();
     double absh, h, hmin, hmax;
-    double t, tnew;
+    double tnew;
+    double t0 = t;
     if(this->useMinStep_){
         hmin = this->minStepSize_;
     }else{
@@ -88,11 +85,20 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
     }
 
     absh = abs(this->getStepSize());
-    t = t0;
+    // t = t0;
     int tdir = sign(tf - t);
     bool final = false;
     int numAttempts = 0;
-    std::copy_n(y0, wrk.dimension_, wrk.y_);
+    const double* y0 = y;
+    double* yf = y;
+    std::copy_n(y0, wrk.dimension_, this->stateAtStepStart_);
+    this->timeAtStepStart_ = t0;
+    if(workStateObserver_){
+        if(workStateObserver_->onStateUpdate(this->stateAtStepStart_, t, this) == EODEAction::eStop)
+        {
+            return eNoError;
+        }
+    }
     while(1)
     {
         if(!this->useMinStep_){
@@ -109,13 +115,21 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
             h = absh * tdir;
             tnew = t + h;
         }
-        if(err_t rc = this->singleStep(ode, t, h, wrk.y_, wrk.ynew_))
+        std::copy_n(this->stateAtStepStart_, wrk.dimension_, this->stateAtStepEnd_);
+        this->timeAtStepEnd_ = tnew;
+        if(err_t rc = this->singleStep(ode, this->stateAtStepEnd_, t, h))
         {
             return rc;
         }
-        bool isOK = this->isErrorMeet(absh, wrk.y_, wrk.ynew_);
+        bool isOK = this->isErrorMeet(absh, this->stateAtStepStart_, this->stateAtStepEnd_);
         if(isOK)
         {
+            if(workStateObserver_){
+                if(workStateObserver_->onStateUpdate(this->stateAtStepEnd_, tnew, this) == EODEAction::eStop)
+                {
+                    break;
+                }
+            }
             wrk.numSteps_ ++;
             wrk.largestStepSize_ = std::max(wrk.largestStepSize_, absh);
             wrk.smallestStepSize_ = std::min(wrk.smallestStepSize_, absh);
@@ -134,14 +148,16 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double t0, double tf, const doub
                 continue;
             }
         }
-        std::swap(wrk.y_, wrk.ynew_);
+        std::swap(this->stateAtStepStart_, this->stateAtStepEnd_);
+        this->timeAtStepStart_ = tnew;
         t = tnew;
     }
-    std::copy_n(wrk.ynew_, wrk.dimension_, yf);
+    std::copy_n(this->stateAtStepEnd(), wrk.dimension_, yf);
+    t = tnew;
     return eNoError;
 }
 
-err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const double *y0, double *y)
+err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double* y, double &t, double tf)
 {
     auto& wrk = this->getWorkspace();
     double& absh = wrk.nextAbsStepSize_;
@@ -155,10 +171,12 @@ err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double &t, double tf, const 
     err_t err;
     bool isOK = false;
     int numAttempts = 0;
+    const double* y0 = y;
+    double* yf = y;
     double h;
     do{
         h = absh * tdir;
-        if(err_t rc = this->singleStep(ode, t, h, y0, y))
+        if(err_t rc = this->singleStep(ode, y, t, h))
         {
             return rc;
         }

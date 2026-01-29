@@ -23,7 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/BKVItemView.hpp"
-#include <stdio.h>
+#include <cstdio>
 #include <vector>
 
 #include <fstream>

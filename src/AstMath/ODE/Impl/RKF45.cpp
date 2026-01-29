@@ -37,17 +37,20 @@ static const double
         
 err_t RKF45::initialize(ODE &ode)
 {
+    this->ODEIntegrator::initialize(ode);
     // 重置工作空间
-    this->getWorkspace().reset(ode.getDimension(), 6);
+    this->resetWorkspace(ode.getDimension(), 6);
     return eNoError;
 }
 
-err_t RKF45::singleStep(ODE &ode, double t0, double h, const double *y0, double *yf)
+err_t RKF45::singleStep(ODE &ode, double* y, double t0, double h)
 {
     auto& wrk = this->getWorkspace();
     int ndim = wrk.dimension_;
     auto KArr = wrk.KArr_;
     double* ymid = wrk.ymid_;
+    const double* y0 = y;
+    double* yf = y;
 
     for (int k = 0; k < 6; k++) {
         for (int i = 0; i < ndim; i++) {
