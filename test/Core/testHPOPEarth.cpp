@@ -232,5 +232,36 @@ TEST_F(HPOPTest, MoonFreeReturn)
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
 }
 
+
+TEST_F(HPOPTest, MoonReturn)
+{
+    // aInitialize();
+    HPOPForceModel forceModel;
+    forceModel.useMoonGravity_ = true;
+    forceModel.moonGravity_ = 4.902800305555400390625e12;
+    forceModel.gravity_.degree_ = 0;
+    forceModel.gravity_.order_ = 0;
+    forceModel.gravity_.model_ = "JGM3";
+    HPOP propagator;
+    err_t err = propagator.setForceModel(forceModel);
+    EXPECT_EQ(err, 0);
+    auto start = TimePoint::FromUTC(2028, 6, 27, 10, 52, 43);
+    auto end   = TimePoint::FromUTC(2028, 6, 30, 13, 20, 0);
+    Vector3d pos{ -344102148.522, 133236881.64935, 31537732.121};
+    Vector3d vel{ 155.6, 879.050, 602.803};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+    Vector3d posExpect{ -7744298.936267, 2645786.33049, 736890.01309 };
+    Vector3d velExpect{ 9071.93747, -3461.80637, -920.620795};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
+}
 GTEST_MAIN();
 

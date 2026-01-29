@@ -21,6 +21,7 @@
 
 #include "Date.hpp"
 #include "AstUtil/Constants.h"
+#include "AstUtil/Logger.hpp"
 #include <assert.h>
 #include <cmath>       // for floor
 
@@ -173,15 +174,16 @@ void aDateToYD(const Date& date, int& year, int& days)
 void aDateNormalize(Date &date)
 {
 	int dayofmonth;
-#ifndef NDEBUG
 	int niter = 0;
-#endif // !NDEBUG
 
 	while (1) {
-#ifndef NDEBUG
 		niter++;
-		assert(niter <= 100000);
-#endif // !NDEBUG
+		if(A_UNLIKELY(niter > 100000))
+		{
+			aError("failed to normalize date: %s", date.toString().c_str());
+			// assert(niter <= 100000);
+			break;
+		}
 
 		int ryear = (int)floor((date.month() - 1) / 12.);
 		date.month() -= ryear * 12;
@@ -290,6 +292,11 @@ void aMJDToDate(int mjd, Date& date)
     return aJDToDateAtNoon(mjd + 2400001, date);
 }
 
-
+std::string aDateToString(const Date &date)
+{
+	char buffer[32];
+    sprintf(buffer, "%04d-%02d-%02d", date.year(), date.month(), date.day());
+	return std::string(buffer);
+}
 
 AST_NAMESPACE_END

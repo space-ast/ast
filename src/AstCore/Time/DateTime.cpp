@@ -295,12 +295,12 @@ err_t aDateTimeFormatISO8601(const DateTime& dttm, std::string& str)
     return eNoError;
 }
 
-err_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str)
+err_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str, int precision)
 {
     char buffer[64];
-    sprintf(buffer, "%04d-%02d-%02d %02d:%02d:%02.3f", 
+    sprintf(buffer, "%04d-%02d-%02d %02d:%02d:%02.*f", 
             dttm.year(), dttm.month(), dttm.day(), 
-            dttm.hour(), dttm.minute(), dttm.second());
+            dttm.hour(), dttm.minute(), precision, dttm.second());
     
     str = buffer;
     return eNoError;

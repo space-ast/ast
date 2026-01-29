@@ -66,7 +66,7 @@ err_t HPOP::initialize()
 
 
 
-err_t HPOP::propagate(const TimePoint &start, const TimePoint &end, Vector3d &position, Vector3d &velocity)
+err_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector3d &position, Vector3d &velocity)
 {
     err_t err = this->initialize();
     if (err)
@@ -76,11 +76,14 @@ err_t HPOP::propagate(const TimePoint &start, const TimePoint &end, Vector3d &po
         aError("dimension of equation is not 6");
         return -1;
     }
-    equation_->setEpoch(start);
+    equation_->setEpoch(startTime);
     array6d y = {position.x(), position.y(), position.z(), velocity.x(), velocity.y(), velocity.z()};
-    double duration = end - start;
+    double duration = targetTime - startTime;
     double t = 0;
     err = integrator_->integrate(*equation_,  y.data(), t, duration);
+    if(t != duration && !err){
+        targetTime = startTime + t;
+    }
     position = {y[0], y[1], y[2]};
     velocity = {y[3], y[4], y[5]};
     return err;

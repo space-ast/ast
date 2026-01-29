@@ -227,7 +227,7 @@ AST_CORE_CAPI err_t aDateTimeFormat(const DateTime& dttm, StringView format, std
 /// @param dttm 
 /// @param str 
 /// @return err_t 
-AST_CORE_CAPI err_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str);
+AST_CORE_CAPI err_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str, int precision = 3);
 
 
 /// @brief 格式化日期时间为格里高利历格式（英文）
@@ -255,7 +255,7 @@ AST_CORE_CAPI err_t aDateTimeFormatISO8601(const DateTime& dttm, std::string& st
 
 
 /// @brief 格式化日期时间为简单ISO 8601格式
-/// @details 将日期时间对象格式化为ISO 8601格式的字符串，例如：2025-11-21 12:34:56
+/// @details 将日期时间对象格式化为ISO 8601格式的字符串，例如：2025-11-21T12:34:56Z
 A_ALWAYS_INLINE err_t aDateTimeFormatISO(const DateTime& dttm, std::string& str)
 {
     return aDateTimeFormatISO8601(dttm, str);
@@ -471,6 +471,12 @@ public:
         DateTime dttm = *this;
         dttm.normalizeBJT();
         return dttm;
+    }
+public:
+    std::string toString(int precision = 3) const{
+        std::string str;
+        aDateTimeFormatGregorian(*this, str, precision);
+        return str;
     }
 public:
     void addYears(int years){

@@ -162,6 +162,8 @@ public:
     TimePoint operator+(double second) const{
         return {integerPart(), fractionalPart() + second};
     }
+    AST_CORE_API
+    std::string toString(int precision = 3) const;
 protected:
     static TimePoint FromIntegerFractional(int64_t integer, double fractional);
 public:

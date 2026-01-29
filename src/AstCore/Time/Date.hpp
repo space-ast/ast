@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include <string>
  
 AST_NAMESPACE_BEGIN
  
@@ -97,7 +98,8 @@ AST_CORE_CAPI int aDateToMJD(const Date& date);
 /// @brief 将当天00:00的简约儒略日转换为当天日期
 AST_CORE_CAPI void aMJDToDate(int mjd, Date& date);
 
-
+/// @brief 将日期转换为字符串表示
+AST_CORE_API std::string aDateToString(const Date& date);
 
 /// @brief 日期
 class Date
@@ -226,6 +228,10 @@ public:
         Date d = *this;
         aDateNormalize(d);
         return d;
+    }
+public:
+    std::string toString() const{
+        return aDateToString(*this);
     }
 public:
     int year_;          ///< 年

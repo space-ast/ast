@@ -1,5 +1,5 @@
 ///
-/// @file      FrameTransform.hpp
+/// @file      EarthFrame.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel

@@ -82,12 +82,13 @@ public:
     ODEIntegrator* getIntegrator() const;
 
     /// @brief 轨道预报
-    /// @param[in]      start       仿真起始历元
-    /// @param[in]      end         仿真结束历元
+    /// 考虑到有停止条件，所以预报结束时间同时也是一个输出参数
+    /// @param[in]      startTime   预报起始时间
+    /// @param[in,out]  targetTime  预报结束时间
     /// @param[in,out]  position    输出位置向量
     /// @param[in,out]  velocity    输出速度向量
     /// @return err_t  错误码
-    err_t propagate(const TimePoint& start, const TimePoint& end, Vector3d& position, Vector3d& velocity);
+    err_t propagate(const TimePoint& startTime, TimePoint& targetTime, Vector3d& position, Vector3d& velocity);
 
     /// @brief 初始化
     err_t initialize();
