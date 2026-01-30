@@ -93,9 +93,9 @@ public:
     /// @brief 初始化
     err_t initialize();
 protected:
-    HPOPEquation* equation_{nullptr};       ///< 高精度轨道预报方程
-    ODEIntegrator* integrator_{nullptr};    ///< 高精度轨道预报积分器
-    HPOPForceModel forcemodel_;             ///< 力模型配置
+    HPOPEquation* equation_{nullptr};               ///< 高精度轨道预报方程
+    mutable ODEIntegrator* integrator_{nullptr};    ///< 高精度轨道预报积分器
+    HPOPForceModel forcemodel_;                     ///< 力模型配置
 };
 
 AST_NAMESPACE_END

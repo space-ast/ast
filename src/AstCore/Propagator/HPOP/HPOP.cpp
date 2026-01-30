@@ -46,7 +46,8 @@ err_t HPOP::setForceModel(const HPOPForceModel& forcemodel)
 ODEIntegrator *HPOP::getIntegrator() const
 {
     if(A_UNLIKELY(!integrator_)){
-        const_cast<HPOP*>(this)->integrator_ = new RKF78();
+        // const_cast<HPOP*>
+        (this)->integrator_ = new RKF78();
     }
     return integrator_;
 }

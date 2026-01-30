@@ -254,7 +254,7 @@
 #ifdef _WIN32
 #   define A_DEBUG_BREAK() __debugbreak()
 #else
-#   define A_DEBUG_BREAK() std::raise(SIGTRAP)
+#   define A_DEBUG_BREAK() ::raise(SIGTRAP)
 #endif
 
 /// 为类型定义迭代器标准函数

@@ -85,8 +85,10 @@ int aDaysInMonthByYear(int month, int year)
 		int ryear = (int)floor((month - 1) / 12.);
 		month -= ryear * 12;
 		year += ryear;
-		return aDaysInMonthByYear(month, year);
+		// return aDaysInMonthByYear(month, year);
 	}
+	
+	assert(month >= 1 && month <= 12 && "month out of range [1, 12]");
 
 	int days = daysInMonth[month - 1];
 	if (month == 2 && aIsLeapYear(year)) {
