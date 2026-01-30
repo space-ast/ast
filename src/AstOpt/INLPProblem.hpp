@@ -31,12 +31,12 @@ AST_NAMESPACE_BEGIN
 /// @brief 非线性规划问题的维度信息
 struct NLPInfo
 {
-    int  numVariable{ 0 };           // 优化变量的维度，默认为0
-    int  numConstraintEq{ 0 };       // 等式约束的维度，默认为0
-    int  numConstraintIneq{ 0 };     // 不等式约束维度，默认为0
-    int  numObjective{ 0 };          // 优化目标的维度，默认为0
+    int  numVariable_{ 0 };           // 优化变量的维度，默认为0
+    int  numConstraintEq_{ 0 };       // 等式约束的维度，默认为0
+    int  numConstraintIneq_{ 0 };     // 不等式约束维度，默认为0
+    int  numObjective_{ 0 };          // 优化目标的维度，默认为0
 
-
+public:
     int getNumConstraint() const
     {
         return getNumConstraintEq() + getNumConstraintIneq();
@@ -47,65 +47,92 @@ struct NLPInfo
     }
     int getNumVariable() const
     {
-        return numVariable;
+        return numVariable_;
     }
     int getNumObjective() const
     {
-        return numObjective;
+        return numObjective_;
     }
     int getNumConstraintEq() const
     {
-        return numConstraintEq;
+        return numConstraintEq_;
     }
     int getNumConstraintIneq() const
     {
-        return numConstraintIneq;
+        return numConstraintIneq_;
     }
+
+    int& numVariable(){return numVariable_;}
+    int& numConstraintEq(){return numConstraintEq_;}
+    int& numConstraintIneq(){return numConstraintIneq_;}
+    int& numObjective(){return numObjective_;}
 };
 
 
 // @brief 非线性规划问题的雅可比矩阵信息 
 struct NLPJacInfo
 {
-    std::vector<int> idxVariable;       // 变量索引，从0开始
-    std::vector<int> idxConstraint;     // 约束索引，从0开始
+    std::vector<int> idxVariable_;       // 变量索引，从0开始
+    std::vector<int> idxConstraint_;     // 约束索引，从0开始
 };
 
 /// @brief 非线性规划问题的向量上下界
 struct NLPVectorBounds
 {
-    int     size{ 0 };              // 维度
-    double* lower{ nullptr };       // 下界
-    double* upper{ nullptr };       // 上界
+    size_t  size_{ 0 };              // 维度
+    double* lower_{ nullptr };       // 下界
+    double* upper_{ nullptr };       // 上界
+public:
+    size_t size() const { return size_; }
+    size_t& size(){return size_;}
+    double* lower(){return lower_;}
+    double* upper(){return upper_;}
 };
 
 /// @brief 非线性规划问题的向量值
 struct NLPVector
 {
-    double* value{ nullptr };         // 数值
-    int     size{ 0 };                // 维度
+    double* data_{ nullptr };         // 数值
+    size_t  size_{ 0 };                // 维度
+public:
+    double* data() const {return data_;}
+    size_t& size(){return size_;}
+    size_t size() const { return size_; }
+    double& operator[](size_t index) {return data_[index];}
+    double operator[](size_t index) const {return data_[index];}
 };
 
 /// @brief 非线性规划问题的上下界值
 struct NLPBounds
 {
-    NLPVectorBounds variable;        // 优化变量的上下界，不设置则默认是  -∞ <= variable <= +∞
-    NLPVectorBounds constraintIneq;  // 不等式约束上下界，不设置则默认是  -∞ <= constrIneq <= 0
-    NLPVector       constraintEq;    // 等式约束的期望值，不设置则默认是 0
+    NLPVectorBounds variable_;        // 优化变量的上下界，不设置则默认是  -∞ <= variable <= +∞
+    NLPVectorBounds constraintIneq_;  // 不等式约束上下界，不设置则默认是  -∞ <= constrIneq <= 0
+    NLPVector       constraintEq_;    // 等式约束的期望值，不设置则默认是 0
+public:
+    NLPVectorBounds& variable(){return variable_;}
+    NLPVectorBounds& constraintIneq(){return constraintIneq_;}
+    NLPVector& constraintEq(){return constraintEq_;}
 };
 
 /// @brief 非线性规划问题输入
 struct NLPInput
 {
-    NLPVector variable;
+    NLPVector variable_;
+public:
+    NLPVector& variable(){return variable_;}
+    const NLPVector& variable() const {return variable_;}
 };
 
 /// @brief 非线性规划问题输出
 struct NLPOutput
 {
-    NLPVector objective;
-    NLPVector constraintEq;
-    NLPVector constraintIneq;
+    NLPVector objective_;
+    NLPVector constraintEq_;
+    NLPVector constraintIneq_;
+public:
+    NLPVector& objective(){return objective_;}
+    NLPVector& constraintEq(){return constraintEq_;}
+    NLPVector& constraintIneq(){return constraintIneq_;}
 };
 
 
@@ -113,7 +140,7 @@ class INLPProblem
 {
 public:
     /// @brief 虚析构函数
-    virtual ~INLPProblem(){}
+    virtual ~INLPProblem() = default;
 
     /// @brief 获取问题的维度信息等
     virtual err_t getInfo(NLPInfo& info) const = 0;

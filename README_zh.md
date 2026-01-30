@@ -40,8 +40,9 @@
 
 ### 构建项目
 
+
 ```bash
-git clone https://github.com/space-ast/ast.git
+git clone https://github.com/space-ast/ast.git --recursive
 cd ast
 xmake
 ```

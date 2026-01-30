@@ -31,11 +31,16 @@
 #include "AstMath/Vector.hpp"
 #include "AstMath/Matrix.hpp"
 #include "AstMath/ODEIntegrator.hpp"
+#include "AstMath/Util.hpp"
+#include "AstOpt/NLPProblem.hpp"
+#include "FreeReturnPlan.hpp"
+#include "FreeReturnProblem.hpp"
 
 AST_USING_NAMESPACE
+
 using namespace _AST literals;
 
-#define aLog(...) printf(__VA_ARGS__)
+// #define aLog(...) printf(__VA_ARGS__)
 
 #ifndef aLog
 #   define aLog(...) 
@@ -45,16 +50,17 @@ using namespace _AST literals;
 /// @details   计算给定变量下的约束值
 /// @param     variable 输入变量数组
 /// @param     constraint 输出约束数组
-void targetFunction(const double* variable, double* constraint)
+err_t freeRreturnTargetFunction(const double* variable, double* constraint)
 {
     // 输入变量
-    const double varEpoch     = variable[0];
-    const double varRAAN      = variable[1];
-    const double varImpulse   = variable[2];
+    const double varEpoch     = variable[0];            ///<  epoch 轨道历元（单位：秒）
+    const double varRAAN      = variable[1];            ///<  RAAN 升交点赤经（单位：rad）
+    const double varImpulse   = variable[2];            ///< 脉冲机动速度增量（单位： m/s）
 
-    double& cnstrAltOfMoonPeri     = constraint[0];      ///< 近月点高度约束
-    double& cnstrEarthInclination  = constraint[1];  ///< 轨道倾角约束
-    double& cnstrAltOfEarthPeri    = constraint[2];     ///< 近地点高度约束
+    // 输出约束
+    double& cnstrAltOfMoonPeri     = constraint[0];     ///< 近月点高度约束   (单位：m)
+    double& cnstrEarthInclination  = constraint[1];     ///< 地球轨道倾角约束 (单位：rad)
+    double& cnstrAltOfEarthPeri    = constraint[2];     ///< 近地点高度约束  (单位：m)
 
     // 全程力模型
     HPOPForceModel forceModel;
@@ -183,15 +189,29 @@ void targetFunction(const double* variable, double* constraint)
     aLog("cnstrAltOfMoonPeri: %lf m\n", cnstrAltOfMoonPeri);
     aLog("cnstrAltOfEarthPeri: %lf m\n", cnstrAltOfEarthPeri);
     aLog("cnstrEarthInclination: %lf deg\n", cnstrEarthInclination / deg);
+    return 0;
 }
 
 
-int main()
+int freeReturnTest1()
 {
     aInitialize();
     double variable[3] = {0.0, 0.0, 0.0};
     double constraint[3] = {};
-    targetFunction(variable, constraint);
+    freeRreturnTargetFunction(variable, constraint);
+    aUninitialize();
+    return 0;
+}
+
+int freeReturnTest2()
+{
+    aInitialize();
+    NLPProblem problem(new FreeReturnProblem());
+    double ustep = 1e-10;
+    double x[3] = {0.0, 0.0, 0.0};
+    double colmaj_jacobi[9] = {};
+    problem.evalNLEJacobiBD(ustep, 3, x, 3, colmaj_jacobi);
+    aColMajorMatrixPrint(colmaj_jacobi, 3, 3);
     aUninitialize();
     return 0;
 }

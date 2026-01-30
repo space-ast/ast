@@ -207,7 +207,8 @@ public:
     /// @param jVarCol 
     /// @return 
     err_t evalNLENNZJacCOOSnJac(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol);
-
+protected:
+    A_DISABLE_COPY(NLPProblem);
 protected:
     INLPProblem* m_problem;     // 非线性规划问题描述接口
     NLPInfo      m_probInfo;    // 非线性规划问题维度信息缓存

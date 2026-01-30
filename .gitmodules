@@ -4,3 +4,6 @@
 [submodule "thirdparty/libf2c"]
 	path = thirdparty/libf2c
 	url = https://github.com/space-ast/libf2c.git
+[submodule "thirdparty/matplotplusplus"]
+	path = thirdparty/matplotplusplus
+	url = https://github.com/space-ast/matplotplusplus.git
