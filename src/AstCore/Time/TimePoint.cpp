@@ -78,6 +78,7 @@ void aTimePointToUTC(const TimePoint &time, DateTime &dttmUTC)
     JulianDate jdUTC;
     aTimePointToUTC(time, jdUTC);
     aJDToDateTime(jdUTC, dttmUTC);
+    dttmUTC.normalizeUTC();  // 在这里确保UTC时间是标准化的
 }
 
 void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
@@ -112,6 +113,13 @@ TimePoint TimePoint::FromTT(const JulianDate &jdTT)
     auto epochTT = epochTTJulianDate;
     auto duration = jdTT - epochTT;
     return {duration.day() * 86400LL, duration.second()};
+}
+
+std::string TimePoint::toString(int precision) const
+{
+    DateTime utc;
+    aTimePointToUTC(*this, utc);
+    return utc.toString(precision) + " UTC";
 }
 
 TimePoint TimePoint::FromIntegerFractional(int64_t integer, double fractional)

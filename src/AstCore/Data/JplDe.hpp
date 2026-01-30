@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstCore/RunTime.hpp"
 #include <stdint.h>      // for uint32_t
 #include <cstdio>       // for FILE
 #include <mutex>         // for std::mutex

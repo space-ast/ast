@@ -1,9 +1,9 @@
 ///
-/// @file      ScalarFunc.hpp
+/// @file      PlanetFrame.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-22
+/// @date      2026-01-29
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,12 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "UnaryScalarFunc.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-using UnaryFunc = UnaryScalarFunc;
-using ScalarFunc = UnaryScalarFunc;
 
 AST_NAMESPACE_END

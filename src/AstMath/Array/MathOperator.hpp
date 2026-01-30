@@ -29,6 +29,10 @@
  
 AST_NAMESPACE_BEGIN
 
+#ifndef A_LIKELY
+#   define A_LIKELY(expr)   (expr)
+#endif
+
 
 typedef std::array<double, 3> array3d;
 typedef std::array<double, 6> array6d;
@@ -296,42 +300,45 @@ inline double norm(const double (&vec)[N])
 /// normalize
 
 
-inline void normalize(double* vec, size_t N)
+inline double normalize(double* vec, size_t N)
 {
     double mag = norm(vec, N);
-    if (mag == 0)
-        return;
-    for (size_t i = 0; i < N; i++)
-    {
-        vec[i] /= mag;
+    if (A_LIKELY(mag != 0)){
+        for (size_t i = 0; i < N; i++)
+        {
+            vec[i] /= mag;
+        }
     }
+    return mag;
 }
 
 
 template<typename Vector>
 inline auto normalize(Vector& vec)
--> typename std::enable_if<!std::is_pointer<Vector>::value, void>::type
+-> typename std::enable_if<!std::is_pointer<Vector>::value, double>::type
 {
     double mag = norm(vec);
-    if (mag == 0)
-        return;
-    for (auto& val : vec) {
-        val /= mag;
+    if (A_LIKELY(mag != 0)){
+        for (auto& val : vec) {
+            val /= mag;
+        }
     }
+    return mag;
 }
 
 
 
 template <size_t N>
-inline void normalize(double (&vec)[N])
+inline double normalize(double (&vec)[N])
 {
     double mag = norm(vec);
-    if (mag == 0)
-        return;
-    for (size_t i = 0; i < N; i++)
-    {
-        vec[i] /= mag;
+    if (A_LIKELY(mag != 0)){
+        for (size_t i = 0; i < N; i++)
+        {
+            vec[i] /= mag;
+        }
     }
+    return mag;
 }
 
 
@@ -342,9 +349,6 @@ template<typename Vector>
 inline auto normalized(const Vector& vec)
 -> typename std::enable_if<!std::is_pointer<Vector>::value, Vector>::type
 {
-    double mag = norm(vec);
-    if (mag == 0)
-        return vec;
     Vector retval{ vec };
     normalize(retval);
     return retval;
@@ -357,15 +361,15 @@ inline std::array<double, N> normalized(double (&vec)[N])
 {
     std::array<double, N> retval;
     double mag = norm(vec);
-    if (mag == 0) {
-        for (size_t i = 0; i < N; i++) {
-            retval[i] = vec[i];
-        }
-    }
-    else {
+    if (A_LIKELY(mag != 0)){
         for (size_t i = 0; i < N; i++)
         {
             retval[i] = vec[i] / mag;
+        }
+    }
+    else {
+        for (size_t i = 0; i < N; i++) {
+            retval[i] = vec[i];
         }
     }
     return retval;
@@ -376,15 +380,15 @@ inline std::array<double, N> normalized(const double* vec)
 {
     std::array<double, N> retval;
     double mag = norm(vec, N);
-    if (mag == 0) {
-        for (size_t i = 0; i < N; i++) {
-            retval[i] = vec[i];
-        }
-    }
-    else {
+    if (A_LIKELY(mag != 0)){
         for (size_t i = 0; i < N; i++)
         {
             retval[i] = vec[i] / mag;
+        }
+    }
+    else {
+        for (size_t i = 0; i < N; i++) {
+            retval[i] = vec[i];
         }
     }
     return retval;

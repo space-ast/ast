@@ -26,6 +26,7 @@
 #include "AstMath/ODEInnerStateObserver.hpp"
 #include "AstMath/OrdinaryDifferentialEquation.hpp"
 #include <vector>
+#include <type_traits>
 
 AST_NAMESPACE_BEGIN
 
@@ -99,10 +100,35 @@ public:
         std::vector<double>& xlist, std::vector<std::vector<double>>& ylist
     );
 
+    /// @brief 积分ODE
+    /// @details 积分ODE，将积分结果存储在y和t中
+    /// @param[in] ndim ODE的维度
+    /// @param[in] func 常微分方程
+    /// @param[in,out] y 状态向量
+    /// @param[in,out] t 当前时间
+    /// @param[in] tf 最终时间
+    template<typename Func>
+    err_t integrate(int ndim, Func func, double* y, double& t, double tf)
+    {
+        auto ode = make_ode(ndim, func);
+        return integrate(ode, y, t, tf);
+    }
+
     /// @brief 添加事件检测器
     /// @details 添加一个事件检测器，用于检测ODE的事件
     /// @param detector 事件检测器对象
     void addEventDetector(ODEEventDetector* detector);
+
+    /// @brief 添加事件检测器（泛型模板）
+    /// @details 添加一个事件检测器，用于检测ODE的事件
+    /// @param func 事件检测函数
+    template<typename Func>
+    typename std::enable_if<!std::is_base_of<ODEEventDetector, typename std::remove_pointer<Func>::type>::value, ODEEventDetector*>::type
+    addEventDetector(Func func) {
+        ODEEventDetector* detector = new ODEEventDetectorGeneric<Func>(std::move(func));
+        addEventDetector(detector);
+        return detector;
+    }
 
     /// @brief 删除事件检测器
     /// @details 删除一个事件检测器
@@ -113,6 +139,18 @@ public:
     /// @details 添加一个状态观察者，用于观察ODE的状态
     /// @param observer 状态观察者对象
     void addStateObserver(ODEStateObserver* observer);
+
+
+    /// @brief 添加状态观察者（泛型模板）
+    /// @details 添加一个状态观察者，用于观察ODE的状态
+    /// @param func 状态观察函数
+    template<typename Func>
+    typename std::enable_if<!std::is_base_of<ODEStateObserver, typename std::remove_pointer<Func>::type>::value, ODEStateObserver*>::type
+    addStateObserver(Func func) {
+        auto observer = new ODEStateObserverGeneric<Func>(func);
+        addStateObserver(observer);
+        return observer;
+    }
 
     /// @brief 删除状态观察者
     /// @details 删除一个状态观察者

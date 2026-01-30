@@ -176,6 +176,7 @@ public:
 
     Self transpose() const;
     void transposeInPlace();
+    void setIdentity(){*this = Identity();}
     Self& operator*=(const Self& other);
 
 public:

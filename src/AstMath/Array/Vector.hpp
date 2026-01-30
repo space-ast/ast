@@ -70,10 +70,12 @@ public:
     static Self UnitZ() {return Self{0,0,1}; }
     _Scalar at(size_t idx) const{return data()[idx]; }
     _Scalar& at(size_t idx) {return data()[idx]; }
-    void normalize(){_ASTMATH normalize(*this);}
+    double normalize(){return _ASTMATH normalize(*this);}
+    Self normalized() const{return _ASTMATH normalized(*this);}
     double norm() const{return _ASTMATH norm(*this);}
     double squaredNorm() const{return _ASTMATH squaredNorm(*this);}
     Vector3d cross(const Vector3d& other) const{return _ASTMATH cross(*this, other);}
+    double dot(const Vector3d& other) const{return _ASTMATH dot(*this, other);}
     Self operator-() const{return Self{-x_, -y_, -z_};}
     Vector3d operator-(const Vector3d& other) const{return _ASTMATH operator-(*this, other);}
     Vector3d operator+(const Vector3d& other) const{return _ASTMATH operator+(*this, other);}

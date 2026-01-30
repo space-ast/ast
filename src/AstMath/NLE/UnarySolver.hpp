@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstMath/Function.hpp"
 #include "AstMath/SolverStats.h"
+#include <type_traits>
 
 
 AST_NAMESPACE_BEGIN
@@ -41,21 +42,6 @@ constexpr const int kDefaultMaxIter = 100;
 bool aIsClose(double a, double b, double relTol = kDefaultRelTol, double absTol = kDefaultAbsTol);
 
 
-/// @brief Lambda函数适配器（模板类）
-template<typename Func>
-class LambdaUnaryScalarFunc : public UnaryScalarFunc {
-public:
-    explicit LambdaUnaryScalarFunc(Func func) 
-        : func_(std::move(func)) 
-    {}
-    
-    void evaluate(double x, double* out) const override {
-        *out = func_(x);
-    }
-    
-private:
-    Func func_;
-};
 
 /// @brief 一元方程求解器接口
 class IUnarySolver
@@ -73,9 +59,11 @@ public:
 
 
 /// @brief 一元方程求解器
-class UnarySolver: public IUnarySolver
+class AST_MATH_API UnarySolver: public IUnarySolver
 {
 public:
+    using IUnarySolver::solve;
+
     UnarySolver();
     /// @brief 构造函数
     /// @param relTol 相对误差容限
@@ -113,9 +101,10 @@ public:
     /// @param max 搜索上限
     /// @param result 输出解
     template<typename Func>
-    err_t solveFunc(Func func, double min, double max, double& result) {
-        LambdaUnaryScalarFunc<Func> adapter(std::move(func));
-        return solve(adapter, min, max, result);
+    typename std::enable_if<!std::is_base_of<UnaryScalarFunc, typename std::remove_pointer<Func>::type>::value, err_t>::type
+    solve(Func func, double min, double max, double& result) {
+        UnaryScalarGenericFunc<Func> adapter(std::move(func));
+        return this->solve(adapter, min, max, result);
     }
 protected:
     static double unarycfunc(double x, void* params);

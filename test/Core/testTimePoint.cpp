@@ -85,9 +85,20 @@ TEST(TimePoint, BitIntCase)
         aTimePointToUTC(tp, dt2);
         TimePoint tp2 = TimePoint::FromUTC(dt2);
 
+        
         EXPECT_EQ(dt.year(), dt2.year());
+        EXPECT_EQ(dt.month(), dt2.month());
+        EXPECT_EQ(dt.day(), dt2.day());
+        EXPECT_EQ(dt.hour(), dt2.hour());
+        EXPECT_EQ(dt.minute(), dt2.minute());
+        EXPECT_EQ(dt.second(), dt2.second());
+
+        EXPECT_EQ(tp.daysFromJ2000TT(), tp2.daysFromJ2000TT());
         EXPECT_EQ(tp.integerPart(), tp2.integerPart());
         EXPECT_EQ(tp.fractionalPart(), tp2.fractionalPart());
+        
+        printf("jd2k1: %lf\njd2k2: %lf\n", tp.daysFromJ2000TT(), tp2.daysFromJ2000TT());
+        printf("dt:  %s\ndt2: %s\n", dt.toString().c_str(), dt2.toString().c_str());
     }
 }
 

@@ -21,6 +21,7 @@
 
 #include "Date.hpp"
 #include "AstUtil/Constants.h"
+#include "AstUtil/Logger.hpp"
 #include <assert.h>
 #include <cmath>       // for floor
 
@@ -79,12 +80,15 @@ int aDaysInMonthByYear(int month, int year)
 			31, 31, 30, 31, 30, 31
 	};
 
-	if (month < 1 || month > 12) {
-		return 0;
+	if (A_UNLIKELY(month < 1 || month > 12)) {
+		aWarning("month: %d is out of range [1, 12]", month);
+		int ryear = (int)floor((month - 1) / 12.);
+		month -= ryear * 12;
+		year += ryear;
+		// return aDaysInMonthByYear(month, year);
 	}
-	else {
-		assert(month >= 1 && month <= 12);
-	}
+	
+	assert(month >= 1 && month <= 12 && "month out of range [1, 12]");
 
 	int days = daysInMonth[month - 1];
 	if (month == 2 && aIsLeapYear(year)) {
@@ -172,33 +176,38 @@ void aDateToYD(const Date& date, int& year, int& days)
 
 void aDateNormalize(Date &date)
 {
-	int dayofmonth;
-#ifndef NDEBUG
+	// @todo: 这里应该可以通过简约儒略日MJD进行归一化
+	
 	int niter = 0;
-#endif // !NDEBUG
 
 	while (1) {
-#ifndef NDEBUG
 		niter++;
-		assert(niter <= 100000);
-#endif // !NDEBUG
+		if(A_UNLIKELY(niter > 100000))
+		{
+			aError("unexpected condition: failed to normalize date: %s, with max iteration: %d", date.toString().c_str(), niter);
+			// assert(niter <= 100000);
+			break;
+		}
 
 		int ryear = (int)floor((date.month() - 1) / 12.);
 		date.month() -= ryear * 12;
 		date.year() += ryear;
 
-		dayofmonth = aDaysInMonthByYear(date.month(), date.year());
 		if (date.day() < 1) {
 			date.month()--;
+			int dayofmonth = aDaysInMonthByYear(date.month(), date.year());
 			date.day() += dayofmonth;
 		}
-		else if (date.day() >= dayofmonth + 1) {
-			date.month()++;
-			date.day() -= dayofmonth;
-		}
-		else {
-			// date.day(): [1, dayofmonth+1)
-			break;
+		else{ 
+			int dayofmonth = aDaysInMonthByYear(date.month(), date.year());
+			if (date.day() >= dayofmonth + 1) {
+				date.month()++;
+				date.day() -= dayofmonth;
+			}
+			else {
+				// date.day(): [1, dayofmonth+1)
+				break;
+			}
 		}
 	}
 }
@@ -290,6 +299,11 @@ void aMJDToDate(int mjd, Date& date)
     return aJDToDateAtNoon(mjd + 2400001, date);
 }
 
-
+std::string aDateToString(const Date &date)
+{
+	char buffer[32];
+    sprintf(buffer, "%04d-%02d-%02d", date.year(), date.month(), date.day());
+	return std::string(buffer);
+}
 
 AST_NAMESPACE_END
