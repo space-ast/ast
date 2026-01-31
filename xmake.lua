@@ -45,6 +45,8 @@ add_requires("opengl", {optional = true})
 add_requires("fmt", {optional = true})
 add_requires("sofa", {optional = true})
 add_requires("matplotplusplus", {optional = true}) 
+add_requires("libf2c", {optional = true})
+add_requires("cminpack", {optional = true, configs = {long_double = true}})
 
 -- add_requires("llvm", {optional = true})
 -- set_toolchains("@llvm")

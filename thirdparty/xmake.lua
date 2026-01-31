@@ -1,12 +1,14 @@
 ﻿set_group("thirdparty")
 includes("*/xmake.lua")
 
-target("cminpack")
-	add_files("cminpack/*.c")
-    set_kind("static")
-    add_defines("CMINPACK_NO_DLL")
+-- replace cminpack target with cminpack package in xmake-repo
+-- target("cminpack")
+-- 	add_files("cminpack/*.c")
+--     set_kind("static")
+--     add_defines("CMINPACK_NO_DLL")
 
-target("libf2c")
-    if is_plat("linux") then
-        add_cxflags("-fPIC")
-    end
+-- make changes in libf2c xmake.lua
+-- target("libf2c")
+--     if is_plat("linux") then
+--         add_cxflags("-fPIC")
+--     end

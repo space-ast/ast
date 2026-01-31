@@ -1,6 +1,3 @@
-[submodule "thirdparty/cminpack"]
-	path = thirdparty/cminpack
-	url = https://github.com/devernay/cminpack.git
 [submodule "thirdparty/libf2c"]
 	path = thirdparty/libf2c
 	url = https://github.com/space-ast/libf2c.git
