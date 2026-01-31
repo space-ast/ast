@@ -20,11 +20,16 @@
 
 #include "FreeReturnMain.hpp"
 #include "FreeReturnPlan.hpp"
+#include <cstdio>
 
 
 int main(){
+    printf("freeReturnTest1:\n");
     freeReturnTest1();
+    printf("freeReturnTest2:\n");
     freeReturnTest2();
+    printf("freeReturnTest3:\n");
+    freeReturnTest3();
     return 0;
 }
 

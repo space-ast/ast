@@ -37,3 +37,7 @@ int freeReturnTest1();
 
 int freeReturnTest2();
 
+
+int freeReturnTest3();
+
+

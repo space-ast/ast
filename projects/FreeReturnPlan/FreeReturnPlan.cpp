@@ -35,6 +35,7 @@
 #include "AstOpt/NLPProblem.hpp"
 #include "FreeReturnPlan.hpp"
 #include "FreeReturnProblem.hpp"
+#include "cminpack.h"
 
 AST_USING_NAMESPACE
 
@@ -189,6 +190,14 @@ err_t freeRreturnTargetFunction(const double* variable, double* constraint)
     aLog("cnstrAltOfMoonPeri: %lf m\n", cnstrAltOfMoonPeri);
     aLog("cnstrAltOfEarthPeri: %lf m\n", cnstrAltOfEarthPeri);
     aLog("cnstrEarthInclination: %lf deg\n", cnstrEarthInclination / deg);
+
+    cnstrAltOfMoonPeri -= 100000_m;
+    cnstrEarthInclination -= 43_deg;
+    cnstrAltOfEarthPeri -= 50000_m;
+
+    // cnstrAltOfMoonPeri /= 100000_m;
+    // cnstrAltOfEarthPeri /= 100000_m;
+
     return 0;
 }
 
@@ -212,6 +221,34 @@ int freeReturnTest2()
     double colmaj_jacobi[9] = {};
     problem.evalNLEJacobiBD(ustep, 3, x, 3, colmaj_jacobi);
     aColMajorMatrixPrint(colmaj_jacobi, 3, 3);
+    aUninitialize();
+    return 0;
+}
+
+int targetfunc(void *p, int n, const double *x, double *fvec, int iflag )
+{
+    freeRreturnTargetFunction(x, fvec);
+    return iflag;
+}
+
+int freeReturnTest3()
+{
+    aInitialize();
+    double x[3]{0,0,0};
+    double y[3]{};
+    const int n = 3;
+    const int bufsize = (n*(3*n+13))/2;
+    double work[bufsize] = {};
+    freeRreturnTargetFunction(x, y);
+    printf("before hybrd1:\n");
+    printf("x: %lf, %lf, %lf\n", x[0], x[1], x[2]);
+    printf("y: %lf, %lf, %lf\n", y[0], y[1], y[2]);
+    int err = hybrd1(&targetfunc, nullptr, 3, x, y, 1e-3, work, bufsize);
+    freeRreturnTargetFunction(x, y);
+    printf("after hybrd1:\n");
+    printf("err: %d\n", err);
+    printf("x: %lf, %lf, %lf\n", x[0], x[1], x[2]);
+    printf("y: %lf, %lf, %lf\n", y[0], y[1], y[2]);
     aUninitialize();
     return 0;
 }
