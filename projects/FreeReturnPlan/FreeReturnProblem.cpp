@@ -43,6 +43,7 @@ err_t FreeReturnProblem::getBounds(NLPBounds &bounds) const
 
 err_t FreeReturnProblem::evalFitness(const NLPInput &input, NLPOutput &output) const
 {
+    FreeRreturnTargetFunction freeRreturnTargetFunction = FreeRreturnTargetFunction::Case1();
     freeRreturnTargetFunction(input.variable().data(), output.constraintEq().data());
     printf("var: %lf, %lf, %lf\n", input.variable()[0], input.variable()[1], input.variable()[2]);
     printf("con: %lf, %lf, %lf\n", output.constraintEq()[0], output.constraintEq()[1], output.constraintEq()[2]);

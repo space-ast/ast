@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#ifdef AST_WITH_MATPLOT
+#if defined(AST_WITH_MATPLOT) || !defined(AST_NO_MATPLOT)
 #include <matplot/matplot.h>
 #else
 #include "NoPlot.hpp"
@@ -29,7 +29,7 @@
 
 AST_NAMESPACE_BEGIN
 
-#ifdef AST_WITH_MATPLOT
+#if defined(AST_WITH_MATPLOT) || !defined(AST_NO_MATPLOT)
 namespace plt = matplot;
 #else
 namespace plt = noplot;

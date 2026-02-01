@@ -21,15 +21,25 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/TimePoint.hpp"
+#include "AstCore/OrbitElement.hpp"
 
 AST_USING_NAMESPACE
 
-/// @brief 目标函数
-/// @param variable 变量
-/// @param constraint 约束
-err_t freeRreturnTargetFunction(const double* variable, double* constraint);
+class FreeRreturnTargetFunction
+{
+public:
+
+    TimePoint initOrbitEpoch_;
+    OrbElem initOrbitElement_;
+    double initImpulse_;
 
 
+    static FreeRreturnTargetFunction Case1();
+    static FreeRreturnTargetFunction Case2();
+
+    int operator()(const double* variable, double* constraint) const;
+};
 
 /// @brief 测试1
 int freeReturnTest1();
@@ -40,4 +50,6 @@ int freeReturnTest2();
 
 int freeReturnTest3();
 
+
+void plotFreeReturnProblem();
 

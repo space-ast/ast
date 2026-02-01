@@ -68,6 +68,8 @@ end
 if has_package("matplotplusplus") then
     add_packages("matplotplusplus")
     add_defines("AST_WITH_MATPLOT")
+else 
+    add_defines("AST_NO_MATPLOT")
 end
 
 -- 导入子目录配置
