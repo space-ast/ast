@@ -19,8 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Environment.hpp"
-#include "Posix.hpp"
-#include <cstdlib>      // for std::getenv
+#include "AstUtil/Posix.hpp"
 
 #ifdef _WIN32
 #include <windows.h>

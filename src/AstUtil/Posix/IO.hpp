@@ -38,74 +38,89 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 格式化输出
-/// @param format 格式化字符串，utf-8编码
-/// @param ... 可变参数
-/// @return 输出字符数
-AST_UTIL_CAPI int ast_printf(const char* format, ...);
 
 
-#ifdef _WIN32 // windows
+
+namespace posix{
+
+using std::FILE;
+
+#ifdef _WIN32
 
 /// @brief 打开文件
 /// @param filepath 文件路径，utf-8编码
 /// @param mode 文件打开模式
 /// @return 文件指针
-AST_UTIL_CAPI std::FILE* ast_fopen(const char* filepath, const char* mode);
-
+AST_UTIL_API
+std::FILE* fopen(const char* filepath, const char* mode);
 
 /// @brief 格式化输出
 /// @param format 格式化字符串，utf-8编码
 /// @param args 可变参数列表
 /// @return 输出字符数
-AST_UTIL_CAPI int ast_vprintf(const char* format, va_list args);
+AST_UTIL_API
+int vprintf(const char* format, va_list args);
 
-#ifdef AST_ENABLE_OVERRIDE_STDLIB // 覆盖标准库函数
-
-A_ALWAYS_INLINE 
-std::FILE* fopen(const char* filepath, const char* mode)
-{
-    return ast_fopen(filepath, mode);
-}
-
-A_ALWAYS_INLINE
-int vprintf(const char* format, va_list args)
-{
-    return ast_vprintf(format, args);
-}
-
+/// @brief 格式化输出
+/// @param format 格式化字符串，utf-8编码
+/// @param ... 可变参数
+/// @return 输出字符数
 AST_UTIL_API
 int printf(const char* format, ...);
 
+/// @brief 重新打开文件
+/// @param filepath 文件路径，utf-8编码
+/// @param mode 文件打开模式
+/// @param stream 文件指针
+/// @return 文件指针
+AST_UTIL_API
+FILE* freopen(const char* filepath, const char* mode, FILE* stream);
+
+#else
+using std::fopen;
+using std::vprintf;
+using std::printf;
+using std::freopen;
 
 #endif
+}
 
-#else // linux
+
+#ifdef AST_ENABLE_OVERRIDE_STDLIB       // 是否覆盖标准库的函数
+using namespace posix;
+#endif
+
+AST_UTIL_CAPI int ast_printf(const char* format, ...);
+
 
 A_ALWAYS_INLINE 
 std::FILE* ast_fopen(const char* filepath, const char* mode)
 {
-    return fopen(filepath, mode);
+    return posix::fopen(filepath, mode);
 }
 
 A_ALWAYS_INLINE 
 int ast_vprintf(const char* format, va_list args)
 {
-    return vprintf(format, args);
+    return posix::vprintf(format, args);
 }
 
+A_ALWAYS_INLINE
+FILE* ast_freopen(const char* filepath, const char* mode, FILE* stream)
+{
+    return posix::freopen(filepath, mode, stream);
+}
 
-using std::fopen;
-using std::printf;
-using std::vprintf;
-
-#endif
 
 
 /// @brief 获取文件当前行号
 /// @param file 文件指针
 /// @return 当前行号，从1开始计数
 AST_UTIL_API int aCurrentLineNumber(std::FILE* file);
+
+
+
+
 
 
 AST_NAMESPACE_END

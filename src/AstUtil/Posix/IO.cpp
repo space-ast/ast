@@ -63,7 +63,7 @@ _locale_t _ast_locale_ensure()
     return t_locale.get();
 }
 
-std::FILE* ast_fopen(const char* filepath, const char* mode)
+std::FILE* posix::fopen(const char* filepath, const char* mode)
 {
     // support utf8
     std::wstring wpath;
@@ -73,24 +73,31 @@ std::FILE* ast_fopen(const char* filepath, const char* mode)
     return ::_wfopen(wpath.c_str(), wmode.c_str());
 }
 
-#ifdef AST_ENABLE_NAMESPACE
-int printf(const char* format, ...)
-#else
-int ::printf(const char* format, ...)
-#endif
+
+
+int posix::vprintf(const char* format, va_list args)
+{
+    _locale_t locale = _ast_locale_ensure();
+    return _vprintf_l(format, locale, args);
+}
+
+int posix::printf(const char* format, ...)
 {
     va_list args;
     int result;
     va_start(args, format);
-    result = _AST ast_vprintf(format, args);
+    result = _AST posix::vprintf(format, args);
     va_end(args);
     return result;
 }
 
-int ast_vprintf(const char* format, va_list args)
+FILE *posix::freopen(const char *filepath, const char *mode, FILE *stream)
 {
-    _locale_t locale = _ast_locale_ensure();
-    return _vprintf_l(format, locale, args);
+    std::wstring wpath;
+    std::wstring wmode;
+    aUtf8ToWide(filepath, wpath);
+    aUtf8ToWide(mode, wmode);
+    return ::_wfreopen(wpath.c_str(), wmode.c_str(), stream);
 }
 
 #else
@@ -105,7 +112,7 @@ int ast_printf(const char* format, ...)
     va_list args;
     int result;
     va_start(args, format);
-    result = ast_vprintf(format, args);
+    result = posix::vprintf(format, args);
     va_end(args);
     return result;
 }
@@ -142,6 +149,8 @@ int aCurrentLineNumber(std::FILE *file)
     
     return lineCount;
 }
+
+
 
 AST_NAMESPACE_END
 
