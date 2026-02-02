@@ -38,7 +38,7 @@ public:
     err_t getBounds(NLPBounds& bounds) const override;
 
 
-    /// @biref 计算目标函数和约束
+    /// @brief 计算目标函数和约束
     err_t evalFitness(const NLPInput& input, NLPOutput& output) const override;
 
 

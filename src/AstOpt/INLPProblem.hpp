@@ -152,7 +152,7 @@ public:
     virtual err_t getBounds(NLPBounds& bounds) const = 0;
 
 
-    /// @biref 计算目标函数和约束
+    /// @brief 计算目标函数和约束
     virtual err_t evalFitness(const NLPInput& input, NLPOutput& output) const = 0;
 
 

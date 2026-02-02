@@ -33,12 +33,12 @@ std::string aColMajorMatrixToString(const double *matrix, int rows, int cols)
     {
         for(int j = 0; j < cols; j++)
         {
-            #ifdef AST_WITH_FMT
-            str += fmt::format("{} ", matrix[j + i * cols]);
-            #else
-            snprintf(buffer, sizeof(buffer), "%12g ", matrix[j + i * cols]);
+        #ifdef AST_WITH_FMT
+            str += fmt::format("{} ", matrix[i + j * rows]);
+        #else
+            snprintf(buffer, sizeof(buffer), "%12g ", matrix[i + j * rows]);
             str += buffer;
-            #endif
+        #endif
         }
         str += "\n";
     }
