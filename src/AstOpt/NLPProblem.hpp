@@ -67,7 +67,7 @@ public:
     /// @brief 获取问题的设计变量与约束的上下界
     err_t getBounds(NLPBounds& bounds) const;
 
-    /// @biref 计算目标函数和约束
+    /// @brief 计算目标函数和约束
     err_t evalFitness(const NLPInput& input, NLPOutput& output) const;
 
     /// @brief 计算目标函数与约束
@@ -207,7 +207,8 @@ public:
     /// @param jVarCol 
     /// @return 
     err_t evalNLENNZJacCOOSnJac(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol);
-
+protected:
+    A_DISABLE_COPY(NLPProblem);
 protected:
     INLPProblem* m_problem;     // 非线性规划问题描述接口
     NLPInfo      m_probInfo;    // 非线性规划问题维度信息缓存

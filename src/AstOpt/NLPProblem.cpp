@@ -125,15 +125,15 @@ err_t NLPProblem::getJacInfo(NLPJacInfo& info) const
 	int numVariable = probinfo.getNumVariable();		// 变量维度
 
 	int len = numConstraint * numVariable;
-	info.idxConstraint.resize(len);
-	info.idxVariable.resize(len);
+	info.idxConstraint_.resize(len);
+	info.idxVariable_.resize(len);
 	int idx = 0;
 	for (int j = 0; j < numConstraint; j++)
 	{
 		for (int i = 0; i < numVariable; i++)
 		{
-			info.idxConstraint[idx] = j;
-			info.idxVariable[idx] = i;
+			info.idxConstraint_[idx] = j;
+			info.idxVariable_[idx] = i;
 			idx ++;
 		}
 	}
@@ -144,27 +144,27 @@ err_t NLPProblem::getBounds(NLPBounds& bounds) const
 {
 	// 1. 先设置默认值
 
-	if (bounds.variable.size > 0)
+	if (bounds.variable().size() > 0)
 	{
 		// 变量的默认值：-∞ <= variable <= +∞
-		assert(bounds.variable.lower);
-		assert(bounds.variable.upper);
-		std::fill_n(bounds.variable.lower, bounds.variable.size, -INFBND);
-		std::fill_n(bounds.variable.upper, bounds.variable.size, +INFBND);
+		assert(bounds.variable_.lower_);
+		assert(bounds.variable_.upper_);
+		std::fill_n(bounds.variable_.lower_, bounds.variable_.size(), -INFBND);
+		std::fill_n(bounds.variable_.upper_, bounds.variable_.size(), +INFBND);
 	}
-	if (bounds.constraintEq.size > 0)
+	if (bounds.constraintEq_.size() > 0)
 	{
 		// 等式约束的默认值： 0
-		assert(bounds.constraintEq.value);
-		std::fill_n(bounds.constraintEq.value, bounds.constraintEq.size, 0);
+		assert(bounds.constraintEq_.data_);
+		std::fill_n(bounds.constraintEq_.data_, bounds.constraintEq_.size(), 0);
 	}
-	if (bounds.constraintIneq.size > 0)
+	if (bounds.constraintIneq_.size() > 0)
 	{
 		// 等式约束的默认值： -∞ <= constrIneq <= 0
-		assert(bounds.constraintIneq.lower);
-		assert(bounds.constraintIneq.upper);
-		std::fill_n(bounds.constraintIneq.lower, bounds.constraintIneq.size, -INFBND);
-		std::fill_n(bounds.constraintIneq.upper, bounds.constraintIneq.size, 0);
+		assert(bounds.constraintIneq_.lower_);
+		assert(bounds.constraintIneq_.upper_);
+		std::fill_n(bounds.constraintIneq_.lower_, bounds.constraintIneq_.size(), -INFBND);
+		std::fill_n(bounds.constraintIneq_.upper_, bounds.constraintIneq_.size(), 0);
 	}
 
 	// 2. 然后调用算法接口覆盖上面的默认值
@@ -192,19 +192,19 @@ err_t NLPProblem::evalFitness(const std::vector<double>& x, std::vector<double>&
 	
 	NLPInput input{};
 	NLPOutput output{};
-	input.variable.size = x.size();
-	input.variable.value = (double*)x.data();
+	input.variable_.size_ = x.size();
+	input.variable_.data_ = (double*)x.data();
 
-	output.objective.size = m_probInfo.getNumObjective();
-	output.objective.value = constraint;
-	constraint += output.objective.size;
+	output.objective_.size_ = m_probInfo.getNumObjective();
+	output.objective_.data_ = constraint;
+	constraint += output.objective_.size_;
 
-	output.constraintEq.size = m_probInfo.getNumConstraintEq();
-	output.constraintEq.value = constraint;
-	constraint += output.constraintEq.size;
+	output.constraintEq_.size_ = m_probInfo.getNumConstraintEq();
+	output.constraintEq_.data_ = constraint;
+	constraint += output.constraintEq_.size_;
 
-	output.constraintIneq.size = m_probInfo.getNumConstraintIneq();
-	output.constraintIneq.value = constraint + output.constraintEq.size;
+	output.constraintIneq_.size_ = m_probInfo.getNumConstraintIneq();
+	output.constraintIneq_.data_ = constraint + output.constraintEq_.size_;
 
 	return evalFitness(input, output);
 }
@@ -229,14 +229,14 @@ err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int nu
 
 	NLPInput input{};
 	NLPOutput output{};
-	input.variable.size = numVariable;
-	input.variable.value = (double*)variable;
+	input.variable_.size_ = numVariable;
+	input.variable_.data_ = (double*)variable;
 
-	output.constraintEq.size = m_probInfo.getNumConstraintEq();
-	output.constraintEq.value = constraint;
+	output.constraintEq_.size_ = m_probInfo.getNumConstraintEq();
+	output.constraintEq_.data_ = constraint;
 
-	output.constraintIneq.size = m_probInfo.getNumConstraintIneq();
-	output.constraintIneq.value = constraint + output.constraintEq.size;
+	output.constraintIneq_.size_ = m_probInfo.getNumConstraintIneq();
+	output.constraintIneq_.data_ = constraint + output.constraintEq_.size_;
 
 	return evalFitness(input, output);
 }
@@ -247,11 +247,11 @@ err_t NLPProblem::evalObjective(int numVariable, const double* variable, int num
 
 	NLPInput input{};
 	NLPOutput output{};
-	input.variable.size = numVariable;
-	input.variable.value = (double*)variable;
+	input.variable_.size_ = numVariable;
+	input.variable_.data_ = (double*)variable;
 
-	output.objective.value = objective;
-	output.objective.size = numObjective;
+	output.objective_.data_ = objective;
+	output.objective_.size_ = numObjective;
 
 	return evalFitness(input, output);
 }
@@ -267,15 +267,15 @@ err_t NLPProblem::evalFitness(int numVariable, double* variable, int numObjectiv
 {
 	NLPInput input{};
 	NLPOutput output{};
-	input.variable.size = numVariable;
-	input.variable.value = variable;
+	input.variable_.size_ = numVariable;
+	input.variable_.data_ = variable;
 
-	output.objective.value = objective;
-	output.objective.size = numObjective;
-	output.constraintEq.size = numConstrEq;
-	output.constraintEq.value = constrEq;
-	output.constraintIneq.size = numConstrIneq;
-	output.constraintIneq.value = constrIneq;
+	output.objective_.data_ = objective;
+	output.objective_.size_ = numObjective;
+	output.constraintEq_.size_ = numConstrEq;
+	output.constraintEq_.data_ = constrEq;
+	output.constraintIneq_.size_ = numConstrIneq;
+	output.constraintIneq_.data_ = constrIneq;
 
 	return evalFitness(input, output);
 }
@@ -303,9 +303,9 @@ err_t NLPProblem::getInitialGuess(int numVariable, double *variable) const
 
 	std::vector<double> lb(numVariable), ub(numVariable);
 	NLPBounds bounds{};
-	bounds.variable.size = numVariable;
-	bounds.variable.lower = lb.data();
-	bounds.variable.upper = ub.data();
+	bounds.variable_.size() = numVariable;
+	bounds.variable_.lower_ = lb.data();
+	bounds.variable_.upper_ = ub.data();
 
 	err = this->getBounds(bounds);
 	if (err) return err;

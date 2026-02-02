@@ -40,8 +40,9 @@
 
 ### 构建项目
 
+
 ```bash
-git clone https://github.com/space-ast/ast.git
+git clone https://github.com/space-ast/ast.git --recursive
 cd ast
 xmake
 ```
@@ -127,7 +128,7 @@ const kEps15 = 1e-15;
 - AstOCP:    最优控制问题求解
 - AstSim:    仿真引擎
 
-下面的模块将通过AI辅助进行开发，此README也是AI辅助生成的
+下面的模块将通过AI辅助进行开发
 
 - AstScript: 脚本系统
 - AstInterp: 交互式控制台

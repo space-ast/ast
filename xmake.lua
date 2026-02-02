@@ -21,7 +21,7 @@ add_rules("plugin.vsxmake.autoupdate")
 
 -- 设置编译策略
 set_policy("build.progress_style", "multirow")
--- set_policy("package.precompiled", false)
+-- set_policy("package.precompiled", false)     // 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
 
 -- linux平台添加rpath
 if is_plat("linux") then
@@ -30,29 +30,47 @@ elseif is_plat("windows") then
     add_cxflags("/wd4819") -- 忽略代码页警告
 end
 
--- 生成汇编文件
+-- 生成汇编文件的编译选项
 -- add_cxflags("-save-temps")
 -- add_cxflags("/FA")
 
--- 添加自定义第三方库仓库
+-- 添加自定义第三方库描述文件仓库
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 
--- 添加第三方库依赖
+-- 下载并安装第三方库（可选）
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
 add_requires("eigen", {optional = true, configs = {headeronly = true}})
 add_requires("opengl", {optional = true})
 add_requires("fmt", {optional = true})
 add_requires("sofa", {optional = true})
+add_requires("matplotplusplus", {optional = true}) 
+add_requires("libf2c", {optional = true})
+add_requires("cminpack", {optional = true, configs = {long_double = true}})
+
 -- add_requires("llvm", {optional = true})
 -- set_toolchains("@llvm")
 
--- 可选：添加abseil库
+-- 添加abseil库（可选）
 -- add_requires("abseil", {optional = true})
 -- if has_package("abseil") then
 --     add_packages("abseil")
 --     add_defines("AST_WITH_ABSEIL")
 -- end
+
+-- 添加fmt库依赖（可选）
+if has_package("fmt") then
+    add_packages("fmt")
+    add_defines("AST_WITH_FMT")
+end
+
+-- 添加matplot++库依赖（可选）
+if has_package("matplotplusplus") then
+    add_packages("matplotplusplus")
+    add_defines("AST_WITH_MATPLOT")
+else 
+    add_defines("AST_NO_MATPLOT")
+end
 
 -- 导入子目录配置
 includes("thirdparty")

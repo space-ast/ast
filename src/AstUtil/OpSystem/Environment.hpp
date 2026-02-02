@@ -21,11 +21,54 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "Terminal.hpp"
+#include "GUI.hpp"
+#include <cstdio>
 
 AST_NAMESPACE_BEGIN
 
 /// @brief 检查是否在持续集成环境中运行
 /// @return 如果在CI环境中运行，返回true；否则返回false
 AST_UTIL_CAPI bool aIsCI();
+
+
+/// @brief 检查文件是否为终端
+/// @param file 文件指针
+/// @return 如果文件为终端，返回true；否则返回false
+AST_UTIL_CAPI bool aIsTerminal(FILE* file);
+
+
+/// @brief 检查文件是否为普通文件
+/// @param file 文件指针
+/// @return 如果文件为普通文件，返回true；否则返回false
+AST_UTIL_CAPI bool aIsFile(FILE* file);
+
+
+/// @brief 检查标准输入是否为终端
+/// @return 如果标准输入为终端，返回true；否则返回false
+AST_UTIL_CAPI bool aStdInIsTerminal();
+
+
+/// @brief 检查标准输入是否为文件
+/// @return 如果标准输入为文件，返回true；否则返回false
+AST_UTIL_CAPI bool aStdInIsFile();
+
+
+/// @brief 检查标准输出是否为终端
+/// @return 如果标准输出为终端，返回true；否则返回false
+AST_UTIL_CAPI bool aStdOutIsTerminal();
+
+
+/// @brief 检查标准输出是否为文件
+/// @return 如果标准输出为文件，返回true；否则返回false
+AST_UTIL_CAPI bool aStdOutIsFile();
+
+/// @brief 检查标准错误是否为终端
+/// @return 如果标准错误为终端，返回true；否则返回false
+AST_UTIL_CAPI bool aStdErrIsTerminal();
+
+/// @brief 检查标准错误是否为文件
+/// @return 如果标准错误为文件，返回true；否则返回false
+AST_UTIL_CAPI bool aStdErrIsFile();
 
 AST_NAMESPACE_END
