@@ -20,8 +20,11 @@
 
 #include "AstMath/Quaternion.hpp"
 #include "AstTest/AstTestMacro.h"
+
+#if AST_WITH_FMT
 #include "Eigen/Dense"
-#include "AstGlobal.h"
+#endif
+
 
 AST_USING_NAMESPACE
 
@@ -46,7 +49,9 @@ void testQuaternion()
 TEST(Quaternion, Init)
 {
     testQuaternion<Quaternion>();
+    #if AST_WITH_EIGEN
     testQuaternion<Eigen::Quaterniond>();
+    #endif
 }
 
 
