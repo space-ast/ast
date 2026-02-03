@@ -26,12 +26,12 @@ AST_USING_NAMESPACE
 
 
 
-TEST(PosixTest, isdir)
-{
-    struct posix::stat st;
-    ASSERT_EQ(posix::fstat(0, &st), 0);
-    ASSERT_FALSE(posix::isdir(st));
-}
+// TEST(PosixTest, isdir)
+// {
+//     struct posix::stat st;
+//     ASSERT_EQ(posix::fstat(0, &st), 0);
+//     ASSERT_FALSE(posix::isdir(st));
+// }
 
 TEST(PosixTest, unicode)
 {

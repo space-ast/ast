@@ -27,7 +27,12 @@ set_policy("build.progress_style", "multirow")
 if is_plat("linux") then
     add_rpathdirs("$ORIGIN")
 elseif is_plat("windows") then
-    add_cxflags("/wd4819") -- 忽略代码页警告
+    add_cxflags("/wd4819")  -- 忽略代码页警告
+    if is_mode("debug") then
+        set_runtimes("MDd") -- 调试模式下使用MDd动态链接库
+    else
+        set_runtimes("MD")  -- 其他模式下使用MD动态链接库
+    end
 end
 
 -- 生成汇编文件的编译选项

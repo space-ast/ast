@@ -29,7 +29,7 @@ TEST(SnoptAPI, BasicUsage)
 {
     auto api = aSnopt_Find();
     printf("snoptapi address: %p\n", (void*)api);
-    api = aSnopt_Load("AstMock");
+    api = aSnopt_Load(AST_DEBUG_SUFFIX("AstMock"));
     printf("snoptapi address: %p\n", (void*)api);
     EXPECT_TRUE(api);
 }

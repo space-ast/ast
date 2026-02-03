@@ -85,6 +85,13 @@
 #endif
 
 
+// 定义调试库后缀
+#if defined(_WIN32) && defined(_DEBUG)
+#   define AST_DEBUG_SUFFIX(NAME) NAME "D"
+#else
+#   define AST_DEBUG_SUFFIX(NAME) NAME
+#endif
+
 
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
