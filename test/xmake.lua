@@ -2,14 +2,7 @@
 add_deps("AstCore", "AstUtil", "AstOpt", "AstMock", "AstMath", "AstScript")
 add_packages("gtest")
 add_packages("benchmark")
-if has_package("eigen") then
-    add_defines("AST_WITH_EIGEN")
-    add_packages("eigen")
-end
-if has_package("fmt") then
-    add_defines("AST_WITH_FMT")
-    add_packages("fmt")
-end
+
 
 if has_package("gtest") then
     local test_files = os.files("**/test*.c*")

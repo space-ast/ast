@@ -245,9 +245,9 @@ void BKVParser::seek(std::streamoff pos, std::ios::seekdir dir)
     {
         fseek(file_, pos, dir);
     }
-    static_assert(std::ios::beg == SEEK_SET);
-    static_assert(std::ios::cur == SEEK_CUR);
-    static_assert(std::ios::end == SEEK_END);
+    static_assert(std::ios::beg == SEEK_SET, "value not corrent");
+    static_assert(std::ios::cur == SEEK_CUR, "value not corrent");
+    static_assert(std::ios::end == SEEK_END, "value not corrent");
 }
 
 std::streamoff BKVParser::tell()

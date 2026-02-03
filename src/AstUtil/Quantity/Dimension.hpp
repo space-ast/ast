@@ -67,7 +67,7 @@ constexpr int dim_get_exponent(T dimension, int idx) noexcept
 
 /// @brief 设置量纲的指数
 template<typename T>
-constexpr EDimension dim_set_exponent(T dimension, int idx, int exponent) noexcept
+A_CONSTEXPR_CXX14 inline EDimension dim_set_exponent(T dimension, int idx, int exponent) noexcept
 {
     static_assert(sizeof(T) == sizeof(EDimension), "size not correct");
     // @todo 检查指数范围（4位有符号数范围：-8到7）
@@ -90,11 +90,22 @@ constexpr EDimension dim_set_exponent(T dimension, int idx, int exponent) noexce
 template<typename T>
 constexpr int dim_get_sum_abs_exponent(T dimension) noexcept
 {
+#if defined(_AST_DIM_USE_CXX14)
     int sum = 0;
     for (int i = 0; i < 8; ++i) {
         sum += abs(dim_get_exponent(dimension, i));
     }
     return sum;
+#else
+    return abs(dim_get_exponent(dimension, 0)) + 
+           abs(dim_get_exponent(dimension, 1)) + 
+           abs(dim_get_exponent(dimension, 2)) + 
+           abs(dim_get_exponent(dimension, 3)) +
+           abs(dim_get_exponent(dimension, 4)) + 
+           abs(dim_get_exponent(dimension, 5)) + 
+           abs(dim_get_exponent(dimension, 6)) + 
+           abs(dim_get_exponent(dimension, 7));
+#endif
 }
 
 /// @brief 量纲乘法
@@ -316,19 +327,19 @@ AST_UTIL_API std::string aDimName(EDimension dimension);
 AST_UTIL_API std::string aDimSymbol(EDimension dimension);
 
 /// @brief 判断量纲是否为基本量纲
-constexpr bool aDimIsBase(EDimension dimension) noexcept
+A_CONSTEXPR_CXX14 inline bool aDimIsBase(EDimension dimension) noexcept
 {
     return dim_get_sum_abs_exponent(dimension) == 1;
 }
 
 /// @brief 判断量纲是否为导出量纲
-constexpr bool aDimIsDerived(EDimension dimension) noexcept
+A_CONSTEXPR_CXX14 inline  bool aDimIsDerived(EDimension dimension) noexcept
 {
     return dim_get_sum_abs_exponent(dimension) > 1;
 }
 
 /// @brief 判断量纲是否为单位量纲
-constexpr bool aDimIsUnit(EDimension dimension) noexcept
+A_CONSTEXPR_CXX14 inline bool aDimIsUnit(EDimension dimension) noexcept
 {
     return dimension == EDimension::eUnit;
 }
@@ -398,17 +409,17 @@ public:
     bool isUnit() const noexcept { return aDimIsUnit(value()); }
 public:
     /// @brief 量纲指数幂
-    constexpr Dimension pow(int n) const noexcept
+    A_CONSTEXPR_CXX14 Dimension pow(int n) const noexcept
     {
         return EDimension(dim_pow(value(), n));
     }
     /// @brief 量纲倒数
-    constexpr Dimension invert() const noexcept
+    A_CONSTEXPR_CXX14 Dimension invert() const noexcept
     {
         return EDimension(dim_invert(value()));
     }
     /// @brief 量纲乘法运算符
-    constexpr Dimension operator*(Dimension other) const noexcept
+    A_CONSTEXPR_CXX14 Dimension operator*(Dimension other) const noexcept
     {
         return value() * other.value();
     }
@@ -419,7 +430,7 @@ public:
         return *this;
     }
     /// @brief 量纲除法运算符
-    constexpr Dimension operator/(Dimension other) const noexcept
+    A_CONSTEXPR_CXX14 Dimension operator/(Dimension other) const noexcept
     {
         return value() / other.value();
     }
@@ -430,44 +441,44 @@ public:
         return *this;
     }
     /// @brief 量纲相等运算符
-    constexpr bool operator==(Dimension other) const noexcept
+    A_CONSTEXPR_CXX14 bool operator==(Dimension other) const noexcept
     {
         return value() == other.value();
     }
     /// @brief 量纲不相等运算符
-    constexpr bool operator!=(Dimension other) const noexcept
+    A_CONSTEXPR_CXX14 bool operator!=(Dimension other) const noexcept
     {
         return value() != other.value();
     }
-    constexpr bool operator==(EDimension other) const noexcept
+    A_CONSTEXPR_CXX14 bool operator==(EDimension other) const noexcept
     {
         return value() == other;
     }
-    constexpr bool operator!=(EDimension other) const noexcept
+    A_CONSTEXPR_CXX14 bool operator!=(EDimension other) const noexcept
     {
         return value() != other;
     }
 public:
     /// @brief 转换为EDimension枚举
-    constexpr operator EDimension() const noexcept { return dimension_; }
+    A_CONSTEXPR_CXX14 operator EDimension() const noexcept { return dimension_; }
     /// @brief 获取量纲的值
-    constexpr EDimension value() const noexcept { return dimension_; }
+    A_CONSTEXPR_CXX14 EDimension value() const noexcept { return dimension_; }
     /// @brief 获取量纲中的质量维度
-    constexpr int getMass() const noexcept { return dim_get_exponent(dimension_, kIdxMass); }
+    A_CONSTEXPR_CXX14 int getMass() const noexcept { return dim_get_exponent(dimension_, kIdxMass); }
     /// @brief 获取量纲中的长度维度
-    constexpr int getLength() const noexcept { return dim_get_exponent(dimension_, kIdxLength);}
+    A_CONSTEXPR_CXX14 int getLength() const noexcept { return dim_get_exponent(dimension_, kIdxLength);}
     /// @brief 获取量纲中的时间维度
-    constexpr int getTime() const noexcept { return dim_get_exponent(dimension_, kIdxTime);}
+    A_CONSTEXPR_CXX14 int getTime() const noexcept { return dim_get_exponent(dimension_, kIdxTime);}
     /// @brief 获取量纲中的电流维度
-    constexpr int getCurrent() const noexcept { return  dim_get_exponent(dimension_, kIdxCurrent);}
+    A_CONSTEXPR_CXX14 int getCurrent() const noexcept { return  dim_get_exponent(dimension_, kIdxCurrent);}
     /// @brief 获取量纲中的角度维度
-    constexpr int getAngle() const noexcept { return  dim_get_exponent(dimension_, kIdxAngle);}
+    A_CONSTEXPR_CXX14 int getAngle() const noexcept { return  dim_get_exponent(dimension_, kIdxAngle);}
     /// @brief 获取量纲中的温度维度
-    constexpr int getTemperature() const noexcept { return  dim_get_exponent(dimension_, kIdxTemperature);}
+    A_CONSTEXPR_CXX14 int getTemperature() const noexcept { return  dim_get_exponent(dimension_, kIdxTemperature);}
     /// @brief 获取量纲中的物质量维度
-    constexpr int getAmount() const noexcept { return  dim_get_exponent(dimension_, kIdxAmount);}
+    A_CONSTEXPR_CXX14 int getAmount() const noexcept { return  dim_get_exponent(dimension_, kIdxAmount);}
     /// @brief 获取量纲中的发光强度维度
-    constexpr int getLuminous() const noexcept { return  dim_get_exponent(dimension_, kIdxLuminous);}
+    A_CONSTEXPR_CXX14 int getLuminous() const noexcept { return  dim_get_exponent(dimension_, kIdxLuminous);}
 
     /// @brief 设置量纲中的质量维度
     A_CONSTEXPR_CXX14 Dimension& setMass(int n) noexcept
@@ -523,7 +534,7 @@ protected:
 };
 
 /// @brief 量纲指数幂运算符
-constexpr Dimension pow(Dimension dim, int n)
+A_CONSTEXPR_CXX14 inline Dimension pow(Dimension dim, int n)
 {
     return pow(dim.value(), n);
 }

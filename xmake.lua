@@ -71,6 +71,11 @@ if has_package("fmt") then
     add_defines("AST_WITH_FMT")
 end
 
+if has_package("eigen") then
+    add_defines("AST_WITH_EIGEN")
+    add_packages("eigen")
+end
+
 -- 添加matplot++库依赖（可选）
 if has_package("matplotplusplus") then
     add_packages("matplotplusplus")

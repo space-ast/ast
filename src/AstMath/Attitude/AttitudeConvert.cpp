@@ -89,15 +89,15 @@ void aRotationZMatrix(double angle, Matrix3d& mtx)
 
 void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 {
-	double xy = quat.qx() * quat.qy();
-	double yz = quat.qy() * quat.qz();
-	double zx = quat.qz() * quat.qx();
-	double sx = quat.qs() * quat.qx();
-	double sy = quat.qs() * quat.qy();
-	double sz = quat.qs() * quat.qz();
-	double xx = quat.qx() * quat.qx();
-	double yy = quat.qy() * quat.qy();
-	double zz = quat.qz() * quat.qz();
+	double xy = quat.x() * quat.y();
+	double yz = quat.y() * quat.z();
+	double zx = quat.z() * quat.x();
+	double sx = quat.w() * quat.x();
+	double sy = quat.w() * quat.y();
+	double sz = quat.w() * quat.z();
+	double xx = quat.x() * quat.x();
+	double yy = quat.y() * quat.y();
+	double zz = quat.z() * quat.z();
 
 	m(0,0) = 1.0 - 2.0 * (yy + zz);	m(0,1) = 2.0 * (xy + sz);		m(0,2) = 2.0 * (zx - sy);
 	m(1,0) = 2.0 * (xy - sz);		m(1,1) = 1.0 - 2.0 * (xx + zz);	m(1,2) = 2.0 * (yz + sx);
@@ -115,11 +115,11 @@ void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat)
 {
 	double w = 1.0 + mtx(0, 0) + mtx(1,1) + mtx(2,2);
-	quat.qs() = sqrt(w) * 0.5;
-	double tempdbl = 4.0 * quat.qs();
-	quat.qx() = (mtx(1,2) - mtx(2,1)) / tempdbl;
-	quat.qy() = (mtx(2,0) - mtx(0,2)) / tempdbl;
-	quat.qz() = (mtx(0,1) - mtx(1,0)) / tempdbl;
+	quat.w() = sqrt(w) * 0.5;
+	double tempdbl = 4.0 * quat.w();
+	quat.x() = (mtx(1,2) - mtx(2,1)) / tempdbl;
+	quat.y() = (mtx(2,0) - mtx(0,2)) / tempdbl;
+	quat.z() = (mtx(0,1) - mtx(1,0)) / tempdbl;
 }
 
 err_t aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
@@ -672,11 +672,11 @@ void aQuatToAngleAxis(const Quaternion& quat, AngleAxis& aa)
 	double n = quat.vec().norm();
 	if(n)
 	{
-    	if (quat.qs() < 0){
-			aa.angle() = 2 * atan2(n, -(quat.qs()));
+    	if (quat.w() < 0){
+			aa.angle() = 2 * atan2(n, -(quat.w()));
 			aa.axis() = quat.vec() / -n;
 		}else{
-			aa.angle() = 2 * atan2(n, (quat.qs()));
+			aa.angle() = 2 * atan2(n, (quat.w()));
 			aa.axis() = quat.vec() / n;
 		};
 	}
