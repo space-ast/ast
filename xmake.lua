@@ -92,14 +92,20 @@ task("cpdata")
         description = "Copy data directory to build directory"
     }
     on_run(function ()
+        local srcpath = path.join(os.projectdir(), "data")
         local modes = {"release", "debug", "coverage"}
-        for _, mode in ipairs(modes) do
-            local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", os.host(), os.arch(), mode))
-            os.cp(path.join(os.projectdir(), "data"), dstpath)
-            print("dstpath:", dstpath)
-            if is_host("windows") then
-                local dstpath = path.join(os.projectdir(), format("build/mingw/x86_64/%s/", mode))
-                os.cp(path.join(os.projectdir(), "data"), dstpath)
+        local plats = {os.host(), "mingw"}
+        for _, plat in ipairs(plats) do
+            local arch = os.arch()
+            if plat == "mingw" then
+                arch = "x86_64"
+            end
+            for _, mode in ipairs(modes) do
+                local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", plat, arch, mode))
+                if not os.exists(dstpath) then
+                    os.mkdir(dstpath)
+                end
+                os.cp(srcpath, dstpath)
                 print("dstpath:", dstpath)
             end
         end

@@ -51,7 +51,7 @@ class ODEStateObserverGenericHelper
 {
 public:
     // 版本1: 支持 func_(y, x, integrator)
-    template<typename F = Func>
+    template<typename F>
     static A_ALWAYS_INLINE auto call_func(F& func, double* y, double& x, ODEIntegrator* integrator) 
         -> decltype(std::declval<F>()(y, x, integrator))
     {
@@ -59,7 +59,7 @@ public:
     }
     
     // 版本2: 支持 func_(y, x)
-    template<typename F = Func>
+    template<typename F>
     static A_ALWAYS_INLINE auto call_func(F& func, double* y, double& x, ODEIntegrator* integrator) 
         -> decltype(std::declval<F>()(y, x))
     {
@@ -67,7 +67,7 @@ public:
     }
     
     // 版本3: 支持 func_(y)
-    template<typename F = Func>
+    template<typename F>
     static A_ALWAYS_INLINE auto call_func(F& func, double* y, double& x, ODEIntegrator* integrator) 
         -> decltype(std::declval<F>()(y))
     {
@@ -81,6 +81,7 @@ class ODEStateObserverGeneric: public ODEStateObserver
 {
 public:
     using Self = ODEStateObserverGeneric<Func>;
+    using FuncType = Func;
     explicit ODEStateObserverGeneric(Func func) 
         : func_(std::move(func)) 
     {}
@@ -93,7 +94,7 @@ private:
     Func func_;
 private:
     // 处理不同的返回类型
-    template<typename F = Func>
+    template<typename F = FuncType>
     A_ALWAYS_INLINE
     typename std::enable_if<!std::is_void<decltype(
         ODEStateObserverGenericHelper::call_func
@@ -102,7 +103,7 @@ private:
         return ODEStateObserverGenericHelper::call_func(func_, y, x, integrator);
     }
 
-    template<typename F = Func>
+    template<typename F = FuncType>
     A_ALWAYS_INLINE
     typename std::enable_if<std::is_void<decltype(
         ODEStateObserverGenericHelper::call_func
