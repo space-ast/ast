@@ -9,8 +9,10 @@ option("with_test")
     set_default(true)
 option_end()
 
--- 设置c代码标准：c99， c++代码标准：c++11
--- set_languages("cxx11", "c99")
+-- 设置 c++代码标准：c++11，c代码标准：c99
+if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
+    set_languages("c++11")
+end
 
 -- 添加包含目录
 add_includedirs("include")

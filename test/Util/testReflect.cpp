@@ -55,8 +55,7 @@ public:
 // 测试布尔属性
 TEST(Reflect, PropertyBool)
 {
-    constexpr auto memberPtr = &TestClass::propBool_;
-    auto prop = aNewPropertyBool<TestClass, memberPtr>();
+    auto prop = aNewPropertyBoolMem<TestClass, &TestClass::propBool_>();
     TestClass test{};
     test.propBool_ = true;
     bool value;
@@ -102,8 +101,7 @@ TEST(Reflect, PropertyBoolGetterSetter2)
 // 测试布尔属性的类型转换
 TEST(Reflect, PropertyBoolConvert)
 {
-    constexpr auto memberPtr = &TestClass::propBool_;
-    auto prop = aNewPropertyBool<TestClass, memberPtr>();
+    auto prop = aNewPropertyBoolMem<TestClass, &TestClass::propBool_>();
     TestClass test{};
     
     // 测试 bool -> int
@@ -151,8 +149,7 @@ TEST(Reflect, PropertyBoolConvert)
 // 测试整数属性
 TEST(Reflect, PropertyInt)
 {
-    constexpr auto memberPtr = &TestClass::propInt_;
-    auto prop = aNewPropertyInt<TestClass, memberPtr>();
+    auto prop = aNewPropertyIntMem<TestClass, &TestClass::propInt_>();
     TestClass test{};
     test.propInt_ = 42;
     int value;
@@ -198,8 +195,7 @@ TEST(Reflect, PropertyIntGetterSetter2)
 // 测试整数属性的类型转换
 TEST(Reflect, PropertyIntConvert)
 {
-    constexpr auto memberPtr = &TestClass::propInt_;
-    auto prop = aNewPropertyInt<TestClass, memberPtr>();
+    auto prop = aNewPropertyIntMem<TestClass, &TestClass::propInt_>();
     TestClass test{};
     
     // 测试 int -> bool
@@ -242,8 +238,7 @@ TEST(Reflect, PropertyIntConvert)
 // 测试双精度属性（已有的）
 TEST(Reflect, PropertyDouble)
 {
-    constexpr auto memberPtr = &TestClass::propDouble_;
-    auto prop = aNewPropertyDouble<TestClass, memberPtr>();
+    auto prop = aNewPropertyDoubleMem<TestClass, &TestClass::propDouble_>();
     TestClass test{};
     test.propDouble_ = 1.0204;
     double value;
@@ -289,8 +284,7 @@ TEST(Reflect, PropertyDoubleGetterSetter2)
 // 测试双精度属性的类型转换
 TEST(Reflect, PropertyDoubleConvert)
 {
-    constexpr auto memberPtr = &TestClass::propDouble_;
-    auto prop = aNewPropertyDouble<TestClass, memberPtr>();
+    auto prop = aNewPropertyDoubleMem<TestClass, &TestClass::propDouble_>();
     TestClass test{};
     
     // 测试 double -> bool
@@ -333,8 +327,7 @@ TEST(Reflect, PropertyDoubleConvert)
 // 测试字符串属性
 TEST(Reflect, PropertyString)
 {
-    constexpr auto memberPtr = &TestClass::propString_;
-    auto prop = aNewPropertyString<TestClass, memberPtr>();
+    auto prop = aNewPropertyStringMem<TestClass, &TestClass::propString_>();
     TestClass test{};
     test.propString_ = "test";
     std::string value;
@@ -380,8 +373,7 @@ TEST(Reflect, PropertyStringGetterSetter2)
 // 测试字符串属性的类型转换
 TEST(Reflect, PropertyStringConvert)
 {
-constexpr auto memberPtr = &TestClass::propString_;
-    auto prop = aNewPropertyString<TestClass, memberPtr>();
+    auto prop = aNewPropertyStringMem<TestClass, &TestClass::propString_>();
     TestClass test{};
     
     // 测试 string -> bool
@@ -431,15 +423,15 @@ TEST(Reflect, Struct)
     Struct testStruct("TestStruct", "Test struct description");
     
     // 创建属性
-    constexpr auto boolMemberPtr = &TestClass::propBool_;
-    constexpr auto intMemberPtr = &TestClass::propInt_;
-    constexpr auto doubleMemberPtr = &TestClass::propDouble_;
-    constexpr auto stringMemberPtr = &TestClass::propString_;
+    // constexpr auto boolMemberPtr = ;
+    // constexpr auto intMemberPtr = &TestClass::propInt_;
+    // constexpr auto doubleMemberPtr = &TestClass::propDouble_;
+    // constexpr auto stringMemberPtr = &TestClass::propString_;
     
-    auto boolProp = aNewPropertyBool<TestClass, boolMemberPtr>();
-    auto intProp = aNewPropertyInt<TestClass, intMemberPtr>();
-    auto doubleProp = aNewPropertyDouble<TestClass, doubleMemberPtr>();
-    auto stringProp = aNewPropertyString<TestClass, stringMemberPtr>();
+    auto boolProp = aNewPropertyBoolMem<TestClass, &TestClass::propBool_>();
+    auto intProp = aNewPropertyIntMem<TestClass, &TestClass::propInt_>();
+    auto doubleProp = aNewPropertyDoubleMem<TestClass, &TestClass::propDouble_>();
+    auto stringProp = aNewPropertyStringMem<TestClass, &TestClass::propString_>();
     
     // 添加属性到Struct
     testStruct.addProperty("boolProp", boolProp);

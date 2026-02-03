@@ -37,7 +37,7 @@ static bool aAstroBlockDependentOn(FuncBlock* block, FuncBlock* other)
     for (auto& port : inputPorts)
     {
         auto iter = std::find_if(otherOutputPorts.begin(), otherOutputPorts.end(),
-            [&](auto& otherPort)
+            [&](DataPort& otherPort)
             {
                 return otherPort.name_ == port.name_;
             });

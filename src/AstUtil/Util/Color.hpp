@@ -54,7 +54,7 @@ constexpr inline color_t rgba(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 /// @param r 输出红色分量（0-255）
 /// @param g 输出绿色分量（0-255）
 /// @param b 输出蓝色分量（0-255）
-constexpr inline void aColorToRGB(color_t color, uint8_t& r, uint8_t& g, uint8_t& b) noexcept
+A_CONSTEXPR_CXX14 inline void aColorToRGB(color_t color, uint8_t& r, uint8_t& g, uint8_t& b) noexcept
 {
 	r = (color >> 24) & 0xFF;
 	g = (color >> 16) & 0xFF;
@@ -67,7 +67,7 @@ constexpr inline void aColorToRGB(color_t color, uint8_t& r, uint8_t& g, uint8_t
 /// @param g 输出绿色分量（0-255）
 /// @param b 输出蓝色分量（0-255）
 /// @param a 输出透明度分量（0-255）
-constexpr inline void aColorToRGBA(color_t color, uint8_t& r, uint8_t& g, uint8_t& b, uint8_t& a) noexcept
+A_CONSTEXPR_CXX14 inline void aColorToRGBA(color_t color, uint8_t& r, uint8_t& g, uint8_t& b, uint8_t& a) noexcept
 {
 	r = (color >> 24) & 0xFF;
 	g = (color >> 16) & 0xFF;
@@ -86,7 +86,7 @@ public:
     constexpr Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) noexcept: value_(rgba(r, g, b, a)) {}
     constexpr operator color_t() const noexcept { return value_; }
 	constexpr color_t value() const noexcept { return value_; }
-	constexpr color_t& value() noexcept { return value_; }
+	A_CONSTEXPR_CXX14 color_t& value() noexcept { return value_; }
 private:
     color_t value_;
 };

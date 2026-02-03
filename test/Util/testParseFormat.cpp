@@ -84,7 +84,7 @@ TEST(ParseFormat, _aParseInt_LibC_2) {
     EXPECT_EQ(value, 0);
 }
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 // 测试 _aParseInt_FromChars 函数 (C++17)
 TEST(ParseFormat, _aParseInt_FromChars) {
     int value;
@@ -123,7 +123,7 @@ TEST(ParseFormat, _aParseDouble_LibC_2) {
     EXPECT_DOUBLE_EQ(value, 0.0);
 }
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 // 测试 _aParseDouble_FromChars 函数 (C++17)
 TEST(ParseFormat, _aParseDouble_FromChars) {
     double value;

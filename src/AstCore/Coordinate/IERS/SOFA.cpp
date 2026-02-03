@@ -24,6 +24,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstCore/RunTime.hpp"
 #include <math.h>
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 

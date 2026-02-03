@@ -101,11 +101,11 @@ TEST(SmartPointer, FILE)
         const char* filepath = "testSmartPointer_FILE1.txt";
         const char* content = u8"testcontent_中文_😊😀_Русский контент";
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "w");
+            ScopedPtr<std::FILE> file(fopen(filepath, "w"));
             fprintf(file, content);
         }
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "r");
+            ScopedPtr<std::FILE> file(fopen(filepath, "r"));
             char buffer[1025]{};
             fread(buffer, 1024, 1, file);
             int eq = strcmp(buffer, content);
@@ -133,11 +133,11 @@ TEST(SmartPointer, FILE)
         const char* filepath = "testSmartPointer_FILE3.txt";
         const wchar_t* content = L"testcontent_中文_😊_Русский контент";
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "w");
+            ScopedPtr<std::FILE> file(fopen(filepath, "w"));
             fwprintf(file, content);
         }
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "r");
+            ScopedPtr<std::FILE> file(fopen(filepath, "r"));
             char buffer[1025]{};
             fread(buffer, 1024, 1, file);
             nothing();

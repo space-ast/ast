@@ -21,10 +21,15 @@
 #include "AstMath/Quaternion.hpp"
 #include "AstTest/AstTestMacro.h"
 
-#if AST_WITH_FMT
-#include "Eigen/Dense"
+
+
+#if defined(AST_WITH_EIGEN)  && defined(A_CXX14)
+#   define _AST_USE_EIGEN
 #endif
 
+#ifdef _AST_USE_EIGEN
+#include "Eigen/Dense"
+#endif
 
 AST_USING_NAMESPACE
 
@@ -49,7 +54,7 @@ void testQuaternion()
 TEST(Quaternion, Init)
 {
     testQuaternion<Quaternion>();
-    #if AST_WITH_EIGEN
+    #if defined(_AST_USE_EIGEN)
     testQuaternion<Eigen::Quaterniond>();
     #endif
 }
