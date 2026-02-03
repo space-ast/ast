@@ -30,7 +30,6 @@ elseif is_plat("windows") then
     add_cxflags("/wd4819")  -- 忽略代码页警告
     if is_mode("debug") then
         set_runtimes("MDd") -- 调试模式下使用MDd动态链接库
-        set_suffixname("D") -- 调试模式下使用D后缀
     else
         set_runtimes("MD")  -- 其他模式下使用MD动态链接库
     end
