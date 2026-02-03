@@ -51,9 +51,9 @@ using namespace _AST literals;
 
 
 
-FreeRreturnTargetFunction FreeRreturnTargetFunction::Case1()
+FreeReturnTargetFunction FreeReturnTargetFunction::Case1()
 {
-    FreeRreturnTargetFunction problem;
+    FreeReturnTargetFunction problem;
     problem.initOrbitEpoch_ = TimePoint::FromUTC(2028, 6, 24, 16, 25, 59.184);
     problem.initOrbitElement_= {
         6548151, 0, 21.0_deg,
@@ -63,9 +63,9 @@ FreeRreturnTargetFunction FreeRreturnTargetFunction::Case1()
     return problem;
 }
 
-FreeRreturnTargetFunction FreeRreturnTargetFunction::Case2()
+FreeReturnTargetFunction FreeReturnTargetFunction::Case2()
 {
-    FreeRreturnTargetFunction problem;
+    FreeReturnTargetFunction problem;
     problem.initOrbitEpoch_ = TimePoint::FromUTC(2028, 6, 24, 16, 25, 59.184);
     problem.initOrbitElement_= {
         6548151, 0, 21.0_deg,
@@ -75,7 +75,7 @@ FreeRreturnTargetFunction FreeRreturnTargetFunction::Case2()
     return problem;
 }
 
-int FreeRreturnTargetFunction::operator()(const double* variable, double* constraint) const{
+int FreeReturnTargetFunction::operator()(const double* variable, double* constraint) const{
     // 输入变量
     const double varEpoch     = variable[0];            ///<  epoch 轨道历元（单位：秒）
     const double varRAAN      = variable[1];            ///<  RAAN 升交点赤经（单位：rad）
@@ -95,6 +95,12 @@ int FreeRreturnTargetFunction::operator()(const double* variable, double* constr
     // 全程轨道状态量
     TimePoint currentTime;
     Vector3d currentPos, currentVel;
+    
+    // 全程轨道状态记录
+    // std::vector<Vector3d> posECIList_;
+    posM2EList_.clear();
+    posE2MList_.clear();
+
     // 轨道初始状态
     {
         TimePoint orbitEpoch = this->initOrbitEpoch_ + varEpoch;
@@ -146,6 +152,10 @@ int FreeRreturnTargetFunction::operator()(const double* variable, double* constr
             return dotProduct;
         });
         stopMoonPeriapsis->setDirection(ODEEventDetector::eIncrease);
+        // 记录星历
+        integrator->addStateObserver([&](const double* state, double t){
+            posE2MList_.push_back(*(const Vector3d*)state);
+        });
         TimePoint endTime = startTime + 1000000000.0_s;
         err_t rc = propagator.propagate(startTime, endTime, currentPos, currentVel);
         currentTime = endTime;
@@ -176,6 +186,10 @@ int FreeRreturnTargetFunction::operator()(const double* variable, double* constr
             return dotProduct;
         });
         stopEarthPeriapsis->setDirection(ODEEventDetector::eIncrease);
+        // 记录星历
+        integrator->addStateObserver([&](const double* state, double t){
+            posM2EList_.push_back(*(const Vector3d*)state);
+        });
         TimePoint endTime = startTime + 1000000000.0_s;
         err_t rc = propagator.propagate(startTime, endTime, currentPos, currentVel);
         currentTime = endTime;
@@ -202,7 +216,53 @@ int FreeRreturnTargetFunction::operator()(const double* variable, double* constr
     cnstrAltOfEarthPeri -= 50000_m;
     // cnstrAltOfMoonPeri /= 100000_m;
     // cnstrAltOfEarthPeri /= 100000_m;
+    if (showLog_)
+    {
+        printf("variable: %.15g, %.15g, %.15g\n", variable[0], variable[1], variable[2]);
+        printf("constraint: %.15g, %.15g, %.15g\n", constraint[0], constraint[1], constraint[2]);
+        printf("\n");
+    }
+    if(plotOrbit_)
+    {
+        plt::hold(true);
+        this->plotOrbit();
+    }
     return 0;
+}
+
+
+
+void FreeReturnTargetFunction::plotOrbit() const
+{
+    std::vector<double> xList, yList, zList;
+    xList.reserve(posE2MList_.size());
+    yList.reserve(posE2MList_.size());
+    zList.reserve(posE2MList_.size());
+    for(const auto& posE2M : posE2MList_){
+        xList.push_back(posE2M.x());
+        yList.push_back(posE2M.y());
+        zList.push_back(posE2M.z());
+    }
+    plt::plot3(xList, yList, zList, "r");
+    xList.clear();
+    yList.clear();
+    zList.clear();
+    xList.reserve(posM2EList_.size());
+    yList.reserve(posM2EList_.size());
+    zList.reserve(posM2EList_.size());
+    for(const auto& posM2E : posM2EList_){
+        xList.push_back(posM2E.x());
+        yList.push_back(posM2E.y());
+        zList.push_back(posM2E.z());
+    }
+    plt::hold(true);
+    plt::plot3(xList, yList, zList, "b");
+    // plt::title("Free Return Orbit");
+    // plt::xlabel("x (m)");
+    // plt::ylabel("y (m)");
+    // plt::zlabel("z (m)");
+    // plt::grid(true);
+    
 }
 
 
@@ -211,7 +271,7 @@ int freeReturnTest1()
     aInitialize();
     double variable[3] = {0.0, 0.0, 0.0};
     double constraint[3] = {};
-    auto freeRreturnTargetFunction = FreeRreturnTargetFunction::Case1();
+    auto freeRreturnTargetFunction = FreeReturnTargetFunction::Case1();
     freeRreturnTargetFunction(variable, constraint);
     return 0;
 }
@@ -230,7 +290,7 @@ int freeReturnTest2()
 
 int targetfunc(void *p, int n, const double *x, double *fvec, int iflag )
 {
-    FreeRreturnTargetFunction& freeRreturnTargetFunction = *(FreeRreturnTargetFunction*)p;
+    FreeReturnTargetFunction& freeRreturnTargetFunction = *(FreeReturnTargetFunction*)p;
     freeRreturnTargetFunction(x, fvec);
     return iflag;
 }
@@ -243,23 +303,63 @@ int freeReturnTest3()
     const int n = 3;
     const int bufsize = (n*(3*n+13))/2;
     double work[bufsize] = {};
-    auto freeRreturnTargetFunction = FreeRreturnTargetFunction::Case2();
+    auto freeRreturnTargetFunction = FreeReturnTargetFunction::Case1();
     freeRreturnTargetFunction(x, y);
     printf("before hybrd1:\n");
     printf("x: %lf, %lf, %lf\n", x[0], x[1], x[2]);
     printf("y: %lf, %lf, %lf\n", y[0], y[1], y[2]);
     int err = hybrd1(&targetfunc, &freeRreturnTargetFunction, 3, x, y, 1e-3, work, bufsize);
     freeRreturnTargetFunction(x, y);
+    
+    // freeRreturnTargetFunction.plotOrbit();
+    // plt::show();
     printf("after hybrd1:\n");
     printf("err: %d\n", err);
     printf("x: %lf, %lf, %lf\n", x[0], x[1], x[2]);
     printf("y: %lf, %lf, %lf\n", y[0], y[1], y[2]);
+    if(abs(y[0]) > 0.1 || abs(y[1]) > 0.1 || abs(y[2]) > 3){
+        aError("hybrd1 failed: %d", err);
+        exit(-1);
+    }
+    return 0;
+}
+
+
+int freeReturnTest4()
+{
+    aInitialize();
+    double x[3]{0,0,0};
+    double y[3]{};
+    const int n = 3;
+    const int bufsize = (n*(3*n+13))/2;
+    double work[bufsize] = {};
+    plt::figure(true);
+    auto freeRreturnTargetFunction = FreeReturnTargetFunction::Case2();
+    freeRreturnTargetFunction.initImpulse_ = 3159;
+    freeRreturnTargetFunction(x, y);
+    printf("before hybrd1:\n");
+    printf("x: %lf, %lf, %lf\n", x[0], x[1], x[2]);
+    printf("y: %lf, %lf, %lf\n", y[0], y[1], y[2]);
+    freeRreturnTargetFunction.showLog_ = true;
+    freeRreturnTargetFunction.plotOrbit_ = true;
+    int err = hybrd1(&targetfunc, &freeRreturnTargetFunction, 3, x, y, 1e-3, work, bufsize);
+    freeRreturnTargetFunction(x, y);
+    printf("after hybrd1:\n");
+    printf("err: %d\n", err);
+    printf("x: %lf, %lf, %lf\n", x[0], x[1], x[2]);
+    printf("y: %lf, %lf, %lf\n", y[0], y[1], y[2]);
+    if(aStdOutIsTerminal())
+        plt::show();
+    if(abs(y[0]) > 0.1 || abs(y[1]) > 0.1 || abs(y[2]) > 2){
+        aError("hybrd1 failed: %d", err);
+        exit(-1);
+    }
     return 0;
 }
 
 
 
-void plotFreeReturnProblemForImpulseRange(double minImpulse, double maxImpulse, size_t nPoints)
+void plotFreeReturnProblemForImpulseRange(double minImpulse, double maxImpulse, size_t nPoints, double draan=0)
 {
     std::vector<double> impulseArr = plt::linspace(minImpulse, maxImpulse, nPoints);
     std::vector<double> moonAlt;
@@ -273,8 +373,8 @@ void plotFreeReturnProblemForImpulseRange(double minImpulse, double maxImpulse, 
     earthAlt.reserve(n);
 
 
-    FreeRreturnTargetFunction freeRreturnTargetFunction = FreeRreturnTargetFunction::Case2();
-    double variable[3] = {0.0, 180_deg, 0.0};
+    FreeReturnTargetFunction freeRreturnTargetFunction = FreeReturnTargetFunction::Case2();
+    double variable[3] = {0.0, draan, 0.0};
     double constraint[3] = {};
     for(auto impulse : impulseArr){
         variable[2] = impulse;
@@ -285,7 +385,7 @@ void plotFreeReturnProblemForImpulseRange(double minImpulse, double maxImpulse, 
         earthAlt.push_back(constraint[2]);
     }
     //  figure1: 月球高度
-    plt::figure();
+    // plt::figure();
     plt::plot(impulseArr, moonAlt);
     plt::title("Moon Altitude");
     plt::xlabel("Impulse (N)");
@@ -293,20 +393,20 @@ void plotFreeReturnProblemForImpulseRange(double minImpulse, double maxImpulse, 
     plt::grid(true);
     
     //  figure3: 地球轨道倾角
-    plt::figure();
-    plt::plot(impulseArr, earthIncDeg);
-    plt::title("Earth Inclination");
-    plt::xlabel("Impulse (N)");
-    plt::ylabel("Earth Inclination (deg)");
-    plt::grid(true);
-    
-    //  figure4: 地球轨道高度
-    plt::figure();
-    plt::plot(impulseArr, earthAlt);
-    plt::title("Earth Altitude");
-    plt::xlabel("Impulse (N)");
-    plt::ylabel("Earth Altitude (m)");
-    plt::grid(true);
+    // plt::figure();
+    // plt::plot(impulseArr, earthIncDeg);
+    // plt::title("Earth Inclination");
+    // plt::xlabel("Impulse (N)");
+    // plt::ylabel("Earth Inclination (deg)");
+    // plt::grid(true);
+    // 
+    // //  figure4: 地球轨道高度
+    // plt::figure();
+    // plt::plot(impulseArr, earthAlt);
+    // plt::title("Earth Altitude");
+    // plt::xlabel("Impulse (N)");
+    // plt::ylabel("Earth Altitude (m)");
+    // plt::grid(true);
 }
 
 void plotFreeReturnProblemForRAANRange(double minRAAN, double maxRAAN, size_t nPoints)
@@ -322,7 +422,7 @@ void plotFreeReturnProblemForRAANRange(double minRAAN, double maxRAAN, size_t nP
     earthIncDeg.reserve(n);
     earthAlt.reserve(n);
 
-    FreeRreturnTargetFunction freeRreturnTargetFunction = FreeRreturnTargetFunction::Case2();
+    FreeReturnTargetFunction freeRreturnTargetFunction = FreeReturnTargetFunction::Case2();
     double variable[3] = {0.0, 0.0, 0.0};
     double constraint[3] = {};
     for(auto RAAN : RAANArr){
@@ -370,7 +470,7 @@ void plotFreeReturnProblemForEpochRange(double minEpoch, double maxEpoch, size_t
     earthInc.reserve(n);
     earthIncDeg.reserve(n);
     earthAlt.reserve(n);
-    FreeRreturnTargetFunction freeRreturnTargetFunction = FreeRreturnTargetFunction::Case2();
+    FreeReturnTargetFunction freeRreturnTargetFunction = FreeReturnTargetFunction::Case1();
     double variable[3] = {0.0, 0.0, 0.0};
     double constraint[3] = {};
     for(auto epoch : epochArr){
@@ -409,18 +509,22 @@ void plotFreeReturnProblemForEpochRange(double minEpoch, double maxEpoch, size_t
 
 void surfFreeReturnProblem()
 {
-    FreeRreturnTargetFunction freeRreturnTargetFunction = FreeRreturnTargetFunction::Case2();
+    FreeReturnTargetFunction freeRreturnTargetFunction = FreeReturnTargetFunction::Case2();
     double variable[3] = {0.0, 0.0, 3160_m/s};
     double constraint[3] = {};
     freeRreturnTargetFunction(variable, constraint);
     printf("moonAlt: %lf, earthInc: %lf, earthAlt: %lf\n", constraint[0], constraint[1], constraint[2]);
+    freeRreturnTargetFunction.plotOrbit();
 
     variable[2] = 2900_m/s;
-    variable[1] = 1.0_rad;
     freeRreturnTargetFunction(variable, constraint);
     printf("moonAlt: %lf, earthInc: %lf, earthAlt: %lf\n", constraint[0], constraint[1], constraint[2]);
+    plt::hold(true);
+    plt::axis(plt::equal);
+    freeRreturnTargetFunction.plotOrbit();
+    if(aStdOutIsTerminal())
+        plt::show();
 
-    
     std::vector<double> raanArr = plt::linspace(-180_deg, 180.0_deg, 100);
     std::vector<double> ImpulseArr = plt::linspace(2.0_km/s, 3.2_km/s, 100);
     auto xypair = plt::meshgrid(raanArr, ImpulseArr);
@@ -456,9 +560,27 @@ void surfFreeReturnProblem()
 
 void plotFreeReturnProblem()
 {
-    // plotFreeReturnProblemForEpochRange(-30_day, 30.0_day, 500);
+    plotFreeReturnProblemForEpochRange(-30_day, 30.0_day, 500);
     // plotFreeReturnProblemForRAANRange(0.0, 360.0_deg, 100);
-    // plotFreeReturnProblemForImpulseRange(0.0, 4000.0, 500);
+
+    plt::figure(true);
+    plt::hold(true);
+    double start = 2000.0_m/s;
+    double end = 3150.0_m/s;
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 0_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 40_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 80_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 120_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 160_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 200_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 240_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 280_deg);
+    plotFreeReturnProblemForImpulseRange(start, end, 500, 320_deg);
+    plt::legend({"0deg", "40deg", "80deg", "120deg", "160deg", "200deg", "240deg", "280deg", "320deg"})
+        ->location(plt::legend::general_alignment::bottomleft);
+    if(aStdOutIsTerminal())
+        plt::show();
+
     surfFreeReturnProblem();
     bool isterm = aStdOutIsTerminal();
     printf("isterm: %d\n", isterm);

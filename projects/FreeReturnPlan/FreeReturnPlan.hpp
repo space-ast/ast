@@ -23,23 +23,38 @@
 #include "AstGlobal.h"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/OrbitElement.hpp"
+#include <vector>
 
 AST_USING_NAMESPACE
 
-class FreeRreturnTargetFunction
+class FreeReturnTargetFunction
 {
 public:
 
     TimePoint initOrbitEpoch_;
     OrbElem initOrbitElement_;
     double initImpulse_;
+    bool showLog_ = false;
+    bool plotOrbit_ = false;
+    size_t plotOrbitIndex_ = -1;
+    mutable std::vector<Vector3d> posM2EList_;
+    mutable std::vector<Vector3d> posE2MList_;
 
-
-    static FreeRreturnTargetFunction Case1();
-    static FreeRreturnTargetFunction Case2();
+    static FreeReturnTargetFunction Case1();
+    static FreeReturnTargetFunction Case2();
 
     int operator()(const double* variable, double* constraint) const;
+
+    /// @brief 获取全程轨道状态记录
+    // const std::vector<Vector3d>& getPosM2EList() const { return posM2EList_; }
+
+    /// @brief 获取全程轨道状态记录的XYZ坐标列表
+    void getPosECIXYZList(std::vector<double>& xList, std::vector<double>& yList, std::vector<double>& zList) const;
+
+    void plotOrbit() const;
 };
+
+using FreeRreturnTargetFunction = FreeReturnTargetFunction;
 
 /// @brief 测试1
 int freeReturnTest1();
@@ -50,6 +65,8 @@ int freeReturnTest2();
 
 int freeReturnTest3();
 
+
+int freeReturnTest4();
 
 void plotFreeReturnProblem();
 

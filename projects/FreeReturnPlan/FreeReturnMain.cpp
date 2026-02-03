@@ -30,8 +30,12 @@ int main(){
     freeReturnTest2();
     printf("freeReturnTest3:\n");
     freeReturnTest3();
-    printf("plotFreeReturnProblem:\n");
-    plotFreeReturnProblem();
+
+    printf("freeReturnTest4:\n");
+    freeReturnTest4();
+    
+    // printf("plotFreeReturnProblem:\n");
+    // plotFreeReturnProblem();
 
     return 0;
 }
