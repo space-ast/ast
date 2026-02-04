@@ -50,6 +50,11 @@ elseif is_plat("windows") then
     else
         set_runtimes("MD")  -- 其他模式下使用MD动态链接库
     end
+elseif is_plat("wasm") then -- 编译为wasm
+    -- for clang
+    add_cxflags(
+        "-Wno-missing-braces"
+    )
 end
 
 -- 生成汇编文件的编译选项

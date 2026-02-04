@@ -25,7 +25,7 @@
 #	pragma warning(disable:4090)
 #endif
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 #	pragma GCC diagnostic ignored "-Wdiscarded-qualifiers"
 #	pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 #endif
