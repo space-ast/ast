@@ -20,7 +20,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <math.h>       // for sqrt
+#include <cmath>       // for sqrt
 #include <assert.h>     // for assert
 #include <type_traits>  // for std::is_pointer
 #include <array>        // for std::array
@@ -594,6 +594,7 @@ VectorN<_Scalar, J> operator*(
 template<typename T>
 constexpr const T& clamp(const T& val, const T& low, const T& high)
 {
+    #ifdef A_CXX14
     assert(low <= high && "low must be less than or equal to high");
     if(val < low){
         return low;
@@ -602,6 +603,9 @@ constexpr const T& clamp(const T& val, const T& low, const T& high)
         return high;
     }
     return val;
+    #else
+    return (val < low) ? low : ((val > high) ? high : val);
+    #endif
 }
 
 AST_NAMESPACE_END

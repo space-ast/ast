@@ -22,7 +22,7 @@
 #include "AstCore/MathOperator.hpp"
 #include "AstCore/Constants.h"
 #include "AstUtil/Logger.hpp"
-#include <math.h>
+#include <cmath>
 
 #define PI kPI
 #define PI2 kTwoPI

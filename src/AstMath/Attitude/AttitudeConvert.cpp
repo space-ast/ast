@@ -27,7 +27,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Math.hpp"
 
-#include <math.h>
+#include <cmath>
  
 
 #define TO_EULER_EPS 1e-15

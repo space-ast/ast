@@ -402,11 +402,11 @@ public:
     /// @brief 获取量纲的符号
     std::string symbol() const { return aDimSymbol(value()); }
     /// @brief 判断量纲是否为基本量纲
-    bool isBase() const noexcept { return aDimIsBase(value()); }
+    A_CONSTEXPR_CXX14 bool isBase() const noexcept { return aDimIsBase(value()); }
     /// @brief 判断量纲是否为导出量纲
-    bool isDerived() const noexcept { return aDimIsDerived(value()); }
+    A_CONSTEXPR_CXX14 bool isDerived() const noexcept { return aDimIsDerived(value()); }
     /// @brief 判断量纲是否为单位量纲
-    bool isUnit() const noexcept { return aDimIsUnit(value()); }
+    A_CONSTEXPR_CXX14 bool isUnit() const noexcept { return aDimIsUnit(value()); }
 public:
     /// @brief 量纲指数幂
     A_CONSTEXPR_CXX14 Dimension pow(int n) const noexcept
