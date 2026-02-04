@@ -89,7 +89,7 @@ err_t RKF56::singleStep(ODE &ode, double* y, double t0, double h)
         );
     }
 #if 0
-#define ASSERT_EQ(x, y) assert(abs((x) - (y)) < 1e-10);
+#define ASSERT_EQ(x, y) assert(std::abs((x) - (y)) < 1e-10);
 #ifndef NDEBUG
         for (int i = 0; i < 8; i++) {
             double s;

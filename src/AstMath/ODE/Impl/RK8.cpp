@@ -101,7 +101,7 @@ err_t RK8::singleStep(ODE &ode, double* y, double t0, double h)
     const double b10 = 41.0 / 840.0;
 
 #if 0
-#define ASSERT_EQ(x, y) assert(abs((x) - (y)) < 1e-10);
+#define ASSERT_EQ(x, y) assert(std::abs((x) - (y)) < 1e-10);
     ASSERT_EQ(c2, a21);
     ASSERT_EQ(c3, a31 + a32);
     ASSERT_EQ(c4, a41 + +a43);

@@ -93,18 +93,18 @@ constexpr int dim_get_sum_abs_exponent(T dimension) noexcept
 #if defined(_AST_DIM_USE_CXX14)
     int sum = 0;
     for (int i = 0; i < 8; ++i) {
-        sum += abs(dim_get_exponent(dimension, i));
+        sum += std::abs(dim_get_exponent(dimension, i));
     }
     return sum;
 #else
-    return abs(dim_get_exponent(dimension, 0)) + 
-           abs(dim_get_exponent(dimension, 1)) + 
-           abs(dim_get_exponent(dimension, 2)) + 
-           abs(dim_get_exponent(dimension, 3)) +
-           abs(dim_get_exponent(dimension, 4)) + 
-           abs(dim_get_exponent(dimension, 5)) + 
-           abs(dim_get_exponent(dimension, 6)) + 
-           abs(dim_get_exponent(dimension, 7));
+    return std::abs(dim_get_exponent(dimension, 0)) + 
+           std::abs(dim_get_exponent(dimension, 1)) + 
+           std::abs(dim_get_exponent(dimension, 2)) + 
+           std::abs(dim_get_exponent(dimension, 3)) +
+           std::abs(dim_get_exponent(dimension, 4)) + 
+           std::abs(dim_get_exponent(dimension, 5)) + 
+           std::abs(dim_get_exponent(dimension, 6)) + 
+           std::abs(dim_get_exponent(dimension, 7));
 #endif
 }
 

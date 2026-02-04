@@ -173,7 +173,7 @@ void Euler123ToMatrix(const Euler& euler, Matrix3d& mtx)
 /// @param euler 欧拉角
 void MatrixToEuler123(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(2, 0)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(2, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(2, 1), mtx(2, 2));
 		euler.angle2() = asin(mtx(2, 0));
@@ -211,7 +211,7 @@ void Euler121ToMatrix(const Euler& euler, Matrix3d& mtx)
 /// @param euler 欧拉角
 void MatrixToEuler121(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 1), -mtx(0, 2));
 		euler.angle2() = acos(mtx(0, 0));

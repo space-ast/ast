@@ -191,7 +191,7 @@ err_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double *y, double &t, doub
     double absh = this->stepSize_;
     double step = tf - t;
     int tdir = sign(step);
-    double stepabs = abs(step);
+    double stepabs = std::abs(step);
     if(stepabs < absh)
     {
         absh = stepabs;

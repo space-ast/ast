@@ -972,7 +972,7 @@ err_t dela2coe(const double *delaIn, double gm, double *coeOut)
     double H_dela= dela->H();
     double ll_dela= dela->l();
     
-    if (abs(H_dela) > abs(G_dela))
+    if (std::abs(H_dela) > std::abs(G_dela))
     {
         aError("The magnitude of DelaunayH must be less than or equal to the magnitude of DelaunayG.");
         return eErrorInvalidParam;
