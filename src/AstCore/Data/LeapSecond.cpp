@@ -100,10 +100,10 @@ err_t LeapSecond::loadHPIERS(const char* filepath)
         return eErrorNullInput;
     }
     char linebuf[1024];
-    int lineNumber = 0;
+    // int lineNumber = 0;
     std::vector<Entry> data;
     while (fgets(linebuf, sizeof(linebuf), file)) {
-        lineNumber++;
+        // lineNumber++;
 
         // 跳过空行和注释行
         if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {

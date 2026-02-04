@@ -36,7 +36,7 @@ namespace {
     
     /// @brief 中心引力缩放因子
     /// @details 使用2的幂避免乘除序列中的数值噪声
-    constexpr double MU_SCALE = 4294967296.0; // 2^32
+    // constexpr double MU_SCALE = 4294967296.0; // 2^32
 }
 
 #if 0

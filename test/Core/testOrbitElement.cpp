@@ -36,6 +36,9 @@ const double ANGLE_EPS = 1e-9;       // 角度精度要求（弧度）
 /// @brief 测试经典轨道根数与直角坐标之间的转换
 TEST(OrbitElement, CartConversion)
 {
+    A_UNUSED(CB_RADIUS);
+
+
     printf("测试: 经典轨道根数 ←→ 直角坐标\n");
     
     // 测试用例1：低地球轨道

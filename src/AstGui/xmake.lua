@@ -13,3 +13,4 @@
     if not has_package("qt5widgets") then
         set_enabled(false)
     end
+    -- set_warnings("more")

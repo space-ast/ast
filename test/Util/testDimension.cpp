@@ -275,6 +275,9 @@ TEST(Dimension, Constexpr)
     constexpr Dimension constLength = Dimension::Length();
     constexpr Dimension constTime = Dimension::Time();
 
+    A_UNUSED(constUnit);
+    A_UNUSED(constMass);
+
     // 测试常量运算
     constexpr Dimension constArea = constLength * constLength;
     static_assert(constArea.getLength() == 2, "Area should have length exponent 2");

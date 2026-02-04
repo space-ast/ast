@@ -229,7 +229,7 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
     // initialize recursion
     Real rho = FieldRadius/r;
     Real rho_np1 = -Factor/r * rho;   // rho(0) ,Ref[3], Eq 26 , factor = mu for gravity
-    Real rho_np2 = rho_np1 * rho;
+    // Real rho_np2 = rho_np1 * rho;
     Real a1 = 0;
     Real a2 = 0;
     Real a3 = 0;
@@ -247,7 +247,7 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
     for (Integer n=1;  n<=NN && n<=nn;  ++n)
     {
         rho_np1 *= rho;
-        rho_np2 *= rho;
+        // rho_np2 *= rho;
         Real sum1 = 0;
         Real sum2 = 0;
         Real sum3 = 0;

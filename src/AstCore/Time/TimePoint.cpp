@@ -32,10 +32,10 @@ namespace{
     static const JulianDate epochTAIJulianDate{ (int)kJ2000Epoch, 0};
 
     /// @brief 零时刻点的日期时间（地球时TT）
-    static const DateTime epochTTDateTime{2000,1,1,12,0,kTTMinusTAI};
+    // static const DateTime epochTTDateTime{2000,1,1,12,0,kTTMinusTAI};
 
     /// @brief 零时刻点的日期时间（原子时 TAI）
-    static const DateTime epochTAIDateTime{2000,1,1,12,0,0};
+    // static const DateTime epochTAIDateTime{2000,1,1,12,0,0};
 }
 
 void aTimePointToUTC(const TimePoint &time, JulianDate &jdUTC)

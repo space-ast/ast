@@ -184,7 +184,7 @@ Lexer::ETokenType Lexer::getNextToken()
             static_assert(0xE2 == (unsigned char)aText("\u22BB")[0], "Invalid value");
             static_assert((char)0xE2 == aText("\u22BB")[0], "Invalid value");
             // 检查是否为⊻符号
-            if (match(aText("\u22BB") + 1)) {
+            if (match(&(aText("\u22BB")[1]))) {
                 return Lexer::eXor;
             }
             return Lexer::eError;
@@ -315,7 +315,7 @@ Lexer::ETokenType Lexer::scanNumber()
     if(firstChar == '0'){
         // 检查是否是十六进制数字 (0x 前缀)
         char peekChar = peek();
-        if ((peekChar == 'x' )) {
+        if ('x' == peekChar) {
             current_lexeme_ += advance(); // 跳过 'x'
             
             // 至少需要一个十六进制数字
@@ -329,7 +329,7 @@ Lexer::ETokenType Lexer::scanNumber()
         }
         
         // 检查是否是二进制数字 (0b 前缀)
-        else if ((peekChar == 'b')) {
+        else if ('b' == peekChar) {
             current_lexeme_ += advance(); // 跳过 'b'
             
             // 至少需要一个二进制数字
@@ -343,7 +343,7 @@ Lexer::ETokenType Lexer::scanNumber()
         }
         
         // 检查是否是八进制数字 (0o 前缀)，参照Julia语法
-        else if ((peekChar == 'o')) {
+        else if ('o' == peekChar) {
             current_lexeme_ += advance(); // 跳过 'o'
             
             // 至少需要一个八进制数字

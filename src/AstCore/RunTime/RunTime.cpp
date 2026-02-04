@@ -61,7 +61,7 @@ err_t LeapSecond::loadDefault()
     err_t err = this->load(datafile.string().c_str());
     if (err)
     {
-        aWarning("failed to load leapsecond from default data file: %s", datafile);
+        aWarning("failed to load leapsecond from default data file: %s", datafile.string().c_str());
     }
     return err;
 }

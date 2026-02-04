@@ -26,19 +26,25 @@ set_warnings("more", "error")
 
 -- 设置编译策略
 set_policy("build.progress_style", "multirow")
--- set_policy("package.precompiled", false)     // 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
+-- set_policy("package.precompiled", false)     -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
 
 -- linux平台添加rpath
 if is_plat("linux") then
     add_rpathdirs("$ORIGIN")
 elseif is_plat("windows") then
+    add_defines("_CRT_SECURE_NO_WARNINGS")
+    -- for msvc
     add_cxflags(
         "/wd4819"           -- 忽略警告：代码页
         ,"/wd4251"          -- 忽略警告：需要有 dll 接口
         ,"/wd4996"          -- 忽略警告：已否决的函数或参数
         -- ,"/wd4244"          -- 忽略警告：转换可能丢失数据
         -- ,"/wd4090"           -- 忽略警告：不同的“const”限定符
-    )  
+    )
+    -- for clang
+    add_cxflags(
+        "-Wno-missing-braces"
+    )
     if is_mode("debug") then
         set_runtimes("MDd") -- 调试模式下使用MDd动态链接库
     else
@@ -64,8 +70,10 @@ add_requires("matplotplusplus", {optional = true})
 add_requires("libf2c", {optional = true})
 add_requires("cminpack", {optional = true, configs = {long_double = true}})
 
+-- 使用llvm工具链编译（可选）
 -- add_requires("llvm", {optional = true})
 -- set_toolchains("@llvm")
+
 
 -- 添加abseil库（可选）
 -- add_requires("abseil", {optional = true})

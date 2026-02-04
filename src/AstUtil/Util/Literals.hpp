@@ -35,7 +35,7 @@ namespace literals
     /// @brief 将长双精度浮点数值作为弧度值处理
     /// @param val 弧度值
     /// @return 弧度值（直接返回，因为内部计算使用弧度）
-    inline constexpr double operator "" _rad(long double val)
+    inline constexpr double operator ""_rad(long double val)
     {
         return val;
     }
@@ -43,7 +43,7 @@ namespace literals
     /// @brief 将无符号长整数值作为弧度值处理
     /// @param val 弧度值
     /// @return 弧度值（直接返回，因为内部计算使用弧度）
-    inline constexpr double operator "" _rad(unsigned long long val)
+    inline constexpr double operator ""_rad(unsigned long long val)
     {
         return static_cast<double>(val);
     }
@@ -51,7 +51,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从角度转换为弧度
     /// @param val 角度值
     /// @return 对应的弧度值（角度值 * kDegToRad）
-    inline constexpr double operator "" _deg(long double val)
+    inline constexpr double operator ""_deg(long double val)
     {
         return val * kDegToRad;
     }
@@ -59,7 +59,7 @@ namespace literals
     /// @brief 将无符号长整数值从角度转换为弧度
     /// @param val 角度值
     /// @return 对应的弧度值（角度值 * kDegToRad）
-    inline constexpr double operator "" _deg(unsigned long long val)
+    inline constexpr double operator ""_deg(unsigned long long val)
     {
         return val * kDegToRad;
     }
@@ -67,7 +67,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从弧秒转换为弧度
     /// @param val 弧秒值
     /// @return 对应的弧度值（弧秒值 * kArcSecToRad）
-    inline constexpr double operator "" _arcsec(long double val)
+    inline constexpr double operator ""_arcsec(long double val)
     {
         return val * kArcSecToRad;
     }
@@ -75,7 +75,7 @@ namespace literals
     /// @brief 将无符号长整数值从弧秒转换为弧度
     /// @param val 弧秒值
     /// @return 对应的弧度值（弧秒值 * kArcSecToRad）
-    inline constexpr double operator "" _arcsec(unsigned long long val)
+    inline constexpr double operator ""_arcsec(unsigned long long val)
     {
         return val * kArcSecToRad;
     }
@@ -85,7 +85,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从千米转换为米
     /// @param val 千米值
     /// @return 对应的米值（千米值 * kKilometerToMeter）
-    inline constexpr double operator "" _km(long double val)
+    inline constexpr double operator ""_km(long double val)
     {
         return val * kKilometerToMeter;
     }
@@ -93,7 +93,7 @@ namespace literals
     /// @brief 将无符号长整数值从千米转换为米
     /// @param val 千米值
     /// @return 对应的米值（千米值 * kKilometerToMeter）
-    inline constexpr double operator "" _km(unsigned long long val)
+    inline constexpr double operator ""_km(unsigned long long val)
     {
         return val * kKilometerToMeter;
     }
@@ -101,7 +101,7 @@ namespace literals
     /// @brief 将长双精度浮点数值作为米值处理
     /// @param val 米值
     /// @return 米值（直接返回，因为内部计算使用米）
-    inline constexpr double operator "" _m(long double val)
+    inline constexpr double operator ""_m(long double val)
     {
         return val;
     }
@@ -109,7 +109,7 @@ namespace literals
     /// @brief 将无符号长整数值作为米值处理
     /// @param val 米值
     /// @return 米值（直接返回，因为内部计算使用米）
-    inline constexpr double operator "" _m(unsigned long long val)
+    inline constexpr double operator ""_m(unsigned long long val)
     {
         return static_cast<double>(val);
     }
@@ -117,7 +117,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从厘米转换为米
     /// @param val 厘米值
     /// @return 对应的米值（厘米值 * kCentimeterToMeter）
-    inline constexpr double operator "" _cm(long double val)
+    inline constexpr double operator ""_cm(long double val)
     {
         return val * kCentimeterToMeter;
     }
@@ -125,7 +125,7 @@ namespace literals
     /// @brief 将无符号长整数值从厘米转换为米
     /// @param val 厘米值
     /// @return 对应的米值（厘米值 * kCentimeterToMeter）
-    inline constexpr double operator "" _cm(unsigned long long val)
+    inline constexpr double operator ""_cm(unsigned long long val)
     {
         return val * kCentimeterToMeter;
     }
@@ -133,7 +133,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从毫米转换为米
     /// @param val 毫米值
     /// @return 对应的米值（毫米值 * kMillimeterToMeter）
-    inline constexpr double operator "" _mm(long double val)
+    inline constexpr double operator ""_mm(long double val)
     {
         return val * kMillimeterToMeter;
     }
@@ -141,7 +141,7 @@ namespace literals
     /// @brief 将无符号长整数值从毫米转换为米
     /// @param val 毫米值
     /// @return 对应的米值（毫米值 * kMillimeterToMeter）
-    inline constexpr double operator "" _mm(unsigned long long val)
+    inline constexpr double operator ""_mm(unsigned long long val)
     {
         return val * kMillimeterToMeter;
     }
@@ -149,7 +149,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从微米转换为米
     /// @param val 微米值
     /// @return 对应的米值（微米值 * kMicroMeterToMeter）
-    inline constexpr double operator "" _um(long double val)
+    inline constexpr double operator ""_um(long double val)
     {
         return val * kMicroMeterToMeter;
     }
@@ -157,7 +157,7 @@ namespace literals
     /// @brief 将无符号长整数值从微米转换为米
     /// @param val 微米值
     /// @return 对应的米值（微米值 * kMicroMeterToMeter）
-    inline constexpr double operator "" _um(unsigned long long val)
+    inline constexpr double operator ""_um(unsigned long long val)
     {
         return val * kMicroMeterToMeter;
     }
@@ -165,7 +165,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从纳米转换为米
     /// @param val 纳米值
     /// @return 对应的米值（纳米值 * kNanometerToMeter）
-    inline constexpr double operator "" _nm(long double val)
+    inline constexpr double operator ""_nm(long double val)
     {
         return val * kNanometerToMeter;
     }
@@ -173,7 +173,7 @@ namespace literals
     /// @brief 将无符号长整数值从纳米转换为米
     /// @param val 纳米值
     /// @return 对应的米值（纳米值 * kNanometerToMeter）
-    inline constexpr double operator "" _nm(unsigned long long val)
+    inline constexpr double operator ""_nm(unsigned long long val)
     {
         return val * kNanometerToMeter;
     }
@@ -181,7 +181,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从天文学单位转换为米
     /// @param val 天文单位值
     /// @return 对应的米值（天文单位值 * kAU）
-    inline constexpr double operator "" _au(long double val)
+    inline constexpr double operator ""_au(long double val)
     {
         return val * kAU;
     }
@@ -189,7 +189,7 @@ namespace literals
     /// @brief 将无符号长整数值从天文学单位转换为米
     /// @param val 天文单位值
     /// @return 对应的米值（天文单位值 * kAU）
-    inline constexpr double operator "" _au(unsigned long long val)
+    inline constexpr double operator ""_au(unsigned long long val)
     {
         return val * kAU;
     }
@@ -200,7 +200,7 @@ namespace literals
     /// @brief 将长双精度浮点数值作为秒值处理
     /// @param val 秒值
     /// @return 秒值（直接返回，因为内部计算使用秒）
-    inline constexpr double operator "" _s(long double val)
+    inline constexpr double operator ""_s(long double val)
     {
         return val;
     }
@@ -208,7 +208,7 @@ namespace literals
     /// @brief 将无符号长整数值作为秒值处理
     /// @param val 秒值
     /// @return 秒值（直接返回，因为内部计算使用秒）
-    inline constexpr double operator "" _s(unsigned long long val)
+    inline constexpr double operator ""_s(unsigned long long val)
     {
         return static_cast<double>(val);
     }
@@ -216,7 +216,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从分钟转换为秒
     /// @param val 分钟值
     /// @return 对应的秒值（分钟值 * kMinToSec）
-    inline constexpr double operator "" _min(long double val)
+    inline constexpr double operator ""_min(long double val)
     {
         return val * kMinToSec;
     }
@@ -224,7 +224,7 @@ namespace literals
     /// @brief 将无符号长整数值从分钟转换为秒
     /// @param val 分钟值
     /// @return 对应的秒值（分钟值 * kMinToSec）
-    inline constexpr double operator "" _min(unsigned long long val)
+    inline constexpr double operator ""_min(unsigned long long val)
     {
         return val * kMinToSec;
     }
@@ -232,7 +232,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从小时转换为秒
     /// @param val 小时值
     /// @return 对应的秒值（小时值 * kHourToSec）
-    inline constexpr double operator "" _h(long double val)
+    inline constexpr double operator ""_h(long double val)
     {
         return val * kHourToSec;
     }
@@ -240,7 +240,7 @@ namespace literals
     /// @brief 将无符号长整数值从小时转换为秒
     /// @param val 小时值
     /// @return 对应的秒值（小时值 * kHourToSec）
-    inline constexpr double operator "" _h(unsigned long long val)
+    inline constexpr double operator ""_h(unsigned long long val)
     {
         return val * kHourToSec;
     }
@@ -248,7 +248,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从天转换为秒
     /// @param val 天数值
     /// @return 对应的秒值（天数值 * kDayToSec）
-    inline constexpr double operator "" _day(long double val)
+    inline constexpr double operator ""_day(long double val)
     {
         return val * kDayToSec;
     }
@@ -256,7 +256,7 @@ namespace literals
     /// @brief 将无符号长整数值从天转换为秒
     /// @param val 天数值
     /// @return 对应的秒值（天数值 * kDayToSec）
-    inline constexpr double operator "" _day(unsigned long long val)
+    inline constexpr double operator ""_day(unsigned long long val)
     {
         return val * kDayToSec;
     }
@@ -264,7 +264,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从毫秒转换为秒
     /// @param val 毫秒值
     /// @return 对应的秒值（毫秒值 * kMilliSecToSec）
-    inline constexpr double operator "" _ms(long double val)
+    inline constexpr double operator ""_ms(long double val)
     {
         return val * kMilliSecToSec;
     }
@@ -272,7 +272,7 @@ namespace literals
     /// @brief 将无符号长整数值从毫秒转换为秒
     /// @param val 毫秒值
     /// @return 对应的秒值（毫秒值 * kMilliSecToSec）
-    inline constexpr double operator "" _ms(unsigned long long val)
+    inline constexpr double operator ""_ms(unsigned long long val)
     {
         return val * kMilliSecToSec;
     }
@@ -280,7 +280,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从微秒转换为秒
     /// @param val 微秒值
     /// @return 对应的秒值（微秒值 * kMicroSecToSec）
-    inline constexpr double operator "" _us(long double val)
+    inline constexpr double operator ""_us(long double val)
     {
         return val * kMicroSecToSec;
     }
@@ -288,7 +288,7 @@ namespace literals
     /// @brief 将无符号长整数值从微秒转换为秒
     /// @param val 微秒值
     /// @return 对应的秒值（微秒值 * kMicroSecToSec）
-    inline constexpr double operator "" _us(unsigned long long val)
+    inline constexpr double operator ""_us(unsigned long long val)
     {
         return val * kMicroSecToSec;
     }
@@ -296,7 +296,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从纳秒转换为秒
     /// @param val 纳秒值
     /// @return 对应的秒值（纳秒值 * kNanoSecToSec）
-    inline constexpr double operator "" _ns(long double val)
+    inline constexpr double operator ""_ns(long double val)
     {
         return val * kNanoSecToSec;
     }
@@ -304,7 +304,7 @@ namespace literals
     /// @brief 将无符号长整数值从纳秒转换为秒
     /// @param val 纳秒值
     /// @return 对应的秒值（纳秒值 * kNanoSecToSec）
-    inline constexpr double operator "" _ns(unsigned long long val)
+    inline constexpr double operator ""_ns(unsigned long long val)
     {
         return val * kNanoSecToSec;
     }
@@ -312,7 +312,7 @@ namespace literals
     /// @brief 将长双精度浮点数值从皮秒转换为秒
     /// @param val 皮秒值
     /// @return 对应的秒值（皮秒值 * kPicoSecToSec）
-    inline constexpr double operator "" _ps(long double val)
+    inline constexpr double operator ""_ps(long double val)
     {
         return val * kPicoSecToSec;
     }
@@ -320,7 +320,7 @@ namespace literals
     /// @brief 将无符号长整数值从皮秒转换为秒
     /// @param val 皮秒值
     /// @return 对应的秒值（皮秒值 * kPicoSecToSec）
-    inline constexpr double operator "" _ps(unsigned long long val)
+    inline constexpr double operator ""_ps(unsigned long long val)
     {
         return val * kPicoSecToSec;
     }

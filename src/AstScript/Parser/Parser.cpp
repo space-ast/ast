@@ -988,17 +988,17 @@ Expr* Parser::parsePrimaryExpr()
                 long long value = 0;
                 if(numStr.size() >= 2 && numStr[0] == '0' && (numStr[1] == 'x' || numStr[1] == 'b' || numStr[1] == 'o')){
                     // 检查是否为十六进制数字
-                    if ((numStr[1] == 'x')) {
+                    if ('x' == numStr[1]) {
                         // 使用 strtoll 的十六进制解析功能
                         value = std::strtoll(numStr.data(), nullptr, 16);
                     } 
                     // 检查是否为二进制数字
-                    else if ((numStr[1] == 'b')) {
+                    else if ('b' == numStr[1]) {
                         // 使用stoll的二进制解析功能
                         value = std::strtoll(numStr.data() + 2, nullptr, 2);
                     }
                     // 检查是否为八进制数字，参照Julia语法
-                    else if ((numStr[1] == 'o')) {
+                    else if ('o' == numStr[1]) {
                         // 使用stoll的八进制解析功能
                         value = std::strtoll(numStr.data() + 2, nullptr, 8);
                     }

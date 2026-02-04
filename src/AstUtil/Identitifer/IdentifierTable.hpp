@@ -62,7 +62,7 @@ public:
                 memcmp(sym->data(), data, length) == 0) {
                 return sym;  // 返回现有符号
             }
-            ++it;
+            // ++it;
         }
         
         // 创建新符号

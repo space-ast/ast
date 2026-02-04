@@ -31,7 +31,7 @@ using namespace math;
 ODEVarStepIntegrator::ODEVarStepIntegrator()
     : useMinStep_{false}
     , useMaxStep_{false}
-    , useFixedStepSize_{false}
+    // , useFixedStepSize_{false}
     , warnOnMinStep_{true}
     , maxStepAttempts_{50}
     , minStepSize_{1}
@@ -143,7 +143,9 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
             if(numAttempts >= this->maxStepAttempts_)
             {
                 // @fixme! 这里是否直接停止积分？
-                aWarning("Max iteration reached.");
+                if(warnOnMinStep_){
+                    aWarning("Max iteration reached.");
+                }
             }else{
                 continue;
             }

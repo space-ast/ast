@@ -102,7 +102,7 @@ TEST(SmartPointer, FILE)
         const char* content = u8"testcontent_中文_😊😀_Русский контент";
         {
             ScopedPtr<std::FILE> file(fopen(filepath, "w"));
-            fprintf(file, content);
+            fprintf(file, "%s", content);
         }
         {
             ScopedPtr<std::FILE> file(fopen(filepath, "r"));
@@ -118,7 +118,7 @@ TEST(SmartPointer, FILE)
         const char* content = u8"testcontent_中文_😊_Русский контент";
         {
             std::FILE* file = fopen(filepath, "w");
-            fprintf(file, content);
+            fprintf(file, "%s", content);
         }
         {
             std::FILE* file = fopen(filepath, "r");

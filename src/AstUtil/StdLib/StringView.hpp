@@ -331,12 +331,12 @@ std::basic_ostream<_Char>& operator<<(std::basic_ostream<_Char>& os, const Strin
 }
 
 // 字面量操作符（C++11不支持用户定义字面量用于模板，这里只提供char版本）
-inline StringView operator"" _sv(const char* str, size_t len) noexcept
+inline StringView operator""_sv(const char* str, size_t len) noexcept
 {
     return StringView(str, len);
 }
 
-inline WStringView operator"" _sv(const wchar_t* str, size_t len) noexcept
+inline WStringView operator""_sv(const wchar_t* str, size_t len) noexcept
 {
     return WStringView(str, len);
 }
