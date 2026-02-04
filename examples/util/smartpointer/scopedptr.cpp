@@ -13,10 +13,10 @@ int main()
     {  
         // 作用域开始
         // 可以用于普通类型
-        ScopedPtr<int> intPtr = new int(42);
+        ScopedPtr<int> intPtr(new int(42));
         
         // 也可以用于Object子类（有特殊的删除处理）
-        ScopedPtr<MyObject> objPtr = new MyObject();  // MyObject必须继承自Object
+        ScopedPtr<MyObject> objPtr(new MyObject());  // MyObject必须继承自Object
         objPtr->doSomething();
         
         // 重置指针

@@ -59,7 +59,7 @@ public:
     }
     void regFunc(EOpUnaryType op, Class* type, void* func)
     {
-        map_[{static_cast<int>(op), type}] = func;
+        map_[OpUnaryKey{static_cast<int>(op), type}] = func;
     }
 protected:
     OpUnaryMap map_;

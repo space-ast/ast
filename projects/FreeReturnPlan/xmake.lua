@@ -8,4 +8,4 @@ target("FreeReturnPlan")
     if not has_package("cminpack") or not has_package("matplotplusplus") then
         set_enabled(false)
     end
-
+    set_languages("c++14")

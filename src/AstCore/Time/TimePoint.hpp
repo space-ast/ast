@@ -42,6 +42,13 @@ class UTCScale;
 
 class TimePoint;
 
+constexpr static double kTimePointDefaultFormatPrecision = 6;
+
+
+// --------------------
+// 时间点与时间系统的转换
+// --------------------
+
 /// @brief 将时间点转换为儒略日数（协调世界时 UTC）
 AST_CORE_API void aTimePointToUTC(const TimePoint& time, JulianDate& jdUTC);
 
@@ -73,6 +80,19 @@ AST_CORE_API void aTimePointToTAI(const TimePoint& time, DateTime& dttmTAI);
 AST_CORE_API void aTimePointToUT1(const TimePoint& time, DateTime& dttmUT1);
 
 
+
+// ----------------
+// 时间点格式化与解析
+// ----------------
+
+
+/// @brief 将时间点格式化为字符串
+AST_CORE_CAPI err_t aTimePointFormat(const TimePoint& time, std::string& str, int precision = kTimePointDefaultFormatPrecision);
+
+/// @brief 从字符串解析时间点
+AST_CORE_CAPI err_t aTimePointParse(StringView str, TimePoint& time);
+
+
 /// @brief 绝对时间点
 class TimePoint
 {
@@ -98,6 +118,14 @@ public:
         return {0, -kTTMinusTAI};
     }
 
+    /// @brief 从字符串解析时间点
+    /// @param str 时间点字符串
+    /// @return TimePoint 解析后的时间点对象
+    static TimePoint Parse(StringView str){
+        TimePoint time;
+        aTimePointParse(str, time);
+        return time;
+    }
 
 public:
     /// @brief 时间点的整数秒数部分
@@ -162,8 +190,16 @@ public:
     TimePoint operator+(double second) const{
         return {integerPart(), fractionalPart() + second};
     }
-    AST_CORE_API
-    std::string toString(int precision = 3) const;
+
+    /// @brief 将时间点格式化为字符串
+    /// @param precision 格式化精度（秒数小数位数）
+    /// @return 格式化后的字符串
+    std::string toString(int precision = kTimePointDefaultFormatPrecision) const
+    {
+        std::string str;
+        aTimePointFormat(*this, str, precision);
+        return str;
+    }
 protected:
     static TimePoint FromIntegerFractional(int64_t integer, double fractional);
 public:

@@ -32,6 +32,7 @@ struct tm;
 
 AST_NAMESPACE_BEGIN
 
+constexpr double kTimeDefaultFormatPrecision = 3;
 
 class DateTime;
 
@@ -40,6 +41,11 @@ AST_CORE_CAPI void aCurrentDateTimeLocal(DateTime& dttm);
 
 /// @brief 获取当前UTC日期时间
 AST_CORE_CAPI void aCurrentDateTimeUTC(DateTime& dttm);
+
+
+// --------------------
+// 日期时间规范化
+// --------------------
 
 /// @brief 规范化日期时间对象
 /// @details 将时间调整到0-23时59分59秒之间，并调整日期到正确的范围内，不考虑闰秒
@@ -65,6 +71,13 @@ AST_CORE_CAPI void aDateTimeNormalizeLocal(DateTime& dttm, int timezone);
 /// @param dttm 北京时间
 /// @return 
 AST_CORE_CAPI void aDateTimeNormalizeBJT(DateTime& dttm);
+
+
+
+// -------------
+// 日期时间递增
+// -------------
+
 
 /// @brief 增加年
 /// @details 将日期时间对象增加指定的年数，并规范化日期时间对象
@@ -213,6 +226,12 @@ AST_CORE_CAPI void aDateTimeAddSecondsLocal(DateTime& dttm, double seconds, int 
 AST_CORE_CAPI void aDateTimeAddSecondsBJT(DateTime& dttm, double seconds);
 
 
+
+// -------------
+// 日期时间格式化
+// -------------
+
+
 /// @brief 格式化日期时间为字符串
 /// @details 将日期时间对象格式化为指定格式的字符串
 /// @param dttm 
@@ -294,6 +313,24 @@ AST_CORE_CAPI err_t aDateTimeFormatRFC1123(const DateTime& dttm, std::string& st
 AST_CORE_CAPI err_t aDateTimeFormatRFC2822(const DateTime& dttm, std::string& str);
 
 #endif
+
+
+/// @brief 格式化日期时间为默认格式
+/// @details 将日期时间对象格式化为默认格式的字符串，例如：2025-11-21 12:34:56.123
+/// @param dttm 
+/// @param str 
+/// @return err_t 
+A_ALWAYS_INLINE err_t aDateTimeFormatDefault(const DateTime& dttm, std::string& str, int precision = kTimeDefaultFormatPrecision)
+{
+    return aDateTimeFormatGregorian(dttm, str, precision);
+}
+
+
+
+// -------------
+// 日期时间解析
+// -------------
+
 
 
 /// @brief 解析ISO 8601格式的日期时间字符串
@@ -414,6 +451,15 @@ public:
     AST_CORE_API
     static DateTime FromTimeTUTC(time_t time);
 
+    /// @brief 从字符串解析日期时间（任意格式）
+    /// @param str 包含日期时间的字符串
+    /// @return DateTime 解析后的日期时间对象
+    static DateTime Parse(StringView str){
+        DateTime dttm;
+        aDateTimeParseAny(str, dttm);
+        return dttm;
+    }
+
 public: 
     const Date& date() const{return date_;}
     Date& date() {return date_;}
@@ -475,7 +521,7 @@ public:
 public:
     std::string toString(int precision = 3) const{
         std::string str;
-        aDateTimeFormatGregorian(*this, str, precision);
+        aDateTimeFormatDefault(*this, str, precision);
         return str;
     }
 public:

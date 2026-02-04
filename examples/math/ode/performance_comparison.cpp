@@ -5,6 +5,8 @@
 #include <chrono>
 #include <vector>
 #include <iomanip>
+#include <clocale>
+#include <string>
 
 AST_USING_NAMESPACE
 

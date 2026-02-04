@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/TypeTraits.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -53,7 +54,7 @@ public:
     // 版本1: 支持 func_(y, x, integrator)
     template<typename F>
     static A_ALWAYS_INLINE auto call_func(F& func, double* y, double& x, ODEIntegrator* integrator) 
-        -> decltype(std::declval<F>()(y, x, integrator))
+        -> typename std::enable_if<is_callable<F, double*, double&, ODEIntegrator*>::value, decltype(std::declval<F>()(y, x, integrator))>::type
     {
         return func(y, x, integrator);
     }
@@ -61,7 +62,7 @@ public:
     // 版本2: 支持 func_(y, x)
     template<typename F>
     static A_ALWAYS_INLINE auto call_func(F& func, double* y, double& x, ODEIntegrator* integrator) 
-        -> decltype(std::declval<F>()(y, x))
+        -> typename std::enable_if<is_callable<F, double*, double&>::value, decltype(std::declval<F>()(y, x))>::type
     {
         return func(y, x);
     }
@@ -69,7 +70,7 @@ public:
     // 版本3: 支持 func_(y)
     template<typename F>
     static A_ALWAYS_INLINE auto call_func(F& func, double* y, double& x, ODEIntegrator* integrator) 
-        -> decltype(std::declval<F>()(y))
+        -> typename std::enable_if<is_callable<F, double*>::value, decltype(std::declval<F>()(y))>::type
     {
         return func(y);
     }

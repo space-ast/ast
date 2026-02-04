@@ -24,6 +24,7 @@
 #include "StringView.hpp"
 #include <string>
 #include <cstring>
+#include <cctype>   // for std::isspace
 
 AST_NAMESPACE_BEGIN
 

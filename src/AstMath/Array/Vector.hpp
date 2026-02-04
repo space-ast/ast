@@ -74,16 +74,16 @@ public:
     Self normalized() const{return _ASTMATH normalized(*this);}
     double norm() const{return _ASTMATH norm(*this);}
     double squaredNorm() const{return _ASTMATH squaredNorm(*this);}
-    Vector3d cross(const Vector3d& other) const{return _ASTMATH cross(*this, other);}
-    double dot(const Vector3d& other) const{return _ASTMATH dot(*this, other);}
+    Self cross(const Self& other) const{return _ASTMATH cross(*this, other);}
+    double dot(const Self& other) const{return _ASTMATH dot(*this, other);}
     Self operator-() const{return Self{-x_, -y_, -z_};}
-    Vector3d operator-(const Vector3d& other) const{return _ASTMATH operator-(*this, other);}
-    Vector3d operator+(const Vector3d& other) const{return _ASTMATH operator+(*this, other);}
-    Vector3d& operator+=(const Vector3d& other){return *this = _ASTMATH operator+(*this, other);}
+    Self operator-(const Self& other) const{return _ASTMATH operator-(*this, other);}
+    Self operator+(const Self& other) const{return _ASTMATH operator+(*this, other);}
+    Self& operator+=(const Self& other){return *this = _ASTMATH operator+(*this, other);}
     std::string toString() const;
     _AST_DEF_VECTOR_METHOD(Scalar);
 public:
-    double x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化
+    _Scalar x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化
 };
 
 

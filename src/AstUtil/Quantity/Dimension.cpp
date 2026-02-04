@@ -73,6 +73,9 @@ int dim_set_exponent_bitfield(int dimension, int exponent)
 
 #endif
 
+static_assert(sizeof(EDimension) == sizeof(uint32_t), "size not correct");
+static_assert(sizeof(dimension_t) == sizeof(uint32_t), "size not correct");
+
 
 std::string aDimName(EDimension dimension)
 {
@@ -191,7 +194,7 @@ std::string aDimSymbol(EDimension dimension)
                     // symbol += aText("⁻");
                     symbol += aText("\u207b");
                 }
-                symbol += aNumberToSuperscript(abs(exponent));
+                symbol += aNumberToSuperscript(std::abs(exponent));
             }
         }
     }

@@ -21,7 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <math.h>	// for fabs
+#include <cmath>	// for fabs
 #include <cstdio>	// for printf
 #include <iostream> // for std::cout 
 #include <gtest/gtest.h>
@@ -34,6 +34,9 @@ int main(int argc, char **argv) { \
   return RUN_ALL_TESTS(); \
 }
 
+#ifndef GTEST_SKIP
+#	define GTEST_SKIP() return GTEST_SUCCESS_("Test skipped")  // 兼容老版本gtest
+#endif
 
 #if !defined GTEST_API_ && 0
 

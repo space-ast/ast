@@ -84,7 +84,7 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
         hmax = tf - t0;
     }
 
-    absh = abs(this->getStepSize());
+    absh = std::abs(this->getStepSize());
     // t = t0;
     int tdir = sign(tf - t);
     bool final = false;
@@ -105,10 +105,10 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
             hmin = 16 * eps(t);
         }
         absh = clamp(absh, hmin, hmax);
-        if(!(1.1 * absh < abs(tf - t)))
+        if(!(1.1 * absh < std::abs(tf - t)))
         {
             h = tf - t;
-            absh = abs(h);
+            absh = std::abs(h);
             tnew = tf;
             final = true;
         }else{
@@ -163,7 +163,7 @@ err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double* y, double &t, double
     double& absh = wrk.nextAbsStepSize_;
     double step = tf - t;
     int tdir = sign(step);
-    double stepabs = abs(step);
+    double stepabs = std::abs(step);
     if(stepabs < absh)
     {
         absh = stepabs;
@@ -226,7 +226,7 @@ bool ODEVarStepIntegrator::isErrorMeet(double &absh, const double *y, const doub
         double maxTemp = 0;
         for (int i = 0; i < dim; i++)
         {
-            double temp = abs(wrk.absErrPerLen_[i]) / max(max(abs(ynew[i]), abs(y[i])), threshold);
+            double temp = std::abs(wrk.absErrPerLen_[i]) / std::max(std::max(std::abs(ynew[i]), std::abs(y[i])), threshold);
             if(temp > maxTemp)
             {
                 maxTemp = temp;

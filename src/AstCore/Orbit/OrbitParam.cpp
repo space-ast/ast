@@ -22,7 +22,7 @@
 #include "AstCore/MathOperator.hpp"
 #include "AstCore/Constants.h"
 #include "AstUtil/Logger.hpp"
-#include <math.h>
+#include <cmath>
 
 #define PI kPI
 #define PI2 kTwoPI
@@ -160,7 +160,7 @@ double	aEccToTPP(double E, double semiMajorAxis, double e, double gm)
     }
     else if (e > 1.) {
         double M = e * sinh(E) - E;
-        return M * sqrt(pow(abs(semiMajorAxis), 3) / gm);  // 双曲线a<0
+        return M * sqrt(pow(std::abs(semiMajorAxis), 3) / gm);  // 双曲线a<0
     }
     else {
         aError("暂不支持抛物线轨道.");
@@ -272,7 +272,7 @@ double	aMeanToTPAN(double meanAnomaly, double argPeri, double semiMajorAxis, dou
 }
 double	aMeanToTPP(double meanAnomaly, double semiMajorAxis, double gm)
 {
-    return meanAnomaly * sqrt(pow(abs(semiMajorAxis), 3) / gm);
+    return meanAnomaly * sqrt(pow(std::abs(semiMajorAxis), 3) / gm);
 }
 double	aMeanToTrue(double meanAnomaly, double eccentricity, double eps, int maxIter)
 {
@@ -362,7 +362,7 @@ double	aPeriodToSMajAx(double period, double gm)
 }
 double	aRadiiToEcc(double perigeeRad, double apogeeRad)
 {
-    return abs(apogeeRad - perigeeRad) / (perigeeRad + apogeeRad);
+    return std::abs(apogeeRad - perigeeRad) / (perigeeRad + apogeeRad);
 }
 double	aSMajAxToApoAlt(double semiMajorAxis, double eccentricity, double cbRadius)
 {
@@ -391,7 +391,7 @@ double	aSMajAxToPeriod(double semiMajorAxis, double gm)
 // 半短轴
 double	aSMajAxToSMinAx(double semiMajorAxis, double eccentricity)
 {
-    return semiMajorAxis * sqrt(abs(1 - eccentricity * eccentricity));
+    return semiMajorAxis * sqrt(std::abs(1 - eccentricity * eccentricity));
 }
 // p? 半通径
 double	aSMajAxToSParam(double semiMajorAxis, double eccentricity)
@@ -401,7 +401,7 @@ double	aSMajAxToSParam(double semiMajorAxis, double eccentricity)
 
 double	aSMinAxToSMajAx(double semiminorAxis, double eccentricity)
 {
-    return semiminorAxis / sqrt(abs(1 - eccentricity * eccentricity));
+    return semiminorAxis / sqrt(std::abs(1 - eccentricity * eccentricity));
 }
 double	aTPANToEcc(double TPAN, double argPeri, double semiMajorAxis, double eccentricity, double gm, double eps, int maxIter)
 {
@@ -430,16 +430,16 @@ double	aTPANToTrue(double TPAN, double argPeri, double semiMajorAxis,
 
 double	aTPPToEcc(double TPP, double semiMajorAxis, double eccentricity, double gm, double eps, int maxIter)
 {
-    double M = TPP * sqrt(gm / pow(abs(semiMajorAxis), 3));
+    double M = TPP * sqrt(gm / pow(std::abs(semiMajorAxis), 3));
     return aMeanToEcc(M, eccentricity, eps, maxIter);
 }
 double	aTPPToMean(double TPP, double semiMajorAxis, double gm)
 {
-    return TPP * sqrt(gm / pow(abs(semiMajorAxis), 3));
+    return TPP * sqrt(gm / pow(std::abs(semiMajorAxis), 3));
 }
 double	aTPPToTrue(double TPP, double semiMajorAxis, double eccentricity, double gm, double eps, int maxIter)
 {
-    double M = TPP * sqrt(gm / pow(abs(semiMajorAxis), 3));
+    double M = TPP * sqrt(gm / pow(std::abs(semiMajorAxis), 3));
     return aMeanToTrue(M, eccentricity, eps, maxIter);
 }
 double	aTPPToTPAN(double TPP, double argPeri, double semiMajorAxis,

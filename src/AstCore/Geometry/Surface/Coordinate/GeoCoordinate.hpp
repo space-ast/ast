@@ -24,7 +24,7 @@
 #include "LatLonAlt.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstUtil/Math.hpp"
-#include <math.h>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 

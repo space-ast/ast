@@ -1,6 +1,8 @@
 #include "AstMath/ODE.hpp"
 #include <iostream>
 #include <cmath>
+#include <clocale>
+#include <string>
 
 AST_USING_NAMESPACE
 

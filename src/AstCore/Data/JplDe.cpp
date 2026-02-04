@@ -27,7 +27,7 @@
 #include "AstUtil/Logger.hpp"   // for aError
 #include <assert.h>             // for assert
 #include <mutex>                // for std::mutex
-#include <math.h>               // for std::sin, std::cos, std::sqrt, etc.
+#include <cmath>                // for std::sin, std::cos, std::sqrt, etc.
 #include <memory>               // for std::unique_ptr
  
  

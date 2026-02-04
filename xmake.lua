@@ -9,8 +9,10 @@ option("with_test")
     set_default(true)
 option_end()
 
--- 设置c代码标准：c99， c++代码标准：c++11
--- set_languages("cxx11", "c99")
+-- 设置 c++代码标准：c++11，c代码标准：c99
+if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
+    set_languages("c++11")
+end
 
 -- 添加包含目录
 add_includedirs("include")
@@ -69,6 +71,11 @@ if has_package("fmt") then
     add_defines("AST_WITH_FMT")
 end
 
+if has_package("eigen") then
+    add_defines("AST_WITH_EIGEN")
+    add_packages("eigen")
+end
+
 -- 添加matplot++库依赖（可选）
 if has_package("matplotplusplus") then
     add_packages("matplotplusplus")
@@ -85,7 +92,7 @@ includes("examples")
 
 -- 导入测试配置
 if has_config("with_test") then
-    add_requires("gtest v1.12.1", {optional = true})  -- gtest v1.12.1 for c++11
+    add_requires("gtest <=1.12.1", {optional = true})  -- gtest v1.12.1 for c++11
     add_requires("benchmark", {optional = true})
     includes("test")
 end

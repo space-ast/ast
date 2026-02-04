@@ -61,7 +61,7 @@ public:
     }
     void regFunc(EOpBinType op, Class* leftType, Class* rightType, void* func)
     {
-        map_[{static_cast<int>(op), leftType, rightType}] = func;
+        map_[OpBinKey{static_cast<int>(op), leftType, rightType}] = func;
     }
 protected:
     OpBinMap map_;

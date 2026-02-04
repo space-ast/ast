@@ -29,7 +29,7 @@
 #include "AstUtil/ScopedPtr.hpp"
 #include <assert.h>
 #include <fstream>
-#include <math.h>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -44,7 +44,7 @@ LeapSecond::LeapSecond()
 
 err_t LeapSecond::loadATK(const char* filepath)
 {
-    ScopedPtr<std::FILE> file = ast_fopen(filepath, "r");
+    ScopedPtr<std::FILE> file(ast_fopen(filepath, "r"));
     if (file == NULL) {
         return eErrorNullInput;
     }
@@ -93,7 +93,7 @@ err_t LeapSecond::loadATK(const char* filepath)
 
 err_t LeapSecond::loadHPIERS(const char* filepath)
 {
-    ScopedPtr<std::FILE> file = ast_fopen(filepath, "r");
+    ScopedPtr<std::FILE> file(ast_fopen(filepath, "r"));
     if (file == NULL) {
         return eErrorNullInput;
     }

@@ -81,6 +81,24 @@ void aTimePointToUTC(const TimePoint &time, DateTime &dttmUTC)
     dttmUTC.normalizeUTC();  // 在这里确保UTC时间是标准化的
 }
 
+err_t aTimePointFormat(const TimePoint &time, std::string &str, int precision)
+{
+    DateTime utc;
+    aTimePointToUTC(time, utc);
+    err_t err = aDateTimeFormatDefault(utc, str, precision);
+    str += " UTC";
+    return err;
+}
+
+err_t aTimePointParse(StringView str, TimePoint &time)
+{
+    // @todo: 支持解析不同的时间系统
+    DateTime dttmUTC;
+    err_t rc = aDateTimeParseAny(str, dttmUTC);
+    time = TimePoint::FromUTC(dttmUTC);
+    return rc;
+}
+
 void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
 {
     aTimePointToTT(time, jdTDB);
@@ -115,12 +133,6 @@ TimePoint TimePoint::FromTT(const JulianDate &jdTT)
     return {duration.day() * 86400LL, duration.second()};
 }
 
-std::string TimePoint::toString(int precision) const
-{
-    DateTime utc;
-    aTimePointToUTC(*this, utc);
-    return utc.toString(precision) + " UTC";
-}
 
 TimePoint TimePoint::FromIntegerFractional(int64_t integer, double fractional)
 {

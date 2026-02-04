@@ -61,14 +61,10 @@ static Class* createTestObjectClass()
     auto* cls = new Class();
     
     // 添加属性
-    constexpr auto propBoolPtr = &TestObject::propBool_;
-    cls->addProperty("propBool", aNewPropertyBool<TestObject, propBoolPtr>());
-    constexpr auto propIntPtr = &TestObject::propInt_;
-    cls->addProperty("propInt", aNewPropertyInt<TestObject, propIntPtr>());
-    constexpr auto propDoublePtr = &TestObject::propDouble_;
-    cls->addProperty("propDouble", aNewPropertyDouble<TestObject, propDoublePtr>());
-    constexpr auto propStringPtr = &TestObject::propString_;
-    cls->addProperty("propString", aNewPropertyString<TestObject, propStringPtr>());
+    cls->addProperty("propBool", aNewPropertyBoolMem<TestObject, &TestObject::propBool_>());
+    cls->addProperty("propInt", aNewPropertyIntMem<TestObject, &TestObject::propInt_>());
+    cls->addProperty("propDouble", aNewPropertyDoubleMem<TestObject, &TestObject::propDouble_>());
+    cls->addProperty("propString", aNewPropertyStringMem<TestObject, &TestObject::propString_>());
     
     return cls;
 }

@@ -90,15 +90,15 @@ err_t RKV8::singleStep(ODE &ode, double* y, double t0, double h)
 #define EPS 1e-10
     assert(c1 == a21);
     assert(c1 == a31 + a32);
-    assert(abs(c2 - (a41 + a42 + a43)) < EPS);
-    assert(abs(c2 - (a51 + a53 + a54)) < EPS);
+    assert(std::abs(c2 - (a41 + a42 + a43)) < EPS);
+    assert(std::abs(c2 - (a51 + a53 + a54)) < EPS);
     assert(c1 == a61 + a63 + a64 + a65);
-    assert(abs(c3 - (a71 + a73 + a74 + a75 + a76)) < EPS);
-    assert(abs(c3 - (a81 + a85 + a86 + a87)) < EPS);
-    assert(abs(c1 - (a91 + a95 + a96 + a97 + a98)) < EPS);
-    assert(abs(c2 - (a10_1 + a10_5 + a10_6 + a10_7 + a10_8 + a10_9)) < EPS);
-    assert(abs(1 - (a11_5 + a11_6 + a11_7 + a11_8 + a11_9 + a11_10)) < EPS);
-    assert(abs(1 - (b1 + b8 + b9 + b8 + b1)) < EPS);
+    assert(std::abs(c3 - (a71 + a73 + a74 + a75 + a76)) < EPS);
+    assert(std::abs(c3 - (a81 + a85 + a86 + a87)) < EPS);
+    assert(std::abs(c1 - (a91 + a95 + a96 + a97 + a98)) < EPS);
+    assert(std::abs(c2 - (a10_1 + a10_5 + a10_6 + a10_7 + a10_8 + a10_9)) < EPS);
+    assert(std::abs(1 - (a11_5 + a11_6 + a11_7 + a11_8 + a11_9 + a11_10)) < EPS);
+    assert(std::abs(1 - (b1 + b8 + b9 + b8 + b1)) < EPS);
 #undef EPS
 #endif
     auto& wrk = this->getWorkspace();

@@ -48,7 +48,7 @@ static void parseInt_LibC_2(benchmark::State& state)
 }
 BENCHMARK(parseInt_LibC_2);
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 static void parseInt_FromChars(benchmark::State& state)
 {
     int value = 0;
@@ -117,7 +117,7 @@ static void parseDouble_LibC_2(benchmark::State& state)
 BENCHMARK(parseDouble_LibC_2);
 
 
-#if A_CXX_VERSION>=17
+#ifdef A_CXX17
 
 
 static void parseDouble_FromChars(benchmark::State& state)

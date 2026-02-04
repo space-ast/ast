@@ -1,9 +1,9 @@
 ///
-/// @file      AstPlot.hpp
-/// @brief     ~
-/// @details   ~
+/// @file      TypeTrait.hpp
+/// @brief     类型特征
+/// @details   
 /// @author    axel
-/// @date      2026-01-30
+/// @date      2026-02-04
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,22 +21,28 @@
 #pragma once
 
 #include "AstGlobal.h"
-#if (defined(AST_WITH_MATPLOT) || !defined(AST_NO_MATPLOT)) && defined(A_CXX14)
-#   define _AST_USE_MATPLOT
-#endif
-
-#ifdef _AST_USE_MATPLOT
-#include <matplot/matplot.h>
-#else
-#include "NoPlot.hpp"
-#endif
+#include <type_traits>
 
 AST_NAMESPACE_BEGIN
 
-#ifdef _AST_USE_MATPLOT
-namespace plt = matplot;
-#else
-namespace plt = noplot;
-#endif
+
+/// @brief 判断类型是否可调用
+template<typename F, typename... Args>
+struct is_callable {
+private:
+    template<typename U>
+    static auto test(int) -> decltype(
+        std::declval<U>()(std::declval<Args>()...), // 可调用
+        std::true_type{}
+    );
+    
+    template<typename>
+    static std::false_type test(...);
+    
+public:
+    static constexpr bool value = decltype(test<F>(0))::value;
+};
+
+
 
 AST_NAMESPACE_END

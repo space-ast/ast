@@ -269,7 +269,7 @@ AST_SCRIPT_CAPI int aValueUnboxInt(Value* value);
 /// @brief 解包量值
 /// @param value 值对象
 /// @return 量值
-AST_SCRIPT_CAPI Quantity aValueUnboxQuantity(Value* value);
+AST_SCRIPT_API Quantity aValueUnboxQuantity(Value* value);
 
 
 /// @brief 格式化表达式为字符串

@@ -23,7 +23,8 @@
 #include "AstUtil/Constants.h"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/RunTime.hpp"
-#include <math.h>
+#include <cmath>
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 

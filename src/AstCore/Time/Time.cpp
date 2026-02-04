@@ -19,7 +19,7 @@
  
 
 #include "Time.hpp"
-#include <math.h>       // for floor
+#include <cmath>       // for floor
 #include <algorithm>	// for std::min
 #include "AstCore/MathOperator.hpp"
 

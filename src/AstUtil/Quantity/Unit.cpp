@@ -142,7 +142,7 @@ static void unit_reduce_subunits(const Unit::SubUnitListConst& subUnits, Unit::S
             }else{
                 // 查找是否已存在相同量纲的单位
                 auto found = std::find_if(newSubUnits.begin(), newSubUnits.end(),
-                    [it](const auto& newUnitpair)
+                    [it](const Unit::SubUnitListConst::value_type& newUnitpair)
                     {
                         return newUnitpair.first->dimension_ == it->first->dimension_;
                     });
