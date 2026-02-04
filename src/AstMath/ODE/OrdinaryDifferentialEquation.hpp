@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 /// @brief     常微分方程基接口
 /// @details   该类定义了常微分方程的接口，包括获取维度和计算导数。
 ///            参考orekit的OrdinaryDifferentialEquation类
-class OrdinaryDifferentialEquation
+class AST_MATH_API OrdinaryDifferentialEquation
 {
 public:
     virtual ~OrdinaryDifferentialEquation() = default;

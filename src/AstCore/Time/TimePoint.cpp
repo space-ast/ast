@@ -47,10 +47,10 @@ void aTimePointToUTC(const TimePoint &time, JulianDate &jdUTC)
 void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 {
     jdTT = epochTTJulianDate;
-    int day1 = time.integerPart()/86400;
-    int day2 = time.fractionalPart()/86400;
-    double sec1 = time.integerPart() - (day1)*86400LL;
-    double sec2 = time.fractionalPart() - (day2)*86400LL;
+    int day1 = static_cast<int>(time.integerPart()/86400U);
+    int day2 = static_cast<int>(time.fractionalPart()/86400U);
+    double sec1 = static_cast<double>(time.integerPart() - (day1)*86400LL);
+    double sec2 = static_cast<double>(time.fractionalPart() - (day2)*86400LL);
     jdTT.day() += day1 + day2;
     jdTT.second() += sec1 + sec2;
 }
@@ -59,10 +59,10 @@ void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 void aTimePointToTAI(const TimePoint &time, JulianDate &jdTAI)
 {
     jdTAI = epochTAIJulianDate;
-    int day1 = time.integerPart()/86400;
-    int day2 = time.fractionalPart()/86400;
-    double sec1 = time.integerPart() - (day1)*86400LL;
-    double sec2 = time.fractionalPart() - (day2)*86400LL;
+    int day1 = static_cast<int>(time.integerPart()/86400U);
+    int day2 = static_cast<int>(time.fractionalPart()/86400U);
+    double sec1 = static_cast<double>(time.integerPart() - (day1)*86400LL);
+    double sec2 = static_cast<double>(time.fractionalPart() - (day2)*86400LL);
     jdTAI.day() += day1 + day2;
     jdTAI.second() += sec1 + sec2;
 }

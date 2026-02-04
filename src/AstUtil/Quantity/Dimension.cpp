@@ -158,6 +158,8 @@ std::string aDimBasicSymbol(EDimension dimension)
     case EDimension::eAmount: return "N";
     case EDimension::eLuminous: return "J";
     case EDimension::eAngle:return "A";
+    default:
+        ;
     }
     return "";
 }

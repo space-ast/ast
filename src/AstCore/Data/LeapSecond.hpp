@@ -66,7 +66,7 @@ public:
 	void setDefaultData();
 
 	/// @brief  设置数据
-	void setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC);
+	void setData(const std::vector<int>& mjd, const std::vector<int>& taiMinusUTC);
 	
 public:
 	/// @brief  获取UTC秒数

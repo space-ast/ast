@@ -83,7 +83,7 @@ void testEulerAndMatrix(int seq, const Euler& eulerInput)
     {
         EXPECT_NEAR(mtx(i), mtx2(i), 1e-14);
     }
-    for (int i = 0; i < _ASTMATH size(euler); i++)
+    for (size_t i = 0; i < _ASTMATH size(euler); i++)
     {
         EXPECT_NEAR(euler[i], euler2[i], 1e-14);
     }

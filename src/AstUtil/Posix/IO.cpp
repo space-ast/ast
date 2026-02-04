@@ -70,7 +70,16 @@ std::FILE* posix::fopen(const char* filepath, const char* mode)
     std::wstring wmode;
     aUtf8ToWide(filepath, wpath);
     aUtf8ToWide(mode, wmode);
+    #ifndef AST_USE_CRT_SAFE
     return ::_wfopen(wpath.c_str(), wmode.c_str());
+    #else
+    FILE* stream = nullptr;
+    errno_t err = ::_wfopen_s(&stream, wpath.c_str(), wmode.c_str());
+    if (err != 0) {
+        return nullptr;
+    }
+    return stream;
+    #endif
 }
 
 
@@ -97,7 +106,15 @@ FILE *posix::freopen(const char *filepath, const char *mode, FILE *stream)
     std::wstring wmode;
     aUtf8ToWide(filepath, wpath);
     aUtf8ToWide(mode, wmode);
+    #ifndef AST_USE_CRT_SAFE
     return ::_wfreopen(wpath.c_str(), wmode.c_str(), stream);
+    #else
+    errno_t err = ::_wfreopen_s(&stream, wpath.c_str(), wmode.c_str(), stream);
+    if (err != 0) {
+        return nullptr;
+    }
+    return stream;
+    #endif
 }
 
 #else

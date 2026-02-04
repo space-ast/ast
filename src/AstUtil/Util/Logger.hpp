@@ -49,14 +49,14 @@ class MessageLogContext
 {
 public:
     MessageLogContext()
-        : file(nullptr)
-        , line(0)
+        : line(0)
+        , file(nullptr)
         , function(nullptr)
         , category(nullptr)
     {}
     MessageLogContext(const char* fileName, int lineNumber, const char* functionName, const char* categoryName = nullptr)
-        : file(fileName)
-        , line(lineNumber)
+        : line(lineNumber)
+        , file(fileName)
         , function(functionName)
         , category(categoryName)
     {}

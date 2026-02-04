@@ -29,15 +29,15 @@ AST_NAMESPACE_BEGIN
 using namespace math;
 
 ODEVarStepIntegrator::ODEVarStepIntegrator()
-    : minStepSize_{1}
-    , maxStepSize_{86400}
-    , maxAbsErr_{1e-10}
-    , maxRelErr_{1e-13}
-    , useMinStep_{false}
+    : useMinStep_{false}
     , useMaxStep_{false}
     , useFixedStepSize_{false}
     , warnOnMinStep_{true}
     , maxStepAttempts_{50}
+    , minStepSize_{1}
+    , maxStepSize_{86400}
+    , maxAbsErr_{1e-10}
+    , maxRelErr_{1e-13}
     , minStepScaleFactor_{0.5}
     , maxStepScaleFactor_{2.0}
     , safetyCoeffLow_{0.8}
@@ -168,11 +168,11 @@ err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double* y, double &t, double
     {
         absh = stepabs;
     }
-    err_t err;
+    // err_t err;
     bool isOK = false;
     int numAttempts = 0;
     const double* y0 = y;
-    double* yf = y;
+    // double* yf = y;
     double h;
     do{
         h = absh * tdir;

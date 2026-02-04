@@ -382,7 +382,7 @@ err_t rv2moe(const double* pos, const double* vel, double gm, double* moe)
 
     // position and velocity magnitude
     double rmag = norm(r);
-    double vmag = norm(v);
+    // double vmag = norm(v);
 
     // position unit vector
     auto rhat = r / rmag;
@@ -638,7 +638,7 @@ err_t moe2coe(const double* moe_, double* coe_)
     const array6d& moe = (const array6d&) *moe_;
     array6d& coe = (array6d&)*coe_;
 
-    double perirad = moe[0], ecc = moe[1], inc = moe[2], raan = moe[3], argper = moe[4], tanom = moe[5];
+    double perirad = moe[0], ecc = moe[1]/*, inc = moe[2], raan = moe[3], argper = moe[4], tanom = moe[5]*/;
     double& a = coe[0];
     if(ecc == 1)
         return eErrorInvalidParam; //抛物线轨道
@@ -651,7 +651,7 @@ void coe2moe(const double* coe_, double* moe_)
     array6d& moe = (array6d&)*moe_;
     const array6d& coe = (const array6d&)*coe_;
 
-    const double a = coe[0], e = coe[1], i = coe[2], raan = coe[3], argper = coe[4], trueAnom = coe[5];
+    const double a = coe[0], e = coe[1]/*, i = coe[2], raan = coe[3], argper = coe[4], trueAnom = coe[5]*/;
     double& perirad = moe[0];
     moe = coe;
     perirad = a * (1 - e);

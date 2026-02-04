@@ -40,6 +40,7 @@ std::string ExprCall::getExpression(Object* context) const
     // 如果函数表达式是变量或其他简单表达式，直接使用其字符串表示
     // 如果是复杂表达式（如二元表达式），需要添加括号
     bool needParentheses = false;
+    A_UNUSED(needParentheses);
     // 这里可以根据 m_func 的类型判断是否需要添加括号
     // 暂时简化处理，直接调用 getExpression
     result = func_->getExpression(context);

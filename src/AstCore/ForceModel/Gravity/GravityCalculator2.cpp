@@ -39,7 +39,7 @@ namespace {
     constexpr double MU_SCALE = 4294967296.0; // 2^32
 }
 
-
+#if 0
 // 将球坐标梯度转换为笛卡尔坐标梯度
 static void convertSphericalToCartesianGradient(
     const Vector3d& position,
@@ -82,7 +82,7 @@ static void convertSphericalToCartesianGradient(
     // 转换为笛卡尔梯度
     cartesianGradient = sphericalGradient * jacobian;
 }
-
+#endif
 
 // 创建距离幂次数组
 static void createDistancePowersArray(double aOr, int maxDegree, std::vector<double>& aOrN) 
@@ -322,6 +322,7 @@ void GravityCalculator2::computeGradient(const Vector3d &position, Vector3d &gra
     
     // 将梯度从球坐标转换为笛卡尔坐标
     // convertSphericalToCartesianGradient(position, gradient, gradient);
+    // make function inline:
     {
         // 雅可比矩阵
         Matrix3d jacobian;// = Matrix3d::Zero();

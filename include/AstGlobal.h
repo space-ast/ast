@@ -52,6 +52,8 @@
 
 
 #define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
+#define AST_USE_CRT_SAFE                         // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
+
 // #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
 // #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
 // #define AST_ENABLE_REDUNDANT                  // 是否启用冗余功能
@@ -59,7 +61,6 @@
 // #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
 // #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
 // #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
-
 
 /// ast项目专用宏
 #if defined AST_ENABLE_NAMESPACE && defined __cplusplus 

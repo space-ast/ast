@@ -62,7 +62,7 @@ BENCHMARK(parseInt_FromChars);
 
 static void parseInt_StringStream(benchmark::State& state)
 {
-    int value = 0.0;
+    int value = 0;
     for (auto _ : state)
     {
         _aParseInt_StringStream(str_int, value);

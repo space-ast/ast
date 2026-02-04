@@ -30,7 +30,9 @@
 #include <fileapi.h>
 #include <direct.h>
 #include <shlwapi.h>
-#pragma comment(lib, "shlwapi.lib")
+#ifdef _MSC_VER
+#   pragma comment(lib, "shlwapi.lib")
+#endif
 #else
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -596,7 +598,7 @@ namespace simple_fs
         try {
             return current_path();
         }
-        catch (const filesystem_error& e) {
+        catch (const filesystem_error& ) {
             ec = std::make_error_code(std::errc::io_error);
             return path();
         }
@@ -627,7 +629,7 @@ namespace simple_fs
         try {
             current_path(new_path);
         }
-        catch (const filesystem_error& e) {
+        catch (const filesystem_error& ) {
             ec = std::make_error_code(std::errc::io_error);
         }
         catch (...) {

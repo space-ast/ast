@@ -115,31 +115,66 @@ public:
 
     /// @brief 析构对象，仅当强引用计数为0时才会被调用
     /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
-    void     destruct() ;
+    void     destruct()
+    {
+        assert(m_refcnt == 0);  // 只能直接删除不采用共享引用计数管理的对象
+        this->_destruct();
+    }
 
     /// @brief 增加弱引用计数
     /// @return uint32_t 新的弱引用计数
-    uint32_t incWeakRef();
+    uint32_t incWeakRef()
+    {
+        return ++m_weakrefcnt;
+    }
 
     /// @brief 减少弱引用计数
     /// @return uint32_t 新的弱引用计数
-    uint32_t decWeakRef();
+    uint32_t decWeakRef()
+    {
+        if (m_weakrefcnt == 1) {
+            operator delete(this);
+            return 0;
+        }
+        else {
+            return --m_weakrefcnt;
+        }
+    }
 
     /// @brief 增加强引用计数
     /// @return uint32_t 新的强引用计数
-    uint32_t incRef();
+    uint32_t incRef()
+    {
+        return ++m_refcnt;
+    }
 
     /// @brief 减少强引用计数
     /// @return uint32_t 新的强引用计数
-    uint32_t decRef(); 
+    uint32_t decRef()
+    {
+        if (m_refcnt == 1) {
+            this->_destruct();
+            return 0;
+        }
+        return --m_refcnt;
+    }
 
     /// @brief 减少强引用计数，不删除对象
     /// @return uint32_t 新的强引用计数
-    uint32_t decRefNoDelete();
+    uint32_t decRefNoDelete()
+    {
+        return --m_refcnt;
+    }
 private:
     /// @brief 析构对象，仅当强引用计数为0时才会被调用
     /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
-    void    _destruct();
+    void    _destruct()
+    {
+        this->~Object();
+        this->m_type = nullptr; // 标识对象是否被析构. bit mask indicate whether object is destructed.
+        this->decWeakRef();
+    }
+
 protected:
     virtual ~Object() = default;
 
@@ -150,53 +185,7 @@ protected:
 };
 
 
-inline void Object::destruct()
-{
-    assert(m_refcnt == 0);  // 只能直接删除不采用共享引用计数管理的对象
-    this->_destruct();
-}
 
-inline uint32_t Object::incWeakRef()
-{
-    return ++m_weakrefcnt;
-}
-
-inline uint32_t Object::decWeakRef()
-{
-    if (m_weakrefcnt == 1) {
-        operator delete(this);
-        return 0;
-    }
-    else {
-        return --m_weakrefcnt;
-    }
-}
-
-inline uint32_t Object::incRef()
-{
-    return ++m_refcnt;
-}
-
-inline uint32_t Object::decRef()
-{
-    if (m_refcnt == 1) {
-        this->_destruct();
-        return 0;
-    }
-    return --m_refcnt;
-}
-
-inline uint32_t Object::decRefNoDelete()
-{
-    return --m_refcnt;
-}
-
-inline void Object::_destruct()
-{
-    this->~Object();
-    this->m_type = nullptr; // 标识对象是否被析构. bit mask indicate whether object is destructed.
-    this->decWeakRef();
-}
 
 
 

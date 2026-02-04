@@ -81,7 +81,7 @@ void aDateTimeNormalizeUTC(DateTime& dttm)
 
     int minute = dttm.time().hour() * 60 + dttm.minute();
     double second = dttm.time().second();
-    int dday = (second + minute * 60) / 86400.;
+    int dday = static_cast<int>((second + minute * 60) / 86400.);
     if (dday == 0) {
         aDateTimeNormalize(dttm);
         return;

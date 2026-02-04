@@ -42,7 +42,9 @@ int main()
 		3089.41796230054
 	};
 	printf("x,y,z=%lf, %lf, %lf\n", pos.x_, pos.y_, pos.z_);
-
+	
+	A_UNUSED(posExpect);
+	A_UNUSED(velExpect);
 
     return 0;
 }

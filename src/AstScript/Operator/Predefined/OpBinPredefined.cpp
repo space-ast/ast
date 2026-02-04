@@ -46,7 +46,10 @@ Value* opbin_##OPNAME##_scalar_scalar(Value* left, Value* right) \
 { \
     auto leftval  = static_cast<ValScalar<Left>*>(left); \
     auto rightval = static_cast<ValScalar<Right>*>(right); \
-    return aNewValue(leftval->value() OP rightval->value()); \
+    using CommonType = typename std::common_type<Left, Right>::type;\
+    CommonType leftval_common = (CommonType)leftval->value();\
+    CommonType rightval_common = (CommonType)rightval->value();\
+    return aNewValue(leftval_common OP rightval_common); \
 }
 
 
@@ -523,6 +526,7 @@ void register_scalar_opbin()
 //  @brief 初始化二进制运算函数注册表
 void opbin_init_registry() {
     auto& registry = get_opbin_registry();
+    A_UNUSED(registry);
     
     // 注册标量类型运算函数
     register_scalar_opbin<bool>();

@@ -182,10 +182,12 @@ static_assert(
 
 
 JplDe::JplDe()
-    : m_NumDataBlock(0)
-    , m_DeFile(nullptr)
+    : 
+      m_IsSameEndian{true}
+    , m_NumDataBlock(0)
     , m_EphemStart(0)
     , m_EphemEnd(0)
+    , m_DeFile(nullptr)
     , m_DataBlocks (nullptr)
 {
 
@@ -208,7 +210,7 @@ int JplDe::readDataBlock(size_t idx)
         }
         std::unique_ptr<double[]> block_ptr(new double[m_NumCoeff]);
         auto block = block_ptr.get();
-        if (fseek(m_DeFile, (idx + 2) * m_NumCoeff * sizeof(double), SEEK_SET))
+        if (fseek(m_DeFile, int(idx + 2) * m_NumCoeff * (int)sizeof(double), SEEK_SET))
             return JPL_EPH_READ_ERROR;
         if (fread(block, sizeof(double), (size_t)m_NumCoeff, m_DeFile) != (size_t)m_NumCoeff)
             return JPL_EPH_READ_ERROR;
@@ -247,7 +249,7 @@ void JplDe::close()
     }
     if (m_DataBlocks) {
         double* block = NULL;
-        for (int i = 0; i < m_NumDataBlock; i++) {
+        for (size_t i = 0; i < m_NumDataBlock; i++) {
             block = m_DataBlocks[i];
             if (block) {
                 delete[] block;
@@ -356,7 +358,7 @@ err_t JplDe::open(const char* fileName)
             m_NumConstants++;
     }
 
-    m_NumDataBlock = (m_EphemEnd - m_EphemStart) / m_EphemStep;
+    m_NumDataBlock = static_cast<uint32_t>((m_EphemEnd - m_EphemStart) / m_EphemStep);
     m_DataBlocks = new double* [m_NumDataBlock]{};
     memset(m_DataBlocks, 0, sizeof(double*) * m_NumDataBlock);
     m_DeFile = file;
@@ -387,18 +389,18 @@ err_t JplDe::getPosVelICRF(
             return rval;
         }
         if (ncent == eMoon) {
-            for (int i = 0; i < 3u; ++i)
+            for (int i = 0; i < 3; ++i)
                 pos[i] = -pos[i] * 1e3;
             if (vel) {
-                for (int i = 0; i < 3u; ++i)
+                for (int i = 0; i < 3; ++i)
                     vel->at(i) = -vel->at(i) * 1e3;
             }
         }
         else {
-            for (int i = 0; i < 3u; ++i)
+            for (int i = 0; i < 3; ++i)
                 pos[i] *= 1e3;
             if (vel) {
-                for (int i = 0; i < 3u; ++i)
+                for (int i = 0; i < 3; ++i)
                     vel->at(i) *= 1e3;
             }
         }
@@ -406,7 +408,7 @@ err_t JplDe::getPosVelICRF(
     }
 
 
-    const int quantities = (&vel ? 2 : 1);
+    const int quantities = (vel ? 2 : 1);
     double pv[eEMBaryCenter + 1][6];
     int    list[eDeSun + 1];
     memset(list, 0, sizeof(list));
@@ -444,17 +446,17 @@ err_t JplDe::getPosVelICRF(
             memcpy(pv[eEMBaryCenter], pv[eDeEMBaryCenter], sizeof(pv[eEMBaryCenter]));
 
         if (list[eEarth])           /* calculate earth state from EMBary */
-            for (int i = 0; i < list[eDeEMBaryCenter] * 3u; ++i)
+            for (int i = 0; i < list[eDeEMBaryCenter] * 3; ++i)
                 pv[eEarth][i] -= pv[eDeMoon][i] / (1.0 + m_EMMassRatio);
 
         if (list[eMoon]) /* calculate Solar System barycentric moon state */
-            for (int i = 0; i < list[eMoon] * 3u; ++i)
+            for (int i = 0; i < list[eMoon] * 3; ++i)
                 pv[eMoon][i] += pv[eEarth][i];
     }
-    for (int i = 0; i < 3u; ++i)
+    for (int i = 0; i < 3; ++i)
         pos[i] = (pv[ntarg][i] - pv[ncent][i]) * 1e3;
     if (vel) {
-        for (int i = 0; i < 3u; ++i)
+        for (int i = 0; i < 3; ++i)
             vel->at(i) = (pv[ntarg][3 + i] - pv[ncent][3 + i]) * 1e3;
     }
     return eNoError;
@@ -490,7 +492,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11][
     double P_Sum[ncm], V_Sum[ncm];
     if (jed < m_EphemStart || jed >= m_EphemEnd)
         return(JPL_EPH_OUTSIDE_RANGE);
-    size_t idx_block = (jed - m_EphemStart) / m_EphemStep;
+    size_t idx_block = static_cast<size_t>((jed - m_EphemStart) / m_EphemStep);
     const double* dataBlock = m_DataBlocks[idx_block];
     if (!dataBlock) {
         int res = this->readDataBlock(idx_block);
@@ -518,7 +520,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11][
             if (inter_coeff.n_pos_coeff == -1) {
                 inter_coeff.tspan = (te - ts) / num_interval;
                 double  temp2 = ((jdTDB.day() - ts) + jdTDB.dayFractional() ) / inter_coeff.tspan;
-                inter_coeff.idx_interval = temp2;
+                inter_coeff.idx_interval = static_cast<int>(temp2);
                 double tc = 2.0 * fmod(temp2, 1.0) - 1.0;   // time for Tschebeyshev polynomial
                 // -1 <= tc < 1
                 assert(tc >= -1.);
@@ -536,8 +538,8 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11][
             /* ------------------------------------    */
             /*   Compute interpolating polynomials     */
             /* ----------------------------------------*/
-            if (inter_coeff.n_pos_coeff < ncf) {
-                for (int j = inter_coeff.n_pos_coeff; j < ncf; j++)
+            if (inter_coeff.n_pos_coeff < (int)ncf) {
+                for (int j = inter_coeff.n_pos_coeff; j < (int)ncf; j++)
                 {
                     inter_coeff.pos_coeff[j] = inter_coeff.twot * inter_coeff.pos_coeff[j - 1] - inter_coeff.pos_coeff[j - 2];
                 }
@@ -555,8 +557,8 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11][
             if (cblist[target] < 2) {
                 continue;
             }
-            if (inter_coeff.n_vel_coeff < ncf) {
-                for (int j = inter_coeff.n_vel_coeff; j < ncf; j++)
+            if (inter_coeff.n_vel_coeff < (int)ncf) {
+                for (int j = inter_coeff.n_vel_coeff; j < (int)ncf; j++)
                 {
                     inter_coeff.vel_coeff[j] = inter_coeff.twot * inter_coeff.vel_coeff[j - 1] + 2.0 * inter_coeff.pos_coeff[j - 1] - inter_coeff.vel_coeff[j - 2];
                 }
@@ -596,7 +598,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doubl
     /*--------------------------------------------------------------------------*/
     /* Initialize memory coefficient array.                                      */
     /*--------------------------------------------------------------------------*/
-    size_t idx_block = (jed - m_EphemStart) / m_EphemStep;
+    size_t idx_block = static_cast<size_t>((jed - m_EphemStart) / m_EphemStep);
     // @todo: 位于区间交界处，作为哪个区间计算？
     const double* dataBlock = m_DataBlocks[idx_block];
     if (!dataBlock) {
@@ -623,7 +625,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doubl
 
     double  tspan = (te - ts) / num_interval;
     double  temp2 = ((jdTDB.day() - ts) + jdTDB.dayFractional()) / tspan;
-    int     idx_interval = temp2;
+    int     idx_interval = static_cast<int>(temp2);
     double  tc = 2.0 * fmod(temp2, 1.0) - 1.0;   // time for Tschebeyshev polynomial
 
     // -1 <= tc < 1
@@ -641,7 +643,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doubl
     Cp[1] = tc;
 
 
-    for (j = 2; j < ncf; j++)
+    for (j = 2; j < (int)ncf; j++)
     {
         Cp[j] = tc2 * Cp[j - 1] - Cp[j - 2];
     }
@@ -662,7 +664,7 @@ err_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doubl
     Up[0] = 0.0;
     Up[1] = 1.0;
 
-    for (j = 2; j < ncf; j++)
+    for (j = 2; j < (int)ncf; j++)
     {
         Up[j] = tc2 * Up[j - 1] + 2.0 * Cp[j - 1] - Up[j - 2];
     }

@@ -184,6 +184,7 @@ std::string aDataDirGetDefault()
 {
     // 1. 检查AST_DATA_DIR环境变量
     try {
+        // #pragma warning(suppress: 4996)
         const char* datadir = getenv(AST_ENV_DATA_DIR);
         // aDebug("AST_ENV_DATA_DIR: %s\n", datadir?datadir:"(not set)");
         if (datadir && fs::is_directory(datadir))

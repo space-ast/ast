@@ -21,6 +21,15 @@
 /* ------------------------------------------------------------------- */
 /* ------------------------------ INCLUDES --------------------------- */
 /* ------------------------------------------------------------------- */
+#ifdef _MSC_VER
+#	pragma warning(disable:4090)
+#endif
+
+#ifdef __GNUC__
+#	pragma GCC diagnostic ignored "-Wdiscarded-qualifiers"
+#	pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+#endif
+
 
 #include "nrlmsise-00.h"   /* header for nrlmsise-00.h */
 #include <math.h>          /* maths functions */

@@ -114,7 +114,7 @@ err_t BlockDynamicSystem::sortBlocks()
 /// @brief 创建状态量映射表
 err_t BlockDynamicSystem::createStateMap()
 {
-    size_t size = derivativeBlocks_.size();
+    // size_t size = derivativeBlocks_.size();
     int totalStateDimension = 0;
     std::vector<int> stateDimensions;           // 状态量维度
     std::vector<Identifier*> stateIdentifiers;  // 状态量标识符

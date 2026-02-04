@@ -39,13 +39,14 @@ static err_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& d
     }
     size_t reserved = numlines + numlines / 550;
     data.reserve(reserved + data.size());
-    for(size_t i=0;i<numlines;i++){
+    for(int i=0;i<numlines;i++){
         StringView line = parser.getLine();
         if(line.empty()){
             return eErrorParse;
         }
         int y,m,d;
         EOP::Entry entry{};
+        // #pragma warning(suppress: 4996)
         int status = sscanf(
             line.data(), 
             "%d %d %d %d %lf %lf %lf %lf %lf %lf %lf %lf %d", 

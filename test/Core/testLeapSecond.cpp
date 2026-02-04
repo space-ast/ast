@@ -134,8 +134,8 @@ TEST(LeapSecond, setAndGetData) {
     EXPECT_FALSE(leapSecond.data().empty());
     
     // 测试setData
-    std::vector<double> mjds = {57000, 58000};
-    std::vector<double> leapSeconds = {37, 38};
+    std::vector<int> mjds = {57000, 58000};
+    std::vector<int> leapSeconds = {37, 38};
     leapSecond.setData(mjds, leapSeconds);
     EXPECT_EQ(leapSecond.data().size(), 2);
     EXPECT_EQ(leapSecond.data()[0].mjd, 57000);
@@ -429,8 +429,8 @@ TEST(LeapSecond, setDataDifferentLengths) {
     LeapSecond leapSecond;
     
     // 测试不同长度的向量
-    std::vector<double> mjds = {57000, 58000, 59000};
-    std::vector<double> leapSeconds = {36, 37}; // 长度较短
+    std::vector<int> mjds = {57000, 58000, 59000};
+    std::vector<int> leapSeconds = {36, 37}; // 长度较短
     
     // 代码中使用了assert，所以在发布版本中不会崩溃，但会使用最短的长度
     // 在测试中验证这一点
@@ -438,7 +438,7 @@ TEST(LeapSecond, setDataDifferentLengths) {
     EXPECT_EQ(leapSecond.data().size(), 2); // 应该使用较短的长度
     
     // 测试空向量
-    std::vector<double> emptyMJD, emptyLeapSeconds;
+    std::vector<int> emptyMJD, emptyLeapSeconds;
     leapSecond.setData(emptyMJD, emptyLeapSeconds);
     EXPECT_EQ(leapSecond.data().size(), 0);
 }

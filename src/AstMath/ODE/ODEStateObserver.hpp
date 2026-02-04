@@ -34,7 +34,7 @@ enum EODEAction
 };
 
 /// @brief ODE状态量观察者
-class ODEStateObserver
+class AST_MATH_API ODEStateObserver
 {
 public:
     virtual ~ODEStateObserver() = default;

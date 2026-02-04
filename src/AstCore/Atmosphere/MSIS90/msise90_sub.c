@@ -9,6 +9,15 @@
 
 		http://www.netlib.org/f2c/libf2c.zip
 */
+#ifdef _MSC_VER
+#   pragma warning(disable:4244)
+#endif
+
+#ifdef __GNUC__
+#	pragma GCC diagnostic ignored "-Wmissing-braces"
+#	pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#	pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
 
 #include "f2c.h"
 

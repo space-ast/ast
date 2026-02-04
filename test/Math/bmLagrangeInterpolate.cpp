@@ -30,7 +30,7 @@ AST_USING_NAMESPACE
 
 const int n = 9;
 const int dimy = 3;
-const int x_interp = 3.5;
+const double x_interp = 3.5;
 
 void bmLagrangeInterpolate(benchmark::State& state) {
     for (auto _ : state) {

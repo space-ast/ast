@@ -31,10 +31,10 @@ using namespace math;
 
 ODEFixedStepIntegrator::Workspace::Workspace()
     : numSteps_(0)
-    , largestStepSize_(0)
-    , smallestStepSize_(std::numeric_limits<double>::max())
     , dimension_(0)
     , stage_(0)
+    , largestStepSize_(0)
+    , smallestStepSize_(std::numeric_limits<double>::max())
     , KArr_(nullptr)
     , absErrPerLen_(nullptr)
     , ymid_(nullptr)
@@ -151,9 +151,9 @@ err_t ODEFixedStepIntegrator::integrate(ODE& ode, double* y, double& t, double t
     }
     double t0 = t;
     double habs = std::min(fabs(stepSize), fabs(tf - t0));
-    int ndim = ode.getDimension();
+    /// int ndim = ode.getDimension();
     int tdir = sign(tf - t0);
-    double step = tdir * habs;
+    // double step = tdir * habs;
     // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
     // double t = t0;
     // std::copy_n(y0, ndim, yf);

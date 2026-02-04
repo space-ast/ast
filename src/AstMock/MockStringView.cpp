@@ -24,16 +24,16 @@ AST_NAMESPACE_BEGIN
 
 int aMockSetStringConstRef(const std::string& str)
 {
-	return str.size();
+	return (int)str.size();
 }
 int aMockSetStringValue(std::string str)
 {
-	return str.size();
+	return (int)str.size();
 }
 
 int aMockSetStringView(StringView str)
 {
-	return str.size();
+	return (int)str.size();
 }
 
 #if _HAS_CXX17

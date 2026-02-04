@@ -70,6 +70,7 @@ TEST(MathOperatorTest, VectorFunction)
         double arr1[3]{ 1,2,3 };
         double arr2[3]{ 4,5, 6};
         auto arr = cross(arr1, arr2);
+        A_UNUSED(arr);
         nothing();
     }
     {
@@ -90,18 +91,21 @@ TEST(MathOperatorTest, VectorFunction)
         std::array<double,3> arr1{ 1,2,3 };
         std::array<double,3> arr2{ 4,5,6 };
         auto ret = cross(arr1, arr2);
+        A_UNUSED(ret);
         nothing();
     }
     {
         std::vector<double> arr1{ 1,2,3 };
         std::array<double, 3> arr2{ 4,5,6 };
         auto ret = cross(arr1, arr2);
+        A_UNUSED(ret);
         nothing();
     }
     {
         Vector3d a{3,4,5};
         double b[3]{1,2,3};
         auto ret = cross(a, b);
+        A_UNUSED(ret);
     }
 
     // dot
@@ -109,23 +113,27 @@ TEST(MathOperatorTest, VectorFunction)
         double a[3]{1,2,3};
         double b[3]{1,2,3};
         double r = dot(a, b);
+        A_UNUSED(r);
     }
     {
         std::vector<double> a{1,2,3};
         std::vector<double> b{1,2,3};
         double r = dot(a, b);
+        A_UNUSED(r);
     }
     
     // normlized
     {
         double a[3]{1,2,3};
         auto ret = normalized(a);
+        A_UNUSED(ret);
         nothing();
     }
     {
         double a[3]{1,2,3};
         double* b = a;
         auto ret = normalized<3>(b);
+        A_UNUSED(ret);
         nothing();
     }
 }
@@ -138,27 +146,32 @@ TEST(MathOperatorTest, VectorOperator)
         std::array<double,3> a{1,2,3};
         double b[3]{ 4,5,6 };
         auto ret = a + b;
+        A_UNUSED(ret);
         nothing();
     }
     {
         Vector3d vec1{ 1,2,3 };
         Vector3d vec2{ 1,2,-3 };
         auto ret = vec1 + vec2;
+        A_UNUSED(ret);
         nothing();
     }
     {
         Vector3d vec1{1,2,3};
         auto ret = vec1 * 2;
+        A_UNUSED(ret);
         nothing();
     }
     {
         Vector3d vec1{1,2,3};
         auto ret = vec1 / 2;
+        A_UNUSED(ret);
         nothing();
     }
     {
         std::array<int, 3> a{1,2,4},b{4,5,6};
         auto c = a - b;
+        A_UNUSED(c);
         nothing();
     }
 }
@@ -171,11 +184,13 @@ TEST(MathOperatorTest, MatrixOperator)
         double a[3][3]{};
         double b[3][3]{};
         auto c = mtimes(a,b);
+        A_UNUSED(c);
     }
     {
         Matrix3d mtx1{};
         Matrix3d mtx2{};
         auto mtx3 = mtx1 * mtx2;
+        A_UNUSED(mtx3);
     }
     
 }
@@ -193,6 +208,11 @@ TEST(MathOperatorTest, Example1)
         auto cross_product = cross(v1, v2);         // 叉积
         double magnitude = norm(v1);                // 范数
         auto normalized_v = normalized(v1);         // 归一化
+
+        A_UNUSED(dot_product);
+        A_UNUSED(cross_product);
+        A_UNUSED(magnitude);
+        A_UNUSED(normalized_v);
     }
 
     {
@@ -202,6 +222,9 @@ TEST(MathOperatorTest, Example1)
 
         auto dot_product = dot(arr1, arr2);
         auto cross_product = cross(arr1, arr2);
+
+        A_UNUSED(dot_product);
+        A_UNUSED(cross_product);
     }
 
     {
@@ -211,18 +234,26 @@ TEST(MathOperatorTest, Example1)
         auto v2 = 2.0 * v;      // {2, 4, 6}
         auto v3 = v + v;        // {2, 4, 6}
         auto v4 = v - 1.0;      // {0, 1, 2}
+
+        A_UNUSED(v2);
+        A_UNUSED(v3);
+        A_UNUSED(v4);
     }
     {
         // 使用 MatrixMN 类
         MatrixMN<double, 2, 3> A = {  };
         MatrixMN<double, 3, 2> B = {  };
         auto C = A * B;  // 2x2 矩阵
+
+        A_UNUSED(C);
     }
     {
         // 使用原生数组
         double A[2][3] = { {1,2,3}, {4,5,6} };
         double B[3][2] = { {7,8}, {9,10}, {11,12} };
         auto C = mtimes(A, B);  // 2x2 矩阵
+
+        A_UNUSED(C);
     }
 }
 

@@ -30,12 +30,12 @@ static void bmSinCos(benchmark::State& state)
     for (auto _ : state)
     {
         double sinVal, cosVal;
-        sincos(state.range(0), &sinVal, &cosVal);
+        sincos((double)state.range(0), &sinVal, &cosVal);
         benchmark::DoNotOptimize(sinVal);
         benchmark::DoNotOptimize(cosVal);
     }
 }
-BENCHMARK(bmSinCos)->Range(0, 2 * kPI);
+BENCHMARK(bmSinCos)->Range(0, 7);
 
 
 static void bmSinCosSeparate(benchmark::State& state)
@@ -49,7 +49,7 @@ static void bmSinCosSeparate(benchmark::State& state)
         benchmark::DoNotOptimize(cosVal);
     }
 }
-BENCHMARK(bmSinCosSeparate)->Range(0, 2 * kPI);
+BENCHMARK(bmSinCosSeparate)->Range(0, 7);
 
 
 
@@ -62,7 +62,7 @@ static void bmSin(benchmark::State& state)
         benchmark::DoNotOptimize(sinVal);
     }
 }
-BENCHMARK(bmSin)->Range(0, 2 * kPI);
+BENCHMARK(bmSin)->Range(0, 7);
 
 
 static void bmCos(benchmark::State& state)
@@ -74,7 +74,7 @@ static void bmCos(benchmark::State& state)
         benchmark::DoNotOptimize(cosVal);
     }
 }
-BENCHMARK(bmCos)->Range(0, 2 * kPI);
+BENCHMARK(bmCos)->Range(0, 7);
 
 
 

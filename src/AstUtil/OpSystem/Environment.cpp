@@ -32,6 +32,7 @@ AST_NAMESPACE_BEGIN
 
 bool aIsCI()
 {
+    // #pragma warning(suppress: 4996)
     const char* ci_env = posix::getenv("GITHUB_ACTION");
     if(ci_env && ci_env[0] != '\0')
         return true;

@@ -1,5 +1,6 @@
 ﻿set_group("thirdparty")
 includes("*/xmake.lua")
+set_warnings("more")
 
 -- replace cminpack target with cminpack package in xmake-repo
 -- target("cminpack")

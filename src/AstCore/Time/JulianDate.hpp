@@ -77,7 +77,7 @@ class JulianDate
 public:
     /// @brief 根据不精确的天数创建儒略日对象
     static JulianDate FromImpreciseDay(double JD){
-        double day = static_cast<int>(JD);
+        int day = static_cast<int>(JD);
         double second = (JD - day) * 86400.0;
         return JulianDate::FromDaySecond(day, second);
     }
@@ -101,7 +101,7 @@ public:
     
     /// @brief 设置不精确的天数
     void setImpreciseDay(double jd){
-        double day = static_cast<int>(jd);
+        int day = static_cast<int>(jd);
         double second = (jd - day) * 86400.0;
         setDaySecond(day, second);
     }
@@ -110,7 +110,7 @@ public:
     int& day(){return day_;}
     double second() const {return second_;}
     double& second(){return second_;}
-    void setDay(double day){day_ = day;}
+    void setDay(int day){day_ = day;}
     void setSecond(double sec){second_ = sec;}
 
     /// @brief 获取天数和秒数

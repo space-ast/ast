@@ -82,9 +82,9 @@ public:
     /// @param accelerationCBF 总加速度向量（天体固连系）
     virtual void calcTotalAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF);
 protected:
+    GravityField gravityField_;     ///< 重力场系数
     int degree_;                    ///< 计算所使用的阶数
     int order_;                     ///< 计算所使用的次数
-    GravityField gravityField_;     ///< 重力场系数
 };
 
 #ifdef _AST_ENABLE_GRAVITY_CALCULATOR_1

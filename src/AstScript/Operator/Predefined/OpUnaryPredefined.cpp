@@ -52,6 +52,15 @@ _AST_OPUNARY_SCALAR(not, !)
 _AST_OPUNARY_SCALAR(neg, -)
 _AST_OPUNARY_SCALAR(bit_not, ~)
 
+// 对 bool 类型的模板进行偏特化
+//  @brief 实现一元运算符的 bool 类型版本
+template<> 
+Value* opunary_bit_not_scalar<bool>(Value* value) 
+{ 
+    auto val = static_cast<ValScalar<bool>*>(value); 
+    return aNewValue(! val->value()); 
+}
+
 #ifdef AST_ENABLE_REDUNDANT
 //  @brief 执行逻辑非运算
 //  @param value 运算数
@@ -187,7 +196,7 @@ void register_scalar_opunary()
 //  @brief 初始化一元运算函数注册表
 void opunary_init_registry() {
     auto& registry = get_opunary_registry();
-    
+    A_UNUSED(registry);
     // 注册标量类型运算函数
     register_scalar_opunary();
 }

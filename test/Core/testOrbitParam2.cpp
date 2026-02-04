@@ -87,9 +87,13 @@ TEST(OrbitParam, ParabolaOrbit)
         double periRad = 7000000.0; // 近地点半径
         double semiMajorAxis = periRad / (1 - eccentricity); // 长半轴（理论上无穷大，但计算上需要处理）
         
+        A_UNUSED(semiMajorAxis);
+
         // 检查aPeriRadToPeriod在抛物线轨道时的行为
         double period = aPeriRadToPeriod(periRad, eccentricity, GM);
         // 注意：由于实现中可能没有特殊处理抛物线轨道的周期计算，这里只检查结果是否合理
+
+        A_UNUSED(period);
     }
     
 }

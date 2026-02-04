@@ -64,7 +64,7 @@ public:
     double getStepSize() const { return step_size_; }
 
     /// @brief 获取预计算的XYS系数时间点数量
-    int getNumPoints() const { return xys_points_.size(); }
+    int getNumPoints() const { return (int)xys_points_.size(); }
 
     /// @brief 获取预计算的XYS系数插值阶数
     int getInterpOrder() const { return interp_order_; }

@@ -179,6 +179,8 @@ TEST(OrbitParam, SpecificScenarios)
         double period = aSMajAxToPeriod(semiMajorAxis, GM);
         double expectedPeriod = 23 * 3600 + 56 * 60 + 4.0916; // 恒星日
         EXPECT_NEAR(period, expectedPeriod, 1.0); // 允许1秒误差
+
+        A_UNUSED(eccentricity);
     }
     
     // 测试偏心率和扁率的边界情况

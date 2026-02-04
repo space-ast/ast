@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
         size_t bytesRead = fread(&script[0], 1, fileSize, file);
         fclose(file);
         
-        if (bytesRead != fileSize) {
+        if ((long)bytesRead != fileSize) {
             ast_printf(aText("读取文件失败: %s\n"), filename);
             return 1;
         }

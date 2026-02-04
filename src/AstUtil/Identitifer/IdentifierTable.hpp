@@ -68,7 +68,7 @@ public:
         // 创建新符号
         size_t alloc_size = sizeof(Identifier) + length; 
         char* memory = new char[alloc_size];
-        Identifier* sym = new (memory) Identifier(length);
+        Identifier* sym = new (memory) Identifier(static_cast<uint32_t>(length));
         memcpy(sym->data(), data, length);
         sym->data()[length] = '\0';
         

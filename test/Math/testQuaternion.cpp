@@ -45,7 +45,7 @@ void testQuaternion()
 
     Quaternion q2{2,3,4,5};
     auto result = q * q2;
-
+    A_UNUSED(result);
     nothing();
     
 }

@@ -130,7 +130,7 @@ public:
         return {year, month, day};
     }
     /// @brief 根据年份、一年中的天数创建日期对象
-    static Date FromYD(int year, double days){
+    static Date FromYD(int year, int days){
         Date date;
         aYDToDate(year, days, date);
         return date;

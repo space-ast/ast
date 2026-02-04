@@ -194,6 +194,7 @@ err_t _aParseInt_StringStream(StringView str, int &value)
 err_t _aParseInt_Scanf(StringView str, int &value)
 {
     int result = 0;
+    // #pragma warning(suppress: 4996)
     int ret = std::sscanf(str.data(), "%d", &result);
     if (ret != 1)
     {
@@ -277,6 +278,7 @@ err_t _aParseDouble_StringStream(StringView str, double &value)
 err_t _aParseDouble_Scanf(StringView str, double &value)
 {
     double result = 0.0;
+    // #pragma warning(suppress: 4996)
     int ret = std::sscanf(str.data(), "%lf", &result);
     if (ret != 1)
     {

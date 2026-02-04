@@ -226,6 +226,9 @@
 #   define A_RESTRICT
 #endif
 
+// 标记变量为未使用，避免编译器警告
+#define A_UNUSED(x) (void)(x);  
+
 // 处理 MSVC 编译器的 _MSVC_LANG 宏
 #if defined(_MSVC_LANG)
 #   define A_CPLUSPLUS _MSVC_LANG

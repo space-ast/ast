@@ -22,7 +22,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/GenericValue.hpp"
-
+#include "AstUtil/IO.hpp"
 
 // #define AST_DEBUG_SAX 1
 
@@ -37,7 +37,7 @@ BKVSaxPrint::BKVSaxPrint()
 
 BKVSaxPrint::BKVSaxPrint(StringView filepath)
 {
-    file_ = fopen(filepath.data(), "w");
+    file_ = ast_fopen(filepath.data(), "w");
     if (file_ == nullptr)
     {
         aError("failed to open file: %.*s", static_cast<int>(filepath.size()), filepath.data());

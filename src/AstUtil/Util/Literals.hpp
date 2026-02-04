@@ -45,7 +45,7 @@ namespace literals
     /// @return 弧度值（直接返回，因为内部计算使用弧度）
     inline constexpr double operator "" _rad(unsigned long long val)
     {
-        return val;
+        return static_cast<double>(val);
     }
     
     /// @brief 将长双精度浮点数值从角度转换为弧度
@@ -111,7 +111,7 @@ namespace literals
     /// @return 米值（直接返回，因为内部计算使用米）
     inline constexpr double operator "" _m(unsigned long long val)
     {
-        return val;
+        return static_cast<double>(val);
     }
     
     /// @brief 将长双精度浮点数值从厘米转换为米
@@ -210,7 +210,7 @@ namespace literals
     /// @return 秒值（直接返回，因为内部计算使用秒）
     inline constexpr double operator "" _s(unsigned long long val)
     {
-        return val;
+        return static_cast<double>(val);
     }
     
     /// @brief 将长双精度浮点数值从分钟转换为秒
@@ -341,7 +341,7 @@ namespace literals
     /// @return 米/秒值（直接返回，因为内部计算使用米/秒）
     inline constexpr double operator ""_m_s(unsigned long long val)
     {
-        return val;
+        return static_cast<double>(val);
     }
     
     /// @brief 将长双精度浮点数值从千米/秒转换为米/秒
@@ -391,7 +391,7 @@ namespace literals
     /// @return 弧度/秒值（直接返回，因为内部计算使用弧度/秒）
     inline constexpr double operator ""_rad_s(unsigned long long val)
     {
-        return val;
+        return static_cast<double>(val);
     }
     
     /// @brief 将长双精度浮点数值从角度/秒转换为弧度/秒
