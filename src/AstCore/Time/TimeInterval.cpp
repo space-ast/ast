@@ -28,7 +28,7 @@ err_t aTimeIntervalFormat(const TimeInterval &interval, std::string &strStart, s
     start = interval.getStart();
     end = interval.getEnd();
     err_t rc = aTimePointFormat(start, strStart);
-    rc = aTimePointFormat(end, strEnd);
+    rc |= aTimePointFormat(end, strEnd);
     return rc;
 }
 

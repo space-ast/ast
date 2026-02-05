@@ -114,7 +114,7 @@ includes("examples")
 
 -- 导入测试配置
 if has_config("with_test") then
-    add_requires("gtest <=1.12.1", {optional = true})  -- gtest v1.12.1 for c++11
+    add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})  -- gtest v1.12.1 for c++11
     add_requires("benchmark", {optional = true})
     includes("test")
 end

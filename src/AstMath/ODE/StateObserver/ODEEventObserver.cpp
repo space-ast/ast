@@ -81,8 +81,8 @@ bool ODEEventObserver::isEventOccurred(double *y, double &x)
         if(direction == ODEEventDetector::eBoth){
             occurred = lastSign ^ currentSign;
         }else{
-            static_assert(ODEEventDetector::eDecrease < 0, "value not corrent");
-            static_assert(ODEEventDetector::eIncrease > 0, "value not corrent");
+            static_assert(ODEEventDetector::eDecrease < 0, "value not correct");
+            static_assert(ODEEventDetector::eIncrease > 0, "value not correct");
             // 正向预报的上升触发相当于反向预报的下降触发
             bool timeSign = std::signbit((x - lastTime_) * direction);
             occurred = (lastSign^timeSign) && !(currentSign^timeSign);

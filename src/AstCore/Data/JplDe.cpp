@@ -210,7 +210,7 @@ int JplDe::readDataBlock(size_t idx)
         }
         std::unique_ptr<double[]> block_ptr(new double[m_NumCoeff]);
         auto block = block_ptr.get();
-        if (fseek(m_DeFile, int(idx + 2) * m_NumCoeff * (int)sizeof(double), SEEK_SET))
+        if (fseek(m_DeFile, long(idx + 2) * m_NumCoeff * (int)sizeof(double), SEEK_SET))
             return JPL_EPH_READ_ERROR;
         if (fread(block, sizeof(double), (size_t)m_NumCoeff, m_DeFile) != (size_t)m_NumCoeff)
             return JPL_EPH_READ_ERROR;

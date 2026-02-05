@@ -114,12 +114,44 @@ void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 
 void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat)
 {
-	double w = 1.0 + mtx(0, 0) + mtx(1,1) + mtx(2,2);
-	quat.w() = sqrt(w) * 0.5;
-	double tempdbl = 4.0 * quat.w();
-	quat.x() = (mtx(1,2) - mtx(2,1)) / tempdbl;
-	quat.y() = (mtx(2,0) - mtx(0,2)) / tempdbl;
-	quat.z() = (mtx(0,1) - mtx(1,0)) / tempdbl;
+	// 参考 hipparchus 的 mat2quat 函数
+	double s = mtx(0, 0) + mtx(1,1) + mtx(2,2);
+	if (s > -0.19) {
+        // compute q0 and deduce q1, q2 and q3
+		quat.w() = sqrt(s + 1) * 0.5;
+		double inv = 0.25 / quat.w();
+		quat.x() = inv * (mtx(1,2) - mtx(2,1));
+		quat.y() = inv * (mtx(2,0) - mtx(0,2));
+		quat.z() = inv * (mtx(0,1) - mtx(1,0));
+    } else {
+        s = mtx(0,0) - mtx(1,1) - mtx(2,2);
+        if (s > -0.19) {
+            // compute q1 and deduce q0, q2 and q3
+            quat.x() = 0.5 * sqrt(s + 1.0);
+            double inv = 0.25 / quat.x();
+            quat.w() = inv * (mtx(1,2) - mtx(2,1));
+            quat.y() = inv * (mtx(0,1) + mtx(1,0));
+            quat.z() = inv * (mtx(0,2) + mtx(2,0));
+        } else {
+            s = mtx(1,1) - mtx(0,0) - mtx(2,2);
+            if (s > -0.19) {
+                // compute q2 and deduce q0, q1 and q3
+                quat.y() = 0.5 * sqrt(s + 1.0);
+                double inv = 0.25 / quat.y();
+                quat.w() = inv * (mtx(2,0) - mtx(0,2));
+                quat.x() = inv * (mtx(0,1) + mtx(1,0));
+                quat.z() = inv * (mtx(2,1) + mtx(1,2));
+            } else {
+                // compute q3 and deduce q0, q1 and q2
+                s = mtx(2,2) - mtx(0,0) - mtx(1,1);
+                quat.z() = 0.5 * sqrt(s + 1.0);
+                double inv = 0.25 / quat.z();
+                quat.w() = inv * (mtx(0,1) - mtx(1,0));
+                quat.x() = inv * (mtx(0,2) + mtx(2,0));
+                quat.y() = inv * (mtx(2,1) + mtx(1,2));
+            }
+        }
+    }
 }
 
 err_t aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
