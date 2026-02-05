@@ -129,7 +129,8 @@ start:
         if(keyBuffer[0] == '#' && allowComment_)
         {
             // fscanf(file_, "%*[^\n]%*c");                           // 跳过注释行
-            fgets(valueBuffer.data(), (int)valueBuffer.size(), file_);     // 跳过注释行
+            char* str = fgets(valueBuffer.data(), (int)valueBuffer.size(), file_);     // 跳过注释行
+            A_UNUSED(str);
             // printf("comment left parts: %s", value);
             // continue;
             goto start;

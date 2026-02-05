@@ -599,8 +599,9 @@ err_t NLPProblem::evalNLENNZJacCCSNan(int ndim, const double* x_initguess, int m
 err_t NLPProblem::evalNLENNZJacNan(int ndim, const double* x_initguess, int m, int& nnz_jac) const
 {
 	std::vector<int> t1, t2;
-	return evalNLENNZJacCOONan(ndim, x_initguess, m, t1, t2);
+	err_t rc =  evalNLENNZJacCOONan(ndim, x_initguess, m, t1, t2);
 	nnz_jac = (int)t1.size();
+	return rc;
 }
 
 err_t NLPProblem::evalNLENNZJacCOONan(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol) const
