@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include <cwchar>       // for wchar_t, wprintf, ...
 #include <cstdio>       // for std::fopen, std::printf, ...
 #include <cstdarg>      // for va_list, va_start, va_end
 
@@ -54,6 +55,16 @@ using std::FILE;
 AST_UTIL_API
 std::FILE* fopen(const char* filepath, const char* mode);
 
+
+/// @brief 重新打开文件
+/// @param filepath 文件路径，utf-8编码
+/// @param mode 文件打开模式
+/// @param stream 文件指针
+/// @return 文件指针
+AST_UTIL_API
+FILE* freopen(const char* filepath, const char* mode, FILE* stream);
+
+
 /// @brief 格式化输出
 /// @param format 格式化字符串，utf-8编码
 /// @param args 可变参数列表
@@ -68,19 +79,40 @@ int vprintf(const char* format, va_list args);
 AST_UTIL_API
 int printf(const char* format, ...);
 
-/// @brief 重新打开文件
-/// @param filepath 文件路径，utf-8编码
-/// @param mode 文件打开模式
+/// @brief 格式化输出
 /// @param stream 文件指针
-/// @return 文件指针
+/// @param format 格式化字符串，utf-8编码
+/// @param ... 可变参数
+/// @return 输出字符数
 AST_UTIL_API
-FILE* freopen(const char* filepath, const char* mode, FILE* stream);
+int fprintf(FILE* stream, const char* format, ...);
+
+
+/// @brief 格式化输出
+/// @param format 格式化字符串，utf-8编码
+/// @param ... 可变参数
+/// @return 输出字符数
+AST_UTIL_API
+int wprintf(const wchar_t* format, ...);
+
+/// @brief 格式化输出
+/// @param stream 文件指针
+/// @param format 格式化字符串，utf-8编码
+/// @param ... 可变参数
+/// @return 输出字符数
+AST_UTIL_API
+int fwprintf(FILE* stream, const wchar_t* format, ...);
+
+
 
 #else
 using std::fopen;
+using std::freopen;
 using std::vprintf;
 using std::printf;
-using std::freopen;
+using std::fprintf;
+using std::wprintf;
+using std::fwprintf;
 
 #endif
 }
@@ -90,14 +122,20 @@ using std::freopen;
 using namespace posix;
 #endif
 
-AST_UTIL_CAPI int ast_printf(const char* format, ...);
-
-
 A_ALWAYS_INLINE 
 std::FILE* ast_fopen(const char* filepath, const char* mode)
 {
     return posix::fopen(filepath, mode);
 }
+
+
+A_ALWAYS_INLINE
+FILE* ast_freopen(const char* filepath, const char* mode, FILE* stream)
+{
+    return posix::freopen(filepath, mode, stream);
+}
+
+
 
 A_ALWAYS_INLINE 
 int ast_vprintf(const char* format, va_list args)
@@ -105,11 +143,8 @@ int ast_vprintf(const char* format, va_list args)
     return posix::vprintf(format, args);
 }
 
-A_ALWAYS_INLINE
-FILE* ast_freopen(const char* filepath, const char* mode, FILE* stream)
-{
-    return posix::freopen(filepath, mode, stream);
-}
+
+AST_UTIL_CAPI int ast_printf(const char* format, ...);
 
 
 

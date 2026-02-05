@@ -54,14 +54,14 @@ BKVSaxPrint::~BKVSaxPrint()
 
 void BKVSaxPrint::begin(StringView name)
 {
-    fprintf(file_, "%*s", depth_ * indent_, "");
+    posix::fprintf(file_, "%*s", depth_ * indent_, "");
     depth_++;
     
     #ifdef AST_DEBUG_SAX
     printf("depth_: %d\n", depth_);
     #endif
     
-    fprintf(file_, "BEGIN %.*s\n", static_cast<int>(name.size()), name.data());
+    posix::fprintf(file_, "BEGIN %.*s\n", static_cast<int>(name.size()), name.data());
 }
 
 void BKVSaxPrint::end(StringView name)
@@ -72,14 +72,14 @@ void BKVSaxPrint::end(StringView name)
     printf("depth_: %d\n", depth_);
     #endif
 
-    fprintf(file_, "%*s", depth_ * indent_, "");
-    fprintf(file_, "END %.*s\n", static_cast<int>(name.size()), name.data());
+    posix::fprintf(file_, "%*s", depth_ * indent_, "");
+    posix::fprintf(file_, "END %.*s\n", static_cast<int>(name.size()), name.data());
 }
 
 void BKVSaxPrint::keyValue(StringView key, const GenericValue &value)
 {
-    fprintf(file_, "%*s", depth_ * indent_, "");
-    fprintf(file_, "%.*s %s\n", static_cast<int>(key.size()), key.data(), value.c_str());
+    posix::fprintf(file_, "%*s", depth_ * indent_, "");
+    posix::fprintf(file_, "%.*s %s\n", static_cast<int>(key.size()), key.data(), value.c_str());
 }
 
 AST_NAMESPACE_END

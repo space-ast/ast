@@ -13,11 +13,13 @@ void testPrintf()
     wprintf(L"😊😀\n");
     printf(u8"😊😀\n");
     printf(u8"中文utf8\n");
+    fprintf(stdout, u8"中文utf8\n");
     printf("中文gbk\n");
     printf(u8"محتوى عربي\n");
-    ast_printf(u8"😊😀 ast\n");
-    ast_printf(u8"中文utf8 ast\n");
-    ast_printf(u8"محتوى عربي\n");
+    posix::printf(u8"😊😀 ast\n");
+    posix::printf(u8"中文utf8 ast\n");
+    posix::fprintf(stdout, u8"中文utf8 ast\n");
+    posix::printf(u8"محتوى عربي\n");
     printf("----------------------\n");
 }
 
