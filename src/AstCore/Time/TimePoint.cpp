@@ -32,10 +32,10 @@ namespace{
     static const JulianDate epochTAIJulianDate{ (int)kJ2000Epoch, 0};
 
     /// @brief 零时刻点的日期时间（地球时TT）
-    static const DateTime epochTTDateTime{2000,1,1,12,0,kTTMinusTAI};
+    // static const DateTime epochTTDateTime{2000,1,1,12,0,kTTMinusTAI};
 
     /// @brief 零时刻点的日期时间（原子时 TAI）
-    static const DateTime epochTAIDateTime{2000,1,1,12,0,0};
+    // static const DateTime epochTAIDateTime{2000,1,1,12,0,0};
 }
 
 void aTimePointToUTC(const TimePoint &time, JulianDate &jdUTC)
@@ -47,10 +47,10 @@ void aTimePointToUTC(const TimePoint &time, JulianDate &jdUTC)
 void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 {
     jdTT = epochTTJulianDate;
-    int day1 = time.integerPart()/86400;
-    int day2 = time.fractionalPart()/86400;
-    double sec1 = time.integerPart() - (day1)*86400LL;
-    double sec2 = time.fractionalPart() - (day2)*86400LL;
+    int day1 = static_cast<int>(time.integerPart()/86400U);
+    int day2 = static_cast<int>(time.fractionalPart()/86400U);
+    double sec1 = static_cast<double>(time.integerPart() - (day1)*86400LL);
+    double sec2 = static_cast<double>(time.fractionalPart() - (day2)*86400LL);
     jdTT.day() += day1 + day2;
     jdTT.second() += sec1 + sec2;
 }
@@ -59,10 +59,10 @@ void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 void aTimePointToTAI(const TimePoint &time, JulianDate &jdTAI)
 {
     jdTAI = epochTAIJulianDate;
-    int day1 = time.integerPart()/86400;
-    int day2 = time.fractionalPart()/86400;
-    double sec1 = time.integerPart() - (day1)*86400LL;
-    double sec2 = time.fractionalPart() - (day2)*86400LL;
+    int day1 = static_cast<int>(time.integerPart()/86400U);
+    int day2 = static_cast<int>(time.fractionalPart()/86400U);
+    double sec1 = static_cast<double>(time.integerPart() - (day1)*86400LL);
+    double sec2 = static_cast<double>(time.fractionalPart() - (day2)*86400LL);
     jdTAI.day() += day1 + day2;
     jdTAI.second() += sec1 + sec2;
 }
@@ -79,6 +79,24 @@ void aTimePointToUTC(const TimePoint &time, DateTime &dttmUTC)
     aTimePointToUTC(time, jdUTC);
     aJDToDateTime(jdUTC, dttmUTC);
     dttmUTC.normalizeUTC();  // 在这里确保UTC时间是标准化的
+}
+
+err_t aTimePointFormat(const TimePoint &time, std::string &str, int precision)
+{
+    DateTime utc;
+    aTimePointToUTC(time, utc);
+    err_t err = aDateTimeFormatDefault(utc, str, precision);
+    str += " UTC";
+    return err;
+}
+
+err_t aTimePointParse(StringView str, TimePoint &time)
+{
+    // @todo: 支持解析不同的时间系统
+    DateTime dttmUTC;
+    err_t rc = aDateTimeParseAny(str, dttmUTC);
+    time = TimePoint::FromUTC(dttmUTC);
+    return rc;
 }
 
 void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
@@ -115,12 +133,6 @@ TimePoint TimePoint::FromTT(const JulianDate &jdTT)
     return {duration.day() * 86400LL, duration.second()};
 }
 
-std::string TimePoint::toString(int precision) const
-{
-    DateTime utc;
-    aTimePointToUTC(*this, utc);
-    return utc.toString(precision) + " UTC";
-}
 
 TimePoint TimePoint::FromIntegerFractional(int64_t integer, double fractional)
 {

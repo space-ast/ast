@@ -34,7 +34,7 @@ class ODEEventDetector;
 
 /// @brief ODE 积分器接口类
 /// @details ~
-class IODEIntegrator
+class AST_MATH_API IODEIntegrator
 {
 public:
     virtual ~IODEIntegrator() {};

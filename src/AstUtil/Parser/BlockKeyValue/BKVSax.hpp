@@ -30,7 +30,7 @@ class ValueView;
 
 /// @brief 键值对解析器SAX接口（BlockKeyValueSax）
 /// @details 本接口定义了键值对解析器的SAX接口，用于解析键值对格式的文本。
-class BKVSax
+class AST_UTIL_API BKVSax
 {
 public:
     /// @brief 析构函数

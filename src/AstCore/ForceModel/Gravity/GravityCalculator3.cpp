@@ -104,8 +104,8 @@ void GravityCalculator3::init()
     getGravityField().normalize();
     const int MM = getOrder();
     const int NN = getDegree();
-    const int nn = NN;
-    const int mm = MM;
+    // const int nn = NN;
+    // const int mm = MM;
     Factor = -getGravityField().getGM();
 
     AllocateArray(C,NN,0);
@@ -173,7 +173,7 @@ void GravityCalculator3::init()
 
 void GravityCalculator3::deinit()
 {
-    const int MM = getOrder();
+    // const int MM = getOrder();
     const int NN = getDegree();
     
     DeallocateArray(C,NN,0);
@@ -229,38 +229,38 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
     // initialize recursion
     Real rho = FieldRadius/r;
     Real rho_np1 = -Factor/r * rho;   // rho(0) ,Ref[3], Eq 26 , factor = mu for gravity
-    Real rho_np2 = rho_np1 * rho;
+    // Real rho_np2 = rho_np1 * rho;
     Real a1 = 0;
     Real a2 = 0;
     Real a3 = 0;
     Real a4 = 0;
-    Real a11 = 0;
-    Real a12 = 0;
-    Real a13 = 0;
-    Real a14 = 0;
-    Real a23 = 0;
-    Real a24 = 0;
-    Real a33 = 0;
-    Real a34 = 0;
-    Real a44 = 0;
+    // Real a11 = 0;
+    // Real a12 = 0;
+    // Real a13 = 0;
+    // Real a14 = 0;
+    // Real a23 = 0;
+    // Real a24 = 0;
+    // Real a33 = 0;
+    // Real a34 = 0;
+    // Real a44 = 0;
     Real sqrt2 = sqrt (Real(2)); 
     for (Integer n=1;  n<=NN && n<=nn;  ++n)
     {
         rho_np1 *= rho;
-        rho_np2 *= rho;
+        // rho_np2 *= rho;
         Real sum1 = 0;
         Real sum2 = 0;
         Real sum3 = 0;
         Real sum4 = 0;
-        Real sum11 = 0;
-        Real sum12 = 0;
-        Real sum13 = 0;
-        Real sum14 = 0;
-        Real sum23 = 0;
-        Real sum24 = 0;
-        Real sum33 = 0;
-        Real sum34 = 0;
-        Real sum44 = 0;
+        // Real sum11 = 0;
+        // Real sum12 = 0;
+        // Real sum13 = 0;
+        // Real sum14 = 0;
+        // Real sum23 = 0;
+        // Real sum24 = 0;
+        // Real sum33 = 0;
+        // Real sum34 = 0;
+        // Real sum44 = 0;
 
         for (Integer m=0;  m <= n && m<=MM && m<=mm;  ++m) // wcs - removed "m<=n"
         {

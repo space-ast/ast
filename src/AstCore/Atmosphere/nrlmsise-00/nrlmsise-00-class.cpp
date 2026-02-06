@@ -21,6 +21,10 @@
 /* ------------------------------------------------------------------- */
 /* ------------------------------ INCLUDES --------------------------- */
 /* ------------------------------------------------------------------- */
+#if defined(__GNUC__) && !defined(__clang__)
+#	pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+#endif
+
 
 #include <math.h>          /* maths functions */
 #include <stdio.h>         /* for error messages. TBD: remove this */

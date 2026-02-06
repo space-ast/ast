@@ -29,7 +29,7 @@
 #include "AstUtil/ScopedPtr.hpp"
 #include <assert.h>
 #include <fstream>
-#include <math.h>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -44,12 +44,13 @@ LeapSecond::LeapSecond()
 
 err_t LeapSecond::loadATK(const char* filepath)
 {
-    ScopedPtr<std::FILE> file = ast_fopen(filepath, "r");
+    ScopedPtr<std::FILE> file(ast_fopen(filepath, "r"));
     if (file == NULL) {
         return eErrorNullInput;
     }
     std::vector<Entry> data;
     int line, status;
+    // #pragma warning(suppress: 4996)
     status = fscanf(file, "%d", &line);
     if (status == EOF) {
         return eErrorInvalidFile;
@@ -61,7 +62,7 @@ err_t LeapSecond::loadATK(const char* filepath)
     int year;
     char month_str[10];
     int day;
-    while (data.size() < line) {
+    while ((int)data.size() < line) {
         if (fgets(linebuf, sizeof(linebuf), file))
         {
             // 跳过空行和注释行
@@ -69,6 +70,7 @@ err_t LeapSecond::loadATK(const char* filepath)
                 continue;
             }
             Entry entry{};
+            // #pragma warning(suppress: 4996)
             status = sscanf(
                 linebuf,
                 "%d %lf %d %5s %d",
@@ -76,7 +78,7 @@ err_t LeapSecond::loadATK(const char* filepath)
                 &leapsec,
                 &year, month_str, &day
             );
-            entry.leapSecond = leapsec;
+            entry.leapSecond = static_cast<int>(leapsec);
             if (status == EOF) {
                 return eErrorInvalidFile;
             }
@@ -93,15 +95,15 @@ err_t LeapSecond::loadATK(const char* filepath)
 
 err_t LeapSecond::loadHPIERS(const char* filepath)
 {
-    ScopedPtr<std::FILE> file = ast_fopen(filepath, "r");
+    ScopedPtr<std::FILE> file(ast_fopen(filepath, "r"));
     if (file == NULL) {
         return eErrorNullInput;
     }
     char linebuf[1024];
-    int lineNumber = 0;
+    // int lineNumber = 0;
     std::vector<Entry> data;
     while (fgets(linebuf, sizeof(linebuf), file)) {
-        lineNumber++;
+        // lineNumber++;
 
         // 跳过空行和注释行
         if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {
@@ -114,6 +116,7 @@ err_t LeapSecond::loadHPIERS(const char* filepath)
         int taiMinusUTC;
 
         // 解析格式: MJD day month year TAI-UTC
+        // #pragma warning(suppress: 4996)
         int parsed = sscanf(linebuf, "%lf %d %d %d %d",
             &mjd, &day, &month, &year, &taiMinusUTC);
 
@@ -187,14 +190,14 @@ void LeapSecond::setDefaultData()
     };
 }
 
-void LeapSecond::setData(const std::vector<double>& mjd, const std::vector<double>& taiMinusUTC)
+void LeapSecond::setData(const std::vector<int>& mjd, const std::vector<int>& taiMinusUTC)
 {
     if(mjd.size() != taiMinusUTC.size()){
         aWarning("try to set leap second data with different size of mjd and taiMinusUTC");
     }
-    int line = std::min(mjd.size(), taiMinusUTC.size());
+    size_t line = std::min(mjd.size(), taiMinusUTC.size());
     m_data.resize(line);
-    for (int i = 0; i < line; i++) {
+    for (size_t i = 0; i < line; i++) {
         m_data[i].mjd = mjd[i];
         m_data[i].leapSecond = taiMinusUTC[i];
     }
@@ -216,7 +219,7 @@ double LeapSecond::leapSecondTAI(ImpreciseJD jdTAI)
 double LeapSecond::leapSecondTAIMJD(ImpreciseMJD mjdTAI)
 {
     double mjdtai = mjdTAI;
-    int i = m_data.size() - 1;
+    int i = (int)m_data.size() - 1;
     while (i >= 0) {
         if (mjdtai - m_data[i].leapSecond / 86400. >= m_data[i].mjd) {
             return m_data[i].leapSecond;
@@ -234,7 +237,7 @@ double LeapSecond::getLodUTC(const Date& utcDate)
 double LeapSecond::getLodUTCMJD(ImpreciseMJD mjd)
 {
     const double sec = 86400;
-    int i = m_data.size() - 1;
+    int i = (int)m_data.size() - 1;
     while (i >= 1) {
         if (mjd >= m_data[i].mjd - 1) {
             if (mjd < m_data[i].mjd) {
@@ -267,7 +270,7 @@ double LeapSecond::leapSecondUTCMJD(ImpreciseMJD mjdUTC)
 1968  Feb.  1 - 1972  Jan.  1     4.213 170 0s +        ""
     */
     double mjd = mjdUTC;
-    int i = m_data.size() - 1;
+    int i = (int)m_data.size() - 1;
     while (i >= 0) {
         if (mjd >= m_data[i].mjd) {
             return m_data[i].leapSecond;

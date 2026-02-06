@@ -204,6 +204,7 @@ err_t loadGravityFieldSTK(BKVParser &parser, GravityFieldHead *head, GravityFiel
                     StringView line = parser.getLineSkipComment();
                     int degree, order;
                     double cnm, snm;
+                    // #pragma warning(suppress: 4996)
                     int status = sscanf(
                         line.data(), 
                         "%d %d %lf %lf", 
@@ -292,6 +293,7 @@ err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityFie
             gf.maxOrder_ = aParseInt(line.substr(11, 3));
             int cbFlag;
             double normalizedFlag;
+            // #pragma warning(suppress: 4996)
             sscanf(line.data() + 14, "%d %lf %lf %lf", &cbFlag, &gf.gm_, &gf.refDistance_, &normalizedFlag);   
             gf.normalized_ = (normalizedFlag != 0.0);
             (void) cbFlag; // @todo: process cbFlag
@@ -307,9 +309,11 @@ err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityFie
             double cnm, snm;
             int status;
             if(order == 0){
+                // #pragma warning(suppress: 4996)
                 status = sscanf(line.data() + 17, "%lf", &cnm);
                 snm = 0;
             }else{
+                // #pragma warning(suppress: 4996)
                 status = sscanf(line.data() + 17, "%lf %lf", &cnm, &snm);
             }
             if(status == EOF){

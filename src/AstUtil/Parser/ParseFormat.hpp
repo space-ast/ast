@@ -50,7 +50,7 @@ AST_UTIL_CAPI err_t aParseInt(StringView str, int& value);
 AST_UTIL_CAPI err_t _aParseInt_LibC_1(StringView str, int& value);      // 基于 strtol 函数(stol函数)
 AST_UTIL_CAPI err_t _aParseInt_LibC_2(StringView str, int& value);      // 基于 atoi 函数
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 AST_UTIL_CAPI err_t _aParseInt_FromChars(StringView str, int& value);    // 基于 std::from_chars 函数
 #endif
 
@@ -91,7 +91,7 @@ AST_UTIL_CAPI err_t _aParseDouble_LibC_1(StringView str, double& value);  // 基
 AST_UTIL_CAPI err_t _aParseDouble_LibC_2(StringView str, double& value);  // 基于 atof 函数
 
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 AST_UTIL_CAPI err_t _aParseDouble_FromChars(StringView str, double& value);    // 基于 std::from_chars 函数
 #endif
 

@@ -86,13 +86,13 @@ SnoptCAPI* aSnopt_Find()
     if(s_snoptLibHandle)
         return &s_snoptAPI;
     SnoptCAPI* api;
-    if (api = aSnopt_Load(fs::path(aLibDir()) / AST_SNOPT_LIB_NAME))
+    if ((api = aSnopt_Load(fs::path(aLibDir()) / AST_SNOPT_LIB_NAME)))
         return api;
-    if (api = aSnopt_Load(fs::current_path() / AST_SNOPT_LIB_NAME))
+    if ((api = aSnopt_Load(fs::current_path() / AST_SNOPT_LIB_NAME)))
         return api;
-    if (api = aSnopt_Load(fs::path(aLibDir()) / AST_SNOPT_LIB_NAME_ALT))
+    if ((api = aSnopt_Load(fs::path(aLibDir()) / AST_SNOPT_LIB_NAME_ALT)))
         return api;
-    if (api = aSnopt_Load(fs::current_path() / AST_SNOPT_LIB_NAME_ALT))
+    if ((api = aSnopt_Load(fs::current_path() / AST_SNOPT_LIB_NAME_ALT)))
         return api;
     return nullptr;
 }

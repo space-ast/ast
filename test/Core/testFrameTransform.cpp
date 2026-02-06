@@ -160,11 +160,11 @@ void changeEOPData()
         ASSERT_TRUE(eop != nullptr) << "EOP data is not loaded";
         JulianDate jdUTC1 = JulianDate::FromDateTime(2018, 1, 1, 0, 0, 0);
         auto mjd1 = aJDToMJD_Imprecise(jdUTC1);
-        auto entry1 = eop->getEntry(mjd1);
+        auto entry1 = eop->getEntry((int)mjd1);
         ASSERT_TRUE(entry1 != nullptr) << "EOP entry not found";
         JulianDate jdUTC2 = JulianDate::FromDateTime(2018, 1, 2, 0, 0, 0);
         auto mjd2 = aJDToMJD_Imprecise(jdUTC2);
-        auto entry2 = eop->getEntry(mjd2);
+        auto entry2 = eop->getEntry((int)mjd2);
         ASSERT_TRUE(entry2 != nullptr) << "EOP entry not found";
         printf("entry1, x = %.20g rad, y = %.20g rad\n", entry1->x, entry1->y);
         printf("entry2, x = %.20g rad, y = %.20g rad\n", entry2->x, entry2->y);
@@ -174,8 +174,8 @@ void changeEOPData()
         newentry1.y = 0.247646 * kArcSecToRad;
         newentry2.x = 0.057406 * kArcSecToRad;
         newentry2.y = 0.248566 * kArcSecToRad;
-        eop->setEntry(mjd1, newentry1);
-        eop->setEntry(mjd2, newentry2);
+        eop->setEntry((int)mjd1, newentry1);
+        eop->setEntry((int)mjd2, newentry2);
     }
 }
 

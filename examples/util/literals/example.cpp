@@ -1,9 +1,9 @@
 ///
-/// @file      testFmt.cpp
+/// @file      example.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
-/// @date      2026-01-05
+/// @date      2026-02-05
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,22 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#if AST_WITH_FMT
-#include <fmt/format.h>
-#include <vector>
+#include <cstdio>
 
 int main()
 {
-    std::vector<double> v = {10000000000., 6678137.1234678901, 1.234567890123456789e-10, 1.234567890123456789e+10};
-    for (auto d : v)
-    {
-        fmt::println("{}", d);
-        fmt::println("{:g}", d);
-        fmt::println("{:#g}", d);
-        fmt::println("{:#}", d);
-        fmt::println("");
-    }
+    printf("hello world\n");
 }
-#else
-int main(){}
-#endif

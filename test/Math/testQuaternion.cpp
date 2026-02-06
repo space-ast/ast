@@ -20,8 +20,16 @@
 
 #include "AstMath/Quaternion.hpp"
 #include "AstTest/AstTestMacro.h"
+
+
+
+#if defined(AST_WITH_EIGEN)  && defined(A_CXX14)
+#   define _AST_USE_EIGEN
+#endif
+
+#ifdef _AST_USE_EIGEN
 #include "Eigen/Dense"
-#include "AstGlobal.h"
+#endif
 
 AST_USING_NAMESPACE
 
@@ -37,7 +45,7 @@ void testQuaternion()
 
     Quaternion q2{2,3,4,5};
     auto result = q * q2;
-
+    A_UNUSED(result);
     nothing();
     
 }
@@ -46,7 +54,9 @@ void testQuaternion()
 TEST(Quaternion, Init)
 {
     testQuaternion<Quaternion>();
+    #if defined(_AST_USE_EIGEN)
     testQuaternion<Eigen::Quaterniond>();
+    #endif
 }
 
 

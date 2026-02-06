@@ -24,6 +24,7 @@
 #include "StringView.hpp"
 #include <string>
 #include <cstring>
+#include <cctype>   // for std::isspace
 
 AST_NAMESPACE_BEGIN
 
@@ -120,7 +121,7 @@ StringView StripLeadingAsciiWhitespace(StringView str) noexcept;
 inline
 bool aEqualsIgnoreCase(StringView piece1, StringView piece2) noexcept
 {
-    return piece1.size() == piece2.size() && (strnicmp(piece1.data(), piece2.data(), piece1.size()) == 0);
+    return piece1.size() == piece2.size() && (posix::strncasecmp(piece1.data(), piece2.data(), piece1.size()) == 0);
 }
 
 inline

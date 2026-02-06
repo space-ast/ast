@@ -965,10 +965,12 @@ TEST(DateTime, UncoveredBranches)
     // 我们只能测试它能处理错误输入但仍返回一个DateTime对象
     DateTime dtFromStringErr = DateTime::FromString("invalid date", "%Y-%m-%d");
     // 只要不崩溃即可，无法验证错误日志
+    A_UNUSED(dtFromStringErr);
     
     // 6. 测试DateTime::FromString函数的错误处理（无格式参数）
     DateTime dtFromStringNoFormatErr = DateTime::FromString("invalid date");
     // 只要不崩溃即可，无法验证错误日志
+    A_UNUSED(dtFromStringNoFormatErr);
     
     // 7. 测试DateTime::FromGregorian函数的错误处理
     DateTime dtFromGregErr = DateTime::FromGregorian("invalid gregorian date");

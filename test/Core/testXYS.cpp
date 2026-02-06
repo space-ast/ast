@@ -114,6 +114,7 @@ void testEps()
         auto xysData = aDataContext_GetIAUXYSPrecomputed();
         EXPECT_NE(xysData, nullptr);
         double refepoch_jed = xysData->getRefEpochJED();
+        A_UNUSED(refepoch_jed);
         array3d xys_precomputed;
         array3d xys_iers2010;
         TimePoint tp = TimePoint::FromUTC(2000, 1, 1, 0, 0, 0);

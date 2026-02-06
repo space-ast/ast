@@ -845,6 +845,7 @@ TEST(Unit, ReductionAndSimplification)
             const double sf = 0.3048 * 0.3048;
             double expected_scale_step1 = 0.09290304 / 1000000.0;
             EXPECT_NEAR(step1.getScale(), expected_scale_step1, 1e-15);
+            A_UNUSED(sf);
             
             // 第二步：然后乘以平方码（非国际单位制，量纲相同但缩放因子不同）
             auto yd2 = Unit::SquareYard();
@@ -857,6 +858,7 @@ TEST(Unit, ReductionAndSimplification)
             const double sy = 0.9144 * 0.9144;
             double expected_scale_step2 = expected_scale_step1 * 0.83612736;
             EXPECT_NEAR(step2.getScale(), expected_scale_step2, 1e-15);
+            A_UNUSED(sy);
         }
         
         // 5.5 速度单位测试

@@ -32,7 +32,7 @@ TEST(JulianDate, Constructor)
     
     // 测试默认构造
     JulianDate jd;
-    jd.day() = 2451545.0;
+    jd.day() = 2451545;
     jd.second() = 0.0;
     EXPECT_DOUBLE_EQ(jd.day(), 2451545.0);
     EXPECT_DOUBLE_EQ(jd.second(), 0.0);
@@ -43,7 +43,7 @@ TEST(JulianDate, Constructor)
     EXPECT_DOUBLE_EQ(jd2.second(), 43200.0); // 12小时 = 43200秒
     
     // 测试静态构造方法 FromDaySecond
-    JulianDate jd3 = JulianDate::FromDaySecond(2451545.0, 86400.0);
+    JulianDate jd3 = JulianDate::FromDaySecond(2451545, 86400.0);
     EXPECT_DOUBLE_EQ(jd3.day(), 2451545.0);
     EXPECT_DOUBLE_EQ(jd3.second(), 86400.0);
     
@@ -58,7 +58,7 @@ TEST(JulianDate, AccessorMethods)
     AST_USING_NAMESPACE
     
     JulianDate jd;
-    jd.setDay(2451545.0);
+    jd.setDay(2451545);
     jd.setSecond(43200.0); // 12小时
     
     // 测试基本访问器
@@ -71,7 +71,7 @@ TEST(JulianDate, AccessorMethods)
     EXPECT_DOUBLE_EQ(day, 2451545.0);
     EXPECT_DOUBLE_EQ(second, 43200.0);
     
-    jd.setDaySecond(2451546.0, 0.0);
+    jd.setDaySecond(2451546, 0.0);
     EXPECT_DOUBLE_EQ(jd.day(), 2451546.0);
     EXPECT_DOUBLE_EQ(jd.second(), 0.0);
     
@@ -90,7 +90,7 @@ TEST(JulianDate, TwoPartMethods)
     AST_USING_NAMESPACE
     
     JulianDate jd;
-    jd.setDay(2451545.0);
+    jd.setDay(2451545);
     jd.setDayFractional(0.5); // 12小时
     
     EXPECT_DOUBLE_EQ(jd.day(), 2451545.0);
@@ -104,7 +104,7 @@ TEST(JulianDate, JDToMJDConversion)
     
     // 测试 JD 到 MJD 的转换
     JulianDate jd;
-    jd.setDay(2451545.0);
+    jd.setDay(2451545);
     jd.setSecond(0.0); // 2000-01-01 12:00:00
     
     ModJulianDate mjd;
@@ -122,7 +122,7 @@ TEST(JulianDate, MJDToJDConversion)
     
     // 测试 MJD 到 JD 的转换
     ModJulianDate mjd;
-    mjd.setDay(51544.0); // 对应 JD 2451544.5 (2000-01-01 00:00:00)
+    mjd.setDay(51544); // 对应 JD 2451544.5 (2000-01-01 00:00:00)
     mjd.setSecond(0.0);
     
     JulianDate jd;
@@ -140,7 +140,7 @@ TEST(JulianDate, ImpreciseConversion)
     
     // 测试 aJDToMJD_Imprecise (JulianDate 版本)
     JulianDate jd;
-    jd.setDay(2451545.0);
+    jd.setDay(2451545);
     jd.setSecond(43200.0); // 12小时
     
     double mjdValue = aJDToMJD_Imprecise(jd);
@@ -149,7 +149,7 @@ TEST(JulianDate, ImpreciseConversion)
     
     // 测试 aMJDToJD_Imprecise (ModJulianDate 版本)
     ModJulianDate mjd;
-    mjd.setDay(51544.0);
+    mjd.setDay(51544);
     mjd.setSecond(43200.0); // 12小时
     
     ImpreciseJD jdValue = aMJDToJD_Imprecise(mjd);
@@ -175,7 +175,7 @@ TEST(JulianDate, RoundTripConversion)
     
     // 测试 JD <-> MJD 的往返转换
     JulianDate jd1;
-    jd1.setDay(2451545.0);
+    jd1.setDay(2451545);
     jd1.setSecond(43200.0); // 12小时
     
     ModJulianDate mjd;
@@ -201,7 +201,7 @@ TEST(JulianDate, EdgeCases)
     
     // 测试零值
     JulianDate jd;
-    jd.setDay(0.0);
+    jd.setDay(0);
     jd.setSecond(0.0);
     
     EXPECT_DOUBLE_EQ(jd.impreciseDay(), 0.0);
@@ -209,7 +209,7 @@ TEST(JulianDate, EdgeCases)
     EXPECT_DOUBLE_EQ(jd.dayFractional(), 0.0);
     
     // 测试负值
-    jd.setDay(-1000.0);
+    jd.setDay(-1000);
     jd.setSecond(-43200.0); // -12小时
     
     EXPECT_DOUBLE_EQ(jd.impreciseDay(), -1000.5);
@@ -218,7 +218,7 @@ TEST(JulianDate, EdgeCases)
     
     // 测试大数值
     JulianDate jdLarge;
-    jdLarge.setDay(1e9);
+    jdLarge.setDay((int)1e9);
     jdLarge.setSecond(86399.0); // 接近一天结束
     
     EXPECT_DOUBLE_EQ(jdLarge.impreciseDay(), 1e9 + 86399.0 / 86400.0);

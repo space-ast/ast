@@ -238,7 +238,7 @@ static err_t parseExpression(ParserContext& ctx, int &value)
         {
             return err;
         }
-        value = std::pow(value, exponent);
+        value = (int)std::pow(value, exponent);
         return eNoError;
     }
     return eNoError;

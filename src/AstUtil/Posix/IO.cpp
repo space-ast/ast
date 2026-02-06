@@ -70,9 +70,35 @@ std::FILE* posix::fopen(const char* filepath, const char* mode)
     std::wstring wmode;
     aUtf8ToWide(filepath, wpath);
     aUtf8ToWide(mode, wmode);
+    #ifndef AST_USE_CRT_SAFE
     return ::_wfopen(wpath.c_str(), wmode.c_str());
+    #else
+    FILE* stream = nullptr;
+    errno_t err = ::_wfopen_s(&stream, wpath.c_str(), wmode.c_str());
+    if (err != 0) {
+        return nullptr;
+    }
+    return stream;
+    #endif
 }
 
+
+FILE *posix::freopen(const char *filepath, const char *mode, FILE *stream)
+{
+    std::wstring wpath;
+    std::wstring wmode;
+    aUtf8ToWide(filepath, wpath);
+    aUtf8ToWide(mode, wmode);
+    #ifndef AST_USE_CRT_SAFE
+    return ::_wfreopen(wpath.c_str(), wmode.c_str(), stream);
+    #else
+    errno_t err = ::_wfreopen_s(&stream, wpath.c_str(), wmode.c_str(), stream);
+    if (err != 0) {
+        return nullptr;
+    }
+    return stream;
+    #endif
+}
 
 
 int posix::vprintf(const char* format, va_list args)
@@ -91,13 +117,34 @@ int posix::printf(const char* format, ...)
     return result;
 }
 
-FILE *posix::freopen(const char *filepath, const char *mode, FILE *stream)
+int posix::fprintf(FILE * stream, const char * format, ...)
 {
-    std::wstring wpath;
-    std::wstring wmode;
-    aUtf8ToWide(filepath, wpath);
-    aUtf8ToWide(mode, wmode);
-    return ::_wfreopen(wpath.c_str(), wmode.c_str(), stream);
+    va_list args;
+    int result;
+    va_start(args, format);
+    result = _vfprintf_l(stream, format, _ast_locale_ensure(), args);
+    va_end(args);
+    return result;
+}
+
+int posix::wprintf(const wchar_t * format, ...)
+{
+    va_list args;
+    int result;
+    va_start(args, format);
+    result = _vwprintf_l(format, _ast_locale_ensure(), args);
+    va_end(args);
+    return result;
+}
+
+int posix::fwprintf(FILE * stream, const wchar_t * format, ...)
+{
+    va_list args;
+    int result;
+    va_start(args, format);
+    result = _vfwprintf_l(stream, format, _ast_locale_ensure(), args);
+    va_end(args);
+    return result;
 }
 
 #else

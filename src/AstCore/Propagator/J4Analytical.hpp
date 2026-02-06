@@ -52,9 +52,9 @@ public:
     J4Analytical(const Vector3d& pos, const Vector3d& vel, const TimePoint& epoch, double gm, double j2,  double j4, double re);
 
 private:
-    double j2_;
-    double j4_;
-    double re_;
+    // double j2_;
+    // double j4_;
+    // double re_;
 };
 
 /// @brief     ~

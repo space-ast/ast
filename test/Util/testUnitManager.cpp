@@ -34,6 +34,8 @@ TEST(UnitManager, GetUnit)
     UnitManager unitManager;
     auto unit = unitManager.getUnit("m");
     nothing();
+
+    A_UNUSED(unit);
 }
 
 

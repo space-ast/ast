@@ -39,7 +39,7 @@
 #include "absl/strings/charconv.h"
 #endif
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 #   include <charconv>
 #endif
 
@@ -78,7 +78,7 @@ err_t aParseInt(StringView str, int& value)
     * libc 的 strtol 性能其次
     */
 
-    #if A_CXX_VERSION >= 17
+    #ifdef A_CXX17
     return _aParseInt_FromChars(str, value);
     #else
     return _aParseInt_LibC_1(str, value);
@@ -121,7 +121,7 @@ err_t _aParseInt_LibC_2(StringView str, int& value)
     return 0;
 }
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 err_t _aParseInt_FromChars(StringView str, int &value)
 {
     str = aStripAsciiWhitespace(str);
@@ -194,6 +194,7 @@ err_t _aParseInt_StringStream(StringView str, int &value)
 err_t _aParseInt_Scanf(StringView str, int &value)
 {
     int result = 0;
+    // #pragma warning(suppress: 4996)
     int ret = std::sscanf(str.data(), "%d", &result);
     if (ret != 1)
     {
@@ -211,7 +212,7 @@ err_t aParseDouble(StringView str, double& value)
     * c++17 的 from_chars 性能最好
     * libc 的 strtod 性能其次
     */
-    #if A_CXX_VERSION >= 17
+    #ifdef A_CXX17
     return _aParseDouble_FromChars(str, value);
     #else
     return _aParseDouble_LibC_1(str, value);
@@ -248,7 +249,7 @@ err_t _aParseDouble_LibC_2(StringView str, double& value)
     return 0;
 }
 
-#if A_CXX_VERSION >= 17
+#ifdef A_CXX17
 err_t _aParseDouble_FromChars(StringView str, double &value)
 {
     str = aStripAsciiWhitespace(str);
@@ -277,6 +278,7 @@ err_t _aParseDouble_StringStream(StringView str, double &value)
 err_t _aParseDouble_Scanf(StringView str, double &value)
 {
     double result = 0.0;
+    // #pragma warning(suppress: 4996)
     int ret = std::sscanf(str.data(), "%lf", &result);
     if (ret != 1)
     {

@@ -180,6 +180,7 @@ std::vector<double> NLPProblem::evalFitness(const std::vector<double>& x) const
 {
 	std::vector<double> f;
 	err_t err = this->evalFitness(x, f);
+	A_UNUSED(err);
 	return f;
 }
 
@@ -213,14 +214,17 @@ std::vector<double> NLPProblem::evalConstraint(const std::vector<double>& variab
 {
 	std::vector<double> c;
 	err_t err = this->evalConstraint(variable, c);
-	return std::move(c);
+	A_UNUSED(err);
+	return c;
+	// moving a local object in a return statement prevents copy elision [-Werror=pessimizing-move]
+	// return std::move(c);
 }
 
 err_t NLPProblem::evalConstraint(const std::vector<double>& variable, std::vector<double>& constraint) const
 {
 	int numConstraint = m_probInfo.getNumConstraint();
 	constraint.resize(numConstraint);
-	return this->evalConstraint(variable.size(), variable.data(), numConstraint, constraint.data());
+	return this->evalConstraint((int)variable.size(), variable.data(), (int)numConstraint, constraint.data());
 }
 
 err_t NLPProblem::evalConstraint(int numVariable, const double* variable, int numConstraint, double* constraint) const
@@ -580,7 +584,7 @@ err_t NLPProblem::evalNLENNZJacCCSNan(int ndim, const double* x_initguess, int m
 		if (err) {
 			return err;
 		}
-		idxNNZElem.push_back(iFunRow.size());
+		idxNNZElem.push_back((int)iFunRow.size());
 		for (int i = 0; i < m; i++) {
 			if (std::isnan(fvec[i])) {
 				iFunRow.push_back(i);
@@ -588,15 +592,16 @@ err_t NLPProblem::evalNLENNZJacCCSNan(int ndim, const double* x_initguess, int m
 		}
 		x[j] = temp;
 	}
-	idxNNZElem.push_back(iFunRow.size());
+	idxNNZElem.push_back((int)iFunRow.size());
 	return 0;
 }
 
 err_t NLPProblem::evalNLENNZJacNan(int ndim, const double* x_initguess, int m, int& nnz_jac) const
 {
 	std::vector<int> t1, t2;
-	return evalNLENNZJacCOONan(ndim, x_initguess, m, t1, t2);
-	nnz_jac = t1.size();
+	err_t rc =  evalNLENNZJacCOONan(ndim, x_initguess, m, t1, t2);
+	nnz_jac = (int)t1.size();
+	return rc;
 }
 
 err_t NLPProblem::evalNLENNZJacCOONan(int ndim, const double* x_initguess, int m, std::vector<int>& iFunRow, std::vector<int>& jVarCol) const
@@ -685,9 +690,9 @@ void aParternCCSToCOO(
 {
 	jVarCol.clear();
 	iFunRow.clear();
-	auto ncols = ptr2fnz.size() - 1;
+	int ncols = (int)ptr2fnz.size() - 1;
 	for (int _c = 0; _c < ncols; _c++) {
-		for (size_t i = ptr2fnz[_c]; i < ptr2fnz[_c + 1]; i++)
+		for (int i = ptr2fnz[_c]; i < ptr2fnz[_c + 1]; i++)
 		{
 			int _r = indexRow[i];
 			iFunRow.push_back(_r);

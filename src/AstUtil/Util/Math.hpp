@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Constants.h"
-#include <math.h>
+#include <cmath>
 #include <algorithm>
 
 AST_NAMESPACE_BEGIN

@@ -17,6 +17,8 @@ int main()
 		std::string s2 (sv);
 		StringView sv2 = s;
 
+		A_UNUSED(s2);
+		A_UNUSED(sv2);
 		nothing();
 	}
 

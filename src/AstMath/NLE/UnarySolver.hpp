@@ -44,7 +44,7 @@ bool aIsClose(double a, double b, double relTol = kDefaultRelTol, double absTol 
 
 
 /// @brief 一元方程求解器接口
-class IUnarySolver
+class AST_MATH_API IUnarySolver
 {
 public:
     virtual ~IUnarySolver() = default;

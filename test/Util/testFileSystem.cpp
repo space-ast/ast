@@ -30,7 +30,7 @@
 #include "AstTest/AstTestMacro.h"
 #include <iostream>
 #include <fstream>
-#include <locale>
+#include <clocale>
 
 AST_USING_NAMESPACE
 

@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 反射字段类
-class Field
+class AST_UTIL_API Field
 {
 public:
     Field(){}

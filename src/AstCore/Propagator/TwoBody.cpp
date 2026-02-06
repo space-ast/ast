@@ -95,7 +95,7 @@ err_t aTwoBodyProp(double t, double mu, Vector3d& r0, Vector3d& v0)
         err = Xn - X0;
         X0 = Xn;
         niter++;
-    } while (abs(err) > tol && niter < 100);
+    } while (std::abs(err) > tol && niter < 100);
     auto f = 1 - (Xn * Xn) * c2 / r0mag;
     auto g = t - (Xn * Xn * Xn) * c3 / sqrt(mu);
     auto gdot = 1 - c2 * (Xn * Xn) / r;

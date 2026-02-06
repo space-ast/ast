@@ -10,3 +10,7 @@
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
     end)
     set_default(false)
+    if not has_package("qt5widgets") then
+        set_enabled(false)
+    end
+    -- set_warnings("more")

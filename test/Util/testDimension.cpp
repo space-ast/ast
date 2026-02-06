@@ -265,6 +265,7 @@ TEST(Dimension, ComplexOperations)
     EXPECT_EQ(power1.getTime(), power2.getTime());
 }
 
+#ifdef A_CXX14
 // 测试常量表达式
 TEST(Dimension, Constexpr)
 {
@@ -273,6 +274,9 @@ TEST(Dimension, Constexpr)
     constexpr Dimension constMass = Dimension::Mass();
     constexpr Dimension constLength = Dimension::Length();
     constexpr Dimension constTime = Dimension::Time();
+
+    A_UNUSED(constUnit);
+    A_UNUSED(constMass);
 
     // 测试常量运算
     constexpr Dimension constArea = constLength * constLength;
@@ -286,7 +290,7 @@ TEST(Dimension, Constexpr)
     static_assert(constAcceleration.getLength() == 1, "Acceleration should have length exponent 1");
     static_assert(constAcceleration.getTime() == -2, "Acceleration should have time exponent -2");
 }
-
+#endif
 
 
 

@@ -81,13 +81,22 @@ public:
 	// 兼容Eigen接口
 
 	/// @brief 四元数的虚部x
-	double x() const{return qx();}
+	double x() const{return m_qx;}
 	/// @brief 四元数的虚部y
-	double y() const{return qy();}
+	double y() const{return m_qy;}
 	/// @brief 四元数的虚部z
-	double z() const{return qz();}
+	double z() const{return m_qz;}
 	/// @brief 四元数的实部
-	double w() const{return qs();}
+	double w() const{return m_qs;}
+
+	/// @brief 四元数的虚部x
+	double& x(){return m_qx;}
+	/// @brief 四元数的虚部y
+	double& y(){return m_qy;}
+	/// @brief 四元数的虚部z
+	double& z(){return m_qz;}
+	/// @brief 四元数的实部
+	double& w(){return m_qs;}
 
 	A_DEF_POD_ITERABLE(double)
 public:
@@ -119,7 +128,7 @@ public:
 	/// @brief 四元数标量乘积
 	/// @param val 标量
 	/// @return 四元数标量乘积
-	Quaternion operator*(double val) const{return Quaternion{*this} *= val;}
+	Quaternion operator*(double val) const{ Quaternion v{*this}; v *= val; return v;}
 
 	/// @brief 四元数标量乘积赋值
 	/// @param val 标量
@@ -130,7 +139,7 @@ public:
 	/// @brief 四元数标量除法
 	/// @param val 标量
 	/// @return 四元数标量除法
-	Quaternion operator/(double val) const{return Quaternion{*this} /= val;}
+	Quaternion operator/(double val) const{ Quaternion v{*this}; v /= val; return v;}
 
 	/// @brief 四元数标量除法赋值
 	/// @param val 标量

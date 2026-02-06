@@ -27,7 +27,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Math.hpp"
 
-#include <math.h>
+#include <cmath>
  
 
 #define TO_EULER_EPS 1e-15
@@ -89,15 +89,15 @@ void aRotationZMatrix(double angle, Matrix3d& mtx)
 
 void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 {
-	double xy = quat.qx() * quat.qy();
-	double yz = quat.qy() * quat.qz();
-	double zx = quat.qz() * quat.qx();
-	double sx = quat.qs() * quat.qx();
-	double sy = quat.qs() * quat.qy();
-	double sz = quat.qs() * quat.qz();
-	double xx = quat.qx() * quat.qx();
-	double yy = quat.qy() * quat.qy();
-	double zz = quat.qz() * quat.qz();
+	double xy = quat.x() * quat.y();
+	double yz = quat.y() * quat.z();
+	double zx = quat.z() * quat.x();
+	double sx = quat.w() * quat.x();
+	double sy = quat.w() * quat.y();
+	double sz = quat.w() * quat.z();
+	double xx = quat.x() * quat.x();
+	double yy = quat.y() * quat.y();
+	double zz = quat.z() * quat.z();
 
 	m(0,0) = 1.0 - 2.0 * (yy + zz);	m(0,1) = 2.0 * (xy + sz);		m(0,2) = 2.0 * (zx - sy);
 	m(1,0) = 2.0 * (xy - sz);		m(1,1) = 1.0 - 2.0 * (xx + zz);	m(1,2) = 2.0 * (yz + sx);
@@ -114,12 +114,44 @@ void aQuatToMatrix(const Quaternion& quat, Matrix3d& m)
 
 void aMatrixToQuat(const Matrix3d& mtx, Quaternion& quat)
 {
-	double w = 1.0 + mtx(0, 0) + mtx(1,1) + mtx(2,2);
-	quat.qs() = sqrt(w) * 0.5;
-	double tempdbl = 4.0 * quat.qs();
-	quat.qx() = (mtx(1,2) - mtx(2,1)) / tempdbl;
-	quat.qy() = (mtx(2,0) - mtx(0,2)) / tempdbl;
-	quat.qz() = (mtx(0,1) - mtx(1,0)) / tempdbl;
+	// 参考 hipparchus 的 mat2quat 函数
+	double s = mtx(0, 0) + mtx(1,1) + mtx(2,2);
+	if (s > -0.19) {
+        // compute q0 and deduce q1, q2 and q3
+		quat.w() = sqrt(s + 1) * 0.5;
+		double inv = 0.25 / quat.w();
+		quat.x() = inv * (mtx(1,2) - mtx(2,1));
+		quat.y() = inv * (mtx(2,0) - mtx(0,2));
+		quat.z() = inv * (mtx(0,1) - mtx(1,0));
+    } else {
+        s = mtx(0,0) - mtx(1,1) - mtx(2,2);
+        if (s > -0.19) {
+            // compute q1 and deduce q0, q2 and q3
+            quat.x() = 0.5 * sqrt(s + 1.0);
+            double inv = 0.25 / quat.x();
+            quat.w() = inv * (mtx(1,2) - mtx(2,1));
+            quat.y() = inv * (mtx(0,1) + mtx(1,0));
+            quat.z() = inv * (mtx(0,2) + mtx(2,0));
+        } else {
+            s = mtx(1,1) - mtx(0,0) - mtx(2,2);
+            if (s > -0.19) {
+                // compute q2 and deduce q0, q1 and q3
+                quat.y() = 0.5 * sqrt(s + 1.0);
+                double inv = 0.25 / quat.y();
+                quat.w() = inv * (mtx(2,0) - mtx(0,2));
+                quat.x() = inv * (mtx(0,1) + mtx(1,0));
+                quat.z() = inv * (mtx(2,1) + mtx(1,2));
+            } else {
+                // compute q3 and deduce q0, q1 and q2
+                s = mtx(2,2) - mtx(0,0) - mtx(1,1);
+                quat.z() = 0.5 * sqrt(s + 1.0);
+                double inv = 0.25 / quat.z();
+                quat.w() = inv * (mtx(0,1) - mtx(1,0));
+                quat.x() = inv * (mtx(0,2) + mtx(2,0));
+                quat.y() = inv * (mtx(2,1) + mtx(1,2));
+            }
+        }
+    }
 }
 
 err_t aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
@@ -259,7 +291,7 @@ void aEuler123ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(2, 0)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(2, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(2, 1), mtx(2, 2));
 		euler.angle2() = asin(mtx(2, 0));
@@ -291,7 +323,7 @@ void aEuler231ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler231(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(0, 1)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(0, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(0, 2), mtx(0, 0));
 		euler.angle2() = asin(mtx(0, 1));
@@ -324,7 +356,7 @@ void aEuler312ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler312(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(1, 2)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(1, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(1, 0), mtx(1, 1));
 		euler.angle2() = asin(mtx(1, 2));
@@ -359,7 +391,7 @@ void aEuler321ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler321(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(0, 2)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(0, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 1), mtx(0, 0));
 		euler.angle2() = -asin(mtx(0, 2));
@@ -391,7 +423,7 @@ void aEuler213ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler213(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(2, 1)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(2, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(2, 0), mtx(2, 2));
 		euler.angle2() = -asin(mtx(2, 1));
@@ -423,7 +455,7 @@ void aEuler132ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler132(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(1, 0)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(1, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(1, 2), mtx(1, 1));
 		euler.angle2() = -asin(mtx(1, 0));
@@ -457,7 +489,7 @@ void aEuler121ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler121(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 1), -mtx(0, 2));
 		euler.angle2() = acos(mtx(0, 0));
@@ -492,7 +524,7 @@ void aEuler232ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler232(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(1, 1)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(1, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(1, 2), -mtx(1, 0));
 		euler.angle2() = acos(mtx(1, 1));
@@ -527,7 +559,7 @@ void aEuler313ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler313(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(2, 2)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(2, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(2, 0), -mtx(2, 1));
 		euler.angle2() = acos(mtx(2, 2));
@@ -562,7 +594,7 @@ void aEuler131ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler131(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 2), mtx(0, 1));
 		euler.angle2() = acos(mtx(0, 0));
@@ -597,7 +629,7 @@ void aEuler212ToMatrix(const Euler& euler, Matrix3d& mtx)
 
 void aMatrixToEuler212(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(1, 1)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(1, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(1, 0), mtx(1, 2));
 		euler.angle2() = acos(mtx(1, 1));
@@ -651,7 +683,7 @@ err_t aQuatToEuler(const Quaternion& quat, int seq, Euler& euler)
 
 void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler)
 {
-	if (abs(mtx(2, 2)) < 1. - TO_EULER_EPS)
+	if (std::abs(mtx(2, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(2, 1), mtx(2, 0));
 		euler.angle2() = acos(mtx(2, 2));
@@ -672,11 +704,11 @@ void aQuatToAngleAxis(const Quaternion& quat, AngleAxis& aa)
 	double n = quat.vec().norm();
 	if(n)
 	{
-    	if (quat.qs() < 0){
-			aa.angle() = 2 * atan2(n, -(quat.qs()));
+    	if (quat.w() < 0){
+			aa.angle() = 2 * atan2(n, -(quat.w()));
 			aa.axis() = quat.vec() / -n;
 		}else{
-			aa.angle() = 2 * atan2(n, (quat.qs()));
+			aa.angle() = 2 * atan2(n, (quat.w()));
 			aa.axis() = quat.vec() / n;
 		};
 	}

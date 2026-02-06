@@ -36,7 +36,7 @@ struct Param2{
 
 void bmStringAssign(benchmark::State& state) {
     Param1 param;
-    int length = state.range(0);
+    int length = (int)state.range(0);
     std::string str(length, 'a');
     for (auto _ : state) {
         param.str = str;
@@ -49,7 +49,7 @@ BENCHMARK(bmStringAssign)->Range(1, 100);
 
 void bmIdentitiferAssign(benchmark::State& state) {
     Param2 param;
-    int length = state.range(0);
+    int length = (int)state.range(0);
     std::string str(length, 'a');
     for (auto _ : state) {
         param.id = aIdentifier(str);
@@ -62,7 +62,7 @@ BENCHMARK(bmIdentitiferAssign)->Range(1, 100);
 
 void bmStringCompare(benchmark::State& state) {
     Param1 param;
-    int length = state.range(0);
+    int length = (int)state.range(0);
     std::string str(length, 'a');
     param.str = str;
     str = std::string(length, 'b');
@@ -77,7 +77,7 @@ BENCHMARK(bmStringCompare)->Range(1, 100);
 
 void bmIdentifierCompare(benchmark::State& state) {
     Param2 param;
-    int length = state.range(0);
+    int length = (int)state.range(0);
     std::string str(length, 'a');
     param.id = aIdentifier(str);
     str = std::string(length, 'b');
@@ -107,7 +107,7 @@ std::vector<std::string> strings = {
 void bmStringUnoderedMap(benchmark::State& state) {
     std::unordered_map<std::string, int> map;
     std::string str(10, 'a');
-    int length = state.range(0);
+    int length = (int)state.range(0);
     int i = 0;
     for (const auto& str : strings) {
         map.insert({str + std::to_string(i), 0});
@@ -126,7 +126,7 @@ BENCHMARK(bmStringUnoderedMap)->Range(1, 100);
 void bmIdentifierUnoderedMap(benchmark::State& state) {
     std::unordered_map<Identifier*, int> map;
     std::string str(10, 'a');
-    int length = state.range(0);
+    int length = (int)state.range(0);
     int i = 0;
     auto id = aIdentifier(str);
     for (const auto& str : strings) {

@@ -28,7 +28,9 @@ AST_NAMESPACE_BEGIN
 std::string aColMajorMatrixToString(const double *matrix, int rows, int cols)
 {
     std::string str;
+    #ifndef AST_WITH_FMT
     char buffer[128];
+    #endif
     for(int i = 0; i < rows; i++)
     {
         for(int j = 0; j < cols; j++)

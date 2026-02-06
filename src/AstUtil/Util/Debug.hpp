@@ -24,6 +24,6 @@
 
 AST_NAMESPACE_BEGIN
 
-AST_CORE_CAPI void aDebugBreak();
+AST_UTIL_CAPI void aDebugBreak();
 
 AST_NAMESPACE_END

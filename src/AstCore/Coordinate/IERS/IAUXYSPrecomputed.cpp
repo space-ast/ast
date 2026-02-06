@@ -55,9 +55,9 @@ err_t IAUXYSPrecomputed::getValueTT(const JulianDate &jdTT, array3d &xys) const
         indexBegin = 0;
     }
     int indexEnd = indexBegin + n;          // 插值点结束索引(不含)
-    if(A_UNLIKELY(indexEnd > this->xys_points_.size()))
+    if(A_UNLIKELY(indexEnd > (int)this->xys_points_.size()))
     {
-        indexEnd = this->xys_points_.size();
+        indexEnd = (int)this->xys_points_.size();
         indexBegin = indexEnd - n;
         if(A_UNLIKELY(indexBegin < 0))
         {
@@ -121,6 +121,7 @@ err_t IAUXYSPrecomputed::load(StringView filepath)
                 {
                     StringView line = parser.getLineSkipComment();
                     array3d xys;
+                    // #pragma warning(suppress: 4996)
                     int ret = sscanf(line.data(), "%lf %lf %lf", &xys[0], &xys[1], &xys[2]);
                     if(ret != 3){
                         aError("expect 3 values, error %d, line %d, %s\n", ret, parser.getLineNumber(), line.data());
@@ -150,12 +151,12 @@ err_t IAUXYSPrecomputed::load(StringView filepath)
 void IAUXYSPrecomputed::precompute(double start_jed, double stop_jed, double step_size)
 {
     JulianDate jdTT = JulianDate::FromImpreciseDay(start_jed);
-    int dayStep = step_size;
+    int dayStep = static_cast<int>(step_size);
     double secStep = (step_size - dayStep) * kSecondsPerDay;
     std::vector<array3d> xys_points;
     int size = (int)((stop_jed - start_jed) / step_size) + 1;
     xys_points.reserve(size);
-    double jed = start_jed;
+    // double jed = start_jed;
     for(int i=0;i<size;i++)
     {
         array3d xys;

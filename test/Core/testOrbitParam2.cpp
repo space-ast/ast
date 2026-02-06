@@ -87,9 +87,13 @@ TEST(OrbitParam, ParabolaOrbit)
         double periRad = 7000000.0; // 近地点半径
         double semiMajorAxis = periRad / (1 - eccentricity); // 长半轴（理论上无穷大，但计算上需要处理）
         
+        A_UNUSED(semiMajorAxis);
+
         // 检查aPeriRadToPeriod在抛物线轨道时的行为
         double period = aPeriRadToPeriod(periRad, eccentricity, GM);
         // 注意：由于实现中可能没有特殊处理抛物线轨道的周期计算，这里只检查结果是否合理
+
+        A_UNUSED(period);
     }
     
 }
@@ -166,7 +170,7 @@ TEST(OrbitParam, HyperbolaOrbit)
             double invalidTrueAnomaly = kPI - acos(1.0 / eccentricity) + 0.1;
             double E = aTrueToEcc(invalidTrueAnomaly, eccentricity);
             // 检查是否返回了无效值
-            EXPECT_TRUE(isnan(E));
+            EXPECT_TRUE(std::isnan(E));
         }
         
         // 测试双曲线轨道的长半轴和半径关系
@@ -244,10 +248,10 @@ TEST(OrbitParam, BoundaryConditions)
         
         // 测试负偏心率的处理
         double meanAnomaly = aEccToMean(eccAnomaly, negativeEcc);
-        EXPECT_TRUE(isnan(meanAnomaly));
+        EXPECT_TRUE(std::isnan(meanAnomaly));
         
         double trueAnomaly = aEccToTrue(eccAnomaly, negativeEcc);
-        EXPECT_TRUE(isnan(trueAnomaly));
+        EXPECT_TRUE(std::isnan(trueAnomaly));
     }
     
 }

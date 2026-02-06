@@ -91,7 +91,7 @@ TEST(ODEGeneric, EventDetector) {
     EXPECT_EQ(result, eNoError);
     
     // 计算解析解
-    double analyticalSolution = exp(-tf);
+    // double analyticalSolution = exp(-tf);
     
     // 检查数值解与解析解的误差
     EXPECT_NEAR(y[0], value, 1e-10);

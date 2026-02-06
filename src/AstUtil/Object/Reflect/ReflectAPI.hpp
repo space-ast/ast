@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/StringView.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -129,15 +130,13 @@ A_ALWAYS_INLINE Property* _aNewProperty<std::string>(FPropertyGet getter, FPrope
 }
 
 
-
-
 /// @brief 创建一个布尔属性
 /// @details 本函数创建一个布尔属性，属性值通过访问对象的成员变量获取。
 /// @tparam T 类类型
 /// @param member 布尔属性成员指针
 /// @return Property* 属性指针
 template<typename T, bool T::* Member>
-A_ALWAYS_INLINE Property* aNewPropertyBool()
+A_ALWAYS_INLINE Property* aNewPropertyBoolMem()
 {
     return _aNewPropertyBool(
         [](const void* obj, void* value) -> err_t
@@ -154,8 +153,21 @@ A_ALWAYS_INLINE Property* aNewPropertyBool()
 }
 
 
+
+/// @brief 创建一个布尔属性
+/// @details 本函数创建一个布尔属性，属性值通过访问对象的成员变量获取。
+/// @tparam T 类类型
+/// @param member 布尔属性成员指针
+/// @return Property* 属性指针
+template<typename T, bool T::* Member>
+A_ALWAYS_INLINE Property* aNewPropertyBool()
+{
+    return aNewPropertyBoolMem<T, Member>();
+}
+
+
 template<typename T, int T::* Member>
-A_ALWAYS_INLINE Property* aNewPropertyInt()
+A_ALWAYS_INLINE Property* aNewPropertyIntMem()
 {
     return _aNewPropertyInt(
         [](const void* obj, void* value) -> err_t
@@ -173,13 +185,15 @@ A_ALWAYS_INLINE Property* aNewPropertyInt()
 
 
 
-/// @brief 创建一个双精度属性
-/// @details 本函数创建一个双精度属性，属性值通过访问对象的成员变量获取。
-/// @tparam T 类类型
-/// @param member 双精度属性成员指针
-/// @return Property* 属性指针
+template<typename T, int T::* Member>
+A_ALWAYS_INLINE Property* aNewPropertyInt()
+{
+    return aNewPropertyIntMem<T, Member>();
+}
+
+
 template<typename T, double T::* Member>
-A_ALWAYS_INLINE Property* aNewPropertyDouble()
+A_ALWAYS_INLINE Property* aNewPropertyDoubleMem()
 {
     return _aNewPropertyDouble(
         [](const void* obj, void* value) -> err_t
@@ -195,8 +209,22 @@ A_ALWAYS_INLINE Property* aNewPropertyDouble()
     );
 }
 
+
+
+/// @brief 创建一个双精度属性
+/// @details 本函数创建一个双精度属性，属性值通过访问对象的成员变量获取。
+/// @tparam T 类类型
+/// @param member 双精度属性成员指针
+/// @return Property* 属性指针
+template<typename T, double T::* Member>
+A_ALWAYS_INLINE Property* aNewPropertyDouble()
+{
+    return aNewPropertyDoubleMem<T, Member>();
+}
+
+
 template<typename T, std::string T::* Member>
-A_ALWAYS_INLINE Property* aNewPropertyString()
+A_ALWAYS_INLINE Property* aNewPropertyStringMem()
 {
     return _aNewPropertyString(
         [](const void* obj, void* value) -> err_t
@@ -210,6 +238,13 @@ A_ALWAYS_INLINE Property* aNewPropertyString()
             return 0;
         }
     );
+}
+
+
+template<typename T, std::string T::* Member>
+A_ALWAYS_INLINE Property* aNewPropertyString()
+{
+    return aNewPropertyStringMem<T, Member>();
 }
 
 

@@ -75,7 +75,7 @@ void aGetJ4AnalyticalParams(const ModOrbElem &modOrbElem, double gm, double j2, 
 
 J4Analytical::J4Analytical(const ModOrbElem &modOrbElem, const TimePoint &epoch, double gm, double j2, double j4, double re)
     : J2J4Analytical(modOrbElem, epoch, gm)
-    , j2_(j2), j4_(j4), re_(re)
+    // , j2_(j2), j4_(j4), re_(re)
 {
     aGetJ4AnalyticalParams(modOrbElem, gm, j2, j4, re, meanAnomalyDot_, raanDot_, argPeriDot_);
 }

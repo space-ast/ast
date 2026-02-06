@@ -35,6 +35,7 @@ AST_NAMESPACE_BEGIN
 /// @return    错误码   
 static err_t parseTerm(StringView line, int& index, NutationTerm &term)
 {
+    // #pragma warning(suppress: 4996)
     int status = sscanf(
         line.data(), 
         "%d %lf %lf %d %d %d %d %d %d %d %d %d %d %d %d %d %d", 
@@ -58,6 +59,7 @@ static err_t parseTerm(StringView line, int& index, NutationTerm &term)
 /// @return    错误码   
 static err_t parseJList(StringView line, int &j, int& numTerms)
 {
+    // #pragma warning(suppress: 4996)
     int status = sscanf(
         line.data(), 
         " j = %d %*[^0-9=] = %d", 
@@ -82,7 +84,7 @@ static bool checkValid(const std::vector<NutationTerm>& terms, const std::vector
         return false;
     }
     int sum = std::accumulate(jlist.begin(), jlist.end(), 0);
-    if(sum != terms.size()){
+    if(sum != (int)terms.size()){
         aError("invalid nutation series, number of terms: %zu, number of jlist: %zu, sum of jlist: %d\n", terms.size(), jlist.size(), sum);
         return false;
     }
@@ -132,12 +134,12 @@ double NutationSeries::eval(double t, const FundamentalArguments &fundargs) cons
      */
     
     double polyPart = polynomial_.eval(t);
-    int end = terms_.size();
+    int end = (int)terms_.size();
     if(A_UNLIKELY(end == 0)){
         aError("nutation series is empty, please call `aInitialize()` first");
     }
     double nonPolyPart = 0;
-    for(int j=jlist_.size()-1; j>=0; j--){
+    for(int j=(int)jlist_.size()-1; j>=0; j--){
         double coeff = 0;
         int start = end - jlist_[j];
         for(int i=end-1; i>=start; i--){

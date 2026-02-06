@@ -29,15 +29,15 @@ AST_NAMESPACE_BEGIN
 using namespace math;
 
 ODEVarStepIntegrator::ODEVarStepIntegrator()
-    : minStepSize_{1}
+    : useMinStep_{false}
+    , useMaxStep_{false}
+    // , useFixedStepSize_{false}
+    , warnOnMinStep_{true}
+    , maxStepAttempts_{50}
+    , minStepSize_{1}
     , maxStepSize_{86400}
     , maxAbsErr_{1e-10}
     , maxRelErr_{1e-13}
-    , useMinStep_{false}
-    , useMaxStep_{false}
-    , useFixedStepSize_{false}
-    , warnOnMinStep_{true}
-    , maxStepAttempts_{50}
     , minStepScaleFactor_{0.5}
     , maxStepScaleFactor_{2.0}
     , safetyCoeffLow_{0.8}
@@ -84,7 +84,7 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
         hmax = tf - t0;
     }
 
-    absh = abs(this->getStepSize());
+    absh = std::abs(this->getStepSize());
     // t = t0;
     int tdir = sign(tf - t);
     bool final = false;
@@ -105,10 +105,10 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
             hmin = 16 * eps(t);
         }
         absh = clamp(absh, hmin, hmax);
-        if(!(1.1 * absh < abs(tf - t)))
+        if(!(1.1 * absh < std::abs(tf - t)))
         {
             h = tf - t;
-            absh = abs(h);
+            absh = std::abs(h);
             tnew = tf;
             final = true;
         }else{
@@ -143,7 +143,9 @@ err_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
             if(numAttempts >= this->maxStepAttempts_)
             {
                 // @fixme! 这里是否直接停止积分？
-                aWarning("Max iteration reached.");
+                if(warnOnMinStep_){
+                    aWarning("Max iteration reached.");
+                }
             }else{
                 continue;
             }
@@ -163,16 +165,16 @@ err_t ODEVarStepIntegrator::integrateStep(ODE &ode, double* y, double &t, double
     double& absh = wrk.nextAbsStepSize_;
     double step = tf - t;
     int tdir = sign(step);
-    double stepabs = abs(step);
+    double stepabs = std::abs(step);
     if(stepabs < absh)
     {
         absh = stepabs;
     }
-    err_t err;
+    // err_t err;
     bool isOK = false;
     int numAttempts = 0;
     const double* y0 = y;
-    double* yf = y;
+    // double* yf = y;
     double h;
     do{
         h = absh * tdir;
@@ -226,7 +228,7 @@ bool ODEVarStepIntegrator::isErrorMeet(double &absh, const double *y, const doub
         double maxTemp = 0;
         for (int i = 0; i < dim; i++)
         {
-            double temp = abs(wrk.absErrPerLen_[i]) / max(max(abs(ynew[i]), abs(y[i])), threshold);
+            double temp = std::abs(wrk.absErrPerLen_[i]) / std::max(std::max(std::abs(ynew[i]), std::abs(y[i])), threshold);
             if(temp > maxTemp)
             {
                 maxTemp = temp;

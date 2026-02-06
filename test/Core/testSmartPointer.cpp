@@ -96,18 +96,20 @@ TEST(SmartPointer, ScopedPtr)
 
 TEST(SmartPointer, FILE)
 {
-    // without scopedptr
+    // with scopedptr
     {
         const char* filepath = "testSmartPointer_FILE1.txt";
         const char* content = u8"testcontent_中文_😊😀_Русский контент";
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "w");
-            fprintf(file, content);
+            ScopedPtr<std::FILE> file(fopen(filepath, "w"));
+            fprintf(file, "%s", content);
         }
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "r");
+            ScopedPtr<std::FILE> file(fopen(filepath, "r"));
             char buffer[1025]{};
-            fread(buffer, 1024, 1, file);
+            size_t size = fread(buffer, 1, 1024, file);
+            ast_printf("%s\n", buffer);
+            EXPECT_TRUE(size != 0);
             int eq = strcmp(buffer, content);
             EXPECT_EQ(eq, 0);
         }
@@ -118,12 +120,16 @@ TEST(SmartPointer, FILE)
         const char* content = u8"testcontent_中文_😊_Русский контент";
         {
             std::FILE* file = fopen(filepath, "w");
-            fprintf(file, content);
+            fprintf(file, "%s", content);
         }
         {
             std::FILE* file = fopen(filepath, "r");
-            char buffer[1025]{};
-            fread(buffer, 1024, 1, file);
+            char buffer[1025]{'\0'};
+            size_t size = fread(buffer, 1, 1024, file);
+            ast_printf("%s\n", buffer);
+            EXPECT_TRUE(size == 0);
+            size_t len = strlen(buffer);
+            EXPECT_EQ(len, 0);
             int eq = strcmp(buffer, content);
             EXPECT_NE(eq, 0);
         }
@@ -133,14 +139,15 @@ TEST(SmartPointer, FILE)
         const char* filepath = "testSmartPointer_FILE3.txt";
         const wchar_t* content = L"testcontent_中文_😊_Русский контент";
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "w");
-            fwprintf(file, content);
+            ScopedPtr<std::FILE> file(fopen(filepath, "w"));
+            posix::fwprintf(file, content);
         }
         {
-            ScopedPtr<std::FILE> file = fopen(filepath, "r");
+            ScopedPtr<std::FILE> file(fopen(filepath, "r"));
             char buffer[1025]{};
-            fread(buffer, 1024, 1, file);
-            nothing();
+            size_t size = fread(buffer, 1, 1024, file);
+            ast_printf("%s\n", buffer);
+            EXPECT_TRUE(size != 0);
         }
     }
 }

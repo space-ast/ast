@@ -1,6 +1,7 @@
 set_group("examples")
 set_default(false)
 add_deps("AstUtil", "AstCore", "AstMath")
+set_warnings("more")
 
 local files = os.files("**/*.c*")
     for _, file in ipairs(files) do

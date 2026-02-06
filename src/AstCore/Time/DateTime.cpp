@@ -81,7 +81,7 @@ void aDateTimeNormalizeUTC(DateTime& dttm)
 
     int minute = dttm.time().hour() * 60 + dttm.minute();
     double second = dttm.time().second();
-    int dday = (second + minute * 60) / 86400.;
+    int dday = static_cast<int>((second + minute * 60) / 86400.);
     if (dday == 0) {
         aDateTimeNormalize(dttm);
         return;
@@ -435,7 +435,7 @@ err_t aDateTimeParseGregorianEn(StringView str, DateTime& dttm)
         const char* monthNames[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < 12; i++) {
-            if (_AST stricmp(monthName, monthNames[i]) == 0) {
+            if (posix::strcasecmp(monthName, monthNames[i]) == 0) {
                 month = i + 1;
                 break;
             }
@@ -468,7 +468,7 @@ err_t aDateTimeParseGMT(StringView str, DateTime& dttm)
         const char* monthNames[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < 12; i++) {
-            if (_AST stricmp(monthName, monthNames[i]) == 0) {
+            if (posix::strcasecmp(monthName, monthNames[i]) == 0) {
                 month = i + 1;
                 break;
             }

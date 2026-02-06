@@ -226,6 +226,9 @@
 #   define A_RESTRICT
 #endif
 
+// 标记变量为未使用，避免编译器警告
+#define A_UNUSED(x) (void)(x);  
+
 // 处理 MSVC 编译器的 _MSVC_LANG 宏
 #if defined(_MSVC_LANG)
 #   define A_CPLUSPLUS _MSVC_LANG
@@ -239,16 +242,45 @@
 
 // C++ 版本宏
 #if A_CPLUSPLUS >= 202002L
-#   define A_CXX_VERSION 20
+#   define A_CXX_VERSION 2020
 #elif A_CPLUSPLUS >= 201703L
-#   define A_CXX_VERSION 17
+#   define A_CXX_VERSION 2017
 #elif A_CPLUSPLUS >= 201402L
-#   define A_CXX_VERSION 14
+#   define A_CXX_VERSION 2014
 #elif A_CPLUSPLUS >= 201103L
-#   define A_CXX_VERSION 11
+#   define A_CXX_VERSION 2011
 #else
-#   define A_CXX_VERSION 03
+#   define A_CXX_VERSION 2003
 #endif
+
+#if A_CXX_VERSION >= 2020
+#   define A_CXX20
+#endif
+
+#if A_CXX_VERSION >= 2017
+#   define A_CXX17
+#endif
+
+#if A_CXX_VERSION >= 2014
+#   define A_CXX14
+#endif
+
+#if A_CXX_VERSION >= 2011
+#   define A_CXX11
+#endif
+
+#ifdef A_CXX17
+#   define A_CONSTEXPR_CXX17 constexpr
+#else
+#   define A_CONSTEXPR_CXX17
+#endif
+
+#ifdef A_CXX14
+#   define A_CONSTEXPR_CXX14 constexpr
+#else
+#   define A_CONSTEXPR_CXX14
+#endif
+
 
 
 #ifdef _WIN32

@@ -29,16 +29,24 @@
 AST_USING_NAMESPACE
 
 
-void testQuatAnsMatrix(const Quaternion& quatInput)
+void testQuatAndMatrix(const Quaternion& quatInput)
 {
+    printf("quat: %f, %f, %f, %f\n", quatInput.w(), quatInput.x(), quatInput.y(), quatInput.z());
     Quaternion quat2, quat = quatInput;
     quat.normalize();
-    Matrix3d mtx;
+    Matrix3d mtx, mtx2;
     aQuatToMatrix(quat, mtx);
     aMatrixToQuat(mtx, quat2);
-    for (size_t i = 0; i < _ASTMATH size(quat2); i++)
+    aQuatToMatrix(quat2, mtx2);
+    for (size_t i = 0; i < quat2.size(); i++)
     {
-        EXPECT_NEAR(quat[i], quat2[i], 1e-14);
+        printf("i=%zu, quat=%.15g, quat2=%.15g\n", i, quat[i], quat2[i]);
+        EXPECT_NEAR(quat[i], quat2[i], std::abs(quat2[i]) * 1e-14);
+    }
+    for(size_t i=0;i < mtx.size(); i++)
+    {
+        printf("i=%zu, mtx=%.15g, mtx2=%.15g\n", i, mtx(i), mtx2(i));
+        EXPECT_NEAR(mtx(i), mtx2(i), std::abs(mtx2(i)) * 1e-14);
     }
 }
 
@@ -64,9 +72,18 @@ TEST(AttitudeConvertTest, QuatAndMatrix)
 
     }
 
-    testQuatAnsMatrix({ 1,0,0,0 });
-    testQuatAnsMatrix({ 1,2,3,4 });
-    testQuatAnsMatrix({ 2,-2,-1,2 });
+    testQuatAndMatrix({ 30,-1,3,-2 });
+    testQuatAndMatrix({ 40,4,3,5 });
+    testQuatAndMatrix({ 1,20,3,-2 });
+    testQuatAndMatrix({ 2,30,-4,4 });
+    testQuatAndMatrix({ 1,2,40,10 });
+    testQuatAndMatrix({ 1,2,40,-1 });
+    testQuatAndMatrix({ 1,2,3,10 });
+    testQuatAndMatrix({ 1,-2,3,40 });
+
+    testQuatAndMatrix({ 1,0,0,0 });
+    testQuatAndMatrix({ 1,2,3,4 });
+    testQuatAndMatrix({ 2,-2,-1,2 });
 
 }
 
@@ -83,7 +100,7 @@ void testEulerAndMatrix(int seq, const Euler& eulerInput)
     {
         EXPECT_NEAR(mtx(i), mtx2(i), 1e-14);
     }
-    for (int i = 0; i < _ASTMATH size(euler); i++)
+    for (size_t i = 0; i < _ASTMATH size(euler); i++)
     {
         EXPECT_NEAR(euler[i], euler2[i], 1e-14);
     }
