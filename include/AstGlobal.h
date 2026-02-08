@@ -156,6 +156,23 @@
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
+// ast项目天文计算器模块导出声明
+#if defined AST_BUILD_LIB_CALC
+#    define AST_CALC_API A_DECL_EXPORT
+#else
+#    define AST_CALC_API A_DECL_IMPORT
+#endif
+#define AST_CALC_CAPI A_DECL_EXTERN_C AST_CALC_API
+
+// ast项目仿真模块导出声明
+#if defined AST_BUILD_LIB_SIM
+#    define AST_SIM_API A_DECL_EXPORT
+#else
+#    define AST_SIM_API A_DECL_IMPORT
+#endif
+#define AST_SIM_CAPI A_DECL_EXTERN_C AST_SIM_API
+
+
 // ast项目模拟模块导出声明
 #ifdef AST_BUILD_LIB_MOCK
 #    define AST_MOCK_API A_DECL_EXPORT
