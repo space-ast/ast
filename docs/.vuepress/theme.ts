@@ -55,18 +55,18 @@ export default hopeTheme({
     },
   },
 
-  encrypt: {
-    config: {
-      "/demo/encrypt.html": {
-        hint: "Password: 1234",
-        password: "1234",
-      },
-      "/zh/demo/encrypt.html": {
-        hint: "Password: 1234",
-        password: "1234",
-      },
-    },
-  },
+  // encrypt: {
+  //   config: {
+  //     "/demo/encrypt.html": {
+  //       hint: "Password: 1234",
+  //       password: "1234",
+  //     },
+  //     "/zh/demo/encrypt.html": {
+  //       hint: "Password: 1234",
+  //       password: "1234",
+  //     },
+  //   },
+  // },
 
   // These features are enabled for demo, only preserve features you need here
   markdown: {
@@ -103,12 +103,12 @@ export default hopeTheme({
     vPre: true,
 
     // uncomment these if you need TeX support
-    // math: {
-    //   // install katex before enabling it
-    //   type: "katex",
-    //   // or install @mathjax/src before enabling it
-    //   type: "mathjax",
-    // },
+    math: {
+      // install katex before enabling it
+      // type: "katex",
+      // or install @mathjax/src before enabling it
+      type: "mathjax",
+    },
 
     // install chart.js before enabling it
     // chartjs: true,
@@ -141,13 +141,17 @@ export default hopeTheme({
   plugins: {
     // Note: This is for testing ONLY!
     // You MUST generate and use your own comment service in production.
-    // comment: {
-    //   provider: "Giscus",
-    //   repo: "vuepress-theme-hope/giscus-discussions",
-    //   repoId: "R_kgDOG_Pt2A",
-    //   category: "Announcements",
-    //   categoryId: "DIC_kwDOG_Pt2M4COD69",
-    // },
+    comment: {
+      provider: "Giscus",
+      repo: "space-ast/ast",
+      repoId: "R_kgDOQ0AObg",
+      category: "Announcements",
+      categoryId: "DIC_kwDOQ0AObs4C2A3K",
+    },
+    
+    slimsearch:{
+      indexContent: true,
+    },
 
     components: {
       components: ["Badge", "VPCard"],
