@@ -166,7 +166,7 @@
 /* --------------------------- PROTOTYPES ---------------------------- */
 /* ------------------------------------------------------------------- */
 #define NRLMSISE00_CONST  const
-namespace As
+namespace ast
 {
 	class CNRLMSISE00
 	{

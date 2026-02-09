@@ -1022,8 +1022,6 @@ FILE_PATTERNS          = *.c \
                          *.phtml \
                          *.inc \
                          *.m \
-                         *.markdown \
-                         *.md \
                          *.mm \
                          *.dox \
                          *.py \
@@ -1040,6 +1038,8 @@ FILE_PATTERNS          = *.c \
                          *.ucf \
                          *.qsf \
                          *.ice
+                         #*.markdown \
+                         #*.md \
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.
@@ -1281,7 +1281,7 @@ ALPHABETICAL_INDEX     = YES
 # after removing the prefix.
 # This tag requires that the tag ALPHABETICAL_INDEX is set to YES.
 
-IGNORE_PREFIX          = "a"
+IGNORE_PREFIX          = 
 
 #---------------------------------------------------------------------------
 # Configuration options related to the HTML output
@@ -1365,7 +1365,7 @@ HTML_STYLESHEET        =
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  = scripts/custom_doxygen.css
+HTML_EXTRA_STYLESHEET  = scripts/doxygenStyle.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
@@ -2240,7 +2240,7 @@ MAN_LINKS              = NO
 # captures the structure of the code including all documentation.
 # The default value is: NO.
 
-GENERATE_XML           = YES
+GENERATE_XML           = NO
 
 # The XML_OUTPUT tag is used to specify where the XML pages will be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
@@ -2385,7 +2385,7 @@ MACRO_EXPANSION        = YES
 # The default value is: NO.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-EXPAND_ONLY_PREDEF     = NO
+EXPAND_ONLY_PREDEF     = YES
 
 # If the SEARCH_INCLUDES tag is set to YES, the include files in the
 # INCLUDE_PATH will be searched if a #include is found.
@@ -2418,7 +2418,9 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED             =
+PREDEFINED             = "AST_NAMESPACE=ast"\
+                         "AST_NAMESPACE_BEGIN=namespace ast{"\
+                         "AST_NAMESPACE_END=}"\
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
