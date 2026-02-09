@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstScript/Expression/ExprCall.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ExprCall_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ExprCall.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="Expr_8hpp.html">Expr.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/SharedPtr.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1ExprCall.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ExprCall.html">ExprCall</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Expr.html">Expr</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    AST_EXPR(<a class="code hl_class" href="classast_1_1ExprCall.html">ExprCall</a>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classast_1_1ExprCall.html">ExprCall</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1ExprCall.html">~ExprCall</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ExprCall.html#affd77c6d8fd44f341e27aaec112d9eb0">   44</a></span>    <a class="code hl_function" href="classast_1_1ExprCall.html#affd77c6d8fd44f341e27aaec112d9eb0">ExprCall</a>(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* func, <span class="keyword">const</span> std::vector&lt;<a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a>&gt;&amp; args)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        : func_(func), args_(args)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {}</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1Value.html">Value</a>* eval() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    std::string getExpression(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1ExprCall.html#a57dc9ef14830a876fb9dc030a345eb2c">   59</a></span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* <a class="code hl_function" href="classast_1_1ExprCall.html#a57dc9ef14830a876fb9dc030a345eb2c">getFunc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> func_.get(); }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1ExprCall.html#ace1720d62cea298e336b0ff30099dcde">   63</a></span>    <span class="keyword">const</span> std::vector&lt;SharedPtr&lt;Expr&gt;&gt;&amp; <a class="code hl_function" href="classast_1_1ExprCall.html#ace1720d62cea298e336b0ff30099dcde">getArgs</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> args_; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a> func_;           </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::vector&lt;SharedPtr&lt;Expr&gt;&gt; args_;        </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aExpr_8hpp_html"><div class="ttname"><a href="Expr_8hpp.html">Expr.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aclassast_1_1ExprCall_html"><div class="ttname"><a href="classast_1_1ExprCall.html">ast::ExprCall</a></div><div class="ttdoc">函数调用表达式</div><div class="ttdef"><b>定义</b> ExprCall.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1ExprCall_html_a57dc9ef14830a876fb9dc030a345eb2c"><div class="ttname"><a href="classast_1_1ExprCall.html#a57dc9ef14830a876fb9dc030a345eb2c">ast::ExprCall::getFunc</a></div><div class="ttdeci">Expr * getFunc() const</div><div class="ttdoc">获取被调用的函数表达式</div><div class="ttdef"><b>定义</b> ExprCall.hpp:59</div></div>
+<div class="ttc" id="aclassast_1_1ExprCall_html_ace1720d62cea298e336b0ff30099dcde"><div class="ttname"><a href="classast_1_1ExprCall.html#ace1720d62cea298e336b0ff30099dcde">ast::ExprCall::getArgs</a></div><div class="ttdeci">const std::vector&lt; SharedPtr&lt; Expr &gt; &gt; &amp; getArgs() const</div><div class="ttdoc">获取调用参数列表</div><div class="ttdef"><b>定义</b> ExprCall.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1ExprCall_html_affd77c6d8fd44f341e27aaec112d9eb0"><div class="ttname"><a href="classast_1_1ExprCall.html#affd77c6d8fd44f341e27aaec112d9eb0">ast::ExprCall::ExprCall</a></div><div class="ttdeci">ExprCall(Expr *func, const std::vector&lt; SharedPtr&lt; Expr &gt; &gt; &amp;args)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>定义</b> ExprCall.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，实现运行时元信息、强弱引用计数</div><div class="ttdef"><b>定义</b> Object.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdef"><b>定义</b> SharedPtr.hpp:30</div></div>
+<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:35</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_943b8559cfec6ca4c5bcb49ee46412f0.html">AstScript</a></li><li class="navelem"><a class="el" href="dir_713015e7dcdafeee2444d0519ace66c8.html">Expression</a></li><li class="navelem"><b>ExprCall.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::TimeInterval类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1TimeInterval.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1TimeInterval-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::TimeInterval类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>时间区间  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="TimeInterval_8hpp_source.html">TimeInterval.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ac115c294c02679fffbb9b7135910ca01" id="r_ac115c294c02679fffbb9b7135910ca01"><td class="memItemLeft" align="right" valign="top"><a id="ac115c294c02679fffbb9b7135910ca01" name="ac115c294c02679fffbb9b7135910ca01"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TimeInterval</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;<a class="el" href="#a92ad94094486d2c3b3207f5bdbfa6e7b">start</a>, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;<a class="el" href="#a6599be486269cf587b3ca4b65d41ebdd">end</a>)</td></tr>
+<tr class="separator:ac115c294c02679fffbb9b7135910ca01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ad94094486d2c3b3207f5bdbfa6e7b" id="r_a92ad94094486d2c3b3207f5bdbfa6e7b"><td class="memItemLeft" align="right" valign="top"><a id="a92ad94094486d2c3b3207f5bdbfa6e7b" name="a92ad94094486d2c3b3207f5bdbfa6e7b"></a>
+const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> () const</td></tr>
+<tr class="memdesc:a92ad94094486d2c3b3207f5bdbfa6e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间区间的开始时间点 <br /></td></tr>
+<tr class="separator:a92ad94094486d2c3b3207f5bdbfa6e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc19db7dc279938cd333aaee7345cbc" id="r_a2cc19db7dc279938cd333aaee7345cbc"><td class="memItemLeft" align="right" valign="top"><a id="a2cc19db7dc279938cd333aaee7345cbc" name="a2cc19db7dc279938cd333aaee7345cbc"></a>
+const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStart</b> () const</td></tr>
+<tr class="memdesc:a2cc19db7dc279938cd333aaee7345cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间区间的开始时间点 <br /></td></tr>
+<tr class="separator:a2cc19db7dc279938cd333aaee7345cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6599be486269cf587b3ca4b65d41ebdd" id="r_a6599be486269cf587b3ca4b65d41ebdd"><td class="memItemLeft" align="right" valign="top"><a id="a6599be486269cf587b3ca4b65d41ebdd" name="a6599be486269cf587b3ca4b65d41ebdd"></a>
+<a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
+<tr class="memdesc:a6599be486269cf587b3ca4b65d41ebdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间区间的结束时间点 <br /></td></tr>
+<tr class="separator:a6599be486269cf587b3ca4b65d41ebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a5f26b896f1ae87f625b2c7935ab420" id="r_a1a5f26b896f1ae87f625b2c7935ab420"><td class="memItemLeft" align="right" valign="top"><a id="a1a5f26b896f1ae87f625b2c7935ab420" name="a1a5f26b896f1ae87f625b2c7935ab420"></a>
+<a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getEnd</b> () const</td></tr>
+<tr class="memdesc:a1a5f26b896f1ae87f625b2c7935ab420"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间区间的结束时间点 <br /></td></tr>
+<tr class="separator:a1a5f26b896f1ae87f625b2c7935ab420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae862852144cf8fed3dbcbbe1d4c3495e" id="r_ae862852144cf8fed3dbcbbe1d4c3495e"><td class="memItemLeft" align="right" valign="top"><a id="ae862852144cf8fed3dbcbbe1d4c3495e" name="ae862852144cf8fed3dbcbbe1d4c3495e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStartEnd</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;<a class="el" href="#a92ad94094486d2c3b3207f5bdbfa6e7b">start</a>, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;<a class="el" href="#a6599be486269cf587b3ca4b65d41ebdd">end</a>)</td></tr>
+<tr class="memdesc:ae862852144cf8fed3dbcbbe1d4c3495e"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置时间区间的开始时间点和结束时间点 <br /></td></tr>
+<tr class="separator:ae862852144cf8fed3dbcbbe1d4c3495e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203d1051e9e7f49d721dad76848b0b4f" id="r_a203d1051e9e7f49d721dad76848b0b4f"><td class="memItemLeft" align="right" valign="top"><a id="a203d1051e9e7f49d721dad76848b0b4f" name="a203d1051e9e7f49d721dad76848b0b4f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>duration</b> () const</td></tr>
+<tr class="memdesc:a203d1051e9e7f49d721dad76848b0b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间区间的持续时间（秒） <br /></td></tr>
+<tr class="separator:a203d1051e9e7f49d721dad76848b0b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f131f0bfd39eb0ebe807981f6836f86" id="r_a9f131f0bfd39eb0ebe807981f6836f86"><td class="memItemLeft" align="right" valign="top"><a id="a9f131f0bfd39eb0ebe807981f6836f86" name="a9f131f0bfd39eb0ebe807981f6836f86"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
+<tr class="memdesc:a9f131f0bfd39eb0ebe807981f6836f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间区间转换为字符串 <br /></td></tr>
+<tr class="separator:a9f131f0bfd39eb0ebe807981f6836f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a30a4b9dc4484a1e5db955dd25d586829" id="r_a30a4b9dc4484a1e5db955dd25d586829"><td class="memItemLeft" align="right" valign="top"><a id="a30a4b9dc4484a1e5db955dd25d586829" name="a30a4b9dc4484a1e5db955dd25d586829"></a>
+int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>epoch_</b></td></tr>
+<tr class="memdesc:a30a4b9dc4484a1e5db955dd25d586829"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间区间的基准时间点（秒，从J2000.0 TAI 开始） <br /></td></tr>
+<tr class="separator:a30a4b9dc4484a1e5db955dd25d586829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01b62410b016ba6505919c56ce294e8" id="r_aa01b62410b016ba6505919c56ce294e8"><td class="memItemLeft" align="right" valign="top"><a id="aa01b62410b016ba6505919c56ce294e8" name="aa01b62410b016ba6505919c56ce294e8"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>start_</b></td></tr>
+<tr class="memdesc:aa01b62410b016ba6505919c56ce294e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">相对开始时间(s) <br /></td></tr>
+<tr class="separator:aa01b62410b016ba6505919c56ce294e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a752c23e1997ada9bd50aff076bbcb81c" id="r_a752c23e1997ada9bd50aff076bbcb81c"><td class="memItemLeft" align="right" valign="top"><a id="a752c23e1997ada9bd50aff076bbcb81c" name="a752c23e1997ada9bd50aff076bbcb81c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>end_</b></td></tr>
+<tr class="memdesc:a752c23e1997ada9bd50aff076bbcb81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">相对结束时间(s) <br /></td></tr>
+<tr class="separator:a752c23e1997ada9bd50aff076bbcb81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>时间区间 </p>
+<p>时间区间表示一个连续时间区间，由开始时间点和结束时间点定义。 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Time/<a class="el" href="TimeInterval_8hpp_source.html">TimeInterval.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

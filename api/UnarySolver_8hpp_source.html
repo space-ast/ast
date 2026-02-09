@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstMath/NLE/UnarySolver.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('UnarySolver_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UnarySolver.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstMath/Function.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/SolverStats.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">double</span> kDefaultRelTol = 1e-14;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">double</span> kDefaultAbsTol = 1e-12;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">int</span> kDefaultMaxIter = 100;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a7961c646d34bf7ca8f9efac18fd43a70">aIsClose</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> relTol = kDefaultRelTol, <span class="keywordtype">double</span> absTol = kDefaultAbsTol);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1IUnarySolver.html">   47</a></span><span class="keyword">class </span>AST_MATH_API <a class="code hl_class" href="classast_1_1IUnarySolver.html">IUnarySolver</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1IUnarySolver.html">~IUnarySolver</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1IUnarySolver.html#a99602bbf6ea0d132f0aad5259b35bfa2">   57</a></span>    <span class="keyword">virtual</span> err_t <a class="code hl_function" href="classast_1_1IUnarySolver.html#a99602bbf6ea0d132f0aad5259b35bfa2">solve</a>(<a class="code hl_class" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a>&amp; func, <span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max, <span class="keywordtype">double</span>&amp; result) = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html">   62</a></span><span class="keyword">class </span>AST_MATH_API <a class="code hl_class" href="classast_1_1UnarySolver.html">UnarySolver</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1IUnarySolver.html">IUnarySolver</a></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">using </span>IUnarySolver::solve;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1UnarySolver.html">UnarySolver</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="classast_1_1UnarySolver.html">UnarySolver</a>(<span class="keywordtype">double</span> relTol, <span class="keywordtype">double</span> absTol, <span class="keywordtype">int</span> maxIter);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="classast_1_1UnarySolver.html">UnarySolver</a>(<span class="keywordtype">double</span> absTol);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1UnarySolver.html">~UnarySolver</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#aab97840bc2193e46885abb850f807f8a">   81</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1UnarySolver.html#aab97840bc2193e46885abb850f807f8a">getRelTol</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> relTol_;};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a4fbf452fb514a17a2f96afcab58e3363">   83</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1UnarySolver.html#a4fbf452fb514a17a2f96afcab58e3363">getAbsTol</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> absTol_;};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#aea5df1a762fb98b3b4f47ff89d33eea5">   85</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1UnarySolver.html#aea5df1a762fb98b3b4f47ff89d33eea5">getMaxIter</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> maxIter_;};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a1474da0302ac85d7817072179a042b2c">   88</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UnarySolver.html#a1474da0302ac85d7817072179a042b2c">setRelTol</a>(<span class="keywordtype">double</span> relTol){relTol_ = relTol;};</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#aff655ba2415cd81bde896134a6de1ba0">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UnarySolver.html#aff655ba2415cd81bde896134a6de1ba0">setAbsTol</a>(<span class="keywordtype">double</span> absTol){absTol_ = absTol;};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a3d5f3ef6be352367c53a7076183cf246">   92</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UnarySolver.html#a3d5f3ef6be352367c53a7076183cf246">setMaxIter</a>(<span class="keywordtype">int</span> maxIter){maxIter_ = maxIter;};</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a381d4fae57a8894282bd99df4d1d3dba">   95</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1SolverStats.html">SolverStats</a>&amp; <a class="code hl_function" href="classast_1_1UnarySolver.html#a381d4fae57a8894282bd99df4d1d3dba">getStats</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> stats_;};</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">typename</span> std::enable_if&lt;!std::is_base_of&lt;UnaryScalarFunc, typename std::remove_pointer&lt;Func&gt;::type&gt;::value, err_t&gt;::type</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a097e8c7201ce12695046788db7019b17">  105</a></span>    <a class="code hl_function" href="classast_1_1UnarySolver.html#a097e8c7201ce12695046788db7019b17">solve</a>(Func func, <span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max, <span class="keywordtype">double</span>&amp; result) {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_class" href="classast_1_1UnaryScalarGenericFunc.html">UnaryScalarGenericFunc&lt;Func&gt;</a> adapter(std::move(func));</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">return</span> this-&gt;solve(adapter, min, max, result);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">static</span> <span class="keywordtype">double</span> unarycfunc(<span class="keywordtype">double</span> x, <span class="keywordtype">void</span>* params);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd">  112</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd">relTol_</a>;         </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf">  113</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf">absTol_</a>;         </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a096edae7eb3d3fc0269c420398377de1">  114</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classast_1_1UnarySolver.html#a096edae7eb3d3fc0269c420398377de1">maxIter_</a>;           </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classast_1_1UnarySolver.html#a228d8e1f28052bb0fc164fe872e4e39a">  115</a></span>    <a class="code hl_struct" href="structast_1_1SolverStats.html">SolverStats</a> <a class="code hl_variable" href="classast_1_1UnarySolver.html#a228d8e1f28052bb0fc164fe872e4e39a">stats_</a>;     </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>};</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">using </span><a class="code hl_class" href="classast_1_1UnarySolver.html">UnaryScalarSolver</a> = <a class="code hl_class" href="classast_1_1UnarySolver.html">UnarySolver</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1IUnarySolver_html"><div class="ttname"><a href="classast_1_1IUnarySolver.html">ast::IUnarySolver</a></div><div class="ttdoc">一元方程求解器接口</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1IUnarySolver_html_a99602bbf6ea0d132f0aad5259b35bfa2"><div class="ttname"><a href="classast_1_1IUnarySolver.html#a99602bbf6ea0d132f0aad5259b35bfa2">ast::IUnarySolver::solve</a></div><div class="ttdeci">virtual err_t solve(UnaryScalarFunc &amp;func, double min, double max, double &amp;result)=0</div><div class="ttdoc">求解一元方程</div></div>
+<div class="ttc" id="aclassast_1_1UnaryScalarFunc_html"><div class="ttname"><a href="classast_1_1UnaryScalarFunc.html">ast::UnaryScalarFunc</a></div><div class="ttdoc">一元标量值函数</div><div class="ttdef"><b>定义</b> UnaryScalarFunc.hpp:31</div></div>
+<div class="ttc" id="aclassast_1_1UnaryScalarGenericFunc_html"><div class="ttname"><a href="classast_1_1UnaryScalarGenericFunc.html">ast::UnaryScalarGenericFunc</a></div><div class="ttdoc">泛型一元函数适配器</div><div class="ttdef"><b>定义</b> UnaryScalarFunc.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html"><div class="ttname"><a href="classast_1_1UnarySolver.html">ast::UnarySolver</a></div><div class="ttdoc">一元方程求解器</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a096edae7eb3d3fc0269c420398377de1"><div class="ttname"><a href="classast_1_1UnarySolver.html#a096edae7eb3d3fc0269c420398377de1">ast::UnarySolver::maxIter_</a></div><div class="ttdeci">int maxIter_</div><div class="ttdoc">最大迭代次数</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:114</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a097e8c7201ce12695046788db7019b17"><div class="ttname"><a href="classast_1_1UnarySolver.html#a097e8c7201ce12695046788db7019b17">ast::UnarySolver::solve</a></div><div class="ttdeci">std::enable_if&lt;!std::is_base_of&lt; UnaryScalarFunc, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, err_t &gt;::type solve(Func func, double min, double max, double &amp;result)</div><div class="ttdoc">求解一元方程（支持lambda函数）</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:105</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a1474da0302ac85d7817072179a042b2c"><div class="ttname"><a href="classast_1_1UnarySolver.html#a1474da0302ac85d7817072179a042b2c">ast::UnarySolver::setRelTol</a></div><div class="ttdeci">void setRelTol(double relTol)</div><div class="ttdoc">设置相对误差容限</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:88</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a228d8e1f28052bb0fc164fe872e4e39a"><div class="ttname"><a href="classast_1_1UnarySolver.html#a228d8e1f28052bb0fc164fe872e4e39a">ast::UnarySolver::stats_</a></div><div class="ttdeci">SolverStats stats_</div><div class="ttdoc">求解器统计信息</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:115</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a278e223855671c9d6a1b31ab23f73adf"><div class="ttname"><a href="classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf">ast::UnarySolver::absTol_</a></div><div class="ttdeci">double absTol_</div><div class="ttdoc">绝对误差容限</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:113</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a381d4fae57a8894282bd99df4d1d3dba"><div class="ttname"><a href="classast_1_1UnarySolver.html#a381d4fae57a8894282bd99df4d1d3dba">ast::UnarySolver::getStats</a></div><div class="ttdeci">const SolverStats &amp; getStats() const</div><div class="ttdoc">获取求解器统计信息</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:95</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a3d5f3ef6be352367c53a7076183cf246"><div class="ttname"><a href="classast_1_1UnarySolver.html#a3d5f3ef6be352367c53a7076183cf246">ast::UnarySolver::setMaxIter</a></div><div class="ttdeci">void setMaxIter(int maxIter)</div><div class="ttdoc">设置最大迭代次数</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_a4fbf452fb514a17a2f96afcab58e3363"><div class="ttname"><a href="classast_1_1UnarySolver.html#a4fbf452fb514a17a2f96afcab58e3363">ast::UnarySolver::getAbsTol</a></div><div class="ttdeci">double getAbsTol() const</div><div class="ttdoc">获取绝对误差容限</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:83</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_aab97840bc2193e46885abb850f807f8a"><div class="ttname"><a href="classast_1_1UnarySolver.html#aab97840bc2193e46885abb850f807f8a">ast::UnarySolver::getRelTol</a></div><div class="ttdeci">double getRelTol() const</div><div class="ttdoc">获取相对误差容限</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:81</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_ae4ead6da0360421cd483d10cf2fd95cd"><div class="ttname"><a href="classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd">ast::UnarySolver::relTol_</a></div><div class="ttdeci">double relTol_</div><div class="ttdoc">相对误差容限</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:112</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_aea5df1a762fb98b3b4f47ff89d33eea5"><div class="ttname"><a href="classast_1_1UnarySolver.html#aea5df1a762fb98b3b4f47ff89d33eea5">ast::UnarySolver::getMaxIter</a></div><div class="ttdeci">int getMaxIter() const</div><div class="ttdoc">获取最大迭代次数</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1UnarySolver_html_aff655ba2415cd81bde896134a6de1ba0"><div class="ttname"><a href="classast_1_1UnarySolver.html#aff655ba2415cd81bde896134a6de1ba0">ast::UnarySolver::setAbsTol</a></div><div class="ttdeci">void setAbsTol(double absTol)</div><div class="ttdoc">设置绝对误差容限</div><div class="ttdef"><b>定义</b> UnarySolver.hpp:90</div></div>
+<div class="ttc" id="anamespaceast_html_a7961c646d34bf7ca8f9efac18fd43a70"><div class="ttname"><a href="namespaceast.html#a7961c646d34bf7ca8f9efac18fd43a70">ast::aIsClose</a></div><div class="ttdeci">bool aIsClose(double a, double b, double relTol, double absTol)</div><div class="ttdoc">判断两个数是否接近</div><div class="ttdef"><b>定义</b> UnarySolver.cpp:27</div></div>
+<div class="ttc" id="astructast_1_1SolverStats_html"><div class="ttname"><a href="structast_1_1SolverStats.html">ast::SolverStats</a></div><div class="ttdoc">求解器统计信息</div><div class="ttdef"><b>定义</b> SolverStats.h:28</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ad1bdc808ef321ffd150448cfcd7c996.html">AstMath</a></li><li class="navelem"><a class="el" href="dir_764b278ec7c5d9a9e0e6dff058d77f91.html">NLE</a></li><li class="navelem"><b>UnarySolver.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

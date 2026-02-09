@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Coordinate/IERS/IAUXYSPrecomputed.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('IAUXYSPrecomputed_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">IAUXYSPrecomputed.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="IAUXYSPrecomputed_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classast_1_1IAUXYSPrecomputed.html">   31</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    err_t getValue(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, array3d&amp; xys) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    err_t getValueTT(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a>&amp; jdTT, array3d&amp; xys) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    err_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    err_t loadDefault();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> precompute(<span class="keywordtype">double</span> start_jed, <span class="keywordtype">double</span> stop_jed, <span class="keywordtype">double</span> step_size);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1IAUXYSPrecomputed.html#a5726cee55e23f9d875cc2d5642777cc4">   61</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1IAUXYSPrecomputed.html#a5726cee55e23f9d875cc2d5642777cc4">getRefEpochJED</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> refepoch_jed_; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1IAUXYSPrecomputed.html#a294254dac0289f20fea3d9a22e7b91dd">   64</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1IAUXYSPrecomputed.html#a294254dac0289f20fea3d9a22e7b91dd">getStepSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> step_size_; }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1IAUXYSPrecomputed.html#a5451b576cce75ae2188d311aa71a3698">   67</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1IAUXYSPrecomputed.html#a5451b576cce75ae2188d311aa71a3698">getNumPoints</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)xys_points_.size(); }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1IAUXYSPrecomputed.html#a0329a8cc368371b504e15c9b9b250c6f">   70</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1IAUXYSPrecomputed.html#a0329a8cc368371b504e15c9b9b250c6f">getInterpOrder</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> interp_order_; }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> setInterpOrder(<span class="keywordtype">int</span> order);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> initInterpolation();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a>)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// int num_points_{0};</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> num_columns_{0};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">int</span> interp_order_{0};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">double</span> step_size_{0.0};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">double</span> refepoch_jed_{0.0};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::vector&lt;array3d&gt; xys_points_;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    std::vector&lt;double&gt; denom_array_;   </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    std::vector&lt;double&gt; time_array_;    </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1IAUXYSPrecomputed_html"><div class="ttname"><a href="classast_1_1IAUXYSPrecomputed.html">ast::IAUXYSPrecomputed</a></div><div class="ttdoc">预计算的XYS系数</div><div class="ttdef"><b>定义</b> IAUXYSPrecomputed.hpp:32</div></div>
+<div class="ttc" id="aclassast_1_1IAUXYSPrecomputed_html_a0329a8cc368371b504e15c9b9b250c6f"><div class="ttname"><a href="classast_1_1IAUXYSPrecomputed.html#a0329a8cc368371b504e15c9b9b250c6f">ast::IAUXYSPrecomputed::getInterpOrder</a></div><div class="ttdeci">int getInterpOrder() const</div><div class="ttdoc">获取预计算的XYS系数插值阶数</div><div class="ttdef"><b>定义</b> IAUXYSPrecomputed.hpp:70</div></div>
+<div class="ttc" id="aclassast_1_1IAUXYSPrecomputed_html_a294254dac0289f20fea3d9a22e7b91dd"><div class="ttname"><a href="classast_1_1IAUXYSPrecomputed.html#a294254dac0289f20fea3d9a22e7b91dd">ast::IAUXYSPrecomputed::getStepSize</a></div><div class="ttdeci">double getStepSize() const</div><div class="ttdoc">获取预计算的XYS系数时间步长（天）</div><div class="ttdef"><b>定义</b> IAUXYSPrecomputed.hpp:64</div></div>
+<div class="ttc" id="aclassast_1_1IAUXYSPrecomputed_html_a5451b576cce75ae2188d311aa71a3698"><div class="ttname"><a href="classast_1_1IAUXYSPrecomputed.html#a5451b576cce75ae2188d311aa71a3698">ast::IAUXYSPrecomputed::getNumPoints</a></div><div class="ttdeci">int getNumPoints() const</div><div class="ttdoc">获取预计算的XYS系数时间点数量</div><div class="ttdef"><b>定义</b> IAUXYSPrecomputed.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1IAUXYSPrecomputed_html_a5726cee55e23f9d875cc2d5642777cc4"><div class="ttname"><a href="classast_1_1IAUXYSPrecomputed.html#a5726cee55e23f9d875cc2d5642777cc4">ast::IAUXYSPrecomputed::getRefEpochJED</a></div><div class="ttdeci">double getRefEpochJED() const</div><div class="ttdoc">获取预计算的XYS系数参考时间（儒略日）</div><div class="ttdef"><b>定义</b> IAUXYSPrecomputed.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1JulianDate_html"><div class="ttname"><a href="classast_1_1JulianDate.html">ast::JulianDate</a></div><div class="ttdoc">儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:98</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html">Coordinate</a></li><li class="navelem"><a class="el" href="dir_3728ca657bd5157f99a2657b076b2898.html">IERS</a></li><li class="navelem"><a class="el" href="IAUXYSPrecomputed_8hpp.html">IAUXYSPrecomputed.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/StdLib/SimpleFileSystem.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('SimpleFileSystem_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">SimpleFileSystem.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>c++17 标准库 filesystem的简化实现，保证api规范一致，使得在c++11时也能使用filesystem  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;system_error&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+</div>
+<p><a href="SimpleFileSystem_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1simple__fs_1_1filesystem__error.html">ast::simple_fs::filesystem_error</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1simple__fs_1_1path.html">ast::simple_fs::path</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1simple__fs_1_1file__status.html">ast::simple_fs::file_status</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1simple__fs_1_1directory__entry.html">ast::simple_fs::directory_entry</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1simple__fs_1_1directory__iterator.html">ast::simple_fs::directory_iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1simple__fs_1_1space__info.html">ast::simple_fs::space_info</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:acf047ac41edf89afcd076b164bb7fc90" id="r_acf047ac41edf89afcd076b164bb7fc90"><td class="memItemLeft" align="right" valign="top"><a id="acf047ac41edf89afcd076b164bb7fc90" name="acf047ac41edf89afcd076b164bb7fc90"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>_AST_FS</b>&#160;&#160;&#160;_AST simple_fs::</td></tr>
+<tr class="separator:acf047ac41edf89afcd076b164bb7fc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a10f189a339e834e4e2face0a0619c399" id="r_a10f189a339e834e4e2face0a0619c399"><td class="memItemLeft" align="right" valign="top"><a id="a10f189a339e834e4e2face0a0619c399" name="a10f189a339e834e4e2face0a0619c399"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::string_type</b> = std::string</td></tr>
+<tr class="separator:a10f189a339e834e4e2face0a0619c399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf28f4046b5ad23df2fcdfffe1c202e1" id="r_aaf28f4046b5ad23df2fcdfffe1c202e1"><td class="memItemLeft" align="right" valign="top"><a id="aaf28f4046b5ad23df2fcdfffe1c202e1" name="aaf28f4046b5ad23df2fcdfffe1c202e1"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::char_type</b> = char</td></tr>
+<tr class="separator:aaf28f4046b5ad23df2fcdfffe1c202e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ac4a6bd48c473627902f9e60b0e48e21b" id="r_ac4a6bd48c473627902f9e60b0e48e21b"><td class="memItemLeft" align="right" valign="top"><a id="ac4a6bd48c473627902f9e60b0e48e21b" name="ac4a6bd48c473627902f9e60b0e48e21b"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>file_type</b> { <br />
+&#160;&#160;<b>none</b>
+, <b>not_found</b>
+, <b>regular</b>
+, <b>directory</b>
+, <br />
+&#160;&#160;<b>symlink</b>
+, <b>unknown</b>
+<br />
+ }</td></tr>
+<tr class="separator:ac4a6bd48c473627902f9e60b0e48e21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:add4b6ed91d805d21a5424793ca84d1cd" id="r_add4b6ed91d805d21a5424793ca84d1cd"><td class="memItemLeft" align="right" valign="top"><a id="add4b6ed91d805d21a5424793ca84d1cd" name="add4b6ed91d805d21a5424793ca84d1cd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::exists</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:add4b6ed91d805d21a5424793ca84d1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c92f9e706206e4bbb8898d6f01649a1" id="r_a8c92f9e706206e4bbb8898d6f01649a1"><td class="memItemLeft" align="right" valign="top"><a id="a8c92f9e706206e4bbb8898d6f01649a1" name="a8c92f9e706206e4bbb8898d6f01649a1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::is_directory</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:a8c92f9e706206e4bbb8898d6f01649a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93273e1d6ed4034cf4634a3fe5a29c28" id="r_a93273e1d6ed4034cf4634a3fe5a29c28"><td class="memItemLeft" align="right" valign="top"><a id="a93273e1d6ed4034cf4634a3fe5a29c28" name="a93273e1d6ed4034cf4634a3fe5a29c28"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::is_regular_file</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:a93273e1d6ed4034cf4634a3fe5a29c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ca1da5c9589d93e745e83af9005a2c" id="r_ae0ca1da5c9589d93e745e83af9005a2c"><td class="memItemLeft" align="right" valign="top"><a id="ae0ca1da5c9589d93e745e83af9005a2c" name="ae0ca1da5c9589d93e745e83af9005a2c"></a>
+uintmax_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::file_size</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:ae0ca1da5c9589d93e745e83af9005a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12c7cedfe2ade6d2d5087ac5da3f98a" id="r_aa12c7cedfe2ade6d2d5087ac5da3f98a"><td class="memItemLeft" align="right" valign="top"><a id="aa12c7cedfe2ade6d2d5087ac5da3f98a" name="aa12c7cedfe2ade6d2d5087ac5da3f98a"></a>
+<a class="el" href="classast_1_1simple__fs_1_1file__status.html">file_status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::status</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:aa12c7cedfe2ade6d2d5087ac5da3f98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a716ab143538297521ca45e6cefdd7aaa" id="r_a716ab143538297521ca45e6cefdd7aaa"><td class="memItemLeft" align="right" valign="top"><a id="a716ab143538297521ca45e6cefdd7aaa" name="a716ab143538297521ca45e6cefdd7aaa"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::create_directory</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:a716ab143538297521ca45e6cefdd7aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff4441f1f40239b9e82f444a74d63e2" id="r_afff4441f1f40239b9e82f444a74d63e2"><td class="memItemLeft" align="right" valign="top"><a id="afff4441f1f40239b9e82f444a74d63e2" name="afff4441f1f40239b9e82f444a74d63e2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::create_directories</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:afff4441f1f40239b9e82f444a74d63e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f901c8bbd2e072d513972dd6ed2adb1" id="r_a5f901c8bbd2e072d513972dd6ed2adb1"><td class="memItemLeft" align="right" valign="top"><a id="a5f901c8bbd2e072d513972dd6ed2adb1" name="a5f901c8bbd2e072d513972dd6ed2adb1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::remove</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:a5f901c8bbd2e072d513972dd6ed2adb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4cfd125ea7a1f33207c3e7202f57569" id="r_aa4cfd125ea7a1f33207c3e7202f57569"><td class="memItemLeft" align="right" valign="top"><a id="aa4cfd125ea7a1f33207c3e7202f57569" name="aa4cfd125ea7a1f33207c3e7202f57569"></a>
+uintmax_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::remove_all</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:aa4cfd125ea7a1f33207c3e7202f57569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac240568014ac11dfc6885ae533ed030a" id="r_ac240568014ac11dfc6885ae533ed030a"><td class="memItemLeft" align="right" valign="top"><a id="ac240568014ac11dfc6885ae533ed030a" name="ac240568014ac11dfc6885ae533ed030a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::copy_file</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;from, const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;to)</td></tr>
+<tr class="separator:ac240568014ac11dfc6885ae533ed030a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83d26fbcfed237ea36d56f87b4228a20" id="r_a83d26fbcfed237ea36d56f87b4228a20"><td class="memItemLeft" align="right" valign="top"><a id="a83d26fbcfed237ea36d56f87b4228a20" name="a83d26fbcfed237ea36d56f87b4228a20"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::rename</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;old_p, const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;new_p)</td></tr>
+<tr class="separator:a83d26fbcfed237ea36d56f87b4228a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bcb5f6eb9ed017f7dc3d2965e6fa59" id="r_af6bcb5f6eb9ed017f7dc3d2965e6fa59"><td class="memItemLeft" align="right" valign="top"><a id="af6bcb5f6eb9ed017f7dc3d2965e6fa59" name="af6bcb5f6eb9ed017f7dc3d2965e6fa59"></a>
+<a class="el" href="classast_1_1simple__fs_1_1directory__iterator.html">directory_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::begin</b> (<a class="el" href="classast_1_1simple__fs_1_1directory__iterator.html">directory_iterator</a> iter) noexcept</td></tr>
+<tr class="separator:af6bcb5f6eb9ed017f7dc3d2965e6fa59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ce2802e587a9f83f28e783a2d54491" id="r_a27ce2802e587a9f83f28e783a2d54491"><td class="memItemLeft" align="right" valign="top"><a id="a27ce2802e587a9f83f28e783a2d54491" name="a27ce2802e587a9f83f28e783a2d54491"></a>
+<a class="el" href="classast_1_1simple__fs_1_1directory__iterator.html">directory_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::end</b> (const <a class="el" href="classast_1_1simple__fs_1_1directory__iterator.html">directory_iterator</a> &amp;) noexcept</td></tr>
+<tr class="separator:a27ce2802e587a9f83f28e783a2d54491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a913de5969eedec287be6d956b4c2d" id="r_a65a913de5969eedec287be6d956b4c2d"><td class="memItemLeft" align="right" valign="top"><a id="a65a913de5969eedec287be6d956b4c2d" name="a65a913de5969eedec287be6d956b4c2d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::operator==</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;left, const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;right)</td></tr>
+<tr class="separator:a65a913de5969eedec287be6d956b4c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944b150b537924bf2fc1bbddb56a7a5c" id="r_a944b150b537924bf2fc1bbddb56a7a5c"><td class="memItemLeft" align="right" valign="top"><a id="a944b150b537924bf2fc1bbddb56a7a5c" name="a944b150b537924bf2fc1bbddb56a7a5c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::operator!=</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;left, const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;right)</td></tr>
+<tr class="separator:a944b150b537924bf2fc1bbddb56a7a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467700d2309768b27e25bdf40a50cd7b" id="r_a467700d2309768b27e25bdf40a50cd7b"><td class="memItemLeft" align="right" valign="top"><a id="a467700d2309768b27e25bdf40a50cd7b" name="a467700d2309768b27e25bdf40a50cd7b"></a>
+<a class="el" href="structast_1_1simple__fs_1_1space__info.html">space_info</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::space</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:a467700d2309768b27e25bdf40a50cd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36ebf2675aee2a99b138c30bdc386449" id="r_a36ebf2675aee2a99b138c30bdc386449"><td class="memItemLeft" align="right" valign="top"><a id="a36ebf2675aee2a99b138c30bdc386449" name="a36ebf2675aee2a99b138c30bdc386449"></a>
+std::time_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::last_write_time</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;p)</td></tr>
+<tr class="separator:a36ebf2675aee2a99b138c30bdc386449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdca73758fdb93951ccae3c24f2bd9a2" id="r_acdca73758fdb93951ccae3c24f2bd9a2"><td class="memItemLeft" align="right" valign="top"><a id="acdca73758fdb93951ccae3c24f2bd9a2" name="acdca73758fdb93951ccae3c24f2bd9a2"></a>
+<a class="el" href="classast_1_1simple__fs_1_1path.html">path</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::current_path</b> ()</td></tr>
+<tr class="separator:acdca73758fdb93951ccae3c24f2bd9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864c4a7e149b63c9f636f216cc4894d9" id="r_a864c4a7e149b63c9f636f216cc4894d9"><td class="memItemLeft" align="right" valign="top"><a id="a864c4a7e149b63c9f636f216cc4894d9" name="a864c4a7e149b63c9f636f216cc4894d9"></a>
+<a class="el" href="classast_1_1simple__fs_1_1path.html">path</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::current_path</b> (std::error_code &amp;ec) noexcept</td></tr>
+<tr class="separator:a864c4a7e149b63c9f636f216cc4894d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbf0ce8a867d44b1e982b687965ac12" id="r_acfbf0ce8a867d44b1e982b687965ac12"><td class="memItemLeft" align="right" valign="top"><a id="acfbf0ce8a867d44b1e982b687965ac12" name="acfbf0ce8a867d44b1e982b687965ac12"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::current_path</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;new_path)</td></tr>
+<tr class="separator:acfbf0ce8a867d44b1e982b687965ac12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0e952b57a553d72bc90d8893d07d027" id="r_af0e952b57a553d72bc90d8893d07d027"><td class="memItemLeft" align="right" valign="top"><a id="af0e952b57a553d72bc90d8893d07d027" name="af0e952b57a553d72bc90d8893d07d027"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::simple_fs::current_path</b> (const <a class="el" href="classast_1_1simple__fs_1_1path.html">path</a> &amp;new_path, std::error_code &amp;ec) noexcept</td></tr>
+<tr class="separator:af0e952b57a553d72bc90d8893d07d027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>c++17 标准库 filesystem的简化实现，保证api规范一致，使得在c++11时也能使用filesystem </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>23.11.2025 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_e7dcbe0fcfbd740994ae2a04f1fa57db.html">StdLib</a></li><li class="navelem"><a class="el" href="SimpleFileSystem_8hpp.html">SimpleFileSystem.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

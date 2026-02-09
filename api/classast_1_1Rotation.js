@@ -1,0 +1,27 @@
+var classast_1_1Rotation =
+[
+    [ "Rotation", "classast_1_1Rotation.html#a50cec167123f47d0c75dc381449d5545", null ],
+    [ "Rotation", "classast_1_1Rotation.html#adf36ce33841e51755e40463726c68fe7", null ],
+    [ "Rotation", "classast_1_1Rotation.html#a908041d89cdd54626194f818ff630032", null ],
+    [ "Rotation", "classast_1_1Rotation.html#a49cbe7086d19c2608cd6bdcf60500bed", null ],
+    [ "Rotation", "classast_1_1Rotation.html#a8b29ac4c982ee36c3a7dabba29c09576", null ],
+    [ "Rotation", "classast_1_1Rotation.html#acfa9239fd1f4263d2b01c5d507faaead", null ],
+    [ "compose", "classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3", null ],
+    [ "composed", "classast_1_1Rotation.html#a97d2bbc9ec02ec33a5da53c1f5d26ca4", null ],
+    [ "getAngle", "classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91", null ],
+    [ "getAngleAxis", "classast_1_1Rotation.html#aef7576cddcf892008f9537f297f17568", null ],
+    [ "getAngleAxis", "classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6", null ],
+    [ "getAxis", "classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2", null ],
+    [ "getInverse", "classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0", null ],
+    [ "getMatrix", "classast_1_1Rotation.html#a720283109431ea071832f1b863d9f4b8", null ],
+    [ "getQuaternion", "classast_1_1Rotation.html#a7f7b4d0505a9ed34e081b9ea256d5663", null ],
+    [ "inverse", "classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37", null ],
+    [ "operator*", "classast_1_1Rotation.html#add716f70e0a431099eac1f015acc87bb", null ],
+    [ "operator*=", "classast_1_1Rotation.html#affa7511f3d325c6c9d767f78ff921575", null ],
+    [ "setAngleAxis", "classast_1_1Rotation.html#a7e7ab0b605030de8473f76e7b7f79cc6", null ],
+    [ "setAngleAxis", "classast_1_1Rotation.html#adeb93109e695abcd2121a7f057935772", null ],
+    [ "setMatrix", "classast_1_1Rotation.html#aacc0d41b87c3a9a786b44bfa22389c17", null ],
+    [ "setQuaternion", "classast_1_1Rotation.html#a704b1e1b7ec3d0e94a7664da6e37a2ca", null ],
+    [ "transformVector", "classast_1_1Rotation.html#a3d78420da24d3cc9fce0a5904b3fee34", null ],
+    [ "transformVector", "classast_1_1Rotation.html#a088bae2548fbc4d1153ceac5dd26882e", null ]
+];

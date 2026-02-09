@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::Property类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Property.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1Property-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Property类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>反射属性类  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Property_8hpp_source.html">Property.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::Property 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1Property.png" usemap="#ast::Property_map" alt=""/>
+  <map id="ast::Property_map" name="ast::Property_map">
+<area href="classast_1_1Field.html" title="反射字段类" alt="ast::Field" shape="rect" coords="399,0,522,24"/>
+<area href="classast_1_1PropertyBool.html" title="反射属性类（bool类型）" alt="ast::PropertyBool" shape="rect" coords="0,112,123,136"/>
+<area href="classast_1_1PropertyDouble.html" title="双精度浮点数属性" alt="ast::PropertyDouble" shape="rect" coords="133,112,256,136"/>
+<area href="classast_1_1PropertyInt.html" title="反射属性类（int类型）" alt="ast::PropertyInt" shape="rect" coords="266,112,389,136"/>
+<area href="classast_1_1PropertyObject.html" alt="ast::PropertyObject" shape="rect" coords="399,112,522,136"/>
+<area href="classast_1_1PropertyPOD.html" title="反射属性类（POD类型: plain old data）" alt="ast::PropertyPOD" shape="rect" coords="532,112,655,136"/>
+<area href="classast_1_1PropertyString.html" title="字符串属性" alt="ast::PropertyString" shape="rect" coords="665,112,788,136"/>
+<area href="classast_1_1PropertyStruct.html" alt="ast::PropertyStruct" shape="rect" coords="798,112,921,136"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a217704d29cf95ff3dc860575097b382b" id="r_a217704d29cf95ff3dc860575097b382b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a217704d29cf95ff3dc860575097b382b">EPropertyFlag</a> { <a class="el" href="#a217704d29cf95ff3dc860575097b382ba0adaefa4868311d72614d6dadeff2106">eReadable</a> = 0x01
+, <a class="el" href="#a217704d29cf95ff3dc860575097b382bab40e9ddfed17d989f4134a3761499012">eWritable</a> = 0x02
+ }</td></tr>
+<tr class="memdesc:a217704d29cf95ff3dc860575097b382b"><td class="mdescLeft">&#160;</td><td class="mdescRight">属性标志位  <a href="#a217704d29cf95ff3dc860575097b382b">更多...</a><br /></td></tr>
+<tr class="separator:a217704d29cf95ff3dc860575097b382b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:adcb831d12979a0c8faa8eac5858442c3" id="r_adcb831d12979a0c8faa8eac5858442c3"><td class="memItemLeft" align="right" valign="top"><a id="adcb831d12979a0c8faa8eac5858442c3" name="adcb831d12979a0c8faa8eac5858442c3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2">name</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#a99a9de48178cb0482411ef21739363ac">desc</a>, <a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
+<tr class="separator:adcb831d12979a0c8faa8eac5858442c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb59388bd64abbd063b818d839881f89" id="r_adb59388bd64abbd063b818d839881f89"><td class="memItemLeft" align="right" valign="top"><a id="adb59388bd64abbd063b818d839881f89" name="adb59388bd64abbd063b818d839881f89"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
+<tr class="separator:adb59388bd64abbd063b818d839881f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9a36038b7da4c56d9948f036b6fd0a" id="r_a4f9a36038b7da4c56d9948f036b6fd0a"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f9a36038b7da4c56d9948f036b6fd0a">getValueDouble</a> (const void *container, double &amp;value)=0</td></tr>
+<tr class="separator:a4f9a36038b7da4c56d9948f036b6fd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ede58d30f536af50c7087f827b76ab" id="r_ab1ede58d30f536af50c7087f827b76ab"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1ede58d30f536af50c7087f827b76ab">setValueDouble</a> (void *container, double value)=0</td></tr>
+<tr class="memdesc:ab1ede58d30f536af50c7087f827b76ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（double类型）  <br /></td></tr>
+<tr class="separator:ab1ede58d30f536af50c7087f827b76ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6aa516fc8a5db5fa7e9820e6ca37f7e" id="r_ae6aa516fc8a5db5fa7e9820e6ca37f7e"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6aa516fc8a5db5fa7e9820e6ca37f7e">getValueInt</a> (const void *container, int &amp;value)=0</td></tr>
+<tr class="memdesc:ae6aa516fc8a5db5fa7e9820e6ca37f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（int类型）  <br /></td></tr>
+<tr class="separator:ae6aa516fc8a5db5fa7e9820e6ca37f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82c70ec8b020db7fe96c27c28a6be773" id="r_a82c70ec8b020db7fe96c27c28a6be773"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82c70ec8b020db7fe96c27c28a6be773">setValueInt</a> (void *container, int value)=0</td></tr>
+<tr class="memdesc:a82c70ec8b020db7fe96c27c28a6be773"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（int类型）  <br /></td></tr>
+<tr class="separator:a82c70ec8b020db7fe96c27c28a6be773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1459974733b95d300178a19dea407e9c" id="r_a1459974733b95d300178a19dea407e9c"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1459974733b95d300178a19dea407e9c">getValueBool</a> (const void *container, bool &amp;value)=0</td></tr>
+<tr class="memdesc:a1459974733b95d300178a19dea407e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（bool类型）  <br /></td></tr>
+<tr class="separator:a1459974733b95d300178a19dea407e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79408f4b38ccc542eb010ec195e8fcc3" id="r_a79408f4b38ccc542eb010ec195e8fcc3"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79408f4b38ccc542eb010ec195e8fcc3">setValueBool</a> (void *container, bool value)=0</td></tr>
+<tr class="memdesc:a79408f4b38ccc542eb010ec195e8fcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（bool类型）  <br /></td></tr>
+<tr class="separator:a79408f4b38ccc542eb010ec195e8fcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f01b0ab887619573598b205c6a0c9d" id="r_a66f01b0ab887619573598b205c6a0c9d"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66f01b0ab887619573598b205c6a0c9d">getValueString</a> (const void *container, std::string &amp;value)=0</td></tr>
+<tr class="memdesc:a66f01b0ab887619573598b205c6a0c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（String类型）  <br /></td></tr>
+<tr class="separator:a66f01b0ab887619573598b205c6a0c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00cd32368849b4ec5da23d80ab675024" id="r_a00cd32368849b4ec5da23d80ab675024"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00cd32368849b4ec5da23d80ab675024">setValueString</a> (void *container, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)=0</td></tr>
+<tr class="memdesc:a00cd32368849b4ec5da23d80ab675024"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（String类型）  <br /></td></tr>
+<tr class="separator:a00cd32368849b4ec5da23d80ab675024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1Field"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Field')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Field.html">ast::Field</a></td></tr>
+<tr class="memitem:a7d4e4f6d8d4518ab60647377d3a4969d inherit pub_methods_classast_1_1Field" id="r_a7d4e4f6d8d4518ab60647377d3a4969d"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Field</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2">name</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#a99a9de48178cb0482411ef21739363ac">desc</a>=&quot;&quot;)</td></tr>
+<tr class="separator:a7d4e4f6d8d4518ab60647377d3a4969d inherit pub_methods_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc7daac76fbaa390e3e008497812de2 inherit pub_methods_classast_1_1Field" id="r_accc7daac76fbaa390e3e008497812de2"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="memdesc:accc7daac76fbaa390e3e008497812de2 inherit pub_methods_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取字段名称 <br /></td></tr>
+<tr class="separator:accc7daac76fbaa390e3e008497812de2 inherit pub_methods_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a9de48178cb0482411ef21739363ac inherit pub_methods_classast_1_1Field" id="r_a99a9de48178cb0482411ef21739363ac"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>desc</b> () const</td></tr>
+<tr class="memdesc:a99a9de48178cb0482411ef21739363ac inherit pub_methods_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取字段描述 <br /></td></tr>
+<tr class="separator:a99a9de48178cb0482411ef21739363ac inherit pub_methods_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a7a820e09d14636ba8fcedd0b76547689" id="r_a7a820e09d14636ba8fcedd0b76547689"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a820e09d14636ba8fcedd0b76547689">getValue</a> (void *container, void *value)</td></tr>
+<tr class="memdesc:a7a820e09d14636ba8fcedd0b76547689"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值  <br /></td></tr>
+<tr class="separator:a7a820e09d14636ba8fcedd0b76547689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ae00a355af546db67c5c048a6a33de" id="r_aa3ae00a355af546db67c5c048a6a33de"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3ae00a355af546db67c5c048a6a33de">setValue</a> (void *container, const void *value)</td></tr>
+<tr class="memdesc:aa3ae00a355af546db67c5c048a6a33de"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值  <br /></td></tr>
+<tr class="separator:aa3ae00a355af546db67c5c048a6a33de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:ad0ccdde876a2b313becc9199a36126b8" id="r_ad0ccdde876a2b313becc9199a36126b8"><td class="memItemLeft" align="right" valign="top"><a id="ad0ccdde876a2b313becc9199a36126b8" name="ad0ccdde876a2b313becc9199a36126b8"></a>
+<a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getter_</b> {nullptr}</td></tr>
+<tr class="separator:ad0ccdde876a2b313becc9199a36126b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f473fe1fa0acc007353ffac60325003" id="r_a1f473fe1fa0acc007353ffac60325003"><td class="memItemLeft" align="right" valign="top"><a id="a1f473fe1fa0acc007353ffac60325003" name="a1f473fe1fa0acc007353ffac60325003"></a>
+<a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>setter_</b> {nullptr}</td></tr>
+<tr class="separator:a1f473fe1fa0acc007353ffac60325003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classast_1_1Field"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1Field')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1Field.html">ast::Field</a></td></tr>
+<tr class="memitem:af63b2a5e4dd425a4d3ccc1a3fa18c56c inherit pro_attribs_classast_1_1Field" id="r_af63b2a5e4dd425a4d3ccc1a3fa18c56c"><td class="memItemLeft" align="right" valign="top">
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="memdesc:af63b2a5e4dd425a4d3ccc1a3fa18c56c inherit pro_attribs_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">名称 <br /></td></tr>
+<tr class="separator:af63b2a5e4dd425a4d3ccc1a3fa18c56c inherit pro_attribs_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9892e80ad6ea95308f2ebf4783ecf4e inherit pro_attribs_classast_1_1Field" id="r_ac9892e80ad6ea95308f2ebf4783ecf4e"><td class="memItemLeft" align="right" valign="top">
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>desc_</b></td></tr>
+<tr class="memdesc:ac9892e80ad6ea95308f2ebf4783ecf4e inherit pro_attribs_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">描述 <br /></td></tr>
+<tr class="separator:ac9892e80ad6ea95308f2ebf4783ecf4e inherit pro_attribs_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>反射属性类 </p>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="a217704d29cf95ff3dc860575097b382b" name="a217704d29cf95ff3dc860575097b382b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217704d29cf95ff3dc860575097b382b">&#9670;&#160;</a></span>EPropertyFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a217704d29cf95ff3dc860575097b382b">ast::Property::EPropertyFlag</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>属性标志位 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a217704d29cf95ff3dc860575097b382ba0adaefa4868311d72614d6dadeff2106" name="a217704d29cf95ff3dc860575097b382ba0adaefa4868311d72614d6dadeff2106"></a>eReadable&#160;</td><td class="fielddoc"><p>可读属性 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a217704d29cf95ff3dc860575097b382bab40e9ddfed17d989f4134a3761499012" name="a217704d29cf95ff3dc860575097b382bab40e9ddfed17d989f4134a3761499012"></a>eWritable&#160;</td><td class="fielddoc"><p>可写属性 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a7a820e09d14636ba8fcedd0b76547689" name="a7a820e09d14636ba8fcedd0b76547689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a820e09d14636ba8fcedd0b76547689">&#9670;&#160;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE err_t ast::Property::getValue </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取属性值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>指向void类型变量的指针，用于存储属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a1459974733b95d300178a19dea407e9c" name="a1459974733b95d300178a19dea407e9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1459974733b95d300178a19dea407e9c">&#9670;&#160;</a></span>getValueBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::getValueBool </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取属性值（bool类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>指向bool类型变量的引用，用于存储属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#a30b57802657daf0b56a873f2849c0099">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#a5fb8034e69907cc2ac26638e0b9acd93">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#af5d541ca0ed76aee4d01b3f7649871f3">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#a428f940e7a1e7bf003a656306d59ecb6">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a4f9a36038b7da4c56d9948f036b6fd0a" name="a4f9a36038b7da4c56d9948f036b6fd0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9a36038b7da4c56d9948f036b6fd0a">&#9670;&#160;</a></span>getValueDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::getValueDouble </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>指向double类型变量的引用，用于存储属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#a6a9dcc473ba4e6f5798dc8da29f1d741">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#a9566a4c5b3f3278cb8953a857b44a3a8">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#a2d04f77f8172996934e8adf0d0f43bfb">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#a959019032200dd43283bd86378ec3ab4">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ae6aa516fc8a5db5fa7e9820e6ca37f7e" name="ae6aa516fc8a5db5fa7e9820e6ca37f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6aa516fc8a5db5fa7e9820e6ca37f7e">&#9670;&#160;</a></span>getValueInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::getValueInt </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取属性值（int类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>指向int类型变量的引用，用于存储属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#a948caaf5faf16f1f4179af1f69132c3a">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#ad776a496270b88004a8bebc90b0930ca">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#acc33aee47d10d90451ac13f0292d99a9">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#ad36ec55fa78e02c543a67d66df9ddc5c">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a66f01b0ab887619573598b205c6a0c9d" name="a66f01b0ab887619573598b205c6a0c9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f01b0ab887619573598b205c6a0c9d">&#9670;&#160;</a></span>getValueString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::getValueString </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取属性值（String类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>指向std::string类型变量的引用，用于存储属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#ab70ec111a30a7530862db158065e1845">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#a06ea4633d451c1f9917a9c586006339d">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#a58887cbfef0f53d0c3bdd3cfc2ed4487">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#a620e95180367d9ccc871b4107569169b">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="aa3ae00a355af546db67c5c048a6a33de" name="aa3ae00a355af546db67c5c048a6a33de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ae00a355af546db67c5c048a6a33de">&#9670;&#160;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE err_t ast::Property::setValue </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置属性值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>指向void类型变量的指针，用于设置属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a79408f4b38ccc542eb010ec195e8fcc3" name="a79408f4b38ccc542eb010ec195e8fcc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79408f4b38ccc542eb010ec195e8fcc3">&#9670;&#160;</a></span>setValueBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::setValueBool </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置属性值（bool类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>bool类型变量，用于设置属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#ac57948a5d3219262275fb22543e91336">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#a3c4b13d44e098405ac437a480073e700">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#a0bfdff0ab472ad0e8b40f5305c102f2d">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#ab624c49f5ee80a84ad374fc89bdfbd99">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ab1ede58d30f536af50c7087f827b76ab" name="ab1ede58d30f536af50c7087f827b76ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ede58d30f536af50c7087f827b76ab">&#9670;&#160;</a></span>setValueDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::setValueDouble </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置属性值（double类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>double类型变量，用于设置属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#af34d4beafc03628bc8b1e194cef8900f">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#aa2d463e4cadc1b010df0c8e23f82c546">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#a085ce33b3d5503260f2c456483e43351">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#a6bf3d9f83e498ec8278e6f3726beeb43">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a82c70ec8b020db7fe96c27c28a6be773" name="a82c70ec8b020db7fe96c27c28a6be773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c70ec8b020db7fe96c27c28a6be773">&#9670;&#160;</a></span>setValueInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::setValueInt </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置属性值（int类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>int类型变量，用于设置属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#adcd2fa046403b0f3e90dfa175a043fee">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#afb0bc2d36bd36ab2d0a0c078c3fe2c1a">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#a98d9c2d16f046eeccc62fb6402821b2f">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#aea1afc509f4d21da07a449a9085de9b0">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a00cd32368849b4ec5da23d80ab675024" name="a00cd32368849b4ec5da23d80ab675024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00cd32368849b4ec5da23d80ab675024">&#9670;&#160;</a></span>setValueString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::Property::setValueString </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置属性值（String类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>容器对象指针 </td></tr>
+    <tr><td class="paramname">value</td><td>StringView类型变量，用于设置属性值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#a138299279543f716c2ab3d0697856fbb">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#acbd2f1fd4b6ece2f5fee8f9aceff1162">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#aacd35cced9864e21d2ba4a2704f5e85d">ast::PropertyInt</a> , 以及 <a class="el" href="classast_1_1PropertyString.html#ab54e1c6143c81ba8c952b3cbf48d8b19">ast::PropertyString</a> 内被实现.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Object/Reflect/<a class="el" href="Property_8hpp_source.html">Property.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Property.html">Property</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

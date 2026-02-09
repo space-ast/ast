@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::UnitConverter类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1UnitConverter.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1UnitConverter-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::UnitConverter类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>单位转换器  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="UnitConverter_8hpp_source.html">UnitConverter.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a7fe2ab2a90c277a5dd22cd0bbfc4dc51" id="r_a7fe2ab2a90c277a5dd22cd0bbfc4dc51"><td class="memItemLeft" align="right" valign="top"><a id="a7fe2ab2a90c277a5dd22cd0bbfc4dc51" name="a7fe2ab2a90c277a5dd22cd0bbfc4dc51"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UnitConverter</b> (<a class="el" href="classast_1_1Unit.html">Unit</a> fromUnit, <a class="el" href="classast_1_1Unit.html">Unit</a> toUnit)</td></tr>
+<tr class="separator:a7fe2ab2a90c277a5dd22cd0bbfc4dc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec8a38119541ac15de6db9a8d52163a" id="r_a5ec8a38119541ac15de6db9a8d52163a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ec8a38119541ac15de6db9a8d52163a">convert</a> (double value) const</td></tr>
+<tr class="memdesc:a5ec8a38119541ac15de6db9a8d52163a"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换单位  <br /></td></tr>
+<tr class="separator:a5ec8a38119541ac15de6db9a8d52163a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa097ad9095169ed5e0e3e1d415f4f0a6" id="r_aa097ad9095169ed5e0e3e1d415f4f0a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa097ad9095169ed5e0e3e1d415f4f0a6">getFromUnit</a> () const</td></tr>
+<tr class="memdesc:aa097ad9095169ed5e0e3e1d415f4f0a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取转换前的单位  <br /></td></tr>
+<tr class="separator:aa097ad9095169ed5e0e3e1d415f4f0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cea762abbd997e951408116afaff234" id="r_a2cea762abbd997e951408116afaff234"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cea762abbd997e951408116afaff234">getToUnit</a> () const</td></tr>
+<tr class="memdesc:a2cea762abbd997e951408116afaff234"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取转换后的单位  <br /></td></tr>
+<tr class="separator:a2cea762abbd997e951408116afaff234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976e637f70d0c06868a50cbecec3c14f" id="r_a976e637f70d0c06868a50cbecec3c14f"><td class="memItemLeft" align="right" valign="top"><a id="a976e637f70d0c06868a50cbecec3c14f" name="a976e637f70d0c06868a50cbecec3c14f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFromUnit</b> (<a class="el" href="classast_1_1Unit.html">Unit</a> fromUnit)</td></tr>
+<tr class="memdesc:a976e637f70d0c06868a50cbecec3c14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置转换前的单位 <br /></td></tr>
+<tr class="separator:a976e637f70d0c06868a50cbecec3c14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6302810bd3650d97bd65d73c36fc53fc" id="r_a6302810bd3650d97bd65d73c36fc53fc"><td class="memItemLeft" align="right" valign="top"><a id="a6302810bd3650d97bd65d73c36fc53fc" name="a6302810bd3650d97bd65d73c36fc53fc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setToUnit</b> (<a class="el" href="classast_1_1Unit.html">Unit</a> toUnit)</td></tr>
+<tr class="memdesc:a6302810bd3650d97bd65d73c36fc53fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置转换后的单位 <br /></td></tr>
+<tr class="separator:a6302810bd3650d97bd65d73c36fc53fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8338379272f1ef46458ee0fdafcf42dc" id="r_a8338379272f1ef46458ee0fdafcf42dc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8338379272f1ef46458ee0fdafcf42dc">getConversionFactor</a> () const</td></tr>
+<tr class="memdesc:a8338379272f1ef46458ee0fdafcf42dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取转换因子  <br /></td></tr>
+<tr class="separator:a8338379272f1ef46458ee0fdafcf42dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:ad411a6d8311aff5b97f1b5a988a7b7ba" id="r_ad411a6d8311aff5b97f1b5a988a7b7ba"><td class="memItemLeft" align="right" valign="top"><a id="ad411a6d8311aff5b97f1b5a988a7b7ba" name="ad411a6d8311aff5b97f1b5a988a7b7ba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>syncConversionFactor</b> ()</td></tr>
+<tr class="memdesc:ad411a6d8311aff5b97f1b5a988a7b7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">同步转换因子 <br /></td></tr>
+<tr class="separator:ad411a6d8311aff5b97f1b5a988a7b7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a66f9c0d3b47f576a3fba2f7eb10f2839" id="r_a66f9c0d3b47f576a3fba2f7eb10f2839"><td class="memItemLeft" align="right" valign="top"><a id="a66f9c0d3b47f576a3fba2f7eb10f2839" name="a66f9c0d3b47f576a3fba2f7eb10f2839"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fromUnit_</b></td></tr>
+<tr class="memdesc:a66f9c0d3b47f576a3fba2f7eb10f2839"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换前的单位 <br /></td></tr>
+<tr class="separator:a66f9c0d3b47f576a3fba2f7eb10f2839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bfacefe3458c7133bfaec4d528ab84" id="r_ad2bfacefe3458c7133bfaec4d528ab84"><td class="memItemLeft" align="right" valign="top"><a id="ad2bfacefe3458c7133bfaec4d528ab84" name="ad2bfacefe3458c7133bfaec4d528ab84"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toUnit_</b></td></tr>
+<tr class="memdesc:ad2bfacefe3458c7133bfaec4d528ab84"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换后的单位 <br /></td></tr>
+<tr class="separator:ad2bfacefe3458c7133bfaec4d528ab84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c84584ded9cb366c3003f7665cdedbf" id="r_a5c84584ded9cb366c3003f7665cdedbf"><td class="memItemLeft" align="right" valign="top"><a id="a5c84584ded9cb366c3003f7665cdedbf" name="a5c84584ded9cb366c3003f7665cdedbf"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>conversionFactor_</b></td></tr>
+<tr class="memdesc:a5c84584ded9cb366c3003f7665cdedbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换因子 <br /></td></tr>
+<tr class="separator:a5c84584ded9cb366c3003f7665cdedbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>单位转换器 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a5ec8a38119541ac15de6db9a8d52163a" name="a5ec8a38119541ac15de6db9a8d52163a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec8a38119541ac15de6db9a8d52163a">&#9670;&#160;</a></span>convert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::UnitConverter::convert </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>待转换的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的值 </dd></dl>
+
+</div>
+</div>
+<a id="a8338379272f1ef46458ee0fdafcf42dc" name="a8338379272f1ef46458ee0fdafcf42dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8338379272f1ef46458ee0fdafcf42dc">&#9670;&#160;</a></span>getConversionFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::UnitConverter::getConversionFactor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取转换因子 </p>
+<dl class="section return"><dt>返回</dt><dd>转换因子 </dd></dl>
+
+</div>
+</div>
+<a id="aa097ad9095169ed5e0e3e1d415f4f0a6" name="aa097ad9095169ed5e0e3e1d415f4f0a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa097ad9095169ed5e0e3e1d415f4f0a6">&#9670;&#160;</a></span>getFromUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> ast::UnitConverter::getFromUnit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取转换前的单位 </p>
+<dl class="section return"><dt>返回</dt><dd>转换前的单位 </dd></dl>
+
+</div>
+</div>
+<a id="a2cea762abbd997e951408116afaff234" name="a2cea762abbd997e951408116afaff234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cea762abbd997e951408116afaff234">&#9670;&#160;</a></span>getToUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> ast::UnitConverter::getToUnit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取转换后的单位 </p>
+<dl class="section return"><dt>返回</dt><dd>转换后的单位 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Quantity/<a class="el" href="UnitConverter_8hpp_source.html">UnitConverter.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1UnitConverter.html">UnitConverter</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

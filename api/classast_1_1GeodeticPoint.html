@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::GeodeticPoint类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1GeodeticPoint.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1GeodeticPoint-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::GeodeticPoint类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>大地坐标  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="GeodeticPoint_8hpp_source.html">GeodeticPoint.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::GeodeticPoint 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1GeodeticPoint.png" usemap="#ast::GeodeticPoint_map" alt=""/>
+  <map id="ast::GeodeticPoint_map" name="ast::GeodeticPoint_map">
+<area href="classast_1_1GeoCoordinate.html" title="地理坐标" alt="ast::GeoCoordinate" shape="rect" coords="0,0,119,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aed6349da0f484940c2628e45f01f7811" id="r_aed6349da0f484940c2628e45f01f7811"><td class="memItemLeft" align="right" valign="top"><a id="aed6349da0f484940c2628e45f01f7811" name="aed6349da0f484940c2628e45f01f7811"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GeoCoordinate</b> () noexcept</td></tr>
+<tr class="separator:aed6349da0f484940c2628e45f01f7811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad736e724d00ca8e9e49a845d71371995" id="r_ad736e724d00ca8e9e49a845d71371995"><td class="memItemLeft" align="right" valign="top"><a id="ad736e724d00ca8e9e49a845d71371995" name="ad736e724d00ca8e9e49a845d71371995"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>GeoCoordinate</b> (double lat, double lon, double alt=0.0) noexcept</td></tr>
+<tr class="memdesc:ad736e724d00ca8e9e49a845d71371995"><td class="mdescLeft">&#160;</td><td class="mdescRight">从纬度、经度、高度坐标构造 <br /></td></tr>
+<tr class="separator:ad736e724d00ca8e9e49a845d71371995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e311b241d7d034841416b92419c5c6" id="r_a39e311b241d7d034841416b92419c5c6"><td class="memItemLeft" align="right" valign="top"><a id="a39e311b241d7d034841416b92419c5c6" name="a39e311b241d7d034841416b92419c5c6"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>GeoCoordinate</b> (const <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;<a class="el" href="classast_1_1GeoCoordinate.html#a32cb9782b94e824cb45f05cffac1296e">latLonAlt</a>) noexcept</td></tr>
+<tr class="memdesc:a39e311b241d7d034841416b92419c5c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">从纬度、经度、高度坐标构造 <br /></td></tr>
+<tr class="separator:a39e311b241d7d034841416b92419c5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1GeoCoordinate"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1GeoCoordinate')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1GeoCoordinate.html">ast::GeoCoordinate</a></td></tr>
+<tr class="memitem:ad736e724d00ca8e9e49a845d71371995 inherit pub_methods_classast_1_1GeoCoordinate" id="r_ad736e724d00ca8e9e49a845d71371995"><td class="memItemLeft" align="right" valign="top">
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>GeoCoordinate</b> (double lat, double lon, double alt=0.0) noexcept</td></tr>
+<tr class="memdesc:ad736e724d00ca8e9e49a845d71371995 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">从纬度、经度、高度坐标构造 <br /></td></tr>
+<tr class="separator:ad736e724d00ca8e9e49a845d71371995 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e311b241d7d034841416b92419c5c6 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a39e311b241d7d034841416b92419c5c6"><td class="memItemLeft" align="right" valign="top">
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>GeoCoordinate</b> (const <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;<a class="el" href="classast_1_1GeoCoordinate.html#a32cb9782b94e824cb45f05cffac1296e">latLonAlt</a>) noexcept</td></tr>
+<tr class="memdesc:a39e311b241d7d034841416b92419c5c6 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">从纬度、经度、高度坐标构造 <br /></td></tr>
+<tr class="separator:a39e311b241d7d034841416b92419c5c6 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32cb9782b94e824cb45f05cffac1296e inherit pub_methods_classast_1_1GeoCoordinate" id="r_a32cb9782b94e824cb45f05cffac1296e"><td class="memItemLeft" align="right" valign="top">
+constexpr const <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>latLonAlt</b> () const noexcept</td></tr>
+<tr class="memdesc:a32cb9782b94e824cb45f05cffac1296e inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取纬度、经度、高度坐标 <br /></td></tr>
+<tr class="separator:a32cb9782b94e824cb45f05cffac1296e inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30fda041490b282feec98f6a4f5b4bc9 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a30fda041490b282feec98f6a4f5b4bc9"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLatLonAlt</b> (const <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;<a class="el" href="classast_1_1GeoCoordinate.html#a32cb9782b94e824cb45f05cffac1296e">latLonAlt</a>) noexcept</td></tr>
+<tr class="memdesc:a30fda041490b282feec98f6a4f5b4bc9 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置纬度、经度、高度坐标 <br /></td></tr>
+<tr class="separator:a30fda041490b282feec98f6a4f5b4bc9 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff37c1726045d27b3739fcb177d4085 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a6ff37c1726045d27b3739fcb177d4085"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>latitude</b> () const</td></tr>
+<tr class="memdesc:a6ff37c1726045d27b3739fcb177d4085 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取纬度 <br /></td></tr>
+<tr class="separator:a6ff37c1726045d27b3739fcb177d4085 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372ddc25c669aebc1d37e1d21837b8a9 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a372ddc25c669aebc1d37e1d21837b8a9"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>longitude</b> () const</td></tr>
+<tr class="memdesc:a372ddc25c669aebc1d37e1d21837b8a9 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取经度 <br /></td></tr>
+<tr class="separator:a372ddc25c669aebc1d37e1d21837b8a9 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bb2f77a730ec2808863a0c01bb9f19 inherit pub_methods_classast_1_1GeoCoordinate" id="r_aa9bb2f77a730ec2808863a0c01bb9f19"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>altitude</b> () const</td></tr>
+<tr class="memdesc:aa9bb2f77a730ec2808863a0c01bb9f19 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取高度 <br /></td></tr>
+<tr class="separator:aa9bb2f77a730ec2808863a0c01bb9f19 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713b0f49f72bf60508a26a5711fe821a inherit pub_methods_classast_1_1GeoCoordinate" id="r_a713b0f49f72bf60508a26a5711fe821a"><td class="memItemLeft" align="right" valign="top">
+double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>latitude</b> ()</td></tr>
+<tr class="memdesc:a713b0f49f72bf60508a26a5711fe821a inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置纬度 <br /></td></tr>
+<tr class="separator:a713b0f49f72bf60508a26a5711fe821a inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4abf5d3b8a40f6e5284799bbd0664280 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a4abf5d3b8a40f6e5284799bbd0664280"><td class="memItemLeft" align="right" valign="top">
+double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>longitude</b> ()</td></tr>
+<tr class="memdesc:a4abf5d3b8a40f6e5284799bbd0664280 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置经度 <br /></td></tr>
+<tr class="separator:a4abf5d3b8a40f6e5284799bbd0664280 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eb1cd7503699576de23e1bb5153ceae inherit pub_methods_classast_1_1GeoCoordinate" id="r_a1eb1cd7503699576de23e1bb5153ceae"><td class="memItemLeft" align="right" valign="top">
+double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>altitude</b> ()</td></tr>
+<tr class="memdesc:a1eb1cd7503699576de23e1bb5153ceae inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置高度 <br /></td></tr>
+<tr class="separator:a1eb1cd7503699576de23e1bb5153ceae inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d1d3d84b292a93a901e027d0bb8b34 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a79d1d3d84b292a93a901e027d0bb8b34"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLatitude</b> (double lat)</td></tr>
+<tr class="memdesc:a79d1d3d84b292a93a901e027d0bb8b34 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置纬度 <br /></td></tr>
+<tr class="separator:a79d1d3d84b292a93a901e027d0bb8b34 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a2255e5fad654fac57ab73f0fc50e12 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a5a2255e5fad654fac57ab73f0fc50e12"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLongitude</b> (double lon)</td></tr>
+<tr class="memdesc:a5a2255e5fad654fac57ab73f0fc50e12 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置经度 <br /></td></tr>
+<tr class="separator:a5a2255e5fad654fac57ab73f0fc50e12 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeeceeb47007db60e26bcc18ff4c83a2 inherit pub_methods_classast_1_1GeoCoordinate" id="r_aeeeceeb47007db60e26bcc18ff4c83a2"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAltitude</b> (double alt)</td></tr>
+<tr class="memdesc:aeeeceeb47007db60e26bcc18ff4c83a2 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置高度 <br /></td></tr>
+<tr class="separator:aeeeceeb47007db60e26bcc18ff4c83a2 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca96c7b7c7611c8d56ab74e6029ad6e inherit pub_methods_classast_1_1GeoCoordinate" id="r_a2ca96c7b7c7611c8d56ab74e6029ad6e"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>asGeocentricPoint</b> ()</td></tr>
+<tr class="memdesc:a2ca96c7b7c7611c8d56ab74e6029ad6e inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">作为地心坐标使用 <br /></td></tr>
+<tr class="separator:a2ca96c7b7c7611c8d56ab74e6029ad6e inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6652ca9f4286c1efa4eb1bdcc7a660 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a0c6652ca9f4286c1efa4eb1bdcc7a660"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>asGeodeticPoint</b> ()</td></tr>
+<tr class="memdesc:a0c6652ca9f4286c1efa4eb1bdcc7a660 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">作为大地坐标使用 <br /></td></tr>
+<tr class="separator:a0c6652ca9f4286c1efa4eb1bdcc7a660 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d3f106344ca87c972f988c4fc594d6b inherit pub_methods_classast_1_1GeoCoordinate" id="r_a6d3f106344ca87c972f988c4fc594d6b"><td class="memItemLeft" align="right" valign="top">
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>getZenith</b> () const</td></tr>
+<tr class="memdesc:a6d3f106344ca87c972f988c4fc594d6b inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取天顶方向向量 <br /></td></tr>
+<tr class="separator:a6d3f106344ca87c972f988c4fc594d6b inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7308e4b46151940a86af9ec8a3afe8f inherit pub_methods_classast_1_1GeoCoordinate" id="r_ac7308e4b46151940a86af9ec8a3afe8f"><td class="memItemLeft" align="right" valign="top">
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>getNadir</b> () const</td></tr>
+<tr class="memdesc:ac7308e4b46151940a86af9ec8a3afe8f inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取天底方向向量 <br /></td></tr>
+<tr class="separator:ac7308e4b46151940a86af9ec8a3afe8f inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf605d982603ea25444bc3837db65228 inherit pub_methods_classast_1_1GeoCoordinate" id="r_acf605d982603ea25444bc3837db65228"><td class="memItemLeft" align="right" valign="top">
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>getEast</b> () const</td></tr>
+<tr class="memdesc:acf605d982603ea25444bc3837db65228 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取东方向向量 <br /></td></tr>
+<tr class="separator:acf605d982603ea25444bc3837db65228 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a08c5e054bb6d44a42191cb1884c9f4 inherit pub_methods_classast_1_1GeoCoordinate" id="r_a9a08c5e054bb6d44a42191cb1884c9f4"><td class="memItemLeft" align="right" valign="top">
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>getWest</b> () const</td></tr>
+<tr class="memdesc:a9a08c5e054bb6d44a42191cb1884c9f4 inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取西方向向量 <br /></td></tr>
+<tr class="separator:a9a08c5e054bb6d44a42191cb1884c9f4 inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a41abfa181db6d9d044f4c4b4b3f45e inherit pub_methods_classast_1_1GeoCoordinate" id="r_a4a41abfa181db6d9d044f4c4b4b3f45e"><td class="memItemLeft" align="right" valign="top">
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>getNorth</b> () const</td></tr>
+<tr class="memdesc:a4a41abfa181db6d9d044f4c4b4b3f45e inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取北方向向量 <br /></td></tr>
+<tr class="separator:a4a41abfa181db6d9d044f4c4b4b3f45e inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ced7d65bcf7322936caf6565b4cc32b inherit pub_methods_classast_1_1GeoCoordinate" id="r_a3ced7d65bcf7322936caf6565b4cc32b"><td class="memItemLeft" align="right" valign="top">
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>getSouth</b> () const</td></tr>
+<tr class="memdesc:a3ced7d65bcf7322936caf6565b4cc32b inherit pub_methods_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取南方向向量 <br /></td></tr>
+<tr class="separator:a3ced7d65bcf7322936caf6565b4cc32b inherit pub_methods_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_attribs_classast_1_1GeoCoordinate"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_classast_1_1GeoCoordinate')"><img src="closed.png" alt="-"/>&#160;Public 属性 继承自 <a class="el" href="classast_1_1GeoCoordinate.html">ast::GeoCoordinate</a></td></tr>
+<tr class="memitem:aadafc54e5a71a20f47a3cbb04e86c3e8 inherit pub_attribs_classast_1_1GeoCoordinate" id="r_aadafc54e5a71a20f47a3cbb04e86c3e8"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>latLonAlt_</b></td></tr>
+<tr class="memdesc:aadafc54e5a71a20f47a3cbb04e86c3e8 inherit pub_attribs_classast_1_1GeoCoordinate"><td class="mdescLeft">&#160;</td><td class="mdescRight">纬度、经度、高度坐标 <br /></td></tr>
+<tr class="separator:aadafc54e5a71a20f47a3cbb04e86c3e8 inherit pub_attribs_classast_1_1GeoCoordinate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>大地坐标 </p>
+<p>大地坐标是指以天体表面为参考椭球，以大地纬度、经度、高度为坐标的坐标系统。 大地坐标的纬度是地表某点的法线（垂直于地球表面）与赤道平面的夹角 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Geometry/Surface/Coordinate/<a class="el" href="GeodeticPoint_8hpp_source.html">GeodeticPoint.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

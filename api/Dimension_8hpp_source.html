@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/Quantity/Dimension.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Dimension_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dimension.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Dimension_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">typedef</span> uint32_t dimension_t;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>: dimension_t;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> sizeof_dimension = <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> bits_of_dimension = sizeof_dimension * 8;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define _AST_DIM_EXP_OPBIN(value1, value2, op) \</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    ((( dim_get_exponent(value1, 0) op dim_get_exponent(value2, 0)) &amp; 0xF) &lt;&lt; 0) | \</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    ((( dim_get_exponent(value1, 1) op dim_get_exponent(value2, 1)) &amp; 0xF) &lt;&lt; 4) | \</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    ((( dim_get_exponent(value1, 2) op dim_get_exponent(value2, 2)) &amp; 0xF) &lt;&lt; 8) | \</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">    ((( dim_get_exponent(value1, 3) op dim_get_exponent(value2, 3)) &amp; 0xF) &lt;&lt; 12) | \</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">    ((( dim_get_exponent(value1, 4) op dim_get_exponent(value2, 4)) &amp; 0xF) &lt;&lt; 16) | \</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">    ((( dim_get_exponent(value1, 5) op dim_get_exponent(value2, 5)) &amp; 0xF) &lt;&lt; 20) | \</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">    ((( dim_get_exponent(value1, 6) op dim_get_exponent(value2, 6)) &amp; 0xF) &lt;&lt; 24) | \</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">    ((( dim_get_exponent(value1, 7) op dim_get_exponent(value2, 7)) &amp; 0xF) &lt;&lt; 28)</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define _AST_DIM_EXP_TIMES(value, times)\</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    ((( dim_get_exponent(value, 0) * times) &amp; 0xF) &lt;&lt; 0) | \</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">    ((( dim_get_exponent(value, 1) * times) &amp; 0xF) &lt;&lt; 4) | \</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">    ((( dim_get_exponent(value, 2) * times) &amp; 0xF) &lt;&lt; 8) | \</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">    ((( dim_get_exponent(value, 3) * times) &amp; 0xF) &lt;&lt; 12) | \</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">    ((( dim_get_exponent(value, 4) * times) &amp; 0xF) &lt;&lt; 16) | \</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">    ((( dim_get_exponent(value, 5) * times) &amp; 0xF) &lt;&lt; 20) | \</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">    ((( dim_get_exponent(value, 6) * times) &amp; 0xF) &lt;&lt; 24) | \</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">    ((( dim_get_exponent(value, 7) * times) &amp; 0xF) &lt;&lt; 28)</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#ifdef A_CXX14</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#   define _AST_DIM_USE_CXX14</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">   62</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(T dimension, <span class="keywordtype">int</span> idx) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(T) == <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>), <span class="stringliteral">&quot;size not correct&quot;</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> (<span class="keywordtype">int</span>((<span class="keywordtype">unsigned</span>)dimension &lt;&lt; (bits_of_dimension - 4 - idx * 4)) &gt;&gt; (bits_of_dimension - 4));  <span class="comment">// 先逻辑左移，再算数右移</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">   70</a></span>A_CONSTEXPR_CXX14 <span class="keyword">inline</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> <a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(T dimension, <span class="keywordtype">int</span> idx, <span class="keywordtype">int</span> exponent) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(T) == <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>), <span class="stringliteral">&quot;size not correct&quot;</span>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// @todo 检查指数范围（4位有符号数范围：-8到7）</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// if (exponent &lt; -8 || exponent &gt; 7) {</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">//     //throw std::out_of_range(&quot;Exponent must be between -8 and 7&quot;);</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">// }</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    dimension_t value = (dimension_t) dimension;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">int</span> shift = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(idx) * 4;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">int</span> mask = 0xF &lt;&lt; shift;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    dimension_t newValue = value &amp; ~mask; <span class="comment">// 清除原值</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// 将指数转换为4位有符号表示</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> expBits = exponent &amp; 0xF;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    newValue |= (expBits &lt;&lt; shift); <span class="comment">// 设置新值</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)newValue;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="namespaceast.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5">   91</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceast.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5">dim_get_sum_abs_exponent</a>(T dimension) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#if defined(_AST_DIM_USE_CXX14)</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">int</span> sum = 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i) {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        sum += std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, i));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> sum;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 0)) + </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 1)) + </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 2)) + </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 3)) +</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 4)) + </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 5)) + </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 6)) + </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>           std::abs(<a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension, 7));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">  113</a></span><span class="keyword">constexpr</span> dimension_t <a class="code hl_function" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(T dim1, T dim2) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">    #if defined(_AST_DIM_USE_CXX14)</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(T) == <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>), <span class="stringliteral">&quot;size not correct&quot;</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> size = <span class="keyword">sizeof</span>(T) * 8;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    dimension_t result = 0;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    dimension_t value1 = (dimension_t)dim1;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    dimension_t value2 = (dimension_t)dim2;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment">// 对每个量纲分别处理</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordtype">int</span> shift = i * 4;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="comment">// 提取两个操作数的指数</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordtype">int</span> exp1 = (int((<span class="keywordtype">unsigned</span>)value1 &lt;&lt; (size - 4 - shift)) &gt;&gt; (size - 4)); <span class="comment">// 先逻辑左移，再算数右移</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordtype">int</span> exp2 = (int((<span class="keywordtype">unsigned</span>)value2 &lt;&lt; (size - 4 - shift)) &gt;&gt; (size - 4)); <span class="comment">// 先逻辑左移，再算数右移</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="comment">// 指数相加</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">int</span> sum = exp1 + exp2;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="comment">// @todo 检查是否溢出（4位有符号数范围：-8到7）</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="comment">// if (sum &lt; -8 || sum &gt; 7) {</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">//     //throw std::overflow_error(&quot;Exponent overflow in multiplication&quot;);</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="comment">// }</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="comment">// 转换回4位表示</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordtype">int</span> sumBits = sum &amp; 0xF;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        result |= (sumBits &lt;&lt; shift);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">    #else</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">return</span> _AST_DIM_EXP_OPBIN(dim1, dim2, +);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">// 量纲除法</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">constexpr</span> dimension_t dim_divide(T dim1, T dim2) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>{</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">    #if defined(_AST_DIM_USE_CXX14)</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(T) == <span class="keyword">sizeof</span>(EDimension), <span class="stringliteral">&quot;size not correct&quot;</span>);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> size = <span class="keyword">sizeof</span>(T) * 8;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    dimension_t result = 0;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    dimension_t value1 = (dimension_t)dim1;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    dimension_t value2 = (dimension_t)dim2;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="comment">// 对每个量纲分别处理</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordtype">int</span> shift = i * 4;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="comment">// 提取两个操作数的指数</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordtype">int</span> exp1 = (int((<span class="keywordtype">unsigned</span>)value1 &lt;&lt; (size - 4 - shift)) &gt;&gt; (size - 4)); <span class="comment">// 先逻辑左移，再算数右移</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordtype">int</span> exp2 = (int((<span class="keywordtype">unsigned</span>)value2 &lt;&lt; (size - 4 - shift)) &gt;&gt; (size - 4)); <span class="comment">// 先逻辑左移，再算数右移</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="comment">// 指数相减</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordtype">int</span> diff = exp1 - exp2;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">// @todo 检查是否溢出</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="comment">// if (diff &lt; -8 || diff &gt; 7) {</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="comment">//     // throw std::overflow_error(&quot;Exponent overflow in division&quot;);</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">// }</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="comment">// 转换回4位表示</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordtype">int</span> diffBits = diff &amp; 0xF;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        result |= (diffBits &lt;&lt; shift);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">    #else</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">return</span> _AST_DIM_EXP_OPBIN(dim1, dim2, -);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="namespaceast.html#a651e8b0eb4da4a185c63d53826c57f93">  188</a></span><span class="keyword">constexpr</span> dimension_t <a class="code hl_function" href="namespaceast.html#a651e8b0eb4da4a185c63d53826c57f93">dim_pow</a>(T dimension, <span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">    #if defined(_AST_DIM_USE_CXX14)</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(T) == <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>), <span class="stringliteral">&quot;size not correct&quot;</span>);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> size = <span class="keyword">sizeof</span>(T) * 8;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    dimension_t result = 0;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    dimension_t value = (dimension_t)dimension;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordtype">int</span> shift = i * 4;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordtype">int</span> exp = (int((<span class="keywordtype">unsigned</span>)value &lt;&lt; (size - 4 - shift)) &gt;&gt; (size - 4)); <span class="comment">// 先逻辑左移，再算数右移</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordtype">int</span> newExp = exp * n;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="comment">// @todo 检查是否溢出</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="comment">// if (newExp &lt; -8 || newExp &gt; 7) {</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="comment">//     throw std::overflow_error(&quot;Exponent overflow in power operation&quot;);</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="comment">// }</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordtype">int</span> newExpBits = newExp &amp; 0xF;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        result |= (newExpBits &lt;&lt; shift);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">    #else</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">return</span> _AST_DIM_EXP_TIMES(dimension, n);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
+</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword">constexpr</span> dimension_t dim_invert(T dimension) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>{</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordflow">return</span> dim_pow(dimension, -1);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>}</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="namespaceast.html#a75e41ca58c95d7f71bec7edeedecd747">  225</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> operator *(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim1, <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim2) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>{</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(dim1, dim2);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
+</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="namespaceast.html#a76bc86e8c16de763ba5587da00e48d10">  231</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> <a class="code hl_function" href="namespaceast.html#a76bc86e8c16de763ba5587da00e48d10">operator/</a>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim1, <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim2) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>{</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordflow">return</span> (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)dim_divide(dim1, dim2);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>}</div>
+</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="namespaceast.html#a75f74910b40e799143b3cf48b48df246">  237</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> <a class="code hl_function" href="namespaceast.html#a75f74910b40e799143b3cf48b48df246">pow</a>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension, <span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>{</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordflow">return</span> (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a651e8b0eb4da4a185c63d53826c57f93">dim_pow</a>(dimension, n);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>}</div>
+</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">// @brief 量纲索引枚举类</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keyword">enum</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>{</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    kIdxMass,</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    kIdxLength,</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    kIdxAngle,</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    kIdxTime,</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    kIdxTemperature,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    kIdxCurrent,</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    kIdxAmount,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    kIdxLuminous,</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>};</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="keyword">namespace </span>dimension</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keyword">constexpr</span> dimension_t kUnit               = 0;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="comment">// 基本量纲 7个</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keyword">constexpr</span> dimension_t kLength             = 1 &lt;&lt; kIdxLength * 4;                </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">constexpr</span> dimension_t kMass               = 1 &lt;&lt; kIdxMass * 4;                </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keyword">constexpr</span> dimension_t kTime               = 1 &lt;&lt; kIdxTime * 4;                  </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">constexpr</span> dimension_t kCurrent            = 1 &lt;&lt; kIdxCurrent * 4;               </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keyword">constexpr</span> dimension_t kTemperature        = 1 &lt;&lt; kIdxTemperature * 4;           </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keyword">constexpr</span> dimension_t kAmount             = 1 &lt;&lt; kIdxAmount * 4;                </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keyword">constexpr</span> dimension_t kLuminous           = 1 &lt;&lt; kIdxLuminous * 4;              </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="comment">// 辅助量纲 </span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keyword">constexpr</span> dimension_t kAngle              = 1 &lt;&lt; kIdxAngle * 4;                 </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="comment">// 导出量纲（由基本量纲组合而成） </span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keyword">constexpr</span> dimension_t kAngVel             = dim_divide(kAngle, kTime);         </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keyword">constexpr</span> dimension_t kAngularVelocity    = kAngVel;                           </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="comment">// 导出量纲（由基本量纲组合而成） </span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keyword">constexpr</span> dimension_t kArea               = <a class="code hl_function" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kLength, kLength);      </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keyword">constexpr</span> dimension_t kVolume             = <a class="code hl_function" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kArea, kLength);      </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keyword">constexpr</span> dimension_t kSpeed              = dim_divide(kLength, kTime);        </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keyword">constexpr</span> dimension_t kAcceleration       = dim_divide(kSpeed, kTime);         </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keyword">constexpr</span> dimension_t kForce              = <a class="code hl_function" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kMass, kAcceleration); </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keyword">constexpr</span> dimension_t kPressure           = dim_divide(kForce, kArea);  </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="keyword">constexpr</span> dimension_t kEnergy             = <a class="code hl_function" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kForce, kLength);       </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keyword">constexpr</span> dimension_t kPower              = dim_divide(kEnergy, kTime);       </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="keyword">constexpr</span> dimension_t kFrequency          = dim_divide(kUnit, kTime);         </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>};</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="foldopen" id="foldopen00289" data-start="{" data-end="};">
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">  289</a></span><span class="keyword">typedef</span> <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> : dimension_t</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>{</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a40180dbf986774f37463e57071df86fb">eUnit</a>               = dimension::kUnit,                 </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="comment">// 基本量纲 7个</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14ae916a836776f210c45a720500eff6c01">eLength</a>             = dimension::kLength,               </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14ac418eac40ae21d506db327c941074755">eMass</a>               = dimension::kMass,                 </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a5774030784f865ffabfe52f879c0f61c">eTime</a>               = dimension::kTime,                 </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a8a4ae9088b5d080c176d9aeb3cb3cb9e">eCurrent</a>            = dimension::kCurrent,              </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a430ac37de713edd8ef6f62b60a473f59">eTemperature</a>        = dimension::kTemperature,          </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0e59592ac99bdf12b4bca3f71e0fbcf1">eAmount</a>             = dimension::kAmount,               </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2">eLuminous</a>           = dimension::kLuminous,             </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="comment">// 辅助量纲 </span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d">eAngle</a>              = dimension::kAngle,                </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="comment">//  </span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a4d07e839b242fd808769fb69c64984f2">eAngVel</a>             = dimension::kAngVel,               </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd">eAngularVelocity</a>    = dimension::kAngularVelocity,      </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="comment">// 导出量纲（由基本量纲组合而成） </span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a1be278567ee23c317653a94c15d759c4">eArea</a>               = dimension::kArea,                 </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a3415277feaf6ea4eb0b30f2aab932672">eVolume</a>             = dimension::kVolume,               </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14abc7368b494d4d16a5f1167f8c2a0f418">eSpeed</a>              = dimension::kSpeed,                </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14abe5a1565395b28504a4182ee4dfad6d1">eAcceleration</a>       = dimension::kAcceleration,         </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14af627ea472f58d89fa226d5bdbd79a5d4">eForce</a>              = dimension::kForce,                </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14afe48561b7a9cb9855071ac51274b0d54">ePressure</a>           = dimension::kPressure,             </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adc95d025d73029632ddd00f692c86d96">eEnergy</a>             = dimension::kEnergy,               </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3">ePower</a>              = dimension::kPower,                </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <a class="code hl_enumvalue" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8">eFrequency</a>          = dimension::kFrequency,            </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="namespaceast.html#af00b1ded2a8df0252b468907c5aab115">  319</a></span>} AEDimension;</div>
+</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>AST_UTIL_API std::string aDimName(EDimension dimension);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>AST_UTIL_API std::string aDimSymbol(EDimension dimension);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="foldopen" id="foldopen00330" data-start="{" data-end="}">
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="namespaceast.html#a43e28a808d32e53cc4d7b0649aea9bd8">  330</a></span>A_CONSTEXPR_CXX14 <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a43e28a808d32e53cc4d7b0649aea9bd8">aDimIsBase</a>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>{</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5">dim_get_sum_abs_exponent</a>(dimension) == 1;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>}</div>
+</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="foldopen" id="foldopen00336" data-start="{" data-end="}">
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="namespaceast.html#ab37fa7007b27d9cfaff76f2dc926414e">  336</a></span>A_CONSTEXPR_CXX14 <span class="keyword">inline</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#ab37fa7007b27d9cfaff76f2dc926414e">aDimIsDerived</a>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>{</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5">dim_get_sum_abs_exponent</a>(dimension) &gt; 1;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>}</div>
+</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="foldopen" id="foldopen00342" data-start="{" data-end="}">
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="namespaceast.html#a66356b3c1665ac2eea3a7f3c32ac598f">  342</a></span>A_CONSTEXPR_CXX14 <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a66356b3c1665ac2eea3a7f3c32ac598f">aDimIsUnit</a>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>{</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <span class="keywordflow">return</span> dimension == EDimension::eUnit;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>}</div>
+</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="foldopen" id="foldopen00350" data-start="{" data-end="};">
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html">  350</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>{</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a05b3ceca8d7ee96f583cbe1a95c72d35">  354</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="classast_1_1Dimension.html#a05b3ceca8d7ee96f583cbe1a95c72d35">Dimension</a>() noexcept: dimension_(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>::eUnit) {}</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aca9f23658294c053ffcc25cc1812ab72">  357</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="classast_1_1Dimension.html#aca9f23658294c053ffcc25cc1812ab72">Dimension</a>(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) <span class="keyword">noexcept</span>: dimension_(dimension) {}</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">  360</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">Unit</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eUnit); }</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#ab45f761028bd85c19095d5cd441b8659">  362</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#ab45f761028bd85c19095d5cd441b8659">Length</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eLength); }</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a60dcb6c9614eb4f51fabe29a3837908c">  364</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a60dcb6c9614eb4f51fabe29a3837908c">Mass</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eMass); }</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#ae00c8042f45b3013f66d8b8e30186f1d">  366</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#ae00c8042f45b3013f66d8b8e30186f1d">Time</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eTime); }</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a355b0590aaa630b473b4d29def7bd501">  368</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a355b0590aaa630b473b4d29def7bd501">Current</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eCurrent); }</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a982557f4b96bd197d1f12a330cb1bf7d">  370</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a982557f4b96bd197d1f12a330cb1bf7d">Temperature</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eTemperature); }</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a9860c822969bd310f9cd5d19c3deb239">  372</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a9860c822969bd310f9cd5d19c3deb239">Amount</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eAmount); }</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978">  374</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978">Luminous</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eLuminous); }</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a2ad0c46a1fa99d704fae6cd0fc1b390d">  376</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a2ad0c46a1fa99d704fae6cd0fc1b390d">Angle</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eAngle); }</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a195d71af1d671489dc1018c5f461349b">  378</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a195d71af1d671489dc1018c5f461349b">AngVel</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eAngVel); }</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#acf320e7468b810f32ac620c4c3c096d8">  380</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#acf320e7468b810f32ac620c4c3c096d8">AngularVelocity</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eAngularVelocity); }</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a1720584b27de28fef3871ff708ef35ca">  382</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a1720584b27de28fef3871ff708ef35ca">Area</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eArea); }</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a05194d9d00751d35afaae5b0da64cd1d">  384</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a05194d9d00751d35afaae5b0da64cd1d">Volume</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eVolume); }</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a2c300cd84f7c3733747a74580a7f678a">  386</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a2c300cd84f7c3733747a74580a7f678a">Speed</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eSpeed); }</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a8364bb178e1fce5481e884465359d4fc">  388</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a8364bb178e1fce5481e884465359d4fc">Acceleration</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eAcceleration); }</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a807a83a21599d9f8c0dc2b50fa797c7d">  390</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a807a83a21599d9f8c0dc2b50fa797c7d">Pressure</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::ePressure); }</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a5f0ba2ddbe6add6765b51a5f86eda038">  392</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a5f0ba2ddbe6add6765b51a5f86eda038">Energy</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eEnergy); }</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a7520843671ca993ebe85116cd99a53e4">  394</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a7520843671ca993ebe85116cd99a53e4">Power</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::ePower); }</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a2b86315871974b03408f132d9787b5d0">  396</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a2b86315871974b03408f132d9787b5d0">Frequency</a>() noexcept { <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eFrequency); }</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#abe2a4eb74abdca2fe6d33ab57a998f76">  398</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#abe2a4eb74abdca2fe6d33ab57a998f76">Force</a>() noexcept{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>(EDimension::eForce); }</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a6a3715c1814d2694fb1ed35a0e880609">  401</a></span>    std::string <a class="code hl_function" href="classast_1_1Dimension.html#a6a3715c1814d2694fb1ed35a0e880609">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a9392469021c5dc89ec24b046a440f1a3">aDimName</a>(value()); }</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df">  403</a></span>    std::string <a class="code hl_function" href="classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df">symbol</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#af4fcc97f802ca674d11cd13bf395a5ce">aDimSymbol</a>(value()); }</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a1bbf2d543cd0c41ee924b997a211487f">  405</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Dimension.html#a1bbf2d543cd0c41ee924b997a211487f">isBase</a>() const noexcept { <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a43e28a808d32e53cc4d7b0649aea9bd8">aDimIsBase</a>(value()); }</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#ae42783f7dab8fdc4279dca3d3d03c311">  407</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Dimension.html#ae42783f7dab8fdc4279dca3d3d03c311">isDerived</a>() const noexcept { <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ab37fa7007b27d9cfaff76f2dc926414e">aDimIsDerived</a>(value()); }</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210">  409</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210">isUnit</a>() const noexcept { <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a66356b3c1665ac2eea3a7f3c32ac598f">aDimIsUnit</a>(value()); }</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00412" data-start="{" data-end="}">
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aa5cfe8a6d98a281788ba4c96d6978866">  412</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#aa5cfe8a6d98a281788ba4c96d6978866">pow</a>(<span class="keywordtype">int</span> n) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    {</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>        <span class="keywordflow">return</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>(<a class="code hl_function" href="namespaceast.html#a651e8b0eb4da4a185c63d53826c57f93">dim_pow</a>(value(), n));</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00417" data-start="{" data-end="}">
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a3cf89e126a374b36dfd2969a0604f8b7">  417</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a3cf89e126a374b36dfd2969a0604f8b7">invert</a>() const noexcept</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    {</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keywordflow">return</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>(dim_invert(value()));</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00422" data-start="{" data-end="}">
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a65fd98fe22eb41b2628522eb15702738">  422</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a65fd98fe22eb41b2628522eb15702738">operator*</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    {</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        <span class="keywordflow">return</span> value() * other.value();</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00427" data-start="{" data-end="}">
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a760f51fdea1ae03b51968153de0b3b0b">  427</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a760f51fdea1ae03b51968153de0b3b0b">operator*=</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> other) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    {</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>        this-&gt;dimension_ = value() * other.value();</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00433" data-start="{" data-end="}">
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aca577dec2ef86a3015a9da94767ce7a3">  433</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#aca577dec2ef86a3015a9da94767ce7a3">operator/</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    {</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>        <span class="keywordflow">return</span> value() / other.value();</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00438" data-start="{" data-end="}">
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a0a8014ab14dcdccf9f851befd32da2b8">  438</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a0a8014ab14dcdccf9f851befd32da2b8">operator/=</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> other) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    {</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        this-&gt;dimension_ = value() / other.value();</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00444" data-start="{" data-end="}">
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aea43be0385c8e40926b00e13f65983bb">  444</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Dimension.html#aea43be0385c8e40926b00e13f65983bb">operator==</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    {</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>        <span class="keywordflow">return</span> value() == other.value();</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00449" data-start="{" data-end="}">
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a2ceb5ae4137509c3eadd2571aa1b84fa">  449</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Dimension.html#a2ceb5ae4137509c3eadd2571aa1b84fa">operator!=</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    {</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>        <span class="keywordflow">return</span> value() != other.value();</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    }</div>
+</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> operator==(<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    {</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>        <span class="keywordflow">return</span> value() == other;</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>    }</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    A_CONSTEXPR_CXX14 <span class="keywordtype">bool</span> operator!=(EDimension other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    {</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>        <span class="keywordflow">return</span> value() != other;</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>    }</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a57acfc3f10b516dfe46450011d033848">  463</a></span>    A_CONSTEXPR_CXX14 <span class="keyword">operator</span> <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>() const noexcept { <span class="keywordflow">return</span> dimension_; }</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a28132d172a69ac7fa728105d545a9f7c">  465</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> <a class="code hl_function" href="classast_1_1Dimension.html#a28132d172a69ac7fa728105d545a9f7c">value</a>() const noexcept { <span class="keywordflow">return</span> dimension_; }</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a2b0ed5b86b4e376de24f8b7921fdb332">  467</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a2b0ed5b86b4e376de24f8b7921fdb332">getMass</a>() const noexcept { <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxMass); }</div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43">  469</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43">getLength</a>() const noexcept { <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxLength);}</div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a501fd1da6044a7a793e8db159ae44c66">  471</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a501fd1da6044a7a793e8db159ae44c66">getTime</a>() const noexcept { <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxTime);}</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a22bef00e9972df4f7235cc983efd0704">  473</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a22bef00e9972df4f7235cc983efd0704">getCurrent</a>() const noexcept { <span class="keywordflow">return</span>  <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxCurrent);}</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a996ce7c6aeac24387203c07f642ef377">  475</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a996ce7c6aeac24387203c07f642ef377">getAngle</a>() const noexcept { <span class="keywordflow">return</span>  <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxAngle);}</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a4686d7b9cbda65c84a8c99606747aae2">  477</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a4686d7b9cbda65c84a8c99606747aae2">getTemperature</a>() const noexcept { <span class="keywordflow">return</span>  <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxTemperature);}</div>
+<div class="line"><a id="l00479" name="l00479"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aa6ac148c647b51db6a38d367b128eb5c">  479</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#aa6ac148c647b51db6a38d367b128eb5c">getAmount</a>() const noexcept { <span class="keywordflow">return</span>  <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxAmount);}</div>
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a48794ca7607fb428e2f571f188e13256">  481</a></span>    A_CONSTEXPR_CXX14 <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1Dimension.html#a48794ca7607fb428e2f571f188e13256">getLuminous</a>() const noexcept { <span class="keywordflow">return</span>  <a class="code hl_function" href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">dim_get_exponent</a>(dimension_, kIdxLuminous);}</div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span> </div>
+<div class="foldopen" id="foldopen00484" data-start="{" data-end="}">
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a4583c991e03ad6529475f028fd4d450c">  484</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a4583c991e03ad6529475f028fd4d450c">setMass</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>    {</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxMass, n);</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00490" data-start="{" data-end="}">
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#ac51e7c5ed02f0ec3b96336367cc72538">  490</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#ac51e7c5ed02f0ec3b96336367cc72538">setLength</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>    {</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxLength, n);</div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00496" data-start="{" data-end="}">
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a2c0f20b44c3890a524dde7735cf67669">  496</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a2c0f20b44c3890a524dde7735cf67669">setTime</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    {</div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxTime, n);</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00502" data-start="{" data-end="}">
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a82b0ccba0fef1df739d54040e94d3bd1">  502</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a82b0ccba0fef1df739d54040e94d3bd1">setCurrent</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    {</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxCurrent, n);</div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00508" data-start="{" data-end="}">
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#aca6ceca9be9d41c8bfaddd9730895806">  508</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#aca6ceca9be9d41c8bfaddd9730895806">setAngle</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>    {</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxAngle, n);</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00514" data-start="{" data-end="}">
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#ab9e34c4d9e12aa4583a8b9e45b48e04c">  514</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#ab9e34c4d9e12aa4583a8b9e45b48e04c">setTemperature</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>    {</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxTemperature, n);</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00520" data-start="{" data-end="}">
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a031802a469ec9f45be4c7d4cf1387385">  520</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a031802a469ec9f45be4c7d4cf1387385">setAmount</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>    {</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxAmount, n);</div>
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00526" data-start="{" data-end="}">
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno"><a class="line" href="classast_1_1Dimension.html#a462b50b59a6be8adcac914f9c6b7420d">  526</a></span>    A_CONSTEXPR_CXX14 <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>&amp; <a class="code hl_function" href="classast_1_1Dimension.html#a462b50b59a6be8adcac914f9c6b7420d">setLuminous</a>(<span class="keywordtype">int</span> n) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    {</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>        dimension_ = (<a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)<a class="code hl_function" href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">dim_set_exponent</a>(dimension_, kIdxLuminous, n);</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    }</div>
+</div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>    </div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>    <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension_;</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>};</div>
+</div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span> </div>
+<div class="foldopen" id="foldopen00537" data-start="{" data-end="}">
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno"><a class="line" href="namespaceast.html#a3d58601f3df85b4a4b691a9322911817">  537</a></span>A_CONSTEXPR_CXX14 <span class="keyword">inline</span> <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="namespaceast.html#a75f74910b40e799143b3cf48b48df246">pow</a>(<a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> dim, <span class="keywordtype">int</span> n)</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>{</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a75f74910b40e799143b3cf48b48df246">pow</a>(dim.<a class="code hl_function" href="classast_1_1Dimension.html#a28132d172a69ac7fa728105d545a9f7c">value</a>(), n);</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>}</div>
+</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span> </div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Dimension_html"><div class="ttname"><a href="classast_1_1Dimension.html">ast::Dimension</a></div><div class="ttdoc">量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:351</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a031802a469ec9f45be4c7d4cf1387385"><div class="ttname"><a href="classast_1_1Dimension.html#a031802a469ec9f45be4c7d4cf1387385">ast::Dimension::setAmount</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setAmount(int n) noexcept</div><div class="ttdoc">设置量纲中的物质量维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:520</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a05194d9d00751d35afaae5b0da64cd1d"><div class="ttname"><a href="classast_1_1Dimension.html#a05194d9d00751d35afaae5b0da64cd1d">ast::Dimension::Volume</a></div><div class="ttdeci">static constexpr Dimension Volume() noexcept</div><div class="ttdoc">获取体积量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:384</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a05b3ceca8d7ee96f583cbe1a95c72d35"><div class="ttname"><a href="classast_1_1Dimension.html#a05b3ceca8d7ee96f583cbe1a95c72d35">ast::Dimension::Dimension</a></div><div class="ttdeci">constexpr Dimension() noexcept</div><div class="ttdoc">默认构造函数，默认单位量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:354</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a0a8014ab14dcdccf9f851befd32da2b8"><div class="ttname"><a href="classast_1_1Dimension.html#a0a8014ab14dcdccf9f851befd32da2b8">ast::Dimension::operator/=</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; operator/=(Dimension other) noexcept</div><div class="ttdoc">量纲除法赋值运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:438</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a1720584b27de28fef3871ff708ef35ca"><div class="ttname"><a href="classast_1_1Dimension.html#a1720584b27de28fef3871ff708ef35ca">ast::Dimension::Area</a></div><div class="ttdeci">static constexpr Dimension Area() noexcept</div><div class="ttdoc">获取面积量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:382</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a195d71af1d671489dc1018c5f461349b"><div class="ttname"><a href="classast_1_1Dimension.html#a195d71af1d671489dc1018c5f461349b">ast::Dimension::AngVel</a></div><div class="ttdeci">static constexpr Dimension AngVel() noexcept</div><div class="ttdoc">获取角速度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:378</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a1bbf2d543cd0c41ee924b997a211487f"><div class="ttname"><a href="classast_1_1Dimension.html#a1bbf2d543cd0c41ee924b997a211487f">ast::Dimension::isBase</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool isBase() const noexcept</div><div class="ttdoc">判断量纲是否为基本量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:405</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a22bef00e9972df4f7235cc983efd0704"><div class="ttname"><a href="classast_1_1Dimension.html#a22bef00e9972df4f7235cc983efd0704">ast::Dimension::getCurrent</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getCurrent() const noexcept</div><div class="ttdoc">获取量纲中的电流维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:473</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a28132d172a69ac7fa728105d545a9f7c"><div class="ttname"><a href="classast_1_1Dimension.html#a28132d172a69ac7fa728105d545a9f7c">ast::Dimension::value</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 EDimension value() const noexcept</div><div class="ttdoc">获取量纲的值</div><div class="ttdef"><b>定义</b> Dimension.hpp:465</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a2ad0c46a1fa99d704fae6cd0fc1b390d"><div class="ttname"><a href="classast_1_1Dimension.html#a2ad0c46a1fa99d704fae6cd0fc1b390d">ast::Dimension::Angle</a></div><div class="ttdeci">static constexpr Dimension Angle()</div><div class="ttdoc">获取角度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:376</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a2b0ed5b86b4e376de24f8b7921fdb332"><div class="ttname"><a href="classast_1_1Dimension.html#a2b0ed5b86b4e376de24f8b7921fdb332">ast::Dimension::getMass</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getMass() const noexcept</div><div class="ttdoc">获取量纲中的质量维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:467</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a2b86315871974b03408f132d9787b5d0"><div class="ttname"><a href="classast_1_1Dimension.html#a2b86315871974b03408f132d9787b5d0">ast::Dimension::Frequency</a></div><div class="ttdeci">static constexpr Dimension Frequency() noexcept</div><div class="ttdoc">获取频率量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:396</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a2c0f20b44c3890a524dde7735cf67669"><div class="ttname"><a href="classast_1_1Dimension.html#a2c0f20b44c3890a524dde7735cf67669">ast::Dimension::setTime</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setTime(int n) noexcept</div><div class="ttdoc">设置量纲中的时间维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:496</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a2c300cd84f7c3733747a74580a7f678a"><div class="ttname"><a href="classast_1_1Dimension.html#a2c300cd84f7c3733747a74580a7f678a">ast::Dimension::Speed</a></div><div class="ttdeci">static constexpr Dimension Speed() noexcept</div><div class="ttdoc">获取速度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:386</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a2ceb5ae4137509c3eadd2571aa1b84fa"><div class="ttname"><a href="classast_1_1Dimension.html#a2ceb5ae4137509c3eadd2571aa1b84fa">ast::Dimension::operator!=</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool operator!=(Dimension other) const noexcept</div><div class="ttdoc">量纲不相等运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:449</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a355b0590aaa630b473b4d29def7bd501"><div class="ttname"><a href="classast_1_1Dimension.html#a355b0590aaa630b473b4d29def7bd501">ast::Dimension::Current</a></div><div class="ttdeci">static constexpr Dimension Current()</div><div class="ttdoc">获取电流量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:368</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a3cf89e126a374b36dfd2969a0604f8b7"><div class="ttname"><a href="classast_1_1Dimension.html#a3cf89e126a374b36dfd2969a0604f8b7">ast::Dimension::invert</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension invert() const noexcept</div><div class="ttdoc">量纲倒数</div><div class="ttdef"><b>定义</b> Dimension.hpp:417</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a4583c991e03ad6529475f028fd4d450c"><div class="ttname"><a href="classast_1_1Dimension.html#a4583c991e03ad6529475f028fd4d450c">ast::Dimension::setMass</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setMass(int n) noexcept</div><div class="ttdoc">设置量纲中的质量维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:484</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a462b50b59a6be8adcac914f9c6b7420d"><div class="ttname"><a href="classast_1_1Dimension.html#a462b50b59a6be8adcac914f9c6b7420d">ast::Dimension::setLuminous</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setLuminous(int n) noexcept</div><div class="ttdoc">设置量纲中的发光强度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:526</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a4686d7b9cbda65c84a8c99606747aae2"><div class="ttname"><a href="classast_1_1Dimension.html#a4686d7b9cbda65c84a8c99606747aae2">ast::Dimension::getTemperature</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getTemperature() const noexcept</div><div class="ttdoc">获取量纲中的温度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:477</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a48794ca7607fb428e2f571f188e13256"><div class="ttname"><a href="classast_1_1Dimension.html#a48794ca7607fb428e2f571f188e13256">ast::Dimension::getLuminous</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getLuminous() const noexcept</div><div class="ttdoc">获取量纲中的发光强度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:481</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a501fd1da6044a7a793e8db159ae44c66"><div class="ttname"><a href="classast_1_1Dimension.html#a501fd1da6044a7a793e8db159ae44c66">ast::Dimension::getTime</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getTime() const noexcept</div><div class="ttdoc">获取量纲中的时间维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:471</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a5b13432f8daf056d966cb4d5f38fa210"><div class="ttname"><a href="classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210">ast::Dimension::isUnit</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool isUnit() const noexcept</div><div class="ttdoc">判断量纲是否为单位量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:409</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a5f0ba2ddbe6add6765b51a5f86eda038"><div class="ttname"><a href="classast_1_1Dimension.html#a5f0ba2ddbe6add6765b51a5f86eda038">ast::Dimension::Energy</a></div><div class="ttdeci">static constexpr Dimension Energy() noexcept</div><div class="ttdoc">获取能量量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:392</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a60dcb6c9614eb4f51fabe29a3837908c"><div class="ttname"><a href="classast_1_1Dimension.html#a60dcb6c9614eb4f51fabe29a3837908c">ast::Dimension::Mass</a></div><div class="ttdeci">static constexpr Dimension Mass()</div><div class="ttdoc">获取质量量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:364</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a65fd98fe22eb41b2628522eb15702738"><div class="ttname"><a href="classast_1_1Dimension.html#a65fd98fe22eb41b2628522eb15702738">ast::Dimension::operator*</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension operator*(Dimension other) const noexcept</div><div class="ttdoc">量纲乘法运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:422</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a6a3715c1814d2694fb1ed35a0e880609"><div class="ttname"><a href="classast_1_1Dimension.html#a6a3715c1814d2694fb1ed35a0e880609">ast::Dimension::name</a></div><div class="ttdeci">std::string name() const</div><div class="ttdoc">获取量纲的名称</div><div class="ttdef"><b>定义</b> Dimension.hpp:401</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a7520843671ca993ebe85116cd99a53e4"><div class="ttname"><a href="classast_1_1Dimension.html#a7520843671ca993ebe85116cd99a53e4">ast::Dimension::Power</a></div><div class="ttdeci">static constexpr Dimension Power() noexcept</div><div class="ttdoc">获取功率量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:394</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a760f51fdea1ae03b51968153de0b3b0b"><div class="ttname"><a href="classast_1_1Dimension.html#a760f51fdea1ae03b51968153de0b3b0b">ast::Dimension::operator*=</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; operator*=(Dimension other) noexcept</div><div class="ttdoc">量纲乘法赋值运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:427</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a7f3ace4929a6d92b8f7e75a3f58694df"><div class="ttname"><a href="classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df">ast::Dimension::symbol</a></div><div class="ttdeci">std::string symbol() const</div><div class="ttdoc">获取量纲的符号</div><div class="ttdef"><b>定义</b> Dimension.hpp:403</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a807a83a21599d9f8c0dc2b50fa797c7d"><div class="ttname"><a href="classast_1_1Dimension.html#a807a83a21599d9f8c0dc2b50fa797c7d">ast::Dimension::Pressure</a></div><div class="ttdeci">static constexpr Dimension Pressure() noexcept</div><div class="ttdoc">获取压力量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:390</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a82b0ccba0fef1df739d54040e94d3bd1"><div class="ttname"><a href="classast_1_1Dimension.html#a82b0ccba0fef1df739d54040e94d3bd1">ast::Dimension::setCurrent</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setCurrent(int n) noexcept</div><div class="ttdoc">设置量纲中的电流维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:502</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a8364bb178e1fce5481e884465359d4fc"><div class="ttname"><a href="classast_1_1Dimension.html#a8364bb178e1fce5481e884465359d4fc">ast::Dimension::Acceleration</a></div><div class="ttdeci">static constexpr Dimension Acceleration() noexcept</div><div class="ttdoc">获取加速度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:388</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a973e2ff2d5d06b478b9626369af97e43"><div class="ttname"><a href="classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43">ast::Dimension::getLength</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getLength() const noexcept</div><div class="ttdoc">获取量纲中的长度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:469</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a982557f4b96bd197d1f12a330cb1bf7d"><div class="ttname"><a href="classast_1_1Dimension.html#a982557f4b96bd197d1f12a330cb1bf7d">ast::Dimension::Temperature</a></div><div class="ttdeci">static constexpr Dimension Temperature()</div><div class="ttdoc">获取温度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:370</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a9860c822969bd310f9cd5d19c3deb239"><div class="ttname"><a href="classast_1_1Dimension.html#a9860c822969bd310f9cd5d19c3deb239">ast::Dimension::Amount</a></div><div class="ttdeci">static constexpr Dimension Amount()</div><div class="ttdoc">获取物质量量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:372</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_a996ce7c6aeac24387203c07f642ef377"><div class="ttname"><a href="classast_1_1Dimension.html#a996ce7c6aeac24387203c07f642ef377">ast::Dimension::getAngle</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getAngle() const noexcept</div><div class="ttdoc">获取量纲中的角度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:475</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aa286c4f20064706f87d5427291f4c978"><div class="ttname"><a href="classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978">ast::Dimension::Luminous</a></div><div class="ttdeci">static constexpr Dimension Luminous()</div><div class="ttdoc">获取发光强度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:374</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aa5cfe8a6d98a281788ba4c96d6978866"><div class="ttname"><a href="classast_1_1Dimension.html#aa5cfe8a6d98a281788ba4c96d6978866">ast::Dimension::pow</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension pow(int n) const noexcept</div><div class="ttdoc">量纲指数幂</div><div class="ttdef"><b>定义</b> Dimension.hpp:412</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aa6ac148c647b51db6a38d367b128eb5c"><div class="ttname"><a href="classast_1_1Dimension.html#aa6ac148c647b51db6a38d367b128eb5c">ast::Dimension::getAmount</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 int getAmount() const noexcept</div><div class="ttdoc">获取量纲中的物质量维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:479</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_ab45f761028bd85c19095d5cd441b8659"><div class="ttname"><a href="classast_1_1Dimension.html#ab45f761028bd85c19095d5cd441b8659">ast::Dimension::Length</a></div><div class="ttdeci">static constexpr Dimension Length()</div><div class="ttdoc">获取长度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:362</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_ab9e34c4d9e12aa4583a8b9e45b48e04c"><div class="ttname"><a href="classast_1_1Dimension.html#ab9e34c4d9e12aa4583a8b9e45b48e04c">ast::Dimension::setTemperature</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setTemperature(int n) noexcept</div><div class="ttdoc">设置量纲中的温度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:514</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_abe2a4eb74abdca2fe6d33ab57a998f76"><div class="ttname"><a href="classast_1_1Dimension.html#abe2a4eb74abdca2fe6d33ab57a998f76">ast::Dimension::Force</a></div><div class="ttdeci">static constexpr Dimension Force() noexcept</div><div class="ttdoc">获取力量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:398</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_ac2223db93b2e3c26bf7c08aa2d0fb15d"><div class="ttname"><a href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">ast::Dimension::Unit</a></div><div class="ttdeci">static constexpr Dimension Unit()</div><div class="ttdoc">获取单位量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:360</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_ac51e7c5ed02f0ec3b96336367cc72538"><div class="ttname"><a href="classast_1_1Dimension.html#ac51e7c5ed02f0ec3b96336367cc72538">ast::Dimension::setLength</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setLength(int n) noexcept</div><div class="ttdoc">设置量纲中的长度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:490</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aca577dec2ef86a3015a9da94767ce7a3"><div class="ttname"><a href="classast_1_1Dimension.html#aca577dec2ef86a3015a9da94767ce7a3">ast::Dimension::operator/</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension operator/(Dimension other) const noexcept</div><div class="ttdoc">量纲除法运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:433</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aca6ceca9be9d41c8bfaddd9730895806"><div class="ttname"><a href="classast_1_1Dimension.html#aca6ceca9be9d41c8bfaddd9730895806">ast::Dimension::setAngle</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 Dimension &amp; setAngle(int n) noexcept</div><div class="ttdoc">设置量纲中的角度维度</div><div class="ttdef"><b>定义</b> Dimension.hpp:508</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aca9f23658294c053ffcc25cc1812ab72"><div class="ttname"><a href="classast_1_1Dimension.html#aca9f23658294c053ffcc25cc1812ab72">ast::Dimension::Dimension</a></div><div class="ttdeci">constexpr Dimension(EDimension dimension) noexcept</div><div class="ttdoc">隐式构造函数</div><div class="ttdef"><b>定义</b> Dimension.hpp:357</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_acf320e7468b810f32ac620c4c3c096d8"><div class="ttname"><a href="classast_1_1Dimension.html#acf320e7468b810f32ac620c4c3c096d8">ast::Dimension::AngularVelocity</a></div><div class="ttdeci">static constexpr Dimension AngularVelocity() noexcept</div><div class="ttdoc">获取角速度量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:380</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_ae00c8042f45b3013f66d8b8e30186f1d"><div class="ttname"><a href="classast_1_1Dimension.html#ae00c8042f45b3013f66d8b8e30186f1d">ast::Dimension::Time</a></div><div class="ttdeci">static constexpr Dimension Time()</div><div class="ttdoc">获取时间量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:366</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_ae42783f7dab8fdc4279dca3d3d03c311"><div class="ttname"><a href="classast_1_1Dimension.html#ae42783f7dab8fdc4279dca3d3d03c311">ast::Dimension::isDerived</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool isDerived() const noexcept</div><div class="ttdoc">判断量纲是否为导出量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:407</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html_aea43be0385c8e40926b00e13f65983bb"><div class="ttname"><a href="classast_1_1Dimension.html#aea43be0385c8e40926b00e13f65983bb">ast::Dimension::operator==</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool operator==(Dimension other) const noexcept</div><div class="ttdoc">量纲相等运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:444</div></div>
+<div class="ttc" id="anamespaceast_html_a0d25748c4c13cedd010bd2742ee3b56c"><div class="ttname"><a href="namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c">ast::dim_set_exponent</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 EDimension dim_set_exponent(T dimension, int idx, int exponent) noexcept</div><div class="ttdoc">设置量纲的指数</div><div class="ttdef"><b>定义</b> Dimension.hpp:70</div></div>
+<div class="ttc" id="anamespaceast_html_a0d4b4bb523a789e6b63bb92057d72b4a"><div class="ttname"><a href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">ast::dim_product</a></div><div class="ttdeci">constexpr dimension_t dim_product(T dim1, T dim2) noexcept</div><div class="ttdoc">量纲乘法</div><div class="ttdef"><b>定义</b> Dimension.hpp:113</div></div>
+<div class="ttc" id="anamespaceast_html_a43e28a808d32e53cc4d7b0649aea9bd8"><div class="ttname"><a href="namespaceast.html#a43e28a808d32e53cc4d7b0649aea9bd8">ast::aDimIsBase</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool aDimIsBase(EDimension dimension) noexcept</div><div class="ttdoc">判断量纲是否为基本量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:330</div></div>
+<div class="ttc" id="anamespaceast_html_a651e8b0eb4da4a185c63d53826c57f93"><div class="ttname"><a href="namespaceast.html#a651e8b0eb4da4a185c63d53826c57f93">ast::dim_pow</a></div><div class="ttdeci">constexpr dimension_t dim_pow(T dimension, int n) noexcept</div><div class="ttdoc">量纲指数幂</div><div class="ttdef"><b>定义</b> Dimension.hpp:188</div></div>
+<div class="ttc" id="anamespaceast_html_a66356b3c1665ac2eea3a7f3c32ac598f"><div class="ttname"><a href="namespaceast.html#a66356b3c1665ac2eea3a7f3c32ac598f">ast::aDimIsUnit</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool aDimIsUnit(EDimension dimension) noexcept</div><div class="ttdoc">判断量纲是否为单位量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:342</div></div>
+<div class="ttc" id="anamespaceast_html_a75f74910b40e799143b3cf48b48df246"><div class="ttname"><a href="namespaceast.html#a75f74910b40e799143b3cf48b48df246">ast::pow</a></div><div class="ttdeci">constexpr EDimension pow(EDimension dimension, int n) noexcept</div><div class="ttdoc">量纲指数幂运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:237</div></div>
+<div class="ttc" id="anamespaceast_html_a76bc86e8c16de763ba5587da00e48d10"><div class="ttname"><a href="namespaceast.html#a76bc86e8c16de763ba5587da00e48d10">ast::operator/</a></div><div class="ttdeci">constexpr EDimension operator/(EDimension dim1, EDimension dim2) noexcept</div><div class="ttdoc">量纲除法运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:231</div></div>
+<div class="ttc" id="anamespaceast_html_a7dd359c4f79076aa154e9c8f3f46d636"><div class="ttname"><a href="namespaceast.html#a7dd359c4f79076aa154e9c8f3f46d636">ast::dim_get_exponent</a></div><div class="ttdeci">constexpr int dim_get_exponent(T dimension, int idx) noexcept</div><div class="ttdoc">获取量纲的指数</div><div class="ttdef"><b>定义</b> Dimension.hpp:62</div></div>
+<div class="ttc" id="anamespaceast_html_a9392469021c5dc89ec24b046a440f1a3"><div class="ttname"><a href="namespaceast.html#a9392469021c5dc89ec24b046a440f1a3">ast::aDimName</a></div><div class="ttdeci">std::string aDimName(EDimension dimension)</div><div class="ttdoc">获取量纲的名称</div><div class="ttdef"><b>定义</b> Dimension.cpp:80</div></div>
+<div class="ttc" id="anamespaceast_html_a9e3b6d06a7d6ac66e4fe573c7ec944c5"><div class="ttname"><a href="namespaceast.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5">ast::dim_get_sum_abs_exponent</a></div><div class="ttdeci">constexpr int dim_get_sum_abs_exponent(T dimension) noexcept</div><div class="ttdoc">获取量纲的指数绝对值的和</div><div class="ttdef"><b>定义</b> Dimension.hpp:91</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">ast::EDimension</a></div><div class="ttdeci">EDimension</div><div class="ttdoc">量纲枚举类</div><div class="ttdef"><b>定义</b> Dimension.hpp:290</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd">ast::EDimension::eAngularVelocity</a></div><div class="ttdeci">@ eAngularVelocity</div><div class="ttdoc">角速度</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a0e59592ac99bdf12b4bca3f71e0fbcf1"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0e59592ac99bdf12b4bca3f71e0fbcf1">ast::EDimension::eAmount</a></div><div class="ttdeci">@ eAmount</div><div class="ttdoc">物质量N (相应的基本单位: mol)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d">ast::EDimension::eAngle</a></div><div class="ttdeci">@ eAngle</div><div class="ttdoc">角度</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a1be278567ee23c317653a94c15d759c4"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a1be278567ee23c317653a94c15d759c4">ast::EDimension::eArea</a></div><div class="ttdeci">@ eArea</div><div class="ttdoc">面积 L^2</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2">ast::EDimension::eLuminous</a></div><div class="ttdeci">@ eLuminous</div><div class="ttdoc">发光强度J (相应的基本单位: cd)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a3415277feaf6ea4eb0b30f2aab932672"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a3415277feaf6ea4eb0b30f2aab932672">ast::EDimension::eVolume</a></div><div class="ttdeci">@ eVolume</div><div class="ttdoc">体积 L^3</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a40180dbf986774f37463e57071df86fb"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a40180dbf986774f37463e57071df86fb">ast::EDimension::eUnit</a></div><div class="ttdeci">@ eUnit</div><div class="ttdoc">单位量纲</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a430ac37de713edd8ef6f62b60a473f59"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a430ac37de713edd8ef6f62b60a473f59">ast::EDimension::eTemperature</a></div><div class="ttdeci">@ eTemperature</div><div class="ttdoc">温度Θ (相应的基本单位: K)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a4d07e839b242fd808769fb69c64984f2"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a4d07e839b242fd808769fb69c64984f2">ast::EDimension::eAngVel</a></div><div class="ttdeci">@ eAngVel</div><div class="ttdoc">角速度（别名）</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a5774030784f865ffabfe52f879c0f61c"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a5774030784f865ffabfe52f879c0f61c">ast::EDimension::eTime</a></div><div class="ttdeci">@ eTime</div><div class="ttdoc">时间T (相应的基本单位: s)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14a8a4ae9088b5d080c176d9aeb3cb3cb9e"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a8a4ae9088b5d080c176d9aeb3cb3cb9e">ast::EDimension::eCurrent</a></div><div class="ttdeci">@ eCurrent</div><div class="ttdoc">电流I (相应的基本单位: A)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3">ast::EDimension::ePower</a></div><div class="ttdeci">@ ePower</div><div class="ttdoc">功率 M·L^2·T^-3</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14abc7368b494d4d16a5f1167f8c2a0f418"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14abc7368b494d4d16a5f1167f8c2a0f418">ast::EDimension::eSpeed</a></div><div class="ttdeci">@ eSpeed</div><div class="ttdoc">速度 L·T^-1</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14abe5a1565395b28504a4182ee4dfad6d1"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14abe5a1565395b28504a4182ee4dfad6d1">ast::EDimension::eAcceleration</a></div><div class="ttdeci">@ eAcceleration</div><div class="ttdoc">加速度 L·T^-2</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14ac418eac40ae21d506db327c941074755"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14ac418eac40ae21d506db327c941074755">ast::EDimension::eMass</a></div><div class="ttdeci">@ eMass</div><div class="ttdoc">质量M (相应的基本单位: kg)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14adc95d025d73029632ddd00f692c86d96"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adc95d025d73029632ddd00f692c86d96">ast::EDimension::eEnergy</a></div><div class="ttdeci">@ eEnergy</div><div class="ttdoc">能量 M·L^2·T^-2</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8">ast::EDimension::eFrequency</a></div><div class="ttdeci">@ eFrequency</div><div class="ttdoc">频率 T^-1</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14ae916a836776f210c45a720500eff6c01"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14ae916a836776f210c45a720500eff6c01">ast::EDimension::eLength</a></div><div class="ttdeci">@ eLength</div><div class="ttdoc">长度L (相应的基本单位: m)</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14af627ea472f58d89fa226d5bdbd79a5d4"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14af627ea472f58d89fa226d5bdbd79a5d4">ast::EDimension::eForce</a></div><div class="ttdeci">@ eForce</div><div class="ttdoc">力 M·L·T^-2</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14afe48561b7a9cb9855071ac51274b0d54"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14afe48561b7a9cb9855071ac51274b0d54">ast::EDimension::ePressure</a></div><div class="ttdeci">@ ePressure</div><div class="ttdoc">压力 M·L^-1·T^-2</div></div>
+<div class="ttc" id="anamespaceast_html_ab37fa7007b27d9cfaff76f2dc926414e"><div class="ttname"><a href="namespaceast.html#ab37fa7007b27d9cfaff76f2dc926414e">ast::aDimIsDerived</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 bool aDimIsDerived(EDimension dimension) noexcept</div><div class="ttdoc">判断量纲是否为导出量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:336</div></div>
+<div class="ttc" id="anamespaceast_html_af4fcc97f802ca674d11cd13bf395a5ce"><div class="ttname"><a href="namespaceast.html#af4fcc97f802ca674d11cd13bf395a5ce">ast::aDimSymbol</a></div><div class="ttdeci">std::string aDimSymbol(EDimension dimension)</div><div class="ttdoc">获取量纲的符号</div><div class="ttdef"><b>定义</b> Dimension.cpp:167</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_f454e969ccf99a49cff74d0cdbee1578.html">Quantity</a></li><li class="navelem"><a class="el" href="Dimension_8hpp.html">Dimension.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

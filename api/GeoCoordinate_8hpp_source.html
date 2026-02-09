@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Geometry/Surface/Coordinate/GeoCoordinate.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('GeoCoordinate_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GeoCoordinate.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="GeoCoordinate_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="LatLonAlt_8hpp.html">LatLonAlt.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Vector.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstUtil/Math.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>GeocentricPoint;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>GeodeticPoint;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1GeoCoordinate.html">GeoCoordinate</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classast_1_1GeoCoordinate.html">GeoCoordinate</a>() <span class="keyword">noexcept</span> {};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#ad736e724d00ca8e9e49a845d71371995">   43</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#ad736e724d00ca8e9e49a845d71371995">GeoCoordinate</a>(<span class="keywordtype">double</span> lat, <span class="keywordtype">double</span> lon, <span class="keywordtype">double</span> alt = 0.0) noexcept</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        : latLonAlt_{lat, lon, alt} {}</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a39e311b241d7d034841416b92419c5c6">   47</a></span>    <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a39e311b241d7d034841416b92419c5c6">GeoCoordinate</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LatLonAlt.html">LatLonAlt</a>&amp; latLonAlt) noexcept</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        : latLonAlt_{latLonAlt} {}</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">public</span>: <span class="comment">// get and set methods</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a32cb9782b94e824cb45f05cffac1296e">   53</a></span>    <span class="keyword">constexpr</span> <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LatLonAlt.html">LatLonAlt</a>&amp; <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a32cb9782b94e824cb45f05cffac1296e">latLonAlt</a>() const noexcept { <span class="keywordflow">return</span> latLonAlt_; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a30fda041490b282feec98f6a4f5b4bc9">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a30fda041490b282feec98f6a4f5b4bc9">setLatLonAlt</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LatLonAlt.html">LatLonAlt</a>&amp; latLonAlt) <span class="keyword">noexcept</span>{ latLonAlt_ = latLonAlt; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a6ff37c1726045d27b3739fcb177d4085">   58</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a6ff37c1726045d27b3739fcb177d4085">latitude</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> latLonAlt_.latitude(); }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9">   60</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9">longitude</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> latLonAlt_.longitude(); }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#aa9bb2f77a730ec2808863a0c01bb9f19">   62</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#aa9bb2f77a730ec2808863a0c01bb9f19">altitude</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> latLonAlt_.altitude(); }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a713b0f49f72bf60508a26a5711fe821a">   64</a></span>    <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a713b0f49f72bf60508a26a5711fe821a">latitude</a>() { <span class="keywordflow">return</span> latLonAlt_.latitude(); }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280">   66</a></span>    <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280">longitude</a>() { <span class="keywordflow">return</span> latLonAlt_.longitude(); }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a1eb1cd7503699576de23e1bb5153ceae">   68</a></span>    <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a1eb1cd7503699576de23e1bb5153ceae">altitude</a>() { <span class="keywordflow">return</span> latLonAlt_.altitude(); }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a79d1d3d84b292a93a901e027d0bb8b34">   70</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a79d1d3d84b292a93a901e027d0bb8b34">setLatitude</a>(<span class="keywordtype">double</span> lat) { latLonAlt_.setLatitude(lat); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a5a2255e5fad654fac57ab73f0fc50e12">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a5a2255e5fad654fac57ab73f0fc50e12">setLongitude</a>(<span class="keywordtype">double</span> lon) { latLonAlt_.setLongitude(lon); }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#aeeeceeb47007db60e26bcc18ff4c83a2">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1GeoCoordinate.html#aeeeceeb47007db60e26bcc18ff4c83a2">setAltitude</a>(<span class="keywordtype">double</span> alt) { latLonAlt_.setAltitude(alt); }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">public</span>: <span class="comment">// as methods</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a2ca96c7b7c7611c8d56ab74e6029ad6e">   79</a></span>    <a class="code hl_class" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a>&amp; <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a2ca96c7b7c7611c8d56ab74e6029ad6e">asGeocentricPoint</a>() { <span class="keywordflow">return</span> (<a class="code hl_class" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a>&amp;)*<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a0c6652ca9f4286c1efa4eb1bdcc7a660">   81</a></span>    <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; <a class="code hl_function" href="classast_1_1GeoCoordinate.html#a0c6652ca9f4286c1efa4eb1bdcc7a660">asGeodeticPoint</a>() { <span class="keywordflow">return</span> (<a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp;)*<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    Vector3d getZenith() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    Vector3d getNadir() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    Vector3d getEast() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    Vector3d getWest() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    Vector3d getNorth() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    Vector3d getSouth() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#aadafc54e5a71a20f47a3cbb04e86c3e8">   97</a></span>    <a class="code hl_class" href="classast_1_1LatLonAlt.html">LatLonAlt</a> <a class="code hl_variable" href="classast_1_1GeoCoordinate.html#aadafc54e5a71a20f47a3cbb04e86c3e8">latLonAlt_</a>;  </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a6d3f106344ca87c972f988c4fc594d6b">  100</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getZenith()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">double</span> lat = latitude();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">double</span> lon = longitude();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">double</span> sLat, cLat, sLon, cLon;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    sincos(lat, &amp;sLat, &amp;cLat);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    sincos(lon, &amp;sLon, &amp;cLon);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">return</span> {cLon * cLat, sLon * cLat, sLat};    </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#ac7308e4b46151940a86af9ec8a3afe8f">  110</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getNadir()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">return</span> -getZenith();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            </div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#acf605d982603ea25444bc3837db65228">  115</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getEast()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">double</span> sLon, cLon;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    sincos(longitude(), &amp;sLon, &amp;cLon);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">return</span> {-sLon, cLon, 0};</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a9a08c5e054bb6d44a42191cb1884c9f4">  122</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getWest()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">return</span> -getEast();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="foldopen" id="foldopen00127" data-start="{" data-end="}">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a4a41abfa181db6d9d044f4c4b4b3f45e">  127</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getNorth()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">double</span> lat = latitude();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">double</span> lon = longitude();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">double</span> sLat, cLat, sLon, cLon;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    sincos(lat, &amp;sLat, &amp;cLat);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    sincos(lon, &amp;sLon, &amp;cLon);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">return</span> {-cLon * sLat, -sLon * sLat, cLat};</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#a3ced7d65bcf7322936caf6565b4cc32b">  137</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getSouth()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">return</span> -getNorth();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a67f30cea55bfebe12f59a82fcaeb1f1a">aSurfaceCentricToDetic</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a>&amp; centric, <span class="keywordtype">double</span> flatFact, <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; detic);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a2716f3c71f6cd635ffaf3c4c76a2e667">aSurfaceDeticToCentric</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; detic, <span class="keywordtype">double</span> flatFact, <a class="code hl_class" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a>&amp; centric);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a643d79418b063ea2bd4b4d98f9801405">aSurfaceCentricToDeticLat</a>(<span class="keywordtype">double</span> centricLat, <span class="keywordtype">double</span> flatFact);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="namespaceast.html#ad9579798057a997a2296ca71329bf352">  174</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a67f30cea55bfebe12f59a82fcaeb1f1a">aSurfaceCentricToDetic</a>(<span class="keywordtype">double</span> centricLat, <span class="keywordtype">double</span> flatFact)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>{</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a643d79418b063ea2bd4b4d98f9801405">aSurfaceCentricToDeticLat</a>(centricLat, flatFact);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
+</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>AST_CORE_CAPI <span class="keywordtype">double</span> aSurfaceDeticToCentricLat(<span class="keywordtype">double</span> deticLat, <span class="keywordtype">double</span> flatFact);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="foldopen" id="foldopen00192" data-start="{" data-end="}">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="namespaceast.html#a2ce5d518cea1c8bc9d9750c1a64fbc15">  192</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a2716f3c71f6cd635ffaf3c4c76a2e667">aSurfaceDeticToCentric</a>(<span class="keywordtype">double</span> deticLat, <span class="keywordtype">double</span> flatFact)</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>{</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a9d1e3390c19752a25ce3db842cdea259">aSurfaceDeticToCentricLat</a>(deticLat, flatFact);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>}</div>
+</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aLatLonAlt_8hpp_html"><div class="ttname"><a href="LatLonAlt_8hpp.html">LatLonAlt.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html"><div class="ttname"><a href="classast_1_1GeoCoordinate.html">ast::GeoCoordinate</a></div><div class="ttdoc">地理坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a0c6652ca9f4286c1efa4eb1bdcc7a660"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a0c6652ca9f4286c1efa4eb1bdcc7a660">ast::GeoCoordinate::asGeodeticPoint</a></div><div class="ttdeci">GeodeticPoint &amp; asGeodeticPoint()</div><div class="ttdoc">作为大地坐标使用</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:81</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a1eb1cd7503699576de23e1bb5153ceae"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a1eb1cd7503699576de23e1bb5153ceae">ast::GeoCoordinate::altitude</a></div><div class="ttdeci">double &amp; altitude()</div><div class="ttdoc">设置高度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:68</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a2ca96c7b7c7611c8d56ab74e6029ad6e"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a2ca96c7b7c7611c8d56ab74e6029ad6e">ast::GeoCoordinate::asGeocentricPoint</a></div><div class="ttdeci">GeocentricPoint &amp; asGeocentricPoint()</div><div class="ttdoc">作为地心坐标使用</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:79</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a30fda041490b282feec98f6a4f5b4bc9"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a30fda041490b282feec98f6a4f5b4bc9">ast::GeoCoordinate::setLatLonAlt</a></div><div class="ttdeci">void setLatLonAlt(const LatLonAlt &amp;latLonAlt) noexcept</div><div class="ttdoc">设置纬度、经度、高度坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:55</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a32cb9782b94e824cb45f05cffac1296e"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a32cb9782b94e824cb45f05cffac1296e">ast::GeoCoordinate::latLonAlt</a></div><div class="ttdeci">constexpr const LatLonAlt &amp; latLonAlt() const noexcept</div><div class="ttdoc">获取纬度、经度、高度坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a372ddc25c669aebc1d37e1d21837b8a9"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9">ast::GeoCoordinate::longitude</a></div><div class="ttdeci">double longitude() const</div><div class="ttdoc">获取经度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a39e311b241d7d034841416b92419c5c6"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a39e311b241d7d034841416b92419c5c6">ast::GeoCoordinate::GeoCoordinate</a></div><div class="ttdeci">constexpr GeoCoordinate(const LatLonAlt &amp;latLonAlt) noexcept</div><div class="ttdoc">从纬度、经度、高度坐标构造</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a4abf5d3b8a40f6e5284799bbd0664280"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280">ast::GeoCoordinate::longitude</a></div><div class="ttdeci">double &amp; longitude()</div><div class="ttdoc">设置经度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a5a2255e5fad654fac57ab73f0fc50e12"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a5a2255e5fad654fac57ab73f0fc50e12">ast::GeoCoordinate::setLongitude</a></div><div class="ttdeci">void setLongitude(double lon)</div><div class="ttdoc">设置经度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a6ff37c1726045d27b3739fcb177d4085"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a6ff37c1726045d27b3739fcb177d4085">ast::GeoCoordinate::latitude</a></div><div class="ttdeci">double latitude() const</div><div class="ttdoc">获取纬度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:58</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a713b0f49f72bf60508a26a5711fe821a"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a713b0f49f72bf60508a26a5711fe821a">ast::GeoCoordinate::latitude</a></div><div class="ttdeci">double &amp; latitude()</div><div class="ttdoc">设置纬度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:64</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_a79d1d3d84b292a93a901e027d0bb8b34"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#a79d1d3d84b292a93a901e027d0bb8b34">ast::GeoCoordinate::setLatitude</a></div><div class="ttdeci">void setLatitude(double lat)</div><div class="ttdoc">设置纬度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:70</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_aa9bb2f77a730ec2808863a0c01bb9f19"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#aa9bb2f77a730ec2808863a0c01bb9f19">ast::GeoCoordinate::altitude</a></div><div class="ttdeci">double altitude() const</div><div class="ttdoc">获取高度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_aadafc54e5a71a20f47a3cbb04e86c3e8"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#aadafc54e5a71a20f47a3cbb04e86c3e8">ast::GeoCoordinate::latLonAlt_</a></div><div class="ttdeci">LatLonAlt latLonAlt_</div><div class="ttdoc">纬度、经度、高度坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:97</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_ad736e724d00ca8e9e49a845d71371995"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#ad736e724d00ca8e9e49a845d71371995">ast::GeoCoordinate::GeoCoordinate</a></div><div class="ttdeci">constexpr GeoCoordinate(double lat, double lon, double alt=0.0) noexcept</div><div class="ttdoc">从纬度、经度、高度坐标构造</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1GeoCoordinate_html_aeeeceeb47007db60e26bcc18ff4c83a2"><div class="ttname"><a href="classast_1_1GeoCoordinate.html#aeeeceeb47007db60e26bcc18ff4c83a2">ast::GeoCoordinate::setAltitude</a></div><div class="ttdeci">void setAltitude(double alt)</div><div class="ttdoc">设置高度</div><div class="ttdef"><b>定义</b> GeoCoordinate.hpp:74</div></div>
+<div class="ttc" id="aclassast_1_1GeocentricPoint_html"><div class="ttname"><a href="classast_1_1GeocentricPoint.html">ast::GeocentricPoint</a></div><div class="ttdoc">地心坐标</div><div class="ttdef"><b>定义</b> GeocentricPoint.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1GeodeticPoint_html"><div class="ttname"><a href="classast_1_1GeodeticPoint.html">ast::GeodeticPoint</a></div><div class="ttdoc">大地坐标</div><div class="ttdef"><b>定义</b> GeodeticPoint.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1LatLonAlt_html"><div class="ttname"><a href="classast_1_1LatLonAlt.html">ast::LatLonAlt</a></div><div class="ttdoc">纬度、经度、高度坐标</div><div class="ttdef"><b>定义</b> LatLonAlt.hpp:30</div></div>
+<div class="ttc" id="anamespaceast_html_a2716f3c71f6cd635ffaf3c4c76a2e667"><div class="ttname"><a href="namespaceast.html#a2716f3c71f6cd635ffaf3c4c76a2e667">ast::aSurfaceDeticToCentric</a></div><div class="ttdeci">void aSurfaceDeticToCentric(const GeodeticPoint &amp;detic, double flatFact, GeocentricPoint &amp;centric)</div><div class="ttdoc">将天体表面的大地坐标转换为地心坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:37</div></div>
+<div class="ttc" id="anamespaceast_html_a643d79418b063ea2bd4b4d98f9801405"><div class="ttname"><a href="namespaceast.html#a643d79418b063ea2bd4b4d98f9801405">ast::aSurfaceCentricToDeticLat</a></div><div class="ttdeci">double aSurfaceCentricToDeticLat(double centric, double flatFact)</div><div class="ttdoc">将天体表面的地心纬度转换为大地纬度</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:44</div></div>
+<div class="ttc" id="anamespaceast_html_a67f30cea55bfebe12f59a82fcaeb1f1a"><div class="ttname"><a href="namespaceast.html#a67f30cea55bfebe12f59a82fcaeb1f1a">ast::aSurfaceCentricToDetic</a></div><div class="ttdeci">void aSurfaceCentricToDetic(const GeocentricPoint &amp;centric, double flatFact, GeodeticPoint &amp;detic)</div><div class="ttdoc">将天体表面的地心坐标转换为大地坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:30</div></div>
+<div class="ttc" id="anamespaceast_html_a9d1e3390c19752a25ce3db842cdea259"><div class="ttname"><a href="namespaceast.html#a9d1e3390c19752a25ce3db842cdea259">ast::aSurfaceDeticToCentricLat</a></div><div class="ttdeci">double aSurfaceDeticToCentricLat(double detic, double flatFact)</div><div class="ttdoc">将天体表面的大地纬度转换为地心纬度</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:51</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_88eadabe8dab097f71bcc1542ddfd6a8.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_9df0866e44bd5e8b99ea7db72f8fd252.html">Surface</a></li><li class="navelem"><a class="el" href="dir_de24395002d50067c90a155730d79f2b.html">Coordinate</a></li><li class="navelem"><a class="el" href="GeoCoordinate_8hpp.html">GeoCoordinate.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

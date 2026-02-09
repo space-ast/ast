@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::Transform类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Transform.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1Transform-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Transform类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>变换类  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Transform_8hpp_source.html">Transform.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::Transform 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1Transform.png" usemap="#ast::Transform_map" alt=""/>
+  <map id="ast::Transform_map" name="ast::Transform_map">
+<area href="classast_1_1KinematicTransform.html" title="运动学变换" alt="ast::KinematicTransform" shape="rect" coords="0,56,145,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ac3d7d6330d800e82673d0eeb5db2a1fc" id="r_ac3d7d6330d800e82673d0eeb5db2a1fc"><td class="memItemLeft" align="right" valign="top"><a id="ac3d7d6330d800e82673d0eeb5db2a1fc" name="ac3d7d6330d800e82673d0eeb5db2a1fc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Transform</b> ()=default</td></tr>
+<tr class="memdesc:ac3d7d6330d800e82673d0eeb5db2a1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">变换默认构造函数 <br /></td></tr>
+<tr class="separator:ac3d7d6330d800e82673d0eeb5db2a1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f752eca7fa58a1ea901488e708e9c5c" id="r_a3f752eca7fa58a1ea901488e708e9c5c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f752eca7fa58a1ea901488e708e9c5c">getRotation</a> () const</td></tr>
+<tr class="memdesc:a3f752eca7fa58a1ea901488e708e9c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取旋转  <br /></td></tr>
+<tr class="separator:a3f752eca7fa58a1ea901488e708e9c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfdc784c153e3da46da7216b4f5310b7" id="r_adfdc784c153e3da46da7216b4f5310b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfdc784c153e3da46da7216b4f5310b7">setRotation</a> (const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:adfdc784c153e3da46da7216b4f5310b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置旋转  <br /></td></tr>
+<tr class="separator:adfdc784c153e3da46da7216b4f5310b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d9a42377f8d7c02088e8ba1e025f24" id="r_ae9d9a42377f8d7c02088e8ba1e025f24"><td class="memItemLeft" align="right" valign="top">const Vector3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9d9a42377f8d7c02088e8ba1e025f24">getTranslation</a> () const</td></tr>
+<tr class="memdesc:ae9d9a42377f8d7c02088e8ba1e025f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取平移  <br /></td></tr>
+<tr class="separator:ae9d9a42377f8d7c02088e8ba1e025f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8c5f5d309b3814955ef1a3b788af25" id="r_a0d8c5f5d309b3814955ef1a3b788af25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d8c5f5d309b3814955ef1a3b788af25">setTranslation</a> (const Vector3d &amp;translation)</td></tr>
+<tr class="memdesc:a0d8c5f5d309b3814955ef1a3b788af25"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置平移  <br /></td></tr>
+<tr class="separator:a0d8c5f5d309b3814955ef1a3b788af25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695ff91abefe5e88a73f383da7c2b6bf" id="r_a695ff91abefe5e88a73f383da7c2b6bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a695ff91abefe5e88a73f383da7c2b6bf">compose</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next)</td></tr>
+<tr class="memdesc:a695ff91abefe5e88a73f383da7c2b6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
+<tr class="separator:a695ff91abefe5e88a73f383da7c2b6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a3f18d9ba1ff84b23b9950decdd08f2" id="r_a4a3f18d9ba1ff84b23b9950decdd08f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a3f18d9ba1ff84b23b9950decdd08f2">composed</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next) const</td></tr>
+<tr class="memdesc:a4a3f18d9ba1ff84b23b9950decdd08f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
+<tr class="separator:a4a3f18d9ba1ff84b23b9950decdd08f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8565a8bbd83c9da21508085829caa500" id="r_a8565a8bbd83c9da21508085829caa500"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8565a8bbd83c9da21508085829caa500">operator*</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next) const</td></tr>
+<tr class="memdesc:a8565a8bbd83c9da21508085829caa500"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
+<tr class="separator:a8565a8bbd83c9da21508085829caa500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e052a9312eff24b0e6f78eac5ba6580" id="r_a5e052a9312eff24b0e6f78eac5ba6580"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e052a9312eff24b0e6f78eac5ba6580">operator*=</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next)</td></tr>
+<tr class="memdesc:a5e052a9312eff24b0e6f78eac5ba6580"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
+<tr class="separator:a5e052a9312eff24b0e6f78eac5ba6580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03474e06d04dc2a3fa29133291495da" id="r_aa03474e06d04dc2a3fa29133291495da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa03474e06d04dc2a3fa29133291495da">getInverse</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;inversed) const</td></tr>
+<tr class="memdesc:aa03474e06d04dc2a3fa29133291495da"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取逆变换  <br /></td></tr>
+<tr class="separator:aa03474e06d04dc2a3fa29133291495da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6abf5fbcc3cecb83c68c76be5b53c3" id="r_a1c6abf5fbcc3cecb83c68c76be5b53c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Rotation.html">Rotation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c6abf5fbcc3cecb83c68c76be5b53c3">inverse</a> () const</td></tr>
+<tr class="memdesc:a1c6abf5fbcc3cecb83c68c76be5b53c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取逆变换  <br /></td></tr>
+<tr class="separator:a1c6abf5fbcc3cecb83c68c76be5b53c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3471567e000ca0608bd4db29f82478f8" id="r_a3471567e000ca0608bd4db29f82478f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3471567e000ca0608bd4db29f82478f8">transformPosition</a> (const Vector3d &amp;position, Vector3d &amp;positionOut) const</td></tr>
+<tr class="memdesc:a3471567e000ca0608bd4db29f82478f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">变换位置  <br /></td></tr>
+<tr class="separator:a3471567e000ca0608bd4db29f82478f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd337e12691586e6ebf73c8a78bd183d" id="r_acd337e12691586e6ebf73c8a78bd183d"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd337e12691586e6ebf73c8a78bd183d">transformPosition</a> (const Vector3d &amp;position) const</td></tr>
+<tr class="memdesc:acd337e12691586e6ebf73c8a78bd183d"><td class="mdescLeft">&#160;</td><td class="mdescRight">变换位置  <br /></td></tr>
+<tr class="separator:acd337e12691586e6ebf73c8a78bd183d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:aa073642b1d18774e14a953f1e2e5f09a" id="r_aa073642b1d18774e14a953f1e2e5f09a"><td class="memItemLeft" align="right" valign="top"><a id="aa073642b1d18774e14a953f1e2e5f09a" name="aa073642b1d18774e14a953f1e2e5f09a"></a>
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>translation_</b></td></tr>
+<tr class="memdesc:aa073642b1d18774e14a953f1e2e5f09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">平移 <br /></td></tr>
+<tr class="separator:aa073642b1d18774e14a953f1e2e5f09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35a535f2e5b33bc4e5d2a1959e9cac60" id="r_a35a535f2e5b33bc4e5d2a1959e9cac60"><td class="memItemLeft" align="right" valign="top"><a id="a35a535f2e5b33bc4e5d2a1959e9cac60" name="a35a535f2e5b33bc4e5d2a1959e9cac60"></a>
+<a class="el" href="classast_1_1Rotation.html">Rotation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
+<tr class="memdesc:a35a535f2e5b33bc4e5d2a1959e9cac60"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋转 <br /></td></tr>
+<tr class="separator:a35a535f2e5b33bc4e5d2a1959e9cac60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>变换类 </p>
+<p>变换类表示三维空间中的变换，包括平移和旋转。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a695ff91abefe5e88a73f383da7c2b6bf" name="a695ff91abefe5e88a73f383da7c2b6bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a695ff91abefe5e88a73f383da7c2b6bf">&#9670;&#160;</a></span>compose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Transform.html">Transform</a> &amp; ast::Transform::compose </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>组合下一个变换 </p>
+<dl class="section warning"><dt>警告</dt><dd>组合变换是先应用当前变换，再应用下一个变换。 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">next</td><td>下一个变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4a3f18d9ba1ff84b23b9950decdd08f2" name="a4a3f18d9ba1ff84b23b9950decdd08f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3f18d9ba1ff84b23b9950decdd08f2">&#9670;&#160;</a></span>composed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Transform.html">Transform</a> ast::Transform::composed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>组合下一个变换 </p>
+<dl class="section warning"><dt>警告</dt><dd>组合变换是先应用当前变换，再应用下一个变换。 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">next</td><td>下一个变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>组合变换 </dd></dl>
+
+</div>
+</div>
+<a id="aa03474e06d04dc2a3fa29133291495da" name="aa03474e06d04dc2a3fa29133291495da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03474e06d04dc2a3fa29133291495da">&#9670;&#160;</a></span>getInverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::Transform::getInverse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>inversed</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取逆变换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inversed</td><td>逆变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f752eca7fa58a1ea901488e708e9c5c" name="a3f752eca7fa58a1ea901488e708e9c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f752eca7fa58a1ea901488e708e9c5c">&#9670;&#160;</a></span>getRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp; ast::Transform::getRotation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取旋转 </p>
+<dl class="section return"><dt>返回</dt><dd>旋转 </dd></dl>
+
+</div>
+</div>
+<a id="ae9d9a42377f8d7c02088e8ba1e025f24" name="ae9d9a42377f8d7c02088e8ba1e025f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9d9a42377f8d7c02088e8ba1e025f24">&#9670;&#160;</a></span>getTranslation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Vector3d &amp; ast::Transform::getTranslation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取平移 </p>
+<dl class="section return"><dt>返回</dt><dd>平移 </dd></dl>
+
+</div>
+</div>
+<a id="a1c6abf5fbcc3cecb83c68c76be5b53c3" name="a1c6abf5fbcc3cecb83c68c76be5b53c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6abf5fbcc3cecb83c68c76be5b53c3">&#9670;&#160;</a></span>inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE <a class="el" href="classast_1_1Rotation.html">Rotation</a> ast::Transform::inverse </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取逆变换 </p>
+<dl class="section return"><dt>返回</dt><dd>逆变换 </dd></dl>
+
+</div>
+</div>
+<a id="a8565a8bbd83c9da21508085829caa500" name="a8565a8bbd83c9da21508085829caa500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8565a8bbd83c9da21508085829caa500">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Transform.html">Transform</a> ast::Transform::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>组合下一个变换 </p>
+<dl class="section warning"><dt>警告</dt><dd>组合变换是先应用当前变换，再应用下一个变换。 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">next</td><td>下一个变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>组合变换 </dd></dl>
+
+</div>
+</div>
+<a id="a5e052a9312eff24b0e6f78eac5ba6580" name="a5e052a9312eff24b0e6f78eac5ba6580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e052a9312eff24b0e6f78eac5ba6580">&#9670;&#160;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Transform.html">Transform</a> &amp; ast::Transform::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>组合下一个变换 </p>
+<dl class="section warning"><dt>警告</dt><dd>组合变换是先应用当前变换，再应用下一个变换。 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">next</td><td>下一个变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>组合变换 </dd></dl>
+
+</div>
+</div>
+<a id="adfdc784c153e3da46da7216b4f5310b7" name="adfdc784c153e3da46da7216b4f5310b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfdc784c153e3da46da7216b4f5310b7">&#9670;&#160;</a></span>setRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Transform::setRotation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置旋转 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>旋转 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d8c5f5d309b3814955ef1a3b788af25" name="a0d8c5f5d309b3814955ef1a3b788af25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c5f5d309b3814955ef1a3b788af25">&#9670;&#160;</a></span>setTranslation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Transform::setTranslation </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>translation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置平移 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">translation</td><td>平移 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd337e12691586e6ebf73c8a78bd183d" name="acd337e12691586e6ebf73c8a78bd183d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd337e12691586e6ebf73c8a78bd183d">&#9670;&#160;</a></span>transformPosition() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE Vector3d ast::Transform::transformPosition </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>变换位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>变换后的位置 </dd></dl>
+
+</div>
+</div>
+<a id="a3471567e000ca0608bd4db29f82478f8" name="a3471567e000ca0608bd4db29f82478f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3471567e000ca0608bd4db29f82478f8">&#9670;&#160;</a></span>transformPosition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::Transform::transformPosition </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>positionOut</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>变换位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>位置 </td></tr>
+    <tr><td class="paramname">positionOut</td><td>变换后的位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstMath/Transform/<a class="el" href="Transform_8hpp_source.html">Transform.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Transform.html">Transform</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

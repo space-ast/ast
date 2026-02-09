@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Propagator/HPOP/DataPort.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('DataPort_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DataPort.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="DataPort_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">// #include &quot;AstUtil/Dimension.hpp&quot;    // for Dimension</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">typedef</span> ptr_t  signal_t;                <span class="comment">// 信号(指向数据的指针)</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">typedef</span> signal_t* signalsignal_t;       <span class="comment">// 信号指针(指向信号的指针/指向数据指针的指针)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">enum</span> EValueType{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        eInvalid=-1,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="namespaceast.html#ab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14">eDouble</a>=0,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        eFloat=1,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="namespaceast.html#ab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242">eInt</a>,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        eBoolean,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1DataPort.html">~DataPort</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    AST_CORE_API</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">static</span> err_t connect(<a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* src, <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* dst);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    AST_CORE_API</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    err_t connect(<a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* dst);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#ad94a62475895a2478528afb540bcf0de">   53</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1DataPort.html#ad94a62475895a2478528afb540bcf0de">setWidth</a>(<span class="keywordtype">int</span> width){ width_ = width; }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a25a718dda268078c96209d3049b3ecee">   57</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1DataPort.html#a25a718dda268078c96209d3049b3ecee">getWidth</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> width_; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a60f748faa6b42696ba9926c3ec1e54bf">   61</a></span>    EValueType <a class="code hl_function" href="classast_1_1DataPort.html#a60f748faa6b42696ba9926c3ec1e54bf">getDataType</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> type_; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a02626ecb7dbab28e52c9d23364f05ebd">   66</a></span>    <span class="keywordtype">double</span>* <a class="code hl_function" href="classast_1_1DataPort.html#a02626ecb7dbab28e52c9d23364f05ebd">getSignalDouble</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> this-&gt;getSignal&lt;double&gt;(); }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a4deed84c4db6a3188a76ee5763c5be3f">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1DataPort.html#a4deed84c4db6a3188a76ee5763c5be3f">setSignalDouble</a>(<span class="keywordtype">double</span>* signal){ this-&gt;setSignal&lt;double&gt;(signal); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#ab1cf944a6460d654524774aedb38ac83">   76</a></span>    <span class="keywordtype">int</span>* <a class="code hl_function" href="classast_1_1DataPort.html#ab1cf944a6460d654524774aedb38ac83">getSignalInt</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> this-&gt;getSignal&lt;int&gt;(); }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a673f1769c576d066110ad5f5994d0460">   81</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1DataPort.html#a673f1769c576d066110ad5f5994d0460">setSignalInt</a>(<span class="keywordtype">int</span>* signal){ this-&gt;setSignal&lt;int&gt;(signal); }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a22e6a32a02d5b6716d4e339312cd514c">   86</a></span>    Vector3d* <a class="code hl_function" href="classast_1_1DataPort.html#a22e6a32a02d5b6716d4e339312cd514c">getSignalVector3d</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> this-&gt;getSignal&lt;Vector3d&gt;(); }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a4c048c39ce01d2e191df1b133e55766c">   91</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1DataPort.html#a4c048c39ce01d2e191df1b133e55766c">setSignalVector3d</a>(Vector3d* signal){ this-&gt;setSignal&lt;Vector3d&gt;(signal); }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T=<span class="keywordtype">void</span>&gt;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668">   97</a></span>    T* <a class="code hl_function" href="classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668">getSignal</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> (T*)*signalPtr_; }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T=<span class="keywordtype">void</span>&gt;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a7e323e32e7dc572bae45525f63f20c21">  103</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1DataPort.html#a7e323e32e7dc572bae45525f63f20c21">setSignal</a>(T* signal){ *signalPtr_ = signal; }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a11886a60b2cbec2699179fa0d088e65b">  108</a></span>    signal_t* <a class="code hl_function" href="classast_1_1DataPort.html#a11886a60b2cbec2699179fa0d088e65b">getSignalPtr</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> signalPtr_; }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a1aa3acb06b2a0d8a659013387598b604">  111</a></span>    <a class="code hl_class" href="classast_1_1Identifier.html">Identifier</a>* <a class="code hl_variable" href="classast_1_1DataPort.html#a1aa3acb06b2a0d8a659013387598b604">name_</a>;              </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a1ed5b008306ae3eadadb82e22de2e2cb">  112</a></span>    signal_t*   <a class="code hl_variable" href="classast_1_1DataPort.html#a1ed5b008306ae3eadadb82e22de2e2cb">signalPtr_</a>;         </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#a7af44933dd2d189fcd825047f605626a">  113</a></span>    <span class="keywordtype">int</span>         <a class="code hl_variable" href="classast_1_1DataPort.html#a7af44933dd2d189fcd825047f605626a">width_</a>;             </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c">  114</a></span>    EValueType  <a class="code hl_variable" href="classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c">type_</a>;              </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">// Dimension   dimension_;      ///&lt; 数据量纲 @todo: 支持数据量纲</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>};</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1DataPort_html"><div class="ttname"><a href="classast_1_1DataPort.html">ast::DataPort</a></div><div class="ttdoc">数据端口</div><div class="ttdef"><b>定义</b> DataPort.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a02626ecb7dbab28e52c9d23364f05ebd"><div class="ttname"><a href="classast_1_1DataPort.html#a02626ecb7dbab28e52c9d23364f05ebd">ast::DataPort::getSignalDouble</a></div><div class="ttdeci">double * getSignalDouble() const</div><div class="ttdoc">获取数据端口的实数值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a11886a60b2cbec2699179fa0d088e65b"><div class="ttname"><a href="classast_1_1DataPort.html#a11886a60b2cbec2699179fa0d088e65b">ast::DataPort::getSignalPtr</a></div><div class="ttdeci">signal_t * getSignalPtr() const</div><div class="ttdoc">获取数据端口的信号指针(指向数据指针的指针)</div><div class="ttdef"><b>定义</b> DataPort.hpp:108</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a1aa3acb06b2a0d8a659013387598b604"><div class="ttname"><a href="classast_1_1DataPort.html#a1aa3acb06b2a0d8a659013387598b604">ast::DataPort::name_</a></div><div class="ttdeci">Identifier * name_</div><div class="ttdoc">端口名称</div><div class="ttdef"><b>定义</b> DataPort.hpp:111</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a1ed5b008306ae3eadadb82e22de2e2cb"><div class="ttname"><a href="classast_1_1DataPort.html#a1ed5b008306ae3eadadb82e22de2e2cb">ast::DataPort::signalPtr_</a></div><div class="ttdeci">signal_t * signalPtr_</div><div class="ttdoc">信号指针(指向数据指针的指针)</div><div class="ttdef"><b>定义</b> DataPort.hpp:112</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a22e6a32a02d5b6716d4e339312cd514c"><div class="ttname"><a href="classast_1_1DataPort.html#a22e6a32a02d5b6716d4e339312cd514c">ast::DataPort::getSignalVector3d</a></div><div class="ttdeci">Vector3d * getSignalVector3d() const</div><div class="ttdoc">获取数据端口的向量3值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:86</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a25a718dda268078c96209d3049b3ecee"><div class="ttname"><a href="classast_1_1DataPort.html#a25a718dda268078c96209d3049b3ecee">ast::DataPort::getWidth</a></div><div class="ttdeci">int getWidth() const</div><div class="ttdoc">获取数据端口的宽度</div><div class="ttdef"><b>定义</b> DataPort.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a4c048c39ce01d2e191df1b133e55766c"><div class="ttname"><a href="classast_1_1DataPort.html#a4c048c39ce01d2e191df1b133e55766c">ast::DataPort::setSignalVector3d</a></div><div class="ttdeci">void setSignalVector3d(Vector3d *signal)</div><div class="ttdoc">设置数据端口的向量3值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:91</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a4deed84c4db6a3188a76ee5763c5be3f"><div class="ttname"><a href="classast_1_1DataPort.html#a4deed84c4db6a3188a76ee5763c5be3f">ast::DataPort::setSignalDouble</a></div><div class="ttdeci">void setSignalDouble(double *signal)</div><div class="ttdoc">设置数据端口的实数值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:71</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a60f748faa6b42696ba9926c3ec1e54bf"><div class="ttname"><a href="classast_1_1DataPort.html#a60f748faa6b42696ba9926c3ec1e54bf">ast::DataPort::getDataType</a></div><div class="ttdeci">EValueType getDataType() const</div><div class="ttdoc">获取数据端口的数据类型</div><div class="ttdef"><b>定义</b> DataPort.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a673f1769c576d066110ad5f5994d0460"><div class="ttname"><a href="classast_1_1DataPort.html#a673f1769c576d066110ad5f5994d0460">ast::DataPort::setSignalInt</a></div><div class="ttdeci">void setSignalInt(int *signal)</div><div class="ttdoc">设置数据端口的整数值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:81</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a7af44933dd2d189fcd825047f605626a"><div class="ttname"><a href="classast_1_1DataPort.html#a7af44933dd2d189fcd825047f605626a">ast::DataPort::width_</a></div><div class="ttdeci">int width_</div><div class="ttdoc">数据宽度</div><div class="ttdef"><b>定义</b> DataPort.hpp:113</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_a7e323e32e7dc572bae45525f63f20c21"><div class="ttname"><a href="classast_1_1DataPort.html#a7e323e32e7dc572bae45525f63f20c21">ast::DataPort::setSignal</a></div><div class="ttdeci">void setSignal(T *signal)</div><div class="ttdoc">设置数据端口的信号指针(指向数据指针的指针)</div><div class="ttdef"><b>定义</b> DataPort.hpp:103</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_ab1cf944a6460d654524774aedb38ac83"><div class="ttname"><a href="classast_1_1DataPort.html#ab1cf944a6460d654524774aedb38ac83">ast::DataPort::getSignalInt</a></div><div class="ttdeci">int * getSignalInt() const</div><div class="ttdoc">获取数据端口的整数值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_ab9232e19783152cab0e3b285da07ac7c"><div class="ttname"><a href="classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c">ast::DataPort::type_</a></div><div class="ttdeci">EValueType type_</div><div class="ttdoc">数据类型</div><div class="ttdef"><b>定义</b> DataPort.hpp:114</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_ad94a62475895a2478528afb540bcf0de"><div class="ttname"><a href="classast_1_1DataPort.html#ad94a62475895a2478528afb540bcf0de">ast::DataPort::setWidth</a></div><div class="ttdeci">void setWidth(int width)</div><div class="ttdoc">设置数据端口的宽度</div><div class="ttdef"><b>定义</b> DataPort.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1DataPort_html_af7dcaefd249328f9a042fb4f7a612668"><div class="ttname"><a href="classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668">ast::DataPort::getSignal</a></div><div class="ttdeci">T * getSignal() const</div><div class="ttdoc">获取数据端口的任意类型值指针</div><div class="ttdef"><b>定义</b> DataPort.hpp:97</div></div>
+<div class="ttc" id="aclassast_1_1Identifier_html"><div class="ttname"><a href="classast_1_1Identifier.html">ast::Identifier</a></div><div class="ttdoc">标识符类</div><div class="ttdef"><b>定义</b> Identifier.hpp:37</div></div>
+<div class="ttc" id="anamespaceast_html_ab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14"><div class="ttname"><a href="namespaceast.html#ab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14">ast::eDouble</a></div><div class="ttdeci">@ eDouble</div><div class="ttdoc">double类型</div><div class="ttdef"><b>定义</b> Property.hpp:31</div></div>
+<div class="ttc" id="anamespaceast_html_ab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242"><div class="ttname"><a href="namespaceast.html#ab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242">ast::eInt</a></div><div class="ttdeci">@ eInt</div><div class="ttdoc">int类型</div><div class="ttdef"><b>定义</b> Property.hpp:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_deb258cf57e277be5b7cec8bb6708261.html">Propagator</a></li><li class="navelem"><a class="el" href="dir_99d89bf1bb3c699199c624a04c84ff81.html">HPOP</a></li><li class="navelem"><a class="el" href="DataPort_8hpp.html">DataPort.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

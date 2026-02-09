@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::RKCK类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1RKCK.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1RKCK-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::RKCK类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Runge-Kutta Cash-Karp 方法  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="RKCK_8hpp_source.html">RKCK.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::RKCK 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1RKCK.png" usemap="#ast::RKCK_map" alt=""/>
+  <map id="ast::RKCK_map" name="ast::RKCK_map">
+<area href="classast_1_1ODEVarStepIntegrator.html" title="可变步长积分器" alt="ast::ODEVarStepIntegrator" shape="rect" coords="0,168,171,192"/>
+<area href="classast_1_1ODEFixedStepIntegrator.html" title="固定步长积分器" alt="ast::ODEFixedStepIntegrator" shape="rect" coords="0,112,171,136"/>
+<area href="classast_1_1ODEIntegrator.html" title="ODE 积分器" alt="ast::ODEIntegrator" shape="rect" coords="0,56,171,80"/>
+<area href="classast_1_1IODEIntegrator.html" title="ODE 积分器接口类" alt="ast::IODEIntegrator" shape="rect" coords="0,0,171,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a3aa5c4249adcb74a9da1f92ea077a731" id="r_a3aa5c4249adcb74a9da1f92ea077a731"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aa5c4249adcb74a9da1f92ea077a731">initialize</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode) final</td></tr>
+<tr class="memdesc:a3aa5c4249adcb74a9da1f92ea077a731"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化积分器  <br /></td></tr>
+<tr class="separator:a3aa5c4249adcb74a9da1f92ea077a731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb3be4e3dc4e36b85fb9632ecd4ec6b" id="r_aaeb3be4e3dc4e36b85fb9632ecd4ec6b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeb3be4e3dc4e36b85fb9632ecd4ec6b">singleStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double t0, double step) final</td></tr>
+<tr class="memdesc:aaeb3be4e3dc4e36b85fb9632ecd4ec6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行一步积分  <br /></td></tr>
+<tr class="separator:aaeb3be4e3dc4e36b85fb9632ecd4ec6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ODEVarStepIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ODEVarStepIntegrator')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ODEVarStepIntegrator.html">ast::ODEVarStepIntegrator</a></td></tr>
+<tr class="memitem:a0b006147c68a10139535308006c8a0c7 inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a0b006147c68a10139535308006c8a0c7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEVarStepIntegrator.html#a0b006147c68a10139535308006c8a0c7">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf) final</td></tr>
+<tr class="separator:a0b006147c68a10139535308006c8a0c7 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95436ff6672e82391e13a44933a89d1 inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_af95436ff6672e82391e13a44933a89d1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEVarStepIntegrator.html#af95436ff6672e82391e13a44933a89d1">integrateStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf) final</td></tr>
+<tr class="separator:af95436ff6672e82391e13a44933a89d1 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a111fc039918aa8b5cae9063078d68a2e inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a111fc039918aa8b5cae9063078d68a2e"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxAbsErr</b> (double maxAbsErr)</td></tr>
+<tr class="memdesc:a111fc039918aa8b5cae9063078d68a2e inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置最大绝对误差 <br /></td></tr>
+<tr class="separator:a111fc039918aa8b5cae9063078d68a2e inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa1a4caa63040e102a67792bec067b42 inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_afa1a4caa63040e102a67792bec067b42"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxRelErr</b> (double maxRelErr)</td></tr>
+<tr class="memdesc:afa1a4caa63040e102a67792bec067b42 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置最大相对误差 <br /></td></tr>
+<tr class="separator:afa1a4caa63040e102a67792bec067b42 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f1d5067be5feaaa7054313a53376b6 inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_ae1f1d5067be5feaaa7054313a53376b6"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setInitialStepSize</b> (double initialStepSize)</td></tr>
+<tr class="memdesc:ae1f1d5067be5feaaa7054313a53376b6 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置初始步长 <br /></td></tr>
+<tr class="separator:ae1f1d5067be5feaaa7054313a53376b6 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a366227f2a2b1a0379e58c1716ed06e1c inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a366227f2a2b1a0379e58c1716ed06e1c"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getLargestStepSize</b> () const</td></tr>
+<tr class="memdesc:a366227f2a2b1a0379e58c1716ed06e1c inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取积分过程中统计到的最大步长 <br /></td></tr>
+<tr class="separator:a366227f2a2b1a0379e58c1716ed06e1c inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d602f5ad217bcef381cd75f76a6f92b inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a6d602f5ad217bcef381cd75f76a6f92b"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getSmallestStepSize</b> () const</td></tr>
+<tr class="memdesc:a6d602f5ad217bcef381cd75f76a6f92b inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取积分过程中统计到的最小步长 <br /></td></tr>
+<tr class="separator:a6d602f5ad217bcef381cd75f76a6f92b inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a3f44c4087436b612d4954a01b5614f10"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEVarStepIntegrator.html#a3f44c4087436b612d4954a01b5614f10">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf, std::vector&lt; double &gt; &amp;xlist, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;ylist)</td></tr>
+<tr class="memdesc:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a32e9fec4ec322e824a73fff97ba6f554"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memTemplItemLeft" align="right" valign="top">err_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1ODEVarStepIntegrator.html#a32e9fec4ec322e824a73fff97ba6f554">integrate</a> (int ndim, Func func, double *y, double &amp;t, double tf)</td></tr>
+<tr class="memdesc:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0363dd5832161112ff314911f0b9746e inherit pub_methods_classast_1_1ODEVarStepIntegrator" id="r_a0363dd5832161112ff314911f0b9746e"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumSteps</b> () const</td></tr>
+<tr class="memdesc:a0363dd5832161112ff314911f0b9746e inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取积分过程中统计到的积分步数 <br /></td></tr>
+<tr class="separator:a0363dd5832161112ff314911f0b9746e inherit pub_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ODEFixedStepIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ODEFixedStepIntegrator')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html">ast::ODEFixedStepIntegrator</a></td></tr>
+<tr class="memitem:a0486f6986f08982ea45a107ca0b67b19 inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_a0486f6986f08982ea45a107ca0b67b19"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getStepSize</b> () const</td></tr>
+<tr class="memdesc:a0486f6986f08982ea45a107ca0b67b19 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取步长 <br /></td></tr>
+<tr class="separator:a0486f6986f08982ea45a107ca0b67b19 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b19f7fc8680f3047f892affc932dd0 inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_a91b19f7fc8680f3047f892affc932dd0"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStepSize</b> (double stepSize)</td></tr>
+<tr class="memdesc:a91b19f7fc8680f3047f892affc932dd0 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置步长 <br /></td></tr>
+<tr class="separator:a91b19f7fc8680f3047f892affc932dd0 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0363dd5832161112ff314911f0b9746e inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_a0363dd5832161112ff314911f0b9746e"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumSteps</b> () const</td></tr>
+<tr class="memdesc:a0363dd5832161112ff314911f0b9746e inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取积分过程中统计到的积分步数 <br /></td></tr>
+<tr class="separator:a0363dd5832161112ff314911f0b9746e inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fad7a60820642fdc079152d4fc266b3 inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_a7fad7a60820642fdc079152d4fc266b3"><td class="memItemLeft" align="right" valign="top">
+const <a class="el" href="classast_1_1ODEFixedStepIntegrator_1_1Workspace.html">Workspace</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getWorkspace</b> () const</td></tr>
+<tr class="memdesc:a7fad7a60820642fdc079152d4fc266b3 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取工作空间 <br /></td></tr>
+<tr class="separator:a7fad7a60820642fdc079152d4fc266b3 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc09c89239d8364dbf7af14cbd9f1471 inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_afc09c89239d8364dbf7af14cbd9f1471"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1ODEFixedStepIntegrator_1_1Workspace.html">Workspace</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getWorkspace</b> ()</td></tr>
+<tr class="separator:afc09c89239d8364dbf7af14cbd9f1471 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_a3f44c4087436b612d4954a01b5614f10"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a3f44c4087436b612d4954a01b5614f10">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf, std::vector&lt; double &gt; &amp;xlist, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;ylist)</td></tr>
+<tr class="memdesc:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEFixedStepIntegrator" id="r_a32e9fec4ec322e824a73fff97ba6f554"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memTemplItemLeft" align="right" valign="top">err_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a32e9fec4ec322e824a73fff97ba6f554">integrate</a> (int ndim, Func func, double *y, double &amp;t, double tf)</td></tr>
+<tr class="memdesc:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ODEIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ODEIntegrator')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ODEIntegrator.html">ast::ODEIntegrator</a></td></tr>
+<tr class="memitem:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEIntegrator" id="r_a3f44c4087436b612d4954a01b5614f10"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a3f44c4087436b612d4954a01b5614f10">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf, std::vector&lt; double &gt; &amp;xlist, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;ylist)</td></tr>
+<tr class="memdesc:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:a3f44c4087436b612d4954a01b5614f10 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEIntegrator" id="r_a32e9fec4ec322e824a73fff97ba6f554"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memTemplItemLeft" align="right" valign="top">err_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a32e9fec4ec322e824a73fff97ba6f554">integrate</a> (int ndim, Func func, double *y, double &amp;t, double tf)</td></tr>
+<tr class="memdesc:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:a32e9fec4ec322e824a73fff97ba6f554 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da8602cc2555b747a38ec04f35cc340 inherit pub_methods_classast_1_1ODEIntegrator" id="r_a4da8602cc2555b747a38ec04f35cc340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a4da8602cc2555b747a38ec04f35cc340">addEventDetector</a> (<a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> *detector)</td></tr>
+<tr class="memdesc:a4da8602cc2555b747a38ec04f35cc340 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加事件检测器  <br /></td></tr>
+<tr class="separator:a4da8602cc2555b747a38ec04f35cc340 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c3e19718ec1963d2546c2d89bbf844 inherit pub_methods_classast_1_1ODEIntegrator" id="r_ac2c3e19718ec1963d2546c2d89bbf844"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:ac2c3e19718ec1963d2546c2d89bbf844 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a>, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, <a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> * &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#ac2c3e19718ec1963d2546c2d89bbf844">addEventDetector</a> (Func func)</td></tr>
+<tr class="memdesc:ac2c3e19718ec1963d2546c2d89bbf844 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加事件检测器（泛型模板）  <br /></td></tr>
+<tr class="separator:ac2c3e19718ec1963d2546c2d89bbf844 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478f0a75349ed585fa0b7133c549b7ea inherit pub_methods_classast_1_1ODEIntegrator" id="r_a478f0a75349ed585fa0b7133c549b7ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a478f0a75349ed585fa0b7133c549b7ea">removeEventDetector</a> (<a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> *detector)</td></tr>
+<tr class="memdesc:a478f0a75349ed585fa0b7133c549b7ea inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除事件检测器  <br /></td></tr>
+<tr class="separator:a478f0a75349ed585fa0b7133c549b7ea inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef67d9cce067b12e355543b5ac80af9 inherit pub_methods_classast_1_1ODEIntegrator" id="r_abef67d9cce067b12e355543b5ac80af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#abef67d9cce067b12e355543b5ac80af9">addStateObserver</a> (<a class="el" href="classast_1_1ODEStateObserver.html">ODEStateObserver</a> *observer)</td></tr>
+<tr class="memdesc:abef67d9cce067b12e355543b5ac80af9 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加状态观察者  <br /></td></tr>
+<tr class="separator:abef67d9cce067b12e355543b5ac80af9 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76e2241263234469fb05f690488dc513 inherit pub_methods_classast_1_1ODEIntegrator" id="r_a76e2241263234469fb05f690488dc513"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a76e2241263234469fb05f690488dc513 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1ODEStateObserver.html">ODEStateObserver</a>, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, <a class="el" href="classast_1_1ODEStateObserver.html">ODEStateObserver</a> * &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a76e2241263234469fb05f690488dc513">addStateObserver</a> (Func func)</td></tr>
+<tr class="memdesc:a76e2241263234469fb05f690488dc513 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加状态观察者（泛型模板）  <br /></td></tr>
+<tr class="separator:a76e2241263234469fb05f690488dc513 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c80b043ed73939fd9ba49b6638abb9e inherit pub_methods_classast_1_1ODEIntegrator" id="r_a6c80b043ed73939fd9ba49b6638abb9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a6c80b043ed73939fd9ba49b6638abb9e">removeStateObserver</a> (<a class="el" href="classast_1_1ODEStateObserver.html">ODEStateObserver</a> *observer)</td></tr>
+<tr class="memdesc:a6c80b043ed73939fd9ba49b6638abb9e inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除状态观察者  <br /></td></tr>
+<tr class="separator:a6c80b043ed73939fd9ba49b6638abb9e inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb65449f9e34544859243e08b5b7e72d inherit pub_methods_classast_1_1ODEIntegrator" id="r_acb65449f9e34544859243e08b5b7e72d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#acb65449f9e34544859243e08b5b7e72d">getODE</a> ()</td></tr>
+<tr class="memdesc:acb65449f9e34544859243e08b5b7e72d inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取ODE方程  <br /></td></tr>
+<tr class="separator:acb65449f9e34544859243e08b5b7e72d inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af22094cba194c3eb8b02c5d7bc871daf inherit pub_methods_classast_1_1ODEIntegrator" id="r_af22094cba194c3eb8b02c5d7bc871daf"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#af22094cba194c3eb8b02c5d7bc871daf">stateAtStepStart</a> ()</td></tr>
+<tr class="memdesc:af22094cba194c3eb8b02c5d7bc871daf inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前积分步的开始状态  <br /></td></tr>
+<tr class="separator:af22094cba194c3eb8b02c5d7bc871daf inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad815ab9442888f31b66d5c0618c8fd inherit pub_methods_classast_1_1ODEIntegrator" id="r_abad815ab9442888f31b66d5c0618c8fd"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#abad815ab9442888f31b66d5c0618c8fd">stateAtStepEnd</a> ()</td></tr>
+<tr class="memdesc:abad815ab9442888f31b66d5c0618c8fd inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前积分步的结束状态  <br /></td></tr>
+<tr class="separator:abad815ab9442888f31b66d5c0618c8fd inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1b8d09804f73c6dd2035706605da221 inherit pub_methods_classast_1_1ODEIntegrator" id="r_ae1b8d09804f73c6dd2035706605da221"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#ae1b8d09804f73c6dd2035706605da221">timeAtStepStart</a> ()</td></tr>
+<tr class="memdesc:ae1b8d09804f73c6dd2035706605da221 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前积分步的开始时间  <br /></td></tr>
+<tr class="separator:ae1b8d09804f73c6dd2035706605da221 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39686cb143c44bde4afe10380dbc348b inherit pub_methods_classast_1_1ODEIntegrator" id="r_a39686cb143c44bde4afe10380dbc348b"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a39686cb143c44bde4afe10380dbc348b">timeAtStepEnd</a> ()</td></tr>
+<tr class="memdesc:a39686cb143c44bde4afe10380dbc348b inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前积分步的结束时间  <br /></td></tr>
+<tr class="separator:a39686cb143c44bde4afe10380dbc348b inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012958f16afe6f7ae27c41ec0379a652 inherit pub_methods_classast_1_1ODEIntegrator" id="r_a012958f16afe6f7ae27c41ec0379a652"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#a012958f16afe6f7ae27c41ec0379a652">stateTemp</a> ()</td></tr>
+<tr class="memdesc:a012958f16afe6f7ae27c41ec0379a652 inherit pub_methods_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取临时状态向量  <br /></td></tr>
+<tr class="separator:a012958f16afe6f7ae27c41ec0379a652 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1IODEIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1IODEIntegrator')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1IODEIntegrator.html">ast::IODEIntegrator</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_methods_classast_1_1ODEVarStepIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1ODEVarStepIntegrator')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1ODEVarStepIntegrator.html">ast::ODEVarStepIntegrator</a></td></tr>
+<tr class="memitem:a26f0bbf5378edb1c29bec3bf662ed3b1 inherit pro_methods_classast_1_1ODEVarStepIntegrator" id="r_a26f0bbf5378edb1c29bec3bf662ed3b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEVarStepIntegrator.html#a26f0bbf5378edb1c29bec3bf662ed3b1">isErrorMeet</a> (double &amp;absh, const double *y, const double *ynew)</td></tr>
+<tr class="memdesc:a26f0bbf5378edb1c29bec3bf662ed3b1 inherit pro_methods_classast_1_1ODEVarStepIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否满足误差要求  <br /></td></tr>
+<tr class="separator:a26f0bbf5378edb1c29bec3bf662ed3b1 inherit pro_methods_classast_1_1ODEVarStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1ODEFixedStepIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1ODEFixedStepIntegrator')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html">ast::ODEFixedStepIntegrator</a></td></tr>
+<tr class="memitem:a0e499827786678b73c5aa49769dd2648 inherit pro_methods_classast_1_1ODEFixedStepIntegrator" id="r_a0e499827786678b73c5aa49769dd2648"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resetWorkspace</b> (int dimension, int stage)</td></tr>
+<tr class="separator:a0e499827786678b73c5aa49769dd2648 inherit pro_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1ODEIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1ODEIntegrator')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1ODEIntegrator.html">ast::ODEIntegrator</a></td></tr>
+<tr class="memitem:a546271b4d98afc0c995a64813716df67 inherit pro_methods_classast_1_1ODEIntegrator" id="r_a546271b4d98afc0c995a64813716df67"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initWorkStateObserver</b> ()</td></tr>
+<tr class="separator:a546271b4d98afc0c995a64813716df67 inherit pro_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1379491d93ac3c171e2113eb22ab5333 inherit pro_methods_classast_1_1ODEIntegrator" id="r_a1379491d93ac3c171e2113eb22ab5333"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>)</td></tr>
+<tr class="separator:a1379491d93ac3c171e2113eb22ab5333 inherit pro_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classast_1_1ODEIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1ODEIntegrator')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1ODEIntegrator.html">ast::ODEIntegrator</a></td></tr>
+<tr class="memitem:a5e8bd733b2799ede10355e74c9e07b7f inherit pro_attribs_classast_1_1ODEIntegrator" id="r_a5e8bd733b2799ede10355e74c9e07b7f"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ode_</b> {nullptr}</td></tr>
+<tr class="memdesc:a5e8bd733b2799ede10355e74c9e07b7f inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">ODE方程 <br /></td></tr>
+<tr class="separator:a5e8bd733b2799ede10355e74c9e07b7f inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a919ef0c3f1c8bad5446e00b6619d3d inherit pro_attribs_classast_1_1ODEIntegrator" id="r_a4a919ef0c3f1c8bad5446e00b6619d3d"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1ODEStateObserver.html">ODEStateObserver</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>workStateObserver_</b> {nullptr}</td></tr>
+<tr class="memdesc:a4a919ef0c3f1c8bad5446e00b6619d3d inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">状态观察者 <br /></td></tr>
+<tr class="separator:a4a919ef0c3f1c8bad5446e00b6619d3d inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03353fdea45aa002356a2659684e7e7 inherit pro_attribs_classast_1_1ODEIntegrator" id="r_ad03353fdea45aa002356a2659684e7e7"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1ODEEventDetectorList.html">ODEEventDetectorList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>eventDetectorList_</b></td></tr>
+<tr class="memdesc:ad03353fdea45aa002356a2659684e7e7 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">事件检测器列表 <br /></td></tr>
+<tr class="separator:ad03353fdea45aa002356a2659684e7e7 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ad6921c60e21109ea2c2b3da302727 inherit pro_attribs_classast_1_1ODEIntegrator" id="r_ad0ad6921c60e21109ea2c2b3da302727"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1ODEStateObserverList.html">ODEStateObserverList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stateObserverList_</b></td></tr>
+<tr class="memdesc:ad0ad6921c60e21109ea2c2b3da302727 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">状态观察者列表 <br /></td></tr>
+<tr class="separator:ad0ad6921c60e21109ea2c2b3da302727 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e2e3ede74c260accbc0e365628d5a9 inherit pro_attribs_classast_1_1ODEIntegrator" id="r_a09e2e3ede74c260accbc0e365628d5a9"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1ODEInnerStateObserver.html">ODEInnerStateObserver</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>innerStateObserver_</b> {nullptr}</td></tr>
+<tr class="memdesc:a09e2e3ede74c260accbc0e365628d5a9 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部状态观察者 <br /></td></tr>
+<tr class="separator:a09e2e3ede74c260accbc0e365628d5a9 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04d4e6c7ccae641b9fe451172db95cf inherit pro_attribs_classast_1_1ODEIntegrator" id="r_af04d4e6c7ccae641b9fe451172db95cf"><td class="memItemLeft" align="right" valign="top">
+double *&#160;</td><td class="memItemRight" valign="bottom"><b>stateAtStepStart_</b> {nullptr}</td></tr>
+<tr class="memdesc:af04d4e6c7ccae641b9fe451172db95cf inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前积分步的开始状态 <br /></td></tr>
+<tr class="separator:af04d4e6c7ccae641b9fe451172db95cf inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8aa3b72948417a3194f74c81d9a435 inherit pro_attribs_classast_1_1ODEIntegrator" id="r_abf8aa3b72948417a3194f74c81d9a435"><td class="memItemLeft" align="right" valign="top">
+double *&#160;</td><td class="memItemRight" valign="bottom"><b>stateAtStepEnd_</b> {nullptr}</td></tr>
+<tr class="memdesc:abf8aa3b72948417a3194f74c81d9a435 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前积分步的结束状态 <br /></td></tr>
+<tr class="separator:abf8aa3b72948417a3194f74c81d9a435 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6e493465ff105019f6de8d20e7cd48 inherit pro_attribs_classast_1_1ODEIntegrator" id="r_a1c6e493465ff105019f6de8d20e7cd48"><td class="memItemLeft" align="right" valign="top">
+double *&#160;</td><td class="memItemRight" valign="bottom"><b>stateTemp_</b> {nullptr}</td></tr>
+<tr class="memdesc:a1c6e493465ff105019f6de8d20e7cd48 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">临时状态向量 <br /></td></tr>
+<tr class="separator:a1c6e493465ff105019f6de8d20e7cd48 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe3877c929f41a3fe25b35cf63251649 inherit pro_attribs_classast_1_1ODEIntegrator" id="r_abe3877c929f41a3fe25b35cf63251649"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>timeAtStepStart_</b> {0.0}</td></tr>
+<tr class="memdesc:abe3877c929f41a3fe25b35cf63251649 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前积分步的开始时间 <br  />
+ <br /></td></tr>
+<tr class="separator:abe3877c929f41a3fe25b35cf63251649 inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600bb9f0d8738d71547a26661086394b inherit pro_attribs_classast_1_1ODEIntegrator" id="r_a600bb9f0d8738d71547a26661086394b"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>timeAtStepEnd_</b> {0.0}</td></tr>
+<tr class="memdesc:a600bb9f0d8738d71547a26661086394b inherit pro_attribs_classast_1_1ODEIntegrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前积分步的结束时间 <br /></td></tr>
+<tr class="separator:a600bb9f0d8738d71547a26661086394b inherit pro_attribs_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Runge-Kutta Cash-Karp 方法 </p>
+<p><br  />
+ 参考文献：A <a class="el" href="classast_1_1Variable.html" title="变量">Variable</a> Order Runge-Kutta Method for Initial <a class="el" href="classast_1_1Value.html" title="值对象基类">Value</a> Problems with Rapidly Varying Right-Hand Sides </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a3aa5c4249adcb74a9da1f92ea077a731" name="a3aa5c4249adcb74a9da1f92ea077a731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aa5c4249adcb74a9da1f92ea077a731">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::RKCK::initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>初始化积分器 </p>
+<p>初始化积分器，设置ODE的维度和步长等参数 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ODEIntegrator.html#a2fae675ff43ae7112be95100a0c9d9e2">ast::ODEIntegrator</a> .</p>
+
+</div>
+</div>
+<a id="aaeb3be4e3dc4e36b85fb9632ecd4ec6b" name="aaeb3be4e3dc4e36b85fb9632ecd4ec6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb3be4e3dc4e36b85fb9632ecd4ec6b">&#9670;&#160;</a></span>singleStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::RKCK::singleStep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行一步积分 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">t0</td><td>当前时间 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">step</td><td>时间步长 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="classast_1_1IODEIntegrator.html#a34f80d9d607ccf7cadb28f2350e70727">ast::IODEIntegrator</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstMath/ODE/Impl/<a class="el" href="RKCK_8hpp_source.html">RKCK.hpp</a></li>
+<li>src/AstMath/ODE/Impl/<a class="el" href="RKCK_8cpp.html">RKCK.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1RKCK.html">RKCK</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

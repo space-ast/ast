@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::Parser类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Parser.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classast_1_1Parser-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Parser类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>脚本语法解析器  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Parser_8hpp_source.html">Parser.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a4e25a18229c68e87b309d61a1b1bf75f" id="r_a4e25a18229c68e87b309d61a1b1bf75f"><td class="memItemLeft" align="right" valign="top"><a id="a4e25a18229c68e87b309d61a1b1bf75f" name="a4e25a18229c68e87b309d61a1b1bf75f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Parser</b> (<a class="el" href="classast_1_1Lexer.html">Lexer</a> &amp;lexer)</td></tr>
+<tr class="separator:a4e25a18229c68e87b309d61a1b1bf75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d0cc741db76c6803aed27fe49cebb2" id="r_ad9d0cc741db76c6803aed27fe49cebb2"><td class="memItemLeft" align="right" valign="top"><a id="ad9d0cc741db76c6803aed27fe49cebb2" name="ad9d0cc741db76c6803aed27fe49cebb2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentTokenType</b> () const</td></tr>
+<tr class="memdesc:ad9d0cc741db76c6803aed27fe49cebb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前令牌类型 <br /></td></tr>
+<tr class="separator:ad9d0cc741db76c6803aed27fe49cebb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca390ef2b07e1e5fe0169687034dfc0" id="r_aeca390ef2b07e1e5fe0169687034dfc0"><td class="memItemLeft" align="right" valign="top"><a id="aeca390ef2b07e1e5fe0169687034dfc0" name="aeca390ef2b07e1e5fe0169687034dfc0"></a>
+<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><b>currentLexeme</b> () const</td></tr>
+<tr class="memdesc:aeca390ef2b07e1e5fe0169687034dfc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前令牌的字符串视图 <br /></td></tr>
+<tr class="separator:aeca390ef2b07e1e5fe0169687034dfc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0334cd1edd397cc248c4a5066fa035f6" id="r_a0334cd1edd397cc248c4a5066fa035f6"><td class="memItemLeft" align="right" valign="top"><a id="a0334cd1edd397cc248c4a5066fa035f6" name="a0334cd1edd397cc248c4a5066fa035f6"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getLine</b> () const</td></tr>
+<tr class="memdesc:a0334cd1edd397cc248c4a5066fa035f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前行号 <br /></td></tr>
+<tr class="separator:a0334cd1edd397cc248c4a5066fa035f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a882faed09332572fec00bae63398a7ac" id="r_a882faed09332572fec00bae63398a7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a882faed09332572fec00bae63398a7ac">advance</a> ()</td></tr>
+<tr class="memdesc:a882faed09332572fec00bae63398a7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">前进到下一个令牌  <br /></td></tr>
+<tr class="separator:a882faed09332572fec00bae63398a7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44fef303ad78d081b03399e8c524a1b9" id="r_a44fef303ad78d081b03399e8c524a1b9"><td class="memItemLeft" align="right" valign="top"><a id="a44fef303ad78d081b03399e8c524a1b9" name="a44fef303ad78d081b03399e8c524a1b9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>match</b> (int type)</td></tr>
+<tr class="memdesc:a44fef303ad78d081b03399e8c524a1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">匹配指定类型的令牌 <br /></td></tr>
+<tr class="separator:a44fef303ad78d081b03399e8c524a1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb04cba4f018a85cbaeb6b8ba7a5a8b" id="r_a7eb04cba4f018a85cbaeb6b8ba7a5a8b"><td class="memItemLeft" align="right" valign="top"><a id="a7eb04cba4f018a85cbaeb6b8ba7a5a8b" name="a7eb04cba4f018a85cbaeb6b8ba7a5a8b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> (int type) const</td></tr>
+<tr class="memdesc:a7eb04cba4f018a85cbaeb6b8ba7a5a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前令牌是否为指定类型 <br /></td></tr>
+<tr class="separator:a7eb04cba4f018a85cbaeb6b8ba7a5a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85fd91aa6988377165c3dfaa249cd27c" id="r_a85fd91aa6988377165c3dfaa249cd27c"><td class="memItemLeft" align="right" valign="top"><a id="a85fd91aa6988377165c3dfaa249cd27c" name="a85fd91aa6988377165c3dfaa249cd27c"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseExpression</b> ()</td></tr>
+<tr class="memdesc:a85fd91aa6988377165c3dfaa249cd27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析表达式 <br /></td></tr>
+<tr class="separator:a85fd91aa6988377165c3dfaa249cd27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43465ed09cd9236d43fd7c29c78aadaf" id="r_a43465ed09cd9236d43fd7c29c78aadaf"><td class="memItemLeft" align="right" valign="top"><a id="a43465ed09cd9236d43fd7c29c78aadaf" name="a43465ed09cd9236d43fd7c29c78aadaf"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseStatements</b> ()</td></tr>
+<tr class="memdesc:a43465ed09cd9236d43fd7c29c78aadaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析语句序列（多个表达式，用分号或换行分隔） <br /></td></tr>
+<tr class="separator:a43465ed09cd9236d43fd7c29c78aadaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0525d728c6948442fc8285914f67dd8" id="r_ad0525d728c6948442fc8285914f67dd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0525d728c6948442fc8285914f67dd8">parseAssignExpr</a> ()</td></tr>
+<tr class="memdesc:ad0525d728c6948442fc8285914f67dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析赋值表达式  <br /></td></tr>
+<tr class="separator:ad0525d728c6948442fc8285914f67dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c13696e98746491f67dccc4c313428" id="r_a63c13696e98746491f67dccc4c313428"><td class="memItemLeft" align="right" valign="top"><a id="a63c13696e98746491f67dccc4c313428" name="a63c13696e98746491f67dccc4c313428"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseConditionalExpr</b> ()</td></tr>
+<tr class="memdesc:a63c13696e98746491f67dccc4c313428"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析条件表达式 <br /></td></tr>
+<tr class="separator:a63c13696e98746491f67dccc4c313428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48e7604f1bf538d0c49a13df44a2e77c" id="r_a48e7604f1bf538d0c49a13df44a2e77c"><td class="memItemLeft" align="right" valign="top"><a id="a48e7604f1bf538d0c49a13df44a2e77c" name="a48e7604f1bf538d0c49a13df44a2e77c"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseLogicalOrExpr</b> ()</td></tr>
+<tr class="memdesc:a48e7604f1bf538d0c49a13df44a2e77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析逻辑或表达式 <br /></td></tr>
+<tr class="separator:a48e7604f1bf538d0c49a13df44a2e77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ca9da58056485b67c88d2d1fd534f2d" id="r_a8ca9da58056485b67c88d2d1fd534f2d"><td class="memItemLeft" align="right" valign="top"><a id="a8ca9da58056485b67c88d2d1fd534f2d" name="a8ca9da58056485b67c88d2d1fd534f2d"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseLogicalAndExpr</b> ()</td></tr>
+<tr class="memdesc:a8ca9da58056485b67c88d2d1fd534f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析逻辑与表达式 <br /></td></tr>
+<tr class="separator:a8ca9da58056485b67c88d2d1fd534f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c806038eb44d835d9e3c07bdbe29b93" id="r_a9c806038eb44d835d9e3c07bdbe29b93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c806038eb44d835d9e3c07bdbe29b93">parseBitwiseOrExpr</a> ()</td></tr>
+<tr class="memdesc:a9c806038eb44d835d9e3c07bdbe29b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析按位或表达式  <br /></td></tr>
+<tr class="separator:a9c806038eb44d835d9e3c07bdbe29b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae2efaf547a20c761b5461587af1071" id="r_aaae2efaf547a20c761b5461587af1071"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaae2efaf547a20c761b5461587af1071">parseBitwiseXorExpr</a> ()</td></tr>
+<tr class="memdesc:aaae2efaf547a20c761b5461587af1071"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析按位异或表达式  <br /></td></tr>
+<tr class="separator:aaae2efaf547a20c761b5461587af1071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd848d00ff2306e7b69847bbfd9b2f0" id="r_accd848d00ff2306e7b69847bbfd9b2f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accd848d00ff2306e7b69847bbfd9b2f0">parseBitwiseAndExpr</a> ()</td></tr>
+<tr class="memdesc:accd848d00ff2306e7b69847bbfd9b2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析按位与表达式  <br /></td></tr>
+<tr class="separator:accd848d00ff2306e7b69847bbfd9b2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c74b99e652b84d6cd2fb3e864b7bca9" id="r_a9c74b99e652b84d6cd2fb3e864b7bca9"><td class="memItemLeft" align="right" valign="top"><a id="a9c74b99e652b84d6cd2fb3e864b7bca9" name="a9c74b99e652b84d6cd2fb3e864b7bca9"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseEqualityExpr</b> ()</td></tr>
+<tr class="memdesc:a9c74b99e652b84d6cd2fb3e864b7bca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析相等性表达式 <br /></td></tr>
+<tr class="separator:a9c74b99e652b84d6cd2fb3e864b7bca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5ab9485b104c88e2fd7fc610eb4e25" id="r_afb5ab9485b104c88e2fd7fc610eb4e25"><td class="memItemLeft" align="right" valign="top"><a id="afb5ab9485b104c88e2fd7fc610eb4e25" name="afb5ab9485b104c88e2fd7fc610eb4e25"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseRelationalExpr</b> ()</td></tr>
+<tr class="memdesc:afb5ab9485b104c88e2fd7fc610eb4e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析关系表达式 <br /></td></tr>
+<tr class="separator:afb5ab9485b104c88e2fd7fc610eb4e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d0f86ee820658d52486b31e4d94216" id="r_a62d0f86ee820658d52486b31e4d94216"><td class="memItemLeft" align="right" valign="top"><a id="a62d0f86ee820658d52486b31e4d94216" name="a62d0f86ee820658d52486b31e4d94216"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseRangeExpr</b> ()</td></tr>
+<tr class="memdesc:a62d0f86ee820658d52486b31e4d94216"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析范围表达式（如 1:10, 1:2:10） <br /></td></tr>
+<tr class="separator:a62d0f86ee820658d52486b31e4d94216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9461626bff94ebaecd758be539dc6577" id="r_a9461626bff94ebaecd758be539dc6577"><td class="memItemLeft" align="right" valign="top"><a id="a9461626bff94ebaecd758be539dc6577" name="a9461626bff94ebaecd758be539dc6577"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseRangeExprFrom</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> *startExpr)</td></tr>
+<tr class="memdesc:a9461626bff94ebaecd758be539dc6577"><td class="mdescLeft">&#160;</td><td class="mdescRight">从给定的起始表达式解析范围表达式 <br /></td></tr>
+<tr class="separator:a9461626bff94ebaecd758be539dc6577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67b297c2adf0ae5ac91111743e0c1f1" id="r_aa67b297c2adf0ae5ac91111743e0c1f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa67b297c2adf0ae5ac91111743e0c1f1">parseShiftExpr</a> ()</td></tr>
+<tr class="memdesc:aa67b297c2adf0ae5ac91111743e0c1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析位移表达式  <br /></td></tr>
+<tr class="separator:aa67b297c2adf0ae5ac91111743e0c1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d94e312cde8d88fa8786cc34261e67" id="r_a84d94e312cde8d88fa8786cc34261e67"><td class="memItemLeft" align="right" valign="top"><a id="a84d94e312cde8d88fa8786cc34261e67" name="a84d94e312cde8d88fa8786cc34261e67"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseAdditiveExpr</b> ()</td></tr>
+<tr class="memdesc:a84d94e312cde8d88fa8786cc34261e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析加法表达式 <br /></td></tr>
+<tr class="separator:a84d94e312cde8d88fa8786cc34261e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5f91fb6a492f7e1af6a82751a92cce" id="r_aee5f91fb6a492f7e1af6a82751a92cce"><td class="memItemLeft" align="right" valign="top"><a id="aee5f91fb6a492f7e1af6a82751a92cce" name="aee5f91fb6a492f7e1af6a82751a92cce"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseMultiplicativeExpr</b> ()</td></tr>
+<tr class="memdesc:aee5f91fb6a492f7e1af6a82751a92cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析乘法表达式 <br /></td></tr>
+<tr class="separator:aee5f91fb6a492f7e1af6a82751a92cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaa76c403271ea5cdbe6defe281db1dc" id="r_abaa76c403271ea5cdbe6defe281db1dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abaa76c403271ea5cdbe6defe281db1dc">parseExponentiationExpr</a> ()</td></tr>
+<tr class="memdesc:abaa76c403271ea5cdbe6defe281db1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析幂指数表达式  <br /></td></tr>
+<tr class="separator:abaa76c403271ea5cdbe6defe281db1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5be1ff3ccbe7782e233f545240efb878" id="r_a5be1ff3ccbe7782e233f545240efb878"><td class="memItemLeft" align="right" valign="top"><a id="a5be1ff3ccbe7782e233f545240efb878" name="a5be1ff3ccbe7782e233f545240efb878"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseUnaryExpr</b> ()</td></tr>
+<tr class="memdesc:a5be1ff3ccbe7782e233f545240efb878"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析一元表达式 <br /></td></tr>
+<tr class="separator:a5be1ff3ccbe7782e233f545240efb878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d495a28fb786d9e5527c53f8d1d65d" id="r_a37d495a28fb786d9e5527c53f8d1d65d"><td class="memItemLeft" align="right" valign="top"><a id="a37d495a28fb786d9e5527c53f8d1d65d" name="a37d495a28fb786d9e5527c53f8d1d65d"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseBeginEndBlock</b> ()</td></tr>
+<tr class="memdesc:a37d495a28fb786d9e5527c53f8d1d65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析带begin/end的代码块 <br /></td></tr>
+<tr class="separator:a37d495a28fb786d9e5527c53f8d1d65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b1b1320ff9f4de1fde3657469722bf" id="r_a51b1b1320ff9f4de1fde3657469722bf"><td class="memItemLeft" align="right" valign="top"><a id="a51b1b1320ff9f4de1fde3657469722bf" name="a51b1b1320ff9f4de1fde3657469722bf"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseStatementSequence</b> ()</td></tr>
+<tr class="memdesc:a51b1b1320ff9f4de1fde3657469722bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析语句序列（多个表达式，用分号或换行分隔） <br /></td></tr>
+<tr class="separator:a51b1b1320ff9f4de1fde3657469722bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae615ac7cb29e0f377e0d9c860b1d4e2a" id="r_ae615ac7cb29e0f377e0d9c860b1d4e2a"><td class="memItemLeft" align="right" valign="top"><a id="ae615ac7cb29e0f377e0d9c860b1d4e2a" name="ae615ac7cb29e0f377e0d9c860b1d4e2a"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseBlockExpr</b> ()</td></tr>
+<tr class="memdesc:ae615ac7cb29e0f377e0d9c860b1d4e2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析代码块表达式 <br /></td></tr>
+<tr class="separator:ae615ac7cb29e0f377e0d9c860b1d4e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63df3f5b186f7631df0c1463fa66cd47" id="r_a63df3f5b186f7631df0c1463fa66cd47"><td class="memItemLeft" align="right" valign="top"><a id="a63df3f5b186f7631df0c1463fa66cd47" name="a63df3f5b186f7631df0c1463fa66cd47"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parsePrimaryExpr</b> ()</td></tr>
+<tr class="memdesc:a63df3f5b186f7631df0c1463fa66cd47"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析基本表达式 <br /></td></tr>
+<tr class="separator:a63df3f5b186f7631df0c1463fa66cd47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c84b1b2f1d91c2077d828290ba6d231" id="r_a2c84b1b2f1d91c2077d828290ba6d231"><td class="memItemLeft" align="right" valign="top"><a id="a2c84b1b2f1d91c2077d828290ba6d231" name="a2c84b1b2f1d91c2077d828290ba6d231"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseIfStatement</b> ()</td></tr>
+<tr class="memdesc:a2c84b1b2f1d91c2077d828290ba6d231"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析if条件语句 <br /></td></tr>
+<tr class="separator:a2c84b1b2f1d91c2077d828290ba6d231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8790003bc3c161664b55f6e253f705c" id="r_ae8790003bc3c161664b55f6e253f705c"><td class="memItemLeft" align="right" valign="top"><a id="ae8790003bc3c161664b55f6e253f705c" name="ae8790003bc3c161664b55f6e253f705c"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseWhileLoop</b> ()</td></tr>
+<tr class="memdesc:ae8790003bc3c161664b55f6e253f705c"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析while循环语句 <br /></td></tr>
+<tr class="separator:ae8790003bc3c161664b55f6e253f705c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8bd683143154f3d29580959f05c4995" id="r_ab8bd683143154f3d29580959f05c4995"><td class="memItemLeft" align="right" valign="top"><a id="ab8bd683143154f3d29580959f05c4995" name="ab8bd683143154f3d29580959f05c4995"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parseForRangeLoop</b> ()</td></tr>
+<tr class="memdesc:ab8bd683143154f3d29580959f05c4995"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析for循环语句（范围风格） <br /></td></tr>
+<tr class="separator:ab8bd683143154f3d29580959f05c4995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812282c66d6c69c5a442a83ae3ae0a10" id="r_a812282c66d6c69c5a442a83ae3ae0a10"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a812282c66d6c69c5a442a83ae3ae0a10">canStartExpression</a> () const</td></tr>
+<tr class="memdesc:a812282c66d6c69c5a442a83ae3ae0a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前令牌是否可以作为表达式的开始  <br /></td></tr>
+<tr class="separator:a812282c66d6c69c5a442a83ae3ae0a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:ad4021c895b289798f0ce32fcfb37919e" id="r_ad4021c895b289798f0ce32fcfb37919e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4021c895b289798f0ce32fcfb37919e">parseExpr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
+<tr class="memdesc:ad4021c895b289798f0ce32fcfb37919e"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析表达式  <br /></td></tr>
+<tr class="separator:ad4021c895b289798f0ce32fcfb37919e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>脚本语法解析器 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a882faed09332572fec00bae63398a7ac" name="a882faed09332572fec00bae63398a7ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a882faed09332572fec00bae63398a7ac">&#9670;&#160;</a></span>advance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Parser::advance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>前进到下一个令牌 </p>
+<p>获取当前行号</p>
+<p>前进到下一个令牌 </p>
+
+</div>
+</div>
+<a id="a812282c66d6c69c5a442a83ae3ae0a10" name="a812282c66d6c69c5a442a83ae3ae0a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a812282c66d6c69c5a442a83ae3ae0a10">&#9670;&#160;</a></span>canStartExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Parser::canStartExpression </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查当前令牌是否可以作为表达式的开始 </p>
+<dl class="section return"><dt>返回</dt><dd>true 如果当前令牌可以作为表达式的开始 </dd></dl>
+
+</div>
+</div>
+<a id="ad0525d728c6948442fc8285914f67dd8" name="ad0525d728c6948442fc8285914f67dd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0525d728c6948442fc8285914f67dd8">&#9670;&#160;</a></span>parseAssignExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseAssignExpr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析赋值表达式 </p>
+<p>解析语句序列（多个表达式，用分号或换行分隔）</p>
+<p>解析赋值表达式 </p>
+
+</div>
+</div>
+<a id="accd848d00ff2306e7b69847bbfd9b2f0" name="accd848d00ff2306e7b69847bbfd9b2f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd848d00ff2306e7b69847bbfd9b2f0">&#9670;&#160;</a></span>parseBitwiseAndExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseBitwiseAndExpr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析按位与表达式 </p>
+<p>解析位与表达式 </p>
+
+</div>
+</div>
+<a id="a9c806038eb44d835d9e3c07bdbe29b93" name="a9c806038eb44d835d9e3c07bdbe29b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c806038eb44d835d9e3c07bdbe29b93">&#9670;&#160;</a></span>parseBitwiseOrExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseBitwiseOrExpr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析按位或表达式 </p>
+<p>解析位或表达式 </p>
+
+</div>
+</div>
+<a id="aaae2efaf547a20c761b5461587af1071" name="aaae2efaf547a20c761b5461587af1071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae2efaf547a20c761b5461587af1071">&#9670;&#160;</a></span>parseBitwiseXorExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseBitwiseXorExpr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析按位异或表达式 </p>
+<p>解析位异或表达式 </p>
+
+</div>
+</div>
+<a id="abaa76c403271ea5cdbe6defe281db1dc" name="abaa76c403271ea5cdbe6defe281db1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaa76c403271ea5cdbe6defe281db1dc">&#9670;&#160;</a></span>parseExponentiationExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseExponentiationExpr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析幂指数表达式 </p>
+<p>解析幂指数表达式（右结合） </p>
+
+</div>
+</div>
+<a id="ad4021c895b289798f0ce32fcfb37919e" name="ad4021c895b289798f0ce32fcfb37919e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4021c895b289798f0ce32fcfb37919e">&#9670;&#160;</a></span>parseExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseExpr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>script</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析表达式 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">script</td><td>脚本文本 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Expr* 解析得到的表达式对象，解析失败返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aa67b297c2adf0ae5ac91111743e0c1f1" name="aa67b297c2adf0ae5ac91111743e0c1f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67b297c2adf0ae5ac91111743e0c1f1">&#9670;&#160;</a></span>parseShiftExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Parser::parseShiftExpr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析位移表达式 </p>
+<p>解析移位表达式 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstScript/Parser/<a class="el" href="Parser_8hpp_source.html">Parser.hpp</a></li>
+<li>src/AstScript/Parser/<a class="el" href="Parser_8cpp.html">Parser.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Parser.html">Parser</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

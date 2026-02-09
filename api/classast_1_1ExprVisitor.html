@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::ExprVisitor类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1ExprVisitor.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1ExprVisitor-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::ExprVisitor类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>表达式访问器  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ExprVisitor_8hpp_source.html">ExprVisitor.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a4ff073232d6e693cecdaaa9a3916e7e9" id="r_a4ff073232d6e693cecdaaa9a3916e7e9"><td class="memItemLeft" align="right" valign="top"><a id="a4ff073232d6e693cecdaaa9a3916e7e9" name="a4ff073232d6e693cecdaaa9a3916e7e9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Symbol.html">Symbol</a> &amp;symbol)=0</td></tr>
+<tr class="separator:a4ff073232d6e693cecdaaa9a3916e7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7458e961b0ff41480e7d06a2d3a505" id="r_a2e7458e961b0ff41480e7d06a2d3a505"><td class="memItemLeft" align="right" valign="top"><a id="a2e7458e961b0ff41480e7d06a2d3a505" name="a2e7458e961b0ff41480e7d06a2d3a505"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Variable.html">Variable</a> &amp;var)=0</td></tr>
+<tr class="separator:a2e7458e961b0ff41480e7d06a2d3a505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05dec22c6cb0e915957f53de286abeb9" id="r_a05dec22c6cb0e915957f53de286abeb9"><td class="memItemLeft" align="right" valign="top"><a id="a05dec22c6cb0e915957f53de286abeb9" name="a05dec22c6cb0e915957f53de286abeb9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValNull.html">ValNull</a> &amp;val)=0</td></tr>
+<tr class="separator:a05dec22c6cb0e915957f53de286abeb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecab16ac3cb0a606a6a52ddbb1a4676f" id="r_aecab16ac3cb0a606a6a52ddbb1a4676f"><td class="memItemLeft" align="right" valign="top"><a id="aecab16ac3cb0a606a6a52ddbb1a4676f" name="aecab16ac3cb0a606a6a52ddbb1a4676f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValInt.html">ValInt</a> &amp;val)=0</td></tr>
+<tr class="separator:aecab16ac3cb0a606a6a52ddbb1a4676f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e723678513ea930b16e3de7cda53a29" id="r_a2e723678513ea930b16e3de7cda53a29"><td class="memItemLeft" align="right" valign="top"><a id="a2e723678513ea930b16e3de7cda53a29" name="a2e723678513ea930b16e3de7cda53a29"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValDouble.html">ValDouble</a> &amp;val)=0</td></tr>
+<tr class="separator:a2e723678513ea930b16e3de7cda53a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd9aec53f7aeaaebeb87080e40996fa" id="r_a6fd9aec53f7aeaaebeb87080e40996fa"><td class="memItemLeft" align="right" valign="top"><a id="a6fd9aec53f7aeaaebeb87080e40996fa" name="a6fd9aec53f7aeaaebeb87080e40996fa"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValString.html">ValString</a> &amp;val)=0</td></tr>
+<tr class="separator:a6fd9aec53f7aeaaebeb87080e40996fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae881668142861570f2b24ec1f7643029" id="r_ae881668142861570f2b24ec1f7643029"><td class="memItemLeft" align="right" valign="top"><a id="ae881668142861570f2b24ec1f7643029" name="ae881668142861570f2b24ec1f7643029"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValBool.html">ValBool</a> &amp;val)=0</td></tr>
+<tr class="separator:ae881668142861570f2b24ec1f7643029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21915ad93c2df02d87aeaf905d430620" id="r_a21915ad93c2df02d87aeaf905d430620"><td class="memItemLeft" align="right" valign="top"><a id="a21915ad93c2df02d87aeaf905d430620" name="a21915ad93c2df02d87aeaf905d430620"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValQuantity.html">ValQuantity</a> &amp;val)=0</td></tr>
+<tr class="separator:a21915ad93c2df02d87aeaf905d430620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5a781bc114bb221654831baa15763ad" id="r_ab5a781bc114bb221654831baa15763ad"><td class="memItemLeft" align="right" valign="top"><a id="ab5a781bc114bb221654831baa15763ad" name="ab5a781bc114bb221654831baa15763ad"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValRange.html">ValRange</a> &amp;val)=0</td></tr>
+<tr class="separator:ab5a781bc114bb221654831baa15763ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4760012c8848be3e3094af725e3f7250" id="r_a4760012c8848be3e3094af725e3f7250"><td class="memItemLeft" align="right" valign="top"><a id="a4760012c8848be3e3094af725e3f7250" name="a4760012c8848be3e3094af725e3f7250"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1OpAssign.html">OpAssign</a> &amp;op)=0</td></tr>
+<tr class="separator:a4760012c8848be3e3094af725e3f7250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cbeafa88338657884c8ceab65bd17e2" id="r_a0cbeafa88338657884c8ceab65bd17e2"><td class="memItemLeft" align="right" valign="top"><a id="a0cbeafa88338657884c8ceab65bd17e2" name="a0cbeafa88338657884c8ceab65bd17e2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1OpBin.html">OpBin</a> &amp;op)=0</td></tr>
+<tr class="separator:a0cbeafa88338657884c8ceab65bd17e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39a9528a9438943bb344628dcc6d69f" id="r_ac39a9528a9438943bb344628dcc6d69f"><td class="memItemLeft" align="right" valign="top"><a id="ac39a9528a9438943bb344628dcc6d69f" name="ac39a9528a9438943bb344628dcc6d69f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1OpUnary.html">OpUnary</a> &amp;op)=0</td></tr>
+<tr class="separator:ac39a9528a9438943bb344628dcc6d69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac738bc176d876df6cd1f7083114e678d" id="r_ac738bc176d876df6cd1f7083114e678d"><td class="memItemLeft" align="right" valign="top"><a id="ac738bc176d876df6cd1f7083114e678d" name="ac738bc176d876df6cd1f7083114e678d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Function.html">Function</a> &amp;func)=0</td></tr>
+<tr class="separator:ac738bc176d876df6cd1f7083114e678d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a46f860059cb54eaab873971ea4836" id="r_a15a46f860059cb54eaab873971ea4836"><td class="memItemLeft" align="right" valign="top"><a id="a15a46f860059cb54eaab873971ea4836" name="a15a46f860059cb54eaab873971ea4836"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Macro.html">Macro</a> &amp;macro)=0</td></tr>
+<tr class="separator:a15a46f860059cb54eaab873971ea4836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b2505eba7af2b6485d21e4002b9416" id="r_ab3b2505eba7af2b6485d21e4002b9416"><td class="memItemLeft" align="right" valign="top"><a id="ab3b2505eba7af2b6485d21e4002b9416" name="ab3b2505eba7af2b6485d21e4002b9416"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprBlock.html">ExprBlock</a> &amp;block)=0</td></tr>
+<tr class="separator:ab3b2505eba7af2b6485d21e4002b9416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38d2b21570486720c23176378ea311f5" id="r_a38d2b21570486720c23176378ea311f5"><td class="memItemLeft" align="right" valign="top"><a id="a38d2b21570486720c23176378ea311f5" name="a38d2b21570486720c23176378ea311f5"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprCondition.html">ExprCondition</a> &amp;expr)=0</td></tr>
+<tr class="separator:a38d2b21570486720c23176378ea311f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14eb6a77c0574cadd93e6b36efc8ad33" id="r_a14eb6a77c0574cadd93e6b36efc8ad33"><td class="memItemLeft" align="right" valign="top"><a id="a14eb6a77c0574cadd93e6b36efc8ad33" name="a14eb6a77c0574cadd93e6b36efc8ad33"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprIf.html">ExprIf</a> &amp;expr)=0</td></tr>
+<tr class="separator:a14eb6a77c0574cadd93e6b36efc8ad33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eb355c4541b2b9413e3f6448d235a25" id="r_a3eb355c4541b2b9413e3f6448d235a25"><td class="memItemLeft" align="right" valign="top"><a id="a3eb355c4541b2b9413e3f6448d235a25" name="a3eb355c4541b2b9413e3f6448d235a25"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprWhile.html">ExprWhile</a> &amp;expr)=0</td></tr>
+<tr class="separator:a3eb355c4541b2b9413e3f6448d235a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e2f4e99f24d6c7d643617702f1279b" id="r_a35e2f4e99f24d6c7d643617702f1279b"><td class="memItemLeft" align="right" valign="top"><a id="a35e2f4e99f24d6c7d643617702f1279b" name="a35e2f4e99f24d6c7d643617702f1279b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprForRange.html">ExprForRange</a> &amp;expr)=0</td></tr>
+<tr class="separator:a35e2f4e99f24d6c7d643617702f1279b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e77a13e53bbf85b25ea0f8405b976a" id="r_a35e77a13e53bbf85b25ea0f8405b976a"><td class="memItemLeft" align="right" valign="top"><a id="a35e77a13e53bbf85b25ea0f8405b976a" name="a35e77a13e53bbf85b25ea0f8405b976a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprRange.html">ExprRange</a> &amp;expr)=0</td></tr>
+<tr class="separator:a35e77a13e53bbf85b25ea0f8405b976a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611a2669f78176311c07d992c0b0029c" id="r_a611a2669f78176311c07d992c0b0029c"><td class="memItemLeft" align="right" valign="top"><a id="a611a2669f78176311c07d992c0b0029c" name="a611a2669f78176311c07d992c0b0029c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprVector.html">ExprVector</a> &amp;expr)=0</td></tr>
+<tr class="separator:a611a2669f78176311c07d992c0b0029c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591291181141a4a012e5383f42b9ecdd" id="r_a591291181141a4a012e5383f42b9ecdd"><td class="memItemLeft" align="right" valign="top"><a id="a591291181141a4a012e5383f42b9ecdd" name="a591291181141a4a012e5383f42b9ecdd"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprCatHorizontal.html">ExprCatHorizontal</a> &amp;expr)=0</td></tr>
+<tr class="separator:a591291181141a4a012e5383f42b9ecdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a718a684fe440e012e93fd9fc7ab56cd0" id="r_a718a684fe440e012e93fd9fc7ab56cd0"><td class="memItemLeft" align="right" valign="top"><a id="a718a684fe440e012e93fd9fc7ab56cd0" name="a718a684fe440e012e93fd9fc7ab56cd0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprCatVertical.html">ExprCatVertical</a> &amp;expr)=0</td></tr>
+<tr class="separator:a718a684fe440e012e93fd9fc7ab56cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a863e8ab9b147e26b5c5edb7e7b0502a2" id="r_a863e8ab9b147e26b5c5edb7e7b0502a2"><td class="memItemLeft" align="right" valign="top"><a id="a863e8ab9b147e26b5c5edb7e7b0502a2" name="a863e8ab9b147e26b5c5edb7e7b0502a2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprCall.html">ExprCall</a> &amp;expr)=0</td></tr>
+<tr class="separator:a863e8ab9b147e26b5c5edb7e7b0502a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d8d06943611e1bf57c20d35d7582ae" id="r_af7d8d06943611e1bf57c20d35d7582ae"><td class="memItemLeft" align="right" valign="top"><a id="af7d8d06943611e1bf57c20d35d7582ae" name="af7d8d06943611e1bf57c20d35d7582ae"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprMacroExpand.html">ExprMacroExpand</a> &amp;expr)=0</td></tr>
+<tr class="separator:af7d8d06943611e1bf57c20d35d7582ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>表达式访问器 </p>
+<p>用于遍历表达式树的访问器。 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstScript/Basic/<a class="el" href="ExprVisitor_8hpp_source.html">ExprVisitor.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1ExprVisitor.html">ExprVisitor</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

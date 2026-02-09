@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Data/JplDe.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('JplDe_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">JplDe.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="JplDe_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/RunTime.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>      <span class="comment">// for uint32_t</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;cstdio&gt;</span>       <span class="comment">// for FILE</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;mutex&gt;</span>         <span class="comment">// for std::mutex</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html">   33</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1JplDe.html">JplDe</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1">   36</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a5b718cbd50c2e55793e2c5b113d8b68c">   38</a></span>        eNotAvailable = -1,     </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a7e524614b26eeade3a67780516065e76">   39</a></span>        eMercury = 0,           </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a9b2c4a4c75f282829c792e0e2aae9615">   40</a></span>        eVenus = 1,             </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a900251e4d86fce33e43411970238aee8">   41</a></span>        eEarth = 2,             </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a24c7743a121b2d14a19015bee6e2ae60">   42</a></span>        eMars = 3,              </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1aec28773dd9c72ac1d7e853ba4e646d80">   43</a></span>        eJupiter = 4,           </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a6e5bbeeed31ce2a9b529f8c949e4891c">   44</a></span>        eSaturn = 5,            </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a51df310f478e81f62874c99b368bb5c6">   45</a></span>        eUranus = 6,            </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1ad6c07548416951d4d14d99a0dbaefc30">   46</a></span>        eNeptune = 7,           </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a7b7adfee6e9a119c416c297b192494f5">   47</a></span>        ePluto = 8,             </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1adca14ce1f4d3a01b112fbde98be6301a">   48</a></span>        eMoon = 9,              </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a2028c9fed07e32d803d7bbcb0aed4156">   49</a></span>        eSun = 10,              </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1ad61097daaaac19695685e86ad30d7976">   50</a></span>        eSSBarycenter = 11,     </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a9915ad10fcaf01987de3dcf8cbfe4512">   51</a></span>        eEMBaryCenter = 12,     </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    };</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1JplDe.html">JplDe</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1JplDe.html">~JplDe</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    err_t open(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    err_t openDefault();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">bool</span> isOpen() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> close();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    err_t getPosVelICRF(</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        EDataCode target,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        EDataCode referenceBody,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        Vector3d&amp; pos,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        Vector3d&amp; vel</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    );</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    err_t getPosVelICRF(</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        EDataCode target,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        EDataCode referenceBody,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        Vector3d&amp; pos,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        Vector3d* vel</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    );</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    err_t getPosICRF(</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        EDataCode target,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        EDataCode referenceBody,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        Vector3d&amp; pos</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    );</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classast_1_1JplDe.html#aa661732c4473bcd5033a26c96272b90d">  120</a></span>    err_t <a class="code hl_function" href="classast_1_1JplDe.html#aa661732c4473bcd5033a26c96272b90d">getPosICRF_TT</a>(</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a> jdTT,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_enumeration" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> target,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_enumeration" href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> referenceBody,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        Vector3d&amp; pos</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    );</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    err_t   getNutation(</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordtype">double</span>&amp; nutLong,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">double</span>&amp; nutObl</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    );</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    err_t       getLibration(</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time,</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        Vector3d&amp; ang,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        Vector3d&amp; angRate</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    );</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    err_t         readDataBlock(<span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    err_t         getStateTDB(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a>&amp; jdTDB, <span class="keywordtype">int</span> dataid, <span class="keywordtype">double</span> pos[], <span class="keywordtype">double</span> vel[]);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    err_t         getStateTDB(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a>&amp; jdTDB, <span class="keywordtype">int</span> datalist[11], <span class="keywordtype">double</span> statelist[11][6]);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    err_t         getState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time, <span class="keywordtype">int</span> dataid, <span class="keywordtype">double</span> pos[], <span class="keywordtype">double</span> vel[]);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    err_t         getState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time, <span class="keywordtype">int</span> datalist[11], <span class="keywordtype">double</span> statelist[11][6]);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">bool</span>        m_IsSameEndian;        <span class="comment">// 二进制文件与系统大小端是否一致</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    uint32_t    m_EphemVerion{ 0 };    <span class="comment">// De星历版本</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    uint32_t    m_NumConstants;        <span class="comment">// 文件的常量个数</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    uint32_t    m_NumDataBlock{0};     <span class="comment">// 星历总的数据块个数      </span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    uint32_t    m_NumCoeff;            <span class="comment">// 星历每个数据块的系数数量</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    uint32_t    m_ipt[15][3]{};        <span class="comment">// 数据指针[数据起始位置；每个坐标分量的数据量；子块个数：如4代表了32天要分为四块，每个子块包含了8天的数据]</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">double</span>      m_EphemStart{0};       <span class="comment">// 星历起始时间(JED)</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">double</span>      m_EphemEnd{0};         <span class="comment">// 星历结束时间(JED)</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">double</span>      m_EphemStep{0};        <span class="comment">// 星历每个数据块的天数</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">double</span>      m_AU;                  <span class="comment">// 光速 km</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">double</span>      m_EMMassRatio;         <span class="comment">// 地球月球质量比</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    FILE*       m_DeFile{ NULL };      <span class="comment">// De二进制文件</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">double</span>**    m_DataBlocks{NULL};    <span class="comment">// 星历数据块的内存缓存</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    std::mutex  m_DataBlockMutex;      <span class="comment">// 数据块缓存互斥锁</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>};</div>
+</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1JplDe_html"><div class="ttname"><a href="classast_1_1JplDe.html">ast::JplDe</a></div><div class="ttdoc">JPL DE文件接口类</div><div class="ttdef"><b>定义</b> JplDe.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1JplDe_html_a577b7b65a916a9c36041770f2fc5fef1"><div class="ttname"><a href="classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1">ast::JplDe::EDataCode</a></div><div class="ttdeci">EDataCode</div><div class="ttdef"><b>定义</b> JplDe.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1JplDe_html_aa661732c4473bcd5033a26c96272b90d"><div class="ttname"><a href="classast_1_1JplDe.html#aa661732c4473bcd5033a26c96272b90d">ast::JplDe::getPosICRF_TT</a></div><div class="ttdeci">err_t getPosICRF_TT(const JulianDate jdTT, EDataCode target, EDataCode referenceBody, Vector3d &amp;pos)</div><div class="ttdoc">获取对应时间点的目标天体在参考天体下的位置</div></div>
+<div class="ttc" id="aclassast_1_1JulianDate_html"><div class="ttname"><a href="classast_1_1JulianDate.html">ast::JulianDate</a></div><div class="ttdoc">儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:98</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_a0626de0dc3d3eb2f19b4cf1f78690c4.html">Data</a></li><li class="navelem"><a class="el" href="JplDe_8hpp.html">JplDe.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

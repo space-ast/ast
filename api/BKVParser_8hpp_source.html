@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/Parser/BlockKeyValue/BKVParser.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('BKVParser_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BKVParser.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/BKVItemView.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>BKVSax;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>BKVItemView;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>ValueView;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html">   39</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7f">   42</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7f">EToken</a>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fa4e8dad2f1c3c9c645c98960d94e6e7e5">   43</a></span>        <a class="code hl_enumvalue" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fa4e8dad2f1c3c9c645c98960d94e6e7e5">eBlockBegin</a>,         </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fa4d2069dcb93679db4e5a32af903b3107">   44</a></span>        <a class="code hl_enumvalue" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fa4d2069dcb93679db4e5a32af903b3107">eBlockEnd</a>,           </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fae46045efa1f5d0c042eca15f8ab280b0">   45</a></span>        <a class="code hl_enumvalue" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fae46045efa1f5d0c042eca15f8ab280b0">eKeyValue</a>,           </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fac7e1355f4ab9c9ddcd0f96af8cec7ec2">   46</a></span>        <a class="code hl_enumvalue" href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fac7e1355f4ab9c9ddcd0f96af8cec7ec2">eEOF</a>,                </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    };</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classast_1_1BKVParser.html">~BKVParser</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">int</span> getLineNumber();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#ac3b3fda438e76bbc8d86755773dc1d8a">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BKVParser.html#ac3b3fda438e76bbc8d86755773dc1d8a">setAllowComment</a>(<span class="keywordtype">bool</span> allow){ allowComment_ = allow; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a63a52ed4f2a7c565015901f9bc82f385">   67</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1BKVParser.html#a63a52ed4f2a7c565015901f9bc82f385">allowComment</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> allowComment_; }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    EToken getNext(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a>&amp; key, <a class="code hl_class" href="classast_1_1ValueView.html">ValueView</a>&amp; value);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    EToken getNext(<a class="code hl_class" href="classast_1_1BKVItemView.html">BKVItemView</a>&amp; item);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> getLine();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> getLineTrim();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> getLineSkipComment();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    err_t parseFile(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="code hl_class" href="classast_1_1BKVSax.html">BKVSax</a>&amp; sax);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    err_t parse(<a class="code hl_class" href="classast_1_1BKVSax.html">BKVSax</a>&amp; sax);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> open(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#aa2f4a011f73e784e58321f64a9b1b030">  118</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1BKVParser.html#aa2f4a011f73e784e58321f64a9b1b030">isOpen</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> file_ != <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> close();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> seek(std::streamoff pos, std::ios::seekdir dir);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::streamoff tell();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a04210c967cff5dcf19f19c187bff56cb">  138</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1BKVParser.html#a04210c967cff5dcf19f19c187bff56cb">eof</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> feof(file_); }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    FILE* getFile()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> file_; }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#ab5eadabf6e0c6ce2b6657d9871999b86">  143</a></span>    FILE* <a class="code hl_variable" href="classast_1_1BKVParser.html#ab5eadabf6e0c6ce2b6657d9871999b86">file_</a>;                        </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a">  144</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a">allowComment_</a>;                 </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#a65a55897a4546955337443cd7d9ae1f6">  145</a></span>    std::vector&lt;char&gt; <a class="code hl_variable" href="classast_1_1BKVParser.html#a65a55897a4546955337443cd7d9ae1f6">keyBuffer</a>;        </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classast_1_1BKVParser.html#aa31776af959e457628ab241ff94cdf49">  146</a></span>    std::vector&lt;char&gt; <a class="code hl_variable" href="classast_1_1BKVParser.html#aa31776af959e457628ab241ff94cdf49">valueBuffer</a>;      </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>};</div>
+</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1BKVItemView_html"><div class="ttname"><a href="classast_1_1BKVItemView.html">ast::BKVItemView</a></div><div class="ttdoc">键值对项视图类（BlockKeyValueItemView）</div><div class="ttdef"><b>定义</b> BKVItemView.hpp:31</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html"><div class="ttname"><a href="classast_1_1BKVParser.html">ast::BKVParser</a></div><div class="ttdoc">键值对解析器（BlockKeyValueParser）</div><div class="ttdef"><b>定义</b> BKVParser.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a04210c967cff5dcf19f19c187bff56cb"><div class="ttname"><a href="classast_1_1BKVParser.html#a04210c967cff5dcf19f19c187bff56cb">ast::BKVParser::eof</a></div><div class="ttdeci">bool eof() const</div><div class="ttdoc">是否到达文件末尾</div><div class="ttdef"><b>定义</b> BKVParser.hpp:138</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a63a52ed4f2a7c565015901f9bc82f385"><div class="ttname"><a href="classast_1_1BKVParser.html#a63a52ed4f2a7c565015901f9bc82f385">ast::BKVParser::allowComment</a></div><div class="ttdeci">bool allowComment() const</div><div class="ttdoc">是否允许注释</div><div class="ttdef"><b>定义</b> BKVParser.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a65a55897a4546955337443cd7d9ae1f6"><div class="ttname"><a href="classast_1_1BKVParser.html#a65a55897a4546955337443cd7d9ae1f6">ast::BKVParser::keyBuffer</a></div><div class="ttdeci">std::vector&lt; char &gt; keyBuffer</div><div class="ttdoc">内存缓冲区 for key</div><div class="ttdef"><b>定义</b> BKVParser.hpp:145</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a738ba19baafea456ca1eae248f2c750a"><div class="ttname"><a href="classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a">ast::BKVParser::allowComment_</a></div><div class="ttdeci">bool allowComment_</div><div class="ttdoc">是否允许注释行</div><div class="ttdef"><b>定义</b> BKVParser.hpp:144</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a84da3cc338200e6187bfffe0be8f2a7f"><div class="ttname"><a href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7f">ast::BKVParser::EToken</a></div><div class="ttdeci">EToken</div><div class="ttdef"><b>定义</b> BKVParser.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a84da3cc338200e6187bfffe0be8f2a7fa4d2069dcb93679db4e5a32af903b3107"><div class="ttname"><a href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fa4d2069dcb93679db4e5a32af903b3107">ast::BKVParser::eBlockEnd</a></div><div class="ttdeci">@ eBlockEnd</div><div class="ttdoc">块结束</div><div class="ttdef"><b>定义</b> BKVParser.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a84da3cc338200e6187bfffe0be8f2a7fa4e8dad2f1c3c9c645c98960d94e6e7e5"><div class="ttname"><a href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fa4e8dad2f1c3c9c645c98960d94e6e7e5">ast::BKVParser::eBlockBegin</a></div><div class="ttdeci">@ eBlockBegin</div><div class="ttdoc">块开始</div><div class="ttdef"><b>定义</b> BKVParser.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a84da3cc338200e6187bfffe0be8f2a7fac7e1355f4ab9c9ddcd0f96af8cec7ec2"><div class="ttname"><a href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fac7e1355f4ab9c9ddcd0f96af8cec7ec2">ast::BKVParser::eEOF</a></div><div class="ttdeci">@ eEOF</div><div class="ttdoc">文件结束</div><div class="ttdef"><b>定义</b> BKVParser.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_a84da3cc338200e6187bfffe0be8f2a7fae46045efa1f5d0c042eca15f8ab280b0"><div class="ttname"><a href="classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fae46045efa1f5d0c042eca15f8ab280b0">ast::BKVParser::eKeyValue</a></div><div class="ttdeci">@ eKeyValue</div><div class="ttdoc">键值对</div><div class="ttdef"><b>定义</b> BKVParser.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_aa2f4a011f73e784e58321f64a9b1b030"><div class="ttname"><a href="classast_1_1BKVParser.html#aa2f4a011f73e784e58321f64a9b1b030">ast::BKVParser::isOpen</a></div><div class="ttdeci">bool isOpen() const</div><div class="ttdoc">是否打开文件</div><div class="ttdef"><b>定义</b> BKVParser.hpp:118</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_aa31776af959e457628ab241ff94cdf49"><div class="ttname"><a href="classast_1_1BKVParser.html#aa31776af959e457628ab241ff94cdf49">ast::BKVParser::valueBuffer</a></div><div class="ttdeci">std::vector&lt; char &gt; valueBuffer</div><div class="ttdoc">内存缓冲区 for value</div><div class="ttdef"><b>定义</b> BKVParser.hpp:146</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_ab5eadabf6e0c6ce2b6657d9871999b86"><div class="ttname"><a href="classast_1_1BKVParser.html#ab5eadabf6e0c6ce2b6657d9871999b86">ast::BKVParser::file_</a></div><div class="ttdeci">FILE * file_</div><div class="ttdoc">文件指针</div><div class="ttdef"><b>定义</b> BKVParser.hpp:143</div></div>
+<div class="ttc" id="aclassast_1_1BKVParser_html_ac3b3fda438e76bbc8d86755773dc1d8a"><div class="ttname"><a href="classast_1_1BKVParser.html#ac3b3fda438e76bbc8d86755773dc1d8a">ast::BKVParser::setAllowComment</a></div><div class="ttdeci">void setAllowComment(bool allow)</div><div class="ttdoc">设置是否允许注释</div><div class="ttdef"><b>定义</b> BKVParser.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1BKVSax_html"><div class="ttname"><a href="classast_1_1BKVSax.html">ast::BKVSax</a></div><div class="ttdoc">键值对解析器SAX接口（BlockKeyValueSax）</div><div class="ttdef"><b>定义</b> BKVSax.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1ValueView_html"><div class="ttname"><a href="classast_1_1ValueView.html">ast::ValueView</a></div><div class="ttdoc">值视图类</div><div class="ttdef"><b>定义</b> ValueView.hpp:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_2da3e91c5c13932ca6027ada5689754f.html">Parser</a></li><li class="navelem"><a class="el" href="dir_d06a43e04e3bfacb224e33fefba9ab45.html">BlockKeyValue</a></li><li class="navelem"><b>BKVParser.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

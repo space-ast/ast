@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::BisectionSolver类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1BisectionSolver.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1BisectionSolver-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::BisectionSolver类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>二分法求解器  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="BisectionSolver_8hpp_source.html">BisectionSolver.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::BisectionSolver 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1BisectionSolver.png" usemap="#ast::BisectionSolver_map" alt=""/>
+  <map id="ast::BisectionSolver_map" name="ast::BisectionSolver_map">
+<area href="classast_1_1UnarySolver.html" title="一元方程求解器" alt="ast::UnarySolver" shape="rect" coords="0,56,122,80"/>
+<area href="classast_1_1IUnarySolver.html" title="一元方程求解器接口" alt="ast::IUnarySolver" shape="rect" coords="0,0,122,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ab0beb85cc18bf602e44ad4fcd2485d65" id="r_ab0beb85cc18bf602e44ad4fcd2485d65"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0beb85cc18bf602e44ad4fcd2485d65">solve</a> (<a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a> &amp;func, double min, double max, double &amp;result) override</td></tr>
+<tr class="memdesc:ab0beb85cc18bf602e44ad4fcd2485d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解一元方程  <br /></td></tr>
+<tr class="separator:ab0beb85cc18bf602e44ad4fcd2485d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097e8c7201ce12695046788db7019b17" id="r_a097e8c7201ce12695046788db7019b17"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a097e8c7201ce12695046788db7019b17"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a>, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, err_t &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a097e8c7201ce12695046788db7019b17">solve</a> (Func func, double min, double max, double &amp;result)</td></tr>
+<tr class="memdesc:a097e8c7201ce12695046788db7019b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解一元方程（支持lambda函数）  <br /></td></tr>
+<tr class="separator:a097e8c7201ce12695046788db7019b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1UnarySolver"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1UnarySolver')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1UnarySolver.html">ast::UnarySolver</a></td></tr>
+<tr class="memitem:a9ce01f876fde324f992b2b1ac1d9caeb inherit pub_methods_classast_1_1UnarySolver" id="r_a9ce01f876fde324f992b2b1ac1d9caeb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1UnarySolver.html#a9ce01f876fde324f992b2b1ac1d9caeb">UnarySolver</a> (double relTol, double absTol, int maxIter)</td></tr>
+<tr class="memdesc:a9ce01f876fde324f992b2b1ac1d9caeb inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="separator:a9ce01f876fde324f992b2b1ac1d9caeb inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e51810834979c771e146426d6e86f3 inherit pub_methods_classast_1_1UnarySolver" id="r_a10e51810834979c771e146426d6e86f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1UnarySolver.html#a10e51810834979c771e146426d6e86f3">UnarySolver</a> (double absTol)</td></tr>
+<tr class="memdesc:a10e51810834979c771e146426d6e86f3 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="separator:a10e51810834979c771e146426d6e86f3 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab97840bc2193e46885abb850f807f8a inherit pub_methods_classast_1_1UnarySolver" id="r_aab97840bc2193e46885abb850f807f8a"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getRelTol</b> () const</td></tr>
+<tr class="memdesc:aab97840bc2193e46885abb850f807f8a inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取相对误差容限 <br /></td></tr>
+<tr class="separator:aab97840bc2193e46885abb850f807f8a inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fbf452fb514a17a2f96afcab58e3363 inherit pub_methods_classast_1_1UnarySolver" id="r_a4fbf452fb514a17a2f96afcab58e3363"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getAbsTol</b> () const</td></tr>
+<tr class="memdesc:a4fbf452fb514a17a2f96afcab58e3363 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取绝对误差容限 <br /></td></tr>
+<tr class="separator:a4fbf452fb514a17a2f96afcab58e3363 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5df1a762fb98b3b4f47ff89d33eea5 inherit pub_methods_classast_1_1UnarySolver" id="r_aea5df1a762fb98b3b4f47ff89d33eea5"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxIter</b> () const</td></tr>
+<tr class="memdesc:aea5df1a762fb98b3b4f47ff89d33eea5 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大迭代次数 <br /></td></tr>
+<tr class="separator:aea5df1a762fb98b3b4f47ff89d33eea5 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1474da0302ac85d7817072179a042b2c inherit pub_methods_classast_1_1UnarySolver" id="r_a1474da0302ac85d7817072179a042b2c"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRelTol</b> (double relTol)</td></tr>
+<tr class="memdesc:a1474da0302ac85d7817072179a042b2c inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置相对误差容限 <br /></td></tr>
+<tr class="separator:a1474da0302ac85d7817072179a042b2c inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff655ba2415cd81bde896134a6de1ba0 inherit pub_methods_classast_1_1UnarySolver" id="r_aff655ba2415cd81bde896134a6de1ba0"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAbsTol</b> (double absTol)</td></tr>
+<tr class="memdesc:aff655ba2415cd81bde896134a6de1ba0 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置绝对误差容限 <br /></td></tr>
+<tr class="separator:aff655ba2415cd81bde896134a6de1ba0 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5f3ef6be352367c53a7076183cf246 inherit pub_methods_classast_1_1UnarySolver" id="r_a3d5f3ef6be352367c53a7076183cf246"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxIter</b> (int maxIter)</td></tr>
+<tr class="memdesc:a3d5f3ef6be352367c53a7076183cf246 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置最大迭代次数 <br /></td></tr>
+<tr class="separator:a3d5f3ef6be352367c53a7076183cf246 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381d4fae57a8894282bd99df4d1d3dba inherit pub_methods_classast_1_1UnarySolver" id="r_a381d4fae57a8894282bd99df4d1d3dba"><td class="memItemLeft" align="right" valign="top">
+const <a class="el" href="structast_1_1SolverStats.html">SolverStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStats</b> () const</td></tr>
+<tr class="memdesc:a381d4fae57a8894282bd99df4d1d3dba inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取求解器统计信息 <br /></td></tr>
+<tr class="separator:a381d4fae57a8894282bd99df4d1d3dba inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097e8c7201ce12695046788db7019b17 inherit pub_methods_classast_1_1UnarySolver" id="r_a097e8c7201ce12695046788db7019b17"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a097e8c7201ce12695046788db7019b17 inherit pub_methods_classast_1_1UnarySolver"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a>, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, err_t &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1UnarySolver.html#a097e8c7201ce12695046788db7019b17">solve</a> (Func func, double min, double max, double &amp;result)</td></tr>
+<tr class="memdesc:a097e8c7201ce12695046788db7019b17 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解一元方程（支持lambda函数）  <br /></td></tr>
+<tr class="separator:a097e8c7201ce12695046788db7019b17 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99602bbf6ea0d132f0aad5259b35bfa2 inherit pub_methods_classast_1_1UnarySolver" id="r_a99602bbf6ea0d132f0aad5259b35bfa2"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1UnarySolver.html#a99602bbf6ea0d132f0aad5259b35bfa2">solve</a> (<a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a> &amp;func, double min, double max, double &amp;result)=0</td></tr>
+<tr class="memdesc:a99602bbf6ea0d132f0aad5259b35bfa2 inherit pub_methods_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解一元方程  <br /></td></tr>
+<tr class="separator:a99602bbf6ea0d132f0aad5259b35bfa2 inherit pub_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1IUnarySolver"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1IUnarySolver')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1IUnarySolver.html">ast::IUnarySolver</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_static_methods_classast_1_1UnarySolver"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_methods_classast_1_1UnarySolver')"><img src="closed.png" alt="-"/>&#160;静态 Protected 成员函数 继承自 <a class="el" href="classast_1_1UnarySolver.html">ast::UnarySolver</a></td></tr>
+<tr class="memitem:a2c17c6bc294434cdcd5e390df819dfd8 inherit pro_static_methods_classast_1_1UnarySolver" id="r_a2c17c6bc294434cdcd5e390df819dfd8"><td class="memItemLeft" align="right" valign="top">
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>unarycfunc</b> (double x, void *params)</td></tr>
+<tr class="separator:a2c17c6bc294434cdcd5e390df819dfd8 inherit pro_static_methods_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classast_1_1UnarySolver"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1UnarySolver')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1UnarySolver.html">ast::UnarySolver</a></td></tr>
+<tr class="memitem:ae4ead6da0360421cd483d10cf2fd95cd inherit pro_attribs_classast_1_1UnarySolver" id="r_ae4ead6da0360421cd483d10cf2fd95cd"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>relTol_</b></td></tr>
+<tr class="memdesc:ae4ead6da0360421cd483d10cf2fd95cd inherit pro_attribs_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">相对误差容限 <br /></td></tr>
+<tr class="separator:ae4ead6da0360421cd483d10cf2fd95cd inherit pro_attribs_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278e223855671c9d6a1b31ab23f73adf inherit pro_attribs_classast_1_1UnarySolver" id="r_a278e223855671c9d6a1b31ab23f73adf"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>absTol_</b></td></tr>
+<tr class="memdesc:a278e223855671c9d6a1b31ab23f73adf inherit pro_attribs_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">绝对误差容限 <br /></td></tr>
+<tr class="separator:a278e223855671c9d6a1b31ab23f73adf inherit pro_attribs_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096edae7eb3d3fc0269c420398377de1 inherit pro_attribs_classast_1_1UnarySolver" id="r_a096edae7eb3d3fc0269c420398377de1"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><b>maxIter_</b></td></tr>
+<tr class="memdesc:a096edae7eb3d3fc0269c420398377de1 inherit pro_attribs_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">最大迭代次数 <br /></td></tr>
+<tr class="separator:a096edae7eb3d3fc0269c420398377de1 inherit pro_attribs_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228d8e1f28052bb0fc164fe872e4e39a inherit pro_attribs_classast_1_1UnarySolver" id="r_a228d8e1f28052bb0fc164fe872e4e39a"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="structast_1_1SolverStats.html">SolverStats</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stats_</b></td></tr>
+<tr class="memdesc:a228d8e1f28052bb0fc164fe872e4e39a inherit pro_attribs_classast_1_1UnarySolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解器统计信息 <br /></td></tr>
+<tr class="separator:a228d8e1f28052bb0fc164fe872e4e39a inherit pro_attribs_classast_1_1UnarySolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>二分法求解器 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a097e8c7201ce12695046788db7019b17" name="a097e8c7201ce12695046788db7019b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097e8c7201ce12695046788db7019b17">&#9670;&#160;</a></span>solve() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a>, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, err_t &gt;::type ast::UnarySolver::solve </td>
+          <td>(</td>
+          <td class="paramtype">Func</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>max</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>求解一元方程（支持lambda函数） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Func</td><td>lambda或可调用对象类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>lambda函数 </td></tr>
+    <tr><td class="paramname">min</td><td>搜索下限 </td></tr>
+    <tr><td class="paramname">max</td><td>搜索上限 </td></tr>
+    <tr><td class="paramname">result</td><td>输出解 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab0beb85cc18bf602e44ad4fcd2485d65" name="ab0beb85cc18bf602e44ad4fcd2485d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0beb85cc18bf602e44ad4fcd2485d65">&#9670;&#160;</a></span>solve() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::BisectionSolver::solve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>max</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>求解一元方程 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>方程函数 </td></tr>
+    <tr><td class="paramname">min</td><td>搜索下限 </td></tr>
+    <tr><td class="paramname">max</td><td>搜索上限 </td></tr>
+    <tr><td class="paramname">result</td><td>输出解，长度需大于等于方程维度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="classast_1_1IUnarySolver.html#a99602bbf6ea0d132f0aad5259b35bfa2">ast::IUnarySolver</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstMath/NLE/Impl/<a class="el" href="BisectionSolver_8hpp_source.html">BisectionSolver.hpp</a></li>
+<li>src/AstMath/NLE/Impl/<a class="el" href="BisectionSolver_8cpp.html">BisectionSolver.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1BisectionSolver.html">BisectionSolver</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

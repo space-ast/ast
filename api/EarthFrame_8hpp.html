@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Coordinate/EarthFrame.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('EarthFrame_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">EarthFrame.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>~  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+</div>
+<p><a href="EarthFrame_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a06e0ca1ba93739f4fc6fa209e0157dd4" id="r_a06e0ca1ba93739f4fc6fa209e0157dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a06e0ca1ba93739f4fc6fa209e0157dd4">ast::aECIToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a06e0ca1ba93739f4fc6fa209e0157dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ECI转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a06e0ca1ba93739f4fc6fa209e0157dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6444c0dd6b03123b8c4907e8e184157c" id="r_a6444c0dd6b03123b8c4907e8e184157c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6444c0dd6b03123b8c4907e8e184157c">ast::aECIToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a6444c0dd6b03123b8c4907e8e184157c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ECI转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a6444c0dd6b03123b8c4907e8e184157c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e80aa4ab8e7dd19acbb880d3845a96" id="r_a62e80aa4ab8e7dd19acbb880d3845a96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a62e80aa4ab8e7dd19acbb880d3845a96">ast::aECIToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a62e80aa4ab8e7dd19acbb880d3845a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ECI转换为ECF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:a62e80aa4ab8e7dd19acbb880d3845a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37946b52ba8e0862000400250dc5cfb5" id="r_a37946b52ba8e0862000400250dc5cfb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a37946b52ba8e0862000400250dc5cfb5">ast::aECIToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecECI, Vector3d &amp;vecECF)</td></tr>
+<tr class="memdesc:a37946b52ba8e0862000400250dc5cfb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ECI转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:a37946b52ba8e0862000400250dc5cfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1238c6bcb282e1ca43daf2e659829e6" id="r_ae1238c6bcb282e1ca43daf2e659829e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae1238c6bcb282e1ca43daf2e659829e6">ast::aECIToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecECI, const Vector3d &amp;velECI, Vector3d &amp;vecECF, Vector3d &amp;velECF)</td></tr>
+<tr class="memdesc:ae1238c6bcb282e1ca43daf2e659829e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ECI转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:ae1238c6bcb282e1ca43daf2e659829e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e797161e5db46ea26e00d08c74bff5" id="r_ab0e797161e5db46ea26e00d08c74bff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab0e797161e5db46ea26e00d08c74bff5">ast::aJ2000ToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:ab0e797161e5db46ea26e00d08c74bff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:ab0e797161e5db46ea26e00d08c74bff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9cca7ada4da1c775ed6f78ed2c22619" id="r_ab9cca7ada4da1c775ed6f78ed2c22619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab9cca7ada4da1c775ed6f78ed2c22619">ast::aJ2000ToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:ab9cca7ada4da1c775ed6f78ed2c22619"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:ab9cca7ada4da1c775ed6f78ed2c22619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27c8cca4e2542e9623118d3ae06b5573" id="r_a27c8cca4e2542e9623118d3ae06b5573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a27c8cca4e2542e9623118d3ae06b5573">ast::aJ2000ToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a27c8cca4e2542e9623118d3ae06b5573"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为ECF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:a27c8cca4e2542e9623118d3ae06b5573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a584928352d273f8d1746829858e4a2" id="r_a4a584928352d273f8d1746829858e4a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4a584928352d273f8d1746829858e4a2">ast::aJ2000ToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, Vector3d &amp;vecECF)</td></tr>
+<tr class="memdesc:a4a584928352d273f8d1746829858e4a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:a4a584928352d273f8d1746829858e4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497a07c3248fd6dd0d78535e144dda2d" id="r_a497a07c3248fd6dd0d78535e144dda2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a497a07c3248fd6dd0d78535e144dda2d">ast::aJ2000ToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, const Vector3d &amp;velJ2000, Vector3d &amp;vecECF, Vector3d &amp;velECF)</td></tr>
+<tr class="memdesc:a497a07c3248fd6dd0d78535e144dda2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:a497a07c3248fd6dd0d78535e144dda2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18659d9b5726d2e8b1235d3515724690" id="r_a18659d9b5726d2e8b1235d3515724690"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a18659d9b5726d2e8b1235d3515724690">ast::aJ2000ToMODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a18659d9b5726d2e8b1235d3515724690"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为MOD的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a18659d9b5726d2e8b1235d3515724690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff66d5d23adff00d5ac71e6f4ee3006d" id="r_aff66d5d23adff00d5ac71e6f4ee3006d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aff66d5d23adff00d5ac71e6f4ee3006d">ast::aJ2000ToMODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:aff66d5d23adff00d5ac71e6f4ee3006d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为MOD的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:aff66d5d23adff00d5ac71e6f4ee3006d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbf4659a307da22e8e99af6044e0c2d" id="r_a9cbf4659a307da22e8e99af6044e0c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9cbf4659a307da22e8e99af6044e0c2d">ast::aJ2000ToMOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, Vector3d &amp;vecMOD)</td></tr>
+<tr class="memdesc:a9cbf4659a307da22e8e99af6044e0c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从J2000转换为MOD的坐标转换  <br /></td></tr>
+<tr class="separator:a9cbf4659a307da22e8e99af6044e0c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4766d59ba99158f2891867b40bd3b4e" id="r_af4766d59ba99158f2891867b40bd3b4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af4766d59ba99158f2891867b40bd3b4e">ast::aMODToTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:af4766d59ba99158f2891867b40bd3b4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从MOD转换为TOD的坐标旋转变换  <br /></td></tr>
+<tr class="separator:af4766d59ba99158f2891867b40bd3b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd97ede3fd08ab22c5697e7fbab0246d" id="r_acd97ede3fd08ab22c5697e7fbab0246d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acd97ede3fd08ab22c5697e7fbab0246d">ast::aMODToTODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:acd97ede3fd08ab22c5697e7fbab0246d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从MOD转换为TOD的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:acd97ede3fd08ab22c5697e7fbab0246d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff57ad51629fa4949e4ac788621f7408" id="r_aff57ad51629fa4949e4ac788621f7408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aff57ad51629fa4949e4ac788621f7408">ast::aMODToTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecMOD, Vector3d &amp;vecTOD)</td></tr>
+<tr class="memdesc:aff57ad51629fa4949e4ac788621f7408"><td class="mdescLeft">&#160;</td><td class="mdescRight">从MOD转换为TOD的坐标转换  <br /></td></tr>
+<tr class="separator:aff57ad51629fa4949e4ac788621f7408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740873549cec351583fd2adc70743e8e" id="r_a740873549cec351583fd2adc70743e8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a740873549cec351583fd2adc70743e8e">ast::aTODToGTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a740873549cec351583fd2adc70743e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TOD转换为GTOD的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a740873549cec351583fd2adc70743e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb6ff0dad01976f5986aff5f94566b2" id="r_abbb6ff0dad01976f5986aff5f94566b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abbb6ff0dad01976f5986aff5f94566b2">ast::aTODToGTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:abbb6ff0dad01976f5986aff5f94566b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TOD转换为GTOD的坐标旋转变换  <br /></td></tr>
+<tr class="separator:abbb6ff0dad01976f5986aff5f94566b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8abd7c08044d8443c8cac73f3227efb" id="r_ad8abd7c08044d8443c8cac73f3227efb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad8abd7c08044d8443c8cac73f3227efb">ast::aTODToGTODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:ad8abd7c08044d8443c8cac73f3227efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TOD转换为GTOD的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:ad8abd7c08044d8443c8cac73f3227efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a246634a2196a285578700eced82c4a86" id="r_a246634a2196a285578700eced82c4a86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a246634a2196a285578700eced82c4a86">ast::aTODToGTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTOD, Vector3d &amp;vecGTOD)</td></tr>
+<tr class="memdesc:a246634a2196a285578700eced82c4a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TOD转换为GTOD的坐标转换  <br /></td></tr>
+<tr class="separator:a246634a2196a285578700eced82c4a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d52553695ab6cf6ce5d0dbff2babcf" id="r_a53d52553695ab6cf6ce5d0dbff2babcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a53d52553695ab6cf6ce5d0dbff2babcf">ast::aTODToGTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTOD, const Vector3d &amp;velTOD, Vector3d &amp;vecGTOC, Vector3d &amp;velGTOC)</td></tr>
+<tr class="memdesc:a53d52553695ab6cf6ce5d0dbff2babcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TOD转换为GTOD的坐标转换  <br /></td></tr>
+<tr class="separator:a53d52553695ab6cf6ce5d0dbff2babcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab792bcc75449482ad42318c89d69edbe" id="r_ab792bcc75449482ad42318c89d69edbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab792bcc75449482ad42318c89d69edbe">ast::aGTODToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:ab792bcc75449482ad42318c89d69edbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">从GTOD转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:ab792bcc75449482ad42318c89d69edbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a0850ade8cdc74e0e4176d90e8656b" id="r_a46a0850ade8cdc74e0e4176d90e8656b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a46a0850ade8cdc74e0e4176d90e8656b">ast::aGTODToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a46a0850ade8cdc74e0e4176d90e8656b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从GTOD转换为ECF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:a46a0850ade8cdc74e0e4176d90e8656b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc43ca88443dcc9af6ff3f8c21718614" id="r_afc43ca88443dcc9af6ff3f8c21718614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#afc43ca88443dcc9af6ff3f8c21718614">ast::aGTODToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecGTOD, Vector3d &amp;vecECF)</td></tr>
+<tr class="memdesc:afc43ca88443dcc9af6ff3f8c21718614"><td class="mdescLeft">&#160;</td><td class="mdescRight">从GTOD转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:afc43ca88443dcc9af6ff3f8c21718614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a291b8893466d5b1f74e8928852436fe1" id="r_a291b8893466d5b1f74e8928852436fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a291b8893466d5b1f74e8928852436fe1">ast::aICRFToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a291b8893466d5b1f74e8928852436fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a291b8893466d5b1f74e8928852436fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e19e2e2d1c5750f6408bf19fd285796" id="r_a5e19e2e2d1c5750f6408bf19fd285796"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5e19e2e2d1c5750f6408bf19fd285796">ast::aICRFToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a5e19e2e2d1c5750f6408bf19fd285796"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a5e19e2e2d1c5750f6408bf19fd285796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae44bb8a0a5cd3b4c6c4f4098840cd979" id="r_ae44bb8a0a5cd3b4c6c4f4098840cd979"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae44bb8a0a5cd3b4c6c4f4098840cd979">ast::aICRFToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:ae44bb8a0a5cd3b4c6c4f4098840cd979"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为ECF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:ae44bb8a0a5cd3b4c6c4f4098840cd979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917a7123b21b5898a654a4fb964729a7" id="r_a917a7123b21b5898a654a4fb964729a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a917a7123b21b5898a654a4fb964729a7">ast::aICRFToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecICRF, Vector3d &amp;vecECF)</td></tr>
+<tr class="memdesc:a917a7123b21b5898a654a4fb964729a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:a917a7123b21b5898a654a4fb964729a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca30e15e71105e546826cdc6a58ca105" id="r_aca30e15e71105e546826cdc6a58ca105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aca30e15e71105e546826cdc6a58ca105">ast::aECFToICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecECF, Vector3d &amp;vecICRF)</td></tr>
+<tr class="memdesc:aca30e15e71105e546826cdc6a58ca105"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ECF转换为ICRF的坐标转换  <br /></td></tr>
+<tr class="separator:aca30e15e71105e546826cdc6a58ca105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeab84ac7cd1eceb8ac32ea26c2337621" id="r_aeab84ac7cd1eceb8ac32ea26c2337621"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aeab84ac7cd1eceb8ac32ea26c2337621">ast::aICRFToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecICRF, const Vector3d &amp;velICRF, Vector3d &amp;vecECF, Vector3d &amp;velECF)</td></tr>
+<tr class="memdesc:aeab84ac7cd1eceb8ac32ea26c2337621"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:aeab84ac7cd1eceb8ac32ea26c2337621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8c358f3157128cd2213588c5e2e5a23" id="r_af8c358f3157128cd2213588c5e2e5a23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af8c358f3157128cd2213588c5e2e5a23">ast::aICRFToCIRFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:af8c358f3157128cd2213588c5e2e5a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为CIRF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:af8c358f3157128cd2213588c5e2e5a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488495b61d791a8168a51bcef31b6fc4" id="r_a488495b61d791a8168a51bcef31b6fc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a488495b61d791a8168a51bcef31b6fc4">ast::aICRFToCIRFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a488495b61d791a8168a51bcef31b6fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为CIRF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:a488495b61d791a8168a51bcef31b6fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73cdf0aab986ab0b77380924528f4d4d" id="r_a73cdf0aab986ab0b77380924528f4d4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a73cdf0aab986ab0b77380924528f4d4d">ast::aICRFToCIRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecICRF, Vector3d &amp;vecCIRF)</td></tr>
+<tr class="memdesc:a73cdf0aab986ab0b77380924528f4d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从ICRF转换为CIRF的坐标转换  <br /></td></tr>
+<tr class="separator:a73cdf0aab986ab0b77380924528f4d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11bd42fda73f858e027c2bed9cf4868b" id="r_a11bd42fda73f858e027c2bed9cf4868b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a11bd42fda73f858e027c2bed9cf4868b">ast::aCIRFToTIRFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a11bd42fda73f858e027c2bed9cf4868b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从CIRF转换为TIRF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a11bd42fda73f858e027c2bed9cf4868b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3426471e9b8ee911545ee3c753d44cdf" id="r_a3426471e9b8ee911545ee3c753d44cdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a3426471e9b8ee911545ee3c753d44cdf">ast::aCIRFToTIRFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a3426471e9b8ee911545ee3c753d44cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">从CIRF转换为TIRF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a3426471e9b8ee911545ee3c753d44cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec537394f88d81bb75d0dff584f3408" id="r_aeec537394f88d81bb75d0dff584f3408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aeec537394f88d81bb75d0dff584f3408">ast::aCIRFToTIRFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:aeec537394f88d81bb75d0dff584f3408"><td class="mdescLeft">&#160;</td><td class="mdescRight">从CIRF转换为TIRF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:aeec537394f88d81bb75d0dff584f3408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a2c3242d54eaa3cacf45030c570bd9" id="r_a18a2c3242d54eaa3cacf45030c570bd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a18a2c3242d54eaa3cacf45030c570bd9">ast::aCIRFToTIRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecCIRF, Vector3d &amp;vecTIRF)</td></tr>
+<tr class="memdesc:a18a2c3242d54eaa3cacf45030c570bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">从CIRF转换为TIRF的坐标转换  <br /></td></tr>
+<tr class="separator:a18a2c3242d54eaa3cacf45030c570bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226c2de1691c1af853b19016b1d00a7a" id="r_a226c2de1691c1af853b19016b1d00a7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a226c2de1691c1af853b19016b1d00a7a">ast::aCIRFToTIRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecCIRF, const Vector3d &amp;velCIRF, Vector3d &amp;vecTIRF, Vector3d &amp;velTIRF)</td></tr>
+<tr class="memdesc:a226c2de1691c1af853b19016b1d00a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从CIRF转换为TIRF的坐标转换  <br /></td></tr>
+<tr class="separator:a226c2de1691c1af853b19016b1d00a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7888e306d8ed2a6a7ecff2b8b5b77229" id="r_a7888e306d8ed2a6a7ecff2b8b5b77229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a7888e306d8ed2a6a7ecff2b8b5b77229">ast::aTIRFToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="memdesc:a7888e306d8ed2a6a7ecff2b8b5b77229"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TIRF转换为ECF的坐标旋转变换  <br /></td></tr>
+<tr class="separator:a7888e306d8ed2a6a7ecff2b8b5b77229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196677a3ef576965df6799e10d1b69a6" id="r_a196677a3ef576965df6799e10d1b69a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a196677a3ef576965df6799e10d1b69a6">ast::aTIRFToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a196677a3ef576965df6799e10d1b69a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TIRF转换为ECF的坐标转换矩阵  <br /></td></tr>
+<tr class="separator:a196677a3ef576965df6799e10d1b69a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad597a12c3db45045ce5bc3160ee388ba" id="r_ad597a12c3db45045ce5bc3160ee388ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad597a12c3db45045ce5bc3160ee388ba">ast::aTIRFToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTIRF, Vector3d &amp;vecECF)</td></tr>
+<tr class="memdesc:ad597a12c3db45045ce5bc3160ee388ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TIRF转换为ECF的坐标转换  <br /></td></tr>
+<tr class="separator:ad597a12c3db45045ce5bc3160ee388ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>~ </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-01-05 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html">Coordinate</a></li><li class="navelem"><a class="el" href="EarthFrame_8hpp.html">EarthFrame.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstMath/Transform/KinematicTransform.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('KinematicTransform_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">KinematicTransform.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="KinematicTransform_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="Transform_8hpp.html">Transform.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/KinematicRotation.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html">   31</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Transform.html">Transform</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#aec7598fdb5e99991fd2d811a83f654cf">   38</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Transform.html">Transform</a>&amp; <a class="code hl_function" href="classast_1_1KinematicTransform.html#aec7598fdb5e99991fd2d811a83f654cf">getTransform</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#a28fd7aee564b35e720d744e5691723fe">   42</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1KinematicTransform.html#a28fd7aee564b35e720d744e5691723fe">setTransform</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Transform.html">Transform</a>&amp; transform) { (<a class="code hl_class" href="classast_1_1Transform.html">Transform</a>&amp;)*<span class="keyword">this</span> = transform; }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#af9462c2fa268378f8f643bdec32f0d59">   46</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>&amp; <a class="code hl_function" href="classast_1_1KinematicTransform.html#af9462c2fa268378f8f643bdec32f0d59">getKinematicRotation</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">const_cast&lt;</span><a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp;<span class="keyword">&gt;</span>(*this).kinematicRotation(); }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#aebef38defa3115ed88ac05785478d680">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1KinematicTransform.html#aebef38defa3115ed88ac05785478d680">setKinematicRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>&amp; rot) { kinematicRotation() = rot; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#adc23e660d9ed5c30ee51359d7946e787">   54</a></span>    <span class="keyword">const</span> Vector3d&amp; <a class="code hl_function" href="classast_1_1KinematicTransform.html#adc23e660d9ed5c30ee51359d7946e787">getVelocity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> velocity_; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#af8b934ffef3e84c4ca45b57d1f51ac1d">   58</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1KinematicTransform.html#af8b934ffef3e84c4ca45b57d1f51ac1d">setVelocity</a>(<span class="keyword">const</span> Vector3d&amp; vel) { velocity_ = vel; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#a300efc5857ba4557a3ce0e3b473b9e17">   64</a></span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; <a class="code hl_function" href="classast_1_1KinematicTransform.html#a300efc5857ba4557a3ce0e3b473b9e17">compose</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; next);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#a6e0e096293ce8ce4af3dd08c86f14523">   70</a></span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> <a class="code hl_function" href="classast_1_1KinematicTransform.html#a6e0e096293ce8ce4af3dd08c86f14523">composed</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; next) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#ab519c9ed0f043a30445a1c1348eb5a85">   76</a></span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> <a class="code hl_function" href="classast_1_1KinematicTransform.html#ab519c9ed0f043a30445a1c1348eb5a85">operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; next) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#a9f13b72730ba9dc3367a09ca393f2e97">   82</a></span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; <a class="code hl_function" href="classast_1_1KinematicTransform.html#a9f13b72730ba9dc3367a09ca393f2e97">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; next);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> inverse() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> getInverse(<a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; inversed) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> transformPositionVelocity(<span class="keyword">const</span> Vector3d&amp; position, <span class="keyword">const</span> Vector3d&amp; velocity, Vector3d&amp; positionOut, Vector3d&amp; velocityOut);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>&amp; kinematicRotation() { <span class="keywordflow">return</span> (<a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>&amp;)rotation_; }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    Vector3d angvel_;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    Vector3d velocity_;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#ab4d2e42bd989a8c7c1273c95df88f47d">  107</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> KinematicTransform::inverse()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> retval;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    this-&gt;getInverse(retval);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#ad445b78f3beca9ae92c6ff2a5d023d5c">  114</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> KinematicTransform::getInverse(<a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a> &amp;inversed)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// @todo 实现获取逆变换</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classast_1_1KinematicTransform.html#ae7c9d77e4e8c3a7ca268db3525676a21">  119</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> KinematicTransform::transformPositionVelocity(<span class="keyword">const</span> Vector3d &amp;position, <span class="keyword">const</span> Vector3d &amp;velocity, Vector3d &amp;positionOut, Vector3d &amp;velocityOut)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// @todo 实现变换位置和速度</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aTransform_8hpp_html"><div class="ttname"><a href="Transform_8hpp.html">Transform.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aclassast_1_1KinematicRotation_html"><div class="ttname"><a href="classast_1_1KinematicRotation.html">ast::KinematicRotation</a></div><div class="ttdoc">运动学旋转</div><div class="ttdef"><b>定义</b> KinematicRotation.hpp:31</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html"><div class="ttname"><a href="classast_1_1KinematicTransform.html">ast::KinematicTransform</a></div><div class="ttdoc">运动学变换</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:32</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_a28fd7aee564b35e720d744e5691723fe"><div class="ttname"><a href="classast_1_1KinematicTransform.html#a28fd7aee564b35e720d744e5691723fe">ast::KinematicTransform::setTransform</a></div><div class="ttdeci">void setTransform(const Transform &amp;transform)</div><div class="ttdoc">设置变换</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_a300efc5857ba4557a3ce0e3b473b9e17"><div class="ttname"><a href="classast_1_1KinematicTransform.html#a300efc5857ba4557a3ce0e3b473b9e17">ast::KinematicTransform::compose</a></div><div class="ttdeci">KinematicTransform &amp; compose(const KinematicTransform &amp;next)</div><div class="ttdoc">组合下一个变换</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_a6e0e096293ce8ce4af3dd08c86f14523"><div class="ttname"><a href="classast_1_1KinematicTransform.html#a6e0e096293ce8ce4af3dd08c86f14523">ast::KinematicTransform::composed</a></div><div class="ttdeci">KinematicTransform composed(const KinematicTransform &amp;next) const</div><div class="ttdoc">获取组合变换</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_a9f13b72730ba9dc3367a09ca393f2e97"><div class="ttname"><a href="classast_1_1KinematicTransform.html#a9f13b72730ba9dc3367a09ca393f2e97">ast::KinematicTransform::operator*=</a></div><div class="ttdeci">KinematicTransform &amp; operator*=(const KinematicTransform &amp;next)</div><div class="ttdoc">组合下一个变换</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_ab519c9ed0f043a30445a1c1348eb5a85"><div class="ttname"><a href="classast_1_1KinematicTransform.html#ab519c9ed0f043a30445a1c1348eb5a85">ast::KinematicTransform::operator*</a></div><div class="ttdeci">KinematicTransform operator*(const KinematicTransform &amp;next) const</div><div class="ttdoc">组合下一个变换</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_adc23e660d9ed5c30ee51359d7946e787"><div class="ttname"><a href="classast_1_1KinematicTransform.html#adc23e660d9ed5c30ee51359d7946e787">ast::KinematicTransform::getVelocity</a></div><div class="ttdeci">const Vector3d &amp; getVelocity() const</div><div class="ttdoc">获取平移速度</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_aebef38defa3115ed88ac05785478d680"><div class="ttname"><a href="classast_1_1KinematicTransform.html#aebef38defa3115ed88ac05785478d680">ast::KinematicTransform::setKinematicRotation</a></div><div class="ttdeci">void setKinematicRotation(const KinematicRotation &amp;rot)</div><div class="ttdoc">设置旋转</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:50</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_aec7598fdb5e99991fd2d811a83f654cf"><div class="ttname"><a href="classast_1_1KinematicTransform.html#aec7598fdb5e99991fd2d811a83f654cf">ast::KinematicTransform::getTransform</a></div><div class="ttdeci">const Transform &amp; getTransform() const</div><div class="ttdoc">获取变换</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_af8b934ffef3e84c4ca45b57d1f51ac1d"><div class="ttname"><a href="classast_1_1KinematicTransform.html#af8b934ffef3e84c4ca45b57d1f51ac1d">ast::KinematicTransform::setVelocity</a></div><div class="ttdeci">void setVelocity(const Vector3d &amp;vel)</div><div class="ttdoc">设置平移速度</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:58</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html_af9462c2fa268378f8f643bdec32f0d59"><div class="ttname"><a href="classast_1_1KinematicTransform.html#af9462c2fa268378f8f643bdec32f0d59">ast::KinematicTransform::getKinematicRotation</a></div><div class="ttdeci">const KinematicRotation &amp; getKinematicRotation() const</div><div class="ttdoc">获取旋转</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1Transform_html"><div class="ttname"><a href="classast_1_1Transform.html">ast::Transform</a></div><div class="ttdoc">变换类</div><div class="ttdef"><b>定义</b> Transform.hpp:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ad1bdc808ef321ffd150448cfcd7c996.html">AstMath</a></li><li class="navelem"><a class="el" href="dir_bab1528425b983a6e5adf2b6c9a58186.html">Transform</a></li><li class="navelem"><a class="el" href="KinematicTransform_8hpp.html">KinematicTransform.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

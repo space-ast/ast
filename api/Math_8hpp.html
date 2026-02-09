@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/Util/Math.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">Math.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>~  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &quot;AstUtil/Constants.h&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+</div>
+<p><a href="Math_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SinCos.html">ast::SinCos</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">包含 sin(x) 和 cos(x) 值的结构体  <a href="classast_1_1SinCos.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:afc70c145323140f0099c8226ab2161b5" id="r_afc70c145323140f0099c8226ab2161b5"><td class="memItemLeft" align="right" valign="top"><a id="afc70c145323140f0099c8226ab2161b5" name="afc70c145323140f0099c8226ab2161b5"></a>
+A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::sincos</b> (double x, double *psin, double *pcos)</td></tr>
+<tr class="separator:afc70c145323140f0099c8226ab2161b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138fdd1a12245781f9122dfef37cabfc" id="r_a138fdd1a12245781f9122dfef37cabfc"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1SinCos.html">SinCos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a138fdd1a12245781f9122dfef37cabfc">ast::sincos</a> (double x)</td></tr>
+<tr class="memdesc:a138fdd1a12245781f9122dfef37cabfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算 sin 和 cos 值  <br /></td></tr>
+<tr class="separator:a138fdd1a12245781f9122dfef37cabfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8831f3e788e7c120569b0c8f00004ebf" id="r_a8831f3e788e7c120569b0c8f00004ebf"><td class="memTemplParams" colspan="2"><a id="a8831f3e788e7c120569b0c8f00004ebf" name="a8831f3e788e7c120569b0c8f00004ebf"></a>
+template&lt;typename Scalar &gt; </td></tr>
+<tr class="memitem:a8831f3e788e7c120569b0c8f00004ebf"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMax</b> (Scalar a, Scalar b)</td></tr>
+<tr class="memdesc:a8831f3e788e7c120569b0c8f00004ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算两个数中的较大值 <br /></td></tr>
+<tr class="separator:a8831f3e788e7c120569b0c8f00004ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae607d540253979beacb45ea4a55c0bb1" id="r_ae607d540253979beacb45ea4a55c0bb1"><td class="memTemplParams" colspan="2"><a id="ae607d540253979beacb45ea4a55c0bb1" name="ae607d540253979beacb45ea4a55c0bb1"></a>
+template&lt;typename Scalar &gt; </td></tr>
+<tr class="memitem:ae607d540253979beacb45ea4a55c0bb1"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMin</b> (Scalar a, Scalar b)</td></tr>
+<tr class="memdesc:ae607d540253979beacb45ea4a55c0bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算两个数中的较小值 <br /></td></tr>
+<tr class="separator:ae607d540253979beacb45ea4a55c0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae628da25178a68de57bdf3fdfd9e8dcb" id="r_ae628da25178a68de57bdf3fdfd9e8dcb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a> (double angle, double start)</td></tr>
+<tr class="memdesc:ae628da25178a68de57bdf3fdfd9e8dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">将角度量规范化到指定起始范围  <br /></td></tr>
+<tr class="separator:ae628da25178a68de57bdf3fdfd9e8dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea03a932dcd544c97844e1f9eb451437" id="r_aea03a932dcd544c97844e1f9eb451437"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a> (double angle, double center)</td></tr>
+<tr class="memdesc:aea03a932dcd544c97844e1f9eb451437"><td class="mdescLeft">&#160;</td><td class="mdescRight">将角度量规范化到指定中心范围  <br /></td></tr>
+<tr class="separator:aea03a932dcd544c97844e1f9eb451437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd816a87700237b7696f6170ae4e474" id="r_a5cd816a87700237b7696f6170ae4e474"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5cd816a87700237b7696f6170ae4e474">ast::aNormalizeAngle0To2Pi</a> (double angle)</td></tr>
+<tr class="memdesc:a5cd816a87700237b7696f6170ae4e474"><td class="mdescLeft">&#160;</td><td class="mdescRight">将角度量规范化到 0 到 2π 范围  <br /></td></tr>
+<tr class="separator:a5cd816a87700237b7696f6170ae4e474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70afc34acbd6e94be6c10c32ea03acbd" id="r_a70afc34acbd6e94be6c10c32ea03acbd"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a70afc34acbd6e94be6c10c32ea03acbd">ast::aNormalizeAngleNegPiToPi</a> (double angle)</td></tr>
+<tr class="memdesc:a70afc34acbd6e94be6c10c32ea03acbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">将角度量规范化到 -π 到 π 范围  <br /></td></tr>
+<tr class="separator:a70afc34acbd6e94be6c10c32ea03acbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae34aefa61d4998de18c705a340bf3d9c" id="r_ae34aefa61d4998de18c705a340bf3d9c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a> (double angle)</td></tr>
+<tr class="memdesc:ae34aefa61d4998de18c705a340bf3d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">将角度量规范化到 -2π 到 0 范围  <br /></td></tr>
+<tr class="separator:ae34aefa61d4998de18c705a340bf3d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>~ </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-01-05 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_1d596027c2fe9b93d9e6a4ea9df9dfd2.html">Util</a></li><li class="navelem"><a class="el" href="Math_8hpp.html">Math.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

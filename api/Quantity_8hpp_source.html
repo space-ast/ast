@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/Quantity/Quantity.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Quantity_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Quantity.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Quantity_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/Unit.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string&gt;</span>       </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;limits&gt;</span>       <span class="comment">// for std::numeric_limits</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>Quantity;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#a0efc7b9b7b4ec4c0eb1f5198a3aefc27">aQuantityAdd</a>(<span class="keyword">const</span> Quantity&amp; q1, <span class="keyword">const</span> Quantity&amp; q2);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#ab016c3c4c6666ff6ddfc51046ef715c8">aQuantitySub</a>(<span class="keyword">const</span> Quantity&amp; q1, <span class="keyword">const</span> Quantity&amp; q2);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">aQuantityMul</a>(<span class="keyword">const</span> Quantity&amp; q1, <span class="keyword">const</span> Quantity&amp; q2);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">aQuantityMul</a>(<span class="keyword">const</span> Quantity&amp; q, <span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">aQuantityDiv</a>(<span class="keyword">const</span> Quantity&amp; q1, <span class="keyword">const</span> Quantity&amp; q2);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">aQuantityDiv</a>(<span class="keyword">const</span> Quantity&amp; q, <span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_UTIL_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a89c6eed05a174468c652e0bcb5d8f890">aQuantityReduce</a>(Quantity&amp; q);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_UTIL_API std::string <a class="code hl_function" href="namespaceast.html#a10d19e25e8173bbdbb7774bd39161de1">aQuantityToString</a>(<span class="keyword">const</span> Quantity&amp; q);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>A_ALWAYS_INLINE std::string aFormatQuantity(<span class="keyword">const</span> Quantity&amp; q)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a10d19e25e8173bbdbb7774bd39161de1">aQuantityToString</a>(q);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>AST_UTIL_API Quantity operator*(<span class="keywordtype">double</span> value, <span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="};">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html">   98</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af">  102</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af">NaN</a>()</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="comment">// 无效数量值使用NaN表示</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>(std::numeric_limits&lt;double&gt;::quiet_NaN(), Unit::NaN());</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a4456aef2b35ed828725cc33f3afaa973">  109</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a4456aef2b35ed828725cc33f3afaa973">Zero</a>()</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">return</span> Scalar(0.0);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#aae076ca41157854d055421267cfb2aa5">  115</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#aae076ca41157854d055421267cfb2aa5">One</a>()</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">return</span> Scalar(1.0);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a8616d69c2c54e37311da65291bb029e4">  121</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a8616d69c2c54e37311da65291bb029e4">Scalar</a>(<span class="keywordtype">double</span> value)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>(value, Unit::None());</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>()</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        : value_(0.0), unit_{}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    {}</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    Quantity(<span class="keywordtype">double</span> value, <span class="keyword">const</span> Unit&amp; unit)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        : value_(value), unit_(unit)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {}</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">explicit</span> Quantity(<span class="keywordtype">double</span> value)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        : value_(value), unit_(Unit::None())</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    {}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a4429b00c27d0a9cce61af4b7e496e636">  139</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Quantity.html#a4429b00c27d0a9cce61af4b7e496e636">value</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value_; }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#af85045d8aa88f1dd9afad8b5192968ea">  143</a></span>    <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#af85045d8aa88f1dd9afad8b5192968ea">value</a>() { <span class="keywordflow">return</span> value_; }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#ae10e6077bf6c2e5f5e66a26309a70b2c">  147</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> unit_; }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#afc11f8398979bb9e565e99eb4cd7b86e">  151</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#afc11f8398979bb9e565e99eb4cd7b86e">unit</a>() { <span class="keywordflow">return</span> unit_; }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393">  155</a></span>    <a class="code hl_enumeration" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> <a class="code hl_function" href="classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393">dimension</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> unit_.dimension(); }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a6438f5549765661de21f35854749f780">  159</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Quantity.html#a6438f5549765661de21f35854749f780">setValue</a>(<span class="keywordtype">double</span> value) { value_ = value; }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a6df5a84f1a98aeafb0e946a832018835">  163</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Quantity.html#a6df5a84f1a98aeafb0e946a832018835">setUnit</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit) { unit_ = unit; }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a77ac77a3ec344b585e0348647308f8f3">  168</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Quantity.html#a77ac77a3ec344b585e0348647308f8f3">getInternalValue</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> unit_.toInternal(value_); }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2">  173</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2">isValid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> unit_.isValid(); }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a49e64b35acf8856c830869f4a58496c2">  178</a></span>    <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> this-&gt;dimension() == q.<a class="code hl_function" href="classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393">dimension</a>() &amp;&amp; this-&gt;getInternalValue() == q.<a class="code hl_function" href="classast_1_1Quantity.html#a77ac77a3ec344b585e0348647308f8f3">getInternalValue</a>();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a516a4c733fb13be3f8e789bd96a11877">  184</a></span>    <span class="keywordtype">bool</span> operator !=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q)<span class="keyword"> const</span>{<span class="keywordflow">return</span> !(*<span class="keyword">this</span> == q);}</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    </div>
+<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#ad496589ba151e75319b80f9c6d2d048f">  189</a></span>    <span class="keywordtype">bool</span> operator == (<span class="keywordtype">double</span> value)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">return</span> this-&gt;dimension() == EDimension::eUnit &amp;&amp; this-&gt;getInternalValue() == value;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a6886278043783d6f0bd106a4416df264">  196</a></span>    <span class="keywordtype">bool</span> operator != (<span class="keywordtype">double</span> value)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == value);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    }</div>
+</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#accd68453f0bf216a913b04d0d38c4bb6">  201</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#accd68453f0bf216a913b04d0d38c4bb6">invert</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>(1.0 / value_, unit_.invert()); }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#aa92663d72c24fb8df5dba1c37f3bd1b7">  204</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#aa92663d72c24fb8df5dba1c37f3bd1b7">operator+</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a3250ef1246be0ff5242c33a3b9bbb5ff">  206</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a3250ef1246be0ff5242c33a3b9bbb5ff">operator-</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>(-value_, unit_); }</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#aa01eb8c8abfb269c461e9605517a6c1d">  209</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#aa01eb8c8abfb269c461e9605517a6c1d">operator*</a>(<span class="keywordtype">double</span> scale)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>(value_ * scale, unit_); }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a0a908435576a1805851a3ca99f60fe87">  211</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a0a908435576a1805851a3ca99f60fe87">operator/</a>(<span class="keywordtype">double</span> scale)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>(value_ / scale, unit_); }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a42a0416ba0266f9ea288fb5c581b0800">  213</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a42a0416ba0266f9ea288fb5c581b0800">operator*=</a>(<span class="keywordtype">double</span> scale) { value_ *= scale; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a9ed5f218085ef11962b35f732c463ee7">  215</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a9ed5f218085ef11962b35f732c463ee7">operator/=</a>(<span class="keywordtype">double</span> scale) { value_ /= scale; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a22a447514071e66174ad286cf1067cfa">  217</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a22a447514071e66174ad286cf1067cfa">operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">aQuantityMul</a>(*<span class="keyword">this</span>, unit); }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#afc302dc37a47b5a3f47ab1da4307b7ad">  219</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#afc302dc37a47b5a3f47ab1da4307b7ad">operator/</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">aQuantityDiv</a>(*<span class="keyword">this</span>, unit); }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a186257863824194694242d56899d02bf">  221</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a186257863824194694242d56899d02bf">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit) { *<span class="keyword">this</span> = <a class="code hl_function" href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">aQuantityMul</a>(*<span class="keyword">this</span>, unit); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#ac3de253a185cc6ef30398e2d6d2343bd">  223</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#ac3de253a185cc6ef30398e2d6d2343bd">operator/=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit) { *<span class="keyword">this</span> = <a class="code hl_function" href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">aQuantityDiv</a>(*<span class="keyword">this</span>, unit); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a6343290425e03e408101e6e1e3ee040b">  227</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a6343290425e03e408101e6e1e3ee040b">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a0efc7b9b7b4ec4c0eb1f5198a3aefc27">aQuantityAdd</a>(*<span class="keyword">this</span>, q); }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#acf36d11c1b7fd4e4d85350f3e41800f5">  229</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#acf36d11c1b7fd4e4d85350f3e41800f5">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ab016c3c4c6666ff6ddfc51046ef715c8">aQuantitySub</a>(*<span class="keyword">this</span>, q); }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#af3864a0d9986c5f6244315113278bdaf">  231</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#af3864a0d9986c5f6244315113278bdaf">operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">aQuantityMul</a>(*<span class="keyword">this</span>, q); }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a5fe59771e407a13ed5bb8d9aa97b9a4c">  233</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a> <a class="code hl_function" href="classast_1_1Quantity.html#a5fe59771e407a13ed5bb8d9aa97b9a4c">operator/</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">aQuantityDiv</a>(*<span class="keyword">this</span>, q); }</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a2af28932bc5afb5ab1f9fd8048ffd867">  235</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a2af28932bc5afb5ab1f9fd8048ffd867">operator+=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q) { *<span class="keyword">this</span> = <a class="code hl_function" href="namespaceast.html#a0efc7b9b7b4ec4c0eb1f5198a3aefc27">aQuantityAdd</a>(*<span class="keyword">this</span>, q); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a24628352fbeb4eaf377c2f01af627df0">  237</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a24628352fbeb4eaf377c2f01af627df0">operator-=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q) { *<span class="keyword">this</span> = <a class="code hl_function" href="namespaceast.html#ab016c3c4c6666ff6ddfc51046ef715c8">aQuantitySub</a>(*<span class="keyword">this</span>, q); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a0a3498555d3672ceaa28378a8a6d59fa">  239</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a0a3498555d3672ceaa28378a8a6d59fa">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q) { *<span class="keyword">this</span> = <a class="code hl_function" href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">aQuantityMul</a>(*<span class="keyword">this</span>, q); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#a194e44990622331526ce6f72b6d3d812">  241</a></span>    <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; <a class="code hl_function" href="classast_1_1Quantity.html#a194e44990622331526ce6f72b6d3d812">operator/=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quantity.html">Quantity</a>&amp; q) { *<span class="keyword">this</span> = <a class="code hl_function" href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">aQuantityDiv</a>(*<span class="keyword">this</span>, q); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f">  244</a></span>    std::string <a class="code hl_function" href="classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f">toString</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a10d19e25e8173bbdbb7774bd39161de1">aQuantityToString</a>(*<span class="keyword">this</span>);}</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordtype">double</span> value_;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> unit_;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>};</div>
+</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="keyword">inline</span> Quantity operator*(<span class="keywordtype">double</span> value, <span class="keyword">const</span> Quantity&amp; q)</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>{</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keywordflow">return</span> q * value;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>}</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="keyword">inline</span> Quantity <a class="code hl_function" href="namespaceast.html#a76bc86e8c16de763ba5587da00e48d10">operator/</a>(<span class="keywordtype">double</span> value, <span class="keyword">const</span> Quantity&amp; q)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> value * q.invert();</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Quantity_html"><div class="ttname"><a href="classast_1_1Quantity.html">ast::Quantity</a></div><div class="ttdoc">带单位的数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:99</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a0a3498555d3672ceaa28378a8a6d59fa"><div class="ttname"><a href="classast_1_1Quantity.html#a0a3498555d3672ceaa28378a8a6d59fa">ast::Quantity::operator*=</a></div><div class="ttdeci">Quantity &amp; operator*=(const Quantity &amp;q)</div><div class="ttdoc">数量值乘法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:239</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a0a908435576a1805851a3ca99f60fe87"><div class="ttname"><a href="classast_1_1Quantity.html#a0a908435576a1805851a3ca99f60fe87">ast::Quantity::operator/</a></div><div class="ttdeci">Quantity operator/(double scale) const</div><div class="ttdoc">数量值除法</div><div class="ttdef"><b>定义</b> Quantity.hpp:211</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a186257863824194694242d56899d02bf"><div class="ttname"><a href="classast_1_1Quantity.html#a186257863824194694242d56899d02bf">ast::Quantity::operator*=</a></div><div class="ttdeci">Quantity &amp; operator*=(const Unit &amp;unit)</div><div class="ttdoc">数量值单位乘法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:221</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a194e44990622331526ce6f72b6d3d812"><div class="ttname"><a href="classast_1_1Quantity.html#a194e44990622331526ce6f72b6d3d812">ast::Quantity::operator/=</a></div><div class="ttdeci">Quantity &amp; operator/=(const Quantity &amp;q)</div><div class="ttdoc">数量值除法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:241</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a22a447514071e66174ad286cf1067cfa"><div class="ttname"><a href="classast_1_1Quantity.html#a22a447514071e66174ad286cf1067cfa">ast::Quantity::operator*</a></div><div class="ttdeci">Quantity operator*(const Unit &amp;unit) const</div><div class="ttdoc">数量值单位乘法</div><div class="ttdef"><b>定义</b> Quantity.hpp:217</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a24628352fbeb4eaf377c2f01af627df0"><div class="ttname"><a href="classast_1_1Quantity.html#a24628352fbeb4eaf377c2f01af627df0">ast::Quantity::operator-=</a></div><div class="ttdeci">Quantity &amp; operator-=(const Quantity &amp;q)</div><div class="ttdoc">数量值减法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:237</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a2af28932bc5afb5ab1f9fd8048ffd867"><div class="ttname"><a href="classast_1_1Quantity.html#a2af28932bc5afb5ab1f9fd8048ffd867">ast::Quantity::operator+=</a></div><div class="ttdeci">Quantity &amp; operator+=(const Quantity &amp;q)</div><div class="ttdoc">数量值加法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:235</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a3250ef1246be0ff5242c33a3b9bbb5ff"><div class="ttname"><a href="classast_1_1Quantity.html#a3250ef1246be0ff5242c33a3b9bbb5ff">ast::Quantity::operator-</a></div><div class="ttdeci">Quantity operator-() const</div><div class="ttdoc">数量值取负</div><div class="ttdef"><b>定义</b> Quantity.hpp:206</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a42a0416ba0266f9ea288fb5c581b0800"><div class="ttname"><a href="classast_1_1Quantity.html#a42a0416ba0266f9ea288fb5c581b0800">ast::Quantity::operator*=</a></div><div class="ttdeci">Quantity &amp; operator*=(double scale)</div><div class="ttdoc">数量值缩放赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:213</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a4429b00c27d0a9cce61af4b7e496e636"><div class="ttname"><a href="classast_1_1Quantity.html#a4429b00c27d0a9cce61af4b7e496e636">ast::Quantity::value</a></div><div class="ttdeci">double value() const</div><div class="ttdoc">获取数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:139</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a4456aef2b35ed828725cc33f3afaa973"><div class="ttname"><a href="classast_1_1Quantity.html#a4456aef2b35ed828725cc33f3afaa973">ast::Quantity::Zero</a></div><div class="ttdeci">static Quantity Zero()</div><div class="ttdoc">零数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:109</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a5fe59771e407a13ed5bb8d9aa97b9a4c"><div class="ttname"><a href="classast_1_1Quantity.html#a5fe59771e407a13ed5bb8d9aa97b9a4c">ast::Quantity::operator/</a></div><div class="ttdeci">Quantity operator/(const Quantity &amp;q) const</div><div class="ttdoc">数量值除法</div><div class="ttdef"><b>定义</b> Quantity.hpp:233</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a6343290425e03e408101e6e1e3ee040b"><div class="ttname"><a href="classast_1_1Quantity.html#a6343290425e03e408101e6e1e3ee040b">ast::Quantity::operator+</a></div><div class="ttdeci">Quantity operator+(const Quantity &amp;q) const</div><div class="ttdoc">数量值加法</div><div class="ttdef"><b>定义</b> Quantity.hpp:227</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a6438f5549765661de21f35854749f780"><div class="ttname"><a href="classast_1_1Quantity.html#a6438f5549765661de21f35854749f780">ast::Quantity::setValue</a></div><div class="ttdeci">void setValue(double value)</div><div class="ttdoc">设置数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:159</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a6df5a84f1a98aeafb0e946a832018835"><div class="ttname"><a href="classast_1_1Quantity.html#a6df5a84f1a98aeafb0e946a832018835">ast::Quantity::setUnit</a></div><div class="ttdeci">void setUnit(const Unit &amp;unit)</div><div class="ttdoc">设置单位</div><div class="ttdef"><b>定义</b> Quantity.hpp:163</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a77ac77a3ec344b585e0348647308f8f3"><div class="ttname"><a href="classast_1_1Quantity.html#a77ac77a3ec344b585e0348647308f8f3">ast::Quantity::getInternalValue</a></div><div class="ttdeci">double getInternalValue() const</div><div class="ttdoc">获取内部运行时单位表示的值</div><div class="ttdef"><b>定义</b> Quantity.hpp:168</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a8616d69c2c54e37311da65291bb029e4"><div class="ttname"><a href="classast_1_1Quantity.html#a8616d69c2c54e37311da65291bb029e4">ast::Quantity::Scalar</a></div><div class="ttdeci">static Quantity Scalar(double value)</div><div class="ttdoc">标量数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:121</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_a9ed5f218085ef11962b35f732c463ee7"><div class="ttname"><a href="classast_1_1Quantity.html#a9ed5f218085ef11962b35f732c463ee7">ast::Quantity::operator/=</a></div><div class="ttdeci">Quantity &amp; operator/=(double scale)</div><div class="ttdoc">数量值除法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:215</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_aa01eb8c8abfb269c461e9605517a6c1d"><div class="ttname"><a href="classast_1_1Quantity.html#aa01eb8c8abfb269c461e9605517a6c1d">ast::Quantity::operator*</a></div><div class="ttdeci">Quantity operator*(double scale) const</div><div class="ttdoc">数量值缩放</div><div class="ttdef"><b>定义</b> Quantity.hpp:209</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_aa92663d72c24fb8df5dba1c37f3bd1b7"><div class="ttname"><a href="classast_1_1Quantity.html#aa92663d72c24fb8df5dba1c37f3bd1b7">ast::Quantity::operator+</a></div><div class="ttdeci">Quantity operator+() const</div><div class="ttdoc">数量值取正</div><div class="ttdef"><b>定义</b> Quantity.hpp:204</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_aae076ca41157854d055421267cfb2aa5"><div class="ttname"><a href="classast_1_1Quantity.html#aae076ca41157854d055421267cfb2aa5">ast::Quantity::One</a></div><div class="ttdeci">static Quantity One()</div><div class="ttdoc">单位数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:115</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_abbe7b095750a45049367f4b42e144393"><div class="ttname"><a href="classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393">ast::Quantity::dimension</a></div><div class="ttdeci">EDimension dimension() const</div><div class="ttdoc">获取量纲</div><div class="ttdef"><b>定义</b> Quantity.hpp:155</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_abcff1fb55869dbd60709752c0ec663c2"><div class="ttname"><a href="classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2">ast::Quantity::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">检查数量值是否有效</div><div class="ttdef"><b>定义</b> Quantity.hpp:173</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_ac3de253a185cc6ef30398e2d6d2343bd"><div class="ttname"><a href="classast_1_1Quantity.html#ac3de253a185cc6ef30398e2d6d2343bd">ast::Quantity::operator/=</a></div><div class="ttdeci">Quantity &amp; operator/=(const Unit &amp;unit)</div><div class="ttdoc">数量值单位除法赋值</div><div class="ttdef"><b>定义</b> Quantity.hpp:223</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_accd68453f0bf216a913b04d0d38c4bb6"><div class="ttname"><a href="classast_1_1Quantity.html#accd68453f0bf216a913b04d0d38c4bb6">ast::Quantity::invert</a></div><div class="ttdeci">Quantity invert() const</div><div class="ttdoc">数量值取倒数</div><div class="ttdef"><b>定义</b> Quantity.hpp:201</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_acf36d11c1b7fd4e4d85350f3e41800f5"><div class="ttname"><a href="classast_1_1Quantity.html#acf36d11c1b7fd4e4d85350f3e41800f5">ast::Quantity::operator-</a></div><div class="ttdeci">Quantity operator-(const Quantity &amp;q) const</div><div class="ttdoc">数量值减法</div><div class="ttdef"><b>定义</b> Quantity.hpp:229</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_ad848cec88687923bff9eca4d3e5f107f"><div class="ttname"><a href="classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f">ast::Quantity::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdoc">数量值转换为字符串</div><div class="ttdef"><b>定义</b> Quantity.hpp:244</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_ae10e6077bf6c2e5f5e66a26309a70b2c"><div class="ttname"><a href="classast_1_1Quantity.html#ae10e6077bf6c2e5f5e66a26309a70b2c">ast::Quantity::unit</a></div><div class="ttdeci">const Unit &amp; unit() const</div><div class="ttdoc">获取单位</div><div class="ttdef"><b>定义</b> Quantity.hpp:147</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_aeca6f1503165f121511bde03641006af"><div class="ttname"><a href="classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af">ast::Quantity::NaN</a></div><div class="ttdeci">static Quantity NaN()</div><div class="ttdoc">无效数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:102</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_af3864a0d9986c5f6244315113278bdaf"><div class="ttname"><a href="classast_1_1Quantity.html#af3864a0d9986c5f6244315113278bdaf">ast::Quantity::operator*</a></div><div class="ttdeci">Quantity operator*(const Quantity &amp;q) const</div><div class="ttdoc">数量值乘法</div><div class="ttdef"><b>定义</b> Quantity.hpp:231</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_af85045d8aa88f1dd9afad8b5192968ea"><div class="ttname"><a href="classast_1_1Quantity.html#af85045d8aa88f1dd9afad8b5192968ea">ast::Quantity::value</a></div><div class="ttdeci">double &amp; value()</div><div class="ttdoc">获取可修改的数量值</div><div class="ttdef"><b>定义</b> Quantity.hpp:143</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_afc11f8398979bb9e565e99eb4cd7b86e"><div class="ttname"><a href="classast_1_1Quantity.html#afc11f8398979bb9e565e99eb4cd7b86e">ast::Quantity::unit</a></div><div class="ttdeci">Unit &amp; unit()</div><div class="ttdoc">获取可修改的单位</div><div class="ttdef"><b>定义</b> Quantity.hpp:151</div></div>
+<div class="ttc" id="aclassast_1_1Quantity_html_afc302dc37a47b5a3f47ab1da4307b7ad"><div class="ttname"><a href="classast_1_1Quantity.html#afc302dc37a47b5a3f47ab1da4307b7ad">ast::Quantity::operator/</a></div><div class="ttdeci">Quantity operator/(const Unit &amp;unit) const</div><div class="ttdoc">数量值单位除法</div><div class="ttdef"><b>定义</b> Quantity.hpp:219</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html"><div class="ttname"><a href="classast_1_1Unit.html">ast::Unit</a></div><div class="ttdoc">单位</div><div class="ttdef"><b>定义</b> Unit.hpp:126</div></div>
+<div class="ttc" id="anamespaceast_html_a0efc7b9b7b4ec4c0eb1f5198a3aefc27"><div class="ttname"><a href="namespaceast.html#a0efc7b9b7b4ec4c0eb1f5198a3aefc27">ast::aQuantityAdd</a></div><div class="ttdeci">Quantity aQuantityAdd(const Quantity &amp;q1, const Quantity &amp;q2)</div><div class="ttdoc">数量值加法</div><div class="ttdef"><b>定义</b> Quantity.cpp:34</div></div>
+<div class="ttc" id="anamespaceast_html_a10d19e25e8173bbdbb7774bd39161de1"><div class="ttname"><a href="namespaceast.html#a10d19e25e8173bbdbb7774bd39161de1">ast::aQuantityToString</a></div><div class="ttdeci">std::string aQuantityToString(const Quantity &amp;q)</div><div class="ttdoc">数量值转换为字符串</div><div class="ttdef"><b>定义</b> Quantity.cpp:89</div></div>
+<div class="ttc" id="anamespaceast_html_a76bc86e8c16de763ba5587da00e48d10"><div class="ttname"><a href="namespaceast.html#a76bc86e8c16de763ba5587da00e48d10">ast::operator/</a></div><div class="ttdeci">constexpr EDimension operator/(EDimension dim1, EDimension dim2) noexcept</div><div class="ttdoc">量纲除法运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:231</div></div>
+<div class="ttc" id="anamespaceast_html_a80e261cb5f4d212d2492789fa4c943bb"><div class="ttname"><a href="namespaceast.html#a80e261cb5f4d212d2492789fa4c943bb">ast::aQuantityMul</a></div><div class="ttdeci">Quantity aQuantityMul(const Quantity &amp;q1, const Quantity &amp;q2)</div><div class="ttdoc">数量值乘法</div><div class="ttdef"><b>定义</b> Quantity.cpp:59</div></div>
+<div class="ttc" id="anamespaceast_html_a89c6eed05a174468c652e0bcb5d8f890"><div class="ttname"><a href="namespaceast.html#a89c6eed05a174468c652e0bcb5d8f890">ast::aQuantityReduce</a></div><div class="ttdeci">void aQuantityReduce(Quantity &amp;q)</div><div class="ttdoc">数量值简化</div><div class="ttdef"><b>定义</b> Quantity.cpp:27</div></div>
+<div class="ttc" id="anamespaceast_html_ab016c3c4c6666ff6ddfc51046ef715c8"><div class="ttname"><a href="namespaceast.html#ab016c3c4c6666ff6ddfc51046ef715c8">ast::aQuantitySub</a></div><div class="ttdeci">Quantity aQuantitySub(const Quantity &amp;q1, const Quantity &amp;q2)</div><div class="ttdoc">数量值减法</div><div class="ttdef"><b>定义</b> Quantity.cpp:54</div></div>
+<div class="ttc" id="anamespaceast_html_ab30969f1d9a484eedacefdc5a6953f14"><div class="ttname"><a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">ast::EDimension</a></div><div class="ttdeci">EDimension</div><div class="ttdoc">量纲枚举类</div><div class="ttdef"><b>定义</b> Dimension.hpp:290</div></div>
+<div class="ttc" id="anamespaceast_html_afd35145d21b04e1d5f90e5567b0be95d"><div class="ttname"><a href="namespaceast.html#afd35145d21b04e1d5f90e5567b0be95d">ast::aQuantityDiv</a></div><div class="ttdeci">Quantity aQuantityDiv(const Quantity &amp;q1, const Quantity &amp;q2)</div><div class="ttdoc">数量值除法</div><div class="ttdef"><b>定义</b> Quantity.cpp:73</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_f454e969ccf99a49cff74d0cdbee1578.html">Quantity</a></li><li class="navelem"><a class="el" href="Quantity_8hpp.html">Quantity.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

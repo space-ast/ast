@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstScript/Basic/ScriptAPI.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ScriptAPI_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ScriptAPI.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ScriptAPI_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstScript/ScriptParser.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstScript/ExprVisitor.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define AST_EXPR(CLASS) \</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">    AST_OBJECT(CLASS)\</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">    void accept(ExprVisitor&amp; visitor) override{visitor.visit(*this);};</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">   34</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae453fd573889e0ae8b1cc331d0a66a4c">   35</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae453fd573889e0ae8b1cc331d0a66a4c">eAdd</a>,       </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dad1873a2aa5f28e3368c45712662489db">   36</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dad1873a2aa5f28e3368c45712662489db">eSub</a>,       </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da4064415938cd53682bbb486cf34a6644">   37</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da4064415938cd53682bbb486cf34a6644">eMul</a>,       </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac92d7d7e123580207d43aa3d547731d1">   38</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac92d7d7e123580207d43aa3d547731d1">eDiv</a>,       </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dad06ac6826ff317c5cbdcb6dca93f5ff1">   39</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dad06ac6826ff317c5cbdcb6dca93f5ff1">ePow</a>,       </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac2d3a6212fd297c9f8fce9d3f3197089">   40</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac2d3a6212fd297c9f8fce9d3f3197089">eMod</a>,       </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da8436b127781ff672431ae2e9bb67a3c4">   42</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da8436b127781ff672431ae2e9bb67a3c4">eAnd</a>,       </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daf56a23473d2677ab0b4a7d346efbcad8">   43</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daf56a23473d2677ab0b4a7d346efbcad8">eOr</a>,        </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae020f01b8e1c9e49d3a6bf28db8a531f">   44</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae020f01b8e1c9e49d3a6bf28db8a531f">eBitOr</a>,     </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da494578b2e171bb8debbcda3e9a4495d0">   45</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da494578b2e171bb8debbcda3e9a4495d0">eBitAnd</a>,    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac050a237acba277db51b1a24a38e23c2">   46</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac050a237acba277db51b1a24a38e23c2">eBitXor</a>,    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da83aaaea4bb1d9ae47bb217356a9f6cc1">   47</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da83aaaea4bb1d9ae47bb217356a9f6cc1">eBitLeftShift</a>,   </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da80309b3cfceb87a181078a115f0ae52b">   48</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da80309b3cfceb87a181078a115f0ae52b">eBitRightShift</a>,  </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da94729ac77f2ca33103704f677bcf74fc">   49</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da94729ac77f2ca33103704f677bcf74fc">eBitURightShift</a>, </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6130398dada6479eae6f6f9a5e0de1d2">   51</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6130398dada6479eae6f6f9a5e0de1d2">eElemMul</a>,   </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dab12a15009e3617e1b7f9a3c90b96fc5a">   52</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dab12a15009e3617e1b7f9a3c90b96fc5a">eElemDiv</a>,   </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da10dc1f155ae5090bdbb38fa2565b0d4e">   53</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da10dc1f155ae5090bdbb38fa2565b0d4e">eElemPow</a>,   </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae39a00b9cc35b3e8c18cab933ae8858a">   54</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae39a00b9cc35b3e8c18cab933ae8858a">eElemMod</a>,   </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6f35d12ae5c3e51feea4ebc469b938b4">   55</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6f35d12ae5c3e51feea4ebc469b938b4">eElemAnd</a>,   </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da13170d99dbbca69f2118113466edf206">   56</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da13170d99dbbca69f2118113466edf206">eElemOr</a>,    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6994ca7880c5fe12978ac30cbe3e3084">   58</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6994ca7880c5fe12978ac30cbe3e3084">eLt</a>,        </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dab809022b8dddd29a17768975d3d4a84d">   59</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dab809022b8dddd29a17768975d3d4a84d">eLe</a>,        </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daf2b5d8c2729ace153f91f78bafa7ea77">   60</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daf2b5d8c2729ace153f91f78bafa7ea77">eEq</a>,        </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da157a0a9d4ff9d18140c42735c1c5761e">   61</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da157a0a9d4ff9d18140c42735c1c5761e">eGt</a>,        </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da96ed5a085b28bf16bc6055dfc5ebb548">   62</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da96ed5a085b28bf16bc6055dfc5ebb548">eGe</a>,        </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da083ca9018f071087ffe0b8a4e125cb15">   63</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da083ca9018f071087ffe0b8a4e125cb15">eNe</a>,        </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f">   65</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f">numOpBinType</a>,                 </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da2ae571544b597fbcf4de8900af160799">   66</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da2ae571544b597fbcf4de8900af160799">invalidOpBin</a>=<a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f">numOpBinType</a>,   </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// 下面的枚举为软件内部使用，不要直接调用</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dabd9a31db440f49ad68531a6ba9a6e9e7">   69</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dabd9a31db440f49ad68531a6ba9a6e9e7">eCatVertical</a>,       </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da498a030fdc8a2a62ddfb465d601eb41f">   70</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da498a030fdc8a2a62ddfb465d601eb41f">eCatHorizontal</a>,     </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="};">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301">   73</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="namespaceast.html#a0727772e451f06f4fce013b504743301">EOpAssignType</a>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a605a26ffceb75eeff3689e13bf6bfcb0">   74</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a605a26ffceb75eeff3689e13bf6bfcb0">eAssign</a>,        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a725647bdf12c6550c38de29a3102e31f">   75</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a725647bdf12c6550c38de29a3102e31f">eDelayAssign</a>,   </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301aeaf3c3f1cc694c2c6f70b5658ee61934">   76</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301aeaf3c3f1cc694c2c6f70b5658ee61934">eBindAssign</a>,    </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a83e1a3f36c6f799819911f48aef2d7e8">   78</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a83e1a3f36c6f799819911f48aef2d7e8">eAddAssign</a>,     </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301ad83dd867034e5a6139ec4bbcda31dbb1">   79</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301ad83dd867034e5a6139ec4bbcda31dbb1">eSubAssign</a>,     </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a8547b3d0df54ce9ef9f8fa8cac6be5a2">   80</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a8547b3d0df54ce9ef9f8fa8cac6be5a2">eMulAssign</a>,     </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a68582e4b987c484a3d1dd30dbbdc1cc8">   81</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a68582e4b987c484a3d1dd30dbbdc1cc8">eDivAssign</a>,     </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301af5bbbcda908de92e24eae47243972816">   82</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301af5bbbcda908de92e24eae47243972816">eModAssign</a>,     </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a8796747e170c1f6a0edf3d6a67e75a7c">   83</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a8796747e170c1f6a0edf3d6a67e75a7c">ePowAssign</a>,     </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a293eb2300e81464d33ec4522a81c4077">   85</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a293eb2300e81464d33ec4522a81c4077">eElemMulAssign</a>, </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a857a883ff0ba5ed3ad5f1b91a43e5d1f">   86</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a857a883ff0ba5ed3ad5f1b91a43e5d1f">eElemDivAssign</a>, </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301acf7134954a1f8519aa47019b05e7bb2d">   87</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301acf7134954a1f8519aa47019b05e7bb2d">eElemModAssign</a>, </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301ae0c0c9c924f5f0cd3dcea1760d61f4cf">   88</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301ae0c0c9c924f5f0cd3dcea1760d61f4cf">eElemPowAssign</a>, </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301ab843f4d4ac22da137c98b41d34d474c5">   89</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301ab843f4d4ac22da137c98b41d34d474c5">eElemAndAssign</a>, </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301a8094973a37afb7f3d25b26068c956822">   90</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301a8094973a37afb7f3d25b26068c956822">eElemOrAssign</a>,  </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="namespaceast.html#a0727772e451f06f4fce013b504743301abf2092e5e838e0e4d9bb8670622c6f0f">   92</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a0727772e451f06f4fce013b504743301abf2092e5e838e0e4d9bb8670622c6f0f">numOpAssignType</a>,   </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="};">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">   96</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ab01a5befacdd10f3c95a17dd7a072c94">   97</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ab01a5befacdd10f3c95a17dd7a072c94">eNot</a>,       </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4a4defe6193c629e81922240c1bd4b743e">   98</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4a4defe6193c629e81922240c1bd4b743e">eNeg</a>,       </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4aa4636416f4f93ea3c6cbdfd46dafb82f">   99</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4aa4636416f4f93ea3c6cbdfd46dafb82f">eInc</a>,       </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4a92b5a38113cae3412a41f713c94029e9">  100</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4a92b5a38113cae3412a41f713c94029e9">eDec</a>,       </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ad2e6ba16e8808da2bef088b164708a21">  101</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ad2e6ba16e8808da2bef088b164708a21">eBitNot</a>,    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ad4eaf367c173cf54c95a9ff54c092854">  102</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ad4eaf367c173cf54c95a9ff54c092854">numOpUnaryType</a>,   </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// 下面的枚举为软件内部使用，不要直接调用</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ab15981e86fcc643a89efabf0c4fcd023">  105</a></span>    <a class="code hl_enumvalue" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ab15981e86fcc643a89efabf0c4fcd023">eIterate</a>,    </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">class </span>Expr;         </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">class </span>Value;        </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">class </span>Variable;     </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">class </span>Macro;        </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">class </span>Function;     </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">class </span>Symbol;       </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>AST_SCRIPT_API Variable* aNewVariable(StringView name, Expr* expr=<span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bind = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>AST_SCRIPT_API Variable* aNewVariable(Expr* expr=<span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bind = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>AST_SCRIPT_API Symbol* aNewSymbol(StringView name);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>AST_SCRIPT_CAPI Expr* aNewOpAssign(EOpAssignType op, Expr* left, Expr* right);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>AST_SCRIPT_CAPI Expr* aNewOpBin(EOpBinType op, Expr* left, Expr* right);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>AST_SCRIPT_CAPI Expr* aNewOpUnary(EOpUnaryType op, Expr* expr);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>AST_SCRIPT_CAPI Expr* aNewExprCondition(Expr* condition, Expr* thenExpr, Expr* elseExpr=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>AST_SCRIPT_CAPI Expr* aNewExprRange(Expr* start, Expr* stop, Expr* step=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>AST_SCRIPT_CAPI Value* aNewValueString(StringView value);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>AST_SCRIPT_CAPI Value* aNewValueInt(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>AST_SCRIPT_CAPI Value* aNewValueBool(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>AST_SCRIPT_CAPI Value* aNewValueDouble(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keyword">class </span>Quantity;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>AST_SCRIPT_CAPI Value* aNewValueQuantity(<span class="keyword">const</span> Quantity&amp; value);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>AST_SCRIPT_CAPI Value* aValueNull();</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>AST_SCRIPT_CAPI Value* aEval(StringView script);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>AST_SCRIPT_CAPI Value* aEvalExpr(Expr* expr);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>AST_SCRIPT_CAPI <span class="keywordtype">bool</span> aValueIsBool(Value* value);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>AST_SCRIPT_CAPI <span class="keywordtype">bool</span> aValueIsDouble(Value* value);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>AST_SCRIPT_CAPI <span class="keywordtype">bool</span> aValueIsInt(Value* value);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>AST_SCRIPT_CAPI <span class="keywordtype">bool</span> aValueIsArithmetic(Value* value);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>AST_SCRIPT_CAPI <span class="keywordtype">bool</span> aValueIsQuantity(Value* value);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>AST_SCRIPT_CAPI <span class="keywordtype">double</span> aValueToDouble(Value* value);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>AST_SCRIPT_CAPI <span class="keywordtype">bool</span> aValueUnboxBool(Value* value);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>AST_SCRIPT_CAPI <span class="keywordtype">double</span> aValueUnboxDouble(Value* value);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>AST_SCRIPT_CAPI <span class="keywordtype">int</span> aValueUnboxInt(Value* value);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>AST_SCRIPT_API Quantity aValueUnboxQuantity(Value* value);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>AST_SCRIPT_API std::string aFormatExpr(Expr* expr, Object* context=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="namespaceast.html#a33b0083252c4606fe2c63aa003f3bc91">  281</a></span><span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a>* (*OpBinFunc)(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* left, <a class="code hl_class" href="classast_1_1Value.html">Value</a>* right);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="namespaceast.html#a4a3435fb2657aa607b7c2dab49eb8cc4">  284</a></span><span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a>* (*OpAssignFunc)(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* left, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* right);    <span class="comment">// right 采用表达式对象，因为需要支持延迟赋值和绑定赋值</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="namespaceast.html#acc5dc8960c6ca177acf0d937517f9a0e">  287</a></span><span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a>* (*OpUnaryFunc)(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* value);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">enum</span> {eIterBegin=0};  </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="namespaceast.html#ac92a2124b66c8a652bceedb7da6a1b63">  293</a></span><span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a>* (*IterateFunc)(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* value, <span class="keywordtype">int</span>&amp; index);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">//  @brief 获取二进制运算函数指针</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment">//  @param op 运算类型</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment">//  @param leftType 左运算数类型</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="comment">//  @param rightType 右运算数类型</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="comment">//  @return 运算函数指针</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>AST_SCRIPT_CAPI <a class="code hl_typedef" href="namespaceast.html#a33b0083252c4606fe2c63aa003f3bc91">OpBinFunc</a> aGetOpBinFunc(<a class="code hl_enumeration" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="code hl_class" href="classast_1_1Class.html">Class</a>* leftType, <a class="code hl_class" href="classast_1_1Class.html">Class</a>* rightType);</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment">//  @brief 获取赋值运算函数指针</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment">//  @param op 运算类型</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment">//  @param leftType 左运算数类型</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment">//  @param rightType 右运算数类型</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment">//  @return 运算函数指针</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>AST_SCRIPT_CAPI <a class="code hl_typedef" href="namespaceast.html#a4a3435fb2657aa607b7c2dab49eb8cc4">OpAssignFunc</a> aGetOpAssignFunc(<a class="code hl_enumeration" href="namespaceast.html#a0727772e451f06f4fce013b504743301">EOpAssignType</a> op, <a class="code hl_class" href="classast_1_1Class.html">Class</a>* leftType, <a class="code hl_class" href="classast_1_1Class.html">Class</a>* rightType);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">//  @param op 运算类型</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment">//  @param type 运算数类型</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="comment">//  @return 运算函数指针</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>AST_SCRIPT_CAPI <a class="code hl_typedef" href="namespaceast.html#acc5dc8960c6ca177acf0d937517f9a0e">OpUnaryFunc</a> <a class="code hl_function" href="namespaceast.html#ad03b47ed257c6676b82be3bd91bcebe2">aGetOpUnaryFunc</a>(<a class="code hl_enumeration" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a> op, <a class="code hl_class" href="classast_1_1Class.html">Class</a>* type);</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment">//  @param type 迭代对象类型</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">//  @return 迭代函数指针</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>AST_SCRIPT_CAPI <a class="code hl_typedef" href="namespaceast.html#ac92a2124b66c8a652bceedb7da6a1b63">IterateFunc</a> <a class="code hl_function" href="namespaceast.html#ad05e74e139af3f4062abad46a8347fec">aGetIterateFunc</a>(<a class="code hl_class" href="classast_1_1Class.html">Class</a>* type);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>AST_SCRIPT_CAPI <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="namespaceast.html#abfd3468926bdc5f8f0709c3a54c9d239">aDoOpBin</a>(<a class="code hl_enumeration" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="code hl_class" href="classast_1_1Value.html">Value</a>* left, <a class="code hl_class" href="classast_1_1Value.html">Value</a>* right);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>AST_SCRIPT_CAPI <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="namespaceast.html#ab7e01854fa89a4c791ef2c484456dabf">aDoOpUnary</a>(<a class="code hl_enumeration" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a> op, <a class="code hl_class" href="classast_1_1Value.html">Value</a>* value);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>AST_SCRIPT_CAPI <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="namespaceast.html#a2d51d50df8618ba6dfc50f630c12a6ce">aDoOpAssign</a>(<a class="code hl_enumeration" href="namespaceast.html#a0727772e451f06f4fce013b504743301">EOpAssignType</a> op, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* left, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* right);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>AST_SCRIPT_CAPI <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="namespaceast.html#a8c3a2f7cb0b8d9dd1d74cafe9704f00c">aIterateBegin</a>(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* container, <span class="keywordtype">int</span>&amp; index);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>AST_SCRIPT_CAPI <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="namespaceast.html#a98d7d24b8cc782ee1481323ff3a0e5e5">aIterateNext</a>(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* container, <span class="keywordtype">int</span>&amp; index);</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="comment">// ALIAS</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1Value.html">Value</a>* aNewValue(<span class="keywordtype">int</span> value)</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>{</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a47305b78b744defeecf93b518cb43be0">aNewValueInt</a>(value);</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>}</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>A_ALWAYS_INLINE Value* aNewValue(<span class="keywordtype">double</span> value)</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>{</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keywordflow">return</span> aNewValueDouble(value);</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>}</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>A_ALWAYS_INLINE Value* aNewValue(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>{</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a1ca221151c1d7d3d9ff1f044a0d17e83">aNewValueBool</a>(value);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>}</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>A_ALWAYS_INLINE Value* aNewValue(<span class="keyword">const</span> Quantity&amp; value)</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>{</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ab8ddff4f4074b44ec82a979b80a1c31a">aNewValueQuantity</a>(value);</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>}</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>A_ALWAYS_INLINE Value* aNewValue(StringView value)</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>{</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#abfd10cb6893bf9194329215f683d84c4">aNewValueString</a>(value);</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>}</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Class_html"><div class="ttname"><a href="classast_1_1Class.html">ast::Class</a></div><div class="ttdef"><b>定义</b> Class.hpp:30</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:35</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301">ast::EOpAssignType</a></div><div class="ttdeci">EOpAssignType</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:73</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a293eb2300e81464d33ec4522a81c4077"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a293eb2300e81464d33ec4522a81c4077">ast::eElemMulAssign</a></div><div class="ttdeci">@ eElemMulAssign</div><div class="ttdoc">按元素乘赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:85</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a605a26ffceb75eeff3689e13bf6bfcb0"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a605a26ffceb75eeff3689e13bf6bfcb0">ast::eAssign</a></div><div class="ttdeci">@ eAssign</div><div class="ttdoc">赋值 =</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:74</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a68582e4b987c484a3d1dd30dbbdc1cc8"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a68582e4b987c484a3d1dd30dbbdc1cc8">ast::eDivAssign</a></div><div class="ttdeci">@ eDivAssign</div><div class="ttdoc">除法赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:81</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a725647bdf12c6550c38de29a3102e31f"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a725647bdf12c6550c38de29a3102e31f">ast::eDelayAssign</a></div><div class="ttdeci">@ eDelayAssign</div><div class="ttdoc">延迟赋值 :=</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:75</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a8094973a37afb7f3d25b26068c956822"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a8094973a37afb7f3d25b26068c956822">ast::eElemOrAssign</a></div><div class="ttdeci">@ eElemOrAssign</div><div class="ttdoc">按元素或赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:90</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a83e1a3f36c6f799819911f48aef2d7e8"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a83e1a3f36c6f799819911f48aef2d7e8">ast::eAddAssign</a></div><div class="ttdeci">@ eAddAssign</div><div class="ttdoc">加法赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:78</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a8547b3d0df54ce9ef9f8fa8cac6be5a2"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a8547b3d0df54ce9ef9f8fa8cac6be5a2">ast::eMulAssign</a></div><div class="ttdeci">@ eMulAssign</div><div class="ttdoc">乘法赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:80</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a857a883ff0ba5ed3ad5f1b91a43e5d1f"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a857a883ff0ba5ed3ad5f1b91a43e5d1f">ast::eElemDivAssign</a></div><div class="ttdeci">@ eElemDivAssign</div><div class="ttdoc">按元素除赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:86</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301a8796747e170c1f6a0edf3d6a67e75a7c"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301a8796747e170c1f6a0edf3d6a67e75a7c">ast::ePowAssign</a></div><div class="ttdeci">@ ePowAssign</div><div class="ttdoc">乘方赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:83</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301ab843f4d4ac22da137c98b41d34d474c5"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301ab843f4d4ac22da137c98b41d34d474c5">ast::eElemAndAssign</a></div><div class="ttdeci">@ eElemAndAssign</div><div class="ttdoc">按元素与赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:89</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301abf2092e5e838e0e4d9bb8670622c6f0f"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301abf2092e5e838e0e4d9bb8670622c6f0f">ast::numOpAssignType</a></div><div class="ttdeci">@ numOpAssignType</div><div class="ttdoc">运算符类型数量</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:92</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301acf7134954a1f8519aa47019b05e7bb2d"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301acf7134954a1f8519aa47019b05e7bb2d">ast::eElemModAssign</a></div><div class="ttdeci">@ eElemModAssign</div><div class="ttdoc">按元素取模赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:87</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301ad83dd867034e5a6139ec4bbcda31dbb1"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301ad83dd867034e5a6139ec4bbcda31dbb1">ast::eSubAssign</a></div><div class="ttdeci">@ eSubAssign</div><div class="ttdoc">减法赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:79</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301ae0c0c9c924f5f0cd3dcea1760d61f4cf"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301ae0c0c9c924f5f0cd3dcea1760d61f4cf">ast::eElemPowAssign</a></div><div class="ttdeci">@ eElemPowAssign</div><div class="ttdoc">按元素乘方赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:88</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301aeaf3c3f1cc694c2c6f70b5658ee61934"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301aeaf3c3f1cc694c2c6f70b5658ee61934">ast::eBindAssign</a></div><div class="ttdeci">@ eBindAssign</div><div class="ttdoc">绑定赋值 =&amp;</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:76</div></div>
+<div class="ttc" id="anamespaceast_html_a0727772e451f06f4fce013b504743301af5bbbcda908de92e24eae47243972816"><div class="ttname"><a href="namespaceast.html#a0727772e451f06f4fce013b504743301af5bbbcda908de92e24eae47243972816">ast::eModAssign</a></div><div class="ttdeci">@ eModAssign</div><div class="ttdoc">取模赋值</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:82</div></div>
+<div class="ttc" id="anamespaceast_html_a1ca221151c1d7d3d9ff1f044a0d17e83"><div class="ttname"><a href="namespaceast.html#a1ca221151c1d7d3d9ff1f044a0d17e83">ast::aNewValueBool</a></div><div class="ttdeci">Value * aNewValueBool(bool value)</div><div class="ttdoc">创建布尔值对象</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:92</div></div>
+<div class="ttc" id="anamespaceast_html_a2d51d50df8618ba6dfc50f630c12a6ce"><div class="ttname"><a href="namespaceast.html#a2d51d50df8618ba6dfc50f630c12a6ce">ast::aDoOpAssign</a></div><div class="ttdeci">Value * aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)</div><div class="ttdoc">执行赋值运算符</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:282</div></div>
+<div class="ttc" id="anamespaceast_html_a33b0083252c4606fe2c63aa003f3bc91"><div class="ttname"><a href="namespaceast.html#a33b0083252c4606fe2c63aa003f3bc91">ast::OpBinFunc</a></div><div class="ttdeci">Value *(* OpBinFunc)(Value *left, Value *right)</div><div class="ttdoc">二元运算函数指针类型</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:281</div></div>
+<div class="ttc" id="anamespaceast_html_a47305b78b744defeecf93b518cb43be0"><div class="ttname"><a href="namespaceast.html#a47305b78b744defeecf93b518cb43be0">ast::aNewValueInt</a></div><div class="ttdeci">Value * aNewValueInt(int value)</div><div class="ttdoc">创建整数值对象</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:88</div></div>
+<div class="ttc" id="anamespaceast_html_a4a3435fb2657aa607b7c2dab49eb8cc4"><div class="ttname"><a href="namespaceast.html#a4a3435fb2657aa607b7c2dab49eb8cc4">ast::OpAssignFunc</a></div><div class="ttdeci">Value *(* OpAssignFunc)(Expr *left, Expr *right)</div><div class="ttdoc">赋值运算函数指针类型</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:284</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">ast::EOpUnaryType</a></div><div class="ttdeci">EOpUnaryType</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:96</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4a4defe6193c629e81922240c1bd4b743e"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4a4defe6193c629e81922240c1bd4b743e">ast::eNeg</a></div><div class="ttdeci">@ eNeg</div><div class="ttdoc">负号</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:98</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4a92b5a38113cae3412a41f713c94029e9"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4a92b5a38113cae3412a41f713c94029e9">ast::eDec</a></div><div class="ttdeci">@ eDec</div><div class="ttdoc">自减</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:100</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4aa4636416f4f93ea3c6cbdfd46dafb82f"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4aa4636416f4f93ea3c6cbdfd46dafb82f">ast::eInc</a></div><div class="ttdeci">@ eInc</div><div class="ttdoc">自增</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:99</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4ab01a5befacdd10f3c95a17dd7a072c94"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ab01a5befacdd10f3c95a17dd7a072c94">ast::eNot</a></div><div class="ttdeci">@ eNot</div><div class="ttdoc">逻辑非</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:97</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4ab15981e86fcc643a89efabf0c4fcd023"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ab15981e86fcc643a89efabf0c4fcd023">ast::eIterate</a></div><div class="ttdeci">@ eIterate</div><div class="ttdoc">迭代器</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:105</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4ad2e6ba16e8808da2bef088b164708a21"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ad2e6ba16e8808da2bef088b164708a21">ast::eBitNot</a></div><div class="ttdeci">@ eBitNot</div><div class="ttdoc">按位取反</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:101</div></div>
+<div class="ttc" id="anamespaceast_html_a737f9c579e31cebe46bb5406d9a08cd4ad4eaf367c173cf54c95a9ff54c092854"><div class="ttname"><a href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4ad4eaf367c173cf54c95a9ff54c092854">ast::numOpUnaryType</a></div><div class="ttdeci">@ numOpUnaryType</div><div class="ttdoc">运算符类型数量</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:102</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455d"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">ast::EOpBinType</a></div><div class="ttdeci">EOpBinType</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:34</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da083ca9018f071087ffe0b8a4e125cb15"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da083ca9018f071087ffe0b8a4e125cb15">ast::eNe</a></div><div class="ttdeci">@ eNe</div><div class="ttdoc">不等于</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:63</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da10dc1f155ae5090bdbb38fa2565b0d4e"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da10dc1f155ae5090bdbb38fa2565b0d4e">ast::eElemPow</a></div><div class="ttdeci">@ eElemPow</div><div class="ttdoc">按元素乘方</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:53</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da13170d99dbbca69f2118113466edf206"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da13170d99dbbca69f2118113466edf206">ast::eElemOr</a></div><div class="ttdeci">@ eElemOr</div><div class="ttdoc">按元素或</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:56</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da157a0a9d4ff9d18140c42735c1c5761e"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da157a0a9d4ff9d18140c42735c1c5761e">ast::eGt</a></div><div class="ttdeci">@ eGt</div><div class="ttdoc">大于</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:61</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da2ae571544b597fbcf4de8900af160799"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da2ae571544b597fbcf4de8900af160799">ast::invalidOpBin</a></div><div class="ttdeci">@ invalidOpBin</div><div class="ttdoc">无效运算符</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:66</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da4064415938cd53682bbb486cf34a6644"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da4064415938cd53682bbb486cf34a6644">ast::eMul</a></div><div class="ttdeci">@ eMul</div><div class="ttdoc">乘法</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:37</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da494578b2e171bb8debbcda3e9a4495d0"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da494578b2e171bb8debbcda3e9a4495d0">ast::eBitAnd</a></div><div class="ttdeci">@ eBitAnd</div><div class="ttdoc">位与</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:45</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da498a030fdc8a2a62ddfb465d601eb41f"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da498a030fdc8a2a62ddfb465d601eb41f">ast::eCatHorizontal</a></div><div class="ttdeci">@ eCatHorizontal</div><div class="ttdoc">水平拼接</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:70</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da6130398dada6479eae6f6f9a5e0de1d2"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6130398dada6479eae6f6f9a5e0de1d2">ast::eElemMul</a></div><div class="ttdeci">@ eElemMul</div><div class="ttdoc">按元素乘</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:51</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da6994ca7880c5fe12978ac30cbe3e3084"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6994ca7880c5fe12978ac30cbe3e3084">ast::eLt</a></div><div class="ttdeci">@ eLt</div><div class="ttdoc">小于</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:58</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da6f35d12ae5c3e51feea4ebc469b938b4"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da6f35d12ae5c3e51feea4ebc469b938b4">ast::eElemAnd</a></div><div class="ttdeci">@ eElemAnd</div><div class="ttdoc">按元素与</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:55</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da80309b3cfceb87a181078a115f0ae52b"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da80309b3cfceb87a181078a115f0ae52b">ast::eBitRightShift</a></div><div class="ttdeci">@ eBitRightShift</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:48</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da83aaaea4bb1d9ae47bb217356a9f6cc1"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da83aaaea4bb1d9ae47bb217356a9f6cc1">ast::eBitLeftShift</a></div><div class="ttdeci">@ eBitLeftShift</div><div class="ttdoc">&lt;&lt; (逻辑/算术左移)</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:47</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da8436b127781ff672431ae2e9bb67a3c4"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da8436b127781ff672431ae2e9bb67a3c4">ast::eAnd</a></div><div class="ttdeci">@ eAnd</div><div class="ttdoc">逻辑与</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:42</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da94729ac77f2ca33103704f677bcf74fc"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da94729ac77f2ca33103704f677bcf74fc">ast::eBitURightShift</a></div><div class="ttdeci">@ eBitURightShift</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:49</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455da96ed5a085b28bf16bc6055dfc5ebb548"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455da96ed5a085b28bf16bc6055dfc5ebb548">ast::eGe</a></div><div class="ttdeci">@ eGe</div><div class="ttdoc">大于等于</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:62</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dab12a15009e3617e1b7f9a3c90b96fc5a"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dab12a15009e3617e1b7f9a3c90b96fc5a">ast::eElemDiv</a></div><div class="ttdeci">@ eElemDiv</div><div class="ttdoc">按元素除</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:52</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dab809022b8dddd29a17768975d3d4a84d"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dab809022b8dddd29a17768975d3d4a84d">ast::eLe</a></div><div class="ttdeci">@ eLe</div><div class="ttdoc">小于等于</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:59</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dabd9a31db440f49ad68531a6ba9a6e9e7"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dabd9a31db440f49ad68531a6ba9a6e9e7">ast::eCatVertical</a></div><div class="ttdeci">@ eCatVertical</div><div class="ttdoc">垂直拼接</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:69</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dac050a237acba277db51b1a24a38e23c2"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac050a237acba277db51b1a24a38e23c2">ast::eBitXor</a></div><div class="ttdeci">@ eBitXor</div><div class="ttdoc">位异或</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:46</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dac2d3a6212fd297c9f8fce9d3f3197089"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac2d3a6212fd297c9f8fce9d3f3197089">ast::eMod</a></div><div class="ttdeci">@ eMod</div><div class="ttdoc">取模</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:40</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dac92d7d7e123580207d43aa3d547731d1"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dac92d7d7e123580207d43aa3d547731d1">ast::eDiv</a></div><div class="ttdeci">@ eDiv</div><div class="ttdoc">除法</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:38</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dad06ac6826ff317c5cbdcb6dca93f5ff1"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dad06ac6826ff317c5cbdcb6dca93f5ff1">ast::ePow</a></div><div class="ttdeci">@ ePow</div><div class="ttdoc">乘方</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:39</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dad1873a2aa5f28e3368c45712662489db"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dad1873a2aa5f28e3368c45712662489db">ast::eSub</a></div><div class="ttdeci">@ eSub</div><div class="ttdoc">减法</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:36</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dae020f01b8e1c9e49d3a6bf28db8a531f"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae020f01b8e1c9e49d3a6bf28db8a531f">ast::eBitOr</a></div><div class="ttdeci">@ eBitOr</div><div class="ttdoc">位或</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:44</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dae39a00b9cc35b3e8c18cab933ae8858a"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae39a00b9cc35b3e8c18cab933ae8858a">ast::eElemMod</a></div><div class="ttdeci">@ eElemMod</div><div class="ttdoc">按元素取模</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:54</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455dae453fd573889e0ae8b1cc331d0a66a4c"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455dae453fd573889e0ae8b1cc331d0a66a4c">ast::eAdd</a></div><div class="ttdeci">@ eAdd</div><div class="ttdoc">加法</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:35</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f">ast::numOpBinType</a></div><div class="ttdeci">@ numOpBinType</div><div class="ttdoc">运算符类型数量</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:65</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455daf2b5d8c2729ace153f91f78bafa7ea77"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daf2b5d8c2729ace153f91f78bafa7ea77">ast::eEq</a></div><div class="ttdeci">@ eEq</div><div class="ttdoc">等于</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:60</div></div>
+<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455daf56a23473d2677ab0b4a7d346efbcad8"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455daf56a23473d2677ab0b4a7d346efbcad8">ast::eOr</a></div><div class="ttdeci">@ eOr</div><div class="ttdoc">逻辑或</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:43</div></div>
+<div class="ttc" id="anamespaceast_html_a8c3a2f7cb0b8d9dd1d74cafe9704f00c"><div class="ttname"><a href="namespaceast.html#a8c3a2f7cb0b8d9dd1d74cafe9704f00c">ast::aIterateBegin</a></div><div class="ttdeci">Value * aIterateBegin(Value *container, int &amp;index)</div><div class="ttdoc">执行迭代器的开始元素</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:353</div></div>
+<div class="ttc" id="anamespaceast_html_a98d7d24b8cc782ee1481323ff3a0e5e5"><div class="ttname"><a href="namespaceast.html#a98d7d24b8cc782ee1481323ff3a0e5e5">ast::aIterateNext</a></div><div class="ttdeci">Value * aIterateNext(Value *container, int &amp;index)</div><div class="ttdoc">执行迭代器的下一个元素</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:358</div></div>
+<div class="ttc" id="anamespaceast_html_ab7e01854fa89a4c791ef2c484456dabf"><div class="ttname"><a href="namespaceast.html#ab7e01854fa89a4c791ef2c484456dabf">ast::aDoOpUnary</a></div><div class="ttdeci">Value * aDoOpUnary(EOpUnaryType op, Value *value)</div><div class="ttdoc">执行一元运算符</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:231</div></div>
+<div class="ttc" id="anamespaceast_html_ab8ddff4f4074b44ec82a979b80a1c31a"><div class="ttname"><a href="namespaceast.html#ab8ddff4f4074b44ec82a979b80a1c31a">ast::aNewValueQuantity</a></div><div class="ttdeci">Value * aNewValueQuantity(const Quantity &amp;value)</div><div class="ttdoc">创建数量值对象</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:101</div></div>
+<div class="ttc" id="anamespaceast_html_abfd10cb6893bf9194329215f683d84c4"><div class="ttname"><a href="namespaceast.html#abfd10cb6893bf9194329215f683d84c4">ast::aNewValueString</a></div><div class="ttdeci">Value * aNewValueString(StringView value)</div><div class="ttdoc">创建字符串值对象</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:84</div></div>
+<div class="ttc" id="anamespaceast_html_abfd3468926bdc5f8f0709c3a54c9d239"><div class="ttname"><a href="namespaceast.html#abfd3468926bdc5f8f0709c3a54c9d239">ast::aDoOpBin</a></div><div class="ttdeci">Value * aDoOpBin(EOpBinType op, Value *left, Value *right)</div><div class="ttdoc">执行二元运算符</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:348</div></div>
+<div class="ttc" id="anamespaceast_html_ac92a2124b66c8a652bceedb7da6a1b63"><div class="ttname"><a href="namespaceast.html#ac92a2124b66c8a652bceedb7da6a1b63">ast::IterateFunc</a></div><div class="ttdeci">Value *(* IterateFunc)(Value *value, int &amp;index)</div><div class="ttdoc">迭代函数指针类型</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:293</div></div>
+<div class="ttc" id="anamespaceast_html_acc5dc8960c6ca177acf0d937517f9a0e"><div class="ttname"><a href="namespaceast.html#acc5dc8960c6ca177acf0d937517f9a0e">ast::OpUnaryFunc</a></div><div class="ttdeci">Value *(* OpUnaryFunc)(Value *value)</div><div class="ttdoc">一元运算函数指针类型</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:287</div></div>
+<div class="ttc" id="anamespaceast_html_ad03b47ed257c6676b82be3bd91bcebe2"><div class="ttname"><a href="namespaceast.html#ad03b47ed257c6676b82be3bd91bcebe2">ast::aGetOpUnaryFunc</a></div><div class="ttdeci">OpUnaryFunc aGetOpUnaryFunc(EOpUnaryType op, Class *type)</div><div class="ttdoc">获取一元运算函数指针</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:337</div></div>
+<div class="ttc" id="anamespaceast_html_ad05e74e139af3f4062abad46a8347fec"><div class="ttname"><a href="namespaceast.html#ad05e74e139af3f4062abad46a8347fec">ast::aGetIterateFunc</a></div><div class="ttdeci">IterateFunc aGetIterateFunc(Class *type)</div><div class="ttdoc">获取迭代函数指针</div><div class="ttdef"><b>定义</b> ScriptAPI.cpp:342</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_943b8559cfec6ca4c5bcb49ee46412f0.html">AstScript</a></li><li class="navelem"><a class="el" href="dir_6225495754e83a102e924636ca410534.html">Basic</a></li><li class="navelem"><a class="el" href="ScriptAPI_8hpp.html">ScriptAPI.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

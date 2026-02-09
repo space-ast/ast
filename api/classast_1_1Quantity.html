@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::Quantity类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Quantity.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classast_1_1Quantity-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Quantity类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>带单位的数量值  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Quantity_8hpp_source.html">Quantity.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aa8f29deca35bc9688154e6134ef3f39b" id="r_aa8f29deca35bc9688154e6134ef3f39b"><td class="memItemLeft" align="right" valign="top"><a id="aa8f29deca35bc9688154e6134ef3f39b" name="aa8f29deca35bc9688154e6134ef3f39b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Quantity</b> (double <a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a>, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;<a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>)</td></tr>
+<tr class="separator:aa8f29deca35bc9688154e6134ef3f39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a487e3efdd5c6330c0f6267987b3fe061" id="r_a487e3efdd5c6330c0f6267987b3fe061"><td class="memItemLeft" align="right" valign="top"><a id="a487e3efdd5c6330c0f6267987b3fe061" name="a487e3efdd5c6330c0f6267987b3fe061"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Quantity</b> (double <a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a>)</td></tr>
+<tr class="separator:a487e3efdd5c6330c0f6267987b3fe061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4429b00c27d0a9cce61af4b7e496e636" id="r_a4429b00c27d0a9cce61af4b7e496e636"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a> () const</td></tr>
+<tr class="memdesc:a4429b00c27d0a9cce61af4b7e496e636"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数量值  <br /></td></tr>
+<tr class="separator:a4429b00c27d0a9cce61af4b7e496e636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85045d8aa88f1dd9afad8b5192968ea" id="r_af85045d8aa88f1dd9afad8b5192968ea"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af85045d8aa88f1dd9afad8b5192968ea">value</a> ()</td></tr>
+<tr class="memdesc:af85045d8aa88f1dd9afad8b5192968ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取可修改的数量值  <br /></td></tr>
+<tr class="separator:af85045d8aa88f1dd9afad8b5192968ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae10e6077bf6c2e5f5e66a26309a70b2c" id="r_ae10e6077bf6c2e5f5e66a26309a70b2c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a> () const</td></tr>
+<tr class="memdesc:ae10e6077bf6c2e5f5e66a26309a70b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取单位  <br /></td></tr>
+<tr class="separator:ae10e6077bf6c2e5f5e66a26309a70b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc11f8398979bb9e565e99eb4cd7b86e" id="r_afc11f8398979bb9e565e99eb4cd7b86e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc11f8398979bb9e565e99eb4cd7b86e">unit</a> ()</td></tr>
+<tr class="memdesc:afc11f8398979bb9e565e99eb4cd7b86e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取可修改的单位  <br /></td></tr>
+<tr class="separator:afc11f8398979bb9e565e99eb4cd7b86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe7b095750a45049367f4b42e144393" id="r_abbe7b095750a45049367f4b42e144393"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbe7b095750a45049367f4b42e144393">dimension</a> () const</td></tr>
+<tr class="memdesc:abbe7b095750a45049367f4b42e144393"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲  <br /></td></tr>
+<tr class="separator:abbe7b095750a45049367f4b42e144393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6438f5549765661de21f35854749f780" id="r_a6438f5549765661de21f35854749f780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6438f5549765661de21f35854749f780">setValue</a> (double <a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a>)</td></tr>
+<tr class="memdesc:a6438f5549765661de21f35854749f780"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数量值  <br /></td></tr>
+<tr class="separator:a6438f5549765661de21f35854749f780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df5a84f1a98aeafb0e946a832018835" id="r_a6df5a84f1a98aeafb0e946a832018835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6df5a84f1a98aeafb0e946a832018835">setUnit</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;<a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>)</td></tr>
+<tr class="memdesc:a6df5a84f1a98aeafb0e946a832018835"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置单位  <br /></td></tr>
+<tr class="separator:a6df5a84f1a98aeafb0e946a832018835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ac77a3ec344b585e0348647308f8f3" id="r_a77ac77a3ec344b585e0348647308f8f3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77ac77a3ec344b585e0348647308f8f3">getInternalValue</a> () const</td></tr>
+<tr class="memdesc:a77ac77a3ec344b585e0348647308f8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取内部运行时单位表示的值  <br /></td></tr>
+<tr class="separator:a77ac77a3ec344b585e0348647308f8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcff1fb55869dbd60709752c0ec663c2" id="r_abcff1fb55869dbd60709752c0ec663c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcff1fb55869dbd60709752c0ec663c2">isValid</a> () const</td></tr>
+<tr class="memdesc:abcff1fb55869dbd60709752c0ec663c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查数量值是否有效  <br /></td></tr>
+<tr class="separator:abcff1fb55869dbd60709752c0ec663c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e64b35acf8856c830869f4a58496c2" id="r_a49e64b35acf8856c830869f4a58496c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49e64b35acf8856c830869f4a58496c2">operator==</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q) const</td></tr>
+<tr class="memdesc:a49e64b35acf8856c830869f4a58496c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查数量值是否相等  <br /></td></tr>
+<tr class="separator:a49e64b35acf8856c830869f4a58496c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516a4c733fb13be3f8e789bd96a11877" id="r_a516a4c733fb13be3f8e789bd96a11877"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516a4c733fb13be3f8e789bd96a11877">operator!=</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q) const</td></tr>
+<tr class="memdesc:a516a4c733fb13be3f8e789bd96a11877"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查数量值是否不相等  <br /></td></tr>
+<tr class="separator:a516a4c733fb13be3f8e789bd96a11877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad496589ba151e75319b80f9c6d2d048f" id="r_ad496589ba151e75319b80f9c6d2d048f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad496589ba151e75319b80f9c6d2d048f">operator==</a> (double <a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a>) const</td></tr>
+<tr class="memdesc:ad496589ba151e75319b80f9c6d2d048f"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查数量值是否等于标量  <br /></td></tr>
+<tr class="separator:ad496589ba151e75319b80f9c6d2d048f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6886278043783d6f0bd106a4416df264" id="r_a6886278043783d6f0bd106a4416df264"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6886278043783d6f0bd106a4416df264">operator!=</a> (double <a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a>) const</td></tr>
+<tr class="memdesc:a6886278043783d6f0bd106a4416df264"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查数量值是否不等于标量  <br /></td></tr>
+<tr class="separator:a6886278043783d6f0bd106a4416df264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd68453f0bf216a913b04d0d38c4bb6" id="r_accd68453f0bf216a913b04d0d38c4bb6"><td class="memItemLeft" align="right" valign="top"><a id="accd68453f0bf216a913b04d0d38c4bb6" name="accd68453f0bf216a913b04d0d38c4bb6"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>invert</b> () const</td></tr>
+<tr class="memdesc:accd68453f0bf216a913b04d0d38c4bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值取倒数 <br /></td></tr>
+<tr class="separator:accd68453f0bf216a913b04d0d38c4bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa92663d72c24fb8df5dba1c37f3bd1b7" id="r_aa92663d72c24fb8df5dba1c37f3bd1b7"><td class="memItemLeft" align="right" valign="top"><a id="aa92663d72c24fb8df5dba1c37f3bd1b7" name="aa92663d72c24fb8df5dba1c37f3bd1b7"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> () const</td></tr>
+<tr class="memdesc:aa92663d72c24fb8df5dba1c37f3bd1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值取正 <br /></td></tr>
+<tr class="separator:aa92663d72c24fb8df5dba1c37f3bd1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3250ef1246be0ff5242c33a3b9bbb5ff" id="r_a3250ef1246be0ff5242c33a3b9bbb5ff"><td class="memItemLeft" align="right" valign="top"><a id="a3250ef1246be0ff5242c33a3b9bbb5ff" name="a3250ef1246be0ff5242c33a3b9bbb5ff"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const</td></tr>
+<tr class="memdesc:a3250ef1246be0ff5242c33a3b9bbb5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值取负 <br /></td></tr>
+<tr class="separator:a3250ef1246be0ff5242c33a3b9bbb5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01eb8c8abfb269c461e9605517a6c1d" id="r_aa01eb8c8abfb269c461e9605517a6c1d"><td class="memItemLeft" align="right" valign="top"><a id="aa01eb8c8abfb269c461e9605517a6c1d" name="aa01eb8c8abfb269c461e9605517a6c1d"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (double scale) const</td></tr>
+<tr class="memdesc:aa01eb8c8abfb269c461e9605517a6c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值缩放 <br /></td></tr>
+<tr class="separator:aa01eb8c8abfb269c461e9605517a6c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a908435576a1805851a3ca99f60fe87" id="r_a0a908435576a1805851a3ca99f60fe87"><td class="memItemLeft" align="right" valign="top"><a id="a0a908435576a1805851a3ca99f60fe87" name="a0a908435576a1805851a3ca99f60fe87"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (double scale) const</td></tr>
+<tr class="memdesc:a0a908435576a1805851a3ca99f60fe87"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值除法 <br /></td></tr>
+<tr class="separator:a0a908435576a1805851a3ca99f60fe87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a0416ba0266f9ea288fb5c581b0800" id="r_a42a0416ba0266f9ea288fb5c581b0800"><td class="memItemLeft" align="right" valign="top"><a id="a42a0416ba0266f9ea288fb5c581b0800" name="a42a0416ba0266f9ea288fb5c581b0800"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (double scale)</td></tr>
+<tr class="memdesc:a42a0416ba0266f9ea288fb5c581b0800"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值缩放赋值 <br /></td></tr>
+<tr class="separator:a42a0416ba0266f9ea288fb5c581b0800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ed5f218085ef11962b35f732c463ee7" id="r_a9ed5f218085ef11962b35f732c463ee7"><td class="memItemLeft" align="right" valign="top"><a id="a9ed5f218085ef11962b35f732c463ee7" name="a9ed5f218085ef11962b35f732c463ee7"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (double scale)</td></tr>
+<tr class="memdesc:a9ed5f218085ef11962b35f732c463ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值除法赋值 <br /></td></tr>
+<tr class="separator:a9ed5f218085ef11962b35f732c463ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a447514071e66174ad286cf1067cfa" id="r_a22a447514071e66174ad286cf1067cfa"><td class="memItemLeft" align="right" valign="top"><a id="a22a447514071e66174ad286cf1067cfa" name="a22a447514071e66174ad286cf1067cfa"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;<a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>) const</td></tr>
+<tr class="memdesc:a22a447514071e66174ad286cf1067cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值单位乘法 <br /></td></tr>
+<tr class="separator:a22a447514071e66174ad286cf1067cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc302dc37a47b5a3f47ab1da4307b7ad" id="r_afc302dc37a47b5a3f47ab1da4307b7ad"><td class="memItemLeft" align="right" valign="top"><a id="afc302dc37a47b5a3f47ab1da4307b7ad" name="afc302dc37a47b5a3f47ab1da4307b7ad"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;<a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>) const</td></tr>
+<tr class="memdesc:afc302dc37a47b5a3f47ab1da4307b7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值单位除法 <br /></td></tr>
+<tr class="separator:afc302dc37a47b5a3f47ab1da4307b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186257863824194694242d56899d02bf" id="r_a186257863824194694242d56899d02bf"><td class="memItemLeft" align="right" valign="top"><a id="a186257863824194694242d56899d02bf" name="a186257863824194694242d56899d02bf"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;<a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>)</td></tr>
+<tr class="memdesc:a186257863824194694242d56899d02bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值单位乘法赋值 <br /></td></tr>
+<tr class="separator:a186257863824194694242d56899d02bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3de253a185cc6ef30398e2d6d2343bd" id="r_ac3de253a185cc6ef30398e2d6d2343bd"><td class="memItemLeft" align="right" valign="top"><a id="ac3de253a185cc6ef30398e2d6d2343bd" name="ac3de253a185cc6ef30398e2d6d2343bd"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;<a class="el" href="#ae10e6077bf6c2e5f5e66a26309a70b2c">unit</a>)</td></tr>
+<tr class="memdesc:ac3de253a185cc6ef30398e2d6d2343bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值单位除法赋值 <br /></td></tr>
+<tr class="separator:ac3de253a185cc6ef30398e2d6d2343bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6343290425e03e408101e6e1e3ee040b" id="r_a6343290425e03e408101e6e1e3ee040b"><td class="memItemLeft" align="right" valign="top"><a id="a6343290425e03e408101e6e1e3ee040b" name="a6343290425e03e408101e6e1e3ee040b"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q) const</td></tr>
+<tr class="memdesc:a6343290425e03e408101e6e1e3ee040b"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值加法 <br /></td></tr>
+<tr class="separator:a6343290425e03e408101e6e1e3ee040b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf36d11c1b7fd4e4d85350f3e41800f5" id="r_acf36d11c1b7fd4e4d85350f3e41800f5"><td class="memItemLeft" align="right" valign="top"><a id="acf36d11c1b7fd4e4d85350f3e41800f5" name="acf36d11c1b7fd4e4d85350f3e41800f5"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q) const</td></tr>
+<tr class="memdesc:acf36d11c1b7fd4e4d85350f3e41800f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值减法 <br /></td></tr>
+<tr class="separator:acf36d11c1b7fd4e4d85350f3e41800f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3864a0d9986c5f6244315113278bdaf" id="r_af3864a0d9986c5f6244315113278bdaf"><td class="memItemLeft" align="right" valign="top"><a id="af3864a0d9986c5f6244315113278bdaf" name="af3864a0d9986c5f6244315113278bdaf"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q) const</td></tr>
+<tr class="memdesc:af3864a0d9986c5f6244315113278bdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值乘法 <br /></td></tr>
+<tr class="separator:af3864a0d9986c5f6244315113278bdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe59771e407a13ed5bb8d9aa97b9a4c" id="r_a5fe59771e407a13ed5bb8d9aa97b9a4c"><td class="memItemLeft" align="right" valign="top"><a id="a5fe59771e407a13ed5bb8d9aa97b9a4c" name="a5fe59771e407a13ed5bb8d9aa97b9a4c"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q) const</td></tr>
+<tr class="memdesc:a5fe59771e407a13ed5bb8d9aa97b9a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值除法 <br /></td></tr>
+<tr class="separator:a5fe59771e407a13ed5bb8d9aa97b9a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2af28932bc5afb5ab1f9fd8048ffd867" id="r_a2af28932bc5afb5ab1f9fd8048ffd867"><td class="memItemLeft" align="right" valign="top"><a id="a2af28932bc5afb5ab1f9fd8048ffd867" name="a2af28932bc5afb5ab1f9fd8048ffd867"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="memdesc:a2af28932bc5afb5ab1f9fd8048ffd867"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值加法赋值 <br /></td></tr>
+<tr class="separator:a2af28932bc5afb5ab1f9fd8048ffd867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24628352fbeb4eaf377c2f01af627df0" id="r_a24628352fbeb4eaf377c2f01af627df0"><td class="memItemLeft" align="right" valign="top"><a id="a24628352fbeb4eaf377c2f01af627df0" name="a24628352fbeb4eaf377c2f01af627df0"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="memdesc:a24628352fbeb4eaf377c2f01af627df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值减法赋值 <br /></td></tr>
+<tr class="separator:a24628352fbeb4eaf377c2f01af627df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3498555d3672ceaa28378a8a6d59fa" id="r_a0a3498555d3672ceaa28378a8a6d59fa"><td class="memItemLeft" align="right" valign="top"><a id="a0a3498555d3672ceaa28378a8a6d59fa" name="a0a3498555d3672ceaa28378a8a6d59fa"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="memdesc:a0a3498555d3672ceaa28378a8a6d59fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值乘法赋值 <br /></td></tr>
+<tr class="separator:a0a3498555d3672ceaa28378a8a6d59fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a194e44990622331526ce6f72b6d3d812" id="r_a194e44990622331526ce6f72b6d3d812"><td class="memItemLeft" align="right" valign="top"><a id="a194e44990622331526ce6f72b6d3d812" name="a194e44990622331526ce6f72b6d3d812"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="memdesc:a194e44990622331526ce6f72b6d3d812"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值除法赋值 <br /></td></tr>
+<tr class="separator:a194e44990622331526ce6f72b6d3d812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad848cec88687923bff9eca4d3e5f107f" id="r_ad848cec88687923bff9eca4d3e5f107f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad848cec88687923bff9eca4d3e5f107f">toString</a> () const</td></tr>
+<tr class="memdesc:ad848cec88687923bff9eca4d3e5f107f"><td class="mdescLeft">&#160;</td><td class="mdescRight">数量值转换为字符串  <br /></td></tr>
+<tr class="separator:ad848cec88687923bff9eca4d3e5f107f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:aeca6f1503165f121511bde03641006af" id="r_aeca6f1503165f121511bde03641006af"><td class="memItemLeft" align="right" valign="top"><a id="aeca6f1503165f121511bde03641006af" name="aeca6f1503165f121511bde03641006af"></a>
+static <a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NaN</b> ()</td></tr>
+<tr class="memdesc:aeca6f1503165f121511bde03641006af"><td class="mdescLeft">&#160;</td><td class="mdescRight">无效数量值 <br /></td></tr>
+<tr class="separator:aeca6f1503165f121511bde03641006af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4456aef2b35ed828725cc33f3afaa973" id="r_a4456aef2b35ed828725cc33f3afaa973"><td class="memItemLeft" align="right" valign="top"><a id="a4456aef2b35ed828725cc33f3afaa973" name="a4456aef2b35ed828725cc33f3afaa973"></a>
+static <a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Zero</b> ()</td></tr>
+<tr class="memdesc:a4456aef2b35ed828725cc33f3afaa973"><td class="mdescLeft">&#160;</td><td class="mdescRight">零数量值 <br /></td></tr>
+<tr class="separator:a4456aef2b35ed828725cc33f3afaa973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae076ca41157854d055421267cfb2aa5" id="r_aae076ca41157854d055421267cfb2aa5"><td class="memItemLeft" align="right" valign="top"><a id="aae076ca41157854d055421267cfb2aa5" name="aae076ca41157854d055421267cfb2aa5"></a>
+static <a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>One</b> ()</td></tr>
+<tr class="memdesc:aae076ca41157854d055421267cfb2aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位数量值 <br /></td></tr>
+<tr class="separator:aae076ca41157854d055421267cfb2aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8616d69c2c54e37311da65291bb029e4" id="r_a8616d69c2c54e37311da65291bb029e4"><td class="memItemLeft" align="right" valign="top"><a id="a8616d69c2c54e37311da65291bb029e4" name="a8616d69c2c54e37311da65291bb029e4"></a>
+static <a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Scalar</b> (double <a class="el" href="#a4429b00c27d0a9cce61af4b7e496e636">value</a>)</td></tr>
+<tr class="memdesc:a8616d69c2c54e37311da65291bb029e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">标量数量值 <br /></td></tr>
+<tr class="separator:a8616d69c2c54e37311da65291bb029e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>带单位的数量值 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="abbe7b095750a45049367f4b42e144393" name="abbe7b095750a45049367f4b42e144393"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe7b095750a45049367f4b42e144393">&#9670;&#160;</a></span>dimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> ast::Quantity::dimension </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取量纲 </p>
+<dl class="section return"><dt>返回</dt><dd>量纲 </dd></dl>
+
+</div>
+</div>
+<a id="a77ac77a3ec344b585e0348647308f8f3" name="a77ac77a3ec344b585e0348647308f8f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ac77a3ec344b585e0348647308f8f3">&#9670;&#160;</a></span>getInternalValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::Quantity::getInternalValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取内部运行时单位表示的值 </p>
+<dl class="section return"><dt>返回</dt><dd>内部运行时单位表示的值 </dd></dl>
+
+</div>
+</div>
+<a id="abcff1fb55869dbd60709752c0ec663c2" name="abcff1fb55869dbd60709752c0ec663c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcff1fb55869dbd60709752c0ec663c2">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Quantity::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查数量值是否有效 </p>
+<dl class="section return"><dt>返回</dt><dd>如果数量值有效则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a516a4c733fb13be3f8e789bd96a11877" name="a516a4c733fb13be3f8e789bd96a11877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a516a4c733fb13be3f8e789bd96a11877">&#9670;&#160;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Quantity::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查数量值是否不相等 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>数量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果数量值不相等则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a6886278043783d6f0bd106a4416df264" name="a6886278043783d6f0bd106a4416df264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6886278043783d6f0bd106a4416df264">&#9670;&#160;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Quantity::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查数量值是否不等于标量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>标量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果数量值不等于标量值则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a49e64b35acf8856c830869f4a58496c2" name="a49e64b35acf8856c830869f4a58496c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e64b35acf8856c830869f4a58496c2">&#9670;&#160;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Quantity::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查数量值是否相等 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>数量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果数量值相等则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ad496589ba151e75319b80f9c6d2d048f" name="ad496589ba151e75319b80f9c6d2d048f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad496589ba151e75319b80f9c6d2d048f">&#9670;&#160;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Quantity::operator== </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查数量值是否等于标量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>标量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果数量值等于标量值则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a6df5a84f1a98aeafb0e946a832018835" name="a6df5a84f1a98aeafb0e946a832018835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df5a84f1a98aeafb0e946a832018835">&#9670;&#160;</a></span>setUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Quantity::setUnit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unit</td><td>单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6438f5549765661de21f35854749f780" name="a6438f5549765661de21f35854749f780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6438f5549765661de21f35854749f780">&#9670;&#160;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Quantity::setValue </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置数量值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>数量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad848cec88687923bff9eca4d3e5f107f" name="ad848cec88687923bff9eca4d3e5f107f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad848cec88687923bff9eca4d3e5f107f">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::Quantity::toString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>数量值转换为字符串 </p>
+<dl class="section return"><dt>返回</dt><dd>数量值的字符串表示 </dd></dl>
+
+</div>
+</div>
+<a id="afc11f8398979bb9e565e99eb4cd7b86e" name="afc11f8398979bb9e565e99eb4cd7b86e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc11f8398979bb9e565e99eb4cd7b86e">&#9670;&#160;</a></span>unit() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp; ast::Quantity::unit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取可修改的单位 </p>
+<dl class="section return"><dt>返回</dt><dd>可修改的单位 </dd></dl>
+
+</div>
+</div>
+<a id="ae10e6077bf6c2e5f5e66a26309a70b2c" name="ae10e6077bf6c2e5f5e66a26309a70b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae10e6077bf6c2e5f5e66a26309a70b2c">&#9670;&#160;</a></span>unit() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp; ast::Quantity::unit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取单位 </p>
+<dl class="section return"><dt>返回</dt><dd>单位 </dd></dl>
+
+</div>
+</div>
+<a id="af85045d8aa88f1dd9afad8b5192968ea" name="af85045d8aa88f1dd9afad8b5192968ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85045d8aa88f1dd9afad8b5192968ea">&#9670;&#160;</a></span>value() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; ast::Quantity::value </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取可修改的数量值 </p>
+<dl class="section return"><dt>返回</dt><dd>可修改的数量值 </dd></dl>
+
+</div>
+</div>
+<a id="a4429b00c27d0a9cce61af4b7e496e636" name="a4429b00c27d0a9cce61af4b7e496e636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4429b00c27d0a9cce61af4b7e496e636">&#9670;&#160;</a></span>value() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::Quantity::value </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取数量值 </p>
+<dl class="section return"><dt>返回</dt><dd>数量值 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Quantity/<a class="el" href="Quantity_8hpp_source.html">Quantity.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Quantity.html">Quantity</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

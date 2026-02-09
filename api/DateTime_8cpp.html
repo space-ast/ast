@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Time/DateTime.cpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('DateTime_8cpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">DateTime.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><br  />
+  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;DateTime.hpp&quot;</code><br />
+<code>#include &quot;AstCore/JulianDate.hpp&quot;</code><br />
+<code>#include &quot;AstCore/RunTime.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/String.hpp&quot;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ada7d9b9c29320a4f6f423f4950768515" id="r_ada7d9b9c29320a4f6f423f4950768515"><td class="memItemLeft" align="right" valign="top"><a id="ada7d9b9c29320a4f6f423f4950768515" name="ada7d9b9c29320a4f6f423f4950768515"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeLocal</b> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:ada7d9b9c29320a4f6f423f4950768515"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前本地日期时间 <br /></td></tr>
+<tr class="separator:ada7d9b9c29320a4f6f423f4950768515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2382e315e4faee566ce2da9a0e0a721" id="r_af2382e315e4faee566ce2da9a0e0a721"><td class="memItemLeft" align="right" valign="top"><a id="af2382e315e4faee566ce2da9a0e0a721" name="af2382e315e4faee566ce2da9a0e0a721"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeUTC</b> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:af2382e315e4faee566ce2da9a0e0a721"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前UTC日期时间 <br /></td></tr>
+<tr class="separator:af2382e315e4faee566ce2da9a0e0a721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea754e812ce5a268a4b22384cd92015" id="r_afea754e812ce5a268a4b22384cd92015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#afea754e812ce5a268a4b22384cd92015">ast::aDateTimeNormalize</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:afea754e812ce5a268a4b22384cd92015"><td class="mdescLeft">&#160;</td><td class="mdescRight">规范化日期时间对象  <br /></td></tr>
+<tr class="separator:afea754e812ce5a268a4b22384cd92015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1599d89861ee681fb99ca5a68626edd1" id="r_a1599d89861ee681fb99ca5a68626edd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1599d89861ee681fb99ca5a68626edd1">ast::aDateTimeNormalizeUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:a1599d89861ee681fb99ca5a68626edd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">规范化日期时间对象(按UTC时间规范化)  <br /></td></tr>
+<tr class="separator:a1599d89861ee681fb99ca5a68626edd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1862ea9c722b2004505991e13db6557" id="r_af1862ea9c722b2004505991e13db6557"><td class="memItemLeft" align="right" valign="top"><a id="af1862ea9c722b2004505991e13db6557" name="af1862ea9c722b2004505991e13db6557"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aGregDateDifference</b> (int hour, int timeZone)</td></tr>
+<tr class="separator:af1862ea9c722b2004505991e13db6557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81334076dec89ffde7d43d67aa9d53da" id="r_a81334076dec89ffde7d43d67aa9d53da"><td class="memItemLeft" align="right" valign="top"><a id="a81334076dec89ffde7d43d67aa9d53da" name="a81334076dec89ffde7d43d67aa9d53da"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aTimeZoneDateDifference</b> (int hour, int timeZone)</td></tr>
+<tr class="memdesc:a81334076dec89ffde7d43d67aa9d53da"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算当前时区相对格林尼治世界时的日期修正量(+1/0/-1) <br /></td></tr>
+<tr class="separator:a81334076dec89ffde7d43d67aa9d53da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34b3522fd948faeb364b48f67a937aa" id="r_ad34b3522fd948faeb364b48f67a937aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad34b3522fd948faeb364b48f67a937aa">ast::aDateTimeNormalizeLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int timezone)</td></tr>
+<tr class="memdesc:ad34b3522fd948faeb364b48f67a937aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">规范化日期时间对象(按本地时间规范化)  <br /></td></tr>
+<tr class="separator:ad34b3522fd948faeb364b48f67a937aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6283f05e9e4625b3358a1b1dd39c3a" id="r_aeb6283f05e9e4625b3358a1b1dd39c3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aeb6283f05e9e4625b3358a1b1dd39c3a">ast::aDateTimeNormalizeBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:aeb6283f05e9e4625b3358a1b1dd39c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">规范化日期时间对象(按北京时间规范化)  <br /></td></tr>
+<tr class="separator:aeb6283f05e9e4625b3358a1b1dd39c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a255a86c279bc64ad8e8a3191782e03c0" id="r_a255a86c279bc64ad8e8a3191782e03c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a255a86c279bc64ad8e8a3191782e03c0">ast::aDateTimeAddYears</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int years)</td></tr>
+<tr class="memdesc:a255a86c279bc64ad8e8a3191782e03c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加年  <br /></td></tr>
+<tr class="separator:a255a86c279bc64ad8e8a3191782e03c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ec36298b2b3670b0925965d65e2fe0" id="r_ab5ec36298b2b3670b0925965d65e2fe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab5ec36298b2b3670b0925965d65e2fe0">ast::aDateTimeAddMonths</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int months)</td></tr>
+<tr class="memdesc:ab5ec36298b2b3670b0925965d65e2fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加月  <br /></td></tr>
+<tr class="separator:ab5ec36298b2b3670b0925965d65e2fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ce15d5391facdf68ea00672773bb06" id="r_a98ce15d5391facdf68ea00672773bb06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a98ce15d5391facdf68ea00672773bb06">ast::aDateTimeAddDays</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days)</td></tr>
+<tr class="memdesc:a98ce15d5391facdf68ea00672773bb06"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加日  <br /></td></tr>
+<tr class="separator:a98ce15d5391facdf68ea00672773bb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52e8b01ffb5e3d3350e1a6f219491fc" id="r_ab52e8b01ffb5e3d3350e1a6f219491fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab52e8b01ffb5e3d3350e1a6f219491fc">ast::aDateTimeAddDaysUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days)</td></tr>
+<tr class="memdesc:ab52e8b01ffb5e3d3350e1a6f219491fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加日（UTC时间）  <br /></td></tr>
+<tr class="separator:ab52e8b01ffb5e3d3350e1a6f219491fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66eba41bc3327585b471f9eb5e9f1ac9" id="r_a66eba41bc3327585b471f9eb5e9f1ac9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a66eba41bc3327585b471f9eb5e9f1ac9">ast::aDateTimeAddDaysLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days, int timezone)</td></tr>
+<tr class="memdesc:a66eba41bc3327585b471f9eb5e9f1ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加日（本地时间）  <br /></td></tr>
+<tr class="separator:a66eba41bc3327585b471f9eb5e9f1ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cdf52f9c9c9f5ba1254f53e16a27520" id="r_a1cdf52f9c9c9f5ba1254f53e16a27520"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1cdf52f9c9c9f5ba1254f53e16a27520">ast::aDateTimeAddDaysBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days)</td></tr>
+<tr class="memdesc:a1cdf52f9c9c9f5ba1254f53e16a27520"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加日（北京时间）  <br /></td></tr>
+<tr class="separator:a1cdf52f9c9c9f5ba1254f53e16a27520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad3998750a660fa5c924e334c51d664" id="r_a2ad3998750a660fa5c924e334c51d664"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2ad3998750a660fa5c924e334c51d664">ast::aDateTimeAddHours</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours)</td></tr>
+<tr class="memdesc:a2ad3998750a660fa5c924e334c51d664"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加时  <br /></td></tr>
+<tr class="separator:a2ad3998750a660fa5c924e334c51d664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90a82d01a8d17997dc6bcc404bc3e067" id="r_a90a82d01a8d17997dc6bcc404bc3e067"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a90a82d01a8d17997dc6bcc404bc3e067">ast::aDateTimeAddHoursUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours)</td></tr>
+<tr class="memdesc:a90a82d01a8d17997dc6bcc404bc3e067"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加时（UTC时间）  <br /></td></tr>
+<tr class="separator:a90a82d01a8d17997dc6bcc404bc3e067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4049d8059f1bc16ea954d4af0c396af1" id="r_a4049d8059f1bc16ea954d4af0c396af1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4049d8059f1bc16ea954d4af0c396af1">ast::aDateTimeAddHoursLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours, int timezone)</td></tr>
+<tr class="memdesc:a4049d8059f1bc16ea954d4af0c396af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加时（本地时间）  <br /></td></tr>
+<tr class="separator:a4049d8059f1bc16ea954d4af0c396af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e5ec22d4319d22ec720377ca527a0d6" id="r_a6e5ec22d4319d22ec720377ca527a0d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6e5ec22d4319d22ec720377ca527a0d6">ast::aDateTimeAddHoursBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours)</td></tr>
+<tr class="memdesc:a6e5ec22d4319d22ec720377ca527a0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加时（北京时间）  <br /></td></tr>
+<tr class="separator:a6e5ec22d4319d22ec720377ca527a0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06bd0d62f451e07021cfaf6a0d5598a" id="r_aa06bd0d62f451e07021cfaf6a0d5598a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa06bd0d62f451e07021cfaf6a0d5598a">ast::aDateTimeAddMinutes</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes)</td></tr>
+<tr class="memdesc:aa06bd0d62f451e07021cfaf6a0d5598a"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加分  <br /></td></tr>
+<tr class="separator:aa06bd0d62f451e07021cfaf6a0d5598a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbfa83d08d81f5bfce075b1fbeb40692" id="r_abbfa83d08d81f5bfce075b1fbeb40692"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abbfa83d08d81f5bfce075b1fbeb40692">ast::aDateTimeAddMinutesUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes)</td></tr>
+<tr class="memdesc:abbfa83d08d81f5bfce075b1fbeb40692"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加分（UTC时间）  <br /></td></tr>
+<tr class="separator:abbfa83d08d81f5bfce075b1fbeb40692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d50838bad9e23889999bbff2a92ff33" id="r_a4d50838bad9e23889999bbff2a92ff33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4d50838bad9e23889999bbff2a92ff33">ast::aDateTimeAddMinutesLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes, int timezone)</td></tr>
+<tr class="memdesc:a4d50838bad9e23889999bbff2a92ff33"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加分（本地时间）  <br /></td></tr>
+<tr class="separator:a4d50838bad9e23889999bbff2a92ff33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2de3553404eac4acb6d6a5ad152dd9" id="r_a0a2de3553404eac4acb6d6a5ad152dd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0a2de3553404eac4acb6d6a5ad152dd9">ast::aDateTimeAddMinutesBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes)</td></tr>
+<tr class="memdesc:a0a2de3553404eac4acb6d6a5ad152dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加分（北京时间）  <br /></td></tr>
+<tr class="separator:a0a2de3553404eac4acb6d6a5ad152dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ff416812e7b4a1b3a8be589b87b6a3" id="r_ae9ff416812e7b4a1b3a8be589b87b6a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae9ff416812e7b4a1b3a8be589b87b6a3">ast::aDateTimeAddSeconds</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds)</td></tr>
+<tr class="memdesc:ae9ff416812e7b4a1b3a8be589b87b6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加秒  <br /></td></tr>
+<tr class="separator:ae9ff416812e7b4a1b3a8be589b87b6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9c1a1b8c0f4198a3752a73e71e3c739" id="r_ad9c1a1b8c0f4198a3752a73e71e3c739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad9c1a1b8c0f4198a3752a73e71e3c739">ast::aDateTimeAddSecondsUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds)</td></tr>
+<tr class="memdesc:ad9c1a1b8c0f4198a3752a73e71e3c739"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加秒（UTC时间）  <br /></td></tr>
+<tr class="separator:ad9c1a1b8c0f4198a3752a73e71e3c739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0e5f342bf645b7e27b0892a053fa6c" id="r_a7c0e5f342bf645b7e27b0892a053fa6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a7c0e5f342bf645b7e27b0892a053fa6c">ast::aDateTimeAddSecondsLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds, int timezone)</td></tr>
+<tr class="memdesc:a7c0e5f342bf645b7e27b0892a053fa6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加秒（本地时间）  <br /></td></tr>
+<tr class="separator:a7c0e5f342bf645b7e27b0892a053fa6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f017a5a5f1e4bf970e515b3f3e1e7d" id="r_a19f017a5a5f1e4bf970e515b3f3e1e7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a19f017a5a5f1e4bf970e515b3f3e1e7d">ast::aDateTimeAddSecondsBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds)</td></tr>
+<tr class="memdesc:a19f017a5a5f1e4bf970e515b3f3e1e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">增加秒（北京时间）  <br /></td></tr>
+<tr class="separator:a19f017a5a5f1e4bf970e515b3f3e1e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80444a6bdc627bd34d6ee5d64dd21942" id="r_a80444a6bdc627bd34d6ee5d64dd21942"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a80444a6bdc627bd34d6ee5d64dd21942">ast::aDateTimeFormatISO8601</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="memdesc:a80444a6bdc627bd34d6ee5d64dd21942"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化日期时间为ISO 8601格式  <br /></td></tr>
+<tr class="separator:a80444a6bdc627bd34d6ee5d64dd21942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c178698d2ff24bab0dc69ff2058eca" id="r_a60c178698d2ff24bab0dc69ff2058eca"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a60c178698d2ff24bab0dc69ff2058eca">ast::aDateTimeFormatGregorian</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str, int precision=3)</td></tr>
+<tr class="memdesc:a60c178698d2ff24bab0dc69ff2058eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化日期时间为格里高利历格式  <br /></td></tr>
+<tr class="separator:a60c178698d2ff24bab0dc69ff2058eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a553937a7fe4e174ebb7b7176a84cd7" id="r_a9a553937a7fe4e174ebb7b7176a84cd7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9a553937a7fe4e174ebb7b7176a84cd7">ast::aDateTimeFormatGregorianEn</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="memdesc:a9a553937a7fe4e174ebb7b7176a84cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化日期时间为格里高利历格式（英文）  <br /></td></tr>
+<tr class="separator:a9a553937a7fe4e174ebb7b7176a84cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12c94ded6ae0171a58702f3ce0e0a9b" id="r_ae12c94ded6ae0171a58702f3ce0e0a9b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae12c94ded6ae0171a58702f3ce0e0a9b">ast::aDateTimeFormatGMT</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="memdesc:ae12c94ded6ae0171a58702f3ce0e0a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化日期时间为GMT格式  <br /></td></tr>
+<tr class="separator:ae12c94ded6ae0171a58702f3ce0e0a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf1eca442298fc0c0f36d8ffbb5b9e75" id="r_abf1eca442298fc0c0f36d8ffbb5b9e75"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abf1eca442298fc0c0f36d8ffbb5b9e75">ast::aDateTimeFormatRFC3339</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="memdesc:abf1eca442298fc0c0f36d8ffbb5b9e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化日期时间为RFC 3339格式  <br /></td></tr>
+<tr class="separator:abf1eca442298fc0c0f36d8ffbb5b9e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27207ecdb4c52cb3bbee6b4c5ce6586" id="r_af27207ecdb4c52cb3bbee6b4c5ce6586"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af27207ecdb4c52cb3bbee6b4c5ce6586">ast::aDateTimeParseISO8601</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:af27207ecdb4c52cb3bbee6b4c5ce6586"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析ISO 8601格式的日期时间字符串  <br /></td></tr>
+<tr class="separator:af27207ecdb4c52cb3bbee6b4c5ce6586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5844311880f35f8c7f5005e937755f4d" id="r_a5844311880f35f8c7f5005e937755f4d"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5844311880f35f8c7f5005e937755f4d">ast::aDateTimeParseRFC3339</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:a5844311880f35f8c7f5005e937755f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析RFC 3339格式的日期时间字符串  <br /></td></tr>
+<tr class="separator:a5844311880f35f8c7f5005e937755f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a090d34f100816c9ce912e8fa94d91860" id="r_a090d34f100816c9ce912e8fa94d91860"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a090d34f100816c9ce912e8fa94d91860">ast::aDateTimeParseGregorian</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:a090d34f100816c9ce912e8fa94d91860"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析格里高利历格式的日期时间字符串  <br /></td></tr>
+<tr class="separator:a090d34f100816c9ce912e8fa94d91860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a83327b8620ac82709c7696e8ac7355" id="r_a6a83327b8620ac82709c7696e8ac7355"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6a83327b8620ac82709c7696e8ac7355">ast::aDateTimeParseGregorianEn</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:a6a83327b8620ac82709c7696e8ac7355"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析格里高利历格式（英文）的日期时间字符串  <br /></td></tr>
+<tr class="separator:a6a83327b8620ac82709c7696e8ac7355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62866d91cd474fe2cf156e516225545" id="r_ab62866d91cd474fe2cf156e516225545"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab62866d91cd474fe2cf156e516225545">ast::aDateTimeParseGMT</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:ab62866d91cd474fe2cf156e516225545"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析GMT格式的日期时间字符串  <br /></td></tr>
+<tr class="separator:ab62866d91cd474fe2cf156e516225545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15ead00f49a9a6551fd36a11bebf1368" id="r_a15ead00f49a9a6551fd36a11bebf1368"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a15ead00f49a9a6551fd36a11bebf1368">ast::aDateTimeParseAny</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="memdesc:a15ead00f49a9a6551fd36a11bebf1368"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析任意格式的日期时间字符串  <br /></td></tr>
+<tr class="separator:a15ead00f49a9a6551fd36a11bebf1368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p><br  />
+ </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>3.12.2025 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目. </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_8990e1a6c4161f7830d486c5caed33ad.html">Time</a></li><li class="navelem"><a class="el" href="DateTime_8cpp.html">DateTime.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

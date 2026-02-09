@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::Interpreter类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Interpreter.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1Interpreter-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Interpreter类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>解释器  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Interpreter_8hpp_source.html">Interpreter.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a0772639e1ca5d4dfca4c39ffd38bbb2b" id="r_a0772639e1ca5d4dfca4c39ffd38bbb2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0772639e1ca5d4dfca4c39ffd38bbb2b">currentScope</a> ()</td></tr>
+<tr class="memdesc:a0772639e1ca5d4dfca4c39ffd38bbb2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前作用域  <br /></td></tr>
+<tr class="separator:a0772639e1ca5d4dfca4c39ffd38bbb2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31544cc4e59d5e420a2d61dd86ab3cd9" id="r_a31544cc4e59d5e420a2d61dd86ab3cd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31544cc4e59d5e420a2d61dd86ab3cd9">interpret</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> code)</td></tr>
+<tr class="memdesc:a31544cc4e59d5e420a2d61dd86ab3cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">解释执行代码  <br /></td></tr>
+<tr class="separator:a31544cc4e59d5e420a2d61dd86ab3cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cfd249ae449283f68748420fd27544e" id="r_a7cfd249ae449283f68748420fd27544e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cfd249ae449283f68748420fd27544e">errString</a> () const</td></tr>
+<tr class="memdesc:a7cfd249ae449283f68748420fd27544e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取错误字符串  <br /></td></tr>
+<tr class="separator:a7cfd249ae449283f68748420fd27544e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22070f300a16b4cda2a5a307f7583c67" id="r_a22070f300a16b4cda2a5a307f7583c67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22070f300a16b4cda2a5a307f7583c67">setErrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> err)</td></tr>
+<tr class="memdesc:a22070f300a16b4cda2a5a307f7583c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置错误字符串  <br /></td></tr>
+<tr class="separator:a22070f300a16b4cda2a5a307f7583c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145d9bc69a2f6b41de63774075cb0d15" id="r_a145d9bc69a2f6b41de63774075cb0d15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a145d9bc69a2f6b41de63774075cb0d15">clearErrString</a> ()</td></tr>
+<tr class="memdesc:a145d9bc69a2f6b41de63774075cb0d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">清除错误字符串  <br /></td></tr>
+<tr class="separator:a145d9bc69a2f6b41de63774075cb0d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:aa106735b22fc35d4d07fee94caa42989" id="r_aa106735b22fc35d4d07fee94caa42989"><td class="memItemLeft" align="right" valign="top"><a id="aa106735b22fc35d4d07fee94caa42989" name="aa106735b22fc35d4d07fee94caa42989"></a>
+<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a>&#160;</td><td class="memItemRight" valign="bottom"><b>symbolScope_</b></td></tr>
+<tr class="memdesc:aa106735b22fc35d4d07fee94caa42989"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前作用域 <br /></td></tr>
+<tr class="separator:aa106735b22fc35d4d07fee94caa42989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d7a5b673c762bf5dc91fd1b79005167" id="r_a5d7a5b673c762bf5dc91fd1b79005167"><td class="memItemLeft" align="right" valign="top"><a id="a5d7a5b673c762bf5dc91fd1b79005167" name="a5d7a5b673c762bf5dc91fd1b79005167"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>errString_</b></td></tr>
+<tr class="memdesc:a5d7a5b673c762bf5dc91fd1b79005167"><td class="mdescLeft">&#160;</td><td class="mdescRight">错误字符串 <br /></td></tr>
+<tr class="separator:a5d7a5b673c762bf5dc91fd1b79005167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>解释器 </p>
+<p>解释器用于解释执行脚本中的代码。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a145d9bc69a2f6b41de63774075cb0d15" name="a145d9bc69a2f6b41de63774075cb0d15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145d9bc69a2f6b41de63774075cb0d15">&#9670;&#160;</a></span>clearErrString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Interpreter::clearErrString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>清除错误字符串 </p>
+<p>清除解释器执行代码时产生的错误字符串。 </p>
+
+</div>
+</div>
+<a id="a0772639e1ca5d4dfca4c39ffd38bbb2b" name="a0772639e1ca5d4dfca4c39ffd38bbb2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0772639e1ca5d4dfca4c39ffd38bbb2b">&#9670;&#160;</a></span>currentScope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> * ast::Interpreter::currentScope </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前作用域 </p>
+<p>当前作用域是解释器当前正在执行的代码所在的作用域。 </p><dl class="section return"><dt>返回</dt><dd>当前作用域 </dd></dl>
+
+</div>
+</div>
+<a id="a7cfd249ae449283f68748420fd27544e" name="a7cfd249ae449283f68748420fd27544e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cfd249ae449283f68748420fd27544e">&#9670;&#160;</a></span>errString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ast::Interpreter::errString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取错误字符串 </p>
+<p>获取解释器执行代码时产生的错误字符串。 </p><dl class="section return"><dt>返回</dt><dd>错误字符串 </dd></dl>
+
+</div>
+</div>
+<a id="a31544cc4e59d5e420a2d61dd86ab3cd9" name="a31544cc4e59d5e420a2d61dd86ab3cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31544cc4e59d5e420a2d61dd86ab3cd9">&#9670;&#160;</a></span>interpret()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Interpreter::interpret </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>code</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解释执行代码 </p>
+<p>解释执行代码时，会将代码解析为抽象语法树（AST）， 并根据符号表和调用栈执行代码。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>要解释执行的代码 </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; 解释器上下文守卫</p>
+
+</div>
+</div>
+<a id="a22070f300a16b4cda2a5a307f7583c67" name="a22070f300a16b4cda2a5a307f7583c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22070f300a16b4cda2a5a307f7583c67">&#9670;&#160;</a></span>setErrString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Interpreter::setErrString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>err</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置错误字符串 </p>
+<p>设置解释器执行代码时产生的错误字符串。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err</td><td>错误字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstScript/Interpreter/<a class="el" href="Interpreter_8hpp_source.html">Interpreter.hpp</a></li>
+<li>src/AstScript/Interpreter/<a class="el" href="Interpreter_8cpp.html">Interpreter.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Interpreter.html">Interpreter</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/Quantity/Unit.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Unit_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Unit.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Unit_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="Dimension_8hpp.html">Dimension.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/Object.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstUtil/SharedPtr.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>Unit;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>Quantity;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">namespace </span>units</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a8c7d84c2b89aa838db8477fc949f8e08">none</a>;      </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a7b0c49927f01dc0647079c0e8d949521">mm</a>;        </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce">cm</a>;        </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a567c78044182d62bdfd482ade453488f">dm</a>;        </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>;         </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a9364340c0b565ffc085161f27b9cdfde">km</a>;        </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#ae401b7f239f3217a5ad786e5457ecacb">in</a>;        </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a888ceef2cfae6e68b8c7382fd2a5fc0c">ft</a>;        </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a69bd41f3998d87945c5ba24d4f138c52">yd</a>;        </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a43cd73360527e95bdea7f5347673bb4c">mi</a>;        </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;       </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">extern</span> AST_UTIL_API Unit s;         </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8">ms</a>;        </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">extern</span> AST_UTIL_API Unit min;       </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a58be36ffcb2e27cc8ee98c20d92f0715">hour</a>;      </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c">h</a>;         </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">extern</span> AST_UTIL_API Unit day;       </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a34c503b9f029b3c97b145fd0a2bb7acd">kg</a>;        </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#ae4556ebaa282d22cb28134feff39ae12">g</a>;         </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a0fe52e4a38940eea606c33210cf9f1d2">mg</a>;        </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a474a9adff409a5a219cccbd6a02804a3">lb</a>;        </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#aa855b6dee85a8685cc6cad69db006c8a">N</a>;         </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e">deg</a>;       </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#aa2ca0a73ad1c1d8d0099f63d6428217d">rad</a>;       </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5">A</a>;         </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#ac593a293f88115dcf831f0cd0c707ccd">m2</a>;        </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a0990e0945adaa6e0b651b1c2e194f6cb">m3</a>;        </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">extern</span> AST_UTIL_API Unit <a class="code hl_variable" href="Unit_8cpp.html#a683ba7398360b57e55d979a5bd279a1c">L</a>;         </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#a2d70bda5a246fb35334067072dbe2685">aUnitMultiply</a>(<span class="keyword">const</span> Unit&amp; unit1, <span class="keyword">const</span> Unit&amp; unit2);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#a2d70bda5a246fb35334067072dbe2685">aUnitMultiply</a>(<span class="keyword">const</span> Unit&amp; unit1, <span class="keyword">const</span> Unit&amp; unit2, StringView newname);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#abc0b0eaf248ecf2690adbafdbee67622">aUnitDivide</a>(<span class="keyword">const</span> Unit&amp; unit1, <span class="keyword">const</span> Unit&amp; unit2);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#abc0b0eaf248ecf2690adbafdbee67622">aUnitDivide</a>(<span class="keyword">const</span> Unit&amp; unit1, <span class="keyword">const</span> Unit&amp; unit2, StringView newname);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#a68bc55be726ee1de1ea63da4bdda201c">aUnitPower</a>(<span class="keyword">const</span> Unit&amp; unit, <span class="keywordtype">int</span> exponent);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#a68bc55be726ee1de1ea63da4bdda201c">aUnitPower</a>(<span class="keyword">const</span> Unit&amp; unit, <span class="keywordtype">int</span> exponent, StringView newname);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#a92dff1d7369798cc998c4293c9ee9c37">aUnitInvert</a>(<span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>AST_UTIL_API Unit <a class="code hl_function" href="namespaceast.html#a92dff1d7369798cc998c4293c9ee9c37">aUnitInvert</a>(<span class="keyword">const</span> Unit&amp; unit, StringView newname);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>AST_UTIL_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a9cf23f3f06f4b41455bc2fb6b017fae3">aUnitFactorize</a>(<span class="keyword">const</span> Unit&amp; unit, Unit&amp; newUnit, <span class="keywordtype">double</span>&amp; scale);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>AST_UTIL_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a9cf23f3f06f4b41455bc2fb6b017fae3">aUnitFactorize</a>(Unit&amp; unit, <span class="keywordtype">double</span>&amp; scale);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="};">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html">  125</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1Unit.html">Unit</a></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>{</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="namespaceast.html#aa5ff8b62295a7e770ee4a6f4d8763f2b">unit_multiply</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit1, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit2);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="namespaceast.html#a2f0d879f2d9c8c5da7e194f54592545b">unit_divide</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit1, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit2);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="namespaceast.html#a49d13854b5b3a8bf42c2b26669f74e9a">unit_power</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit, <span class="keywordtype">int</span> exponent);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a67c45427ea5818e47ec662b5e76f9ba6">unit_setname</a>(<a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">class </span><a class="code hl_class" href="classast_1_1Unit_1_1UnitRep.html">UnitRep</a>;                                                      </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a24e943070c10ee40266f32940e65e270">  134</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1Unit.html#a24e943070c10ee40266f32940e65e270">UnitRepHandle</a> = std::shared_ptr&lt;UnitRep&gt;;                     </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#affbd95f55a69380dc9d68e3c0d29a7d8">  135</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1Unit.html#affbd95f55a69380dc9d68e3c0d29a7d8">UnitRepPair</a> = std::pair&lt;UnitRepHandle, int&gt;;                  </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb">  136</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb">SubUnitList</a> = std::vector&lt;UnitRepPair&gt;;                       </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a88b3fc03df274f8dfb82512d89a1dc87">  138</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1Unit.html#a88b3fc03df274f8dfb82512d89a1dc87">UnitRepHandleConst</a> = std::shared_ptr&lt;const UnitRep&gt;;          </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ab58c5c61256f1ea280ca87f04889d858">  139</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1Unit.html#ab58c5c61256f1ea280ca87f04889d858">UnitRepPairConst</a> = std::pair&lt;UnitRepHandleConst, int&gt;;        </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593">  140</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593">SubUnitListConst</a> = std::vector&lt;UnitRepPairConst&gt;;             </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="};">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classast_1_1Unit_1_1UnitRep.html">  144</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classast_1_1Unit_1_1UnitRep.html">UnitRep</a>{</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <a class="code hl_class" href="classast_1_1Unit_1_1UnitRep.html">UnitRep</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">double</span> scale, <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> dimension, <span class="keyword">const</span> <a class="code hl_typedef" href="classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593">SubUnitListConst</a>&amp; subunits)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            : name_{std::string(name)}</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            , scale_{scale}</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            , dimension_{dimension}</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            , subUnits_{subunits}</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        {}</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="classast_1_1Unit_1_1UnitRep.html#a6453c7742b1f87d042a8795162e95329">  152</a></span>        std::string          <a class="code hl_variable" href="classast_1_1Unit_1_1UnitRep.html#a6453c7742b1f87d042a8795162e95329">name_</a>;          </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classast_1_1Unit_1_1UnitRep.html#a2174a426e5816d8c173b7f75b5dbf999">  153</a></span>        <span class="keywordtype">double</span>               scale_{1.0};    </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classast_1_1Unit_1_1UnitRep.html#a270fa398df6868375f5db125920b05ac">  154</a></span>        <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a>            <a class="code hl_variable" href="classast_1_1Unit_1_1UnitRep.html#a270fa398df6868375f5db125920b05ac">dimension_</a>;     </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd">  155</a></span>        <a class="code hl_typedef" href="classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593">SubUnitListConst</a>     <a class="code hl_variable" href="classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd">subUnits_</a>;      </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    };</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617">  159</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617">NaN</a>()</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;&quot;</span>, 0.0, EDimension::eUnit);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a614bfadbdc19afbee490bfbfe0abe526">  165</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a614bfadbdc19afbee490bfbfe0abe526">None</a>()</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;&quot;</span>, 1.0, EDimension::eUnit);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }    </div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="foldopen" id="foldopen00171" data-start="{" data-end="}">
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ae9a69e7d67c44c4b068e3864e8f70d72">  171</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ae9a69e7d67c44c4b068e3864e8f70d72">One</a>()</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">// return Unit(aText(&quot;×1&quot;), 1.0, EDimension::eUnit);</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(aText(<span class="stringliteral">&quot;\u00D71&quot;</span>), 1.0, EDimension::eUnit);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    }</div>
+</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    AST_UTIL_API </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> Scale(<span class="keywordtype">double</span> scale);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a37c28ab509cedb793a241101f97fb52d">  184</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a37c28ab509cedb793a241101f97fb52d">Percent</a>()</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;%&quot;</span>, 0.01, EDimension::eUnit);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a59806bb8a76d0385fb5b2004e0b22046">  191</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a59806bb8a76d0385fb5b2004e0b22046">Second</a>()</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;s&quot;</span>, 1.0, EDimension::eTime);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a394bc3015f2f437d8d5458db3d223362">  196</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a394bc3015f2f437d8d5458db3d223362">Minute</a>()</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;min&quot;</span>, 60.0, EDimension::eTime);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404">  201</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404">Hour</a>()</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;h&quot;</span>, 3600.0, EDimension::eTime);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a084a663d4f357e0a21dba0cfe0adf7ef">  206</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a084a663d4f357e0a21dba0cfe0adf7ef">Day</a>()</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;day&quot;</span>, 86400.0, EDimension::eTime);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aed393765df6992d7fb4feffeac5d0f21">  211</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#aed393765df6992d7fb4feffeac5d0f21">MilliSecond</a>()</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;ms&quot;</span>, 0.001, EDimension::eTime);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    }</div>
+</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="foldopen" id="foldopen00219" data-start="{" data-end="}">
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a24733bba2cec751d014a1d5c6a884c54">  219</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a24733bba2cec751d014a1d5c6a884c54">Meter</a>()</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;m&quot;</span>, 1.0, EDimension::eLength);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00224" data-start="{" data-end="}">
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a81374cdbe33bf972adffe1d846491694">  224</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a81374cdbe33bf972adffe1d846491694">Kilometer</a>()</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;km&quot;</span>, 1000.0, EDimension::eLength);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a8df8e11ee775bd45fc2d52ca069bffb4">  229</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a8df8e11ee775bd45fc2d52ca069bffb4">Centimeter</a>()</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;cm&quot;</span>, 0.01, EDimension::eLength);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ab55d68450892d08a67f172eaeb5f812c">  234</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ab55d68450892d08a67f172eaeb5f812c">Decimeter</a>()</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;dm&quot;</span>, 0.1, EDimension::eLength);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
+</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="foldopen" id="foldopen00240" data-start="{" data-end="}">
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aab380e6f4aca3a449d0572bcb29eb880">  240</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#aab380e6f4aca3a449d0572bcb29eb880">Millimeter</a>()</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;mm&quot;</span>, 0.001, EDimension::eLength);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
+</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    </div>
+<div class="foldopen" id="foldopen00247" data-start="{" data-end="}">
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#acfcc867cd4f2e389ed3f1552443221f3">  247</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#acfcc867cd4f2e389ed3f1552443221f3">Inch</a>()</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    {</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;in&quot;</span>, 0.0254, EDimension::eLength);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    }</div>
+</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a9da85aada6c5612e28ebffa9e252ffb2">  253</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a9da85aada6c5612e28ebffa9e252ffb2">Foot</a>()</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;ft&quot;</span>, 0.3048, EDimension::eLength);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
+</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a6d2db9b031d9a54acda3a39c9f4c3495">  259</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a6d2db9b031d9a54acda3a39c9f4c3495">Yard</a>()</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;yd&quot;</span>, 0.9144, EDimension::eLength);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    }</div>
+</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="foldopen" id="foldopen00265" data-start="{" data-end="}">
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ac97b18d5c9ab55fe554f075235879413">  265</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ac97b18d5c9ab55fe554f075235879413">Mile</a>()</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;mi&quot;</span>, 1609.344, EDimension::eLength);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    }</div>
+</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aec399856d09d9b65e099f12b0daf5ba5">  271</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#aec399856d09d9b65e099f12b0daf5ba5">Kilogram</a>()</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;kg&quot;</span>, 1.0, EDimension::eMass);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00276" data-start="{" data-end="}">
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a765b6081ce17e634b9e78c3ab6106236">  276</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a765b6081ce17e634b9e78c3ab6106236">Gram</a>()</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    {</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;g&quot;</span>, 0.001, EDimension::eMass);</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    }</div>
+</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="foldopen" id="foldopen00282" data-start="{" data-end="}">
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a55dbe53521d3299aef3b66d5922b504b">  282</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a55dbe53521d3299aef3b66d5922b504b">Milligram</a>()</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;mg&quot;</span>, 0.000001, EDimension::eMass);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    }</div>
+</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="foldopen" id="foldopen00288" data-start="{" data-end="}">
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ae9c751dfdbe0bb1535d8dcf42812613a">  288</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ae9c751dfdbe0bb1535d8dcf42812613a">Pound</a>()</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;lb&quot;</span>, 0.45359237, EDimension::eMass);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    }</div>
+</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="foldopen" id="foldopen00294" data-start="{" data-end="}">
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ac2cd6e4ca65e96a425e4da2f437e7a89">  294</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ac2cd6e4ca65e96a425e4da2f437e7a89">Radian</a>()</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    {</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;rad&quot;</span>, 1.0, EDimension::eAngle);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    }</div>
+</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="foldopen" id="foldopen00300" data-start="{" data-end="}">
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ad43a168c36918753c0dadcdbbffc17da">  300</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ad43a168c36918753c0dadcdbbffc17da">Degree</a>()</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="comment">// return Unit(&quot;°&quot;, 0.017453292519943295, EDimension::eAngle);</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(aText(<span class="stringliteral">&quot;\u00B0&quot;</span>), 0.017453292519943295, EDimension::eAngle);</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
+</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="foldopen" id="foldopen00307" data-start="{" data-end="}">
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a004d1aa1d4fb3988c486454748627357">  307</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a004d1aa1d4fb3988c486454748627357">Newton</a>()</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;N&quot;</span>, 1.0, EDimension::eForce);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    }</div>
+</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a9b31fe117914895af7e88e0554dc52e8">  313</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a9b31fe117914895af7e88e0554dc52e8">Ampere</a>()</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    {</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;A&quot;</span>, 1.0, EDimension::eCurrent);</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00318" data-start="{" data-end="}">
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a9c46d1226d2d959d6649b9208722d06f">  318</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a9c46d1226d2d959d6649b9208722d06f">Kelvin</a>()</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    {</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;K&quot;</span>, 1.0, EDimension::eTemperature);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00323" data-start="{" data-end="}">
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a21729dcc76c038da7ac52e24834838ee">  323</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a21729dcc76c038da7ac52e24834838ee">Mole</a>()</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;mol&quot;</span>, 1.0, EDimension::eAmount);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    }</div>
+</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="comment">// 下面是组合单位</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="foldopen" id="foldopen00331" data-start="{" data-end="}">
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aa82a3f4b88ef193c7f311896d2c86d23">  331</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#aa82a3f4b88ef193c7f311896d2c86d23">CentimeterPerSecond</a>(){</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordflow">return</span> Centimeter() / Second();</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#af192060a344a3f2fe8ab2eb700c93c84">  335</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#af192060a344a3f2fe8ab2eb700c93c84">KilometerPerHour</a>()</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordflow">return</span> Kilometer() / Hour();</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00340" data-start="{" data-end="}">
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aeb114270603bdb4bcc41133e0da3319d">  340</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#aeb114270603bdb4bcc41133e0da3319d">MeterPerMinute</a>()</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    {</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keywordflow">return</span> Meter() / Minute();</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00345" data-start="{" data-end="}">
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a6a00a2c79a4ea03cf493acca1e3f6451">  345</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a6a00a2c79a4ea03cf493acca1e3f6451">SquareMeter</a>()</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    {</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordflow">return</span> Meter() * Meter();</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00350" data-start="{" data-end="}">
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#af53a5963dadec36fae4ea238570d4dcb">  350</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#af53a5963dadec36fae4ea238570d4dcb">SquareKilometer</a>()</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    {</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="keywordflow">return</span> Kilometer() * Kilometer();</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00355" data-start="{" data-end="}">
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aa1bb19e4801703b3458ec2fb5c2fda72">  355</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#aa1bb19e4801703b3458ec2fb5c2fda72">SquareFoot</a>()</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    {</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <span class="keywordflow">return</span> Foot() * Foot();</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    }</div>
+</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="foldopen" id="foldopen00361" data-start="{" data-end="}">
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a878981f9c48d10fca7bf1ea65eab895b">  361</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a878981f9c48d10fca7bf1ea65eab895b">SquareYard</a>()</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    {</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        <span class="keywordflow">return</span> Yard() * Yard();</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    }</div>
+</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="foldopen" id="foldopen00367" data-start="{" data-end="}">
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a66b30b76091c42c9cb48b5d3da015b82">  367</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a66b30b76091c42c9cb48b5d3da015b82">CubicMeter</a>()</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    {</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        <span class="keywordflow">return</span> Meter() * Meter() * Meter();</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00372" data-start="{" data-end="}">
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a8ef31ecec3bc04bcd86e8882ed3eedf4">  372</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a8ef31ecec3bc04bcd86e8882ed3eedf4">Liter</a>()</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    {</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="stringliteral">&quot;L&quot;</span>, 0.001, EDimension::eVolume);</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    }</div>
+</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614">  379</a></span>    <a class="code hl_function" href="classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614">Unit</a>(): <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>{units::none}{}</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
+<div class="foldopen" id="foldopen00382" data-start="{" data-end="}">
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a01f131b66681d59fb0b731e0ec675080">  382</a></span>    <a class="code hl_function" href="classast_1_1Unit.html#a01f131b66681d59fb0b731e0ec675080">Unit</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">double</span> scale, <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> dimension)</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        : rep_{std::make_shared&lt;<a class="code hl_class" href="classast_1_1Unit_1_1UnitRep.html">UnitRep</a>&gt;(name, scale, dimension, <a class="code hl_typedef" href="classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593">SubUnitListConst</a>{})} </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    {}</div>
+</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span> </div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(<span class="keywordtype">double</span> scale, <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> dimension, <span class="keyword">const</span> SubUnitListConst&amp; subunits)</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        : rep_{std::make_shared&lt;UnitRep&gt;(<span class="stringliteral">&quot;&quot;</span>, scale, dimension, (subunits))} </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    {}</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ac9c6a03f40114106d9347585c9d9903f">  392</a></span>    <a class="code hl_function" href="classast_1_1Unit.html#ac9c6a03f40114106d9347585c9d9903f">Unit</a>(<a class="code hl_typedef" href="classast_1_1Unit.html#a24e943070c10ee40266f32940e65e270">UnitRepHandle</a> rep) : rep_(rep) {}</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ab063663d190520fb849f9a79280a2565">  398</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Unit.html#ab063663d190520fb849f9a79280a2565">fromSI</a>(<span class="keywordtype">double</span> value)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value / getScale(); }</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc">  404</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc">toSI</a>(<span class="keywordtype">double</span> value)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value * getScale(); }</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a7ea3bdf4b89bad68862a258de7800ad9">  409</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Unit.html#a7ea3bdf4b89bad68862a258de7800ad9">fromInternal</a>(<span class="keywordtype">double</span> value)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> fromSI(value); }</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aed92f92a0f8527a1020724c9dda09017">  414</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Unit.html#aed92f92a0f8527a1020724c9dda09017">toInternal</a>(<span class="keywordtype">double</span> value)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> toSI(value); }</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a2cb7d466a73c2e548d09ff3444f7dfb2">  418</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Unit.html#a2cb7d466a73c2e548d09ff3444f7dfb2">getScale</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;scale_; }</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a737479417a4c6db862752355e6334984">  422</a></span>    <a class="code hl_class" href="classast_1_1Dimension.html">Dimension</a> <a class="code hl_function" href="classast_1_1Unit.html#a737479417a4c6db862752355e6334984">dimension</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;dimension_; }</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a94bbbb90d92a77c89ec2bb49147b31af">  426</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1Unit.html#a94bbbb90d92a77c89ec2bb49147b31af">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;name_; }</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span> </div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c">  431</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c">isValid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rep_-&gt;scale_ != 0.0; }</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span><span class="keyword">public</span>: <span class="comment">// operators</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span> </div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58">  437</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58">clone</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(std::make_shared&lt;UnitRep&gt;(*rep_)); }</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span> </div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a8325fb31cd46c4356e094983e027c33a">  440</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a8325fb31cd46c4356e094983e027c33a">invert</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a92dff1d7369798cc998c4293c9ee9c37">aUnitInvert</a>(*<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
+<div class="foldopen" id="foldopen00446" data-start="{" data-end="}">
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee">  446</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee">multiply</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> newname, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a2d70bda5a246fb35334067072dbe2685">aUnitMultiply</a>(*<span class="keyword">this</span>, other, newname);</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>    }</div>
+</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
+<div class="foldopen" id="foldopen00455" data-start="{" data-end="}">
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a40d890822f24e239617f9aba3a87cf42">  455</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a40d890822f24e239617f9aba3a87cf42">divide</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> newname, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#abc0b0eaf248ecf2690adbafdbee67622">aUnitDivide</a>(*<span class="keyword">this</span>, other, newname);</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    }</div>
+</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
+<div class="foldopen" id="foldopen00464" data-start="{" data-end="}">
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d">  464</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d">scale</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> newname, <span class="keywordtype">double</span> factor)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>(newname, factor * rep_-&gt;scale_, rep_-&gt;dimension_);</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>    }</div>
+</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
+<div class="foldopen" id="foldopen00473" data-start="{" data-end="}">
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a3dc635b74bcdbf6ea00eb074a40b30ae">  473</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a3dc635b74bcdbf6ea00eb074a40b30ae">pow</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> newname, <span class="keywordtype">int</span> exponent)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a68bc55be726ee1de1ea63da4bdda201c">aUnitPower</a>(*<span class="keyword">this</span>, exponent, newname);</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>    }</div>
+</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span> </div>
+<div class="foldopen" id="foldopen00481" data-start="{" data-end="}">
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a40e068f48d9b5e29685ea01d71639650">  481</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a40e068f48d9b5e29685ea01d71639650">pow</a>(<span class="keywordtype">int</span> exponent)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a68bc55be726ee1de1ea63da4bdda201c">aUnitPower</a>(*<span class="keyword">this</span>, exponent);</div>
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span>    }</div>
+</div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span> </div>
+<div class="foldopen" id="foldopen00489" data-start="{" data-end="}">
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a580b8ab35a231887ebe7056151b7a8a3">  489</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Unit.html#a580b8ab35a231887ebe7056151b7a8a3">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>        <span class="keywordflow">if</span>(rep_ == other.rep_)</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>        <span class="comment">// 单位缩放因子和量纲相同即可认为是相同单位</span></div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>        <span class="keywordflow">return</span> rep_-&gt;scale_ == other.rep_-&gt;scale_ &amp;&amp; rep_-&gt;dimension_ == other.rep_-&gt;dimension_;    </div>
+<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>    }</div>
+</div>
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
+<div class="foldopen" id="foldopen00500" data-start="{" data-end="}">
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a3cf6cc9c71ab1480a5f0ad6ec031ccda">  500</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Unit.html#a3cf6cc9c71ab1480a5f0ad6ec031ccda">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    }</div>
+</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span> </div>
+<div class="foldopen" id="foldopen00508" data-start="{" data-end="}">
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a502ec21d8dbb0bff20733c607286d955">  508</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#a502ec21d8dbb0bff20733c607286d955">operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a2d70bda5a246fb35334067072dbe2685">aUnitMultiply</a>(*<span class="keyword">this</span>, other);</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    }</div>
+</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span> </div>
+<div class="foldopen" id="foldopen00516" data-start="{" data-end="}">
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#ad5af747d90773053e1f87c7ae7573a30">  516</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a> <a class="code hl_function" href="classast_1_1Unit.html#ad5af747d90773053e1f87c7ae7573a30">operator/</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#abc0b0eaf248ecf2690adbafdbee67622">aUnitDivide</a>(*<span class="keyword">this</span>, other);</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00523" data-start="{" data-end="}">
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#a7f6960b260c96a8ed88cc1e26c9b3683">  523</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; <a class="code hl_function" href="classast_1_1Unit.html#a7f6960b260c96a8ed88cc1e26c9b3683">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>    {</div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>        *<span class="keyword">this</span> = *<span class="keyword">this</span> * other;</div>
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00531" data-start="{" data-end="}">
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno"><a class="line" href="classast_1_1Unit.html#aa307c1b51726d9777460002e6c0ffe6f">  531</a></span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; <a class="code hl_function" href="classast_1_1Unit.html#aa307c1b51726d9777460002e6c0ffe6f">operator/=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; other)</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>    {</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        *<span class="keyword">this</span> = *<span class="keyword">this</span> / other;</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    }</div>
+</div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span> </div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>    UnitRepHandle rep_;</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>};</div>
+</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span> </div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span> </div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span> </div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span> </div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aDimension_8hpp_html"><div class="ttname"><a href="Dimension_8hpp.html">Dimension.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a0990e0945adaa6e0b651b1c2e194f6cb"><div class="ttname"><a href="Unit_8cpp.html#a0990e0945adaa6e0b651b1c2e194f6cb">ast::units::m3</a></div><div class="ttdeci">Unit m3</div><div class="ttdoc">立方米</div><div class="ttdef"><b>定义</b> Unit.cpp:446</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a0fe52e4a38940eea606c33210cf9f1d2"><div class="ttname"><a href="Unit_8cpp.html#a0fe52e4a38940eea606c33210cf9f1d2">ast::units::mg</a></div><div class="ttdeci">Unit mg</div><div class="ttdoc">毫克</div><div class="ttdef"><b>定义</b> Unit.cpp:434</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a26da2976a8828d2390606bddb75cf8e5"><div class="ttname"><a href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5">ast::units::A</a></div><div class="ttdeci">Unit A</div><div class="ttdoc">安培</div><div class="ttdef"><b>定义</b> Unit.cpp:442</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a303e4126abedb9af71391110b791f9ce"><div class="ttname"><a href="Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce">ast::units::cm</a></div><div class="ttdeci">Unit cm</div><div class="ttdoc">厘米</div><div class="ttdef"><b>定义</b> Unit.cpp:414</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a34c503b9f029b3c97b145fd0a2bb7acd"><div class="ttname"><a href="Unit_8cpp.html#a34c503b9f029b3c97b145fd0a2bb7acd">ast::units::kg</a></div><div class="ttdeci">Unit kg</div><div class="ttdoc">千克</div><div class="ttdef"><b>定义</b> Unit.cpp:432</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a41b2cc417965220fe0097097e15b1f5c"><div class="ttname"><a href="Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c">ast::units::h</a></div><div class="ttdeci">Unit h</div><div class="ttdoc">小时</div><div class="ttdef"><b>定义</b> Unit.cpp:429</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a43cd73360527e95bdea7f5347673bb4c"><div class="ttname"><a href="Unit_8cpp.html#a43cd73360527e95bdea7f5347673bb4c">ast::units::mi</a></div><div class="ttdeci">Unit mi</div><div class="ttdoc">英里</div><div class="ttdef"><b>定义</b> Unit.cpp:422</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a474a9adff409a5a219cccbd6a02804a3"><div class="ttname"><a href="Unit_8cpp.html#a474a9adff409a5a219cccbd6a02804a3">ast::units::lb</a></div><div class="ttdeci">Unit lb</div><div class="ttdoc">磅</div><div class="ttdef"><b>定义</b> Unit.cpp:435</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a567c78044182d62bdfd482ade453488f"><div class="ttname"><a href="Unit_8cpp.html#a567c78044182d62bdfd482ade453488f">ast::units::dm</a></div><div class="ttdeci">Unit dm</div><div class="ttdoc">分米</div><div class="ttdef"><b>定义</b> Unit.cpp:415</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a58be36ffcb2e27cc8ee98c20d92f0715"><div class="ttname"><a href="Unit_8cpp.html#a58be36ffcb2e27cc8ee98c20d92f0715">ast::units::hour</a></div><div class="ttdeci">Unit hour</div><div class="ttdoc">小时</div><div class="ttdef"><b>定义</b> Unit.cpp:428</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a66fc0c2327c7c298ea5eca0f8afb08c8"><div class="ttname"><a href="Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8">ast::units::ms</a></div><div class="ttdeci">Unit ms</div><div class="ttdoc">毫秒</div><div class="ttdef"><b>定义</b> Unit.cpp:426</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a683ba7398360b57e55d979a5bd279a1c"><div class="ttname"><a href="Unit_8cpp.html#a683ba7398360b57e55d979a5bd279a1c">ast::units::L</a></div><div class="ttdeci">Unit L</div><div class="ttdoc">升</div><div class="ttdef"><b>定义</b> Unit.cpp:447</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a69bd41f3998d87945c5ba24d4f138c52"><div class="ttname"><a href="Unit_8cpp.html#a69bd41f3998d87945c5ba24d4f138c52">ast::units::yd</a></div><div class="ttdeci">Unit yd</div><div class="ttdoc">码</div><div class="ttdef"><b>定义</b> Unit.cpp:420</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a6b2069a36f88d45a8bd6a9e61d760296"><div class="ttname"><a href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">ast::units::m</a></div><div class="ttdeci">Unit m</div><div class="ttdoc">米</div><div class="ttdef"><b>定义</b> Unit.cpp:416</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a6d966734edbd9f3919b56975c0b83d0e"><div class="ttname"><a href="Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e">ast::units::deg</a></div><div class="ttdeci">Unit deg</div><div class="ttdoc">度</div><div class="ttdef"><b>定义</b> Unit.cpp:439</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a7b0c49927f01dc0647079c0e8d949521"><div class="ttname"><a href="Unit_8cpp.html#a7b0c49927f01dc0647079c0e8d949521">ast::units::mm</a></div><div class="ttdeci">Unit mm</div><div class="ttdoc">毫米</div><div class="ttdef"><b>定义</b> Unit.cpp:413</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a844daeb7494484dd4a992db22d44fad7"><div class="ttname"><a href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">ast::units::sec</a></div><div class="ttdeci">Unit sec</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:424</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a888ceef2cfae6e68b8c7382fd2a5fc0c"><div class="ttname"><a href="Unit_8cpp.html#a888ceef2cfae6e68b8c7382fd2a5fc0c">ast::units::ft</a></div><div class="ttdeci">Unit ft</div><div class="ttdoc">英尺</div><div class="ttdef"><b>定义</b> Unit.cpp:421</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a8c7d84c2b89aa838db8477fc949f8e08"><div class="ttname"><a href="Unit_8cpp.html#a8c7d84c2b89aa838db8477fc949f8e08">ast::units::none</a></div><div class="ttdeci">Unit none</div><div class="ttdoc">无单位</div><div class="ttdef"><b>定义</b> Unit.cpp:411</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a9364340c0b565ffc085161f27b9cdfde"><div class="ttname"><a href="Unit_8cpp.html#a9364340c0b565ffc085161f27b9cdfde">ast::units::km</a></div><div class="ttdeci">Unit km</div><div class="ttdoc">千米</div><div class="ttdef"><b>定义</b> Unit.cpp:417</div></div>
+<div class="ttc" id="aUnit_8cpp_html_aa2ca0a73ad1c1d8d0099f63d6428217d"><div class="ttname"><a href="Unit_8cpp.html#aa2ca0a73ad1c1d8d0099f63d6428217d">ast::units::rad</a></div><div class="ttdeci">Unit rad</div><div class="ttdoc">弧度</div><div class="ttdef"><b>定义</b> Unit.cpp:440</div></div>
+<div class="ttc" id="aUnit_8cpp_html_aa855b6dee85a8685cc6cad69db006c8a"><div class="ttname"><a href="Unit_8cpp.html#aa855b6dee85a8685cc6cad69db006c8a">ast::units::N</a></div><div class="ttdeci">Unit N</div><div class="ttdoc">牛顿</div><div class="ttdef"><b>定义</b> Unit.cpp:437</div></div>
+<div class="ttc" id="aUnit_8cpp_html_ac593a293f88115dcf831f0cd0c707ccd"><div class="ttname"><a href="Unit_8cpp.html#ac593a293f88115dcf831f0cd0c707ccd">ast::units::m2</a></div><div class="ttdeci">Unit m2</div><div class="ttdoc">平方米</div><div class="ttdef"><b>定义</b> Unit.cpp:444</div></div>
+<div class="ttc" id="aUnit_8cpp_html_ae401b7f239f3217a5ad786e5457ecacb"><div class="ttname"><a href="Unit_8cpp.html#ae401b7f239f3217a5ad786e5457ecacb">ast::units::in</a></div><div class="ttdeci">Unit in</div><div class="ttdoc">英寸</div><div class="ttdef"><b>定义</b> Unit.cpp:419</div></div>
+<div class="ttc" id="aUnit_8cpp_html_ae4556ebaa282d22cb28134feff39ae12"><div class="ttname"><a href="Unit_8cpp.html#ae4556ebaa282d22cb28134feff39ae12">ast::units::g</a></div><div class="ttdeci">Unit g</div><div class="ttdoc">克</div><div class="ttdef"><b>定义</b> Unit.cpp:433</div></div>
+<div class="ttc" id="aclassast_1_1Dimension_html"><div class="ttname"><a href="classast_1_1Dimension.html">ast::Dimension</a></div><div class="ttdoc">量纲</div><div class="ttdef"><b>定义</b> Dimension.hpp:351</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1Unit_1_1UnitRep_html"><div class="ttname"><a href="classast_1_1Unit_1_1UnitRep.html">ast::Unit::UnitRep</a></div><div class="ttdoc">单位表示</div><div class="ttdef"><b>定义</b> Unit.hpp:144</div></div>
+<div class="ttc" id="aclassast_1_1Unit_1_1UnitRep_html_a183874826df2371d1aaf0fa6aa838fbd"><div class="ttname"><a href="classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd">ast::Unit::UnitRep::subUnits_</a></div><div class="ttdeci">SubUnitListConst subUnits_</div><div class="ttdoc">子单位列表</div><div class="ttdef"><b>定义</b> Unit.hpp:155</div></div>
+<div class="ttc" id="aclassast_1_1Unit_1_1UnitRep_html_a270fa398df6868375f5db125920b05ac"><div class="ttname"><a href="classast_1_1Unit_1_1UnitRep.html#a270fa398df6868375f5db125920b05ac">ast::Unit::UnitRep::dimension_</a></div><div class="ttdeci">Dimension dimension_</div><div class="ttdoc">量纲</div><div class="ttdef"><b>定义</b> Unit.hpp:154</div></div>
+<div class="ttc" id="aclassast_1_1Unit_1_1UnitRep_html_a6453c7742b1f87d042a8795162e95329"><div class="ttname"><a href="classast_1_1Unit_1_1UnitRep.html#a6453c7742b1f87d042a8795162e95329">ast::Unit::UnitRep::name_</a></div><div class="ttdeci">std::string name_</div><div class="ttdoc">名称</div><div class="ttdef"><b>定义</b> Unit.hpp:152</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html"><div class="ttname"><a href="classast_1_1Unit.html">ast::Unit</a></div><div class="ttdoc">单位</div><div class="ttdef"><b>定义</b> Unit.hpp:126</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a004d1aa1d4fb3988c486454748627357"><div class="ttname"><a href="classast_1_1Unit.html#a004d1aa1d4fb3988c486454748627357">ast::Unit::Newton</a></div><div class="ttdeci">static Unit Newton()</div><div class="ttdoc">牛顿单位</div><div class="ttdef"><b>定义</b> Unit.hpp:307</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a01b17f5310556fe6de956612053581eb"><div class="ttname"><a href="classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb">ast::Unit::SubUnitList</a></div><div class="ttdeci">std::vector&lt; UnitRepPair &gt; SubUnitList</div><div class="ttdoc">单位表示子项列表</div><div class="ttdef"><b>定义</b> Unit.hpp:136</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a01f131b66681d59fb0b731e0ec675080"><div class="ttname"><a href="classast_1_1Unit.html#a01f131b66681d59fb0b731e0ec675080">ast::Unit::Unit</a></div><div class="ttdeci">Unit(StringView name, double scale, Dimension dimension)</div><div class="ttdoc">新建单位</div><div class="ttdef"><b>定义</b> Unit.hpp:382</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a084a663d4f357e0a21dba0cfe0adf7ef"><div class="ttname"><a href="classast_1_1Unit.html#a084a663d4f357e0a21dba0cfe0adf7ef">ast::Unit::Day</a></div><div class="ttdeci">static Unit Day()</div><div class="ttdoc">天单位</div><div class="ttdef"><b>定义</b> Unit.hpp:206</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a0f7366299cdf6a6875300179457b57ee"><div class="ttname"><a href="classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee">ast::Unit::multiply</a></div><div class="ttdeci">Unit multiply(StringView newname, const Unit &amp;other) const</div><div class="ttdoc">单位乘法</div><div class="ttdef"><b>定义</b> Unit.hpp:446</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a1deb9340a4f6a0844a583001edf41593"><div class="ttname"><a href="classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593">ast::Unit::SubUnitListConst</a></div><div class="ttdeci">std::vector&lt; UnitRepPairConst &gt; SubUnitListConst</div><div class="ttdoc">单位表示子项列表（常量）</div><div class="ttdef"><b>定义</b> Unit.hpp:140</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a21729dcc76c038da7ac52e24834838ee"><div class="ttname"><a href="classast_1_1Unit.html#a21729dcc76c038da7ac52e24834838ee">ast::Unit::Mole</a></div><div class="ttdeci">static Unit Mole()</div><div class="ttdoc">mole单位</div><div class="ttdef"><b>定义</b> Unit.hpp:323</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a24733bba2cec751d014a1d5c6a884c54"><div class="ttname"><a href="classast_1_1Unit.html#a24733bba2cec751d014a1d5c6a884c54">ast::Unit::Meter</a></div><div class="ttdeci">static Unit Meter()</div><div class="ttdoc">米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:219</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a24e943070c10ee40266f32940e65e270"><div class="ttname"><a href="classast_1_1Unit.html#a24e943070c10ee40266f32940e65e270">ast::Unit::UnitRepHandle</a></div><div class="ttdeci">std::shared_ptr&lt; UnitRep &gt; UnitRepHandle</div><div class="ttdoc">单位表示</div><div class="ttdef"><b>定义</b> Unit.hpp:134</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a2b697ff6be1a8f098a668a13b4c2cb9d"><div class="ttname"><a href="classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d">ast::Unit::scale</a></div><div class="ttdeci">Unit scale(StringView newname, double factor) const</div><div class="ttdoc">单位缩放</div><div class="ttdef"><b>定义</b> Unit.hpp:464</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a2cb7d466a73c2e548d09ff3444f7dfb2"><div class="ttname"><a href="classast_1_1Unit.html#a2cb7d466a73c2e548d09ff3444f7dfb2">ast::Unit::getScale</a></div><div class="ttdeci">double getScale() const</div><div class="ttdoc">获取单位缩放因子</div><div class="ttdef"><b>定义</b> Unit.hpp:418</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a37c28ab509cedb793a241101f97fb52d"><div class="ttname"><a href="classast_1_1Unit.html#a37c28ab509cedb793a241101f97fb52d">ast::Unit::Percent</a></div><div class="ttdeci">static Unit Percent()</div><div class="ttdoc">百分比单位</div><div class="ttdef"><b>定义</b> Unit.hpp:184</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a394bc3015f2f437d8d5458db3d223362"><div class="ttname"><a href="classast_1_1Unit.html#a394bc3015f2f437d8d5458db3d223362">ast::Unit::Minute</a></div><div class="ttdeci">static Unit Minute()</div><div class="ttdoc">分钟单位</div><div class="ttdef"><b>定义</b> Unit.hpp:196</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a3cf6cc9c71ab1480a5f0ad6ec031ccda"><div class="ttname"><a href="classast_1_1Unit.html#a3cf6cc9c71ab1480a5f0ad6ec031ccda">ast::Unit::operator!=</a></div><div class="ttdeci">bool operator!=(const Unit &amp;other) const</div><div class="ttdoc">单位不相等运算符</div><div class="ttdef"><b>定义</b> Unit.hpp:500</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a3dc635b74bcdbf6ea00eb074a40b30ae"><div class="ttname"><a href="classast_1_1Unit.html#a3dc635b74bcdbf6ea00eb074a40b30ae">ast::Unit::pow</a></div><div class="ttdeci">Unit pow(StringView newname, int exponent) const</div><div class="ttdoc">单位幂运算</div><div class="ttdef"><b>定义</b> Unit.hpp:473</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a40d890822f24e239617f9aba3a87cf42"><div class="ttname"><a href="classast_1_1Unit.html#a40d890822f24e239617f9aba3a87cf42">ast::Unit::divide</a></div><div class="ttdeci">Unit divide(StringView newname, const Unit &amp;other) const</div><div class="ttdoc">单位除法</div><div class="ttdef"><b>定义</b> Unit.hpp:455</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a40e068f48d9b5e29685ea01d71639650"><div class="ttname"><a href="classast_1_1Unit.html#a40e068f48d9b5e29685ea01d71639650">ast::Unit::pow</a></div><div class="ttdeci">Unit pow(int exponent) const</div><div class="ttdoc">单位幂运算</div><div class="ttdef"><b>定义</b> Unit.hpp:481</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a43a01430624f51cbff0bcbdf71c5cfdc"><div class="ttname"><a href="classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc">ast::Unit::toSI</a></div><div class="ttdeci">double toSI(double value) const</div><div class="ttdoc">从该单位对应的值转换为国际单位制下的值</div><div class="ttdef"><b>定义</b> Unit.hpp:404</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a502ec21d8dbb0bff20733c607286d955"><div class="ttname"><a href="classast_1_1Unit.html#a502ec21d8dbb0bff20733c607286d955">ast::Unit::operator*</a></div><div class="ttdeci">Unit operator*(const Unit &amp;other) const</div><div class="ttdoc">单位乘法运算符</div><div class="ttdef"><b>定义</b> Unit.hpp:508</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a55dbe53521d3299aef3b66d5922b504b"><div class="ttname"><a href="classast_1_1Unit.html#a55dbe53521d3299aef3b66d5922b504b">ast::Unit::Milligram</a></div><div class="ttdeci">static Unit Milligram()</div><div class="ttdoc">毫克单位</div><div class="ttdef"><b>定义</b> Unit.hpp:282</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a580b8ab35a231887ebe7056151b7a8a3"><div class="ttname"><a href="classast_1_1Unit.html#a580b8ab35a231887ebe7056151b7a8a3">ast::Unit::operator==</a></div><div class="ttdeci">bool operator==(const Unit &amp;other) const</div><div class="ttdoc">单位相等运算符</div><div class="ttdef"><b>定义</b> Unit.hpp:489</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a59806bb8a76d0385fb5b2004e0b22046"><div class="ttname"><a href="classast_1_1Unit.html#a59806bb8a76d0385fb5b2004e0b22046">ast::Unit::Second</a></div><div class="ttdeci">static Unit Second()</div><div class="ttdoc">秒单位</div><div class="ttdef"><b>定义</b> Unit.hpp:191</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a614bfadbdc19afbee490bfbfe0abe526"><div class="ttname"><a href="classast_1_1Unit.html#a614bfadbdc19afbee490bfbfe0abe526">ast::Unit::None</a></div><div class="ttdeci">static Unit None()</div><div class="ttdoc">无单位</div><div class="ttdef"><b>定义</b> Unit.hpp:165</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a66b30b76091c42c9cb48b5d3da015b82"><div class="ttname"><a href="classast_1_1Unit.html#a66b30b76091c42c9cb48b5d3da015b82">ast::Unit::CubicMeter</a></div><div class="ttdeci">static Unit CubicMeter()</div><div class="ttdoc">立方米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:367</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a675bd356f14657f18d49bd6e97713617"><div class="ttname"><a href="classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617">ast::Unit::NaN</a></div><div class="ttdeci">static Unit NaN()</div><div class="ttdoc">无效单位</div><div class="ttdef"><b>定义</b> Unit.hpp:159</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a6a00a2c79a4ea03cf493acca1e3f6451"><div class="ttname"><a href="classast_1_1Unit.html#a6a00a2c79a4ea03cf493acca1e3f6451">ast::Unit::SquareMeter</a></div><div class="ttdeci">static Unit SquareMeter()</div><div class="ttdoc">平方米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:345</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a6d2db9b031d9a54acda3a39c9f4c3495"><div class="ttname"><a href="classast_1_1Unit.html#a6d2db9b031d9a54acda3a39c9f4c3495">ast::Unit::Yard</a></div><div class="ttdeci">static Unit Yard()</div><div class="ttdoc">码单位</div><div class="ttdef"><b>定义</b> Unit.hpp:259</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a737479417a4c6db862752355e6334984"><div class="ttname"><a href="classast_1_1Unit.html#a737479417a4c6db862752355e6334984">ast::Unit::dimension</a></div><div class="ttdeci">Dimension dimension() const</div><div class="ttdoc">获取单位量纲</div><div class="ttdef"><b>定义</b> Unit.hpp:422</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a765b6081ce17e634b9e78c3ab6106236"><div class="ttname"><a href="classast_1_1Unit.html#a765b6081ce17e634b9e78c3ab6106236">ast::Unit::Gram</a></div><div class="ttdeci">static Unit Gram()</div><div class="ttdoc">克单位</div><div class="ttdef"><b>定义</b> Unit.hpp:276</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a7ea3bdf4b89bad68862a258de7800ad9"><div class="ttname"><a href="classast_1_1Unit.html#a7ea3bdf4b89bad68862a258de7800ad9">ast::Unit::fromInternal</a></div><div class="ttdeci">double fromInternal(double value) const</div><div class="ttdoc">从内部运行时单位对应的值转换为该单位对应的值</div><div class="ttdef"><b>定义</b> Unit.hpp:409</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a7f6960b260c96a8ed88cc1e26c9b3683"><div class="ttname"><a href="classast_1_1Unit.html#a7f6960b260c96a8ed88cc1e26c9b3683">ast::Unit::operator*=</a></div><div class="ttdeci">Unit &amp; operator*=(const Unit &amp;other)</div><div class="ttdoc">单位乘法赋值运算符</div><div class="ttdef"><b>定义</b> Unit.hpp:523</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a81374cdbe33bf972adffe1d846491694"><div class="ttname"><a href="classast_1_1Unit.html#a81374cdbe33bf972adffe1d846491694">ast::Unit::Kilometer</a></div><div class="ttdeci">static Unit Kilometer()</div><div class="ttdoc">米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:224</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a8325fb31cd46c4356e094983e027c33a"><div class="ttname"><a href="classast_1_1Unit.html#a8325fb31cd46c4356e094983e027c33a">ast::Unit::invert</a></div><div class="ttdeci">Unit invert() const</div><div class="ttdoc">单位倒数</div><div class="ttdef"><b>定义</b> Unit.hpp:440</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a878981f9c48d10fca7bf1ea65eab895b"><div class="ttname"><a href="classast_1_1Unit.html#a878981f9c48d10fca7bf1ea65eab895b">ast::Unit::SquareYard</a></div><div class="ttdeci">static Unit SquareYard()</div><div class="ttdoc">平方码单位</div><div class="ttdef"><b>定义</b> Unit.hpp:361</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a88b3fc03df274f8dfb82512d89a1dc87"><div class="ttname"><a href="classast_1_1Unit.html#a88b3fc03df274f8dfb82512d89a1dc87">ast::Unit::UnitRepHandleConst</a></div><div class="ttdeci">std::shared_ptr&lt; const UnitRep &gt; UnitRepHandleConst</div><div class="ttdoc">单位表示句柄（常量）</div><div class="ttdef"><b>定义</b> Unit.hpp:138</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a8df8e11ee775bd45fc2d52ca069bffb4"><div class="ttname"><a href="classast_1_1Unit.html#a8df8e11ee775bd45fc2d52ca069bffb4">ast::Unit::Centimeter</a></div><div class="ttdeci">static Unit Centimeter()</div><div class="ttdoc">厘米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:229</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a8ef31ecec3bc04bcd86e8882ed3eedf4"><div class="ttname"><a href="classast_1_1Unit.html#a8ef31ecec3bc04bcd86e8882ed3eedf4">ast::Unit::Liter</a></div><div class="ttdeci">static Unit Liter()</div><div class="ttdoc">升单位</div><div class="ttdef"><b>定义</b> Unit.hpp:372</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a94bbbb90d92a77c89ec2bb49147b31af"><div class="ttname"><a href="classast_1_1Unit.html#a94bbbb90d92a77c89ec2bb49147b31af">ast::Unit::name</a></div><div class="ttdeci">const std::string &amp; name() const</div><div class="ttdoc">获取单位名称</div><div class="ttdef"><b>定义</b> Unit.hpp:426</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a9b31fe117914895af7e88e0554dc52e8"><div class="ttname"><a href="classast_1_1Unit.html#a9b31fe117914895af7e88e0554dc52e8">ast::Unit::Ampere</a></div><div class="ttdeci">static Unit Ampere()</div><div class="ttdoc">安培单位</div><div class="ttdef"><b>定义</b> Unit.hpp:313</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a9c365643bf4c15fa51c06df158636d58"><div class="ttname"><a href="classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58">ast::Unit::clone</a></div><div class="ttdeci">Unit clone() const</div><div class="ttdoc">单位克隆</div><div class="ttdef"><b>定义</b> Unit.hpp:437</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a9c46d1226d2d959d6649b9208722d06f"><div class="ttname"><a href="classast_1_1Unit.html#a9c46d1226d2d959d6649b9208722d06f">ast::Unit::Kelvin</a></div><div class="ttdeci">static Unit Kelvin()</div><div class="ttdoc">开尔文单位</div><div class="ttdef"><b>定义</b> Unit.hpp:318</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a9da85aada6c5612e28ebffa9e252ffb2"><div class="ttname"><a href="classast_1_1Unit.html#a9da85aada6c5612e28ebffa9e252ffb2">ast::Unit::Foot</a></div><div class="ttdeci">static Unit Foot()</div><div class="ttdoc">英尺单位</div><div class="ttdef"><b>定义</b> Unit.hpp:253</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_a9e9bfde7a46a15bc4a0f55756212a404"><div class="ttname"><a href="classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404">ast::Unit::Hour</a></div><div class="ttdeci">static Unit Hour()</div><div class="ttdoc">小时单位</div><div class="ttdef"><b>定义</b> Unit.hpp:201</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aa1bb19e4801703b3458ec2fb5c2fda72"><div class="ttname"><a href="classast_1_1Unit.html#aa1bb19e4801703b3458ec2fb5c2fda72">ast::Unit::SquareFoot</a></div><div class="ttdeci">static Unit SquareFoot()</div><div class="ttdoc">平方英尺单位</div><div class="ttdef"><b>定义</b> Unit.hpp:355</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aa307c1b51726d9777460002e6c0ffe6f"><div class="ttname"><a href="classast_1_1Unit.html#aa307c1b51726d9777460002e6c0ffe6f">ast::Unit::operator/=</a></div><div class="ttdeci">Unit &amp; operator/=(const Unit &amp;other)</div><div class="ttdoc">单位除法赋值运算符</div><div class="ttdef"><b>定义</b> Unit.hpp:531</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aa588eedf33c16b12c0001ad440f6f32c"><div class="ttname"><a href="classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c">ast::Unit::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">是否有效单位</div><div class="ttdef"><b>定义</b> Unit.hpp:431</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aa82a3f4b88ef193c7f311896d2c86d23"><div class="ttname"><a href="classast_1_1Unit.html#aa82a3f4b88ef193c7f311896d2c86d23">ast::Unit::CentimeterPerSecond</a></div><div class="ttdeci">static Unit CentimeterPerSecond()</div><div class="ttdoc">厘米每秒单位</div><div class="ttdef"><b>定义</b> Unit.hpp:331</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aab380e6f4aca3a449d0572bcb29eb880"><div class="ttname"><a href="classast_1_1Unit.html#aab380e6f4aca3a449d0572bcb29eb880">ast::Unit::Millimeter</a></div><div class="ttdeci">static Unit Millimeter()</div><div class="ttdoc">毫米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:240</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ab063663d190520fb849f9a79280a2565"><div class="ttname"><a href="classast_1_1Unit.html#ab063663d190520fb849f9a79280a2565">ast::Unit::fromSI</a></div><div class="ttdeci">double fromSI(double value) const</div><div class="ttdoc">从国际单位制转换为该单位对应的值</div><div class="ttdef"><b>定义</b> Unit.hpp:398</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ab55d68450892d08a67f172eaeb5f812c"><div class="ttname"><a href="classast_1_1Unit.html#ab55d68450892d08a67f172eaeb5f812c">ast::Unit::Decimeter</a></div><div class="ttdeci">static Unit Decimeter()</div><div class="ttdoc">分米单位</div><div class="ttdef"><b>定义</b> Unit.hpp:234</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ab58c5c61256f1ea280ca87f04889d858"><div class="ttname"><a href="classast_1_1Unit.html#ab58c5c61256f1ea280ca87f04889d858">ast::Unit::UnitRepPairConst</a></div><div class="ttdeci">std::pair&lt; UnitRepHandleConst, int &gt; UnitRepPairConst</div><div class="ttdoc">单位表示子项（常量）</div><div class="ttdef"><b>定义</b> Unit.hpp:139</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ac2cd6e4ca65e96a425e4da2f437e7a89"><div class="ttname"><a href="classast_1_1Unit.html#ac2cd6e4ca65e96a425e4da2f437e7a89">ast::Unit::Radian</a></div><div class="ttdeci">static Unit Radian()</div><div class="ttdoc">弧度单位</div><div class="ttdef"><b>定义</b> Unit.hpp:294</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ac97b18d5c9ab55fe554f075235879413"><div class="ttname"><a href="classast_1_1Unit.html#ac97b18d5c9ab55fe554f075235879413">ast::Unit::Mile</a></div><div class="ttdeci">static Unit Mile()</div><div class="ttdoc">英里单位</div><div class="ttdef"><b>定义</b> Unit.hpp:265</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ac9c6a03f40114106d9347585c9d9903f"><div class="ttname"><a href="classast_1_1Unit.html#ac9c6a03f40114106d9347585c9d9903f">ast::Unit::Unit</a></div><div class="ttdeci">Unit(UnitRepHandle rep)</div><div class="ttdef"><b>定义</b> Unit.hpp:392</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ace0c733ae096215d1e88930f629bb614"><div class="ttname"><a href="classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614">ast::Unit::Unit</a></div><div class="ttdeci">Unit()</div><div class="ttdoc">默认无单位</div><div class="ttdef"><b>定义</b> Unit.hpp:379</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_acfcc867cd4f2e389ed3f1552443221f3"><div class="ttname"><a href="classast_1_1Unit.html#acfcc867cd4f2e389ed3f1552443221f3">ast::Unit::Inch</a></div><div class="ttdeci">static Unit Inch()</div><div class="ttdoc">英寸单位</div><div class="ttdef"><b>定义</b> Unit.hpp:247</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ad43a168c36918753c0dadcdbbffc17da"><div class="ttname"><a href="classast_1_1Unit.html#ad43a168c36918753c0dadcdbbffc17da">ast::Unit::Degree</a></div><div class="ttdeci">static Unit Degree()</div><div class="ttdoc">度单位</div><div class="ttdef"><b>定义</b> Unit.hpp:300</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ad5af747d90773053e1f87c7ae7573a30"><div class="ttname"><a href="classast_1_1Unit.html#ad5af747d90773053e1f87c7ae7573a30">ast::Unit::operator/</a></div><div class="ttdeci">Unit operator/(const Unit &amp;other) const</div><div class="ttdoc">单位除法运算符</div><div class="ttdef"><b>定义</b> Unit.hpp:516</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ae9a69e7d67c44c4b068e3864e8f70d72"><div class="ttname"><a href="classast_1_1Unit.html#ae9a69e7d67c44c4b068e3864e8f70d72">ast::Unit::One</a></div><div class="ttdeci">static Unit One()</div><div class="ttdoc">无量纲单位</div><div class="ttdef"><b>定义</b> Unit.hpp:171</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_ae9c751dfdbe0bb1535d8dcf42812613a"><div class="ttname"><a href="classast_1_1Unit.html#ae9c751dfdbe0bb1535d8dcf42812613a">ast::Unit::Pound</a></div><div class="ttdeci">static Unit Pound()</div><div class="ttdoc">磅单位</div><div class="ttdef"><b>定义</b> Unit.hpp:288</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aeb114270603bdb4bcc41133e0da3319d"><div class="ttname"><a href="classast_1_1Unit.html#aeb114270603bdb4bcc41133e0da3319d">ast::Unit::MeterPerMinute</a></div><div class="ttdeci">static Unit MeterPerMinute()</div><div class="ttdoc">米每分钟单位</div><div class="ttdef"><b>定义</b> Unit.hpp:340</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aec399856d09d9b65e099f12b0daf5ba5"><div class="ttname"><a href="classast_1_1Unit.html#aec399856d09d9b65e099f12b0daf5ba5">ast::Unit::Kilogram</a></div><div class="ttdeci">static Unit Kilogram()</div><div class="ttdoc">千克单位</div><div class="ttdef"><b>定义</b> Unit.hpp:271</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aed393765df6992d7fb4feffeac5d0f21"><div class="ttname"><a href="classast_1_1Unit.html#aed393765df6992d7fb4feffeac5d0f21">ast::Unit::MilliSecond</a></div><div class="ttdeci">static Unit MilliSecond()</div><div class="ttdoc">毫秒单位</div><div class="ttdef"><b>定义</b> Unit.hpp:211</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_aed92f92a0f8527a1020724c9dda09017"><div class="ttname"><a href="classast_1_1Unit.html#aed92f92a0f8527a1020724c9dda09017">ast::Unit::toInternal</a></div><div class="ttdeci">double toInternal(double value) const</div><div class="ttdoc">从该单位对应的值转换为内部运行时单位对应值</div><div class="ttdef"><b>定义</b> Unit.hpp:414</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_af192060a344a3f2fe8ab2eb700c93c84"><div class="ttname"><a href="classast_1_1Unit.html#af192060a344a3f2fe8ab2eb700c93c84">ast::Unit::KilometerPerHour</a></div><div class="ttdeci">static Unit KilometerPerHour()</div><div class="ttdoc">千米每秒单位</div><div class="ttdef"><b>定义</b> Unit.hpp:335</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_af53a5963dadec36fae4ea238570d4dcb"><div class="ttname"><a href="classast_1_1Unit.html#af53a5963dadec36fae4ea238570d4dcb">ast::Unit::SquareKilometer</a></div><div class="ttdeci">static Unit SquareKilometer()</div><div class="ttdoc">平方公里单位</div><div class="ttdef"><b>定义</b> Unit.hpp:350</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html_affbd95f55a69380dc9d68e3c0d29a7d8"><div class="ttname"><a href="classast_1_1Unit.html#affbd95f55a69380dc9d68e3c0d29a7d8">ast::Unit::UnitRepPair</a></div><div class="ttdeci">std::pair&lt; UnitRepHandle, int &gt; UnitRepPair</div><div class="ttdoc">单位表示子项</div><div class="ttdef"><b>定义</b> Unit.hpp:135</div></div>
+<div class="ttc" id="anamespaceast_html_a2d70bda5a246fb35334067072dbe2685"><div class="ttname"><a href="namespaceast.html#a2d70bda5a246fb35334067072dbe2685">ast::aUnitMultiply</a></div><div class="ttdeci">Unit aUnitMultiply(const Unit &amp;unit1, const Unit &amp;unit2)</div><div class="ttdoc">单位乘法</div><div class="ttdef"><b>定义</b> Unit.cpp:329</div></div>
+<div class="ttc" id="anamespaceast_html_a2f0d879f2d9c8c5da7e194f54592545b"><div class="ttname"><a href="namespaceast.html#a2f0d879f2d9c8c5da7e194f54592545b">ast::unit_divide</a></div><div class="ttdeci">Unit unit_divide(const Unit &amp;unit1, const Unit &amp;unit2)</div><div class="ttdoc">单位除法</div><div class="ttdef"><b>定义</b> Unit.cpp:263</div></div>
+<div class="ttc" id="anamespaceast_html_a49d13854b5b3a8bf42c2b26669f74e9a"><div class="ttname"><a href="namespaceast.html#a49d13854b5b3a8bf42c2b26669f74e9a">ast::unit_power</a></div><div class="ttdeci">Unit unit_power(const Unit &amp;unit, int exponent)</div><div class="ttdoc">单位幂</div><div class="ttdef"><b>定义</b> Unit.cpp:296</div></div>
+<div class="ttc" id="anamespaceast_html_a67c45427ea5818e47ec662b5e76f9ba6"><div class="ttname"><a href="namespaceast.html#a67c45427ea5818e47ec662b5e76f9ba6">ast::unit_setname</a></div><div class="ttdeci">void unit_setname(Unit &amp;unit, StringView name)</div><div class="ttdoc">设置单位名称</div><div class="ttdef"><b>定义</b> Unit.cpp:323</div></div>
+<div class="ttc" id="anamespaceast_html_a68bc55be726ee1de1ea63da4bdda201c"><div class="ttname"><a href="namespaceast.html#a68bc55be726ee1de1ea63da4bdda201c">ast::aUnitPower</a></div><div class="ttdeci">Unit aUnitPower(const Unit &amp;unit, int exponent)</div><div class="ttdoc">单位幂</div><div class="ttdef"><b>定义</b> Unit.cpp:357</div></div>
+<div class="ttc" id="anamespaceast_html_a92dff1d7369798cc998c4293c9ee9c37"><div class="ttname"><a href="namespaceast.html#a92dff1d7369798cc998c4293c9ee9c37">ast::aUnitInvert</a></div><div class="ttdeci">Unit aUnitInvert(const Unit &amp;unit)</div><div class="ttdoc">单位倒数</div><div class="ttdef"><b>定义</b> Unit.cpp:372</div></div>
+<div class="ttc" id="anamespaceast_html_a9cf23f3f06f4b41455bc2fb6b017fae3"><div class="ttname"><a href="namespaceast.html#a9cf23f3f06f4b41455bc2fb6b017fae3">ast::aUnitFactorize</a></div><div class="ttdeci">void aUnitFactorize(const Unit &amp;unit, Unit &amp;newUnit, double &amp;scale)</div><div class="ttdoc">单位分解</div><div class="ttdef"><b>定义</b> Unit.cpp:386</div></div>
+<div class="ttc" id="anamespaceast_html_aa5ff8b62295a7e770ee4a6f4d8763f2b"><div class="ttname"><a href="namespaceast.html#aa5ff8b62295a7e770ee4a6f4d8763f2b">ast::unit_multiply</a></div><div class="ttdeci">Unit unit_multiply(const Unit &amp;unit1, const Unit &amp;unit2)</div><div class="ttdoc">单位乘法</div><div class="ttdef"><b>定义</b> Unit.cpp:232</div></div>
+<div class="ttc" id="anamespaceast_html_abc0b0eaf248ecf2690adbafdbee67622"><div class="ttname"><a href="namespaceast.html#abc0b0eaf248ecf2690adbafdbee67622">ast::aUnitDivide</a></div><div class="ttdeci">Unit aUnitDivide(const Unit &amp;unit1, const Unit &amp;unit2)</div><div class="ttdoc">单位除法</div><div class="ttdef"><b>定义</b> Unit.cpp:343</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_f454e969ccf99a49cff74d0cdbee1578.html">Quantity</a></li><li class="navelem"><a class="el" href="Unit_8hpp.html">Unit.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

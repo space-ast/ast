@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Time/TimePoint.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('TimePoint_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">TimePoint.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>绝对时间点  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="Duration_8hpp_source.html">Duration.hpp</a>&quot;</code><br />
+<code>#include &quot;AstCore/Constants.h&quot;</code><br />
+<code>#include &quot;AstCore/JulianDate.hpp&quot;</code><br />
+<code>#include &quot;AstCore/DateTime.hpp&quot;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div>
+<p><a href="TimePoint_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimePoint.html">ast::TimePoint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">绝对时间点  <a href="classast_1_1TimePoint.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a71924ae7a77279ed8203166c618a49df" id="r_a71924ae7a77279ed8203166c618a49df"><td class="memItemLeft" align="right" valign="top"><a id="a71924ae7a77279ed8203166c618a49df" name="a71924ae7a77279ed8203166c618a49df"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUTC</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="memdesc:a71924ae7a77279ed8203166c618a49df"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（协调世界时 UTC） <br /></td></tr>
+<tr class="separator:a71924ae7a77279ed8203166c618a49df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3fcf7eeb4d06fd9cba06d0776393774" id="r_ab3fcf7eeb4d06fd9cba06d0776393774"><td class="memItemLeft" align="right" valign="top"><a id="ab3fcf7eeb4d06fd9cba06d0776393774" name="ab3fcf7eeb4d06fd9cba06d0776393774"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTT</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
+<tr class="memdesc:ab3fcf7eeb4d06fd9cba06d0776393774"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（地球时TT） <br /></td></tr>
+<tr class="separator:ab3fcf7eeb4d06fd9cba06d0776393774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19201d4b7e23c036b8bdf1209b42f0f2" id="r_a19201d4b7e23c036b8bdf1209b42f0f2"><td class="memItemLeft" align="right" valign="top"><a id="a19201d4b7e23c036b8bdf1209b42f0f2" name="a19201d4b7e23c036b8bdf1209b42f0f2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTDB</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTDB)</td></tr>
+<tr class="memdesc:a19201d4b7e23c036b8bdf1209b42f0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（质心动力学时TDB） <br /></td></tr>
+<tr class="separator:a19201d4b7e23c036b8bdf1209b42f0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bab6500c72dcf5ba8583b282a54dd31" id="r_a1bab6500c72dcf5ba8583b282a54dd31"><td class="memItemLeft" align="right" valign="top"><a id="a1bab6500c72dcf5ba8583b282a54dd31" name="a1bab6500c72dcf5ba8583b282a54dd31"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTAI</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI)</td></tr>
+<tr class="memdesc:a1bab6500c72dcf5ba8583b282a54dd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（原子时 TAI） <br /></td></tr>
+<tr class="separator:a1bab6500c72dcf5ba8583b282a54dd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ce1901b3cae1292cfd714d1c2d6711" id="r_a75ce1901b3cae1292cfd714d1c2d6711"><td class="memItemLeft" align="right" valign="top"><a id="a75ce1901b3cae1292cfd714d1c2d6711" name="a75ce1901b3cae1292cfd714d1c2d6711"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUT1</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUT1)</td></tr>
+<tr class="memdesc:a75ce1901b3cae1292cfd714d1c2d6711"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（世界时 UT1） <br /></td></tr>
+<tr class="separator:a75ce1901b3cae1292cfd714d1c2d6711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0418cfc5f9a2d78a15fbdf2d7a8540e2" id="r_a0418cfc5f9a2d78a15fbdf2d7a8540e2"><td class="memItemLeft" align="right" valign="top"><a id="a0418cfc5f9a2d78a15fbdf2d7a8540e2" name="a0418cfc5f9a2d78a15fbdf2d7a8540e2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUTC</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
+<tr class="memdesc:a0418cfc5f9a2d78a15fbdf2d7a8540e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为日期时间（协调世界时 UTC） <br /></td></tr>
+<tr class="separator:a0418cfc5f9a2d78a15fbdf2d7a8540e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d67a53c1c0d87e58f2e8560b597d4a" id="r_a11d67a53c1c0d87e58f2e8560b597d4a"><td class="memItemLeft" align="right" valign="top"><a id="a11d67a53c1c0d87e58f2e8560b597d4a" name="a11d67a53c1c0d87e58f2e8560b597d4a"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTT</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT)</td></tr>
+<tr class="memdesc:a11d67a53c1c0d87e58f2e8560b597d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为日期时间（地球时TT） <br /></td></tr>
+<tr class="separator:a11d67a53c1c0d87e58f2e8560b597d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d803aa425d3c3056ff891c52bbf6bfe" id="r_a6d803aa425d3c3056ff891c52bbf6bfe"><td class="memItemLeft" align="right" valign="top"><a id="a6d803aa425d3c3056ff891c52bbf6bfe" name="a6d803aa425d3c3056ff891c52bbf6bfe"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTDB</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTDB)</td></tr>
+<tr class="memdesc:a6d803aa425d3c3056ff891c52bbf6bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为日期时间（质心动力学时TDB） <br /></td></tr>
+<tr class="separator:a6d803aa425d3c3056ff891c52bbf6bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af899b240427187712afe0d822e1812c5" id="r_af899b240427187712afe0d822e1812c5"><td class="memItemLeft" align="right" valign="top"><a id="af899b240427187712afe0d822e1812c5" name="af899b240427187712afe0d822e1812c5"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTAI</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTAI)</td></tr>
+<tr class="memdesc:af899b240427187712afe0d822e1812c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为日期时间（原子时 TAI） <br /></td></tr>
+<tr class="separator:af899b240427187712afe0d822e1812c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a619dc8fc4ba2101f856c9e448076d93c" id="r_a619dc8fc4ba2101f856c9e448076d93c"><td class="memItemLeft" align="right" valign="top"><a id="a619dc8fc4ba2101f856c9e448076d93c" name="a619dc8fc4ba2101f856c9e448076d93c"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUT1</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUT1)</td></tr>
+<tr class="memdesc:a619dc8fc4ba2101f856c9e448076d93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为日期时间（世界时 UT1） <br /></td></tr>
+<tr class="separator:a619dc8fc4ba2101f856c9e448076d93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa659dcf357b549d669fca3957991debd" id="r_aa659dcf357b549d669fca3957991debd"><td class="memItemLeft" align="right" valign="top"><a id="aa659dcf357b549d669fca3957991debd" name="aa659dcf357b549d669fca3957991debd"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointFormat</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, std::string &amp;str, int precision=kTimePointDefaultFormatPrecision)</td></tr>
+<tr class="memdesc:aa659dcf357b549d669fca3957991debd"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点格式化为字符串 <br /></td></tr>
+<tr class="separator:aa659dcf357b549d669fca3957991debd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa593a266f37e1b82d1f9d403402e8a" id="r_adaa593a266f37e1b82d1f9d403402e8a"><td class="memItemLeft" align="right" valign="top"><a id="adaa593a266f37e1b82d1f9d403402e8a" name="adaa593a266f37e1b82d1f9d403402e8a"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointParse</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time)</td></tr>
+<tr class="memdesc:adaa593a266f37e1b82d1f9d403402e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从字符串解析时间点 <br /></td></tr>
+<tr class="separator:adaa593a266f37e1b82d1f9d403402e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>绝对时间点 </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>15.11.2025 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按“现有状态”提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_8990e1a6c4161f7830d486c5caed33ad.html">Time</a></li><li class="navelem"><a class="el" href="TimePoint_8hpp.html">TimePoint.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

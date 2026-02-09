@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::IODEIntegrator类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1IODEIntegrator.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1IODEIntegrator-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::IODEIntegrator类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>ODE 积分器接口类  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ODEIntegrator_8hpp_source.html">ODEIntegrator.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::IODEIntegrator 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1IODEIntegrator.png" usemap="#ast::IODEIntegrator_map" alt=""/>
+  <map id="ast::IODEIntegrator_map" name="ast::IODEIntegrator_map">
+<area href="classast_1_1ODEIntegrator.html" title="ODE 积分器" alt="ast::ODEIntegrator" shape="rect" coords="543,56,714,80"/>
+<area href="classast_1_1ODEFixedStepIntegrator.html" title="固定步长积分器" alt="ast::ODEFixedStepIntegrator" shape="rect" coords="543,112,714,136"/>
+<area href="classast_1_1ODEVarStepIntegrator.html" title="可变步长积分器" alt="ast::ODEVarStepIntegrator" shape="rect" coords="271,168,442,192"/>
+<area href="classast_1_1RK4.html" title="RK4 积分器" alt="ast::RK4" shape="rect" coords="452,168,623,192"/>
+<area href="classast_1_1RK8.html" title="RK8 积分器" alt="ast::RK8" shape="rect" coords="633,168,804,192"/>
+<area href="classast_1_1RKV8.html" title="RKV8 积分器" alt="ast::RKV8" shape="rect" coords="814,168,985,192"/>
+<area href="classast_1_1RKCK.html" title="Runge-Kutta Cash-Karp 方法" alt="ast::RKCK" shape="rect" coords="0,224,171,248"/>
+<area href="classast_1_1RKF45.html" title="Runge-Kutta-Fehlberg 4(5) 积分器" alt="ast::RKF45" shape="rect" coords="181,224,352,248"/>
+<area href="classast_1_1RKF56.html" title="Runge-Kutta-Fehlberg 5(6) 积分器" alt="ast::RKF56" shape="rect" coords="362,224,533,248"/>
+<area href="classast_1_1RKF78.html" title="RKF78 积分器" alt="ast::RKF78" shape="rect" coords="543,224,714,248"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a56e8b3a7fc2d4866ad1ec583b2b66e2b" id="r_a56e8b3a7fc2d4866ad1ec583b2b66e2b"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e8b3a7fc2d4866ad1ec583b2b66e2b">initialize</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode)=0</td></tr>
+<tr class="memdesc:a56e8b3a7fc2d4866ad1ec583b2b66e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化积分器  <br /></td></tr>
+<tr class="separator:a56e8b3a7fc2d4866ad1ec583b2b66e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded7799d4a0e6fa78517966512a7e033" id="r_aded7799d4a0e6fa78517966512a7e033"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded7799d4a0e6fa78517966512a7e033">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
+<tr class="memdesc:aded7799d4a0e6fa78517966512a7e033"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
+<tr class="separator:aded7799d4a0e6fa78517966512a7e033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5af95bca8cc5a32cd68765be358748e" id="r_ab5af95bca8cc5a32cd68765be358748e"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5af95bca8cc5a32cd68765be358748e">integrateStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
+<tr class="memdesc:ab5af95bca8cc5a32cd68765be358748e"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE一步  <br /></td></tr>
+<tr class="separator:ab5af95bca8cc5a32cd68765be358748e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f80d9d607ccf7cadb28f2350e70727" id="r_a34f80d9d607ccf7cadb28f2350e70727"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34f80d9d607ccf7cadb28f2350e70727">singleStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double t0, double step)=0</td></tr>
+<tr class="memdesc:a34f80d9d607ccf7cadb28f2350e70727"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行一步积分  <br /></td></tr>
+<tr class="separator:a34f80d9d607ccf7cadb28f2350e70727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>ODE 积分器接口类 </p>
+<p>~ </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a56e8b3a7fc2d4866ad1ec583b2b66e2b" name="a56e8b3a7fc2d4866ad1ec583b2b66e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e8b3a7fc2d4866ad1ec583b2b66e2b">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::IODEIntegrator::initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>初始化积分器 </p>
+<p>初始化积分器，设置ODE的维度和步长等参数 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1ODEIntegrator.html#a2fae675ff43ae7112be95100a0c9d9e2">ast::ODEIntegrator</a>, <a class="el" href="classast_1_1RK4.html#a2b5d6d25e0a279a7010f49e7639f9fe8">ast::RK4</a>, <a class="el" href="classast_1_1RK8.html#aeaeeead7b4be278d61f0341fc7ec3111">ast::RK8</a>, <a class="el" href="classast_1_1RKCK.html#a3aa5c4249adcb74a9da1f92ea077a731">ast::RKCK</a>, <a class="el" href="classast_1_1RKF45.html#a0903e4e199feaf1129c3baa69e41921e">ast::RKF45</a>, <a class="el" href="classast_1_1RKF56.html#ad6e87622464a53ac32ac45aed2965daf">ast::RKF56</a>, <a class="el" href="classast_1_1RKF78.html#a164646b69c5131484e256e1d2d17a10e">ast::RKF78</a> , 以及 <a class="el" href="classast_1_1RKV8.html#af388e2898334f847365237384b19a1bd">ast::RKV8</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="aded7799d4a0e6fa78517966512a7e033" name="aded7799d4a0e6fa78517966512a7e033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded7799d4a0e6fa78517966512a7e033">&#9670;&#160;</a></span>integrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::IODEIntegrator::integrate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tf</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>积分ODE </p>
+<p>积分ODE，将积分结果存储在y中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>当前时间 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tf</td><td>最终时间 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a39950429e962e999c1ca5429110d42b5">ast::ODEFixedStepIntegrator</a>, <a class="el" href="classast_1_1ODEIntegrator.html#aded7799d4a0e6fa78517966512a7e033">ast::ODEIntegrator</a> , 以及 <a class="el" href="classast_1_1ODEVarStepIntegrator.html#a0b006147c68a10139535308006c8a0c7">ast::ODEVarStepIntegrator</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ab5af95bca8cc5a32cd68765be358748e" name="ab5af95bca8cc5a32cd68765be358748e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5af95bca8cc5a32cd68765be358748e">&#9670;&#160;</a></span>integrateStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::IODEIntegrator::integrateStep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tf</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>积分ODE一步 </p>
+<p>积分ODE一步，将积分结果存储在y中 如果是变步长积分器，步长会根据误差自动调整 如果是定步长积分器，步长会固定为初始步长 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>当前时间 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tf</td><td>最终时间 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a08b7f7a0228c833de2e9c1cd48639ecf">ast::ODEFixedStepIntegrator</a> , 以及 <a class="el" href="classast_1_1ODEVarStepIntegrator.html#af95436ff6672e82391e13a44933a89d1">ast::ODEVarStepIntegrator</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a34f80d9d607ccf7cadb28f2350e70727" name="a34f80d9d607ccf7cadb28f2350e70727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f80d9d607ccf7cadb28f2350e70727">&#9670;&#160;</a></span>singleStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::IODEIntegrator::singleStep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行一步积分 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">t0</td><td>当前时间 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">step</td><td>时间步长 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1RK4.html#a91552ea8e72b4c86ca94139a5f4f3fe0">ast::RK4</a>, <a class="el" href="classast_1_1RK8.html#a6ca040ab7b00c6923759e8555820943f">ast::RK8</a>, <a class="el" href="classast_1_1RKCK.html#aaeb3be4e3dc4e36b85fb9632ecd4ec6b">ast::RKCK</a>, <a class="el" href="classast_1_1RKF45.html#ae3cd511f728409c9701f16bea236d3cb">ast::RKF45</a>, <a class="el" href="classast_1_1RKF56.html#a82915b16cb01c08bb9f6e91c7f73b44b">ast::RKF56</a>, <a class="el" href="classast_1_1RKF78.html#a8f1ec01ee9571bf0a8250d75dc634835">ast::RKF78</a> , 以及 <a class="el" href="classast_1_1RKV8.html#a3fbaff42735d914531775a503ae04d7b">ast::RKV8</a> 内被实现.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstMath/ODE/<a class="el" href="ODEIntegrator_8hpp_source.html">ODEIntegrator.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1IODEIntegrator.html">IODEIntegrator</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

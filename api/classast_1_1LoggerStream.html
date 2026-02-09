@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::LoggerStream类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1LoggerStream.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1LoggerStream-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::LoggerStream类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a73c96468a75b4314defd31adfa86c979" id="r_a73c96468a75b4314defd31adfa86c979"><td class="memItemLeft" align="right" valign="top"><a id="a73c96468a75b4314defd31adfa86c979" name="a73c96468a75b4314defd31adfa86c979"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LoggerStream</b> (<a class="el" href="namespaceast.html#a5bbb8d8bdd9f8766a334821bfbf1d01f">ELogLevel</a> level, const <a class="el" href="classast_1_1MessageLogContext.html">MessageLogContext</a> &amp;context)</td></tr>
+<tr class="separator:a73c96468a75b4314defd31adfa86c979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9121dde4e56ca7571e6955376cf6c61e" id="r_a9121dde4e56ca7571e6955376cf6c61e"><td class="memItemLeft" align="right" valign="top"><a id="a9121dde4e56ca7571e6955376cf6c61e" name="a9121dde4e56ca7571e6955376cf6c61e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LoggerStream</b> (<a class="el" href="namespaceast.html#a5bbb8d8bdd9f8766a334821bfbf1d01f">ELogLevel</a> level, const char *fileName, int lineNumber, const char *functionName, const char *categoryName=nullptr)</td></tr>
+<tr class="separator:a9121dde4e56ca7571e6955376cf6c61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b89ac36bd69d367ee5bccd8659b1c87" id="r_a3b89ac36bd69d367ee5bccd8659b1c87"><td class="memItemLeft" align="right" valign="top"><a id="a3b89ac36bd69d367ee5bccd8659b1c87" name="a3b89ac36bd69d367ee5bccd8659b1c87"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LoggerStream</b> (const <a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;other)</td></tr>
+<tr class="separator:a3b89ac36bd69d367ee5bccd8659b1c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6579eca21207ba6444b6c6faca933900" id="r_a6579eca21207ba6444b6c6faca933900"><td class="memItemLeft" align="right" valign="top"><a id="a6579eca21207ba6444b6c6faca933900" name="a6579eca21207ba6444b6c6faca933900"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>space</b> ()</td></tr>
+<tr class="separator:a6579eca21207ba6444b6c6faca933900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7b0d1330ecbc2e0c06b0d2ea7cbdee" id="r_adf7b0d1330ecbc2e0c06b0d2ea7cbdee"><td class="memItemLeft" align="right" valign="top"><a id="adf7b0d1330ecbc2e0c06b0d2ea7cbdee" name="adf7b0d1330ecbc2e0c06b0d2ea7cbdee"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (bool t)</td></tr>
+<tr class="separator:adf7b0d1330ecbc2e0c06b0d2ea7cbdee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a315a6d9565e93b2e18e492cd7243c280" id="r_a315a6d9565e93b2e18e492cd7243c280"><td class="memItemLeft" align="right" valign="top"><a id="a315a6d9565e93b2e18e492cd7243c280" name="a315a6d9565e93b2e18e492cd7243c280"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (char t)</td></tr>
+<tr class="separator:a315a6d9565e93b2e18e492cd7243c280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4156ed9222514d211058f0ef07d9c290" id="r_a4156ed9222514d211058f0ef07d9c290"><td class="memItemLeft" align="right" valign="top"><a id="a4156ed9222514d211058f0ef07d9c290" name="a4156ed9222514d211058f0ef07d9c290"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (signed short t)</td></tr>
+<tr class="separator:a4156ed9222514d211058f0ef07d9c290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a3023615ecba3896683a3a6fe0e13f1" id="r_a5a3023615ecba3896683a3a6fe0e13f1"><td class="memItemLeft" align="right" valign="top"><a id="a5a3023615ecba3896683a3a6fe0e13f1" name="a5a3023615ecba3896683a3a6fe0e13f1"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (unsigned short t)</td></tr>
+<tr class="separator:a5a3023615ecba3896683a3a6fe0e13f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fecdbd11bd9562dfd46e8ac0f58b2f4" id="r_a2fecdbd11bd9562dfd46e8ac0f58b2f4"><td class="memItemLeft" align="right" valign="top"><a id="a2fecdbd11bd9562dfd46e8ac0f58b2f4" name="a2fecdbd11bd9562dfd46e8ac0f58b2f4"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (signed int t)</td></tr>
+<tr class="separator:a2fecdbd11bd9562dfd46e8ac0f58b2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51169856913c62697736aab2afed1bb" id="r_af51169856913c62697736aab2afed1bb"><td class="memItemLeft" align="right" valign="top"><a id="af51169856913c62697736aab2afed1bb" name="af51169856913c62697736aab2afed1bb"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (unsigned int t)</td></tr>
+<tr class="separator:af51169856913c62697736aab2afed1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affc6d66a3291e5331af4778a00c4f417" id="r_affc6d66a3291e5331af4778a00c4f417"><td class="memItemLeft" align="right" valign="top"><a id="affc6d66a3291e5331af4778a00c4f417" name="affc6d66a3291e5331af4778a00c4f417"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (signed long t)</td></tr>
+<tr class="separator:affc6d66a3291e5331af4778a00c4f417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad057026eb328cca34bed8d19b5ca40f6" id="r_ad057026eb328cca34bed8d19b5ca40f6"><td class="memItemLeft" align="right" valign="top"><a id="ad057026eb328cca34bed8d19b5ca40f6" name="ad057026eb328cca34bed8d19b5ca40f6"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (unsigned long t)</td></tr>
+<tr class="separator:ad057026eb328cca34bed8d19b5ca40f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a743c9d6681ede261040cb2f2e0e4ff" id="r_a4a743c9d6681ede261040cb2f2e0e4ff"><td class="memItemLeft" align="right" valign="top"><a id="a4a743c9d6681ede261040cb2f2e0e4ff" name="a4a743c9d6681ede261040cb2f2e0e4ff"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (float t)</td></tr>
+<tr class="separator:a4a743c9d6681ede261040cb2f2e0e4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea158567a114e675597cd0f6cefa1c5" id="r_acea158567a114e675597cd0f6cefa1c5"><td class="memItemLeft" align="right" valign="top"><a id="acea158567a114e675597cd0f6cefa1c5" name="acea158567a114e675597cd0f6cefa1c5"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (double t)</td></tr>
+<tr class="separator:acea158567a114e675597cd0f6cefa1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a581d3d12b293cd0d5c6d4ecd268cd769" id="r_a581d3d12b293cd0d5c6d4ecd268cd769"><td class="memItemLeft" align="right" valign="top"><a id="a581d3d12b293cd0d5c6d4ecd268cd769" name="a581d3d12b293cd0d5c6d4ecd268cd769"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const char *t)</td></tr>
+<tr class="separator:a581d3d12b293cd0d5c6d4ecd268cd769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3350e9b45c3de5b509db101eb72f12e2" id="r_a3350e9b45c3de5b509db101eb72f12e2"><td class="memItemLeft" align="right" valign="top"><a id="a3350e9b45c3de5b509db101eb72f12e2" name="a3350e9b45c3de5b509db101eb72f12e2"></a>
+<a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const void *t)</td></tr>
+<tr class="separator:a3350e9b45c3de5b509db101eb72f12e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50d013fc452c9c019a26dcbb606cb08e" id="r_a50d013fc452c9c019a26dcbb606cb08e"><td class="memItemLeft" align="right" valign="top"><a id="a50d013fc452c9c019a26dcbb606cb08e" name="a50d013fc452c9c019a26dcbb606cb08e"></a>
+std::ostringstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stream</b> ()</td></tr>
+<tr class="separator:a50d013fc452c9c019a26dcbb606cb08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:adcba4f13ec12b96f15b868fe51c0e187" id="r_adcba4f13ec12b96f15b868fe51c0e187"><td class="memItemLeft" align="right" valign="top"><a id="adcba4f13ec12b96f15b868fe51c0e187" name="adcba4f13ec12b96f15b868fe51c0e187"></a>
+<a class="el" href="classast_1_1MessageLogContext.html">MessageLogContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_context</b></td></tr>
+<tr class="memdesc:adcba4f13ec12b96f15b868fe51c0e187"><td class="mdescLeft">&#160;</td><td class="mdescRight">上下文信息 <br /></td></tr>
+<tr class="separator:adcba4f13ec12b96f15b868fe51c0e187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0f7526bf75400264415fa1ed9dbd43" id="r_a8f0f7526bf75400264415fa1ed9dbd43"><td class="memItemLeft" align="right" valign="top"><a id="a8f0f7526bf75400264415fa1ed9dbd43" name="a8f0f7526bf75400264415fa1ed9dbd43"></a>
+<a class="el" href="namespaceast.html#a5bbb8d8bdd9f8766a334821bfbf1d01f">ELogLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_level</b></td></tr>
+<tr class="memdesc:a8f0f7526bf75400264415fa1ed9dbd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">等级 <br /></td></tr>
+<tr class="separator:a8f0f7526bf75400264415fa1ed9dbd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d318dc5987cef0bbe3f03fe64552e70" id="r_a2d318dc5987cef0bbe3f03fe64552e70"><td class="memItemLeft" align="right" valign="top"><a id="a2d318dc5987cef0bbe3f03fe64552e70" name="a2d318dc5987cef0bbe3f03fe64552e70"></a>
+std::ostringstream&#160;</td><td class="memItemRight" valign="bottom"><b>m_stream</b></td></tr>
+<tr class="memdesc:a2d318dc5987cef0bbe3f03fe64552e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">缓冲区 <br /></td></tr>
+<tr class="separator:a2d318dc5987cef0bbe3f03fe64552e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Util/<a class="el" href="Logger_8hpp_source.html">Logger.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

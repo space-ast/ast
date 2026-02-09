@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Propagator/HPOP/SimTime.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('SimTime_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SimTime.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SimTime_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/TimePoint.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a">   34</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; <a class="code hl_function" href="classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a">timePoint</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> timePoint_; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88">   37</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88">elapsedTime</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> elapsedTime_; }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html#a1606ab32bdba67f8c78d16906fb5fbe4">   40</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1SimTime.html#a1606ab32bdba67f8c78d16906fb5fbe4">setTimePoint</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; timePoint) { timePoint_ = timePoint; }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6">   43</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6">setElapsedTime</a>(<span class="keywordtype">double</span> elapsedTime) { elapsedTime_ = elapsedTime; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081">   45</a></span>    <span class="keywordtype">double</span> elapsedTime_{0.0};       </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931">   46</a></span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a> timePoint_{};         </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1SimTime_html"><div class="ttname"><a href="classast_1_1SimTime.html">ast::SimTime</a></div><div class="ttdoc">仿真时间</div><div class="ttdef"><b>定义</b> SimTime.hpp:30</div></div>
+<div class="ttc" id="aclassast_1_1SimTime_html_a1606ab32bdba67f8c78d16906fb5fbe4"><div class="ttname"><a href="classast_1_1SimTime.html#a1606ab32bdba67f8c78d16906fb5fbe4">ast::SimTime::setTimePoint</a></div><div class="ttdeci">void setTimePoint(const TimePoint &amp;timePoint)</div><div class="ttdoc">设置仿真时间点</div><div class="ttdef"><b>定义</b> SimTime.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1SimTime_html_a5e87cc497e9a3ecfa2ef3d142dc91f88"><div class="ttname"><a href="classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88">ast::SimTime::elapsedTime</a></div><div class="ttdeci">double elapsedTime() const</div><div class="ttdoc">获取已经过时间</div><div class="ttdef"><b>定义</b> SimTime.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1SimTime_html_abfa4af669f0e09ce2b31c7ac9c7f728a"><div class="ttname"><a href="classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a">ast::SimTime::timePoint</a></div><div class="ttdeci">const TimePoint &amp; timePoint() const</div><div class="ttdoc">获取仿真时间点</div><div class="ttdef"><b>定义</b> SimTime.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1SimTime_html_ae7222923444168dede33722b58b002d6"><div class="ttname"><a href="classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6">ast::SimTime::setElapsedTime</a></div><div class="ttdeci">void setElapsedTime(double elapsedTime)</div><div class="ttdoc">设置已经过时间</div><div class="ttdef"><b>定义</b> SimTime.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:98</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_deb258cf57e277be5b7cec8bb6708261.html">Propagator</a></li><li class="navelem"><a class="el" href="dir_99d89bf1bb3c699199c624a04c84ff81.html">HPOP</a></li><li class="navelem"><a class="el" href="SimTime_8hpp.html">SimTime.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

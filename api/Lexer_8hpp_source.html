@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstScript/Parser/Lexer.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Lexer_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Lexer.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Lexer_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstScript/Scanner.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1Lexer.html">Lexer</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567">   36</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567">ETokenType</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="comment">// 特殊令牌</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad81095c160ea58984fbaa7fd63e8c215">   39</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad81095c160ea58984fbaa7fd63e8c215">eEndOfFile</a>,             </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a90b4b92cd99b8c0dbf2ef8bb54326546">   40</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a90b4b92cd99b8c0dbf2ef8bb54326546">eError</a>,                 </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="comment">// 字面量           </span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a54f6f7d70945554bae1cd2858b90bb97">   43</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a54f6f7d70945554bae1cd2858b90bb97">eNumber</a>,                </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a64ecd4fe5d65e0d11d020aa20c2b3006">   44</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a64ecd4fe5d65e0d11d020aa20c2b3006">eString</a>,                </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a70bcae76a7867c4eb2fcdee77faf4fee">   45</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a70bcae76a7867c4eb2fcdee77faf4fee">eIdentifier</a>,            </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a010618be7a9bdd14fbea367cf9baab5c">   46</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a010618be7a9bdd14fbea367cf9baab5c">eTrue</a>,                  </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aad317c9541957d7cbedca2d9d168cfeb">   47</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aad317c9541957d7cbedca2d9d168cfeb">eFalse</a>,                 </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a4c7e4be67011fab33b49f461049ea1a9">   48</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a4c7e4be67011fab33b49f461049ea1a9">eNullLiteral</a>,           </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">// 运算符           </span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aaf7a09beed3ac7df3b99f090468bca2e">   51</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aaf7a09beed3ac7df3b99f090468bca2e">ePlus</a>,                  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a9a3be88056c26f382c2387c44ccfbc68">   52</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a9a3be88056c26f382c2387c44ccfbc68">eMinus</a>,                 </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a967fd5bfc5de38bfc2258bf6aea79c0d">   53</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a967fd5bfc5de38bfc2258bf6aea79c0d">eStar</a>,                  </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a18d8b5f2942a0c6ee8f20c67756348d0">   54</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a18d8b5f2942a0c6ee8f20c67756348d0">eSlash</a>,                 </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a37bee11b05fa730fbbd21a3bef6985bb">   55</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a37bee11b05fa730fbbd21a3bef6985bb">ePercent</a>,               </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae14a4fe30930067344449d5931ee05d9">   56</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae14a4fe30930067344449d5931ee05d9">eCaret</a>,                 </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0d03d94cb5b1a3b367be383157c8d10e">   57</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0d03d94cb5b1a3b367be383157c8d10e">eTilde</a>,                 </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">// 比较运算符           </span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aafb3aa6681735ac0bbc938192f4b67ad">   60</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aafb3aa6681735ac0bbc938192f4b67ad">eEqual</a>,                 </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a497f4941a1549bc01d493edbef0f0a2a">   61</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a497f4941a1549bc01d493edbef0f0a2a">eColonEqual</a>,            </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a013d97e9ba23e033657e93f7b5452454">   62</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a013d97e9ba23e033657e93f7b5452454">eEqualAmpersand</a>,        </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ac093765720ab46389b001ae21bf4f21a">   63</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ac093765720ab46389b001ae21bf4f21a">eEqualEqual</a>,            </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a57ecef62dd9e292782d7b51dbac0e8f9">   64</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a57ecef62dd9e292782d7b51dbac0e8f9">eBang</a>,                  </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae045befb6a0e34b50d2ea1654841d71e">   65</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae045befb6a0e34b50d2ea1654841d71e">eBangEqual</a>,             </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567af42c62c8f9fc1d6880d3c0883ad62407">   66</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567af42c62c8f9fc1d6880d3c0883ad62407">eLess</a>,                  </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aa5b404c60442f96c30dafd1f80dccfc6">   67</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aa5b404c60442f96c30dafd1f80dccfc6">eLessEqual</a>,             </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a84c1a2e0f1ca929f602a6d300ddd49f0">   68</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a84c1a2e0f1ca929f602a6d300ddd49f0">eLessLess</a>,              </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aba4f4d18e439c30ee77dc58fb5ce535a">   69</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aba4f4d18e439c30ee77dc58fb5ce535a">eGreater</a>,               </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567af6adb786a6591fbdf1f6145c20d9dffd">   70</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567af6adb786a6591fbdf1f6145c20d9dffd">eGreaterEqual</a>,          </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad4a44a41bee1875f388c084bb4e68536">   71</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad4a44a41bee1875f388c084bb4e68536">eGreaterGreater</a>,        </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aabe30f19461ca491b6cd3f8ca82716dd">   72</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aabe30f19461ca491b6cd3f8ca82716dd">eGreaterGreaterGreater</a>, </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// 逻辑运算符</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aedda249bce079fbd8763b3065111a2de">   75</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aedda249bce079fbd8763b3065111a2de">eAmpersand</a>,             </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a8a1bf5f77a4f15f5b3117494771bb78d">   76</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a8a1bf5f77a4f15f5b3117494771bb78d">ePipe</a>,                  </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a2b426f9f85a9d5349be77d162bbaad88">   77</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a2b426f9f85a9d5349be77d162bbaad88">eXor</a>,                   </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a498a51f14c316c3371d57c2a7995dee5">   78</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a498a51f14c316c3371d57c2a7995dee5">eAndAnd</a>,                </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a50e8661fd1e162542ed7899633ae7e17">   79</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a50e8661fd1e162542ed7899633ae7e17">eOrOr</a>,                  </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// 括号</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0bcf6b6c91f0d0995e8cd85409bae5f7">   82</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0bcf6b6c91f0d0995e8cd85409bae5f7">eLeftParen</a>,             </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ac7ceb882cbb23e918644814e615aa81e">   83</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ac7ceb882cbb23e918644814e615aa81e">eRightParen</a>,            </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0074286f0a72a9a89aac94c4617aae16">   84</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0074286f0a72a9a89aac94c4617aae16">eLeftBrace</a>,             </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a25bc30075244dc0c24d43138cfc78592">   85</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a25bc30075244dc0c24d43138cfc78592">eRightBrace</a>,            </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a548af9a5ba3db570c232e729ab101893">   87</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a548af9a5ba3db570c232e729ab101893">eLeftBracket</a>,           </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a8d0efbd14db7524b2d9702edacc41d1b">   88</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a8d0efbd14db7524b2d9702edacc41d1b">eRightBracket</a>,          </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="comment">// 其他</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad3e4b890743fea4f6a044c3181b99708">   91</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad3e4b890743fea4f6a044c3181b99708">eComma</a>,                 </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a95d03e94a21525a35e91d74bd706665a">   92</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a95d03e94a21525a35e91d74bd706665a">eDot</a>,                   </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ab8c781057f989623c727a35ef805759a">   93</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ab8c781057f989623c727a35ef805759a">eSemicolon</a>,             </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae1361e082695d0b2d0e23ee8dbce5688">   94</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae1361e082695d0b2d0e23ee8dbce5688">eColon</a>,                 </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a34e724293c5d445a1a2d71e322817c7c">   95</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a34e724293c5d445a1a2d71e322817c7c">eQuestion</a>,              </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aea7413f309951248365ba78576956663">   97</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aea7413f309951248365ba78576956663">eNewline</a>,               </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a104e85fa624d876538b2f5f83573c002">   98</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a104e85fa624d876538b2f5f83573c002">eAt</a>,                    </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="comment">// 代码块关键字（参照Julia语言）</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a61bd0b3675efb3ec95aefa7377c6c137">  101</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a61bd0b3675efb3ec95aefa7377c6c137">eBegin</a>,                 </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a06dfb0bc284239a701ec6f40c8dee126">  102</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a06dfb0bc284239a701ec6f40c8dee126">eEnd</a>,                   </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="comment">// 条件语句关键字</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a57ec03304a0e34cc3d3462223751ce72">  105</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a57ec03304a0e34cc3d3462223751ce72">eIf</a>,                    </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a293a261128c191257ae04dd4eb81f983">  106</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a293a261128c191257ae04dd4eb81f983">eElseif</a>,                </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a413efa01ec602c3cd7faf3b0e16d6a8b">  107</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a413efa01ec602c3cd7faf3b0e16d6a8b">eElse</a>,                  </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="comment">// 循环语句关键字</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a5912a3ee9346204d5ec3e2f7a9d664fd">  110</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a5912a3ee9346204d5ec3e2f7a9d664fd">eWhile</a>,                 </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae2c5385994e50b41b1b62b385587cee6">  111</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae2c5385994e50b41b1b62b385587cee6">eFor</a>,                   </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a7f873e48619e90067fb709365fbd90be">  112</a></span>        <a class="code hl_enumvalue" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a7f873e48619e90067fb709365fbd90be">eIn</a>,                    </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    };</div>
+</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_class" href="classast_1_1Lexer.html">Lexer</a>(<a class="code hl_class" href="classast_1_1Scanner.html">Scanner</a>* scanner) </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        : scanner_(scanner)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="comment">// , line_(1)</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        , current_lexeme_() </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    ETokenType getNextToken();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#a127e716dfe1371e082d76d9a6b07d8c0">  126</a></span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> <a class="code hl_function" href="classast_1_1Lexer.html#a127e716dfe1371e082d76d9a6b07d8c0">getCurrentLexeme</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> current_lexeme_; }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#a8fef4e2b34c3d3f0c24e36d7e869640c">  129</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classast_1_1Lexer.html#a8fef4e2b34c3d3f0c24e36d7e869640c">getTokenStart</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classast_1_1Lexer.html#a218a155c498c976299f18f61bd72eb19">  132</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classast_1_1Lexer.html#a218a155c498c976299f18f61bd72eb19">getTokenEnd</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="comment">// size_t getLine() const { return line_; }</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> skipWhitespace();</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">bool</span> isAlpha(<span class="keywordtype">char</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">bool</span> isAlphaNumeric(<span class="keywordtype">char</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">bool</span> isDigit(<span class="keywordtype">char</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">bool</span> isWhitespace(<span class="keywordtype">char</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">int</span> parseIdentifier();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_enumeration" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567">Lexer::ETokenType</a> scanNumber();</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_enumeration" href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567">Lexer::ETokenType</a> scanString();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">bool</span> match(<span class="keywordtype">char</span> expected);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">bool</span> match(<span class="keyword">const</span> <span class="keywordtype">char</span>* str);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">char</span> advance();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">char</span> peek() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">char</span> peekNext() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">bool</span> atEnd() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <a class="code hl_class" href="classast_1_1Scanner.html">Scanner</a>* scanner_;    </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// size_t line_;         ///&lt; 当前行号</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    std::string current_lexeme_; </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>};</div>
+</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Lexer_html"><div class="ttname"><a href="classast_1_1Lexer.html">ast::Lexer</a></div><div class="ttdoc">词法分析器</div><div class="ttdef"><b>定义</b> Lexer.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_a127e716dfe1371e082d76d9a6b07d8c0"><div class="ttname"><a href="classast_1_1Lexer.html#a127e716dfe1371e082d76d9a6b07d8c0">ast::Lexer::getCurrentLexeme</a></div><div class="ttdeci">StringView getCurrentLexeme() const</div><div class="ttdoc">获取当前令牌的字符串视图</div><div class="ttdef"><b>定义</b> Lexer.hpp:126</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_a218a155c498c976299f18f61bd72eb19"><div class="ttname"><a href="classast_1_1Lexer.html#a218a155c498c976299f18f61bd72eb19">ast::Lexer::getTokenEnd</a></div><div class="ttdeci">const char * getTokenEnd() const</div><div class="ttdoc">获取当前令牌的结束位置（始终返回空指针，因为不再存储实际位置）</div><div class="ttdef"><b>定义</b> Lexer.hpp:132</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_a8fef4e2b34c3d3f0c24e36d7e869640c"><div class="ttname"><a href="classast_1_1Lexer.html#a8fef4e2b34c3d3f0c24e36d7e869640c">ast::Lexer::getTokenStart</a></div><div class="ttdeci">const char * getTokenStart() const</div><div class="ttdoc">获取当前令牌的起始位置（始终返回空指针，因为不再存储实际位置）</div><div class="ttdef"><b>定义</b> Lexer.hpp:129</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567">ast::Lexer::ETokenType</a></div><div class="ttdeci">ETokenType</div><div class="ttdoc">令牌类型枚举</div><div class="ttdef"><b>定义</b> Lexer.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a0074286f0a72a9a89aac94c4617aae16"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0074286f0a72a9a89aac94c4617aae16">ast::Lexer::eLeftBrace</a></div><div class="ttdeci">@ eLeftBrace</div><div class="ttdoc">{</div><div class="ttdef"><b>定义</b> Lexer.hpp:84</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a010618be7a9bdd14fbea367cf9baab5c"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a010618be7a9bdd14fbea367cf9baab5c">ast::Lexer::eTrue</a></div><div class="ttdeci">@ eTrue</div><div class="ttdoc">布尔值true</div><div class="ttdef"><b>定义</b> Lexer.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a013d97e9ba23e033657e93f7b5452454"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a013d97e9ba23e033657e93f7b5452454">ast::Lexer::eEqualAmpersand</a></div><div class="ttdeci">@ eEqualAmpersand</div><div class="ttdoc">=&amp; (绑定赋值运算符)</div><div class="ttdef"><b>定义</b> Lexer.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a06dfb0bc284239a701ec6f40c8dee126"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a06dfb0bc284239a701ec6f40c8dee126">ast::Lexer::eEnd</a></div><div class="ttdeci">@ eEnd</div><div class="ttdoc">end</div><div class="ttdef"><b>定义</b> Lexer.hpp:102</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a0bcf6b6c91f0d0995e8cd85409bae5f7"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0bcf6b6c91f0d0995e8cd85409bae5f7">ast::Lexer::eLeftParen</a></div><div class="ttdeci">@ eLeftParen</div><div class="ttdoc">(</div><div class="ttdef"><b>定义</b> Lexer.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a0d03d94cb5b1a3b367be383157c8d10e"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a0d03d94cb5b1a3b367be383157c8d10e">ast::Lexer::eTilde</a></div><div class="ttdeci">@ eTilde</div><div class="ttdoc">~ (按位取反)</div><div class="ttdef"><b>定义</b> Lexer.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a104e85fa624d876538b2f5f83573c002"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a104e85fa624d876538b2f5f83573c002">ast::Lexer::eAt</a></div><div class="ttdeci">@ eAt</div><div class="ttdoc">@ (宏调用前缀)</div><div class="ttdef"><b>定义</b> Lexer.hpp:98</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a18d8b5f2942a0c6ee8f20c67756348d0"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a18d8b5f2942a0c6ee8f20c67756348d0">ast::Lexer::eSlash</a></div><div class="ttdeci">@ eSlash</div><div class="ttdoc">/</div><div class="ttdef"><b>定义</b> Lexer.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a25bc30075244dc0c24d43138cfc78592"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a25bc30075244dc0c24d43138cfc78592">ast::Lexer::eRightBrace</a></div><div class="ttdeci">@ eRightBrace</div><div class="ttdoc">}</div><div class="ttdef"><b>定义</b> Lexer.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a293a261128c191257ae04dd4eb81f983"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a293a261128c191257ae04dd4eb81f983">ast::Lexer::eElseif</a></div><div class="ttdeci">@ eElseif</div><div class="ttdoc">elseif</div><div class="ttdef"><b>定义</b> Lexer.hpp:106</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a2b426f9f85a9d5349be77d162bbaad88"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a2b426f9f85a9d5349be77d162bbaad88">ast::Lexer::eXor</a></div><div class="ttdeci">@ eXor</div><div class="ttdoc">⊻ (按位异或)</div><div class="ttdef"><b>定义</b> Lexer.hpp:77</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a34e724293c5d445a1a2d71e322817c7c"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a34e724293c5d445a1a2d71e322817c7c">ast::Lexer::eQuestion</a></div><div class="ttdeci">@ eQuestion</div><div class="ttdoc">?</div><div class="ttdef"><b>定义</b> Lexer.hpp:95</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a37bee11b05fa730fbbd21a3bef6985bb"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a37bee11b05fa730fbbd21a3bef6985bb">ast::Lexer::ePercent</a></div><div class="ttdeci">@ ePercent</div><div class="ttdoc">%</div><div class="ttdef"><b>定义</b> Lexer.hpp:55</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a413efa01ec602c3cd7faf3b0e16d6a8b"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a413efa01ec602c3cd7faf3b0e16d6a8b">ast::Lexer::eElse</a></div><div class="ttdeci">@ eElse</div><div class="ttdoc">else</div><div class="ttdef"><b>定义</b> Lexer.hpp:107</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a497f4941a1549bc01d493edbef0f0a2a"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a497f4941a1549bc01d493edbef0f0a2a">ast::Lexer::eColonEqual</a></div><div class="ttdeci">@ eColonEqual</div><div class="ttdoc">:= (延迟赋值运算符)</div><div class="ttdef"><b>定义</b> Lexer.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a498a51f14c316c3371d57c2a7995dee5"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a498a51f14c316c3371d57c2a7995dee5">ast::Lexer::eAndAnd</a></div><div class="ttdeci">@ eAndAnd</div><div class="ttdoc">&amp;&amp; (逻辑与)</div><div class="ttdef"><b>定义</b> Lexer.hpp:78</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a4c7e4be67011fab33b49f461049ea1a9"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a4c7e4be67011fab33b49f461049ea1a9">ast::Lexer::eNullLiteral</a></div><div class="ttdeci">@ eNullLiteral</div><div class="ttdoc">空值null</div><div class="ttdef"><b>定义</b> Lexer.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a50e8661fd1e162542ed7899633ae7e17"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a50e8661fd1e162542ed7899633ae7e17">ast::Lexer::eOrOr</a></div><div class="ttdeci">@ eOrOr</div><div class="ttdoc">|| (逻辑或)</div><div class="ttdef"><b>定义</b> Lexer.hpp:79</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a548af9a5ba3db570c232e729ab101893"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a548af9a5ba3db570c232e729ab101893">ast::Lexer::eLeftBracket</a></div><div class="ttdeci">@ eLeftBracket</div><div class="ttdoc">[</div><div class="ttdef"><b>定义</b> Lexer.hpp:87</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a54f6f7d70945554bae1cd2858b90bb97"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a54f6f7d70945554bae1cd2858b90bb97">ast::Lexer::eNumber</a></div><div class="ttdeci">@ eNumber</div><div class="ttdoc">数字字面量</div><div class="ttdef"><b>定义</b> Lexer.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a57ec03304a0e34cc3d3462223751ce72"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a57ec03304a0e34cc3d3462223751ce72">ast::Lexer::eIf</a></div><div class="ttdeci">@ eIf</div><div class="ttdoc">if</div><div class="ttdef"><b>定义</b> Lexer.hpp:105</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a57ecef62dd9e292782d7b51dbac0e8f9"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a57ecef62dd9e292782d7b51dbac0e8f9">ast::Lexer::eBang</a></div><div class="ttdeci">@ eBang</div><div class="ttdoc">!</div><div class="ttdef"><b>定义</b> Lexer.hpp:64</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a5912a3ee9346204d5ec3e2f7a9d664fd"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a5912a3ee9346204d5ec3e2f7a9d664fd">ast::Lexer::eWhile</a></div><div class="ttdeci">@ eWhile</div><div class="ttdoc">while</div><div class="ttdef"><b>定义</b> Lexer.hpp:110</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a61bd0b3675efb3ec95aefa7377c6c137"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a61bd0b3675efb3ec95aefa7377c6c137">ast::Lexer::eBegin</a></div><div class="ttdeci">@ eBegin</div><div class="ttdoc">begin</div><div class="ttdef"><b>定义</b> Lexer.hpp:101</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a64ecd4fe5d65e0d11d020aa20c2b3006"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a64ecd4fe5d65e0d11d020aa20c2b3006">ast::Lexer::eString</a></div><div class="ttdeci">@ eString</div><div class="ttdoc">字符串字面量</div><div class="ttdef"><b>定义</b> Lexer.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a70bcae76a7867c4eb2fcdee77faf4fee"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a70bcae76a7867c4eb2fcdee77faf4fee">ast::Lexer::eIdentifier</a></div><div class="ttdeci">@ eIdentifier</div><div class="ttdoc">标识符</div><div class="ttdef"><b>定义</b> Lexer.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a7f873e48619e90067fb709365fbd90be"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a7f873e48619e90067fb709365fbd90be">ast::Lexer::eIn</a></div><div class="ttdeci">@ eIn</div><div class="ttdoc">in (for循环中使用)</div><div class="ttdef"><b>定义</b> Lexer.hpp:112</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a84c1a2e0f1ca929f602a6d300ddd49f0"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a84c1a2e0f1ca929f602a6d300ddd49f0">ast::Lexer::eLessLess</a></div><div class="ttdeci">@ eLessLess</div><div class="ttdoc">&lt;&lt; (逻辑/算术左移)</div><div class="ttdef"><b>定义</b> Lexer.hpp:68</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a8a1bf5f77a4f15f5b3117494771bb78d"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a8a1bf5f77a4f15f5b3117494771bb78d">ast::Lexer::ePipe</a></div><div class="ttdeci">@ ePipe</div><div class="ttdoc">| (按位或/逻辑或)</div><div class="ttdef"><b>定义</b> Lexer.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a8d0efbd14db7524b2d9702edacc41d1b"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a8d0efbd14db7524b2d9702edacc41d1b">ast::Lexer::eRightBracket</a></div><div class="ttdeci">@ eRightBracket</div><div class="ttdoc">]</div><div class="ttdef"><b>定义</b> Lexer.hpp:88</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a90b4b92cd99b8c0dbf2ef8bb54326546"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a90b4b92cd99b8c0dbf2ef8bb54326546">ast::Lexer::eError</a></div><div class="ttdeci">@ eError</div><div class="ttdoc">错误令牌</div><div class="ttdef"><b>定义</b> Lexer.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a95d03e94a21525a35e91d74bd706665a"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a95d03e94a21525a35e91d74bd706665a">ast::Lexer::eDot</a></div><div class="ttdeci">@ eDot</div><div class="ttdef"><b>定义</b> Lexer.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a967fd5bfc5de38bfc2258bf6aea79c0d"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a967fd5bfc5de38bfc2258bf6aea79c0d">ast::Lexer::eStar</a></div><div class="ttdeci">@ eStar</div><div class="ttdef"><b>定义</b> Lexer.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567a9a3be88056c26f382c2387c44ccfbc68"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567a9a3be88056c26f382c2387c44ccfbc68">ast::Lexer::eMinus</a></div><div class="ttdeci">@ eMinus</div><div class="ttdef"><b>定义</b> Lexer.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aa5b404c60442f96c30dafd1f80dccfc6"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aa5b404c60442f96c30dafd1f80dccfc6">ast::Lexer::eLessEqual</a></div><div class="ttdeci">@ eLessEqual</div><div class="ttdoc">&lt;=</div><div class="ttdef"><b>定义</b> Lexer.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aabe30f19461ca491b6cd3f8ca82716dd"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aabe30f19461ca491b6cd3f8ca82716dd">ast::Lexer::eGreaterGreaterGreater</a></div><div class="ttdeci">@ eGreaterGreaterGreater</div><div class="ttdef"><b>定义</b> Lexer.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aad317c9541957d7cbedca2d9d168cfeb"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aad317c9541957d7cbedca2d9d168cfeb">ast::Lexer::eFalse</a></div><div class="ttdeci">@ eFalse</div><div class="ttdoc">布尔值false</div><div class="ttdef"><b>定义</b> Lexer.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aaf7a09beed3ac7df3b99f090468bca2e"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aaf7a09beed3ac7df3b99f090468bca2e">ast::Lexer::ePlus</a></div><div class="ttdeci">@ ePlus</div><div class="ttdef"><b>定义</b> Lexer.hpp:51</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aafb3aa6681735ac0bbc938192f4b67ad"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aafb3aa6681735ac0bbc938192f4b67ad">ast::Lexer::eEqual</a></div><div class="ttdeci">@ eEqual</div><div class="ttdoc">=</div><div class="ttdef"><b>定义</b> Lexer.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ab8c781057f989623c727a35ef805759a"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ab8c781057f989623c727a35ef805759a">ast::Lexer::eSemicolon</a></div><div class="ttdeci">@ eSemicolon</div><div class="ttdoc">;</div><div class="ttdef"><b>定义</b> Lexer.hpp:93</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aba4f4d18e439c30ee77dc58fb5ce535a"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aba4f4d18e439c30ee77dc58fb5ce535a">ast::Lexer::eGreater</a></div><div class="ttdeci">@ eGreater</div><div class="ttdef"><b>定义</b> Lexer.hpp:69</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ac093765720ab46389b001ae21bf4f21a"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ac093765720ab46389b001ae21bf4f21a">ast::Lexer::eEqualEqual</a></div><div class="ttdeci">@ eEqualEqual</div><div class="ttdoc">==</div><div class="ttdef"><b>定义</b> Lexer.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ac7ceb882cbb23e918644814e615aa81e"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ac7ceb882cbb23e918644814e615aa81e">ast::Lexer::eRightParen</a></div><div class="ttdeci">@ eRightParen</div><div class="ttdoc">)</div><div class="ttdef"><b>定义</b> Lexer.hpp:83</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ad3e4b890743fea4f6a044c3181b99708"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad3e4b890743fea4f6a044c3181b99708">ast::Lexer::eComma</a></div><div class="ttdeci">@ eComma</div><div class="ttdoc">,</div><div class="ttdef"><b>定义</b> Lexer.hpp:91</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ad4a44a41bee1875f388c084bb4e68536"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad4a44a41bee1875f388c084bb4e68536">ast::Lexer::eGreaterGreater</a></div><div class="ttdeci">@ eGreaterGreater</div><div class="ttdef"><b>定义</b> Lexer.hpp:71</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ad81095c160ea58984fbaa7fd63e8c215"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ad81095c160ea58984fbaa7fd63e8c215">ast::Lexer::eEndOfFile</a></div><div class="ttdeci">@ eEndOfFile</div><div class="ttdoc">文件结束</div><div class="ttdef"><b>定义</b> Lexer.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ae045befb6a0e34b50d2ea1654841d71e"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae045befb6a0e34b50d2ea1654841d71e">ast::Lexer::eBangEqual</a></div><div class="ttdeci">@ eBangEqual</div><div class="ttdoc">!=</div><div class="ttdef"><b>定义</b> Lexer.hpp:65</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ae1361e082695d0b2d0e23ee8dbce5688"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae1361e082695d0b2d0e23ee8dbce5688">ast::Lexer::eColon</a></div><div class="ttdeci">@ eColon</div><div class="ttdoc">:</div><div class="ttdef"><b>定义</b> Lexer.hpp:94</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ae14a4fe30930067344449d5931ee05d9"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae14a4fe30930067344449d5931ee05d9">ast::Lexer::eCaret</a></div><div class="ttdeci">@ eCaret</div><div class="ttdoc">^</div><div class="ttdef"><b>定义</b> Lexer.hpp:56</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567ae2c5385994e50b41b1b62b385587cee6"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567ae2c5385994e50b41b1b62b385587cee6">ast::Lexer::eFor</a></div><div class="ttdeci">@ eFor</div><div class="ttdoc">for</div><div class="ttdef"><b>定义</b> Lexer.hpp:111</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aea7413f309951248365ba78576956663"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aea7413f309951248365ba78576956663">ast::Lexer::eNewline</a></div><div class="ttdeci">@ eNewline</div><div class="ttdoc">(换行符)</div><div class="ttdef"><b>定义</b> Lexer.hpp:97</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567aedda249bce079fbd8763b3065111a2de"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567aedda249bce079fbd8763b3065111a2de">ast::Lexer::eAmpersand</a></div><div class="ttdeci">@ eAmpersand</div><div class="ttdoc">&amp; (按位与/逻辑与)</div><div class="ttdef"><b>定义</b> Lexer.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567af42c62c8f9fc1d6880d3c0883ad62407"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567af42c62c8f9fc1d6880d3c0883ad62407">ast::Lexer::eLess</a></div><div class="ttdeci">@ eLess</div><div class="ttdoc">&lt;</div><div class="ttdef"><b>定义</b> Lexer.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567af6adb786a6591fbdf1f6145c20d9dffd"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567af6adb786a6591fbdf1f6145c20d9dffd">ast::Lexer::eGreaterEqual</a></div><div class="ttdeci">@ eGreaterEqual</div><div class="ttdoc">&gt;=</div><div class="ttdef"><b>定义</b> Lexer.hpp:70</div></div>
+<div class="ttc" id="aclassast_1_1Scanner_html"><div class="ttname"><a href="classast_1_1Scanner.html">ast::Scanner</a></div><div class="ttdoc">扫描器抽象基类</div><div class="ttdef"><b>定义</b> Scanner.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_943b8559cfec6ca4c5bcb49ee46412f0.html">AstScript</a></li><li class="navelem"><a class="el" href="dir_528872db2faed4b9924621a078b07ea5.html">Parser</a></li><li class="navelem"><a class="el" href="Lexer_8hpp.html">Lexer.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

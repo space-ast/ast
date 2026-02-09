@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::FuncBlock类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1FuncBlock.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1FuncBlock-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::FuncBlock类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>函数块/功能块  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="FuncBlock_8hpp_source.html">FuncBlock.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::FuncBlock 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1FuncBlock.png" usemap="#ast::FuncBlock_map" alt=""/>
+  <map id="ast::FuncBlock_map" name="ast::FuncBlock_map">
+<area href="classast_1_1BlockAbs.html" title="绝对值块" alt="ast::BlockAbs" shape="rect" coords="181,56,352,80"/>
+<area href="classast_1_1BlockConstant.html" title="常量块" alt="ast::BlockConstant" shape="rect" coords="181,112,352,136"/>
+<area href="classast_1_1BlockDeadZone.html" title="死区块" alt="ast::BlockDeadZone" shape="rect" coords="181,168,352,192"/>
+<area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="181,224,352,248"/>
+<area href="classast_1_1BlockDivide.html" title="除法块" alt="ast::BlockDivide" shape="rect" coords="181,280,352,304"/>
+<area href="classast_1_1BlockDot.html" title="点积块" alt="ast::BlockDot" shape="rect" coords="181,336,352,360"/>
+<area href="classast_1_1BlockGain.html" title="增益块" alt="ast::BlockGain" shape="rect" coords="181,392,352,416"/>
+<area href="classast_1_1BlockIn.html" title="输入块" alt="ast::BlockIn" shape="rect" coords="181,448,352,472"/>
+<area href="classast_1_1BlockLogicalOperator.html" title="逻辑运算符块" alt="ast::BlockLogicalOperator" shape="rect" coords="181,504,352,528"/>
+<area href="classast_1_1BlockOut.html" title="输出块" alt="ast::BlockOut" shape="rect" coords="181,560,352,584"/>
+<area href="classast_1_1BlockProduct.html" title="乘积块" alt="ast::BlockProduct" shape="rect" coords="181,616,352,640"/>
+<area href="classast_1_1BlockRelationalOperator.html" title="关系运算符块" alt="ast::BlockRelationalOperator" shape="rect" coords="181,672,352,696"/>
+<area href="classast_1_1BlockSaturation.html" title="饱和块" alt="ast::BlockSaturation" shape="rect" coords="181,728,352,752"/>
+<area href="classast_1_1BlockSign.html" title="符号函数块" alt="ast::BlockSign" shape="rect" coords="181,784,352,808"/>
+<area href="classast_1_1BlockSin.html" title="正弦块" alt="ast::BlockSin" shape="rect" coords="181,840,352,864"/>
+<area href="classast_1_1BlockSubtract.html" title="减法块" alt="ast::BlockSubtract" shape="rect" coords="181,896,352,920"/>
+<area href="classast_1_1BlockSum.html" title="加法块" alt="ast::BlockSum" shape="rect" coords="181,952,352,976"/>
+<area href="classast_1_1BlockSwitch.html" title="开关块" alt="ast::BlockSwitch" shape="rect" coords="181,1008,352,1032"/>
+<area href="classast_1_1BlockSystem.html" title="子系统块(subsystem block)" alt="ast::BlockSystem" shape="rect" coords="181,1064,352,1088"/>
+<area href="classast_1_1BlockTerminator.html" title="终止块" alt="ast::BlockTerminator" shape="rect" coords="181,1120,352,1144"/>
+<area href="classast_1_1BlockUnaryMinus.html" title="一元负号块" alt="ast::BlockUnaryMinus" shape="rect" coords="181,1176,352,1200"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a7c6e84671d43d3afeca4d3b1020a167b" id="r_a7c6e84671d43d3afeca4d3b1020a167b"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c6e84671d43d3afeca4d3b1020a167b">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime)=0</td></tr>
+<tr class="memdesc:a7c6e84671d43d3afeca4d3b1020a167b"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算函数块  <br /></td></tr>
+<tr class="separator:a7c6e84671d43d3afeca4d3b1020a167b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b8794afbc585733ec890b2faff2ca3" id="r_a74b8794afbc585733ec890b2faff2ca3"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74b8794afbc585733ec890b2faff2ca3">getInputPorts</a> () const</td></tr>
+<tr class="memdesc:a74b8794afbc585733ec890b2faff2ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口  <br /></td></tr>
+<tr class="separator:a74b8794afbc585733ec890b2faff2ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c623beb13cb81313c891b6cce2ceca" id="r_a39c623beb13cb81313c891b6cce2ceca"><td class="memItemLeft" align="right" valign="top"><a id="a39c623beb13cb81313c891b6cce2ceca" name="a39c623beb13cb81313c891b6cce2ceca"></a>
+std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInputPorts</b> ()</td></tr>
+<tr class="separator:a39c623beb13cb81313c891b6cce2ceca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1582af04b21622eb7281d0cb993fba" id="r_aee1582af04b21622eb7281d0cb993fba"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee1582af04b21622eb7281d0cb993fba">getOutputPorts</a> () const</td></tr>
+<tr class="memdesc:aee1582af04b21622eb7281d0cb993fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口  <br /></td></tr>
+<tr class="separator:aee1582af04b21622eb7281d0cb993fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0120a55928ed2a636540b8be236b1fb0" id="r_a0120a55928ed2a636540b8be236b1fb0"><td class="memItemLeft" align="right" valign="top"><a id="a0120a55928ed2a636540b8be236b1fb0" name="a0120a55928ed2a636540b8be236b1fb0"></a>
+std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getOutputPorts</b> ()</td></tr>
+<tr class="separator:a0120a55928ed2a636540b8be236b1fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a656b1a1782a04aac62180587c18a11aa" id="r_a656b1a1782a04aac62180587c18a11aa"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a656b1a1782a04aac62180587c18a11aa">getNumInputPorts</a> () const</td></tr>
+<tr class="memdesc:a656b1a1782a04aac62180587c18a11aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口数量  <br /></td></tr>
+<tr class="separator:a656b1a1782a04aac62180587c18a11aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa6b7534833e296c6fd70841722bee2" id="r_a5fa6b7534833e296c6fd70841722bee2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fa6b7534833e296c6fd70841722bee2">getNumOutputPorts</a> () const</td></tr>
+<tr class="memdesc:a5fa6b7534833e296c6fd70841722bee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口数量  <br /></td></tr>
+<tr class="separator:a5fa6b7534833e296c6fd70841722bee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dfa545e519ea3574f3b27d3981d90fc" id="r_a4dfa545e519ea3574f3b27d3981d90fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html">DataPort</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dfa545e519ea3574f3b27d3981d90fc">getInputPort</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> portName)</td></tr>
+<tr class="memdesc:a4dfa545e519ea3574f3b27d3981d90fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口  <br /></td></tr>
+<tr class="separator:a4dfa545e519ea3574f3b27d3981d90fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1642ea1ff7a83412615cb9e77957975" id="r_ae1642ea1ff7a83412615cb9e77957975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html">DataPort</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1642ea1ff7a83412615cb9e77957975">getOutputPort</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> portName)</td></tr>
+<tr class="memdesc:ae1642ea1ff7a83412615cb9e77957975"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口  <br /></td></tr>
+<tr class="separator:ae1642ea1ff7a83412615cb9e77957975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c4dea4839ed707f7c23a5600a276f47" id="r_a8c4dea4839ed707f7c23a5600a276f47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html">DataPort</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c4dea4839ed707f7c23a5600a276f47">getInputPort</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:a8c4dea4839ed707f7c23a5600a276f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口  <br /></td></tr>
+<tr class="separator:a8c4dea4839ed707f7c23a5600a276f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b9dc6277cc4d9936f87e4caeb688cd0" id="r_a2b9dc6277cc4d9936f87e4caeb688cd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html">DataPort</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b9dc6277cc4d9936f87e4caeb688cd0">getOutputPort</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:a2b9dc6277cc4d9936f87e4caeb688cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口  <br /></td></tr>
+<tr class="separator:a2b9dc6277cc4d9936f87e4caeb688cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007a82408f36828f84cd8324cf6627f4" id="r_a007a82408f36828f84cd8324cf6627f4"><td class="memItemLeft" align="right" valign="top">DataPort::EValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a007a82408f36828f84cd8324cf6627f4">getInputPortDataType</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:a007a82408f36828f84cd8324cf6627f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口数据类型  <br /></td></tr>
+<tr class="separator:a007a82408f36828f84cd8324cf6627f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b810b2b15cd0698b4f702e035756c9" id="r_a38b810b2b15cd0698b4f702e035756c9"><td class="memItemLeft" align="right" valign="top">DataPort::EValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38b810b2b15cd0698b4f702e035756c9">getOutputPortDataType</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:a38b810b2b15cd0698b4f702e035756c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口数据类型  <br /></td></tr>
+<tr class="separator:a38b810b2b15cd0698b4f702e035756c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad57a2c5a6f3cf120959dd8b7608649ab" id="r_ad57a2c5a6f3cf120959dd8b7608649ab"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad57a2c5a6f3cf120959dd8b7608649ab">getInputPortSignal</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:ad57a2c5a6f3cf120959dd8b7608649ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口信号  <br /></td></tr>
+<tr class="separator:ad57a2c5a6f3cf120959dd8b7608649ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5247b05de29361829910f2460d5636" id="r_a3d5247b05de29361829910f2460d5636"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d5247b05de29361829910f2460d5636">getOutputPortSignal</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:a3d5247b05de29361829910f2460d5636"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口信号  <br /></td></tr>
+<tr class="separator:a3d5247b05de29361829910f2460d5636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad894b12ca62329f8dea8593731f94673" id="r_ad894b12ca62329f8dea8593731f94673"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad894b12ca62329f8dea8593731f94673">getInputPortRealSignal</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:ad894b12ca62329f8dea8593731f94673"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口实数值信号  <br /></td></tr>
+<tr class="separator:ad894b12ca62329f8dea8593731f94673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2fb15b97014a6bbfa85e1828dcf01dc" id="r_ab2fb15b97014a6bbfa85e1828dcf01dc"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2fb15b97014a6bbfa85e1828dcf01dc">getOutputPortRealSignal</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:ab2fb15b97014a6bbfa85e1828dcf01dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口实数值信号  <br /></td></tr>
+<tr class="separator:ab2fb15b97014a6bbfa85e1828dcf01dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01a6790bfb9418afc082005b459e9cd" id="r_ae01a6790bfb9418afc082005b459e9cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae01a6790bfb9418afc082005b459e9cd">getInputPortWidth</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:ae01a6790bfb9418afc082005b459e9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输入端口宽度  <br /></td></tr>
+<tr class="separator:ae01a6790bfb9418afc082005b459e9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac93da2888c1a3cf60550bbac3a6aaa85" id="r_ac93da2888c1a3cf60550bbac3a6aaa85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac93da2888c1a3cf60550bbac3a6aaa85">getOutputPortWidth</a> (size_t portIndex)</td></tr>
+<tr class="memdesc:ac93da2888c1a3cf60550bbac3a6aaa85"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取输出端口宽度  <br /></td></tr>
+<tr class="separator:ac93da2888c1a3cf60550bbac3a6aaa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a19ddae7457ff061e745bb38f256c5039" id="r_a19ddae7457ff061e745bb38f256c5039"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19ddae7457ff061e745bb38f256c5039">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName)</td></tr>
+<tr class="memdesc:a19ddae7457ff061e745bb38f256c5039"><td class="mdescLeft">&#160;</td><td class="mdescRight">连接函数块的端口  <br /></td></tr>
+<tr class="separator:a19ddae7457ff061e745bb38f256c5039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2523b629138774eb71f98bd860e15034" id="r_a2523b629138774eb71f98bd860e15034"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2523b629138774eb71f98bd860e15034">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, size_t srcPortIndex, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, size_t dstPortIndex)</td></tr>
+<tr class="memdesc:a2523b629138774eb71f98bd860e15034"><td class="mdescLeft">&#160;</td><td class="mdescRight">连接函数块的端口  <br /></td></tr>
+<tr class="separator:a2523b629138774eb71f98bd860e15034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a4e50711b7458870339e195e895a7892e" id="r_a4e50711b7458870339e195e895a7892e"><td class="memItemLeft" align="right" valign="top"><a id="a4e50711b7458870339e195e895a7892e" name="a4e50711b7458870339e195e895a7892e"></a>
+std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inputPorts_</b></td></tr>
+<tr class="separator:a4e50711b7458870339e195e895a7892e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aece1c71a258a490d4fc63df2f3b911be" id="r_aece1c71a258a490d4fc63df2f3b911be"><td class="memItemLeft" align="right" valign="top"><a id="aece1c71a258a490d4fc63df2f3b911be" name="aece1c71a258a490d4fc63df2f3b911be"></a>
+std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outputPorts_</b></td></tr>
+<tr class="separator:aece1c71a258a490d4fc63df2f3b911be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>函数块/功能块 </p>
+<p>函数块是一个基本的计算单元，用于执行特定的数学或逻辑操作。 每个函数块都有输入端口和输出端口，用于接收和发送信号。 在函数块中，信号指的是指向数据的指针</p>
+<p>输入和输出信号可以与其他函数块的端口进行连接，形成信号流/数据流。 函数块的具体计算逻辑由派生类实现。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a2523b629138774eb71f98bd860e15034" name="a2523b629138774eb71f98bd860e15034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2523b629138774eb71f98bd860e15034">&#9670;&#160;</a></span>connect() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::FuncBlock::connect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>srcPortIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>dstPortIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>连接函数块的端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>源函数块 </td></tr>
+    <tr><td class="paramname">srcPortIndex</td><td>源端口索引 </td></tr>
+    <tr><td class="paramname">dst</td><td>目标函数块 </td></tr>
+    <tr><td class="paramname">dstPortIndex</td><td>目标端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a19ddae7457ff061e745bb38f256c5039" name="a19ddae7457ff061e745bb38f256c5039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19ddae7457ff061e745bb38f256c5039">&#9670;&#160;</a></span>connect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::FuncBlock::connect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>srcPortName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>dstPortName</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>连接函数块的端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>源函数块 </td></tr>
+    <tr><td class="paramname">srcPortName</td><td>源端口名称 </td></tr>
+    <tr><td class="paramname">dst</td><td>目标函数块 </td></tr>
+    <tr><td class="paramname">dstPortName</td><td>目标端口名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a8c4dea4839ed707f7c23a5600a276f47" name="a8c4dea4839ed707f7c23a5600a276f47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c4dea4839ed707f7c23a5600a276f47">&#9670;&#160;</a></span>getInputPort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1DataPort.html">DataPort</a> * ast::FuncBlock::getInputPort </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输入端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输入端口指针 </dd></dl>
+
+</div>
+</div>
+<a id="a4dfa545e519ea3574f3b27d3981d90fc" name="a4dfa545e519ea3574f3b27d3981d90fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dfa545e519ea3574f3b27d3981d90fc">&#9670;&#160;</a></span>getInputPort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1DataPort.html">DataPort</a> * ast::FuncBlock::getInputPort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>portName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输入端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portName</td><td>端口名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输入端口指针 </dd></dl>
+
+</div>
+</div>
+<a id="a007a82408f36828f84cd8324cf6627f4" name="a007a82408f36828f84cd8324cf6627f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007a82408f36828f84cd8324cf6627f4">&#9670;&#160;</a></span>getInputPortDataType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataPort::EValueType ast::FuncBlock::getInputPortDataType </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输入端口数据类型 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输入端口数据类型 </dd></dl>
+
+</div>
+</div>
+<a id="ad894b12ca62329f8dea8593731f94673" name="ad894b12ca62329f8dea8593731f94673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad894b12ca62329f8dea8593731f94673">&#9670;&#160;</a></span>getInputPortRealSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * ast::FuncBlock::getInputPortRealSignal </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输入端口实数值信号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输入端口实数值信号指针 </dd></dl>
+
+</div>
+</div>
+<a id="a74b8794afbc585733ec890b2faff2ca3" name="a74b8794afbc585733ec890b2faff2ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74b8794afbc585733ec890b2faff2ca3">&#9670;&#160;</a></span>getInputPorts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt; &amp; ast::FuncBlock::getInputPorts </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取输入端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ports</td><td>输入端口向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad57a2c5a6f3cf120959dd8b7608649ab" name="ad57a2c5a6f3cf120959dd8b7608649ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad57a2c5a6f3cf120959dd8b7608649ab">&#9670;&#160;</a></span>getInputPortSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * ast::FuncBlock::getInputPortSignal </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输入端口信号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输入端口信号指针 </dd></dl>
+
+</div>
+</div>
+<a id="ae01a6790bfb9418afc082005b459e9cd" name="ae01a6790bfb9418afc082005b459e9cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae01a6790bfb9418afc082005b459e9cd">&#9670;&#160;</a></span>getInputPortWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::FuncBlock::getInputPortWidth </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输入端口宽度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输入端口宽度 </dd></dl>
+
+</div>
+</div>
+<a id="a656b1a1782a04aac62180587c18a11aa" name="a656b1a1782a04aac62180587c18a11aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656b1a1782a04aac62180587c18a11aa">&#9670;&#160;</a></span>getNumInputPorts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ast::FuncBlock::getNumInputPorts </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取输入端口数量 </p>
+<dl class="section return"><dt>返回</dt><dd>输入端口数量 </dd></dl>
+
+</div>
+</div>
+<a id="a5fa6b7534833e296c6fd70841722bee2" name="a5fa6b7534833e296c6fd70841722bee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa6b7534833e296c6fd70841722bee2">&#9670;&#160;</a></span>getNumOutputPorts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ast::FuncBlock::getNumOutputPorts </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取输出端口数量 </p>
+<dl class="section return"><dt>返回</dt><dd>输出端口数量 </dd></dl>
+
+</div>
+</div>
+<a id="a2b9dc6277cc4d9936f87e4caeb688cd0" name="a2b9dc6277cc4d9936f87e4caeb688cd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b9dc6277cc4d9936f87e4caeb688cd0">&#9670;&#160;</a></span>getOutputPort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1DataPort.html">DataPort</a> * ast::FuncBlock::getOutputPort </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输出端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出端口指针 </dd></dl>
+
+</div>
+</div>
+<a id="ae1642ea1ff7a83412615cb9e77957975" name="ae1642ea1ff7a83412615cb9e77957975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1642ea1ff7a83412615cb9e77957975">&#9670;&#160;</a></span>getOutputPort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1DataPort.html">DataPort</a> * ast::FuncBlock::getOutputPort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>portName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输出端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portName</td><td>端口名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出端口指针 </dd></dl>
+
+</div>
+</div>
+<a id="a38b810b2b15cd0698b4f702e035756c9" name="a38b810b2b15cd0698b4f702e035756c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b810b2b15cd0698b4f702e035756c9">&#9670;&#160;</a></span>getOutputPortDataType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataPort::EValueType ast::FuncBlock::getOutputPortDataType </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输出端口数据类型 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出端口数据类型 </dd></dl>
+
+</div>
+</div>
+<a id="ab2fb15b97014a6bbfa85e1828dcf01dc" name="ab2fb15b97014a6bbfa85e1828dcf01dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2fb15b97014a6bbfa85e1828dcf01dc">&#9670;&#160;</a></span>getOutputPortRealSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * ast::FuncBlock::getOutputPortRealSignal </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输出端口实数值信号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出端口实数值信号指针 </dd></dl>
+
+</div>
+</div>
+<a id="aee1582af04b21622eb7281d0cb993fba" name="aee1582af04b21622eb7281d0cb993fba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1582af04b21622eb7281d0cb993fba">&#9670;&#160;</a></span>getOutputPorts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt; &amp; ast::FuncBlock::getOutputPorts </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取输出端口 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ports</td><td>输出端口向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3d5247b05de29361829910f2460d5636" name="a3d5247b05de29361829910f2460d5636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5247b05de29361829910f2460d5636">&#9670;&#160;</a></span>getOutputPortSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * ast::FuncBlock::getOutputPortSignal </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输出端口信号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出端口信号指针 </dd></dl>
+
+</div>
+</div>
+<a id="ac93da2888c1a3cf60550bbac3a6aaa85" name="ac93da2888c1a3cf60550bbac3a6aaa85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac93da2888c1a3cf60550bbac3a6aaa85">&#9670;&#160;</a></span>getOutputPortWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::FuncBlock::getOutputPortWidth </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>portIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取输出端口宽度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portIndex</td><td>端口索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出端口宽度 </dd></dl>
+
+</div>
+</div>
+<a id="a7c6e84671d43d3afeca4d3b1020a167b" name="a7c6e84671d43d3afeca4d3b1020a167b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c6e84671d43d3afeca4d3b1020a167b">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual err_t ast::FuncBlock::run </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>simTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>计算函数块 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">simTime</td><td>仿真时间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1BlockAbs.html#a3b7968ef3e73bad79ff49527d6c5d516">ast::BlockAbs</a>, <a class="el" href="classast_1_1BlockConstant.html#a56ab8146b262f619fcee5069df667ea1">ast::BlockConstant</a>, <a class="el" href="classast_1_1BlockDeadZone.html#afbb73f15317c3ccf121b1e837f4b2b9c">ast::BlockDeadZone</a>, <a class="el" href="classast_1_1BlockDivide.html#a7055bd7e4932a4db8a1db34a407007d2">ast::BlockDivide</a>, <a class="el" href="classast_1_1BlockDot.html#a148ac020c94f48755244cfa5299dde7c">ast::BlockDot</a>, <a class="el" href="classast_1_1BlockGain.html#a5f7339b4dff8854ae8140253116f5c66">ast::BlockGain</a>, <a class="el" href="classast_1_1BlockGravity.html#a6b61eea5a888544fb20c1450195bd27a">ast::BlockGravity</a>, <a class="el" href="classast_1_1BlockIn.html#af37d0cd5293c746a8a1c7b6e3bfcb5fa">ast::BlockIn</a>, <a class="el" href="classast_1_1BlockLogicalOperator.html#a9e281e49c69975ad5486dc800a599df6">ast::BlockLogicalOperator</a>, <a class="el" href="classast_1_1BlockMotion.html#ab7362a6d41fc63a0a2110ba85bbb7a39">ast::BlockMotion</a>, <a class="el" href="classast_1_1BlockOut.html#a72019b08104447db867ec7ca746bf4d1">ast::BlockOut</a>, <a class="el" href="classast_1_1BlockProduct.html#a6e675ce4033aa75117ba3881c585c791">ast::BlockProduct</a>, <a class="el" href="classast_1_1BlockRelationalOperator.html#a5c14bed8ab30e5a1c674be737293176c">ast::BlockRelationalOperator</a>, <a class="el" href="classast_1_1BlockSaturation.html#adc70c7785e2e63f084c24dcea84cfe65">ast::BlockSaturation</a>, <a class="el" href="classast_1_1BlockSign.html#af4229c345c117624c724717ab31acf8b">ast::BlockSign</a>, <a class="el" href="classast_1_1BlockSin.html#a5e730811b834eeb3fcd4e74070a5f15a">ast::BlockSin</a>, <a class="el" href="classast_1_1BlockSubtract.html#a61440ec9d5857c3d2c358fc068adebef">ast::BlockSubtract</a>, <a class="el" href="classast_1_1BlockSum.html#a8f57ca1f6cbe38fc7ed8f3444e97dc51">ast::BlockSum</a>, <a class="el" href="classast_1_1BlockSwitch.html#a0efd6f1428806e9407f574d7e5a0174b">ast::BlockSwitch</a>, <a class="el" href="classast_1_1BlockSystem.html#ab877f88236eb6ec1f03447b2fe3ae1ff">ast::BlockSystem</a>, <a class="el" href="classast_1_1BlockTerminator.html#a567bd16a33735fd0f658a4bb85defd0b">ast::BlockTerminator</a>, <a class="el" href="classast_1_1BlockThirdBody.html#a6a9c4656fbe3f33f1d417d7673191587">ast::BlockThirdBody</a>, <a class="el" href="classast_1_1BlockTwoBody.html#a967da3d3c0a2261f43dc303d58f18a87">ast::BlockTwoBody</a> , 以及 <a class="el" href="classast_1_1BlockUnaryMinus.html#afe59c579156beaeb0412ec1bd3117e5d">ast::BlockUnaryMinus</a> 内被实现.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Propagator/HPOP/<a class="el" href="FuncBlock_8hpp_source.html">FuncBlock.hpp</a></li>
+<li>src/AstCore/Propagator/HPOP/<a class="el" href="FuncBlock_8cpp.html">FuncBlock.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

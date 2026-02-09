@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstCore/Coordinate/IERS/SOFA.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('SOFA_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">SOFA.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>天文基础计算函数（基于SOFA库实现）  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &quot;AstCore/TimePoint.hpp&quot;</code><br />
+</div>
+<p><a href="SOFA_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ad57515be7a1e3fc8b89328349dafeed9" id="r_ad57515be7a1e3fc8b89328349dafeed9"><td class="memItemLeft" align="right" valign="top"><a id="ad57515be7a1e3fc8b89328349dafeed9" name="ad57515be7a1e3fc8b89328349dafeed9"></a>
+typedef err_t(*&#160;</td><td class="memItemRight" valign="bottom"><b>ast::NutationFunc</b>) (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;dpsi, double &amp;deps)</td></tr>
+<tr class="separator:ad57515be7a1e3fc8b89328349dafeed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a90828bced58e37684b1e52e4d5597c99" id="r_a90828bced58e37684b1e52e4d5597c99"><td class="memItemLeft" align="right" valign="top"><a id="a90828bced58e37684b1e52e4d5597c99" name="a90828bced58e37684b1e52e4d5597c99"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ENutationMethod</b> { <b>eIAU1980</b> = 0
+, <b>eJplDe</b> = 1
+, <b>eUser</b> = 2
+ }</td></tr>
+<tr class="separator:a90828bced58e37684b1e52e4d5597c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:af57cd650f14fa0b1587bf66c47bf65db" id="r_af57cd650f14fa0b1587bf66c47bf65db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af57cd650f14fa0b1587bf66c47bf65db">ast::aPrecession_IAU1976</a> (double t, double &amp;zeta, double &amp;z, double &amp;theta)</td></tr>
+<tr class="memdesc:af57cd650f14fa0b1587bf66c47bf65db"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间差的岁差角，依据IAU1976规范  <br /></td></tr>
+<tr class="separator:af57cd650f14fa0b1587bf66c47bf65db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d564ce583d0c3862921ecceecf6935c" id="r_a7d564ce583d0c3862921ecceecf6935c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a7d564ce583d0c3862921ecceecf6935c">ast::aMeanObliquity_IAU1980</a> (double t)</td></tr>
+<tr class="memdesc:a7d564ce583d0c3862921ecceecf6935c"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间差的平均黄赤交角，依据IAU1980规范  <br /></td></tr>
+<tr class="separator:a7d564ce583d0c3862921ecceecf6935c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01f70ad0322291b74d4cbfc99cccd2a" id="r_af01f70ad0322291b74d4cbfc99cccd2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af01f70ad0322291b74d4cbfc99cccd2a">ast::aNutation_IERS1996</a> (double t, double &amp;dpsi, double &amp;deps, double *eqecorr)</td></tr>
+<tr class="memdesc:af01f70ad0322291b74d4cbfc99cccd2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间差的章动角，依据IERS1996规范  <br /></td></tr>
+<tr class="separator:af01f70ad0322291b74d4cbfc99cccd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0273c6ecfea462d3e7675eb68f60c629" id="r_a0273c6ecfea462d3e7675eb68f60c629"><td class="memItemLeft" align="right" valign="top"><a id="a0273c6ecfea462d3e7675eb68f60c629" name="a0273c6ecfea462d3e7675eb68f60c629"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aNutation_IERS1996_Cache</b> (double t, double &amp;dpsi, double &amp;deps, double *eqecorr)</td></tr>
+<tr class="separator:a0273c6ecfea462d3e7675eb68f60c629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4e4bde6b31bfda0a8a71ac89612611" id="r_a1e4e4bde6b31bfda0a8a71ac89612611"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1e4e4bde6b31bfda0a8a71ac89612611">ast::aNutation_IAU1980</a> (double t, double &amp;dpsi, double &amp;deps)</td></tr>
+<tr class="memdesc:a1e4e4bde6b31bfda0a8a71ac89612611"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间差的章动角，依据IAU1980规范  <br /></td></tr>
+<tr class="separator:a1e4e4bde6b31bfda0a8a71ac89612611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7412a1113e0593fff53a90bbd44618" id="r_aaf7412a1113e0593fff53a90bbd44618"><td class="memItemLeft" align="right" valign="top"><a id="aaf7412a1113e0593fff53a90bbd44618" name="aaf7412a1113e0593fff53a90bbd44618"></a>
+A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aNutation_IAU1980_Cache</b> (double t, double &amp;dpsi, double &amp;deps)</td></tr>
+<tr class="separator:aaf7412a1113e0593fff53a90bbd44618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3225043e53c75ba439d6530732c65b78" id="r_a3225043e53c75ba439d6530732c65b78"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a3225043e53c75ba439d6530732c65b78">ast::aPrecession_IAU1976</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;zeta, double &amp;z, double &amp;theta)</td></tr>
+<tr class="separator:a3225043e53c75ba439d6530732c65b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ae05f9915541d4ee1b49ceec1cde81" id="r_ab6ae05f9915541d4ee1b49ceec1cde81"><td class="memItemLeft" align="right" valign="top"><a id="ab6ae05f9915541d4ee1b49ceec1cde81" name="ab6ae05f9915541d4ee1b49ceec1cde81"></a>
+A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aMeanObliquity_IAU1980</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="separator:ab6ae05f9915541d4ee1b49ceec1cde81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9a8c61d03ee9dc798de38ad0437349" id="r_a5d9a8c61d03ee9dc798de38ad0437349"><td class="memItemLeft" align="right" valign="top"><a id="a5d9a8c61d03ee9dc798de38ad0437349" name="a5d9a8c61d03ee9dc798de38ad0437349"></a>
+A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aNutation_IAU1980</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;dpsi, double &amp;deps)</td></tr>
+<tr class="separator:a5d9a8c61d03ee9dc798de38ad0437349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d9806e4f3e5bd79a3faba8a44d2ad4" id="r_a02d9806e4f3e5bd79a3faba8a44d2ad4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a02d9806e4f3e5bd79a3faba8a44d2ad4">ast::aNutationFuncSet</a> (NutationFunc func)</td></tr>
+<tr class="memdesc:a02d9806e4f3e5bd79a3faba8a44d2ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置章动角计算函数指针  <br /></td></tr>
+<tr class="separator:a02d9806e4f3e5bd79a3faba8a44d2ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace797c75c8b047ff468d01432be425fa" id="r_ace797c75c8b047ff468d01432be425fa"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ace797c75c8b047ff468d01432be425fa">ast::aNutationMethodSet</a> (ENutationMethod method)</td></tr>
+<tr class="memdesc:ace797c75c8b047ff468d01432be425fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置章动角计算函数  <br /></td></tr>
+<tr class="separator:ace797c75c8b047ff468d01432be425fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964414a5f16ed2a874e02aa19af1129e" id="r_a964414a5f16ed2a874e02aa19af1129e"><td class="memItemLeft" align="right" valign="top">ENutationMethod&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a964414a5f16ed2a874e02aa19af1129e">ast::aNutationMethodGet</a> ()</td></tr>
+<tr class="memdesc:a964414a5f16ed2a874e02aa19af1129e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前章动角计算函数  <br /></td></tr>
+<tr class="separator:a964414a5f16ed2a874e02aa19af1129e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb54fffcc4d1190586e6148f16be37e" id="r_aeeb54fffcc4d1190586e6148f16be37e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aeeb54fffcc4d1190586e6148f16be37e">ast::aGMST_IAU1982</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="memdesc:aeeb54fffcc4d1190586e6148f16be37e"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间点的格林尼治平恒星时（GMST），依据IAU1982规范  <br /></td></tr>
+<tr class="separator:aeeb54fffcc4d1190586e6148f16be37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a15ff0a546fe42e25b499c9df6f59a7" id="r_a1a15ff0a546fe42e25b499c9df6f59a7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1a15ff0a546fe42e25b499c9df6f59a7">ast::aGMST_UT1_IAU1982</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUT1)</td></tr>
+<tr class="memdesc:a1a15ff0a546fe42e25b499c9df6f59a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定UT1时间的格林尼治平恒星时（GMST），依据IAU1982规范  <br /></td></tr>
+<tr class="separator:a1a15ff0a546fe42e25b499c9df6f59a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add4db3984e4ac425671893e9151d776c" id="r_add4db3984e4ac425671893e9151d776c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#add4db3984e4ac425671893e9151d776c">ast::aGAST_IAU1994</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="memdesc:add4db3984e4ac425671893e9151d776c"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间点的格林尼治视恒星时（GAST），依据IAU1982规范  <br /></td></tr>
+<tr class="separator:add4db3984e4ac425671893e9151d776c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca6a3cf571f946372790a9c912a9cc94" id="r_aca6a3cf571f946372790a9c912a9cc94"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aca6a3cf571f946372790a9c912a9cc94">ast::aEquationOfEquinoxes_IAU1994</a> (double t)</td></tr>
+<tr class="memdesc:aca6a3cf571f946372790a9c912a9cc94"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间点的赤经章动，依据IAU1994规范  <br /></td></tr>
+<tr class="separator:aca6a3cf571f946372790a9c912a9cc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7666ed99afcec7d6c4bc36e89190c9" id="r_a6e7666ed99afcec7d6c4bc36e89190c9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6e7666ed99afcec7d6c4bc36e89190c9">ast::aEquationOfEquinoxes_IAU1994</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="separator:a6e7666ed99afcec7d6c4bc36e89190c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d33fedb094a2588449938697651f14" id="r_ad4d33fedb094a2588449938697651f14"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad4d33fedb094a2588449938697651f14">ast::aEarthRotationAngle_IAU2000</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="memdesc:ad4d33fedb094a2588449938697651f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定时间点的地球自转角度，依据IAU2000规范  <br /></td></tr>
+<tr class="separator:ad4d33fedb094a2588449938697651f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7c349c2d188b3ec7a6a81497318022" id="r_abb7c349c2d188b3ec7a6a81497318022"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abb7c349c2d188b3ec7a6a81497318022">ast::aEarthRotationAngleUT1_IAU2000</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUT1)</td></tr>
+<tr class="memdesc:abb7c349c2d188b3ec7a6a81497318022"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算给定UT1时间的地球自转角度，依据IAU2000规范  <br /></td></tr>
+<tr class="separator:abb7c349c2d188b3ec7a6a81497318022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>天文基础计算函数（基于SOFA库实现） </p>
+<p>本模块的函数基于国际天文联合会(IAU) SOFA库实现， 但为适应本项目需求进行了接口和实现上的调整。 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-01-06 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html">Coordinate</a></li><li class="navelem"><a class="el" href="dir_3728ca657bd5157f99a2657b076b2898.html">IERS</a></li><li class="navelem"><a class="el" href="SOFA_8hpp.html">SOFA.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::Date类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Date.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="classast_1_1Date-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Date类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>日期  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Date_8hpp_source.html">Date.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a4cdbb4699f636a8b836b9460d3d5b751" id="r_a4cdbb4699f636a8b836b9460d3d5b751"><td class="memItemLeft" align="right" valign="top"><a id="a4cdbb4699f636a8b836b9460d3d5b751" name="a4cdbb4699f636a8b836b9460d3d5b751"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cdbb4699f636a8b836b9460d3d5b751">EMonth</a> { <br />
+&#160;&#160;<b>eJAN</b> = 1
+, <b>eFEB</b>
+, <b>eMAR</b>
+, <b>eAPR</b>
+, <br />
+&#160;&#160;<b>eMAY</b>
+, <b>eJUN</b>
+, <b>eJUL</b> = 7
+, <b>eAUG</b>
+, <br />
+&#160;&#160;<b>eSEP</b>
+, <b>eOCT</b>
+, <b>eNOV</b>
+, <b>eDEC</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a4cdbb4699f636a8b836b9460d3d5b751"><td class="mdescLeft">&#160;</td><td class="mdescRight">月份，从1开始计数（1表示一月） <br /></td></tr>
+<tr class="separator:a4cdbb4699f636a8b836b9460d3d5b751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a01e196dd5e7261346a587234236b35" id="r_a7a01e196dd5e7261346a587234236b35"><td class="memItemLeft" align="right" valign="top"><a id="a7a01e196dd5e7261346a587234236b35" name="a7a01e196dd5e7261346a587234236b35"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a01e196dd5e7261346a587234236b35">EWeekDay</a> { <br />
+&#160;&#160;<b>eSUN</b> = 0
+, <b>eMON</b>
+, <b>eTUE</b>
+, <b>eWED</b>
+, <br />
+&#160;&#160;<b>eTHU</b>
+, <b>eFRI</b>
+, <b>eSAT</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a7a01e196dd5e7261346a587234236b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">星期几，从0开始计数（0表示星期日） <br /></td></tr>
+<tr class="separator:a7a01e196dd5e7261346a587234236b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a4aa9ffda45c14801b753eb765649f175" id="r_a4aa9ffda45c14801b753eb765649f175"><td class="memItemLeft" align="right" valign="top"><a id="a4aa9ffda45c14801b753eb765649f175" name="a4aa9ffda45c14801b753eb765649f175"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>year</b> () const</td></tr>
+<tr class="separator:a4aa9ffda45c14801b753eb765649f175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e2827775c4e9f44ff38cad7dc30629" id="r_ab2e2827775c4e9f44ff38cad7dc30629"><td class="memItemLeft" align="right" valign="top"><a id="ab2e2827775c4e9f44ff38cad7dc30629" name="ab2e2827775c4e9f44ff38cad7dc30629"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>year</b> ()</td></tr>
+<tr class="separator:ab2e2827775c4e9f44ff38cad7dc30629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d531c946c25d39a481d5c43137a9a92" id="r_a6d531c946c25d39a481d5c43137a9a92"><td class="memItemLeft" align="right" valign="top"><a id="a6d531c946c25d39a481d5c43137a9a92" name="a6d531c946c25d39a481d5c43137a9a92"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>month</b> () const</td></tr>
+<tr class="separator:a6d531c946c25d39a481d5c43137a9a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fd74ef62cb50ee10e2c8aac076a0379" id="r_a4fd74ef62cb50ee10e2c8aac076a0379"><td class="memItemLeft" align="right" valign="top"><a id="a4fd74ef62cb50ee10e2c8aac076a0379" name="a4fd74ef62cb50ee10e2c8aac076a0379"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>month</b> ()</td></tr>
+<tr class="separator:a4fd74ef62cb50ee10e2c8aac076a0379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5f79edf6be36504a191672bccbfb15" id="r_a4b5f79edf6be36504a191672bccbfb15"><td class="memItemLeft" align="right" valign="top"><a id="a4b5f79edf6be36504a191672bccbfb15" name="a4b5f79edf6be36504a191672bccbfb15"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>day</b> () const</td></tr>
+<tr class="separator:a4b5f79edf6be36504a191672bccbfb15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29767716df84157a2f7ec5c0af5b086e" id="r_a29767716df84157a2f7ec5c0af5b086e"><td class="memItemLeft" align="right" valign="top"><a id="a29767716df84157a2f7ec5c0af5b086e" name="a29767716df84157a2f7ec5c0af5b086e"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>day</b> ()</td></tr>
+<tr class="separator:a29767716df84157a2f7ec5c0af5b086e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e43b482b6cee693d2987ea1643ab65" id="r_a03e43b482b6cee693d2987ea1643ab65"><td class="memItemLeft" align="right" valign="top"><a id="a03e43b482b6cee693d2987ea1643ab65" name="a03e43b482b6cee693d2987ea1643ab65"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setYear</b> (int year)</td></tr>
+<tr class="separator:a03e43b482b6cee693d2987ea1643ab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47317421d87f269f790b5982493e400a" id="r_a47317421d87f269f790b5982493e400a"><td class="memItemLeft" align="right" valign="top"><a id="a47317421d87f269f790b5982493e400a" name="a47317421d87f269f790b5982493e400a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMonth</b> (int month)</td></tr>
+<tr class="separator:a47317421d87f269f790b5982493e400a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d8bc4a356cb4e7282169235ed98efe0" id="r_a2d8bc4a356cb4e7282169235ed98efe0"><td class="memItemLeft" align="right" valign="top"><a id="a2d8bc4a356cb4e7282169235ed98efe0" name="a2d8bc4a356cb4e7282169235ed98efe0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDay</b> (int day)</td></tr>
+<tr class="separator:a2d8bc4a356cb4e7282169235ed98efe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95499f86d2d87bfc8ff285d1a66800b7" id="r_a95499f86d2d87bfc8ff285d1a66800b7"><td class="memItemLeft" align="right" valign="top"><a id="a95499f86d2d87bfc8ff285d1a66800b7" name="a95499f86d2d87bfc8ff285d1a66800b7"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>monthFullName</b> () const</td></tr>
+<tr class="memdesc:a95499f86d2d87bfc8ff285d1a66800b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取月份的完整英文名称 <br /></td></tr>
+<tr class="separator:a95499f86d2d87bfc8ff285d1a66800b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88179430870464cb8b0160c2ca7bfe99" id="r_a88179430870464cb8b0160c2ca7bfe99"><td class="memItemLeft" align="right" valign="top"><a id="a88179430870464cb8b0160c2ca7bfe99" name="a88179430870464cb8b0160c2ca7bfe99"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>monthShortName</b> () const</td></tr>
+<tr class="memdesc:a88179430870464cb8b0160c2ca7bfe99"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取月份的简写英文名称 <br /></td></tr>
+<tr class="separator:a88179430870464cb8b0160c2ca7bfe99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869fb2e76bb442c8175c0a297ddb8098" id="r_a869fb2e76bb442c8175c0a297ddb8098"><td class="memItemLeft" align="right" valign="top"><a id="a869fb2e76bb442c8175c0a297ddb8098" name="a869fb2e76bb442c8175c0a297ddb8098"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>weekDayFullName</b> () const</td></tr>
+<tr class="memdesc:a869fb2e76bb442c8175c0a297ddb8098"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取星期几的完整英文名称 <br /></td></tr>
+<tr class="separator:a869fb2e76bb442c8175c0a297ddb8098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75e4609fe91cfe5858ac5b32b0ae6994" id="r_a75e4609fe91cfe5858ac5b32b0ae6994"><td class="memItemLeft" align="right" valign="top"><a id="a75e4609fe91cfe5858ac5b32b0ae6994" name="a75e4609fe91cfe5858ac5b32b0ae6994"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>weekDayShortName</b> () const</td></tr>
+<tr class="memdesc:a75e4609fe91cfe5858ac5b32b0ae6994"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取星期几的简写英文名称 <br /></td></tr>
+<tr class="separator:a75e4609fe91cfe5858ac5b32b0ae6994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f1cf0f806296d78dd7f9b0b101e4594" id="r_a9f1cf0f806296d78dd7f9b0b101e4594"><td class="memItemLeft" align="right" valign="top"><a id="a9f1cf0f806296d78dd7f9b0b101e4594" name="a9f1cf0f806296d78dd7f9b0b101e4594"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>dayOfWeek</b> () const</td></tr>
+<tr class="memdesc:a9f1cf0f806296d78dd7f9b0b101e4594"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取日期是这一周的第几天 <br /></td></tr>
+<tr class="separator:a9f1cf0f806296d78dd7f9b0b101e4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2f8707229e004fd3f1c7cca4c7b418" id="r_aad2f8707229e004fd3f1c7cca4c7b418"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad2f8707229e004fd3f1c7cca4c7b418">dayOfYear</a> () const</td></tr>
+<tr class="memdesc:aad2f8707229e004fd3f1c7cca4c7b418"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取日期是这一年的第几天，从1开始计数  <br /></td></tr>
+<tr class="separator:aad2f8707229e004fd3f1c7cca4c7b418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47ee05579fd4388bc089ce1c2004b7f3" id="r_a47ee05579fd4388bc089ce1c2004b7f3"><td class="memItemLeft" align="right" valign="top"><a id="a47ee05579fd4388bc089ce1c2004b7f3" name="a47ee05579fd4388bc089ce1c2004b7f3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLeapYear</b> () const</td></tr>
+<tr class="memdesc:a47ee05579fd4388bc089ce1c2004b7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否为闰年 <br /></td></tr>
+<tr class="separator:a47ee05579fd4388bc089ce1c2004b7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14fa5d7e73adeebc3e3266bb3401ec8a" id="r_a14fa5d7e73adeebc3e3266bb3401ec8a"><td class="memItemLeft" align="right" valign="top"><a id="a14fa5d7e73adeebc3e3266bb3401ec8a" name="a14fa5d7e73adeebc3e3266bb3401ec8a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>dayInMonth</b> () const</td></tr>
+<tr class="memdesc:a14fa5d7e73adeebc3e3266bb3401ec8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取该月的天数 <br /></td></tr>
+<tr class="separator:a14fa5d7e73adeebc3e3266bb3401ec8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9980b4d505fa3adf86b9851bcba031f" id="r_aa9980b4d505fa3adf86b9851bcba031f"><td class="memItemLeft" align="right" valign="top"><a id="aa9980b4d505fa3adf86b9851bcba031f" name="aa9980b4d505fa3adf86b9851bcba031f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>toJDAtNoon</b> () const</td></tr>
+<tr class="memdesc:aa9980b4d505fa3adf86b9851bcba031f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将日期转换为儒略日数 <br /></td></tr>
+<tr class="separator:aa9980b4d505fa3adf86b9851bcba031f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd13a3151cef717af56b5d1836792fb9" id="r_afd13a3151cef717af56b5d1836792fb9"><td class="memItemLeft" align="right" valign="top"><a id="afd13a3151cef717af56b5d1836792fb9" name="afd13a3151cef717af56b5d1836792fb9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>toJD</b> () const</td></tr>
+<tr class="memdesc:afd13a3151cef717af56b5d1836792fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">将日期转换为当天00:00的儒略日数 <br /></td></tr>
+<tr class="separator:afd13a3151cef717af56b5d1836792fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7fb949d46bcd6c8b0ef46dc8e0be3d2" id="r_ab7fb949d46bcd6c8b0ef46dc8e0be3d2"><td class="memItemLeft" align="right" valign="top"><a id="ab7fb949d46bcd6c8b0ef46dc8e0be3d2" name="ab7fb949d46bcd6c8b0ef46dc8e0be3d2"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>toMJD</b> () const</td></tr>
+<tr class="memdesc:ab7fb949d46bcd6c8b0ef46dc8e0be3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">将日期转换为当天00:00的简约儒略日数 <br /></td></tr>
+<tr class="separator:ab7fb949d46bcd6c8b0ef46dc8e0be3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a184b84b626ef7d21bd188b532e243460" id="r_a184b84b626ef7d21bd188b532e243460"><td class="memItemLeft" align="right" valign="top"><a id="a184b84b626ef7d21bd188b532e243460" name="a184b84b626ef7d21bd188b532e243460"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fromJDAtNoon</b> (int jd)</td></tr>
+<tr class="memdesc:a184b84b626ef7d21bd188b532e243460"><td class="mdescLeft">&#160;</td><td class="mdescRight">将当天中午12点的儒略日数转换为日期 <br /></td></tr>
+<tr class="separator:a184b84b626ef7d21bd188b532e243460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9c3bb618689fc9db118621ed6ff6318" id="r_af9c3bb618689fc9db118621ed6ff6318"><td class="memItemLeft" align="right" valign="top"><a id="af9c3bb618689fc9db118621ed6ff6318" name="af9c3bb618689fc9db118621ed6ff6318"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fromYMD</b> (int year, int month, int day)</td></tr>
+<tr class="memdesc:af9c3bb618689fc9db118621ed6ff6318"><td class="mdescLeft">&#160;</td><td class="mdescRight">将年份、月份、日期转换为日期 <br /></td></tr>
+<tr class="separator:af9c3bb618689fc9db118621ed6ff6318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6dfe4ff9e245c5bd46b19f9a8e075f" id="r_a2f6dfe4ff9e245c5bd46b19f9a8e075f"><td class="memItemLeft" align="right" valign="top"><a id="a2f6dfe4ff9e245c5bd46b19f9a8e075f" name="a2f6dfe4ff9e245c5bd46b19f9a8e075f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fromYD</b> (int year, int days)</td></tr>
+<tr class="memdesc:a2f6dfe4ff9e245c5bd46b19f9a8e075f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将年份和一年中的天数转换为日期 <br /></td></tr>
+<tr class="separator:a2f6dfe4ff9e245c5bd46b19f9a8e075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af54bfb3877b4dec554c2219f9184e8a3" id="r_af54bfb3877b4dec554c2219f9184e8a3"><td class="memItemLeft" align="right" valign="top"><a id="af54bfb3877b4dec554c2219f9184e8a3" name="af54bfb3877b4dec554c2219f9184e8a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>toYD</b> (int &amp;year, int &amp;days) const</td></tr>
+<tr class="memdesc:af54bfb3877b4dec554c2219f9184e8a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">将日期转换为年份和一年中的天数 <br /></td></tr>
+<tr class="separator:af54bfb3877b4dec554c2219f9184e8a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d082db9849c05f3db689102740d752f" id="r_a0d082db9849c05f3db689102740d752f"><td class="memItemLeft" align="right" valign="top"><a id="a0d082db9849c05f3db689102740d752f" name="a0d082db9849c05f3db689102740d752f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
+<tr class="memdesc:a0d082db9849c05f3db689102740d752f"><td class="mdescLeft">&#160;</td><td class="mdescRight">规范化日期对象，将日期调整为有效日期 <br /></td></tr>
+<tr class="separator:a0d082db9849c05f3db689102740d752f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa09b00d4c981b078f1c49d3ca04f8110" id="r_aa09b00d4c981b078f1c49d3ca04f8110"><td class="memItemLeft" align="right" valign="top"><a id="aa09b00d4c981b078f1c49d3ca04f8110" name="aa09b00d4c981b078f1c49d3ca04f8110"></a>
+<a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>normalized</b> () const</td></tr>
+<tr class="memdesc:aa09b00d4c981b078f1c49d3ca04f8110"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回规范化后的日期对象副本 <br /></td></tr>
+<tr class="separator:aa09b00d4c981b078f1c49d3ca04f8110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab85b56284726d40bf56589c8e00ccc8e" id="r_ab85b56284726d40bf56589c8e00ccc8e"><td class="memItemLeft" align="right" valign="top"><a id="ab85b56284726d40bf56589c8e00ccc8e" name="ab85b56284726d40bf56589c8e00ccc8e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
+<tr class="separator:ab85b56284726d40bf56589c8e00ccc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a8755bfe720d3f85040fe5dd38644de03" id="r_a8755bfe720d3f85040fe5dd38644de03"><td class="memItemLeft" align="right" valign="top"><a id="a8755bfe720d3f85040fe5dd38644de03" name="a8755bfe720d3f85040fe5dd38644de03"></a>
+static <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromJDAtNoon</b> (int jd)</td></tr>
+<tr class="memdesc:a8755bfe720d3f85040fe5dd38644de03"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据儒略日数创建日期对象 <br /></td></tr>
+<tr class="separator:a8755bfe720d3f85040fe5dd38644de03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5713429e169192c837cacbaa2c84d52c" id="r_a5713429e169192c837cacbaa2c84d52c"><td class="memItemLeft" align="right" valign="top"><a id="a5713429e169192c837cacbaa2c84d52c" name="a5713429e169192c837cacbaa2c84d52c"></a>
+static <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromYMD</b> (int year, int month, int day)</td></tr>
+<tr class="memdesc:a5713429e169192c837cacbaa2c84d52c"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据年份、月份、日期创建日期对象 <br /></td></tr>
+<tr class="separator:a5713429e169192c837cacbaa2c84d52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67093601b057e3771def993c842ce99a" id="r_a67093601b057e3771def993c842ce99a"><td class="memItemLeft" align="right" valign="top"><a id="a67093601b057e3771def993c842ce99a" name="a67093601b057e3771def993c842ce99a"></a>
+static <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromYD</b> (int year, int days)</td></tr>
+<tr class="memdesc:a67093601b057e3771def993c842ce99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据年份、一年中的天数创建日期对象 <br /></td></tr>
+<tr class="separator:a67093601b057e3771def993c842ce99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a35311ca468e03e382c132605af9a51f1" id="r_a35311ca468e03e382c132605af9a51f1"><td class="memItemLeft" align="right" valign="top"><a id="a35311ca468e03e382c132605af9a51f1" name="a35311ca468e03e382c132605af9a51f1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>year_</b></td></tr>
+<tr class="memdesc:a35311ca468e03e382c132605af9a51f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">年 <br /></td></tr>
+<tr class="separator:a35311ca468e03e382c132605af9a51f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723ebfd7f060ed1c64a4dc82d92a0c4c" id="r_a723ebfd7f060ed1c64a4dc82d92a0c4c"><td class="memItemLeft" align="right" valign="top"><a id="a723ebfd7f060ed1c64a4dc82d92a0c4c" name="a723ebfd7f060ed1c64a4dc82d92a0c4c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>month_</b></td></tr>
+<tr class="memdesc:a723ebfd7f060ed1c64a4dc82d92a0c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">月 <br /></td></tr>
+<tr class="separator:a723ebfd7f060ed1c64a4dc82d92a0c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a830ce57c012b9361d4ac414a0346dcc7" id="r_a830ce57c012b9361d4ac414a0346dcc7"><td class="memItemLeft" align="right" valign="top"><a id="a830ce57c012b9361d4ac414a0346dcc7" name="a830ce57c012b9361d4ac414a0346dcc7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>day_</b></td></tr>
+<tr class="memdesc:a830ce57c012b9361d4ac414a0346dcc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">日 <br /></td></tr>
+<tr class="separator:a830ce57c012b9361d4ac414a0346dcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>日期 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="aad2f8707229e004fd3f1c7cca4c7b418" name="aad2f8707229e004fd3f1c7cca4c7b418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2f8707229e004fd3f1c7cca4c7b418">&#9670;&#160;</a></span>dayOfYear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::Date::dayOfYear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取日期是这一年的第几天，从1开始计数 </p>
+<dl class="section return"><dt>返回</dt><dd>第几天 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Time/<a class="el" href="Date_8hpp_source.html">Date.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Date.html">Date</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

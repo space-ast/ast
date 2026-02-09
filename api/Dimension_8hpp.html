@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstUtil/Quantity/Dimension.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Dimension_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">Dimension.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>~  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div>
+<p><a href="Dimension_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Dimension.html">ast::Dimension</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲  <a href="classast_1_1Dimension.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a7604aa739f775fc944dd572078a22ecb" id="r_a7604aa739f775fc944dd572078a22ecb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7604aa739f775fc944dd572078a22ecb">_AST_DIM_EXP_OPBIN</a>(value1,  value2,  op)</td></tr>
+<tr class="separator:a7604aa739f775fc944dd572078a22ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae84dfbe7b4c86bb152e7aa6bffcafaa1" id="r_ae84dfbe7b4c86bb152e7aa6bffcafaa1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae84dfbe7b4c86bb152e7aa6bffcafaa1">_AST_DIM_EXP_TIMES</a>(value,  times)</td></tr>
+<tr class="separator:ae84dfbe7b4c86bb152e7aa6bffcafaa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a2dd8d2419d2bbca67a9a16e803080173" id="r_a2dd8d2419d2bbca67a9a16e803080173"><td class="memItemLeft" align="right" valign="top"><a id="a2dd8d2419d2bbca67a9a16e803080173" name="a2dd8d2419d2bbca67a9a16e803080173"></a>
+typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension_t</b></td></tr>
+<tr class="separator:a2dd8d2419d2bbca67a9a16e803080173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00b1ded2a8df0252b468907c5aab115" id="r_af00b1ded2a8df0252b468907c5aab115"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">ast::EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af00b1ded2a8df0252b468907c5aab115">ast::AEDimension</a></td></tr>
+<tr class="memdesc:af00b1ded2a8df0252b468907c5aab115"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲枚举类  <br /></td></tr>
+<tr class="separator:af00b1ded2a8df0252b468907c5aab115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a8a01a7b89c99a23d5bad2c46d01061e0" id="r_a8a01a7b89c99a23d5bad2c46d01061e0"><td class="memItemLeft" align="right" valign="top"><a id="a8a01a7b89c99a23d5bad2c46d01061e0" name="a8a01a7b89c99a23d5bad2c46d01061e0"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<b>kIdxMass</b>
+, <b>kIdxLength</b>
+, <b>kIdxAngle</b>
+, <b>kIdxTime</b>
+, <br />
+&#160;&#160;<b>kIdxTemperature</b>
+, <b>kIdxCurrent</b>
+, <b>kIdxAmount</b>
+, <b>kIdxLuminous</b>
+<br />
+ }</td></tr>
+<tr class="separator:a8a01a7b89c99a23d5bad2c46d01061e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab30969f1d9a484eedacefdc5a6953f14" id="r_ab30969f1d9a484eedacefdc5a6953f14"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">ast::EDimension</a> : dimension_t { <br />
+&#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a40180dbf986774f37463e57071df86fb">ast::eUnit</a> = dimension::kUnit
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14ae916a836776f210c45a720500eff6c01">ast::eLength</a> = dimension::kLength
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14ac418eac40ae21d506db327c941074755">ast::eMass</a> = dimension::kMass
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a5774030784f865ffabfe52f879c0f61c">ast::eTime</a> = dimension::kTime
+, <br />
+&#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a8a4ae9088b5d080c176d9aeb3cb3cb9e">ast::eCurrent</a> = dimension::kCurrent
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a430ac37de713edd8ef6f62b60a473f59">ast::eTemperature</a> = dimension::kTemperature
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0e59592ac99bdf12b4bca3f71e0fbcf1">ast::eAmount</a> = dimension::kAmount
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2">ast::eLuminous</a> = dimension::kLuminous
+, <br />
+&#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d">ast::eAngle</a> = dimension::kAngle
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a4d07e839b242fd808769fb69c64984f2">ast::eAngVel</a> = dimension::kAngVel
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd">ast::eAngularVelocity</a> = dimension::kAngularVelocity
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a1be278567ee23c317653a94c15d759c4">ast::eArea</a> = dimension::kArea
+, <br />
+&#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a3415277feaf6ea4eb0b30f2aab932672">ast::eVolume</a> = dimension::kVolume
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14abc7368b494d4d16a5f1167f8c2a0f418">ast::eSpeed</a> = dimension::kSpeed
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14abe5a1565395b28504a4182ee4dfad6d1">ast::eAcceleration</a> = dimension::kAcceleration
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14af627ea472f58d89fa226d5bdbd79a5d4">ast::eForce</a> = dimension::kForce
+, <br />
+&#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14afe48561b7a9cb9855071ac51274b0d54">ast::ePressure</a> = dimension::kPressure
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adc95d025d73029632ddd00f692c86d96">ast::eEnergy</a> = dimension::kEnergy
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3">ast::ePower</a> = dimension::kPower
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8">ast::eFrequency</a> = dimension::kFrequency
+<br />
+ }</td></tr>
+<tr class="memdesc:ab30969f1d9a484eedacefdc5a6953f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲枚举类  <a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">更多...</a><br /></td></tr>
+<tr class="separator:ab30969f1d9a484eedacefdc5a6953f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a7dd359c4f79076aa154e9c8f3f46d636" id="r_a7dd359c4f79076aa154e9c8f3f46d636"><td class="memTemplParams" colspan="2"><a id="a7dd359c4f79076aa154e9c8f3f46d636" name="a7dd359c4f79076aa154e9c8f3f46d636"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7dd359c4f79076aa154e9c8f3f46d636"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_get_exponent</b> (T dimension, int idx) noexcept</td></tr>
+<tr class="memdesc:a7dd359c4f79076aa154e9c8f3f46d636"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的指数 <br /></td></tr>
+<tr class="separator:a7dd359c4f79076aa154e9c8f3f46d636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d25748c4c13cedd010bd2742ee3b56c" id="r_a0d25748c4c13cedd010bd2742ee3b56c"><td class="memTemplParams" colspan="2"><a id="a0d25748c4c13cedd010bd2742ee3b56c" name="a0d25748c4c13cedd010bd2742ee3b56c"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0d25748c4c13cedd010bd2742ee3b56c"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_set_exponent</b> (T dimension, int idx, int exponent) noexcept</td></tr>
+<tr class="memdesc:a0d25748c4c13cedd010bd2742ee3b56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置量纲的指数 <br /></td></tr>
+<tr class="separator:a0d25748c4c13cedd010bd2742ee3b56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3b6d06a7d6ac66e4fe573c7ec944c5" id="r_a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="memTemplParams" colspan="2"><a id="a9e3b6d06a7d6ac66e4fe573c7ec944c5" name="a9e3b6d06a7d6ac66e4fe573c7ec944c5"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_get_sum_abs_exponent</b> (T dimension) noexcept</td></tr>
+<tr class="memdesc:a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的指数绝对值的和 <br /></td></tr>
+<tr class="separator:a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4b4bb523a789e6b63bb92057d72b4a" id="r_a0d4b4bb523a789e6b63bb92057d72b4a"><td class="memTemplParams" colspan="2"><a id="a0d4b4bb523a789e6b63bb92057d72b4a" name="a0d4b4bb523a789e6b63bb92057d72b4a"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0d4b4bb523a789e6b63bb92057d72b4a"><td class="memTemplItemLeft" align="right" valign="top">constexpr dimension_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_product</b> (T dim1, T dim2) noexcept</td></tr>
+<tr class="memdesc:a0d4b4bb523a789e6b63bb92057d72b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲乘法 <br /></td></tr>
+<tr class="separator:a0d4b4bb523a789e6b63bb92057d72b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4cecbcb21ebecd2d74d441d1551f2b5" id="r_af4cecbcb21ebecd2d74d441d1551f2b5"><td class="memTemplParams" colspan="2"><a id="af4cecbcb21ebecd2d74d441d1551f2b5" name="af4cecbcb21ebecd2d74d441d1551f2b5"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af4cecbcb21ebecd2d74d441d1551f2b5"><td class="memTemplItemLeft" align="right" valign="top">constexpr dimension_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_divide</b> (T dim1, T dim2) noexcept</td></tr>
+<tr class="separator:af4cecbcb21ebecd2d74d441d1551f2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651e8b0eb4da4a185c63d53826c57f93" id="r_a651e8b0eb4da4a185c63d53826c57f93"><td class="memTemplParams" colspan="2"><a id="a651e8b0eb4da4a185c63d53826c57f93" name="a651e8b0eb4da4a185c63d53826c57f93"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a651e8b0eb4da4a185c63d53826c57f93"><td class="memTemplItemLeft" align="right" valign="top">constexpr dimension_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_pow</b> (T dimension, int n) noexcept</td></tr>
+<tr class="memdesc:a651e8b0eb4da4a185c63d53826c57f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲指数幂 <br /></td></tr>
+<tr class="separator:a651e8b0eb4da4a185c63d53826c57f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab406b4774cae5af1eee2c897893896b4" id="r_ab406b4774cae5af1eee2c897893896b4"><td class="memTemplParams" colspan="2"><a id="ab406b4774cae5af1eee2c897893896b4" name="ab406b4774cae5af1eee2c897893896b4"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab406b4774cae5af1eee2c897893896b4"><td class="memTemplItemLeft" align="right" valign="top">constexpr dimension_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_invert</b> (T dimension) noexcept</td></tr>
+<tr class="separator:ab406b4774cae5af1eee2c897893896b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75e41ca58c95d7f71bec7edeedecd747" id="r_a75e41ca58c95d7f71bec7edeedecd747"><td class="memItemLeft" align="right" valign="top"><a id="a75e41ca58c95d7f71bec7edeedecd747" name="a75e41ca58c95d7f71bec7edeedecd747"></a>
+constexpr <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator*</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim1, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim2) noexcept</td></tr>
+<tr class="memdesc:a75e41ca58c95d7f71bec7edeedecd747"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲乘法运算符 <br /></td></tr>
+<tr class="separator:a75e41ca58c95d7f71bec7edeedecd747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bc86e8c16de763ba5587da00e48d10" id="r_a76bc86e8c16de763ba5587da00e48d10"><td class="memItemLeft" align="right" valign="top"><a id="a76bc86e8c16de763ba5587da00e48d10" name="a76bc86e8c16de763ba5587da00e48d10"></a>
+constexpr <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator/</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim1, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim2) noexcept</td></tr>
+<tr class="memdesc:a76bc86e8c16de763ba5587da00e48d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲除法运算符 <br /></td></tr>
+<tr class="separator:a76bc86e8c16de763ba5587da00e48d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f74910b40e799143b3cf48b48df246" id="r_a75f74910b40e799143b3cf48b48df246"><td class="memItemLeft" align="right" valign="top"><a id="a75f74910b40e799143b3cf48b48df246" name="a75f74910b40e799143b3cf48b48df246"></a>
+constexpr <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pow</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension, int n) noexcept</td></tr>
+<tr class="memdesc:a75f74910b40e799143b3cf48b48df246"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲指数幂运算符 <br /></td></tr>
+<tr class="separator:a75f74910b40e799143b3cf48b48df246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9392469021c5dc89ec24b046a440f1a3" id="r_a9392469021c5dc89ec24b046a440f1a3"><td class="memItemLeft" align="right" valign="top"><a id="a9392469021c5dc89ec24b046a440f1a3" name="a9392469021c5dc89ec24b046a440f1a3"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimName</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension)</td></tr>
+<tr class="memdesc:a9392469021c5dc89ec24b046a440f1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的名称 <br /></td></tr>
+<tr class="separator:a9392469021c5dc89ec24b046a440f1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4fcc97f802ca674d11cd13bf395a5ce" id="r_af4fcc97f802ca674d11cd13bf395a5ce"><td class="memItemLeft" align="right" valign="top"><a id="af4fcc97f802ca674d11cd13bf395a5ce" name="af4fcc97f802ca674d11cd13bf395a5ce"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimSymbol</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension)</td></tr>
+<tr class="memdesc:af4fcc97f802ca674d11cd13bf395a5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的符号 <br /></td></tr>
+<tr class="separator:af4fcc97f802ca674d11cd13bf395a5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e28a808d32e53cc4d7b0649aea9bd8" id="r_a43e28a808d32e53cc4d7b0649aea9bd8"><td class="memItemLeft" align="right" valign="top"><a id="a43e28a808d32e53cc4d7b0649aea9bd8" name="a43e28a808d32e53cc4d7b0649aea9bd8"></a>
+A_CONSTEXPR_CXX14 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimIsBase</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) noexcept</td></tr>
+<tr class="memdesc:a43e28a808d32e53cc4d7b0649aea9bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断量纲是否为基本量纲 <br /></td></tr>
+<tr class="separator:a43e28a808d32e53cc4d7b0649aea9bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab37fa7007b27d9cfaff76f2dc926414e" id="r_ab37fa7007b27d9cfaff76f2dc926414e"><td class="memItemLeft" align="right" valign="top"><a id="ab37fa7007b27d9cfaff76f2dc926414e" name="ab37fa7007b27d9cfaff76f2dc926414e"></a>
+A_CONSTEXPR_CXX14 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimIsDerived</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) noexcept</td></tr>
+<tr class="memdesc:ab37fa7007b27d9cfaff76f2dc926414e"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断量纲是否为导出量纲 <br /></td></tr>
+<tr class="separator:ab37fa7007b27d9cfaff76f2dc926414e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66356b3c1665ac2eea3a7f3c32ac598f" id="r_a66356b3c1665ac2eea3a7f3c32ac598f"><td class="memItemLeft" align="right" valign="top"><a id="a66356b3c1665ac2eea3a7f3c32ac598f" name="a66356b3c1665ac2eea3a7f3c32ac598f"></a>
+A_CONSTEXPR_CXX14 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimIsUnit</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) noexcept</td></tr>
+<tr class="memdesc:a66356b3c1665ac2eea3a7f3c32ac598f"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断量纲是否为单位量纲 <br /></td></tr>
+<tr class="separator:a66356b3c1665ac2eea3a7f3c32ac598f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d58601f3df85b4a4b691a9322911817" id="r_a3d58601f3df85b4a4b691a9322911817"><td class="memItemLeft" align="right" valign="top"><a id="a3d58601f3df85b4a4b691a9322911817" name="a3d58601f3df85b4a4b691a9322911817"></a>
+A_CONSTEXPR_CXX14 <a class="el" href="classast_1_1Dimension.html">Dimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pow</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim, int n)</td></tr>
+<tr class="memdesc:a3d58601f3df85b4a4b691a9322911817"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲指数幂运算符 <br /></td></tr>
+<tr class="separator:a3d58601f3df85b4a4b691a9322911817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a14a400f1913918c7eea2d5149dbf0b8e" id="r_a14a400f1913918c7eea2d5149dbf0b8e"><td class="memItemLeft" align="right" valign="top"><a id="a14a400f1913918c7eea2d5149dbf0b8e" name="a14a400f1913918c7eea2d5149dbf0b8e"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::sizeof_dimension</b> = sizeof(<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>)</td></tr>
+<tr class="separator:a14a400f1913918c7eea2d5149dbf0b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa503def1fff751a8e8e1bc5cfd67940c" id="r_aa503def1fff751a8e8e1bc5cfd67940c"><td class="memItemLeft" align="right" valign="top"><a id="aa503def1fff751a8e8e1bc5cfd67940c" name="aa503def1fff751a8e8e1bc5cfd67940c"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::bits_of_dimension</b> = sizeof_dimension * 8</td></tr>
+<tr class="separator:aa503def1fff751a8e8e1bc5cfd67940c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7dbfbc5b27d8ee7e5812d504e16893" id="r_abb7dbfbc5b27d8ee7e5812d504e16893"><td class="memItemLeft" align="right" valign="top"><a id="abb7dbfbc5b27d8ee7e5812d504e16893" name="abb7dbfbc5b27d8ee7e5812d504e16893"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kUnit</b> = 0</td></tr>
+<tr class="separator:abb7dbfbc5b27d8ee7e5812d504e16893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df36bacbb4940ee098f7de27cf7b30b" id="r_a2df36bacbb4940ee098f7de27cf7b30b"><td class="memItemLeft" align="right" valign="top"><a id="a2df36bacbb4940ee098f7de27cf7b30b" name="a2df36bacbb4940ee098f7de27cf7b30b"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kLength</b> = 1 &lt;&lt; kIdxLength * 4</td></tr>
+<tr class="separator:a2df36bacbb4940ee098f7de27cf7b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29262b9c063d2ed9d8a32f64f09fd5df" id="r_a29262b9c063d2ed9d8a32f64f09fd5df"><td class="memItemLeft" align="right" valign="top"><a id="a29262b9c063d2ed9d8a32f64f09fd5df" name="a29262b9c063d2ed9d8a32f64f09fd5df"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kMass</b> = 1 &lt;&lt; kIdxMass * 4</td></tr>
+<tr class="separator:a29262b9c063d2ed9d8a32f64f09fd5df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f70a7cc1621136f9868da9f15d8eee9" id="r_a2f70a7cc1621136f9868da9f15d8eee9"><td class="memItemLeft" align="right" valign="top"><a id="a2f70a7cc1621136f9868da9f15d8eee9" name="a2f70a7cc1621136f9868da9f15d8eee9"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kTime</b> = 1 &lt;&lt; kIdxTime * 4</td></tr>
+<tr class="separator:a2f70a7cc1621136f9868da9f15d8eee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e5041616b58fb69544959887dd4c4f" id="r_ac1e5041616b58fb69544959887dd4c4f"><td class="memItemLeft" align="right" valign="top"><a id="ac1e5041616b58fb69544959887dd4c4f" name="ac1e5041616b58fb69544959887dd4c4f"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kCurrent</b> = 1 &lt;&lt; kIdxCurrent * 4</td></tr>
+<tr class="separator:ac1e5041616b58fb69544959887dd4c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936fb02ed8b95eacadad187628107ab4" id="r_a936fb02ed8b95eacadad187628107ab4"><td class="memItemLeft" align="right" valign="top"><a id="a936fb02ed8b95eacadad187628107ab4" name="a936fb02ed8b95eacadad187628107ab4"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kTemperature</b> = 1 &lt;&lt; kIdxTemperature * 4</td></tr>
+<tr class="separator:a936fb02ed8b95eacadad187628107ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b4d3d0e6d506d959ce9f131f39257bd" id="r_a7b4d3d0e6d506d959ce9f131f39257bd"><td class="memItemLeft" align="right" valign="top"><a id="a7b4d3d0e6d506d959ce9f131f39257bd" name="a7b4d3d0e6d506d959ce9f131f39257bd"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kAmount</b> = 1 &lt;&lt; kIdxAmount * 4</td></tr>
+<tr class="separator:a7b4d3d0e6d506d959ce9f131f39257bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17de02f3d1fdb49b1d27e500929d066b" id="r_a17de02f3d1fdb49b1d27e500929d066b"><td class="memItemLeft" align="right" valign="top"><a id="a17de02f3d1fdb49b1d27e500929d066b" name="a17de02f3d1fdb49b1d27e500929d066b"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kLuminous</b> = 1 &lt;&lt; kIdxLuminous * 4</td></tr>
+<tr class="separator:a17de02f3d1fdb49b1d27e500929d066b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c2bd24ee967593ba0480ab511ac1a7" id="r_ac6c2bd24ee967593ba0480ab511ac1a7"><td class="memItemLeft" align="right" valign="top"><a id="ac6c2bd24ee967593ba0480ab511ac1a7" name="ac6c2bd24ee967593ba0480ab511ac1a7"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kAngle</b> = 1 &lt;&lt; kIdxAngle * 4</td></tr>
+<tr class="separator:ac6c2bd24ee967593ba0480ab511ac1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae31da7034b2d97b52ff6791792f17a" id="r_afae31da7034b2d97b52ff6791792f17a"><td class="memItemLeft" align="right" valign="top"><a id="afae31da7034b2d97b52ff6791792f17a" name="afae31da7034b2d97b52ff6791792f17a"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kAngVel</b> = dim_divide(kAngle, kTime)</td></tr>
+<tr class="separator:afae31da7034b2d97b52ff6791792f17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc4cfac6e28185490b486eda5c2cbb5c" id="r_adc4cfac6e28185490b486eda5c2cbb5c"><td class="memItemLeft" align="right" valign="top"><a id="adc4cfac6e28185490b486eda5c2cbb5c" name="adc4cfac6e28185490b486eda5c2cbb5c"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kAngularVelocity</b> = kAngVel</td></tr>
+<tr class="separator:adc4cfac6e28185490b486eda5c2cbb5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bcd355ecbd2138ca4380ae5f4ea4cf7" id="r_a9bcd355ecbd2138ca4380ae5f4ea4cf7"><td class="memItemLeft" align="right" valign="top"><a id="a9bcd355ecbd2138ca4380ae5f4ea4cf7" name="a9bcd355ecbd2138ca4380ae5f4ea4cf7"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kArea</b> = <a class="el" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kLength, kLength)</td></tr>
+<tr class="separator:a9bcd355ecbd2138ca4380ae5f4ea4cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2b92f35131d52700cd1a1f9943aba6" id="r_a0c2b92f35131d52700cd1a1f9943aba6"><td class="memItemLeft" align="right" valign="top"><a id="a0c2b92f35131d52700cd1a1f9943aba6" name="a0c2b92f35131d52700cd1a1f9943aba6"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kVolume</b> = <a class="el" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kArea, kLength)</td></tr>
+<tr class="separator:a0c2b92f35131d52700cd1a1f9943aba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17eaf9bda3431703a51516489940e686" id="r_a17eaf9bda3431703a51516489940e686"><td class="memItemLeft" align="right" valign="top"><a id="a17eaf9bda3431703a51516489940e686" name="a17eaf9bda3431703a51516489940e686"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kSpeed</b> = dim_divide(kLength, kTime)</td></tr>
+<tr class="separator:a17eaf9bda3431703a51516489940e686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bb14ce5e7a5dbfcf09d84e05e3db91" id="r_aa0bb14ce5e7a5dbfcf09d84e05e3db91"><td class="memItemLeft" align="right" valign="top"><a id="aa0bb14ce5e7a5dbfcf09d84e05e3db91" name="aa0bb14ce5e7a5dbfcf09d84e05e3db91"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kAcceleration</b> = dim_divide(kSpeed, kTime)</td></tr>
+<tr class="separator:aa0bb14ce5e7a5dbfcf09d84e05e3db91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a357a21eb97dae30b88e74f62d8323127" id="r_a357a21eb97dae30b88e74f62d8323127"><td class="memItemLeft" align="right" valign="top"><a id="a357a21eb97dae30b88e74f62d8323127" name="a357a21eb97dae30b88e74f62d8323127"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kForce</b> = <a class="el" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kMass, kAcceleration)</td></tr>
+<tr class="separator:a357a21eb97dae30b88e74f62d8323127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f51b3c89ae19af33a4f28d74bb243f7" id="r_a8f51b3c89ae19af33a4f28d74bb243f7"><td class="memItemLeft" align="right" valign="top"><a id="a8f51b3c89ae19af33a4f28d74bb243f7" name="a8f51b3c89ae19af33a4f28d74bb243f7"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kPressure</b> = dim_divide(kForce, kArea)</td></tr>
+<tr class="separator:a8f51b3c89ae19af33a4f28d74bb243f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78af4fa2928636b649c666d04558cf94" id="r_a78af4fa2928636b649c666d04558cf94"><td class="memItemLeft" align="right" valign="top"><a id="a78af4fa2928636b649c666d04558cf94" name="a78af4fa2928636b649c666d04558cf94"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kEnergy</b> = <a class="el" href="namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a">dim_product</a>(kForce, kLength)</td></tr>
+<tr class="separator:a78af4fa2928636b649c666d04558cf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979f23f0f9c8b6190f7cd792ff384855" id="r_a979f23f0f9c8b6190f7cd792ff384855"><td class="memItemLeft" align="right" valign="top"><a id="a979f23f0f9c8b6190f7cd792ff384855" name="a979f23f0f9c8b6190f7cd792ff384855"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kPower</b> = dim_divide(kEnergy, kTime)</td></tr>
+<tr class="separator:a979f23f0f9c8b6190f7cd792ff384855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c04f803abefd79bd65c6338b758534" id="r_af4c04f803abefd79bd65c6338b758534"><td class="memItemLeft" align="right" valign="top"><a id="af4c04f803abefd79bd65c6338b758534" name="af4c04f803abefd79bd65c6338b758534"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension::kFrequency</b> = dim_divide(kUnit, kTime)</td></tr>
+<tr class="separator:af4c04f803abefd79bd65c6338b758534"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>~ </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2025-12-12 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a7604aa739f775fc944dd572078a22ecb" name="a7604aa739f775fc944dd572078a22ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7604aa739f775fc944dd572078a22ecb">&#9670;&#160;</a></span>_AST_DIM_EXP_OPBIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _AST_DIM_EXP_OPBIN</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>value1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>value2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ((( dim_get_exponent(value1, 0) op dim_get_exponent(value2, 0)) &amp; 0xF) &lt;&lt; 0) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 1) op dim_get_exponent(value2, 1)) &amp; 0xF) &lt;&lt; 4) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 2) op dim_get_exponent(value2, 2)) &amp; 0xF) &lt;&lt; 8) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 3) op dim_get_exponent(value2, 3)) &amp; 0xF) &lt;&lt; 12) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 4) op dim_get_exponent(value2, 4)) &amp; 0xF) &lt;&lt; 16) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 5) op dim_get_exponent(value2, 5)) &amp; 0xF) &lt;&lt; 20) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 6) op dim_get_exponent(value2, 6)) &amp; 0xF) &lt;&lt; 24) | \</div>
+<div class="line">    ((( dim_get_exponent(value1, 7) op dim_get_exponent(value2, 7)) &amp; 0xF) &lt;&lt; 28)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae84dfbe7b4c86bb152e7aa6bffcafaa1" name="ae84dfbe7b4c86bb152e7aa6bffcafaa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae84dfbe7b4c86bb152e7aa6bffcafaa1">&#9670;&#160;</a></span>_AST_DIM_EXP_TIMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _AST_DIM_EXP_TIMES</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>times</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ((( dim_get_exponent(value, 0) * times) &amp; 0xF) &lt;&lt; 0) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 1) * times) &amp; 0xF) &lt;&lt; 4) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 2) * times) &amp; 0xF) &lt;&lt; 8) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 3) * times) &amp; 0xF) &lt;&lt; 12) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 4) * times) &amp; 0xF) &lt;&lt; 16) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 5) * times) &amp; 0xF) &lt;&lt; 20) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 6) * times) &amp; 0xF) &lt;&lt; 24) | \</div>
+<div class="line">    ((( dim_get_exponent(value, 7) * times) &amp; 0xF) &lt;&lt; 28)</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_f454e969ccf99a49cff74d0cdbee1578.html">Quantity</a></li><li class="navelem"><a class="el" href="Dimension_8hpp.html">Dimension.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

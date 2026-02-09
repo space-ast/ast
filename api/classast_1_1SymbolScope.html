@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: ast::SymbolScope类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1SymbolScope.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1SymbolScope-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::SymbolScope类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>符号作用域  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SymbolScope_8hpp_source.html">SymbolScope.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:aafe2710c1ab2684667eae0d0eaeac0d6" id="r_aafe2710c1ab2684667eae0d0eaeac0d6"><td class="memItemLeft" align="right" valign="top"><a id="aafe2710c1ab2684667eae0d0eaeac0d6" name="aafe2710c1ab2684667eae0d0eaeac0d6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SymbolMap</b> = std::unordered_map&lt;std::string, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1Expr.html">Expr</a>&gt;&gt;</td></tr>
+<tr class="separator:aafe2710c1ab2684667eae0d0eaeac0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f511d25ef3166754c6e2410bdea546" id="r_ab0f511d25ef3166754c6e2410bdea546"><td class="memItemLeft" align="right" valign="top"><a id="ab0f511d25ef3166754c6e2410bdea546" name="ab0f511d25ef3166754c6e2410bdea546"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SymbolPair</b> = std::pair&lt;std::string, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1Expr.html">Expr</a>&gt;&gt;</td></tr>
+<tr class="separator:ab0f511d25ef3166754c6e2410bdea546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ca4d19d4225ca6f838ad6f43a3797c" id="r_aa2ca4d19d4225ca6f838ad6f43a3797c"><td class="memItemLeft" align="right" valign="top"><a id="aa2ca4d19d4225ca6f838ad6f43a3797c" name="aa2ca4d19d4225ca6f838ad6f43a3797c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SymbolList</b> = std::vector&lt;SymbolPair&gt;</td></tr>
+<tr class="separator:aa2ca4d19d4225ca6f838ad6f43a3797c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a7f5833fd92c32ceda4367e1114d8f8cd" id="r_a7f5833fd92c32ceda4367e1114d8f8cd"><td class="memItemLeft" align="right" valign="top"><a id="a7f5833fd92c32ceda4367e1114d8f8cd" name="a7f5833fd92c32ceda4367e1114d8f8cd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SymbolScope</b> ()=default</td></tr>
+<tr class="memdesc:a7f5833fd92c32ceda4367e1114d8f8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数 <br /></td></tr>
+<tr class="separator:a7f5833fd92c32ceda4367e1114d8f8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc569a8b55eb4c73f0bbb7dec314a51" id="r_a5dc569a8b55eb4c73f0bbb7dec314a51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dc569a8b55eb4c73f0bbb7dec314a51">SymbolScope</a> (<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *<a class="el" href="#a39e16d6b36f9bb4bed98b06c559e11b1">parent</a>)</td></tr>
+<tr class="memdesc:a5dc569a8b55eb4c73f0bbb7dec314a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数，指定父符号作用域  <br /></td></tr>
+<tr class="separator:a5dc569a8b55eb4c73f0bbb7dec314a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f46c7942f316e9411feb9e1413d956" id="r_aa0f46c7942f316e9411feb9e1413d956"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0f46c7942f316e9411feb9e1413d956">addSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="memdesc:aa0f46c7942f316e9411feb9e1413d956"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加符号到符号作用域  <br /></td></tr>
+<tr class="separator:aa0f46c7942f316e9411feb9e1413d956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94673f3b516b5af9dec3c97d24e7f474" id="r_a94673f3b516b5af9dec3c97d24e7f474"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94673f3b516b5af9dec3c97d24e7f474">setSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="memdesc:a94673f3b516b5af9dec3c97d24e7f474"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加或更新符号  <br /></td></tr>
+<tr class="separator:a94673f3b516b5af9dec3c97d24e7f474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba343d08da6f64c56978b4be89d1c4c" id="r_abba343d08da6f64c56978b4be89d1c4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba343d08da6f64c56978b4be89d1c4c">findSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool searchParent=true) const</td></tr>
+<tr class="memdesc:abba343d08da6f64c56978b4be89d1c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找符号作用域中的符号  <br /></td></tr>
+<tr class="separator:abba343d08da6f64c56978b4be89d1c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e138777d10e10510eccd3f3dc6424a" id="r_a73e138777d10e10510eccd3f3dc6424a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73e138777d10e10510eccd3f3dc6424a">resolveSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="memdesc:a73e138777d10e10510eccd3f3dc6424a"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析符号作用域中的符号，如果不存在则创建一个新的变量  <br /></td></tr>
+<tr class="separator:a73e138777d10e10510eccd3f3dc6424a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ea36911efe9da67ddde29274f86aef" id="r_ab6ea36911efe9da67ddde29274f86aef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6ea36911efe9da67ddde29274f86aef">removeSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="memdesc:ab6ea36911efe9da67ddde29274f86aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除符号  <br /></td></tr>
+<tr class="separator:ab6ea36911efe9da67ddde29274f86aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d9d72d99a3ec8ada91b8fcece99590" id="r_a87d9d72d99a3ec8ada91b8fcece99590"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87d9d72d99a3ec8ada91b8fcece99590">hasSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool searchParent=true) const</td></tr>
+<tr class="memdesc:a87d9d72d99a3ec8ada91b8fcece99590"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查符号是否存在  <br /></td></tr>
+<tr class="separator:a87d9d72d99a3ec8ada91b8fcece99590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf19d25e15952b5107ef39a1090113f" id="r_a1bf19d25e15952b5107ef39a1090113f"><td class="memItemLeft" align="right" valign="top">SymbolList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bf19d25e15952b5107ef39a1090113f">getSymbols</a> () const</td></tr>
+<tr class="memdesc:a1bf19d25e15952b5107ef39a1090113f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前符号表中的所有符号  <br /></td></tr>
+<tr class="separator:a1bf19d25e15952b5107ef39a1090113f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e16d6b36f9bb4bed98b06c559e11b1" id="r_a39e16d6b36f9bb4bed98b06c559e11b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39e16d6b36f9bb4bed98b06c559e11b1">parent</a> () const</td></tr>
+<tr class="memdesc:a39e16d6b36f9bb4bed98b06c559e11b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取父符号作用域  <br /></td></tr>
+<tr class="separator:a39e16d6b36f9bb4bed98b06c559e11b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2502fb53c3b6c287634b48cbff274030" id="r_a2502fb53c3b6c287634b48cbff274030"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2502fb53c3b6c287634b48cbff274030">setParent</a> (<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *<a class="el" href="#a39e16d6b36f9bb4bed98b06c559e11b1">parent</a>)</td></tr>
+<tr class="memdesc:a2502fb53c3b6c287634b48cbff274030"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置父符号作用域  <br /></td></tr>
+<tr class="separator:a2502fb53c3b6c287634b48cbff274030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a37dda220f73c260bf892f75887614f00" id="r_a37dda220f73c260bf892f75887614f00"><td class="memItemLeft" align="right" valign="top"><a id="a37dda220f73c260bf892f75887614f00" name="a37dda220f73c260bf892f75887614f00"></a>
+SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td></tr>
+<tr class="memdesc:a37dda220f73c260bf892f75887614f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">符号作用域中的符号 <br /></td></tr>
+<tr class="separator:a37dda220f73c260bf892f75887614f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a102e82bd472b0f616c4f714c5772d876" id="r_a102e82bd472b0f616c4f714c5772d876"><td class="memItemLeft" align="right" valign="top"><a id="a102e82bd472b0f616c4f714c5772d876" name="a102e82bd472b0f616c4f714c5772d876"></a>
+<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent_</b> = nullptr</td></tr>
+<tr class="memdesc:a102e82bd472b0f616c4f714c5772d876"><td class="mdescLeft">&#160;</td><td class="mdescRight">父符号作用域指针 <br /></td></tr>
+<tr class="separator:a102e82bd472b0f616c4f714c5772d876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>符号作用域 </p>
+<p>~ </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a5dc569a8b55eb4c73f0bbb7dec314a51" name="a5dc569a8b55eb4c73f0bbb7dec314a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc569a8b55eb4c73f0bbb7dec314a51">&#9670;&#160;</a></span>SymbolScope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::SymbolScope::SymbolScope </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造函数，指定父符号作用域 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>父符号作用域指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aa0f46c7942f316e9411feb9e1413d956" name="aa0f46c7942f316e9411feb9e1413d956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f46c7942f316e9411feb9e1413d956">&#9670;&#160;</a></span>addSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::SymbolScope::addSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Expr.html">Expr</a> *</td>          <td class="paramname"><span class="paramname"><em>expr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加符号到符号作用域 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名称 </td></tr>
+    <tr><td class="paramname">expr</td><td>符号对应的表达式 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否添加成功（如果符号已存在则返回false） </dd></dl>
+
+</div>
+</div>
+<a id="abba343d08da6f64c56978b4be89d1c4c" name="abba343d08da6f64c56978b4be89d1c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba343d08da6f64c56978b4be89d1c4c">&#9670;&#160;</a></span>findSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::SymbolScope::findSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>searchParent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>查找符号作用域中的符号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名称 </td></tr>
+    <tr><td class="paramname">searchParent</td><td>是否向上查找父符号作用域 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>符号对应的表达式，如果不存在则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a1bf19d25e15952b5107ef39a1090113f" name="a1bf19d25e15952b5107ef39a1090113f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bf19d25e15952b5107ef39a1090113f">&#9670;&#160;</a></span>getSymbols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SymbolScope::SymbolList ast::SymbolScope::getSymbols </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前符号表中的所有符号 </p>
+<dl class="section return"><dt>返回</dt><dd>符号列表 </dd></dl>
+
+</div>
+</div>
+<a id="a87d9d72d99a3ec8ada91b8fcece99590" name="a87d9d72d99a3ec8ada91b8fcece99590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87d9d72d99a3ec8ada91b8fcece99590">&#9670;&#160;</a></span>hasSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::SymbolScope::hasSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>searchParent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查符号是否存在 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名称 </td></tr>
+    <tr><td class="paramname">searchParent</td><td>是否向上查找父符号表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>符号是否存在 </dd></dl>
+
+</div>
+</div>
+<a id="a39e16d6b36f9bb4bed98b06c559e11b1" name="a39e16d6b36f9bb4bed98b06c559e11b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39e16d6b36f9bb4bed98b06c559e11b1">&#9670;&#160;</a></span>parent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> * ast::SymbolScope::parent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取父符号作用域 </p>
+<dl class="section return"><dt>返回</dt><dd>父符号作用域指针 </dd></dl>
+
+</div>
+</div>
+<a id="ab6ea36911efe9da67ddde29274f86aef" name="ab6ea36911efe9da67ddde29274f86aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ea36911efe9da67ddde29274f86aef">&#9670;&#160;</a></span>removeSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::SymbolScope::removeSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>删除符号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否删除成功 </dd></dl>
+
+</div>
+</div>
+<a id="a73e138777d10e10510eccd3f3dc6424a" name="a73e138777d10e10510eccd3f3dc6424a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73e138777d10e10510eccd3f3dc6424a">&#9670;&#160;</a></span>resolveSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::SymbolScope::resolveSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析符号作用域中的符号，如果不存在则创建一个新的变量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>符号对应的表达式指针 </dd></dl>
+
+</div>
+</div>
+<a id="a2502fb53c3b6c287634b48cbff274030" name="a2502fb53c3b6c287634b48cbff274030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2502fb53c3b6c287634b48cbff274030">&#9670;&#160;</a></span>setParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::SymbolScope::setParent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置父符号作用域 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>父符号作用域指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a94673f3b516b5af9dec3c97d24e7f474" name="a94673f3b516b5af9dec3c97d24e7f474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94673f3b516b5af9dec3c97d24e7f474">&#9670;&#160;</a></span>setSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::SymbolScope::setSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Expr.html">Expr</a> *</td>          <td class="paramname"><span class="paramname"><em>expr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加或更新符号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名称 </td></tr>
+    <tr><td class="paramname">expr</td><td>符号对应的表达式 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstScript/Interpreter/<a class="el" href="SymbolScope_8hpp_source.html">SymbolScope.hpp</a></li>
+<li>src/AstScript/Interpreter/<a class="el" href="SymbolScope_8cpp.html">SymbolScope.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

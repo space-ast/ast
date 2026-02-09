@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ast: src/AstScript/Basic/ScriptAPI.cpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ScriptAPI_8cpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">ScriptAPI.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>~  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="ScriptAPI_8hpp_source.html">ScriptAPI.hpp</a>&quot;</code><br />
+<code>#include &quot;AstScript/AllHeaders.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/SharedPtr.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Quantity.hpp&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aa7636ba38dc8241ffb082cc8ccb252f3" id="r_aa7636ba38dc8241ffb082cc8ccb252f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Variable.html">Variable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa7636ba38dc8241ffb082cc8ccb252f3">ast::aNewVariable</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr=nullptr, bool bind=false)</td></tr>
+<tr class="memdesc:aa7636ba38dc8241ffb082cc8ccb252f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">符号  <br /></td></tr>
+<tr class="separator:aa7636ba38dc8241ffb082cc8ccb252f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6f1d96b4b4dbee4e1afb325c21f7cd" id="r_a1c6f1d96b4b4dbee4e1afb325c21f7cd"><td class="memItemLeft" align="right" valign="top"><a id="a1c6f1d96b4b4dbee4e1afb325c21f7cd" name="a1c6f1d96b4b4dbee4e1afb325c21f7cd"></a>
+<a class="el" href="classast_1_1Variable.html">Variable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aNewVariable</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> *expr, bool bind)</td></tr>
+<tr class="separator:a1c6f1d96b4b4dbee4e1afb325c21f7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add5d4fde9c50b6d8030d1456095e2bf9" id="r_add5d4fde9c50b6d8030d1456095e2bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#add5d4fde9c50b6d8030d1456095e2bf9">ast::aNewSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="memdesc:add5d4fde9c50b6d8030d1456095e2bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建符号对象  <br /></td></tr>
+<tr class="separator:add5d4fde9c50b6d8030d1456095e2bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a779073b57080a753eab0f9f358487ae8" id="r_a779073b57080a753eab0f9f358487ae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a779073b57080a753eab0f9f358487ae8">ast::aNewOpAssign</a> (<a class="el" href="namespaceast.html#a0727772e451f06f4fce013b504743301">EOpAssignType</a> op, <a class="el" href="classast_1_1Expr.html">Expr</a> *left, <a class="el" href="classast_1_1Expr.html">Expr</a> *right)</td></tr>
+<tr class="memdesc:a779073b57080a753eab0f9f358487ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建赋值运算符表达式对象  <br /></td></tr>
+<tr class="separator:a779073b57080a753eab0f9f358487ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86846799de6af428f6f8692ba14bced4" id="r_a86846799de6af428f6f8692ba14bced4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a86846799de6af428f6f8692ba14bced4">ast::aNewOpBin</a> (<a class="el" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="el" href="classast_1_1Expr.html">Expr</a> *left, <a class="el" href="classast_1_1Expr.html">Expr</a> *right)</td></tr>
+<tr class="memdesc:a86846799de6af428f6f8692ba14bced4"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建二元运算符表达式对象  <br /></td></tr>
+<tr class="separator:a86846799de6af428f6f8692ba14bced4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99487240e80b500ffd4a23ac28f759ee" id="r_a99487240e80b500ffd4a23ac28f759ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a99487240e80b500ffd4a23ac28f759ee">ast::aNewOpUnary</a> (<a class="el" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a> op, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="memdesc:a99487240e80b500ffd4a23ac28f759ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建一元运算符表达式对象  <br /></td></tr>
+<tr class="separator:a99487240e80b500ffd4a23ac28f759ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a0eca7183a984c25b7c67d5f5fdd53" id="r_a99a0eca7183a984c25b7c67d5f5fdd53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a99a0eca7183a984c25b7c67d5f5fdd53">ast::aNewExprCondition</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *condition, <a class="el" href="classast_1_1Expr.html">Expr</a> *thenExpr, <a class="el" href="classast_1_1Expr.html">Expr</a> *elseExpr=nullptr)</td></tr>
+<tr class="memdesc:a99a0eca7183a984c25b7c67d5f5fdd53"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建条件表达式对象  <br /></td></tr>
+<tr class="separator:a99a0eca7183a984c25b7c67d5f5fdd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66917cbaa3cd966ecf57f76502469e27" id="r_a66917cbaa3cd966ecf57f76502469e27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a66917cbaa3cd966ecf57f76502469e27">ast::aNewExprRange</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *start, <a class="el" href="classast_1_1Expr.html">Expr</a> *stop, <a class="el" href="classast_1_1Expr.html">Expr</a> *step=nullptr)</td></tr>
+<tr class="memdesc:a66917cbaa3cd966ecf57f76502469e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建范围表达式对象  <br /></td></tr>
+<tr class="separator:a66917cbaa3cd966ecf57f76502469e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd10cb6893bf9194329215f683d84c4" id="r_abfd10cb6893bf9194329215f683d84c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abfd10cb6893bf9194329215f683d84c4">ast::aNewValueString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
+<tr class="memdesc:abfd10cb6893bf9194329215f683d84c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建字符串值对象  <br /></td></tr>
+<tr class="separator:abfd10cb6893bf9194329215f683d84c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47305b78b744defeecf93b518cb43be0" id="r_a47305b78b744defeecf93b518cb43be0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a47305b78b744defeecf93b518cb43be0">ast::aNewValueInt</a> (int value)</td></tr>
+<tr class="memdesc:a47305b78b744defeecf93b518cb43be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建整数值对象  <br /></td></tr>
+<tr class="separator:a47305b78b744defeecf93b518cb43be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca221151c1d7d3d9ff1f044a0d17e83" id="r_a1ca221151c1d7d3d9ff1f044a0d17e83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1ca221151c1d7d3d9ff1f044a0d17e83">ast::aNewValueBool</a> (bool value)</td></tr>
+<tr class="memdesc:a1ca221151c1d7d3d9ff1f044a0d17e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建布尔值对象  <br /></td></tr>
+<tr class="separator:a1ca221151c1d7d3d9ff1f044a0d17e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b10a73c6d0d8a15df81182989939943" id="r_a4b10a73c6d0d8a15df81182989939943"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4b10a73c6d0d8a15df81182989939943">ast::aNewValueDouble</a> (double value)</td></tr>
+<tr class="memdesc:a4b10a73c6d0d8a15df81182989939943"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建双精度浮点数值对象  <br /></td></tr>
+<tr class="separator:a4b10a73c6d0d8a15df81182989939943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ddff4f4074b44ec82a979b80a1c31a" id="r_ab8ddff4f4074b44ec82a979b80a1c31a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab8ddff4f4074b44ec82a979b80a1c31a">ast::aNewValueQuantity</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;value)</td></tr>
+<tr class="memdesc:ab8ddff4f4074b44ec82a979b80a1c31a"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建数量值对象  <br /></td></tr>
+<tr class="separator:ab8ddff4f4074b44ec82a979b80a1c31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd53b801eb96bf7a645dfee7a8e43252" id="r_abd53b801eb96bf7a645dfee7a8e43252"><td class="memItemLeft" align="right" valign="top"><a id="abd53b801eb96bf7a645dfee7a8e43252" name="abd53b801eb96bf7a645dfee7a8e43252"></a>
+<a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aValueNull</b> ()</td></tr>
+<tr class="memdesc:abd53b801eb96bf7a645dfee7a8e43252"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取空值对象 <br /></td></tr>
+<tr class="separator:abd53b801eb96bf7a645dfee7a8e43252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f4499fefac867091417d8a75fa54c3" id="r_a86f4499fefac867091417d8a75fa54c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a86f4499fefac867091417d8a75fa54c3">ast::aParseExpr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
+<tr class="memdesc:a86f4499fefac867091417d8a75fa54c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析脚本表达式  <br /></td></tr>
+<tr class="separator:a86f4499fefac867091417d8a75fa54c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab42f85d7f686fd2bbad62d5b6822ae71" id="r_ab42f85d7f686fd2bbad62d5b6822ae71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab42f85d7f686fd2bbad62d5b6822ae71">ast::aEval</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
+<tr class="memdesc:ab42f85d7f686fd2bbad62d5b6822ae71"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行脚本表达式  <br /></td></tr>
+<tr class="separator:ab42f85d7f686fd2bbad62d5b6822ae71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9d41ab879b941bfa59ad019006bcd68" id="r_ac9d41ab879b941bfa59ad019006bcd68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac9d41ab879b941bfa59ad019006bcd68">ast::aEvalExpr</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="memdesc:ac9d41ab879b941bfa59ad019006bcd68"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行表达式  <br /></td></tr>
+<tr class="separator:ac9d41ab879b941bfa59ad019006bcd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4d0ce7634a4faa4a36d121a6cbc482" id="r_a0d4d0ce7634a4faa4a36d121a6cbc482"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0d4d0ce7634a4faa4a36d121a6cbc482">ast::aValueIsBool</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:a0d4d0ce7634a4faa4a36d121a6cbc482"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断值对象是否为布尔值  <br /></td></tr>
+<tr class="separator:a0d4d0ce7634a4faa4a36d121a6cbc482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab768e3043877867fb78816859ba251d4" id="r_ab768e3043877867fb78816859ba251d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab768e3043877867fb78816859ba251d4">ast::aValueIsDouble</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:ab768e3043877867fb78816859ba251d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断值对象是否为双精度浮点数值  <br /></td></tr>
+<tr class="separator:ab768e3043877867fb78816859ba251d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17551072bb490c3522cfd5743381514f" id="r_a17551072bb490c3522cfd5743381514f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a17551072bb490c3522cfd5743381514f">ast::aValueIsInt</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:a17551072bb490c3522cfd5743381514f"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断值对象是否为整数值  <br /></td></tr>
+<tr class="separator:a17551072bb490c3522cfd5743381514f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad188a1974122c4f7aeae2bea90c85c" id="r_abad188a1974122c4f7aeae2bea90c85c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abad188a1974122c4f7aeae2bea90c85c">ast::aValueIsArithmetic</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:abad188a1974122c4f7aeae2bea90c85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断值对象是否为算术值（包括整数、浮点数值和布尔值）  <br /></td></tr>
+<tr class="separator:abad188a1974122c4f7aeae2bea90c85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a261bfbc9719653f4de251214cda60865" id="r_a261bfbc9719653f4de251214cda60865"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a261bfbc9719653f4de251214cda60865">ast::aValueIsQuantity</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:a261bfbc9719653f4de251214cda60865"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断值对象是否为量值  <br /></td></tr>
+<tr class="separator:a261bfbc9719653f4de251214cda60865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c639adaf1de92fa4ff668480234bfa" id="r_aa0c639adaf1de92fa4ff668480234bfa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa0c639adaf1de92fa4ff668480234bfa">ast::aValueToDouble</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:aa0c639adaf1de92fa4ff668480234bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">将值对象转换为双精度浮点数值  <br /></td></tr>
+<tr class="separator:aa0c639adaf1de92fa4ff668480234bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae284441e06166d4d582f8cf38f8678f8" id="r_ae284441e06166d4d582f8cf38f8678f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae284441e06166d4d582f8cf38f8678f8">ast::aValueUnboxBool</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:ae284441e06166d4d582f8cf38f8678f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">解包布尔值  <br /></td></tr>
+<tr class="separator:ae284441e06166d4d582f8cf38f8678f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf91c999d4e5a17f0abce0bee01d8810" id="r_aaf91c999d4e5a17f0abce0bee01d8810"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aaf91c999d4e5a17f0abce0bee01d8810">ast::aValueUnboxDouble</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:aaf91c999d4e5a17f0abce0bee01d8810"><td class="mdescLeft">&#160;</td><td class="mdescRight">解包双精度浮点数值  <br /></td></tr>
+<tr class="separator:aaf91c999d4e5a17f0abce0bee01d8810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c8095276cedbc77235485077c7713c" id="r_a96c8095276cedbc77235485077c7713c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a96c8095276cedbc77235485077c7713c">ast::aValueUnboxInt</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:a96c8095276cedbc77235485077c7713c"><td class="mdescLeft">&#160;</td><td class="mdescRight">解包整数值  <br /></td></tr>
+<tr class="separator:a96c8095276cedbc77235485077c7713c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab918a44d5e645f2a7910917b71c2413c" id="r_ab918a44d5e645f2a7910917b71c2413c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab918a44d5e645f2a7910917b71c2413c">ast::aValueUnboxQuantity</a> (<a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:ab918a44d5e645f2a7910917b71c2413c"><td class="mdescLeft">&#160;</td><td class="mdescRight">解包量值  <br /></td></tr>
+<tr class="separator:ab918a44d5e645f2a7910917b71c2413c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f5a26b872af56f51ef85ad14212b403" id="r_a6f5a26b872af56f51ef85ad14212b403"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6f5a26b872af56f51ef85ad14212b403">ast::aFormatExpr</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *expr, <a class="el" href="classast_1_1Object.html">Object</a> *context=nullptr)</td></tr>
+<tr class="memdesc:a6f5a26b872af56f51ef85ad14212b403"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化表达式为字符串  <br /></td></tr>
+<tr class="separator:a6f5a26b872af56f51ef85ad14212b403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86d17c059e7e9452d63086d4a0f06805" id="r_a86d17c059e7e9452d63086d4a0f06805"><td class="memItemLeft" align="right" valign="top"><a id="a86d17c059e7e9452d63086d4a0f06805" name="a86d17c059e7e9452d63086d4a0f06805"></a>
+<a class="el" href="namespaceast.html#a33b0083252c4606fe2c63aa003f3bc91">OpBinFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetOpBinFunc</b> (<a class="el" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="el" href="classast_1_1Class.html">Class</a> *leftType, <a class="el" href="classast_1_1Class.html">Class</a> *rightType)</td></tr>
+<tr class="separator:a86d17c059e7e9452d63086d4a0f06805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7aa17ba442dfc7e782f507bfd16301" id="r_abb7aa17ba442dfc7e782f507bfd16301"><td class="memItemLeft" align="right" valign="top"><a id="abb7aa17ba442dfc7e782f507bfd16301" name="abb7aa17ba442dfc7e782f507bfd16301"></a>
+<a class="el" href="namespaceast.html#a4a3435fb2657aa607b7c2dab49eb8cc4">OpAssignFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetOpAssignFunc</b> (<a class="el" href="namespaceast.html#a0727772e451f06f4fce013b504743301">EOpAssignType</a> op, <a class="el" href="classast_1_1Class.html">Class</a> *leftType, <a class="el" href="classast_1_1Class.html">Class</a> *rightType)</td></tr>
+<tr class="separator:abb7aa17ba442dfc7e782f507bfd16301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e01854fa89a4c791ef2c484456dabf" id="r_ab7e01854fa89a4c791ef2c484456dabf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab7e01854fa89a4c791ef2c484456dabf">ast::aDoOpUnary</a> (<a class="el" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a> op, <a class="el" href="classast_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="memdesc:ab7e01854fa89a4c791ef2c484456dabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行一元运算符  <br /></td></tr>
+<tr class="separator:ab7e01854fa89a4c791ef2c484456dabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d51d50df8618ba6dfc50f630c12a6ce" id="r_a2d51d50df8618ba6dfc50f630c12a6ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2d51d50df8618ba6dfc50f630c12a6ce">ast::aDoOpAssign</a> (<a class="el" href="namespaceast.html#a0727772e451f06f4fce013b504743301">EOpAssignType</a> op, <a class="el" href="classast_1_1Expr.html">Expr</a> *left, <a class="el" href="classast_1_1Expr.html">Expr</a> *right)</td></tr>
+<tr class="memdesc:a2d51d50df8618ba6dfc50f630c12a6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行赋值运算符  <br /></td></tr>
+<tr class="separator:a2d51d50df8618ba6dfc50f630c12a6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03b47ed257c6676b82be3bd91bcebe2" id="r_ad03b47ed257c6676b82be3bd91bcebe2"><td class="memItemLeft" align="right" valign="top"><a id="ad03b47ed257c6676b82be3bd91bcebe2" name="ad03b47ed257c6676b82be3bd91bcebe2"></a>
+<a class="el" href="namespaceast.html#acc5dc8960c6ca177acf0d937517f9a0e">OpUnaryFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetOpUnaryFunc</b> (<a class="el" href="namespaceast.html#a737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a> op, <a class="el" href="classast_1_1Class.html">Class</a> *type)</td></tr>
+<tr class="memdesc:ad03b47ed257c6676b82be3bd91bcebe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取一元运算函数指针 <br /></td></tr>
+<tr class="separator:ad03b47ed257c6676b82be3bd91bcebe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad05e74e139af3f4062abad46a8347fec" id="r_ad05e74e139af3f4062abad46a8347fec"><td class="memItemLeft" align="right" valign="top"><a id="ad05e74e139af3f4062abad46a8347fec" name="ad05e74e139af3f4062abad46a8347fec"></a>
+<a class="el" href="namespaceast.html#ac92a2124b66c8a652bceedb7da6a1b63">IterateFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetIterateFunc</b> (<a class="el" href="classast_1_1Class.html">Class</a> *type)</td></tr>
+<tr class="memdesc:ad05e74e139af3f4062abad46a8347fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取迭代函数指针 <br /></td></tr>
+<tr class="separator:ad05e74e139af3f4062abad46a8347fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd3468926bdc5f8f0709c3a54c9d239" id="r_abfd3468926bdc5f8f0709c3a54c9d239"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abfd3468926bdc5f8f0709c3a54c9d239">ast::aDoOpBin</a> (<a class="el" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="el" href="classast_1_1Value.html">Value</a> *left, <a class="el" href="classast_1_1Value.html">Value</a> *right)</td></tr>
+<tr class="memdesc:abfd3468926bdc5f8f0709c3a54c9d239"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行二元运算符  <br /></td></tr>
+<tr class="separator:abfd3468926bdc5f8f0709c3a54c9d239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3a2f7cb0b8d9dd1d74cafe9704f00c" id="r_a8c3a2f7cb0b8d9dd1d74cafe9704f00c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a8c3a2f7cb0b8d9dd1d74cafe9704f00c">ast::aIterateBegin</a> (<a class="el" href="classast_1_1Value.html">Value</a> *container, int &amp;index)</td></tr>
+<tr class="memdesc:a8c3a2f7cb0b8d9dd1d74cafe9704f00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行迭代器的开始元素  <br /></td></tr>
+<tr class="separator:a8c3a2f7cb0b8d9dd1d74cafe9704f00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d7d24b8cc782ee1481323ff3a0e5e5" id="r_a98d7d24b8cc782ee1481323ff3a0e5e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a98d7d24b8cc782ee1481323ff3a0e5e5">ast::aIterateNext</a> (<a class="el" href="classast_1_1Value.html">Value</a> *container, int &amp;index)</td></tr>
+<tr class="memdesc:a98d7d24b8cc782ee1481323ff3a0e5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行迭代器的下一个元素  <br /></td></tr>
+<tr class="separator:a98d7d24b8cc782ee1481323ff3a0e5e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>~ </p>
+<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2025-12-19 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_943b8559cfec6ca4c5bcb49ee46412f0.html">AstScript</a></li><li class="navelem"><a class="el" href="dir_6225495754e83a102e924636ca410534.html">Basic</a></li><li class="navelem"><a class="el" href="ScriptAPI_8cpp.html">ScriptAPI.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
