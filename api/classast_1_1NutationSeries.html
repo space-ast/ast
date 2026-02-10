@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::NutationSeries类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::NutationSeries类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -107,30 +107,21 @@ $(function(){initNavTree('classast_1_1NutationSeries.html',''); initResizable(tr
 </div><!--header-->
 <div class="contents">
 
-<p>IERS 2003/2010 岁差章动模型XYS系数表  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="NutationSeries_8hpp_source.html">NutationSeries.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a2322e6045fc316dcc5940f629d2110a7" id="r_a2322e6045fc316dcc5940f629d2110a7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2322e6045fc316dcc5940f629d2110a7">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
-<tr class="memdesc:a2322e6045fc316dcc5940f629d2110a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">从文件加载nutation series  <br /></td></tr>
 <tr class="separator:a2322e6045fc316dcc5940f629d2110a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a869cd5a209a9a95fe59635e8960a886b" id="r_a869cd5a209a9a95fe59635e8960a886b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a869cd5a209a9a95fe59635e8960a886b">loadSTK</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
-<tr class="memdesc:a869cd5a209a9a95fe59635e8960a886b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从STK文件加载nutation series  <br /></td></tr>
 <tr class="separator:a869cd5a209a9a95fe59635e8960a886b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a120126fdd82ed0d91ddc848728f016de" id="r_a120126fdd82ed0d91ddc848728f016de"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a120126fdd82ed0d91ddc848728f016de">loadIERS</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
-<tr class="memdesc:a120126fdd82ed0d91ddc848728f016de"><td class="mdescLeft">&#160;</td><td class="mdescRight">从IERS文件加载nutation series  <br /></td></tr>
 <tr class="separator:a120126fdd82ed0d91ddc848728f016de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac900f1e0c44058b4ba50aba67a9ce24b" id="r_ac900f1e0c44058b4ba50aba67a9ce24b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac900f1e0c44058b4ba50aba67a9ce24b">eval</a> (double t, const <a class="el" href="classast_1_1FundamentalArguments.html">FundamentalArguments</a> &amp;fundargs) const</td></tr>
-<tr class="memdesc:ac900f1e0c44058b4ba50aba67a9ce24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据系数表计算值  <br /></td></tr>
 <tr class="separator:ac900f1e0c44058b4ba50aba67a9ce24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a440330b339d96e0aa79777a31024a898" id="r_a440330b339d96e0aa79777a31024a898"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a440330b339d96e0aa79777a31024a898">eval</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const <a class="el" href="classast_1_1FundamentalArguments.html">FundamentalArguments</a> &amp;fundargs) const</td></tr>
-<tr class="memdesc:a440330b339d96e0aa79777a31024a898"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据系数表计算值  <br /></td></tr>
 <tr class="separator:a440330b339d96e0aa79777a31024a898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b6a80145eeb09fcce894a5676ec2cf" id="r_a53b6a80145eeb09fcce894a5676ec2cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b6a80145eeb09fcce894a5676ec2cf">isLoaded</a> () const</td></tr>
-<tr class="memdesc:a53b6a80145eeb09fcce894a5676ec2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查是否加载了系数表  <br /></td></tr>
 <tr class="separator:a53b6a80145eeb09fcce894a5676ec2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -146,11 +137,9 @@ err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadIERS</b> (<a cla
 Protected 属性</h2></td></tr>
 <tr class="memitem:acb06c074179b2189105972ccb894510b" id="r_acb06c074179b2189105972ccb894510b"><td class="memItemLeft" align="right" valign="top"><a id="acb06c074179b2189105972ccb894510b" name="acb06c074179b2189105972ccb894510b"></a>
 <a class="el" href="classast_1_1Polynomial.html">Polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>polynomial_</b></td></tr>
-<tr class="memdesc:acb06c074179b2189105972ccb894510b"><td class="mdescLeft">&#160;</td><td class="mdescRight">nutation series多项式 <br /></td></tr>
 <tr class="separator:acb06c074179b2189105972ccb894510b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d74590b9b10f9f6433049776406d24b" id="r_a5d74590b9b10f9f6433049776406d24b"><td class="memItemLeft" align="right" valign="top"><a id="a5d74590b9b10f9f6433049776406d24b" name="a5d74590b9b10f9f6433049776406d24b"></a>
 std::vector&lt; <a class="el" href="classast_1_1NutationTerm.html">NutationTerm</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>terms_</b></td></tr>
-<tr class="memdesc:a5d74590b9b10f9f6433049776406d24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">nutation series系数表 <br /></td></tr>
 <tr class="separator:a5d74590b9b10f9f6433049776406d24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1716691df6f67e3fbf2dcebb7a06f0dd" id="r_a1716691df6f67e3fbf2dcebb7a06f0dd"><td class="memItemLeft" align="right" valign="top"><a id="a1716691df6f67e3fbf2dcebb7a06f0dd" name="a1716691df6f67e3fbf2dcebb7a06f0dd"></a>
 std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>jlist_</b></td></tr>

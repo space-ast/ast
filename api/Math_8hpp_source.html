@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Util/Math.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Util/Math.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -112,119 +112,118 @@ $(function(){initNavTree('Math_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#ifdef A_GCC    </span><span class="comment">//  GCC 内建 sincos 函数</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// #pragma message(&quot;Using GCC built-in sincos function&quot;)</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>using ::sincos;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>A_ALWAYS_INLINE <span class="keywordtype">void</span> sincos (<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> *psin, <span class="keywordtype">double</span> *pcos)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    *psin = sin(x);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    *pcos = cos(x);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#ifdef A_GCC    </span><span class="comment">//  GCC 内建 sincos 函数</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// #pragma message(&quot;Using GCC built-in sincos function&quot;)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>using ::sincos;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1SinCos.html">   46</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1SinCos.html">SinCos</a> {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    A_ALWAYS_INLINE</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">double</span> sin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sin_; }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    A_ALWAYS_INLINE</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">double</span>&amp; sin() { <span class="keywordflow">return</span> sin_; }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    A_ALWAYS_INLINE</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span> cos()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cos_; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>A_ALWAYS_INLINE <span class="keywordtype">void</span> sincos (<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> *psin, <span class="keywordtype">double</span> *pcos)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    *psin = sin(x);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    *pcos = cos(x);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1SinCos.html">   52</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1SinCos.html">SinCos</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    A_ALWAYS_INLINE</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">double</span>&amp; cos() { <span class="keywordflow">return</span> cos_; }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">double</span> sin_;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span> cos_;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">double</span> sin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sin_; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    A_ALWAYS_INLINE</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">double</span>&amp; sin() { <span class="keywordflow">return</span> sin_; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    A_ALWAYS_INLINE</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">double</span> cos()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cos_; }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    A_ALWAYS_INLINE</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">double</span>&amp; cos() { <span class="keywordflow">return</span> cos_; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">double</span> sin_;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">double</span> cos_;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespaceast.html#a138fdd1a12245781f9122dfef37cabfc">   65</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1SinCos.html">SinCos</a> sincos(<span class="keywordtype">double</span> x)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1SinCos.html">SinCos</a> sc;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    sincos(x, &amp;sc.sin_, &amp;sc.cos_);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">return</span> sc;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="group__Util.html#ga138fdd1a12245781f9122dfef37cabfc">   71</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1SinCos.html">SinCos</a> sincos(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1SinCos.html">SinCos</a> sc;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    sincos(x, &amp;sc.sin_, &amp;sc.cos_);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> sc;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Scalar&gt;</div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="namespaceast.html#a8831f3e788e7c120569b0c8f00004ebf">   76</a></span>Scalar <a class="code hl_function" href="namespaceast.html#a8831f3e788e7c120569b0c8f00004ebf">aMax</a>(Scalar a, Scalar b)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> a &gt; b ? a : b;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Scalar&gt;</div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="group__Util.html#ga8831f3e788e7c120569b0c8f00004ebf">   82</a></span>Scalar <a class="code hl_function" href="group__Util.html#ga8831f3e788e7c120569b0c8f00004ebf">aMax</a>(Scalar a, Scalar b)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">return</span> a &gt; b ? a : b;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Scalar&gt;</div>
-<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespaceast.html#ae607d540253979beacb45ea4a55c0bb1">   83</a></span>Scalar <a class="code hl_function" href="namespaceast.html#ae607d540253979beacb45ea4a55c0bb1">aMin</a>(Scalar a, Scalar b)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> a &lt; b ? a : b;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Scalar&gt;</div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="group__Util.html#gae607d540253979beacb45ea4a55c0bb1">   89</a></span>Scalar <a class="code hl_function" href="group__Util.html#gae607d540253979beacb45ea4a55c0bb1">aMin</a>(Scalar a, Scalar b)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">return</span> a &lt; b ? a : b;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
 </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">using </span>std::max;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">using </span>std::min;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">   96</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> start)</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> angle - floor((angle + start) / <a class="code hl_variable" href="namespaceast.html#a21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>) * <a class="code hl_variable" href="namespaceast.html#a21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">using </span>std::max;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">using </span>std::min;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">  102</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> start)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">return</span> angle - floor((angle + start) / <a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>) * <a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
 </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="namespaceast.html#aea03a932dcd544c97844e1f9eb451437">  106</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#aea03a932dcd544c97844e1f9eb451437">aNormalizeAngle</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> center)</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, center - <a class="code hl_variable" href="namespaceast.html#ac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">  112</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">aNormalizeAngle</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> center)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>{</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, center - <a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
 </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespaceast.html#a5cd816a87700237b7696f6170ae4e474">  115</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a5cd816a87700237b7696f6170ae4e474">aNormalizeAngle0To2Pi</a>(<span class="keywordtype">double</span> angle)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>{</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, 0);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">  121</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">aNormalizeAngle0To2Pi</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>{</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, 0);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
 </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="namespaceast.html#a70afc34acbd6e94be6c10c32ea03acbd">  123</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a70afc34acbd6e94be6c10c32ea03acbd">aNormalizeAngleNegPiToPi</a>(<span class="keywordtype">double</span> angle)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="namespaceast.html#ac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">  129</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">aNormalizeAngleNegPiToPi</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
 </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespaceast.html#ae34aefa61d4998de18c705a340bf3d9c">  131</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#ae34aefa61d4998de18c705a340bf3d9c">aNormalizeAngleNeg2PiTo0</a>(<span class="keywordtype">double</span> angle)</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>{</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="namespaceast.html#a21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">  137</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">aNormalizeAngleNeg2PiTo0</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
 </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1SinCos_html"><div class="ttname"><a href="classast_1_1SinCos.html">ast::SinCos</a></div><div class="ttdoc">包含 sin(x) 和 cos(x) 值的结构体</div><div class="ttdef"><b>定义</b> Math.hpp:46</div></div>
-<div class="ttc" id="anamespaceast_html_a21bfbd352838fe327fe09a3d4f008451"><div class="ttname"><a href="namespaceast.html#a21bfbd352838fe327fe09a3d4f008451">ast::kTwoPI</a></div><div class="ttdeci">constexpr double kTwoPI</div><div class="ttdoc">2*PI</div><div class="ttdef"><b>定义</b> Constants.h:42</div></div>
-<div class="ttc" id="anamespaceast_html_a5cd816a87700237b7696f6170ae4e474"><div class="ttname"><a href="namespaceast.html#a5cd816a87700237b7696f6170ae4e474">ast::aNormalizeAngle0To2Pi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle0To2Pi(double angle)</div><div class="ttdoc">将角度量规范化到 0 到 2π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:115</div></div>
-<div class="ttc" id="anamespaceast_html_a70afc34acbd6e94be6c10c32ea03acbd"><div class="ttname"><a href="namespaceast.html#a70afc34acbd6e94be6c10c32ea03acbd">ast::aNormalizeAngleNegPiToPi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNegPiToPi(double angle)</div><div class="ttdoc">将角度量规范化到 -π 到 π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:123</div></div>
-<div class="ttc" id="anamespaceast_html_a8831f3e788e7c120569b0c8f00004ebf"><div class="ttname"><a href="namespaceast.html#a8831f3e788e7c120569b0c8f00004ebf">ast::aMax</a></div><div class="ttdeci">Scalar aMax(Scalar a, Scalar b)</div><div class="ttdoc">计算两个数中的较大值</div><div class="ttdef"><b>定义</b> Math.hpp:76</div></div>
-<div class="ttc" id="anamespaceast_html_ac73c5a61168551b1bc14f6748ea36cdc"><div class="ttname"><a href="namespaceast.html#ac73c5a61168551b1bc14f6748ea36cdc">ast::kPI</a></div><div class="ttdeci">constexpr double kPI</div><div class="ttdoc">PI</div><div class="ttdef"><b>定义</b> Constants.h:41</div></div>
-<div class="ttc" id="anamespaceast_html_ae34aefa61d4998de18c705a340bf3d9c"><div class="ttname"><a href="namespaceast.html#ae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)</div><div class="ttdoc">将角度量规范化到 -2π 到 0 范围</div><div class="ttdef"><b>定义</b> Math.hpp:131</div></div>
-<div class="ttc" id="anamespaceast_html_ae607d540253979beacb45ea4a55c0bb1"><div class="ttname"><a href="namespaceast.html#ae607d540253979beacb45ea4a55c0bb1">ast::aMin</a></div><div class="ttdeci">Scalar aMin(Scalar a, Scalar b)</div><div class="ttdoc">计算两个数中的较小值</div><div class="ttdef"><b>定义</b> Math.hpp:83</div></div>
-<div class="ttc" id="anamespaceast_html_ae628da25178a68de57bdf3fdfd9e8dcb"><div class="ttname"><a href="namespaceast.html#ae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleStart(double angle, double start)</div><div class="ttdoc">将角度量规范化到指定起始范围</div><div class="ttdef"><b>定义</b> Math.hpp:96</div></div>
-<div class="ttc" id="anamespaceast_html_aea03a932dcd544c97844e1f9eb451437"><div class="ttname"><a href="namespaceast.html#aea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle(double angle, double center)</div><div class="ttdoc">将角度量规范化到指定中心范围</div><div class="ttdef"><b>定义</b> Math.hpp:106</div></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1SinCos_html"><div class="ttname"><a href="classast_1_1SinCos.html">ast::SinCos</a></div><div class="ttdoc">包含 sin(x) 和 cos(x) 值的结构体</div><div class="ttdef"><b>定义</b> Math.hpp:52</div></div>
+<div class="ttc" id="agroup__Util_html_ga21bfbd352838fe327fe09a3d4f008451"><div class="ttname"><a href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">ast::kTwoPI</a></div><div class="ttdeci">constexpr double kTwoPI</div><div class="ttdoc">2*PI</div><div class="ttdef"><b>定义</b> Constants.h:47</div></div>
+<div class="ttc" id="agroup__Util_html_ga5cd816a87700237b7696f6170ae4e474"><div class="ttname"><a href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">ast::aNormalizeAngle0To2Pi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle0To2Pi(double angle)</div><div class="ttdoc">将角度量规范化到 0 到 2π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:121</div></div>
+<div class="ttc" id="agroup__Util_html_ga70afc34acbd6e94be6c10c32ea03acbd"><div class="ttname"><a href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">ast::aNormalizeAngleNegPiToPi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNegPiToPi(double angle)</div><div class="ttdoc">将角度量规范化到 -π 到 π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:129</div></div>
+<div class="ttc" id="agroup__Util_html_ga8831f3e788e7c120569b0c8f00004ebf"><div class="ttname"><a href="group__Util.html#ga8831f3e788e7c120569b0c8f00004ebf">ast::aMax</a></div><div class="ttdeci">Scalar aMax(Scalar a, Scalar b)</div><div class="ttdoc">计算两个数中的较大值</div><div class="ttdef"><b>定义</b> Math.hpp:82</div></div>
+<div class="ttc" id="agroup__Util_html_gac73c5a61168551b1bc14f6748ea36cdc"><div class="ttname"><a href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">ast::kPI</a></div><div class="ttdeci">constexpr double kPI</div><div class="ttdoc">PI</div><div class="ttdef"><b>定义</b> Constants.h:46</div></div>
+<div class="ttc" id="agroup__Util_html_gae34aefa61d4998de18c705a340bf3d9c"><div class="ttname"><a href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)</div><div class="ttdoc">将角度量规范化到 -2π 到 0 范围</div><div class="ttdef"><b>定义</b> Math.hpp:137</div></div>
+<div class="ttc" id="agroup__Util_html_gae607d540253979beacb45ea4a55c0bb1"><div class="ttname"><a href="group__Util.html#gae607d540253979beacb45ea4a55c0bb1">ast::aMin</a></div><div class="ttdeci">Scalar aMin(Scalar a, Scalar b)</div><div class="ttdoc">计算两个数中的较小值</div><div class="ttdef"><b>定义</b> Math.hpp:89</div></div>
+<div class="ttc" id="agroup__Util_html_gae628da25178a68de57bdf3fdfd9e8dcb"><div class="ttname"><a href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleStart(double angle, double start)</div><div class="ttdoc">将角度量规范化到指定起始范围</div><div class="ttdef"><b>定义</b> Math.hpp:102</div></div>
+<div class="ttc" id="agroup__Util_html_gaea03a932dcd544c97844e1f9eb451437"><div class="ttname"><a href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle(double angle, double center)</div><div class="ttdoc">将角度量规范化到指定中心范围</div><div class="ttdef"><b>定义</b> Math.hpp:112</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

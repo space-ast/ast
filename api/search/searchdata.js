@@ -1,6 +1,6 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefghijklmnopqrstuvwxyz~待",
+  0: "_abcdefghijklmnopqrstuvwxyz~✨代列功单向坐姿字工已常平待插数文时模算脚航轨运非🐛📝🗂🛰",
   1: "abcdefghijklmnopqrstuvwx",
   2: "a",
   3: "abcdefghijklmnopqrstuvwz",
@@ -12,7 +12,8 @@ var indexSectionsWithContent =
   9: "r",
   10: "u",
   11: "_aiopt",
-  12: "待"
+  12: "单向坐姿字工常平插数文时脚航轨运非",
+  13: "bs列待🛰"
 };
 
 var indexSectionNames =
@@ -29,7 +30,8 @@ var indexSectionNames =
   9: "properties",
   10: "related",
   11: "defines",
-  12: "pages"
+  12: "groups",
+  13: "pages"
 };
 
 var indexSectionLabels =
@@ -46,6 +48,7 @@ var indexSectionLabels =
   9: "属性",
   10: "友元",
   11: "宏定义",
-  12: "页"
+  12: "组",
+  13: "页"
 };
 

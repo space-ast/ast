@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::SharedPtr&lt; _Object &gt; 模板类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::SharedPtr&lt; _Object &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,9 +103,11 @@ $(function(){initNavTree('classast_1_1SharedPtr.html',''); initResizable(true); 
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1SharedPtr-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::SharedPtr&lt; _Object &gt; 模板类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::SharedPtr&lt; _Object &gt; 模板类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__RTTI.html">运行时类型信息</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="AstUtil_2RTTI_2SharedPtr_8hpp_source.html">SharedPtr.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
@@ -149,8 +151,18 @@ Protected 属性</h2></td></tr>
 _Object *&#160;</td><td class="memItemRight" valign="bottom"><b>m_object</b></td></tr>
 <tr class="separator:a00464218de2a1e9532f606d9db5688e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstUtil/Object/<a class="el" href="AstUtil_2Object_2SharedPtr_8hpp_source.html">SharedPtr.hpp</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename _Object&gt;<br />
+class ast::SharedPtr&lt; _Object &gt;</div><p>共享指针 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">_Object</td><td>指向的对象类型</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>与std::shared_ptr功能类似，但是不支持自定义删除器 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/RTTI/<a class="el" href="AstUtil_2RTTI_2SharedPtr_8hpp_source.html">SharedPtr.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

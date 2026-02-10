@@ -5,7 +5,7 @@ var searchData=
   ['data_5f_2',['data_',['../classast_1_1LowerMatrix.html#a1c3ebaaf1d34451485c68ffd3fe29bd8',1,'ast::LowerMatrix::data_'],['../classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49',1,'ast::ValArray::data_']]],
   ['date_5f_3',['date_',['../classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4',1,'ast::DateTime']]],
   ['day_4',['day',['../Unit_8cpp.html#a46331518b0993f7058b537530ef94a33',1,'ast::units']]],
-  ['day_5f_5',['day_',['../classast_1_1Date.html#a830ce57c012b9361d4ac414a0346dcc7',1,'ast::Date']]],
+  ['day_5f_5',['day_',['../group__Time.html#ga830ce57c012b9361d4ac414a0346dcc7',1,'ast::Date']]],
   ['deg_6',['deg',['../Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e',1,'ast::units']]],
   ['degree_5f_7',['degree_',['../classast_1_1GravityCalculator.html#a1e643a734d78d52fb3b50945ac6f67b5',1,'ast::GravityCalculator::degree_'],['../structast_1_1HPOPForceModel_1_1Gravity.html#aa50efd0eaeedbbb09e5a7347083768fb',1,'ast::HPOPForceModel::Gravity::degree_']]],
   ['deps_8',['deps',['../structast_1_1EOP_1_1Entry.html#a20d7dc6d9435bad6985d1d144b6427f2',1,'ast::EOP::Entry']]],

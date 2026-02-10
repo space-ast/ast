@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/RunTime/RunTime.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Data/Context/RunTime.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -105,10 +105,6 @@ $(function(){initNavTree('RunTime_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">RunTime.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><br  />
-  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;RunTimeData.hpp&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -133,58 +129,43 @@ $(function(){initNavTree('RunTime_8hpp.html',''); initResizable(true); });
 函数</h2></td></tr>
 <tr class="memitem:ab6fd6e3387d57432da53d7bf5efd47a9" id="r_ab6fd6e3387d57432da53d7bf5efd47a9"><td class="memItemLeft" align="right" valign="top"><a id="ab6fd6e3387d57432da53d7bf5efd47a9" name="ab6fd6e3387d57432da53d7bf5efd47a9"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> ()</td></tr>
-<tr class="memdesc:ab6fd6e3387d57432da53d7bf5efd47a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化 <br /></td></tr>
 <tr class="separator:ab6fd6e3387d57432da53d7bf5efd47a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8b19885fd9876fa4ad93b63bc2c6d11" id="r_ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memItemLeft" align="right" valign="top"><a id="ae8b19885fd9876fa4ad93b63bc2c6d11" name="ae8b19885fd9876fa4ad93b63bc2c6d11"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUninitialize</b> ()</td></tr>
-<tr class="memdesc:ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">反初始化 <br /></td></tr>
 <tr class="separator:ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29c564259f5de9210b7e4e39eb4dd878" id="r_a29c564259f5de9210b7e4e39eb4dd878"><td class="memItemLeft" align="right" valign="top"><a id="a29c564259f5de9210b7e4e39eb4dd878" name="a29c564259f5de9210b7e4e39eb4dd878"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataDirGet</b> ()</td></tr>
-<tr class="memdesc:a29c564259f5de9210b7e4e39eb4dd878"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据文件夹 <br /></td></tr>
 <tr class="separator:a29c564259f5de9210b7e4e39eb4dd878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a178274c33d5da80112cf792bdbae6d9f" id="r_a178274c33d5da80112cf792bdbae6d9f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a178274c33d5da80112cf792bdbae6d9f">ast::aDataDirSet</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dirpath)</td></tr>
-<tr class="memdesc:a178274c33d5da80112cf792bdbae6d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据文件夹  <br /></td></tr>
 <tr class="separator:a178274c33d5da80112cf792bdbae6d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa66c15ecaeafdc8c6c236fd49b04fd53" id="r_aa66c15ecaeafdc8c6c236fd49b04fd53"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa66c15ecaeafdc8c6c236fd49b04fd53">ast::aDataDirGetDefault</a> ()</td></tr>
-<tr class="memdesc:aa66c15ecaeafdc8c6c236fd49b04fd53"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取默认数据文件夹 数据文件夹的顺序：  <br /></td></tr>
 <tr class="separator:aa66c15ecaeafdc8c6c236fd49b04fd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ccfea60ec40a0b914aee9714febd94e" id="r_a4ccfea60ec40a0b914aee9714febd94e"><td class="memItemLeft" align="right" valign="top"><a id="a4ccfea60ec40a0b914aee9714febd94e" name="a4ccfea60ec40a0b914aee9714febd94e"></a>
 <a class="el" href="classast_1_1GlobalContext.html">GlobalContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_Get</b> ()</td></tr>
-<tr class="memdesc:a4ccfea60ec40a0b914aee9714febd94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取全局上下文 <br /></td></tr>
 <tr class="separator:a4ccfea60ec40a0b914aee9714febd94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6179a360a2bb2fa49e90ed13801fb7f" id="r_ab6179a360a2bb2fa49e90ed13801fb7f"><td class="memItemLeft" align="right" valign="top"><a id="ab6179a360a2bb2fa49e90ed13801fb7f" name="ab6179a360a2bb2fa49e90ed13801fb7f"></a>
 <a class="el" href="classast_1_1IAUXYS.html">IAUXYS</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_GetIAUXYS</b> ()</td></tr>
-<tr class="memdesc:ab6179a360a2bb2fa49e90ed13801fb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取全局上下文的IAUXYS <br /></td></tr>
 <tr class="separator:ab6179a360a2bb2fa49e90ed13801fb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40dcbf6fa05827fe9b7a7837a01105bd" id="r_a40dcbf6fa05827fe9b7a7837a01105bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a40dcbf6fa05827fe9b7a7837a01105bd">ast::aDataContext_GetCurrent</a> ()</td></tr>
-<tr class="memdesc:a40dcbf6fa05827fe9b7a7837a01105bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前线程的数据上下文  <br /></td></tr>
 <tr class="separator:a40dcbf6fa05827fe9b7a7837a01105bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd352addd4bfd3dcecb35a480212d9f5" id="r_abd352addd4bfd3dcecb35a480212d9f5"><td class="memItemLeft" align="right" valign="top"><a id="abd352addd4bfd3dcecb35a480212d9f5" name="abd352addd4bfd3dcecb35a480212d9f5"></a>
 <a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetDefault</b> ()</td></tr>
-<tr class="memdesc:abd352addd4bfd3dcecb35a480212d9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取默认数据上下文 <br /></td></tr>
 <tr class="separator:abd352addd4bfd3dcecb35a480212d9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b71837a4fa5dcbe6f059efca4e75297" id="r_a6b71837a4fa5dcbe6f059efca4e75297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6b71837a4fa5dcbe6f059efca4e75297">ast::aDataContext_EnsureDefault</a> ()</td></tr>
-<tr class="memdesc:a6b71837a4fa5dcbe6f059efca4e75297"><td class="mdescLeft">&#160;</td><td class="mdescRight">确保默认数据上下文存在 如果默认数据上下文不存在，则创建一个新的默认数据上下文。  <br /></td></tr>
 <tr class="separator:a6b71837a4fa5dcbe6f059efca4e75297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a362102d8c58857b6e3d6b48b83bd0944" id="r_a362102d8c58857b6e3d6b48b83bd0944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a362102d8c58857b6e3d6b48b83bd0944">ast::aDataContext_EnsureCurrent</a> ()</td></tr>
-<tr class="memdesc:a362102d8c58857b6e3d6b48b83bd0944"><td class="mdescLeft">&#160;</td><td class="mdescRight">确保当前线程的数据上下文存在 如果当前线程的数据上下文不存在，则将默认数据上下文设置为当前线程的数据上下文。  <br /></td></tr>
 <tr class="separator:a362102d8c58857b6e3d6b48b83bd0944"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa090c6fa94e31ea974a5fd4604191397" id="r_aa090c6fa94e31ea974a5fd4604191397"><td class="memItemLeft" align="right" valign="top"><a id="aa090c6fa94e31ea974a5fd4604191397" name="aa090c6fa94e31ea974a5fd4604191397"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_SetCurrent</b> (<a class="el" href="classast_1_1DataContext.html">DataContext</a> *context)</td></tr>
-<tr class="memdesc:aa090c6fa94e31ea974a5fd4604191397"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置当前线程的数据上下文 <br /></td></tr>
 <tr class="separator:aa090c6fa94e31ea974a5fd4604191397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a636a52a4e547b682627be2f3d551b7ad" id="r_a636a52a4e547b682627be2f3d551b7ad"><td class="memItemLeft" align="right" valign="top"><a id="a636a52a4e547b682627be2f3d551b7ad" name="a636a52a4e547b682627be2f3d551b7ad"></a>
 <a class="el" href="classast_1_1EOP.html">EOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetEOP</b> ()</td></tr>
-<tr class="memdesc:a636a52a4e547b682627be2f3d551b7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前全局上下文的EOP <br /></td></tr>
 <tr class="separator:a636a52a4e547b682627be2f3d551b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb534974c08b459d882595abb9a930e" id="r_adbb534974c08b459d882595abb9a930e"><td class="memItemLeft" align="right" valign="top"><a id="adbb534974c08b459d882595abb9a930e" name="adbb534974c08b459d882595abb9a930e"></a>
 <a class="el" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetIAUXYSPrecomputed</b> ()</td></tr>
-<tr class="memdesc:adbb534974c08b459d882595abb9a930e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前线程的数据上下文的IAUXYSPrecomputed <br /></td></tr>
 <tr class="separator:adbb534974c08b459d882595abb9a930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba56bd6c13a2672901309a0c4c695caf" id="r_aba56bd6c13a2672901309a0c4c695caf"><td class="memItemLeft" align="right" valign="top"><a id="aba56bd6c13a2672901309a0c4c695caf" name="aba56bd6c13a2672901309a0c4c695caf"></a>
 <a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_New</b> ()</td></tr>
-<tr class="memdesc:aba56bd6c13a2672901309a0c4c695caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建一个新的全局上下文 <br /></td></tr>
 <tr class="separator:aba56bd6c13a2672901309a0c4c695caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
@@ -201,7 +182,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_Set
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_8683ee58d694484b1888213deeecf38e.html">RunTime</a></li><li class="navelem"><a class="el" href="RunTime_8hpp.html">RunTime.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_a0626de0dc3d3eb2f19b4cf1f78690c4.html">Data</a></li><li class="navelem"><a class="el" href="dir_9ee1a7d731e81e836c3ad9833d421101.html">Context</a></li><li class="navelem"><a class="el" href="RunTime_8hpp.html">RunTime.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::Quaternion类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::Quaternion类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,138 +103,102 @@ $(function(){initNavTree('classast_1_1Quaternion.html',''); initResizable(true);
 <a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1Quaternion-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::Quaternion类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::Quaternion类 参考<div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__Attitude.html">姿态功能</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>四元数  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AstMath_2Attitude_2Quaternion_8hpp_source.html">Quaternion.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a94fc9b6597063a4062b04be18996de12" id="r_a94fc9b6597063a4062b04be18996de12"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94fc9b6597063a4062b04be18996de12">norm</a> () const</td></tr>
-<tr class="memdesc:a94fc9b6597063a4062b04be18996de12"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算四元数的范数  <br /></td></tr>
 <tr class="separator:a94fc9b6597063a4062b04be18996de12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6410723ce2acffdbc89e6e2579aed765" id="r_a6410723ce2acffdbc89e6e2579aed765"><td class="memItemLeft" align="right" valign="top"><a id="a6410723ce2acffdbc89e6e2579aed765" name="a6410723ce2acffdbc89e6e2579aed765"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
-<tr class="memdesc:a6410723ce2acffdbc89e6e2579aed765"><td class="mdescLeft">&#160;</td><td class="mdescRight">归一化四元数 <br /></td></tr>
 <tr class="separator:a6410723ce2acffdbc89e6e2579aed765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd2c78251b00a2662ceb6045f6fcc81" id="r_affd2c78251b00a2662ceb6045f6fcc81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affd2c78251b00a2662ceb6045f6fcc81">normalized</a> () const</td></tr>
-<tr class="memdesc:affd2c78251b00a2662ceb6045f6fcc81"><td class="mdescLeft">&#160;</td><td class="mdescRight">归一化四元数  <br /></td></tr>
 <tr class="separator:affd2c78251b00a2662ceb6045f6fcc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cf468ab3458563971bddd536deba4bc" id="r_a6cf468ab3458563971bddd536deba4bc"><td class="memItemLeft" align="right" valign="top"><a id="a6cf468ab3458563971bddd536deba4bc" name="a6cf468ab3458563971bddd536deba4bc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setIdentity</b> ()</td></tr>
-<tr class="memdesc:a6cf468ab3458563971bddd536deba4bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置四元数为单位四元数 <br /></td></tr>
 <tr class="separator:a6cf468ab3458563971bddd536deba4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8450b588cce120ed57b4734788bf3c72" id="r_a8450b588cce120ed57b4734788bf3c72"><td class="memItemLeft" align="right" valign="top"><a id="a8450b588cce120ed57b4734788bf3c72" name="a8450b588cce120ed57b4734788bf3c72"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>qs</b> () const</td></tr>
-<tr class="memdesc:a8450b588cce120ed57b4734788bf3c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的实部 <br /></td></tr>
 <tr class="separator:a8450b588cce120ed57b4734788bf3c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad48ef6b1866ee2392c26556fa66f2770" id="r_ad48ef6b1866ee2392c26556fa66f2770"><td class="memItemLeft" align="right" valign="top"><a id="ad48ef6b1866ee2392c26556fa66f2770" name="ad48ef6b1866ee2392c26556fa66f2770"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>qx</b> () const</td></tr>
-<tr class="memdesc:ad48ef6b1866ee2392c26556fa66f2770"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部x <br /></td></tr>
 <tr class="separator:ad48ef6b1866ee2392c26556fa66f2770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3115f9e2b60054fdb10a2b3baf4304b" id="r_ac3115f9e2b60054fdb10a2b3baf4304b"><td class="memItemLeft" align="right" valign="top"><a id="ac3115f9e2b60054fdb10a2b3baf4304b" name="ac3115f9e2b60054fdb10a2b3baf4304b"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>qy</b> () const</td></tr>
-<tr class="memdesc:ac3115f9e2b60054fdb10a2b3baf4304b"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部y <br /></td></tr>
 <tr class="separator:ac3115f9e2b60054fdb10a2b3baf4304b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47c7dcdee58301b110cc8019390553fc" id="r_a47c7dcdee58301b110cc8019390553fc"><td class="memItemLeft" align="right" valign="top"><a id="a47c7dcdee58301b110cc8019390553fc" name="a47c7dcdee58301b110cc8019390553fc"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>qz</b> () const</td></tr>
-<tr class="memdesc:a47c7dcdee58301b110cc8019390553fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部z <br /></td></tr>
 <tr class="separator:a47c7dcdee58301b110cc8019390553fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e238b0ff22ec106e0157e844363813d" id="r_a6e238b0ff22ec106e0157e844363813d"><td class="memItemLeft" align="right" valign="top"><a id="a6e238b0ff22ec106e0157e844363813d" name="a6e238b0ff22ec106e0157e844363813d"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>qs</b> ()</td></tr>
-<tr class="memdesc:a6e238b0ff22ec106e0157e844363813d"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的实部 <br /></td></tr>
 <tr class="separator:a6e238b0ff22ec106e0157e844363813d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4610df7892c4a844901a28a72b7c782b" id="r_a4610df7892c4a844901a28a72b7c782b"><td class="memItemLeft" align="right" valign="top"><a id="a4610df7892c4a844901a28a72b7c782b" name="a4610df7892c4a844901a28a72b7c782b"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>qx</b> ()</td></tr>
-<tr class="memdesc:a4610df7892c4a844901a28a72b7c782b"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部x <br /></td></tr>
 <tr class="separator:a4610df7892c4a844901a28a72b7c782b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47524a1bc4cf57c3d54d0c296f97723b" id="r_a47524a1bc4cf57c3d54d0c296f97723b"><td class="memItemLeft" align="right" valign="top"><a id="a47524a1bc4cf57c3d54d0c296f97723b" name="a47524a1bc4cf57c3d54d0c296f97723b"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>qy</b> ()</td></tr>
-<tr class="memdesc:a47524a1bc4cf57c3d54d0c296f97723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部y <br /></td></tr>
 <tr class="separator:a47524a1bc4cf57c3d54d0c296f97723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11df4a94ed81c80b6e4c95ca6821bf52" id="r_a11df4a94ed81c80b6e4c95ca6821bf52"><td class="memItemLeft" align="right" valign="top"><a id="a11df4a94ed81c80b6e4c95ca6821bf52" name="a11df4a94ed81c80b6e4c95ca6821bf52"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>qz</b> ()</td></tr>
-<tr class="memdesc:a11df4a94ed81c80b6e4c95ca6821bf52"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部z <br /></td></tr>
 <tr class="separator:a11df4a94ed81c80b6e4c95ca6821bf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c602f8105b181b466ab3dbb97e6607e" id="r_a7c602f8105b181b466ab3dbb97e6607e"><td class="memItemLeft" align="right" valign="top"><a id="a7c602f8105b181b466ab3dbb97e6607e" name="a7c602f8105b181b466ab3dbb97e6607e"></a>
 const Vector3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>vec</b> () const</td></tr>
-<tr class="memdesc:a7c602f8105b181b466ab3dbb97e6607e"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部向量 <br /></td></tr>
 <tr class="separator:a7c602f8105b181b466ab3dbb97e6607e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab18b74959f0806ebb092f6e493f38893" id="r_ab18b74959f0806ebb092f6e493f38893"><td class="memItemLeft" align="right" valign="top"><a id="ab18b74959f0806ebb092f6e493f38893" name="ab18b74959f0806ebb092f6e493f38893"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>x</b> () const</td></tr>
-<tr class="memdesc:ab18b74959f0806ebb092f6e493f38893"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部x <br /></td></tr>
 <tr class="separator:ab18b74959f0806ebb092f6e493f38893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d23169dc9e5573eda946013489819f" id="r_aa2d23169dc9e5573eda946013489819f"><td class="memItemLeft" align="right" valign="top"><a id="aa2d23169dc9e5573eda946013489819f" name="aa2d23169dc9e5573eda946013489819f"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>y</b> () const</td></tr>
-<tr class="memdesc:aa2d23169dc9e5573eda946013489819f"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部y <br /></td></tr>
 <tr class="separator:aa2d23169dc9e5573eda946013489819f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b07113349ff7e9c4d90df6d69c081c8" id="r_a0b07113349ff7e9c4d90df6d69c081c8"><td class="memItemLeft" align="right" valign="top"><a id="a0b07113349ff7e9c4d90df6d69c081c8" name="a0b07113349ff7e9c4d90df6d69c081c8"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>z</b> () const</td></tr>
-<tr class="memdesc:a0b07113349ff7e9c4d90df6d69c081c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部z <br /></td></tr>
 <tr class="separator:a0b07113349ff7e9c4d90df6d69c081c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf34f1d3eadf0c11d520bfebd571a2d2" id="r_abf34f1d3eadf0c11d520bfebd571a2d2"><td class="memItemLeft" align="right" valign="top"><a id="abf34f1d3eadf0c11d520bfebd571a2d2" name="abf34f1d3eadf0c11d520bfebd571a2d2"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>w</b> () const</td></tr>
-<tr class="memdesc:abf34f1d3eadf0c11d520bfebd571a2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的实部 <br /></td></tr>
 <tr class="separator:abf34f1d3eadf0c11d520bfebd571a2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a08007e0a8053e0fa7c5961a35e2cd1" id="r_a0a08007e0a8053e0fa7c5961a35e2cd1"><td class="memItemLeft" align="right" valign="top"><a id="a0a08007e0a8053e0fa7c5961a35e2cd1" name="a0a08007e0a8053e0fa7c5961a35e2cd1"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>x</b> ()</td></tr>
-<tr class="memdesc:a0a08007e0a8053e0fa7c5961a35e2cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部x <br /></td></tr>
 <tr class="separator:a0a08007e0a8053e0fa7c5961a35e2cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97a170f1b3324d7d6e78dc06f971985c" id="r_a97a170f1b3324d7d6e78dc06f971985c"><td class="memItemLeft" align="right" valign="top"><a id="a97a170f1b3324d7d6e78dc06f971985c" name="a97a170f1b3324d7d6e78dc06f971985c"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>y</b> ()</td></tr>
-<tr class="memdesc:a97a170f1b3324d7d6e78dc06f971985c"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部y <br /></td></tr>
 <tr class="separator:a97a170f1b3324d7d6e78dc06f971985c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19883c31504c687288ae7860b86deca8" id="r_a19883c31504c687288ae7860b86deca8"><td class="memItemLeft" align="right" valign="top"><a id="a19883c31504c687288ae7860b86deca8" name="a19883c31504c687288ae7860b86deca8"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>z</b> ()</td></tr>
-<tr class="memdesc:a19883c31504c687288ae7860b86deca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的虚部z <br /></td></tr>
 <tr class="separator:a19883c31504c687288ae7860b86deca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f285c146ad2c66d87600b30ce4db809" id="r_a2f285c146ad2c66d87600b30ce4db809"><td class="memItemLeft" align="right" valign="top"><a id="a2f285c146ad2c66d87600b30ce4db809" name="a2f285c146ad2c66d87600b30ce4db809"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>w</b> ()</td></tr>
-<tr class="memdesc:a2f285c146ad2c66d87600b30ce4db809"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数的实部 <br /></td></tr>
 <tr class="separator:a2f285c146ad2c66d87600b30ce4db809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9412afb4b27191e26df13b5df394cd38" id="r_a9412afb4b27191e26df13b5df394cd38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9412afb4b27191e26df13b5df394cd38">squaredNorm</a> () const</td></tr>
-<tr class="memdesc:a9412afb4b27191e26df13b5df394cd38"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算四元数的平方范数  <br /></td></tr>
 <tr class="separator:a9412afb4b27191e26df13b5df394cd38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4449514b848865c74301f84599ff83d8" id="r_a4449514b848865c74301f84599ff83d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4449514b848865c74301f84599ff83d8">conjugate</a> () const</td></tr>
-<tr class="memdesc:a4449514b848865c74301f84599ff83d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算四元数的共轭  <br /></td></tr>
 <tr class="separator:a4449514b848865c74301f84599ff83d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46f6d04de44d3e7e0f59c01b62c0574f" id="r_a46f6d04de44d3e7e0f59c01b62c0574f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46f6d04de44d3e7e0f59c01b62c0574f">inverse</a> () const</td></tr>
-<tr class="memdesc:a46f6d04de44d3e7e0f59c01b62c0574f"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算四元数的逆  <br /></td></tr>
 <tr class="separator:a46f6d04de44d3e7e0f59c01b62c0574f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76aa1c753eacaebb930f0883113fc2ec" id="r_a76aa1c753eacaebb930f0883113fc2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76aa1c753eacaebb930f0883113fc2ec">operator*</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q2) const</td></tr>
-<tr class="memdesc:a76aa1c753eacaebb930f0883113fc2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数乘积  <br /></td></tr>
 <tr class="separator:a76aa1c753eacaebb930f0883113fc2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7cbd868ff6e832612a85b2027659041" id="r_aa7cbd868ff6e832612a85b2027659041"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7cbd868ff6e832612a85b2027659041">operator*=</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q2)</td></tr>
-<tr class="memdesc:aa7cbd868ff6e832612a85b2027659041"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数乘积赋值  <br /></td></tr>
 <tr class="separator:aa7cbd868ff6e832612a85b2027659041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7580a59c2fb5a2a1d9c0bb1ec1abb76b" id="r_a7580a59c2fb5a2a1d9c0bb1ec1abb76b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7580a59c2fb5a2a1d9c0bb1ec1abb76b">operator*</a> (double val) const</td></tr>
-<tr class="memdesc:a7580a59c2fb5a2a1d9c0bb1ec1abb76b"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数标量乘积  <br /></td></tr>
 <tr class="separator:a7580a59c2fb5a2a1d9c0bb1ec1abb76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cfd36d7117f3d0b80e08717f2c7afb9" id="r_a3cfd36d7117f3d0b80e08717f2c7afb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cfd36d7117f3d0b80e08717f2c7afb9">operator*=</a> (double val)</td></tr>
-<tr class="memdesc:a3cfd36d7117f3d0b80e08717f2c7afb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数标量乘积赋值  <br /></td></tr>
 <tr class="separator:a3cfd36d7117f3d0b80e08717f2c7afb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3184b5f50da9c8118b611baccf0ac7ac" id="r_a3184b5f50da9c8118b611baccf0ac7ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3184b5f50da9c8118b611baccf0ac7ac">operator/</a> (double val) const</td></tr>
-<tr class="memdesc:a3184b5f50da9c8118b611baccf0ac7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数标量除法  <br /></td></tr>
 <tr class="separator:a3184b5f50da9c8118b611baccf0ac7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c57c73d886111aaf291167635821f5c" id="r_a1c57c73d886111aaf291167635821f5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c57c73d886111aaf291167635821f5c">operator/=</a> (double val)</td></tr>
-<tr class="memdesc:a1c57c73d886111aaf291167635821f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数标量除法赋值  <br /></td></tr>
 <tr class="separator:a1c57c73d886111aaf291167635821f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74f632ce182f8b5a87073f7748b95122" id="r_a74f632ce182f8b5a87073f7748b95122"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74f632ce182f8b5a87073f7748b95122">toRotationMatrix</a> () const</td></tr>
-<tr class="memdesc:a74f632ce182f8b5a87073f7748b95122"><td class="mdescLeft">&#160;</td><td class="mdescRight">四元数转旋转矩阵  <br /></td></tr>
 <tr class="separator:a74f632ce182f8b5a87073f7748b95122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:ab77f0158cc2057dacbcaf0a52e4da28c" id="r_ab77f0158cc2057dacbcaf0a52e4da28c"><td class="memItemLeft" align="right" valign="top"><a id="ab77f0158cc2057dacbcaf0a52e4da28c" name="ab77f0158cc2057dacbcaf0a52e4da28c"></a>
 static <a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Identity</b> ()</td></tr>
-<tr class="memdesc:ab77f0158cc2057dacbcaf0a52e4da28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建单位四元数 <br /></td></tr>
 <tr class="separator:ab77f0158cc2057dacbcaf0a52e4da28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7efe3e37e9a1f2ada75f8529d6ef141d" id="r_a7efe3e37e9a1f2ada75f8529d6ef141d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7efe3e37e9a1f2ada75f8529d6ef141d">FromRotationMatrix</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mtx)</td></tr>
-<tr class="memdesc:a7efe3e37e9a1f2ada75f8529d6ef141d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从旋转矩阵创建四元数  <br /></td></tr>
 <tr class="separator:a7efe3e37e9a1f2ada75f8529d6ef141d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::IAUXYSPrecomputed类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::IAUXYSPrecomputed类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,48 +106,35 @@ $(function(){initNavTree('classast_1_1IAUXYSPrecomputed.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
-<p>预计算的XYS系数  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="IAUXYSPrecomputed_8hpp_source.html">IAUXYSPrecomputed.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a04b307054bf378ac86f052fb3c89ea07" id="r_a04b307054bf378ac86f052fb3c89ea07"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04b307054bf378ac86f052fb3c89ea07">getValue</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys) const</td></tr>
-<tr class="memdesc:a04b307054bf378ac86f052fb3c89ea07"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取预计算的XYS系数  <br /></td></tr>
 <tr class="separator:a04b307054bf378ac86f052fb3c89ea07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa61e295efda338ec786dbc96e25230" id="r_a4fa61e295efda338ec786dbc96e25230"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fa61e295efda338ec786dbc96e25230">getValueTT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, array3d &amp;xys) const</td></tr>
-<tr class="memdesc:a4fa61e295efda338ec786dbc96e25230"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取预计算的XYS系数（TT时间）  <br /></td></tr>
 <tr class="separator:a4fa61e295efda338ec786dbc96e25230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a887959e3fd1282e229217af01ce8e53c" id="r_a887959e3fd1282e229217af01ce8e53c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a887959e3fd1282e229217af01ce8e53c">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
-<tr class="memdesc:a887959e3fd1282e229217af01ce8e53c"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载预计算的XYS系数文件  <br /></td></tr>
 <tr class="separator:a887959e3fd1282e229217af01ce8e53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebd0e44f2e1627e3c36e29965e2d808d" id="r_aebd0e44f2e1627e3c36e29965e2d808d"><td class="memItemLeft" align="right" valign="top"><a id="aebd0e44f2e1627e3c36e29965e2d808d" name="aebd0e44f2e1627e3c36e29965e2d808d"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadDefault</b> ()</td></tr>
-<tr class="memdesc:aebd0e44f2e1627e3c36e29965e2d808d"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载默认预计算的XYS系数文件 <br /></td></tr>
 <tr class="separator:aebd0e44f2e1627e3c36e29965e2d808d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6dc3ebaf103d6aff8797059136cb59e" id="r_ac6dc3ebaf103d6aff8797059136cb59e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6dc3ebaf103d6aff8797059136cb59e">precompute</a> (double start_jed, double stop_jed, double step_size)</td></tr>
-<tr class="memdesc:ac6dc3ebaf103d6aff8797059136cb59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">预计算XYS系数  <br /></td></tr>
 <tr class="separator:ac6dc3ebaf103d6aff8797059136cb59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5726cee55e23f9d875cc2d5642777cc4" id="r_a5726cee55e23f9d875cc2d5642777cc4"><td class="memItemLeft" align="right" valign="top"><a id="a5726cee55e23f9d875cc2d5642777cc4" name="a5726cee55e23f9d875cc2d5642777cc4"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getRefEpochJED</b> () const</td></tr>
-<tr class="memdesc:a5726cee55e23f9d875cc2d5642777cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取预计算的XYS系数参考时间（儒略日） <br /></td></tr>
 <tr class="separator:a5726cee55e23f9d875cc2d5642777cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a294254dac0289f20fea3d9a22e7b91dd" id="r_a294254dac0289f20fea3d9a22e7b91dd"><td class="memItemLeft" align="right" valign="top"><a id="a294254dac0289f20fea3d9a22e7b91dd" name="a294254dac0289f20fea3d9a22e7b91dd"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getStepSize</b> () const</td></tr>
-<tr class="memdesc:a294254dac0289f20fea3d9a22e7b91dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取预计算的XYS系数时间步长（天） <br /></td></tr>
 <tr class="separator:a294254dac0289f20fea3d9a22e7b91dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5451b576cce75ae2188d311aa71a3698" id="r_a5451b576cce75ae2188d311aa71a3698"><td class="memItemLeft" align="right" valign="top"><a id="a5451b576cce75ae2188d311aa71a3698" name="a5451b576cce75ae2188d311aa71a3698"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumPoints</b> () const</td></tr>
-<tr class="memdesc:a5451b576cce75ae2188d311aa71a3698"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取预计算的XYS系数时间点数量 <br /></td></tr>
 <tr class="separator:a5451b576cce75ae2188d311aa71a3698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0329a8cc368371b504e15c9b9b250c6f" id="r_a0329a8cc368371b504e15c9b9b250c6f"><td class="memItemLeft" align="right" valign="top"><a id="a0329a8cc368371b504e15c9b9b250c6f" name="a0329a8cc368371b504e15c9b9b250c6f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getInterpOrder</b> () const</td></tr>
-<tr class="memdesc:a0329a8cc368371b504e15c9b9b250c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取预计算的XYS系数插值阶数 <br /></td></tr>
 <tr class="separator:a0329a8cc368371b504e15c9b9b250c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d813a113419c39fd2c60c09078f9afd" id="r_a1d813a113419c39fd2c60c09078f9afd"><td class="memItemLeft" align="right" valign="top"><a id="a1d813a113419c39fd2c60c09078f9afd" name="a1d813a113419c39fd2c60c09078f9afd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInterpOrder</b> (int order)</td></tr>
-<tr class="memdesc:a1d813a113419c39fd2c60c09078f9afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置预计算的XYS系数插值阶数 <br /></td></tr>
 <tr class="separator:a1d813a113419c39fd2c60c09078f9afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -296,7 +283,7 @@ std::vector&lt; array3d &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Coordinate/IERS/<a class="el" href="IAUXYSPrecomputed_8hpp_source.html">IAUXYSPrecomputed.hpp</a></li>
 <li>src/AstCore/Coordinate/IERS/<a class="el" href="IAUXYSPrecomputed_8cpp.html">IAUXYSPrecomputed.cpp</a></li>
-<li>src/AstCore/RunTime/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
+<li>src/AstCore/Data/Context/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

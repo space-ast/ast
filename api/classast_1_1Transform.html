@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::Transform类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::Transform类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,9 +106,6 @@ $(function(){initNavTree('classast_1_1Transform.html',''); initResizable(true); 
 </div><!--header-->
 <div class="contents">
 
-<p>变换类  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="Transform_8hpp_source.html">Transform.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::Transform 继承关系图:</div>
@@ -126,54 +123,39 @@ $(function(){initNavTree('classast_1_1Transform.html',''); initResizable(true); 
 Public 成员函数</h2></td></tr>
 <tr class="memitem:ac3d7d6330d800e82673d0eeb5db2a1fc" id="r_ac3d7d6330d800e82673d0eeb5db2a1fc"><td class="memItemLeft" align="right" valign="top"><a id="ac3d7d6330d800e82673d0eeb5db2a1fc" name="ac3d7d6330d800e82673d0eeb5db2a1fc"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Transform</b> ()=default</td></tr>
-<tr class="memdesc:ac3d7d6330d800e82673d0eeb5db2a1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">变换默认构造函数 <br /></td></tr>
 <tr class="separator:ac3d7d6330d800e82673d0eeb5db2a1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f752eca7fa58a1ea901488e708e9c5c" id="r_a3f752eca7fa58a1ea901488e708e9c5c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f752eca7fa58a1ea901488e708e9c5c">getRotation</a> () const</td></tr>
-<tr class="memdesc:a3f752eca7fa58a1ea901488e708e9c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取旋转  <br /></td></tr>
 <tr class="separator:a3f752eca7fa58a1ea901488e708e9c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfdc784c153e3da46da7216b4f5310b7" id="r_adfdc784c153e3da46da7216b4f5310b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfdc784c153e3da46da7216b4f5310b7">setRotation</a> (const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
-<tr class="memdesc:adfdc784c153e3da46da7216b4f5310b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置旋转  <br /></td></tr>
 <tr class="separator:adfdc784c153e3da46da7216b4f5310b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9d9a42377f8d7c02088e8ba1e025f24" id="r_ae9d9a42377f8d7c02088e8ba1e025f24"><td class="memItemLeft" align="right" valign="top">const Vector3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9d9a42377f8d7c02088e8ba1e025f24">getTranslation</a> () const</td></tr>
-<tr class="memdesc:ae9d9a42377f8d7c02088e8ba1e025f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取平移  <br /></td></tr>
 <tr class="separator:ae9d9a42377f8d7c02088e8ba1e025f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d8c5f5d309b3814955ef1a3b788af25" id="r_a0d8c5f5d309b3814955ef1a3b788af25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d8c5f5d309b3814955ef1a3b788af25">setTranslation</a> (const Vector3d &amp;translation)</td></tr>
-<tr class="memdesc:a0d8c5f5d309b3814955ef1a3b788af25"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置平移  <br /></td></tr>
 <tr class="separator:a0d8c5f5d309b3814955ef1a3b788af25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a695ff91abefe5e88a73f383da7c2b6bf" id="r_a695ff91abefe5e88a73f383da7c2b6bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a695ff91abefe5e88a73f383da7c2b6bf">compose</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next)</td></tr>
-<tr class="memdesc:a695ff91abefe5e88a73f383da7c2b6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
 <tr class="separator:a695ff91abefe5e88a73f383da7c2b6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a3f18d9ba1ff84b23b9950decdd08f2" id="r_a4a3f18d9ba1ff84b23b9950decdd08f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a3f18d9ba1ff84b23b9950decdd08f2">composed</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next) const</td></tr>
-<tr class="memdesc:a4a3f18d9ba1ff84b23b9950decdd08f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
 <tr class="separator:a4a3f18d9ba1ff84b23b9950decdd08f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8565a8bbd83c9da21508085829caa500" id="r_a8565a8bbd83c9da21508085829caa500"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8565a8bbd83c9da21508085829caa500">operator*</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next) const</td></tr>
-<tr class="memdesc:a8565a8bbd83c9da21508085829caa500"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
 <tr class="separator:a8565a8bbd83c9da21508085829caa500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e052a9312eff24b0e6f78eac5ba6580" id="r_a5e052a9312eff24b0e6f78eac5ba6580"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e052a9312eff24b0e6f78eac5ba6580">operator*=</a> (const <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;next)</td></tr>
-<tr class="memdesc:a5e052a9312eff24b0e6f78eac5ba6580"><td class="mdescLeft">&#160;</td><td class="mdescRight">组合下一个变换  <br /></td></tr>
 <tr class="separator:a5e052a9312eff24b0e6f78eac5ba6580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa03474e06d04dc2a3fa29133291495da" id="r_aa03474e06d04dc2a3fa29133291495da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa03474e06d04dc2a3fa29133291495da">getInverse</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;inversed) const</td></tr>
-<tr class="memdesc:aa03474e06d04dc2a3fa29133291495da"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取逆变换  <br /></td></tr>
 <tr class="separator:aa03474e06d04dc2a3fa29133291495da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c6abf5fbcc3cecb83c68c76be5b53c3" id="r_a1c6abf5fbcc3cecb83c68c76be5b53c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Rotation.html">Rotation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c6abf5fbcc3cecb83c68c76be5b53c3">inverse</a> () const</td></tr>
-<tr class="memdesc:a1c6abf5fbcc3cecb83c68c76be5b53c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取逆变换  <br /></td></tr>
 <tr class="separator:a1c6abf5fbcc3cecb83c68c76be5b53c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3471567e000ca0608bd4db29f82478f8" id="r_a3471567e000ca0608bd4db29f82478f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3471567e000ca0608bd4db29f82478f8">transformPosition</a> (const Vector3d &amp;position, Vector3d &amp;positionOut) const</td></tr>
-<tr class="memdesc:a3471567e000ca0608bd4db29f82478f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">变换位置  <br /></td></tr>
 <tr class="separator:a3471567e000ca0608bd4db29f82478f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd337e12691586e6ebf73c8a78bd183d" id="r_acd337e12691586e6ebf73c8a78bd183d"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd337e12691586e6ebf73c8a78bd183d">transformPosition</a> (const Vector3d &amp;position) const</td></tr>
-<tr class="memdesc:acd337e12691586e6ebf73c8a78bd183d"><td class="mdescLeft">&#160;</td><td class="mdescRight">变换位置  <br /></td></tr>
 <tr class="separator:acd337e12691586e6ebf73c8a78bd183d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:aa073642b1d18774e14a953f1e2e5f09a" id="r_aa073642b1d18774e14a953f1e2e5f09a"><td class="memItemLeft" align="right" valign="top"><a id="aa073642b1d18774e14a953f1e2e5f09a" name="aa073642b1d18774e14a953f1e2e5f09a"></a>
 Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>translation_</b></td></tr>
-<tr class="memdesc:aa073642b1d18774e14a953f1e2e5f09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">平移 <br /></td></tr>
 <tr class="separator:aa073642b1d18774e14a953f1e2e5f09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35a535f2e5b33bc4e5d2a1959e9cac60" id="r_a35a535f2e5b33bc4e5d2a1959e9cac60"><td class="memItemLeft" align="right" valign="top"><a id="a35a535f2e5b33bc4e5d2a1959e9cac60" name="a35a535f2e5b33bc4e5d2a1959e9cac60"></a>
 <a class="el" href="classast_1_1Rotation.html">Rotation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
-<tr class="memdesc:a35a535f2e5b33bc4e5d2a1959e9cac60"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋转 <br /></td></tr>
 <tr class="separator:a35a535f2e5b33bc4e5d2a1959e9cac60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

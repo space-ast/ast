@@ -53,7 +53,7 @@ var searchData=
   ['vectorfunc_2ehpp_50',['VectorFunc.hpp',['../VectorFunc_8hpp.html',1,'']]],
   ['vectorn_51',['VectorN',['../classast_1_1VectorN.html',1,'ast']]],
   ['vectorn_3c_20_5fscalar_2c_203_20_3e_52',['VectorN&lt; _Scalar, 3 &gt;',['../classast_1_1VectorN_3_01__Scalar_00_013_01_4.html',1,'ast']]],
-  ['vectorx_53',['VectorX',['../classast_1_1VectorX.html',1,'ast::VectorX&lt; _Scalar &gt;'],['../classast_1_1VectorX.html#a11466cfe4b27489a3dd231d8dbb344bd',1,'ast::VectorX::VectorX()']]],
+  ['vectorx_53',['VectorX',['../classast_1_1VectorX.html',1,'ast::VectorX&lt; _Scalar &gt;'],['../group__Array.html#ga11466cfe4b27489a3dd231d8dbb344bd',1,'ast::VectorX::VectorX()']]],
   ['vel_5f_54',['vel_',['../classast_1_1CartState.html#a5c6f073b9891a22a668a232a7168de81',1,'ast::CartState']]],
   ['velocity_5f_55',['velocity_',['../classast_1_1BlockMotion.html#abcb7c9f57ac034d2c033b73975a7608c',1,'ast::BlockMotion']]],
   ['velocityderivative_5f_56',['velocityDerivative_',['../classast_1_1BlockGravity.html#a88776bd9c4b6b9addcddd806ee639d03',1,'ast::BlockGravity::velocityDerivative_'],['../classast_1_1BlockThirdBody.html#a1281fee4e7baabe54cdb5093f4f41a4e',1,'ast::BlockThirdBody::velocityDerivative_']]],

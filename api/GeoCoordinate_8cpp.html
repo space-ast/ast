@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/Geometry/Surface/Coordinate/GeoCoordinate.cpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Geometry/Surface/Coordinate/GeoCoordinate.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,9 +104,6 @@ $(function(){initNavTree('GeoCoordinate_8cpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">GeoCoordinate.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>~  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="GeoCoordinate_8hpp_source.html">GeoCoordinate.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="GeocentricPoint_8hpp_source.html">GeocentricPoint.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="GeodeticPoint_8hpp_source.html">GeodeticPoint.hpp</a>&quot;</code><br />
@@ -120,16 +117,12 @@ $(function(){initNavTree('GeoCoordinate_8cpp.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
 <tr class="memitem:a67f30cea55bfebe12f59a82fcaeb1f1a" id="r_a67f30cea55bfebe12f59a82fcaeb1f1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a67f30cea55bfebe12f59a82fcaeb1f1a">ast::aSurfaceCentricToDetic</a> (const <a class="el" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a> &amp;centric, double flatFact, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic)</td></tr>
-<tr class="memdesc:a67f30cea55bfebe12f59a82fcaeb1f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将天体表面的地心坐标转换为大地坐标  <br /></td></tr>
 <tr class="separator:a67f30cea55bfebe12f59a82fcaeb1f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2716f3c71f6cd635ffaf3c4c76a2e667" id="r_a2716f3c71f6cd635ffaf3c4c76a2e667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2716f3c71f6cd635ffaf3c4c76a2e667">ast::aSurfaceDeticToCentric</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic, double flatFact, <a class="el" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a> &amp;centric)</td></tr>
-<tr class="memdesc:a2716f3c71f6cd635ffaf3c4c76a2e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">将天体表面的大地坐标转换为地心坐标  <br /></td></tr>
 <tr class="separator:a2716f3c71f6cd635ffaf3c4c76a2e667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a643d79418b063ea2bd4b4d98f9801405" id="r_a643d79418b063ea2bd4b4d98f9801405"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a643d79418b063ea2bd4b4d98f9801405">ast::aSurfaceCentricToDeticLat</a> (double centricLat, double flatFact)</td></tr>
-<tr class="memdesc:a643d79418b063ea2bd4b4d98f9801405"><td class="mdescLeft">&#160;</td><td class="mdescRight">将天体表面的地心纬度转换为大地纬度  <br /></td></tr>
 <tr class="separator:a643d79418b063ea2bd4b4d98f9801405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d1e3390c19752a25ce3db842cdea259" id="r_a9d1e3390c19752a25ce3db842cdea259"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9d1e3390c19752a25ce3db842cdea259">ast::aSurfaceDeticToCentricLat</a> (double deticLat, double flatFact)</td></tr>
-<tr class="memdesc:a9d1e3390c19752a25ce3db842cdea259"><td class="mdescLeft">&#160;</td><td class="mdescRight">将天体表面的大地纬度转换为地心纬度  <br /></td></tr>
 <tr class="separator:a9d1e3390c19752a25ce3db842cdea259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

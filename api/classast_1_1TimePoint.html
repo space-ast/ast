@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::TimePoint类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::TimePoint类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,12 +104,9 @@ $(function(){initNavTree('classast_1_1TimePoint.html',''); initResizable(true); 
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="#pro-static-methods">静态 Protected 成员函数</a> &#124;
 <a href="classast_1_1TimePoint-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::TimePoint类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::TimePoint类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Time.html">时间转换</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>绝对时间点  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TimePoint_8hpp_source.html">TimePoint.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -117,82 +114,62 @@ $(function(){initNavTree('classast_1_1TimePoint.html',''); initResizable(true); 
 Public 成员函数</h2></td></tr>
 <tr class="memitem:ad468c00dfa4e58aee3f9cc868a59eaf9" id="r_ad468c00dfa4e58aee3f9cc868a59eaf9"><td class="memItemLeft" align="right" valign="top"><a id="ad468c00dfa4e58aee3f9cc868a59eaf9" name="ad468c00dfa4e58aee3f9cc868a59eaf9"></a>
 int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>integerPart</b> () const</td></tr>
-<tr class="memdesc:ad468c00dfa4e58aee3f9cc868a59eaf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间点的整数秒数部分 <br /></td></tr>
 <tr class="separator:ad468c00dfa4e58aee3f9cc868a59eaf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a547976b94f47d9ae39984ff34afb00b5" id="r_a547976b94f47d9ae39984ff34afb00b5"><td class="memItemLeft" align="right" valign="top"><a id="a547976b94f47d9ae39984ff34afb00b5" name="a547976b94f47d9ae39984ff34afb00b5"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>fractionalPart</b> () const</td></tr>
-<tr class="memdesc:a547976b94f47d9ae39984ff34afb00b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间点的小数秒数部分 <br /></td></tr>
 <tr class="separator:a547976b94f47d9ae39984ff34afb00b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1f50ea1a90eef412e05126bdb3a7a10" id="r_ab1f50ea1a90eef412e05126bdb3a7a10"><td class="memItemLeft" align="right" valign="top"><a id="ab1f50ea1a90eef412e05126bdb3a7a10" name="ab1f50ea1a90eef412e05126bdb3a7a10"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>daysFromJ2000TT</b> () const</td></tr>
-<tr class="memdesc:ab1f50ea1a90eef412e05126bdb3a7a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算时间点与 J2000 epoch 的时间差（天） <br /></td></tr>
 <tr class="separator:ab1f50ea1a90eef412e05126bdb3a7a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a179367da0b2cd785b6e15474a1372090" id="r_a179367da0b2cd785b6e15474a1372090"><td class="memItemLeft" align="right" valign="top"><a id="a179367da0b2cd785b6e15474a1372090" name="a179367da0b2cd785b6e15474a1372090"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>julianCenturyFromJ2000TT</b> () const</td></tr>
-<tr class="memdesc:a179367da0b2cd785b6e15474a1372090"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算时间点与 J2000 epoch 的时间差（儒略世纪） <br /></td></tr>
 <tr class="separator:a179367da0b2cd785b6e15474a1372090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7abbdbfe62c230732a08458786bafcf5" id="r_a7abbdbfe62c230732a08458786bafcf5"><td class="memItemLeft" align="right" valign="top"><a id="a7abbdbfe62c230732a08458786bafcf5" name="a7abbdbfe62c230732a08458786bafcf5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toTT</b> (<a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT) const</td></tr>
-<tr class="memdesc:a7abbdbfe62c230732a08458786bafcf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（地球时TT） <br /></td></tr>
 <tr class="separator:a7abbdbfe62c230732a08458786bafcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa65f55e5d06111189af19c314470c62b" id="r_aa65f55e5d06111189af19c314470c62b"><td class="memItemLeft" align="right" valign="top"><a id="aa65f55e5d06111189af19c314470c62b" name="aa65f55e5d06111189af19c314470c62b"></a>
 <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toTT</b> () const</td></tr>
-<tr class="memdesc:aa65f55e5d06111189af19c314470c62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（地球时TT） <br /></td></tr>
 <tr class="separator:aa65f55e5d06111189af19c314470c62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c890ef0099264bcfc6f3f19f3282c71" id="r_a7c890ef0099264bcfc6f3f19f3282c71"><td class="memItemLeft" align="right" valign="top"><a id="a7c890ef0099264bcfc6f3f19f3282c71" name="a7c890ef0099264bcfc6f3f19f3282c71"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toTDB</b> (<a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTDB) const</td></tr>
-<tr class="memdesc:a7c890ef0099264bcfc6f3f19f3282c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（质心动力学时TDB） <br /></td></tr>
 <tr class="separator:a7c890ef0099264bcfc6f3f19f3282c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6639a4a7b440f88454d9ee60555163b" id="r_af6639a4a7b440f88454d9ee60555163b"><td class="memItemLeft" align="right" valign="top"><a id="af6639a4a7b440f88454d9ee60555163b" name="af6639a4a7b440f88454d9ee60555163b"></a>
 <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toTDB</b> () const</td></tr>
-<tr class="memdesc:af6639a4a7b440f88454d9ee60555163b"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（质心动力学时TDB） <br /></td></tr>
 <tr class="separator:af6639a4a7b440f88454d9ee60555163b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd12e985220adfd9743435f0ebd55f5b" id="r_afd12e985220adfd9743435f0ebd55f5b"><td class="memItemLeft" align="right" valign="top"><a id="afd12e985220adfd9743435f0ebd55f5b" name="afd12e985220adfd9743435f0ebd55f5b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toTAI</b> (<a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI) const</td></tr>
-<tr class="memdesc:afd12e985220adfd9743435f0ebd55f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（原子时 TAI） <br /></td></tr>
 <tr class="separator:afd12e985220adfd9743435f0ebd55f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f2bfb1304169854d3aa37cfc47e269" id="r_a14f2bfb1304169854d3aa37cfc47e269"><td class="memItemLeft" align="right" valign="top"><a id="a14f2bfb1304169854d3aa37cfc47e269" name="a14f2bfb1304169854d3aa37cfc47e269"></a>
 <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toTAI</b> () const</td></tr>
-<tr class="memdesc:a14f2bfb1304169854d3aa37cfc47e269"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点转换为儒略日数（原子时 TAI） <br /></td></tr>
 <tr class="separator:a14f2bfb1304169854d3aa37cfc47e269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a664c02ec8f67284d8b08333e818c6590" id="r_a664c02ec8f67284d8b08333e818c6590"><td class="memItemLeft" align="right" valign="top"><a id="a664c02ec8f67284d8b08333e818c6590" name="a664c02ec8f67284d8b08333e818c6590"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>durationFrom</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;other) const</td></tr>
-<tr class="memdesc:a664c02ec8f67284d8b08333e818c6590"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算与另一个时间点的时间差（秒数） <br /></td></tr>
 <tr class="separator:a664c02ec8f67284d8b08333e818c6590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ff4430264ef41942db80d0fd8fcdd2" id="r_af5ff4430264ef41942db80d0fd8fcdd2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5ff4430264ef41942db80d0fd8fcdd2">operator-</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;other) const</td></tr>
-<tr class="memdesc:af5ff4430264ef41942db80d0fd8fcdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间点减法运算符  <br /></td></tr>
 <tr class="separator:af5ff4430264ef41942db80d0fd8fcdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cea9ade35ef061d16beeab1e0b48708" id="r_a6cea9ade35ef061d16beeab1e0b48708"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cea9ade35ef061d16beeab1e0b48708">operator+</a> (double second) const</td></tr>
-<tr class="memdesc:a6cea9ade35ef061d16beeab1e0b48708"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间点加法运算符  <br /></td></tr>
 <tr class="separator:a6cea9ade35ef061d16beeab1e0b48708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcd52a7e2f0e8c0627ccf3918d2c2011" id="r_afcd52a7e2f0e8c0627ccf3918d2c2011"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcd52a7e2f0e8c0627ccf3918d2c2011">toString</a> (int precision=kTimePointDefaultFormatPrecision) const</td></tr>
-<tr class="memdesc:afcd52a7e2f0e8c0627ccf3918d2c2011"><td class="mdescLeft">&#160;</td><td class="mdescRight">将时间点格式化为字符串  <br /></td></tr>
 <tr class="separator:afcd52a7e2f0e8c0627ccf3918d2c2011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a3d5d3826fc89e78854790009b2c4c7a6" id="r_a3d5d3826fc89e78854790009b2c4c7a6"><td class="memItemLeft" align="right" valign="top"><a id="a3d5d3826fc89e78854790009b2c4c7a6" name="a3d5d3826fc89e78854790009b2c4c7a6"></a>
 static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromUTC</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
-<tr class="memdesc:a3d5d3826fc89e78854790009b2c4c7a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTC日期时间创建时间点 <br /></td></tr>
 <tr class="separator:a3d5d3826fc89e78854790009b2c4c7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2baecf29aa3f6fe57d515b3552770b01" id="r_a2baecf29aa3f6fe57d515b3552770b01"><td class="memItemLeft" align="right" valign="top"><a id="a2baecf29aa3f6fe57d515b3552770b01" name="a2baecf29aa3f6fe57d515b3552770b01"></a>
 static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromUTC</b> (int year, int month, int day, int hour, int minute, double second)</td></tr>
-<tr class="memdesc:a2baecf29aa3f6fe57d515b3552770b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTC日期时间创建时间点 <br /></td></tr>
 <tr class="separator:a2baecf29aa3f6fe57d515b3552770b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2926049bb36211a847703b83a1c83097" id="r_a2926049bb36211a847703b83a1c83097"><td class="memItemLeft" align="right" valign="top"><a id="a2926049bb36211a847703b83a1c83097" name="a2926049bb36211a847703b83a1c83097"></a>
 static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromTAI</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI)</td></tr>
-<tr class="memdesc:a2926049bb36211a847703b83a1c83097"><td class="mdescLeft">&#160;</td><td class="mdescRight">从原子时TAI创建时间点 <br /></td></tr>
 <tr class="separator:a2926049bb36211a847703b83a1c83097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab168ce08dc85ef9f03a4020a31474aaa" id="r_ab168ce08dc85ef9f03a4020a31474aaa"><td class="memItemLeft" align="right" valign="top"><a id="ab168ce08dc85ef9f03a4020a31474aaa" name="ab168ce08dc85ef9f03a4020a31474aaa"></a>
 static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromTT</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
-<tr class="memdesc:ab168ce08dc85ef9f03a4020a31474aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">从地球时TT创建时间点 <br /></td></tr>
 <tr class="separator:ab168ce08dc85ef9f03a4020a31474aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d5cd99da80bdc75c3e4f448ebad3272" id="r_a3d5cd99da80bdc75c3e4f448ebad3272"><td class="memItemLeft" align="right" valign="top"><a id="a3d5cd99da80bdc75c3e4f448ebad3272" name="a3d5cd99da80bdc75c3e4f448ebad3272"></a>
 static <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>J2000TT</b> ()</td></tr>
-<tr class="memdesc:a3d5cd99da80bdc75c3e4f448ebad3272"><td class="mdescLeft">&#160;</td><td class="mdescRight">J2000.0 TT 时间点 <br /></td></tr>
 <tr class="separator:a3d5cd99da80bdc75c3e4f448ebad3272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dcd02a3e494b09b76e266c85d70c44b" id="r_a7dcd02a3e494b09b76e266c85d70c44b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dcd02a3e494b09b76e266c85d70c44b">Parse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:a7dcd02a3e494b09b76e266c85d70c44b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从字符串解析时间点  <br /></td></tr>
 <tr class="separator:a7dcd02a3e494b09b76e266c85d70c44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>

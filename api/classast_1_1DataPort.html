@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::DataPort类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::DataPort类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -108,9 +108,6 @@ $(function(){initNavTree('classast_1_1DataPort.html',''); initResizable(true); }
 </div><!--header-->
 <div class="contents">
 
-<p>数据端口  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="DataPort_8hpp_source.html">DataPort.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -132,42 +129,30 @@ Public 成员函数</h2></td></tr>
 AST_CORE_API err_t&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> (<a class="el" href="classast_1_1DataPort.html">DataPort</a> *dst)</td></tr>
 <tr class="separator:abb92125d6d3e3548ef810861db3515d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad94a62475895a2478528afb540bcf0de" id="r_ad94a62475895a2478528afb540bcf0de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94a62475895a2478528afb540bcf0de">setWidth</a> (int width)</td></tr>
-<tr class="memdesc:ad94a62475895a2478528afb540bcf0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据端口的宽度  <br /></td></tr>
 <tr class="separator:ad94a62475895a2478528afb540bcf0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a718dda268078c96209d3049b3ecee" id="r_a25a718dda268078c96209d3049b3ecee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25a718dda268078c96209d3049b3ecee">getWidth</a> () const</td></tr>
-<tr class="memdesc:a25a718dda268078c96209d3049b3ecee"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的宽度  <br /></td></tr>
 <tr class="separator:a25a718dda268078c96209d3049b3ecee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f748faa6b42696ba9926c3ec1e54bf" id="r_a60f748faa6b42696ba9926c3ec1e54bf"><td class="memItemLeft" align="right" valign="top">EValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60f748faa6b42696ba9926c3ec1e54bf">getDataType</a> () const</td></tr>
-<tr class="memdesc:a60f748faa6b42696ba9926c3ec1e54bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的数据类型  <br /></td></tr>
 <tr class="separator:a60f748faa6b42696ba9926c3ec1e54bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02626ecb7dbab28e52c9d23364f05ebd" id="r_a02626ecb7dbab28e52c9d23364f05ebd"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02626ecb7dbab28e52c9d23364f05ebd">getSignalDouble</a> () const</td></tr>
-<tr class="memdesc:a02626ecb7dbab28e52c9d23364f05ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的实数值指针  <br /></td></tr>
 <tr class="separator:a02626ecb7dbab28e52c9d23364f05ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4deed84c4db6a3188a76ee5763c5be3f" id="r_a4deed84c4db6a3188a76ee5763c5be3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4deed84c4db6a3188a76ee5763c5be3f">setSignalDouble</a> (double *signal)</td></tr>
-<tr class="memdesc:a4deed84c4db6a3188a76ee5763c5be3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据端口的实数值指针  <br /></td></tr>
 <tr class="separator:a4deed84c4db6a3188a76ee5763c5be3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1cf944a6460d654524774aedb38ac83" id="r_ab1cf944a6460d654524774aedb38ac83"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1cf944a6460d654524774aedb38ac83">getSignalInt</a> () const</td></tr>
-<tr class="memdesc:ab1cf944a6460d654524774aedb38ac83"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的整数值指针  <br /></td></tr>
 <tr class="separator:ab1cf944a6460d654524774aedb38ac83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a673f1769c576d066110ad5f5994d0460" id="r_a673f1769c576d066110ad5f5994d0460"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a673f1769c576d066110ad5f5994d0460">setSignalInt</a> (int *signal)</td></tr>
-<tr class="memdesc:a673f1769c576d066110ad5f5994d0460"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据端口的整数值指针  <br /></td></tr>
 <tr class="separator:a673f1769c576d066110ad5f5994d0460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e6a32a02d5b6716d4e339312cd514c" id="r_a22e6a32a02d5b6716d4e339312cd514c"><td class="memItemLeft" align="right" valign="top">Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22e6a32a02d5b6716d4e339312cd514c">getSignalVector3d</a> () const</td></tr>
-<tr class="memdesc:a22e6a32a02d5b6716d4e339312cd514c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的向量3值指针  <br /></td></tr>
 <tr class="separator:a22e6a32a02d5b6716d4e339312cd514c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c048c39ce01d2e191df1b133e55766c" id="r_a4c048c39ce01d2e191df1b133e55766c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c048c39ce01d2e191df1b133e55766c">setSignalVector3d</a> (Vector3d *signal)</td></tr>
-<tr class="memdesc:a4c048c39ce01d2e191df1b133e55766c"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据端口的向量3值指针  <br /></td></tr>
 <tr class="separator:a4c048c39ce01d2e191df1b133e55766c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7dcaefd249328f9a042fb4f7a612668" id="r_af7dcaefd249328f9a042fb4f7a612668"><td class="memTemplParams" colspan="2">template&lt;typename T  = void&gt; </td></tr>
 <tr class="memitem:af7dcaefd249328f9a042fb4f7a612668"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af7dcaefd249328f9a042fb4f7a612668">getSignal</a> () const</td></tr>
-<tr class="memdesc:af7dcaefd249328f9a042fb4f7a612668"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的任意类型值指针  <br /></td></tr>
 <tr class="separator:af7dcaefd249328f9a042fb4f7a612668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e323e32e7dc572bae45525f63f20c21" id="r_a7e323e32e7dc572bae45525f63f20c21"><td class="memTemplParams" colspan="2">template&lt;typename T  = void&gt; </td></tr>
 <tr class="memitem:a7e323e32e7dc572bae45525f63f20c21"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7e323e32e7dc572bae45525f63f20c21">setSignal</a> (T *signal)</td></tr>
-<tr class="memdesc:a7e323e32e7dc572bae45525f63f20c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据端口的信号指针(指向数据指针的指针)  <br /></td></tr>
 <tr class="separator:a7e323e32e7dc572bae45525f63f20c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11886a60b2cbec2699179fa0d088e65b" id="r_a11886a60b2cbec2699179fa0d088e65b"><td class="memItemLeft" align="right" valign="top">signal_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11886a60b2cbec2699179fa0d088e65b">getSignalPtr</a> () const</td></tr>
-<tr class="memdesc:a11886a60b2cbec2699179fa0d088e65b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据端口的信号指针(指向数据指针的指针)  <br /></td></tr>
 <tr class="separator:a11886a60b2cbec2699179fa0d088e65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -180,19 +165,15 @@ static AST_CORE_API err_t&#160;</td><td class="memItemRight" valign="bottom"><b>
 Public 属性</h2></td></tr>
 <tr class="memitem:a1aa3acb06b2a0d8a659013387598b604" id="r_a1aa3acb06b2a0d8a659013387598b604"><td class="memItemLeft" align="right" valign="top"><a id="a1aa3acb06b2a0d8a659013387598b604" name="a1aa3acb06b2a0d8a659013387598b604"></a>
 <a class="el" href="classast_1_1Identifier.html">Identifier</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
-<tr class="memdesc:a1aa3acb06b2a0d8a659013387598b604"><td class="mdescLeft">&#160;</td><td class="mdescRight">端口名称 <br /></td></tr>
 <tr class="separator:a1aa3acb06b2a0d8a659013387598b604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ed5b008306ae3eadadb82e22de2e2cb" id="r_a1ed5b008306ae3eadadb82e22de2e2cb"><td class="memItemLeft" align="right" valign="top"><a id="a1ed5b008306ae3eadadb82e22de2e2cb" name="a1ed5b008306ae3eadadb82e22de2e2cb"></a>
 signal_t *&#160;</td><td class="memItemRight" valign="bottom"><b>signalPtr_</b></td></tr>
-<tr class="memdesc:a1ed5b008306ae3eadadb82e22de2e2cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">信号指针(指向数据指针的指针) <br /></td></tr>
 <tr class="separator:a1ed5b008306ae3eadadb82e22de2e2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7af44933dd2d189fcd825047f605626a" id="r_a7af44933dd2d189fcd825047f605626a"><td class="memItemLeft" align="right" valign="top"><a id="a7af44933dd2d189fcd825047f605626a" name="a7af44933dd2d189fcd825047f605626a"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>width_</b></td></tr>
-<tr class="memdesc:a7af44933dd2d189fcd825047f605626a"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据宽度 <br /></td></tr>
 <tr class="separator:a7af44933dd2d189fcd825047f605626a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9232e19783152cab0e3b285da07ac7c" id="r_ab9232e19783152cab0e3b285da07ac7c"><td class="memItemLeft" align="right" valign="top"><a id="ab9232e19783152cab0e3b285da07ac7c" name="ab9232e19783152cab0e3b285da07ac7c"></a>
 EValueType&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td></tr>
-<tr class="memdesc:ab9232e19783152cab0e3b285da07ac7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据类型 <br /></td></tr>
 <tr class="separator:ab9232e19783152cab0e3b285da07ac7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

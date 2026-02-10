@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::GravityField类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::GravityField类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -107,9 +107,6 @@ $(function(){initNavTree('classast_1_1GravityField.html',''); initResizable(true
 </div><!--header-->
 <div class="contents">
 
-<p>重力场系数  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="GravityField_8hpp_source.html">GravityField.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::GravityField 继承关系图:</div>
@@ -126,51 +123,36 @@ $(function(){initNavTree('classast_1_1GravityField.html',''); initResizable(true
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:ac4e1e09d723fbe4952d6fb72d5670600" id="r_ac4e1e09d723fbe4952d6fb72d5670600"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4e1e09d723fbe4952d6fb72d5670600">getModelName</a> () const</td></tr>
-<tr class="memdesc:ac4e1e09d723fbe4952d6fb72d5670600"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取重力场模型名称  <br /></td></tr>
 <tr class="separator:ac4e1e09d723fbe4952d6fb72d5670600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0a82dbd82e1c829db425f3c501c0df8" id="r_ab0a82dbd82e1c829db425f3c501c0df8"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a82dbd82e1c829db425f3c501c0df8">getCentralBodyName</a> () const</td></tr>
-<tr class="memdesc:ab0a82dbd82e1c829db425f3c501c0df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取中心天体名称  <br /></td></tr>
 <tr class="separator:ab0a82dbd82e1c829db425f3c501c0df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a1a474360079d34fb54902c8f131d48" id="r_a7a1a474360079d34fb54902c8f131d48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a1a474360079d34fb54902c8f131d48">getMaxDegree</a> () const</td></tr>
-<tr class="memdesc:a7a1a474360079d34fb54902c8f131d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大阶数  <br /></td></tr>
 <tr class="separator:a7a1a474360079d34fb54902c8f131d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53319fcbf904326ce558c7d2b394f154" id="r_a53319fcbf904326ce558c7d2b394f154"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53319fcbf904326ce558c7d2b394f154">getMaxOrder</a> () const</td></tr>
-<tr class="memdesc:a53319fcbf904326ce558c7d2b394f154"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大次数  <br /></td></tr>
 <tr class="separator:a53319fcbf904326ce558c7d2b394f154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5185b59b2ede5b0fafe25e310fd0e49" id="r_ad5185b59b2ede5b0fafe25e310fd0e49"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5185b59b2ede5b0fafe25e310fd0e49">getGM</a> () const</td></tr>
-<tr class="memdesc:ad5185b59b2ede5b0fafe25e310fd0e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取中心天体重力常数  <br /></td></tr>
 <tr class="separator:ad5185b59b2ede5b0fafe25e310fd0e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af16cf9b255063280671ec093d416c4af" id="r_af16cf9b255063280671ec093d416c4af"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af16cf9b255063280671ec093d416c4af">getRefDistance</a> () const</td></tr>
-<tr class="memdesc:af16cf9b255063280671ec093d416c4af"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取参考距离  <br /></td></tr>
 <tr class="separator:af16cf9b255063280671ec093d416c4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91c361e7ae41455bd164122e91e693ea" id="r_a91c361e7ae41455bd164122e91e693ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91c361e7ae41455bd164122e91e693ea">isNormalized</a> () const</td></tr>
-<tr class="memdesc:a91c361e7ae41455bd164122e91e693ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否归一化  <br /></td></tr>
 <tr class="separator:a91c361e7ae41455bd164122e91e693ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12782ab8c83938c09335a8becb08016b" id="r_a12782ab8c83938c09335a8becb08016b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12782ab8c83938c09335a8becb08016b">isIncludesPermTide</a> () const</td></tr>
-<tr class="memdesc:a12782ab8c83938c09335a8becb08016b"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否包含潮汐  <br /></td></tr>
 <tr class="separator:a12782ab8c83938c09335a8becb08016b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44be0250f4ec6169de2c4162143360da" id="r_a44be0250f4ec6169de2c4162143360da"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44be0250f4ec6169de2c4162143360da">getSnm</a> (int n, int m) const</td></tr>
-<tr class="memdesc:a44be0250f4ec6169de2c4162143360da"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取Snm系数  <br /></td></tr>
 <tr class="separator:a44be0250f4ec6169de2c4162143360da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a009bfd08da4f331e0b7b3e9868b53a57" id="r_a009bfd08da4f331e0b7b3e9868b53a57"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a009bfd08da4f331e0b7b3e9868b53a57">getCnm</a> (int n, int m) const</td></tr>
-<tr class="memdesc:a009bfd08da4f331e0b7b3e9868b53a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取Cnm系数  <br /></td></tr>
 <tr class="separator:a009bfd08da4f331e0b7b3e9868b53a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7374116dfa37fde41aaca962357d7f7" id="r_ad7374116dfa37fde41aaca962357d7f7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7374116dfa37fde41aaca962357d7f7">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> model)</td></tr>
-<tr class="memdesc:ad7374116dfa37fde41aaca962357d7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">从文件加载重力场  <br /></td></tr>
 <tr class="separator:ad7374116dfa37fde41aaca962357d7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af17fec0a0bb6df99fb140e7fb98e431a" id="r_af17fec0a0bb6df99fb140e7fb98e431a"><td class="memItemLeft" align="right" valign="top"><a id="af17fec0a0bb6df99fb140e7fb98e431a" name="af17fec0a0bb6df99fb140e7fb98e431a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
-<tr class="memdesc:af17fec0a0bb6df99fb140e7fb98e431a"><td class="mdescLeft">&#160;</td><td class="mdescRight">归一化重力场 <br /></td></tr>
 <tr class="separator:af17fec0a0bb6df99fb140e7fb98e431a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae34a200427b3ee8dac132bb57be27598" id="r_ae34a200427b3ee8dac132bb57be27598"><td class="memItemLeft" align="right" valign="top"><a id="ae34a200427b3ee8dac132bb57be27598" name="ae34a200427b3ee8dac132bb57be27598"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>unnormalize</b> ()</td></tr>
-<tr class="memdesc:ae34a200427b3ee8dac132bb57be27598"><td class="mdescLeft">&#160;</td><td class="mdescRight">反归一化重力场 <br /></td></tr>
 <tr class="separator:ae34a200427b3ee8dac132bb57be27598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67d66b1cc10f2a359eb98891f66485be" id="r_a67d66b1cc10f2a359eb98891f66485be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1GravityField.html">GravityField</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67d66b1cc10f2a359eb98891f66485be">normalized</a> () const</td></tr>
-<tr class="memdesc:a67d66b1cc10f2a359eb98891f66485be"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取归一化后的重力场  <br /></td></tr>
 <tr class="separator:a67d66b1cc10f2a359eb98891f66485be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace10e8e9a61a6fea914b1130db459297" id="r_ace10e8e9a61a6fea914b1130db459297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1GravityField.html">GravityField</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace10e8e9a61a6fea914b1130db459297">unnormalized</a> () const</td></tr>
-<tr class="memdesc:ace10e8e9a61a6fea914b1130db459297"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取反归一化后的重力场  <br /></td></tr>
 <tr class="separator:ace10e8e9a61a6fea914b1130db459297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1773ba7d77a65ccbaaed38ffb9939a2" id="r_ad1773ba7d77a65ccbaaed38ffb9939a2"><td class="memItemLeft" align="right" valign="top"><a id="ad1773ba7d77a65ccbaaed38ffb9939a2" name="ad1773ba7d77a65ccbaaed38ffb9939a2"></a>
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>snm</b> (int n, int m)</td></tr>
@@ -180,7 +162,6 @@ double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>cnm</b> (int 
 <tr class="separator:ad1687b6349db3d8ad289c0ddfe12e2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a856e2680a2fa6e4f3c6b3031fad0fb4d" id="r_a856e2680a2fa6e4f3c6b3031fad0fb4d"><td class="memItemLeft" align="right" valign="top"><a id="a856e2680a2fa6e4f3c6b3031fad0fb4d" name="a856e2680a2fa6e4f3c6b3031fad0fb4d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initCoeffMatrices</b> ()</td></tr>
-<tr class="memdesc:a856e2680a2fa6e4f3c6b3031fad0fb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化系数矩阵 <br /></td></tr>
 <tr class="separator:a856e2680a2fa6e4f3c6b3031fad0fb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1GravityFieldHead"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1GravityFieldHead')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1GravityFieldHead.html">ast::GravityFieldHead</a></td></tr>
 <tr class="memitem:a167257a0ccdfad0eeee63f5cb711e2bc inherit pub_methods_classast_1_1GravityFieldHead" id="r_a167257a0ccdfad0eeee63f5cb711e2bc"><td class="memItemLeft" align="right" valign="top">
@@ -190,22 +171,17 @@ err_t&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (<a class="
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:adcb69a38d17d1519ed9bac8ea089f4b1" id="r_adcb69a38d17d1519ed9bac8ea089f4b1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcb69a38d17d1519ed9bac8ea089f4b1">loadSTK</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
-<tr class="memdesc:adcb69a38d17d1519ed9bac8ea089f4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从STK文件加载重力场  <br /></td></tr>
 <tr class="separator:adcb69a38d17d1519ed9bac8ea089f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1802c39f0d1b8b62dbfc4ce5b14cc849" id="r_a1802c39f0d1b8b62dbfc4ce5b14cc849"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1802c39f0d1b8b62dbfc4ce5b14cc849">loadGMAT</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
-<tr class="memdesc:a1802c39f0d1b8b62dbfc4ce5b14cc849"><td class="mdescLeft">&#160;</td><td class="mdescRight">从GMAT文件加载重力场  <br /></td></tr>
 <tr class="separator:a1802c39f0d1b8b62dbfc4ce5b14cc849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:ae3ab861d3a10664e253e4d599dcc929d" id="r_ae3ab861d3a10664e253e4d599dcc929d"><td class="memItemLeft" align="right" valign="top"><a id="ae3ab861d3a10664e253e4d599dcc929d" name="ae3ab861d3a10664e253e4d599dcc929d"></a>
 <a class="el" href="classast_1_1LowerMatrix.html">LowerMatrixd</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sinCoeff_</b></td></tr>
-<tr class="memdesc:ae3ab861d3a10664e253e4d599dcc929d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snm系数 <br /></td></tr>
 <tr class="separator:ae3ab861d3a10664e253e4d599dcc929d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6bcff41b82e377e0ad2dbded11a04c7" id="r_ab6bcff41b82e377e0ad2dbded11a04c7"><td class="memItemLeft" align="right" valign="top"><a id="ab6bcff41b82e377e0ad2dbded11a04c7" name="ab6bcff41b82e377e0ad2dbded11a04c7"></a>
 <a class="el" href="classast_1_1LowerMatrix.html">LowerMatrixd</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cosCoeff_</b></td></tr>
-<tr class="memdesc:ab6bcff41b82e377e0ad2dbded11a04c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cnm系数 <br  />
- <br /></td></tr>
 <tr class="separator:ab6bcff41b82e377e0ad2dbded11a04c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -213,35 +189,27 @@ Protected 属性</h2></td></tr>
 <tr class="inherit_header pub_attribs_classast_1_1GravityFieldHead"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_classast_1_1GravityFieldHead')"><img src="closed.png" alt="-"/>&#160;Public 属性 继承自 <a class="el" href="classast_1_1GravityFieldHead.html">ast::GravityFieldHead</a></td></tr>
 <tr class="memitem:a2a654b07d4ae758edff4594243dd304c inherit pub_attribs_classast_1_1GravityFieldHead" id="r_a2a654b07d4ae758edff4594243dd304c"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>maxDegree_</b> {0}</td></tr>
-<tr class="memdesc:a2a654b07d4ae758edff4594243dd304c inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">最大阶数 <br /></td></tr>
 <tr class="separator:a2a654b07d4ae758edff4594243dd304c inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452732794f8e110b0f613aee64c6e9c2 inherit pub_attribs_classast_1_1GravityFieldHead" id="r_a452732794f8e110b0f613aee64c6e9c2"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>maxOrder_</b> {0}</td></tr>
-<tr class="memdesc:a452732794f8e110b0f613aee64c6e9c2 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">最大次数 <br /></td></tr>
 <tr class="separator:a452732794f8e110b0f613aee64c6e9c2 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e998f6f3f44aa07d9b360217ea72aea inherit pub_attribs_classast_1_1GravityFieldHead" id="r_a9e998f6f3f44aa07d9b360217ea72aea"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>centralBody_</b></td></tr>
-<tr class="memdesc:a9e998f6f3f44aa07d9b360217ea72aea inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心天体名称 <br /></td></tr>
 <tr class="separator:a9e998f6f3f44aa07d9b360217ea72aea inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5787cef48f07d8e20f80d020cefaa2a9 inherit pub_attribs_classast_1_1GravityFieldHead" id="r_a5787cef48f07d8e20f80d020cefaa2a9"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>model_</b></td></tr>
-<tr class="memdesc:a5787cef48f07d8e20f80d020cefaa2a9 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">重力场模型名称 <br /></td></tr>
 <tr class="separator:a5787cef48f07d8e20f80d020cefaa2a9 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e18921e719522987f6395c01a69b1c inherit pub_attribs_classast_1_1GravityFieldHead" id="r_a68e18921e719522987f6395c01a69b1c"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>gm_</b> {0}</td></tr>
-<tr class="memdesc:a68e18921e719522987f6395c01a69b1c inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心天体重力常数 <br /></td></tr>
 <tr class="separator:a68e18921e719522987f6395c01a69b1c inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb600bf03f4fd719313dae90cbdb3682 inherit pub_attribs_classast_1_1GravityFieldHead" id="r_abb600bf03f4fd719313dae90cbdb3682"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>refDistance_</b> {0}</td></tr>
-<tr class="memdesc:abb600bf03f4fd719313dae90cbdb3682 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">参考距离 <br /></td></tr>
 <tr class="separator:abb600bf03f4fd719313dae90cbdb3682 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf41169c929d25e079209590ebdf3f5a inherit pub_attribs_classast_1_1GravityFieldHead" id="r_abf41169c929d25e079209590ebdf3f5a"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>normalized_</b> {false}</td></tr>
-<tr class="memdesc:abf41169c929d25e079209590ebdf3f5a inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否归一化 <br /></td></tr>
 <tr class="separator:abf41169c929d25e079209590ebdf3f5a inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a5fcd8e72a0a468254753ee8baf4643 inherit pub_attribs_classast_1_1GravityFieldHead" id="r_a8a5fcd8e72a0a468254753ee8baf4643"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>includesPermTide_</b> {false}</td></tr>
-<tr class="memdesc:a8a5fcd8e72a0a468254753ee8baf4643 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否包含潮汐 <br /></td></tr>
 <tr class="separator:a8a5fcd8e72a0a468254753ee8baf4643 inherit pub_attribs_classast_1_1GravityFieldHead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::IODEIntegrator类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::IODEIntegrator类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -101,12 +101,9 @@ $(function(){initNavTree('classast_1_1IODEIntegrator.html',''); initResizable(tr
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1IODEIntegrator-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::IODEIntegrator类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">ast::IODEIntegrator类 参考<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__ODE.html">常微分方程求解</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>ODE 积分器接口类  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ODEIntegrator_8hpp_source.html">ODEIntegrator.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -133,21 +130,17 @@ $(function(){initNavTree('classast_1_1IODEIntegrator.html',''); initResizable(tr
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a56e8b3a7fc2d4866ad1ec583b2b66e2b" id="r_a56e8b3a7fc2d4866ad1ec583b2b66e2b"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e8b3a7fc2d4866ad1ec583b2b66e2b">initialize</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode)=0</td></tr>
-<tr class="memdesc:a56e8b3a7fc2d4866ad1ec583b2b66e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化积分器  <br /></td></tr>
 <tr class="separator:a56e8b3a7fc2d4866ad1ec583b2b66e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aded7799d4a0e6fa78517966512a7e033" id="r_aded7799d4a0e6fa78517966512a7e033"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded7799d4a0e6fa78517966512a7e033">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
-<tr class="memdesc:aded7799d4a0e6fa78517966512a7e033"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE  <br /></td></tr>
 <tr class="separator:aded7799d4a0e6fa78517966512a7e033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5af95bca8cc5a32cd68765be358748e" id="r_ab5af95bca8cc5a32cd68765be358748e"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5af95bca8cc5a32cd68765be358748e">integrateStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
-<tr class="memdesc:ab5af95bca8cc5a32cd68765be358748e"><td class="mdescLeft">&#160;</td><td class="mdescRight">积分ODE一步  <br /></td></tr>
 <tr class="separator:ab5af95bca8cc5a32cd68765be358748e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34f80d9d607ccf7cadb28f2350e70727" id="r_a34f80d9d607ccf7cadb28f2350e70727"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34f80d9d607ccf7cadb28f2350e70727">singleStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double t0, double step)=0</td></tr>
-<tr class="memdesc:a34f80d9d607ccf7cadb28f2350e70727"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行一步积分  <br /></td></tr>
 <tr class="separator:a34f80d9d607ccf7cadb28f2350e70727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>ODE 积分器接口类 </p>
-<p>~ </p>
+<p>积分器是ODE求解的基础类，提供了积分ODE的通用接口。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a56e8b3a7fc2d4866ad1ec583b2b66e2b" name="a56e8b3a7fc2d4866ad1ec583b2b66e2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56e8b3a7fc2d4866ad1ec583b2b66e2b">&#9670;&#160;</a></span>initialize()</h2>

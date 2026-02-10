@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::OrdinaryDifferentialEquation类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::OrdinaryDifferentialEquation类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -101,12 +101,9 @@ $(function(){initNavTree('classast_1_1OrdinaryDifferentialEquation.html',''); in
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1OrdinaryDifferentialEquation-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::OrdinaryDifferentialEquation类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">ast::OrdinaryDifferentialEquation类 参考<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__ODE.html">常微分方程求解</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>常微分方程基接口  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="OrdinaryDifferentialEquation_8hpp_source.html">OrdinaryDifferentialEquation.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -125,14 +122,11 @@ $(function(){initNavTree('classast_1_1OrdinaryDifferentialEquation.html',''); in
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a0963660459787299637e98c013fddc5a" id="r_a0963660459787299637e98c013fddc5a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0963660459787299637e98c013fddc5a">getDimension</a> () const =0</td></tr>
-<tr class="memdesc:a0963660459787299637e98c013fddc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取微分方程的维度。  <br /></td></tr>
 <tr class="separator:a0963660459787299637e98c013fddc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70300b427087263481c559de113a14df" id="r_a70300b427087263481c559de113a14df"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70300b427087263481c559de113a14df">evaluate</a> (const double *y, double *dy, const double t)=0</td></tr>
-<tr class="memdesc:a70300b427087263481c559de113a14df"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算常微分方程在给定时间点和状态下的导数。  <br /></td></tr>
 <tr class="separator:a70300b427087263481c559de113a14df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df4cbf8e5aff0ed90b59719085e4748" id="r_a4df4cbf8e5aff0ed90b59719085e4748"><td class="memItemLeft" align="right" valign="top"><a id="a4df4cbf8e5aff0ed90b59719085e4748" name="a4df4cbf8e5aff0ed90b59719085e4748"></a>
 A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> (const double t, const double *y, double *dy)</td></tr>
-<tr class="memdesc:a4df4cbf8e5aff0ed90b59719085e4748"><td class="mdescLeft">&#160;</td><td class="mdescRight">兼容性处理 <br /></td></tr>
 <tr class="separator:a4df4cbf8e5aff0ed90b59719085e4748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Quantity/QuantityParser.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Quantity/QuantityParser.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -110,23 +110,22 @@ $(function(){initNavTree('QuantityParser_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span>Quantity;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span>Unit;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_UTIL_API err_t <a class="code hl_function" href="namespaceast.html#a30b0ecfca2586371467bb900e31c86e2">aQuantityParse</a>(StringView str, <span class="keywordtype">double</span>&amp; value, Unit&amp; unit);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>Quantity;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>Unit;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>AST_UTIL_API err_t <a class="code hl_function" href="namespaceast.html#a30b0ecfca2586371467bb900e31c86e2">aQuantityParse</a>(StringView str, Quantity&amp; quantity);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_UTIL_API err_t <a class="code hl_function" href="group__Quantity.html#ga30b0ecfca2586371467bb900e31c86e2">aQuantityParse</a>(StringView str, <span class="keywordtype">double</span>&amp; value, Unit&amp; unit);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>AST_UTIL_API Quantity <a class="code hl_function" href="namespaceast.html#a30b0ecfca2586371467bb900e31c86e2">aQuantityParse</a>(StringView str);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_UTIL_API err_t <a class="code hl_function" href="group__Quantity.html#ga30b0ecfca2586371467bb900e31c86e2">aQuantityParse</a>(StringView str, Quantity&amp; quantity);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a30b0ecfca2586371467bb900e31c86e2"><div class="ttname"><a href="namespaceast.html#a30b0ecfca2586371467bb900e31c86e2">ast::aQuantityParse</a></div><div class="ttdeci">err_t aQuantityParse(StringView sv, double &amp;value, Unit &amp;unit)</div><div class="ttdoc">解析量字符串，将其解析为数值和单位。</div><div class="ttdef"><b>定义</b> QuantityParser.cpp:35</div></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_UTIL_API Quantity <a class="code hl_function" href="group__Quantity.html#ga30b0ecfca2586371467bb900e31c86e2">aQuantityParse</a>(StringView str);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Quantity_html_ga30b0ecfca2586371467bb900e31c86e2"><div class="ttname"><a href="group__Quantity.html#ga30b0ecfca2586371467bb900e31c86e2">ast::aQuantityParse</a></div><div class="ttdeci">err_t aQuantityParse(StringView sv, double &amp;value, Unit &amp;unit)</div><div class="ttdoc">解析量字符串，将其解析为数值和单位。</div><div class="ttdef"><b>定义</b> QuantityParser.cpp:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

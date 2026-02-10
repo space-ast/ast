@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Object/Reflect/PropertyStruct.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/RTTI/Reflect/PropertyStruct.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -110,45 +110,45 @@ $(function(){initNavTree('PropertyStruct_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classast_1_1PropertyStruct.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1PropertyStruct.html">PropertyStruct</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Property.html">Property</a></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">using </span>Property::Property;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">using </span>OutputType = <span class="keywordtype">void</span>*;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">using </span>InputType = void;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    A_ALWAYS_INLINE</div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1PropertyStruct.html#a6bbdd83ecd988ca4aa4967c757c3b691">   40</a></span>    err_t <a class="code hl_function" href="classast_1_1PropertyStruct.html#a6bbdd83ecd988ca4aa4967c757c3b691">setValue</a>(<span class="keywordtype">void</span>* container, <span class="keyword">const</span> InputType* value)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> setter_(container, value);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classast_1_1PropertyStruct.html">   31</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1PropertyStruct.html">PropertyStruct</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Property.html">Property</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">using </span>Property::Property;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">using </span>OutputType = <span class="keywordtype">void</span>*;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">using </span>InputType = void;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    A_ALWAYS_INLINE</div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1PropertyStruct.html#a6bbdd83ecd988ca4aa4967c757c3b691">   43</a></span>    err_t <a class="code hl_function" href="classast_1_1PropertyStruct.html#a6bbdd83ecd988ca4aa4967c757c3b691">setValue</a>(<span class="keywordtype">void</span>* container, <span class="keyword">const</span> InputType* value)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> setter_(container, value);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    A_ALWAYS_INLINE</div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1PropertyStruct.html#ae4a5f99e13d21a04b53ef1d2f748f64c">   49</a></span>    err_t <a class="code hl_function" href="classast_1_1PropertyStruct.html#ae4a5f99e13d21a04b53ef1d2f748f64c">getValue</a>(<span class="keywordtype">void</span>* container, OutputType* value)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">return</span> getter_(container, value);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    A_ALWAYS_INLINE</div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1PropertyStruct.html#ae4a5f99e13d21a04b53ef1d2f748f64c">   52</a></span>    err_t <a class="code hl_function" href="classast_1_1PropertyStruct.html#ae4a5f99e13d21a04b53ef1d2f748f64c">getValue</a>(<span class="keywordtype">void</span>* container, OutputType* value)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> getter_(container, value);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
-</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aProperty_8hpp_html"><div class="ttname"><a href="Property_8hpp.html">Property.hpp</a></div><div class="ttdoc">~</div></div>
-<div class="ttc" id="aclassast_1_1PropertyStruct_html"><div class="ttname"><a href="classast_1_1PropertyStruct.html">ast::PropertyStruct</a></div><div class="ttdef"><b>定义</b> PropertyStruct.hpp:29</div></div>
-<div class="ttc" id="aclassast_1_1PropertyStruct_html_a6bbdd83ecd988ca4aa4967c757c3b691"><div class="ttname"><a href="classast_1_1PropertyStruct.html#a6bbdd83ecd988ca4aa4967c757c3b691">ast::PropertyStruct::setValue</a></div><div class="ttdeci">A_ALWAYS_INLINE err_t setValue(void *container, const InputType *value)</div><div class="ttdoc">设置属性值（结构体类型）</div><div class="ttdef"><b>定义</b> PropertyStruct.hpp:40</div></div>
-<div class="ttc" id="aclassast_1_1PropertyStruct_html_ae4a5f99e13d21a04b53ef1d2f748f64c"><div class="ttname"><a href="classast_1_1PropertyStruct.html#ae4a5f99e13d21a04b53ef1d2f748f64c">ast::PropertyStruct::getValue</a></div><div class="ttdeci">A_ALWAYS_INLINE err_t getValue(void *container, OutputType *value)</div><div class="ttdoc">获取属性值（结构体类型）</div><div class="ttdef"><b>定义</b> PropertyStruct.hpp:49</div></div>
-<div class="ttc" id="aclassast_1_1Property_html"><div class="ttname"><a href="classast_1_1Property.html">ast::Property</a></div><div class="ttdoc">反射属性类</div><div class="ttdef"><b>定义</b> Property.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1PropertyStruct_html"><div class="ttname"><a href="classast_1_1PropertyStruct.html">ast::PropertyStruct</a></div><div class="ttdoc">结构体属性</div><div class="ttdef"><b>定义</b> PropertyStruct.hpp:32</div></div>
+<div class="ttc" id="aclassast_1_1PropertyStruct_html_a6bbdd83ecd988ca4aa4967c757c3b691"><div class="ttname"><a href="classast_1_1PropertyStruct.html#a6bbdd83ecd988ca4aa4967c757c3b691">ast::PropertyStruct::setValue</a></div><div class="ttdeci">A_ALWAYS_INLINE err_t setValue(void *container, const InputType *value)</div><div class="ttdoc">设置属性值（结构体类型）</div><div class="ttdef"><b>定义</b> PropertyStruct.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1PropertyStruct_html_ae4a5f99e13d21a04b53ef1d2f748f64c"><div class="ttname"><a href="classast_1_1PropertyStruct.html#ae4a5f99e13d21a04b53ef1d2f748f64c">ast::PropertyStruct::getValue</a></div><div class="ttdeci">A_ALWAYS_INLINE err_t getValue(void *container, OutputType *value)</div><div class="ttdoc">获取属性值（结构体类型）</div><div class="ttdef"><b>定义</b> PropertyStruct.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1Property_html"><div class="ttname"><a href="classast_1_1Property.html">ast::Property</a></div><div class="ttdoc">反射属性类</div><div class="ttdef"><b>定义</b> Property.hpp:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_c2b080477bd6dbfa03af1d90f62a9e3a.html">Object</a></li><li class="navelem"><a class="el" href="dir_27e16bbab55f80533977bd9497913b6b.html">Reflect</a></li><li class="navelem"><a class="el" href="PropertyStruct_8hpp.html">PropertyStruct.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_f086dbc8bbdaf6c80c8dc7e81d9f967a.html">RTTI</a></li><li class="navelem"><a class="el" href="dir_3d397e226980221f6307a2233a023a1e.html">Reflect</a></li><li class="navelem"><a class="el" href="PropertyStruct_8hpp.html">PropertyStruct.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

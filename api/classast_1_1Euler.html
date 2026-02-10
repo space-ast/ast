@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::Euler类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::Euler类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,12 +103,9 @@ $(function(){initNavTree('classast_1_1Euler.html',''); initResizable(true); });
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1Euler-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::Euler类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::Euler类 参考<div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__Attitude.html">姿态功能</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>欧拉角  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AstMath_2Attitude_2Euler_8hpp_source.html">Euler.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -140,16 +137,12 @@ Public 类型</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a6d12e3a801f0e87892e12e10ece252dc" id="r_a6d12e3a801f0e87892e12e10ece252dc"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d12e3a801f0e87892e12e10ece252dc">toMatrix</a> (int seq, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mtx) const</td></tr>
-<tr class="memdesc:a6d12e3a801f0e87892e12e10ece252dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换为旋转矩阵  <br /></td></tr>
 <tr class="separator:a6d12e3a801f0e87892e12e10ece252dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4930f5342410ab07bc05c042eea2ecd2" id="r_a4930f5342410ab07bc05c042eea2ecd2"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4930f5342410ab07bc05c042eea2ecd2">toQuat</a> (int seq, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat) const</td></tr>
-<tr class="memdesc:a4930f5342410ab07bc05c042eea2ecd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换为四元数  <br /></td></tr>
 <tr class="separator:a4930f5342410ab07bc05c042eea2ecd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a208bcb14bd7c3d33fff33ebc9158559c" id="r_a208bcb14bd7c3d33fff33ebc9158559c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a208bcb14bd7c3d33fff33ebc9158559c">fromMatrix</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mtx, int seq)</td></tr>
-<tr class="memdesc:a208bcb14bd7c3d33fff33ebc9158559c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从旋转矩阵转换  <br /></td></tr>
 <tr class="separator:a208bcb14bd7c3d33fff33ebc9158559c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a3421a72d3b9362ce84553274d7ec04" id="r_a5a3421a72d3b9362ce84553274d7ec04"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a3421a72d3b9362ce84553274d7ec04">fromQuat</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, int seq)</td></tr>
-<tr class="memdesc:a5a3421a72d3b9362ce84553274d7ec04"><td class="mdescLeft">&#160;</td><td class="mdescRight">从四元数转换  <br /></td></tr>
 <tr class="separator:a5a3421a72d3b9362ce84553274d7ec04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97ebc5b5f38899fed1ea74a4ad4a6123" id="r_a97ebc5b5f38899fed1ea74a4ad4a6123"><td class="memItemLeft" align="right" valign="top"><a id="a97ebc5b5f38899fed1ea74a4ad4a6123" name="a97ebc5b5f38899fed1ea74a4ad4a6123"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>angle1</b> () const</td></tr>
@@ -174,15 +167,12 @@ double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>angle3</b> ()
 Public 属性</h2></td></tr>
 <tr class="memitem:a90f20b7cd8b45ecc01be6a48e50f66f1" id="r_a90f20b7cd8b45ecc01be6a48e50f66f1"><td class="memItemLeft" align="right" valign="top"><a id="a90f20b7cd8b45ecc01be6a48e50f66f1" name="a90f20b7cd8b45ecc01be6a48e50f66f1"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>angle1_</b></td></tr>
-<tr class="memdesc:a90f20b7cd8b45ecc01be6a48e50f66f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">第一个角 <br /></td></tr>
 <tr class="separator:a90f20b7cd8b45ecc01be6a48e50f66f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a673cf8bc6430cae7e7efdf506577a72b" id="r_a673cf8bc6430cae7e7efdf506577a72b"><td class="memItemLeft" align="right" valign="top"><a id="a673cf8bc6430cae7e7efdf506577a72b" name="a673cf8bc6430cae7e7efdf506577a72b"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>angle2_</b></td></tr>
-<tr class="memdesc:a673cf8bc6430cae7e7efdf506577a72b"><td class="mdescLeft">&#160;</td><td class="mdescRight">第二个角 <br /></td></tr>
 <tr class="separator:a673cf8bc6430cae7e7efdf506577a72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a658edae13c7a2a4756e93fe038539006" id="r_a658edae13c7a2a4756e93fe038539006"><td class="memItemLeft" align="right" valign="top"><a id="a658edae13c7a2a4756e93fe038539006" name="a658edae13c7a2a4756e93fe038539006"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>angle3_</b></td></tr>
-<tr class="memdesc:a658edae13c7a2a4756e93fe038539006"><td class="mdescLeft">&#160;</td><td class="mdescRight">第三个角 <br /></td></tr>
 <tr class="separator:a658edae13c7a2a4756e93fe038539006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

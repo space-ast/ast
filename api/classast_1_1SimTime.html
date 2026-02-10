@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::SimTime类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::SimTime类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,35 +106,26 @@ $(function(){initNavTree('classast_1_1SimTime.html',''); initResizable(true); })
 </div><!--header-->
 <div class="contents">
 
-<p>仿真时间  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="SimTime_8hpp_source.html">SimTime.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:abfa4af669f0e09ce2b31c7ac9c7f728a" id="r_abfa4af669f0e09ce2b31c7ac9c7f728a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfa4af669f0e09ce2b31c7ac9c7f728a">timePoint</a> () const</td></tr>
-<tr class="memdesc:abfa4af669f0e09ce2b31c7ac9c7f728a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取仿真时间点  <br /></td></tr>
 <tr class="separator:abfa4af669f0e09ce2b31c7ac9c7f728a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e87cc497e9a3ecfa2ef3d142dc91f88" id="r_a5e87cc497e9a3ecfa2ef3d142dc91f88"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e87cc497e9a3ecfa2ef3d142dc91f88">elapsedTime</a> () const</td></tr>
-<tr class="memdesc:a5e87cc497e9a3ecfa2ef3d142dc91f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取已经过时间  <br /></td></tr>
 <tr class="separator:a5e87cc497e9a3ecfa2ef3d142dc91f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1606ab32bdba67f8c78d16906fb5fbe4" id="r_a1606ab32bdba67f8c78d16906fb5fbe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1606ab32bdba67f8c78d16906fb5fbe4">setTimePoint</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;<a class="el" href="#abfa4af669f0e09ce2b31c7ac9c7f728a">timePoint</a>)</td></tr>
-<tr class="memdesc:a1606ab32bdba67f8c78d16906fb5fbe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置仿真时间点  <br /></td></tr>
 <tr class="separator:a1606ab32bdba67f8c78d16906fb5fbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7222923444168dede33722b58b002d6" id="r_ae7222923444168dede33722b58b002d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7222923444168dede33722b58b002d6">setElapsedTime</a> (double <a class="el" href="#a5e87cc497e9a3ecfa2ef3d142dc91f88">elapsedTime</a>)</td></tr>
-<tr class="memdesc:ae7222923444168dede33722b58b002d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置已经过时间  <br /></td></tr>
 <tr class="separator:ae7222923444168dede33722b58b002d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a4789315b6db8c9cafeb5cf8abadd8081" id="r_a4789315b6db8c9cafeb5cf8abadd8081"><td class="memItemLeft" align="right" valign="top"><a id="a4789315b6db8c9cafeb5cf8abadd8081" name="a4789315b6db8c9cafeb5cf8abadd8081"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>elapsedTime_</b> {0.0}</td></tr>
-<tr class="memdesc:a4789315b6db8c9cafeb5cf8abadd8081"><td class="mdescLeft">&#160;</td><td class="mdescRight">已经过时间(相对于参考时间点) <br /></td></tr>
 <tr class="separator:a4789315b6db8c9cafeb5cf8abadd8081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59766153e616ae1fb3b61071c2d3a931" id="r_a59766153e616ae1fb3b61071c2d3a931"><td class="memItemLeft" align="right" valign="top"><a id="a59766153e616ae1fb3b61071c2d3a931" name="a59766153e616ae1fb3b61071c2d3a931"></a>
 <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>timePoint_</b> {}</td></tr>
-<tr class="memdesc:a59766153e616ae1fb3b61071c2d3a931"><td class="mdescLeft">&#160;</td><td class="mdescRight">仿真时间点 <br /></td></tr>
 <tr class="separator:a59766153e616ae1fb3b61071c2d3a931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

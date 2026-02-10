@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::UnitManager类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::UnitManager类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,44 +104,35 @@ $(function(){initNavTree('classast_1_1UnitManager.html',''); initResizable(true)
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1UnitManager-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::UnitManager类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::UnitManager类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__Quantity.html">单位和数量分析</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>单位管理器  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="UnitManager_8hpp_source.html">UnitManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a7cd2cb391b7c941333c3abf296a6d9f0" id="r_a7cd2cb391b7c941333c3abf296a6d9f0"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cd2cb391b7c941333c3abf296a6d9f0">addUnit</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
-<tr class="memdesc:a7cd2cb391b7c941333c3abf296a6d9f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加单位  <br /></td></tr>
 <tr class="separator:a7cd2cb391b7c941333c3abf296a6d9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bd8a97e370f6378367f50a169967d90" id="r_a9bd8a97e370f6378367f50a169967d90"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bd8a97e370f6378367f50a169967d90">addUnit</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
-<tr class="memdesc:a9bd8a97e370f6378367f50a169967d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加单位  <br /></td></tr>
 <tr class="separator:a9bd8a97e370f6378367f50a169967d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49f770ecfef3f24cbd41b08acaa6f9a" id="r_ac49f770ecfef3f24cbd41b08acaa6f9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac49f770ecfef3f24cbd41b08acaa6f9a">getUnit</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="memdesc:ac49f770ecfef3f24cbd41b08acaa6f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取单位  <br /></td></tr>
 <tr class="separator:ac49f770ecfef3f24cbd41b08acaa6f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a02093b13d56275cd4e79e695ff7bb22b" id="r_a02093b13d56275cd4e79e695ff7bb22b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1UnitManager.html">UnitManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02093b13d56275cd4e79e695ff7bb22b">Instance</a> ()</td></tr>
-<tr class="memdesc:a02093b13d56275cd4e79e695ff7bb22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取单位管理器默认实例  <br /></td></tr>
 <tr class="separator:a02093b13d56275cd4e79e695ff7bb22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:ae1f39dcd1cfe4464aac7422a4dde866b" id="r_ae1f39dcd1cfe4464aac7422a4dde866b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1f39dcd1cfe4464aac7422a4dde866b">_addUnit</a> (const std::string &amp;name, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
-<tr class="memdesc:ae1f39dcd1cfe4464aac7422a4dde866b"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加单位  <br /></td></tr>
 <tr class="separator:ae1f39dcd1cfe4464aac7422a4dde866b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:ad7b7dc07985e82bdb506f7955e392775" id="r_ad7b7dc07985e82bdb506f7955e392775"><td class="memItemLeft" align="right" valign="top"><a id="ad7b7dc07985e82bdb506f7955e392775" name="ad7b7dc07985e82bdb506f7955e392775"></a>
 std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Unit.html">Unit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>units_</b></td></tr>
-<tr class="memdesc:ad7b7dc07985e82bdb506f7955e392775"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位映射表 <br /></td></tr>
 <tr class="separator:ad7b7dc07985e82bdb506f7955e392775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

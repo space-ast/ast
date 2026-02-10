@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/Propagator/J4Analytical.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Propagator/J4Analytical.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -110,38 +110,37 @@ $(function(){initNavTree('J4Analytical_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span>ModOrbElem;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classast_1_1J4Analytical.html">   30</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1J4Analytical.html">J4Analytical</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1J2J4Analytical.html">J2J4Analytical</a></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1J4Analytical.html">J4Analytical</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&amp; modOrbElem, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; epoch, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2, <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1J4Analytical.html">J4Analytical</a>(<span class="keyword">const</span> Vector3d&amp; pos, <span class="keyword">const</span> Vector3d&amp; vel, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; epoch, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2,  <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// double j2_;</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// double j4_;</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// double re_;</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
-</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>ModOrbElem;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1J4Analytical.html">   36</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1J4Analytical.html">J4Analytical</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1J2J4Analytical.html">J2J4Analytical</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1J4Analytical.html">J4Analytical</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&amp; modOrbElem, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; epoch, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2, <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1J4Analytical.html">J4Analytical</a>(<span class="keyword">const</span> Vector3d&amp; pos, <span class="keyword">const</span> Vector3d&amp; vel, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; epoch, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2,  <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_CORE_API err_t <a class="code hl_function" href="namespaceast.html#ad26d8c95b3dbccfed67bdf3a56c3a9a6">aJ4AnalyticalProp</a>(<span class="keywordtype">double</span> duration, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2, <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re, Vector3d&amp; r, Vector3d&amp; v);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_CORE_API err_t <a class="code hl_function" href="namespaceast.html#ad26d8c95b3dbccfed67bdf3a56c3a9a6">aJ4AnalyticalProp</a>(<span class="keywordtype">double</span> duration, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2, <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re, <a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&amp; modOrbElem);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1J2J4Analytical_html"><div class="ttname"><a href="classast_1_1J2J4Analytical.html">ast::J2J4Analytical</a></div><div class="ttdoc">时间点</div><div class="ttdef"><b>定义</b> J2J4Analytical.hpp:38</div></div>
-<div class="ttc" id="aclassast_1_1J4Analytical_html"><div class="ttname"><a href="classast_1_1J4Analytical.html">ast::J4Analytical</a></div><div class="ttdef"><b>定义</b> J4Analytical.hpp:31</div></div>
-<div class="ttc" id="aclassast_1_1ModOrbElem_html"><div class="ttname"><a href="classast_1_1ModOrbElem.html">ast::ModOrbElem</a></div><div class="ttdoc">修正轨道根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:68</div></div>
-<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:98</div></div>
-<div class="ttc" id="anamespaceast_html_ad26d8c95b3dbccfed67bdf3a56c3a9a6"><div class="ttname"><a href="namespaceast.html#ad26d8c95b3dbccfed67bdf3a56c3a9a6">ast::aJ4AnalyticalProp</a></div><div class="ttdeci">err_t aJ4AnalyticalProp(double duration, double gm, double j2, double j4, double re, Vector3d &amp;r, Vector3d &amp;v)</div><div class="ttdoc">~</div><div class="ttdef"><b>定义</b> J4Analytical.cpp:88</div></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// double j2_;</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// double j4_;</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// double re_;</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_CORE_API err_t <a class="code hl_function" href="group__Propagator.html#gad26d8c95b3dbccfed67bdf3a56c3a9a6">aJ4AnalyticalProp</a>(<span class="keywordtype">double</span> duration, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2, <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re, Vector3d&amp; r, Vector3d&amp; v);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>AST_CORE_API err_t <a class="code hl_function" href="group__Propagator.html#gad26d8c95b3dbccfed67bdf3a56c3a9a6">aJ4AnalyticalProp</a>(<span class="keywordtype">double</span> duration, <span class="keywordtype">double</span> gm, <span class="keywordtype">double</span> j2, <span class="keywordtype">double</span> j4, <span class="keywordtype">double</span> re, <a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&amp; modOrbElem);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1J2J4Analytical_html"><div class="ttname"><a href="classast_1_1J2J4Analytical.html">ast::J2J4Analytical</a></div><div class="ttdoc">时间点</div><div class="ttdef"><b>定义</b> J2J4Analytical.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1J4Analytical_html"><div class="ttname"><a href="classast_1_1J4Analytical.html">ast::J4Analytical</a></div><div class="ttdef"><b>定义</b> J4Analytical.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1ModOrbElem_html"><div class="ttname"><a href="classast_1_1ModOrbElem.html">ast::ModOrbElem</a></div><div class="ttdoc">修正轨道根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:79</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:105</div></div>
+<div class="ttc" id="agroup__Propagator_html_gad26d8c95b3dbccfed67bdf3a56c3a9a6"><div class="ttname"><a href="group__Propagator.html#gad26d8c95b3dbccfed67bdf3a56c3a9a6">ast::aJ4AnalyticalProp</a></div><div class="ttdeci">err_t aJ4AnalyticalProp(double duration, double gm, double j2, double j4, double re, Vector3d &amp;r, Vector3d &amp;v)</div><div class="ttdoc">J4轨道预报</div><div class="ttdef"><b>定义</b> J4Analytical.cpp:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

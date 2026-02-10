@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::J2J4Analytical类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::J2J4Analytical类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,12 +103,9 @@ $(function(){initNavTree('classast_1_1J2J4Analytical.html',''); initResizable(tr
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1J2J4Analytical-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::J2J4Analytical类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::J2J4Analytical类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Propagator.html">轨道预报</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>时间点  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="J2J4Analytical_8hpp_source.html">J2J4Analytical.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -130,58 +127,44 @@ Public 成员函数</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>J2J4Analytical</b> (const <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;modOrbElem, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double gm)</td></tr>
 <tr class="separator:af260bad0e0138884de63493e6adf99ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2d54a5f8b1d1278e59f9045ff60d0cd" id="r_ab2d54a5f8b1d1278e59f9045ff60d0cd"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2d54a5f8b1d1278e59f9045ff60d0cd">prop</a> (double duration, Vector3d &amp;r, Vector3d &amp;v)</td></tr>
-<tr class="memdesc:ab2d54a5f8b1d1278e59f9045ff60d0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道预报函数  <br /></td></tr>
 <tr class="separator:ab2d54a5f8b1d1278e59f9045ff60d0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a547ada350d2c04d4e359f79f031783f9" id="r_a547ada350d2c04d4e359f79f031783f9"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a547ada350d2c04d4e359f79f031783f9">prop</a> (double duration, <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;modOrbElem)</td></tr>
-<tr class="memdesc:a547ada350d2c04d4e359f79f031783f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道预报函数  <br /></td></tr>
 <tr class="separator:a547ada350d2c04d4e359f79f031783f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dbb7c6e13c2c9fcaf76e193df6afa76" id="r_a6dbb7c6e13c2c9fcaf76e193df6afa76"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dbb7c6e13c2c9fcaf76e193df6afa76">prop</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, Vector3d &amp;r, Vector3d &amp;v)</td></tr>
-<tr class="memdesc:a6dbb7c6e13c2c9fcaf76e193df6afa76"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道预报函数  <br /></td></tr>
 <tr class="separator:a6dbb7c6e13c2c9fcaf76e193df6afa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e6ca532809e2ad00f10b7d16a1a2c9" id="r_a81e6ca532809e2ad00f10b7d16a1a2c9"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81e6ca532809e2ad00f10b7d16a1a2c9">prop</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;modOrbElem)</td></tr>
-<tr class="memdesc:a81e6ca532809e2ad00f10b7d16a1a2c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道预报函数  <br /></td></tr>
 <tr class="separator:a81e6ca532809e2ad00f10b7d16a1a2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a2f6ef9d3c240981fd32b96a7a3a9b3cb" id="r_a2f6ef9d3c240981fd32b96a7a3a9b3cb"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f6ef9d3c240981fd32b96a7a3a9b3cb">propNoNormalize</a> (double duration, <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;modOrbElem)</td></tr>
-<tr class="memdesc:a2f6ef9d3c240981fd32b96a7a3a9b3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道预报函数（不规范化角度）  <br /></td></tr>
 <tr class="separator:a2f6ef9d3c240981fd32b96a7a3a9b3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0fbd3170a83c2a6d4489151c059b41" id="r_a7b0fbd3170a83c2a6d4489151c059b41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b0fbd3170a83c2a6d4489151c059b41">setRaanDot</a> (double raanDot)</td></tr>
-<tr class="memdesc:a7b0fbd3170a83c2a6d4489151c059b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置升交点角速度  <br /></td></tr>
 <tr class="separator:a7b0fbd3170a83c2a6d4489151c059b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae912a66519280df7e3ec4ffb44a3943a" id="r_ae912a66519280df7e3ec4ffb44a3943a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae912a66519280df7e3ec4ffb44a3943a">setArgPeriDot</a> (double argPeriDot)</td></tr>
-<tr class="memdesc:ae912a66519280df7e3ec4ffb44a3943a"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置近心点角速度  <br /></td></tr>
 <tr class="separator:ae912a66519280df7e3ec4ffb44a3943a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc7b0f95b2d9ab3d93816342de4ef8f5" id="r_acc7b0f95b2d9ab3d93816342de4ef8f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc7b0f95b2d9ab3d93816342de4ef8f5">setMeanAnomalyDot</a> (double meanAnomalyDot)</td></tr>
-<tr class="memdesc:acc7b0f95b2d9ab3d93816342de4ef8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置平近点角速度  <br /></td></tr>
 <tr class="separator:acc7b0f95b2d9ab3d93816342de4ef8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:a4d0e24ab9e7f382724d1af6083d81e21" id="r_a4d0e24ab9e7f382724d1af6083d81e21"><td class="memItemLeft" align="right" valign="top"><a id="a4d0e24ab9e7f382724d1af6083d81e21" name="a4d0e24ab9e7f382724d1af6083d81e21"></a>
 <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>modOrbElem_</b></td></tr>
-<tr class="memdesc:a4d0e24ab9e7f382724d1af6083d81e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">改进轨道根数 <br /></td></tr>
 <tr class="separator:a4d0e24ab9e7f382724d1af6083d81e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9910ce3bb4991ceca4bbbf7d663b363e" id="r_a9910ce3bb4991ceca4bbbf7d663b363e"><td class="memItemLeft" align="right" valign="top"><a id="a9910ce3bb4991ceca4bbbf7d663b363e" name="a9910ce3bb4991ceca4bbbf7d663b363e"></a>
 <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>epoch_</b></td></tr>
-<tr class="memdesc:a9910ce3bb4991ceca4bbbf7d663b363e"><td class="mdescLeft">&#160;</td><td class="mdescRight">参考时间点 <br /></td></tr>
 <tr class="separator:a9910ce3bb4991ceca4bbbf7d663b363e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a608441a95b4ef286b9cdbcd0734b853a" id="r_a608441a95b4ef286b9cdbcd0734b853a"><td class="memItemLeft" align="right" valign="top"><a id="a608441a95b4ef286b9cdbcd0734b853a" name="a608441a95b4ef286b9cdbcd0734b853a"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>gm_</b></td></tr>
-<tr class="memdesc:a608441a95b4ef286b9cdbcd0734b853a"><td class="mdescLeft">&#160;</td><td class="mdescRight">引力常数 <br /></td></tr>
 <tr class="separator:a608441a95b4ef286b9cdbcd0734b853a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff2faf61ab24ec5ea7c262117f8a4b1c" id="r_aff2faf61ab24ec5ea7c262117f8a4b1c"><td class="memItemLeft" align="right" valign="top"><a id="aff2faf61ab24ec5ea7c262117f8a4b1c" name="aff2faf61ab24ec5ea7c262117f8a4b1c"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>raanDot_</b></td></tr>
-<tr class="memdesc:aff2faf61ab24ec5ea7c262117f8a4b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">升交点角速度 <br /></td></tr>
 <tr class="separator:aff2faf61ab24ec5ea7c262117f8a4b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c587f063307914d748ee1e26da79f3" id="r_a62c587f063307914d748ee1e26da79f3"><td class="memItemLeft" align="right" valign="top"><a id="a62c587f063307914d748ee1e26da79f3" name="a62c587f063307914d748ee1e26da79f3"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>argPeriDot_</b></td></tr>
-<tr class="memdesc:a62c587f063307914d748ee1e26da79f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">近心点角速度 <br /></td></tr>
 <tr class="separator:a62c587f063307914d748ee1e26da79f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d9d2fd015fc957a1a7da9eb72c0575d" id="r_a3d9d2fd015fc957a1a7da9eb72c0575d"><td class="memItemLeft" align="right" valign="top"><a id="a3d9d2fd015fc957a1a7da9eb72c0575d" name="a3d9d2fd015fc957a1a7da9eb72c0575d"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>meanAnomalyDot_</b></td></tr>
-<tr class="memdesc:a3d9d2fd015fc957a1a7da9eb72c0575d"><td class="mdescLeft">&#160;</td><td class="mdescRight">平近点角速度 <br /></td></tr>
 <tr class="separator:a3d9d2fd015fc957a1a7da9eb72c0575d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Parser/ParseFormat.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/ParseFormat/ParseFormat.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -105,9 +105,6 @@ $(function(){initNavTree('ParseFormat_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">ParseFormat.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>解析和格式化字符串  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
@@ -123,105 +120,82 @@ $(function(){initNavTree('ParseFormat_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:a4229f2926734ed3b5972fc121fcd0e1b" id="r_a4229f2926734ed3b5972fc121fcd0e1b"><td class="memItemLeft" align="right" valign="top"><a id="a4229f2926734ed3b5972fc121fcd0e1b" name="a4229f2926734ed3b5972fc121fcd0e1b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
+<tr class="memitem:ga4229f2926734ed3b5972fc121fcd0e1b" id="r_ga4229f2926734ed3b5972fc121fcd0e1b"><td class="memItemLeft" align="right" valign="top"><a id="ga4229f2926734ed3b5972fc121fcd0e1b" name="ga4229f2926734ed3b5972fc121fcd0e1b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
  }</td></tr>
-<tr class="separator:a4229f2926734ed3b5972fc121fcd0e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga4229f2926734ed3b5972fc121fcd0e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:abf3c2c64218370dfc40719d20c6fc654" id="r_abf3c2c64218370dfc40719d20c6fc654"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abf3c2c64218370dfc40719d20c6fc654">ast::aParseBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, bool &amp;value)</td></tr>
-<tr class="memdesc:abf3c2c64218370dfc40719d20c6fc654"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为布尔值  <br /></td></tr>
-<tr class="separator:abf3c2c64218370dfc40719d20c6fc654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af44a279042760faa6761c53920365cf8" id="r_af44a279042760faa6761c53920365cf8"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af44a279042760faa6761c53920365cf8">ast::aParseInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
-<tr class="memdesc:af44a279042760faa6761c53920365cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为整数  <br /></td></tr>
-<tr class="separator:af44a279042760faa6761c53920365cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b51bc61cf9af3a7f467fa2d49a9670" id="r_ae9b51bc61cf9af3a7f467fa2d49a9670"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae9b51bc61cf9af3a7f467fa2d49a9670">ast::_aParseInt_LibC_1</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
-<tr class="memdesc:ae9b51bc61cf9af3a7f467fa2d49a9670"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为整数（基于C标准库函数）  <br /></td></tr>
-<tr class="separator:ae9b51bc61cf9af3a7f467fa2d49a9670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8836137ee0bd7a40fd4cd425aa00fe86" id="r_a8836137ee0bd7a40fd4cd425aa00fe86"><td class="memItemLeft" align="right" valign="top"><a id="a8836137ee0bd7a40fd4cd425aa00fe86" name="a8836137ee0bd7a40fd4cd425aa00fe86"></a>
+<tr class="memitem:gabf3c2c64218370dfc40719d20c6fc654" id="r_gabf3c2c64218370dfc40719d20c6fc654"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gabf3c2c64218370dfc40719d20c6fc654">ast::aParseBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, bool &amp;value)</td></tr>
+<tr class="separator:gabf3c2c64218370dfc40719d20c6fc654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf44a279042760faa6761c53920365cf8" id="r_gaf44a279042760faa6761c53920365cf8"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gaf44a279042760faa6761c53920365cf8">ast::aParseInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
+<tr class="separator:gaf44a279042760faa6761c53920365cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9b51bc61cf9af3a7f467fa2d49a9670" id="r_gae9b51bc61cf9af3a7f467fa2d49a9670"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gae9b51bc61cf9af3a7f467fa2d49a9670">ast::_aParseInt_LibC_1</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
+<tr class="separator:gae9b51bc61cf9af3a7f467fa2d49a9670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8836137ee0bd7a40fd4cd425aa00fe86" id="r_ga8836137ee0bd7a40fd4cd425aa00fe86"><td class="memItemLeft" align="right" valign="top">
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aParseInt_LibC_2</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
-<tr class="separator:a8836137ee0bd7a40fd4cd425aa00fe86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae28c8c8f19b7caa5d13770497140e420" id="r_ae28c8c8f19b7caa5d13770497140e420"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae28c8c8f19b7caa5d13770497140e420">ast::_aParseInt_Simple</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
-<tr class="memdesc:ae28c8c8f19b7caa5d13770497140e420"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为整数（简单实现）  <br /></td></tr>
-<tr class="separator:ae28c8c8f19b7caa5d13770497140e420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee61ea763344f3f4320133dd07e94c90" id="r_aee61ea763344f3f4320133dd07e94c90"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aee61ea763344f3f4320133dd07e94c90">ast::_aParseInt_StringStream</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
-<tr class="memdesc:aee61ea763344f3f4320133dd07e94c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为整数（基于 stringstream 流解析）  <br /></td></tr>
-<tr class="separator:aee61ea763344f3f4320133dd07e94c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedc0b619600c9e9a0d252d2daac1d896" id="r_aedc0b619600c9e9a0d252d2daac1d896"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aedc0b619600c9e9a0d252d2daac1d896">ast::_aParseInt_Scanf</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
-<tr class="memdesc:aedc0b619600c9e9a0d252d2daac1d896"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为整数（基于 scanf 函数）  <br /></td></tr>
-<tr class="separator:aedc0b619600c9e9a0d252d2daac1d896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2755892db63f0090449b00f4db59e4d8" id="r_a2755892db63f0090449b00f4db59e4d8"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2755892db63f0090449b00f4db59e4d8">ast::aParseDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
-<tr class="memdesc:a2755892db63f0090449b00f4db59e4d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为双精度浮点数  <br /></td></tr>
-<tr class="separator:a2755892db63f0090449b00f4db59e4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac62a5833e74695f1eca1c11e875f34b4" id="r_ac62a5833e74695f1eca1c11e875f34b4"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac62a5833e74695f1eca1c11e875f34b4">ast::_aParseDouble_LibC_1</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
-<tr class="memdesc:ac62a5833e74695f1eca1c11e875f34b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为双精度浮点数（基于C标准库函数）  <br /></td></tr>
-<tr class="separator:ac62a5833e74695f1eca1c11e875f34b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f1160dbb3d3fd3779620a054ee8b5c7" id="r_a1f1160dbb3d3fd3779620a054ee8b5c7"><td class="memItemLeft" align="right" valign="top"><a id="a1f1160dbb3d3fd3779620a054ee8b5c7" name="a1f1160dbb3d3fd3779620a054ee8b5c7"></a>
+<tr class="separator:ga8836137ee0bd7a40fd4cd425aa00fe86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae28c8c8f19b7caa5d13770497140e420" id="r_gae28c8c8f19b7caa5d13770497140e420"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gae28c8c8f19b7caa5d13770497140e420">ast::_aParseInt_Simple</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
+<tr class="separator:gae28c8c8f19b7caa5d13770497140e420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee61ea763344f3f4320133dd07e94c90" id="r_gaee61ea763344f3f4320133dd07e94c90"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gaee61ea763344f3f4320133dd07e94c90">ast::_aParseInt_StringStream</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
+<tr class="separator:gaee61ea763344f3f4320133dd07e94c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedc0b619600c9e9a0d252d2daac1d896" id="r_gaedc0b619600c9e9a0d252d2daac1d896"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gaedc0b619600c9e9a0d252d2daac1d896">ast::_aParseInt_Scanf</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, int &amp;value)</td></tr>
+<tr class="separator:gaedc0b619600c9e9a0d252d2daac1d896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2755892db63f0090449b00f4db59e4d8" id="r_ga2755892db63f0090449b00f4db59e4d8"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga2755892db63f0090449b00f4db59e4d8">ast::aParseDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
+<tr class="separator:ga2755892db63f0090449b00f4db59e4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac62a5833e74695f1eca1c11e875f34b4" id="r_gac62a5833e74695f1eca1c11e875f34b4"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gac62a5833e74695f1eca1c11e875f34b4">ast::_aParseDouble_LibC_1</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
+<tr class="separator:gac62a5833e74695f1eca1c11e875f34b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f1160dbb3d3fd3779620a054ee8b5c7" id="r_ga1f1160dbb3d3fd3779620a054ee8b5c7"><td class="memItemLeft" align="right" valign="top">
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aParseDouble_LibC_2</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
-<tr class="separator:a1f1160dbb3d3fd3779620a054ee8b5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24df01ee6f1cdd6a815e7c48f6a21221" id="r_a24df01ee6f1cdd6a815e7c48f6a21221"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a24df01ee6f1cdd6a815e7c48f6a21221">ast::_aParseDouble_StringStream</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
-<tr class="memdesc:a24df01ee6f1cdd6a815e7c48f6a21221"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为双精度浮点数（基于 stringstream 流解析）  <br /></td></tr>
-<tr class="separator:a24df01ee6f1cdd6a815e7c48f6a21221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c43cfb381d9a42de70f347e3391c6b7" id="r_a6c43cfb381d9a42de70f347e3391c6b7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6c43cfb381d9a42de70f347e3391c6b7">ast::_aParseDouble_Scanf</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
-<tr class="memdesc:a6c43cfb381d9a42de70f347e3391c6b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部函数，将字符串转换为双精度浮点数（基于 scanf 函数）  <br /></td></tr>
-<tr class="separator:a6c43cfb381d9a42de70f347e3391c6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20d11068e57303bfdc08dee58ac74f5b" id="r_a20d11068e57303bfdc08dee58ac74f5b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a20d11068e57303bfdc08dee58ac74f5b">ast::aParseColor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1Color.html">Color</a> &amp;value)</td></tr>
-<tr class="memdesc:a20d11068e57303bfdc08dee58ac74f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为颜色值  <br /></td></tr>
-<tr class="separator:a20d11068e57303bfdc08dee58ac74f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1d8ef62ace89d58bad6328f8c666e4a" id="r_ad1d8ef62ace89d58bad6328f8c666e4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad1d8ef62ace89d58bad6328f8c666e4a">ast::aFormatBool</a> (bool value, std::string &amp;str)</td></tr>
-<tr class="memdesc:ad1d8ef62ace89d58bad6328f8c666e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将布尔值格式化为字符串  <br /></td></tr>
-<tr class="separator:ad1d8ef62ace89d58bad6328f8c666e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d747b779412f4f0e52802640d5468c1" id="r_a4d747b779412f4f0e52802640d5468c1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4d747b779412f4f0e52802640d5468c1">ast::aFormatInt</a> (int value, std::string &amp;str)</td></tr>
-<tr class="memdesc:a4d747b779412f4f0e52802640d5468c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">将整数格式化为字符串  <br /></td></tr>
-<tr class="separator:a4d747b779412f4f0e52802640d5468c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad53a30434e612b69b7ec841af9699f2a" id="r_ad53a30434e612b69b7ec841af9699f2a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad53a30434e612b69b7ec841af9699f2a">ast::aFormatDouble</a> (double value, std::string &amp;str, int precision=kDefaultFormatDoubleEps)</td></tr>
-<tr class="memdesc:ad53a30434e612b69b7ec841af9699f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将双精度浮点数格式化为字符串  <br /></td></tr>
-<tr class="separator:ad53a30434e612b69b7ec841af9699f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cae73c9e38191d1d4554ed4f107996d" id="r_a6cae73c9e38191d1d4554ed4f107996d"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6cae73c9e38191d1d4554ed4f107996d">ast::aFormatColor</a> (<a class="el" href="classast_1_1Color.html">Color</a> value, std::string &amp;str)</td></tr>
-<tr class="memdesc:a6cae73c9e38191d1d4554ed4f107996d"><td class="mdescLeft">&#160;</td><td class="mdescRight">将颜色值格式化为字符串  <br /></td></tr>
-<tr class="separator:a6cae73c9e38191d1d4554ed4f107996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a266b96fed3eb3bc40f8eee113e194513" id="r_a266b96fed3eb3bc40f8eee113e194513"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a266b96fed3eb3bc40f8eee113e194513">ast::aFormatBool</a> (bool value)</td></tr>
-<tr class="memdesc:a266b96fed3eb3bc40f8eee113e194513"><td class="mdescLeft">&#160;</td><td class="mdescRight">将布尔值格式化为字符串  <br /></td></tr>
-<tr class="separator:a266b96fed3eb3bc40f8eee113e194513"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ca49df1fdd27618f3983d6318265ea1" id="r_a4ca49df1fdd27618f3983d6318265ea1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4ca49df1fdd27618f3983d6318265ea1">ast::aFormatInt</a> (int value)</td></tr>
-<tr class="memdesc:a4ca49df1fdd27618f3983d6318265ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">将整数格式化为字符串  <br /></td></tr>
-<tr class="separator:a4ca49df1fdd27618f3983d6318265ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64c010056665d2c04e5f4cbea123ed91" id="r_a64c010056665d2c04e5f4cbea123ed91"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a64c010056665d2c04e5f4cbea123ed91">ast::aFormatDouble</a> (double value, int precision=kDefaultFormatDoubleEps)</td></tr>
-<tr class="memdesc:a64c010056665d2c04e5f4cbea123ed91"><td class="mdescLeft">&#160;</td><td class="mdescRight">将双精度浮点数格式化为字符串  <br /></td></tr>
-<tr class="separator:a64c010056665d2c04e5f4cbea123ed91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a442f4720018d6dd4576b5def3f32222b" id="r_a442f4720018d6dd4576b5def3f32222b"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a442f4720018d6dd4576b5def3f32222b">ast::aFormatColor</a> (<a class="el" href="classast_1_1Color.html">Color</a> value)</td></tr>
-<tr class="memdesc:a442f4720018d6dd4576b5def3f32222b"><td class="mdescLeft">&#160;</td><td class="mdescRight">将颜色值格式化为字符串  <br /></td></tr>
-<tr class="separator:a442f4720018d6dd4576b5def3f32222b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0439e28027e2ddd2c6f8d653fd363c7c" id="r_a0439e28027e2ddd2c6f8d653fd363c7c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0439e28027e2ddd2c6f8d653fd363c7c">ast::aParseBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:a0439e28027e2ddd2c6f8d653fd363c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为布尔值  <br /></td></tr>
-<tr class="separator:a0439e28027e2ddd2c6f8d653fd363c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa3bc05b20e1307e5911f952efe5cbbc" id="r_afa3bc05b20e1307e5911f952efe5cbbc"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#afa3bc05b20e1307e5911f952efe5cbbc">ast::aParseInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:afa3bc05b20e1307e5911f952efe5cbbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为整数  <br /></td></tr>
-<tr class="separator:afa3bc05b20e1307e5911f952efe5cbbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c89ec12f4f456cdb8ff0b250710a858" id="r_a4c89ec12f4f456cdb8ff0b250710a858"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4c89ec12f4f456cdb8ff0b250710a858">ast::aParseDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:a4c89ec12f4f456cdb8ff0b250710a858"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为双精度浮点数  <br /></td></tr>
-<tr class="separator:a4c89ec12f4f456cdb8ff0b250710a858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa409a6abe34f0cf75a9e9c06cdaea5ba" id="r_aa409a6abe34f0cf75a9e9c06cdaea5ba"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa409a6abe34f0cf75a9e9c06cdaea5ba">ast::aParseColor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:aa409a6abe34f0cf75a9e9c06cdaea5ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字符串转换为颜色值  <br /></td></tr>
-<tr class="separator:aa409a6abe34f0cf75a9e9c06cdaea5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30fd96021c35142031d8f33dbf25ba78" id="r_a30fd96021c35142031d8f33dbf25ba78"><td class="memItemLeft" align="right" valign="top"><a id="a30fd96021c35142031d8f33dbf25ba78" name="a30fd96021c35142031d8f33dbf25ba78"></a>
+<tr class="separator:ga1f1160dbb3d3fd3779620a054ee8b5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24df01ee6f1cdd6a815e7c48f6a21221" id="r_ga24df01ee6f1cdd6a815e7c48f6a21221"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga24df01ee6f1cdd6a815e7c48f6a21221">ast::_aParseDouble_StringStream</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
+<tr class="separator:ga24df01ee6f1cdd6a815e7c48f6a21221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c43cfb381d9a42de70f347e3391c6b7" id="r_ga6c43cfb381d9a42de70f347e3391c6b7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga6c43cfb381d9a42de70f347e3391c6b7">ast::_aParseDouble_Scanf</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value)</td></tr>
+<tr class="separator:ga6c43cfb381d9a42de70f347e3391c6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20d11068e57303bfdc08dee58ac74f5b" id="r_ga20d11068e57303bfdc08dee58ac74f5b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga20d11068e57303bfdc08dee58ac74f5b">ast::aParseColor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1Color.html">Color</a> &amp;value)</td></tr>
+<tr class="separator:ga20d11068e57303bfdc08dee58ac74f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1d8ef62ace89d58bad6328f8c666e4a" id="r_gad1d8ef62ace89d58bad6328f8c666e4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gad1d8ef62ace89d58bad6328f8c666e4a">ast::aFormatBool</a> (bool value, std::string &amp;str)</td></tr>
+<tr class="separator:gad1d8ef62ace89d58bad6328f8c666e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d747b779412f4f0e52802640d5468c1" id="r_ga4d747b779412f4f0e52802640d5468c1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga4d747b779412f4f0e52802640d5468c1">ast::aFormatInt</a> (int value, std::string &amp;str)</td></tr>
+<tr class="separator:ga4d747b779412f4f0e52802640d5468c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad53a30434e612b69b7ec841af9699f2a" id="r_gad53a30434e612b69b7ec841af9699f2a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gad53a30434e612b69b7ec841af9699f2a">ast::aFormatDouble</a> (double value, std::string &amp;str, int precision=kDefaultFormatDoubleEps)</td></tr>
+<tr class="separator:gad53a30434e612b69b7ec841af9699f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cae73c9e38191d1d4554ed4f107996d" id="r_ga6cae73c9e38191d1d4554ed4f107996d"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga6cae73c9e38191d1d4554ed4f107996d">ast::aFormatColor</a> (<a class="el" href="classast_1_1Color.html">Color</a> value, std::string &amp;str)</td></tr>
+<tr class="separator:ga6cae73c9e38191d1d4554ed4f107996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga266b96fed3eb3bc40f8eee113e194513" id="r_ga266b96fed3eb3bc40f8eee113e194513"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga266b96fed3eb3bc40f8eee113e194513">ast::aFormatBool</a> (bool value)</td></tr>
+<tr class="separator:ga266b96fed3eb3bc40f8eee113e194513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ca49df1fdd27618f3983d6318265ea1" id="r_ga4ca49df1fdd27618f3983d6318265ea1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga4ca49df1fdd27618f3983d6318265ea1">ast::aFormatInt</a> (int value)</td></tr>
+<tr class="separator:ga4ca49df1fdd27618f3983d6318265ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64c010056665d2c04e5f4cbea123ed91" id="r_ga64c010056665d2c04e5f4cbea123ed91"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga64c010056665d2c04e5f4cbea123ed91">ast::aFormatDouble</a> (double value, int precision=kDefaultFormatDoubleEps)</td></tr>
+<tr class="separator:ga64c010056665d2c04e5f4cbea123ed91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga442f4720018d6dd4576b5def3f32222b" id="r_ga442f4720018d6dd4576b5def3f32222b"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga442f4720018d6dd4576b5def3f32222b">ast::aFormatColor</a> (<a class="el" href="classast_1_1Color.html">Color</a> value)</td></tr>
+<tr class="separator:ga442f4720018d6dd4576b5def3f32222b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0439e28027e2ddd2c6f8d653fd363c7c" id="r_ga0439e28027e2ddd2c6f8d653fd363c7c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga0439e28027e2ddd2c6f8d653fd363c7c">ast::aParseBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:ga0439e28027e2ddd2c6f8d653fd363c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa3bc05b20e1307e5911f952efe5cbbc" id="r_gafa3bc05b20e1307e5911f952efe5cbbc"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gafa3bc05b20e1307e5911f952efe5cbbc">ast::aParseInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:gafa3bc05b20e1307e5911f952efe5cbbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c89ec12f4f456cdb8ff0b250710a858" id="r_ga4c89ec12f4f456cdb8ff0b250710a858"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#ga4c89ec12f4f456cdb8ff0b250710a858">ast::aParseDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:ga4c89ec12f4f456cdb8ff0b250710a858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa409a6abe34f0cf75a9e9c06cdaea5ba" id="r_gaa409a6abe34f0cf75a9e9c06cdaea5ba"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gaa409a6abe34f0cf75a9e9c06cdaea5ba">ast::aParseColor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:gaa409a6abe34f0cf75a9e9c06cdaea5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30fd96021c35142031d8f33dbf25ba78" id="r_ga30fd96021c35142031d8f33dbf25ba78"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (double value, std::string &amp;str)</td></tr>
-<tr class="separator:a30fd96021c35142031d8f33dbf25ba78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50b75a58b9b75fa858d4cfcbde6d050b" id="r_a50b75a58b9b75fa858d4cfcbde6d050b"><td class="memItemLeft" align="right" valign="top"><a id="a50b75a58b9b75fa858d4cfcbde6d050b" name="a50b75a58b9b75fa858d4cfcbde6d050b"></a>
+<tr class="separator:ga30fd96021c35142031d8f33dbf25ba78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50b75a58b9b75fa858d4cfcbde6d050b" id="r_ga50b75a58b9b75fa858d4cfcbde6d050b"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (int value, std::string &amp;str)</td></tr>
-<tr class="separator:a50b75a58b9b75fa858d4cfcbde6d050b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9409881867337b69114e1eb9ac994ae7" id="r_a9409881867337b69114e1eb9ac994ae7"><td class="memItemLeft" align="right" valign="top"><a id="a9409881867337b69114e1eb9ac994ae7" name="a9409881867337b69114e1eb9ac994ae7"></a>
+<tr class="separator:ga50b75a58b9b75fa858d4cfcbde6d050b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9409881867337b69114e1eb9ac994ae7" id="r_ga9409881867337b69114e1eb9ac994ae7"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (bool value, std::string &amp;str)</td></tr>
-<tr class="separator:a9409881867337b69114e1eb9ac994ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3525a270ca8e33c89da684c0d7dab4dc" id="r_a3525a270ca8e33c89da684c0d7dab4dc"><td class="memItemLeft" align="right" valign="top"><a id="a3525a270ca8e33c89da684c0d7dab4dc" name="a3525a270ca8e33c89da684c0d7dab4dc"></a>
+<tr class="separator:ga9409881867337b69114e1eb9ac994ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3525a270ca8e33c89da684c0d7dab4dc" id="r_ga3525a270ca8e33c89da684c0d7dab4dc"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (double value)</td></tr>
-<tr class="separator:a3525a270ca8e33c89da684c0d7dab4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ec53183cc99b36ba0d82bd234a1f6ed" id="r_a6ec53183cc99b36ba0d82bd234a1f6ed"><td class="memItemLeft" align="right" valign="top"><a id="a6ec53183cc99b36ba0d82bd234a1f6ed" name="a6ec53183cc99b36ba0d82bd234a1f6ed"></a>
+<tr class="separator:ga3525a270ca8e33c89da684c0d7dab4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ec53183cc99b36ba0d82bd234a1f6ed" id="r_ga6ec53183cc99b36ba0d82bd234a1f6ed"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (int value)</td></tr>
-<tr class="separator:a6ec53183cc99b36ba0d82bd234a1f6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9cc81266d32f8b38f8269aad07c5065" id="r_ac9cc81266d32f8b38f8269aad07c5065"><td class="memItemLeft" align="right" valign="top"><a id="ac9cc81266d32f8b38f8269aad07c5065" name="ac9cc81266d32f8b38f8269aad07c5065"></a>
+<tr class="separator:ga6ec53183cc99b36ba0d82bd234a1f6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9cc81266d32f8b38f8269aad07c5065" id="r_gac9cc81266d32f8b38f8269aad07c5065"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (bool value)</td></tr>
-<tr class="separator:ac9cc81266d32f8b38f8269aad07c5065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gac9cc81266d32f8b38f8269aad07c5065"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>解析和格式化字符串 </p>
@@ -237,7 +211,7 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_2da3e91c5c13932ca6027ada5689754f.html">Parser</a></li><li class="navelem"><a class="el" href="ParseFormat_8hpp.html">ParseFormat.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_480cf6b53fcea3873823fd76d21e216e.html">ParseFormat</a></li><li class="navelem"><a class="el" href="ParseFormat_8hpp.html">ParseFormat.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

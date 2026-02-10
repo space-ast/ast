@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::DateTime类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::DateTime类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,12 +104,9 @@ $(function(){initNavTree('classast_1_1DateTime.html',''); initResizable(true); }
 <a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1DateTime-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::DateTime类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::DateTime类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Time.html">时间转换</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>日期时间  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="DateTime_8hpp_source.html">DateTime.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -291,45 +288,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addSecondsBJT</b> (do
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a79070dcafe3abc867442141e388c873e" id="r_a79070dcafe3abc867442141e388c873e"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79070dcafe3abc867442141e388c873e">FromJD</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd)</td></tr>
-<tr class="memdesc:a79070dcafe3abc867442141e388c873e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从儒略日数创建日期时间对象  <br /></td></tr>
 <tr class="separator:a79070dcafe3abc867442141e388c873e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0620234be0ebb6a017a017b0c37be6dd" id="r_a0620234be0ebb6a017a017b0c37be6dd"><td class="memItemLeft" align="right" valign="top">static A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0620234be0ebb6a017a017b0c37be6dd">FromJulianDate</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd)</td></tr>
-<tr class="memdesc:a0620234be0ebb6a017a017b0c37be6dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">从儒略日数创建日期时间对象  <br /></td></tr>
 <tr class="separator:a0620234be0ebb6a017a017b0c37be6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aeecf456d51d8cb950c7119f4cd9890" id="r_a0aeecf456d51d8cb950c7119f4cd9890"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aeecf456d51d8cb950c7119f4cd9890">FromString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> format)</td></tr>
-<tr class="memdesc:a0aeecf456d51d8cb950c7119f4cd9890"><td class="mdescLeft">&#160;</td><td class="mdescRight">从字符串解析日期时间  <br /></td></tr>
 <tr class="separator:a0aeecf456d51d8cb950c7119f4cd9890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a801c8a62dd688f11f9a894b5021295cb" id="r_a801c8a62dd688f11f9a894b5021295cb"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a801c8a62dd688f11f9a894b5021295cb">FromString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:a801c8a62dd688f11f9a894b5021295cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从字符串解析日期时间（默认格式："yyyy-MM-dd HH:mm:ss"）  <br /></td></tr>
 <tr class="separator:a801c8a62dd688f11f9a894b5021295cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5b01254262eb0dce04f92a53430396" id="r_a8f5b01254262eb0dce04f92a53430396"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f5b01254262eb0dce04f92a53430396">FromGregorian</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:a8f5b01254262eb0dce04f92a53430396"><td class="mdescLeft">&#160;</td><td class="mdescRight">从格里高利历日期时间创建日期时间对象  <br /></td></tr>
 <tr class="separator:a8f5b01254262eb0dce04f92a53430396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3c5c138dab2c3fefa5e92df3d29cf32" id="r_aa3c5c138dab2c3fefa5e92df3d29cf32"><td class="memItemLeft" align="right" valign="top"><a id="aa3c5c138dab2c3fefa5e92df3d29cf32" name="aa3c5c138dab2c3fefa5e92df3d29cf32"></a>
 static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromTm</b> (const tm *time)</td></tr>
-<tr class="memdesc:aa3c5c138dab2c3fefa5e92df3d29cf32"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据系统时间创建日期时间对象 <br /></td></tr>
 <tr class="separator:aa3c5c138dab2c3fefa5e92df3d29cf32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f40c3f6cf8a5e3b2b91cd4310bc962" id="r_a75f40c3f6cf8a5e3b2b91cd4310bc962"><td class="memItemLeft" align="right" valign="top"><a id="a75f40c3f6cf8a5e3b2b91cd4310bc962" name="a75f40c3f6cf8a5e3b2b91cd4310bc962"></a>
 static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromTimeTLocal</b> (time_t time)</td></tr>
-<tr class="memdesc:a75f40c3f6cf8a5e3b2b91cd4310bc962"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据time_t创建本地时间的日期时间对象 <br /></td></tr>
 <tr class="separator:a75f40c3f6cf8a5e3b2b91cd4310bc962"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a571070fa1791558d6bbf227f5860db41" id="r_a571070fa1791558d6bbf227f5860db41"><td class="memItemLeft" align="right" valign="top"><a id="a571070fa1791558d6bbf227f5860db41" name="a571070fa1791558d6bbf227f5860db41"></a>
 static AST_CORE_API <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromTimeTUTC</b> (time_t time)</td></tr>
-<tr class="memdesc:a571070fa1791558d6bbf227f5860db41"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据time_t创建UTC时间的日期时间对象 <br /></td></tr>
 <tr class="separator:a571070fa1791558d6bbf227f5860db41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e0d6969fd6ad4975586c68d55dd1af" id="r_a45e0d6969fd6ad4975586c68d55dd1af"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45e0d6969fd6ad4975586c68d55dd1af">Parse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
-<tr class="memdesc:a45e0d6969fd6ad4975586c68d55dd1af"><td class="mdescLeft">&#160;</td><td class="mdescRight">从字符串解析日期时间（任意格式）  <br /></td></tr>
 <tr class="separator:a45e0d6969fd6ad4975586c68d55dd1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a7c792b9c3d749fac2111c7d5ef8f5ad4" id="r_a7c792b9c3d749fac2111c7d5ef8f5ad4"><td class="memItemLeft" align="right" valign="top"><a id="a7c792b9c3d749fac2111c7d5ef8f5ad4" name="a7c792b9c3d749fac2111c7d5ef8f5ad4"></a>
 <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>date_</b></td></tr>
-<tr class="memdesc:a7c792b9c3d749fac2111c7d5ef8f5ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">日期 <br /></td></tr>
 <tr class="separator:a7c792b9c3d749fac2111c7d5ef8f5ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abddc2f3424d39275a932cb2edf1d2ffa" id="r_abddc2f3424d39275a932cb2edf1d2ffa"><td class="memItemLeft" align="right" valign="top"><a id="abddc2f3424d39275a932cb2edf1d2ffa" name="abddc2f3424d39275a932cb2edf1d2ffa"></a>
 <a class="el" href="classast_1_1Time.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><b>time_</b></td></tr>
-<tr class="memdesc:abddc2f3424d39275a932cb2edf1d2ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">时间 <br /></td></tr>
 <tr class="separator:abddc2f3424d39275a932cb2edf1d2ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

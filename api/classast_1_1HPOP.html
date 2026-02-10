@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::HPOP类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::HPOP类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -102,12 +102,9 @@ $(function(){initNavTree('classast_1_1HPOP.html',''); initResizable(true); });
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1HPOP-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::HPOP类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::HPOP类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Propagator.html">轨道预报</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>高精度轨道预报接口类  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HPOP_8hpp_source.html">HPOP.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -115,37 +112,29 @@ $(function(){initNavTree('classast_1_1HPOP.html',''); initResizable(true); });
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a07326436dca147ced7160576116b1091" id="r_a07326436dca147ced7160576116b1091"><td class="memItemLeft" align="right" valign="top"><a id="a07326436dca147ced7160576116b1091" name="a07326436dca147ced7160576116b1091"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>setForceModel</b> (const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;forcemodel)</td></tr>
-<tr class="memdesc:a07326436dca147ced7160576116b1091"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置力模型 <br /></td></tr>
 <tr class="separator:a07326436dca147ced7160576116b1091"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a441808f323a236e9916f7f0e7f774750" id="r_a441808f323a236e9916f7f0e7f774750"><td class="memItemLeft" align="right" valign="top"><a id="a441808f323a236e9916f7f0e7f774750" name="a441808f323a236e9916f7f0e7f774750"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setIntegrator</b> (<a class="el" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a> *integrator)</td></tr>
-<tr class="memdesc:a441808f323a236e9916f7f0e7f774750"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置积分器 <br /></td></tr>
 <tr class="separator:a441808f323a236e9916f7f0e7f774750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b39183be54694b152d01ee57170fa16" id="r_a6b39183be54694b152d01ee57170fa16"><td class="memItemLeft" align="right" valign="top"><a id="a6b39183be54694b152d01ee57170fa16" name="a6b39183be54694b152d01ee57170fa16"></a>
 <a class="el" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getIntegrator</b> () const</td></tr>
-<tr class="memdesc:a6b39183be54694b152d01ee57170fa16"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取积分器 <br /></td></tr>
 <tr class="separator:a6b39183be54694b152d01ee57170fa16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad359222c1e81033d1bb984987ed44c0f" id="r_ad359222c1e81033d1bb984987ed44c0f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad359222c1e81033d1bb984987ed44c0f">propagate</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, Vector3d &amp;position, Vector3d &amp;velocity)</td></tr>
-<tr class="memdesc:ad359222c1e81033d1bb984987ed44c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道预报 考虑到有停止条件，所以预报结束时间同时也是一个输出参数  <br /></td></tr>
 <tr class="separator:ad359222c1e81033d1bb984987ed44c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa743fd9f3313baa7ce47d4de6c9e6901" id="r_aa743fd9f3313baa7ce47d4de6c9e6901"><td class="memItemLeft" align="right" valign="top"><a id="aa743fd9f3313baa7ce47d4de6c9e6901" name="aa743fd9f3313baa7ce47d4de6c9e6901"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
-<tr class="memdesc:aa743fd9f3313baa7ce47d4de6c9e6901"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化 <br /></td></tr>
 <tr class="separator:aa743fd9f3313baa7ce47d4de6c9e6901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:a35fca2be2f3d9005b6dc517d71a27611" id="r_a35fca2be2f3d9005b6dc517d71a27611"><td class="memItemLeft" align="right" valign="top"><a id="a35fca2be2f3d9005b6dc517d71a27611" name="a35fca2be2f3d9005b6dc517d71a27611"></a>
 <a class="el" href="classast_1_1HPOPEquation.html">HPOPEquation</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>equation_</b> {nullptr}</td></tr>
-<tr class="memdesc:a35fca2be2f3d9005b6dc517d71a27611"><td class="mdescLeft">&#160;</td><td class="mdescRight">高精度轨道预报方程 <br /></td></tr>
 <tr class="separator:a35fca2be2f3d9005b6dc517d71a27611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a976ebf7b57933ac1e476ee098d95e467" id="r_a976ebf7b57933ac1e476ee098d95e467"><td class="memItemLeft" align="right" valign="top"><a id="a976ebf7b57933ac1e476ee098d95e467" name="a976ebf7b57933ac1e476ee098d95e467"></a>
 <a class="el" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>integrator_</b> {nullptr}</td></tr>
-<tr class="memdesc:a976ebf7b57933ac1e476ee098d95e467"><td class="mdescLeft">&#160;</td><td class="mdescRight">高精度轨道预报积分器 <br /></td></tr>
 <tr class="separator:a976ebf7b57933ac1e476ee098d95e467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b09762e785a6f7536afa526d7694a35" id="r_a0b09762e785a6f7536afa526d7694a35"><td class="memItemLeft" align="right" valign="top"><a id="a0b09762e785a6f7536afa526d7694a35" name="a0b09762e785a6f7536afa526d7694a35"></a>
 <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>forcemodel_</b></td></tr>
-<tr class="memdesc:a0b09762e785a6f7536afa526d7694a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">力模型配置 <br /></td></tr>
 <tr class="separator:a0b09762e785a6f7536afa526d7694a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

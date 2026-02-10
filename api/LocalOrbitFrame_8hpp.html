@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/Coordinate/LocalOrbitFrame.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Coordinate/LocalOrbitFrame.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,9 +104,6 @@ $(function(){initNavTree('LocalOrbitFrame_8hpp.html',''); initResizable(true); }
   <div class="headertitle"><div class="title">LocalOrbitFrame.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>局部(轨道)坐标系  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 </div>
 <p><a href="LocalOrbitFrame_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -118,30 +115,22 @@ $(function(){initNavTree('LocalOrbitFrame_8hpp.html',''); initResizable(true); }
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ab5f623af33c3c641458387a4e4c2fca6" id="r_ab5f623af33c3c641458387a4e4c2fca6"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab5f623af33c3c641458387a4e4c2fca6">ast::aFrameToVVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:ab5f623af33c3c641458387a4e4c2fca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算位置和速度向量所在坐标系到VVLH坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:ab5f623af33c3c641458387a4e4c2fca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bff6bda570dd98e6d60a34e1b5dd33c" id="r_a2bff6bda570dd98e6d60a34e1b5dd33c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2bff6bda570dd98e6d60a34e1b5dd33c">ast::aVVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:a2bff6bda570dd98e6d60a34e1b5dd33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算VVLH坐标系到位置和速度向量所在坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:a2bff6bda570dd98e6d60a34e1b5dd33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c1fb7cbff5186461a0eaf4a02dfa628" id="r_a0c1fb7cbff5186461a0eaf4a02dfa628"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0c1fb7cbff5186461a0eaf4a02dfa628">ast::aFrameToLVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:a0c1fb7cbff5186461a0eaf4a02dfa628"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算位置和速度向量所在坐标系到LVLH坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:a0c1fb7cbff5186461a0eaf4a02dfa628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a243379fa7879d8876c6f0a002357ec3b" id="r_a243379fa7879d8876c6f0a002357ec3b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a243379fa7879d8876c6f0a002357ec3b">ast::aLVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:a243379fa7879d8876c6f0a002357ec3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算LVLH坐标系到位置和速度向量所在坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:a243379fa7879d8876c6f0a002357ec3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9d8e39f1584e673e7162206bac6174f" id="r_ae9d8e39f1584e673e7162206bac6174f"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae9d8e39f1584e673e7162206bac6174f">ast::aFrameToENUMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:ae9d8e39f1584e673e7162206bac6174f"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算位置向量所在坐标系到ENU坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:ae9d8e39f1584e673e7162206bac6174f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d82fadb64ff9ea83fe78cd77a4ef8e3" id="r_a5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5d82fadb64ff9ea83fe78cd77a4ef8e3">ast::aENUToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:a5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算ENU坐标系到位置和速度向量所在坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:a5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2596727a8dcada0834caa850755076b2" id="r_a2596727a8dcada0834caa850755076b2"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2596727a8dcada0834caa850755076b2">ast::aFrameToVNCMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:a2596727a8dcada0834caa850755076b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算位置和速度向量所在坐标系到VNC坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:a2596727a8dcada0834caa850755076b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2c0415108dc3406d71dc13d2ea7f835" id="r_ad2c0415108dc3406d71dc13d2ea7f835"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad2c0415108dc3406d71dc13d2ea7f835">ast::aVNCToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="memdesc:ad2c0415108dc3406d71dc13d2ea7f835"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算VNC坐标系到位置和速度向量所在坐标系的转换矩阵  <br /></td></tr>
-<tr class="separator:ad2c0415108dc3406d71dc13d2ea7f835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5f623af33c3c641458387a4e4c2fca6" id="r_gab5f623af33c3c641458387a4e4c2fca6"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gab5f623af33c3c641458387a4e4c2fca6">ast::aFrameToVVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gab5f623af33c3c641458387a4e4c2fca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bff6bda570dd98e6d60a34e1b5dd33c" id="r_ga2bff6bda570dd98e6d60a34e1b5dd33c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga2bff6bda570dd98e6d60a34e1b5dd33c">ast::aVVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga2bff6bda570dd98e6d60a34e1b5dd33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c1fb7cbff5186461a0eaf4a02dfa628" id="r_ga0c1fb7cbff5186461a0eaf4a02dfa628"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga0c1fb7cbff5186461a0eaf4a02dfa628">ast::aFrameToLVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga0c1fb7cbff5186461a0eaf4a02dfa628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga243379fa7879d8876c6f0a002357ec3b" id="r_ga243379fa7879d8876c6f0a002357ec3b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga243379fa7879d8876c6f0a002357ec3b">ast::aLVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga243379fa7879d8876c6f0a002357ec3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9d8e39f1584e673e7162206bac6174f" id="r_gae9d8e39f1584e673e7162206bac6174f"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gae9d8e39f1584e673e7162206bac6174f">ast::aFrameToENUMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gae9d8e39f1584e673e7162206bac6174f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d82fadb64ff9ea83fe78cd77a4ef8e3" id="r_ga5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga5d82fadb64ff9ea83fe78cd77a4ef8e3">ast::aENUToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2596727a8dcada0834caa850755076b2" id="r_ga2596727a8dcada0834caa850755076b2"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga2596727a8dcada0834caa850755076b2">ast::aFrameToVNCMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga2596727a8dcada0834caa850755076b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2c0415108dc3406d71dc13d2ea7f835" id="r_gad2c0415108dc3406d71dc13d2ea7f835"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gad2c0415108dc3406d71dc13d2ea7f835">ast::aVNCToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gad2c0415108dc3406d71dc13d2ea7f835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>局部(轨道)坐标系 </p>

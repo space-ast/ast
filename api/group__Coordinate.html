@@ -1,0 +1,2018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: 坐标系统</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__Coordinate.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">坐标系统<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>提供实现不同坐标系之间的相互转换的函数 </p>
+<p><br  />
+</p>
+<p>例如ECI、ECF、MOD、TOD、GTOD、TDR、GCR、PEF、EFG等坐标系之间的转换 坐标系定义：</p><ul>
+<li>CBI(Central Body Inertial Frame): 中心天体惯性系</li>
+<li>CBF(Central Body Fixed Frame): 中心天体固连系</li>
+<li>ECI(Earth Centered Inertial Frame): 地球惯性系，根据相关的配置，ECI可能为ICRF或J2000</li>
+<li>J2000: 地球时(TT)2000年1月1日12时0分0秒的地球平赤道系</li>
+<li>MOD(Mean of Date): 平赤道系，考虑岁差</li>
+<li>TOD(True of Date): 真赤道系，考虑岁差和章动</li>
+<li>GTOD(Greenwich True of Date): 格林尼治真赤道系，XY平面为赤道平面，正X轴指向本初子午线，随地球旋转 参考NASA文档：https://science-data.larc.nasa.gov/LITE/level1doc/gtod.html 其又称为：<ul>
+<li>TDR(True of Date Rotating frame) 旋转真赤道系，参考orekit文档: <a href="https://www.orekit.org/site-orekit-12.0/apidocs/org/orekit/frames/GTODProvider.html">https://www.orekit.org/site-orekit-12.0/apidocs/org/orekit/frames/GTODProvider.html</a></li>
+<li>GCR(Greenwich Rotating Coordinate frame) 格林尼治旋转系，参考orekit文档</li>
+<li>PEF(Pseudo Earth-fixed) 伪地球固连系，参考 Kayhan Space: <a href="https://app.kayhan.io/docs/data-standards/reference-frames/">https://app.kayhan.io/docs/data-standards/reference-frames/</a></li>
+<li>EFG(Earth-Fixed Greenwich) 地球固连格林尼治系，参考 Kayhan Space</li>
+</ul>
+</li>
+<li>ECF(Earth Centered Fixed Frame): 地球固连系，在GTOD基础上考虑了极移</li>
+<li>ICRF(International Celestial Reference Frame): 国际天球参考系</li>
+<li>CIRF(Celestial Intermediate Reference Frame): 天球中间参考系 天球中间参考系的第一极（z轴方向）为给定时刻的天球中间极（CIP）， 与之等价的基本平面为与该时刻的天球中间极垂直的中间赤道，经度坐标起量点为天球中间零点。 它类似于传统说法中的真赤道和真春分点参考系，两者基本平面完全相同， 不同之处在于天球中间参考系的赤经零点为天球中间零点，而真赤道参考系的赤经零点为春分点。 两个参考系的转换为绕着天球中间极旋转一个角度EO，称为零点差，它的表达式为EO=ERA-GAST，即地球自转角与真恒星时之差。 由此可以看出，真赤道真春分点参考系可以认为基于春分点的转换中的天球中间参考系。 由于天球中间参考系的首字母缩略语与国际天球参考系（ICRF）非常接近，因此，在提及该参考系时建议尽量使用全名</li>
+<li>TIRF(Terrestrial Intermediate Reference Frame): 地球中间参考系 TIRF与国际地球参考系（ITRF）的联系由极移和地球中间零点的定位角确定。 它通过绕天球中间极CIP的转动角度即地球自转角（ERA）与天球中间参考系（CIRS）相联系。 天球中间极是这两个中间参考系TIRS和CIRS共同的Z轴。 因为地球中间参考系的首字母缩写词与国际地球参考系ITRF接近，建议使用全名。</li>
+</ul>
+<p>局部轨道坐标系的定义：</p><ul>
+<li>LVLH: X轴指向位置方向，Z轴指向轨道法向</li>
+<li>LVLH_CCSDS: Z轴指向位置反方向，Y轴指向轨道法向反方向，CCSDS 定义的LVLH坐标系，FreeFlyer里的LVLH</li>
+<li>VVLH: Z轴指向位置反方向，Y轴指向轨道法向反方向</li>
+<li>VNC: X轴指向速度方向，Y轴指向轨道法向</li>
+<li>ENU: 东北天，Z轴指向位置方向，北极轴在 (+Y +Z) 半平面内</li>
+<li>NED: 北东地，Z轴指向位置反方向，北极轴在 (+Y ±Z) 半平面内</li>
+<li>Launch: 发射坐标系，其跟随地球旋转，Y轴指向当地天顶方向，X轴指向发射方向</li>
+<li>LCI: 发射惯性系，在天体惯性系下其空间指向不随时间变化，在发射时刻与Launch坐标系重合</li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gab75fd000073c37f94c62dfc7a44ccd35" id="r_gab75fd000073c37f94c62dfc7a44ccd35"><td class="memItemLeft" align="right" valign="top"><a id="gab75fd000073c37f94c62dfc7a44ccd35" name="gab75fd000073c37f94c62dfc7a44ccd35"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::test</b> (int a, int &amp;b)</td></tr>
+<tr class="separator:gab75fd000073c37f94c62dfc7a44ccd35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06e0ca1ba93739f4fc6fa209e0157dd4" id="r_ga06e0ca1ba93739f4fc6fa209e0157dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga06e0ca1ba93739f4fc6fa209e0157dd4">ast::aECIToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga06e0ca1ba93739f4fc6fa209e0157dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6444c0dd6b03123b8c4907e8e184157c" id="r_ga6444c0dd6b03123b8c4907e8e184157c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6444c0dd6b03123b8c4907e8e184157c">ast::aECIToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga6444c0dd6b03123b8c4907e8e184157c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62e80aa4ab8e7dd19acbb880d3845a96" id="r_ga62e80aa4ab8e7dd19acbb880d3845a96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga62e80aa4ab8e7dd19acbb880d3845a96">ast::aECIToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga62e80aa4ab8e7dd19acbb880d3845a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37946b52ba8e0862000400250dc5cfb5" id="r_ga37946b52ba8e0862000400250dc5cfb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga37946b52ba8e0862000400250dc5cfb5">ast::aECIToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecECI, Vector3d &amp;vecECF)</td></tr>
+<tr class="separator:ga37946b52ba8e0862000400250dc5cfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae1238c6bcb282e1ca43daf2e659829e6" id="r_gae1238c6bcb282e1ca43daf2e659829e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae1238c6bcb282e1ca43daf2e659829e6">ast::aECIToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecECI, const Vector3d &amp;velECI, Vector3d &amp;vecECF, Vector3d &amp;velECF)</td></tr>
+<tr class="separator:gae1238c6bcb282e1ca43daf2e659829e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0e797161e5db46ea26e00d08c74bff5" id="r_gab0e797161e5db46ea26e00d08c74bff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab0e797161e5db46ea26e00d08c74bff5">ast::aJ2000ToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gab0e797161e5db46ea26e00d08c74bff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab9cca7ada4da1c775ed6f78ed2c22619" id="r_gab9cca7ada4da1c775ed6f78ed2c22619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab9cca7ada4da1c775ed6f78ed2c22619">ast::aJ2000ToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gab9cca7ada4da1c775ed6f78ed2c22619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27c8cca4e2542e9623118d3ae06b5573" id="r_ga27c8cca4e2542e9623118d3ae06b5573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga27c8cca4e2542e9623118d3ae06b5573">ast::aJ2000ToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga27c8cca4e2542e9623118d3ae06b5573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a584928352d273f8d1746829858e4a2" id="r_ga4a584928352d273f8d1746829858e4a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4a584928352d273f8d1746829858e4a2">ast::aJ2000ToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, Vector3d &amp;vecECF)</td></tr>
+<tr class="separator:ga4a584928352d273f8d1746829858e4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga497a07c3248fd6dd0d78535e144dda2d" id="r_ga497a07c3248fd6dd0d78535e144dda2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga497a07c3248fd6dd0d78535e144dda2d">ast::aJ2000ToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, const Vector3d &amp;velJ2000, Vector3d &amp;vecECF, Vector3d &amp;velECF)</td></tr>
+<tr class="separator:ga497a07c3248fd6dd0d78535e144dda2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18659d9b5726d2e8b1235d3515724690" id="r_ga18659d9b5726d2e8b1235d3515724690"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga18659d9b5726d2e8b1235d3515724690">ast::aJ2000ToMODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga18659d9b5726d2e8b1235d3515724690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff66d5d23adff00d5ac71e6f4ee3006d" id="r_gaff66d5d23adff00d5ac71e6f4ee3006d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaff66d5d23adff00d5ac71e6f4ee3006d">ast::aJ2000ToMODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gaff66d5d23adff00d5ac71e6f4ee3006d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cbf4659a307da22e8e99af6044e0c2d" id="r_ga9cbf4659a307da22e8e99af6044e0c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9cbf4659a307da22e8e99af6044e0c2d">ast::aJ2000ToMOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, Vector3d &amp;vecMOD)</td></tr>
+<tr class="separator:ga9cbf4659a307da22e8e99af6044e0c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4766d59ba99158f2891867b40bd3b4e" id="r_gaf4766d59ba99158f2891867b40bd3b4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf4766d59ba99158f2891867b40bd3b4e">ast::aMODToTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaf4766d59ba99158f2891867b40bd3b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd97ede3fd08ab22c5697e7fbab0246d" id="r_gacd97ede3fd08ab22c5697e7fbab0246d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacd97ede3fd08ab22c5697e7fbab0246d">ast::aMODToTODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gacd97ede3fd08ab22c5697e7fbab0246d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff57ad51629fa4949e4ac788621f7408" id="r_gaff57ad51629fa4949e4ac788621f7408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaff57ad51629fa4949e4ac788621f7408">ast::aMODToTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecMOD, Vector3d &amp;vecTOD)</td></tr>
+<tr class="separator:gaff57ad51629fa4949e4ac788621f7408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga740873549cec351583fd2adc70743e8e" id="r_ga740873549cec351583fd2adc70743e8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga740873549cec351583fd2adc70743e8e">ast::aTODToGTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga740873549cec351583fd2adc70743e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabbb6ff0dad01976f5986aff5f94566b2" id="r_gabbb6ff0dad01976f5986aff5f94566b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabbb6ff0dad01976f5986aff5f94566b2">ast::aTODToGTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gabbb6ff0dad01976f5986aff5f94566b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8abd7c08044d8443c8cac73f3227efb" id="r_gad8abd7c08044d8443c8cac73f3227efb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad8abd7c08044d8443c8cac73f3227efb">ast::aTODToGTODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gad8abd7c08044d8443c8cac73f3227efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga246634a2196a285578700eced82c4a86" id="r_ga246634a2196a285578700eced82c4a86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga246634a2196a285578700eced82c4a86">ast::aTODToGTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTOD, Vector3d &amp;vecGTOD)</td></tr>
+<tr class="separator:ga246634a2196a285578700eced82c4a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53d52553695ab6cf6ce5d0dbff2babcf" id="r_ga53d52553695ab6cf6ce5d0dbff2babcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga53d52553695ab6cf6ce5d0dbff2babcf">ast::aTODToGTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTOD, const Vector3d &amp;velTOD, Vector3d &amp;vecGTOC, Vector3d &amp;velGTOC)</td></tr>
+<tr class="separator:ga53d52553695ab6cf6ce5d0dbff2babcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab792bcc75449482ad42318c89d69edbe" id="r_gab792bcc75449482ad42318c89d69edbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab792bcc75449482ad42318c89d69edbe">ast::aGTODToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gab792bcc75449482ad42318c89d69edbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46a0850ade8cdc74e0e4176d90e8656b" id="r_ga46a0850ade8cdc74e0e4176d90e8656b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga46a0850ade8cdc74e0e4176d90e8656b">ast::aGTODToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga46a0850ade8cdc74e0e4176d90e8656b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc43ca88443dcc9af6ff3f8c21718614" id="r_gafc43ca88443dcc9af6ff3f8c21718614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafc43ca88443dcc9af6ff3f8c21718614">ast::aGTODToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecGTOD, Vector3d &amp;vecECF)</td></tr>
+<tr class="separator:gafc43ca88443dcc9af6ff3f8c21718614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga291b8893466d5b1f74e8928852436fe1" id="r_ga291b8893466d5b1f74e8928852436fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga291b8893466d5b1f74e8928852436fe1">ast::aICRFToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga291b8893466d5b1f74e8928852436fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e19e2e2d1c5750f6408bf19fd285796" id="r_ga5e19e2e2d1c5750f6408bf19fd285796"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5e19e2e2d1c5750f6408bf19fd285796">ast::aICRFToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga5e19e2e2d1c5750f6408bf19fd285796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae44bb8a0a5cd3b4c6c4f4098840cd979" id="r_gae44bb8a0a5cd3b4c6c4f4098840cd979"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae44bb8a0a5cd3b4c6c4f4098840cd979">ast::aICRFToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gae44bb8a0a5cd3b4c6c4f4098840cd979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga917a7123b21b5898a654a4fb964729a7" id="r_ga917a7123b21b5898a654a4fb964729a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga917a7123b21b5898a654a4fb964729a7">ast::aICRFToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecICRF, Vector3d &amp;vecECF)</td></tr>
+<tr class="separator:ga917a7123b21b5898a654a4fb964729a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca30e15e71105e546826cdc6a58ca105" id="r_gaca30e15e71105e546826cdc6a58ca105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaca30e15e71105e546826cdc6a58ca105">ast::aECFToICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecECF, Vector3d &amp;vecICRF)</td></tr>
+<tr class="separator:gaca30e15e71105e546826cdc6a58ca105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeab84ac7cd1eceb8ac32ea26c2337621" id="r_gaeab84ac7cd1eceb8ac32ea26c2337621"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeab84ac7cd1eceb8ac32ea26c2337621">ast::aICRFToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecICRF, const Vector3d &amp;velICRF, Vector3d &amp;vecECF, Vector3d &amp;velECF)</td></tr>
+<tr class="separator:gaeab84ac7cd1eceb8ac32ea26c2337621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8c358f3157128cd2213588c5e2e5a23" id="r_gaf8c358f3157128cd2213588c5e2e5a23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf8c358f3157128cd2213588c5e2e5a23">ast::aICRFToCIRFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaf8c358f3157128cd2213588c5e2e5a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga488495b61d791a8168a51bcef31b6fc4" id="r_ga488495b61d791a8168a51bcef31b6fc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga488495b61d791a8168a51bcef31b6fc4">ast::aICRFToCIRFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga488495b61d791a8168a51bcef31b6fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73cdf0aab986ab0b77380924528f4d4d" id="r_ga73cdf0aab986ab0b77380924528f4d4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga73cdf0aab986ab0b77380924528f4d4d">ast::aICRFToCIRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecICRF, Vector3d &amp;vecCIRF)</td></tr>
+<tr class="separator:ga73cdf0aab986ab0b77380924528f4d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11bd42fda73f858e027c2bed9cf4868b" id="r_ga11bd42fda73f858e027c2bed9cf4868b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga11bd42fda73f858e027c2bed9cf4868b">ast::aCIRFToTIRFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga11bd42fda73f858e027c2bed9cf4868b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3426471e9b8ee911545ee3c753d44cdf" id="r_ga3426471e9b8ee911545ee3c753d44cdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3426471e9b8ee911545ee3c753d44cdf">ast::aCIRFToTIRFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga3426471e9b8ee911545ee3c753d44cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeec537394f88d81bb75d0dff584f3408" id="r_gaeec537394f88d81bb75d0dff584f3408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeec537394f88d81bb75d0dff584f3408">ast::aCIRFToTIRFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gaeec537394f88d81bb75d0dff584f3408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18a2c3242d54eaa3cacf45030c570bd9" id="r_ga18a2c3242d54eaa3cacf45030c570bd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga18a2c3242d54eaa3cacf45030c570bd9">ast::aCIRFToTIRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecCIRF, Vector3d &amp;vecTIRF)</td></tr>
+<tr class="separator:ga18a2c3242d54eaa3cacf45030c570bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga226c2de1691c1af853b19016b1d00a7a" id="r_ga226c2de1691c1af853b19016b1d00a7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga226c2de1691c1af853b19016b1d00a7a">ast::aCIRFToTIRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecCIRF, const Vector3d &amp;velCIRF, Vector3d &amp;vecTIRF, Vector3d &amp;velTIRF)</td></tr>
+<tr class="separator:ga226c2de1691c1af853b19016b1d00a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7888e306d8ed2a6a7ecff2b8b5b77229" id="r_ga7888e306d8ed2a6a7ecff2b8b5b77229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7888e306d8ed2a6a7ecff2b8b5b77229">ast::aTIRFToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga7888e306d8ed2a6a7ecff2b8b5b77229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga196677a3ef576965df6799e10d1b69a6" id="r_ga196677a3ef576965df6799e10d1b69a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga196677a3ef576965df6799e10d1b69a6">ast::aTIRFToECFMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga196677a3ef576965df6799e10d1b69a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad597a12c3db45045ce5bc3160ee388ba" id="r_gad597a12c3db45045ce5bc3160ee388ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad597a12c3db45045ce5bc3160ee388ba">ast::aTIRFToECF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTIRF, Vector3d &amp;vecECF)</td></tr>
+<tr class="separator:gad597a12c3db45045ce5bc3160ee388ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5f623af33c3c641458387a4e4c2fca6" id="r_gab5f623af33c3c641458387a4e4c2fca6"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab5f623af33c3c641458387a4e4c2fca6">ast::aFrameToVVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gab5f623af33c3c641458387a4e4c2fca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bff6bda570dd98e6d60a34e1b5dd33c" id="r_ga2bff6bda570dd98e6d60a34e1b5dd33c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2bff6bda570dd98e6d60a34e1b5dd33c">ast::aVVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga2bff6bda570dd98e6d60a34e1b5dd33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c1fb7cbff5186461a0eaf4a02dfa628" id="r_ga0c1fb7cbff5186461a0eaf4a02dfa628"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0c1fb7cbff5186461a0eaf4a02dfa628">ast::aFrameToLVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga0c1fb7cbff5186461a0eaf4a02dfa628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga243379fa7879d8876c6f0a002357ec3b" id="r_ga243379fa7879d8876c6f0a002357ec3b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga243379fa7879d8876c6f0a002357ec3b">ast::aLVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga243379fa7879d8876c6f0a002357ec3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9d8e39f1584e673e7162206bac6174f" id="r_gae9d8e39f1584e673e7162206bac6174f"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae9d8e39f1584e673e7162206bac6174f">ast::aFrameToENUMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gae9d8e39f1584e673e7162206bac6174f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d82fadb64ff9ea83fe78cd77a4ef8e3" id="r_ga5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5d82fadb64ff9ea83fe78cd77a4ef8e3">ast::aENUToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga5d82fadb64ff9ea83fe78cd77a4ef8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2596727a8dcada0834caa850755076b2" id="r_ga2596727a8dcada0834caa850755076b2"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2596727a8dcada0834caa850755076b2">ast::aFrameToVNCMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga2596727a8dcada0834caa850755076b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2c0415108dc3406d71dc13d2ea7f835" id="r_gad2c0415108dc3406d71dc13d2ea7f835"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad2c0415108dc3406d71dc13d2ea7f835">ast::aVNCToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gad2c0415108dc3406d71dc13d2ea7f835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91d6cd70536ab87ab37193a3e0d97e8f" id="r_ga91d6cd70536ab87ab37193a3e0d97e8f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91d6cd70536ab87ab37193a3e0d97e8f">ast::aEarthICRFToMoonICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;posInEarthICRF, Vector3d &amp;posInMoonICRF)</td></tr>
+<tr class="separator:ga91d6cd70536ab87ab37193a3e0d97e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68ff7a4a53a486d067fc99f441e63405" id="r_ga68ff7a4a53a486d067fc99f441e63405"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga68ff7a4a53a486d067fc99f441e63405">ast::aEarthICRFToMoonICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;posInEarthICRF, const Vector3d &amp;velInEarthICRF, Vector3d &amp;posInMoonICRF, Vector3d &amp;velInMoonICRF)</td></tr>
+<tr class="separator:ga68ff7a4a53a486d067fc99f441e63405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga226c2de1691c1af853b19016b1d00a7a" name="ga226c2de1691c1af853b19016b1d00a7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga226c2de1691c1af853b19016b1d00a7a">&#9670;&#160;</a></span>aCIRFToTIRF() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aCIRFToTIRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecCIRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velCIRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecTIRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velTIRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从CIRF转换为TIRF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecCIRF</td><td>CIRF坐标 </td></tr>
+    <tr><td class="paramname">velCIRF</td><td>CIRF速度 </td></tr>
+    <tr><td class="paramname">vecTIRF</td><td>TIRF坐标 </td></tr>
+    <tr><td class="paramname">velTIRF</td><td>TIRF速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga18a2c3242d54eaa3cacf45030c570bd9" name="ga18a2c3242d54eaa3cacf45030c570bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18a2c3242d54eaa3cacf45030c570bd9">&#9670;&#160;</a></span>aCIRFToTIRF() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aCIRFToTIRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecCIRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecTIRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从CIRF转换为TIRF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecCIRF</td><td>CIRF坐标 </td></tr>
+    <tr><td class="paramname">vecTIRF</td><td>TIRF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaeec537394f88d81bb75d0dff584f3408" name="gaeec537394f88d81bb75d0dff584f3408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeec537394f88d81bb75d0dff584f3408">&#9670;&#160;</a></span>aCIRFToTIRFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aCIRFToTIRFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从CIRF转换为TIRF的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3426471e9b8ee911545ee3c753d44cdf" name="ga3426471e9b8ee911545ee3c753d44cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3426471e9b8ee911545ee3c753d44cdf">&#9670;&#160;</a></span>aCIRFToTIRFTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aCIRFToTIRFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从CIRF转换为TIRF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换，带角速度信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga11bd42fda73f858e027c2bed9cf4868b" name="ga11bd42fda73f858e027c2bed9cf4868b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11bd42fda73f858e027c2bed9cf4868b">&#9670;&#160;</a></span>aCIRFToTIRFTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aCIRFToTIRFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从CIRF转换为TIRF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga68ff7a4a53a486d067fc99f441e63405" name="ga68ff7a4a53a486d067fc99f441e63405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga68ff7a4a53a486d067fc99f441e63405">&#9670;&#160;</a></span>aEarthICRFToMoonICRF() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API err_t ast::aEarthICRFToMoonICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInEarthICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInEarthICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInMoonICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInMoonICRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算地球ICRF坐标系到月球ICRF坐标系的转换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">posInEarthICRF</td><td>地球ICRF坐标系下的位置向量 </td></tr>
+    <tr><td class="paramname">velInEarthICRF</td><td>地球ICRF坐标系下的速度向量 </td></tr>
+    <tr><td class="paramname">posInMoonICRF</td><td>月球ICRF坐标系下的位置向量 </td></tr>
+    <tr><td class="paramname">velInMoonICRF</td><td>月球ICRF坐标系下的速度向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga91d6cd70536ab87ab37193a3e0d97e8f" name="ga91d6cd70536ab87ab37193a3e0d97e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga91d6cd70536ab87ab37193a3e0d97e8f">&#9670;&#160;</a></span>aEarthICRFToMoonICRF() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API err_t ast::aEarthICRFToMoonICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInEarthICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInMoonICRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算地球ICRF坐标系到月球ICRF坐标系的转换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">posInEarthICRF</td><td>地球ICRF坐标系下的位置向量 </td></tr>
+    <tr><td class="paramname">posInMoonICRF</td><td>月球ICRF坐标系下的位置向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gaca30e15e71105e546826cdc6a58ca105" name="gaca30e15e71105e546826cdc6a58ca105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca30e15e71105e546826cdc6a58ca105">&#9670;&#160;</a></span>aECFToICRF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aECFToICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecICRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ECF转换为ICRF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+    <tr><td class="paramname">vecICRF</td><td>ICRF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae1238c6bcb282e1ca43daf2e659829e6" name="gae1238c6bcb282e1ca43daf2e659829e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae1238c6bcb282e1ca43daf2e659829e6">&#9670;&#160;</a></span>aECIToECF() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aECIToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velECI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ECI转换为ECF的坐标转换 </p>
+<p>ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecECI</td><td>ECI坐标 </td></tr>
+    <tr><td class="paramname">velECI</td><td>ECI速度 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+    <tr><td class="paramname">velECF</td><td>ECF速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga37946b52ba8e0862000400250dc5cfb5" name="ga37946b52ba8e0862000400250dc5cfb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga37946b52ba8e0862000400250dc5cfb5">&#9670;&#160;</a></span>aECIToECF() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aECIToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ECI转换为ECF的坐标转换 </p>
+<p>ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecECI</td><td>ECI坐标 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga62e80aa4ab8e7dd19acbb880d3845a96" name="ga62e80aa4ab8e7dd19acbb880d3845a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga62e80aa4ab8e7dd19acbb880d3845a96">&#9670;&#160;</a></span>aECIToECFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aECIToECFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ECI转换为ECF的坐标转换矩阵 </p>
+<p>ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6444c0dd6b03123b8c4907e8e184157c" name="ga6444c0dd6b03123b8c4907e8e184157c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6444c0dd6b03123b8c4907e8e184157c">&#9670;&#160;</a></span>aECIToECFTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aECIToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ECI转换为ECF的坐标旋转变换 </p>
+<p>ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换，带角速度信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga06e0ca1ba93739f4fc6fa209e0157dd4" name="ga06e0ca1ba93739f4fc6fa209e0157dd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06e0ca1ba93739f4fc6fa209e0157dd4">&#9670;&#160;</a></span>aECIToECFTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aECIToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ECI转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5d82fadb64ff9ea83fe78cd77a4ef8e3" name="ga5d82fadb64ff9ea83fe78cd77a4ef8e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d82fadb64ff9ea83fe78cd77a4ef8e3">&#9670;&#160;</a></span>aENUToFrameMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aENUToFrameMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算ENU坐标系到位置和速度向量所在坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae9d8e39f1584e673e7162206bac6174f" name="gae9d8e39f1584e673e7162206bac6174f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9d8e39f1584e673e7162206bac6174f">&#9670;&#160;</a></span>aFrameToENUMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aFrameToENUMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算位置向量所在坐标系到ENU坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0c1fb7cbff5186461a0eaf4a02dfa628" name="ga0c1fb7cbff5186461a0eaf4a02dfa628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c1fb7cbff5186461a0eaf4a02dfa628">&#9670;&#160;</a></span>aFrameToLVLHMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aFrameToLVLHMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算位置和速度向量所在坐标系到LVLH坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2596727a8dcada0834caa850755076b2" name="ga2596727a8dcada0834caa850755076b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2596727a8dcada0834caa850755076b2">&#9670;&#160;</a></span>aFrameToVNCMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aFrameToVNCMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算位置和速度向量所在坐标系到VNC坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab5f623af33c3c641458387a4e4c2fca6" name="gab5f623af33c3c641458387a4e4c2fca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab5f623af33c3c641458387a4e4c2fca6">&#9670;&#160;</a></span>aFrameToVVLHMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aFrameToVVLHMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算位置和速度向量所在坐标系到VVLH坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafc43ca88443dcc9af6ff3f8c21718614" name="gafc43ca88443dcc9af6ff3f8c21718614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafc43ca88443dcc9af6ff3f8c21718614">&#9670;&#160;</a></span>aGTODToECF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aGTODToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecGTOD</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从GTOD转换为ECF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecGTOD</td><td>GTOD坐标 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga46a0850ade8cdc74e0e4176d90e8656b" name="ga46a0850ade8cdc74e0e4176d90e8656b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46a0850ade8cdc74e0e4176d90e8656b">&#9670;&#160;</a></span>aGTODToECFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aGTODToECFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从GTOD转换为ECF的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab792bcc75449482ad42318c89d69edbe" name="gab792bcc75449482ad42318c89d69edbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab792bcc75449482ad42318c89d69edbe">&#9670;&#160;</a></span>aGTODToECFTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aGTODToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从GTOD转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga73cdf0aab986ab0b77380924528f4d4d" name="ga73cdf0aab986ab0b77380924528f4d4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga73cdf0aab986ab0b77380924528f4d4d">&#9670;&#160;</a></span>aICRFToCIRF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aICRFToCIRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecCIRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为CIRF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecICRF</td><td>ICRF坐标 </td></tr>
+    <tr><td class="paramname">vecCIRF</td><td>CIRF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga488495b61d791a8168a51bcef31b6fc4" name="ga488495b61d791a8168a51bcef31b6fc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga488495b61d791a8168a51bcef31b6fc4">&#9670;&#160;</a></span>aICRFToCIRFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aICRFToCIRFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为CIRF的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf8c358f3157128cd2213588c5e2e5a23" name="gaf8c358f3157128cd2213588c5e2e5a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf8c358f3157128cd2213588c5e2e5a23">&#9670;&#160;</a></span>aICRFToCIRFTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aICRFToCIRFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为CIRF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaeab84ac7cd1eceb8ac32ea26c2337621" name="gaeab84ac7cd1eceb8ac32ea26c2337621"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeab84ac7cd1eceb8ac32ea26c2337621">&#9670;&#160;</a></span>aICRFToECF() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aICRFToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为ECF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecICRF</td><td>ICRF坐标 </td></tr>
+    <tr><td class="paramname">velICRF</td><td>ICRF速度 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+    <tr><td class="paramname">velECF</td><td>ECF速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga917a7123b21b5898a654a4fb964729a7" name="ga917a7123b21b5898a654a4fb964729a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga917a7123b21b5898a654a4fb964729a7">&#9670;&#160;</a></span>aICRFToECF() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aICRFToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为ECF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecICRF</td><td>ICRF坐标 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae44bb8a0a5cd3b4c6c4f4098840cd979" name="gae44bb8a0a5cd3b4c6c4f4098840cd979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae44bb8a0a5cd3b4c6c4f4098840cd979">&#9670;&#160;</a></span>aICRFToECFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aICRFToECFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为ECF的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5e19e2e2d1c5750f6408bf19fd285796" name="ga5e19e2e2d1c5750f6408bf19fd285796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e19e2e2d1c5750f6408bf19fd285796">&#9670;&#160;</a></span>aICRFToECFTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aICRFToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换，带角速度信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga291b8893466d5b1f74e8928852436fe1" name="ga291b8893466d5b1f74e8928852436fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga291b8893466d5b1f74e8928852436fe1">&#9670;&#160;</a></span>aICRFToECFTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aICRFToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从ICRF转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga497a07c3248fd6dd0d78535e144dda2d" name="ga497a07c3248fd6dd0d78535e144dda2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga497a07c3248fd6dd0d78535e144dda2d">&#9670;&#160;</a></span>aJ2000ToECF() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aJ2000ToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecJ2000</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velJ2000</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为ECF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecJ2000</td><td>J2000坐标 </td></tr>
+    <tr><td class="paramname">velJ2000</td><td>J2000速度 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+    <tr><td class="paramname">velECF</td><td>ECF速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4a584928352d273f8d1746829858e4a2" name="ga4a584928352d273f8d1746829858e4a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4a584928352d273f8d1746829858e4a2">&#9670;&#160;</a></span>aJ2000ToECF() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aJ2000ToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecJ2000</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为ECF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecJ2000</td><td>J2000坐标 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga27c8cca4e2542e9623118d3ae06b5573" name="ga27c8cca4e2542e9623118d3ae06b5573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga27c8cca4e2542e9623118d3ae06b5573">&#9670;&#160;</a></span>aJ2000ToECFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aJ2000ToECFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为ECF的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab9cca7ada4da1c775ed6f78ed2c22619" name="gab9cca7ada4da1c775ed6f78ed2c22619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab9cca7ada4da1c775ed6f78ed2c22619">&#9670;&#160;</a></span>aJ2000ToECFTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aJ2000ToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换，带角速度信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab0e797161e5db46ea26e00d08c74bff5" name="gab0e797161e5db46ea26e00d08c74bff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0e797161e5db46ea26e00d08c74bff5">&#9670;&#160;</a></span>aJ2000ToECFTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aJ2000ToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9cbf4659a307da22e8e99af6044e0c2d" name="ga9cbf4659a307da22e8e99af6044e0c2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9cbf4659a307da22e8e99af6044e0c2d">&#9670;&#160;</a></span>aJ2000ToMOD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aJ2000ToMOD </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecJ2000</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecMOD</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为MOD的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecJ2000</td><td>J2000坐标 </td></tr>
+    <tr><td class="paramname">vecMOD</td><td>MOD坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaff66d5d23adff00d5ac71e6f4ee3006d" name="gaff66d5d23adff00d5ac71e6f4ee3006d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff66d5d23adff00d5ac71e6f4ee3006d">&#9670;&#160;</a></span>aJ2000ToMODMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aJ2000ToMODMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为MOD的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga18659d9b5726d2e8b1235d3515724690" name="ga18659d9b5726d2e8b1235d3515724690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18659d9b5726d2e8b1235d3515724690">&#9670;&#160;</a></span>aJ2000ToMODTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aJ2000ToMODTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从J2000转换为MOD的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga243379fa7879d8876c6f0a002357ec3b" name="ga243379fa7879d8876c6f0a002357ec3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga243379fa7879d8876c6f0a002357ec3b">&#9670;&#160;</a></span>aLVLHToFrameMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aLVLHToFrameMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算LVLH坐标系到位置和速度向量所在坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaff57ad51629fa4949e4ac788621f7408" name="gaff57ad51629fa4949e4ac788621f7408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff57ad51629fa4949e4ac788621f7408">&#9670;&#160;</a></span>aMODToTOD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMODToTOD </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecMOD</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecTOD</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从MOD转换为TOD的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecMOD</td><td>MOD坐标 </td></tr>
+    <tr><td class="paramname">vecTOD</td><td>TOD坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacd97ede3fd08ab22c5697e7fbab0246d" name="gacd97ede3fd08ab22c5697e7fbab0246d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacd97ede3fd08ab22c5697e7fbab0246d">&#9670;&#160;</a></span>aMODToTODMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMODToTODMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从MOD转换为TOD的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf4766d59ba99158f2891867b40bd3b4e" name="gaf4766d59ba99158f2891867b40bd3b4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf4766d59ba99158f2891867b40bd3b4e">&#9670;&#160;</a></span>aMODToTODTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMODToTODTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从MOD转换为TOD的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad597a12c3db45045ce5bc3160ee388ba" name="gad597a12c3db45045ce5bc3160ee388ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad597a12c3db45045ce5bc3160ee388ba">&#9670;&#160;</a></span>aTIRFToECF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTIRFToECF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecTIRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecECF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TIRF转换为ECF的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecTIRF</td><td>TIRF坐标 </td></tr>
+    <tr><td class="paramname">vecECF</td><td>ECF坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga196677a3ef576965df6799e10d1b69a6" name="ga196677a3ef576965df6799e10d1b69a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga196677a3ef576965df6799e10d1b69a6">&#9670;&#160;</a></span>aTIRFToECFMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTIRFToECFMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TIRF转换为ECF的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7888e306d8ed2a6a7ecff2b8b5b77229" name="ga7888e306d8ed2a6a7ecff2b8b5b77229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7888e306d8ed2a6a7ecff2b8b5b77229">&#9670;&#160;</a></span>aTIRFToECFTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTIRFToECFTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TIRF转换为ECF的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga53d52553695ab6cf6ce5d0dbff2babcf" name="ga53d52553695ab6cf6ce5d0dbff2babcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga53d52553695ab6cf6ce5d0dbff2babcf">&#9670;&#160;</a></span>aTODToGTOD() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTODToGTOD </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecTOD</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velTOD</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecGTOC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velGTOC</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TOD转换为GTOD的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecTOD</td><td>TOD坐标 </td></tr>
+    <tr><td class="paramname">velTOD</td><td>TOD速度 </td></tr>
+    <tr><td class="paramname">vecGTOD</td><td>GTOD坐标 </td></tr>
+    <tr><td class="paramname">velGTOD</td><td>GTOD速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga246634a2196a285578700eced82c4a86" name="ga246634a2196a285578700eced82c4a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga246634a2196a285578700eced82c4a86">&#9670;&#160;</a></span>aTODToGTOD() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTODToGTOD </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecTOD</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vecGTOD</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TOD转换为GTOD的坐标转换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">vecTOD</td><td>TOD坐标 </td></tr>
+    <tr><td class="paramname">vecGTOD</td><td>GTOD坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad8abd7c08044d8443c8cac73f3227efb" name="gad8abd7c08044d8443c8cac73f3227efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad8abd7c08044d8443c8cac73f3227efb">&#9670;&#160;</a></span>aTODToGTODMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTODToGTODMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TOD转换为GTOD的坐标转换矩阵 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>坐标转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabbb6ff0dad01976f5986aff5f94566b2" name="gabbb6ff0dad01976f5986aff5f94566b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabbb6ff0dad01976f5986aff5f94566b2">&#9670;&#160;</a></span>aTODToGTODTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTODToGTODTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TOD转换为GTOD的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换，带角速度信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga740873549cec351583fd2adc70743e8e" name="ga740873549cec351583fd2adc70743e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga740873549cec351583fd2adc70743e8e">&#9670;&#160;</a></span>aTODToGTODTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTODToGTODTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TOD转换为GTOD的坐标旋转变换 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>坐标旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad2c0415108dc3406d71dc13d2ea7f835" name="gad2c0415108dc3406d71dc13d2ea7f835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad2c0415108dc3406d71dc13d2ea7f835">&#9670;&#160;</a></span>aVNCToFrameMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aVNCToFrameMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算VNC坐标系到位置和速度向量所在坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2bff6bda570dd98e6d60a34e1b5dd33c" name="ga2bff6bda570dd98e6d60a34e1b5dd33c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2bff6bda570dd98e6d60a34e1b5dd33c">&#9670;&#160;</a></span>aVVLHToFrameMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aVVLHToFrameMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算VVLH坐标系到位置和速度向量所在坐标系的转换矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

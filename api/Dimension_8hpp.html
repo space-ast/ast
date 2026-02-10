@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Quantity/Dimension.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Quantity/Dimension.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -109,9 +109,6 @@ $(function(){initNavTree('Dimension_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Dimension.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>~  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div>
@@ -120,7 +117,6 @@ $(function(){initNavTree('Dimension_8hpp.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Dimension.html">ast::Dimension</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲  <a href="classast_1_1Dimension.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -141,7 +137,6 @@ $(function(){initNavTree('Dimension_8hpp.html',''); initResizable(true); });
 typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimension_t</b></td></tr>
 <tr class="separator:a2dd8d2419d2bbca67a9a16e803080173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af00b1ded2a8df0252b468907c5aab115" id="r_af00b1ded2a8df0252b468907c5aab115"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">ast::EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af00b1ded2a8df0252b468907c5aab115">ast::AEDimension</a></td></tr>
-<tr class="memdesc:af00b1ded2a8df0252b468907c5aab115"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲枚举类  <br /></td></tr>
 <tr class="separator:af00b1ded2a8df0252b468907c5aab115"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -186,7 +181,6 @@ typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dime
 , <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8">ast::eFrequency</a> = dimension::kFrequency
 <br />
  }</td></tr>
-<tr class="memdesc:ab30969f1d9a484eedacefdc5a6953f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲枚举类  <a href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">更多...</a><br /></td></tr>
 <tr class="separator:ab30969f1d9a484eedacefdc5a6953f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -194,22 +188,18 @@ typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dime
 <tr class="memitem:a7dd359c4f79076aa154e9c8f3f46d636" id="r_a7dd359c4f79076aa154e9c8f3f46d636"><td class="memTemplParams" colspan="2"><a id="a7dd359c4f79076aa154e9c8f3f46d636" name="a7dd359c4f79076aa154e9c8f3f46d636"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a7dd359c4f79076aa154e9c8f3f46d636"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_get_exponent</b> (T dimension, int idx) noexcept</td></tr>
-<tr class="memdesc:a7dd359c4f79076aa154e9c8f3f46d636"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的指数 <br /></td></tr>
 <tr class="separator:a7dd359c4f79076aa154e9c8f3f46d636"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d25748c4c13cedd010bd2742ee3b56c" id="r_a0d25748c4c13cedd010bd2742ee3b56c"><td class="memTemplParams" colspan="2"><a id="a0d25748c4c13cedd010bd2742ee3b56c" name="a0d25748c4c13cedd010bd2742ee3b56c"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0d25748c4c13cedd010bd2742ee3b56c"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_set_exponent</b> (T dimension, int idx, int exponent) noexcept</td></tr>
-<tr class="memdesc:a0d25748c4c13cedd010bd2742ee3b56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置量纲的指数 <br /></td></tr>
 <tr class="separator:a0d25748c4c13cedd010bd2742ee3b56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e3b6d06a7d6ac66e4fe573c7ec944c5" id="r_a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="memTemplParams" colspan="2"><a id="a9e3b6d06a7d6ac66e4fe573c7ec944c5" name="a9e3b6d06a7d6ac66e4fe573c7ec944c5"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_get_sum_abs_exponent</b> (T dimension) noexcept</td></tr>
-<tr class="memdesc:a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的指数绝对值的和 <br /></td></tr>
 <tr class="separator:a9e3b6d06a7d6ac66e4fe573c7ec944c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4b4bb523a789e6b63bb92057d72b4a" id="r_a0d4b4bb523a789e6b63bb92057d72b4a"><td class="memTemplParams" colspan="2"><a id="a0d4b4bb523a789e6b63bb92057d72b4a" name="a0d4b4bb523a789e6b63bb92057d72b4a"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0d4b4bb523a789e6b63bb92057d72b4a"><td class="memTemplItemLeft" align="right" valign="top">constexpr dimension_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_product</b> (T dim1, T dim2) noexcept</td></tr>
-<tr class="memdesc:a0d4b4bb523a789e6b63bb92057d72b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲乘法 <br /></td></tr>
 <tr class="separator:a0d4b4bb523a789e6b63bb92057d72b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4cecbcb21ebecd2d74d441d1551f2b5" id="r_af4cecbcb21ebecd2d74d441d1551f2b5"><td class="memTemplParams" colspan="2"><a id="af4cecbcb21ebecd2d74d441d1551f2b5" name="af4cecbcb21ebecd2d74d441d1551f2b5"></a>
 template&lt;typename T &gt; </td></tr>
@@ -218,7 +208,6 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a651e8b0eb4da4a185c63d53826c57f93" id="r_a651e8b0eb4da4a185c63d53826c57f93"><td class="memTemplParams" colspan="2"><a id="a651e8b0eb4da4a185c63d53826c57f93" name="a651e8b0eb4da4a185c63d53826c57f93"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a651e8b0eb4da4a185c63d53826c57f93"><td class="memTemplItemLeft" align="right" valign="top">constexpr dimension_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::dim_pow</b> (T dimension, int n) noexcept</td></tr>
-<tr class="memdesc:a651e8b0eb4da4a185c63d53826c57f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲指数幂 <br /></td></tr>
 <tr class="separator:a651e8b0eb4da4a185c63d53826c57f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab406b4774cae5af1eee2c897893896b4" id="r_ab406b4774cae5af1eee2c897893896b4"><td class="memTemplParams" colspan="2"><a id="ab406b4774cae5af1eee2c897893896b4" name="ab406b4774cae5af1eee2c897893896b4"></a>
 template&lt;typename T &gt; </td></tr>
@@ -226,39 +215,30 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:ab406b4774cae5af1eee2c897893896b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e41ca58c95d7f71bec7edeedecd747" id="r_a75e41ca58c95d7f71bec7edeedecd747"><td class="memItemLeft" align="right" valign="top"><a id="a75e41ca58c95d7f71bec7edeedecd747" name="a75e41ca58c95d7f71bec7edeedecd747"></a>
 constexpr <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator*</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim1, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim2) noexcept</td></tr>
-<tr class="memdesc:a75e41ca58c95d7f71bec7edeedecd747"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲乘法运算符 <br /></td></tr>
 <tr class="separator:a75e41ca58c95d7f71bec7edeedecd747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76bc86e8c16de763ba5587da00e48d10" id="r_a76bc86e8c16de763ba5587da00e48d10"><td class="memItemLeft" align="right" valign="top"><a id="a76bc86e8c16de763ba5587da00e48d10" name="a76bc86e8c16de763ba5587da00e48d10"></a>
 constexpr <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator/</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim1, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dim2) noexcept</td></tr>
-<tr class="memdesc:a76bc86e8c16de763ba5587da00e48d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲除法运算符 <br /></td></tr>
 <tr class="separator:a76bc86e8c16de763ba5587da00e48d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f74910b40e799143b3cf48b48df246" id="r_a75f74910b40e799143b3cf48b48df246"><td class="memItemLeft" align="right" valign="top"><a id="a75f74910b40e799143b3cf48b48df246" name="a75f74910b40e799143b3cf48b48df246"></a>
 constexpr <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pow</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension, int n) noexcept</td></tr>
-<tr class="memdesc:a75f74910b40e799143b3cf48b48df246"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲指数幂运算符 <br /></td></tr>
 <tr class="separator:a75f74910b40e799143b3cf48b48df246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9392469021c5dc89ec24b046a440f1a3" id="r_a9392469021c5dc89ec24b046a440f1a3"><td class="memItemLeft" align="right" valign="top"><a id="a9392469021c5dc89ec24b046a440f1a3" name="a9392469021c5dc89ec24b046a440f1a3"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimName</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension)</td></tr>
-<tr class="memdesc:a9392469021c5dc89ec24b046a440f1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的名称 <br /></td></tr>
 <tr class="separator:a9392469021c5dc89ec24b046a440f1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4fcc97f802ca674d11cd13bf395a5ce" id="r_af4fcc97f802ca674d11cd13bf395a5ce"><td class="memItemLeft" align="right" valign="top"><a id="af4fcc97f802ca674d11cd13bf395a5ce" name="af4fcc97f802ca674d11cd13bf395a5ce"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimSymbol</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension)</td></tr>
-<tr class="memdesc:af4fcc97f802ca674d11cd13bf395a5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取量纲的符号 <br /></td></tr>
 <tr class="separator:af4fcc97f802ca674d11cd13bf395a5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43e28a808d32e53cc4d7b0649aea9bd8" id="r_a43e28a808d32e53cc4d7b0649aea9bd8"><td class="memItemLeft" align="right" valign="top"><a id="a43e28a808d32e53cc4d7b0649aea9bd8" name="a43e28a808d32e53cc4d7b0649aea9bd8"></a>
 A_CONSTEXPR_CXX14 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimIsBase</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) noexcept</td></tr>
-<tr class="memdesc:a43e28a808d32e53cc4d7b0649aea9bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断量纲是否为基本量纲 <br /></td></tr>
 <tr class="separator:a43e28a808d32e53cc4d7b0649aea9bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab37fa7007b27d9cfaff76f2dc926414e" id="r_ab37fa7007b27d9cfaff76f2dc926414e"><td class="memItemLeft" align="right" valign="top"><a id="ab37fa7007b27d9cfaff76f2dc926414e" name="ab37fa7007b27d9cfaff76f2dc926414e"></a>
 A_CONSTEXPR_CXX14 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimIsDerived</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) noexcept</td></tr>
-<tr class="memdesc:ab37fa7007b27d9cfaff76f2dc926414e"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断量纲是否为导出量纲 <br /></td></tr>
 <tr class="separator:ab37fa7007b27d9cfaff76f2dc926414e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66356b3c1665ac2eea3a7f3c32ac598f" id="r_a66356b3c1665ac2eea3a7f3c32ac598f"><td class="memItemLeft" align="right" valign="top"><a id="a66356b3c1665ac2eea3a7f3c32ac598f" name="a66356b3c1665ac2eea3a7f3c32ac598f"></a>
 A_CONSTEXPR_CXX14 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDimIsUnit</b> (<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> dimension) noexcept</td></tr>
-<tr class="memdesc:a66356b3c1665ac2eea3a7f3c32ac598f"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断量纲是否为单位量纲 <br /></td></tr>
 <tr class="separator:a66356b3c1665ac2eea3a7f3c32ac598f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d58601f3df85b4a4b691a9322911817" id="r_a3d58601f3df85b4a4b691a9322911817"><td class="memItemLeft" align="right" valign="top"><a id="a3d58601f3df85b4a4b691a9322911817" name="a3d58601f3df85b4a4b691a9322911817"></a>
 A_CONSTEXPR_CXX14 <a class="el" href="classast_1_1Dimension.html">Dimension</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pow</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim, int n)</td></tr>
-<tr class="memdesc:a3d58601f3df85b4a4b691a9322911817"><td class="mdescLeft">&#160;</td><td class="mdescRight">量纲指数幂运算符 <br /></td></tr>
 <tr class="separator:a3d58601f3df85b4a4b691a9322911817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>

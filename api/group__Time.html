@@ -1,0 +1,2571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: 时间转换</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__Time.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#enumval-members">枚举值</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">时间转换<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>提供儒略日、日期时间等时间表示，以及不同时间系统之间的转换功能 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Date.html">ast::Date</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DateTime.html">ast::DateTime</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ShortDuration.html">ast::ShortDuration</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LongDuration.html">ast::LongDuration</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DaySecDuration.html">ast::DaySecDuration</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JulianDate.html">ast::JulianDate</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ModJulianDate.html">ast::ModJulianDate</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Time.html">ast::Time</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeInterval.html">ast::TimeInterval</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimePoint.html">ast::TimePoint</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ga4cdbb4699f636a8b836b9460d3d5b751" id="r_ga4cdbb4699f636a8b836b9460d3d5b751"><td class="memItemLeft" align="right" valign="top"><a id="ga4cdbb4699f636a8b836b9460d3d5b751" name="ga4cdbb4699f636a8b836b9460d3d5b751"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4cdbb4699f636a8b836b9460d3d5b751">ast::Date::EMonth</a> { <br />
+&#160;&#160;<b>eJAN</b> = 1
+, <b>eFEB</b>
+, <b>eMAR</b>
+, <b>eAPR</b>
+, <br />
+&#160;&#160;<b>eMAY</b>
+, <b>eJUN</b>
+, <b>eJUL</b> = 7
+, <b>eAUG</b>
+, <br />
+&#160;&#160;<b>eSEP</b>
+, <b>eOCT</b>
+, <b>eNOV</b>
+, <b>eDEC</b>
+<br />
+ }</td></tr>
+<tr class="separator:ga4cdbb4699f636a8b836b9460d3d5b751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a01e196dd5e7261346a587234236b35" id="r_ga7a01e196dd5e7261346a587234236b35"><td class="memItemLeft" align="right" valign="top"><a id="ga7a01e196dd5e7261346a587234236b35" name="ga7a01e196dd5e7261346a587234236b35"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7a01e196dd5e7261346a587234236b35">ast::Date::EWeekDay</a> { <br />
+&#160;&#160;<b>eSUN</b> = 0
+, <b>eMON</b>
+, <b>eTUE</b>
+, <b>eWED</b>
+, <br />
+&#160;&#160;<b>eTHU</b>
+, <b>eFRI</b>
+, <b>eSAT</b>
+<br />
+ }</td></tr>
+<tr class="separator:ga7a01e196dd5e7261346a587234236b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gad088c8a2d3a1a68850d5b43e53be4a24" id="r_gad088c8a2d3a1a68850d5b43e53be4a24"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad088c8a2d3a1a68850d5b43e53be4a24">ast::aMoonFullName</a> (int month)</td></tr>
+<tr class="separator:gad088c8a2d3a1a68850d5b43e53be4a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7cd83ff0997da45192a2fb505c6e8fed" id="r_ga7cd83ff0997da45192a2fb505c6e8fed"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7cd83ff0997da45192a2fb505c6e8fed">ast::aMoonShortName</a> (int month)</td></tr>
+<tr class="separator:ga7cd83ff0997da45192a2fb505c6e8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa772658f23e7bd2fccc1c922f91b6ff8" id="r_gaa772658f23e7bd2fccc1c922f91b6ff8"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa772658f23e7bd2fccc1c922f91b6ff8">ast::aWeekDayFullName</a> (int wday)</td></tr>
+<tr class="separator:gaa772658f23e7bd2fccc1c922f91b6ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d5b4d1ea2a4752dee370a36e30bd9c4" id="r_ga5d5b4d1ea2a4752dee370a36e30bd9c4"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5d5b4d1ea2a4752dee370a36e30bd9c4">ast::aWeekDayShortName</a> (int wday)</td></tr>
+<tr class="separator:ga5d5b4d1ea2a4752dee370a36e30bd9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga402402fe3812a1a2b3949a758b444fda" id="r_ga402402fe3812a1a2b3949a758b444fda"><td class="memItemLeft" align="right" valign="top"><a id="ga402402fe3812a1a2b3949a758b444fda" name="ga402402fe3812a1a2b3949a758b444fda"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aIsLeapYear</b> (int year)</td></tr>
+<tr class="separator:ga402402fe3812a1a2b3949a758b444fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b50de242256f0c266a95e67fb9a7560" id="r_ga5b50de242256f0c266a95e67fb9a7560"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5b50de242256f0c266a95e67fb9a7560">ast::aDaysInMonthByYear</a> (int month, int year)</td></tr>
+<tr class="separator:ga5b50de242256f0c266a95e67fb9a7560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8256de1941b0597163a50a1e7250ae5" id="r_gaf8256de1941b0597163a50a1e7250ae5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf8256de1941b0597163a50a1e7250ae5">ast::aDaysInMonthByLeap</a> (int month, bool isLeapYear)</td></tr>
+<tr class="separator:gaf8256de1941b0597163a50a1e7250ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga114aaf7be99eddf8ee66a06cfc7ee525" id="r_ga114aaf7be99eddf8ee66a06cfc7ee525"><td class="memItemLeft" align="right" valign="top"><a id="ga114aaf7be99eddf8ee66a06cfc7ee525" name="ga114aaf7be99eddf8ee66a06cfc7ee525"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDayOfYear</b> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:ga114aaf7be99eddf8ee66a06cfc7ee525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0befbfd1dd76bf9211963f7a79c2f41d" id="r_ga0befbfd1dd76bf9211963f7a79c2f41d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0befbfd1dd76bf9211963f7a79c2f41d">ast::aDayOfWeek</a> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:ga0befbfd1dd76bf9211963f7a79c2f41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d" id="r_gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d"><td class="memItemLeft" align="right" valign="top"><a id="gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d" name="gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aYDToDate</b> (int year, int days, <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab09d1319b6553d2e6a5ca41841cde677" id="r_gab09d1319b6553d2e6a5ca41841cde677"><td class="memItemLeft" align="right" valign="top"><a id="gab09d1319b6553d2e6a5ca41841cde677" name="gab09d1319b6553d2e6a5ca41841cde677"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateToYD</b> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date, int &amp;year, int &amp;days)</td></tr>
+<tr class="separator:gab09d1319b6553d2e6a5ca41841cde677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb06d89084a53b17a79aab03e982ded8" id="r_gaeb06d89084a53b17a79aab03e982ded8"><td class="memItemLeft" align="right" valign="top"><a id="gaeb06d89084a53b17a79aab03e982ded8" name="gaeb06d89084a53b17a79aab03e982ded8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateNormalize</b> (<a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:gaeb06d89084a53b17a79aab03e982ded8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2b6f150cf641d2e6aa419e849b363cc" id="r_gab2b6f150cf641d2e6aa419e849b363cc"><td class="memItemLeft" align="right" valign="top"><a id="gab2b6f150cf641d2e6aa419e849b363cc" name="gab2b6f150cf641d2e6aa419e849b363cc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateToJDAtNoon</b> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:gab2b6f150cf641d2e6aa419e849b363cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35c2ecd6ca4483da7789a270a3060c9d" id="r_ga35c2ecd6ca4483da7789a270a3060c9d"><td class="memItemLeft" align="right" valign="top"><a id="ga35c2ecd6ca4483da7789a270a3060c9d" name="ga35c2ecd6ca4483da7789a270a3060c9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJDToDateAtNoon</b> (int jd, <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:ga35c2ecd6ca4483da7789a270a3060c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebe4e926542fe1deaf535bfdc56a28b3" id="r_gaebe4e926542fe1deaf535bfdc56a28b3"><td class="memItemLeft" align="right" valign="top"><a id="gaebe4e926542fe1deaf535bfdc56a28b3" name="gaebe4e926542fe1deaf535bfdc56a28b3"></a>
+ImpreciseJD&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateToJD</b> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:gaebe4e926542fe1deaf535bfdc56a28b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d18f7fc7e53783f07a94bc9d9c8e041" id="r_ga9d18f7fc7e53783f07a94bc9d9c8e041"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9d18f7fc7e53783f07a94bc9d9c8e041">ast::aJDToDate</a> (ImpreciseJD jd, <a class="el" href="classast_1_1Date.html">Date</a> &amp;date, double *secInDay=nullptr)</td></tr>
+<tr class="separator:ga9d18f7fc7e53783f07a94bc9d9c8e041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf509e2f791b75c51d60c4e705c7b0195" id="r_gaf509e2f791b75c51d60c4e705c7b0195"><td class="memItemLeft" align="right" valign="top"><a id="gaf509e2f791b75c51d60c4e705c7b0195" name="gaf509e2f791b75c51d60c4e705c7b0195"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateToMJD</b> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:gaf509e2f791b75c51d60c4e705c7b0195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55fffd023070a075f71e5f0181e2de40" id="r_ga55fffd023070a075f71e5f0181e2de40"><td class="memItemLeft" align="right" valign="top"><a id="ga55fffd023070a075f71e5f0181e2de40" name="ga55fffd023070a075f71e5f0181e2de40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aMJDToDate</b> (int mjd, <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:ga55fffd023070a075f71e5f0181e2de40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa99a79a2832dac87b5389d6f8c870cd" id="r_gafa99a79a2832dac87b5389d6f8c870cd"><td class="memItemLeft" align="right" valign="top"><a id="gafa99a79a2832dac87b5389d6f8c870cd" name="gafa99a79a2832dac87b5389d6f8c870cd"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateToString</b> (const <a class="el" href="classast_1_1Date.html">Date</a> &amp;date)</td></tr>
+<tr class="separator:gafa99a79a2832dac87b5389d6f8c870cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8755bfe720d3f85040fe5dd38644de03" id="r_ga8755bfe720d3f85040fe5dd38644de03"><td class="memItemLeft" align="right" valign="top"><a id="ga8755bfe720d3f85040fe5dd38644de03" name="ga8755bfe720d3f85040fe5dd38644de03"></a>
+static <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::FromJDAtNoon</b> (int jd)</td></tr>
+<tr class="separator:ga8755bfe720d3f85040fe5dd38644de03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5713429e169192c837cacbaa2c84d52c" id="r_ga5713429e169192c837cacbaa2c84d52c"><td class="memItemLeft" align="right" valign="top"><a id="ga5713429e169192c837cacbaa2c84d52c" name="ga5713429e169192c837cacbaa2c84d52c"></a>
+static <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::FromYMD</b> (int year, int month, int day)</td></tr>
+<tr class="separator:ga5713429e169192c837cacbaa2c84d52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67093601b057e3771def993c842ce99a" id="r_ga67093601b057e3771def993c842ce99a"><td class="memItemLeft" align="right" valign="top"><a id="ga67093601b057e3771def993c842ce99a" name="ga67093601b057e3771def993c842ce99a"></a>
+static <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::FromYD</b> (int year, int days)</td></tr>
+<tr class="separator:ga67093601b057e3771def993c842ce99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aa9ffda45c14801b753eb765649f175" id="r_ga4aa9ffda45c14801b753eb765649f175"><td class="memItemLeft" align="right" valign="top"><a id="ga4aa9ffda45c14801b753eb765649f175" name="ga4aa9ffda45c14801b753eb765649f175"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::year</b> () const</td></tr>
+<tr class="separator:ga4aa9ffda45c14801b753eb765649f175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2e2827775c4e9f44ff38cad7dc30629" id="r_gab2e2827775c4e9f44ff38cad7dc30629"><td class="memItemLeft" align="right" valign="top"><a id="gab2e2827775c4e9f44ff38cad7dc30629" name="gab2e2827775c4e9f44ff38cad7dc30629"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::year</b> ()</td></tr>
+<tr class="separator:gab2e2827775c4e9f44ff38cad7dc30629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d531c946c25d39a481d5c43137a9a92" id="r_ga6d531c946c25d39a481d5c43137a9a92"><td class="memItemLeft" align="right" valign="top"><a id="ga6d531c946c25d39a481d5c43137a9a92" name="ga6d531c946c25d39a481d5c43137a9a92"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::month</b> () const</td></tr>
+<tr class="separator:ga6d531c946c25d39a481d5c43137a9a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4fd74ef62cb50ee10e2c8aac076a0379" id="r_ga4fd74ef62cb50ee10e2c8aac076a0379"><td class="memItemLeft" align="right" valign="top"><a id="ga4fd74ef62cb50ee10e2c8aac076a0379" name="ga4fd74ef62cb50ee10e2c8aac076a0379"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::month</b> ()</td></tr>
+<tr class="separator:ga4fd74ef62cb50ee10e2c8aac076a0379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b5f79edf6be36504a191672bccbfb15" id="r_ga4b5f79edf6be36504a191672bccbfb15"><td class="memItemLeft" align="right" valign="top"><a id="ga4b5f79edf6be36504a191672bccbfb15" name="ga4b5f79edf6be36504a191672bccbfb15"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::day</b> () const</td></tr>
+<tr class="separator:ga4b5f79edf6be36504a191672bccbfb15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29767716df84157a2f7ec5c0af5b086e" id="r_ga29767716df84157a2f7ec5c0af5b086e"><td class="memItemLeft" align="right" valign="top"><a id="ga29767716df84157a2f7ec5c0af5b086e" name="ga29767716df84157a2f7ec5c0af5b086e"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::day</b> ()</td></tr>
+<tr class="separator:ga29767716df84157a2f7ec5c0af5b086e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03e43b482b6cee693d2987ea1643ab65" id="r_ga03e43b482b6cee693d2987ea1643ab65"><td class="memItemLeft" align="right" valign="top"><a id="ga03e43b482b6cee693d2987ea1643ab65" name="ga03e43b482b6cee693d2987ea1643ab65"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::setYear</b> (int year)</td></tr>
+<tr class="separator:ga03e43b482b6cee693d2987ea1643ab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47317421d87f269f790b5982493e400a" id="r_ga47317421d87f269f790b5982493e400a"><td class="memItemLeft" align="right" valign="top"><a id="ga47317421d87f269f790b5982493e400a" name="ga47317421d87f269f790b5982493e400a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::setMonth</b> (int month)</td></tr>
+<tr class="separator:ga47317421d87f269f790b5982493e400a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d8bc4a356cb4e7282169235ed98efe0" id="r_ga2d8bc4a356cb4e7282169235ed98efe0"><td class="memItemLeft" align="right" valign="top"><a id="ga2d8bc4a356cb4e7282169235ed98efe0" name="ga2d8bc4a356cb4e7282169235ed98efe0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::setDay</b> (int day)</td></tr>
+<tr class="separator:ga2d8bc4a356cb4e7282169235ed98efe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95499f86d2d87bfc8ff285d1a66800b7" id="r_ga95499f86d2d87bfc8ff285d1a66800b7"><td class="memItemLeft" align="right" valign="top"><a id="ga95499f86d2d87bfc8ff285d1a66800b7" name="ga95499f86d2d87bfc8ff285d1a66800b7"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::monthFullName</b> () const</td></tr>
+<tr class="separator:ga95499f86d2d87bfc8ff285d1a66800b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88179430870464cb8b0160c2ca7bfe99" id="r_ga88179430870464cb8b0160c2ca7bfe99"><td class="memItemLeft" align="right" valign="top"><a id="ga88179430870464cb8b0160c2ca7bfe99" name="ga88179430870464cb8b0160c2ca7bfe99"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::monthShortName</b> () const</td></tr>
+<tr class="separator:ga88179430870464cb8b0160c2ca7bfe99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga869fb2e76bb442c8175c0a297ddb8098" id="r_ga869fb2e76bb442c8175c0a297ddb8098"><td class="memItemLeft" align="right" valign="top"><a id="ga869fb2e76bb442c8175c0a297ddb8098" name="ga869fb2e76bb442c8175c0a297ddb8098"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::weekDayFullName</b> () const</td></tr>
+<tr class="separator:ga869fb2e76bb442c8175c0a297ddb8098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75e4609fe91cfe5858ac5b32b0ae6994" id="r_ga75e4609fe91cfe5858ac5b32b0ae6994"><td class="memItemLeft" align="right" valign="top"><a id="ga75e4609fe91cfe5858ac5b32b0ae6994" name="ga75e4609fe91cfe5858ac5b32b0ae6994"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::weekDayShortName</b> () const</td></tr>
+<tr class="separator:ga75e4609fe91cfe5858ac5b32b0ae6994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f1cf0f806296d78dd7f9b0b101e4594" id="r_ga9f1cf0f806296d78dd7f9b0b101e4594"><td class="memItemLeft" align="right" valign="top"><a id="ga9f1cf0f806296d78dd7f9b0b101e4594" name="ga9f1cf0f806296d78dd7f9b0b101e4594"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::dayOfWeek</b> () const</td></tr>
+<tr class="separator:ga9f1cf0f806296d78dd7f9b0b101e4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad2f8707229e004fd3f1c7cca4c7b418" id="r_gaad2f8707229e004fd3f1c7cca4c7b418"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaad2f8707229e004fd3f1c7cca4c7b418">ast::Date::dayOfYear</a> () const</td></tr>
+<tr class="separator:gaad2f8707229e004fd3f1c7cca4c7b418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47ee05579fd4388bc089ce1c2004b7f3" id="r_ga47ee05579fd4388bc089ce1c2004b7f3"><td class="memItemLeft" align="right" valign="top"><a id="ga47ee05579fd4388bc089ce1c2004b7f3" name="ga47ee05579fd4388bc089ce1c2004b7f3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::isLeapYear</b> () const</td></tr>
+<tr class="separator:ga47ee05579fd4388bc089ce1c2004b7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14fa5d7e73adeebc3e3266bb3401ec8a" id="r_ga14fa5d7e73adeebc3e3266bb3401ec8a"><td class="memItemLeft" align="right" valign="top"><a id="ga14fa5d7e73adeebc3e3266bb3401ec8a" name="ga14fa5d7e73adeebc3e3266bb3401ec8a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::dayInMonth</b> () const</td></tr>
+<tr class="separator:ga14fa5d7e73adeebc3e3266bb3401ec8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9980b4d505fa3adf86b9851bcba031f" id="r_gaa9980b4d505fa3adf86b9851bcba031f"><td class="memItemLeft" align="right" valign="top"><a id="gaa9980b4d505fa3adf86b9851bcba031f" name="gaa9980b4d505fa3adf86b9851bcba031f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::toJDAtNoon</b> () const</td></tr>
+<tr class="separator:gaa9980b4d505fa3adf86b9851bcba031f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd13a3151cef717af56b5d1836792fb9" id="r_gafd13a3151cef717af56b5d1836792fb9"><td class="memItemLeft" align="right" valign="top"><a id="gafd13a3151cef717af56b5d1836792fb9" name="gafd13a3151cef717af56b5d1836792fb9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::toJD</b> () const</td></tr>
+<tr class="separator:gafd13a3151cef717af56b5d1836792fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7fb949d46bcd6c8b0ef46dc8e0be3d2" id="r_gab7fb949d46bcd6c8b0ef46dc8e0be3d2"><td class="memItemLeft" align="right" valign="top"><a id="gab7fb949d46bcd6c8b0ef46dc8e0be3d2" name="gab7fb949d46bcd6c8b0ef46dc8e0be3d2"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::toMJD</b> () const</td></tr>
+<tr class="separator:gab7fb949d46bcd6c8b0ef46dc8e0be3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga184b84b626ef7d21bd188b532e243460" id="r_ga184b84b626ef7d21bd188b532e243460"><td class="memItemLeft" align="right" valign="top"><a id="ga184b84b626ef7d21bd188b532e243460" name="ga184b84b626ef7d21bd188b532e243460"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::fromJDAtNoon</b> (int jd)</td></tr>
+<tr class="separator:ga184b84b626ef7d21bd188b532e243460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9c3bb618689fc9db118621ed6ff6318" id="r_gaf9c3bb618689fc9db118621ed6ff6318"><td class="memItemLeft" align="right" valign="top"><a id="gaf9c3bb618689fc9db118621ed6ff6318" name="gaf9c3bb618689fc9db118621ed6ff6318"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::fromYMD</b> (int year, int month, int day)</td></tr>
+<tr class="separator:gaf9c3bb618689fc9db118621ed6ff6318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f6dfe4ff9e245c5bd46b19f9a8e075f" id="r_ga2f6dfe4ff9e245c5bd46b19f9a8e075f"><td class="memItemLeft" align="right" valign="top"><a id="ga2f6dfe4ff9e245c5bd46b19f9a8e075f" name="ga2f6dfe4ff9e245c5bd46b19f9a8e075f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::fromYD</b> (int year, int days)</td></tr>
+<tr class="separator:ga2f6dfe4ff9e245c5bd46b19f9a8e075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf54bfb3877b4dec554c2219f9184e8a3" id="r_gaf54bfb3877b4dec554c2219f9184e8a3"><td class="memItemLeft" align="right" valign="top"><a id="gaf54bfb3877b4dec554c2219f9184e8a3" name="gaf54bfb3877b4dec554c2219f9184e8a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::toYD</b> (int &amp;year, int &amp;days) const</td></tr>
+<tr class="separator:gaf54bfb3877b4dec554c2219f9184e8a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d082db9849c05f3db689102740d752f" id="r_ga0d082db9849c05f3db689102740d752f"><td class="memItemLeft" align="right" valign="top"><a id="ga0d082db9849c05f3db689102740d752f" name="ga0d082db9849c05f3db689102740d752f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::normalize</b> ()</td></tr>
+<tr class="separator:ga0d082db9849c05f3db689102740d752f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa09b00d4c981b078f1c49d3ca04f8110" id="r_gaa09b00d4c981b078f1c49d3ca04f8110"><td class="memItemLeft" align="right" valign="top"><a id="gaa09b00d4c981b078f1c49d3ca04f8110" name="gaa09b00d4c981b078f1c49d3ca04f8110"></a>
+<a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::normalized</b> () const</td></tr>
+<tr class="separator:gaa09b00d4c981b078f1c49d3ca04f8110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85b56284726d40bf56589c8e00ccc8e" id="r_gab85b56284726d40bf56589c8e00ccc8e"><td class="memItemLeft" align="right" valign="top"><a id="gab85b56284726d40bf56589c8e00ccc8e" name="gab85b56284726d40bf56589c8e00ccc8e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::toString</b> () const</td></tr>
+<tr class="separator:gab85b56284726d40bf56589c8e00ccc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf7d652fcfaaeef286dbd565416c3eff" id="r_gacf7d652fcfaaeef286dbd565416c3eff"><td class="memItemLeft" align="right" valign="top"><a id="gacf7d652fcfaaeef286dbd565416c3eff" name="gacf7d652fcfaaeef286dbd565416c3eff"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aMJDToDate</b> (int mjd)</td></tr>
+<tr class="separator:gacf7d652fcfaaeef286dbd565416c3eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada7d9b9c29320a4f6f423f4950768515" id="r_gada7d9b9c29320a4f6f423f4950768515"><td class="memItemLeft" align="right" valign="top"><a id="gada7d9b9c29320a4f6f423f4950768515" name="gada7d9b9c29320a4f6f423f4950768515"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeLocal</b> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gada7d9b9c29320a4f6f423f4950768515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2382e315e4faee566ce2da9a0e0a721" id="r_gaf2382e315e4faee566ce2da9a0e0a721"><td class="memItemLeft" align="right" valign="top"><a id="gaf2382e315e4faee566ce2da9a0e0a721" name="gaf2382e315e4faee566ce2da9a0e0a721"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeUTC</b> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gaf2382e315e4faee566ce2da9a0e0a721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafea754e812ce5a268a4b22384cd92015" id="r_gafea754e812ce5a268a4b22384cd92015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafea754e812ce5a268a4b22384cd92015">ast::aDateTimeNormalize</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gafea754e812ce5a268a4b22384cd92015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1599d89861ee681fb99ca5a68626edd1" id="r_ga1599d89861ee681fb99ca5a68626edd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1599d89861ee681fb99ca5a68626edd1">ast::aDateTimeNormalizeUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:ga1599d89861ee681fb99ca5a68626edd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad34b3522fd948faeb364b48f67a937aa" id="r_gad34b3522fd948faeb364b48f67a937aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad34b3522fd948faeb364b48f67a937aa">ast::aDateTimeNormalizeLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int timezone)</td></tr>
+<tr class="separator:gad34b3522fd948faeb364b48f67a937aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb6283f05e9e4625b3358a1b1dd39c3a" id="r_gaeb6283f05e9e4625b3358a1b1dd39c3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeb6283f05e9e4625b3358a1b1dd39c3a">ast::aDateTimeNormalizeBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gaeb6283f05e9e4625b3358a1b1dd39c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga255a86c279bc64ad8e8a3191782e03c0" id="r_ga255a86c279bc64ad8e8a3191782e03c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga255a86c279bc64ad8e8a3191782e03c0">ast::aDateTimeAddYears</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int years)</td></tr>
+<tr class="separator:ga255a86c279bc64ad8e8a3191782e03c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5ec36298b2b3670b0925965d65e2fe0" id="r_gab5ec36298b2b3670b0925965d65e2fe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab5ec36298b2b3670b0925965d65e2fe0">ast::aDateTimeAddMonths</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int months)</td></tr>
+<tr class="separator:gab5ec36298b2b3670b0925965d65e2fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98ce15d5391facdf68ea00672773bb06" id="r_ga98ce15d5391facdf68ea00672773bb06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga98ce15d5391facdf68ea00672773bb06">ast::aDateTimeAddDays</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days)</td></tr>
+<tr class="separator:ga98ce15d5391facdf68ea00672773bb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab52e8b01ffb5e3d3350e1a6f219491fc" id="r_gab52e8b01ffb5e3d3350e1a6f219491fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab52e8b01ffb5e3d3350e1a6f219491fc">ast::aDateTimeAddDaysUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days)</td></tr>
+<tr class="separator:gab52e8b01ffb5e3d3350e1a6f219491fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66eba41bc3327585b471f9eb5e9f1ac9" id="r_ga66eba41bc3327585b471f9eb5e9f1ac9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga66eba41bc3327585b471f9eb5e9f1ac9">ast::aDateTimeAddDaysLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days, int timezone)</td></tr>
+<tr class="separator:ga66eba41bc3327585b471f9eb5e9f1ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cdf52f9c9c9f5ba1254f53e16a27520" id="r_ga1cdf52f9c9c9f5ba1254f53e16a27520"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1cdf52f9c9c9f5ba1254f53e16a27520">ast::aDateTimeAddDaysBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int days)</td></tr>
+<tr class="separator:ga1cdf52f9c9c9f5ba1254f53e16a27520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ad3998750a660fa5c924e334c51d664" id="r_ga2ad3998750a660fa5c924e334c51d664"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2ad3998750a660fa5c924e334c51d664">ast::aDateTimeAddHours</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours)</td></tr>
+<tr class="separator:ga2ad3998750a660fa5c924e334c51d664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90a82d01a8d17997dc6bcc404bc3e067" id="r_ga90a82d01a8d17997dc6bcc404bc3e067"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga90a82d01a8d17997dc6bcc404bc3e067">ast::aDateTimeAddHoursUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours)</td></tr>
+<tr class="separator:ga90a82d01a8d17997dc6bcc404bc3e067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4049d8059f1bc16ea954d4af0c396af1" id="r_ga4049d8059f1bc16ea954d4af0c396af1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4049d8059f1bc16ea954d4af0c396af1">ast::aDateTimeAddHoursLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours, int timezone)</td></tr>
+<tr class="separator:ga4049d8059f1bc16ea954d4af0c396af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e5ec22d4319d22ec720377ca527a0d6" id="r_ga6e5ec22d4319d22ec720377ca527a0d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6e5ec22d4319d22ec720377ca527a0d6">ast::aDateTimeAddHoursBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int hours)</td></tr>
+<tr class="separator:ga6e5ec22d4319d22ec720377ca527a0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa06bd0d62f451e07021cfaf6a0d5598a" id="r_gaa06bd0d62f451e07021cfaf6a0d5598a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa06bd0d62f451e07021cfaf6a0d5598a">ast::aDateTimeAddMinutes</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes)</td></tr>
+<tr class="separator:gaa06bd0d62f451e07021cfaf6a0d5598a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabbfa83d08d81f5bfce075b1fbeb40692" id="r_gabbfa83d08d81f5bfce075b1fbeb40692"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabbfa83d08d81f5bfce075b1fbeb40692">ast::aDateTimeAddMinutesUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes)</td></tr>
+<tr class="separator:gabbfa83d08d81f5bfce075b1fbeb40692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d50838bad9e23889999bbff2a92ff33" id="r_ga4d50838bad9e23889999bbff2a92ff33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4d50838bad9e23889999bbff2a92ff33">ast::aDateTimeAddMinutesLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes, int timezone)</td></tr>
+<tr class="separator:ga4d50838bad9e23889999bbff2a92ff33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a2de3553404eac4acb6d6a5ad152dd9" id="r_ga0a2de3553404eac4acb6d6a5ad152dd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0a2de3553404eac4acb6d6a5ad152dd9">ast::aDateTimeAddMinutesBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, int minutes)</td></tr>
+<tr class="separator:ga0a2de3553404eac4acb6d6a5ad152dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9ff416812e7b4a1b3a8be589b87b6a3" id="r_gae9ff416812e7b4a1b3a8be589b87b6a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae9ff416812e7b4a1b3a8be589b87b6a3">ast::aDateTimeAddSeconds</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds)</td></tr>
+<tr class="separator:gae9ff416812e7b4a1b3a8be589b87b6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9c1a1b8c0f4198a3752a73e71e3c739" id="r_gad9c1a1b8c0f4198a3752a73e71e3c739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad9c1a1b8c0f4198a3752a73e71e3c739">ast::aDateTimeAddSecondsUTC</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds)</td></tr>
+<tr class="separator:gad9c1a1b8c0f4198a3752a73e71e3c739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c0e5f342bf645b7e27b0892a053fa6c" id="r_ga7c0e5f342bf645b7e27b0892a053fa6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7c0e5f342bf645b7e27b0892a053fa6c">ast::aDateTimeAddSecondsLocal</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds, int timezone)</td></tr>
+<tr class="separator:ga7c0e5f342bf645b7e27b0892a053fa6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19f017a5a5f1e4bf970e515b3f3e1e7d" id="r_ga19f017a5a5f1e4bf970e515b3f3e1e7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga19f017a5a5f1e4bf970e515b3f3e1e7d">ast::aDateTimeAddSecondsBJT</a> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double seconds)</td></tr>
+<tr class="separator:ga19f017a5a5f1e4bf970e515b3f3e1e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fa750b337bdb39f42ff1740e392b064" id="r_ga6fa750b337bdb39f42ff1740e392b064"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6fa750b337bdb39f42ff1740e392b064">ast::aDateTimeFormat</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> format, std::string &amp;str)</td></tr>
+<tr class="separator:ga6fa750b337bdb39f42ff1740e392b064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60c178698d2ff24bab0dc69ff2058eca" id="r_ga60c178698d2ff24bab0dc69ff2058eca"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga60c178698d2ff24bab0dc69ff2058eca">ast::aDateTimeFormatGregorian</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str, int precision=3)</td></tr>
+<tr class="separator:ga60c178698d2ff24bab0dc69ff2058eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a553937a7fe4e174ebb7b7176a84cd7" id="r_ga9a553937a7fe4e174ebb7b7176a84cd7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9a553937a7fe4e174ebb7b7176a84cd7">ast::aDateTimeFormatGregorianEn</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="separator:ga9a553937a7fe4e174ebb7b7176a84cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae12c94ded6ae0171a58702f3ce0e0a9b" id="r_gae12c94ded6ae0171a58702f3ce0e0a9b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae12c94ded6ae0171a58702f3ce0e0a9b">ast::aDateTimeFormatGMT</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="separator:gae12c94ded6ae0171a58702f3ce0e0a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80444a6bdc627bd34d6ee5d64dd21942" id="r_ga80444a6bdc627bd34d6ee5d64dd21942"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga80444a6bdc627bd34d6ee5d64dd21942">ast::aDateTimeFormatISO8601</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="separator:ga80444a6bdc627bd34d6ee5d64dd21942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2dff3415bdcc753accc8226ff57094a0" id="r_ga2dff3415bdcc753accc8226ff57094a0"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2dff3415bdcc753accc8226ff57094a0">ast::aDateTimeFormatISO</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="separator:ga2dff3415bdcc753accc8226ff57094a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf1eca442298fc0c0f36d8ffbb5b9e75" id="r_gabf1eca442298fc0c0f36d8ffbb5b9e75"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabf1eca442298fc0c0f36d8ffbb5b9e75">ast::aDateTimeFormatRFC3339</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
+<tr class="separator:gabf1eca442298fc0c0f36d8ffbb5b9e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30dd54f8997f5d5f1280ff4fd76f43cb" id="r_ga30dd54f8997f5d5f1280ff4fd76f43cb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga30dd54f8997f5d5f1280ff4fd76f43cb">ast::aDateTimeFormatDefault</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str, int precision=kTimeDefaultFormatPrecision)</td></tr>
+<tr class="separator:ga30dd54f8997f5d5f1280ff4fd76f43cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf27207ecdb4c52cb3bbee6b4c5ce6586" id="r_gaf27207ecdb4c52cb3bbee6b4c5ce6586"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf27207ecdb4c52cb3bbee6b4c5ce6586">ast::aDateTimeParseISO8601</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gaf27207ecdb4c52cb3bbee6b4c5ce6586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd13754be37fe4f283ab6df468ff582e" id="r_gadd13754be37fe4f283ab6df468ff582e"><td class="memItemLeft" align="right" valign="top"><a id="gadd13754be37fe4f283ab6df468ff582e" name="gadd13754be37fe4f283ab6df468ff582e"></a>
+A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateTimeParseISO</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gadd13754be37fe4f283ab6df468ff582e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5844311880f35f8c7f5005e937755f4d" id="r_ga5844311880f35f8c7f5005e937755f4d"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5844311880f35f8c7f5005e937755f4d">ast::aDateTimeParseRFC3339</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:ga5844311880f35f8c7f5005e937755f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga090d34f100816c9ce912e8fa94d91860" id="r_ga090d34f100816c9ce912e8fa94d91860"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga090d34f100816c9ce912e8fa94d91860">ast::aDateTimeParseGregorian</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:ga090d34f100816c9ce912e8fa94d91860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a83327b8620ac82709c7696e8ac7355" id="r_ga6a83327b8620ac82709c7696e8ac7355"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6a83327b8620ac82709c7696e8ac7355">ast::aDateTimeParseGregorianEn</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:ga6a83327b8620ac82709c7696e8ac7355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab62866d91cd474fe2cf156e516225545" id="r_gab62866d91cd474fe2cf156e516225545"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab62866d91cd474fe2cf156e516225545">ast::aDateTimeParseGMT</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gab62866d91cd474fe2cf156e516225545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9e59ad47e38630712c35c6e452d5aa9" id="r_gae9e59ad47e38630712c35c6e452d5aa9"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae9e59ad47e38630712c35c6e452d5aa9">ast::aDateTimeParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> format, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gae9e59ad47e38630712c35c6e452d5aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15ead00f49a9a6551fd36a11bebf1368" id="r_ga15ead00f49a9a6551fd36a11bebf1368"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga15ead00f49a9a6551fd36a11bebf1368">ast::aDateTimeParseAny</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:ga15ead00f49a9a6551fd36a11bebf1368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d9257dc8e71b54cb261e4359d0b4634" id="r_ga7d9257dc8e71b54cb261e4359d0b4634"><td class="memItemLeft" align="right" valign="top"><a id="ga7d9257dc8e71b54cb261e4359d0b4634" name="ga7d9257dc8e71b54cb261e4359d0b4634"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeLocal</b> ()</td></tr>
+<tr class="separator:ga7d9257dc8e71b54cb261e4359d0b4634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec8e84595beebf4ab3fcb4e48ad3fa6a" id="r_gaec8e84595beebf4ab3fcb4e48ad3fa6a"><td class="memItemLeft" align="right" valign="top"><a id="gaec8e84595beebf4ab3fcb4e48ad3fa6a" name="gaec8e84595beebf4ab3fcb4e48ad3fa6a"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeUTC</b> ()</td></tr>
+<tr class="separator:gaec8e84595beebf4ab3fcb4e48ad3fa6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb09c8c9dd69bfb1cac629da5a9d5853" id="r_gadb09c8c9dd69bfb1cac629da5a9d5853"><td class="memItemLeft" align="right" valign="top"><a id="gadb09c8c9dd69bfb1cac629da5a9d5853" name="gadb09c8c9dd69bfb1cac629da5a9d5853"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJDToMJD</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd, <a class="el" href="classast_1_1ModJulianDate.html">ModJulianDate</a> &amp;mjd)</td></tr>
+<tr class="separator:gadb09c8c9dd69bfb1cac629da5a9d5853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8db27e20eac1e33070a74deb879db05c" id="r_ga8db27e20eac1e33070a74deb879db05c"><td class="memItemLeft" align="right" valign="top"><a id="ga8db27e20eac1e33070a74deb879db05c" name="ga8db27e20eac1e33070a74deb879db05c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aMJDToJD</b> (const <a class="el" href="classast_1_1ModJulianDate.html">ModJulianDate</a> &amp;mjd, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd)</td></tr>
+<tr class="separator:ga8db27e20eac1e33070a74deb879db05c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf6d3d56f8739b7a8b786490e6792341" id="r_gadf6d3d56f8739b7a8b786490e6792341"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadf6d3d56f8739b7a8b786490e6792341">ast::aJDToMJD_Imprecise</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd)</td></tr>
+<tr class="separator:gadf6d3d56f8739b7a8b786490e6792341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b895198b2420d761b6ce862dd3311c3" id="r_ga1b895198b2420d761b6ce862dd3311c3"><td class="memItemLeft" align="right" valign="top">ImpreciseMJD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1b895198b2420d761b6ce862dd3311c3">ast::aJDToMJD_Imprecise</a> (ImpreciseJD jd)</td></tr>
+<tr class="separator:ga1b895198b2420d761b6ce862dd3311c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67d26b3a99854da0c5e24c90aacb5d28" id="r_ga67d26b3a99854da0c5e24c90aacb5d28"><td class="memItemLeft" align="right" valign="top">ImpreciseJD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga67d26b3a99854da0c5e24c90aacb5d28">ast::aMJDToJD_Imprecise</a> (const <a class="el" href="classast_1_1ModJulianDate.html">ModJulianDate</a> &amp;mjd)</td></tr>
+<tr class="separator:ga67d26b3a99854da0c5e24c90aacb5d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2095a8fc071d50d01d97c2fea1ac156" id="r_gab2095a8fc071d50d01d97c2fea1ac156"><td class="memItemLeft" align="right" valign="top">ImpreciseJD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab2095a8fc071d50d01d97c2fea1ac156">ast::aMJDToJD_Imprecise</a> (ImpreciseMJD mjd)</td></tr>
+<tr class="separator:gab2095a8fc071d50d01d97c2fea1ac156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa15f64143aa8bdcf322bcf25182063d4" id="r_gaa15f64143aa8bdcf322bcf25182063d4"><td class="memItemLeft" align="right" valign="top"><a id="gaa15f64143aa8bdcf322bcf25182063d4" name="gaa15f64143aa8bdcf322bcf25182063d4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDateTimeToJD</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd)</td></tr>
+<tr class="separator:gaa15f64143aa8bdcf322bcf25182063d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafae79be801e3e4cb55fcd602d71c08cd" id="r_gafae79be801e3e4cb55fcd602d71c08cd"><td class="memItemLeft" align="right" valign="top"><a id="gafae79be801e3e4cb55fcd602d71c08cd" name="gafae79be801e3e4cb55fcd602d71c08cd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJDToDateTime</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
+<tr class="separator:gafae79be801e3e4cb55fcd602d71c08cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd23673a65ca3df42001eaf909bfac81" id="r_gafd23673a65ca3df42001eaf909bfac81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafd23673a65ca3df42001eaf909bfac81">ast::aTimeNormalize</a> (<a class="el" href="classast_1_1Time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:gafd23673a65ca3df42001eaf909bfac81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99d731f038efaec1df2f79483c8c3a61" id="r_ga99d731f038efaec1df2f79483c8c3a61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga99d731f038efaec1df2f79483c8c3a61">ast::aTimeFromTotalSecond</a> (double totalSecond, <a class="el" href="classast_1_1Time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:ga99d731f038efaec1df2f79483c8c3a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53426815f1578b6c8f92651f3494daf7" id="r_ga53426815f1578b6c8f92651f3494daf7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga53426815f1578b6c8f92651f3494daf7">ast::aTimeIntervalFormat</a> (const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval, std::string &amp;strStart, std::string &amp;strEnd)</td></tr>
+<tr class="separator:ga53426815f1578b6c8f92651f3494daf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedd1a6e02476d34a4cd3ae0bd71bb224" id="r_gaedd1a6e02476d34a4cd3ae0bd71bb224"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaedd1a6e02476d34a4cd3ae0bd71bb224">ast::aTimeIntervalParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> strStart, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> strEnd, <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval)</td></tr>
+<tr class="separator:gaedd1a6e02476d34a4cd3ae0bd71bb224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71924ae7a77279ed8203166c618a49df" id="r_ga71924ae7a77279ed8203166c618a49df"><td class="memItemLeft" align="right" valign="top"><a id="ga71924ae7a77279ed8203166c618a49df" name="ga71924ae7a77279ed8203166c618a49df"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUTC</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga71924ae7a77279ed8203166c618a49df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3fcf7eeb4d06fd9cba06d0776393774" id="r_gab3fcf7eeb4d06fd9cba06d0776393774"><td class="memItemLeft" align="right" valign="top"><a id="gab3fcf7eeb4d06fd9cba06d0776393774" name="gab3fcf7eeb4d06fd9cba06d0776393774"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTT</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
+<tr class="separator:gab3fcf7eeb4d06fd9cba06d0776393774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19201d4b7e23c036b8bdf1209b42f0f2" id="r_ga19201d4b7e23c036b8bdf1209b42f0f2"><td class="memItemLeft" align="right" valign="top"><a id="ga19201d4b7e23c036b8bdf1209b42f0f2" name="ga19201d4b7e23c036b8bdf1209b42f0f2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTDB</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTDB)</td></tr>
+<tr class="separator:ga19201d4b7e23c036b8bdf1209b42f0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bab6500c72dcf5ba8583b282a54dd31" id="r_ga1bab6500c72dcf5ba8583b282a54dd31"><td class="memItemLeft" align="right" valign="top"><a id="ga1bab6500c72dcf5ba8583b282a54dd31" name="ga1bab6500c72dcf5ba8583b282a54dd31"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTAI</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI)</td></tr>
+<tr class="separator:ga1bab6500c72dcf5ba8583b282a54dd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75ce1901b3cae1292cfd714d1c2d6711" id="r_ga75ce1901b3cae1292cfd714d1c2d6711"><td class="memItemLeft" align="right" valign="top"><a id="ga75ce1901b3cae1292cfd714d1c2d6711" name="ga75ce1901b3cae1292cfd714d1c2d6711"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUT1</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUT1)</td></tr>
+<tr class="separator:ga75ce1901b3cae1292cfd714d1c2d6711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0418cfc5f9a2d78a15fbdf2d7a8540e2" id="r_ga0418cfc5f9a2d78a15fbdf2d7a8540e2"><td class="memItemLeft" align="right" valign="top"><a id="ga0418cfc5f9a2d78a15fbdf2d7a8540e2" name="ga0418cfc5f9a2d78a15fbdf2d7a8540e2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUTC</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
+<tr class="separator:ga0418cfc5f9a2d78a15fbdf2d7a8540e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11d67a53c1c0d87e58f2e8560b597d4a" id="r_ga11d67a53c1c0d87e58f2e8560b597d4a"><td class="memItemLeft" align="right" valign="top"><a id="ga11d67a53c1c0d87e58f2e8560b597d4a" name="ga11d67a53c1c0d87e58f2e8560b597d4a"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTT</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT)</td></tr>
+<tr class="separator:ga11d67a53c1c0d87e58f2e8560b597d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d803aa425d3c3056ff891c52bbf6bfe" id="r_ga6d803aa425d3c3056ff891c52bbf6bfe"><td class="memItemLeft" align="right" valign="top"><a id="ga6d803aa425d3c3056ff891c52bbf6bfe" name="ga6d803aa425d3c3056ff891c52bbf6bfe"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTDB</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTDB)</td></tr>
+<tr class="separator:ga6d803aa425d3c3056ff891c52bbf6bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf899b240427187712afe0d822e1812c5" id="r_gaf899b240427187712afe0d822e1812c5"><td class="memItemLeft" align="right" valign="top"><a id="gaf899b240427187712afe0d822e1812c5" name="gaf899b240427187712afe0d822e1812c5"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToTAI</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTAI)</td></tr>
+<tr class="separator:gaf899b240427187712afe0d822e1812c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga619dc8fc4ba2101f856c9e448076d93c" id="r_ga619dc8fc4ba2101f856c9e448076d93c"><td class="memItemLeft" align="right" valign="top"><a id="ga619dc8fc4ba2101f856c9e448076d93c" name="ga619dc8fc4ba2101f856c9e448076d93c"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointToUT1</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUT1)</td></tr>
+<tr class="separator:ga619dc8fc4ba2101f856c9e448076d93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa659dcf357b549d669fca3957991debd" id="r_gaa659dcf357b549d669fca3957991debd"><td class="memItemLeft" align="right" valign="top"><a id="gaa659dcf357b549d669fca3957991debd" name="gaa659dcf357b549d669fca3957991debd"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointFormat</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, std::string &amp;str, int precision=kTimePointDefaultFormatPrecision)</td></tr>
+<tr class="separator:gaa659dcf357b549d669fca3957991debd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadaa593a266f37e1b82d1f9d403402e8a" id="r_gadaa593a266f37e1b82d1f9d403402e8a"><td class="memItemLeft" align="right" valign="top"><a id="gadaa593a266f37e1b82d1f9d403402e8a" name="gadaa593a266f37e1b82d1f9d403402e8a"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointParse</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time)</td></tr>
+<tr class="separator:gadaa593a266f37e1b82d1f9d403402e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6bf9ef3b76fdb0610cfb64300306039" id="r_gaa6bf9ef3b76fdb0610cfb64300306039"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:gaa6bf9ef3b76fdb0610cfb64300306039"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaa6bf9ef3b76fdb0610cfb64300306039">ast::aTAIToTT</a> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTAI, <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTT)</td></tr>
+<tr class="separator:gaa6bf9ef3b76fdb0610cfb64300306039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b3fa4f69ce91543a4e99a4e261477a6" id="r_ga2b3fa4f69ce91543a4e99a4e261477a6"><td class="memTemplParams" colspan="2"><a id="ga2b3fa4f69ce91543a4e99a4e261477a6" name="ga2b3fa4f69ce91543a4e99a4e261477a6"></a>
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:ga2b3fa4f69ce91543a4e99a4e261477a6"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Time.html">Time</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aTAIToTT</b> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTAI)</td></tr>
+<tr class="separator:ga2b3fa4f69ce91543a4e99a4e261477a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3ceebedb7ef5971f124fe9fdf9811ae" id="r_gab3ceebedb7ef5971f124fe9fdf9811ae"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:gab3ceebedb7ef5971f124fe9fdf9811ae"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gab3ceebedb7ef5971f124fe9fdf9811ae">ast::aTTToTAI</a> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTT, <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTAI)</td></tr>
+<tr class="separator:gab3ceebedb7ef5971f124fe9fdf9811ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85150085ecd3e747a714fb0b6d545ce" id="r_gab85150085ecd3e747a714fb0b6d545ce"><td class="memTemplParams" colspan="2"><a id="gab85150085ecd3e747a714fb0b6d545ce" name="gab85150085ecd3e747a714fb0b6d545ce"></a>
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:gab85150085ecd3e747a714fb0b6d545ce"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Time.html">Time</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aTTToTAI</b> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTT)</td></tr>
+<tr class="separator:gab85150085ecd3e747a714fb0b6d545ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55303afacccf12da01ac94d4bae07903" id="r_ga55303afacccf12da01ac94d4bae07903"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:ga55303afacccf12da01ac94d4bae07903"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga55303afacccf12da01ac94d4bae07903">ast::aTAIToGPS</a> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTAI, <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmGPS)</td></tr>
+<tr class="separator:ga55303afacccf12da01ac94d4bae07903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cf0b74f4299ffc35ca2786047c756f3" id="r_ga2cf0b74f4299ffc35ca2786047c756f3"><td class="memTemplParams" colspan="2"><a id="ga2cf0b74f4299ffc35ca2786047c756f3" name="ga2cf0b74f4299ffc35ca2786047c756f3"></a>
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:ga2cf0b74f4299ffc35ca2786047c756f3"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Time.html">Time</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aTAIToGPS</b> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTAI)</td></tr>
+<tr class="separator:ga2cf0b74f4299ffc35ca2786047c756f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a30b67ffa7dadc252eb8a9359cb8006" id="r_ga2a30b67ffa7dadc252eb8a9359cb8006"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:ga2a30b67ffa7dadc252eb8a9359cb8006"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga2a30b67ffa7dadc252eb8a9359cb8006">ast::aGPSToTAI</a> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmGPS, <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmTAI)</td></tr>
+<tr class="separator:ga2a30b67ffa7dadc252eb8a9359cb8006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8dc2485a413eae35c7c4db4e2162609a" id="r_ga8dc2485a413eae35c7c4db4e2162609a"><td class="memTemplParams" colspan="2"><a id="ga8dc2485a413eae35c7c4db4e2162609a" name="ga8dc2485a413eae35c7c4db4e2162609a"></a>
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </td></tr>
+<tr class="memitem:ga8dc2485a413eae35c7c4db4e2162609a"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Time.html">Time</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aGPSToTAI</b> (const <a class="el" href="classast_1_1Time.html">Time</a> &amp;tmGPS)</td></tr>
+<tr class="separator:ga8dc2485a413eae35c7c4db4e2162609a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bc96d9158bdcbabecbba670dceeced3" id="r_ga1bc96d9158bdcbabecbba670dceeced3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1bc96d9158bdcbabecbba670dceeced3">ast::aTAIToUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga1bc96d9158bdcbabecbba670dceeced3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb2a5b91f39613e5b7681362f9a051ec" id="r_gafb2a5b91f39613e5b7681362f9a051ec"><td class="memItemLeft" align="right" valign="top"><a id="gafb2a5b91f39613e5b7681362f9a051ec" name="gafb2a5b91f39613e5b7681362f9a051ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTAIToUTC</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTAI, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
+<tr class="separator:gafb2a5b91f39613e5b7681362f9a051ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06c18a77836bbd563fde5da962fcbcdc" id="r_ga06c18a77836bbd563fde5da962fcbcdc"><td class="memItemLeft" align="right" valign="top"><a id="ga06c18a77836bbd563fde5da962fcbcdc" name="ga06c18a77836bbd563fde5da962fcbcdc"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTAIToUTC</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI)</td></tr>
+<tr class="separator:ga06c18a77836bbd563fde5da962fcbcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf01783c036ceb9b8b809a0b1228af0c7" id="r_gaf01783c036ceb9b8b809a0b1228af0c7"><td class="memItemLeft" align="right" valign="top"><a id="gaf01783c036ceb9b8b809a0b1228af0c7" name="gaf01783c036ceb9b8b809a0b1228af0c7"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTAIToUTC</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTAI)</td></tr>
+<tr class="separator:gaf01783c036ceb9b8b809a0b1228af0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa012e9e94ac44c98735e064693c98eec" id="r_gaa012e9e94ac44c98735e064693c98eec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa012e9e94ac44c98735e064693c98eec">ast::aUTCToTAI</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTAI)</td></tr>
+<tr class="separator:gaa012e9e94ac44c98735e064693c98eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23e631e401937cdd8d0227572f4ebc07" id="r_ga23e631e401937cdd8d0227572f4ebc07"><td class="memItemLeft" align="right" valign="top"><a id="ga23e631e401937cdd8d0227572f4ebc07" name="ga23e631e401937cdd8d0227572f4ebc07"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToTAI</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTAI)</td></tr>
+<tr class="separator:ga23e631e401937cdd8d0227572f4ebc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga587e81f4eb969cc092633dff80edb994" id="r_ga587e81f4eb969cc092633dff80edb994"><td class="memItemLeft" align="right" valign="top"><a id="ga587e81f4eb969cc092633dff80edb994" name="ga587e81f4eb969cc092633dff80edb994"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToTAI</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga587e81f4eb969cc092633dff80edb994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab007e8d375ea987bfecbeeab6d1aa1d9" id="r_gab007e8d375ea987bfecbeeab6d1aa1d9"><td class="memItemLeft" align="right" valign="top"><a id="gab007e8d375ea987bfecbeeab6d1aa1d9" name="gab007e8d375ea987bfecbeeab6d1aa1d9"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToTAI</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
+<tr class="separator:gab007e8d375ea987bfecbeeab6d1aa1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf212737f7d12b94d383c4e48796a6f33" id="r_gaf212737f7d12b94d383c4e48796a6f33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf212737f7d12b94d383c4e48796a6f33">ast::aUTCToTT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
+<tr class="separator:gaf212737f7d12b94d383c4e48796a6f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0f4adfe13aa6b4d537a9fd40f568967" id="r_gaf0f4adfe13aa6b4d537a9fd40f568967"><td class="memItemLeft" align="right" valign="top"><a id="gaf0f4adfe13aa6b4d537a9fd40f568967" name="gaf0f4adfe13aa6b4d537a9fd40f568967"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToTT</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT)</td></tr>
+<tr class="separator:gaf0f4adfe13aa6b4d537a9fd40f568967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49a5723910b2284017b73d0e27f00d14" id="r_ga49a5723910b2284017b73d0e27f00d14"><td class="memItemLeft" align="right" valign="top"><a id="ga49a5723910b2284017b73d0e27f00d14" name="ga49a5723910b2284017b73d0e27f00d14"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToTT</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga49a5723910b2284017b73d0e27f00d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga210b8926a991a3c344c12921f4d2f186" id="r_ga210b8926a991a3c344c12921f4d2f186"><td class="memItemLeft" align="right" valign="top"><a id="ga210b8926a991a3c344c12921f4d2f186" name="ga210b8926a991a3c344c12921f4d2f186"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToTT</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
+<tr class="separator:ga210b8926a991a3c344c12921f4d2f186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2ffe16f531e5551d0c3e3d174a3d97d" id="r_gaf2ffe16f531e5551d0c3e3d174a3d97d"><td class="memItemLeft" align="right" valign="top"><a id="gaf2ffe16f531e5551d0c3e3d174a3d97d" name="gaf2ffe16f531e5551d0c3e3d174a3d97d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToUT1</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUT1)</td></tr>
+<tr class="separator:gaf2ffe16f531e5551d0c3e3d174a3d97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4e8c7bbacb54ae7e08ef19703bbe150" id="r_gae4e8c7bbacb54ae7e08ef19703bbe150"><td class="memItemLeft" align="right" valign="top"><a id="gae4e8c7bbacb54ae7e08ef19703bbe150" name="gae4e8c7bbacb54ae7e08ef19703bbe150"></a>
+AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUTCToUT1</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUT1)</td></tr>
+<tr class="separator:gae4e8c7bbacb54ae7e08ef19703bbe150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98088e571167c6a650c6f6964e97d801" id="r_ga98088e571167c6a650c6f6964e97d801"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga98088e571167c6a650c6f6964e97d801">ast::aTTToUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga98088e571167c6a650c6f6964e97d801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4db627fdabb7e94dcdf26b8cf8d28d91" id="r_ga4db627fdabb7e94dcdf26b8cf8d28d91"><td class="memItemLeft" align="right" valign="top"><a id="ga4db627fdabb7e94dcdf26b8cf8d28d91" name="ga4db627fdabb7e94dcdf26b8cf8d28d91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTTToUTC</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
+<tr class="separator:ga4db627fdabb7e94dcdf26b8cf8d28d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga599ecb7189f0c3a8deb3dfe54cd12255" id="r_ga599ecb7189f0c3a8deb3dfe54cd12255"><td class="memItemLeft" align="right" valign="top"><a id="ga599ecb7189f0c3a8deb3dfe54cd12255" name="ga599ecb7189f0c3a8deb3dfe54cd12255"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTTToUTC</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
+<tr class="separator:ga599ecb7189f0c3a8deb3dfe54cd12255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada8a0bd7c8e3f772096b9510e9c0e5b5" id="r_gada8a0bd7c8e3f772096b9510e9c0e5b5"><td class="memItemLeft" align="right" valign="top"><a id="gada8a0bd7c8e3f772096b9510e9c0e5b5" name="gada8a0bd7c8e3f772096b9510e9c0e5b5"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTTToUTC</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT)</td></tr>
+<tr class="separator:gada8a0bd7c8e3f772096b9510e9c0e5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc7ba905b0072e09b8b6c599491d1850" id="r_gacc7ba905b0072e09b8b6c599491d1850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacc7ba905b0072e09b8b6c599491d1850">ast::aTTToTDB</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTDB)</td></tr>
+<tr class="separator:gacc7ba905b0072e09b8b6c599491d1850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05d9ae402f4c37a94cb8edddc05bb7b8" id="r_ga05d9ae402f4c37a94cb8edddc05bb7b8"><td class="memItemLeft" align="right" valign="top"><a id="ga05d9ae402f4c37a94cb8edddc05bb7b8" name="ga05d9ae402f4c37a94cb8edddc05bb7b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTTToTDB</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTDB)</td></tr>
+<tr class="separator:ga05d9ae402f4c37a94cb8edddc05bb7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0af7ec238fd77794d78f353b65fc4149" id="r_ga0af7ec238fd77794d78f353b65fc4149"><td class="memItemLeft" align="right" valign="top"><a id="ga0af7ec238fd77794d78f353b65fc4149" name="ga0af7ec238fd77794d78f353b65fc4149"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTTToTDB</b> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
+<tr class="separator:ga0af7ec238fd77794d78f353b65fc4149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95a25a6e26dce8032c225d7af7c95257" id="r_ga95a25a6e26dce8032c225d7af7c95257"><td class="memItemLeft" align="right" valign="top"><a id="ga95a25a6e26dce8032c225d7af7c95257" name="ga95a25a6e26dce8032c225d7af7c95257"></a>
+A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTTToTDB</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTT)</td></tr>
+<tr class="separator:ga95a25a6e26dce8032c225d7af7c95257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4397fac34d74477cfa5c0807e7c07ed" id="r_gab4397fac34d74477cfa5c0807e7c07ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab4397fac34d74477cfa5c0807e7c07ed">ast::aTDBMinusTT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT)</td></tr>
+<tr class="separator:gab4397fac34d74477cfa5c0807e7c07ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3889f3687fe79a83c571bbd951c58f2e" id="r_ga3889f3687fe79a83c571bbd951c58f2e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3889f3687fe79a83c571bbd951c58f2e">ast::aJulianCenturyFromJ2000</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jd)</td></tr>
+<tr class="separator:ga3889f3687fe79a83c571bbd951c58f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ga35311ca468e03e382c132605af9a51f1" id="r_ga35311ca468e03e382c132605af9a51f1"><td class="memItemLeft" align="right" valign="top"><a id="ga35311ca468e03e382c132605af9a51f1" name="ga35311ca468e03e382c132605af9a51f1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::year_</b></td></tr>
+<tr class="separator:ga35311ca468e03e382c132605af9a51f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga723ebfd7f060ed1c64a4dc82d92a0c4c" id="r_ga723ebfd7f060ed1c64a4dc82d92a0c4c"><td class="memItemLeft" align="right" valign="top"><a id="ga723ebfd7f060ed1c64a4dc82d92a0c4c" name="ga723ebfd7f060ed1c64a4dc82d92a0c4c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::month_</b></td></tr>
+<tr class="separator:ga723ebfd7f060ed1c64a4dc82d92a0c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga830ce57c012b9361d4ac414a0346dcc7" id="r_ga830ce57c012b9361d4ac414a0346dcc7"><td class="memItemLeft" align="right" valign="top"><a id="ga830ce57c012b9361d4ac414a0346dcc7" name="ga830ce57c012b9361d4ac414a0346dcc7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Date::day_</b></td></tr>
+<tr class="separator:ga830ce57c012b9361d4ac414a0346dcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06bf8c5e673937c839aa20add280c066" id="r_ga06bf8c5e673937c839aa20add280c066"><td class="memItemLeft" align="right" valign="top"><a id="ga06bf8c5e673937c839aa20add280c066" name="ga06bf8c5e673937c839aa20add280c066"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kTimeDefaultFormatPrecision</b> = 3</td></tr>
+<tr class="separator:ga06bf8c5e673937c839aa20add280c066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga98ce15d5391facdf68ea00672773bb06" name="ga98ce15d5391facdf68ea00672773bb06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98ce15d5391facdf68ea00672773bb06">&#9670;&#160;</a></span>aDateTimeAddDays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddDays </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>days</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加日 </p>
+<p>将日期时间对象增加指定的天数，并规范化日期时间对象，不考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">days</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga1cdf52f9c9c9f5ba1254f53e16a27520" name="ga1cdf52f9c9c9f5ba1254f53e16a27520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1cdf52f9c9c9f5ba1254f53e16a27520">&#9670;&#160;</a></span>aDateTimeAddDaysBJT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddDaysBJT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>days</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加日（北京时间） </p>
+<p>将日期时间对象增加指定的天数(days*86400s)（北京时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">days</td><td>增加的天数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga66eba41bc3327585b471f9eb5e9f1ac9" name="ga66eba41bc3327585b471f9eb5e9f1ac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66eba41bc3327585b471f9eb5e9f1ac9">&#9670;&#160;</a></span>aDateTimeAddDaysLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddDaysLocal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>days</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timezone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加日（本地时间） </p>
+<p>将日期时间对象增加指定的天数(days*86400s)（本地时间），并规范化日期时间对象，考虑时区和闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">days</td><td>增加的天数，可正可负 </td></tr>
+    <tr><td class="paramname">timezone</td><td>时区偏移，单位：小时 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gab52e8b01ffb5e3d3350e1a6f219491fc" name="gab52e8b01ffb5e3d3350e1a6f219491fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab52e8b01ffb5e3d3350e1a6f219491fc">&#9670;&#160;</a></span>aDateTimeAddDaysUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddDaysUTC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>days</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加日（UTC时间） </p>
+<p>将日期时间对象增加指定的天数(days*86400s)（UTC时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">days</td><td>增加的天数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga2ad3998750a660fa5c924e334c51d664" name="ga2ad3998750a660fa5c924e334c51d664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ad3998750a660fa5c924e334c51d664">&#9670;&#160;</a></span>aDateTimeAddHours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddHours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加时 </p>
+<p>将日期时间对象增加指定的小时数(hours*3600s)，并规范化日期时间对象，不考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">hours</td><td>增加的小时数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga6e5ec22d4319d22ec720377ca527a0d6" name="ga6e5ec22d4319d22ec720377ca527a0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6e5ec22d4319d22ec720377ca527a0d6">&#9670;&#160;</a></span>aDateTimeAddHoursBJT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddHoursBJT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加时（北京时间） </p>
+<p>将日期时间对象增加指定的小时数(hours*3600s)（北京时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">hours</td><td>增加的小时数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga4049d8059f1bc16ea954d4af0c396af1" name="ga4049d8059f1bc16ea954d4af0c396af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4049d8059f1bc16ea954d4af0c396af1">&#9670;&#160;</a></span>aDateTimeAddHoursLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddHoursLocal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timezone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加时（本地时间） </p>
+<p>将日期时间对象增加指定的小时数(hours*3600s)（本地时间），并规范化日期时间对象，考虑时区和闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">hours</td><td>增加的小时数，可正可负 </td></tr>
+    <tr><td class="paramname">timezone</td><td>时区偏移，单位：小时 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga90a82d01a8d17997dc6bcc404bc3e067" name="ga90a82d01a8d17997dc6bcc404bc3e067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90a82d01a8d17997dc6bcc404bc3e067">&#9670;&#160;</a></span>aDateTimeAddHoursUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddHoursUTC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加时（UTC时间） </p>
+<p>将日期时间对象增加指定的小时数(hours*3600s)（UTC时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">hours</td><td>增加的小时数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gaa06bd0d62f451e07021cfaf6a0d5598a" name="gaa06bd0d62f451e07021cfaf6a0d5598a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa06bd0d62f451e07021cfaf6a0d5598a">&#9670;&#160;</a></span>aDateTimeAddMinutes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddMinutes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minutes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加分 </p>
+<p>将日期时间对象增加指定的分钟数(minutes*60s)，并规范化日期时间对象，不考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">minutes</td><td>增加的分钟数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga0a2de3553404eac4acb6d6a5ad152dd9" name="ga0a2de3553404eac4acb6d6a5ad152dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a2de3553404eac4acb6d6a5ad152dd9">&#9670;&#160;</a></span>aDateTimeAddMinutesBJT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddMinutesBJT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minutes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加分（北京时间） </p>
+<p>将日期时间对象增加指定的分钟数(minutes*60s)（北京时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">minutes</td><td>增加的分钟数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga4d50838bad9e23889999bbff2a92ff33" name="ga4d50838bad9e23889999bbff2a92ff33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d50838bad9e23889999bbff2a92ff33">&#9670;&#160;</a></span>aDateTimeAddMinutesLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddMinutesLocal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minutes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timezone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加分（本地时间） </p>
+<p>将日期时间对象增加指定的分钟数(minutes*60s)（本地时间），并规范化日期时间对象，考虑时区和闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">minutes</td><td>增加的分钟数，可正可负 </td></tr>
+    <tr><td class="paramname">timezone</td><td>时区偏移，单位：小时 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gabbfa83d08d81f5bfce075b1fbeb40692" name="gabbfa83d08d81f5bfce075b1fbeb40692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabbfa83d08d81f5bfce075b1fbeb40692">&#9670;&#160;</a></span>aDateTimeAddMinutesUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddMinutesUTC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minutes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加分（UTC时间） </p>
+<p>将日期时间对象增加指定的分钟数（UTC时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">minutes</td><td>增加的分钟数，可正可负 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gab5ec36298b2b3670b0925965d65e2fe0" name="gab5ec36298b2b3670b0925965d65e2fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab5ec36298b2b3670b0925965d65e2fe0">&#9670;&#160;</a></span>aDateTimeAddMonths()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddMonths </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>months</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加月 </p>
+<p>将日期时间对象增加指定的月数，并规范化日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">months</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gae9ff416812e7b4a1b3a8be589b87b6a3" name="gae9ff416812e7b4a1b3a8be589b87b6a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9ff416812e7b4a1b3a8be589b87b6a3">&#9670;&#160;</a></span>aDateTimeAddSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddSeconds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加秒 </p>
+<p>将日期时间对象增加指定的秒数，并规范化日期时间对象，不考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">seconds</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga19f017a5a5f1e4bf970e515b3f3e1e7d" name="ga19f017a5a5f1e4bf970e515b3f3e1e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19f017a5a5f1e4bf970e515b3f3e1e7d">&#9670;&#160;</a></span>aDateTimeAddSecondsBJT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddSecondsBJT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加秒（北京时间） </p>
+<p>将日期时间对象增加指定的秒数（北京时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">seconds</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga7c0e5f342bf645b7e27b0892a053fa6c" name="ga7c0e5f342bf645b7e27b0892a053fa6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c0e5f342bf645b7e27b0892a053fa6c">&#9670;&#160;</a></span>aDateTimeAddSecondsLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddSecondsLocal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timezone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加秒（本地时间） </p>
+<p>将日期时间对象增加指定的秒数（本地时间），并规范化日期时间对象，考虑时区和闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">seconds</td><td></td></tr>
+    <tr><td class="paramname">timezone</td><td>时区偏移，单位：小时 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gad9c1a1b8c0f4198a3752a73e71e3c739" name="gad9c1a1b8c0f4198a3752a73e71e3c739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9c1a1b8c0f4198a3752a73e71e3c739">&#9670;&#160;</a></span>aDateTimeAddSecondsUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddSecondsUTC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加秒（UTC时间） </p>
+<p>将日期时间对象增加指定的秒数（UTC时间），并规范化日期时间对象，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">seconds</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga255a86c279bc64ad8e8a3191782e03c0" name="ga255a86c279bc64ad8e8a3191782e03c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga255a86c279bc64ad8e8a3191782e03c0">&#9670;&#160;</a></span>aDateTimeAddYears()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeAddYears </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>years</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>增加年 </p>
+<p>将日期时间对象增加指定的年数，并规范化日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">years</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga6fa750b337bdb39f42ff1740e392b064" name="ga6fa750b337bdb39f42ff1740e392b064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6fa750b337bdb39f42ff1740e392b064">&#9670;&#160;</a></span>aDateTimeFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::aDateTimeFormat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为字符串 </p>
+<p>将日期时间对象格式化为指定格式的字符串 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">format</td><td>格式化字符串，例如："%Y-%m-%d %H:%M:%S" </td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga30dd54f8997f5d5f1280ff4fd76f43cb" name="ga30dd54f8997f5d5f1280ff4fd76f43cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30dd54f8997f5d5f1280ff4fd76f43cb">&#9670;&#160;</a></span>aDateTimeFormatDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE err_t ast::aDateTimeFormatDefault </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>precision</em></span><span class="paramdefsep"> = </span><span class="paramdefval">kTimeDefaultFormatPrecision</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为默认格式 </p>
+<p>将日期时间对象格式化为默认格式的字符串，例如：2025-11-21 12:34:56.123 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gae12c94ded6ae0171a58702f3ce0e0a9b" name="gae12c94ded6ae0171a58702f3ce0e0a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae12c94ded6ae0171a58702f3ce0e0a9b">&#9670;&#160;</a></span>aDateTimeFormatGMT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeFormatGMT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为GMT格式 </p>
+<p>将日期时间对象格式化为GMT格式的字符串，例如：Sat, 21 Nov 2025 12:34:56 GMT </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga60c178698d2ff24bab0dc69ff2058eca" name="ga60c178698d2ff24bab0dc69ff2058eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60c178698d2ff24bab0dc69ff2058eca">&#9670;&#160;</a></span>aDateTimeFormatGregorian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeFormatGregorian </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>precision</em></span><span class="paramdefsep"> = </span><span class="paramdefval">3</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为格里高利历格式 </p>
+<p>将日期时间对象格式化为格里高利历格式的字符串，例如：2025-11-21 12:34:56 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga9a553937a7fe4e174ebb7b7176a84cd7" name="ga9a553937a7fe4e174ebb7b7176a84cd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a553937a7fe4e174ebb7b7176a84cd7">&#9670;&#160;</a></span>aDateTimeFormatGregorianEn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeFormatGregorianEn </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为格里高利历格式（英文） </p>
+<p>将日期时间对象格式化为格里高利历格式的字符串（英文），例如：1 Jan 1970 00:00:00 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga2dff3415bdcc753accc8226ff57094a0" name="ga2dff3415bdcc753accc8226ff57094a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2dff3415bdcc753accc8226ff57094a0">&#9670;&#160;</a></span>aDateTimeFormatISO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE err_t ast::aDateTimeFormatISO </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为简单ISO 8601格式 </p>
+<p>将日期时间对象格式化为ISO 8601格式的字符串，例如：2025-11-21T12:34:56Z </p>
+
+</div>
+</div>
+<a id="ga80444a6bdc627bd34d6ee5d64dd21942" name="ga80444a6bdc627bd34d6ee5d64dd21942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80444a6bdc627bd34d6ee5d64dd21942">&#9670;&#160;</a></span>aDateTimeFormatISO8601()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeFormatISO8601 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为ISO 8601格式 </p>
+<p>将日期时间对象格式化为ISO 8601格式的字符串，例如：2025-11-21T12:34:56Z </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gabf1eca442298fc0c0f36d8ffbb5b9e75" name="gabf1eca442298fc0c0f36d8ffbb5b9e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf1eca442298fc0c0f36d8ffbb5b9e75">&#9670;&#160;</a></span>aDateTimeFormatRFC3339()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeFormatRFC3339 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>格式化日期时间为RFC 3339格式 </p>
+<p>将日期时间对象格式化为RFC 3339格式的字符串，例如：2025-11-21T12:34:56+08:00 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gafea754e812ce5a268a4b22384cd92015" name="gafea754e812ce5a268a4b22384cd92015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafea754e812ce5a268a4b22384cd92015">&#9670;&#160;</a></span>aDateTimeNormalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeNormalize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>规范化日期时间对象 </p>
+<p>将时间调整到0-23时59分59秒之间，并调整日期到正确的范围内，不考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gaeb6283f05e9e4625b3358a1b1dd39c3a" name="gaeb6283f05e9e4625b3358a1b1dd39c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb6283f05e9e4625b3358a1b1dd39c3a">&#9670;&#160;</a></span>aDateTimeNormalizeBJT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeNormalizeBJT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>规范化日期时间对象(按北京时间规范化) </p>
+<p>将日期时间对象调整到0-23时59分60秒，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td>北京时间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gad34b3522fd948faeb364b48f67a937aa" name="gad34b3522fd948faeb364b48f67a937aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad34b3522fd948faeb364b48f67a937aa">&#9670;&#160;</a></span>aDateTimeNormalizeLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeNormalizeLocal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timezone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>规范化日期时间对象(按本地时间规范化) </p>
+<p>将日期时间对象调整到0-23时59分60秒，考虑时区和闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td>本地时间 </td></tr>
+    <tr><td class="paramname">timezone</td><td>时区偏移，单位：小时 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga1599d89861ee681fb99ca5a68626edd1" name="ga1599d89861ee681fb99ca5a68626edd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1599d89861ee681fb99ca5a68626edd1">&#9670;&#160;</a></span>aDateTimeNormalizeUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeNormalizeUTC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>规范化日期时间对象(按UTC时间规范化) </p>
+<p>将日期时间对象调整到0-23时59分60秒，考虑闰秒 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dttm</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gae9e59ad47e38630712c35c6e452d5aa9" name="gae9e59ad47e38630712c35c6e452d5aa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9e59ad47e38630712c35c6e452d5aa9">&#9670;&#160;</a></span>aDateTimeParse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::aDateTimeParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析自定义格式的日期时间字符串 </p>
+<p>将自定义格式的字符串解析为日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含自定义格式日期时间的字符串 </td></tr>
+    <tr><td class="paramname">format</td><td>日期时间格式，参考strptime函数的格式规范 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga15ead00f49a9a6551fd36a11bebf1368" name="ga15ead00f49a9a6551fd36a11bebf1368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga15ead00f49a9a6551fd36a11bebf1368">&#9670;&#160;</a></span>aDateTimeParseAny()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeParseAny </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析任意格式的日期时间字符串 </p>
+<p>尝试解析多种日期时间格式，包括ISO 8601、RFC 3339、格里高利历等 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含日期时间的字符串 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="gab62866d91cd474fe2cf156e516225545" name="gab62866d91cd474fe2cf156e516225545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab62866d91cd474fe2cf156e516225545">&#9670;&#160;</a></span>aDateTimeParseGMT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeParseGMT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析GMT格式的日期时间字符串 </p>
+<p>将GMT格式的字符串解析为日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含GMT格式日期时间的字符串 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga090d34f100816c9ce912e8fa94d91860" name="ga090d34f100816c9ce912e8fa94d91860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga090d34f100816c9ce912e8fa94d91860">&#9670;&#160;</a></span>aDateTimeParseGregorian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeParseGregorian </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析格里高利历格式的日期时间字符串 </p>
+<p>将格里高利历格式的字符串解析为日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含格里高利历格式日期时间的字符串 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga6a83327b8620ac82709c7696e8ac7355" name="ga6a83327b8620ac82709c7696e8ac7355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6a83327b8620ac82709c7696e8ac7355">&#9670;&#160;</a></span>aDateTimeParseGregorianEn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeParseGregorianEn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析格里高利历格式（英文）的日期时间字符串 </p>
+<p>将格里高利历格式（英文）的字符串解析为日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含格里高利历格式（英文）日期时间的字符串 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="gaf27207ecdb4c52cb3bbee6b4c5ce6586" name="gaf27207ecdb4c52cb3bbee6b4c5ce6586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf27207ecdb4c52cb3bbee6b4c5ce6586">&#9670;&#160;</a></span>aDateTimeParseISO8601()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeParseISO8601 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析ISO 8601格式的日期时间字符串 </p>
+<p>将ISO 8601格式的字符串解析为日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含ISO 8601格式日期时间的字符串 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga5844311880f35f8c7f5005e937755f4d" name="ga5844311880f35f8c7f5005e937755f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5844311880f35f8c7f5005e937755f4d">&#9670;&#160;</a></span>aDateTimeParseRFC3339()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDateTimeParseRFC3339 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析RFC 3339格式的日期时间字符串 </p>
+<p>将RFC 3339格式的字符串解析为日期时间对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>包含RFC 3339格式日期时间的字符串 </td></tr>
+    <tr><td class="paramname">dttm</td><td>输出参数，解析后的日期时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga0befbfd1dd76bf9211963f7a79c2f41d" name="ga0befbfd1dd76bf9211963f7a79c2f41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0befbfd1dd76bf9211963f7a79c2f41d">&#9670;&#160;</a></span>aDayOfWeek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI int ast::aDayOfWeek </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Date.html">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取日期是这一周的第几天 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>日期对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>星期几，从0开始计数（0表示星期日） </dd></dl>
+
+</div>
+</div>
+<a id="gaf8256de1941b0597163a50a1e7250ae5" name="gaf8256de1941b0597163a50a1e7250ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf8256de1941b0597163a50a1e7250ae5">&#9670;&#160;</a></span>aDaysInMonthByLeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI int ast::aDaysInMonthByLeap </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>month</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isLeapYear</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取某年某月的天数，根据是否为闰年判断 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">month</td><td>月份，从1开始计数（1表示一月） </td></tr>
+    <tr><td class="paramname">isLeapYear</td><td>是否为闰年 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5b50de242256f0c266a95e67fb9a7560" name="ga5b50de242256f0c266a95e67fb9a7560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b50de242256f0c266a95e67fb9a7560">&#9670;&#160;</a></span>aDaysInMonthByYear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI int ast::aDaysInMonthByYear </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>month</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>year</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取某年某月的天数，根据年份判断 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">month</td><td>月份，从1开始计数（1表示一月） </td></tr>
+    <tr><td class="paramname">year</td><td>年份 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2a30b67ffa7dadc252eb8a9359cb8006" name="ga2a30b67ffa7dadc252eb8a9359cb8006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2a30b67ffa7dadc252eb8a9359cb8006">&#9670;&#160;</a></span>aGPSToTAI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::aGPSToTAI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmGPS</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmTAI</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从GPS时 转换为 原子时(TAI) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tmGPS</td><td>GPS时 </td></tr>
+    <tr><td class="paramname">tmTAI</td><td>原子时(TAI) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9d18f7fc7e53783f07a94bc9d9c8e041" name="ga9d18f7fc7e53783f07a94bc9d9c8e041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d18f7fc7e53783f07a94bc9d9c8e041">&#9670;&#160;</a></span>aJDToDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aJDToDate </td>
+          <td>(</td>
+          <td class="paramtype">ImpreciseJD</td>          <td class="paramname"><span class="paramname"><em>jd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Date.html">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>secInDay</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将儒略日数转换为当天日期 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jd</td><td>当天00:00的儒略日数 </td></tr>
+    <tr><td class="paramname">date</td><td>日期对象 </td></tr>
+    <tr><td class="paramname">secInDay</td><td>可选参数，用于返回当天00:00后的秒数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gadf6d3d56f8739b7a8b786490e6792341" name="gadf6d3d56f8739b7a8b786490e6792341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadf6d3d56f8739b7a8b786490e6792341">&#9670;&#160;</a></span>aJDToMJD_Imprecise() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API double ast::aJDToMJD_Imprecise </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将儒略日转换为简约儒略日 </p>
+<dl class="section warning"><dt>警告</dt><dd>注意用单个double表示的时间精度不高 </dd></dl>
+
+</div>
+</div>
+<a id="ga1b895198b2420d761b6ce862dd3311c3" name="ga1b895198b2420d761b6ce862dd3311c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b895198b2420d761b6ce862dd3311c3">&#9670;&#160;</a></span>aJDToMJD_Imprecise() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API ImpreciseMJD ast::aJDToMJD_Imprecise </td>
+          <td>(</td>
+          <td class="paramtype">ImpreciseJD</td>          <td class="paramname"><span class="paramname"><em>jd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将简约儒略日Modified Julian Date（MJD）转换为儒略日 </p>
+<dl class="section warning"><dt>警告</dt><dd>注意用单个double表示的时间精度不高 </dd></dl>
+
+</div>
+</div>
+<a id="ga3889f3687fe79a83c571bbd951c58f2e" name="ga3889f3687fe79a83c571bbd951c58f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3889f3687fe79a83c571bbd951c58f2e">&#9670;&#160;</a></span>aJulianCenturyFromJ2000()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aJulianCenturyFromJ2000 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算儒略世纪数，以 J2000.0 为基准 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jd</td><td>儒略日 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>儒略世纪数 </dd></dl>
+
+</div>
+</div>
+<a id="ga67d26b3a99854da0c5e24c90aacb5d28" name="ga67d26b3a99854da0c5e24c90aacb5d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67d26b3a99854da0c5e24c90aacb5d28">&#9670;&#160;</a></span>aMJDToJD_Imprecise() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API ImpreciseJD ast::aMJDToJD_Imprecise </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1ModJulianDate.html">ModJulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>mjd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将简约儒略日Modified Julian Date（MJD）转换为不精确的儒略日 </p>
+<dl class="section warning"><dt>警告</dt><dd>注意用单个double表示的时间精度不高 </dd></dl>
+
+</div>
+</div>
+<a id="gab2095a8fc071d50d01d97c2fea1ac156" name="gab2095a8fc071d50d01d97c2fea1ac156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab2095a8fc071d50d01d97c2fea1ac156">&#9670;&#160;</a></span>aMJDToJD_Imprecise() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API ImpreciseJD ast::aMJDToJD_Imprecise </td>
+          <td>(</td>
+          <td class="paramtype">ImpreciseMJD</td>          <td class="paramname"><span class="paramname"><em>mjd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将儒略日转换为简约儒略日Modified Julian Date（MJD） </p>
+<dl class="section warning"><dt>警告</dt><dd>注意用单个double表示的时间精度不高 </dd></dl>
+
+</div>
+</div>
+<a id="gad088c8a2d3a1a68850d5b43e53be4a24" name="gad088c8a2d3a1a68850d5b43e53be4a24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad088c8a2d3a1a68850d5b43e53be4a24">&#9670;&#160;</a></span>aMoonFullName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI const char * ast::aMoonFullName </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>month</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取月份的完整英文名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">month</td><td>月份，从1开始计数（1表示一月） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7cd83ff0997da45192a2fb505c6e8fed" name="ga7cd83ff0997da45192a2fb505c6e8fed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7cd83ff0997da45192a2fb505c6e8fed">&#9670;&#160;</a></span>aMoonShortName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI const char * ast::aMoonShortName </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>month</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取月份的简写英文名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">month</td><td>月份，从1开始计数（1表示一月） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga55303afacccf12da01ac94d4bae07903" name="ga55303afacccf12da01ac94d4bae07903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga55303afacccf12da01ac94d4bae07903">&#9670;&#160;</a></span>aTAIToGPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::aTAIToGPS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmTAI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmGPS</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从原子时(TAI) 转换为 GPS时 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tmTAI</td><td>原子时(TAI) </td></tr>
+    <tr><td class="paramname">tmGPS</td><td>GPS时 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa6bf9ef3b76fdb0610cfb64300306039" name="gaa6bf9ef3b76fdb0610cfb64300306039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa6bf9ef3b76fdb0610cfb64300306039">&#9670;&#160;</a></span>aTAIToTT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::aTAIToTT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmTAI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmTT</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从原子时(TAI) 转换为 地球时(TT) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tmTAI</td><td>原子时(TAI) </td></tr>
+    <tr><td class="paramname">tmTT</td><td>地球时(TT) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1bc96d9158bdcbabecbba670dceeced3" name="ga1bc96d9158bdcbabecbba670dceeced3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1bc96d9158bdcbabecbba670dceeced3">&#9670;&#160;</a></span>aTAIToUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTAIToUTC </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTAI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从原子时(TAI) 转换为 协调世界时(UTC) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdTAI</td><td>原子时(TAI) </td></tr>
+    <tr><td class="paramname">jdUTC</td><td>协调世界时(UTC) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab4397fac34d74477cfa5c0807e7c07ed" name="gab4397fac34d74477cfa5c0807e7c07ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4397fac34d74477cfa5c0807e7c07ed">&#9670;&#160;</a></span>aTDBMinusTT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aTDBMinusTT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTT</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算 质心动力学时(TDB) 时间与 地球时(TT) 时间的差值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdTT</td><td>地球时(TT) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>质心动力学时(TDB) 时间与 地球时(TT) 时间的差值 </dd></dl>
+
+</div>
+</div>
+<a id="ga99d731f038efaec1df2f79483c8c3a61" name="ga99d731f038efaec1df2f79483c8c3a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99d731f038efaec1df2f79483c8c3a61">&#9670;&#160;</a></span>aTimeFromTotalSecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTimeFromTotalSecond </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>totalSecond</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从总秒数创建时间对象 </p>
+<p>根据总秒数计算时、分、秒，并将结果存储在时间对象中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">totalSecond</td><td>总秒数 </td></tr>
+    <tr><td class="paramname">time</td><td>要存储结果的时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga53426815f1578b6c8f92651f3494daf7" name="ga53426815f1578b6c8f92651f3494daf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga53426815f1578b6c8f92651f3494daf7">&#9670;&#160;</a></span>aTimeIntervalFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aTimeIntervalFormat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>interval</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>strStart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>strEnd</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将时间区间格式化为字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>时间区间 </td></tr>
+    <tr><td class="paramname">str</td><td>输出字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gaedd1a6e02476d34a4cd3ae0bd71bb224" name="gaedd1a6e02476d34a4cd3ae0bd71bb224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaedd1a6e02476d34a4cd3ae0bd71bb224">&#9670;&#160;</a></span>aTimeIntervalParse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aTimeIntervalParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>strStart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>strEnd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>interval</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从字符串解析时间区间 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
+    <tr><td class="paramname">interval</td><td>输出时间区间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gafd23673a65ca3df42001eaf909bfac81" name="gafd23673a65ca3df42001eaf909bfac81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd23673a65ca3df42001eaf909bfac81">&#9670;&#160;</a></span>aTimeNormalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTimeNormalize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>规范化时间对象 </p>
+<p>将时间中的秒、分进行进位或借位调整，使其处于合理范围内（0-59） </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>要规范化的时间对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab3ceebedb7ef5971f124fe9fdf9811ae" name="gab3ceebedb7ef5971f124fe9fdf9811ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab3ceebedb7ef5971f124fe9fdf9811ae">&#9670;&#160;</a></span>aTTToTAI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::aTTToTAI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmTT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Time.html">Time</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tmTAI</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从地球时(TT) 转换为 原子时(TAI) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tmTT</td><td>地球时(TT) </td></tr>
+    <tr><td class="paramname">tmTAI</td><td>原子时(TAI) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacc7ba905b0072e09b8b6c599491d1850" name="gacc7ba905b0072e09b8b6c599491d1850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc7ba905b0072e09b8b6c599491d1850">&#9670;&#160;</a></span>aTTToTDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTTToTDB </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTDB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从地球时(TT) 转换为质心动力学时(TDB) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdTT</td><td>地球时(TT) </td></tr>
+    <tr><td class="paramname">jdTDB</td><td>质心动力学时(TDB) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga98088e571167c6a650c6f6964e97d801" name="ga98088e571167c6a650c6f6964e97d801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98088e571167c6a650c6f6964e97d801">&#9670;&#160;</a></span>aTTToUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTTToUTC </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从地球时(TT) 转换为 协调世界时(UTC) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdTT</td><td>地球时(TT) </td></tr>
+    <tr><td class="paramname">jdUTC</td><td>协调世界时(UTC) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa012e9e94ac44c98735e064693c98eec" name="gaa012e9e94ac44c98735e064693c98eec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa012e9e94ac44c98735e064693c98eec">&#9670;&#160;</a></span>aUTCToTAI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aUTCToTAI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTAI</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从协调世界时(UTC) 转换为 原子时(TAI) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdUTC</td><td>协调世界时(UTC) </td></tr>
+    <tr><td class="paramname">jdTAI</td><td>原子时(TAI) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf212737f7d12b94d383c4e48796a6f33" name="gaf212737f7d12b94d383c4e48796a6f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf212737f7d12b94d383c4e48796a6f33">&#9670;&#160;</a></span>aUTCToTT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aUTCToTT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTT</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从协调世界时(UTC) 转换为 地球时(TT) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdUTC</td><td>协调世界时(UTC) </td></tr>
+    <tr><td class="paramname">jdTT</td><td>地球时(TT) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa772658f23e7bd2fccc1c922f91b6ff8" name="gaa772658f23e7bd2fccc1c922f91b6ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa772658f23e7bd2fccc1c922f91b6ff8">&#9670;&#160;</a></span>aWeekDayFullName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI const char * ast::aWeekDayFullName </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>wday</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取星期几的完整英文名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wday</td><td>星期几，从0开始计数（0表示星期日） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5d5b4d1ea2a4752dee370a36e30bd9c4" name="ga5d5b4d1ea2a4752dee370a36e30bd9c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d5b4d1ea2a4752dee370a36e30bd9c4">&#9670;&#160;</a></span>aWeekDayShortName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI const char * ast::aWeekDayShortName </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>wday</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取星期几的简写英文名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wday</td><td>星期几，从0开始计数（0表示星期日） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaad2f8707229e004fd3f1c7cca4c7b418" name="gaad2f8707229e004fd3f1c7cca4c7b418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaad2f8707229e004fd3f1c7cca4c7b418">&#9670;&#160;</a></span>dayOfYear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::Date::dayOfYear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取日期是这一年的第几天，从1开始计数 </p>
+<dl class="section return"><dt>返回</dt><dd>第几天 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

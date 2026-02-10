@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::NLPProblem类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::NLPProblem类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -107,9 +107,6 @@ $(function(){initNavTree('classast_1_1NLPProblem.html',''); initResizable(true);
 </div><!--header-->
 <div class="contents">
 
-<p>非线性规划问题与相关函数  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="NLPProblem_8hpp_source.html">NLPProblem.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -119,94 +116,68 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a91f27fb7c39be91304b88c97741069ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5a10c9500109f85649888dd2866d705" id="r_af5a10c9500109f85649888dd2866d705"><td class="memItemLeft" align="right" valign="top"><a id="af5a10c9500109f85649888dd2866d705" name="af5a10c9500109f85649888dd2866d705"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>getInfo</b> (<a class="el" href="structast_1_1NLPInfo.html">NLPInfo</a> &amp;info) const</td></tr>
-<tr class="memdesc:af5a10c9500109f85649888dd2866d705"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取问题的维度信息等 <br /></td></tr>
 <tr class="separator:af5a10c9500109f85649888dd2866d705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7a3a4241076c1c5f21eed3228a3cd52" id="r_aa7a3a4241076c1c5f21eed3228a3cd52"><td class="memItemLeft" align="right" valign="top"><a id="aa7a3a4241076c1c5f21eed3228a3cd52" name="aa7a3a4241076c1c5f21eed3228a3cd52"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>getJacInfo</b> (<a class="el" href="structast_1_1NLPJacInfo.html">NLPJacInfo</a> &amp;info) const</td></tr>
-<tr class="memdesc:aa7a3a4241076c1c5f21eed3228a3cd52"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取问题的雅可比矩阵信息 <br /></td></tr>
 <tr class="separator:aa7a3a4241076c1c5f21eed3228a3cd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c489761b464416289d3c92aa6e51fef" id="r_a9c489761b464416289d3c92aa6e51fef"><td class="memItemLeft" align="right" valign="top"><a id="a9c489761b464416289d3c92aa6e51fef" name="a9c489761b464416289d3c92aa6e51fef"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>getBounds</b> (<a class="el" href="structast_1_1NLPBounds.html">NLPBounds</a> &amp;bounds) const</td></tr>
-<tr class="memdesc:a9c489761b464416289d3c92aa6e51fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取问题的设计变量与约束的上下界 <br /></td></tr>
 <tr class="separator:a9c489761b464416289d3c92aa6e51fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1c98f8ca5c37a47319184166c44c8fe" id="r_ad1c98f8ca5c37a47319184166c44c8fe"><td class="memItemLeft" align="right" valign="top"><a id="ad1c98f8ca5c37a47319184166c44c8fe" name="ad1c98f8ca5c37a47319184166c44c8fe"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalFitness</b> (const <a class="el" href="structast_1_1NLPInput.html">NLPInput</a> &amp;input, <a class="el" href="structast_1_1NLPOutput.html">NLPOutput</a> &amp;output) const</td></tr>
-<tr class="memdesc:ad1c98f8ca5c37a47319184166c44c8fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数和约束 <br /></td></tr>
 <tr class="separator:ad1c98f8ca5c37a47319184166c44c8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba77a757aa9313fe7f6d0d11c682df1d" id="r_aba77a757aa9313fe7f6d0d11c682df1d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba77a757aa9313fe7f6d0d11c682df1d">evalFitness</a> (const std::vector&lt; double &gt; &amp;x) const</td></tr>
-<tr class="memdesc:aba77a757aa9313fe7f6d0d11c682df1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数与约束  <br /></td></tr>
 <tr class="separator:aba77a757aa9313fe7f6d0d11c682df1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e63aa412e7ddbefb2e967f6af2c98be" id="r_a8e63aa412e7ddbefb2e967f6af2c98be"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e63aa412e7ddbefb2e967f6af2c98be">evalFitness</a> (const std::vector&lt; double &gt; &amp;x, std::vector&lt; double &gt; &amp;f) const</td></tr>
-<tr class="memdesc:a8e63aa412e7ddbefb2e967f6af2c98be"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数与约束  <br /></td></tr>
 <tr class="separator:a8e63aa412e7ddbefb2e967f6af2c98be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6874ee9a3fc8bc6134001c00f11a429" id="r_ad6874ee9a3fc8bc6134001c00f11a429"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6874ee9a3fc8bc6134001c00f11a429">evalFitness</a> (int numVariable, double *variable, int numObjective, double *objective, int numConstrEq, double *constrEq, int numConstrIneq, double *constrIneq) const</td></tr>
-<tr class="memdesc:ad6874ee9a3fc8bc6134001c00f11a429"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数与约束  <br /></td></tr>
 <tr class="separator:ad6874ee9a3fc8bc6134001c00f11a429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a804b6eaac3dab5f6d015768d32a72239" id="r_a804b6eaac3dab5f6d015768d32a72239"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a804b6eaac3dab5f6d015768d32a72239">evalJacobi</a> (int numVariable, const double *variable, int numConstraint, int nnzJacobi, double *nzElemjacobi) const</td></tr>
-<tr class="memdesc:a804b6eaac3dab5f6d015768d32a72239"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算非线性方程的解析(数值)Jacobi矩阵  <br /></td></tr>
 <tr class="separator:a804b6eaac3dab5f6d015768d32a72239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4da2a3b595654d047a1666d4fe51c2f" id="r_aa4da2a3b595654d047a1666d4fe51c2f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4da2a3b595654d047a1666d4fe51c2f">evalGradient</a> (int numVariable, const double *variable, double *grad) const</td></tr>
-<tr class="memdesc:aa4da2a3b595654d047a1666d4fe51c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数的梯度向量  <br /></td></tr>
 <tr class="separator:aa4da2a3b595654d047a1666d4fe51c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f88b714a52a2d9d526d3e31ad484eba" id="r_a7f88b714a52a2d9d526d3e31ad484eba"><td class="memItemLeft" align="right" valign="top"><a id="a7f88b714a52a2d9d526d3e31ad484eba" name="a7f88b714a52a2d9d526d3e31ad484eba"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>getInitialGuess</b> (int numVariable, double *variable) const</td></tr>
-<tr class="memdesc:a7f88b714a52a2d9d526d3e31ad484eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取初始猜测值(初值/起始点) <br /></td></tr>
 <tr class="separator:a7f88b714a52a2d9d526d3e31ad484eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb55731467bfca98db9b0e532b685010" id="r_abb55731467bfca98db9b0e532b685010"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb55731467bfca98db9b0e532b685010">evalConstraint</a> (const std::vector&lt; double &gt; &amp;variable) const</td></tr>
-<tr class="memdesc:abb55731467bfca98db9b0e532b685010"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算约束  <br /></td></tr>
 <tr class="separator:abb55731467bfca98db9b0e532b685010"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fc9164b867f409432b05e3eb8c474ce" id="r_a5fc9164b867f409432b05e3eb8c474ce"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fc9164b867f409432b05e3eb8c474ce">evalConstraint</a> (const std::vector&lt; double &gt; &amp;variable, std::vector&lt; double &gt; &amp;constraint) const</td></tr>
-<tr class="memdesc:a5fc9164b867f409432b05e3eb8c474ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算约束  <br /></td></tr>
 <tr class="separator:a5fc9164b867f409432b05e3eb8c474ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a856b0a0db482a4202c44ad25e1b6b7e1" id="r_a856b0a0db482a4202c44ad25e1b6b7e1"><td class="memItemLeft" align="right" valign="top"><a id="a856b0a0db482a4202c44ad25e1b6b7e1" name="a856b0a0db482a4202c44ad25e1b6b7e1"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalConstraint</b> (int numVariable, const double *variable, int numConstraint, double *contraint) const</td></tr>
-<tr class="memdesc:a856b0a0db482a4202c44ad25e1b6b7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算约束 <br /></td></tr>
 <tr class="separator:a856b0a0db482a4202c44ad25e1b6b7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4e34134c8b70fc6afadaaec90034b9a" id="r_aa4e34134c8b70fc6afadaaec90034b9a"><td class="memItemLeft" align="right" valign="top"><a id="aa4e34134c8b70fc6afadaaec90034b9a" name="aa4e34134c8b70fc6afadaaec90034b9a"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalObjective</b> (int numVariable, const double *variable, int numObjective, double *objective) const</td></tr>
-<tr class="memdesc:aa4e34134c8b70fc6afadaaec90034b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数 <br /></td></tr>
 <tr class="separator:aa4e34134c8b70fc6afadaaec90034b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0689fb8072c6c22db5c9fe5fccfff110" id="r_a0689fb8072c6c22db5c9fe5fccfff110"><td class="memItemLeft" align="right" valign="top"><a id="a0689fb8072c6c22db5c9fe5fccfff110" name="a0689fb8072c6c22db5c9fe5fccfff110"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalObjective</b> (int numVariable, const double *variable, double &amp;objective) const</td></tr>
-<tr class="memdesc:a0689fb8072c6c22db5c9fe5fccfff110"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算目标函数 <br /></td></tr>
 <tr class="separator:a0689fb8072c6c22db5c9fe5fccfff110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f8e66fbdfcd66e19dea79e6b262d5ae" id="r_a7f8e66fbdfcd66e19dea79e6b262d5ae"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f8e66fbdfcd66e19dea79e6b262d5ae">evalGradientCD</a> (double ustep, int ndim, const double *x, double *grad) const</td></tr>
-<tr class="memdesc:a7f8e66fbdfcd66e19dea79e6b262d5ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">一些实用函数  <br /></td></tr>
 <tr class="separator:a7f8e66fbdfcd66e19dea79e6b262d5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac66be3910e0b1a8c4185a916f6a87c98" id="r_ac66be3910e0b1a8c4185a916f6a87c98"><td class="memItemLeft" align="right" valign="top"><a id="ac66be3910e0b1a8c4185a916f6a87c98" name="ac66be3910e0b1a8c4185a916f6a87c98"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalGradientFD</b> (double ustep, int ndim, const double *x, double *grad) const</td></tr>
-<tr class="memdesc:ac66be3910e0b1a8c4185a916f6a87c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">前向差分求解梯度. <br /></td></tr>
 <tr class="separator:ac66be3910e0b1a8c4185a916f6a87c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d560534f9f4ce29148cd756e41ad45" id="r_a87d560534f9f4ce29148cd756e41ad45"><td class="memItemLeft" align="right" valign="top"><a id="a87d560534f9f4ce29148cd756e41ad45" name="a87d560534f9f4ce29148cd756e41ad45"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalGradientBD</b> (double ustep, int ndim, const double *x, double *grad) const</td></tr>
-<tr class="memdesc:a87d560534f9f4ce29148cd756e41ad45"><td class="mdescLeft">&#160;</td><td class="mdescRight">后向差分求解梯度. <br /></td></tr>
 <tr class="separator:a87d560534f9f4ce29148cd756e41ad45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df9240c760d888805199e2559e9d287" id="r_a4df9240c760d888805199e2559e9d287"><td class="memItemLeft" align="right" valign="top"><a id="a4df9240c760d888805199e2559e9d287" name="a4df9240c760d888805199e2559e9d287"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalNLEJacobiCD</b> (double ustep, int ndim, const double *x_input, int nConstraint, double *colmaj_jacobi) const</td></tr>
-<tr class="memdesc:a4df9240c760d888805199e2559e9d287"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心差分求解jacobi矩阵 <br /></td></tr>
 <tr class="separator:a4df9240c760d888805199e2559e9d287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdfddc4a73713f22b354b38266abc024" id="r_afdfddc4a73713f22b354b38266abc024"><td class="memItemLeft" align="right" valign="top"><a id="afdfddc4a73713f22b354b38266abc024" name="afdfddc4a73713f22b354b38266abc024"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalNLEJacobiFD</b> (double ustep, int ndim, const double *x_input, int nConstraint, double *colmaj_jacobi) const</td></tr>
-<tr class="memdesc:afdfddc4a73713f22b354b38266abc024"><td class="mdescLeft">&#160;</td><td class="mdescRight">前向差分求解jacobi矩阵 <br /></td></tr>
 <tr class="separator:afdfddc4a73713f22b354b38266abc024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51fbc6bd54057d3166c6a46a4bb60d7d" id="r_a51fbc6bd54057d3166c6a46a4bb60d7d"><td class="memItemLeft" align="right" valign="top"><a id="a51fbc6bd54057d3166c6a46a4bb60d7d" name="a51fbc6bd54057d3166c6a46a4bb60d7d"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evalNLEJacobiBD</b> (double ustep, int ndim, const double *x_input, int nConstraint, double *colmaj_jacobi) const</td></tr>
-<tr class="memdesc:a51fbc6bd54057d3166c6a46a4bb60d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">后向差分求解jacobi矩阵 <br /></td></tr>
 <tr class="separator:a51fbc6bd54057d3166c6a46a4bb60d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a397d5416b1ea60825c842134f647e37e" id="r_a397d5416b1ea60825c842134f647e37e"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a397d5416b1ea60825c842134f647e37e">evalNLEJacobiCCSFD</a> (double ustep, int ndim, const double *xinput, int m, const int *iFuncRow, const int *idxNNZElem, double *jacobi_sparse_value) const</td></tr>
-<tr class="memdesc:a397d5416b1ea60825c842134f647e37e"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据输入的CCS稀疏模式计算Jacobi计算  <br /></td></tr>
 <tr class="separator:a397d5416b1ea60825c842134f647e37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc9f585682b8cb52fc5f239030706711" id="r_afc9f585682b8cb52fc5f239030706711"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc9f585682b8cb52fc5f239030706711">evalNLENNZJacCCSNan</a> (int ndim, const double *x_initguess, int m, std::vector&lt; int &gt; &amp;iFunRow, std::vector&lt; int &gt; &amp;idxNNZElem) const</td></tr>
-<tr class="memdesc:afc9f585682b8cb52fc5f239030706711"><td class="mdescLeft">&#160;</td><td class="mdescRight">输出CCS格式描述的稀疏模式  <br /></td></tr>
 <tr class="separator:afc9f585682b8cb52fc5f239030706711"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d051e21ae5778f12063a4ef6def88f5" id="r_a6d051e21ae5778f12063a4ef6def88f5"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d051e21ae5778f12063a4ef6def88f5">evalNLENNZJacNan</a> (int ndim, const double *x_initguess, int m, int &amp;nnz_jac) const</td></tr>
-<tr class="memdesc:a6d051e21ae5778f12063a4ef6def88f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算jacobi矩阵中的非零元素数量  <br /></td></tr>
 <tr class="separator:a6d051e21ae5778f12063a4ef6def88f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0445c99abf43d672dd48785f82bb7b7" id="r_ab0445c99abf43d672dd48785f82bb7b7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0445c99abf43d672dd48785f82bb7b7">evalNLENNZJacCOONan</a> (int ndim, const double *x_initguess, int m, std::vector&lt; int &gt; &amp;iFunRow, std::vector&lt; int &gt; &amp;jVarCol) const</td></tr>
-<tr class="memdesc:ab0445c99abf43d672dd48785f82bb7b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">利用IEEE-754标准的NaN传播规则计算jacobi矩阵的稀疏模式(编译时浮点模式不能为fast) 需要x的init guess值作为输入，已获得合法解/防止非法输入产生意外的NaN 输出COO格式描述的稀疏模式  <br /></td></tr>
 <tr class="separator:ab0445c99abf43d672dd48785f82bb7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a962def5dd1d88d77e657b00bea06b1f1" id="r_a962def5dd1d88d77e657b00bea06b1f1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a962def5dd1d88d77e657b00bea06b1f1">evalNLENNZJacCOOSnJac</a> (int ndim, const double *x_initguess, int m, std::vector&lt; int &gt; &amp;iFunRow, std::vector&lt; int &gt; &amp;jVarCol)</td></tr>
-<tr class="memdesc:a962def5dd1d88d77e657b00bea06b1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用snopt的snjac函数计算Jacobi矩阵的稀疏模式 输出COO格式描述的稀疏模式  <br /></td></tr>
 <tr class="separator:a962def5dd1d88d77e657b00bea06b1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>

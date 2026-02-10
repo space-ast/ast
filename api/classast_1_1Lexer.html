@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::Lexer类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::Lexer类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -102,12 +102,9 @@ $(function(){initNavTree('classast_1_1Lexer.html',''); initResizable(true); });
 <a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1Lexer-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::Lexer类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::Lexer类 参考<div class="ingroups"><a class="el" href="group__Script.html">脚本模块</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>词法分析器  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Lexer_8hpp_source.html">Lexer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -183,7 +180,6 @@ Public 类型</h2></td></tr>
 , <a class="el" href="#ab1519087cd861bd99b3eac612c96a567a7f873e48619e90067fb709365fbd90be">eIn</a>
 <br />
  }</td></tr>
-<tr class="memdesc:ab1519087cd861bd99b3eac612c96a567"><td class="mdescLeft">&#160;</td><td class="mdescRight">令牌类型枚举  <a href="#ab1519087cd861bd99b3eac612c96a567">更多...</a><br /></td></tr>
 <tr class="separator:ab1519087cd861bd99b3eac612c96a567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -193,22 +189,17 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a517b821d331784f888dac4cc9e716175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567c38703d76f1de7033140236a829ad" id="r_a567c38703d76f1de7033140236a829ad"><td class="memItemLeft" align="right" valign="top"><a id="a567c38703d76f1de7033140236a829ad" name="a567c38703d76f1de7033140236a829ad"></a>
 <a class="el" href="#ab1519087cd861bd99b3eac612c96a567">ETokenType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNextToken</b> ()</td></tr>
-<tr class="memdesc:a567c38703d76f1de7033140236a829ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取下一个令牌 <br /></td></tr>
 <tr class="separator:a567c38703d76f1de7033140236a829ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a127e716dfe1371e082d76d9a6b07d8c0" id="r_a127e716dfe1371e082d76d9a6b07d8c0"><td class="memItemLeft" align="right" valign="top"><a id="a127e716dfe1371e082d76d9a6b07d8c0" name="a127e716dfe1371e082d76d9a6b07d8c0"></a>
 <a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentLexeme</b> () const</td></tr>
-<tr class="memdesc:a127e716dfe1371e082d76d9a6b07d8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前令牌的字符串视图 <br /></td></tr>
 <tr class="separator:a127e716dfe1371e082d76d9a6b07d8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fef4e2b34c3d3f0c24e36d7e869640c" id="r_a8fef4e2b34c3d3f0c24e36d7e869640c"><td class="memItemLeft" align="right" valign="top"><a id="a8fef4e2b34c3d3f0c24e36d7e869640c" name="a8fef4e2b34c3d3f0c24e36d7e869640c"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getTokenStart</b> () const</td></tr>
-<tr class="memdesc:a8fef4e2b34c3d3f0c24e36d7e869640c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前令牌的起始位置（始终返回空指针，因为不再存储实际位置） <br /></td></tr>
 <tr class="separator:a8fef4e2b34c3d3f0c24e36d7e869640c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a218a155c498c976299f18f61bd72eb19" id="r_a218a155c498c976299f18f61bd72eb19"><td class="memItemLeft" align="right" valign="top"><a id="a218a155c498c976299f18f61bd72eb19" name="a218a155c498c976299f18f61bd72eb19"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getTokenEnd</b> () const</td></tr>
-<tr class="memdesc:a218a155c498c976299f18f61bd72eb19"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前令牌的结束位置（始终返回空指针，因为不再存储实际位置） <br /></td></tr>
 <tr class="separator:a218a155c498c976299f18f61bd72eb19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a842ab95ed54c1efa75d4ad386eea9585" id="r_a842ab95ed54c1efa75d4ad386eea9585"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a842ab95ed54c1efa75d4ad386eea9585">skipWhitespace</a> ()</td></tr>
-<tr class="memdesc:a842ab95ed54c1efa75d4ad386eea9585"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前行号  <br /></td></tr>
 <tr class="separator:a842ab95ed54c1efa75d4ad386eea9585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

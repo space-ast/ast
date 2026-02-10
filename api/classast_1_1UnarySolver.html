@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::UnarySolver类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::UnarySolver类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,12 +103,9 @@ $(function(){initNavTree('classast_1_1UnarySolver.html',''); initResizable(true)
 <a href="#pro-static-methods">静态 Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1UnarySolver-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::UnarySolver类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::UnarySolver类 参考<div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__NLE.html">非线性方程求解</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>一元方程求解器  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="UnarySolver_8hpp_source.html">UnarySolver.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -131,45 +128,34 @@ $(function(){initNavTree('classast_1_1UnarySolver.html',''); initResizable(true)
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a9ce01f876fde324f992b2b1ac1d9caeb" id="r_a9ce01f876fde324f992b2b1ac1d9caeb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ce01f876fde324f992b2b1ac1d9caeb">UnarySolver</a> (double relTol, double absTol, int maxIter)</td></tr>
-<tr class="memdesc:a9ce01f876fde324f992b2b1ac1d9caeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
 <tr class="separator:a9ce01f876fde324f992b2b1ac1d9caeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10e51810834979c771e146426d6e86f3" id="r_a10e51810834979c771e146426d6e86f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10e51810834979c771e146426d6e86f3">UnarySolver</a> (double absTol)</td></tr>
-<tr class="memdesc:a10e51810834979c771e146426d6e86f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
 <tr class="separator:a10e51810834979c771e146426d6e86f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab97840bc2193e46885abb850f807f8a" id="r_aab97840bc2193e46885abb850f807f8a"><td class="memItemLeft" align="right" valign="top"><a id="aab97840bc2193e46885abb850f807f8a" name="aab97840bc2193e46885abb850f807f8a"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getRelTol</b> () const</td></tr>
-<tr class="memdesc:aab97840bc2193e46885abb850f807f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取相对误差容限 <br /></td></tr>
 <tr class="separator:aab97840bc2193e46885abb850f807f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fbf452fb514a17a2f96afcab58e3363" id="r_a4fbf452fb514a17a2f96afcab58e3363"><td class="memItemLeft" align="right" valign="top"><a id="a4fbf452fb514a17a2f96afcab58e3363" name="a4fbf452fb514a17a2f96afcab58e3363"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getAbsTol</b> () const</td></tr>
-<tr class="memdesc:a4fbf452fb514a17a2f96afcab58e3363"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取绝对误差容限 <br /></td></tr>
 <tr class="separator:a4fbf452fb514a17a2f96afcab58e3363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea5df1a762fb98b3b4f47ff89d33eea5" id="r_aea5df1a762fb98b3b4f47ff89d33eea5"><td class="memItemLeft" align="right" valign="top"><a id="aea5df1a762fb98b3b4f47ff89d33eea5" name="aea5df1a762fb98b3b4f47ff89d33eea5"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxIter</b> () const</td></tr>
-<tr class="memdesc:aea5df1a762fb98b3b4f47ff89d33eea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大迭代次数 <br /></td></tr>
 <tr class="separator:aea5df1a762fb98b3b4f47ff89d33eea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1474da0302ac85d7817072179a042b2c" id="r_a1474da0302ac85d7817072179a042b2c"><td class="memItemLeft" align="right" valign="top"><a id="a1474da0302ac85d7817072179a042b2c" name="a1474da0302ac85d7817072179a042b2c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRelTol</b> (double relTol)</td></tr>
-<tr class="memdesc:a1474da0302ac85d7817072179a042b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置相对误差容限 <br /></td></tr>
 <tr class="separator:a1474da0302ac85d7817072179a042b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff655ba2415cd81bde896134a6de1ba0" id="r_aff655ba2415cd81bde896134a6de1ba0"><td class="memItemLeft" align="right" valign="top"><a id="aff655ba2415cd81bde896134a6de1ba0" name="aff655ba2415cd81bde896134a6de1ba0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setAbsTol</b> (double absTol)</td></tr>
-<tr class="memdesc:aff655ba2415cd81bde896134a6de1ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置绝对误差容限 <br /></td></tr>
 <tr class="separator:aff655ba2415cd81bde896134a6de1ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d5f3ef6be352367c53a7076183cf246" id="r_a3d5f3ef6be352367c53a7076183cf246"><td class="memItemLeft" align="right" valign="top"><a id="a3d5f3ef6be352367c53a7076183cf246" name="a3d5f3ef6be352367c53a7076183cf246"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxIter</b> (int maxIter)</td></tr>
-<tr class="memdesc:a3d5f3ef6be352367c53a7076183cf246"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置最大迭代次数 <br /></td></tr>
 <tr class="separator:a3d5f3ef6be352367c53a7076183cf246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a381d4fae57a8894282bd99df4d1d3dba" id="r_a381d4fae57a8894282bd99df4d1d3dba"><td class="memItemLeft" align="right" valign="top"><a id="a381d4fae57a8894282bd99df4d1d3dba" name="a381d4fae57a8894282bd99df4d1d3dba"></a>
 const <a class="el" href="structast_1_1SolverStats.html">SolverStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStats</b> () const</td></tr>
-<tr class="memdesc:a381d4fae57a8894282bd99df4d1d3dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取求解器统计信息 <br /></td></tr>
 <tr class="separator:a381d4fae57a8894282bd99df4d1d3dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a097e8c7201ce12695046788db7019b17" id="r_a097e8c7201ce12695046788db7019b17"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
 <tr class="memitem:a097e8c7201ce12695046788db7019b17"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a>, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, err_t &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a097e8c7201ce12695046788db7019b17">solve</a> (Func func, double min, double max, double &amp;result)</td></tr>
-<tr class="memdesc:a097e8c7201ce12695046788db7019b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解一元方程（支持lambda函数）  <br /></td></tr>
 <tr class="separator:a097e8c7201ce12695046788db7019b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99602bbf6ea0d132f0aad5259b35bfa2" id="r_a99602bbf6ea0d132f0aad5259b35bfa2"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99602bbf6ea0d132f0aad5259b35bfa2">solve</a> (<a class="el" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a> &amp;func, double min, double max, double &amp;result)=0</td></tr>
-<tr class="memdesc:a99602bbf6ea0d132f0aad5259b35bfa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解一元方程  <br /></td></tr>
 <tr class="separator:a99602bbf6ea0d132f0aad5259b35bfa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1IUnarySolver"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1IUnarySolver')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1IUnarySolver.html">ast::IUnarySolver</a></td></tr>
 </table><table class="memberdecls">
@@ -183,23 +169,20 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>unarycfunc</
 Protected 属性</h2></td></tr>
 <tr class="memitem:ae4ead6da0360421cd483d10cf2fd95cd" id="r_ae4ead6da0360421cd483d10cf2fd95cd"><td class="memItemLeft" align="right" valign="top"><a id="ae4ead6da0360421cd483d10cf2fd95cd" name="ae4ead6da0360421cd483d10cf2fd95cd"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>relTol_</b></td></tr>
-<tr class="memdesc:ae4ead6da0360421cd483d10cf2fd95cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">相对误差容限 <br /></td></tr>
 <tr class="separator:ae4ead6da0360421cd483d10cf2fd95cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a278e223855671c9d6a1b31ab23f73adf" id="r_a278e223855671c9d6a1b31ab23f73adf"><td class="memItemLeft" align="right" valign="top"><a id="a278e223855671c9d6a1b31ab23f73adf" name="a278e223855671c9d6a1b31ab23f73adf"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>absTol_</b></td></tr>
-<tr class="memdesc:a278e223855671c9d6a1b31ab23f73adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">绝对误差容限 <br /></td></tr>
 <tr class="separator:a278e223855671c9d6a1b31ab23f73adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a096edae7eb3d3fc0269c420398377de1" id="r_a096edae7eb3d3fc0269c420398377de1"><td class="memItemLeft" align="right" valign="top"><a id="a096edae7eb3d3fc0269c420398377de1" name="a096edae7eb3d3fc0269c420398377de1"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>maxIter_</b></td></tr>
-<tr class="memdesc:a096edae7eb3d3fc0269c420398377de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">最大迭代次数 <br /></td></tr>
 <tr class="separator:a096edae7eb3d3fc0269c420398377de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a228d8e1f28052bb0fc164fe872e4e39a" id="r_a228d8e1f28052bb0fc164fe872e4e39a"><td class="memItemLeft" align="right" valign="top"><a id="a228d8e1f28052bb0fc164fe872e4e39a" name="a228d8e1f28052bb0fc164fe872e4e39a"></a>
 <a class="el" href="structast_1_1SolverStats.html">SolverStats</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stats_</b></td></tr>
-<tr class="memdesc:a228d8e1f28052bb0fc164fe872e4e39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">求解器统计信息 <br /></td></tr>
 <tr class="separator:a228d8e1f28052bb0fc164fe872e4e39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>一元方程求解器 </p>
+<p>提供一元方程求解功能的接口 </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a9ce01f876fde324f992b2b1ac1d9caeb" name="a9ce01f876fde324f992b2b1ac1d9caeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ce01f876fde324f992b2b1ac1d9caeb">&#9670;&#160;</a></span>UnarySolver() <span class="overload">[1/2]</span></h2>

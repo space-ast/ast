@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/OpSystem/Environment.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Platform/Environment.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -112,48 +112,50 @@ $(function(){initNavTree('Environment_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a1b536eb0b193fd88914dd12e6895c229">aIsCI</a>();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a895a0d59cc088ec5dc894a34864c3ffc">aIsTerminal</a>(FILE* file);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga1b536eb0b193fd88914dd12e6895c229">aIsCI</a>();</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#aaf498fb8090810fb31ae8e36c9bf3942">aIsFile</a>(FILE* file);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga895a0d59cc088ec5dc894a34864c3ffc">aIsTerminal</a>(FILE* file);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a402c35c20112c81a16c5410823e030ca">aStdInIsTerminal</a>();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#gaaf498fb8090810fb31ae8e36c9bf3942">aIsFile</a>(FILE* file);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#addfe9918c8b6de4bc127c1e11993aa7f">aStdInIsFile</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga402c35c20112c81a16c5410823e030ca">aStdInIsTerminal</a>();</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#aef5625c409a6ef4a8ddf3e4b2aff79b5">aStdOutIsTerminal</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#gaddfe9918c8b6de4bc127c1e11993aa7f">aStdInIsFile</a>();</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a038a62d786234b02f668f9460bbd86f6">aStdOutIsFile</a>();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a7c187e91aa0366fdba00f57b685d20bf">aStdErrIsTerminal</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#aa4fb579361721abb83e54183b0521c32">aStdErrIsFile</a>();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5">aStdOutIsTerminal</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga038a62d786234b02f668f9460bbd86f6">aStdOutIsFile</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga7c187e91aa0366fdba00f57b685d20bf">aStdErrIsTerminal</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#gaa4fb579361721abb83e54183b0521c32">aStdErrIsFile</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aGUI_8hpp_html"><div class="ttname"><a href="GUI_8hpp.html">GUI.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aTerminal_8hpp_html"><div class="ttname"><a href="Terminal_8hpp.html">Terminal.hpp</a></div><div class="ttdoc">~</div></div>
-<div class="ttc" id="anamespaceast_html_a038a62d786234b02f668f9460bbd86f6"><div class="ttname"><a href="namespaceast.html#a038a62d786234b02f668f9460bbd86f6">ast::aStdOutIsFile</a></div><div class="ttdeci">bool aStdOutIsFile()</div><div class="ttdoc">检查标准输出是否为文件</div><div class="ttdef"><b>定义</b> Environment.cpp:135</div></div>
-<div class="ttc" id="anamespaceast_html_a1b536eb0b193fd88914dd12e6895c229"><div class="ttname"><a href="namespaceast.html#a1b536eb0b193fd88914dd12e6895c229">ast::aIsCI</a></div><div class="ttdeci">bool aIsCI()</div><div class="ttdoc">检查是否在持续集成环境中运行</div><div class="ttdef"><b>定义</b> Environment.cpp:33</div></div>
-<div class="ttc" id="anamespaceast_html_a402c35c20112c81a16c5410823e030ca"><div class="ttname"><a href="namespaceast.html#a402c35c20112c81a16c5410823e030ca">ast::aStdInIsTerminal</a></div><div class="ttdeci">bool aStdInIsTerminal()</div><div class="ttdoc">检查标准输入是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:121</div></div>
-<div class="ttc" id="anamespaceast_html_a7c187e91aa0366fdba00f57b685d20bf"><div class="ttname"><a href="namespaceast.html#a7c187e91aa0366fdba00f57b685d20bf">ast::aStdErrIsTerminal</a></div><div class="ttdeci">bool aStdErrIsTerminal()</div><div class="ttdoc">检查标准错误是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:139</div></div>
-<div class="ttc" id="anamespaceast_html_a895a0d59cc088ec5dc894a34864c3ffc"><div class="ttname"><a href="namespaceast.html#a895a0d59cc088ec5dc894a34864c3ffc">ast::aIsTerminal</a></div><div class="ttdeci">bool aIsTerminal(FILE *file)</div><div class="ttdoc">检查文件是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:100</div></div>
-<div class="ttc" id="anamespaceast_html_aa4fb579361721abb83e54183b0521c32"><div class="ttname"><a href="namespaceast.html#aa4fb579361721abb83e54183b0521c32">ast::aStdErrIsFile</a></div><div class="ttdeci">bool aStdErrIsFile()</div><div class="ttdoc">检查标准错误是否为文件</div><div class="ttdef"><b>定义</b> Environment.cpp:144</div></div>
-<div class="ttc" id="anamespaceast_html_aaf498fb8090810fb31ae8e36c9bf3942"><div class="ttname"><a href="namespaceast.html#aaf498fb8090810fb31ae8e36c9bf3942">ast::aIsFile</a></div><div class="ttdeci">bool aIsFile(FILE *file)</div><div class="ttdoc">检查文件是否为普通文件</div><div class="ttdef"><b>定义</b> Environment.cpp:108</div></div>
-<div class="ttc" id="anamespaceast_html_addfe9918c8b6de4bc127c1e11993aa7f"><div class="ttname"><a href="namespaceast.html#addfe9918c8b6de4bc127c1e11993aa7f">ast::aStdInIsFile</a></div><div class="ttdeci">bool aStdInIsFile()</div><div class="ttdoc">检查标准输入是否为文件</div><div class="ttdef"><b>定义</b> Environment.cpp:126</div></div>
-<div class="ttc" id="anamespaceast_html_aef5625c409a6ef4a8ddf3e4b2aff79b5"><div class="ttname"><a href="namespaceast.html#aef5625c409a6ef4a8ddf3e4b2aff79b5">ast::aStdOutIsTerminal</a></div><div class="ttdeci">bool aStdOutIsTerminal()</div><div class="ttdoc">检查标准输出是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:131</div></div>
+<div class="ttc" id="agroup__Platform_html_ga038a62d786234b02f668f9460bbd86f6"><div class="ttname"><a href="group__Platform.html#ga038a62d786234b02f668f9460bbd86f6">ast::aStdOutIsFile</a></div><div class="ttdeci">bool aStdOutIsFile()</div><div class="ttdoc">检查标准输出是否为文件</div><div class="ttdef"><b>定义</b> Environment.cpp:135</div></div>
+<div class="ttc" id="agroup__Platform_html_ga1b536eb0b193fd88914dd12e6895c229"><div class="ttname"><a href="group__Platform.html#ga1b536eb0b193fd88914dd12e6895c229">ast::aIsCI</a></div><div class="ttdeci">bool aIsCI()</div><div class="ttdoc">检查是否在持续集成环境中运行</div><div class="ttdef"><b>定义</b> Environment.cpp:33</div></div>
+<div class="ttc" id="agroup__Platform_html_ga402c35c20112c81a16c5410823e030ca"><div class="ttname"><a href="group__Platform.html#ga402c35c20112c81a16c5410823e030ca">ast::aStdInIsTerminal</a></div><div class="ttdeci">bool aStdInIsTerminal()</div><div class="ttdoc">检查标准输入是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:121</div></div>
+<div class="ttc" id="agroup__Platform_html_ga7c187e91aa0366fdba00f57b685d20bf"><div class="ttname"><a href="group__Platform.html#ga7c187e91aa0366fdba00f57b685d20bf">ast::aStdErrIsTerminal</a></div><div class="ttdeci">bool aStdErrIsTerminal()</div><div class="ttdoc">检查标准错误是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:139</div></div>
+<div class="ttc" id="agroup__Platform_html_ga895a0d59cc088ec5dc894a34864c3ffc"><div class="ttname"><a href="group__Platform.html#ga895a0d59cc088ec5dc894a34864c3ffc">ast::aIsTerminal</a></div><div class="ttdeci">bool aIsTerminal(FILE *file)</div><div class="ttdoc">检查文件是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:100</div></div>
+<div class="ttc" id="agroup__Platform_html_gaa4fb579361721abb83e54183b0521c32"><div class="ttname"><a href="group__Platform.html#gaa4fb579361721abb83e54183b0521c32">ast::aStdErrIsFile</a></div><div class="ttdeci">bool aStdErrIsFile()</div><div class="ttdoc">检查标准错误是否为文件</div><div class="ttdef"><b>定义</b> Environment.cpp:144</div></div>
+<div class="ttc" id="agroup__Platform_html_gaaf498fb8090810fb31ae8e36c9bf3942"><div class="ttname"><a href="group__Platform.html#gaaf498fb8090810fb31ae8e36c9bf3942">ast::aIsFile</a></div><div class="ttdeci">bool aIsFile(FILE *file)</div><div class="ttdoc">检查文件是否为普通文件</div><div class="ttdef"><b>定义</b> Environment.cpp:108</div></div>
+<div class="ttc" id="agroup__Platform_html_gaddfe9918c8b6de4bc127c1e11993aa7f"><div class="ttname"><a href="group__Platform.html#gaddfe9918c8b6de4bc127c1e11993aa7f">ast::aStdInIsFile</a></div><div class="ttdeci">bool aStdInIsFile()</div><div class="ttdoc">检查标准输入是否为文件</div><div class="ttdef"><b>定义</b> Environment.cpp:126</div></div>
+<div class="ttc" id="agroup__Platform_html_gaef5625c409a6ef4a8ddf3e4b2aff79b5"><div class="ttname"><a href="group__Platform.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5">ast::aStdOutIsTerminal</a></div><div class="ttdeci">bool aStdOutIsTerminal()</div><div class="ttdoc">检查标准输出是否为终端</div><div class="ttdef"><b>定义</b> Environment.cpp:131</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_dbf99d57be7de405407ff8c538bf7f12.html">OpSystem</a></li><li class="navelem"><a class="el" href="Environment_8hpp.html">Environment.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_58f1c1acee87c1819259ff24dc93e089.html">Platform</a></li><li class="navelem"><a class="el" href="Environment_8hpp.html">Environment.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

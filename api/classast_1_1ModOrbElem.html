@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::ModOrbElem类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ModOrbElem类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -102,12 +102,9 @@ $(function(){initNavTree('classast_1_1ModOrbElem.html',''); initResizable(true);
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1ModOrbElem-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::ModOrbElem类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::ModOrbElem类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Orbit.html">轨道计算</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>修正轨道根数  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="OrbitElement_8hpp_source.html">OrbitElement.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -115,46 +112,36 @@ $(function(){initNavTree('classast_1_1ModOrbElem.html',''); initResizable(true);
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a0a4ac7dc21954f223078440c87ea81d9" id="r_a0a4ac7dc21954f223078440c87ea81d9"><td class="memItemLeft" align="right" valign="top"><a id="a0a4ac7dc21954f223078440c87ea81d9" name="a0a4ac7dc21954f223078440c87ea81d9"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getMeanMotion</b> (double gm) const</td></tr>
-<tr class="memdesc:a0a4ac7dc21954f223078440c87ea81d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算平均角速度变化率 <br /></td></tr>
 <tr class="separator:a0a4ac7dc21954f223078440c87ea81d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e4155ff09048c1add5eecfbffa34123" id="r_a1e4155ff09048c1add5eecfbffa34123"><td class="memItemLeft" align="right" valign="top"><a id="a1e4155ff09048c1add5eecfbffa34123" name="a1e4155ff09048c1add5eecfbffa34123"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getA</b> () const</td></tr>
-<tr class="memdesc:a1e4155ff09048c1add5eecfbffa34123"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算半长轴 <br /></td></tr>
 <tr class="separator:a1e4155ff09048c1add5eecfbffa34123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77a40cd14ea09806741a4cb5f7b28af7" id="r_a77a40cd14ea09806741a4cb5f7b28af7"><td class="memItemLeft" align="right" valign="top"><a id="a77a40cd14ea09806741a4cb5f7b28af7" name="a77a40cd14ea09806741a4cb5f7b28af7"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getP</b> () const</td></tr>
-<tr class="memdesc:a77a40cd14ea09806741a4cb5f7b28af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算半通径 <br /></td></tr>
 <tr class="separator:a77a40cd14ea09806741a4cb5f7b28af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accf864d319e8fc0f0b82c2c5e0518ba7" id="r_accf864d319e8fc0f0b82c2c5e0518ba7"><td class="memItemLeft" align="right" valign="top"><a id="accf864d319e8fc0f0b82c2c5e0518ba7" name="accf864d319e8fc0f0b82c2c5e0518ba7"></a>
 AST_CORE_API std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
-<tr class="memdesc:accf864d319e8fc0f0b82c2c5e0518ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换为字符串 <br /></td></tr>
 <tr class="separator:accf864d319e8fc0f0b82c2c5e0518ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a06bf100ac344511c23ce4004fc761072" id="r_a06bf100ac344511c23ce4004fc761072"><td class="memItemLeft" align="right" valign="top"><a id="a06bf100ac344511c23ce4004fc761072" name="a06bf100ac344511c23ce4004fc761072"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>rp_</b></td></tr>
-<tr class="memdesc:a06bf100ac344511c23ce4004fc761072"><td class="mdescLeft">&#160;</td><td class="mdescRight">近拱点半径 <br /></td></tr>
 <tr class="separator:a06bf100ac344511c23ce4004fc761072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ffa90ace3a9b5bc97017e74990e5f83" id="r_a8ffa90ace3a9b5bc97017e74990e5f83"><td class="memItemLeft" align="right" valign="top"><a id="a8ffa90ace3a9b5bc97017e74990e5f83" name="a8ffa90ace3a9b5bc97017e74990e5f83"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>e_</b></td></tr>
-<tr class="memdesc:a8ffa90ace3a9b5bc97017e74990e5f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">偏心率 <br /></td></tr>
 <tr class="separator:a8ffa90ace3a9b5bc97017e74990e5f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea0475affb1e77a6ea962f4b6269a4b2" id="r_aea0475affb1e77a6ea962f4b6269a4b2"><td class="memItemLeft" align="right" valign="top"><a id="aea0475affb1e77a6ea962f4b6269a4b2" name="aea0475affb1e77a6ea962f4b6269a4b2"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>i_</b></td></tr>
-<tr class="memdesc:aea0475affb1e77a6ea962f4b6269a4b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">轨道倾角 <br /></td></tr>
 <tr class="separator:aea0475affb1e77a6ea962f4b6269a4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4b05d1fa79ffb615daf1e8c34f779c3" id="r_ad4b05d1fa79ffb615daf1e8c34f779c3"><td class="memItemLeft" align="right" valign="top"><a id="ad4b05d1fa79ffb615daf1e8c34f779c3" name="ad4b05d1fa79ffb615daf1e8c34f779c3"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>raan_</b></td></tr>
-<tr class="memdesc:ad4b05d1fa79ffb615daf1e8c34f779c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">升交点赤经 <br /></td></tr>
 <tr class="separator:ad4b05d1fa79ffb615daf1e8c34f779c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d50751cba5af9215aa7c5bcb2ca16ba" id="r_a9d50751cba5af9215aa7c5bcb2ca16ba"><td class="memItemLeft" align="right" valign="top"><a id="a9d50751cba5af9215aa7c5bcb2ca16ba" name="a9d50751cba5af9215aa7c5bcb2ca16ba"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>argper_</b></td></tr>
-<tr class="memdesc:a9d50751cba5af9215aa7c5bcb2ca16ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">近拱点角 <br /></td></tr>
 <tr class="separator:a9d50751cba5af9215aa7c5bcb2ca16ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df709ac890580d88f10a4a3aba42f66" id="r_a4df709ac890580d88f10a4a3aba42f66"><td class="memItemLeft" align="right" valign="top"><a id="a4df709ac890580d88f10a4a3aba42f66" name="a4df709ac890580d88f10a4a3aba42f66"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>trueA_</b></td></tr>
-<tr class="memdesc:a4df709ac890580d88f10a4a3aba42f66"><td class="mdescLeft">&#160;</td><td class="mdescRight">真近点角 <br /></td></tr>
 <tr class="separator:a4df709ac890580d88f10a4a3aba42f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

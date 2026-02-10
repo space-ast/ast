@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstScript/Value/ValArray.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Value/ValArray.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -111,59 +111,59 @@ $(function(){initNavTree('ValArray_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> NDIM&gt;</div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ValArray.html">ValArray</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// AST_EXPR(ValArray)</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">   40</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">column</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dims_[0]; }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">   44</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">row</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dims_[1]; }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">   48</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">page</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dims_[2]; }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">   52</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">size</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">   57</a></span>    T <a class="code hl_function" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">at</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> data_[index]; }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">   62</a></span>    T&amp; <a class="code hl_function" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">at</a>(<span class="keywordtype">size_t</span> index) { <span class="keywordflow">return</span> data_[index]; }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#aefb5076bfe561d7498f557c6297fc9a8">   65</a></span>    <span class="keywordtype">size_t</span> dims_[NDIM]; </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">   66</a></span>    T*     <a class="code hl_variable" href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">data_</a>;        </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> NDIM&gt;</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ValArray.html">ValArray</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// AST_EXPR(ValArray)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">   41</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">column</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dims_[0]; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">   45</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">row</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dims_[1]; }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">   49</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">page</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dims_[2]; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">   53</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">   58</a></span>    T <a class="code hl_function" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">at</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> data_[index]; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">   63</a></span>    T&amp; <a class="code hl_function" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">at</a>(<span class="keywordtype">size_t</span> index) { <span class="keywordflow">return</span> data_[index]; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#aefb5076bfe561d7498f557c6297fc9a8">   66</a></span>    <span class="keywordtype">size_t</span> dims_[NDIM]; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">   67</a></span>    T*     <a class="code hl_variable" href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">data_</a>;        </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> NDIM&gt;</div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">   71</a></span><span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code hl_class" href="classast_1_1ValArray.html">ValArray&lt;T, NDIM&gt;::size</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">size_t</span> size = 1;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; NDIM; ++i)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        size *= dims_[i];</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> size;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> NDIM&gt;</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">   72</a></span><span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code hl_class" href="classast_1_1ValArray.html">ValArray&lt;T, NDIM&gt;::size</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">size_t</span> size = 1;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; NDIM; ++i)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        size *= dims_[i];</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> size;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 </div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 </div>
-<div class="ttc" id="aclassast_1_1ValArray_html"><div class="ttname"><a href="classast_1_1ValArray.html">ast::ValArray</a></div><div class="ttdoc">数组值类</div><div class="ttdef"><b>定义</b> ValArray.hpp:34</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_a0200070cb5f89f45856614b2fab47013"><div class="ttname"><a href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">ast::ValArray::page</a></div><div class="ttdeci">size_t page() const</div><div class="ttdoc">获取数组页数</div><div class="ttdef"><b>定义</b> ValArray.hpp:48</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_a02f6b171c8adfd17b6b09695656c805b"><div class="ttname"><a href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取数组元素数量</div><div class="ttdef"><b>定义</b> ValArray.hpp:71</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_a23b7d75dffbb7227d2ad5c90366cba49"><div class="ttname"><a href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">ast::ValArray::data_</a></div><div class="ttdeci">T * data_</div><div class="ttdoc">数组数据指针</div><div class="ttdef"><b>定义</b> ValArray.hpp:66</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_a696d6542796fa7616243e17c67174ef9"><div class="ttname"><a href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">ast::ValArray::column</a></div><div class="ttdeci">size_t column() const</div><div class="ttdoc">获取数组列数</div><div class="ttdef"><b>定义</b> ValArray.hpp:40</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_a9bcde5454ede8e51867c75d812b7908d"><div class="ttname"><a href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">ast::ValArray::row</a></div><div class="ttdeci">size_t row() const</div><div class="ttdoc">获取数组行数</div><div class="ttdef"><b>定义</b> ValArray.hpp:44</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_ac66eb116dbf1d29f20892744bbf143b1"><div class="ttname"><a href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">ast::ValArray::at</a></div><div class="ttdeci">T &amp; at(size_t index)</div><div class="ttdoc">获取数组元素</div><div class="ttdef"><b>定义</b> ValArray.hpp:62</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_af5bcf66258f89a58b77a6e92960d8966"><div class="ttname"><a href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">ast::ValArray::at</a></div><div class="ttdeci">T at(size_t index) const</div><div class="ttdoc">获取数组元素</div><div class="ttdef"><b>定义</b> ValArray.hpp:57</div></div>
-<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html"><div class="ttname"><a href="classast_1_1ValArray.html">ast::ValArray</a></div><div class="ttdoc">数组值类</div><div class="ttdef"><b>定义</b> ValArray.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_a0200070cb5f89f45856614b2fab47013"><div class="ttname"><a href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">ast::ValArray::page</a></div><div class="ttdeci">size_t page() const</div><div class="ttdoc">获取数组页数</div><div class="ttdef"><b>定义</b> ValArray.hpp:49</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_a02f6b171c8adfd17b6b09695656c805b"><div class="ttname"><a href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取数组元素数量</div><div class="ttdef"><b>定义</b> ValArray.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_a23b7d75dffbb7227d2ad5c90366cba49"><div class="ttname"><a href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">ast::ValArray::data_</a></div><div class="ttdeci">T * data_</div><div class="ttdoc">数组数据指针</div><div class="ttdef"><b>定义</b> ValArray.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_a696d6542796fa7616243e17c67174ef9"><div class="ttname"><a href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">ast::ValArray::column</a></div><div class="ttdeci">size_t column() const</div><div class="ttdoc">获取数组列数</div><div class="ttdef"><b>定义</b> ValArray.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_a9bcde5454ede8e51867c75d812b7908d"><div class="ttname"><a href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">ast::ValArray::row</a></div><div class="ttdeci">size_t row() const</div><div class="ttdoc">获取数组行数</div><div class="ttdef"><b>定义</b> ValArray.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_ac66eb116dbf1d29f20892744bbf143b1"><div class="ttname"><a href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">ast::ValArray::at</a></div><div class="ttdeci">T &amp; at(size_t index)</div><div class="ttdoc">获取数组元素</div><div class="ttdef"><b>定义</b> ValArray.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_af5bcf66258f89a58b77a6e92960d8966"><div class="ttname"><a href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">ast::ValArray::at</a></div><div class="ttdeci">T at(size_t index) const</div><div class="ttdoc">获取数组元素</div><div class="ttdef"><b>定义</b> ValArray.hpp:58</div></div>
+<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

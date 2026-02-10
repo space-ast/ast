@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Quantity/Unit.cpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Quantity/Unit.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -105,9 +105,6 @@ $(function(){initNavTree('Unit_8cpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Unit.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>~  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Unit_8hpp_source.html">Unit.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ParseFormat.hpp&quot;</code><br />
@@ -120,173 +117,130 @@ $(function(){initNavTree('Unit_8cpp.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
 <tr class="memitem:aa5ff8b62295a7e770ee4a6f4d8763f2b" id="r_aa5ff8b62295a7e770ee4a6f4d8763f2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa5ff8b62295a7e770ee4a6f4d8763f2b">ast::unit_multiply</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
-<tr class="memdesc:aa5ff8b62295a7e770ee4a6f4d8763f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位乘法  <br /></td></tr>
 <tr class="separator:aa5ff8b62295a7e770ee4a6f4d8763f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f0d879f2d9c8c5da7e194f54592545b" id="r_a2f0d879f2d9c8c5da7e194f54592545b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2f0d879f2d9c8c5da7e194f54592545b">ast::unit_divide</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
-<tr class="memdesc:a2f0d879f2d9c8c5da7e194f54592545b"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位除法  <br /></td></tr>
 <tr class="separator:a2f0d879f2d9c8c5da7e194f54592545b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49d13854b5b3a8bf42c2b26669f74e9a" id="r_a49d13854b5b3a8bf42c2b26669f74e9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a49d13854b5b3a8bf42c2b26669f74e9a">ast::unit_power</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, int exponent)</td></tr>
-<tr class="memdesc:a49d13854b5b3a8bf42c2b26669f74e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位幂  <br /></td></tr>
 <tr class="separator:a49d13854b5b3a8bf42c2b26669f74e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c45427ea5818e47ec662b5e76f9ba6" id="r_a67c45427ea5818e47ec662b5e76f9ba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a67c45427ea5818e47ec662b5e76f9ba6">ast::unit_setname</a> (<a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="memdesc:a67c45427ea5818e47ec662b5e76f9ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置单位名称  <br /></td></tr>
 <tr class="separator:a67c45427ea5818e47ec662b5e76f9ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d70bda5a246fb35334067072dbe2685" id="r_a2d70bda5a246fb35334067072dbe2685"><td class="memItemLeft" align="right" valign="top"><a id="a2d70bda5a246fb35334067072dbe2685" name="a2d70bda5a246fb35334067072dbe2685"></a>
+<tr class="memitem:ga2d70bda5a246fb35334067072dbe2685" id="r_ga2d70bda5a246fb35334067072dbe2685"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitMultiply</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
-<tr class="memdesc:a2d70bda5a246fb35334067072dbe2685"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位乘法 <br /></td></tr>
-<tr class="separator:a2d70bda5a246fb35334067072dbe2685"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a314c7b5d43c1ab1cc86d55ebda109e01" id="r_a314c7b5d43c1ab1cc86d55ebda109e01"><td class="memItemLeft" align="right" valign="top"><a id="a314c7b5d43c1ab1cc86d55ebda109e01" name="a314c7b5d43c1ab1cc86d55ebda109e01"></a>
+<tr class="separator:ga2d70bda5a246fb35334067072dbe2685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga314c7b5d43c1ab1cc86d55ebda109e01" id="r_ga314c7b5d43c1ab1cc86d55ebda109e01"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitMultiply</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
-<tr class="memdesc:a314c7b5d43c1ab1cc86d55ebda109e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位乘法 <br /></td></tr>
-<tr class="separator:a314c7b5d43c1ab1cc86d55ebda109e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc0b0eaf248ecf2690adbafdbee67622" id="r_abc0b0eaf248ecf2690adbafdbee67622"><td class="memItemLeft" align="right" valign="top"><a id="abc0b0eaf248ecf2690adbafdbee67622" name="abc0b0eaf248ecf2690adbafdbee67622"></a>
+<tr class="separator:ga314c7b5d43c1ab1cc86d55ebda109e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc0b0eaf248ecf2690adbafdbee67622" id="r_gabc0b0eaf248ecf2690adbafdbee67622"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitDivide</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
-<tr class="memdesc:abc0b0eaf248ecf2690adbafdbee67622"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位除法 <br /></td></tr>
-<tr class="separator:abc0b0eaf248ecf2690adbafdbee67622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b2e2b0729ec0fca1e538dfee976ec6" id="r_a70b2e2b0729ec0fca1e538dfee976ec6"><td class="memItemLeft" align="right" valign="top"><a id="a70b2e2b0729ec0fca1e538dfee976ec6" name="a70b2e2b0729ec0fca1e538dfee976ec6"></a>
+<tr class="separator:gabc0b0eaf248ecf2690adbafdbee67622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70b2e2b0729ec0fca1e538dfee976ec6" id="r_ga70b2e2b0729ec0fca1e538dfee976ec6"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitDivide</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
-<tr class="memdesc:a70b2e2b0729ec0fca1e538dfee976ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位除法 <br /></td></tr>
-<tr class="separator:a70b2e2b0729ec0fca1e538dfee976ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68bc55be726ee1de1ea63da4bdda201c" id="r_a68bc55be726ee1de1ea63da4bdda201c"><td class="memItemLeft" align="right" valign="top"><a id="a68bc55be726ee1de1ea63da4bdda201c" name="a68bc55be726ee1de1ea63da4bdda201c"></a>
+<tr class="separator:ga70b2e2b0729ec0fca1e538dfee976ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68bc55be726ee1de1ea63da4bdda201c" id="r_ga68bc55be726ee1de1ea63da4bdda201c"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitPower</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, int exponent)</td></tr>
-<tr class="memdesc:a68bc55be726ee1de1ea63da4bdda201c"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位幂 <br /></td></tr>
-<tr class="separator:a68bc55be726ee1de1ea63da4bdda201c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada24ea182ac2af5f7547b4d644255994" id="r_ada24ea182ac2af5f7547b4d644255994"><td class="memItemLeft" align="right" valign="top"><a id="ada24ea182ac2af5f7547b4d644255994" name="ada24ea182ac2af5f7547b4d644255994"></a>
+<tr class="separator:ga68bc55be726ee1de1ea63da4bdda201c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada24ea182ac2af5f7547b4d644255994" id="r_gada24ea182ac2af5f7547b4d644255994"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitPower</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, int exponent, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
-<tr class="memdesc:ada24ea182ac2af5f7547b4d644255994"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位幂 <br /></td></tr>
-<tr class="separator:ada24ea182ac2af5f7547b4d644255994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92dff1d7369798cc998c4293c9ee9c37" id="r_a92dff1d7369798cc998c4293c9ee9c37"><td class="memItemLeft" align="right" valign="top"><a id="a92dff1d7369798cc998c4293c9ee9c37" name="a92dff1d7369798cc998c4293c9ee9c37"></a>
+<tr class="separator:gada24ea182ac2af5f7547b4d644255994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92dff1d7369798cc998c4293c9ee9c37" id="r_ga92dff1d7369798cc998c4293c9ee9c37"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitInvert</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
-<tr class="memdesc:a92dff1d7369798cc998c4293c9ee9c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位倒数 <br /></td></tr>
-<tr class="separator:a92dff1d7369798cc998c4293c9ee9c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b680c377ab16387e1f784fb65195ca7" id="r_a6b680c377ab16387e1f784fb65195ca7"><td class="memItemLeft" align="right" valign="top"><a id="a6b680c377ab16387e1f784fb65195ca7" name="a6b680c377ab16387e1f784fb65195ca7"></a>
+<tr class="separator:ga92dff1d7369798cc998c4293c9ee9c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b680c377ab16387e1f784fb65195ca7" id="r_ga6b680c377ab16387e1f784fb65195ca7"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitInvert</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
-<tr class="memdesc:a6b680c377ab16387e1f784fb65195ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位倒数 <br /></td></tr>
-<tr class="separator:a6b680c377ab16387e1f784fb65195ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cf23f3f06f4b41455bc2fb6b017fae3" id="r_a9cf23f3f06f4b41455bc2fb6b017fae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9cf23f3f06f4b41455bc2fb6b017fae3">ast::aUnitFactorize</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;newUnit, double &amp;scale)</td></tr>
-<tr class="memdesc:a9cf23f3f06f4b41455bc2fb6b017fae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位分解  <br /></td></tr>
-<tr class="separator:a9cf23f3f06f4b41455bc2fb6b017fae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6148ef81cf9031c8e641630103210d6f" id="r_a6148ef81cf9031c8e641630103210d6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6148ef81cf9031c8e641630103210d6f">ast::aUnitFactorize</a> (<a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, double &amp;scale)</td></tr>
-<tr class="memdesc:a6148ef81cf9031c8e641630103210d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位分解  <br /></td></tr>
-<tr class="separator:a6148ef81cf9031c8e641630103210d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga6b680c377ab16387e1f784fb65195ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cf23f3f06f4b41455bc2fb6b017fae3" id="r_ga9cf23f3f06f4b41455bc2fb6b017fae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quantity.html#ga9cf23f3f06f4b41455bc2fb6b017fae3">ast::aUnitFactorize</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;newUnit, double &amp;scale)</td></tr>
+<tr class="separator:ga9cf23f3f06f4b41455bc2fb6b017fae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6148ef81cf9031c8e641630103210d6f" id="r_ga6148ef81cf9031c8e641630103210d6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quantity.html#ga6148ef81cf9031c8e641630103210d6f">ast::aUnitFactorize</a> (<a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, double &amp;scale)</td></tr>
+<tr class="separator:ga6148ef81cf9031c8e641630103210d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>
 <tr class="memitem:ac04b780d9c8e3bf0786b7aa7da7ac813" id="r_ac04b780d9c8e3bf0786b7aa7da7ac813"><td class="memItemLeft" align="right" valign="top"><a id="ac04b780d9c8e3bf0786b7aa7da7ac813" name="ac04b780d9c8e3bf0786b7aa7da7ac813"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::unit_name_separator</b> = aText(&quot;\u00b7&quot;)</td></tr>
-<tr class="memdesc:ac04b780d9c8e3bf0786b7aa7da7ac813"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位名称分隔符 <br /></td></tr>
 <tr class="separator:ac04b780d9c8e3bf0786b7aa7da7ac813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c7d84c2b89aa838db8477fc949f8e08" id="r_a8c7d84c2b89aa838db8477fc949f8e08"><td class="memItemLeft" align="right" valign="top"><a id="a8c7d84c2b89aa838db8477fc949f8e08" name="a8c7d84c2b89aa838db8477fc949f8e08"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::none</b> = <a class="el" href="classast_1_1Unit.html#a614bfadbdc19afbee490bfbfe0abe526">Unit::None</a>()</td></tr>
-<tr class="memdesc:a8c7d84c2b89aa838db8477fc949f8e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">无单位 <br /></td></tr>
 <tr class="separator:a8c7d84c2b89aa838db8477fc949f8e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0c49927f01dc0647079c0e8d949521" id="r_a7b0c49927f01dc0647079c0e8d949521"><td class="memItemLeft" align="right" valign="top"><a id="a7b0c49927f01dc0647079c0e8d949521" name="a7b0c49927f01dc0647079c0e8d949521"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::mm</b> = <a class="el" href="classast_1_1Unit.html#aab380e6f4aca3a449d0572bcb29eb880">Unit::Millimeter</a>()</td></tr>
-<tr class="memdesc:a7b0c49927f01dc0647079c0e8d949521"><td class="mdescLeft">&#160;</td><td class="mdescRight">毫米 <br /></td></tr>
 <tr class="separator:a7b0c49927f01dc0647079c0e8d949521"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a303e4126abedb9af71391110b791f9ce" id="r_a303e4126abedb9af71391110b791f9ce"><td class="memItemLeft" align="right" valign="top"><a id="a303e4126abedb9af71391110b791f9ce" name="a303e4126abedb9af71391110b791f9ce"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::cm</b> = <a class="el" href="classast_1_1Unit.html#a8df8e11ee775bd45fc2d52ca069bffb4">Unit::Centimeter</a>()</td></tr>
-<tr class="memdesc:a303e4126abedb9af71391110b791f9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">厘米 <br /></td></tr>
 <tr class="separator:a303e4126abedb9af71391110b791f9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567c78044182d62bdfd482ade453488f" id="r_a567c78044182d62bdfd482ade453488f"><td class="memItemLeft" align="right" valign="top"><a id="a567c78044182d62bdfd482ade453488f" name="a567c78044182d62bdfd482ade453488f"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::dm</b> = <a class="el" href="classast_1_1Unit.html#ab55d68450892d08a67f172eaeb5f812c">Unit::Decimeter</a>()</td></tr>
-<tr class="memdesc:a567c78044182d62bdfd482ade453488f"><td class="mdescLeft">&#160;</td><td class="mdescRight">分米 <br /></td></tr>
 <tr class="separator:a567c78044182d62bdfd482ade453488f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b2069a36f88d45a8bd6a9e61d760296" id="r_a6b2069a36f88d45a8bd6a9e61d760296"><td class="memItemLeft" align="right" valign="top"><a id="a6b2069a36f88d45a8bd6a9e61d760296" name="a6b2069a36f88d45a8bd6a9e61d760296"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::m</b> = <a class="el" href="classast_1_1Unit.html#a24733bba2cec751d014a1d5c6a884c54">Unit::Meter</a>()</td></tr>
-<tr class="memdesc:a6b2069a36f88d45a8bd6a9e61d760296"><td class="mdescLeft">&#160;</td><td class="mdescRight">米 <br /></td></tr>
 <tr class="separator:a6b2069a36f88d45a8bd6a9e61d760296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9364340c0b565ffc085161f27b9cdfde" id="r_a9364340c0b565ffc085161f27b9cdfde"><td class="memItemLeft" align="right" valign="top"><a id="a9364340c0b565ffc085161f27b9cdfde" name="a9364340c0b565ffc085161f27b9cdfde"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::km</b> = <a class="el" href="classast_1_1Unit.html#a81374cdbe33bf972adffe1d846491694">Unit::Kilometer</a>()</td></tr>
-<tr class="memdesc:a9364340c0b565ffc085161f27b9cdfde"><td class="mdescLeft">&#160;</td><td class="mdescRight">千米 <br /></td></tr>
 <tr class="separator:a9364340c0b565ffc085161f27b9cdfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae401b7f239f3217a5ad786e5457ecacb" id="r_ae401b7f239f3217a5ad786e5457ecacb"><td class="memItemLeft" align="right" valign="top"><a id="ae401b7f239f3217a5ad786e5457ecacb" name="ae401b7f239f3217a5ad786e5457ecacb"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::in</b> = <a class="el" href="classast_1_1Unit.html#acfcc867cd4f2e389ed3f1552443221f3">Unit::Inch</a>()</td></tr>
-<tr class="memdesc:ae401b7f239f3217a5ad786e5457ecacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">英寸 <br /></td></tr>
 <tr class="separator:ae401b7f239f3217a5ad786e5457ecacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69bd41f3998d87945c5ba24d4f138c52" id="r_a69bd41f3998d87945c5ba24d4f138c52"><td class="memItemLeft" align="right" valign="top"><a id="a69bd41f3998d87945c5ba24d4f138c52" name="a69bd41f3998d87945c5ba24d4f138c52"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::yd</b> = <a class="el" href="classast_1_1Unit.html#a6d2db9b031d9a54acda3a39c9f4c3495">Unit::Yard</a>()</td></tr>
-<tr class="memdesc:a69bd41f3998d87945c5ba24d4f138c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">码 <br /></td></tr>
 <tr class="separator:a69bd41f3998d87945c5ba24d4f138c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a888ceef2cfae6e68b8c7382fd2a5fc0c" id="r_a888ceef2cfae6e68b8c7382fd2a5fc0c"><td class="memItemLeft" align="right" valign="top"><a id="a888ceef2cfae6e68b8c7382fd2a5fc0c" name="a888ceef2cfae6e68b8c7382fd2a5fc0c"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::ft</b> = <a class="el" href="classast_1_1Unit.html#a9da85aada6c5612e28ebffa9e252ffb2">Unit::Foot</a>()</td></tr>
-<tr class="memdesc:a888ceef2cfae6e68b8c7382fd2a5fc0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">英尺 <br /></td></tr>
 <tr class="separator:a888ceef2cfae6e68b8c7382fd2a5fc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43cd73360527e95bdea7f5347673bb4c" id="r_a43cd73360527e95bdea7f5347673bb4c"><td class="memItemLeft" align="right" valign="top"><a id="a43cd73360527e95bdea7f5347673bb4c" name="a43cd73360527e95bdea7f5347673bb4c"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::mi</b> = <a class="el" href="classast_1_1Unit.html#ac97b18d5c9ab55fe554f075235879413">Unit::Mile</a>()</td></tr>
-<tr class="memdesc:a43cd73360527e95bdea7f5347673bb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">英里 <br /></td></tr>
 <tr class="separator:a43cd73360527e95bdea7f5347673bb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a844daeb7494484dd4a992db22d44fad7" id="r_a844daeb7494484dd4a992db22d44fad7"><td class="memItemLeft" align="right" valign="top"><a id="a844daeb7494484dd4a992db22d44fad7" name="a844daeb7494484dd4a992db22d44fad7"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::sec</b> = <a class="el" href="classast_1_1Unit.html#a59806bb8a76d0385fb5b2004e0b22046">Unit::Second</a>()</td></tr>
-<tr class="memdesc:a844daeb7494484dd4a992db22d44fad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">秒 <br /></td></tr>
 <tr class="separator:a844daeb7494484dd4a992db22d44fad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a225f8bb56223c5cff0e158b39b1ac0d8" id="r_a225f8bb56223c5cff0e158b39b1ac0d8"><td class="memItemLeft" align="right" valign="top"><a id="a225f8bb56223c5cff0e158b39b1ac0d8" name="a225f8bb56223c5cff0e158b39b1ac0d8"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::s</b> = <a class="el" href="#a844daeb7494484dd4a992db22d44fad7">sec</a></td></tr>
-<tr class="memdesc:a225f8bb56223c5cff0e158b39b1ac0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">秒 <br /></td></tr>
 <tr class="separator:a225f8bb56223c5cff0e158b39b1ac0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66fc0c2327c7c298ea5eca0f8afb08c8" id="r_a66fc0c2327c7c298ea5eca0f8afb08c8"><td class="memItemLeft" align="right" valign="top"><a id="a66fc0c2327c7c298ea5eca0f8afb08c8" name="a66fc0c2327c7c298ea5eca0f8afb08c8"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::ms</b> = <a class="el" href="classast_1_1Unit.html#aed393765df6992d7fb4feffeac5d0f21">Unit::MilliSecond</a>()</td></tr>
-<tr class="memdesc:a66fc0c2327c7c298ea5eca0f8afb08c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">毫秒 <br /></td></tr>
 <tr class="separator:a66fc0c2327c7c298ea5eca0f8afb08c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa57bd09bb7a3c5b2a916d9d94ed79983" id="r_aa57bd09bb7a3c5b2a916d9d94ed79983"><td class="memItemLeft" align="right" valign="top"><a id="aa57bd09bb7a3c5b2a916d9d94ed79983" name="aa57bd09bb7a3c5b2a916d9d94ed79983"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::min</b> = <a class="el" href="classast_1_1Unit.html#a394bc3015f2f437d8d5458db3d223362">Unit::Minute</a>()</td></tr>
-<tr class="memdesc:aa57bd09bb7a3c5b2a916d9d94ed79983"><td class="mdescLeft">&#160;</td><td class="mdescRight">分钟 <br /></td></tr>
 <tr class="separator:aa57bd09bb7a3c5b2a916d9d94ed79983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58be36ffcb2e27cc8ee98c20d92f0715" id="r_a58be36ffcb2e27cc8ee98c20d92f0715"><td class="memItemLeft" align="right" valign="top"><a id="a58be36ffcb2e27cc8ee98c20d92f0715" name="a58be36ffcb2e27cc8ee98c20d92f0715"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::hour</b> = <a class="el" href="classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404">Unit::Hour</a>()</td></tr>
-<tr class="memdesc:a58be36ffcb2e27cc8ee98c20d92f0715"><td class="mdescLeft">&#160;</td><td class="mdescRight">小时 <br /></td></tr>
 <tr class="separator:a58be36ffcb2e27cc8ee98c20d92f0715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41b2cc417965220fe0097097e15b1f5c" id="r_a41b2cc417965220fe0097097e15b1f5c"><td class="memItemLeft" align="right" valign="top"><a id="a41b2cc417965220fe0097097e15b1f5c" name="a41b2cc417965220fe0097097e15b1f5c"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::h</b> = <a class="el" href="#a58be36ffcb2e27cc8ee98c20d92f0715">hour</a></td></tr>
-<tr class="memdesc:a41b2cc417965220fe0097097e15b1f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">小时 <br /></td></tr>
 <tr class="separator:a41b2cc417965220fe0097097e15b1f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46331518b0993f7058b537530ef94a33" id="r_a46331518b0993f7058b537530ef94a33"><td class="memItemLeft" align="right" valign="top"><a id="a46331518b0993f7058b537530ef94a33" name="a46331518b0993f7058b537530ef94a33"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::day</b> = <a class="el" href="classast_1_1Unit.html#a084a663d4f357e0a21dba0cfe0adf7ef">Unit::Day</a>()</td></tr>
-<tr class="memdesc:a46331518b0993f7058b537530ef94a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">天 <br /></td></tr>
 <tr class="separator:a46331518b0993f7058b537530ef94a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34c503b9f029b3c97b145fd0a2bb7acd" id="r_a34c503b9f029b3c97b145fd0a2bb7acd"><td class="memItemLeft" align="right" valign="top"><a id="a34c503b9f029b3c97b145fd0a2bb7acd" name="a34c503b9f029b3c97b145fd0a2bb7acd"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::kg</b> = <a class="el" href="classast_1_1Unit.html#aec399856d09d9b65e099f12b0daf5ba5">Unit::Kilogram</a>()</td></tr>
-<tr class="memdesc:a34c503b9f029b3c97b145fd0a2bb7acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">千克 <br /></td></tr>
 <tr class="separator:a34c503b9f029b3c97b145fd0a2bb7acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4556ebaa282d22cb28134feff39ae12" id="r_ae4556ebaa282d22cb28134feff39ae12"><td class="memItemLeft" align="right" valign="top"><a id="ae4556ebaa282d22cb28134feff39ae12" name="ae4556ebaa282d22cb28134feff39ae12"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::g</b> = <a class="el" href="classast_1_1Unit.html#a765b6081ce17e634b9e78c3ab6106236">Unit::Gram</a>()</td></tr>
-<tr class="memdesc:ae4556ebaa282d22cb28134feff39ae12"><td class="mdescLeft">&#160;</td><td class="mdescRight">克 <br /></td></tr>
 <tr class="separator:ae4556ebaa282d22cb28134feff39ae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fe52e4a38940eea606c33210cf9f1d2" id="r_a0fe52e4a38940eea606c33210cf9f1d2"><td class="memItemLeft" align="right" valign="top"><a id="a0fe52e4a38940eea606c33210cf9f1d2" name="a0fe52e4a38940eea606c33210cf9f1d2"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::mg</b> = <a class="el" href="classast_1_1Unit.html#a55dbe53521d3299aef3b66d5922b504b">Unit::Milligram</a>()</td></tr>
-<tr class="memdesc:a0fe52e4a38940eea606c33210cf9f1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">毫克 <br /></td></tr>
 <tr class="separator:a0fe52e4a38940eea606c33210cf9f1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a474a9adff409a5a219cccbd6a02804a3" id="r_a474a9adff409a5a219cccbd6a02804a3"><td class="memItemLeft" align="right" valign="top"><a id="a474a9adff409a5a219cccbd6a02804a3" name="a474a9adff409a5a219cccbd6a02804a3"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::lb</b> = <a class="el" href="classast_1_1Unit.html#ae9c751dfdbe0bb1535d8dcf42812613a">Unit::Pound</a>()</td></tr>
-<tr class="memdesc:a474a9adff409a5a219cccbd6a02804a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">磅 <br /></td></tr>
 <tr class="separator:a474a9adff409a5a219cccbd6a02804a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa855b6dee85a8685cc6cad69db006c8a" id="r_aa855b6dee85a8685cc6cad69db006c8a"><td class="memItemLeft" align="right" valign="top"><a id="aa855b6dee85a8685cc6cad69db006c8a" name="aa855b6dee85a8685cc6cad69db006c8a"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::N</b> = <a class="el" href="classast_1_1Unit.html#a004d1aa1d4fb3988c486454748627357">Unit::Newton</a>()</td></tr>
-<tr class="memdesc:aa855b6dee85a8685cc6cad69db006c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">牛顿 <br /></td></tr>
 <tr class="separator:aa855b6dee85a8685cc6cad69db006c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d966734edbd9f3919b56975c0b83d0e" id="r_a6d966734edbd9f3919b56975c0b83d0e"><td class="memItemLeft" align="right" valign="top"><a id="a6d966734edbd9f3919b56975c0b83d0e" name="a6d966734edbd9f3919b56975c0b83d0e"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::deg</b> = <a class="el" href="classast_1_1Unit.html#ad43a168c36918753c0dadcdbbffc17da">Unit::Degree</a>()</td></tr>
-<tr class="memdesc:a6d966734edbd9f3919b56975c0b83d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">度 <br /></td></tr>
 <tr class="separator:a6d966734edbd9f3919b56975c0b83d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2ca0a73ad1c1d8d0099f63d6428217d" id="r_aa2ca0a73ad1c1d8d0099f63d6428217d"><td class="memItemLeft" align="right" valign="top"><a id="aa2ca0a73ad1c1d8d0099f63d6428217d" name="aa2ca0a73ad1c1d8d0099f63d6428217d"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::rad</b> = <a class="el" href="classast_1_1Unit.html#ac2cd6e4ca65e96a425e4da2f437e7a89">Unit::Radian</a>()</td></tr>
-<tr class="memdesc:aa2ca0a73ad1c1d8d0099f63d6428217d"><td class="mdescLeft">&#160;</td><td class="mdescRight">弧度 <br /></td></tr>
 <tr class="separator:aa2ca0a73ad1c1d8d0099f63d6428217d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26da2976a8828d2390606bddb75cf8e5" id="r_a26da2976a8828d2390606bddb75cf8e5"><td class="memItemLeft" align="right" valign="top"><a id="a26da2976a8828d2390606bddb75cf8e5" name="a26da2976a8828d2390606bddb75cf8e5"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::A</b> = <a class="el" href="classast_1_1Unit.html#a9b31fe117914895af7e88e0554dc52e8">Unit::Ampere</a>()</td></tr>
-<tr class="memdesc:a26da2976a8828d2390606bddb75cf8e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">安培 <br /></td></tr>
 <tr class="separator:a26da2976a8828d2390606bddb75cf8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac593a293f88115dcf831f0cd0c707ccd" id="r_ac593a293f88115dcf831f0cd0c707ccd"><td class="memItemLeft" align="right" valign="top"><a id="ac593a293f88115dcf831f0cd0c707ccd" name="ac593a293f88115dcf831f0cd0c707ccd"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::m2</b> = <a class="el" href="classast_1_1Unit.html#a6a00a2c79a4ea03cf493acca1e3f6451">Unit::SquareMeter</a>()</td></tr>
-<tr class="memdesc:ac593a293f88115dcf831f0cd0c707ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">平方米 <br /></td></tr>
 <tr class="separator:ac593a293f88115dcf831f0cd0c707ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0990e0945adaa6e0b651b1c2e194f6cb" id="r_a0990e0945adaa6e0b651b1c2e194f6cb"><td class="memItemLeft" align="right" valign="top"><a id="a0990e0945adaa6e0b651b1c2e194f6cb" name="a0990e0945adaa6e0b651b1c2e194f6cb"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::m3</b> = <a class="el" href="classast_1_1Unit.html#a66b30b76091c42c9cb48b5d3da015b82">Unit::CubicMeter</a>()</td></tr>
-<tr class="memdesc:a0990e0945adaa6e0b651b1c2e194f6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">立方米 <br /></td></tr>
 <tr class="separator:a0990e0945adaa6e0b651b1c2e194f6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a683ba7398360b57e55d979a5bd279a1c" id="r_a683ba7398360b57e55d979a5bd279a1c"><td class="memItemLeft" align="right" valign="top"><a id="a683ba7398360b57e55d979a5bd279a1c" name="a683ba7398360b57e55d979a5bd279a1c"></a>
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::units::L</b> = <a class="el" href="classast_1_1Unit.html#a8ef31ecec3bc04bcd86e8882ed3eedf4">Unit::Liter</a>()</td></tr>
-<tr class="memdesc:a683ba7398360b57e55d979a5bd279a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">升 <br /></td></tr>
 <tr class="separator:a683ba7398360b57e55d979a5bd279a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

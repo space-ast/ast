@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstScript/Interpreter/ScriptContext.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Interpreter/ScriptContext.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -118,52 +118,50 @@ $(function(){initNavTree('ScriptContext_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>Symbol;               </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>AST_SCRIPT_CAPI Interpreter* <a class="code hl_function" href="namespaceast.html#a704a4bc9c883f76fb67b5967921e7dd0">aScript_GetInterpreter</a>();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#ad99b2bd0b7bcb7874b5440846ab02dae">aScript_SetInterpreter</a>(Interpreter* interpreter);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_SCRIPT_CAPI Interpreter* <a class="code hl_function" href="group__Script.html#ga704a4bc9c883f76fb67b5967921e7dd0">aScript_GetInterpreter</a>();</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a2ff1be0c374413769c8adbb10e3b6e09">aScript_RemoveInterpreter</a>(Interpreter* interpreter);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">aScript_SetInterpreter</a>(Interpreter* interpreter);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_SCRIPT_CAPI SymbolScope* <a class="code hl_function" href="namespaceast.html#ac4c6b004a109f627b959f47d57944bfc">aScript_CurrentSymbolScope</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">aScript_RemoveInterpreter</a>(Interpreter* interpreter);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="namespaceast.html#aa42d9355cb74e3670e8229e77a065561">aScript_FindSymbol</a>(StringView name);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="namespaceast.html#aa42d9355cb74e3670e8229e77a065561">aScript_FindSymbol</a>(<span class="keyword">const</span> Symbol* symbol);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="namespaceast.html#a5464da726a2a496923321b1f92999ee6">aScript_ResolveSymbol</a>(StringView name);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="namespaceast.html#a5464da726a2a496923321b1f92999ee6">aScript_ResolveSymbol</a>(<span class="keyword">const</span> Symbol* symbol);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a1fe3d1c626bf3a44757902d8a1fd84e4">aScript_SetErrString</a>(StringView err);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_SCRIPT_CAPI SymbolScope* <a class="code hl_function" href="group__Script.html#gac4c6b004a109f627b959f47d57944bfc">aScript_CurrentSymbolScope</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="group__Script.html#gaa42d9355cb74e3670e8229e77a065561">aScript_FindSymbol</a>(StringView name);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="group__Script.html#gaa42d9355cb74e3670e8229e77a065561">aScript_FindSymbol</a>(<span class="keyword">const</span> Symbol* symbol);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="group__Script.html#ga5464da726a2a496923321b1f92999ee6">aScript_ResolveSymbol</a>(StringView name);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_SCRIPT_API Expr* <a class="code hl_function" href="group__Script.html#ga5464da726a2a496923321b1f92999ee6">aScript_ResolveSymbol</a>(<span class="keyword">const</span> Symbol* symbol);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#aea817c7b528e4443dd85e4bee722d5f3">aScript_FormartErrStringV</a>(StringView fmt, va_list args);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#ac112fcd7f4179e70c199759e3fc0c2c0">aScript_FormatErrString</a>(StringView fmt, ...);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a1fe3d1c626bf3a44757902d8a1fd84e4"><div class="ttname"><a href="namespaceast.html#a1fe3d1c626bf3a44757902d8a1fd84e4">ast::aScript_SetErrString</a></div><div class="ttdeci">void aScript_SetErrString(StringView err)</div><div class="ttdoc">设置错误字符串</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:144</div></div>
-<div class="ttc" id="anamespaceast_html_a2ff1be0c374413769c8adbb10e3b6e09"><div class="ttname"><a href="namespaceast.html#a2ff1be0c374413769c8adbb10e3b6e09">ast::aScript_RemoveInterpreter</a></div><div class="ttdeci">void aScript_RemoveInterpreter(Interpreter *interpreter)</div><div class="ttdoc">移除解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:82</div></div>
-<div class="ttc" id="anamespaceast_html_a5464da726a2a496923321b1f92999ee6"><div class="ttname"><a href="namespaceast.html#a5464da726a2a496923321b1f92999ee6">ast::aScript_ResolveSymbol</a></div><div class="ttdeci">Expr * aScript_ResolveSymbol(StringView name)</div><div class="ttdoc">解析符号</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:123</div></div>
-<div class="ttc" id="anamespaceast_html_a704a4bc9c883f76fb67b5967921e7dd0"><div class="ttname"><a href="namespaceast.html#a704a4bc9c883f76fb67b5967921e7dd0">ast::aScript_GetInterpreter</a></div><div class="ttdeci">Interpreter * aScript_GetInterpreter()</div><div class="ttdoc">符号</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:71</div></div>
-<div class="ttc" id="anamespaceast_html_aa42d9355cb74e3670e8229e77a065561"><div class="ttname"><a href="namespaceast.html#aa42d9355cb74e3670e8229e77a065561">ast::aScript_FindSymbol</a></div><div class="ttdeci">Expr * aScript_FindSymbol(StringView name)</div><div class="ttdoc">查找符号</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:102</div></div>
-<div class="ttc" id="anamespaceast_html_ac112fcd7f4179e70c199759e3fc0c2c0"><div class="ttname"><a href="namespaceast.html#ac112fcd7f4179e70c199759e3fc0c2c0">ast::aScript_FormatErrString</a></div><div class="ttdeci">void aScript_FormatErrString(StringView fmt,...)</div><div class="ttdoc">格式化错误字符串</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:156</div></div>
-<div class="ttc" id="anamespaceast_html_ac4c6b004a109f627b959f47d57944bfc"><div class="ttname"><a href="namespaceast.html#ac4c6b004a109f627b959f47d57944bfc">ast::aScript_CurrentSymbolScope</a></div><div class="ttdeci">SymbolScope * aScript_CurrentSymbolScope()</div><div class="ttdoc">获取当前符号作用域</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:92</div></div>
-<div class="ttc" id="anamespaceast_html_ad99b2bd0b7bcb7874b5440846ab02dae"><div class="ttname"><a href="namespaceast.html#ad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a></div><div class="ttdeci">void aScript_SetInterpreter(Interpreter *interpreter)</div><div class="ttdoc">设置解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:77</div></div>
-<div class="ttc" id="anamespaceast_html_aea817c7b528e4443dd85e4bee722d5f3"><div class="ttname"><a href="namespaceast.html#aea817c7b528e4443dd85e4bee722d5f3">ast::aScript_FormartErrStringV</a></div><div class="ttdeci">void aScript_FormartErrStringV(StringView fmt, va_list args)</div><div class="ttdoc">格式化错误字符串</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:149</div></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Script.html#ga1fe3d1c626bf3a44757902d8a1fd84e4">aScript_SetErrString</a>(StringView err);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Script.html#gaea817c7b528e4443dd85e4bee722d5f3">aScript_FormartErrStringV</a>(StringView fmt, va_list args);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>AST_SCRIPT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Script.html#gac112fcd7f4179e70c199759e3fc0c2c0">aScript_FormatErrString</a>(StringView fmt, ...);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Script_html_ga1fe3d1c626bf3a44757902d8a1fd84e4"><div class="ttname"><a href="group__Script.html#ga1fe3d1c626bf3a44757902d8a1fd84e4">ast::aScript_SetErrString</a></div><div class="ttdeci">void aScript_SetErrString(StringView err)</div><div class="ttdoc">设置错误字符串</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:144</div></div>
+<div class="ttc" id="agroup__Script_html_ga2ff1be0c374413769c8adbb10e3b6e09"><div class="ttname"><a href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">ast::aScript_RemoveInterpreter</a></div><div class="ttdeci">void aScript_RemoveInterpreter(Interpreter *interpreter)</div><div class="ttdoc">移除解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:82</div></div>
+<div class="ttc" id="agroup__Script_html_ga5464da726a2a496923321b1f92999ee6"><div class="ttname"><a href="group__Script.html#ga5464da726a2a496923321b1f92999ee6">ast::aScript_ResolveSymbol</a></div><div class="ttdeci">Expr * aScript_ResolveSymbol(StringView name)</div><div class="ttdoc">解析符号</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:123</div></div>
+<div class="ttc" id="agroup__Script_html_ga704a4bc9c883f76fb67b5967921e7dd0"><div class="ttname"><a href="group__Script.html#ga704a4bc9c883f76fb67b5967921e7dd0">ast::aScript_GetInterpreter</a></div><div class="ttdeci">Interpreter * aScript_GetInterpreter()</div><div class="ttdoc">获取解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:71</div></div>
+<div class="ttc" id="agroup__Script_html_gaa42d9355cb74e3670e8229e77a065561"><div class="ttname"><a href="group__Script.html#gaa42d9355cb74e3670e8229e77a065561">ast::aScript_FindSymbol</a></div><div class="ttdeci">Expr * aScript_FindSymbol(StringView name)</div><div class="ttdoc">查找符号</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:102</div></div>
+<div class="ttc" id="agroup__Script_html_gac112fcd7f4179e70c199759e3fc0c2c0"><div class="ttname"><a href="group__Script.html#gac112fcd7f4179e70c199759e3fc0c2c0">ast::aScript_FormatErrString</a></div><div class="ttdeci">void aScript_FormatErrString(StringView fmt,...)</div><div class="ttdoc">格式化错误字符串</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:156</div></div>
+<div class="ttc" id="agroup__Script_html_gac4c6b004a109f627b959f47d57944bfc"><div class="ttname"><a href="group__Script.html#gac4c6b004a109f627b959f47d57944bfc">ast::aScript_CurrentSymbolScope</a></div><div class="ttdeci">SymbolScope * aScript_CurrentSymbolScope()</div><div class="ttdoc">获取当前符号作用域</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:92</div></div>
+<div class="ttc" id="agroup__Script_html_gad99b2bd0b7bcb7874b5440846ab02dae"><div class="ttname"><a href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a></div><div class="ttdeci">void aScript_SetInterpreter(Interpreter *interpreter)</div><div class="ttdoc">设置解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:77</div></div>
+<div class="ttc" id="agroup__Script_html_gaea817c7b528e4443dd85e4bee722d5f3"><div class="ttname"><a href="group__Script.html#gaea817c7b528e4443dd85e4bee722d5f3">ast::aScript_FormartErrStringV</a></div><div class="ttdeci">void aScript_FormartErrStringV(StringView fmt, va_list args)</div><div class="ttdoc">格式化错误字符串</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:149</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

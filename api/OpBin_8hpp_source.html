@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstScript/Operator/OpBin.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Operator/OpBin.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -113,46 +113,46 @@ $(function(){initNavTree('OpBin_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1OpBin.html">OpBin</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Op.html">Op</a></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    AST_EXPR(<a class="code hl_class" href="classast_1_1OpBin.html">OpBin</a>)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classast_1_1OpBin.html">OpBin</a>(<a class="code hl_enumeration" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* left, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* right)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        : op_(op), left_(left), right_(right)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {};</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1OpBin.html">~OpBin</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Value.html">Value</a>* eval() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    std::string getExpression(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f">   45</a></span>    <a class="code hl_enumeration" href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a>   <a class="code hl_variable" href="classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f">op_</a>;        </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae">   46</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a>       <a class="code hl_variable" href="classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae">left_</a>;      </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4">   47</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a>       <a class="code hl_variable" href="classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4">right_</a>;     </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a095ff73c0517e1c317c5058276414366">   49</a></span>    <span class="keyword">mutable</span> std::atomic&lt;OpBinFunc&gt; func_{<span class="keyword">nullptr</span>};      </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a544abb1ca7a89759b4a8bab6cd3cb9a1">   50</a></span>    <span class="keyword">mutable</span> std::atomic&lt;Class*&gt;    leftType_{<span class="keyword">nullptr</span>};  </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05">   51</a></span>    <span class="keyword">mutable</span> std::atomic&lt;Class*&gt;    rightType_{<span class="keyword">nullptr</span>}; </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f">   52</a></span>    <span class="keyword">mutable</span> std::mutex             <a class="code hl_variable" href="classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f">cache_mutex_</a>;        </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1OpBin.html">OpBin</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Op.html">Op</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    AST_EXPR(<a class="code hl_class" href="classast_1_1OpBin.html">OpBin</a>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1OpBin.html">OpBin</a>(<a class="code hl_enumeration" href="group__Script.html#ga84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a> op, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* left, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* right)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        : op_(op), left_(left), right_(right)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1OpBin.html">~OpBin</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Value.html">Value</a>* eval() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::string getExpression(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f">   46</a></span>    <a class="code hl_enumeration" href="group__Script.html#ga84a7917cdd65e122f6fcf04b096f455d">EOpBinType</a>   <a class="code hl_variable" href="classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f">op_</a>;        </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae">   47</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a>       <a class="code hl_variable" href="classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae">left_</a>;      </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4">   48</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a>       <a class="code hl_variable" href="classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4">right_</a>;     </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a095ff73c0517e1c317c5058276414366">   50</a></span>    <span class="keyword">mutable</span> std::atomic&lt;OpBinFunc&gt; func_{<span class="keyword">nullptr</span>};      </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a544abb1ca7a89759b4a8bab6cd3cb9a1">   51</a></span>    <span class="keyword">mutable</span> std::atomic&lt;Class*&gt;    leftType_{<span class="keyword">nullptr</span>};  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05">   52</a></span>    <span class="keyword">mutable</span> std::atomic&lt;Class*&gt;    rightType_{<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f">   53</a></span>    <span class="keyword">mutable</span> std::mutex             <a class="code hl_variable" href="classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f">cache_mutex_</a>;        </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aOp_8hpp_html"><div class="ttname"><a href="Op_8hpp.html">Op.hpp</a></div><div class="ttdoc">~</div></div>
-<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:38</div></div>
-<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，实现运行时元信息、强弱引用计数</div><div class="ttdef"><b>定义</b> Object.hpp:36</div></div>
-<div class="ttc" id="aclassast_1_1OpBin_html"><div class="ttname"><a href="classast_1_1OpBin.html">ast::OpBin</a></div><div class="ttdoc">二元运算符表达式</div><div class="ttdef"><b>定义</b> OpBin.hpp:33</div></div>
-<div class="ttc" id="aclassast_1_1OpBin_html_a1e6d308935c8fda87e19f6a62c79d55f"><div class="ttname"><a href="classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f">ast::OpBin::op_</a></div><div class="ttdeci">EOpBinType op_</div><div class="ttdoc">运算符</div><div class="ttdef"><b>定义</b> OpBin.hpp:45</div></div>
-<div class="ttc" id="aclassast_1_1OpBin_html_a4ed838ac0573e863c92016aeded453ae"><div class="ttname"><a href="classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae">ast::OpBin::left_</a></div><div class="ttdeci">SharedPtr&lt; Expr &gt; left_</div><div class="ttdoc">左操作数</div><div class="ttdef"><b>定义</b> OpBin.hpp:46</div></div>
-<div class="ttc" id="aclassast_1_1OpBin_html_a69400818c30284c8ea4c779d14f81f0f"><div class="ttname"><a href="classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f">ast::OpBin::cache_mutex_</a></div><div class="ttdeci">std::mutex cache_mutex_</div><div class="ttdoc">用于保护缓存成员的互斥锁</div><div class="ttdef"><b>定义</b> OpBin.hpp:52</div></div>
-<div class="ttc" id="aclassast_1_1OpBin_html_ae37a3d8fd55a864daddbba49df8f7ad4"><div class="ttname"><a href="classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4">ast::OpBin::right_</a></div><div class="ttdeci">SharedPtr&lt; Expr &gt; right_</div><div class="ttdoc">右操作数</div><div class="ttdef"><b>定义</b> OpBin.hpp:47</div></div>
-<div class="ttc" id="aclassast_1_1Op_html"><div class="ttname"><a href="classast_1_1Op.html">ast::Op</a></div><div class="ttdoc">运算符表达式</div><div class="ttdef"><b>定义</b> Op.hpp:31</div></div>
-<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdef"><b>定义</b> SharedPtr.hpp:30</div></div>
-<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:35</div></div>
-<div class="ttc" id="anamespaceast_html_a84a7917cdd65e122f6fcf04b096f455d"><div class="ttname"><a href="namespaceast.html#a84a7917cdd65e122f6fcf04b096f455d">ast::EOpBinType</a></div><div class="ttdeci">EOpBinType</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，实现运行时元信息、强弱引用计数</div><div class="ttdef"><b>定义</b> Object.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1OpBin_html"><div class="ttname"><a href="classast_1_1OpBin.html">ast::OpBin</a></div><div class="ttdoc">二元运算符表达式</div><div class="ttdef"><b>定义</b> OpBin.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1OpBin_html_a1e6d308935c8fda87e19f6a62c79d55f"><div class="ttname"><a href="classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f">ast::OpBin::op_</a></div><div class="ttdeci">EOpBinType op_</div><div class="ttdoc">运算符</div><div class="ttdef"><b>定义</b> OpBin.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1OpBin_html_a4ed838ac0573e863c92016aeded453ae"><div class="ttname"><a href="classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae">ast::OpBin::left_</a></div><div class="ttdeci">SharedPtr&lt; Expr &gt; left_</div><div class="ttdoc">左操作数</div><div class="ttdef"><b>定义</b> OpBin.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1OpBin_html_a69400818c30284c8ea4c779d14f81f0f"><div class="ttname"><a href="classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f">ast::OpBin::cache_mutex_</a></div><div class="ttdeci">std::mutex cache_mutex_</div><div class="ttdoc">用于保护缓存成员的互斥锁</div><div class="ttdef"><b>定义</b> OpBin.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1OpBin_html_ae37a3d8fd55a864daddbba49df8f7ad4"><div class="ttname"><a href="classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4">ast::OpBin::right_</a></div><div class="ttdeci">SharedPtr&lt; Expr &gt; right_</div><div class="ttdoc">右操作数</div><div class="ttdef"><b>定义</b> OpBin.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1Op_html"><div class="ttname"><a href="classast_1_1Op.html">ast::Op</a></div><div class="ttdoc">运算符表达式</div><div class="ttdef"><b>定义</b> Op.hpp:32</div></div>
+<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:36</div></div>
+<div class="ttc" id="agroup__Script_html_ga84a7917cdd65e122f6fcf04b096f455d"><div class="ttname"><a href="group__Script.html#ga84a7917cdd65e122f6fcf04b096f455d">ast::EOpBinType</a></div><div class="ttdeci">EOpBinType</div><div class="ttdef"><b>定义</b> ScriptAPI.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

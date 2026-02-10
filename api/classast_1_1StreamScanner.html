@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::StreamScanner类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::StreamScanner类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -105,9 +105,6 @@ $(function(){initNavTree('classast_1_1StreamScanner.html',''); initResizable(tru
 </div><!--header-->
 <div class="contents">
 
-<p>流扫描器  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="Scanner_8hpp_source.html">Scanner.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::StreamScanner 继承关系图:</div>
@@ -127,19 +124,14 @@ Public 成员函数</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>StreamScanner</b> (std::fstream &amp;stream)</td></tr>
 <tr class="separator:aeca6d075fa343df6ade802a35890a4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bbf565da16ffeebca864801e0b00555" id="r_a7bbf565da16ffeebca864801e0b00555"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bbf565da16ffeebca864801e0b00555">consume</a> () override</td></tr>
-<tr class="memdesc:a7bbf565da16ffeebca864801e0b00555"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取并消耗当前字符  <br /></td></tr>
 <tr class="separator:a7bbf565da16ffeebca864801e0b00555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb96929670c988f2ce6f17ad95488c47" id="r_adb96929670c988f2ce6f17ad95488c47"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb96929670c988f2ce6f17ad95488c47">peek</a> () const override</td></tr>
-<tr class="memdesc:adb96929670c988f2ce6f17ad95488c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">查看当前字符（不移动指针）  <br /></td></tr>
 <tr class="separator:adb96929670c988f2ce6f17ad95488c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad738bf14d97fe29c3a9c9d4ce19c23c2" id="r_ad738bf14d97fe29c3a9c9d4ce19c23c2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad738bf14d97fe29c3a9c9d4ce19c23c2">peekNext</a> () const override</td></tr>
-<tr class="memdesc:ad738bf14d97fe29c3a9c9d4ce19c23c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">查看下一个字符（不移动指针）  <br /></td></tr>
 <tr class="separator:ad738bf14d97fe29c3a9c9d4ce19c23c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283d483a454c76bf62aeee8cd7842fab" id="r_a283d483a454c76bf62aeee8cd7842fab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a283d483a454c76bf62aeee8cd7842fab">atEnd</a> () const override</td></tr>
-<tr class="memdesc:a283d483a454c76bf62aeee8cd7842fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查是否到达结尾  <br /></td></tr>
 <tr class="separator:a283d483a454c76bf62aeee8cd7842fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4676b49efa300d0d87da29a571a0360e" id="r_a4676b49efa300d0d87da29a571a0360e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4676b49efa300d0d87da29a571a0360e">skip</a> () override</td></tr>
-<tr class="memdesc:a4676b49efa300d0d87da29a571a0360e"><td class="mdescLeft">&#160;</td><td class="mdescRight">跳过当前字符  <br /></td></tr>
 <tr class="separator:a4676b49efa300d0d87da29a571a0360e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Scanner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Scanner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Scanner.html">ast::Scanner</a></td></tr>
 </table>

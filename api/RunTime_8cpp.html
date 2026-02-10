@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/RunTime/RunTime.cpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Data/Context/RunTime.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -107,10 +107,6 @@ $(function(){initNavTree('RunTime_8cpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">RunTime.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><br  />
-  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="RunTime_8hpp_source.html">RunTime.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="DataContext_8hpp_source.html">DataContext.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/FileSystem.hpp&quot;</code><br />
@@ -157,123 +153,89 @@ $(function(){initNavTree('RunTime_8cpp.html',''); initResizable(true); });
 函数</h2></td></tr>
 <tr class="memitem:a4ccfea60ec40a0b914aee9714febd94e" id="r_a4ccfea60ec40a0b914aee9714febd94e"><td class="memItemLeft" align="right" valign="top"><a id="a4ccfea60ec40a0b914aee9714febd94e" name="a4ccfea60ec40a0b914aee9714febd94e"></a>
 <a class="el" href="classast_1_1GlobalContext.html">GlobalContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_Get</b> ()</td></tr>
-<tr class="memdesc:a4ccfea60ec40a0b914aee9714febd94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取全局上下文 <br /></td></tr>
 <tr class="separator:a4ccfea60ec40a0b914aee9714febd94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6179a360a2bb2fa49e90ed13801fb7f" id="r_ab6179a360a2bb2fa49e90ed13801fb7f"><td class="memItemLeft" align="right" valign="top"><a id="ab6179a360a2bb2fa49e90ed13801fb7f" name="ab6179a360a2bb2fa49e90ed13801fb7f"></a>
 <a class="el" href="classast_1_1IAUXYS.html">IAUXYS</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_GetIAUXYS</b> ()</td></tr>
-<tr class="memdesc:ab6179a360a2bb2fa49e90ed13801fb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取全局上下文的IAUXYS <br /></td></tr>
 <tr class="separator:ab6179a360a2bb2fa49e90ed13801fb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af557e9aaa8f27f2fd30afb53de89e3e1" id="r_af557e9aaa8f27f2fd30afb53de89e3e1"><td class="memItemLeft" align="right" valign="top"><a id="af557e9aaa8f27f2fd30afb53de89e3e1" name="af557e9aaa8f27f2fd30afb53de89e3e1"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> (<a class="el" href="classast_1_1DataContext.html">DataContext</a> *context)</td></tr>
 <tr class="separator:af557e9aaa8f27f2fd30afb53de89e3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6fd6e3387d57432da53d7bf5efd47a9" id="r_ab6fd6e3387d57432da53d7bf5efd47a9"><td class="memItemLeft" align="right" valign="top"><a id="ab6fd6e3387d57432da53d7bf5efd47a9" name="ab6fd6e3387d57432da53d7bf5efd47a9"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> ()</td></tr>
-<tr class="memdesc:ab6fd6e3387d57432da53d7bf5efd47a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化 <br /></td></tr>
 <tr class="separator:ab6fd6e3387d57432da53d7bf5efd47a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8b19885fd9876fa4ad93b63bc2c6d11" id="r_ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memItemLeft" align="right" valign="top"><a id="ae8b19885fd9876fa4ad93b63bc2c6d11" name="ae8b19885fd9876fa4ad93b63bc2c6d11"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUninitialize</b> ()</td></tr>
-<tr class="memdesc:ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">反初始化 <br /></td></tr>
 <tr class="separator:ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29c564259f5de9210b7e4e39eb4dd878" id="r_a29c564259f5de9210b7e4e39eb4dd878"><td class="memItemLeft" align="right" valign="top"><a id="a29c564259f5de9210b7e4e39eb4dd878" name="a29c564259f5de9210b7e4e39eb4dd878"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataDirGet</b> ()</td></tr>
-<tr class="memdesc:a29c564259f5de9210b7e4e39eb4dd878"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据文件夹 <br /></td></tr>
 <tr class="separator:a29c564259f5de9210b7e4e39eb4dd878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a178274c33d5da80112cf792bdbae6d9f" id="r_a178274c33d5da80112cf792bdbae6d9f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a178274c33d5da80112cf792bdbae6d9f">ast::aDataDirSet</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dirpath)</td></tr>
-<tr class="memdesc:a178274c33d5da80112cf792bdbae6d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置数据文件夹  <br /></td></tr>
 <tr class="separator:a178274c33d5da80112cf792bdbae6d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa66c15ecaeafdc8c6c236fd49b04fd53" id="r_aa66c15ecaeafdc8c6c236fd49b04fd53"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa66c15ecaeafdc8c6c236fd49b04fd53">ast::aDataDirGetDefault</a> ()</td></tr>
-<tr class="memdesc:aa66c15ecaeafdc8c6c236fd49b04fd53"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取默认数据文件夹 数据文件夹的顺序：  <br /></td></tr>
 <tr class="separator:aa66c15ecaeafdc8c6c236fd49b04fd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40dcbf6fa05827fe9b7a7837a01105bd" id="r_a40dcbf6fa05827fe9b7a7837a01105bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a40dcbf6fa05827fe9b7a7837a01105bd">ast::aDataContext_GetCurrent</a> ()</td></tr>
-<tr class="memdesc:a40dcbf6fa05827fe9b7a7837a01105bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前线程的数据上下文  <br /></td></tr>
 <tr class="separator:a40dcbf6fa05827fe9b7a7837a01105bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd352addd4bfd3dcecb35a480212d9f5" id="r_abd352addd4bfd3dcecb35a480212d9f5"><td class="memItemLeft" align="right" valign="top"><a id="abd352addd4bfd3dcecb35a480212d9f5" name="abd352addd4bfd3dcecb35a480212d9f5"></a>
 <a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetDefault</b> ()</td></tr>
-<tr class="memdesc:abd352addd4bfd3dcecb35a480212d9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取默认数据上下文 <br /></td></tr>
 <tr class="separator:abd352addd4bfd3dcecb35a480212d9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b71837a4fa5dcbe6f059efca4e75297" id="r_a6b71837a4fa5dcbe6f059efca4e75297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6b71837a4fa5dcbe6f059efca4e75297">ast::aDataContext_EnsureDefault</a> ()</td></tr>
-<tr class="memdesc:a6b71837a4fa5dcbe6f059efca4e75297"><td class="mdescLeft">&#160;</td><td class="mdescRight">确保默认数据上下文存在 如果默认数据上下文不存在，则创建一个新的默认数据上下文。  <br /></td></tr>
 <tr class="separator:a6b71837a4fa5dcbe6f059efca4e75297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a362102d8c58857b6e3d6b48b83bd0944" id="r_a362102d8c58857b6e3d6b48b83bd0944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a362102d8c58857b6e3d6b48b83bd0944">ast::aDataContext_EnsureCurrent</a> ()</td></tr>
-<tr class="memdesc:a362102d8c58857b6e3d6b48b83bd0944"><td class="mdescLeft">&#160;</td><td class="mdescRight">确保当前线程的数据上下文存在 如果当前线程的数据上下文不存在，则将默认数据上下文设置为当前线程的数据上下文。  <br /></td></tr>
 <tr class="separator:a362102d8c58857b6e3d6b48b83bd0944"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa090c6fa94e31ea974a5fd4604191397" id="r_aa090c6fa94e31ea974a5fd4604191397"><td class="memItemLeft" align="right" valign="top"><a id="aa090c6fa94e31ea974a5fd4604191397" name="aa090c6fa94e31ea974a5fd4604191397"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_SetCurrent</b> (<a class="el" href="classast_1_1DataContext.html">DataContext</a> *context)</td></tr>
-<tr class="memdesc:aa090c6fa94e31ea974a5fd4604191397"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置当前线程的数据上下文 <br /></td></tr>
 <tr class="separator:aa090c6fa94e31ea974a5fd4604191397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a636a52a4e547b682627be2f3d551b7ad" id="r_a636a52a4e547b682627be2f3d551b7ad"><td class="memItemLeft" align="right" valign="top"><a id="a636a52a4e547b682627be2f3d551b7ad" name="a636a52a4e547b682627be2f3d551b7ad"></a>
 <a class="el" href="classast_1_1EOP.html">EOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetEOP</b> ()</td></tr>
-<tr class="memdesc:a636a52a4e547b682627be2f3d551b7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前全局上下文的EOP <br /></td></tr>
 <tr class="separator:a636a52a4e547b682627be2f3d551b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb534974c08b459d882595abb9a930e" id="r_adbb534974c08b459d882595abb9a930e"><td class="memItemLeft" align="right" valign="top"><a id="adbb534974c08b459d882595abb9a930e" name="adbb534974c08b459d882595abb9a930e"></a>
 <a class="el" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetIAUXYSPrecomputed</b> ()</td></tr>
-<tr class="memdesc:adbb534974c08b459d882595abb9a930e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前线程的数据上下文的IAUXYSPrecomputed <br /></td></tr>
 <tr class="separator:adbb534974c08b459d882595abb9a930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba56bd6c13a2672901309a0c4c695caf" id="r_aba56bd6c13a2672901309a0c4c695caf"><td class="memItemLeft" align="right" valign="top"><a id="aba56bd6c13a2672901309a0c4c695caf" name="aba56bd6c13a2672901309a0c4c695caf"></a>
 <a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_New</b> ()</td></tr>
-<tr class="memdesc:aba56bd6c13a2672901309a0c4c695caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建一个新的全局上下文 <br /></td></tr>
 <tr class="separator:aba56bd6c13a2672901309a0c4c695caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a199669285c0922b22b658f00d9dd4f87" id="r_a199669285c0922b22b658f00d9dd4f87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a199669285c0922b22b658f00d9dd4f87">ast::aLeapSecondUTC</a> (double jdUTC)</td></tr>
-<tr class="memdesc:a199669285c0922b22b658f00d9dd4f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UTC时间的闰秒数  <br /></td></tr>
 <tr class="separator:a199669285c0922b22b658f00d9dd4f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a650e3dfcfaf606777320594e19e3c8b8" id="r_a650e3dfcfaf606777320594e19e3c8b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a650e3dfcfaf606777320594e19e3c8b8">ast::aLeapSecondUTCMJD</a> (double mjdUTC)</td></tr>
-<tr class="memdesc:a650e3dfcfaf606777320594e19e3c8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UTC时间的闰秒数（MJD）  <br /></td></tr>
 <tr class="separator:a650e3dfcfaf606777320594e19e3c8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79a618c1dd5bc55893f49dcb00007b9e" id="r_a79a618c1dd5bc55893f49dcb00007b9e"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a79a618c1dd5bc55893f49dcb00007b9e">ast::aJplDeGetPosVelICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
-<tr class="memdesc:a79a618c1dd5bc55893f49dcb00007b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取JPL DE星历数据的位置和速度（ICRF）  <br /></td></tr>
 <tr class="separator:a79a618c1dd5bc55893f49dcb00007b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdd9c100a086d822affd42b958c7ab94" id="r_acdd9c100a086d822affd42b958c7ab94"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acdd9c100a086d822affd42b958c7ab94">ast::aJplDeGetPosICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos)</td></tr>
-<tr class="memdesc:acdd9c100a086d822affd42b958c7ab94"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取JPL DE星历数据的位置（ICRF）  <br /></td></tr>
 <tr class="separator:acdd9c100a086d822affd42b958c7ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4fe9a815aac36c9f076f99c27ee5a69" id="r_ab4fe9a815aac36c9f076f99c27ee5a69"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab4fe9a815aac36c9f076f99c27ee5a69">ast::aJplDeGetNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dpsi, double &amp;deps)</td></tr>
-<tr class="memdesc:ab4fe9a815aac36c9f076f99c27ee5a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取JPL DE星历数据的中章动角数据  <br /></td></tr>
 <tr class="separator:ab4fe9a815aac36c9f076f99c27ee5a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a886ee9d50d1b42b6924045ba73f515b0" id="r_a886ee9d50d1b42b6924045ba73f515b0"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a886ee9d50d1b42b6924045ba73f515b0">ast::aJplDeOpen</a> (const char *filepath)</td></tr>
-<tr class="memdesc:a886ee9d50d1b42b6924045ba73f515b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">打开JPL DE星历数据文件  <br /></td></tr>
 <tr class="separator:a886ee9d50d1b42b6924045ba73f515b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86326fcd6c451bdbaff8e7d5cecd9215" id="r_a86326fcd6c451bdbaff8e7d5cecd9215"><td class="memItemLeft" align="right" valign="top"><a id="a86326fcd6c451bdbaff8e7d5cecd9215" name="a86326fcd6c451bdbaff8e7d5cecd9215"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJplDeClose</b> ()</td></tr>
-<tr class="memdesc:a86326fcd6c451bdbaff8e7d5cecd9215"><td class="mdescLeft">&#160;</td><td class="mdescRight">关闭JPL DE星历数据文件 <br /></td></tr>
 <tr class="separator:a86326fcd6c451bdbaff8e7d5cecd9215"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69f5ec58e4208c07a64e3b6533a97da4" id="r_a69f5ec58e4208c07a64e3b6533a97da4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a69f5ec58e4208c07a64e3b6533a97da4">ast::aUT1MinusUTC_UTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
-<tr class="memdesc:a69f5ec58e4208c07a64e3b6533a97da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UT1时间与UTC时间的差值（秒）  <br /></td></tr>
 <tr class="separator:a69f5ec58e4208c07a64e3b6533a97da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66a2f4b3e4796c751d597d272ac567dd" id="r_a66a2f4b3e4796c751d597d272ac567dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">ast::aPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;x, double &amp;y)</td></tr>
-<tr class="memdesc:a66a2f4b3e4796c751d597d272ac567dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的极移  <br /></td></tr>
 <tr class="separator:a66a2f4b3e4796c751d597d272ac567dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bebac9a35d34884b7b6b02fdd7511ad" id="r_a0bebac9a35d34884b7b6b02fdd7511ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0bebac9a35d34884b7b6b02fdd7511ad">ast::aPoleMotionUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, double &amp;x, double &amp;y)</td></tr>
-<tr class="memdesc:a0bebac9a35d34884b7b6b02fdd7511ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定UTC时间的极移  <br /></td></tr>
 <tr class="separator:a0bebac9a35d34884b7b6b02fdd7511ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbc39836a2143bf579fe71b228d4f1de" id="r_acbc39836a2143bf579fe71b228d4f1de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acbc39836a2143bf579fe71b228d4f1de">ast::aLOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
-<tr class="memdesc:acbc39836a2143bf579fe71b228d4f1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的LOD（秒）  <br /></td></tr>
 <tr class="separator:acbc39836a2143bf579fe71b228d4f1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a322f0ef44069d6d0286466ef3d8f5ec9" id="r_a322f0ef44069d6d0286466ef3d8f5ec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a322f0ef44069d6d0286466ef3d8f5ec9">ast::aTheoreticalXYS_IERS2010</a> (double t, array3d &amp;xys)</td></tr>
-<tr class="memdesc:a322f0ef44069d6d0286466ef3d8f5ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU 理论XYS值（IERS 2010规范）  <br /></td></tr>
 <tr class="separator:a322f0ef44069d6d0286466ef3d8f5ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ead2c8c32a690ef06f9a3ef47406853" id="r_a2ead2c8c32a690ef06f9a3ef47406853"><td class="memItemLeft" align="right" valign="top"><a id="a2ead2c8c32a690ef06f9a3ef47406853" name="a2ead2c8c32a690ef06f9a3ef47406853"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTheoreticalXYS_IERS2010_Cache</b> (double t, array3d &amp;xys)</td></tr>
 <tr class="separator:a2ead2c8c32a690ef06f9a3ef47406853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74625ec2c9cb689a8d55076d6862a785" id="r_a74625ec2c9cb689a8d55076d6862a785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a74625ec2c9cb689a8d55076d6862a785">ast::aTheoreticalXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="memdesc:a74625ec2c9cb689a8d55076d6862a785"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU 理论XYS值（IERS 2010规范）  <br /></td></tr>
 <tr class="separator:a74625ec2c9cb689a8d55076d6862a785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf01517668fb57011912e5abeb3ed3ff" id="r_acf01517668fb57011912e5abeb3ed3ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acf01517668fb57011912e5abeb3ed3ff">ast::aTheoreticalXYS_IERS2010_TT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, array3d &amp;xys)</td></tr>
-<tr class="memdesc:acf01517668fb57011912e5abeb3ed3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU 理论XYS值（IERS 2010规范）  <br /></td></tr>
 <tr class="separator:acf01517668fb57011912e5abeb3ed3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4174d1474102fd01849d4e1f0198f3d1" id="r_a4174d1474102fd01849d4e1f0198f3d1"><td class="memItemLeft" align="right" valign="top"><a id="a4174d1474102fd01849d4e1f0198f3d1" name="a4174d1474102fd01849d4e1f0198f3d1"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTheoreticalXYS_IERS2010Precomputed</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="memdesc:a4174d1474102fd01849d4e1f0198f3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU 理论XYS值（预计算数据） <br /></td></tr>
 <tr class="separator:a4174d1474102fd01849d4e1f0198f3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a030bae706d318085b613e4431ee54600" id="r_a030bae706d318085b613e4431ee54600"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a030bae706d318085b613e4431ee54600">ast::aTheoreticalXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="memdesc:a030bae706d318085b613e4431ee54600"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU 理论XYS值  <br /></td></tr>
 <tr class="separator:a030bae706d318085b613e4431ee54600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8299cf8ede911cc33e4931a4dd17ec4d" id="r_a8299cf8ede911cc33e4931a4dd17ec4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a8299cf8ede911cc33e4931a4dd17ec4d">ast::aXYCorrection</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array2d &amp;xyCorrection)</td></tr>
-<tr class="memdesc:a8299cf8ede911cc33e4931a4dd17ec4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU 理论XYS值的修正项  <br /></td></tr>
 <tr class="separator:a8299cf8ede911cc33e4931a4dd17ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2751ea5eb0678ce4a61639cff1887ecd" id="r_a2751ea5eb0678ce4a61639cff1887ecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2751ea5eb0678ce4a61639cff1887ecd">ast::aXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="memdesc:a2751ea5eb0678ce4a61639cff1887ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU XYS值（IERS 2010规范，包含修正项）  <br /></td></tr>
 <tr class="separator:a2751ea5eb0678ce4a61639cff1887ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a5d3605c09a1dc93ef5f96227ef897d" id="r_a9a5d3605c09a1dc93ef5f96227ef897d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9a5d3605c09a1dc93ef5f96227ef897d">ast::aXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="memdesc:a9a5d3605c09a1dc93ef5f96227ef897d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取给定时间点的IAU XYS值（包含修正项）  <br /></td></tr>
 <tr class="separator:a9a5d3605c09a1dc93ef5f96227ef897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -317,7 +279,7 @@ A_THREAD_LOCAL <a class="el" href="structast_1_1XYSCache.html">XYSCache</a>&#160
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_8683ee58d694484b1888213deeecf38e.html">RunTime</a></li><li class="navelem"><a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_a0626de0dc3d3eb2f19b4cf1f78690c4.html">Data</a></li><li class="navelem"><a class="el" href="dir_9ee1a7d731e81e836c3ad9833d421101.html">Context</a></li><li class="navelem"><a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

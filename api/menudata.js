@@ -24,13 +24,15 @@
 */
 var menudata={children:[
 {text:"首页",url:"index.html"},
-{text:"相关页面",url:"pages.html"},
+{text:"主题",url:"topics.html"},
+{text:"全局函数",url:"namespacemembers_func_a.html"},
 {text:"命名空间",url:"namespaces.html",children:[
 {text:"命名空间列表",url:"namespaces.html"},
 {text:"命名空间成员",url:"namespacemembers.html",children:[
 {text:"全部",url:"namespacemembers.html",children:[
 {text:"_",url:"namespacemembers.html#index__5F"},
 {text:"a",url:"namespacemembers_a.html#index_a"},
+{text:"b",url:"namespacemembers_b.html#index_b"},
 {text:"c",url:"namespacemembers_c.html#index_c"},
 {text:"d",url:"namespacemembers_d.html#index_d"},
 {text:"e",url:"namespacemembers_e.html#index_e"},
@@ -48,11 +50,13 @@ var menudata={children:[
 {text:"函数",url:"namespacemembers_func.html",children:[
 {text:"_",url:"namespacemembers_func.html#index__5F"},
 {text:"a",url:"namespacemembers_func_a.html#index_a"},
+{text:"b",url:"namespacemembers_func_b.html#index_b"},
 {text:"c",url:"namespacemembers_func_c.html#index_c"},
 {text:"d",url:"namespacemembers_func_d.html#index_d"},
 {text:"e",url:"namespacemembers_func_e.html#index_e"},
 {text:"i",url:"namespacemembers_func_i.html#index_i"},
 {text:"m",url:"namespacemembers_func_m.html#index_m"},
+{text:"n",url:"namespacemembers_func_n.html#index_n"},
 {text:"o",url:"namespacemembers_func_o.html#index_o"},
 {text:"p",url:"namespacemembers_func_p.html#index_p"},
 {text:"r",url:"namespacemembers_func_r.html#index_r"},

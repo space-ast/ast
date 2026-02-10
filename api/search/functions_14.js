@@ -11,10 +11,10 @@ var searchData=
   ['todouble_8',['toDouble',['../classast_1_1ValueView.html#a2f703fc1e95c184a6598a97f561fc145',1,'ast::ValueView']]],
   ['toint_9',['toInt',['../classast_1_1ValueView.html#a8bfa2f2a77f2f561d3dd546a0445d038',1,'ast::ValueView']]],
   ['tointernal_10',['toInternal',['../classast_1_1Unit.html#aed92f92a0f8527a1020724c9dda09017',1,'ast::Unit']]],
-  ['tojd_11',['toJD',['../classast_1_1Date.html#afd13a3151cef717af56b5d1836792fb9',1,'ast::Date']]],
-  ['tojdatnoon_12',['toJDAtNoon',['../classast_1_1Date.html#aa9980b4d505fa3adf86b9851bcba031f',1,'ast::Date']]],
+  ['tojd_11',['toJD',['../group__Time.html#gafd13a3151cef717af56b5d1836792fb9',1,'ast::Date']]],
+  ['tojdatnoon_12',['toJDAtNoon',['../group__Time.html#gaa9980b4d505fa3adf86b9851bcba031f',1,'ast::Date']]],
   ['tomatrix_13',['toMatrix',['../classast_1_1Euler.html#a6d12e3a801f0e87892e12e10ece252dc',1,'ast::Euler']]],
-  ['tomjd_14',['toMJD',['../classast_1_1Date.html#ab7fb949d46bcd6c8b0ef46dc8e0be3d2',1,'ast::Date']]],
+  ['tomjd_14',['toMJD',['../group__Time.html#gab7fb949d46bcd6c8b0ef46dc8e0be3d2',1,'ast::Date']]],
   ['toquat_15',['toQuat',['../classast_1_1Euler.html#a4930f5342410ab07bc05c042eea2ecd2',1,'ast::Euler']]],
   ['torotationmatrix_16',['toRotationMatrix',['../classast_1_1AngleAxis.html#afaa6f1ddcbd1930bbcbd83706f3ee946',1,'ast::AngleAxis::toRotationMatrix()'],['../classast_1_1Quaternion.html#a74f632ce182f8b5a87073f7748b95122',1,'ast::Quaternion::toRotationMatrix()']]],
   ['tosi_17',['toSI',['../classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc',1,'ast::Unit']]],
@@ -25,11 +25,11 @@ var searchData=
   ['totdb_22',['toTDB',['../classast_1_1TimePoint.html#a7c890ef0099264bcfc6f3f19f3282c71',1,'ast::TimePoint::toTDB(JulianDate &amp;jdTDB) const'],['../classast_1_1TimePoint.html#af6639a4a7b440f88454d9ee60555163b',1,'ast::TimePoint::toTDB() const']]],
   ['tott_23',['toTT',['../classast_1_1TimePoint.html#a7abbdbfe62c230732a08458786bafcf5',1,'ast::TimePoint::toTT(JulianDate &amp;jdTT) const'],['../classast_1_1TimePoint.html#aa65f55e5d06111189af19c314470c62b',1,'ast::TimePoint::toTT() const']]],
   ['tovalue_24',['toValue',['../classast_1_1ValueView.html#a3989220af89b9fba208f81d5ca6033a6',1,'ast::ValueView']]],
-  ['toyd_25',['toYD',['../classast_1_1Date.html#af54bfb3877b4dec554c2219f9184e8a3',1,'ast::Date']]],
+  ['toyd_25',['toYD',['../group__Time.html#gaf54bfb3877b4dec554c2219f9184e8a3',1,'ast::Date']]],
   ['transform_26',['Transform',['../classast_1_1Transform.html#ac3d7d6330d800e82673d0eeb5db2a1fc',1,'ast::Transform']]],
   ['transformposition_27',['transformPosition',['../classast_1_1Transform.html#a3471567e000ca0608bd4db29f82478f8',1,'ast::Transform::transformPosition(const Vector3d &amp;position, Vector3d &amp;positionOut) const'],['../classast_1_1Transform.html#acd337e12691586e6ebf73c8a78bd183d',1,'ast::Transform::transformPosition(const Vector3d &amp;position) const']]],
   ['transformpositionvelocity_28',['transformPositionVelocity',['../classast_1_1KinematicTransform.html#ae7c9d77e4e8c3a7ca268db3525676a21',1,'ast::KinematicTransform']]],
   ['transformvector_29',['transformVector',['../classast_1_1Rotation.html#a088bae2548fbc4d1153ceac5dd26882e',1,'ast::Rotation::transformVector(const Vector3d &amp;vector, Vector3d &amp;vectorOut) const'],['../classast_1_1Rotation.html#a3d78420da24d3cc9fce0a5904b3fee34',1,'ast::Rotation::transformVector(const Vector3d &amp;vector) const']]],
   ['transformvectorvelocity_30',['transformVectorVelocity',['../classast_1_1KinematicRotation.html#a950848ca0984c4b5cfacf3614999a584',1,'ast::KinematicRotation']]],
-  ['type_31',['type',['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()'],['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()']]]
+  ['type_31',['type',['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()'],['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()']]]
 ];

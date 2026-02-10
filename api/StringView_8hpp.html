@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/StdLib/StringView.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/String/StringView.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,10 +106,6 @@ $(function(){initNavTree('StringView_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">StringView.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><br  />
-  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
@@ -133,31 +129,31 @@ $(function(){initNavTree('StringView_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
-<tr class="memitem:ad4af5a1832ab025a1ebd2fdd220be76b" id="r_ad4af5a1832ab025a1ebd2fdd220be76b"><td class="memItemLeft" align="right" valign="top"><a id="ad4af5a1832ab025a1ebd2fdd220be76b" name="ad4af5a1832ab025a1ebd2fdd220be76b"></a>
+<tr class="memitem:gad4af5a1832ab025a1ebd2fdd220be76b" id="r_gad4af5a1832ab025a1ebd2fdd220be76b"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::StringView</b></td></tr>
-<tr class="separator:ad4af5a1832ab025a1ebd2fdd220be76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ab0d00a023b2df4f4f32f06684383b5" id="r_a8ab0d00a023b2df4f4f32f06684383b5"><td class="memItemLeft" align="right" valign="top"><a id="a8ab0d00a023b2df4f4f32f06684383b5" name="a8ab0d00a023b2df4f4f32f06684383b5"></a>
+<tr class="separator:gad4af5a1832ab025a1ebd2fdd220be76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ab0d00a023b2df4f4f32f06684383b5" id="r_ga8ab0d00a023b2df4f4f32f06684383b5"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; wchar_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::WStringView</b></td></tr>
-<tr class="separator:a8ab0d00a023b2df4f4f32f06684383b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac75463d424c2bfd3e4ad147c6026d4a8" id="r_ac75463d424c2bfd3e4ad147c6026d4a8"><td class="memItemLeft" align="right" valign="top"><a id="ac75463d424c2bfd3e4ad147c6026d4a8" name="ac75463d424c2bfd3e4ad147c6026d4a8"></a>
+<tr class="separator:ga8ab0d00a023b2df4f4f32f06684383b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac75463d424c2bfd3e4ad147c6026d4a8" id="r_gac75463d424c2bfd3e4ad147c6026d4a8"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; char16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::U16StringView</b></td></tr>
-<tr class="separator:ac75463d424c2bfd3e4ad147c6026d4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad9a2e89365554a4e4c43dc5d51a7d04" id="r_aad9a2e89365554a4e4c43dc5d51a7d04"><td class="memItemLeft" align="right" valign="top"><a id="aad9a2e89365554a4e4c43dc5d51a7d04" name="aad9a2e89365554a4e4c43dc5d51a7d04"></a>
+<tr class="separator:gac75463d424c2bfd3e4ad147c6026d4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad9a2e89365554a4e4c43dc5d51a7d04" id="r_gaad9a2e89365554a4e4c43dc5d51a7d04"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; char32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::U32StringView</b></td></tr>
-<tr class="separator:aad9a2e89365554a4e4c43dc5d51a7d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gaad9a2e89365554a4e4c43dc5d51a7d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a81ed8edcd7c2e9ad1a8d8b97be9793f6" id="r_a81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memTemplParams" colspan="2"><a id="a81ed8edcd7c2e9ad1a8d8b97be9793f6" name="a81ed8edcd7c2e9ad1a8d8b97be9793f6"></a>
+<tr class="memitem:ga81ed8edcd7c2e9ad1a8d8b97be9793f6" id="r_ga81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memTemplParams" colspan="2">
 template&lt;typename _Char &gt; </td></tr>
-<tr class="memitem:a81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; _Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator&lt;&lt;</b> (std::basic_ostream&lt; _Char &gt; &amp;os, const <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; _Char &gt; &amp;sv)</td></tr>
-<tr class="separator:a81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ff93726cc490cea573c15ffe2f04d7" id="r_a90ff93726cc490cea573c15ffe2f04d7"><td class="memItemLeft" align="right" valign="top"><a id="a90ff93726cc490cea573c15ffe2f04d7" name="a90ff93726cc490cea573c15ffe2f04d7"></a>
+<tr class="memitem:ga81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; _Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator&lt;&lt;</b> (std::basic_ostream&lt; _Char &gt; &amp;os, const <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; _Char &gt; &amp;sv)</td></tr>
+<tr class="separator:ga81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90ff93726cc490cea573c15ffe2f04d7" id="r_ga90ff93726cc490cea573c15ffe2f04d7"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator&quot;&quot;_sv</b> (const char *str, size_t len) noexcept</td></tr>
-<tr class="separator:a90ff93726cc490cea573c15ffe2f04d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae39b83d7c4abb5c6defc168892ef5169" id="r_ae39b83d7c4abb5c6defc168892ef5169"><td class="memItemLeft" align="right" valign="top"><a id="ae39b83d7c4abb5c6defc168892ef5169" name="ae39b83d7c4abb5c6defc168892ef5169"></a>
+<tr class="separator:ga90ff93726cc490cea573c15ffe2f04d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae39b83d7c4abb5c6defc168892ef5169" id="r_gae39b83d7c4abb5c6defc168892ef5169"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1StringViewBasic.html">WStringView</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator&quot;&quot;_sv</b> (const wchar_t *str, size_t len) noexcept</td></tr>
-<tr class="separator:ae39b83d7c4abb5c6defc168892ef5169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gae39b83d7c4abb5c6defc168892ef5169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -173,7 +169,7 @@ template&lt;typename _Char &gt; </td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_e7dcbe0fcfbd740994ae2a04f1fa57db.html">StdLib</a></li><li class="navelem"><a class="el" href="StringView_8hpp.html">StringView.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_13ac9e70f9049d516b8f1ea23eb3d46d.html">String</a></li><li class="navelem"><a class="el" href="StringView_8hpp.html">StringView.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

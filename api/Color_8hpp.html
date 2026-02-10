@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Util/Color.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Util/Color.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,9 +106,6 @@ $(function(){initNavTree('Color_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Color.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>颜色工具类  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 </div>
@@ -126,24 +123,20 @@ $(function(){initNavTree('Color_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
-<tr class="memitem:ad3341c0716c87613f73cc2e8fda45183" id="r_ad3341c0716c87613f73cc2e8fda45183"><td class="memItemLeft" align="right" valign="top"><a id="ad3341c0716c87613f73cc2e8fda45183" name="ad3341c0716c87613f73cc2e8fda45183"></a>
+<tr class="memitem:gad3341c0716c87613f73cc2e8fda45183" id="r_gad3341c0716c87613f73cc2e8fda45183"><td class="memItemLeft" align="right" valign="top">
 typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::color_t</b></td></tr>
-<tr class="separator:ad3341c0716c87613f73cc2e8fda45183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gad3341c0716c87613f73cc2e8fda45183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ae0dd3e8dec613bf26344801182b864b7" id="r_ae0dd3e8dec613bf26344801182b864b7"><td class="memItemLeft" align="right" valign="top">constexpr color_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae0dd3e8dec613bf26344801182b864b7">ast::rgb</a> (uint8_t r, uint8_t g, uint8_t b)</td></tr>
-<tr class="memdesc:ae0dd3e8dec613bf26344801182b864b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 RGB 颜色值转换为 <a class="el" href="classast_1_1Color.html">Color</a> 类型  <br /></td></tr>
-<tr class="separator:ae0dd3e8dec613bf26344801182b864b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad75b6bc25cadaa8a25b2d91e98ca072c" id="r_ad75b6bc25cadaa8a25b2d91e98ca072c"><td class="memItemLeft" align="right" valign="top">constexpr color_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad75b6bc25cadaa8a25b2d91e98ca072c">ast::rgba</a> (uint8_t r, uint8_t g, uint8_t b, uint8_t a)</td></tr>
-<tr class="memdesc:ad75b6bc25cadaa8a25b2d91e98ca072c"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 RGBA 颜色值转换为 <a class="el" href="classast_1_1Color.html">Color</a> 类型  <br /></td></tr>
-<tr class="separator:ad75b6bc25cadaa8a25b2d91e98ca072c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1504ced890d1ddf9c776dad4def524e9" id="r_a1504ced890d1ddf9c776dad4def524e9"><td class="memItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1504ced890d1ddf9c776dad4def524e9">ast::aColorToRGB</a> (color_t color, uint8_t &amp;r, uint8_t &amp;g, uint8_t &amp;b) noexcept</td></tr>
-<tr class="memdesc:a1504ced890d1ddf9c776dad4def524e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 <a class="el" href="classast_1_1Color.html">Color</a> 类型转换为 RGB 颜色值  <br /></td></tr>
-<tr class="separator:a1504ced890d1ddf9c776dad4def524e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a924b82626c144275a12826e154af64c4" id="r_a924b82626c144275a12826e154af64c4"><td class="memItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a924b82626c144275a12826e154af64c4">ast::aColorToRGBA</a> (color_t color, uint8_t &amp;r, uint8_t &amp;g, uint8_t &amp;b, uint8_t &amp;a) noexcept</td></tr>
-<tr class="memdesc:a924b82626c144275a12826e154af64c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 <a class="el" href="classast_1_1Color.html">Color</a> 类型转换为 RGBA 颜色值  <br /></td></tr>
-<tr class="separator:a924b82626c144275a12826e154af64c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0dd3e8dec613bf26344801182b864b7" id="r_gae0dd3e8dec613bf26344801182b864b7"><td class="memItemLeft" align="right" valign="top">constexpr color_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gae0dd3e8dec613bf26344801182b864b7">ast::rgb</a> (uint8_t r, uint8_t g, uint8_t b)</td></tr>
+<tr class="separator:gae0dd3e8dec613bf26344801182b864b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad75b6bc25cadaa8a25b2d91e98ca072c" id="r_gad75b6bc25cadaa8a25b2d91e98ca072c"><td class="memItemLeft" align="right" valign="top">constexpr color_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gad75b6bc25cadaa8a25b2d91e98ca072c">ast::rgba</a> (uint8_t r, uint8_t g, uint8_t b, uint8_t a)</td></tr>
+<tr class="separator:gad75b6bc25cadaa8a25b2d91e98ca072c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1504ced890d1ddf9c776dad4def524e9" id="r_ga1504ced890d1ddf9c776dad4def524e9"><td class="memItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga1504ced890d1ddf9c776dad4def524e9">ast::aColorToRGB</a> (color_t color, uint8_t &amp;r, uint8_t &amp;g, uint8_t &amp;b) noexcept</td></tr>
+<tr class="separator:ga1504ced890d1ddf9c776dad4def524e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga924b82626c144275a12826e154af64c4" id="r_ga924b82626c144275a12826e154af64c4"><td class="memItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga924b82626c144275a12826e154af64c4">ast::aColorToRGBA</a> (color_t color, uint8_t &amp;r, uint8_t &amp;g, uint8_t &amp;b, uint8_t &amp;a) noexcept</td></tr>
+<tr class="separator:ga924b82626c144275a12826e154af64c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>颜色工具类 </p>

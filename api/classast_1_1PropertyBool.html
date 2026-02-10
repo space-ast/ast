@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::PropertyBool类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::PropertyBool类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,12 +103,9 @@ $(function(){initNavTree('classast_1_1PropertyBool.html',''); initResizable(true
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="classast_1_1PropertyBool-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::PropertyBool类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+  <div class="headertitle"><div class="title">ast::PropertyBool类 参考<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__RTTI.html">运行时类型信息</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>反射属性类（bool类型）  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PropertyBool_8hpp_source.html">PropertyBool.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -136,49 +133,41 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>OutputType</b> = boo
 <tr class="memitem:a217704d29cf95ff3dc860575097b382b inherit pub_types_classast_1_1Property" id="r_a217704d29cf95ff3dc860575097b382b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Property.html#a217704d29cf95ff3dc860575097b382b">EPropertyFlag</a> { <a class="el" href="classast_1_1Property.html#a217704d29cf95ff3dc860575097b382ba0adaefa4868311d72614d6dadeff2106">eReadable</a> = 0x01
 , <a class="el" href="classast_1_1Property.html#a217704d29cf95ff3dc860575097b382bab40e9ddfed17d989f4134a3761499012">eWritable</a> = 0x02
  }</td></tr>
-<tr class="memdesc:a217704d29cf95ff3dc860575097b382b"><td class="mdescLeft">&#160;</td><td class="mdescRight">属性标志位  <a href="classast_1_1Property.html#a217704d29cf95ff3dc860575097b382b">更多...</a><br /></td></tr>
 <tr class="separator:a217704d29cf95ff3dc860575097b382b inherit pub_types_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a30b57802657daf0b56a873f2849c0099" id="r_a30b57802657daf0b56a873f2849c0099"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30b57802657daf0b56a873f2849c0099">getValueBool</a> (const void *container, bool &amp;value) override</td></tr>
-<tr class="memdesc:a30b57802657daf0b56a873f2849c0099"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（bool类型）  <br /></td></tr>
 <tr class="separator:a30b57802657daf0b56a873f2849c0099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac57948a5d3219262275fb22543e91336" id="r_ac57948a5d3219262275fb22543e91336"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac57948a5d3219262275fb22543e91336">setValueBool</a> (void *container, bool value) override</td></tr>
-<tr class="memdesc:ac57948a5d3219262275fb22543e91336"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（bool类型）  <br /></td></tr>
 <tr class="separator:ac57948a5d3219262275fb22543e91336"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a948caaf5faf16f1f4179af1f69132c3a" id="r_a948caaf5faf16f1f4179af1f69132c3a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a948caaf5faf16f1f4179af1f69132c3a">getValueInt</a> (const void *container, int &amp;value) override</td></tr>
-<tr class="memdesc:a948caaf5faf16f1f4179af1f69132c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（int类型）  <br /></td></tr>
 <tr class="separator:a948caaf5faf16f1f4179af1f69132c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcd2fa046403b0f3e90dfa175a043fee" id="r_adcd2fa046403b0f3e90dfa175a043fee"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcd2fa046403b0f3e90dfa175a043fee">setValueInt</a> (void *container, int value) override</td></tr>
-<tr class="memdesc:adcd2fa046403b0f3e90dfa175a043fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（int类型）  <br /></td></tr>
 <tr class="separator:adcd2fa046403b0f3e90dfa175a043fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab70ec111a30a7530862db158065e1845" id="r_ab70ec111a30a7530862db158065e1845"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab70ec111a30a7530862db158065e1845">getValueString</a> (const void *container, std::string &amp;value) override</td></tr>
-<tr class="memdesc:ab70ec111a30a7530862db158065e1845"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（String类型）  <br /></td></tr>
 <tr class="separator:ab70ec111a30a7530862db158065e1845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a138299279543f716c2ab3d0697856fbb" id="r_a138299279543f716c2ab3d0697856fbb"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a138299279543f716c2ab3d0697856fbb">setValueString</a> (void *container, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value) override</td></tr>
-<tr class="memdesc:a138299279543f716c2ab3d0697856fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（String类型）  <br /></td></tr>
 <tr class="separator:a138299279543f716c2ab3d0697856fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a9dcc473ba4e6f5798dc8da29f1d741" id="r_a6a9dcc473ba4e6f5798dc8da29f1d741"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a9dcc473ba4e6f5798dc8da29f1d741">getValueDouble</a> (const void *container, double &amp;value) override</td></tr>
 <tr class="separator:a6a9dcc473ba4e6f5798dc8da29f1d741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af34d4beafc03628bc8b1e194cef8900f" id="r_af34d4beafc03628bc8b1e194cef8900f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af34d4beafc03628bc8b1e194cef8900f">setValueDouble</a> (void *container, double value) override</td></tr>
-<tr class="memdesc:af34d4beafc03628bc8b1e194cef8900f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（double类型）  <br /></td></tr>
 <tr class="separator:af34d4beafc03628bc8b1e194cef8900f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcb831d12979a0c8faa8eac5858442c3" id="r_adcb831d12979a0c8faa8eac5858442c3"><td class="memItemLeft" align="right" valign="top"><a id="adcb831d12979a0c8faa8eac5858442c3" name="adcb831d12979a0c8faa8eac5858442c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2">name</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#a99a9de48178cb0482411ef21739363ac">desc</a>, <a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2">name</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#a99a9de48178cb0482411ef21739363ac">desc</a>, <a class="el" href="group__RTTI.html#gae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
 <tr class="separator:adcb831d12979a0c8faa8eac5858442c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb59388bd64abbd063b818d839881f89" id="r_adb59388bd64abbd063b818d839881f89"><td class="memItemLeft" align="right" valign="top"><a id="adb59388bd64abbd063b818d839881f89" name="adb59388bd64abbd063b818d839881f89"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="group__RTTI.html#gae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
 <tr class="separator:adb59388bd64abbd063b818d839881f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefaf3e1d3df1f2c835d63473cffe9d57" id="r_aefaf3e1d3df1f2c835d63473cffe9d57"><td class="memItemLeft" align="right" valign="top"><a id="aefaf3e1d3df1f2c835d63473cffe9d57" name="aefaf3e1d3df1f2c835d63473cffe9d57"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> ()=default</td></tr>
 <tr class="separator:aefaf3e1d3df1f2c835d63473cffe9d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Property"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Property')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Property.html">ast::Property</a></td></tr>
 <tr class="memitem:adcb831d12979a0c8faa8eac5858442c3 inherit pub_methods_classast_1_1Property" id="r_adcb831d12979a0c8faa8eac5858442c3"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2">name</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#a99a9de48178cb0482411ef21739363ac">desc</a>, <a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2">name</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Field.html#a99a9de48178cb0482411ef21739363ac">desc</a>, <a class="el" href="group__RTTI.html#gae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
 <tr class="separator:adcb831d12979a0c8faa8eac5858442c3 inherit pub_methods_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb59388bd64abbd063b818d839881f89 inherit pub_methods_classast_1_1Property" id="r_adb59388bd64abbd063b818d839881f89"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Property</b> (<a class="el" href="group__RTTI.html#gae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a> setter)</td></tr>
 <tr class="separator:adb59388bd64abbd063b818d839881f89 inherit pub_methods_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Field"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Field')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Field.html">ast::Field</a></td></tr>
 <tr class="memitem:a7d4e4f6d8d4518ab60647377d3a4969d inherit pub_methods_classast_1_1Field" id="r_a7d4e4f6d8d4518ab60647377d3a4969d"><td class="memItemLeft" align="right" valign="top">
@@ -186,50 +175,43 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a7d4e4f6d8d4518ab60647377d3a4969d inherit pub_methods_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accc7daac76fbaa390e3e008497812de2 inherit pub_methods_classast_1_1Field" id="r_accc7daac76fbaa390e3e008497812de2"><td class="memItemLeft" align="right" valign="top">
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
-<tr class="memdesc:accc7daac76fbaa390e3e008497812de2 inherit pub_methods_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取字段名称 <br /></td></tr>
 <tr class="separator:accc7daac76fbaa390e3e008497812de2 inherit pub_methods_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a9de48178cb0482411ef21739363ac inherit pub_methods_classast_1_1Field" id="r_a99a9de48178cb0482411ef21739363ac"><td class="memItemLeft" align="right" valign="top">
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>desc</b> () const</td></tr>
-<tr class="memdesc:a99a9de48178cb0482411ef21739363ac inherit pub_methods_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取字段描述 <br /></td></tr>
 <tr class="separator:a99a9de48178cb0482411ef21739363ac inherit pub_methods_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a5956c67a07eab8f88c7738dd80c6a22a" id="r_a5956c67a07eab8f88c7738dd80c6a22a"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5956c67a07eab8f88c7738dd80c6a22a">setValue</a> (void *container, const InputType *value)</td></tr>
-<tr class="memdesc:a5956c67a07eab8f88c7738dd80c6a22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值（bool类型）  <br /></td></tr>
 <tr class="separator:a5956c67a07eab8f88c7738dd80c6a22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d21dc32baef372dd2a624bd05e1fa6" id="r_a87d21dc32baef372dd2a624bd05e1fa6"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87d21dc32baef372dd2a624bd05e1fa6">getValue</a> (const void *container, OutputType *value)</td></tr>
-<tr class="memdesc:a87d21dc32baef372dd2a624bd05e1fa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值（bool类型）  <br /></td></tr>
 <tr class="separator:a87d21dc32baef372dd2a624bd05e1fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classast_1_1Property"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Property')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Property.html">ast::Property</a></td></tr>
 <tr class="memitem:a7a820e09d14636ba8fcedd0b76547689 inherit pro_methods_classast_1_1Property" id="r_a7a820e09d14636ba8fcedd0b76547689"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Property.html#a7a820e09d14636ba8fcedd0b76547689">getValue</a> (void *container, void *value)</td></tr>
-<tr class="memdesc:a7a820e09d14636ba8fcedd0b76547689 inherit pro_methods_classast_1_1Property"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取属性值  <br /></td></tr>
 <tr class="separator:a7a820e09d14636ba8fcedd0b76547689 inherit pro_methods_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3ae00a355af546db67c5c048a6a33de inherit pro_methods_classast_1_1Property" id="r_aa3ae00a355af546db67c5c048a6a33de"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Property.html#aa3ae00a355af546db67c5c048a6a33de">setValue</a> (void *container, const void *value)</td></tr>
-<tr class="memdesc:aa3ae00a355af546db67c5c048a6a33de inherit pro_methods_classast_1_1Property"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置属性值  <br /></td></tr>
 <tr class="separator:aa3ae00a355af546db67c5c048a6a33de inherit pro_methods_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1Property"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1Property')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1Property.html">ast::Property</a></td></tr>
 <tr class="memitem:ad0ccdde876a2b313becc9199a36126b8 inherit pro_attribs_classast_1_1Property" id="r_ad0ccdde876a2b313becc9199a36126b8"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespaceast.html#ae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getter_</b> {nullptr}</td></tr>
+<a class="el" href="group__RTTI.html#gae5e5616987acd034b10e01cd6edbbb48">FPropertyGet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getter_</b> {nullptr}</td></tr>
 <tr class="separator:ad0ccdde876a2b313becc9199a36126b8 inherit pro_attribs_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f473fe1fa0acc007353ffac60325003 inherit pro_attribs_classast_1_1Property" id="r_a1f473fe1fa0acc007353ffac60325003"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespaceast.html#a2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>setter_</b> {nullptr}</td></tr>
+<a class="el" href="group__RTTI.html#ga2e0deea40e71f5b7c0ecebaceaaf296d">FPropertySet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>setter_</b> {nullptr}</td></tr>
 <tr class="separator:a1f473fe1fa0acc007353ffac60325003 inherit pro_attribs_classast_1_1Property"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1Field"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1Field')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1Field.html">ast::Field</a></td></tr>
 <tr class="memitem:af63b2a5e4dd425a4d3ccc1a3fa18c56c inherit pro_attribs_classast_1_1Field" id="r_af63b2a5e4dd425a4d3ccc1a3fa18c56c"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
-<tr class="memdesc:af63b2a5e4dd425a4d3ccc1a3fa18c56c inherit pro_attribs_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">名称 <br /></td></tr>
 <tr class="separator:af63b2a5e4dd425a4d3ccc1a3fa18c56c inherit pro_attribs_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9892e80ad6ea95308f2ebf4783ecf4e inherit pro_attribs_classast_1_1Field" id="r_ac9892e80ad6ea95308f2ebf4783ecf4e"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>desc_</b></td></tr>
-<tr class="memdesc:ac9892e80ad6ea95308f2ebf4783ecf4e inherit pro_attribs_classast_1_1Field"><td class="mdescLeft">&#160;</td><td class="mdescRight">描述 <br /></td></tr>
 <tr class="separator:ac9892e80ad6ea95308f2ebf4783ecf4e inherit pro_attribs_classast_1_1Field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>反射属性类（bool类型） </p>
+<p>反射属性类（bool类型），包含属性的名称、描述等信息 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a87d21dc32baef372dd2a624bd05e1fa6" name="a87d21dc32baef372dd2a624bd05e1fa6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87d21dc32baef372dd2a624bd05e1fa6">&#9670;&#160;</a></span>getValue()</h2>
@@ -636,8 +618,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>desc_</b></td>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstUtil/Object/Reflect/<a class="el" href="PropertyBool_8hpp_source.html">PropertyBool.hpp</a></li>
-<li>src/AstUtil/Object/Reflect/<a class="el" href="PropertyBool_8cpp.html">PropertyBool.cpp</a></li>
+<li>src/AstUtil/RTTI/Reflect/<a class="el" href="PropertyBool_8hpp_source.html">PropertyBool.hpp</a></li>
+<li>src/AstUtil/RTTI/Reflect/<a class="el" href="PropertyBool_8cpp.html">PropertyBool.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

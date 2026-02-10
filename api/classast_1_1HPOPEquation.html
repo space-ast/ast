@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::HPOPEquation类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::HPOPEquation类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -107,9 +107,6 @@ $(function(){initNavTree('classast_1_1HPOPEquation.html',''); initResizable(true
 </div><!--header-->
 <div class="contents">
 
-<p>高精度轨道预报方程  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="HPOPEquation_8hpp_source.html">HPOPEquation.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::HPOPEquation 继承关系图:</div>
@@ -129,30 +126,24 @@ Public 成员函数</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>HPOPEquation</b> (const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;forceModel)</td></tr>
 <tr class="separator:a2167de59aff334b29ce6f105a17fbabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19111441810fd464cd417971458af223" id="r_a19111441810fd464cd417971458af223"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19111441810fd464cd417971458af223">getDimension</a> () const final</td></tr>
-<tr class="memdesc:a19111441810fd464cd417971458af223"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取微分方程的维度。  <br /></td></tr>
 <tr class="separator:a19111441810fd464cd417971458af223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3505487084841d1a9382d2ddc16aaa3f" id="r_a3505487084841d1a9382d2ddc16aaa3f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3505487084841d1a9382d2ddc16aaa3f">evaluate</a> (const double *y, double *dy, const double t) final</td></tr>
-<tr class="memdesc:a3505487084841d1a9382d2ddc16aaa3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算常微分方程在给定时间点和状态下的导数。  <br /></td></tr>
 <tr class="separator:a3505487084841d1a9382d2ddc16aaa3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c7205d86fc1057cf517d1fe33f743ed" id="r_a4c7205d86fc1057cf517d1fe33f743ed"><td class="memItemLeft" align="right" valign="top"><a id="a4c7205d86fc1057cf517d1fe33f743ed" name="a4c7205d86fc1057cf517d1fe33f743ed"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setEpoch</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch)</td></tr>
-<tr class="memdesc:a4c7205d86fc1057cf517d1fe33f743ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置仿真的参考历元 <br /></td></tr>
 <tr class="separator:a4c7205d86fc1057cf517d1fe33f743ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedba448027df557c5b049015c408f375" id="r_aedba448027df557c5b049015c408f375"><td class="memItemLeft" align="right" valign="top"><a id="aedba448027df557c5b049015c408f375" name="aedba448027df557c5b049015c408f375"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>setForceModel</b> (const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;forceModel)</td></tr>
-<tr class="memdesc:aedba448027df557c5b049015c408f375"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置HPOP力模型 <br /></td></tr>
 <tr class="separator:aedba448027df557c5b049015c408f375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1OrdinaryDifferentialEquation"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1OrdinaryDifferentialEquation')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1OrdinaryDifferentialEquation.html">ast::OrdinaryDifferentialEquation</a></td></tr>
 <tr class="memitem:a4df4cbf8e5aff0ed90b59719085e4748 inherit pub_methods_classast_1_1OrdinaryDifferentialEquation" id="r_a4df4cbf8e5aff0ed90b59719085e4748"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> (const double t, const double *y, double *dy)</td></tr>
-<tr class="memdesc:a4df4cbf8e5aff0ed90b59719085e4748 inherit pub_methods_classast_1_1OrdinaryDifferentialEquation"><td class="mdescLeft">&#160;</td><td class="mdescRight">兼容性处理 <br /></td></tr>
 <tr class="separator:a4df4cbf8e5aff0ed90b59719085e4748 inherit pub_methods_classast_1_1OrdinaryDifferentialEquation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a99d97e96c5df622ab2a2e389fb1bd761" id="r_a99d97e96c5df622ab2a2e389fb1bd761"><td class="memItemLeft" align="right" valign="top"><a id="a99d97e96c5df622ab2a2e389fb1bd761" name="a99d97e96c5df622ab2a2e389fb1bd761"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addBlock</b> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *block)</td></tr>
-<tr class="memdesc:a99d97e96c5df622ab2a2e389fb1bd761"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加函数块 <br /></td></tr>
 <tr class="separator:a99d97e96c5df622ab2a2e389fb1bd761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a033eb1a25ae5c264084fcab75d488e61" id="r_a033eb1a25ae5c264084fcab75d488e61"><td class="memItemLeft" align="right" valign="top"><a id="a033eb1a25ae5c264084fcab75d488e61" name="a033eb1a25ae5c264084fcab75d488e61"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addBlock</b> (<a class="el" href="classast_1_1BlockDerivative.html">BlockDerivative</a> *block)</td></tr>
@@ -165,18 +156,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr
 <tr class="separator:a9ecf04e62d5429294f5d5bb9941023b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad09f369c52fbbdaac01ff6ec174acf4c" id="r_ad09f369c52fbbdaac01ff6ec174acf4c"><td class="memItemLeft" align="right" valign="top"><a id="ad09f369c52fbbdaac01ff6ec174acf4c" name="ad09f369c52fbbdaac01ff6ec174acf4c"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
-<tr class="memdesc:ad09f369c52fbbdaac01ff6ec174acf4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化仿真引擎 <br /></td></tr>
 <tr class="separator:ad09f369c52fbbdaac01ff6ec174acf4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:ad0c20d16cce4c511c79c09f464fb49d6" id="r_ad0c20d16cce4c511c79c09f464fb49d6"><td class="memItemLeft" align="right" valign="top"><a id="ad0c20d16cce4c511c79c09f464fb49d6" name="ad0c20d16cce4c511c79c09f464fb49d6"></a>
 <a class="el" href="classast_1_1BlockDynamicSystem.html">BlockDynamicSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dynamicSystem_</b></td></tr>
-<tr class="memdesc:ad0c20d16cce4c511c79c09f464fb49d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">动力学系统 <br /></td></tr>
 <tr class="separator:ad0c20d16cce4c511c79c09f464fb49d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3accc94eaef2d5abd3bc134202770c48" id="r_a3accc94eaef2d5abd3bc134202770c48"><td class="memItemLeft" align="right" valign="top"><a id="a3accc94eaef2d5abd3bc134202770c48" name="a3accc94eaef2d5abd3bc134202770c48"></a>
 <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>epoch_</b></td></tr>
-<tr class="memdesc:a3accc94eaef2d5abd3bc134202770c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">仿真的参考历元 <br /></td></tr>
 <tr class="separator:a3accc94eaef2d5abd3bc134202770c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

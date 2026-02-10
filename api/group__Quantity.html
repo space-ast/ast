@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: 单位和数量分析</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__Quantity.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">单位和数量分析<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>提供单位和数量分析的功能，包括单位和数量值的加法、减法、乘法、除法等操作。 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Quantity.html">ast::Quantity</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Unit.html">ast::Unit</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1UnitConverter.html">ast::UnitConverter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1UnitManager.html">ast::UnitManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga0efc7b9b7b4ec4c0eb1f5198a3aefc27" id="r_ga0efc7b9b7b4ec4c0eb1f5198a3aefc27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0efc7b9b7b4ec4c0eb1f5198a3aefc27">ast::aQuantityAdd</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q1, const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q2)</td></tr>
+<tr class="separator:ga0efc7b9b7b4ec4c0eb1f5198a3aefc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab016c3c4c6666ff6ddfc51046ef715c8" id="r_gab016c3c4c6666ff6ddfc51046ef715c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab016c3c4c6666ff6ddfc51046ef715c8">ast::aQuantitySub</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q1, const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q2)</td></tr>
+<tr class="separator:gab016c3c4c6666ff6ddfc51046ef715c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80e261cb5f4d212d2492789fa4c943bb" id="r_ga80e261cb5f4d212d2492789fa4c943bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga80e261cb5f4d212d2492789fa4c943bb">ast::aQuantityMul</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q1, const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q2)</td></tr>
+<tr class="separator:ga80e261cb5f4d212d2492789fa4c943bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0df729e7ac4bbf1d9fdedf901d76546d" id="r_ga0df729e7ac4bbf1d9fdedf901d76546d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0df729e7ac4bbf1d9fdedf901d76546d">ast::aQuantityMul</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga0df729e7ac4bbf1d9fdedf901d76546d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd35145d21b04e1d5f90e5567b0be95d" id="r_gafd35145d21b04e1d5f90e5567b0be95d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafd35145d21b04e1d5f90e5567b0be95d">ast::aQuantityDiv</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q1, const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q2)</td></tr>
+<tr class="separator:gafd35145d21b04e1d5f90e5567b0be95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d3f5a89b5137828f2f63ff1e147a886" id="r_ga2d3f5a89b5137828f2f63ff1e147a886"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2d3f5a89b5137828f2f63ff1e147a886">ast::aQuantityDiv</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga2d3f5a89b5137828f2f63ff1e147a886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga89c6eed05a174468c652e0bcb5d8f890" id="r_ga89c6eed05a174468c652e0bcb5d8f890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga89c6eed05a174468c652e0bcb5d8f890">ast::aQuantityReduce</a> (<a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="separator:ga89c6eed05a174468c652e0bcb5d8f890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10d19e25e8173bbdbb7774bd39161de1" id="r_ga10d19e25e8173bbdbb7774bd39161de1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga10d19e25e8173bbdbb7774bd39161de1">ast::aQuantityToString</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="separator:ga10d19e25e8173bbdbb7774bd39161de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ca035bf89af4cbd1460ce36173331c0" id="r_ga9ca035bf89af4cbd1460ce36173331c0"><td class="memItemLeft" align="right" valign="top"><a id="ga9ca035bf89af4cbd1460ce36173331c0" name="ga9ca035bf89af4cbd1460ce36173331c0"></a>
+A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatQuantity</b> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="separator:ga9ca035bf89af4cbd1460ce36173331c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96636c1cefa7a8d2fcfe7b8c42cad802" id="r_ga96636c1cefa7a8d2fcfe7b8c42cad802"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga96636c1cefa7a8d2fcfe7b8c42cad802">ast::operator*</a> (double value, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga96636c1cefa7a8d2fcfe7b8c42cad802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8c583eaad50d67fb2b4c84087d16310" id="r_gaa8c583eaad50d67fb2b4c84087d16310"><td class="memItemLeft" align="right" valign="top"><a id="gaa8c583eaad50d67fb2b4c84087d16310" name="gaa8c583eaad50d67fb2b4c84087d16310"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator*</b> (double value, const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="separator:gaa8c583eaad50d67fb2b4c84087d16310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bf06d7a7caf2d78346876e0433b8c9e" id="r_ga6bf06d7a7caf2d78346876e0433b8c9e"><td class="memItemLeft" align="right" valign="top"><a id="ga6bf06d7a7caf2d78346876e0433b8c9e" name="ga6bf06d7a7caf2d78346876e0433b8c9e"></a>
+<a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator/</b> (double value, const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;q)</td></tr>
+<tr class="separator:ga6bf06d7a7caf2d78346876e0433b8c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30b0ecfca2586371467bb900e31c86e2" id="r_ga30b0ecfca2586371467bb900e31c86e2"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga30b0ecfca2586371467bb900e31c86e2">ast::aQuantityParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, double &amp;value, <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga30b0ecfca2586371467bb900e31c86e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab07738201b093cad9f85fb94b58b8bcc" id="r_gab07738201b093cad9f85fb94b58b8bcc"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab07738201b093cad9f85fb94b58b8bcc">ast::aQuantityParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;quantity)</td></tr>
+<tr class="separator:gab07738201b093cad9f85fb94b58b8bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd785ae8a141b12aa37bbe6ca0c8a8f3" id="r_gacd785ae8a141b12aa37bbe6ca0c8a8f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacd785ae8a141b12aa37bbe6ca0c8a8f3">ast::aQuantityParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:gacd785ae8a141b12aa37bbe6ca0c8a8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d70bda5a246fb35334067072dbe2685" id="r_ga2d70bda5a246fb35334067072dbe2685"><td class="memItemLeft" align="right" valign="top"><a id="ga2d70bda5a246fb35334067072dbe2685" name="ga2d70bda5a246fb35334067072dbe2685"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitMultiply</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
+<tr class="separator:ga2d70bda5a246fb35334067072dbe2685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga314c7b5d43c1ab1cc86d55ebda109e01" id="r_ga314c7b5d43c1ab1cc86d55ebda109e01"><td class="memItemLeft" align="right" valign="top"><a id="ga314c7b5d43c1ab1cc86d55ebda109e01" name="ga314c7b5d43c1ab1cc86d55ebda109e01"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitMultiply</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
+<tr class="separator:ga314c7b5d43c1ab1cc86d55ebda109e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc0b0eaf248ecf2690adbafdbee67622" id="r_gabc0b0eaf248ecf2690adbafdbee67622"><td class="memItemLeft" align="right" valign="top"><a id="gabc0b0eaf248ecf2690adbafdbee67622" name="gabc0b0eaf248ecf2690adbafdbee67622"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitDivide</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
+<tr class="separator:gabc0b0eaf248ecf2690adbafdbee67622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70b2e2b0729ec0fca1e538dfee976ec6" id="r_ga70b2e2b0729ec0fca1e538dfee976ec6"><td class="memItemLeft" align="right" valign="top"><a id="ga70b2e2b0729ec0fca1e538dfee976ec6" name="ga70b2e2b0729ec0fca1e538dfee976ec6"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitDivide</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
+<tr class="separator:ga70b2e2b0729ec0fca1e538dfee976ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68bc55be726ee1de1ea63da4bdda201c" id="r_ga68bc55be726ee1de1ea63da4bdda201c"><td class="memItemLeft" align="right" valign="top"><a id="ga68bc55be726ee1de1ea63da4bdda201c" name="ga68bc55be726ee1de1ea63da4bdda201c"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitPower</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, int exponent)</td></tr>
+<tr class="separator:ga68bc55be726ee1de1ea63da4bdda201c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada24ea182ac2af5f7547b4d644255994" id="r_gada24ea182ac2af5f7547b4d644255994"><td class="memItemLeft" align="right" valign="top"><a id="gada24ea182ac2af5f7547b4d644255994" name="gada24ea182ac2af5f7547b4d644255994"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitPower</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, int exponent, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
+<tr class="separator:gada24ea182ac2af5f7547b4d644255994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92dff1d7369798cc998c4293c9ee9c37" id="r_ga92dff1d7369798cc998c4293c9ee9c37"><td class="memItemLeft" align="right" valign="top"><a id="ga92dff1d7369798cc998c4293c9ee9c37" name="ga92dff1d7369798cc998c4293c9ee9c37"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitInvert</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga92dff1d7369798cc998c4293c9ee9c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b680c377ab16387e1f784fb65195ca7" id="r_ga6b680c377ab16387e1f784fb65195ca7"><td class="memItemLeft" align="right" valign="top"><a id="ga6b680c377ab16387e1f784fb65195ca7" name="ga6b680c377ab16387e1f784fb65195ca7"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUnitInvert</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> newname)</td></tr>
+<tr class="separator:ga6b680c377ab16387e1f784fb65195ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cf23f3f06f4b41455bc2fb6b017fae3" id="r_ga9cf23f3f06f4b41455bc2fb6b017fae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9cf23f3f06f4b41455bc2fb6b017fae3">ast::aUnitFactorize</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;newUnit, double &amp;scale)</td></tr>
+<tr class="separator:ga9cf23f3f06f4b41455bc2fb6b017fae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6148ef81cf9031c8e641630103210d6f" id="r_ga6148ef81cf9031c8e641630103210d6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6148ef81cf9031c8e641630103210d6f">ast::aUnitFactorize</a> (<a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, double &amp;scale)</td></tr>
+<tr class="separator:ga6148ef81cf9031c8e641630103210d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga757ee64f8329c06333963e2792bdef53" id="r_ga757ee64f8329c06333963e2792bdef53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga757ee64f8329c06333963e2792bdef53">ast::aUnitGet</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:ga757ee64f8329c06333963e2792bdef53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab07eb066bae973f8ec40b12f0754714d" id="r_gab07eb066bae973f8ec40b12f0754714d"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab07eb066bae973f8ec40b12f0754714d">ast::aUnitAdd</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:gab07eb066bae973f8ec40b12f0754714d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92a6842f6a8755c3a69fa2c00f78a8ff" id="r_ga92a6842f6a8755c3a69fa2c00f78a8ff"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga92a6842f6a8755c3a69fa2c00f78a8ff">ast::aUnitAdd</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga92a6842f6a8755c3a69fa2c00f78a8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ddff75d49b2bdbcdfeed1c2b6456221" id="r_ga8ddff75d49b2bdbcdfeed1c2b6456221"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8ddff75d49b2bdbcdfeed1c2b6456221">ast::aUnitParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
+<tr class="separator:ga8ddff75d49b2bdbcdfeed1c2b6456221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga486f3eaffaaa752eeb95ea274c895690" id="r_ga486f3eaffaaa752eeb95ea274c895690"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga486f3eaffaaa752eeb95ea274c895690">ast::aUnitParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:ga486f3eaffaaa752eeb95ea274c895690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga0efc7b9b7b4ec4c0eb1f5198a3aefc27" name="ga0efc7b9b7b4ec4c0eb1f5198a3aefc27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0efc7b9b7b4ec4c0eb1f5198a3aefc27">&#9670;&#160;</a></span>aQuantityAdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantityAdd </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值加法 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q1</td><td>数量值1 </td></tr>
+    <tr><td class="paramname">q2</td><td>数量值2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值1与数量值2的和 </dd></dl>
+
+</div>
+</div>
+<a id="ga2d3f5a89b5137828f2f63ff1e147a886" name="ga2d3f5a89b5137828f2f63ff1e147a886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d3f5a89b5137828f2f63ff1e147a886">&#9670;&#160;</a></span>aQuantityDiv() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantityDiv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值单位除法 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>数量值 </td></tr>
+    <tr><td class="paramname">unit</td><td>单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值与单位的商 </dd></dl>
+
+</div>
+</div>
+<a id="gafd35145d21b04e1d5f90e5567b0be95d" name="gafd35145d21b04e1d5f90e5567b0be95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd35145d21b04e1d5f90e5567b0be95d">&#9670;&#160;</a></span>aQuantityDiv() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantityDiv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值除法 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q1</td><td>数量值1 </td></tr>
+    <tr><td class="paramname">q2</td><td>数量值2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值1与数量值2的商 </dd></dl>
+
+</div>
+</div>
+<a id="ga0df729e7ac4bbf1d9fdedf901d76546d" name="ga0df729e7ac4bbf1d9fdedf901d76546d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0df729e7ac4bbf1d9fdedf901d76546d">&#9670;&#160;</a></span>aQuantityMul() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantityMul </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值单位乘法 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>数量值 </td></tr>
+    <tr><td class="paramname">unit</td><td>单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值与单位的积 </dd></dl>
+
+</div>
+</div>
+<a id="ga80e261cb5f4d212d2492789fa4c943bb" name="ga80e261cb5f4d212d2492789fa4c943bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80e261cb5f4d212d2492789fa4c943bb">&#9670;&#160;</a></span>aQuantityMul() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantityMul </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值乘法 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q1</td><td>数量值1 </td></tr>
+    <tr><td class="paramname">q2</td><td>数量值2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值1与数量值2的积 </dd></dl>
+
+</div>
+</div>
+<a id="gacd785ae8a141b12aa37bbe6ca0c8a8f3" name="gacd785ae8a141b12aa37bbe6ca0c8a8f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacd785ae8a141b12aa37bbe6ca0c8a8f3">&#9670;&#160;</a></span>aQuantityParse() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantityParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析量字符串 </p>
+<p>例如 "123.456 m/s", "123.456m", "123.456[m/s]"。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>量字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1Quantity.html" title="带单位的数量值">Quantity</a> 解析得到的量，如果解析失败返回 <a class="el" href="classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af" title="无效数量值">Quantity::NaN()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga30b0ecfca2586371467bb900e31c86e2" name="ga30b0ecfca2586371467bb900e31c86e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30b0ecfca2586371467bb900e31c86e2">&#9670;&#160;</a></span>aQuantityParse() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API err_t ast::aQuantityParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析量字符串，将其解析为数值和单位。 </p>
+<p>例如 "123.456 m/s", "123.456m", "123.456[m/s]"。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>量字符串 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>解析得到的数值 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">unit</td><td>解析得到的单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gab07738201b093cad9f85fb94b58b8bcc" name="gab07738201b093cad9f85fb94b58b8bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab07738201b093cad9f85fb94b58b8bcc">&#9670;&#160;</a></span>aQuantityParse() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API err_t ast::aQuantityParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quantity</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析量字符串 </p>
+<p>例如 "123.456 m/s", "123.456m", "123.456[m/s]"。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>量字符串 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">quantity</td><td>解析后的量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga89c6eed05a174468c652e0bcb5d8f890" name="ga89c6eed05a174468c652e0bcb5d8f890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga89c6eed05a174468c652e0bcb5d8f890">&#9670;&#160;</a></span>aQuantityReduce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API void ast::aQuantityReduce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值简化 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>数量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab016c3c4c6666ff6ddfc51046ef715c8" name="gab016c3c4c6666ff6ddfc51046ef715c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab016c3c4c6666ff6ddfc51046ef715c8">&#9670;&#160;</a></span>aQuantitySub()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::aQuantitySub </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值减法 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q1</td><td>数量值1 </td></tr>
+    <tr><td class="paramname">q2</td><td>数量值2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值1与数量值2的差 </dd></dl>
+
+</div>
+</div>
+<a id="ga10d19e25e8173bbdbb7774bd39161de1" name="ga10d19e25e8173bbdbb7774bd39161de1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10d19e25e8173bbdbb7774bd39161de1">&#9670;&#160;</a></span>aQuantityToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aQuantityToString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数量值转换为字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>数量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数量值的字符串表示 </dd></dl>
+
+</div>
+</div>
+<a id="gab07eb066bae973f8ec40b12f0754714d" name="gab07eb066bae973f8ec40b12f0754714d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab07eb066bae973f8ec40b12f0754714d">&#9670;&#160;</a></span>aUnitAdd() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API err_t ast::aUnitAdd </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unit</td><td>要添加的单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga92a6842f6a8755c3a69fa2c00f78a8ff" name="ga92a6842f6a8755c3a69fa2c00f78a8ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga92a6842f6a8755c3a69fa2c00f78a8ff">&#9670;&#160;</a></span>aUnitAdd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API err_t ast::aUnitAdd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>单位名称 </td></tr>
+    <tr><td class="paramname">unit</td><td>要添加的单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga9cf23f3f06f4b41455bc2fb6b017fae3" name="ga9cf23f3f06f4b41455bc2fb6b017fae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9cf23f3f06f4b41455bc2fb6b017fae3">&#9670;&#160;</a></span>aUnitFactorize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API void ast::aUnitFactorize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newUnit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>单位分解 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">unit</td><td>分解前的单位 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">newUnit</td><td>分解后的单位 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">scale</td><td>单位缩放因子 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6148ef81cf9031c8e641630103210d6f" name="ga6148ef81cf9031c8e641630103210d6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6148ef81cf9031c8e641630103210d6f">&#9670;&#160;</a></span>aUnitFactorize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API void ast::aUnitFactorize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>单位分解 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">unit</td><td>约简前后的单位 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">scale</td><td>单位缩放因子 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga757ee64f8329c06333963e2792bdef53" name="ga757ee64f8329c06333963e2792bdef53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga757ee64f8329c06333963e2792bdef53">&#9670;&#160;</a></span>aUnitGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Unit.html">Unit</a> * ast::aUnitGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>单位名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>单位 </dd></dl>
+
+</div>
+</div>
+<a id="ga486f3eaffaaa752eeb95ea274c895690" name="ga486f3eaffaaa752eeb95ea274c895690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga486f3eaffaaa752eeb95ea274c895690">&#9670;&#160;</a></span>aUnitParse() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Unit.html">Unit</a> ast::aUnitParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析单位字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>单位字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1Unit.html" title="单位">Unit</a> 解析得到的单位，如果解析失败返回 <a class="el" href="classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617" title="无效单位">Unit::NaN()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga8ddff75d49b2bdbcdfeed1c2b6456221" name="ga8ddff75d49b2bdbcdfeed1c2b6456221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8ddff75d49b2bdbcdfeed1c2b6456221">&#9670;&#160;</a></span>aUnitParse() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API err_t ast::aUnitParse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析单位字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>单位字符串 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">unit</td><td>解析后的单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga96636c1cefa7a8d2fcfe7b8c42cad802" name="ga96636c1cefa7a8d2fcfe7b8c42cad802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga96636c1cefa7a8d2fcfe7b8c42cad802">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Quantity.html">Quantity</a> ast::operator* </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>单位乘法运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>数值 </td></tr>
+    <tr><td class="paramname">unit</td><td>单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>新单位 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::EOP类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::EOP类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -105,12 +105,9 @@ $(function(){initNavTree('classast_1_1EOP.html',''); initResizable(true); });
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1EOP-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::EOP类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::EOP类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Data.html">数据读取</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>地球指向参数（Earth Orientation Parameters）  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="EOP_8hpp_source.html">EOP.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -122,76 +119,55 @@ $(function(){initNavTree('classast_1_1EOP.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:adf23dd8875fee92af98e99573db2bd9a" id="r_adf23dd8875fee92af98e99573db2bd9a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf23dd8875fee92af98e99573db2bd9a">loadDefault</a> ()</td></tr>
-<tr class="memdesc:adf23dd8875fee92af98e99573db2bd9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载默认EOP数据  <br /></td></tr>
 <tr class="separator:adf23dd8875fee92af98e99573db2bd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2c076d1800f14d8830177fed57f36a1" id="r_ab2c076d1800f14d8830177fed57f36a1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2c076d1800f14d8830177fed57f36a1">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
-<tr class="memdesc:ab2c076d1800f14d8830177fed57f36a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载EOP数据  <br /></td></tr>
 <tr class="separator:ab2c076d1800f14d8830177fed57f36a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad22f08d4b6dd5af598de1f9986225d85" id="r_ad22f08d4b6dd5af598de1f9986225d85"><td class="memItemLeft" align="right" valign="top"><a id="ad22f08d4b6dd5af598de1f9986225d85" name="ad22f08d4b6dd5af598de1f9986225d85"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>unload</b> ()</td></tr>
-<tr class="memdesc:ad22f08d4b6dd5af598de1f9986225d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">卸载EOP数据 <br /></td></tr>
 <tr class="separator:ad22f08d4b6dd5af598de1f9986225d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d81ece0da0f48b501c1004e184b2f4a" id="r_a1d81ece0da0f48b501c1004e184b2f4a"><td class="memItemLeft" align="right" valign="top"><a id="a1d81ece0da0f48b501c1004e184b2f4a" name="a1d81ece0da0f48b501c1004e184b2f4a"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
-<tr class="memdesc:a1d81ece0da0f48b501c1004e184b2f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取数据大小 <br /></td></tr>
 <tr class="separator:a1d81ece0da0f48b501c1004e184b2f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3a6885f91dbc40ff375c27fae998680" id="r_ae3a6885f91dbc40ff375c27fae998680"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structast_1_1EOP_1_1Entry.html">Entry</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3a6885f91dbc40ff375c27fae998680">getEntry</a> (int mjd) const</td></tr>
-<tr class="memdesc:ae3a6885f91dbc40ff375c27fae998680"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定MJD的EOP条目  <br /></td></tr>
 <tr class="separator:ae3a6885f91dbc40ff375c27fae998680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76a56437b9340a5521d2756f023a6c63" id="r_a76a56437b9340a5521d2756f023a6c63"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76a56437b9340a5521d2756f023a6c63">setEntry</a> (int mjd, const <a class="el" href="structast_1_1EOP_1_1Entry.html">Entry</a> &amp;entry)</td></tr>
-<tr class="memdesc:a76a56437b9340a5521d2756f023a6c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置指定MJD的EOP条目  <br /></td></tr>
 <tr class="separator:a76a56437b9340a5521d2756f023a6c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6994f867470ce6b5f4eac8503e850bdc" id="r_a6994f867470ce6b5f4eac8503e850bdc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6994f867470ce6b5f4eac8503e850bdc">getUT1MinusUTC</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp) const</td></tr>
-<tr class="memdesc:a6994f867470ce6b5f4eac8503e850bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取ut1-utc值  <br /></td></tr>
 <tr class="separator:a6994f867470ce6b5f4eac8503e850bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2366384abc39b1b7201332e7f230c38" id="r_ab2366384abc39b1b7201332e7f230c38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2366384abc39b1b7201332e7f230c38">getUT1MinusUTC_UTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC) const</td></tr>
-<tr class="memdesc:ab2366384abc39b1b7201332e7f230c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取ut1-utc值  <br /></td></tr>
 <tr class="separator:ab2366384abc39b1b7201332e7f230c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aaebe07ae0698bbe804e8210a061abe" id="r_a6aaebe07ae0698bbe804e8210a061abe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6aaebe07ae0698bbe804e8210a061abe">getUT1MinusUTC_UTCMJD</a> (double mjdUTC) const</td></tr>
-<tr class="memdesc:a6aaebe07ae0698bbe804e8210a061abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取ut1-utc值  <br /></td></tr>
 <tr class="separator:a6aaebe07ae0698bbe804e8210a061abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab43df44e64337981bdf47d90c68b3cb8" id="r_ab43df44e64337981bdf47d90c68b3cb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab43df44e64337981bdf47d90c68b3cb8">getPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;x, double &amp;y) const</td></tr>
-<tr class="memdesc:ab43df44e64337981bdf47d90c68b3cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取极移  <br /></td></tr>
 <tr class="separator:ab43df44e64337981bdf47d90c68b3cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a958dc572e9f53556c2f5d85f265062b9" id="r_a958dc572e9f53556c2f5d85f265062b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a958dc572e9f53556c2f5d85f265062b9">getPoleMotionUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, double &amp;x, double &amp;y) const</td></tr>
-<tr class="memdesc:a958dc572e9f53556c2f5d85f265062b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取极移（UTC）  <br /></td></tr>
 <tr class="separator:a958dc572e9f53556c2f5d85f265062b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95019d8cc2690035ccad02571ec0fddf" id="r_a95019d8cc2690035ccad02571ec0fddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95019d8cc2690035ccad02571ec0fddf">getPoleMotionUTCMJD</a> (double mjdUTC, double &amp;x, double &amp;y) const</td></tr>
-<tr class="memdesc:a95019d8cc2690035ccad02571ec0fddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取极移（UTC）  <br /></td></tr>
 <tr class="separator:a95019d8cc2690035ccad02571ec0fddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a763c687280641af0bf7b7f30c61ba5ff" id="r_a763c687280641af0bf7b7f30c61ba5ff"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a763c687280641af0bf7b7f30c61ba5ff">getLOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp) const</td></tr>
-<tr class="memdesc:a763c687280641af0bf7b7f30c61ba5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取LOD值  <br /></td></tr>
 <tr class="separator:a763c687280641af0bf7b7f30c61ba5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86bee6368547c1257892d83b00f5f10b" id="r_a86bee6368547c1257892d83b00f5f10b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86bee6368547c1257892d83b00f5f10b">getLOD_UTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC) const</td></tr>
-<tr class="memdesc:a86bee6368547c1257892d83b00f5f10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取LOD值（UTC）  <br /></td></tr>
 <tr class="separator:a86bee6368547c1257892d83b00f5f10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b5b86ba6527abd63a779fbcb1157702" id="r_a7b5b86ba6527abd63a779fbcb1157702"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b5b86ba6527abd63a779fbcb1157702">getLOD_UTCMJD</a> (double mjdUTC) const</td></tr>
-<tr class="memdesc:a7b5b86ba6527abd63a779fbcb1157702"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取LOD值（UTC）  <br /></td></tr>
 <tr class="separator:a7b5b86ba6527abd63a779fbcb1157702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b49db795fff8bc73112a97252e0405" id="r_ae0b49db795fff8bc73112a97252e0405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0b49db795fff8bc73112a97252e0405">getXYCorrection</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array2d &amp;xyCorrection) const</td></tr>
-<tr class="memdesc:ae0b49db795fff8bc73112a97252e0405"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取IAU XY修正项  <br /></td></tr>
 <tr class="separator:ae0b49db795fff8bc73112a97252e0405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3de94b39447a424e8e28ae16c781eb00" id="r_a3de94b39447a424e8e28ae16c781eb00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3de94b39447a424e8e28ae16c781eb00">getXYCorrectionUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, array2d &amp;xyCorrection) const</td></tr>
-<tr class="memdesc:a3de94b39447a424e8e28ae16c781eb00"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取IAU XY修正项（UTC）  <br /></td></tr>
 <tr class="separator:a3de94b39447a424e8e28ae16c781eb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a11646ef0c5dfcafcda72aa6ea5f123" id="r_a4a11646ef0c5dfcafcda72aa6ea5f123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a11646ef0c5dfcafcda72aa6ea5f123">getXYCorrectionUTCMJD</a> (double mjdUTC, array2d &amp;xyCorrection) const</td></tr>
-<tr class="memdesc:a4a11646ef0c5dfcafcda72aa6ea5f123"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取IAU XY修正项（UTC）  <br /></td></tr>
 <tr class="separator:a4a11646ef0c5dfcafcda72aa6ea5f123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a5594da61b66553996f66b6d62ce3f1e9" id="r_a5594da61b66553996f66b6d62ce3f1e9"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5594da61b66553996f66b6d62ce3f1e9">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, std::vector&lt; <a class="el" href="structast_1_1EOP_1_1Entry.html">Entry</a> &gt; &amp;data)</td></tr>
-<tr class="memdesc:a5594da61b66553996f66b6d62ce3f1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载EOP数据  <br /></td></tr>
 <tr class="separator:a5594da61b66553996f66b6d62ce3f1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:ab31d7f0fed9b64b542f3658d1d9c9cff" id="r_ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="memTemplParams" colspan="2">template&lt;double Entry::* Member&gt; </td></tr>
 <tr class="memitem:ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab31d7f0fed9b64b542f3658d1d9c9cff">getValue</a> (size_t index, double frac) const</td></tr>
-<tr class="memdesc:ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定索引和插值系数的成员值  <br /></td></tr>
 <tr class="separator:ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a129df310844bb06856aca21e91e85660" id="r_a129df310844bb06856aca21e91e85660"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a129df310844bb06856aca21e91e85660">findEntryIndex</a> (double mjdUTC, size_t &amp;index, double &amp;frac) const</td></tr>
-<tr class="memdesc:a129df310844bb06856aca21e91e85660"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找时间点对应的索引和插值系数  <br /></td></tr>
 <tr class="separator:a129df310844bb06856aca21e91e85660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -789,8 +765,8 @@ template&lt;double Entry::* Member&gt; </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Data/<a class="el" href="EOP_8hpp_source.html">EOP.hpp</a></li>
+<li>src/AstCore/Data/Context/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
 <li>src/AstCore/Data/<a class="el" href="EOP_8cpp.html">EOP.cpp</a></li>
-<li>src/AstCore/RunTime/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstScript/Variable/Variable.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Variable/Variable.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -113,50 +113,50 @@ $(function(){initNavTree('Variable_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html">   36</a></span><span class="keyword">class </span>AST_SCRIPT_API <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Expr.html">Expr</a></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    AST_EXPR(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr=<span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bind = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr=<span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bind = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">eval</a>() <span class="keyword">const</span> <span class="keyword">final</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    err_t <a class="code hl_function" href="classast_1_1Expr.html#ab5323e7ed4f8c8ce80e3dc38a50666ab">setValue</a>(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* val) <span class="keyword">final</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    err_t setExpr(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    err_t bind(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">   67</a></span>    std::string <a class="code hl_function" href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">getExpression</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>)<span class="keyword"> const override</span>{<span class="keywordflow">return</span> name_;}</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">const</span> std::string&amp; name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    Expr* expr()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> expr_.get(); }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5">   73</a></span>    std::string <a class="code hl_variable" href="classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5">name_</a>;            </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4">   74</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a> <a class="code hl_variable" href="classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4">expr_</a>;        </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">   75</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">bind_</a>;                   </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html">   37</a></span><span class="keyword">class </span>AST_SCRIPT_API <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Expr.html">Expr</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    AST_EXPR(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr=<span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bind = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr=<span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bind = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">eval</a>() <span class="keyword">const</span> <span class="keyword">final</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    err_t <a class="code hl_function" href="classast_1_1Expr.html#ab5323e7ed4f8c8ce80e3dc38a50666ab">setValue</a>(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* val) <span class="keyword">final</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    err_t setExpr(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    err_t bind(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">   68</a></span>    std::string <a class="code hl_function" href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">getExpression</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>)<span class="keyword"> const override</span>{<span class="keywordflow">return</span> name_;}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> std::string&amp; name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    Expr* expr()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> expr_.get(); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5">   74</a></span>    std::string <a class="code hl_variable" href="classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5">name_</a>;            </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4">   75</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Expr&gt;</a> <a class="code hl_variable" href="classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4">expr_</a>;        </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">   76</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">bind_</a>;                   </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
 </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:38</div></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html_a913b88ed7be4b5016cb722035a804ba5"><div class="ttname"><a href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">ast::Expr::eval</a></div><div class="ttdeci">virtual Value * eval() const =0</div><div class="ttdoc">求值</div></div>
-<div class="ttc" id="aclassast_1_1Expr_html_ab5323e7ed4f8c8ce80e3dc38a50666ab"><div class="ttname"><a href="classast_1_1Expr.html#ab5323e7ed4f8c8ce80e3dc38a50666ab">ast::Expr::setValue</a></div><div class="ttdeci">virtual err_t setValue(Value *val)</div><div class="ttdoc">设置表达式的值</div><div class="ttdef"><b>定义</b> Expr.hpp:57</div></div>
-<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，实现运行时元信息、强弱引用计数</div><div class="ttdef"><b>定义</b> Object.hpp:36</div></div>
-<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdef"><b>定义</b> SharedPtr.hpp:30</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html_ab5323e7ed4f8c8ce80e3dc38a50666ab"><div class="ttname"><a href="classast_1_1Expr.html#ab5323e7ed4f8c8ce80e3dc38a50666ab">ast::Expr::setValue</a></div><div class="ttdeci">virtual err_t setValue(Value *val)</div><div class="ttdoc">设置表达式的值</div><div class="ttdef"><b>定义</b> Expr.hpp:58</div></div>
+<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，实现运行时元信息、强弱引用计数</div><div class="ttdef"><b>定义</b> Object.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:35</div></div>
-<div class="ttc" id="aclassast_1_1Variable_html"><div class="ttname"><a href="classast_1_1Variable.html">ast::Variable</a></div><div class="ttdoc">变量</div><div class="ttdef"><b>定义</b> Variable.hpp:37</div></div>
-<div class="ttc" id="aclassast_1_1Variable_html_ad38524b5e49afa4669800bcfa1365db4"><div class="ttname"><a href="classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4">ast::Variable::expr_</a></div><div class="ttdeci">SharedPtr&lt; Expr &gt; expr_</div><div class="ttdoc">变量的值，或者绑定的表达式</div><div class="ttdef"><b>定义</b> Variable.hpp:74</div></div>
-<div class="ttc" id="aclassast_1_1Variable_html_adf1514b237f023abe14963b94675a6b6"><div class="ttname"><a href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">ast::Variable::bind_</a></div><div class="ttdeci">bool bind_</div><div class="ttdoc">是否与表达式双向绑定</div><div class="ttdef"><b>定义</b> Variable.hpp:75</div></div>
-<div class="ttc" id="aclassast_1_1Variable_html_ae475c52c0cc50180629330be52727999"><div class="ttname"><a href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">ast::Variable::getExpression</a></div><div class="ttdeci">std::string getExpression(Object *context=nullptr) const override</div><div class="ttdoc">获取变量的表达式</div><div class="ttdef"><b>定义</b> Variable.hpp:67</div></div>
-<div class="ttc" id="aclassast_1_1Variable_html_af714280a090507605c2b4fa9a07375d5"><div class="ttname"><a href="classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5">ast::Variable::name_</a></div><div class="ttdeci">std::string name_</div><div class="ttdoc">变量的名称</div><div class="ttdef"><b>定义</b> Variable.hpp:73</div></div>
+<div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1Variable_html"><div class="ttname"><a href="classast_1_1Variable.html">ast::Variable</a></div><div class="ttdoc">变量</div><div class="ttdef"><b>定义</b> Variable.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1Variable_html_ad38524b5e49afa4669800bcfa1365db4"><div class="ttname"><a href="classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4">ast::Variable::expr_</a></div><div class="ttdeci">SharedPtr&lt; Expr &gt; expr_</div><div class="ttdoc">变量的值，或者绑定的表达式</div><div class="ttdef"><b>定义</b> Variable.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1Variable_html_adf1514b237f023abe14963b94675a6b6"><div class="ttname"><a href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">ast::Variable::bind_</a></div><div class="ttdeci">bool bind_</div><div class="ttdoc">是否与表达式双向绑定</div><div class="ttdef"><b>定义</b> Variable.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1Variable_html_ae475c52c0cc50180629330be52727999"><div class="ttname"><a href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">ast::Variable::getExpression</a></div><div class="ttdeci">std::string getExpression(Object *context=nullptr) const override</div><div class="ttdoc">获取变量的表达式</div><div class="ttdef"><b>定义</b> Variable.hpp:68</div></div>
+<div class="ttc" id="aclassast_1_1Variable_html_af714280a090507605c2b4fa9a07375d5"><div class="ttname"><a href="classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5">ast::Variable::name_</a></div><div class="ttdeci">std::string name_</div><div class="ttdoc">变量的名称</div><div class="ttdef"><b>定义</b> Variable.hpp:74</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

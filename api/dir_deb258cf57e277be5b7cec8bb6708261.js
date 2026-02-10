@@ -9,5 +9,5 @@ var dir_deb258cf57e277be5b7cec8bb6708261 =
     [ "J4Analytical.cpp", "J4Analytical_8cpp.html", "J4Analytical_8cpp" ],
     [ "J4Analytical.hpp", "J4Analytical_8hpp.html", "J4Analytical_8hpp" ],
     [ "TwoBody.cpp", "TwoBody_8cpp.html", "TwoBody_8cpp" ],
-    [ "TwoBody.hpp", "TwoBody_8hpp.html", null ]
+    [ "TwoBody.hpp", "TwoBody_8hpp.html", "TwoBody_8hpp" ]
 ];

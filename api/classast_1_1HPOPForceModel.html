@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::HPOPForceModel类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::HPOPForceModel类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,12 +103,9 @@ $(function(){initNavTree('classast_1_1HPOPForceModel.html',''); initResizable(tr
 <a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1HPOPForceModel-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::HPOPForceModel类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::HPOPForceModel类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Propagator.html">轨道预报</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>高精度轨道预报力模型  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HPOP_8hpp_source.html">HPOP.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -133,35 +130,27 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ThirdBodyList</b> = 
 Public 属性</h2></td></tr>
 <tr class="memitem:ae365339df54b0c9043b9ab5b7b3ae2b8" id="r_ae365339df54b0c9043b9ab5b7b3ae2b8"><td class="memItemLeft" align="right" valign="top"><a id="ae365339df54b0c9043b9ab5b7b3ae2b8" name="ae365339df54b0c9043b9ab5b7b3ae2b8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useDrag_</b> {false}</td></tr>
-<tr class="memdesc:ae365339df54b0c9043b9ab5b7b3ae2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否使用阻力模型 <br /></td></tr>
 <tr class="separator:ae365339df54b0c9043b9ab5b7b3ae2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6992ff4410f0abee237a0a1e884926f0" id="r_a6992ff4410f0abee237a0a1e884926f0"><td class="memItemLeft" align="right" valign="top"><a id="a6992ff4410f0abee237a0a1e884926f0" name="a6992ff4410f0abee237a0a1e884926f0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useSRP_</b> {false}</td></tr>
-<tr class="memdesc:a6992ff4410f0abee237a0a1e884926f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否使用太阳辐射压模型 <br /></td></tr>
 <tr class="separator:a6992ff4410f0abee237a0a1e884926f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89a8e5ec41d3c722e3acf1f183e4813b" id="r_a89a8e5ec41d3c722e3acf1f183e4813b"><td class="memItemLeft" align="right" valign="top"><a id="a89a8e5ec41d3c722e3acf1f183e4813b" name="a89a8e5ec41d3c722e3acf1f183e4813b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useMoonGravity_</b> {false}</td></tr>
-<tr class="memdesc:a89a8e5ec41d3c722e3acf1f183e4813b"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否使用月球引力 <br /></td></tr>
 <tr class="separator:a89a8e5ec41d3c722e3acf1f183e4813b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1285bd9e15b3882897ac8d0b49d980a" id="r_ad1285bd9e15b3882897ac8d0b49d980a"><td class="memItemLeft" align="right" valign="top"><a id="ad1285bd9e15b3882897ac8d0b49d980a" name="ad1285bd9e15b3882897ac8d0b49d980a"></a>
 <a class="el" href="structast_1_1HPOPForceModel_1_1Gravity.html">Gravity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravity_</b></td></tr>
-<tr class="memdesc:ad1285bd9e15b3882897ac8d0b49d980a"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心天体重力场 <br /></td></tr>
 <tr class="separator:ad1285bd9e15b3882897ac8d0b49d980a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54f4de37fd487f9c72b7ce79eb3bd2c9" id="r_a54f4de37fd487f9c72b7ce79eb3bd2c9"><td class="memItemLeft" align="right" valign="top"><a id="a54f4de37fd487f9c72b7ce79eb3bd2c9" name="a54f4de37fd487f9c72b7ce79eb3bd2c9"></a>
 <a class="el" href="structast_1_1HPOPForceModel_1_1Drag.html">Drag</a>&#160;</td><td class="memItemRight" valign="bottom"><b>drag_</b></td></tr>
-<tr class="memdesc:a54f4de37fd487f9c72b7ce79eb3bd2c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">阻力模型 <br /></td></tr>
 <tr class="separator:a54f4de37fd487f9c72b7ce79eb3bd2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6a5de8a4d106cab6f3f4e1c7b43b0b2" id="r_ad6a5de8a4d106cab6f3f4e1c7b43b0b2"><td class="memItemLeft" align="right" valign="top"><a id="ad6a5de8a4d106cab6f3f4e1c7b43b0b2" name="ad6a5de8a4d106cab6f3f4e1c7b43b0b2"></a>
 <a class="el" href="structast_1_1HPOPForceModel_1_1SRP.html">SRP</a>&#160;</td><td class="memItemRight" valign="bottom"><b>srp_</b></td></tr>
-<tr class="memdesc:ad6a5de8a4d106cab6f3f4e1c7b43b0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">太阳辐射压模型 <br /></td></tr>
 <tr class="separator:ad6a5de8a4d106cab6f3f4e1c7b43b0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85e853fc4194338a7b3f231dc50c416c" id="r_a85e853fc4194338a7b3f231dc50c416c"><td class="memItemLeft" align="right" valign="top"><a id="a85e853fc4194338a7b3f231dc50c416c" name="a85e853fc4194338a7b3f231dc50c416c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>moonGravity_</b> {<a class="el" href="namespaceast.html#a41255ef38b8253b08c439397df25521f">kMoonGrav</a>}</td></tr>
-<tr class="memdesc:a85e853fc4194338a7b3f231dc50c416c"><td class="mdescLeft">&#160;</td><td class="mdescRight">月球引力系数 <br /></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>moonGravity_</b> {<a class="el" href="group__Util.html#ga41255ef38b8253b08c439397df25521f">kMoonGrav</a>}</td></tr>
 <tr class="separator:a85e853fc4194338a7b3f231dc50c416c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa7dec2d67797a0c0b79afa9a9333268" id="r_aaa7dec2d67797a0c0b79afa9a9333268"><td class="memItemLeft" align="right" valign="top"><a id="aaa7dec2d67797a0c0b79afa9a9333268" name="aaa7dec2d67797a0c0b79afa9a9333268"></a>
 ThirdBodyList&#160;</td><td class="memItemRight" valign="bottom"><b>thirdBodies_</b></td></tr>
-<tr class="memdesc:aaa7dec2d67797a0c0b79afa9a9333268"><td class="mdescLeft">&#160;</td><td class="mdescRight">三体引力 <br /></td></tr>
 <tr class="separator:aaa7dec2d67797a0c0b79afa9a9333268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

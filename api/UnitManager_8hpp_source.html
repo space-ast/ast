@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Quantity/UnitManager.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Quantity/UnitManager.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -113,50 +113,49 @@ $(function(){initNavTree('UnitManager_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>Unit;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>AST_UTIL_API Unit* <a class="code hl_function" href="namespaceast.html#a757ee64f8329c06333963e2792bdef53">aUnitGet</a>(StringView name);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>Unit;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>AST_UTIL_API err_t <a class="code hl_function" href="namespaceast.html#ab07eb066bae973f8ec40b12f0754714d">aUnitAdd</a>(<span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>AST_UTIL_API Unit* <a class="code hl_function" href="group__Quantity.html#ga757ee64f8329c06333963e2792bdef53">aUnitGet</a>(StringView name);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_UTIL_API err_t <a class="code hl_function" href="namespaceast.html#ab07eb066bae973f8ec40b12f0754714d">aUnitAdd</a>(StringView name, <span class="keyword">const</span> Unit&amp; unit);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1UnitManager.html">   53</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1UnitManager.html">UnitManager</a></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1UnitManager.html">UnitManager</a>&amp; Instance();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1UnitManager.html">UnitManager</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1UnitManager.html">~UnitManager</a>();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    err_t addUnit(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    err_t addUnit(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>AST_UTIL_API err_t <a class="code hl_function" href="group__Quantity.html#gab07eb066bae973f8ec40b12f0754714d">aUnitAdd</a>(<span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_UTIL_API err_t <a class="code hl_function" href="group__Quantity.html#gab07eb066bae973f8ec40b12f0754714d">aUnitAdd</a>(StringView name, <span class="keyword">const</span> Unit&amp; unit);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="};">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1UnitManager.html">   58</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1UnitManager.html">UnitManager</a></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1UnitManager.html">UnitManager</a>&amp; Instance();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classast_1_1UnitManager.html">UnitManager</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1UnitManager.html">~UnitManager</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    err_t addUnit(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>* getUnit(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    err_t addUnit(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    err_t _addUnit(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775">   87</a></span>    std::unordered_map&lt;std::string, Unit*&gt; <a class="code hl_variable" href="classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775">units_</a>;       </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
-</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>* getUnit(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    err_t _addUnit(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Unit.html">Unit</a>&amp; unit);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775">   92</a></span>    std::unordered_map&lt;std::string, Unit*&gt; <a class="code hl_variable" href="classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775">units_</a>;       </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="aclassast_1_1UnitManager_html"><div class="ttname"><a href="classast_1_1UnitManager.html">ast::UnitManager</a></div><div class="ttdoc">单位管理器</div><div class="ttdef"><b>定义</b> UnitManager.hpp:54</div></div>
-<div class="ttc" id="aclassast_1_1UnitManager_html_ad7b7dc07985e82bdb506f7955e392775"><div class="ttname"><a href="classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775">ast::UnitManager::units_</a></div><div class="ttdeci">std::unordered_map&lt; std::string, Unit * &gt; units_</div><div class="ttdoc">单位映射表</div><div class="ttdef"><b>定义</b> UnitManager.hpp:87</div></div>
-<div class="ttc" id="aclassast_1_1Unit_html"><div class="ttname"><a href="classast_1_1Unit.html">ast::Unit</a></div><div class="ttdoc">单位</div><div class="ttdef"><b>定义</b> Unit.hpp:126</div></div>
-<div class="ttc" id="anamespaceast_html_a757ee64f8329c06333963e2792bdef53"><div class="ttname"><a href="namespaceast.html#a757ee64f8329c06333963e2792bdef53">ast::aUnitGet</a></div><div class="ttdeci">Unit * aUnitGet(StringView name)</div><div class="ttdoc">获取单位</div><div class="ttdef"><b>定义</b> UnitManager.cpp:108</div></div>
-<div class="ttc" id="anamespaceast_html_ab07eb066bae973f8ec40b12f0754714d"><div class="ttname"><a href="namespaceast.html#ab07eb066bae973f8ec40b12f0754714d">ast::aUnitAdd</a></div><div class="ttdeci">err_t aUnitAdd(const Unit &amp;unit)</div><div class="ttdoc">添加单位</div><div class="ttdef"><b>定义</b> UnitManager.cpp:113</div></div>
+<div class="ttc" id="aclassast_1_1UnitManager_html"><div class="ttname"><a href="classast_1_1UnitManager.html">ast::UnitManager</a></div><div class="ttdoc">单位管理器</div><div class="ttdef"><b>定义</b> UnitManager.hpp:59</div></div>
+<div class="ttc" id="aclassast_1_1UnitManager_html_ad7b7dc07985e82bdb506f7955e392775"><div class="ttname"><a href="classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775">ast::UnitManager::units_</a></div><div class="ttdeci">std::unordered_map&lt; std::string, Unit * &gt; units_</div><div class="ttdoc">单位映射表</div><div class="ttdef"><b>定义</b> UnitManager.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1Unit_html"><div class="ttname"><a href="classast_1_1Unit.html">ast::Unit</a></div><div class="ttdoc">单位</div><div class="ttdef"><b>定义</b> Unit.hpp:134</div></div>
+<div class="ttc" id="agroup__Quantity_html_ga757ee64f8329c06333963e2792bdef53"><div class="ttname"><a href="group__Quantity.html#ga757ee64f8329c06333963e2792bdef53">ast::aUnitGet</a></div><div class="ttdeci">Unit * aUnitGet(StringView name)</div><div class="ttdoc">获取单位</div><div class="ttdef"><b>定义</b> UnitManager.cpp:108</div></div>
+<div class="ttc" id="agroup__Quantity_html_gab07eb066bae973f8ec40b12f0754714d"><div class="ttname"><a href="group__Quantity.html#gab07eb066bae973f8ec40b12f0754714d">ast::aUnitAdd</a></div><div class="ttdeci">err_t aUnitAdd(const Unit &amp;unit)</div><div class="ttdoc">添加单位</div><div class="ttdef"><b>定义</b> UnitManager.cpp:113</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

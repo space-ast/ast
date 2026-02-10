@@ -1,0 +1,765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: 平台相关接口</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__Platform.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">平台相关接口<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>提供跨平台的与平台相关函数，包括文件操作、环境检测、动态库加载、界面操作等。 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast_1_1posix.html">ast::posix</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast_1_1simple__fs.html">ast::simple_fs</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ga698189029704d7c19176e82dd509e66a" id="r_ga698189029704d7c19176e82dd509e66a"><td class="memItemLeft" align="right" valign="top"><a id="ga698189029704d7c19176e82dd509e66a" name="ga698189029704d7c19176e82dd509e66a"></a>
+typedef <a class="el" href="classast_1_1UiWidget.html">UiWidget</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>ast::UiWidgetFactory</b>) (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:ga698189029704d7c19176e82dd509e66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga1b536eb0b193fd88914dd12e6895c229" id="r_ga1b536eb0b193fd88914dd12e6895c229"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1b536eb0b193fd88914dd12e6895c229">ast::aIsCI</a> ()</td></tr>
+<tr class="separator:ga1b536eb0b193fd88914dd12e6895c229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga895a0d59cc088ec5dc894a34864c3ffc" id="r_ga895a0d59cc088ec5dc894a34864c3ffc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga895a0d59cc088ec5dc894a34864c3ffc">ast::aIsTerminal</a> (FILE *file)</td></tr>
+<tr class="separator:ga895a0d59cc088ec5dc894a34864c3ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf498fb8090810fb31ae8e36c9bf3942" id="r_gaaf498fb8090810fb31ae8e36c9bf3942"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaaf498fb8090810fb31ae8e36c9bf3942">ast::aIsFile</a> (FILE *file)</td></tr>
+<tr class="separator:gaaf498fb8090810fb31ae8e36c9bf3942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga402c35c20112c81a16c5410823e030ca" id="r_ga402c35c20112c81a16c5410823e030ca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga402c35c20112c81a16c5410823e030ca">ast::aStdInIsTerminal</a> ()</td></tr>
+<tr class="separator:ga402c35c20112c81a16c5410823e030ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddfe9918c8b6de4bc127c1e11993aa7f" id="r_gaddfe9918c8b6de4bc127c1e11993aa7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaddfe9918c8b6de4bc127c1e11993aa7f">ast::aStdInIsFile</a> ()</td></tr>
+<tr class="separator:gaddfe9918c8b6de4bc127c1e11993aa7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef5625c409a6ef4a8ddf3e4b2aff79b5" id="r_gaef5625c409a6ef4a8ddf3e4b2aff79b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaef5625c409a6ef4a8ddf3e4b2aff79b5">ast::aStdOutIsTerminal</a> ()</td></tr>
+<tr class="separator:gaef5625c409a6ef4a8ddf3e4b2aff79b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga038a62d786234b02f668f9460bbd86f6" id="r_ga038a62d786234b02f668f9460bbd86f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga038a62d786234b02f668f9460bbd86f6">ast::aStdOutIsFile</a> ()</td></tr>
+<tr class="separator:ga038a62d786234b02f668f9460bbd86f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c187e91aa0366fdba00f57b685d20bf" id="r_ga7c187e91aa0366fdba00f57b685d20bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7c187e91aa0366fdba00f57b685d20bf">ast::aStdErrIsTerminal</a> ()</td></tr>
+<tr class="separator:ga7c187e91aa0366fdba00f57b685d20bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4fb579361721abb83e54183b0521c32" id="r_gaa4fb579361721abb83e54183b0521c32"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa4fb579361721abb83e54183b0521c32">ast::aStdErrIsFile</a> ()</td></tr>
+<tr class="separator:gaa4fb579361721abb83e54183b0521c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90c2f3a224c23802475e9ef9e63e763e" id="r_ga90c2f3a224c23802475e9ef9e63e763e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga90c2f3a224c23802475e9ef9e63e763e">ast::aLibDir</a> ()</td></tr>
+<tr class="separator:ga90c2f3a224c23802475e9ef9e63e763e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga524821ccab59a9b4bc923f26dd3d3660" id="r_ga524821ccab59a9b4bc923f26dd3d3660"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga524821ccab59a9b4bc923f26dd3d3660">ast::aExeDir</a> ()</td></tr>
+<tr class="separator:ga524821ccab59a9b4bc923f26dd3d3660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafae8f3929af4a33ec55ca41b58bf52f2" id="r_gafae8f3929af4a33ec55ca41b58bf52f2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafae8f3929af4a33ec55ca41b58bf52f2">ast::aLibPath</a> ()</td></tr>
+<tr class="separator:gafae8f3929af4a33ec55ca41b58bf52f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39dda408be669b8f5c88e097b0c73ca3" id="r_ga39dda408be669b8f5c88e097b0c73ca3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga39dda408be669b8f5c88e097b0c73ca3">ast::aExePath</a> ()</td></tr>
+<tr class="separator:ga39dda408be669b8f5c88e097b0c73ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga612f98b50735562fce328f4ad172a8de" id="r_ga612f98b50735562fce328f4ad172a8de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga612f98b50735562fce328f4ad172a8de">ast::aCanDisplayGUI</a> ()</td></tr>
+<tr class="separator:ga612f98b50735562fce328f4ad172a8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03ae395c115564ea3880c1f65646b685" id="r_ga03ae395c115564ea3880c1f65646b685"><td class="memItemLeft" align="right" valign="top"><a id="ga03ae395c115564ea3880c1f65646b685" name="ga03ae395c115564ea3880c1f65646b685"></a>
+A_ALWAYS_INLINE std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_fopen</b> (const char *filepath, const char *mode)</td></tr>
+<tr class="separator:ga03ae395c115564ea3880c1f65646b685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9700be0a43d1a3f38a76833b0aa115d7" id="r_ga9700be0a43d1a3f38a76833b0aa115d7"><td class="memItemLeft" align="right" valign="top"><a id="ga9700be0a43d1a3f38a76833b0aa115d7" name="ga9700be0a43d1a3f38a76833b0aa115d7"></a>
+A_ALWAYS_INLINE FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_freopen</b> (const char *filepath, const char *mode, FILE *stream)</td></tr>
+<tr class="separator:ga9700be0a43d1a3f38a76833b0aa115d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4d66b89788857b96561e983679fd97e" id="r_gaa4d66b89788857b96561e983679fd97e"><td class="memItemLeft" align="right" valign="top"><a id="gaa4d66b89788857b96561e983679fd97e" name="gaa4d66b89788857b96561e983679fd97e"></a>
+A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_vprintf</b> (const char *format, va_list args)</td></tr>
+<tr class="separator:gaa4d66b89788857b96561e983679fd97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86f36b18f798b1a50be84a8c0dff1c1e" id="r_ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top"><a id="ga86f36b18f798b1a50be84a8c0dff1c1e" name="ga86f36b18f798b1a50be84a8c0dff1c1e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (const char *format,...)</td></tr>
+<tr class="separator:ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33ba0d9d87a56df2b6cf9a06df0fa6bd" id="r_ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
+<tr class="separator:ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ae35e43fab9b520dd904d744ba64ed4" id="r_ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4ae35e43fab9b520dd904d744ba64ed4">ast::aLoadLibrary</a> (const char *filepath)</td></tr>
+<tr class="separator:ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f4600dceeffcc4993b66d33a3b8e680" id="r_ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a> (void *lib, const char *funcName)</td></tr>
+<tr class="separator:ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19e5714a61a8ba893a69b7ebdeba2005" id="r_ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga19e5714a61a8ba893a69b7ebdeba2005">ast::aResolveProcAddress</a> (const char *filepath, const char *funcName)</td></tr>
+<tr class="separator:ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd86d9dd3fbee4adba535098848a1790" id="r_gabd86d9dd3fbee4adba535098848a1790"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabd86d9dd3fbee4adba535098848a1790">ast::aFreeLibrary</a> (void *lib)</td></tr>
+<tr class="separator:gabd86d9dd3fbee4adba535098848a1790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
+<tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac188577901a589f90a763b5fbc5db732" id="r_gac188577901a589f90a763b5fbc5db732"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac188577901a589f90a763b5fbc5db732">ast::aUiRegEditWidget</a> (<a class="el" href="classast_1_1Class.html">Class</a> *type, UiWidgetFactory factory)</td></tr>
+<tr class="separator:gac188577901a589f90a763b5fbc5db732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53d51d8e92cee0b781409b32e03e656f" id="r_ga53d51d8e92cee0b781409b32e03e656f"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga53d51d8e92cee0b781409b32e03e656f">ast::aUiEditObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:ga53d51d8e92cee0b781409b32e03e656f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70d3f705f380134646f9608765a75950" id="r_ga70d3f705f380134646f9608765a75950"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI <a class="el" href="classast_1_1UiWidget.html">UiWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga70d3f705f380134646f9608765a75950">ast::aUiNewEditWidget</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:ga70d3f705f380134646f9608765a75950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d38a8540eaa686e730caab9e588e35f" id="r_ga9d38a8540eaa686e730caab9e588e35f"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9d38a8540eaa686e730caab9e588e35f">ast::aUiSelectObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName)</td></tr>
+<tr class="separator:ga9d38a8540eaa686e730caab9e588e35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga612f98b50735562fce328f4ad172a8de" name="ga612f98b50735562fce328f4ad172a8de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga612f98b50735562fce328f4ad172a8de">&#9670;&#160;</a></span>aCanDisplayGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aCanDisplayGUI </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否可以显示GUI </p>
+<dl class="section return"><dt>返回</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="ga33ba0d9d87a56df2b6cf9a06df0fa6bd" name="ga33ba0d9d87a56df2b6cf9a06df0fa6bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">&#9670;&#160;</a></span>aCurrentLineNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API int ast::aCurrentLineNumber </td>
+          <td>(</td>
+          <td class="paramtype">std::FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取文件当前行号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>当前行号，从1开始计数 </dd></dl>
+
+</div>
+</div>
+<a id="ga524821ccab59a9b4bc923f26dd3d3660" name="ga524821ccab59a9b4bc923f26dd3d3660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga524821ccab59a9b4bc923f26dd3d3660">&#9670;&#160;</a></span>aExeDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aExeDir </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前的可执行文件所在目录 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga39dda408be669b8f5c88e097b0c73ca3" name="ga39dda408be669b8f5c88e097b0c73ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga39dda408be669b8f5c88e097b0c73ca3">&#9670;&#160;</a></span>aExePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aExePath </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前的可执行文件路径 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gabd86d9dd3fbee4adba535098848a1790" name="gabd86d9dd3fbee4adba535098848a1790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd86d9dd3fbee4adba535098848a1790">&#9670;&#160;</a></span>aFreeLibrary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI err_t ast::aFreeLibrary </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>lib</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>卸载动态库 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lib</td><td>动态库句柄 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>0: 成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga792d6e546f624b93c64487c04deac344" name="ga792d6e546f624b93c64487c04deac344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga792d6e546f624b93c64487c04deac344">&#9670;&#160;</a></span>aGetLoadError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI const char * ast::aGetLoadError </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取最后的错误信息 </p>
+<dl class="section return"><dt>返回</dt><dd>错误信息字符串 </dd></dl>
+
+</div>
+</div>
+<a id="ga0f4600dceeffcc4993b66d33a3b8e680" name="ga0f4600dceeffcc4993b66d33a3b8e680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f4600dceeffcc4993b66d33a3b8e680">&#9670;&#160;</a></span>aGetProcAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI void * ast::aGetProcAddress </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>lib</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>funcName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从动态库中查询函数指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lib</td><td>动态库 </td></tr>
+    <tr><td class="paramname">funcName</td><td>函数名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga1b536eb0b193fd88914dd12e6895c229" name="ga1b536eb0b193fd88914dd12e6895c229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b536eb0b193fd88914dd12e6895c229">&#9670;&#160;</a></span>aIsCI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aIsCI </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查是否在持续集成环境中运行 </p>
+<dl class="section return"><dt>返回</dt><dd>如果在CI环境中运行，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="gaaf498fb8090810fb31ae8e36c9bf3942" name="gaaf498fb8090810fb31ae8e36c9bf3942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf498fb8090810fb31ae8e36c9bf3942">&#9670;&#160;</a></span>aIsFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aIsFile </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查文件是否为普通文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果文件为普通文件，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga895a0d59cc088ec5dc894a34864c3ffc" name="ga895a0d59cc088ec5dc894a34864c3ffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga895a0d59cc088ec5dc894a34864c3ffc">&#9670;&#160;</a></span>aIsTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aIsTerminal </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查文件是否为终端 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果文件为终端，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga90c2f3a224c23802475e9ef9e63e763e" name="ga90c2f3a224c23802475e9ef9e63e763e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90c2f3a224c23802475e9ef9e63e763e">&#9670;&#160;</a></span>aLibDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aLibDir </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前的AstUtil动态库所在目录 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gafae8f3929af4a33ec55ca41b58bf52f2" name="gafae8f3929af4a33ec55ca41b58bf52f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafae8f3929af4a33ec55ca41b58bf52f2">&#9670;&#160;</a></span>aLibPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aLibPath </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前的AstUtil动态库的名称 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga4ae35e43fab9b520dd904d744ba64ed4" name="ga4ae35e43fab9b520dd904d744ba64ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ae35e43fab9b520dd904d744ba64ed4">&#9670;&#160;</a></span>aLoadLibrary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI void * ast::aLoadLibrary </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载动态库 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>动态库路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga19e5714a61a8ba893a69b7ebdeba2005" name="ga19e5714a61a8ba893a69b7ebdeba2005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19e5714a61a8ba893a69b7ebdeba2005">&#9670;&#160;</a></span>aResolveProcAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI void * ast::aResolveProcAddress </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>funcName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从动态库中获取函数指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>动态库路径 </td></tr>
+    <tr><td class="paramname">funcName</td><td>函数名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gaa4fb579361721abb83e54183b0521c32" name="gaa4fb579361721abb83e54183b0521c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa4fb579361721abb83e54183b0521c32">&#9670;&#160;</a></span>aStdErrIsFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aStdErrIsFile </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查标准错误是否为文件 </p>
+<dl class="section return"><dt>返回</dt><dd>如果标准错误为文件，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga7c187e91aa0366fdba00f57b685d20bf" name="ga7c187e91aa0366fdba00f57b685d20bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c187e91aa0366fdba00f57b685d20bf">&#9670;&#160;</a></span>aStdErrIsTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aStdErrIsTerminal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查标准错误是否为终端 </p>
+<dl class="section return"><dt>返回</dt><dd>如果标准错误为终端，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="gaddfe9918c8b6de4bc127c1e11993aa7f" name="gaddfe9918c8b6de4bc127c1e11993aa7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaddfe9918c8b6de4bc127c1e11993aa7f">&#9670;&#160;</a></span>aStdInIsFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aStdInIsFile </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查标准输入是否为文件 </p>
+<dl class="section return"><dt>返回</dt><dd>如果标准输入为文件，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga402c35c20112c81a16c5410823e030ca" name="ga402c35c20112c81a16c5410823e030ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga402c35c20112c81a16c5410823e030ca">&#9670;&#160;</a></span>aStdInIsTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aStdInIsTerminal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查标准输入是否为终端 </p>
+<dl class="section return"><dt>返回</dt><dd>如果标准输入为终端，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga038a62d786234b02f668f9460bbd86f6" name="ga038a62d786234b02f668f9460bbd86f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga038a62d786234b02f668f9460bbd86f6">&#9670;&#160;</a></span>aStdOutIsFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aStdOutIsFile </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查标准输出是否为文件 </p>
+<dl class="section return"><dt>返回</dt><dd>如果标准输出为文件，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="gaef5625c409a6ef4a8ddf3e4b2aff79b5" name="gaef5625c409a6ef4a8ddf3e4b2aff79b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef5625c409a6ef4a8ddf3e4b2aff79b5">&#9670;&#160;</a></span>aStdOutIsTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aStdOutIsTerminal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查标准输出是否为终端 </p>
+<dl class="section return"><dt>返回</dt><dd>如果标准输出为终端，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga53d51d8e92cee0b781409b32e03e656f" name="ga53d51d8e92cee0b781409b32e03e656f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga53d51d8e92cee0b781409b32e03e656f">&#9670;&#160;</a></span>aUiEditObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI err_t ast::aUiEditObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>编辑对象 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>要编辑的对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga70d3f705f380134646f9608765a75950" name="ga70d3f705f380134646f9608765a75950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70d3f705f380134646f9608765a75950">&#9670;&#160;</a></span>aUiNewEditWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI <a class="el" href="classast_1_1UiWidget.html">UiWidget</a> * ast::aUiNewEditWidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>创建编辑对象的UI组件 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>要编辑的对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>UiWidget* 编辑对象的UI组件指针 </dd></dl>
+
+</div>
+</div>
+<a id="gac188577901a589f90a763b5fbc5db732" name="gac188577901a589f90a763b5fbc5db732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac188577901a589f90a763b5fbc5db732">&#9670;&#160;</a></span>aUiRegEditWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI err_t ast::aUiRegEditWidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UiWidgetFactory</td>          <td class="paramname"><span class="paramname"><em>factory</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>注册编辑对象的UI组件工厂 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>对象类型 </td></tr>
+    <tr><td class="paramname">factory</td><td>UI组件工厂函数指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga9d38a8540eaa686e730caab9e588e35f" name="ga9d38a8540eaa686e730caab9e588e35f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d38a8540eaa686e730caab9e588e35f">&#9670;&#160;</a></span>aUiSelectObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI <a class="el" href="classast_1_1Object.html">Object</a> * ast::aUiSelectObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>typeName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>选择对象 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeName</td><td>对象类型名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Object* 选择的对象指针 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/Coordinate/MoonFrame.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Coordinate/MoonFrame.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -109,23 +109,24 @@ $(function(){initNavTree('MoonFrame_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_CORE_API err_t <a class="code hl_function" href="namespaceast.html#a91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    Vector3d&amp;        posInMoonICRF</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>AST_CORE_API err_t <a class="code hl_function" href="namespaceast.html#a91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> Vector3d&amp;  velInEarthICRF,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    Vector3d&amp;        posInMoonICRF,  </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    Vector3d&amp;        velInMoonICRF</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a91d6cd70536ab87ab37193a3e0d97e8f"><div class="ttname"><a href="namespaceast.html#a91d6cd70536ab87ab37193a3e0d97e8f">ast::aEarthICRFToMoonICRF</a></div><div class="ttdeci">err_t aEarthICRFToMoonICRF(const TimePoint &amp;tp, const Vector3d &amp;posInEarthICRF, Vector3d &amp;posInMoonICRF)</div><div class="ttdoc">计算地球ICRF坐标系到月球ICRF坐标系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:27</div></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    Vector3d&amp;        posInMoonICRF</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> Vector3d&amp;  velInEarthICRF,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Vector3d&amp;        posInMoonICRF,  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    Vector3d&amp;        velInMoonICRF</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Coordinate_html_ga91d6cd70536ab87ab37193a3e0d97e8f"><div class="ttname"><a href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">ast::aEarthICRFToMoonICRF</a></div><div class="ttdeci">err_t aEarthICRFToMoonICRF(const TimePoint &amp;tp, const Vector3d &amp;posInEarthICRF, Vector3d &amp;posInMoonICRF)</div><div class="ttdoc">计算地球ICRF坐标系到月球ICRF坐标系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

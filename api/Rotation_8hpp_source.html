@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstMath/Transform/Rotation.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstMath/Transform/Rotation.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -182,7 +182,7 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classast_1_1Rotation.html#a908041d89cdd54626194f818ff630032">  160</a></span>A_ALWAYS_INLINE Rotation::Rotation(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quaternion.html">Quaternion</a>&amp; quat)</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>{</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_function" href="namespaceast.html#a0d6d652d73001e9ce1e96951b2708014">aQuatToMatrix</a>(quat, matrix_);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_function" href="group__Attitude.html#ga0d6d652d73001e9ce1e96951b2708014">aQuatToMatrix</a>(quat, matrix_);</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
 </div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
@@ -211,14 +211,14 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classast_1_1Rotation.html#a7f7b4d0505a9ed34e081b9ea256d5663">  181</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1Quaternion.html">Quaternion</a> <a class="code hl_function" href="classast_1_1Rotation.html#a7f7b4d0505a9ed34e081b9ea256d5663">Rotation::getQuaternion</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#ad654a224cee5d31ca96d2b13c9a95af8">aMatrixToQuat</a>(matrix_);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Attitude.html#gad654a224cee5d31ca96d2b13c9a95af8">aMatrixToQuat</a>(matrix_);</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
 </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
 <div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classast_1_1Rotation.html#a704b1e1b7ec3d0e94a7664da6e37a2ca">  186</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Rotation.html#a704b1e1b7ec3d0e94a7664da6e37a2ca">Rotation::setQuaternion</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quaternion.html">Quaternion</a>&amp; quat)</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>{</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <a class="code hl_function" href="namespaceast.html#a0d6d652d73001e9ce1e96951b2708014">aQuatToMatrix</a>(quat, matrix_);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <a class="code hl_function" href="group__Attitude.html#ga0d6d652d73001e9ce1e96951b2708014">aQuatToMatrix</a>(quat, matrix_);</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
 </div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
@@ -226,7 +226,7 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2">  191</a></span>A_ALWAYS_INLINE Vector3d <a class="code hl_function" href="classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2">Rotation::getAxis</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_class" href="classast_1_1AngleAxis.html">AngleAxis</a> aa;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <a class="code hl_function" href="namespaceast.html#aa01df3e782b81bb065d882b415bcf828">aMatrixToAngleAxis</a>(matrix_, aa);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <a class="code hl_function" href="group__Attitude.html#gaa01df3e782b81bb065d882b415bcf828">aMatrixToAngleAxis</a>(matrix_, aa);</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> aa.<a class="code hl_function" href="classast_1_1AngleAxis.html#a0e3a1964c6f782cc8399e7532fdba2ee">axis</a>();</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
 </div>
@@ -235,7 +235,7 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91">  198</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91">Rotation::getAngle</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <a class="code hl_class" href="classast_1_1AngleAxis.html">AngleAxis</a> aa;</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <a class="code hl_function" href="namespaceast.html#aa01df3e782b81bb065d882b415bcf828">aMatrixToAngleAxis</a>(matrix_, aa);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <a class="code hl_function" href="group__Attitude.html#gaa01df3e782b81bb065d882b415bcf828">aMatrixToAngleAxis</a>(matrix_, aa);</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">return</span> aa.<a class="code hl_function" href="classast_1_1AngleAxis.html#ad90bcce070fcbdf410c24e380366a0d5">angle</a>();</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
 </div>
@@ -260,7 +260,7 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00218" data-start="{" data-end="}">
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="classast_1_1Rotation.html#aef7576cddcf892008f9537f297f17568">  218</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6">Rotation::getAngleAxis</a>(<a class="code hl_class" href="classast_1_1AngleAxis.html">AngleAxis</a> &amp;aa)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <a class="code hl_function" href="namespaceast.html#aa01df3e782b81bb065d882b415bcf828">aMatrixToAngleAxis</a>(matrix_, aa);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <a class="code hl_function" href="group__Attitude.html#gaa01df3e782b81bb065d882b415bcf828">aMatrixToAngleAxis</a>(matrix_, aa);</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}</div>
 </div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
@@ -333,12 +333,12 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 </div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1AngleAxis_html"><div class="ttname"><a href="classast_1_1AngleAxis.html">ast::AngleAxis</a></div><div class="ttdoc">轴角类</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:34</div></div>
-<div class="ttc" id="aclassast_1_1AngleAxis_html_a0e3a1964c6f782cc8399e7532fdba2ee"><div class="ttname"><a href="classast_1_1AngleAxis.html#a0e3a1964c6f782cc8399e7532fdba2ee">ast::AngleAxis::axis</a></div><div class="ttdeci">const Vector3d &amp; axis() const</div><div class="ttdoc">获取旋转轴</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:52</div></div>
-<div class="ttc" id="aclassast_1_1AngleAxis_html_ad90bcce070fcbdf410c24e380366a0d5"><div class="ttname"><a href="classast_1_1AngleAxis.html#ad90bcce070fcbdf410c24e380366a0d5">ast::AngleAxis::angle</a></div><div class="ttdeci">double angle() const</div><div class="ttdoc">获取旋转角度（弧度）</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:47</div></div>
-<div class="ttc" id="aclassast_1_1AngleAxis_html_afaa6f1ddcbd1930bbcbd83706f3ee946"><div class="ttname"><a href="classast_1_1AngleAxis.html#afaa6f1ddcbd1930bbcbd83706f3ee946">ast::AngleAxis::toRotationMatrix</a></div><div class="ttdeci">Matrix3d toRotationMatrix() const</div><div class="ttdoc">轴角转旋转矩阵</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:73</div></div>
+<div class="ttc" id="aclassast_1_1AngleAxis_html"><div class="ttname"><a href="classast_1_1AngleAxis.html">ast::AngleAxis</a></div><div class="ttdoc">轴角类</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1AngleAxis_html_a0e3a1964c6f782cc8399e7532fdba2ee"><div class="ttname"><a href="classast_1_1AngleAxis.html#a0e3a1964c6f782cc8399e7532fdba2ee">ast::AngleAxis::axis</a></div><div class="ttdeci">const Vector3d &amp; axis() const</div><div class="ttdoc">获取旋转轴</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1AngleAxis_html_ad90bcce070fcbdf410c24e380366a0d5"><div class="ttname"><a href="classast_1_1AngleAxis.html#ad90bcce070fcbdf410c24e380366a0d5">ast::AngleAxis::angle</a></div><div class="ttdeci">double angle() const</div><div class="ttdoc">获取旋转角度（弧度）</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1AngleAxis_html_afaa6f1ddcbd1930bbcbd83706f3ee946"><div class="ttname"><a href="classast_1_1AngleAxis.html#afaa6f1ddcbd1930bbcbd83706f3ee946">ast::AngleAxis::toRotationMatrix</a></div><div class="ttdeci">Matrix3d toRotationMatrix() const</div><div class="ttdoc">轴角转旋转矩阵</div><div class="ttdef"><b>定义</b> AngleAxis.hpp:74</div></div>
 <div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 3, 3 &gt;</a></div></div>
-<div class="ttc" id="aclassast_1_1Quaternion_html"><div class="ttname"><a href="classast_1_1Quaternion.html">ast::Quaternion</a></div><div class="ttdoc">四元数</div><div class="ttdef"><b>定义</b> Quaternion.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1Quaternion_html"><div class="ttname"><a href="classast_1_1Quaternion.html">ast::Quaternion</a></div><div class="ttdoc">四元数</div><div class="ttdef"><b>定义</b> Quaternion.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1Rotation_html"><div class="ttname"><a href="classast_1_1Rotation.html">ast::Rotation</a></div><div class="ttdoc">旋转类</div><div class="ttdef"><b>定义</b> Rotation.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Rotation_html_a063a06cdbb0809904ec030ae050b1c91"><div class="ttname"><a href="classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91">ast::Rotation::getAngle</a></div><div class="ttdeci">double getAngle() const</div><div class="ttdoc">获取旋转角度（弧度）</div><div class="ttdef"><b>定义</b> Rotation.hpp:198</div></div>
 <div class="ttc" id="aclassast_1_1Rotation_html_a07cb0f54ac2f853b39ae2e4ab99d5ba2"><div class="ttname"><a href="classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2">ast::Rotation::getAxis</a></div><div class="ttdeci">Vector3d getAxis() const</div><div class="ttdoc">获取旋转轴</div><div class="ttdef"><b>定义</b> Rotation.hpp:191</div></div>
@@ -357,9 +357,9 @@ $(function(){initNavTree('Rotation_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="aclassast_1_1Rotation_html_adf36ce33841e51755e40463726c68fe7"><div class="ttname"><a href="classast_1_1Rotation.html#adf36ce33841e51755e40463726c68fe7">ast::Rotation::Rotation</a></div><div class="ttdeci">Rotation(const Rotation &amp;other)=default</div><div class="ttdoc">复制构造函数</div></div>
 <div class="ttc" id="aclassast_1_1Rotation_html_af23a0573077dd94dc06f82b871ffff37"><div class="ttname"><a href="classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37">ast::Rotation::inverse</a></div><div class="ttdeci">Rotation inverse() const</div><div class="ttdoc">获取逆旋转</div><div class="ttdef"><b>定义</b> Rotation.hpp:254</div></div>
 <div class="ttc" id="aclassast_1_1Rotation_html_affa7511f3d325c6c9d767f78ff921575"><div class="ttname"><a href="classast_1_1Rotation.html#affa7511f3d325c6c9d767f78ff921575">ast::Rotation::operator*=</a></div><div class="ttdeci">Rotation &amp; operator*=(const Rotation &amp;next)</div><div class="ttdoc">组合下一个旋转</div><div class="ttdef"><b>定义</b> Rotation.hpp:244</div></div>
-<div class="ttc" id="anamespaceast_html_a0d6d652d73001e9ce1e96951b2708014"><div class="ttname"><a href="namespaceast.html#a0d6d652d73001e9ce1e96951b2708014">ast::aQuatToMatrix</a></div><div class="ttdeci">void aQuatToMatrix(const Quaternion &amp;quat, Matrix3d &amp;m)</div><div class="ttdoc">四元数转矩阵</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:90</div></div>
-<div class="ttc" id="anamespaceast_html_aa01df3e782b81bb065d882b415bcf828"><div class="ttname"><a href="namespaceast.html#aa01df3e782b81bb065d882b415bcf828">ast::aMatrixToAngleAxis</a></div><div class="ttdeci">void aMatrixToAngleAxis(const Matrix3d &amp;mtx, AngleAxis &amp;aa)</div><div class="ttdoc">矩阵转轴角</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:742</div></div>
-<div class="ttc" id="anamespaceast_html_ad654a224cee5d31ca96d2b13c9a95af8"><div class="ttname"><a href="namespaceast.html#ad654a224cee5d31ca96d2b13c9a95af8">ast::aMatrixToQuat</a></div><div class="ttdeci">void aMatrixToQuat(const Matrix3d &amp;mtx, Quaternion &amp;quat)</div><div class="ttdoc">矩阵转四元数</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:115</div></div>
+<div class="ttc" id="agroup__Attitude_html_ga0d6d652d73001e9ce1e96951b2708014"><div class="ttname"><a href="group__Attitude.html#ga0d6d652d73001e9ce1e96951b2708014">ast::aQuatToMatrix</a></div><div class="ttdeci">void aQuatToMatrix(const Quaternion &amp;quat, Matrix3d &amp;m)</div><div class="ttdoc">四元数转矩阵</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:90</div></div>
+<div class="ttc" id="agroup__Attitude_html_gaa01df3e782b81bb065d882b415bcf828"><div class="ttname"><a href="group__Attitude.html#gaa01df3e782b81bb065d882b415bcf828">ast::aMatrixToAngleAxis</a></div><div class="ttdeci">void aMatrixToAngleAxis(const Matrix3d &amp;mtx, AngleAxis &amp;aa)</div><div class="ttdoc">矩阵转轴角</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:742</div></div>
+<div class="ttc" id="agroup__Attitude_html_gad654a224cee5d31ca96d2b13c9a95af8"><div class="ttname"><a href="group__Attitude.html#gad654a224cee5d31ca96d2b13c9a95af8">ast::aMatrixToQuat</a></div><div class="ttdeci">void aMatrixToQuat(const Matrix3d &amp;mtx, Quaternion &amp;quat)</div><div class="ttdoc">矩阵转四元数</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:115</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -15,8 +15,8 @@ var searchData=
   ['fromimpreciseday_12',['FromImpreciseDay',['../classast_1_1JulianDate.html#a7f36aee0d6711a147ba3128d8c5bd42c',1,'ast::JulianDate']]],
   ['frominternal_13',['fromInternal',['../classast_1_1Unit.html#a7ea3bdf4b89bad68862a258de7800ad9',1,'ast::Unit']]],
   ['fromjd_14',['FromJD',['../classast_1_1DateTime.html#a79070dcafe3abc867442141e388c873e',1,'ast::DateTime']]],
-  ['fromjdatnoon_15',['FromJDAtNoon',['../classast_1_1Date.html#a8755bfe720d3f85040fe5dd38644de03',1,'ast::Date']]],
-  ['fromjdatnoon_16',['fromJDAtNoon',['../classast_1_1Date.html#a184b84b626ef7d21bd188b532e243460',1,'ast::Date']]],
+  ['fromjdatnoon_15',['FromJDAtNoon',['../group__Time.html#ga8755bfe720d3f85040fe5dd38644de03',1,'ast::Date']]],
+  ['fromjdatnoon_16',['fromJDAtNoon',['../group__Time.html#ga184b84b626ef7d21bd188b532e243460',1,'ast::Date']]],
   ['fromjuliandate_17',['FromJulianDate',['../classast_1_1DateTime.html#a0620234be0ebb6a017a017b0c37be6dd',1,'ast::DateTime']]],
   ['frommatrix_18',['fromMatrix',['../classast_1_1Euler.html#a208bcb14bd7c3d33fff33ebc9158559c',1,'ast::Euler']]],
   ['fromquat_19',['fromQuat',['../classast_1_1Euler.html#a5a3421a72d3b9362ce84553274d7ec04',1,'ast::Euler']]],
@@ -30,8 +30,8 @@ var searchData=
   ['fromtm_27',['FromTm',['../classast_1_1DateTime.html#aa3c5c138dab2c3fefa5e92df3d29cf32',1,'ast::DateTime']]],
   ['fromtt_28',['FromTT',['../classast_1_1TimePoint.html#ab168ce08dc85ef9f03a4020a31474aaa',1,'ast::TimePoint']]],
   ['fromutc_29',['FromUTC',['../classast_1_1TimePoint.html#a3d5d3826fc89e78854790009b2c4c7a6',1,'ast::TimePoint::FromUTC(const DateTime &amp;dttmUTC)'],['../classast_1_1TimePoint.html#a2baecf29aa3f6fe57d515b3552770b01',1,'ast::TimePoint::FromUTC(int year, int month, int day, int hour, int minute, double second)']]],
-  ['fromyd_30',['FromYD',['../classast_1_1Date.html#a67093601b057e3771def993c842ce99a',1,'ast::Date']]],
-  ['fromyd_31',['fromYD',['../classast_1_1Date.html#a2f6dfe4ff9e245c5bd46b19f9a8e075f',1,'ast::Date']]],
-  ['fromymd_32',['FromYMD',['../classast_1_1Date.html#a5713429e169192c837cacbaa2c84d52c',1,'ast::Date']]],
-  ['fromymd_33',['fromYMD',['../classast_1_1Date.html#af9c3bb618689fc9db118621ed6ff6318',1,'ast::Date']]]
+  ['fromyd_30',['FromYD',['../group__Time.html#ga67093601b057e3771def993c842ce99a',1,'ast::Date']]],
+  ['fromyd_31',['fromYD',['../group__Time.html#ga2f6dfe4ff9e245c5bd46b19f9a8e075f',1,'ast::Date']]],
+  ['fromymd_32',['FromYMD',['../group__Time.html#ga5713429e169192c837cacbaa2c84d52c',1,'ast::Date']]],
+  ['fromymd_33',['fromYMD',['../group__Time.html#gaf9c3bb618689fc9db118621ed6ff6318',1,'ast::Date']]]
 ];

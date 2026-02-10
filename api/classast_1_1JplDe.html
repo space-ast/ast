@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::JplDe类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::JplDe类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -103,12 +103,9 @@ $(function(){initNavTree('classast_1_1JplDe.html',''); initResizable(true); });
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1JplDe-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::JplDe类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::JplDe类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Data.html">数据读取</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>JPL DE文件接口类  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="JplDe_8hpp_source.html">JplDe.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -139,35 +136,27 @@ Public 类型</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:aa45e7778ca7853a1fbb406b2448c38a3" id="r_aa45e7778ca7853a1fbb406b2448c38a3"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa45e7778ca7853a1fbb406b2448c38a3">open</a> (const char *filepath)</td></tr>
-<tr class="memdesc:aa45e7778ca7853a1fbb406b2448c38a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">打开JPL DE文件  <br /></td></tr>
 <tr class="separator:aa45e7778ca7853a1fbb406b2448c38a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1a13e054a6fa2a5ca81b9710d44f246" id="r_af1a13e054a6fa2a5ca81b9710d44f246"><td class="memItemLeft" align="right" valign="top"><a id="af1a13e054a6fa2a5ca81b9710d44f246" name="af1a13e054a6fa2a5ca81b9710d44f246"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>openDefault</b> ()</td></tr>
 <tr class="separator:af1a13e054a6fa2a5ca81b9710d44f246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5091d44c89924335deb184e72715723d" id="r_a5091d44c89924335deb184e72715723d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5091d44c89924335deb184e72715723d">isOpen</a> () const</td></tr>
-<tr class="memdesc:a5091d44c89924335deb184e72715723d"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查JPL DE文件是否已打开  <br /></td></tr>
 <tr class="separator:a5091d44c89924335deb184e72715723d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3195e2f276145ea57d57672b7b62d082" id="r_a3195e2f276145ea57d57672b7b62d082"><td class="memItemLeft" align="right" valign="top"><a id="a3195e2f276145ea57d57672b7b62d082" name="a3195e2f276145ea57d57672b7b62d082"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()</td></tr>
-<tr class="memdesc:a3195e2f276145ea57d57672b7b62d082"><td class="mdescLeft">&#160;</td><td class="mdescRight">关闭JPL DE文件 <br /></td></tr>
 <tr class="separator:a3195e2f276145ea57d57672b7b62d082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc9aeda56b8fb657949330a691e12d0f" id="r_acc9aeda56b8fb657949330a691e12d0f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc9aeda56b8fb657949330a691e12d0f">getPosVelICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> target, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
-<tr class="memdesc:acc9aeda56b8fb657949330a691e12d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取对应时间点的目标天体在参考天体下的位置和速度  <br /></td></tr>
 <tr class="separator:acc9aeda56b8fb657949330a691e12d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace137355104a796065e236456dacb6bd" id="r_ace137355104a796065e236456dacb6bd"><td class="memItemLeft" align="right" valign="top"><a id="ace137355104a796065e236456dacb6bd" name="ace137355104a796065e236456dacb6bd"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelICRF</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> target, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> referenceBody, Vector3d &amp;pos, Vector3d *vel)</td></tr>
 <tr class="separator:ace137355104a796065e236456dacb6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1357868f01604bcb18bc9d9997b6bb78" id="r_a1357868f01604bcb18bc9d9997b6bb78"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1357868f01604bcb18bc9d9997b6bb78">getPosICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> target, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> referenceBody, Vector3d &amp;pos)</td></tr>
-<tr class="memdesc:a1357868f01604bcb18bc9d9997b6bb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取对应时间点的目标天体在参考天体下的位置  <br /></td></tr>
 <tr class="separator:a1357868f01604bcb18bc9d9997b6bb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa661732c4473bcd5033a26c96272b90d" id="r_aa661732c4473bcd5033a26c96272b90d"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa661732c4473bcd5033a26c96272b90d">getPosICRF_TT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> jdTT, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> target, <a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> referenceBody, Vector3d &amp;pos)</td></tr>
-<tr class="memdesc:aa661732c4473bcd5033a26c96272b90d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取对应时间点的目标天体在参考天体下的位置  <br /></td></tr>
 <tr class="separator:aa661732c4473bcd5033a26c96272b90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b465f6eaffab64f90d28bb1ded102aa" id="r_a8b465f6eaffab64f90d28bb1ded102aa"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b465f6eaffab64f90d28bb1ded102aa">getNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;nutLong, double &amp;nutObl)</td></tr>
-<tr class="memdesc:a8b465f6eaffab64f90d28bb1ded102aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取对应时间点的章动角  <br /></td></tr>
 <tr class="separator:a8b465f6eaffab64f90d28bb1ded102aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac92aeeb67ec540daa23f2372cda198d8" id="r_ac92aeeb67ec540daa23f2372cda198d8"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac92aeeb67ec540daa23f2372cda198d8">getLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang, Vector3d &amp;angRate)</td></tr>
-<tr class="memdesc:ac92aeeb67ec540daa23f2372cda198d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取对应时间点的月面天平动  <br /></td></tr>
 <tr class="separator:ac92aeeb67ec540daa23f2372cda198d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -567,8 +556,8 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Data/<a class="el" href="JplDe_8hpp_source.html">JplDe.hpp</a></li>
+<li>src/AstCore/Data/Context/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
 <li>src/AstCore/Data/<a class="el" href="JplDe_8cpp.html">JplDe.cpp</a></li>
-<li>src/AstCore/RunTime/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: 插值功能</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__Interpolator.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a>  </div>
+  <div class="headertitle"><div class="title">插值功能<div class="ingroups"><a class="el" href="group__Math.html">数学模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>提供插值相关计算函数与类 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Interpolator.html">ast::Interpolator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57a9be52506d2085036239d5b56ed7b5" id="r_ga57a9be52506d2085036239d5b56ed7b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga57a9be52506d2085036239d5b56ed7b5">ast::aLagrangeInterpolate</a> (const double arrX[], const double tableY[], int n, int dimy, double x, double *y)</td></tr>
+<tr class="separator:ga57a9be52506d2085036239d5b56ed7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae23ba84b9f44beec16a6768c5fb71e3b" id="r_gae23ba84b9f44beec16a6768c5fb71e3b"><td class="memItemLeft" align="right" valign="top"><a id="gae23ba84b9f44beec16a6768c5fb71e3b" name="gae23ba84b9f44beec16a6768c5fb71e3b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aLagrangeInterpolate2</b> (const double arrX[], const double tableY[], int n, int dimy, double x, double *y)</td></tr>
+<tr class="separator:gae23ba84b9f44beec16a6768c5fb71e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa267788471ee95d2bf7e4af949601b35" id="r_gaa267788471ee95d2bf7e4af949601b35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa267788471ee95d2bf7e4af949601b35">ast::aLagrangeInterpolate</a> (const double arrX[], const double tableY[], int n, int dimy, double x, double *y, double *workArray)</td></tr>
+<tr class="separator:gaa267788471ee95d2bf7e4af949601b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72416d27fb3619fdd15706a2b8451869" id="r_ga72416d27fb3619fdd15706a2b8451869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga72416d27fb3619fdd15706a2b8451869">ast::aLagrangeInterpolateFixedStep</a> (const double arrX[], const double tableY[], int n, int dimy, double x, double *y, const double *denomArray)</td></tr>
+<tr class="separator:ga72416d27fb3619fdd15706a2b8451869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10fc0aa510281e31ca4c663494074400" id="r_ga10fc0aa510281e31ca4c663494074400"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga10fc0aa510281e31ca4c663494074400">ast::aLagrangeInterpolateDenomArray</a> (int n, double step, double *denomArray)</td></tr>
+<tr class="separator:ga10fc0aa510281e31ca4c663494074400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga57a9be52506d2085036239d5b56ed7b5" name="ga57a9be52506d2085036239d5b56ed7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57a9be52506d2085036239d5b56ed7b5">&#9670;&#160;</a></span>aLagrangeInterpolate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_MATH_API void ast::aLagrangeInterpolate </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>arrX</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>tableY</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dimy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>拉格朗日插值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arrX</td><td>插值节点 </td></tr>
+    <tr><td class="paramname">tableY</td><td>插值节点对应函数值 </td></tr>
+    <tr><td class="paramname">n</td><td>节点数 </td></tr>
+    <tr><td class="paramname">dimy</td><td>向量维度 </td></tr>
+    <tr><td class="paramname">x</td><td>输入值 </td></tr>
+    <tr><td class="paramname">y</td><td>输出向量，长度需大于等于向量维度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa267788471ee95d2bf7e4af949601b35" name="gaa267788471ee95d2bf7e4af949601b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa267788471ee95d2bf7e4af949601b35">&#9670;&#160;</a></span>aLagrangeInterpolate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_MATH_API void ast::aLagrangeInterpolate </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>arrX</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>tableY</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dimy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>workArray</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>拉格朗日插值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arrX</td><td>插值节点 </td></tr>
+    <tr><td class="paramname">tableY</td><td>插值节点对应函数值 </td></tr>
+    <tr><td class="paramname">n</td><td>节点数 </td></tr>
+    <tr><td class="paramname">dimy</td><td>向量维度 </td></tr>
+    <tr><td class="paramname">x</td><td>输入值 </td></tr>
+    <tr><td class="paramname">y</td><td>输出向量，长度需大于等于向量维度 </td></tr>
+    <tr><td class="paramname">workArray</td><td>工作数组，长度需大于等于节点数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga10fc0aa510281e31ca4c663494074400" name="ga10fc0aa510281e31ca4c663494074400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10fc0aa510281e31ca4c663494074400">&#9670;&#160;</a></span>aLagrangeInterpolateDenomArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_MATH_API void ast::aLagrangeInterpolateDenomArray </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>denomArray</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算拉格朗日插值的分母数组 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>节点数 </td></tr>
+    <tr><td class="paramname">step</td><td>等距节点间隔 </td></tr>
+    <tr><td class="paramname">denomArray</td><td>分母数组，长度需大于等于节点数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga72416d27fb3619fdd15706a2b8451869" name="ga72416d27fb3619fdd15706a2b8451869"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga72416d27fb3619fdd15706a2b8451869">&#9670;&#160;</a></span>aLagrangeInterpolateFixedStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_MATH_API void ast::aLagrangeInterpolateFixedStep </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>arrX</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>tableY</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dimy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>denomArray</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>拉格朗日插值（针对等距节点优化） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arrX</td><td>插值节点 </td></tr>
+    <tr><td class="paramname">tableY</td><td>插值节点对应函数值 </td></tr>
+    <tr><td class="paramname">n</td><td>节点数 </td></tr>
+    <tr><td class="paramname">dimy</td><td>向量维度 </td></tr>
+    <tr><td class="paramname">x</td><td>输入值 </td></tr>
+    <tr><td class="paramname">y</td><td>输出向量，长度需大于等于向量维度 </td></tr>
+    <tr><td class="paramname">denomArray</td><td>分母数组，长度需大于等于节点数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

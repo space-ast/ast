@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::ODEGeneric&lt; Func &gt; 模板类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ODEGeneric&lt; Func &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -105,9 +105,6 @@ $(function(){initNavTree('classast_1_1ODEGeneric.html',''); initResizable(true);
 </div><!--header-->
 <div class="contents">
 
-<p>泛型常微分方程  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="OrdinaryDifferentialEquation_8hpp_source.html">OrdinaryDifferentialEquation.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::ODEGeneric&lt; Func &gt; 继承关系图:</div>
@@ -127,15 +124,12 @@ Public 成员函数</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ODEGeneric</b> (Func func, int dim)</td></tr>
 <tr class="separator:aaa6a04cd906d7da1be9411d0566a10cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cc855403a0cc963631607b78201c989" id="r_a7cc855403a0cc963631607b78201c989"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cc855403a0cc963631607b78201c989">getDimension</a> () const override</td></tr>
-<tr class="memdesc:a7cc855403a0cc963631607b78201c989"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取微分方程的维度。  <br /></td></tr>
 <tr class="separator:a7cc855403a0cc963631607b78201c989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9470b908ba68fa98a4c1841ba7a95f92" id="r_a9470b908ba68fa98a4c1841ba7a95f92"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9470b908ba68fa98a4c1841ba7a95f92">evaluate</a> (const double *y, double *dy, const double t) override</td></tr>
-<tr class="memdesc:a9470b908ba68fa98a4c1841ba7a95f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算常微分方程在给定时间点和状态下的导数。  <br /></td></tr>
 <tr class="separator:a9470b908ba68fa98a4c1841ba7a95f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1OrdinaryDifferentialEquation"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1OrdinaryDifferentialEquation')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1OrdinaryDifferentialEquation.html">ast::OrdinaryDifferentialEquation</a></td></tr>
 <tr class="memitem:a4df4cbf8e5aff0ed90b59719085e4748 inherit pub_methods_classast_1_1OrdinaryDifferentialEquation" id="r_a4df4cbf8e5aff0ed90b59719085e4748"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE err_t&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> (const double t, const double *y, double *dy)</td></tr>
-<tr class="memdesc:a4df4cbf8e5aff0ed90b59719085e4748 inherit pub_methods_classast_1_1OrdinaryDifferentialEquation"><td class="mdescLeft">&#160;</td><td class="mdescRight">兼容性处理 <br /></td></tr>
 <tr class="separator:a4df4cbf8e5aff0ed90b59719085e4748 inherit pub_methods_classast_1_1OrdinaryDifferentialEquation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

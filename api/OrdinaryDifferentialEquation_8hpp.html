@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstMath/ODE/OrdinaryDifferentialEquation.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstMath/ODE/OrdinaryDifferentialEquation.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,9 +106,6 @@ $(function(){initNavTree('OrdinaryDifferentialEquation_8hpp.html',''); initResiz
   <div class="headertitle"><div class="title">OrdinaryDifferentialEquation.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>~  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 </div>
 <p><a href="OrdinaryDifferentialEquation_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -116,10 +113,8 @@ $(function(){initNavTree('OrdinaryDifferentialEquation_8hpp.html',''); initResiz
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1OrdinaryDifferentialEquation.html">ast::OrdinaryDifferentialEquation</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">常微分方程基接口  <a href="classast_1_1OrdinaryDifferentialEquation.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEGeneric.html">ast::ODEGeneric&lt; Func &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">泛型常微分方程  <a href="classast_1_1ODEGeneric.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -131,21 +126,18 @@ $(function(){initNavTree('OrdinaryDifferentialEquation_8hpp.html',''); initResiz
 类型定义</h2></td></tr>
 <tr class="memitem:a556c864e79d6a749bb7e2aae55fcac57" id="r_a556c864e79d6a749bb7e2aae55fcac57"><td class="memItemLeft" align="right" valign="top"><a id="a556c864e79d6a749bb7e2aae55fcac57" name="a556c864e79d6a749bb7e2aae55fcac57"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ODE</b> = <a class="el" href="classast_1_1OrdinaryDifferentialEquation.html">OrdinaryDifferentialEquation</a></td></tr>
-<tr class="memdesc:a556c864e79d6a749bb7e2aae55fcac57"><td class="mdescLeft">&#160;</td><td class="mdescRight">常微分方程别名 <br /></td></tr>
 <tr class="separator:a556c864e79d6a749bb7e2aae55fcac57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a0bc321a56f46458b70089851dd59ac0b" id="r_a0bc321a56f46458b70089851dd59ac0b"><td class="memTemplParams" colspan="2"><a id="a0bc321a56f46458b70089851dd59ac0b" name="a0bc321a56f46458b70089851dd59ac0b"></a>
+<tr class="memitem:ga0bc321a56f46458b70089851dd59ac0b" id="r_ga0bc321a56f46458b70089851dd59ac0b"><td class="memTemplParams" colspan="2">
 template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:a0bc321a56f46458b70089851dd59ac0b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEGeneric.html">ODEGeneric</a>&lt; Func &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::make_ode</b> (Func func, int dim)</td></tr>
-<tr class="memdesc:a0bc321a56f46458b70089851dd59ac0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建一个常微分方程 <br /></td></tr>
-<tr class="separator:a0bc321a56f46458b70089851dd59ac0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dce10de9c6d8a3de8387bc13a10703c" id="r_a7dce10de9c6d8a3de8387bc13a10703c"><td class="memTemplParams" colspan="2"><a id="a7dce10de9c6d8a3de8387bc13a10703c" name="a7dce10de9c6d8a3de8387bc13a10703c"></a>
+<tr class="memitem:ga0bc321a56f46458b70089851dd59ac0b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEGeneric.html">ODEGeneric</a>&lt; Func &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::make_ode</b> (Func func, int dim)</td></tr>
+<tr class="separator:ga0bc321a56f46458b70089851dd59ac0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7dce10de9c6d8a3de8387bc13a10703c" id="r_ga7dce10de9c6d8a3de8387bc13a10703c"><td class="memTemplParams" colspan="2">
 template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:a7dce10de9c6d8a3de8387bc13a10703c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEGeneric.html">ODEGeneric</a>&lt; Func &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::make_ode</b> (int dim, Func func)</td></tr>
-<tr class="memdesc:a7dce10de9c6d8a3de8387bc13a10703c"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建一个常微分方程 <br /></td></tr>
-<tr class="separator:a7dce10de9c6d8a3de8387bc13a10703c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7dce10de9c6d8a3de8387bc13a10703c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEGeneric.html">ODEGeneric</a>&lt; Func &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::make_ode</b> (int dim, Func func)</td></tr>
+<tr class="separator:ga7dce10de9c6d8a3de8387bc13a10703c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>

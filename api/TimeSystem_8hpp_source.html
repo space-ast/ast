@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstCore/Time/TimeSystem.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Time/TimeSystem.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -112,172 +112,174 @@ $(function(){initNavTree('TimeSystem_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span>JulianDate;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>DateTime;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespaceast.html#aa6bf9ef3b76fdb0610cfb64300306039">   38</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#aa6bf9ef3b76fdb0610cfb64300306039">aTAIToTT</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTT)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    tmTT = <a class="code hl_function" href="namespaceast.html#aa6bf9ef3b76fdb0610cfb64300306039">aTAIToTT</a>(tmTAI);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>JulianDate;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>DateTime;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="group__Time.html#gaa6bf9ef3b76fdb0610cfb64300306039">   45</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaa6bf9ef3b76fdb0610cfb64300306039">aTAIToTT</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTT)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    tmTT = <a class="code hl_function" href="group__Time.html#gaa6bf9ef3b76fdb0610cfb64300306039">aTAIToTT</a>(tmTAI);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>A_ALWAYS_INLINE Time aTAIToTT(<span class="keyword">const</span> Time&amp; tmTAI)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> tmTAI + kTTMinusTAI;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespaceast.html#ab3ceebedb7ef5971f124fe9fdf9811ae">   53</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#ab3ceebedb7ef5971f124fe9fdf9811ae">aTTToTAI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTT, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    tmTAI = <a class="code hl_function" href="namespaceast.html#ab3ceebedb7ef5971f124fe9fdf9811ae">aTTToTAI</a>(tmTT);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>A_ALWAYS_INLINE Time aTAIToTT(<span class="keyword">const</span> Time&amp; tmTAI)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> tmTAI + kTTMinusTAI;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="group__Time.html#gab3ceebedb7ef5971f124fe9fdf9811ae">   60</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gab3ceebedb7ef5971f124fe9fdf9811ae">aTTToTAI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTT, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    tmTAI = <a class="code hl_function" href="group__Time.html#gab3ceebedb7ef5971f124fe9fdf9811ae">aTTToTAI</a>(tmTT);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>A_ALWAYS_INLINE Time aTTToTAI(<span class="keyword">const</span> Time&amp; tmTT)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> tmTT - kTTMinusTAI;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespaceast.html#a55303afacccf12da01ac94d4bae07903">   67</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a55303afacccf12da01ac94d4bae07903">aTAIToGPS</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmGPS)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    tmGPS = tmTAI + <a class="code hl_variable" href="namespaceast.html#a5084fe0fbe637100fa5eae1906113454">kGPSMinusTAI</a>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>A_ALWAYS_INLINE Time aTTToTAI(<span class="keyword">const</span> Time&amp; tmTT)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> tmTT - kTTMinusTAI;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="group__Time.html#ga55303afacccf12da01ac94d4bae07903">   74</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#ga55303afacccf12da01ac94d4bae07903">aTAIToGPS</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmGPS)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    tmGPS = tmTAI + <a class="code hl_variable" href="group__Util.html#ga5084fe0fbe637100fa5eae1906113454">kGPSMinusTAI</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>A_ALWAYS_INLINE Time aTAIToGPS(<span class="keyword">const</span> Time&amp; tmTAI)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> tmTAI + kGPSMinusTAI;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="namespaceast.html#a2a30b67ffa7dadc252eb8a9359cb8006">   81</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a2a30b67ffa7dadc252eb8a9359cb8006">aGPSToTAI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmGPS, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>{</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    tmTAI = tmGPS - <a class="code hl_variable" href="namespaceast.html#a5084fe0fbe637100fa5eae1906113454">kGPSMinusTAI</a>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>A_ALWAYS_INLINE Time aTAIToGPS(<span class="keyword">const</span> Time&amp; tmTAI)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">return</span> tmTAI + kGPSMinusTAI;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="group__Time.html#ga2a30b67ffa7dadc252eb8a9359cb8006">   88</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#ga2a30b67ffa7dadc252eb8a9359cb8006">aGPSToTAI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmGPS, <a class="code hl_class" href="classast_1_1Time.html">Time</a>&amp; tmTAI)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    tmTAI = tmGPS - <a class="code hl_variable" href="group__Util.html#ga5084fe0fbe637100fa5eae1906113454">kGPSMinusTAI</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>A_ALWAYS_INLINE Time aGPSToTAI(<span class="keyword">const</span> Time&amp; tmGPS)</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>{</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">return</span> tmGPS - kGPSMinusTAI;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTAI, JulianDate&amp; jdUTC);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTAI, DateTime&amp; dttmUTC);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTAI)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    JulianDate jdUTC;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_function" href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(jdTAI, jdUTC);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">return</span> jdUTC;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTAI)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    DateTime dttmUTC;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(dttmTAI, dttmUTC);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">return</span> dttmUTC;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC, JulianDate&amp; jdTAI);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC, DateTime&amp; dttmTAI);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Time&gt;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>A_ALWAYS_INLINE Time aGPSToTAI(<span class="keyword">const</span> Time&amp; tmGPS)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> tmGPS - kGPSMinusTAI;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTAI, JulianDate&amp; jdUTC);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTAI, DateTime&amp; dttmUTC);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTAI)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    JulianDate jdUTC;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_function" href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(jdTAI, jdUTC);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">return</span> jdUTC;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTAI)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    DateTime dttmUTC;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_function" href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">aTAIToUTC</a>(dttmTAI, dttmUTC);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">return</span> dttmUTC;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC)</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    JulianDate jdTAI;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_function" href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(jdUTC, jdTAI);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">return</span> jdTAI;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC)</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>{</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    DateTime dttmTAI;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_function" href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(dttmUTC, dttmTAI);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">return</span> dttmTAI;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC, JulianDate&amp; jdTT);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC, DateTime&amp; dttmTT);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC)</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    JulianDate jdTT;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_function" href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(jdUTC, jdTT);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">return</span> jdTT;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    DateTime dttmTT;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_function" href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(dttmUTC, dttmTT);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordflow">return</span> dttmTT;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>}</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#af2ffe16f531e5551d0c3e3d174a3d97d">aUTCToUT1</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC, JulianDate&amp; jdUT1);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#af2ffe16f531e5551d0c3e3d174a3d97d">aUTCToUT1</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC, DateTime&amp; dttmUT1);</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTT, JulianDate&amp; jdUTC);</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTT, DateTime&amp; dttmUTC);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTT)</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>{</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    JulianDate jdUTC;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_function" href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(jdTT, jdUTC);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">return</span> jdUTC;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTT)</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>{</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    DateTime dttmUTC;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_function" href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(dttmTT, dttmUTC);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordflow">return</span> dttmUTC;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>}</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> JulianDate&amp; jdTT, JulianDate&amp; jdTDB);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> DateTime&amp; dttmTT, DateTime&amp; dttmTDB);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> JulianDate&amp; jdTT)</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>{</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    JulianDate jdTDB;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <a class="code hl_function" href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(jdTT, jdTDB);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">return</span> jdTDB;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>}</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> DateTime&amp; dttmTT)</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>{</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    DateTime dttmTDB;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_function" href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(dttmTT, dttmTDB);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">return</span> dttmTDB;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#ab4397fac34d74477cfa5c0807e7c07ed">aTDBMinusTT</a>(<span class="keyword">const</span> JulianDate&amp; jdTT);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC, JulianDate&amp; jdTAI);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC, DateTime&amp; dttmTAI);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>{</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    JulianDate jdTAI;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(jdUTC, jdTAI);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> jdTAI;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>{</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    DateTime dttmTAI;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_function" href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">aUTCToTAI</a>(dttmUTC, dttmTAI);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">return</span> dttmTAI;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC, JulianDate&amp; jdTT);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC, DateTime&amp; dttmTT);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>{</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    JulianDate jdTT;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_function" href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(jdUTC, jdTT);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">return</span> jdTT;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    DateTime dttmTT;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_function" href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">aUTCToTT</a>(dttmUTC, dttmTT);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">return</span> dttmTT;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>}</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaf2ffe16f531e5551d0c3e3d174a3d97d">aUTCToUT1</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC, JulianDate&amp; jdUT1);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gaf2ffe16f531e5551d0c3e3d174a3d97d">aUTCToUT1</a>(<span class="keyword">const</span> DateTime&amp; dttmUTC, DateTime&amp; dttmUT1);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTT, JulianDate&amp; jdUTC);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTT, DateTime&amp; dttmUTC);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> JulianDate&amp; jdTT)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    JulianDate jdUTC;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_function" href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(jdTT, jdUTC);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">return</span> jdUTC;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>}</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(<span class="keyword">const</span> DateTime&amp; dttmTT)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>{</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    DateTime dttmUTC;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <a class="code hl_function" href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">aTTToUTC</a>(dttmTT, dttmUTC);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> dttmUTC;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> JulianDate&amp; jdTT, JulianDate&amp; jdTDB);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> DateTime&amp; dttmTT, DateTime&amp; dttmTDB);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>A_ALWAYS_INLINE JulianDate <a class="code hl_function" href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> JulianDate&amp; jdTT)</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>{</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    JulianDate jdTDB;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_function" href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(jdTT, jdTDB);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">return</span> jdTDB;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>A_ALWAYS_INLINE DateTime <a class="code hl_function" href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(<span class="keyword">const</span> DateTime&amp; dttmTT)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    DateTime dttmTDB;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <a class="code hl_function" href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">aTTToTDB</a>(dttmTT, dttmTDB);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> dttmTDB;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a3889f3687fe79a83c571bbd951c58f2e">aJulianCenturyFromJ2000</a>(<span class="keyword">const</span> JulianDate&amp; jd);</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="group__Time.html#gab4397fac34d74477cfa5c0807e7c07ed">aTDBMinusTT</a>(<span class="keyword">const</span> JulianDate&amp; jdTT);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="ttc" id="aclassast_1_1Time_html"><div class="ttname"><a href="classast_1_1Time.html">ast::Time</a></div><div class="ttdoc">时间</div><div class="ttdef"><b>定义</b> Time.hpp:45</div></div>
-<div class="ttc" id="anamespaceast_html_a1bc96d9158bdcbabecbba670dceeced3"><div class="ttname"><a href="namespaceast.html#a1bc96d9158bdcbabecbba670dceeced3">ast::aTAIToUTC</a></div><div class="ttdeci">void aTAIToUTC(const JulianDate &amp;jdTAI, JulianDate &amp;jdUTC)</div><div class="ttdoc">从原子时(TAI) 转换为 协调世界时(UTC)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:39</div></div>
-<div class="ttc" id="anamespaceast_html_a2a30b67ffa7dadc252eb8a9359cb8006"><div class="ttname"><a href="namespaceast.html#a2a30b67ffa7dadc252eb8a9359cb8006">ast::aGPSToTAI</a></div><div class="ttdeci">A_ALWAYS_INLINE void aGPSToTAI(const Time &amp;tmGPS, Time &amp;tmTAI)</div><div class="ttdoc">从GPS时 转换为 原子时(TAI)</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:81</div></div>
-<div class="ttc" id="anamespaceast_html_a3889f3687fe79a83c571bbd951c58f2e"><div class="ttname"><a href="namespaceast.html#a3889f3687fe79a83c571bbd951c58f2e">ast::aJulianCenturyFromJ2000</a></div><div class="ttdeci">double aJulianCenturyFromJ2000(const JulianDate &amp;jd)</div><div class="ttdoc">计算儒略世纪数，以 J2000.0 为基准</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:29</div></div>
-<div class="ttc" id="anamespaceast_html_a5084fe0fbe637100fa5eae1906113454"><div class="ttname"><a href="namespaceast.html#a5084fe0fbe637100fa5eae1906113454">ast::kGPSMinusTAI</a></div><div class="ttdeci">constexpr double kGPSMinusTAI</div><div class="ttdoc">GPS 时间相对原子时的偏置[s]</div><div class="ttdef"><b>定义</b> Constants.h:34</div></div>
-<div class="ttc" id="anamespaceast_html_a55303afacccf12da01ac94d4bae07903"><div class="ttname"><a href="namespaceast.html#a55303afacccf12da01ac94d4bae07903">ast::aTAIToGPS</a></div><div class="ttdeci">A_ALWAYS_INLINE void aTAIToGPS(const Time &amp;tmTAI, Time &amp;tmGPS)</div><div class="ttdoc">从原子时(TAI) 转换为 GPS时</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:67</div></div>
-<div class="ttc" id="anamespaceast_html_a98088e571167c6a650c6f6964e97d801"><div class="ttname"><a href="namespaceast.html#a98088e571167c6a650c6f6964e97d801">ast::aTTToUTC</a></div><div class="ttdeci">void aTTToUTC(const JulianDate &amp;jdTT, JulianDate &amp;jdUTC)</div><div class="ttdoc">从地球时(TT) 转换为 协调世界时(UTC)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:89</div></div>
-<div class="ttc" id="anamespaceast_html_aa012e9e94ac44c98735e064693c98eec"><div class="ttname"><a href="namespaceast.html#aa012e9e94ac44c98735e064693c98eec">ast::aUTCToTAI</a></div><div class="ttdeci">void aUTCToTAI(const JulianDate &amp;jdUTC, JulianDate &amp;jdTAI)</div><div class="ttdoc">从协调世界时(UTC) 转换为 原子时(TAI)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:55</div></div>
-<div class="ttc" id="anamespaceast_html_aa6bf9ef3b76fdb0610cfb64300306039"><div class="ttname"><a href="namespaceast.html#aa6bf9ef3b76fdb0610cfb64300306039">ast::aTAIToTT</a></div><div class="ttdeci">A_ALWAYS_INLINE void aTAIToTT(const Time &amp;tmTAI, Time &amp;tmTT)</div><div class="ttdoc">从原子时(TAI) 转换为 地球时(TT)</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:38</div></div>
-<div class="ttc" id="anamespaceast_html_ab3ceebedb7ef5971f124fe9fdf9811ae"><div class="ttname"><a href="namespaceast.html#ab3ceebedb7ef5971f124fe9fdf9811ae">ast::aTTToTAI</a></div><div class="ttdeci">A_ALWAYS_INLINE void aTTToTAI(const Time &amp;tmTT, Time &amp;tmTAI)</div><div class="ttdoc">从地球时(TT) 转换为 原子时(TAI)</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:53</div></div>
-<div class="ttc" id="anamespaceast_html_ab4397fac34d74477cfa5c0807e7c07ed"><div class="ttname"><a href="namespaceast.html#ab4397fac34d74477cfa5c0807e7c07ed">ast::aTDBMinusTT</a></div><div class="ttdeci">double aTDBMinusTT(const JulianDate &amp;jdTT)</div><div class="ttdoc">计算 质心动力学时(TDB) 时间与 地球时(TT) 时间的差值</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:116</div></div>
-<div class="ttc" id="anamespaceast_html_acc7ba905b0072e09b8b6c599491d1850"><div class="ttname"><a href="namespaceast.html#acc7ba905b0072e09b8b6c599491d1850">ast::aTTToTDB</a></div><div class="ttdeci">void aTTToTDB(const JulianDate &amp;jdTT, JulianDate &amp;jdTDB)</div><div class="ttdoc">从地球时(TT) 转换为质心动力学时(TDB)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:102</div></div>
-<div class="ttc" id="anamespaceast_html_af212737f7d12b94d383c4e48796a6f33"><div class="ttname"><a href="namespaceast.html#af212737f7d12b94d383c4e48796a6f33">ast::aUTCToTT</a></div><div class="ttdeci">void aUTCToTT(const JulianDate &amp;jdUTC, JulianDate &amp;jdTT)</div><div class="ttdoc">从协调世界时(UTC) 转换为 地球时(TT)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:71</div></div>
-<div class="ttc" id="anamespaceast_html_af2ffe16f531e5551d0c3e3d174a3d97d"><div class="ttname"><a href="namespaceast.html#af2ffe16f531e5551d0c3e3d174a3d97d">ast::aUTCToUT1</a></div><div class="ttdeci">void aUTCToUT1(const JulianDate &amp;jdUTC, JulianDate &amp;jdUT1)</div><div class="ttdoc">从协调世界时(UTC) 转换为 世界时(UT1)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:83</div></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="group__Time.html#ga3889f3687fe79a83c571bbd951c58f2e">aJulianCenturyFromJ2000</a>(<span class="keyword">const</span> JulianDate&amp; jd);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="ttc" id="aclassast_1_1Time_html"><div class="ttname"><a href="classast_1_1Time.html">ast::Time</a></div><div class="ttdoc">时间</div><div class="ttdef"><b>定义</b> Time.hpp:53</div></div>
+<div class="ttc" id="agroup__Time_html_ga1bc96d9158bdcbabecbba670dceeced3"><div class="ttname"><a href="group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3">ast::aTAIToUTC</a></div><div class="ttdeci">void aTAIToUTC(const JulianDate &amp;jdTAI, JulianDate &amp;jdUTC)</div><div class="ttdoc">从原子时(TAI) 转换为 协调世界时(UTC)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:39</div></div>
+<div class="ttc" id="agroup__Time_html_ga2a30b67ffa7dadc252eb8a9359cb8006"><div class="ttname"><a href="group__Time.html#ga2a30b67ffa7dadc252eb8a9359cb8006">ast::aGPSToTAI</a></div><div class="ttdeci">A_ALWAYS_INLINE void aGPSToTAI(const Time &amp;tmGPS, Time &amp;tmTAI)</div><div class="ttdoc">从GPS时 转换为 原子时(TAI)</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:88</div></div>
+<div class="ttc" id="agroup__Time_html_ga3889f3687fe79a83c571bbd951c58f2e"><div class="ttname"><a href="group__Time.html#ga3889f3687fe79a83c571bbd951c58f2e">ast::aJulianCenturyFromJ2000</a></div><div class="ttdeci">double aJulianCenturyFromJ2000(const JulianDate &amp;jd)</div><div class="ttdoc">计算儒略世纪数，以 J2000.0 为基准</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:29</div></div>
+<div class="ttc" id="agroup__Time_html_ga55303afacccf12da01ac94d4bae07903"><div class="ttname"><a href="group__Time.html#ga55303afacccf12da01ac94d4bae07903">ast::aTAIToGPS</a></div><div class="ttdeci">A_ALWAYS_INLINE void aTAIToGPS(const Time &amp;tmTAI, Time &amp;tmGPS)</div><div class="ttdoc">从原子时(TAI) 转换为 GPS时</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:74</div></div>
+<div class="ttc" id="agroup__Time_html_ga98088e571167c6a650c6f6964e97d801"><div class="ttname"><a href="group__Time.html#ga98088e571167c6a650c6f6964e97d801">ast::aTTToUTC</a></div><div class="ttdeci">void aTTToUTC(const JulianDate &amp;jdTT, JulianDate &amp;jdUTC)</div><div class="ttdoc">从地球时(TT) 转换为 协调世界时(UTC)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:89</div></div>
+<div class="ttc" id="agroup__Time_html_gaa012e9e94ac44c98735e064693c98eec"><div class="ttname"><a href="group__Time.html#gaa012e9e94ac44c98735e064693c98eec">ast::aUTCToTAI</a></div><div class="ttdeci">void aUTCToTAI(const JulianDate &amp;jdUTC, JulianDate &amp;jdTAI)</div><div class="ttdoc">从协调世界时(UTC) 转换为 原子时(TAI)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:55</div></div>
+<div class="ttc" id="agroup__Time_html_gaa6bf9ef3b76fdb0610cfb64300306039"><div class="ttname"><a href="group__Time.html#gaa6bf9ef3b76fdb0610cfb64300306039">ast::aTAIToTT</a></div><div class="ttdeci">A_ALWAYS_INLINE void aTAIToTT(const Time &amp;tmTAI, Time &amp;tmTT)</div><div class="ttdoc">从原子时(TAI) 转换为 地球时(TT)</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:45</div></div>
+<div class="ttc" id="agroup__Time_html_gab3ceebedb7ef5971f124fe9fdf9811ae"><div class="ttname"><a href="group__Time.html#gab3ceebedb7ef5971f124fe9fdf9811ae">ast::aTTToTAI</a></div><div class="ttdeci">A_ALWAYS_INLINE void aTTToTAI(const Time &amp;tmTT, Time &amp;tmTAI)</div><div class="ttdoc">从地球时(TT) 转换为 原子时(TAI)</div><div class="ttdef"><b>定义</b> TimeSystem.hpp:60</div></div>
+<div class="ttc" id="agroup__Time_html_gab4397fac34d74477cfa5c0807e7c07ed"><div class="ttname"><a href="group__Time.html#gab4397fac34d74477cfa5c0807e7c07ed">ast::aTDBMinusTT</a></div><div class="ttdeci">double aTDBMinusTT(const JulianDate &amp;jdTT)</div><div class="ttdoc">计算 质心动力学时(TDB) 时间与 地球时(TT) 时间的差值</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:116</div></div>
+<div class="ttc" id="agroup__Time_html_gacc7ba905b0072e09b8b6c599491d1850"><div class="ttname"><a href="group__Time.html#gacc7ba905b0072e09b8b6c599491d1850">ast::aTTToTDB</a></div><div class="ttdeci">void aTTToTDB(const JulianDate &amp;jdTT, JulianDate &amp;jdTDB)</div><div class="ttdoc">从地球时(TT) 转换为质心动力学时(TDB)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:102</div></div>
+<div class="ttc" id="agroup__Time_html_gaf212737f7d12b94d383c4e48796a6f33"><div class="ttname"><a href="group__Time.html#gaf212737f7d12b94d383c4e48796a6f33">ast::aUTCToTT</a></div><div class="ttdeci">void aUTCToTT(const JulianDate &amp;jdUTC, JulianDate &amp;jdTT)</div><div class="ttdoc">从协调世界时(UTC) 转换为 地球时(TT)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:71</div></div>
+<div class="ttc" id="agroup__Time_html_gaf2ffe16f531e5551d0c3e3d174a3d97d"><div class="ttname"><a href="group__Time.html#gaf2ffe16f531e5551d0c3e3d174a3d97d">ast::aUTCToUT1</a></div><div class="ttdeci">void aUTCToUT1(const JulianDate &amp;jdUTC, JulianDate &amp;jdUT1)</div><div class="ttdoc">从协调世界时(UTC) 转换为 世界时(UT1)</div><div class="ttdef"><b>定义</b> TimeSystem.cpp:83</div></div>
+<div class="ttc" id="agroup__Util_html_ga5084fe0fbe637100fa5eae1906113454"><div class="ttname"><a href="group__Util.html#ga5084fe0fbe637100fa5eae1906113454">ast::kGPSMinusTAI</a></div><div class="ttdeci">constexpr double kGPSMinusTAI</div><div class="ttdoc">GPS 时间相对原子时的偏置[s]</div><div class="ttdef"><b>定义</b> Constants.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

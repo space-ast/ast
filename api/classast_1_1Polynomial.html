@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::Polynomial类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::Polynomial类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -102,12 +102,9 @@ $(function(){initNavTree('classast_1_1Polynomial.html',''); initResizable(true);
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1Polynomial-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::Polynomial类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::Polynomial类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>多项式类  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Polynomial_8hpp_source.html">Polynomial.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -120,13 +117,10 @@ Public 成员函数</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Polynomial</b> (const std::vector&lt; double &gt; &amp;coeff)</td></tr>
 <tr class="separator:adc7b4c569906aec5e4403e07e67a9d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c6b2814b7b8fc3f956720c4433a9ac1" id="r_a7c6b2814b7b8fc3f956720c4433a9ac1"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c6b2814b7b8fc3f956720c4433a9ac1">parse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> content, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> varname)</td></tr>
-<tr class="memdesc:a7c6b2814b7b8fc3f956720c4433a9ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析多项式表达式  <br /></td></tr>
 <tr class="separator:a7c6b2814b7b8fc3f956720c4433a9ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09f281d55ea1c0e57cbc026cdbfe3451" id="r_a09f281d55ea1c0e57cbc026cdbfe3451"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09f281d55ea1c0e57cbc026cdbfe3451">parse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> content)</td></tr>
-<tr class="memdesc:a09f281d55ea1c0e57cbc026cdbfe3451"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析多项式表达式（默认变量名 "x"）  <br /></td></tr>
 <tr class="separator:a09f281d55ea1c0e57cbc026cdbfe3451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15d601a475b507decfe5f784509dd1b4" id="r_a15d601a475b507decfe5f784509dd1b4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15d601a475b507decfe5f784509dd1b4">toString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> varname)</td></tr>
-<tr class="memdesc:a15d601a475b507decfe5f784509dd1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">将多项式表达式转换为字符串  <br /></td></tr>
 <tr class="separator:a15d601a475b507decfe5f784509dd1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd9bc5dded62b4a95ae90df5c86b5af5" id="r_afd9bc5dded62b4a95ae90df5c86b5af5"><td class="memItemLeft" align="right" valign="top"><a id="afd9bc5dded62b4a95ae90df5c86b5af5" name="afd9bc5dded62b4a95ae90df5c86b5af5"></a>
 const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>coeffs</b> () const</td></tr>
@@ -140,9 +134,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setCoeffs</b> (const 
 <tr class="memitem:a90d3611539bed2d31cc225110eff7ff4" id="r_a90d3611539bed2d31cc225110eff7ff4"><td class="memItemLeft" align="right" valign="top"><a id="a90d3611539bed2d31cc225110eff7ff4" name="a90d3611539bed2d31cc225110eff7ff4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setCoeffs</b> (std::vector&lt; double &gt; &amp;&amp;coeffs)</td></tr>
 <tr class="separator:a90d3611539bed2d31cc225110eff7ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad67fee67dde91d39aea8e0b9ebacbee" id="r_aad67fee67dde91d39aea8e0b9ebacbee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad67fee67dde91d39aea8e0b9ebacbee">eval</a> (double x) const</td></tr>
-<tr class="memdesc:aad67fee67dde91d39aea8e0b9ebacbee"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算多项式在给定值x处的函数值  <br /></td></tr>
-<tr class="separator:aad67fee67dde91d39aea8e0b9ebacbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad67fee67dde91d39aea8e0b9ebacbee" id="r_gaad67fee67dde91d39aea8e0b9ebacbee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaad67fee67dde91d39aea8e0b9ebacbee">eval</a> (double x) const</td></tr>
+<tr class="separator:gaad67fee67dde91d39aea8e0b9ebacbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
@@ -153,40 +146,6 @@ std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>多项式类 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="aad67fee67dde91d39aea8e0b9ebacbee" name="aad67fee67dde91d39aea8e0b9ebacbee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad67fee67dde91d39aea8e0b9ebacbee">&#9670;&#160;</a></span>eval()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double ast::Polynomial::eval </td>
-          <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>计算多项式在给定值x处的函数值 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>给定值 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>函数值 </dd></dl>
-
-</div>
-</div>
 <a id="a09f281d55ea1c0e57cbc026cdbfe3451" name="a09f281d55ea1c0e57cbc026cdbfe3451"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09f281d55ea1c0e57cbc026cdbfe3451">&#9670;&#160;</a></span>parse() <span class="overload">[1/2]</span></h2>
 

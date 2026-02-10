@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::ODEFixedStepIntegrator::Workspace类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ODEFixedStepIntegrator::Workspace类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,9 +106,6 @@ $(function(){initNavTree('classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',
 </div><!--header-->
 <div class="contents">
 
-<p>固定步长积分器工作空间  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="ODEFixedStepIntegrator_8hpp_source.html">ODEFixedStepIntegrator.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::ODEFixedStepIntegrator::Workspace 继承关系图:</div>
@@ -135,39 +132,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
 Public 属性</h2></td></tr>
 <tr class="memitem:a4b5b537ccfa14dcbe7bc9df3a35f45ab" id="r_a4b5b537ccfa14dcbe7bc9df3a35f45ab"><td class="memItemLeft" align="right" valign="top"><a id="a4b5b537ccfa14dcbe7bc9df3a35f45ab" name="a4b5b537ccfa14dcbe7bc9df3a35f45ab"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>numSteps_</b></td></tr>
-<tr class="memdesc:a4b5b537ccfa14dcbe7bc9df3a35f45ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">总步数(统计数据) <br /></td></tr>
 <tr class="separator:a4b5b537ccfa14dcbe7bc9df3a35f45ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e0505f4f6e0ceb4eb49ba510f61b69c" id="r_a4e0505f4f6e0ceb4eb49ba510f61b69c"><td class="memItemLeft" align="right" valign="top"><a id="a4e0505f4f6e0ceb4eb49ba510f61b69c" name="a4e0505f4f6e0ceb4eb49ba510f61b69c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>dimension_</b></td></tr>
-<tr class="memdesc:a4e0505f4f6e0ceb4eb49ba510f61b69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">状态向量维度 <br /></td></tr>
 <tr class="separator:a4e0505f4f6e0ceb4eb49ba510f61b69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fc1a9b1de3d72769a53f21e2eda0bac" id="r_a5fc1a9b1de3d72769a53f21e2eda0bac"><td class="memItemLeft" align="right" valign="top"><a id="a5fc1a9b1de3d72769a53f21e2eda0bac" name="a5fc1a9b1de3d72769a53f21e2eda0bac"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>stage_</b></td></tr>
-<tr class="memdesc:a5fc1a9b1de3d72769a53f21e2eda0bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">多步法阶数 <br /></td></tr>
 <tr class="separator:a5fc1a9b1de3d72769a53f21e2eda0bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeb0db05e681016fcfeb1735aabbbdb4" id="r_afeb0db05e681016fcfeb1735aabbbdb4"><td class="memItemLeft" align="right" valign="top"><a id="afeb0db05e681016fcfeb1735aabbbdb4" name="afeb0db05e681016fcfeb1735aabbbdb4"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>largestStepSize_</b></td></tr>
-<tr class="memdesc:afeb0db05e681016fcfeb1735aabbbdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">最大步长(统计数据) <br /></td></tr>
 <tr class="separator:afeb0db05e681016fcfeb1735aabbbdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af15a2ff36fcdceb4f80decd3d4f91092" id="r_af15a2ff36fcdceb4f80decd3d4f91092"><td class="memItemLeft" align="right" valign="top"><a id="af15a2ff36fcdceb4f80decd3d4f91092" name="af15a2ff36fcdceb4f80decd3d4f91092"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>smallestStepSize_</b></td></tr>
-<tr class="memdesc:af15a2ff36fcdceb4f80decd3d4f91092"><td class="mdescLeft">&#160;</td><td class="mdescRight">最小步长(统计数据) <br /></td></tr>
 <tr class="separator:af15a2ff36fcdceb4f80decd3d4f91092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a2850e409bb5d43d3a0c508b1fff88" id="r_a88a2850e409bb5d43d3a0c508b1fff88"><td class="memItemLeft" align="right" valign="top"><a id="a88a2850e409bb5d43d3a0c508b1fff88" name="a88a2850e409bb5d43d3a0c508b1fff88"></a>
 double **&#160;</td><td class="memItemRight" valign="bottom"><b>KArr_</b></td></tr>
-<tr class="memdesc:a88a2850e409bb5d43d3a0c508b1fff88"><td class="mdescLeft">&#160;</td><td class="mdescRight">多步法中间结果数组 <br /></td></tr>
 <tr class="separator:a88a2850e409bb5d43d3a0c508b1fff88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ddaeb28ccfe1f53df258a12d7131145" id="r_a8ddaeb28ccfe1f53df258a12d7131145"><td class="memItemLeft" align="right" valign="top"><a id="a8ddaeb28ccfe1f53df258a12d7131145" name="a8ddaeb28ccfe1f53df258a12d7131145"></a>
 double *&#160;</td><td class="memItemRight" valign="bottom"><b>absErrPerLen_</b></td></tr>
-<tr class="memdesc:a8ddaeb28ccfe1f53df258a12d7131145"><td class="mdescLeft">&#160;</td><td class="mdescRight">每步绝对误差数组 <br /></td></tr>
 <tr class="separator:a8ddaeb28ccfe1f53df258a12d7131145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63993f62fab51cced6218361cc2d6ee6" id="r_a63993f62fab51cced6218361cc2d6ee6"><td class="memItemLeft" align="right" valign="top"><a id="a63993f62fab51cced6218361cc2d6ee6" name="a63993f62fab51cced6218361cc2d6ee6"></a>
 double *&#160;</td><td class="memItemRight" valign="bottom"><b>ymid_</b></td></tr>
-<tr class="memdesc:a63993f62fab51cced6218361cc2d6ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">每步中点状态向量 <br /></td></tr>
 <tr class="separator:a63993f62fab51cced6218361cc2d6ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a821649d0d8e0463389be847381a4cedf" id="r_a821649d0d8e0463389be847381a4cedf"><td class="memItemLeft" align="right" valign="top"><a id="a821649d0d8e0463389be847381a4cedf" name="a821649d0d8e0463389be847381a4cedf"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>nextAbsStepSize_</b></td></tr>
-<tr class="memdesc:a821649d0d8e0463389be847381a4cedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">下一步绝对步长，用于步长自适应调整 <br /></td></tr>
 <tr class="separator:a821649d0d8e0463389be847381a4cedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

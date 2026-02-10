@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::IAUXYS类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::IAUXYS类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -106,44 +106,33 @@ $(function(){initNavTree('classast_1_1IAUXYS.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>IERS 2003/2010 岁差章动模型XYS系数 参考 IAU 2000决议中的新岁差-章动模型  
- <a href="#details">更多...</a></p>
-
 <p><code>#include &lt;<a class="el" href="IAUXYS_8hpp_source.html">IAUXYS.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a57168ce4e0d792fdee01c7a30add4b01" id="r_a57168ce4e0d792fdee01c7a30add4b01"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57168ce4e0d792fdee01c7a30add4b01">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> xSeriesPath, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ySeriesPath, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> spxy2SeriesPath)</td></tr>
-<tr class="memdesc:a57168ce4e0d792fdee01c7a30add4b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载岁差章动模型XYS系数文件  <br /></td></tr>
 <tr class="separator:a57168ce4e0d792fdee01c7a30add4b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d5daec489f976f9348c4476d88c2345" id="r_a7d5daec489f976f9348c4476d88c2345"><td class="memItemLeft" align="right" valign="top"><a id="a7d5daec489f976f9348c4476d88c2345" name="a7d5daec489f976f9348c4476d88c2345"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadDefault</b> ()</td></tr>
-<tr class="memdesc:a7d5daec489f976f9348c4476d88c2345"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载默认岁差章动模型XYS系数文件 <br /></td></tr>
 <tr class="separator:a7d5daec489f976f9348c4476d88c2345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8968940bf3aff55b9af078b94a5c72b" id="r_aa8968940bf3aff55b9af078b94a5c72b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8968940bf3aff55b9af078b94a5c72b">eval</a> (double t, const <a class="el" href="classast_1_1FundamentalArguments.html">FundamentalArguments</a> &amp;fundargs, array3d &amp;xys) const</td></tr>
-<tr class="memdesc:aa8968940bf3aff55b9af078b94a5c72b"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算岁差章动模型XYS系数  <br /></td></tr>
 <tr class="separator:aa8968940bf3aff55b9af078b94a5c72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b949fb47ac94ed843137acec7efb837" id="r_a3b949fb47ac94ed843137acec7efb837"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b949fb47ac94ed843137acec7efb837">isLoaded</a> () const</td></tr>
-<tr class="memdesc:a3b949fb47ac94ed843137acec7efb837"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查是否加载了系数表  <br /></td></tr>
 <tr class="separator:a3b949fb47ac94ed843137acec7efb837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:aa50b9b377ae50b27f02ec6904f6d877d" id="r_aa50b9b377ae50b27f02ec6904f6d877d"><td class="memItemLeft" align="right" valign="top"><a id="aa50b9b377ae50b27f02ec6904f6d877d" name="aa50b9b377ae50b27f02ec6904f6d877d"></a>
 <a class="el" href="classast_1_1NutationSeries.html">NutationSeries</a>&#160;</td><td class="memItemRight" valign="bottom"><b>xSeries_</b></td></tr>
-<tr class="memdesc:aa50b9b377ae50b27f02ec6904f6d877d"><td class="mdescLeft">&#160;</td><td class="mdescRight">岁差章动模型X系数 <br /></td></tr>
 <tr class="separator:aa50b9b377ae50b27f02ec6904f6d877d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6a1b813e5d630d42d980897180354be" id="r_ae6a1b813e5d630d42d980897180354be"><td class="memItemLeft" align="right" valign="top"><a id="ae6a1b813e5d630d42d980897180354be" name="ae6a1b813e5d630d42d980897180354be"></a>
 <a class="el" href="classast_1_1NutationSeries.html">NutationSeries</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ySeries_</b></td></tr>
-<tr class="memdesc:ae6a1b813e5d630d42d980897180354be"><td class="mdescLeft">&#160;</td><td class="mdescRight">岁差章动模型Y系数 <br /></td></tr>
 <tr class="separator:ae6a1b813e5d630d42d980897180354be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e322010cbd58bf04c22260bc2ee26df" id="r_a9e322010cbd58bf04c22260bc2ee26df"><td class="memItemLeft" align="right" valign="top"><a id="a9e322010cbd58bf04c22260bc2ee26df" name="a9e322010cbd58bf04c22260bc2ee26df"></a>
 <a class="el" href="classast_1_1NutationSeries.html">NutationSeries</a>&#160;</td><td class="memItemRight" valign="bottom"><b>spxy2Series_</b></td></tr>
-<tr class="memdesc:a9e322010cbd58bf04c22260bc2ee26df"><td class="mdescLeft">&#160;</td><td class="mdescRight">岁差章动模型S+XY/2 <br /></td></tr>
 <tr class="separator:a9e322010cbd58bf04c22260bc2ee26df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8872368ab4a6040eded4117a44484fd" id="r_ab8872368ab4a6040eded4117a44484fd"><td class="memItemLeft" align="right" valign="top"><a id="ab8872368ab4a6040eded4117a44484fd" name="ab8872368ab4a6040eded4117a44484fd"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLoaded_</b> {false}</td></tr>
-<tr class="memdesc:ab8872368ab4a6040eded4117a44484fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查是否加载了系数表 <br /></td></tr>
 <tr class="separator:ab8872368ab4a6040eded4117a44484fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
@@ -253,7 +242,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLoaded_</b> {false}
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Coordinate/IERS/<a class="el" href="IAUXYS_8hpp_source.html">IAUXYS.hpp</a></li>
 <li>src/AstCore/Coordinate/IERS/<b>IAUXYS.cpp</b></li>
-<li>src/AstCore/RunTime/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
+<li>src/AstCore/Data/Context/<a class="el" href="RunTime_8cpp.html">RunTime.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

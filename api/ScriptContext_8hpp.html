@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstScript/Interpreter/ScriptContext.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Interpreter/ScriptContext.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,9 +104,6 @@ $(function(){initNavTree('ScriptContext_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">ScriptContext.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>~  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
 </div>
@@ -119,43 +116,34 @@ $(function(){initNavTree('ScriptContext_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a704a4bc9c883f76fb67b5967921e7dd0" id="r_a704a4bc9c883f76fb67b5967921e7dd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a704a4bc9c883f76fb67b5967921e7dd0">ast::aScript_GetInterpreter</a> ()</td></tr>
-<tr class="memdesc:a704a4bc9c883f76fb67b5967921e7dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">符号  <br /></td></tr>
-<tr class="separator:a704a4bc9c883f76fb67b5967921e7dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad99b2bd0b7bcb7874b5440846ab02dae" id="r_ad99b2bd0b7bcb7874b5440846ab02dae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a> (<a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *interpreter)</td></tr>
-<tr class="memdesc:ad99b2bd0b7bcb7874b5440846ab02dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置解释器指针  <br /></td></tr>
-<tr class="separator:ad99b2bd0b7bcb7874b5440846ab02dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff1be0c374413769c8adbb10e3b6e09" id="r_a2ff1be0c374413769c8adbb10e3b6e09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2ff1be0c374413769c8adbb10e3b6e09">ast::aScript_RemoveInterpreter</a> (<a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *interpreter)</td></tr>
-<tr class="memdesc:a2ff1be0c374413769c8adbb10e3b6e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">移除解释器指针  <br /></td></tr>
-<tr class="separator:a2ff1be0c374413769c8adbb10e3b6e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4c6b004a109f627b959f47d57944bfc" id="r_ac4c6b004a109f627b959f47d57944bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac4c6b004a109f627b959f47d57944bfc">ast::aScript_CurrentSymbolScope</a> ()</td></tr>
-<tr class="memdesc:ac4c6b004a109f627b959f47d57944bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前符号作用域  <br /></td></tr>
-<tr class="separator:ac4c6b004a109f627b959f47d57944bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa42d9355cb74e3670e8229e77a065561" id="r_aa42d9355cb74e3670e8229e77a065561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa42d9355cb74e3670e8229e77a065561">ast::aScript_FindSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="memdesc:aa42d9355cb74e3670e8229e77a065561"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找符号  <br /></td></tr>
-<tr class="separator:aa42d9355cb74e3670e8229e77a065561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeca360554194ed3305b1023543c0e2ec" id="r_aeca360554194ed3305b1023543c0e2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aeca360554194ed3305b1023543c0e2ec">ast::aScript_FindSymbol</a> (const <a class="el" href="classast_1_1Symbol.html">Symbol</a> *symbol)</td></tr>
-<tr class="memdesc:aeca360554194ed3305b1023543c0e2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找符号  <br /></td></tr>
-<tr class="separator:aeca360554194ed3305b1023543c0e2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5464da726a2a496923321b1f92999ee6" id="r_a5464da726a2a496923321b1f92999ee6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5464da726a2a496923321b1f92999ee6">ast::aScript_ResolveSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="memdesc:a5464da726a2a496923321b1f92999ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析符号  <br /></td></tr>
-<tr class="separator:a5464da726a2a496923321b1f92999ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c48fe297b1ef33a3174ef10d03c7fd0" id="r_a9c48fe297b1ef33a3174ef10d03c7fd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9c48fe297b1ef33a3174ef10d03c7fd0">ast::aScript_ResolveSymbol</a> (const <a class="el" href="classast_1_1Symbol.html">Symbol</a> *symbol)</td></tr>
-<tr class="memdesc:a9c48fe297b1ef33a3174ef10d03c7fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析符号  <br /></td></tr>
-<tr class="separator:a9c48fe297b1ef33a3174ef10d03c7fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fe3d1c626bf3a44757902d8a1fd84e4" id="r_a1fe3d1c626bf3a44757902d8a1fd84e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1fe3d1c626bf3a44757902d8a1fd84e4">ast::aScript_SetErrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> err)</td></tr>
-<tr class="memdesc:a1fe3d1c626bf3a44757902d8a1fd84e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置错误字符串  <br /></td></tr>
-<tr class="separator:a1fe3d1c626bf3a44757902d8a1fd84e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea817c7b528e4443dd85e4bee722d5f3" id="r_aea817c7b528e4443dd85e4bee722d5f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aea817c7b528e4443dd85e4bee722d5f3">ast::aScript_FormartErrStringV</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fmt, va_list args)</td></tr>
-<tr class="memdesc:aea817c7b528e4443dd85e4bee722d5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化错误字符串  <br /></td></tr>
-<tr class="separator:aea817c7b528e4443dd85e4bee722d5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac112fcd7f4179e70c199759e3fc0c2c0" id="r_ac112fcd7f4179e70c199759e3fc0c2c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac112fcd7f4179e70c199759e3fc0c2c0">ast::aScript_FormatErrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fmt,...)</td></tr>
-<tr class="memdesc:ac112fcd7f4179e70c199759e3fc0c2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化错误字符串  <br /></td></tr>
-<tr class="separator:ac112fcd7f4179e70c199759e3fc0c2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga704a4bc9c883f76fb67b5967921e7dd0" id="r_ga704a4bc9c883f76fb67b5967921e7dd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#ga704a4bc9c883f76fb67b5967921e7dd0">ast::aScript_GetInterpreter</a> ()</td></tr>
+<tr class="separator:ga704a4bc9c883f76fb67b5967921e7dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad99b2bd0b7bcb7874b5440846ab02dae" id="r_gad99b2bd0b7bcb7874b5440846ab02dae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a> (<a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *interpreter)</td></tr>
+<tr class="separator:gad99b2bd0b7bcb7874b5440846ab02dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ff1be0c374413769c8adbb10e3b6e09" id="r_ga2ff1be0c374413769c8adbb10e3b6e09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">ast::aScript_RemoveInterpreter</a> (<a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *interpreter)</td></tr>
+<tr class="separator:ga2ff1be0c374413769c8adbb10e3b6e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4c6b004a109f627b959f47d57944bfc" id="r_gac4c6b004a109f627b959f47d57944bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gac4c6b004a109f627b959f47d57944bfc">ast::aScript_CurrentSymbolScope</a> ()</td></tr>
+<tr class="separator:gac4c6b004a109f627b959f47d57944bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa42d9355cb74e3670e8229e77a065561" id="r_gaa42d9355cb74e3670e8229e77a065561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaa42d9355cb74e3670e8229e77a065561">ast::aScript_FindSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:gaa42d9355cb74e3670e8229e77a065561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeca360554194ed3305b1023543c0e2ec" id="r_gaeca360554194ed3305b1023543c0e2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaeca360554194ed3305b1023543c0e2ec">ast::aScript_FindSymbol</a> (const <a class="el" href="classast_1_1Symbol.html">Symbol</a> *symbol)</td></tr>
+<tr class="separator:gaeca360554194ed3305b1023543c0e2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5464da726a2a496923321b1f92999ee6" id="r_ga5464da726a2a496923321b1f92999ee6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#ga5464da726a2a496923321b1f92999ee6">ast::aScript_ResolveSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:ga5464da726a2a496923321b1f92999ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c48fe297b1ef33a3174ef10d03c7fd0" id="r_ga9c48fe297b1ef33a3174ef10d03c7fd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#ga9c48fe297b1ef33a3174ef10d03c7fd0">ast::aScript_ResolveSymbol</a> (const <a class="el" href="classast_1_1Symbol.html">Symbol</a> *symbol)</td></tr>
+<tr class="separator:ga9c48fe297b1ef33a3174ef10d03c7fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fe3d1c626bf3a44757902d8a1fd84e4" id="r_ga1fe3d1c626bf3a44757902d8a1fd84e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#ga1fe3d1c626bf3a44757902d8a1fd84e4">ast::aScript_SetErrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> err)</td></tr>
+<tr class="separator:ga1fe3d1c626bf3a44757902d8a1fd84e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaea817c7b528e4443dd85e4bee722d5f3" id="r_gaea817c7b528e4443dd85e4bee722d5f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaea817c7b528e4443dd85e4bee722d5f3">ast::aScript_FormartErrStringV</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fmt, va_list args)</td></tr>
+<tr class="separator:gaea817c7b528e4443dd85e4bee722d5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac112fcd7f4179e70c199759e3fc0c2c0" id="r_gac112fcd7f4179e70c199759e3fc0c2c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gac112fcd7f4179e70c199759e3fc0c2c0">ast::aScript_FormatErrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fmt,...)</td></tr>
+<tr class="separator:gac112fcd7f4179e70c199759e3fc0c2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>~ </p>
-<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<div class="textblock"><p><br  />
+ </p>
+<p><br  />
+ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
 <dl class="section date"><dt>日期</dt><dd>2025-12-23 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
 <p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>

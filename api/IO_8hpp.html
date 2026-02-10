@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Posix/IO.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Platform/IO.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,10 +104,6 @@ $(function(){initNavTree('IO_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">IO.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><br  />
-  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;cwchar&gt;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
@@ -119,24 +115,25 @@ $(function(){initNavTree('IO_8hpp.html',''); initResizable(true); });
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast_1_1posix.html">ast::posix</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a03ae395c115564ea3880c1f65646b685" id="r_a03ae395c115564ea3880c1f65646b685"><td class="memItemLeft" align="right" valign="top"><a id="a03ae395c115564ea3880c1f65646b685" name="a03ae395c115564ea3880c1f65646b685"></a>
+<tr class="memitem:ga03ae395c115564ea3880c1f65646b685" id="r_ga03ae395c115564ea3880c1f65646b685"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_fopen</b> (const char *filepath, const char *mode)</td></tr>
-<tr class="separator:a03ae395c115564ea3880c1f65646b685"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9700be0a43d1a3f38a76833b0aa115d7" id="r_a9700be0a43d1a3f38a76833b0aa115d7"><td class="memItemLeft" align="right" valign="top"><a id="a9700be0a43d1a3f38a76833b0aa115d7" name="a9700be0a43d1a3f38a76833b0aa115d7"></a>
+<tr class="separator:ga03ae395c115564ea3880c1f65646b685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9700be0a43d1a3f38a76833b0aa115d7" id="r_ga9700be0a43d1a3f38a76833b0aa115d7"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_freopen</b> (const char *filepath, const char *mode, FILE *stream)</td></tr>
-<tr class="separator:a9700be0a43d1a3f38a76833b0aa115d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d66b89788857b96561e983679fd97e" id="r_aa4d66b89788857b96561e983679fd97e"><td class="memItemLeft" align="right" valign="top"><a id="aa4d66b89788857b96561e983679fd97e" name="aa4d66b89788857b96561e983679fd97e"></a>
+<tr class="separator:ga9700be0a43d1a3f38a76833b0aa115d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4d66b89788857b96561e983679fd97e" id="r_gaa4d66b89788857b96561e983679fd97e"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_vprintf</b> (const char *format, va_list args)</td></tr>
-<tr class="separator:aa4d66b89788857b96561e983679fd97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f36b18f798b1a50be84a8c0dff1c1e" id="r_a86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top"><a id="a86f36b18f798b1a50be84a8c0dff1c1e" name="a86f36b18f798b1a50be84a8c0dff1c1e"></a>
+<tr class="separator:gaa4d66b89788857b96561e983679fd97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86f36b18f798b1a50be84a8c0dff1c1e" id="r_ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (const char *format,...)</td></tr>
-<tr class="separator:a86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33ba0d9d87a56df2b6cf9a06df0fa6bd" id="r_a33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a33ba0d9d87a56df2b6cf9a06df0fa6bd">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
-<tr class="memdesc:a33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取文件当前行号  <br /></td></tr>
-<tr class="separator:a33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33ba0d9d87a56df2b6cf9a06df0fa6bd" id="r_ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
+<tr class="separator:ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -152,7 +149,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_08efffeb74aea4e2a987244f11fde9c1.html">Posix</a></li><li class="navelem"><a class="el" href="IO_8hpp.html">IO.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_58f1c1acee87c1819259ff24dc93e089.html">Platform</a></li><li class="navelem"><a class="el" href="IO_8hpp.html">IO.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

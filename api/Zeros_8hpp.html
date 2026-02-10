@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstMath/NLE/Impl/Zeros/Zeros.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstMath/NLE/Impl/Zeros/Zeros.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,9 +104,6 @@ $(function(){initNavTree('Zeros_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Zeros.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>~  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;zeros.h&quot;</code><br />
 </div>
@@ -123,26 +120,21 @@ $(function(){initNavTree('Zeros_8hpp.html',''); initResizable(true); });
 template&lt;typename Func &gt; </td></tr>
 <tr class="memitem:ad25706ca347e587557c5385c54a52b2e"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::details::callback_func</b> (double x, void *func)</td></tr>
 <tr class="separator:ad25706ca347e587557c5385c54a52b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7b87132fc03898f8392005c491953ee" id="r_ae7b87132fc03898f8392005c491953ee"><td class="memTemplParams" colspan="2"><a id="ae7b87132fc03898f8392005c491953ee" name="ae7b87132fc03898f8392005c491953ee"></a>
-template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:ae7b87132fc03898f8392005c491953ee"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::bisect</b> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
-<tr class="separator:ae7b87132fc03898f8392005c491953ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab129d64b6af3006ace3ea69e1f238ef" id="r_aab129d64b6af3006ace3ea69e1f238ef"><td class="memTemplParams" colspan="2"><a id="aab129d64b6af3006ace3ea69e1f238ef" name="aab129d64b6af3006ace3ea69e1f238ef"></a>
-template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:aab129d64b6af3006ace3ea69e1f238ef"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::ridder</b> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
-<tr class="separator:aab129d64b6af3006ace3ea69e1f238ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fd74c177eb5fe393af345e07f6e8eaa" id="r_a3fd74c177eb5fe393af345e07f6e8eaa"><td class="memTemplParams" colspan="2"><a id="a3fd74c177eb5fe393af345e07f6e8eaa" name="a3fd74c177eb5fe393af345e07f6e8eaa"></a>
-template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:a3fd74c177eb5fe393af345e07f6e8eaa"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::brenth</b> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
-<tr class="separator:a3fd74c177eb5fe393af345e07f6e8eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d46ca1d998cb4c839bdf7e81086ce05" id="r_a6d46ca1d998cb4c839bdf7e81086ce05"><td class="memTemplParams" colspan="2"><a id="a6d46ca1d998cb4c839bdf7e81086ce05" name="a6d46ca1d998cb4c839bdf7e81086ce05"></a>
-template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:a6d46ca1d998cb4c839bdf7e81086ce05"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::brentq</b> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
-<tr class="separator:a6d46ca1d998cb4c839bdf7e81086ce05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0dea09a12487e53d0b32c0af1d2d597" id="r_ab0dea09a12487e53d0b32c0af1d2d597"><td class="memTemplParams" colspan="2"><a id="ab0dea09a12487e53d0b32c0af1d2d597" name="ab0dea09a12487e53d0b32c0af1d2d597"></a>
-template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:ab0dea09a12487e53d0b32c0af1d2d597"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::secant</b> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
-<tr class="separator:ab0dea09a12487e53d0b32c0af1d2d597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7b87132fc03898f8392005c491953ee" id="r_gae7b87132fc03898f8392005c491953ee"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:gae7b87132fc03898f8392005c491953ee"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__NLE.html#gae7b87132fc03898f8392005c491953ee">ast::bisect</a> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
+<tr class="separator:gae7b87132fc03898f8392005c491953ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab129d64b6af3006ace3ea69e1f238ef" id="r_gaab129d64b6af3006ace3ea69e1f238ef"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:gaab129d64b6af3006ace3ea69e1f238ef"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__NLE.html#gaab129d64b6af3006ace3ea69e1f238ef">ast::ridder</a> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
+<tr class="separator:gaab129d64b6af3006ace3ea69e1f238ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fd74c177eb5fe393af345e07f6e8eaa" id="r_ga3fd74c177eb5fe393af345e07f6e8eaa"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:ga3fd74c177eb5fe393af345e07f6e8eaa"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa">ast::brenth</a> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
+<tr class="separator:ga3fd74c177eb5fe393af345e07f6e8eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d46ca1d998cb4c839bdf7e81086ce05" id="r_ga6d46ca1d998cb4c839bdf7e81086ce05"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:ga6d46ca1d998cb4c839bdf7e81086ce05"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05">ast::brentq</a> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
+<tr class="separator:ga6d46ca1d998cb4c839bdf7e81086ce05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0dea09a12487e53d0b32c0af1d2d597" id="r_gab0dea09a12487e53d0b32c0af1d2d597"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:gab0dea09a12487e53d0b32c0af1d2d597"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__NLE.html#gab0dea09a12487e53d0b32c0af1d2d597">ast::secant</a> (Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &amp;solver_stats)</td></tr>
+<tr class="separator:gab0dea09a12487e53d0b32c0af1d2d597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>

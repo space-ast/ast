@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: ast::ModEquinElem类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ModEquinElem类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -101,12 +101,9 @@ $(function(){initNavTree('classast_1_1ModEquinElem.html',''); initResizable(true
   <div class="summary">
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1ModEquinElem-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::ModEquinElem类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::ModEquinElem类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Orbit.html">轨道计算</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>改进春分点轨道根数, 180度奇异  
- <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="OrbitElement_8hpp_source.html">OrbitElement.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -114,27 +111,21 @@ $(function(){initNavTree('classast_1_1ModEquinElem.html',''); initResizable(true
 Public 属性</h2></td></tr>
 <tr class="memitem:afc3c6400a98790d0c54276abef603b51" id="r_afc3c6400a98790d0c54276abef603b51"><td class="memItemLeft" align="right" valign="top"><a id="afc3c6400a98790d0c54276abef603b51" name="afc3c6400a98790d0c54276abef603b51"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>p_</b></td></tr>
-<tr class="memdesc:afc3c6400a98790d0c54276abef603b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">p = a(1-e^2) 半通径 <br /></td></tr>
 <tr class="separator:afc3c6400a98790d0c54276abef603b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf5868e16af6f2c772c8ad1ed1784c4e" id="r_acf5868e16af6f2c772c8ad1ed1784c4e"><td class="memItemLeft" align="right" valign="top"><a id="acf5868e16af6f2c772c8ad1ed1784c4e" name="acf5868e16af6f2c772c8ad1ed1784c4e"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>f_</b></td></tr>
-<tr class="memdesc:acf5868e16af6f2c772c8ad1ed1784c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">f = e*cos(argper+RAAN) <br /></td></tr>
 <tr class="separator:acf5868e16af6f2c772c8ad1ed1784c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab851813730b3271e2f24456c5fa5bdd0" id="r_ab851813730b3271e2f24456c5fa5bdd0"><td class="memItemLeft" align="right" valign="top"><a id="ab851813730b3271e2f24456c5fa5bdd0" name="ab851813730b3271e2f24456c5fa5bdd0"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>g_</b></td></tr>
-<tr class="memdesc:ab851813730b3271e2f24456c5fa5bdd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">g = e*sin(argper+RAAN) <br /></td></tr>
 <tr class="separator:ab851813730b3271e2f24456c5fa5bdd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a315f3d084817bd5864d3e6ca31686ea9" id="r_a315f3d084817bd5864d3e6ca31686ea9"><td class="memItemLeft" align="right" valign="top"><a id="a315f3d084817bd5864d3e6ca31686ea9" name="a315f3d084817bd5864d3e6ca31686ea9"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>h_</b></td></tr>
-<tr class="memdesc:a315f3d084817bd5864d3e6ca31686ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">h = tan(i/2)cos(RAAN) <br /></td></tr>
 <tr class="separator:a315f3d084817bd5864d3e6ca31686ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fa1f51676f262c74f2331f2d607c7b5" id="r_a6fa1f51676f262c74f2331f2d607c7b5"><td class="memItemLeft" align="right" valign="top"><a id="a6fa1f51676f262c74f2331f2d607c7b5" name="a6fa1f51676f262c74f2331f2d607c7b5"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>k_</b></td></tr>
-<tr class="memdesc:a6fa1f51676f262c74f2331f2d607c7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">k = tan(i/2)sin(RAAN) <br /></td></tr>
 <tr class="separator:a6fa1f51676f262c74f2331f2d607c7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3e126c400e8ed222136c9d559941a85" id="r_ab3e126c400e8ed222136c9d559941a85"><td class="memItemLeft" align="right" valign="top"><a id="ab3e126c400e8ed222136c9d559941a85" name="ab3e126c400e8ed222136c9d559941a85"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>L_</b></td></tr>
-<tr class="memdesc:ab3e126c400e8ed222136c9d559941a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">L = RAAN + argper + trueA <br /></td></tr>
 <tr class="separator:ab3e126c400e8ed222136c9d559941a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

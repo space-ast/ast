@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/Util/Encode.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/String/Encode.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -99,14 +99,11 @@ $(function(){initNavTree('Encode_8hpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">命名空间</a>  </div>
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">Encode.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><br  />
-  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div>
@@ -116,6 +113,17 @@ $(function(){initNavTree('Encode_8hpp.html',''); initResizable(true); });
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga6993ecea67b70a58cc8f9c691d850a29" id="r_ga6993ecea67b70a58cc8f9c691d850a29"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga6993ecea67b70a58cc8f9c691d850a29">ast::aAnsiToWide</a> (const char *ansi, std::wstring &amp;wide)</td></tr>
+<tr class="separator:ga6993ecea67b70a58cc8f9c691d850a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbec1e8740a7cdb52e9bd0b49da8d2b4" id="r_gadbec1e8740a7cdb52e9bd0b49da8d2b4"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#gadbec1e8740a7cdb52e9bd0b49da8d2b4">ast::aUtf8ToWide</a> (const char *utf8, std::wstring &amp;wide)</td></tr>
+<tr class="separator:gadbec1e8740a7cdb52e9bd0b49da8d2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga848cdd35cab0b48982803124939266aa" id="r_ga848cdd35cab0b48982803124939266aa"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga848cdd35cab0b48982803124939266aa">ast::aWideToAnsi</a> (const wchar_t *wide, std::string &amp;ansi)</td></tr>
+<tr class="separator:ga848cdd35cab0b48982803124939266aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ab0c886cea96cd8b6ead992408a3e21" id="r_ga9ab0c886cea96cd8b6ead992408a3e21"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga9ab0c886cea96cd8b6ead992408a3e21">ast::aWideToUtf8</a> (const wchar_t *wide, std::string &amp;utf8)</td></tr>
+<tr class="separator:ga9ab0c886cea96cd8b6ead992408a3e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -131,7 +139,7 @@ $(function(){initNavTree('Encode_8hpp.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_1d596027c2fe9b93d9e6a4ea9df9dfd2.html">Util</a></li><li class="navelem"><a class="el" href="Encode_8hpp.html">Encode.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_13ac9e70f9049d516b8f1ea23eb3d46d.html">String</a></li><li class="navelem"><a class="el" href="Encode_8hpp.html">Encode.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

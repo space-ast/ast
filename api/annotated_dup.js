@@ -1,10 +1,10 @@
 var annotated_dup =
 [
     [ "ast", "namespaceast.html", [
-      [ "math", null, [
+      [ "math", "namespaceast_1_1math.html", [
         [ "is_vector_like", "structast_1_1math_1_1is__vector__like.html", null ]
       ] ],
-      [ "simple_fs", null, [
+      [ "simple_fs", "namespaceast_1_1simple__fs.html", [
         [ "directory_entry", "classast_1_1simple__fs_1_1directory__entry.html", null ],
         [ "directory_iterator", "classast_1_1simple__fs_1_1directory__iterator.html", "classast_1_1simple__fs_1_1directory__iterator" ],
         [ "file_status", "classast_1_1simple__fs_1_1file__status.html", null ],

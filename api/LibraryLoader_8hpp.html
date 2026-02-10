@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstUtil/OpSystem/LibraryLoader.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Platform/LibraryLoader.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -104,10 +104,6 @@ $(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">LibraryLoader.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><br  />
-  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 </div>
 <p><a href="LibraryLoader_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -119,21 +115,16 @@ $(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a4ae35e43fab9b520dd904d744ba64ed4" id="r_a4ae35e43fab9b520dd904d744ba64ed4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4ae35e43fab9b520dd904d744ba64ed4">ast::aLoadLibrary</a> (const char *filepath)</td></tr>
-<tr class="memdesc:a4ae35e43fab9b520dd904d744ba64ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载动态库  <br /></td></tr>
-<tr class="separator:a4ae35e43fab9b520dd904d744ba64ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4600dceeffcc4993b66d33a3b8e680" id="r_a0f4600dceeffcc4993b66d33a3b8e680"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a> (void *lib, const char *funcName)</td></tr>
-<tr class="memdesc:a0f4600dceeffcc4993b66d33a3b8e680"><td class="mdescLeft">&#160;</td><td class="mdescRight">从动态库中查询函数指针  <br /></td></tr>
-<tr class="separator:a0f4600dceeffcc4993b66d33a3b8e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19e5714a61a8ba893a69b7ebdeba2005" id="r_a19e5714a61a8ba893a69b7ebdeba2005"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a19e5714a61a8ba893a69b7ebdeba2005">ast::aResolveProcAddress</a> (const char *filepath, const char *funcName)</td></tr>
-<tr class="memdesc:a19e5714a61a8ba893a69b7ebdeba2005"><td class="mdescLeft">&#160;</td><td class="mdescRight">从动态库中获取函数指针  <br /></td></tr>
-<tr class="separator:a19e5714a61a8ba893a69b7ebdeba2005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd86d9dd3fbee4adba535098848a1790" id="r_abd86d9dd3fbee4adba535098848a1790"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#abd86d9dd3fbee4adba535098848a1790">ast::aFreeLibrary</a> (void *lib)</td></tr>
-<tr class="memdesc:abd86d9dd3fbee4adba535098848a1790"><td class="mdescLeft">&#160;</td><td class="mdescRight">卸载动态库  <br /></td></tr>
-<tr class="separator:abd86d9dd3fbee4adba535098848a1790"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a792d6e546f624b93c64487c04deac344" id="r_a792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
-<tr class="memdesc:a792d6e546f624b93c64487c04deac344"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最后的错误信息  <br /></td></tr>
-<tr class="separator:a792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ae35e43fab9b520dd904d744ba64ed4" id="r_ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga4ae35e43fab9b520dd904d744ba64ed4">ast::aLoadLibrary</a> (const char *filepath)</td></tr>
+<tr class="separator:ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f4600dceeffcc4993b66d33a3b8e680" id="r_ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a> (void *lib, const char *funcName)</td></tr>
+<tr class="separator:ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19e5714a61a8ba893a69b7ebdeba2005" id="r_ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005">ast::aResolveProcAddress</a> (const char *filepath, const char *funcName)</td></tr>
+<tr class="separator:ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd86d9dd3fbee4adba535098848a1790" id="r_gabd86d9dd3fbee4adba535098848a1790"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#gabd86d9dd3fbee4adba535098848a1790">ast::aFreeLibrary</a> (void *lib)</td></tr>
+<tr class="separator:gabd86d9dd3fbee4adba535098848a1790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
+<tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -149,7 +140,7 @@ $(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_dbf99d57be7de405407ff8c538bf7f12.html">OpSystem</a></li><li class="navelem"><a class="el" href="LibraryLoader_8hpp.html">LibraryLoader.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_58f1c1acee87c1819259ff24dc93e089.html">Platform</a></li><li class="navelem"><a class="el" href="LibraryLoader_8hpp.html">LibraryLoader.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

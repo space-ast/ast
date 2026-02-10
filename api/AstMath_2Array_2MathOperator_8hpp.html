@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ast: src/AstMath/Array/MathOperator.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstMath/Array/MathOperator.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygenStyle.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ast<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -107,9 +107,6 @@ $(function(){initNavTree('AstMath_2Array_2MathOperator_8hpp.html',''); initResiz
   <div class="headertitle"><div class="title">MathOperator.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>定义向量运算实用函数  
-<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
@@ -129,6 +126,8 @@ $(function(){initNavTree('AstMath_2Array_2MathOperator_8hpp.html',''); initResiz
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast_1_1math.html">ast::math</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 宏定义</h2></td></tr>
@@ -140,9 +139,9 @@ $(function(){initNavTree('AstMath_2Array_2MathOperator_8hpp.html',''); initResiz
 <tr class="separator:a63f6059a5860ff16db76a893f34690e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a420f02b54b754862f0745fb0ee8c976c" id="r_a420f02b54b754862f0745fb0ee8c976c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a420f02b54b754862f0745fb0ee8c976c">_AST_DEF_OP</a>(OP)</td></tr>
 <tr class="separator:a420f02b54b754862f0745fb0ee8c976c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dcc1dba86ac0f48e7db5073ef59eec5" id="r_a7dcc1dba86ac0f48e7db5073ef59eec5"><td class="memItemLeft" align="right" valign="top"><a id="a7dcc1dba86ac0f48e7db5073ef59eec5" name="a7dcc1dba86ac0f48e7db5073ef59eec5"></a>
+<tr class="memitem:ga7dcc1dba86ac0f48e7db5073ef59eec5" id="r_ga7dcc1dba86ac0f48e7db5073ef59eec5"><td class="memItemLeft" align="right" valign="top">
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>_ASTMATH</b>&#160;&#160;&#160;_AST math::</td></tr>
-<tr class="separator:a7dcc1dba86ac0f48e7db5073ef59eec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga7dcc1dba86ac0f48e7db5073ef59eec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
@@ -172,7 +171,6 @@ template&lt;class _Scalar , size_t N&gt; </td></tr>
 <tr class="memitem:a04a4b8d988da2035897df6832c1182d5" id="r_a04a4b8d988da2035897df6832c1182d5"><td class="memTemplParams" colspan="2"><a id="a04a4b8d988da2035897df6832c1182d5" name="a04a4b8d988da2035897df6832c1182d5"></a>
 template&lt;typename _Scalar &gt; </td></tr>
 <tr class="memitem:a04a4b8d988da2035897df6832c1182d5"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::math::sign</b> (_Scalar val)</td></tr>
-<tr class="memdesc:a04a4b8d988da2035897df6832c1182d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sign <br /></td></tr>
 <tr class="separator:a04a4b8d988da2035897df6832c1182d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedd8f38ccde58f9bfbff7ce48b823ec1" id="r_aedd8f38ccde58f9bfbff7ce48b823ec1"><td class="memTemplParams" colspan="2"><a id="aedd8f38ccde58f9bfbff7ce48b823ec1" name="aedd8f38ccde58f9bfbff7ce48b823ec1"></a>
 template&lt;typename T &gt; </td></tr>
@@ -188,7 +186,6 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:ad20098055764cef41fc0d1ebb6e15b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a762ef5701ce8b50600daa804623886da" id="r_a762ef5701ce8b50600daa804623886da"><td class="memItemLeft" align="right" valign="top"><a id="a762ef5701ce8b50600daa804623886da" name="a762ef5701ce8b50600daa804623886da"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::cot</b> (double a)</td></tr>
-<tr class="memdesc:a762ef5701ce8b50600daa804623886da"><td class="mdescLeft">&#160;</td><td class="mdescRight">cot acot <br /></td></tr>
 <tr class="separator:a762ef5701ce8b50600daa804623886da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46cdb39f71b971f852bf193d6aa95397" id="r_a46cdb39f71b971f852bf193d6aa95397"><td class="memItemLeft" align="right" valign="top"><a id="a46cdb39f71b971f852bf193d6aa95397" name="a46cdb39f71b971f852bf193d6aa95397"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::acot</b> (double a)</td></tr>
@@ -196,7 +193,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::acot</b>
 <tr class="memitem:aca33d22882041673d4a2e218e052cc3e" id="r_aca33d22882041673d4a2e218e052cc3e"><td class="memTemplParams" colspan="2"><a id="aca33d22882041673d4a2e218e052cc3e" name="aca33d22882041673d4a2e218e052cc3e"></a>
 template&lt;typename Container1 , typename Container2 &gt; </td></tr>
 <tr class="memitem:aca33d22882041673d4a2e218e052cc3e"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::math::dot</b> (const Container1 &amp;vec1, const Container2 &amp;vec2)</td></tr>
-<tr class="memdesc:aca33d22882041673d4a2e218e052cc3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot <br /></td></tr>
 <tr class="separator:aca33d22882041673d4a2e218e052cc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a446ae22864a73f2bcff34bff6a18e0a7" id="r_a446ae22864a73f2bcff34bff6a18e0a7"><td class="memTemplParams" colspan="2"><a id="a446ae22864a73f2bcff34bff6a18e0a7" name="a446ae22864a73f2bcff34bff6a18e0a7"></a>
 template&lt;size_t N1, size_t N2&gt; </td></tr>
@@ -211,7 +207,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::dot3</b>
 <tr class="memitem:afe4763a2a941b3324f166f3377767b77" id="r_afe4763a2a941b3324f166f3377767b77"><td class="memTemplParams" colspan="2"><a id="afe4763a2a941b3324f166f3377767b77" name="afe4763a2a941b3324f166f3377767b77"></a>
 template&lt;typename Vector3D1 , typename Vector3D2 &gt; </td></tr>
 <tr class="memitem:afe4763a2a941b3324f166f3377767b77"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::math::cross</b> (const Vector3D1 &amp;vec1, const Vector3D2 &amp;vec2) -&gt; typename std::enable_if&lt;!std::is_pointer&lt; Vector3D1 &gt;::value &amp;&amp;!std::is_pointer&lt; Vector3D2 &gt;::value, Vector3D1 &gt;::type</td></tr>
-<tr class="memdesc:afe4763a2a941b3324f166f3377767b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">cross <br /></td></tr>
 <tr class="separator:afe4763a2a941b3324f166f3377767b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc678c0ef4c1e3690d0e03e87c0eb5a6" id="r_abc678c0ef4c1e3690d0e03e87c0eb5a6"><td class="memItemLeft" align="right" valign="top"><a id="abc678c0ef4c1e3690d0e03e87c0eb5a6" name="abc678c0ef4c1e3690d0e03e87c0eb5a6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::cross</b> (double *res, const double *vec1, const double *vec2)</td></tr>
@@ -225,7 +220,6 @@ std::array&lt; double, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"
 <tr class="separator:a2f225a203e9c4f567f8357b4afee4b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5311f732f050ddd8e2bc5884e38b3da" id="r_af5311f732f050ddd8e2bc5884e38b3da"><td class="memItemLeft" align="right" valign="top"><a id="af5311f732f050ddd8e2bc5884e38b3da" name="af5311f732f050ddd8e2bc5884e38b3da"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::squaredNorm</b> (const double *vec, size_t N)</td></tr>
-<tr class="memdesc:af5311f732f050ddd8e2bc5884e38b3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">squaredNorm <br /></td></tr>
 <tr class="separator:af5311f732f050ddd8e2bc5884e38b3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8547d181622ec2fe5332709300ab0b6d" id="r_a8547d181622ec2fe5332709300ab0b6d"><td class="memTemplParams" colspan="2"><a id="a8547d181622ec2fe5332709300ab0b6d" name="a8547d181622ec2fe5332709300ab0b6d"></a>
 template&lt;typename Vector &gt; </td></tr>
@@ -237,7 +231,6 @@ template&lt;size_t N&gt; </td></tr>
 <tr class="separator:a73febb38fa26077598aab53992c92c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cdd6932f756ddd49b3afe080e33d857" id="r_a7cdd6932f756ddd49b3afe080e33d857"><td class="memItemLeft" align="right" valign="top"><a id="a7cdd6932f756ddd49b3afe080e33d857" name="a7cdd6932f756ddd49b3afe080e33d857"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::norm</b> (const double *vec, size_t N)</td></tr>
-<tr class="memdesc:a7cdd6932f756ddd49b3afe080e33d857"><td class="mdescLeft">&#160;</td><td class="mdescRight">norm <br /></td></tr>
 <tr class="separator:a7cdd6932f756ddd49b3afe080e33d857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b17f025a8e7764ae4579e6cb5d119a1" id="r_a4b17f025a8e7764ae4579e6cb5d119a1"><td class="memTemplParams" colspan="2"><a id="a4b17f025a8e7764ae4579e6cb5d119a1" name="a4b17f025a8e7764ae4579e6cb5d119a1"></a>
 template&lt;typename Vector &gt; </td></tr>
@@ -249,7 +242,6 @@ template&lt;size_t N&gt; </td></tr>
 <tr class="separator:af15e1679c5ff03741a67e09cfc73378b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4d91cee65bbdc213a65c66832b1dd8c" id="r_af4d91cee65bbdc213a65c66832b1dd8c"><td class="memItemLeft" align="right" valign="top"><a id="af4d91cee65bbdc213a65c66832b1dd8c" name="af4d91cee65bbdc213a65c66832b1dd8c"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::math::normalize</b> (double *vec, size_t N)</td></tr>
-<tr class="memdesc:af4d91cee65bbdc213a65c66832b1dd8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">normalize <br /></td></tr>
 <tr class="separator:af4d91cee65bbdc213a65c66832b1dd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d69aab56ee222ee3d9e5ef6e2eed4dc" id="r_a6d69aab56ee222ee3d9e5ef6e2eed4dc"><td class="memTemplParams" colspan="2"><a id="a6d69aab56ee222ee3d9e5ef6e2eed4dc" name="a6d69aab56ee222ee3d9e5ef6e2eed4dc"></a>
 template&lt;typename Vector &gt; </td></tr>
@@ -262,7 +254,6 @@ template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:ad7d48b99658c1144283823aa76621adf" id="r_ad7d48b99658c1144283823aa76621adf"><td class="memTemplParams" colspan="2"><a id="ad7d48b99658c1144283823aa76621adf" name="ad7d48b99658c1144283823aa76621adf"></a>
 template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:ad7d48b99658c1144283823aa76621adf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::math::normalized</b> (const Vector &amp;vec) -&gt; typename std::enable_if&lt;!std::is_pointer&lt; Vector &gt;::value, Vector &gt;::type</td></tr>
-<tr class="memdesc:ad7d48b99658c1144283823aa76621adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">normalized <br /></td></tr>
 <tr class="separator:ad7d48b99658c1144283823aa76621adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46049a705ae7a8450732f41cbe719597" id="r_a46049a705ae7a8450732f41cbe719597"><td class="memTemplParams" colspan="2"><a id="a46049a705ae7a8450732f41cbe719597" name="a46049a705ae7a8450732f41cbe719597"></a>
 template&lt;size_t N&gt; </td></tr>
@@ -275,24 +266,23 @@ template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:ad55476707790d13c96d9eef28526cbcf" id="r_ad55476707790d13c96d9eef28526cbcf"><td class="memTemplParams" colspan="2"><a id="ad55476707790d13c96d9eef28526cbcf" name="ad55476707790d13c96d9eef28526cbcf"></a>
 template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
 <tr class="memitem:ad55476707790d13c96d9eef28526cbcf"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; std::array&lt; _Scalar, K &gt;, I &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::math::mtimes</b> (const _Scalar(&amp;left)[I][J], const _Scalar(&amp;right)[J][K])</td></tr>
-<tr class="memdesc:ad55476707790d13c96d9eef28526cbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩阵乘法 <br /></td></tr>
 <tr class="separator:ad55476707790d13c96d9eef28526cbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07553d720be0e1b8dd581d34c0f0ba01" id="r_a07553d720be0e1b8dd581d34c0f0ba01"><td class="memTemplParams" colspan="2"><a id="a07553d720be0e1b8dd581d34c0f0ba01" name="a07553d720be0e1b8dd581d34c0f0ba01"></a>
+<tr class="memitem:ga07553d720be0e1b8dd581d34c0f0ba01" id="r_ga07553d720be0e1b8dd581d34c0f0ba01"><td class="memTemplParams" colspan="2">
 template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
-<tr class="memitem:a07553d720be0e1b8dd581d34c0f0ba01"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, K &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;left, const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, J, K &gt; &amp;right)</td></tr>
-<tr class="separator:a07553d720be0e1b8dd581d34c0f0ba01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a420f5658a12720dfdfc4d195a25d1dce" id="r_a420f5658a12720dfdfc4d195a25d1dce"><td class="memTemplParams" colspan="2"><a id="a420f5658a12720dfdfc4d195a25d1dce" name="a420f5658a12720dfdfc4d195a25d1dce"></a>
+<tr class="memitem:ga07553d720be0e1b8dd581d34c0f0ba01"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, K &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;left, const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, J, K &gt; &amp;right)</td></tr>
+<tr class="separator:ga07553d720be0e1b8dd581d34c0f0ba01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga420f5658a12720dfdfc4d195a25d1dce" id="r_ga420f5658a12720dfdfc4d195a25d1dce"><td class="memTemplParams" colspan="2">
 template&lt;typename _Scalar , size_t I, size_t J&gt; </td></tr>
-<tr class="memitem:a420f5658a12720dfdfc4d195a25d1dce"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, I &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;left, const <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, J &gt; &amp;right)</td></tr>
-<tr class="separator:a420f5658a12720dfdfc4d195a25d1dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dc830dd7786bdfc35379bec1d0823b9" id="r_a2dc830dd7786bdfc35379bec1d0823b9"><td class="memTemplParams" colspan="2"><a id="a2dc830dd7786bdfc35379bec1d0823b9" name="a2dc830dd7786bdfc35379bec1d0823b9"></a>
+<tr class="memitem:ga420f5658a12720dfdfc4d195a25d1dce"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, I &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;left, const <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, J &gt; &amp;right)</td></tr>
+<tr class="separator:ga420f5658a12720dfdfc4d195a25d1dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2dc830dd7786bdfc35379bec1d0823b9" id="r_ga2dc830dd7786bdfc35379bec1d0823b9"><td class="memTemplParams" colspan="2">
 template&lt;typename _Scalar , size_t I, size_t J&gt; </td></tr>
-<tr class="memitem:a2dc830dd7786bdfc35379bec1d0823b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, J &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, I &gt; &amp;left, const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;right)</td></tr>
-<tr class="separator:a2dc830dd7786bdfc35379bec1d0823b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae380f4e6626c157934b4e38ecef6f88f" id="r_ae380f4e6626c157934b4e38ecef6f88f"><td class="memTemplParams" colspan="2"><a id="ae380f4e6626c157934b4e38ecef6f88f" name="ae380f4e6626c157934b4e38ecef6f88f"></a>
+<tr class="memitem:ga2dc830dd7786bdfc35379bec1d0823b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, J &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, I &gt; &amp;left, const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;right)</td></tr>
+<tr class="separator:ga2dc830dd7786bdfc35379bec1d0823b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae380f4e6626c157934b4e38ecef6f88f" id="r_gae380f4e6626c157934b4e38ecef6f88f"><td class="memTemplParams" colspan="2">
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae380f4e6626c157934b4e38ecef6f88f"><td class="memTemplItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::clamp</b> (const T &amp;val, const T &amp;low, const T &amp;high)</td></tr>
-<tr class="separator:ae380f4e6626c157934b4e38ecef6f88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae380f4e6626c157934b4e38ecef6f88f"><td class="memTemplItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::clamp</b> (const T &amp;val, const T &amp;low, const T &amp;high)</td></tr>
+<tr class="separator:gae380f4e6626c157934b4e38ecef6f88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>定义向量运算实用函数 </p>
@@ -320,7 +310,7 @@ template&lt;typename T &gt; </td></tr>
 <b>值:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#ac9e493001955b1fb246d65c0cf4f6a12">_AST_DEF_OP_SV</a>(OP)      \</div>
 <div class="line">_AST_DEF_OP_VS(OP)      \</div>
 <div class="line">_AST_DEF_OP_VV(OP)      \</div>
-<div class="ttc" id="aAstMath_2Array_2MathOperator_8hpp_html_ac9e493001955b1fb246d65c0cf4f6a12"><div class="ttname"><a href="#ac9e493001955b1fb246d65c0cf4f6a12">_AST_DEF_OP_SV</a></div><div class="ttdeci">#define _AST_DEF_OP_SV(OP)</div><div class="ttdef"><b>定义</b> MathOperator.hpp:418</div></div>
+<div class="ttc" id="aAstMath_2Array_2MathOperator_8hpp_html_ac9e493001955b1fb246d65c0cf4f6a12"><div class="ttname"><a href="#ac9e493001955b1fb246d65c0cf4f6a12">_AST_DEF_OP_SV</a></div><div class="ttdeci">#define _AST_DEF_OP_SV(OP)</div><div class="ttdef"><b>定义</b> MathOperator.hpp:421</div></div>
 </div><!-- fragment -->
 </div>
 </div>
