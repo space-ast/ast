@@ -25,18 +25,19 @@
 AST_NAMESPACE_BEGIN
 
 
-/*
- *
- * 局部轨道坐标系的定义：
- * LVLH: X轴指向位置方向，Z轴指向轨道法向
- * LVLH_CCSDS: Z轴指向位置反方向，Y轴指向轨道法向反方向，CCSDS 定义的LVLH坐标系，FreeFlyer里的LVLH
- * VVLH: Z轴指向位置反方向，Y轴指向轨道法向反方向
- * VNC: X轴指向速度方向，Y轴指向轨道法向
- * ENU: 东北天，Z轴指向位置方向，北极轴在 (+Y +Z) 半平面内
- * NED: 北东地，Z轴指向位置反方向，北极轴在 (+Y ±Z) 半平面内
- * Launch: 发射坐标系，其跟随地球旋转，Y轴指向当地天顶方向，X轴指向发射方向
- * LCI: 发射惯性系，在天体惯性系下其空间指向不随时间变化，在发射时刻与Launch坐标系重合
- */
+/**
+    @addtogroup Coordinate
+    @{
+    局部轨道坐标系的定义：
+    - LVLH: X轴指向位置方向，Z轴指向轨道法向
+    - LVLH_CCSDS: Z轴指向位置反方向，Y轴指向轨道法向反方向，CCSDS 定义的LVLH坐标系，FreeFlyer里的LVLH
+    - VVLH: Z轴指向位置反方向，Y轴指向轨道法向反方向
+    - VNC: X轴指向速度方向，Y轴指向轨道法向
+    - ENU: 东北天，Z轴指向位置方向，北极轴在 (+Y +Z) 半平面内
+    - NED: 北东地，Z轴指向位置反方向，北极轴在 (+Y ±Z) 半平面内
+    - Launch: 发射坐标系，其跟随地球旋转，Y轴指向当地天顶方向，X轴指向发射方向
+    - LCI: 发射惯性系，在天体惯性系下其空间指向不随时间变化，在发射时刻与Launch坐标系重合
+*/
 
 
 /// @brief     计算位置和速度向量所在坐标系到VVLH坐标系的转换矩阵
@@ -95,5 +96,6 @@ AST_CORE_CAPI err_t aFrameToVNCMatrix(const Vector3d& posInFrame, const Vector3d
 AST_CORE_CAPI err_t aVNCToFrameMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix);
 
 
+/*! @} */
 
 AST_NAMESPACE_END

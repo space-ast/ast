@@ -33,12 +33,39 @@ namespace details{
     }
 }
 
+/*!
+    @addtogroup NLE
+    @{
+*/
+
+
+/// @brief 二分法求解器
+/// @tparam Func 函数类型
+/// @param f 函数对象
+/// @param xa 区间下限
+/// @param xb 区间上限
+/// @param xtol 绝对误差 tolerance
+/// @param rtol 相对误差 tolerance
+/// @param iter 最大迭代次数
+/// @param solver_stats 求解器统计信息
+/// @return 根近似值
 template<typename Func>
 double bisect(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
     return bisect(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
+
+/// @brief Ridder 方法求解器
+/// @tparam Func 函数类型
+/// @param f 函数对象
+/// @param xa 区间下限
+/// @param xb 区间上限
+/// @param xtol 绝对误差 tolerance
+/// @param rtol 相对误差 tolerance
+/// @param iter 最大迭代次数
+/// @param solver_stats 求解器统计信息
+/// @return 根近似值
 template<typename Func>
 double ridder(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
@@ -46,18 +73,50 @@ double ridder(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 }
 
 
+/// @brief Brenth法求解器
+/// @tparam Func 函数类型
+/// @param f 函数对象
+/// @param xa 区间下限
+/// @param xb 区间上限
+/// @param xtol 绝对误差 tolerance
+/// @param rtol 相对误差 tolerance
+/// @param iter 最大迭代次数
+/// @param solver_stats 求解器统计信息
+/// @return 根近似值
 template<typename Func>
 double brenth(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
     return brenth(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
+
+/// @brief Brentq法求解器
+/// @tparam Func 函数类型
+/// @param f 函数对象
+/// @param xa 区间下限
+/// @param xb 区间上限
+/// @param xtol 绝对误差 tolerance
+/// @param rtol 相对误差 tolerance
+/// @param iter 最大迭代次数
+/// @param solver_stats 求解器统计信息
+/// @return 根近似值
 template<typename Func>
 double brentq(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
     return brentq(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
+
+/// @brief 割线法求解器
+/// @tparam Func 函数类型
+/// @param f 函数对象
+/// @param xa 区间下限
+/// @param xb 区间上限
+/// @param xtol 绝对误差 tolerance
+/// @param rtol 相对误差 tolerance
+/// @param iter 最大迭代次数
+/// @param solver_stats 求解器统计信息
+/// @return 根近似值
 template<typename Func>
 double secant(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
@@ -65,5 +124,6 @@ double secant(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 }
 
 
+/*! @} */
 
 AST_NAMESPACE_END

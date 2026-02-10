@@ -27,6 +27,9 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 向量值类
+/// @tparam T 向量元素类型
+/// @ingroup Script
 template<typename T>
 class ValVector: public ValArray<T, 1>
 {

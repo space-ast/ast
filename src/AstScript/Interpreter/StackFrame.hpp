@@ -27,7 +27,10 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 栈帧
-/// @details ~
+/// @details 
+/// 栈帧用于存储函数调用时的上下文信息。
+/// @ingroup Script
+/// @todo 实现栈帧相关功能
 class StackFrame{
 public:
     StackFrame() = default;

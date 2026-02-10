@@ -27,6 +27,17 @@
  
 AST_NAMESPACE_BEGIN
 
+/*!
+    @ingroup Math
+    @defgroup Array 向量矩阵
+    @brief  提供向量矩阵相关的函数
+*/
+
+/*!
+    @addtogroup Array
+    @{
+*/
+
 template<typename _Scalar, size_t N>
 class VectorN;
 
@@ -151,6 +162,8 @@ inline void VectorX<_Scalar>::setZero()
 
 typedef VectorX<double> VectorXd;
 
+
+/*! @} */
 
 AST_NAMESPACE_END
 

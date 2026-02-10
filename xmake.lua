@@ -18,42 +18,46 @@ end
 add_includedirs("include")
 
 -- 添加编译规则
-add_rules("mode.debug", "mode.release", "mode.coverage")
-add_rules("plugin.vsxmake.autoupdate")
+-- 内置规则
+add_rules("mode.debug", "mode.release", "mode.coverage")    -- 调试模式、发布模式、代码覆盖率模式
+add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
+-- 自定义规则
+includes("rules.lua")                                       -- 导入ast项目自定义规则
+add_rules("ast")                                            -- 添加ast项目自定义规则
 
 -- 设置警告等级，并且将警告作为编译错误处理
 set_warnings("more", "error")
 
 -- 设置编译策略
-set_policy("build.progress_style", "multirow")
--- set_policy("package.precompiled", false)     -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
+set_policy("build.progress_style", "multirow")              -- 编译进度条显示为多行
+-- set_policy("package.precompiled", false)                 -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
 
 -- linux平台添加rpath
 if is_plat("linux") then
-    add_rpathdirs("$ORIGIN")
+    add_rpathdirs("$ORIGIN")                                -- 添加运行时库搜索路径，指向可执行文件所在目录
 elseif is_plat("windows") then
     add_defines("_CRT_SECURE_NO_WARNINGS")
     -- for msvc
     add_cxflags(
-        "/wd4819"           -- 忽略警告：代码页
-        ,"/wd4251"          -- 忽略警告：需要有 dll 接口
-        ,"/wd4996"          -- 忽略警告：已否决的函数或参数
-        -- ,"/wd4244"          -- 忽略警告：转换可能丢失数据
+        "/wd4819"               -- 忽略警告：代码页
+        ,"/wd4251"              -- 忽略警告：需要有 dll 接口
+        ,"/wd4996"              -- 忽略警告：已否决的函数或参数
+        -- ,"/wd4244"           -- 忽略警告：转换可能丢失数据
         -- ,"/wd4090"           -- 忽略警告：不同的“const”限定符
     )
     -- for clang
     add_cxflags(
-        "-Wno-missing-braces"
+        "-Wno-missing-braces"       -- 忽略警告：缺少大括号
     )
     if is_mode("debug") then
-        set_runtimes("MDd") -- 调试模式下使用MDd动态链接库
+        set_runtimes("MDd")         -- 调试模式下使用MDd动态链接库
     else
-        set_runtimes("MD")  -- 其他模式下使用MD动态链接库
+        set_runtimes("MD")          -- 其他模式下使用MD动态链接库
     end
-elseif is_plat("wasm") then -- 编译为wasm
+elseif is_plat("wasm") then         -- 编译为wasm
     -- for clang
     add_cxflags(
-        "-Wno-missing-braces"
+        "-Wno-missing-braces"       -- 忽略警告：缺少大括号 
     )
 end
 
@@ -65,15 +69,15 @@ end
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 
 -- 下载并安装第三方库（可选）
-add_requires("openscenegraph", {optional = true, configs = {shared = true}})
-add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})
-add_requires("eigen", {optional = true, configs = {headeronly = true}})
-add_requires("opengl", {optional = true})
-add_requires("fmt", {optional = true})
-add_requires("sofa", {optional = true})
-add_requires("matplotplusplus", {optional = true}) 
-add_requires("libf2c", {optional = true})
-add_requires("cminpack", {optional = true, configs = {long_double = true}})
+add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本
+add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})              -- 可选的Qt5库，包含基础、窗口部件和GUI模块
+add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本
+add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库
+add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
+add_requires("sofa", {optional = true})                                         -- 可选的Sofa库
+add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
+add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
+add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库      
 
 -- 使用llvm工具链编译（可选）
 -- add_requires("llvm", {optional = true})

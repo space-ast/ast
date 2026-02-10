@@ -26,6 +26,17 @@
  
 AST_NAMESPACE_BEGIN
 
+/*!
+    @ingroup   Core
+    @defgroup Orbit 轨道计算
+    @brief 提供轨道根数、轨道参数计算及转换相关接口。
+*/
+
+/*!
+    @addtogroup Orbit
+    @{
+*/
+
 
 /// @brief 直角坐标
 class CartState
@@ -476,6 +487,9 @@ ModOrbElem aCartToModOrbElem(const Vector3d& r, const Vector3d& v, double gm)
     aCartToModOrbElem(r, v, gm, modOrbElem);
     return modOrbElem;
 }
+
+
+/*! @} */
 
 
 AST_NAMESPACE_END

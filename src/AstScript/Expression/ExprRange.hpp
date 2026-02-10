@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
 /// @details 
 /// 范围表达式用于表示一个范围，包含起始值、结束值和步长（可选）。
 /// 步长表达式可选，默认值为1。
+/// @ingroup Script
 class ExprRange : public Expr
 {
 public:

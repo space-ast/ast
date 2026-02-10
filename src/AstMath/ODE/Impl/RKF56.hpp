@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 /// @brief     Runge-Kutta-Fehlberg 5(6) 积分器
 /// @details   
 /// 参考文献：Classical Fifth-, Sixth-, Seventh-, and Eighth-Order Runge-Kutta Formulas with Stepsize Control
+/// @ingroup ODE
 class AST_MATH_API RKF56 : public ODEVarStepIntegrator
 {
 public:

@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
 class Macro;
 
 /// @brief     宏展开表达式
+/// @ingroup Script
 class ExprMacroExpand: public Expr
 {
 public:

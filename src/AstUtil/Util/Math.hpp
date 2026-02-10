@@ -27,6 +27,12 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Util
+	@{
+*/
+
+
 #ifdef A_GCC    //  GCC 内建 sincos 函数
 // #pragma message("Using GCC built-in sincos function")
 using ::sincos;
@@ -133,5 +139,6 @@ A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)
     return aNormalizeAngleStart(angle, -kTwoPI);
 }
 
+/*! @} */
 
 AST_NAMESPACE_END

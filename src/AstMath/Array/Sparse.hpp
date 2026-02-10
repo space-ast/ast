@@ -24,10 +24,15 @@
  
 AST_NAMESPACE_BEGIN
  
+/// @brief 稀疏矩阵
+/// @details 
+/// 稀疏矩阵是一种特殊的矩阵，其中大部分元素为零。
+/// 本类用于存储和操作稀疏矩阵。
+/// @todo 实现稀疏矩阵Sparse类
+/// @ingroup Array
 class Sparse
 {
 public:
-    // @todo 实现Sparse类
 };
 
   

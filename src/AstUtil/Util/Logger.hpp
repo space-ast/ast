@@ -27,7 +27,12 @@
 
  
 AST_NAMESPACE_BEGIN
- 
+
+/*!
+    @addtogroup Util
+	@{
+*/
+
 
 
 /// @brief 日志等级
@@ -220,6 +225,7 @@ private:
     MessageLogContext m_context;
 };
 
+/*! @} */
 
 
 AST_NAMESPACE_END

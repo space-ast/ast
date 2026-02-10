@@ -24,6 +24,12 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Orbit
+    @{
+*/
+
+
 
 /// @brief 远地点高度转换为远地点半径
 /// @param apogeeAlt 远地点高度 [m]

@@ -25,6 +25,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Util
+	@{
+*/
+
 typedef uint32_t color_t;
 
 
@@ -90,6 +95,9 @@ public:
 private:
     color_t value_;
 };
+
+
+/*! @} */
 
 
 AST_NAMESPACE_END

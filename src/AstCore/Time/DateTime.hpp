@@ -32,6 +32,12 @@ struct tm;
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Time
+    @{
+*/
+
 constexpr double kTimeDefaultFormatPrecision = 3;
 
 class DateTime;
@@ -623,6 +629,9 @@ DateTime aCurrentDateTimeUTC()
     aCurrentDateTimeUTC(dttm);
     return dttm;
 }
+
+
+/*! @} */
 
 
 AST_NAMESPACE_END

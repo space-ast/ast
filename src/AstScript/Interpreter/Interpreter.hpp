@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 解释器
 /// @details
 /// 解释器用于解释执行脚本中的代码。
+/// @ingroup Script
 class AST_SCRIPT_API Interpreter
 {
 public:

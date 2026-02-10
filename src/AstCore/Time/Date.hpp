@@ -24,7 +24,21 @@
 #include <string>
  
 AST_NAMESPACE_BEGIN
- 
+
+
+/*!
+    @ingroup   Core
+    @defgroup Time 时间转换
+    @brief 提供儒略日、日期时间等时间表示，以及不同时间系统之间的转换功能
+    @{
+*/
+
+
+/*!
+    @addtogroup Time 时间模块
+    @{
+*/
+
 class Date;
 
 /// @brief 获取月份的完整英文名称
@@ -246,6 +260,8 @@ A_ALWAYS_INLINE Date aMJDToDate(int mjd){
     return date;
 }
 
+
+/*! @} */
 
 
 AST_NAMESPACE_END

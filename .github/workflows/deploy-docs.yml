@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - dev
 
 permissions:
   contents: write
@@ -42,6 +43,16 @@ jobs:
           npm run docs:build
           > .vuepress/dist/.nojekyll
         working-directory: docs
+
+      - name: 构建 Doxygen 文档
+        uses: mattnotmitt/doxygen-action@v1.12.0
+        with:
+          working-directory: '.'
+          doxyfile-path: './doxyfile'
+
+      - name: 复制文档
+        run: |
+          cp -r build/html docs/.vuepress/dist/api
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4

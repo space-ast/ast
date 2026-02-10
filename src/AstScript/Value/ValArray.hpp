@@ -29,6 +29,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 数组值类
 /// @tparam T 数组元素类型
 /// @tparam NDIM 维度数量
+/// @ingroup Script
 template<typename T, size_t NDIM>
 class ValArray: public Value
 {

@@ -24,6 +24,14 @@
  
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Time
+    @{
+*/
+
+
+
 class Time;
 
 
@@ -79,7 +87,9 @@ public:
     int    minute_;     ///< 分
     double second_;     ///< 秒
 };
- 
+
+
+/*! @} */
  
 AST_NAMESPACE_END
  

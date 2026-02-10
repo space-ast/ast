@@ -26,6 +26,9 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 标量值类
+/// @tparam Scalar 标量类型
+/// @ingroup Script
 template <typename Scalar>
 class ValScalar : public Value
 {

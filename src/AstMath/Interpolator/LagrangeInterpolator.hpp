@@ -25,6 +25,13 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+   @ingroup Interpolator
+   @{
+*/
+
+
+
 /// @brief 拉格朗日插值
 /// @param arrX 插值节点
 /// @param tableY 插值节点对应函数值
@@ -98,6 +105,9 @@ protected:
 };
 
 #endif
+
+
+/*! @} */
 
 
 AST_NAMESPACE_END

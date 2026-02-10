@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 符号表达式
 /// @details 表示变量或函数的名称
+/// @ingroup Script
 class Symbol: public Expr{
 public:
     AST_EXPR(Symbol)

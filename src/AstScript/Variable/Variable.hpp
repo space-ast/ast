@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 /// 变量是脚本语言中的基本元素，表示存储数据的命名位置
 /// 变量可以存储各种类型的值，如整数、浮点数、字符串、
 /// 变量也可以与其他变量单向/双向绑定，实现引用传递的效果
+/// @ingroup Script
 class AST_SCRIPT_API Variable: public Expr
 {
 public:

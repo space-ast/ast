@@ -26,6 +26,7 @@
 AST_NAMESPACE_BEGIN
  
 /// @brief 欧拉角
+/// @ingroup Attitude
 class Euler
 {
 public:

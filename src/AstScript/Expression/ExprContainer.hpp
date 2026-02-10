@@ -29,6 +29,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 表达式容器类
+/// @ingroup Script
 class ExprContainer: public Expr
 {
 public:

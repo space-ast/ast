@@ -25,6 +25,10 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Util
+	@{
+*/
 
 /// @brief 预定义的颜色枚举
 /// @see https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/named-color
@@ -185,6 +189,7 @@ enum EColor: color_t {
     eYellowGreen     	    = rgb(154, 205, 50),             	///< 黄绿色
 };
 
+/*! @} */
 
 
 AST_NAMESPACE_END

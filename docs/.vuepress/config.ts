@@ -11,13 +11,13 @@ export default defineUserConfig({
   locales: {
     "/en/": {
       lang: "en-US",
-      title: "ast docs",
-      description: "docs for ast project",
+      title: "🛰️Aerospace Simulation Algorithm",
+      // description: "docs for ast project",
     },
     "/": {
       lang: "zh-CN",
-      title: "ast文档",
-      description: "ast 项目的文档主页",
+      title: "🛰️航天仿真算法库文档",
+      // description: "SpaceAST 项目的文档主页",
     },
   },
 

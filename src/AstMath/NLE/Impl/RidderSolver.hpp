@@ -26,6 +26,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief Ridder 方法求解器
+/// @ingroup NLE
 class AST_MATH_API RidderSolver: public UnarySolver
 {
 public:

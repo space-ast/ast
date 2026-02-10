@@ -26,6 +26,18 @@
 AST_NAMESPACE_BEGIN
 
 
+/*!
+    @ingroup   Core
+    @defgroup Data 数据读取
+    @brief 提供地球指向参数（EOP）、闰秒、行星星历等数据的加载和查询功能。
+*/
+
+
+/*!
+    @addtogroup Data
+    @{
+*/
+
 
 
 /// @brief 地球指向参数（Earth Orientation Parameters）
@@ -196,5 +208,8 @@ protected:
     double m_startMJD = 0.0;
     double m_endMJD = 0.0;
 };
+
+
+/*! @} */
 
 AST_NAMESPACE_END

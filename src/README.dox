@@ -1,0 +1,45 @@
+/*!
+@mainpage
+
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dad4615cdda145a5a4a3ed6681b66ed9)](https://app.codacy.com/gh/space-ast/ast/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![codecov](https://codecov.io/gh/space-ast/ast/graph/badge.svg?token=FIUMJKSPGZ)](https://codecov.io/gh/space-ast/ast)
+![build](https://img.shields.io/github/actions/workflow/status/space-ast/ast/build.yml?branch=master&style=flat-square&logo=windows)
+![C++](https://img.shields.io/badge/C++-11+-blue.svg)
+![License](https://img.shields.io/badge/License-Apache2.0-green.svg)
+![Platform](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20mingw%20%7C%20wasm-lightgrey.svg)
+
+
+space-ast (/æst/) 是一个用C++编写的航天仿真算法库，为航天任务分析和设计提供计算基础。
+
+
+
+### 🛰️ 算法领域
+
+- \b 轨道力学: 二体问题、轨道外推、兰伯特问题求解
+- \b 姿态系统: 四元数运算、姿态动力学、控制算法
+- \b 坐标转换: J2000, MOD, TOD, ECF, LVLH等坐标系间的转换
+- \b 环境模型: 大气密度、引力场、太阳辐射压
+- \b 数值方法: 常微分方程数值积分、线性代数求解
+
+### ✨ 功能特性
+
+具体功能特性请参考[主题页面](./topics.html)
+
+### 📝 代办事项
+
+代办事项请参考[代办事项列表](./todo.html)
+
+### 🐛 已知缺陷
+
+已知缺陷请参考[Bug列表页面](./bug.html)和[issues页面](https://github.com/space-ast/ast/issues)
+
+### 🗂️ 模块规划
+
+- 工具模块
+- 数学模块
+- 脚本模块
+- 航天算法
+
+
+*/

@@ -29,6 +29,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 一元运算符表达式
+/// @ingroup Script
 class OpUnary: public Op
 {
 public:

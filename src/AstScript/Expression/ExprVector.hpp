@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
 /// @details 
 /// 每个向量元素之间用逗号分隔。
 /// 向量元素可以是任意表达式，例如 [1 + 2, a * b, c]。
+/// @ingroup Script
 class ExprVector: public ExprContainer
 {
 public:

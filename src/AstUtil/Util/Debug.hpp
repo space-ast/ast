@@ -24,6 +24,17 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Util
+	@{
+*/
+
+
+/// @brief 触发调试器中断
+/// @return 
 AST_UTIL_CAPI void aDebugBreak();
+
+
+/*! @} */
 
 AST_NAMESPACE_END

@@ -44,6 +44,7 @@ bool aIsClose(double a, double b, double relTol = kDefaultRelTol, double absTol 
 
 
 /// @brief 一元方程求解器接口
+/// @ingroup NLE
 class AST_MATH_API IUnarySolver
 {
 public:
@@ -59,6 +60,8 @@ public:
 
 
 /// @brief 一元方程求解器
+/// @details 提供一元方程求解功能的接口
+/// @ingroup NLE
 class AST_MATH_API UnarySolver: public IUnarySolver
 {
 public:

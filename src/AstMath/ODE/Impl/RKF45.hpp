@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 /// @brief     Runge-Kutta-Fehlberg 4(5) 积分器
 /// @details   
 /// 参考文献：Classical fourth- and lower order Runge-Kutta formulas with stepsize control and their application to heat transfer problems
+/// @ingroup ODE
 class AST_MATH_API RKF45 : public ODEVarStepIntegrator
 {
 public:

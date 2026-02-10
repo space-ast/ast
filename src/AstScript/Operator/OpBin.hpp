@@ -29,6 +29,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 二元运算符表达式
+/// @ingroup Script
 class OpBin: public Op
 {
 public:

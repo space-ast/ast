@@ -27,6 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 运算符表达式
+/// @ingroup Script
 class Op: public Expr
 {
 public:

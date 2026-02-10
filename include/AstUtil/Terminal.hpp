@@ -1,1 +1,1 @@
-#include "../../src/AstUtil/OpSystem/Terminal.hpp"
+#include "../../src/AstUtil/Platform/Terminal.hpp"

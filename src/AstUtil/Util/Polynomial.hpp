@@ -27,6 +27,12 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Util
+	@{
+*/
+
+
 class Polynomial;
 
 /// @brief 解析多项式表达式
@@ -131,5 +137,8 @@ A_ALWAYS_INLINE err_t aParsePolynomial(StringView content, StringView varname, P
 {
     return poly.parse(content, varname);
 }
+
+/*! @} */
+
 
 AST_NAMESPACE_END

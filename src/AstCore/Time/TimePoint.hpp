@@ -29,6 +29,13 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Time
+    @{
+*/
+
+
+
 class DateTime;
 
 class LongDuration;
@@ -215,5 +222,7 @@ public:
 // typedef TAITime AbsTime;
 // typedef TAITime AstTime;
 
+
+/*! @} */
   
 AST_NAMESPACE_END

@@ -5,8 +5,8 @@
         "body": [
             "///",
             "/// @file      ${TM_FILENAME}",
-            "/// @brief     ~",
-            "/// @details   ~",
+            "/// @brief     ",
+            "/// @details   ",
             "/// @author    ${1:axel}",
             "/// @date      ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
             "/// @copyright 版权所有 (C) ${CURRENT_YEAR}-present, ast项目.",

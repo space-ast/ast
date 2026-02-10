@@ -25,10 +25,12 @@
 AST_NAMESPACE_BEGIN
 
 
+/// @brief 调用栈
+/// @ingroup Script
+/// @todo 实现调用栈相关功能
 class CallStack
 {
 public:
-    // @todo 实现调用栈相关功能
 };
 
 AST_NAMESPACE_END

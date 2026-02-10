@@ -25,6 +25,14 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Quantity
+    @{
+*/
+
+
+
 class Quantity;
 class Unit;
 
@@ -53,6 +61,7 @@ AST_UTIL_API err_t aQuantityParse(StringView str, Quantity& quantity);
 AST_UTIL_API Quantity aQuantityParse(StringView str);
 
 
+/*! @} */
 
 
 AST_NAMESPACE_END

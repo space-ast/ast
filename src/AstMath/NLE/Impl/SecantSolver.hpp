@@ -27,6 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 割线法求解器
+/// @ingroup NLE
 class AST_MATH_API SecantSolver: public UnarySolver
 {
 public:

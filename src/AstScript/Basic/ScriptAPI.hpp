@@ -27,6 +27,12 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Script
+    @{
+*/
+
 #define AST_EXPR(CLASS) \
     AST_OBJECT(CLASS)\
     void accept(ExprVisitor& visitor) override{visitor.visit(*this);};
@@ -388,6 +394,8 @@ A_ALWAYS_INLINE Value* aNewValue(StringView value)
 {
     return aNewValueString(value);
 }
+
+/*! @} */
 
 
 AST_NAMESPACE_END

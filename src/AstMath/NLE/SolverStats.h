@@ -25,6 +25,8 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 求解器统计信息
+/// @details 包含求解器调用次数、迭代次数、错误次数等统计信息
+/// @ingroup NLE
 typedef struct SolverStats{
     int funcalls;
     int iterations;

@@ -26,6 +26,10 @@ AST_NAMESPACE_BEGIN
 
 class AngleAxis;
 
+/*!
+    @addtogroup Attitude
+    @{
+*/
 
 /// @brief 坐标旋转矩阵
 /// @param angle 旋转角度（弧度）
@@ -150,5 +154,8 @@ AST_MATH_CAPI void aMatrixToAngleAxis(const Matrix3d& mtx, AngleAxis& aa);
 
 
 A_ALWAYS_INLINE	Quaternion aMatrixToQuat(const Matrix3d& mtx);
+
+
+/*! @} */
 
 AST_NAMESPACE_END

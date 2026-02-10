@@ -34,6 +34,7 @@ class Value;
 /// 不同类型的表达式通过继承自Expr类来实现多态行为
 /// 表达式可以嵌套组合，形成复杂的计算逻辑
 /// 表达式的特点是“可以求值”，即每个表达式在求值后都会产生一个结果值
+/// @ingroup Script
 class AST_SCRIPT_API Expr: public Object
 {
 public:

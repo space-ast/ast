@@ -28,6 +28,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Propagator
+    @{
+*/
+
 class HPOPEquation; 
 class ODEIntegrator;
 
@@ -97,5 +102,8 @@ protected:
     mutable ODEIntegrator* integrator_{nullptr};    ///< 高精度轨道预报积分器
     HPOPForceModel forcemodel_;                     ///< 力模型配置
 };
+
+
+/*! @} */
 
 AST_NAMESPACE_END

@@ -27,6 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 脚本语法解析器
+/// @ingroup Script
 class AST_SCRIPT_API Parser
 {
 public:

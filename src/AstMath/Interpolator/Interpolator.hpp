@@ -25,6 +25,18 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @ingroup Math
+    @defgroup Interpolator 插值功能
+    @brief 提供插值相关计算函数与类
+*/
+
+/*!
+    @ingroup Interpolator
+    @{
+*/
+
+
 /// @brief 插值器接口
 class Interpolator: public VectorFunc
 {
@@ -41,5 +53,8 @@ public:
     virtual int getDimension() const override = 0;
 
 };
+
+/*! @} */
+
 
 AST_NAMESPACE_END

@@ -27,10 +27,11 @@ AST_NAMESPACE_BEGIN
 /// @brief 断点
 /// @details
 /// 断点对象用于表示脚本中的断点位置
+/// @ingroup Script
+/// @todo 实现断点相关功能
 class Breakpoint
 {
 public:
-    // @todo 实现断点相关功能
 };
 
 

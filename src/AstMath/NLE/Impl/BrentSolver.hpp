@@ -27,6 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief Brentq法求解器
+/// @ingroup NLE
 class AST_MATH_API BrentqSolver: public UnarySolver
 {
 public:
@@ -38,6 +39,7 @@ public:
 };
 
 /// @brief Brenth法求解器
+/// @ingroup NLE
 class AST_MATH_API BrenthSolver: public UnarySolver
 {
 public:
