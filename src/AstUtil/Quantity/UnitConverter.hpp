@@ -27,6 +27,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 单位转换器
+/// @ingroup Quantity
 class UnitConverter
 {
 public:

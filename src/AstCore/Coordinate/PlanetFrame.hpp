@@ -24,6 +24,13 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Coordinate
+    @{
+*/
 
+
+
+/*! @} */
 
 AST_NAMESPACE_END

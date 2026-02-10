@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 可变步长积分器
 /// @details 可变步长积分器每步积分的步长自适应调整，以达到目标误差。
+/// @ingroup ODE
 class AST_MATH_API ODEVarStepIntegrator : public ODEFixedStepIntegrator
 {
 public:

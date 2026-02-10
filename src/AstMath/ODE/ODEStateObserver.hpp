@@ -34,6 +34,7 @@ enum EODEAction
 };
 
 /// @brief ODE状态量观察者
+/// @ingroup ODE
 class AST_MATH_API ODEStateObserver
 {
 public:

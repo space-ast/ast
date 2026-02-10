@@ -33,7 +33,8 @@ AST_NAMESPACE_BEGIN
 class ODEEventDetector;
 
 /// @brief ODE 积分器接口类
-/// @details ~
+/// @details 积分器是ODE求解的基础类，提供了积分ODE的通用接口。
+/// @ingroup ODE
 class AST_MATH_API IODEIntegrator
 {
 public:
@@ -74,7 +75,8 @@ public:
 
 
 /// @brief ODE 积分器
-/// @details ~
+/// @details 积分器是ODE求解的基础类，提供了积分ODE的通用接口。
+/// @ingroup ODE
 class AST_MATH_API ODEIntegrator : public IODEIntegrator
 {
 public:
@@ -117,6 +119,7 @@ public:
     /// @brief 添加事件检测器
     /// @details 添加一个事件检测器，用于检测ODE的事件
     /// @param detector 事件检测器对象
+    /// @bug 目前只能添加在堆上动态创建的事件检测器，如果添加栈上的事件检测器，会导致内存问题
     void addEventDetector(ODEEventDetector* detector);
 
     /// @brief 添加事件检测器（泛型模板）
@@ -138,6 +141,7 @@ public:
     /// @brief 添加状态观察者
     /// @details 添加一个状态观察者，用于观察ODE的状态
     /// @param observer 状态观察者对象
+    /// @bug 目前只能添加在堆上动态创建的状态观察者，如果添加栈上的状态观察者，会导致内存问题
     void addStateObserver(ODEStateObserver* observer);
 
 

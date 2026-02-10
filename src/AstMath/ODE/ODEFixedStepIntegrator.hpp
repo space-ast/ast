@@ -29,6 +29,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 固定步长积分器
 /// @details 固定步长积分器是一种简单的积分器，每步积分的时间间隔相同。
+/// @ingroup ODE
 class AST_MATH_API ODEFixedStepIntegrator : public ODEIntegrator
 {
 public:

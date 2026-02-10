@@ -27,10 +27,11 @@ AST_NAMESPACE_BEGIN
 /// @brief 调试器
 /// @details
 /// 调试器用于调试脚本，提供断点、单步执行、变量查看等功能。
+/// @ingroup Script
+/// @todo 实现调试器相关功能
 class Debugger
 {
 public:
-    // @todo 实现调试器相关功能
 };
 
 

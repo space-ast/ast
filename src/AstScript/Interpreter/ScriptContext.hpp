@@ -1,7 +1,7 @@
 ///
 /// @file      ScriptContext.hpp
-/// @brief     ~
-/// @details   ~
+/// @brief     
+/// @details   
 /// @author    axel
 /// @date      2025-12-23
 /// @copyright 版权所有 (C) 2025-present, ast项目.
@@ -33,6 +33,11 @@ class Expr;                 ///< 表达式
 class Symbol;               ///< 符号
 
 
+/*!
+    @addtogroup Script
+    @{
+*/
+
 
 /// @brief     获取解释器指针
 /// @return    Interpreter* 解释器指针
@@ -51,20 +56,20 @@ AST_SCRIPT_CAPI void aScript_RemoveInterpreter(Interpreter* interpreter);
 
 
 /// @brief     获取当前符号作用域
-/// @details   ~
+/// @details   
 /// @return    SymbolScope* 符号作用域指针
 AST_SCRIPT_CAPI SymbolScope* aScript_CurrentSymbolScope();
 
 
 /// @brief     查找符号
-/// @details   ~
+/// @details   
 /// @param     name 符号名
 /// @return    Expr* 表达式指针
 AST_SCRIPT_API Expr* aScript_FindSymbol(StringView name);
 
 
 /// @brief     查找符号
-/// @details   ~
+/// @details   
 /// @param     symbol 符号指针
 /// @return    Expr* 表达式指针
 AST_SCRIPT_API Expr* aScript_FindSymbol(const Symbol* symbol);
@@ -72,38 +77,39 @@ AST_SCRIPT_API Expr* aScript_FindSymbol(const Symbol* symbol);
 
 
 /// @brief     解析符号
-/// @details   ~
+/// @details   
 /// @param     name 符号名
 /// @return    Expr* 表达式指针
 AST_SCRIPT_API Expr* aScript_ResolveSymbol(StringView name);
 
 
 /// @brief     解析符号
-/// @details   ~
+/// @details   
 /// @param     symbol 符号
 /// @return    Expr* 表达式指针
 AST_SCRIPT_API Expr* aScript_ResolveSymbol(const Symbol* symbol);
 
 
 /// @brief     设置错误字符串
-/// @details   ~
+/// @details   
 /// @param     err 错误字符串
 AST_SCRIPT_CAPI void aScript_SetErrString(StringView err);
 
 
 /// @brief     格式化错误字符串
-/// @details   ~
+/// @details   
 /// @param     fmt 格式化字符串
 /// @param     args 可变参数列表
 AST_SCRIPT_CAPI void aScript_FormartErrStringV(StringView fmt, va_list args);
 
 
 /// @brief     格式化错误字符串
-/// @details   ~
+/// @details   
 /// @param     fmt 格式化字符串
 /// @param     ... 可变参数
 AST_SCRIPT_CAPI void aScript_FormatErrString(StringView fmt, ...);
 
 
+/*! @} */
 
 AST_NAMESPACE_END

@@ -29,6 +29,7 @@ AST_NAMESPACE_BEGIN
 /// @brief     范围值
 /// @details   表示一个范围值，包含起始值、结束值和步长。
 /// @todo      目前只支持浮点数类型的范围值
+/// @ingroup Script
 class ValRange : public Value
 {
 public:

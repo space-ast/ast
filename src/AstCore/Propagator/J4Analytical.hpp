@@ -25,6 +25,12 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Propagator
+    @{
+*/
+
 class ModOrbElem;
 
 class AST_CORE_API J4Analytical: public J2J4Analytical
@@ -57,8 +63,8 @@ private:
     // double re_;
 };
 
-/// @brief     ~
-/// @details   ~
+/// @brief     J4轨道预报
+/// @details   
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
@@ -70,8 +76,8 @@ private:
 AST_CORE_API err_t aJ4AnalyticalProp(double duration, double gm, double j2, double j4, double re, Vector3d& r, Vector3d& v);
 
 
-/// @brief     ~
-/// @details   ~
+/// @brief     J4轨道预报
+/// @details   
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
@@ -83,6 +89,7 @@ AST_CORE_API err_t aJ4AnalyticalProp(double duration, double gm, double j2, doub
 
 
 
+/*! @} */
 
 
 AST_NAMESPACE_END

@@ -25,10 +25,11 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief     水平拼接表达式 (空格分隔)，例如[a b c]、[1 2 3]
+/// @brief     水平拼接表达式 (空格分隔)，例如`[a b c]`、`[1 2 3]`
 /// @details   
 /// 每个表达式之间用空格分隔
-/// 向量元素可以是任意表达式，例如 [1 + 2  a * b  c]。
+/// 向量元素可以是任意表达式，例如 `[1 + 2  a * b  c]`
+/// @ingroup Script
 class ExprCatHorizontal: public ExprContainer
 {
 public:

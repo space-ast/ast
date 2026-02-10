@@ -27,6 +27,18 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @ingroup Util
+    @defgroup Quantity 单位和数量分析
+    @brief 提供单位和数量分析的功能，包括单位和数量值的加法、减法、乘法、除法等操作。
+*/
+
+
+/*!
+    @addtogroup Quantity
+    @{
+*/
+
 
 class Quantity;
 
@@ -256,5 +268,7 @@ inline Quantity operator/(double value, const Quantity& q)
 {
     return value * q.invert();
 }
+
+/*! @} */
 
 AST_NAMESPACE_END

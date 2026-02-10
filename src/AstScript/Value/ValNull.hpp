@@ -26,6 +26,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 空值
+/// @ingroup Script
 class ValNull: public Value
 {
 public:

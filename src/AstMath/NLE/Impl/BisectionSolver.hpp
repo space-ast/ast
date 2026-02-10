@@ -28,6 +28,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 二分法求解器
+/// @ingroup NLE
 class AST_MATH_API BisectionSolver: public UnarySolver
 {
 public:

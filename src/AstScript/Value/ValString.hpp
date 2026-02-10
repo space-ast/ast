@@ -29,6 +29,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 字符串值
+/// @ingroup Script
 class ValString: public Value
 {
 public:

@@ -26,8 +26,16 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Propagator
+    @{
+*/
+
 class ModOrbElem;       ///< 改进轨道根数
 class TimePoint;        ///< 时间点
+
+
 
 /// @brief     J2J4 解析预报器模型
 /// @details
@@ -113,5 +121,7 @@ protected:
     double meanAnomalyDot_;  ///< 平近点角速度
 };
 
+
+/*! @} */
 
 AST_NAMESPACE_END

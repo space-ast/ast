@@ -25,6 +25,11 @@
 #include "AstMath/Vector.hpp"
  
 AST_NAMESPACE_BEGIN
+
+/*!
+    @addtogroup Array
+    @{
+*/
  
 
 template<typename _Scalar>
@@ -212,7 +217,7 @@ A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self &MatrixMN<_Scalar, 3, 3>:
     return *this;
 }
 
-
+/*! @} */
 
 AST_NAMESPACE_END
 

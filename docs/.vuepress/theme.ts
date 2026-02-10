@@ -25,7 +25,7 @@ export default hopeTheme({
       // sidebar
       sidebar: enSidebar,
 
-      footer: "ast project",
+      footer: "SpaceAST project",
 
       displayFooter: true,
 
@@ -44,7 +44,7 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: "ast 项目",
+      footer: "SpaceAST 项目",
 
       displayFooter: true,
 

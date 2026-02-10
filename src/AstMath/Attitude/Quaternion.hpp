@@ -29,6 +29,11 @@ AST_NAMESPACE_BEGIN
 
 class Quaternion;
 
+/*!
+    @addtogroup Attitude
+	@{
+*/
+
 /// @brief 四元数乘积
 /// @param q1 四元数1
 /// @param q2 四元数2
@@ -37,6 +42,7 @@ Quaternion aQuatProduct(const Quaternion& q1, const Quaternion& q2);
 
 
 /// @brief 四元数
+/// @ingroup Attitude
 class Quaternion
 {
 public:
@@ -187,6 +193,8 @@ A_ALWAYS_INLINE	Quaternion aMatrixToQuat(const Matrix3d& mtx)
 	return q;
 }
 
+
+/*! @} */
 
 AST_NAMESPACE_END
 

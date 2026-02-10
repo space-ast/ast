@@ -24,6 +24,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Coordinate
+    @{
+*/
+
 /// @brief 计算地球ICRF坐标系到月球ICRF坐标系的转换
 /// @param tp 时间点
 /// @param posInEarthICRF 地球ICRF坐标系下的位置向量
@@ -50,5 +55,9 @@ AST_CORE_API err_t aEarthICRFToMoonICRF(
     Vector3d&        posInMoonICRF,  
     Vector3d&        velInMoonICRF
 );
+
+
+/*! @} */
+
 
 AST_NAMESPACE_END

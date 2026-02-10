@@ -32,6 +32,14 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Quantity
+    @{
+*/
+
+
+
 class Unit;
 class Quantity;
 
@@ -540,7 +548,7 @@ public:
 };
 
 
-
+/*! @} */
 
 
 AST_NAMESPACE_END

@@ -28,6 +28,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Quantity
+    @{
+*/
+
 class Unit;
 
 /// @brief 获取单位
@@ -87,5 +92,6 @@ protected:
     std::unordered_map<std::string, Unit*> units_;       ///< 单位映射表
 };
 
+/*! @} */
 
 AST_NAMESPACE_END

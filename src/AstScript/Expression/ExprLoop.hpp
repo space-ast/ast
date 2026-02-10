@@ -28,6 +28,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief     循环表达式基类
+/// @ingroup Script
 class ExprLoop: public Expr
 {
 public:
@@ -38,6 +39,7 @@ public:
 
 /// @brief     while 循环表达式
 /// @details   Julia语法: while condition; body end
+/// @ingroup Script
 class ExprWhile: public ExprLoop
 {
 public:
@@ -74,6 +76,7 @@ protected:
 
 /// @brief     for 循环表达式（范围风格）
 /// @details   Julia语法: for variable in range; body end
+/// @ingroup Script
 class ExprForRange: public ExprLoop
 {
 public:

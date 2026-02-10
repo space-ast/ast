@@ -1,1 +1,1 @@
-#include "../../src/AstUtil/Object/Type.hpp"
+#include "../../src/AstUtil/RTTI/Type.hpp"

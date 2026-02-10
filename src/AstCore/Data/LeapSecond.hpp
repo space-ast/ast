@@ -27,6 +27,13 @@
 AST_NAMESPACE_BEGIN
 
 
+/*!
+    @addtogroup Data
+    @{
+*/
+
+
+
 class JulianDate;
 class TimePoint;
 class Date;
@@ -48,7 +55,7 @@ public:
     err_t loadATK(const char* filepath);
 
 	/// @brief  从HPIERS格式文件加载闰秒数据
-	/// @details 见https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat
+	/// @details 见 <https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat>
 	/// @param  filepath - HPIERS格式文件路径
 	/// @retval          - 错误码
     err_t loadHPIERS(const char* filepath);
@@ -100,6 +107,9 @@ public:
 protected:
     std::vector<Entry> m_data;
 };
+
+
+/*! @} */
 
 
 AST_NAMESPACE_END

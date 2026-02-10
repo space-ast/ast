@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 /// @details 
 /// 该类用于检测ODE积分过程中的事件，例如根查找、事件触发等。
 /// 参考matlab的ODE45等积分器的Events选项，以及hipparchus的ODEEventDetector类。
+/// @ingroup ODE
 class AST_MATH_API ODEEventDetector
 {
 public:

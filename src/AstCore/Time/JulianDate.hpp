@@ -26,6 +26,12 @@
  
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Time
+    @{
+*/
+
+
 class JulianDate;
 class Date;
 class Time;
@@ -172,6 +178,10 @@ public:
     int    day_;     // 天数部分 day part of julian date
     double second_;  // 秒数部分 second part of julia date
 };
+
+
+
+/*! @} */
  
 AST_NAMESPACE_END
  

@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
 /// 函数是一种特殊的值对象
 /// 函数的特点是“可以被调用，且会将输入的值转换为另一个值”
 /// 因为值也是一种表达式，所以函数是一种特殊的宏，其输出的表达式是一个值对象
+/// @ingroup Script
 class Function: public Macro
 {
 public:

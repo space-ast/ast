@@ -26,6 +26,11 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/// @brief 赋值运算符表达式
+/// @details
+/// 赋值运算符表达式用于表示赋值操作，将右侧表达式的值赋值给左侧表达式。
+/// @ingroup Script
 class OpAssign: public Op
 {
 public:

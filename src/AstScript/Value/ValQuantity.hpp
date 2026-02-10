@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 数量值
+/// @ingroup Script
 class ValQuantity: public Value
 {
 public:

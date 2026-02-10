@@ -1,1 +1,1 @@
-#include "../../src/AstUtil/Object/ScopedPtr.hpp"
+#include "../../src/AstUtil/RTTI/ScopedPtr.hpp"

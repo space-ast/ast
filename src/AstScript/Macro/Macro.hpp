@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
 /// 宏对象用于表示脚本中的宏定义，可以包含参数和宏体。
 /// 宏是一种特殊的值对象
 /// 宏的特点是“可以被调用，且会将输入的表达式转换为另一个表达式”
+/// @ingroup Script
 class Macro: public Value
 {
 public:

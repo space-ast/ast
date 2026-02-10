@@ -25,6 +25,12 @@
 
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Time
+    @{
+*/
+
 /// @brief 简约儒略日
 class ModJulianDate: protected JulianDate
 {
@@ -50,7 +56,9 @@ public:
 
 
 };
- 
+
+
+/*! @} */
  
 AST_NAMESPACE_END
  

@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 /// @brief     常微分方程基接口
 /// @details   该类定义了常微分方程的接口，包括获取维度和计算导数。
 ///            参考orekit的OrdinaryDifferentialEquation类
+/// @ingroup ODE
 class AST_MATH_API OrdinaryDifferentialEquation
 {
 public:
@@ -83,12 +84,14 @@ private:
 
 
 /// @brief 创建一个常微分方程
+/// @ingroup ODE
 template<typename Func>
 ODEGeneric<Func> make_ode(Func func, int dim) {
     return ODEGeneric<Func>(func, dim);
 }
 
 /// @brief 创建一个常微分方程
+/// @ingroup ODE
 template<typename Func>
 ODEGeneric<Func> make_ode(int dim, Func func) {
     return ODEGeneric<Func>(func, dim);

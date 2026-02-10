@@ -27,8 +27,15 @@
  
 AST_NAMESPACE_BEGIN
 
+
+/*!
+    @addtogroup Time
+    @{
+*/
+
 class JulianDate;
 class DateTime;
+
 
 
 /// @brief 从原子时(TAI) 转换为 地球时(TT)
@@ -201,6 +208,9 @@ AST_CORE_CAPI double aTDBMinusTT(const JulianDate& jdTT);
 /// @param jd 儒略日
 /// @return 儒略世纪数
 AST_CORE_CAPI double aJulianCenturyFromJ2000(const JulianDate& jd);
+
+
+/*! @} */
 
 
 AST_NAMESPACE_END

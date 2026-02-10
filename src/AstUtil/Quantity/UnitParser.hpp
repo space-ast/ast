@@ -25,6 +25,12 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Quantity
+    @{
+*/
+
+
 class Unit;
 
 
@@ -40,6 +46,8 @@ AST_UTIL_API err_t aUnitParse(StringView str, Unit& unit);
 /// @return Unit 解析得到的单位，如果解析失败返回 Unit::NaN()
 AST_UTIL_API Unit aUnitParse(StringView str);
 
+
+/*! @} */
 
 
 AST_NAMESPACE_END

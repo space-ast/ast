@@ -27,7 +27,8 @@
 AST_NAMESPACE_BEGIN
 
 /// @namespace ast::literals
-/// @brief 包含所有自定义字面量运算符的命名空间
+/// @brief 包含自定义字面量运算符，包含角度单位、长度单位、时间单位和天文单位等
+/// @ingroup Util
 namespace literals
 {
     // 角度单位 - 基于弧度的单位制. 所有角度转换最终表示为弧度

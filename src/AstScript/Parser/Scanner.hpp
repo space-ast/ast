@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 扫描器抽象基类
 /// @details 提供统一的字符读取接口，支持不同的输入源（FILE*、std::string、std::fstream等）
+/// @ingroup Script
 class AST_SCRIPT_API Scanner
 {
 public:

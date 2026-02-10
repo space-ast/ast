@@ -29,6 +29,13 @@
 AST_NAMESPACE_BEGIN
 
 
+/*!
+    @addtogroup Data
+    @{
+*/
+
+
+
 /// @brief  JPL DE文件接口类
 class AST_CORE_API JplDe
 {
@@ -175,5 +182,6 @@ protected:
 
 
 
+/*! @} */
 
 AST_NAMESPACE_END

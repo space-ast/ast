@@ -26,6 +26,14 @@
 
 AST_NAMESPACE_BEGIN
 
+
+
+/*!
+    @addtogroup Time
+    @{
+*/
+
+
 class TimeInterval;
 
 /// @brief 将时间区间格式化为字符串
@@ -90,5 +98,11 @@ protected:
     double  start_;     ///< 相对开始时间(s)
     double  end_;       ///< 相对结束时间(s)
 };
+
+
+
+/*! @} */
+
+
 
 AST_NAMESPACE_END

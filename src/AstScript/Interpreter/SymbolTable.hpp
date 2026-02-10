@@ -24,10 +24,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @todo 实现符号表相关功能
+/// @ingroup Script
 class SymbolTable
 {
 public:
-    // @todo 实现符号表相关功能
 };
 
 AST_NAMESPACE_END

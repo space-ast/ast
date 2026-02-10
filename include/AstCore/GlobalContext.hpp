@@ -1,1 +1,1 @@
-#include "../../src/AstCore/RunTime/GlobalContext.hpp"
+#include "../../src/AstCore/Data/Context/GlobalContext.hpp"

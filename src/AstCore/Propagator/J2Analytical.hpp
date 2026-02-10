@@ -28,8 +28,24 @@
 AST_NAMESPACE_BEGIN
 
 
+
+/*!
+    @ingroup   Core
+    @defgroup Propagator 轨道预报
+    @brief 提供二体、J2、J4、HPOP等轨道预报器
+*/
+
+/*!
+    @addtogroup Propagator
+    @{
+*/
+
+
+
 class ModOrbElem;       ///< 改进轨道根数
 class TimePoint;        ///< 时间点
+
+
 
 class AST_CORE_API J2Analytical : public J2J4Analytical
 {
@@ -60,8 +76,8 @@ protected:
 };
 
 
-/// @brief     ~
-/// @details   ~
+/// @brief     J2轨道预报
+/// @details   
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
@@ -72,8 +88,8 @@ protected:
 AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, Vector3d& r, Vector3d& v);
 
 
-/// @brief     ~
-/// @details   ~
+/// @brief     J2轨道预报
+/// @details   
 /// @param     duration 时间间隔
 /// @param     gm       引力常数
 /// @param     j2       J2项
@@ -82,5 +98,7 @@ AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, doub
 /// @return    错误码
 AST_CORE_API err_t aJ2AnalyticalProp(double duration, double gm, double j2, double re, ModOrbElem& modOrbElem);
 
+
+/*! @} */
 
 AST_NAMESPACE_END

@@ -26,6 +26,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 布尔值
+/// @ingroup Script
 class ValBool: public ValScalar<bool>
 {
 public:

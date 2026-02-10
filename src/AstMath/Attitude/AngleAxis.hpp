@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 轴角类
 /// @details 轴角类表示三维空间的旋转，由旋转轴和旋转角度组成。
+/// @ingroup Attitude
 class AngleAxis
 {
 public:

@@ -26,6 +26,12 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Array
+    @{
+*/
+
+
 
 /// @brief     下三角矩阵
 template<typename _Scalar>
@@ -117,6 +123,8 @@ inline void LowerMatrix<_Scalar>::setZero() noexcept
 
 
 typedef LowerMatrix<double> LowerMatrixd;
+
+/*! @} */
 
 AST_NAMESPACE_END
 

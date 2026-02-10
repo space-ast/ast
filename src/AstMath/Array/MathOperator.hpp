@@ -38,19 +38,22 @@ typedef std::array<double, 3> array3d;
 typedef std::array<double, 6> array6d;
 
 
-/*
- * @note
- * 采用模板函数实现向量运算，只要类型支持标准化的接口即可使用这些函数
- * 
- * 一般来说，用于向量运算的类型都能支持随机访问，
- * 所以这里没有参考标准库的实现来处理不支持随机访问的数据容器
- * 直接使用使用for循环 + 下标访问实现向量运算
- * 
- * */
+/*!
+   @addtogroup Array
+   @{
+*/
 
 template<typename _Scalar, size_t Row, size_t Col>
 class MatrixMN;
 
+/// @ingroup Vector
+/// @brief  提供向量运算相关的函数
+/// @note
+///    采用模板函数实现向量运算，只要类型支持标准化的接口即可使用这些函数
+///    
+///    一般来说，用于向量运算的类型都能支持随机访问，
+///    所以这里没有参考标准库的实现来处理不支持随机访问的数据容器
+///    直接使用使用for循环 + 下标访问实现向量运算
 namespace math{
 
 
@@ -607,5 +610,7 @@ constexpr const T& clamp(const T& val, const T& low, const T& high)
     return (val < low) ? low : ((val > high) ? high : val);
     #endif
 }
+
+/*! @} */
 
 AST_NAMESPACE_END

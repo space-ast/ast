@@ -25,6 +25,12 @@
  
 AST_NAMESPACE_BEGIN
  
+/*!
+    @addtogroup Time
+    @{
+*/
+
+
 
 /// @brief 短时长
 class ShortDuration
@@ -81,6 +87,8 @@ public:
     double second_;         // 小数秒部分
 };
 
+
+/*! @} */
  
 AST_NAMESPACE_END
  
