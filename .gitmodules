@@ -4,3 +4,9 @@
 [submodule "thirdparty/matplotplusplus"]
 	path = thirdparty/matplotplusplus
 	url = https://github.com/space-ast/matplotplusplus.git
+[submodule "thirdparty/cspice"]
+	path = thirdparty/cspice
+	url = https://github.com/space-ast/cspice.git
+[submodule "data"]
+	path = data
+	url = https://github.com/space-ast/ast-data.git

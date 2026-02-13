@@ -78,6 +78,7 @@ add_requires("sofa", {optional = true})                                         
 add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库      
+add_requires("cspice", {optional = true})                                       -- 可选的cspice库
 
 -- 使用llvm工具链编译（可选）
 -- add_requires("llvm", {optional = true})
@@ -95,12 +96,25 @@ add_requires("cminpack", {optional = true, configs = {long_double = true}})     
 if has_package("fmt") then
     add_packages("fmt")
     add_defines("AST_WITH_FMT")
+else
+    add_defines("AST_NO_FMT")
 end
 
 if has_package("eigen") then
     add_defines("AST_WITH_EIGEN")
     add_packages("eigen")
+else
+    add_defines("AST_NO_EIGEN")
 end
+
+-- 添加cspice库依赖（可选）
+if has_package("cspice") then
+    add_packages("cspice")
+    add_defines("AST_WITH_CSPICE")
+else
+    add_defines("AST_NO_CSPICE")
+end
+
 
 -- 添加matplot++库依赖（可选）
 if has_package("matplotplusplus") then

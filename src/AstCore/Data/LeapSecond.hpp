@@ -38,6 +38,9 @@ class JulianDate;
 class TimePoint;
 class Date;
 
+/// @brief  闰秒类
+/// @details 该类用于读取、存储和处理闰秒数据。
+/// @todo 支持读取Spice的闰秒内核文件
 class AST_CORE_API LeapSecond
 {
 public:

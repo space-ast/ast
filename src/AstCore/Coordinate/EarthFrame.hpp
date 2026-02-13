@@ -81,7 +81,6 @@ class KinematicRotation;
 //----------------
 
 
-void test(int a, int& b);
 
 /// @brief     从ECI转换为ECF的坐标旋转变换
 /// @details   ~
