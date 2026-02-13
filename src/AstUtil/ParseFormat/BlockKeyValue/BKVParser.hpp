@@ -35,7 +35,10 @@ class BKVItemView;
 class ValueView;
 
 /// @brief 键值对解析器（BlockKeyValueParser）
-/// @details 本类实现了键值对解析器，用于解析键值对格式的文本。
+/// @details 
+/// 本类实现了键值对解析器，用于解析键值对格式的文本。
+/// 该类可以用于解析STK的配置文件，例如对象配置文件、数据文件等。
+/// 同时也可以用于解析[CelesTrak](https://celestrak.org/SpaceData/)网站上的一些数据文件。
 /// @ingroup ParseFormat
 class AST_UTIL_API BKVParser 
 {

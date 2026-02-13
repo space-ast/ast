@@ -17,7 +17,7 @@
 
 **space-ast** (/æst/) 是一个专注于航天仿真领域的算法库，提供了轨道力学、姿态控制、轨迹规划等核心算法的现代C++实现。
 
-如果你想要了解更多，请参考：[在线文档](https://space-ast.github.io/ast/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
+如果你想要了解更多，请参考：[使用指南](https://space-ast.github.io/ast/), [API文档](https://space-ast.github.io/ast/api/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
 
 ## 🚀 核心特性
 
@@ -65,7 +65,14 @@ ast/
 
 ## 🎯 API 设计理念
 
+- **简单易用**：提供简洁的API接口，方便开发者快速集成到项目中。
+- **高度可定制**：允许开发者根据需求自定义算法参数和行为。
+- **性能优化**：针对航天仿真场景，对关键算法进行了性能优化。
+
+## 📏代码规范
+
 ### 📝 命名规范
+
 项目采用以下命名约定：
 
 ```cpp
@@ -92,6 +99,17 @@ const kEps15 = 1e-15;
 ```
 
 可以发现：在以上命名规范里，所有以小写字母开头的都有值或者地址
+
+
+### 👁️‍🗨️ 注释规范
+
+遵循Doxygen注释规范，函数、文件、类的注释采用`///`格式，其他多行注释也可采用`/*! ... */`格式。
+
+- **函数注释**：每个函数都需要包含详细的注释，包括参数说明、返回值、异常情况等。
+
+- **类注释**：每个类都需要包含详细的注释，包括功能描述、成员变量、成员函数等。
+
+- **文件注释**：每个源文件都需要包含文件头注释，包括文件名、作者、日期、版权信息等。
 
 
 ## 🤝 参与贡献
