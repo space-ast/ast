@@ -1,9 +1,9 @@
 ///
-/// @file      Atmosphere.hpp
-/// @brief     ~
-/// @details   ~
+/// @file      Magnetosphere.hpp
+/// @brief     
+/// @details   
 /// @author    axel
-/// @date      2026-01-22
+/// @date      2026-02-15
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -24,9 +24,20 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @ingroup Weather
+    @defgroup Magnetosphere 磁场模型
+    @details  包括IGRF等磁场模型等。
+*/
 
-AST_CORE_CAPI double aAtmDensUSSA1976(double alt);
+
+/*!
+    @addtogroup Magnetosphere
+    @{
+*/
 
 
+
+/*! @} */
 
 AST_NAMESPACE_END
