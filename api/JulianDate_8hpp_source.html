@@ -183,7 +183,7 @@ $(function(){initNavTree('JulianDate_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">int</span>&amp; day(){<span class="keywordflow">return</span> day_;}</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">double</span> second()<span class="keyword"> const </span>{<span class="keywordflow">return</span> second_;}</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">double</span>&amp; second(){<span class="keywordflow">return</span> second_;}</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> setDay(<span class="keywordtype">int</span> day){day_ = day;}</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> setDay(<span class="keywordtype">int</span> day){day_ = <a class="code hl_variable" href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">day</a>;}</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> setSecond(<span class="keywordtype">double</span> sec){second_ = <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;}</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
@@ -245,7 +245,7 @@ $(function(){initNavTree('JulianDate_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    DaySecDuration operator - (<span class="keyword">const</span> JulianDate&amp; other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">return</span> {day() - other.day(), second() - other.second()};</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">return</span> {<a class="code hl_variable" href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">day</a>() - other.day(), second() - other.second()};</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">int</span>    day_;     <span class="comment">// 天数部分 day part of julian date</span></div>
@@ -258,6 +258,7 @@ $(function(){initNavTree('JulianDate_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>AST_NAMESPACE_END</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
 <div class="ttc" id="aDuration_8hpp_html"><div class="ttname"><a href="Duration_8hpp.html">Duration.hpp</a></div></div>
+<div class="ttc" id="aUnit_8cpp_html_a46331518b0993f7058b537530ef94a33"><div class="ttname"><a href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">ast::units::day</a></div><div class="ttdeci">Unit day</div><div class="ttdoc">天</div><div class="ttdef"><b>定义</b> Unit.cpp:430</div></div>
 <div class="ttc" id="aUnit_8cpp_html_a844daeb7494484dd4a992db22d44fad7"><div class="ttname"><a href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">ast::units::sec</a></div><div class="ttdeci">Unit sec</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:424</div></div>
 <div class="ttc" id="aclassast_1_1DateTime_html"><div class="ttname"><a href="classast_1_1DateTime.html">ast::DateTime</a></div><div class="ttdoc">日期时间</div><div class="ttdef"><b>定义</b> DateTime.hpp:409</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html"><div class="ttname"><a href="classast_1_1JulianDate.html">ast::JulianDate</a></div><div class="ttdoc">儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:82</div></div>

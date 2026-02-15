@@ -1,7 +1,13 @@
 var NAVTREEINDEX5 =
 {
-"atmos76_8h_source.html":[4,0,0,2,1,2,0],
-"atmosapi_8hpp_source.html":[4,0,0,2,1,3],
+"VectorFunc_8hpp.html":[4,0,0,5,2,4],
+"VectorFunc_8hpp_source.html":[4,0,0,5,2,4],
+"Zeros_8hpp.html":[4,0,0,5,4,0,0,2],
+"Zeros_8hpp_source.html":[4,0,0,5,4,0,0,2],
+"_2github_2workspace_2src_2AstUtil_2Util_2Literals_8hpp-example.html":[5,0],
+"annotated.html":[3,0],
+"atmos76_8h_source.html":[4,0,0,12,0,2,0],
+"atmosapi_8hpp_source.html":[4,0,0,12,0,3],
 "classast_1_1AngleAxis.html":[0,1,1,0],
 "classast_1_1AngleAxis.html#a0e3a1964c6f782cc8399e7532fdba2ee":[0,1,1,0,3],
 "classast_1_1AngleAxis.html#a28719fe1125d6eb3d7f3741d29afabdf":[0,1,1,0,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX5 =
 "classast_1_1BlockSubtract.html#a61440ec9d5857c3d2c358fc068adebef":[3,0,0,36,0],
 "classast_1_1BlockSum.html":[2,0,0,39],
 "classast_1_1BlockSum.html":[3,0,0,37],
-"classast_1_1BlockSum.html#a8f57ca1f6cbe38fc7ed8f3444e97dc51":[2,0,0,39,0],
-"classast_1_1BlockSum.html#a8f57ca1f6cbe38fc7ed8f3444e97dc51":[3,0,0,37,0],
-"classast_1_1BlockSwitch.html":[2,0,0,40],
-"classast_1_1BlockSwitch.html":[3,0,0,38],
-"classast_1_1BlockSwitch.html#a0efd6f1428806e9407f574d7e5a0174b":[2,0,0,40,1],
-"classast_1_1BlockSwitch.html#a0efd6f1428806e9407f574d7e5a0174b":[3,0,0,38,1],
-"classast_1_1BlockSwitch.html#a63a91f715cca289941c12613a3d5a4d1":[2,0,0,40,0]
+"classast_1_1BlockSum.html#a8f57ca1f6cbe38fc7ed8f3444e97dc51":[2,0,0,39,0]
 };

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Atmosphere/MSIS90/msise90.h 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstWeather/Atmosphere/MSIS90/msise90.h 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,7 +105,7 @@ $(function(){initNavTree('msise90_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// for ifort in windows</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// #define MSISE90_FUNCNAME(low, UP) UP</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">typedef</span> <span class="keywordtype">int</span> integer;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code hl_typedef" href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a>;</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">typedef</span> <span class="keywordtype">double</span> real;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifdef __cplusplus</span></div>
@@ -118,17 +118,18 @@ $(function(){initNavTree('msise90_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    stl: LOCAL APPARENT SOLAR TIME(HRS)</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    void gtd6_(int* year, double* sec, double* alt, double* glat, double* glong, double* stl, double* f107a, double* f107, double* ap, int* mass, double* d, double* t);</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span>  gtd6_(integer *iyd, real *sec, real *alt,  real *glat,   real *glong,   real *stl,   real *f107a,   real *f107,   <span class="keyword">const</span> real *ap, integer *mass, real *d, real *t);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span>  gtd6_(<a class="code hl_typedef" href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a> *iyd, real *sec, real *alt,  real *glat,   real *glong,   real *stl,   real *f107a,   real *f107,   <span class="keyword">const</span> real *ap, <a class="code hl_typedef" href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a> *mass, real *d, real *t);</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifdef __cplusplus</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aMockSnopt_8c_html_a99e088ad9e1bf72a6c0e148a6c2b7012"><div class="ttname"><a href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a></div><div class="ttdeci">long int integer</div><div class="ttdef"><b>定义</b> MockSnopt.c:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_5b17ea73c95a1e4bace30f4613654d1e.html">Atmosphere</a></li><li class="navelem"><a class="el" href="dir_d3d46d572d4e0f60610843b2567c1055.html">MSIS90</a></li><li class="navelem"><b>msise90.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d6e4ac8b78fda5c9099770e0f8f0c340.html">AstWeather</a></li><li class="navelem"><a class="el" href="dir_9a33239a6c66f3b70ca3f7ebd5b44197.html">Atmosphere</a></li><li class="navelem"><a class="el" href="dir_9edd33005ff5d7677915c12051d11966.html">MSIS90</a></li><li class="navelem"><b>msise90.h</b></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

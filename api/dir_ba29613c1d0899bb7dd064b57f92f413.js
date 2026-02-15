@@ -1,7 +1,6 @@
 var dir_ba29613c1d0899bb7dd064b57f92f413 =
 [
     [ "Alias", "dir_1fa676548a476d2f225966968852b834.html", "dir_1fa676548a476d2f225966968852b834" ],
-    [ "Atmosphere", "dir_5b17ea73c95a1e4bace30f4613654d1e.html", "dir_5b17ea73c95a1e4bace30f4613654d1e" ],
     [ "CAPI", "dir_e56850d03c4987da6e854ed1dd15bd15.html", "dir_e56850d03c4987da6e854ed1dd15bd15" ],
     [ "Coordinate", "dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html", "dir_d4f37a8c842ac907ebbff47eaf6f4e6a" ],
     [ "Data", "dir_a0626de0dc3d3eb2f19b4cf1f78690c4.html", "dir_a0626de0dc3d3eb2f19b4cf1f78690c4" ],
