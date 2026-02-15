@@ -1145,6 +1145,7 @@ var namespaceast =
     [ "ee2mee", "group__Orbit.html#ga7ecb7d86007a2aabc2374a82cdbd5c27", null ],
     [ "ee2moe", "group__Orbit.html#ga0ff98f79d40fb56e038a40b609a30d34", null ],
     [ "ee2rv", "group__Orbit.html#ga6d3717dadadd65aaef40325cb14fcdf4", null ],
+    [ "igrf13syn", "group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058", null ],
     [ "isBinaryDigit", "namespaceast.html#a1629d9da225d9e02df44b7677ed7ef8e", null ],
     [ "isHexDigit", "namespaceast.html#a212db34da83ee26fa1f671ba8a2367c9", null ],
     [ "isOctalDigit", "namespaceast.html#a7355dae83cf21fdd8862a4f2e84dc01d", null ],

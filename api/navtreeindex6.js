@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"classast_1_1BlockSum.html#a8f57ca1f6cbe38fc7ed8f3444e97dc51":[2,0,0,39,0],
 "classast_1_1BlockSum.html#a8f57ca1f6cbe38fc7ed8f3444e97dc51":[3,0,0,37,0],
 "classast_1_1BlockSwitch.html":[2,0,0,40],
 "classast_1_1BlockSwitch.html":[3,0,0,38],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "classast_1_1Euler.html":[0,1,1,1],
 "classast_1_1Euler.html#a208bcb14bd7c3d33fff33ebc9158559c":[0,1,1,1,0],
 "classast_1_1Euler.html#a4930f5342410ab07bc05c042eea2ecd2":[0,1,1,1,3],
-"classast_1_1Euler.html#a5a3421a72d3b9362ce84553274d7ec04":[0,1,1,1,1],
-"classast_1_1Euler.html#a658edae13c7a2a4756e93fe038539006":[0,1,1,1,6]
+"classast_1_1Euler.html#a5a3421a72d3b9362ce84553274d7ec04":[0,1,1,1,1]
 };

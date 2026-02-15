@@ -1,5 +1,7 @@
 var NAVTREEINDEX19 =
 {
+"structast_1_1property__trait.html":[0,3,3,11],
+"structast_1_1property__trait_3_01std_1_1string_01_4.html":[0,3,3,12],
 "structast_1_1simple__fs_1_1directory__iterator_1_1impl.html":[2,0,0,3,1,0],
 "structast_1_1simple__fs_1_1directory__iterator_1_1impl.html":[3,0,0,1,1,0],
 "structast_1_1simple__fs_1_1space__info.html":[2,0,0,3,5],

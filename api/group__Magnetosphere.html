@@ -98,10 +98,108 @@ $(function(){initNavTree('group__Magnetosphere.html',''); initResizable(true); }
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">磁场模型<div class="ingroups"><a class="el" href="group__Weather.html">空间天气模型</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-<p>包括IGRF等磁场模型等。</p>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>包括IGRF等磁场模型等。 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga76146fe3ab6056e3b54dc09881c96058" id="r_ga76146fe3ab6056e3b54dc09881c96058"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga76146fe3ab6056e3b54dc09881c96058">ast::igrf13syn</a> (int isv, double date, int itype, double alt, double colat, double elong, double &amp;x, double &amp;y, double &amp;z, double &amp;f)</td></tr>
+<tr class="separator:ga76146fe3ab6056e3b54dc09881c96058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga76146fe3ab6056e3b54dc09881c96058" name="ga76146fe3ab6056e3b54dc09881c96058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga76146fe3ab6056e3b54dc09881c96058">&#9670;&#160;</a></span>igrf13syn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI int ast::igrf13syn </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>isv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>date</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>itype</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>alt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>colat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>elong</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据IGRF13模型计算磁场分量 </p>
+<p><br  />
+ igrf13.f文件内igrf13syn函数的C版本，保存函数接口与参数含义一致。 </p><dl class="section see"><dt>参见</dt><dd><a href="https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field">https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field</a> </dd>
+<dd>
+<a href="https://www.ngdc.noaa.gov/IAGA/vmod/igrf13.f">https://www.ngdc.noaa.gov/IAGA/vmod/igrf13.f</a> </dd>
+<dd>
+<a href="https://ccmc.gsfc.nasa.gov/models/IGRF~13/">https://ccmc.gsfc.nasa.gov/models/IGRF~13/</a> </dd>
+<dd>
+<a href="https://github.com/space-physics/igrf">https://github.com/space-physics/igrf</a> </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">isv</td><td>=0: 计算主磁场值（单位：nT）; =1: 计算长期变化率（年变率，单位：nT/年） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td>年份，公元纪年，如 2020.0。有效范围：1900.0 至 2030.0; 若 date &gt; 2025.0 会给出警告，表示精度可能降低（因预测模型仅到2025年） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">itype</td><td>=1：大地坐标（海拔高度）; =2：地心坐标（地心距离） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alt</td><td>当 itype=1 时：海拔高度，单位为 km（相对于海平面）; 当 itype=2 时：到地心的距离，单位为 km（必须 &gt; 3485 km，即地球内核半径之外） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colat</td><td>余纬度，单位为度，范围 0° 到 180°; 定义为从北极起算的角度：colat = 90° - 纬度（北纬为正，南纬为负） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">elong</td><td>东经，单位为度，范围 0° 到 360° </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>若 isv=0：主磁场北分量，单位 nT; 若 isv=1：北分量的年变率，单位 nT/年 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>东向分量（单位同上） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">z</td><td>垂直分量（向下为正，单位同上） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">f</td><td>总强度（仅当 isv=0 时有意义，单位 nT）；若 isv=1 则返回无意义的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

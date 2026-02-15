@@ -166,8 +166,9 @@ var NAVTREEINDEX2 =
 "LowerMatrix_8hpp_source.html":[4,0,0,5,0,0],
 "Macro_8hpp.html":[4,0,0,10,5,0],
 "Macro_8hpp_source.html":[4,0,0,10,5,0],
-"Magnetosphere_8hpp.html":[4,0,0,12,2,0],
-"Magnetosphere_8hpp_source.html":[4,0,0,12,2,0],
+"Magnetosphere_8cpp.html":[4,0,0,12,2,0],
+"Magnetosphere_8hpp.html":[4,0,0,12,2,1],
+"Magnetosphere_8hpp_source.html":[4,0,0,12,2,1],
 "Math_8hpp.html":[4,0,0,11,6,9],
 "Math_8hpp_source.html":[4,0,0,11,6,9],
 "MockBuffer_8cpp.html":[4,0,0,6,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "ODEInnerStateObserver_8hpp_source.html":[4,0,0,5,5,1,3],
 "ODEIntegrator_8cpp.html":[4,0,0,5,5,8],
 "ODEIntegrator_8hpp.html":[4,0,0,5,5,9],
-"ODEIntegrator_8hpp_source.html":[4,0,0,5,5,9],
-"ODEStateObserverList_8hpp_source.html":[4,0,0,5,5,1,4]
+"ODEIntegrator_8hpp_source.html":[4,0,0,5,5,9]
 };

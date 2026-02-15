@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"functions_func_n.html":[3,3,1,14],
 "functions_func_o.html":[3,3,1,15],
 "functions_func_p.html":[3,3,1,16],
 "functions_func_q.html":[3,3,1,17],
@@ -148,6 +149,7 @@ var NAVTREEINDEX14 =
 "group__Interpolator.html#ga72416d27fb3619fdd15706a2b8451869":[0,1,2,4],
 "group__Interpolator.html#gaa267788471ee95d2bf7e4af949601b35":[0,1,2,2],
 "group__Magnetosphere.html":[0,4,2],
+"group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058":[0,4,2,0],
 "group__Math.html":[0,1],
 "group__NLE.html":[0,1,3],
 "group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa":[0,1,3,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "group__Orbit.html#gac24cf541c5331c1cd23900e1f8713a9c":[0,0,2,94],
 "group__Orbit.html#gac33a5cab3147ae6ef5de7d276446e559":[0,0,2,95],
 "group__Orbit.html#gac36d434c73046892d65ac49ec56483b3":[0,0,2,6],
-"group__Orbit.html#gac464dbffc04729b64d36d16002ddd61c":[0,0,2,41],
-"group__Orbit.html#gac48028ab9efd31dec9060090fbe3d816":[0,0,2,56],
-"group__Orbit.html#gac7af75804444f8c594619dd45cdd3d19":[0,0,2,53]
+"group__Orbit.html#gac464dbffc04729b64d36d16002ddd61c":[0,0,2,41]
 };
