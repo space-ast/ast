@@ -1,7 +1,7 @@
 ﻿target("AstCore")
     set_kind("shared")
     add_files("**.cpp")
-    add_files("**.c")
+    -- add_files("**.c")
     add_headerfiles("**.hpp")
     add_headerfiles("**.h")
     add_headerfiles("../../(include/AstGlobal.h)")
@@ -9,5 +9,3 @@
     -- add_extrafiles("xmake.lua")    
     add_deps("AstUtil", "AstMath")
     
-
-includes("Atmosphere")

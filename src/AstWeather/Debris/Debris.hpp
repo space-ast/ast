@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 /*!
     @ingroup Weather
     @defgroup Debris 空间碎片模型
-    @details  暂未实现
+    @brief  暂未实现
 */
 
 

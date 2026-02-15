@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 
 /*!
     @defgroup Weather 空间天气模型
-    @details  包括大气模型、磁场模型、辐射模型等。
+    @brief  包括大气模型、磁场模型、辐射模型等。
 */
 
 

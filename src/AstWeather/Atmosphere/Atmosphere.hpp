@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 /*!
     @ingroup Weather
     @defgroup Atmosphere 大气模型
-    @details  包括MSIS系列大气模型、USSA1976大气模型等。
+    @brief  包括MSIS系列大气模型、USSA1976大气模型等。
 */
 
 
