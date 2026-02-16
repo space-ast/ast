@@ -26,9 +26,9 @@ AST_USING_NAMESPACE
 
 TEST(Magnetosphere, igrf13)
 {
+    printf("igrf13syn test\n");
     {
         double date = 2010.5260273972603;
-        int itype = 1;
         double alt = 0.0;
         double lat = 65;
         double elong = 85;
@@ -38,7 +38,7 @@ TEST(Magnetosphere, igrf13)
         double z = 0.0;
         double f = 0.0;
         int ret = igrf13syn(0, date, 1, alt, colat, elong, x, y, z, f);
-
+        printf("ret = %d\n", ret);
         printf("x = %f, y = %f, z = %f, f = %f\n", x, y, z, f);
         EXPECT_NEAR(x, 9295.415328, 0.001);
         EXPECT_NEAR(y, 2559.788960, 0.001);
@@ -48,7 +48,6 @@ TEST(Magnetosphere, igrf13)
 
     {
         double date = 2010;
-        int itype = 1;
         double alt = 0.0;
         double lat = 65;
         double elong = 85;
@@ -58,7 +57,7 @@ TEST(Magnetosphere, igrf13)
         double z = 0.0;
         double f = 0.0;
         int ret = igrf13syn(0, date, 1, alt, colat, elong, x, y, z, f);
-
+        printf("ret = %d\n", ret);
         printf("x = %f, y = %f, z = %f, f = %f\n", x, y, z, f);
         EXPECT_NEAR(x, 9315.267451, 0.001);
         EXPECT_NEAR(y, 2568.004564, 0.001);

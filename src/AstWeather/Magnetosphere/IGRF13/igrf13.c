@@ -10,6 +10,12 @@
 		http://www.netlib.org/f2c/libf2c.zip
 */
 
+
+#if defined(__GNUC__) && !defined(__clang__)
+#	pragma GCC diagnostic ignored "-Wmissing-braces"
+#endif
+
+
 #include "f2c.h"
 
 /* Table of constant values */
