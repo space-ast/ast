@@ -261,6 +261,10 @@ A_ALWAYS_INLINE Date aMJDToDate(int mjd){
 }
 
 
+A_ALWAYS_INLINE int aDateToMJD(int year, int month, int day){
+    return aDateToMJD({year, month, day});
+}
+
 /*! @} */
 
 

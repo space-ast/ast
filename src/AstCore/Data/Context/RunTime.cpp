@@ -30,6 +30,7 @@
 #define AST_DEFAULT_FILE_LEAPSECOND             "Time/Leap_Second.dat"
 #define AST_DEFAULT_FILE_JPLDE                  "SolarSystem/plneph.430"
 #define AST_DEFAULT_FILE_EOP                    "SolarSystem/Earth/EOP-All.txt"
+#define AST_DEFAULT_FILE_SPACEWEATHER           "SolarSystem/Earth/SW-Last5Years.txt"
 #define AST_DEFAULT_FILE_IAUX                   "IERS-conventions/2010/tab5.2a.txt"
 #define AST_DEFAULT_FILE_IAUY                   "IERS-conventions/2010/tab5.2b.txt"
 #define AST_DEFAULT_FILE_IAUS                   "IERS-conventions/2010/tab5.2d.txt"
@@ -89,6 +90,16 @@ err_t EOP::loadDefault()
     return err;
 }
 
+err_t SpaceWeather::loadDefault()
+{
+    fs::path filepath = fs::path(aDataDirGet()) / AST_DEFAULT_FILE_SPACEWEATHER;
+    err_t err = load(filepath.string());
+    if (err)
+    {
+        aWarning("failed to load space weather from default data file:\n%s", filepath.string().c_str());
+    }
+    return err;
+}
 
 err_t IAUXYS::loadDefault()
 {
@@ -132,6 +143,7 @@ err_t aInitialize(DataContext* context)
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
     err |= context->eop()->loadDefault();
+    err |= context->spaceWeather()->loadDefault();
     err |= context->iauXYSPrecomputed()->loadDefault();
 
     if(err != eNoError) {

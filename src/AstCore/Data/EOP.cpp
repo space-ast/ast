@@ -96,8 +96,8 @@ err_t EOP::load(StringView filepath)
 void EOP::unload()
 {
     m_data.clear();
-    m_startMJD = 0.0;
-    m_endMJD = 0.0;
+    m_startMJD = 0;
+    m_endMJD = 0;
 }
 
 err_t EOP::load(StringView filepath, std::vector<Entry>& data)
@@ -278,6 +278,8 @@ void EOP::getXYCorrectionUTCMJD(double mjdUTC, array2d &xyCorrection) const
 
 void EOP::findEntryIndex(double mjdUTC, size_t &index, double &frac) const
 {
+    // @todo: 与SpaceWeather.cpp中的实现是一致的，考虑怎么抽取公共代码
+
     // 猜测索引
     index = (size_t)(mjdUTC - m_startMJD);
     if(index < 0){
