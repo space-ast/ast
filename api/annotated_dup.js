@@ -236,6 +236,7 @@ var annotated_dup =
       [ "SnoptCAPI", "structast_1_1SnoptCAPI.html", null ],
       [ "SolarSystem", "classast_1_1SolarSystem.html", null ],
       [ "SolverStats", "structast_1_1SolverStats.html", null ],
+      [ "SpaceWeather", "classast_1_1SpaceWeather.html", "classast_1_1SpaceWeather" ],
       [ "Sparse", "classast_1_1Sparse.html", null ],
       [ "SphereShape", "classast_1_1SphereShape.html", "classast_1_1SphereShape" ],
       [ "SpheroidShape", "classast_1_1SpheroidShape.html", "classast_1_1SpheroidShape" ],

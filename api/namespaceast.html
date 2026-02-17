@@ -570,6 +570,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1SolverStats.html">SolverStats</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SpaceWeather.html">SpaceWeather</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Sparse.html">Sparse</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SphereShape.html">SphereShape</a></td></tr>
@@ -1423,6 +1425,8 @@ err_t&#160;</td><td class="memItemRight" valign="bottom"><b>aTheoreticalXYS_IERS
 <tr class="separator:a9a5d3605c09a1dc93ef5f96227ef897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae98fe2e8d9036153d0b35e27561c5845" id="r_ae98fe2e8d9036153d0b35e27561c5845"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae98fe2e8d9036153d0b35e27561c5845">aPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="structast_1_1PoleMotion.html">PoleMotion</a> &amp;pm)</td></tr>
 <tr class="separator:ae98fe2e8d9036153d0b35e27561c5845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f4cf75f889ec56c67b248dea11ef71" id="r_a94f4cf75f889ec56c67b248dea11ef71"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94f4cf75f889ec56c67b248dea11ef71">loadSpaceWeather</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, int numPoints, std::vector&lt; <a class="el" href="structast_1_1SpaceWeather_1_1Entry.html">SpaceWeather::Entry</a> &gt; &amp;data)</td></tr>
+<tr class="separator:a94f4cf75f889ec56c67b248dea11ef71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa971fd3c4bf1fdc1c5a3f1bc9f9622f9" id="r_aa971fd3c4bf1fdc1c5a3f1bc9f9622f9"><td class="memItemLeft" align="right" valign="top"><a id="aa971fd3c4bf1fdc1c5a3f1bc9f9622f9" name="aa971fd3c4bf1fdc1c5a3f1bc9f9622f9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createCosSinArrays</b> (double cosLambda, double sinLambda, int maxOrder, std::vector&lt; double &gt; &amp;cosML, std::vector&lt; double &gt; &amp;sinML)</td></tr>
 <tr class="separator:aa971fd3c4bf1fdc1c5a3f1bc9f9622f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1763,6 +1767,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>aDateToString<
 <tr class="memitem:gacf7d652fcfaaeef286dbd565416c3eff" id="r_gacf7d652fcfaaeef286dbd565416c3eff"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE <a class="el" href="classast_1_1Date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>aMJDToDate</b> (int mjd)</td></tr>
 <tr class="separator:gacf7d652fcfaaeef286dbd565416c3eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49367be89fa0696ecebed984eb90cd78" id="r_ga49367be89fa0696ecebed984eb90cd78"><td class="memItemLeft" align="right" valign="top">
+A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><b>aDateToMJD</b> (int year, int month, int day)</td></tr>
+<tr class="separator:ga49367be89fa0696ecebed984eb90cd78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gada7d9b9c29320a4f6f423f4950768515" id="r_gada7d9b9c29320a4f6f423f4950768515"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>aCurrentDateTimeLocal</b> (<a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
 <tr class="separator:gada7d9b9c29320a4f6f423f4950768515"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -6123,6 +6130,43 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kTimeMinT
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>迭代器下一个值 </dd></dl>
+
+</div>
+</div>
+<a id="a94f4cf75f889ec56c67b248dea11ef71" name="a94f4cf75f889ec56c67b248dea11ef71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f4cf75f889ec56c67b248dea11ef71">&#9670;&#160;</a></span>loadSpaceWeather()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::loadSpaceWeather </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structast_1_1SpaceWeather_1_1Entry.html">SpaceWeather::Entry</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载空间天气数据 </p>
+<p>从BKVParser中加载空间天气数据，根据numPoints指定加载的条目数。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKVParser实例，用于解析空间天气数据文件。 </td></tr>
+    <tr><td class="paramname">numPoints</td><td>要加载的条目数。 </td></tr>
+    <tr><td class="paramname">data</td><td>用于存储加载数据的Entry向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>err_t 加载成功返回eNoError，否则返回相应错误码。 </dd></dl>
 
 </div>
 </div>

@@ -246,7 +246,7 @@ $(function(){initNavTree('ParseFormat_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    err_t err = <a class="code hl_function" href="group__ParseFormat.html#gabf3c2c64218370dfc40719d20c6fc654">aParseBool</a>(str, value);</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">if</span> (A_UNLIKELY(err != eNoError))</div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        aWarning(<span class="stringliteral">&quot;failed to parse bool value, err = %d&quot;</span>, err);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        aWarning(<span class="stringliteral">&quot;failed to parse bool value from &#39;%.*s&#39;, err = %d&quot;</span>, str.size(), str.data(), err);</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>}</div>
@@ -260,7 +260,7 @@ $(function(){initNavTree('ParseFormat_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    err_t err = <a class="code hl_function" href="group__ParseFormat.html#gaf44a279042760faa6761c53920365cf8">aParseInt</a>(str, value);</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordflow">if</span> (A_UNLIKELY(err != eNoError))</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        aWarning(<span class="stringliteral">&quot;failed to parse int value, err = %d&quot;</span>, err);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        aWarning(<span class="stringliteral">&quot;failed to parse int value from &#39;%.*s&#39;, err = %d&quot;</span>, str.size(), str.data(), err);</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    }</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>}</div>
@@ -275,7 +275,7 @@ $(function(){initNavTree('ParseFormat_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    err_t err = <a class="code hl_function" href="group__ParseFormat.html#ga2755892db63f0090449b00f4db59e4d8">aParseDouble</a>(str, value);</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">if</span> (A_UNLIKELY(err != eNoError))</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    {</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        aWarning(<span class="stringliteral">&quot;failed to parse double value, err = %d&quot;</span>, err);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        aWarning(<span class="stringliteral">&quot;failed to parse double value from &#39;%.*s&#39;, err = %d&quot;</span>, str.size(), str.data(), err);</div>
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    }</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>}</div>
@@ -290,7 +290,7 @@ $(function(){initNavTree('ParseFormat_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    err_t err = <a class="code hl_function" href="group__ParseFormat.html#ga20d11068e57303bfdc08dee58ac74f5b">aParseColor</a>(str, value);</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordflow">if</span> (A_UNLIKELY(err != eNoError))</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    {</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        aWarning(<span class="stringliteral">&quot;failed to parse color value, err = %d&quot;</span>, err);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        aWarning(<span class="stringliteral">&quot;failed to parse color value from &#39;%.*s&#39;, err = %d&quot;</span>, str.size(), str.data(), err);</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    }</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>}</div>

@@ -175,15 +175,16 @@ Protected 属性</h2></td></tr>
 <tr class="memitem:ab2cd8f9d05b9f5c6f091ced1342a477a" id="r_ab2cd8f9d05b9f5c6f091ced1342a477a"><td class="memItemLeft" align="right" valign="top"><a id="ab2cd8f9d05b9f5c6f091ced1342a477a" name="ab2cd8f9d05b9f5c6f091ced1342a477a"></a>
 std::vector&lt; <a class="el" href="structast_1_1EOP_1_1Entry.html">Entry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_data</b></td></tr>
 <tr class="separator:ab2cd8f9d05b9f5c6f091ced1342a477a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6d021fc61dd7d854338710e9db2c3c2" id="r_ad6d021fc61dd7d854338710e9db2c3c2"><td class="memItemLeft" align="right" valign="top"><a id="ad6d021fc61dd7d854338710e9db2c3c2" name="ad6d021fc61dd7d854338710e9db2c3c2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_startMJD</b> = 0.0</td></tr>
-<tr class="separator:ad6d021fc61dd7d854338710e9db2c3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bed9f473ecfdc81bd2113a875499fed" id="r_a0bed9f473ecfdc81bd2113a875499fed"><td class="memItemLeft" align="right" valign="top"><a id="a0bed9f473ecfdc81bd2113a875499fed" name="a0bed9f473ecfdc81bd2113a875499fed"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_endMJD</b> = 0.0</td></tr>
-<tr class="separator:a0bed9f473ecfdc81bd2113a875499fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ae3101586bac79447edd728ef79c14" id="r_ac7ae3101586bac79447edd728ef79c14"><td class="memItemLeft" align="right" valign="top"><a id="ac7ae3101586bac79447edd728ef79c14" name="ac7ae3101586bac79447edd728ef79c14"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_startMJD</b> = 0</td></tr>
+<tr class="separator:ac7ae3101586bac79447edd728ef79c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51ba9e0a84e3fbffdabc018c7a5b78e" id="r_aa51ba9e0a84e3fbffdabc018c7a5b78e"><td class="memItemLeft" align="right" valign="top"><a id="aa51ba9e0a84e3fbffdabc018c7a5b78e" name="aa51ba9e0a84e3fbffdabc018c7a5b78e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_endMJD</b> = 0</td></tr>
+<tr class="separator:aa51ba9e0a84e3fbffdabc018c7a5b78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>地球指向参数（Earth Orientation Parameters） </p>
+<p>支持加载从Celestrak网站下载的EOP数据文件。 根据当前时间查询MJD、闰秒、极移、ut1-utc、length of day、章动修正、XYS系数修正等参数。 在查询时，会根据当前时间点的MJD值，线性插值获取最近的两个条目 </p><dl class="section see"><dt>参见</dt><dd><a href="https://celestrak.org/SpaceData/EOP-format.php">https://celestrak.org/SpaceData/EOP-format.php</a> </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a129df310844bb06856aca21e91e85660" name="a129df310844bb06856aca21e91e85660"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a129df310844bb06856aca21e91e85660">&#9670;&#160;</a></span>findEntryIndex()</h2>

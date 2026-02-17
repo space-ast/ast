@@ -324,8 +324,12 @@ $(function(){initNavTree('Date_8hpp_source.html',''); initResizable(true); });
 </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>A_ALWAYS_INLINE <span class="keywordtype">int</span> aDateToMJD(<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day){</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">return</span> aDateToMJD({year, month, day});</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>}</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
 <div class="ttc" id="aUnit_8cpp_html_a46331518b0993f7058b537530ef94a33"><div class="ttname"><a href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">ast::units::day</a></div><div class="ttdeci">Unit day</div><div class="ttdoc">天</div><div class="ttdef"><b>定义</b> Unit.cpp:430</div></div>
 <div class="ttc" id="aclassast_1_1Date_html"><div class="ttname"><a href="classast_1_1Date.html">ast::Date</a></div><div class="ttdoc">日期</div><div class="ttdef"><b>定义</b> Date.hpp:120</div></div>
 <div class="ttc" id="agroup__Time_html_ga0befbfd1dd76bf9211963f7a79c2f41d"><div class="ttname"><a href="group__Time.html#ga0befbfd1dd76bf9211963f7a79c2f41d">ast::aDayOfWeek</a></div><div class="ttdeci">int aDayOfWeek(const Date &amp;date)</div><div class="ttdoc">获取日期是这一周的第几天</div><div class="ttdef"><b>定义</b> Date.cpp:139</div></div>

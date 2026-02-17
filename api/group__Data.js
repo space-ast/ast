@@ -70,5 +70,12 @@ var group__Data =
       [ "loadHPIERS", "classast_1_1LeapSecond.html#a8ca1e1a8bef4ece7e81b4055ed9f408a", null ],
       [ "setData", "classast_1_1LeapSecond.html#a9c1b2fa4a302aa4d99ea770b65fed6ec", null ],
       [ "setDefaultData", "classast_1_1LeapSecond.html#a547b20b20d6e93be2de6874f542dfa49", null ]
+    ] ],
+    [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", [
+      [ "Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
+      [ "getEntry", "classast_1_1SpaceWeather.html#a62eeb080c4796fbe607025afd41c591c", null ],
+      [ "load", "classast_1_1SpaceWeather.html#a89943430e672b781c75270df3a15c06a", null ],
+      [ "loadDefault", "classast_1_1SpaceWeather.html#a9da49e8f7e5825b0d8c5fff54e00c55f", null ],
+      [ "setEntry", "classast_1_1SpaceWeather.html#a98a220897ba6c103036a66b1cfae2ff2", null ]
     ] ]
 ];

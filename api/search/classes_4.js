@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ellipsoidshape_0',['EllipsoidShape',['../classast_1_1EllipsoidShape.html',1,'ast']]],
-  ['entry_1',['Entry',['../structast_1_1EOP_1_1Entry.html',1,'ast::EOP::Entry'],['../structast_1_1LeapSecond_1_1Entry.html',1,'ast::LeapSecond::Entry']]],
+  ['entry_1',['Entry',['../structast_1_1EOP_1_1Entry.html',1,'ast::EOP::Entry'],['../structast_1_1LeapSecond_1_1Entry.html',1,'ast::LeapSecond::Entry'],['../structast_1_1SpaceWeather_1_1Entry.html',1,'ast::SpaceWeather::Entry']]],
   ['eop_2',['EOP',['../classast_1_1EOP.html',1,'ast']]],
   ['equinelem_3',['EquinElem',['../classast_1_1EquinElem.html',1,'ast']]],
   ['euler_4',['Euler',['../classast_1_1Euler.html',1,'ast']]],
