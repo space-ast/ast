@@ -208,7 +208,7 @@ protected:
     /// @param mjdUTC 时间点（UTC）的MJD值
     /// @param index 索引
     /// @param frac 插值系数
-    void findEntryIndex(double mjdUTC, size_t& index, double& frac) const;
+    void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 protected:
     std::vector<Entry> m_data;
     int m_startMJD = 0;

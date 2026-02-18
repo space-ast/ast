@@ -151,10 +151,10 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
 
 const EOP::Entry *EOP::getEntry(int mjd) const
 {
-    size_t index = 0;
+    int index = 0;
     double frac = 0.0;
     findEntryIndex(mjd, index, frac);
-    if(index < 0 || index >= m_data.size() - 1){
+    if(index < 0 || index >= (int)m_data.size() - 1){
         return nullptr;
     }
     return &m_data[index];
@@ -162,10 +162,10 @@ const EOP::Entry *EOP::getEntry(int mjd) const
 
 err_t EOP::setEntry(int mjd, const Entry &entry)
 {
-    size_t index = 0;
+    int index = 0;
     double frac = 0.0;
     findEntryIndex(mjd, index, frac);
-    if(index < 0 || index >= m_data.size() - 1){
+    if(index < 0 || index >= (int)m_data.size() - 1){
         return eErrorInvalidParam;
     }
     m_data[index] = entry;
@@ -187,13 +187,13 @@ double EOP::getUT1MinusUTC_UTC(const JulianDate &jdUTC) const
 
 double EOP::getUT1MinusUTC_UTCMJD(double mjdUTC) const
 {
-    size_t index = 0;
+    int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
     if(index < 0){
         return 0.0;
     }
-    if(index >= m_data.size() - 1){
+    if(index >= (int)m_data.size() - 1){
         return 0.0; 
     }
     return getValue<&Entry::ut1_utc>(index, frac);
@@ -214,10 +214,10 @@ void EOP::getPoleMotionUTC(const JulianDate &jdUTC, double &x, double &y) const
 
 void EOP::getPoleMotionUTCMJD(double mjdUTC, double &x, double &y) const
 {
-    size_t index = 0;
+    int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
-    if(index < 0 || index >= m_data.size() - 1){
+    if(index < 0 || index >= (int)m_data.size() - 1){
         x = 0.0;
         y = 0.0;
         return;
@@ -241,10 +241,10 @@ double EOP::getLOD_UTC(const JulianDate &jdUTC) const
 
 double EOP::getLOD_UTCMJD(double mjdUTC) const
 {
-    size_t index = 0;
+    int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
-    if(index < 0 || index >= m_data.size() - 1){
+    if(index < 0 || index >= (int)m_data.size() - 1){
         return 0.0;
     }
     return getValue<&Entry::lod>(index, frac);
@@ -265,10 +265,10 @@ void EOP::getXYCorrectionUTC(const JulianDate &jdUTC, array2d &xyCorrection) con
 
 void EOP::getXYCorrectionUTCMJD(double mjdUTC, array2d &xyCorrection) const
 {
-    size_t index = 0;
+    int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
-    if(index < 0 || index >= m_data.size() - 1){
+    if(index < 0 || index >= (int)m_data.size() - 1){
         xyCorrection = {0, 0};
         return;
     }
@@ -276,24 +276,23 @@ void EOP::getXYCorrectionUTCMJD(double mjdUTC, array2d &xyCorrection) const
     xyCorrection[1] = getValue<&Entry::dy>(index, frac);
 }
 
-void EOP::findEntryIndex(double mjdUTC, size_t &index, double &frac) const
+void EOP::findEntryIndex(double mjdUTC, int &index, double &frac) const
 {
     // @todo: 与SpaceWeather.cpp中的实现是一致的，考虑怎么抽取公共代码
 
     // 猜测索引
-    index = (size_t)(mjdUTC - m_startMJD);
+    index = (int)(mjdUTC - m_startMJD);
+    if(index >= (int)m_data.size()){
+        index = m_data.size() - 1;
+        frac = 0;
+    }
     if(index < 0){
         index = -1;
         frac = 0;
         return;
     }
-    if(index >= m_data.size()){
-        index = m_data.size() - 1;
-        frac = 0;
-        return;
-    }
     if(mjdUTC < this->m_data[index].mjd){
-        for(size_t i=index-1;i >=0;i--){
+        for(int i=index-1;i >=0;i--){
             if(mjdUTC >= this->m_data[i].mjd){
                 index = i;
                 frac = (mjdUTC - m_data[index].mjd) / (m_data[index+1].mjd - m_data[index].mjd);
@@ -304,7 +303,7 @@ void EOP::findEntryIndex(double mjdUTC, size_t &index, double &frac) const
         frac = 0;
         return;
     }else{
-        for(size_t i=index+1;i < m_data.size();i++){
+        for(int i=index+1;i < (int)m_data.size();i++){
             if(mjdUTC < this->m_data[i].mjd){
                 index = i-1;
                 frac = (mjdUTC - m_data[index].mjd) / (m_data[index+1].mjd - m_data[index].mjd);

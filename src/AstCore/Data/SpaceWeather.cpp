@@ -116,17 +116,28 @@ err_t SpaceWeather::load(StringView filePath)
 
 const SpaceWeather::Entry *SpaceWeather::getEntry(int mjd) const
 {
-    size_t index;
+    int index;
     double frac;
     findEntryIndex(mjd, index, frac);
-    if(index < 0 || index >= data_.size())
+    if(index < 0 || index >= (int)data_.size())
     {
         return nullptr;
     }
     return &data_[index];
 }
 
-
+err_t SpaceWeather::setEntry(int mjd, const Entry &entry)
+{
+    int index;
+    double frac;
+    findEntryIndex(mjd, index, frac);
+    if(index < 0 || index >= (int)data_.size())
+    {
+        return eErrorInvalidParam;
+    }
+    data_[index] = entry;
+    return eNoError;
+}
 
 err_t SpaceWeather::load(StringView filePath, std::vector<Entry> &data)
 {
@@ -196,22 +207,23 @@ err_t SpaceWeather::load(StringView filePath, std::vector<Entry> &data)
     return eNoError;
 }
 
-void SpaceWeather::findEntryIndex(double mjdUTC, size_t & index, double & frac) const
+void SpaceWeather::findEntryIndex(double mjdUTC, int & index, double & frac) const
 {
     // @todo: 与EOP.cpp中的实现是一致的，考虑怎么抽取公共代码
 
     // 猜测索引
-    index = (size_t)(mjdUTC - startMJD_);
-    if(index < 0){
-        index = -1;
-        frac = 0;
-    }
-    if(index >= data_.size()){
+    index = (int)(mjdUTC - startMJD_);
+    if(index >= (int)data_.size()){
         index = data_.size() - 1;
         frac = 0;
     }
+    if(index < 0){
+        index = -1;
+        frac = 0;
+        return;
+    }
     if(mjdUTC < this->data_[index].mjd){
-        for(size_t i=index-1;i >=0;i--){
+        for(int i=index-1;i >=0;i--){
             if(mjdUTC >= this->data_[i].mjd){
                 index = i;
                 frac = (mjdUTC - data_[index].mjd) / (data_[index+1].mjd - data_[index].mjd);
@@ -222,7 +234,7 @@ void SpaceWeather::findEntryIndex(double mjdUTC, size_t & index, double & frac) 
         frac = 0;
         return;
     }else{
-        for(size_t i=index+1;i < data_.size();i++){
+        for(int i=index+1;i < (int)data_.size();i++){
             if(mjdUTC < this->data_[i].mjd){
                 index = i-1;
                 frac = (mjdUTC - data_[index].mjd) / (data_[index+1].mjd - data_[index].mjd);

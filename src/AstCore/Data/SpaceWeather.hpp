@@ -84,7 +84,7 @@ public:
 protected:
     static err_t load(StringView filePath, std::vector<Entry>& data);
 
-    void findEntryIndex(double mjdUTC, size_t& index, double& frac) const;
+    void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 
 protected:
     std::vector<Entry> data_;
