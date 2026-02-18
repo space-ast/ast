@@ -214,7 +214,7 @@ void SpaceWeather::findEntryIndex(double mjdUTC, int & index, double & frac) con
     // 猜测索引
     index = (int)(mjdUTC - startMJD_);
     if(index >= (int)data_.size()){
-        index = data_.size() - 1;
+        index = (int)data_.size() - 1;
         frac = 0;
     }
     if(index < 0){
@@ -241,7 +241,7 @@ void SpaceWeather::findEntryIndex(double mjdUTC, int & index, double & frac) con
                 return;
             }
         }
-        index = data_.size() - 1;
+        index = (int)data_.size() - 1;
         frac = 0;
         return;
     }

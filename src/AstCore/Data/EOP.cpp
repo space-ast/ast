@@ -283,7 +283,7 @@ void EOP::findEntryIndex(double mjdUTC, int &index, double &frac) const
     // 猜测索引
     index = (int)(mjdUTC - m_startMJD);
     if(index >= (int)m_data.size()){
-        index = m_data.size() - 1;
+        index = (int)m_data.size() - 1;
         frac = 0;
     }
     if(index < 0){
@@ -310,7 +310,7 @@ void EOP::findEntryIndex(double mjdUTC, int &index, double &frac) const
                 return;
             }
         }
-        index = m_data.size() - 1;
+        index = (int)m_data.size() - 1;
         frac = 0;
         return;
     }

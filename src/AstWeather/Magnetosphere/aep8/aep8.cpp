@@ -162,16 +162,17 @@ err_t AEPDataCollection::loadDefault()
 err_t AEPDataCollection::load(StringView dirpath)
 {
     err_t rc;
-    rc = ae8max_.load(dirpath.to_string() + "/ae8min.asc");
+    fs::path path = dirpath.to_string();
+    rc = ae8max_.load((path / "ae8min.asc").string());
     if(rc != eNoError)
         return rc;
-    rc = ae8min_.load(dirpath.to_string() + "/ae8max.asc");
+    rc = ae8min_.load((path / "ae8max.asc").string());
     if(rc != eNoError)
         return rc;
-    rc = ap8min_.load(dirpath.to_string() + "/ap8min.asc");
+    rc = ap8min_.load((path / "ap8min.asc").string());
     if(rc != eNoError)
         return rc;
-    rc = ap8max_.load(dirpath.to_string() + "/ap8max.asc");
+    rc = ap8max_.load((path / "ap8max.asc").string());
     if(rc != eNoError)
         return rc;
     return eNoError;
