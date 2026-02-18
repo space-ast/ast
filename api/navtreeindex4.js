@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"SecantSolver_8hpp.html":[4,0,0,5,4,0,8],
+"SecantSolver_8hpp_source.html":[4,0,0,5,4,0,8],
+"SimEngine_8cpp.html":[4,0,0,2,7,1,12],
 "SimEngine_8hpp.html":[4,0,0,2,7,1,13],
 "SimEngine_8hpp_source.html":[4,0,0,2,7,1,13],
 "SimTime_8hpp.html":[4,0,0,2,7,1,14],
@@ -138,7 +141,7 @@ var NAVTREEINDEX4 =
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,2,7,8,0],
 "TwoBody_8hpp.html":[4,0,0,2,7,9],
 "TwoBody_8hpp_source.html":[4,0,0,2,7,9],
-"TypeTraits_8hpp_source.html":[4,0,0,11,6,12],
+"TypeTraits_8hpp_source.html":[4,0,0,11,6,14],
 "Type_8hpp.html":[4,0,0,11,4,5],
 "Type_8hpp_source.html":[4,0,0,11,4,5],
 "Types_8cpp.html":[4,0,0,10,0,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "ValString_8hpp_source.html":[4,0,0,10,8,16],
 "ValVector_8hpp.html":[4,0,0,10,8,19],
 "ValVector_8hpp_source.html":[4,0,0,10,8,19],
-"ValueView_8cpp.html":[4,0,0,11,1,5],
-"ValueView_8hpp.html":[4,0,0,11,1,6],
-"ValueView_8hpp_source.html":[4,0,0,11,1,6],
-"Value_8cpp.html":[4,0,0,10,8,17]
+"ValueView_8cpp.html":[4,0,0,11,1,5]
 };

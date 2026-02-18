@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
+    [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
     [ "alist", "structalist.html", null ],
     [ "AMatrix3d", "structAMatrix3d.html", null ],
     [ "ast::AngleAxis", "classast_1_1AngleAxis.html", null ],

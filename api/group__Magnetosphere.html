@@ -108,10 +108,55 @@ $(function(){initNavTree('group__Magnetosphere.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga770033ee697753f6c5222ce2ba597a7f" id="r_ga770033ee697753f6c5222ce2ba597a7f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga770033ee697753f6c5222ce2ba597a7f">ast::aep8</a> (double e, double l, double bb0, int iname)</td></tr>
+<tr class="separator:ga770033ee697753f6c5222ce2ba597a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga76146fe3ab6056e3b54dc09881c96058" id="r_ga76146fe3ab6056e3b54dc09881c96058"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga76146fe3ab6056e3b54dc09881c96058">ast::igrf13syn</a> (int isv, double date, int itype, double alt, double colat, double elong, double &amp;x, double &amp;y, double &amp;z, double &amp;f)</td></tr>
 <tr class="separator:ga76146fe3ab6056e3b54dc09881c96058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
+<a id="ga770033ee697753f6c5222ce2ba597a7f" name="ga770033ee697753f6c5222ce2ba597a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga770033ee697753f6c5222ce2ba597a7f">&#9670;&#160;</a></span>aep8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI double ast::aep8 </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>e</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>bb0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iname</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算特定 L 值和磁场强度下的粒子通量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>需要计算通量的能量值，单位为 MeV(兆电子伏特) </td></tr>
+    <tr><td class="paramname">l</td><td>（McIlwain L 参数），表示磁壳参数。程序内部会将其限制在 ≤15.6 </td></tr>
+    <tr><td class="paramname">bb0</td><td>B/B₀，即当地磁场强度与磁赤道磁场强度的比值。若输入小于 1，程序强制设为 1 </td></tr>
+    <tr><td class="paramname">iname</td><td>1: e-min, 2: e-max, 3: p-min, 4: p-max 'e': 电子, 'p': 质子. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>粒子通量，单位为 cm^-2 s^-1 </dd></dl>
+
+</div>
+</div>
 <a id="ga76146fe3ab6056e3b54dc09881c96058" name="ga76146fe3ab6056e3b54dc09881c96058"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga76146fe3ab6056e3b54dc09881c96058">&#9670;&#160;</a></span>igrf13syn()</h2>
 

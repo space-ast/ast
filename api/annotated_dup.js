@@ -12,6 +12,8 @@ var annotated_dup =
         [ "path", "classast_1_1simple__fs_1_1path.html", null ],
         [ "space_info", "structast_1_1simple__fs_1_1space__info.html", null ]
       ] ],
+      [ "AEP8Data", "classast_1_1AEP8Data.html", null ],
+      [ "AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
       [ "AngleAxis", "classast_1_1AngleAxis.html", "classast_1_1AngleAxis" ],
       [ "AngularSeparation", "classast_1_1AngularSeparation.html", null ],
       [ "AngularSize", "classast_1_1AngularSize.html", null ],
