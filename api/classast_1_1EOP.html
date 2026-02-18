@@ -167,8 +167,8 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:ab31d7f0fed9b64b542f3658d1d9c9cff" id="r_ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="memTemplParams" colspan="2">template&lt;double Entry::* Member&gt; </td></tr>
 <tr class="memitem:ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab31d7f0fed9b64b542f3658d1d9c9cff">getValue</a> (size_t index, double frac) const</td></tr>
 <tr class="separator:ab31d7f0fed9b64b542f3658d1d9c9cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129df310844bb06856aca21e91e85660" id="r_a129df310844bb06856aca21e91e85660"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a129df310844bb06856aca21e91e85660">findEntryIndex</a> (double mjdUTC, size_t &amp;index, double &amp;frac) const</td></tr>
-<tr class="separator:a129df310844bb06856aca21e91e85660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b4abadd667e0b71f58462120679d972" id="r_a9b4abadd667e0b71f58462120679d972"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b4abadd667e0b71f58462120679d972">findEntryIndex</a> (double mjdUTC, int &amp;index, double &amp;frac) const</td></tr>
+<tr class="separator:a9b4abadd667e0b71f58462120679d972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
@@ -186,8 +186,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_endMJD</b> = 0</td><
 <div class="textblock"><p>地球指向参数（Earth Orientation Parameters） </p>
 <p>支持加载从Celestrak网站下载的EOP数据文件。 根据当前时间查询MJD、闰秒、极移、ut1-utc、length of day、章动修正、XYS系数修正等参数。 在查询时，会根据当前时间点的MJD值，线性插值获取最近的两个条目 </p><dl class="section see"><dt>参见</dt><dd><a href="https://celestrak.org/SpaceData/EOP-format.php">https://celestrak.org/SpaceData/EOP-format.php</a> </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a129df310844bb06856aca21e91e85660" name="a129df310844bb06856aca21e91e85660"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a129df310844bb06856aca21e91e85660">&#9670;&#160;</a></span>findEntryIndex()</h2>
+<a id="a9b4abadd667e0b71f58462120679d972" name="a9b4abadd667e0b71f58462120679d972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b4abadd667e0b71f58462120679d972">&#9670;&#160;</a></span>findEntryIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +203,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_endMJD</b> = 0</td><
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
