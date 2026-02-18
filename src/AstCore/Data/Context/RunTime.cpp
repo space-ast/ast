@@ -174,11 +174,23 @@ err_t aUninitialize()
 
 std::string aDataDirGet()
 {
+    std::string datadir;
+    err_t rc = aDataDirGet(datadir);
+    A_UNUSED(rc);
+    return datadir;
+}
+
+err_t aDataDirGet(std::string &datadir)
+{
     auto context = aDataContext_EnsureCurrent();
-    if (context->dataDir().empty()) {
-        aDataDirSet(aDataDirGetDefault());
+    if (A_UNLIKELY(context->dataDir().empty())) 
+    {
+        err_t rc = aDataDirGetDefault(datadir);
+        aDataDirSet(datadir);
+        return rc;
     }
-    return context->dataDir();
+    datadir = context->dataDir();
+    return eNoError;
 }
 
 err_t aDataDirSet(StringView dirpath)
@@ -190,86 +202,6 @@ err_t aDataDirSet(StringView dirpath)
     auto context = aDataContext_EnsureCurrent();
     context->setDataDir(dirpath);
     return eNoError;
-}
-
-std::string aDataDirGetDefault()
-{
-    // 1. 检查AST_DATA_DIR环境变量
-    try {
-        // #pragma warning(suppress: 4996)
-        const char* datadir = getenv(AST_ENV_DATA_DIR);
-        // aDebug("AST_ENV_DATA_DIR: %s\n", datadir?datadir:"(not set)");
-        if (datadir && fs::is_directory(datadir))
-            return datadir;
-    }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
-
-    // 2. 检查动态库目录的data文件夹
-    try {
-        fs::path datadir = fs::path(aLibDir()) / AST_DATA_DIR_NAME;
-        // aDebug("datadir: %s\n", datadir.string().c_str());
-        if (fs::is_directory(datadir))
-            return datadir.string();
-    }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
-    
-    // 3. 检查可执行文件目录的data文件夹
-    try {
-        fs::path datadir = fs::path(aExeDir()) / AST_DATA_DIR_NAME;
-        aDebug("datadir: %s\n", datadir.string().c_str());
-        if (fs::is_directory(datadir))
-            return datadir.string();
-    }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
-    
-    // 4. 检查当前运行目录的data文件夹
-    try {
-        fs::path currentdir = fs::current_path() / AST_DATA_DIR_NAME;
-        aDebug("currentdir: %s\n", currentdir.string().c_str());
-        if (fs::is_directory(currentdir))
-            return currentdir.string();
-    }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
-
-    aError("data dir not found");
-    // 如果所有路径都不存在，返回默认的相对路径
-    return AST_DATA_DIR_NAME;
 }
 
 

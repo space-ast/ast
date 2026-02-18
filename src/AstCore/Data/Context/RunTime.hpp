@@ -21,11 +21,10 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstUtil/RunTime.hpp"
 #include "RunTimeData.hpp"
 #include <string>
  
-#define AST_ENV_DATA_DIR  "AST_DATA_DIR"         // 环境变量 AST_DATA_DIR：数据文件夹路径
-#define AST_DATA_DIR_NAME "data"                 // 默认的数据文件夹名称
 
 
 AST_NAMESPACE_BEGIN
@@ -45,21 +44,18 @@ AST_CORE_CAPI err_t aUninitialize();
 
  
 /// @brief 获取数据文件夹
+/// @return 数据文件夹路径
 AST_CORE_API std::string aDataDirGet();
+
+/// @brief 获取数据文件夹
+/// @param[out] datadir 数据文件夹路径
+/// @return 错误码
+AST_CORE_CAPI err_t aDataDirGet(std::string& datadir);
+
 
 /// @brief 设置数据文件夹
 /// @param dirpath 
 AST_CORE_CAPI err_t aDataDirSet(StringView dirpath);
-
-/// @brief 获取默认数据文件夹
-/// 数据文件夹的顺序：
-/// 1. AST_DATA_DIR 环境变量
-/// 2. 动态库目录的data文件夹(AST_DATA_DIR_NAME)
-/// 3. 可执行文件目录的data文件夹(AST_DATA_DIR_NAME)
-/// 4. 当前运行目录的data文件夹(AST_DATA_DIR_NAME)
-/// @return 
-AST_CORE_API std::string aDataDirGetDefault();
-
 
 
 // global context

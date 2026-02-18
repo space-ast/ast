@@ -67,5 +67,53 @@ TEST(Magnetosphere, igrf13)
 }
 
 
+TEST(Magnetosphere, aep8)
+{
+    double flux;
+    {
+        double e = 20;
+        double l = 1.413809061050415;
+        double bb0 = 1.785343885421753;
+        
+        flux = aep8(e, l, bb0, 1);
+        printf("flux = %.15g\n", flux);
+        EXPECT_EQ(flux, 0);
+
+        flux = aep8(e, l, bb0, 2);
+        printf("flux = %.15g\n", flux);
+        EXPECT_EQ(flux, 0);
+        
+        flux = aep8(e, l, bb0, 3);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 4018.36108398, 0.002);
+        
+        flux = aep8(e, l, bb0, 4);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 2642.50370051986, 0.002);
+    }
+    {
+        double e = 1;
+        double l = 1.413809061050415;
+        double bb0 = 1.785343885421753;
+        
+        flux = aep8(e, l, bb0, 1);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 36796.8515625, 0.01);
+
+        flux = aep8(e, l, bb0, 2);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 36796.8515625, 0.01);
+        
+        flux = aep8(e, l, bb0, 3);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 5329.69628906, 0.002);
+        
+        flux = aep8(e, l, bb0, 4);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 3400.19946289, 0.002);
+    }
+}
+
+
 GTEST_MAIN()
 

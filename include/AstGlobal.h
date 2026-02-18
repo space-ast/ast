@@ -224,6 +224,7 @@ typedef enum EError
     eErrorMaxIter,      ///< 最大迭代次数
     eErrorDivideByZero, ///< 除零错误
     eErrorOutOfRange,   ///< 超出范围
+    eErrorNotFound,     ///< 未找到
 } AEError;
 
 

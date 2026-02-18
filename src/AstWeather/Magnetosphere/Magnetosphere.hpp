@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstWeather/aep8.hpp"
 
 AST_NAMESPACE_BEGIN
 

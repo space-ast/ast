@@ -2,7 +2,7 @@ target("AstWeather")
     set_kind("shared")
     add_files("**.cpp")
     add_files("**.c")
-    add_deps("AstUtil")
+    add_deps("AstUtil", "AstMath")
     add_headerfiles("**.hpp")
     add_defines("AST_BUILD_LIB_WEATHER")
     if has_package("libf2c") then

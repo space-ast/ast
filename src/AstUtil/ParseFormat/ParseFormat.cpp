@@ -91,8 +91,10 @@ err_t _aParseInt_LibC_1(StringView sv, int& value)
     {
         return eErrorNullInput;
     }
+    // sv = aStripAsciiWhitespace(sv);
+
     // @fixme: 如果StringView 是取了字符串中的一段，可能会有问题，所以在这里先转换为string
-    // 这里会影响一点效率
+    // @todo: 这里的效率有待提升
     std::string str = sv.to_string();
     
     // 使用标准库函数strtol进行转换
@@ -115,9 +117,10 @@ err_t _aParseInt_LibC_1(StringView sv, int& value)
     return eNoError;
 }
 
-err_t _aParseInt_LibC_2(StringView str, int& value)
+err_t _aParseInt_LibC_2(StringView sv, int& value)
 {
-    value = std::atoi(str.data());
+    // sv = aStripAsciiWhitespace(sv);
+    value = std::atoi(sv.data());
     return 0;
 }
 
@@ -225,8 +228,10 @@ err_t _aParseDouble_LibC_1(StringView sv, double& value)
     {
         return eErrorNullInput;
     }
+    //sv = aStripAsciiWhitespace(sv);
+
     // @fixme: 如果StringView 是取了字符串中的一段，可能会有问题，所以在这里先转换为string
-    // 这里会影响一点效率
+    // @todo: 这里的效率有待提升
     std::string str = sv.to_string();
 
     // 使用标准库函数strtod进行转换
@@ -243,9 +248,10 @@ err_t _aParseDouble_LibC_1(StringView sv, double& value)
     return eNoError;
 }
 
-err_t _aParseDouble_LibC_2(StringView str, double& value)
+err_t _aParseDouble_LibC_2(StringView sv, double& value)
 {
-    value = std::atof(str.data());
+    // sv = aStripAsciiWhitespace(sv);
+    value = std::atof(sv.data());
     return 0;
 }
 
