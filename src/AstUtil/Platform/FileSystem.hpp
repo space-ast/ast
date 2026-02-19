@@ -21,7 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "SimpleFileSystem.hpp"
+#include "FileSystemSimple.hpp"
 #include <string>
 
 // 是否允许使用 std::experimental::filesystem 的c++实验特性，如果存在的话
@@ -63,7 +63,7 @@ AST_NAMESPACE_BEGIN
 namespace filesystem = _A_STD_FILESYSTEM;
 #else
 // #pragma message("use ast::simple_fs")
-namespace filesystem = simple_fs;
+namespace filesystem = fs_simple;
 #endif
 
 namespace fs = filesystem;

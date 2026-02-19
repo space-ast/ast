@@ -43,11 +43,12 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief posix 函数
-/// @details  该命名空间包含了可移植操作系统接口(posix)所定义的函数，并屏蔽了不同操作系统之间的差异。
+/// @details  该命名空间包含了可移植操作系统接口(posix)所定义的函数，
+///           并屏蔽了不同操作系统之间的差异。
 /// @ingroup Platform
 namespace posix
 {
-#ifdef _WIN32
+#if defined(_WIN32) || defined(AST_PARSED_BY_DOXYGEN)
     // typedef struct _stat stat;
     using stat = struct ::_stat;
     
@@ -113,9 +114,6 @@ namespace posix
     using ::fileno;
     using ::rmdir;
 
-    /// @brief 检查文件状态是否为目录
-    /// @param st 文件状态结构体
-    /// @return 如果是目录则返回true，否则返回false
     A_ALWAYS_INLINE
     bool isdir(const struct stat& st)
     {

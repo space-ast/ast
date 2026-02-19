@@ -22,13 +22,14 @@
 
 #include "AstGlobal.h"
 #include "AstWeather/aep8.hpp"
+#include "AstWeather/igrf.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
     @ingroup Weather
     @defgroup Magnetosphere 磁场模型
-    @brief  包括IGRF等磁场模型等。
+    @brief  包括IGRF、AE8、AP8等相关模型等。
 */
 
 

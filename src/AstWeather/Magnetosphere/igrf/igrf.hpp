@@ -1,9 +1,9 @@
 ///
-/// @file      aep8.hpp
+/// @file      igrf.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-02-18
+/// @date      2026-02-19
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -30,19 +30,8 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief 计算特定 L 值和磁场强度下的粒子通量
-/// @param e  需要计算通量的能量值，单位为 MeV(兆电子伏特)
-/// @param l （McIlwain L 参数），表示磁壳参数。程序内部会将其限制在 ≤15.6
-/// @param bb0  B/B₀，即当地磁场强度与磁赤道磁场强度的比值。若输入小于 1，程序强制设为 1
-/// @param iname 1: e-min, 2: e-max, 3: p-min, 4: p-max
-///              'e': 电子, 'p': 质子.
-/// @return 粒子通量，单位为 cm^-2 s^-1
-AST_WEATHER_CAPI double aep8(double e, double l, double bb0, int iname);
+AST_WEATHER_CAPI void igrf(double lon, double lat, double height, double year, double& xl, double& bbx);
 
-
-AST_WEATHER_CAPI double get_flux(
-    double lon, double lat, double height, double energy, double year, int iname
-);
 
 /*! @} */
 

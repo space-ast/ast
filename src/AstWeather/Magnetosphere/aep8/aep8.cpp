@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "aep8.hpp"
+#include "AstWeather/igrf.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/RunTime.hpp"
@@ -42,7 +43,6 @@ extern "C"{
 
 AST_NAMESPACE_BEGIN
 
-#define AST_DEFAULT_DIR_AEP8                    "SolarSystem/Earth/aep8/"
 
 
 /// @brief     AEP8数据
@@ -220,6 +220,12 @@ double aep8(double e, double l, double bb0, int iname)
 
 }
 
+double get_flux(double lon, double lat, double height, double energy, double year, int iname)
+{
+    double lvalue, bb0;
+    igrf(lon, lat, height, year, lvalue, bb0);
+    return aep8(energy, lvalue, bb0, iname);
+}
 
 AST_NAMESPACE_END
 

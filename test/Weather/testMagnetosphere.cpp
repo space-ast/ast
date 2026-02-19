@@ -115,5 +115,47 @@ TEST(Magnetosphere, aep8)
 }
 
 
+TEST(Magnetosphere, igrf)
+{
+    {
+        double lon = 85;
+        double lat = 65;
+        double height = 0;
+        double year = 2010.5260273972603;
+        double xl, bbx;
+        igrf(lon, lat, height, year, xl, bbx);
+        printf("xl = %f, bbx = %f\n", xl, bbx);
+        EXPECT_NEAR(xl, 4.15171957, 0.00001);
+        EXPECT_NEAR(bbx, 145.20530701, 0.0001);
+    }
+    {
+        double lon = -45;
+        double lat = -30;
+        double height = 500;
+        double year = 2021.1616438356164;
+        double xl, bbx;
+        igrf(lon, lat, height, year, xl, bbx);
+        printf("xl = %f, bbx = %f\n", xl, bbx);
+        EXPECT_NEAR(xl, 1.41380906, 0.00001);
+        EXPECT_NEAR(bbx, 1.78534389, 0.0001);
+    }
+}
+
+
+TEST(Magnetosphere, get_flux)
+{
+    {
+        double lon = -45;
+        double lat = -30;
+        double height = 500;
+        double energy = 20;
+        double year = 2021.1616438356164;
+        int iname = 4; // pmax
+        double flux = get_flux(lon, lat, height, energy, year, iname);
+        printf("flux = %.15g\n", flux);
+        EXPECT_NEAR(flux, 2642.50268555, 0.002);
+    }
+}
+
 GTEST_MAIN()
 
