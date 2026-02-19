@@ -2421,6 +2421,8 @@ INCLUDE_FILE_PATTERNS  =
 PREDEFINED             = "AST_NAMESPACE=ast"\
                          "AST_NAMESPACE_BEGIN=namespace ast{"\
                          "AST_NAMESPACE_END=}"\
+                         "AST_PARSED_BY_DOXYGEN"\
+                         
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

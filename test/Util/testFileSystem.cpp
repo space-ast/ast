@@ -72,7 +72,7 @@ TEST(FileSystem, CurrentPath)
 
 // 测试路径类功能
 TEST(SimpleFileSystem, PathOperations) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     // 基本路径创建和转换
     fs::path p1 = "test/file.txt";
@@ -109,7 +109,7 @@ TEST(SimpleFileSystem, PathOperations) {
 
 // 测试文件状态相关函数
 TEST(SimpleFileSystem, FileStatus) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     // 创建临时路径进行测试
     fs::path test_dir = "test_temp_dir";
@@ -153,7 +153,7 @@ TEST(SimpleFileSystem, FileStatus) {
 
 // 测试目录操作
 TEST(SimpleFileSystem, DirectoryOperations) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     // 创建和删除单个目录
     fs::path single_dir = "single_test_dir";
@@ -175,7 +175,7 @@ TEST(SimpleFileSystem, DirectoryOperations) {
 
 // 测试文件操作
 TEST(SimpleFileSystem, FileOperations) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     fs::path test_dir = "file_operations_test";
     fs::path source_file = test_dir / "source.txt";
@@ -219,7 +219,7 @@ TEST(SimpleFileSystem, FileOperations) {
 
 // 测试目录迭代器
 TEST(SimpleFileSystem, DirectoryIterator) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     fs::path test_dir = "iterator_test_dir";
     fs::path file1 = test_dir / "file1.txt";
@@ -264,7 +264,7 @@ TEST(SimpleFileSystem, DirectoryIterator) {
 
 // 测试磁盘空间信息
 TEST(SimpleFileSystem, DiskSpace) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     try {
         fs::space_info info = fs::space(".");
@@ -281,7 +281,7 @@ TEST(SimpleFileSystem, DiskSpace) {
 
 // 测试错误处理
 TEST(SimpleFileSystem, ErrorHandling) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     // 测试错误码版本的current_path
     std::error_code ec;
@@ -297,7 +297,7 @@ TEST(SimpleFileSystem, ErrorHandling) {
 
 // 测试Unicode字符支持
 TEST(SimpleFileSystem, UnicodeSupport) {
-    namespace fs = _AST simple_fs;
+    namespace fs = _AST fs_simple;
     
     // 在Windows平台上设置控制台和标准库编码为UTF-8
     #ifdef _WIN32

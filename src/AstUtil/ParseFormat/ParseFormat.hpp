@@ -239,7 +239,7 @@ bool aParseBool(StringView str)
     err_t err = aParseBool(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse bool value, err = %d", err);
+        aWarning("failed to parse bool value from '%.*s', err = %d", str.size(), str.data(), err);
     }
     return value;
 }
@@ -254,7 +254,7 @@ int aParseInt(StringView str)
     err_t err = aParseInt(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse int value, err = %d", err);
+        aWarning("failed to parse int value from '%.*s', err = %d", str.size(), str.data(), err);
     }
     return value;
 }
@@ -270,7 +270,7 @@ double aParseDouble(StringView str)
     err_t err = aParseDouble(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse double value, err = %d", err);
+        aWarning("failed to parse double value from '%.*s', err = %d", str.size(), str.data(), err);
     }
     return value;
 }
@@ -286,7 +286,7 @@ Color aParseColor(StringView str)
     err_t err = aParseColor(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse color value, err = %d", err);
+        aWarning("failed to parse color value from '%.*s', err = %d", str.size(), str.data(), err);
     }
     return value;
 }

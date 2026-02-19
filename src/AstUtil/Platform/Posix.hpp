@@ -43,11 +43,12 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief posix 函数
-/// @details  该命名空间包含了可移植操作系统接口(posix)所定义的函数，并屏蔽了不同操作系统之间的差异。
+/// @details  该命名空间包含了可移植操作系统接口(posix)所定义的函数，
+///           并屏蔽了不同操作系统之间的差异。
 /// @ingroup Platform
 namespace posix
 {
-#ifdef _WIN32
+#if defined(_WIN32) || defined(AST_PARSED_BY_DOXYGEN)
     // typedef struct _stat stat;
     using stat = struct ::_stat;
     
@@ -100,6 +101,10 @@ namespace posix
     AST_UTIL_API
     int chdir(const char* path);
 
+    /// @brief 获取当前工作目录
+    /// @param buf 指向字符数组的指针，用于存储当前工作目录的路径
+    /// @param size buf数组的大小
+    /// @return 如果成功则返回buf，否则返回nullptr
     AST_UTIL_API
     char* getcwd(char* buf, size_t size);
 
@@ -113,9 +118,6 @@ namespace posix
     using ::fileno;
     using ::rmdir;
 
-    /// @brief 检查文件状态是否为目录
-    /// @param st 文件状态结构体
-    /// @return 如果是目录则返回true，否则返回false
     A_ALWAYS_INLINE
     bool isdir(const struct stat& st)
     {

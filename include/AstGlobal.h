@@ -197,6 +197,13 @@
 #endif
 #define AST_GFX_CAPI A_DECL_EXTERN_C AST_GFX_API
 
+// ast项目天气模型模块导出声明
+#ifdef AST_BUILD_LIB_WEATHER
+#    define AST_WEATHER_API A_DECL_EXPORT
+#else
+#    define AST_WEATHER_API A_DECL_IMPORT
+#endif
+#define AST_WEATHER_CAPI A_DECL_EXTERN_C AST_WEATHER_API
 
 
 AST_NAMESPACE_BEGIN
@@ -217,6 +224,7 @@ typedef enum EError
     eErrorMaxIter,      ///< 最大迭代次数
     eErrorDivideByZero, ///< 除零错误
     eErrorOutOfRange,   ///< 超出范围
+    eErrorNotFound,     ///< 未找到
 } AEError;
 
 

@@ -19,7 +19,7 @@
  
  
 
-#include "SimpleFileSystem.hpp"
+#include "FileSystemSimple.hpp"
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/Logger.hpp"
 #include <algorithm>
@@ -45,7 +45,7 @@
 
 AST_NAMESPACE_BEGIN
 
-namespace simple_fs
+namespace fs_simple
 {
 
     // directory_iterator 的实现
@@ -257,7 +257,7 @@ namespace simple_fs
     // 文件状态实现
     file_status directory_entry::status() const
     {
-        return simple_fs::status(path_);
+        return fs_simple::status(path_);
     }
 
     // 基础文件操作实现

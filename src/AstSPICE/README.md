@@ -1,4 +1,4 @@
 # AstSPICE
 
-提供SPICE工具的兼容接口
+提供与NASA的SPICE工具接口定义相兼容的函数
 

@@ -41,9 +41,15 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 地球指向参数（Earth Orientation Parameters）
+/// @details 
+/// 支持加载从Celestrak网站下载的EOP数据文件。
+/// 根据当前时间查询MJD、闰秒、极移、ut1-utc、length of day、章动修正、XYS系数修正等参数。
+/// 在查询时，会根据当前时间点的MJD值，线性插值获取最近的两个条目
+/// @see https://celestrak.org/SpaceData/EOP-format.php
 class AST_CORE_API EOP
 {
 public:
+    /// @brief 地球指向参数条目
     struct Entry
     {
         int mjd;                ///< 简约儒略日
@@ -202,11 +208,11 @@ protected:
     /// @param mjdUTC 时间点（UTC）的MJD值
     /// @param index 索引
     /// @param frac 插值系数
-    void findEntryIndex(double mjdUTC, size_t& index, double& frac) const;
+    void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 protected:
     std::vector<Entry> m_data;
-    double m_startMJD = 0.0;
-    double m_endMJD = 0.0;
+    int m_startMJD = 0;
+    int m_endMJD = 0;
 };
 
 

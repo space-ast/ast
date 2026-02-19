@@ -37,14 +37,14 @@ AST_NAMESPACE_BEGIN
  
 
 
-#define _AST_FS _AST simple_fs::
+#define _AST_FS _AST fs_simple::
 
 
 /// @brief 简化的文件系统操作类
 /// @details  本类提供了简化的文件系统操作接口，与c++17标准库filesystem的api规范保持一致。
 ///           主要功能包括路径操作、文件属性查询、目录遍历等。
 /// @ingroup Platform
-namespace simple_fs
+namespace fs_simple
 {
     // 定义平台相关的字符串类型
     using string_type = std::string;

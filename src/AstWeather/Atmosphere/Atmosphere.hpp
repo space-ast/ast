@@ -24,9 +24,22 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @ingroup Weather
+    @defgroup Atmosphere 大气模型
+    @brief  包括MSIS系列大气模型、USSA1976大气模型等。
+*/
 
-AST_CORE_CAPI double aAtmDensUSSA1976(double alt);
+
+/*!
+    @addtogroup Atmosphere
+    @{
+*/
 
 
+AST_WEATHER_CAPI double aAtmDensUSSA1976(double alt);
+
+
+/*! @} */
 
 AST_NAMESPACE_END
