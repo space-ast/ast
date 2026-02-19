@@ -108,34 +108,38 @@ $(function(){initNavTree('WorkingDirectory_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/PosixExt.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1WorkingDirectory.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1WorkingDirectory.html">WorkingDirectory</a></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">   40</a></span>    <a class="code hl_function" href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">WorkingDirectory</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> path)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        oldpath_ = posix::getcwd();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        posix::chdir(path.to_string().c_str());</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classast_1_1WorkingDirectory.html">~WorkingDirectory</a>()</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        posix::chdir(oldpath_.c_str());</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstUtil/Logger.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1WorkingDirectory.html">   38</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1WorkingDirectory.html">WorkingDirectory</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">   41</a></span>    <a class="code hl_function" href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">WorkingDirectory</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> path)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        oldpath_ = posix::getcwd();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">int</span> ret = posix::chdir(path.to_string().c_str());</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span>(ret != 0){</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            aError(<span class="stringliteral">&quot;failed to change working directory to %.*s&quot;</span>, path.size(), path.data());</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::string oldpath_;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1WorkingDirectory.html">~WorkingDirectory</a>()</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        posix::chdir(oldpath_.c_str());</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    std::string oldpath_;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="aclassast_1_1WorkingDirectory_html"><div class="ttname"><a href="classast_1_1WorkingDirectory.html">ast::WorkingDirectory</a></div><div class="ttdoc">工作目录切换器</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:38</div></div>
-<div class="ttc" id="aclassast_1_1WorkingDirectory_html_a244b21f6a2d8c6c94a913be2d8096f97"><div class="ttname"><a href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">ast::WorkingDirectory::WorkingDirectory</a></div><div class="ttdeci">WorkingDirectory(StringView path)</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1WorkingDirectory_html"><div class="ttname"><a href="classast_1_1WorkingDirectory.html">ast::WorkingDirectory</a></div><div class="ttdoc">工作目录切换器</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1WorkingDirectory_html_a244b21f6a2d8c6c94a913be2d8096f97"><div class="ttname"><a href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">ast::WorkingDirectory::WorkingDirectory</a></div><div class="ttdeci">WorkingDirectory(StringView path)</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:41</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

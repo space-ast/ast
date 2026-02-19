@@ -55,6 +55,7 @@ var namespaceast =
       [ "fileno", "namespaceast_1_1posix.html#aabffdb7dd858ab788d340744b502603c", null ],
       [ "fstat", "namespaceast_1_1posix.html#ad3f28c319b242bab2f7bfc469dc71c14", null ],
       [ "getcwd", "namespaceast_1_1posix.html#a9c97106431856ac3fd1b9ac8308f39b1", null ],
+      [ "getcwd", "namespaceast_1_1posix.html#acbb2692b3fc86bd31288b83519b2861d", null ],
       [ "isatty", "namespaceast_1_1posix.html#affe4f5e5287aa523aeb4a51b828caac1", null ],
       [ "isdir", "namespaceast_1_1posix.html#af224165c7d701178e9d3151c3f2c4333", null ],
       [ "rmdir", "namespaceast_1_1posix.html#a7e90d3800c40de7e75eb1c3fca10dc4a", null ]

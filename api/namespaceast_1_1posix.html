@@ -126,8 +126,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>stat</b> = struct ::
 <tr class="separator:ad3f28c319b242bab2f7bfc469dc71c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8c6e22f7f0a04805c1e7cba2142919" id="r_abf8c6e22f7f0a04805c1e7cba2142919"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf8c6e22f7f0a04805c1e7cba2142919">chdir</a> (const char *path)</td></tr>
 <tr class="separator:abf8c6e22f7f0a04805c1e7cba2142919"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbb2692b3fc86bd31288b83519b2861d" id="r_acbb2692b3fc86bd31288b83519b2861d"><td class="memItemLeft" align="right" valign="top"><a id="acbb2692b3fc86bd31288b83519b2861d" name="acbb2692b3fc86bd31288b83519b2861d"></a>
-AST_UTIL_API char *&#160;</td><td class="memItemRight" valign="bottom"><b>getcwd</b> (char *buf, size_t size)</td></tr>
+<tr class="memitem:acbb2692b3fc86bd31288b83519b2861d" id="r_acbb2692b3fc86bd31288b83519b2861d"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbb2692b3fc86bd31288b83519b2861d">getcwd</a> (char *buf, size_t size)</td></tr>
 <tr class="separator:acbb2692b3fc86bd31288b83519b2861d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c97106431856ac3fd1b9ac8308f39b1" id="r_a9c97106431856ac3fd1b9ac8308f39b1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c97106431856ac3fd1b9ac8308f39b1">getcwd</a> ()</td></tr>
 <tr class="separator:a9c97106431856ac3fd1b9ac8308f39b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,7 +225,7 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxPath<
 </div>
 </div>
 <a id="a9c97106431856ac3fd1b9ac8308f39b1" name="a9c97106431856ac3fd1b9ac8308f39b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c97106431856ac3fd1b9ac8308f39b1">&#9670;&#160;</a></span>getcwd()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c97106431856ac3fd1b9ac8308f39b1">&#9670;&#160;</a></span>getcwd() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,6 +241,37 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxPath<
 
 <p>获取当前工作目录 </p>
 <dl class="section return"><dt>返回</dt><dd>当前工作目录的路径 </dd></dl>
+
+</div>
+</div>
+<a id="acbb2692b3fc86bd31288b83519b2861d" name="acbb2692b3fc86bd31288b83519b2861d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbb2692b3fc86bd31288b83519b2861d">&#9670;&#160;</a></span>getcwd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API char * ast::posix::getcwd </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前工作目录 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>指向字符数组的指针，用于存储当前工作目录的路径 </td></tr>
+    <tr><td class="paramname">size</td><td>buf数组的大小 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果成功则返回buf，否则返回nullptr </dd></dl>
 
 </div>
 </div>
