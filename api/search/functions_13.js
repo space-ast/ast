@@ -114,10 +114,8 @@ var searchData=
   ['step_111',['step',['../classast_1_1ExprRange.html#a6178f77bea1ae4906328db1d4b47c8be',1,'ast::ExprRange::step()'],['../classast_1_1ValRange.html#abaf3a17ed0ec8cc782d7482666b91da8',1,'ast::ValRange::step()']]],
   ['stop_112',['stop',['../classast_1_1ExprRange.html#a6ffc88ac10ea5b2a8f965222355cb210',1,'ast::ExprRange::stop()'],['../classast_1_1ValRange.html#a08f0c6c3f27614346257b726228eb61c',1,'ast::ValRange::stop()']]],
   ['stricmp_113',['stricmp',['../namespaceast.html#a2dbc046c9cca54d791ab5bd5739c8953',1,'ast']]],
-  ['stripleadingasciiwhitespace_114',['StripLeadingAsciiWhitespace',['../group__String.html#gab9ed8c36909ac526e1855ecdc90040e7',1,'ast']]],
-  ['striptrailingasciiwhitespace_115',['StripTrailingAsciiWhitespace',['../group__String.html#ga2340180cfaf243ca3efe130a423c9b84',1,'ast']]],
-  ['strnicmp_116',['strnicmp',['../namespaceast.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc',1,'ast']]],
-  ['symbol_117',['symbol',['../classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df',1,'ast::Dimension']]],
-  ['symbolscope_118',['SymbolScope',['../classast_1_1SymbolScope.html#a7f5833fd92c32ceda4367e1114d8f8cd',1,'ast::SymbolScope::SymbolScope()=default'],['../classast_1_1SymbolScope.html#a5dc569a8b55eb4c73f0bbb7dec314a51',1,'ast::SymbolScope::SymbolScope(SymbolScope *parent)']]],
-  ['syncconversionfactor_119',['syncConversionFactor',['../classast_1_1UnitConverter.html#ad411a6d8311aff5b97f1b5a988a7b7ba',1,'ast::UnitConverter']]]
+  ['strnicmp_114',['strnicmp',['../namespaceast.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc',1,'ast']]],
+  ['symbol_115',['symbol',['../classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df',1,'ast::Dimension']]],
+  ['symbolscope_116',['SymbolScope',['../classast_1_1SymbolScope.html#a7f5833fd92c32ceda4367e1114d8f8cd',1,'ast::SymbolScope::SymbolScope()=default'],['../classast_1_1SymbolScope.html#a5dc569a8b55eb4c73f0bbb7dec314a51',1,'ast::SymbolScope::SymbolScope(SymbolScope *parent)']]],
+  ['syncconversionfactor_117',['syncConversionFactor',['../classast_1_1UnitConverter.html#ad411a6d8311aff5b97f1b5a988a7b7ba',1,'ast::UnitConverter']]]
 ];

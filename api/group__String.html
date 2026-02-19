@@ -142,10 +142,10 @@ typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a
 <tr class="separator:ga6e06d4cb23f5d977cfe5d5ee874e7bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7552f594ff7df00f6d93fe019a5a2213" id="r_ga7552f594ff7df00f6d93fe019a5a2213"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7552f594ff7df00f6d93fe019a5a2213">ast::aStripAsciiWhitespace</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str) noexcept</td></tr>
 <tr class="separator:ga7552f594ff7df00f6d93fe019a5a2213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2340180cfaf243ca3efe130a423c9b84" id="r_ga2340180cfaf243ca3efe130a423c9b84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2340180cfaf243ca3efe130a423c9b84">ast::StripTrailingAsciiWhitespace</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str) noexcept</td></tr>
-<tr class="separator:ga2340180cfaf243ca3efe130a423c9b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9ed8c36909ac526e1855ecdc90040e7" id="r_gab9ed8c36909ac526e1855ecdc90040e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab9ed8c36909ac526e1855ecdc90040e7">ast::StripLeadingAsciiWhitespace</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str) noexcept</td></tr>
-<tr class="separator:gab9ed8c36909ac526e1855ecdc90040e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6357c5f9fbf6021c3383fae609c39f5c" id="r_ga6357c5f9fbf6021c3383fae609c39f5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6357c5f9fbf6021c3383fae609c39f5c">ast::aStripTrailingAsciiWhitespace</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str) noexcept</td></tr>
+<tr class="separator:ga6357c5f9fbf6021c3383fae609c39f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6827f727293f4d0b2eb9985dba0813b6" id="r_ga6827f727293f4d0b2eb9985dba0813b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6827f727293f4d0b2eb9985dba0813b6">ast::aStripLeadingAsciiWhitespace</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str) noexcept</td></tr>
+<tr class="separator:ga6827f727293f4d0b2eb9985dba0813b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga81ed8edcd7c2e9ad1a8d8b97be9793f6" id="r_ga81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memTemplParams" colspan="2"><a id="ga81ed8edcd7c2e9ad1a8d8b97be9793f6" name="ga81ed8edcd7c2e9ad1a8d8b97be9793f6"></a>
 template&lt;typename _Char &gt; </td></tr>
 <tr class="memitem:ga81ed8edcd7c2e9ad1a8d8b97be9793f6"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; _Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator&lt;&lt;</b> (std::basic_ostream&lt; _Char &gt; &amp;os, const <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; _Char &gt; &amp;sv)</td></tr>
@@ -264,6 +264,74 @@ template&lt;typename _Char &gt; </td></tr>
 
 </div>
 </div>
+<a id="ga6827f727293f4d0b2eb9985dba0813b6" name="ga6827f727293f4d0b2eb9985dba0813b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6827f727293f4d0b2eb9985dba0813b6">&#9670;&#160;</a></span>aStripLeadingAsciiWhitespace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ast::aStripLeadingAsciiWhitespace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移除字符串首部的ASCII空白字符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>移除首部空白字符后的字符串视图 </dd></dl>
+
+</div>
+</div>
+<a id="ga6357c5f9fbf6021c3383fae609c39f5c" name="ga6357c5f9fbf6021c3383fae609c39f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6357c5f9fbf6021c3383fae609c39f5c">&#9670;&#160;</a></span>aStripTrailingAsciiWhitespace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ast::aStripTrailingAsciiWhitespace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移除字符串尾部的ASCII空白字符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>移除尾部空白字符后的字符串视图 </dd></dl>
+
+</div>
+</div>
 <a id="gadbec1e8740a7cdb52e9bd0b49da8d2b4" name="gadbec1e8740a7cdb52e9bd0b49da8d2b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gadbec1e8740a7cdb52e9bd0b49da8d2b4">&#9670;&#160;</a></span>aUtf8ToWide()</h2>
 
@@ -358,74 +426,6 @@ template&lt;typename _Char &gt; </td></tr>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 <dl class="section warning"><dt>警告</dt><dd>仅在Windows平台上实现 </dd></dl>
-
-</div>
-</div>
-<a id="gab9ed8c36909ac526e1855ecdc90040e7" name="gab9ed8c36909ac526e1855ecdc90040e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab9ed8c36909ac526e1855ecdc90040e7">&#9670;&#160;</a></span>StripLeadingAsciiWhitespace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ast::StripLeadingAsciiWhitespace </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>移除字符串首部的ASCII空白字符 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>移除首部空白字符后的字符串视图 </dd></dl>
-
-</div>
-</div>
-<a id="ga2340180cfaf243ca3efe130a423c9b84" name="ga2340180cfaf243ca3efe130a423c9b84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2340180cfaf243ca3efe130a423c9b84">&#9670;&#160;</a></span>StripTrailingAsciiWhitespace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ast::StripTrailingAsciiWhitespace </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>移除字符串尾部的ASCII空白字符 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>移除尾部空白字符后的字符串视图 </dd></dl>
 
 </div>
 </div>

@@ -5,7 +5,7 @@ var searchData=
   ['rad_2',['rad',['../Unit_8cpp.html#aa2ca0a73ad1c1d8d0099f63d6428217d',1,'ast::units']]],
   ['range_5f_3',['range_',['../classast_1_1ExprForRange.html#ac6c4d2ea9bc8fdef4802bc36111b4716',1,'ast::ExprForRange']]],
   ['re_5f_4',['re_',['../classast_1_1J2Analytical.html#a2f4448d30d0ed4c8e7a17ac67a0bbaa8',1,'ast::J2Analytical']]],
-  ['refdistance_5f_5',['refDistance_',['../classast_1_1GravityFieldHead.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityFieldHead']]],
+  ['refdistance_5f_5',['refDistance_',['../classast_1_1GravityFieldHead.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityFieldHead::refDistance_'],['../classast_1_1GravityField.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityField::refDistance_']]],
   ['reltol_5f_6',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver']]],
   ['right_5f_7',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
   ['righttype_5f_8',['rightType_',['../classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05',1,'ast::OpBin']]],

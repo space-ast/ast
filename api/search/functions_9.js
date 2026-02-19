@@ -35,7 +35,8 @@ var searchData=
   ['isopen_32',['isOpen',['../classast_1_1JplDe.html#a5091d44c89924335deb184e72715723d',1,'ast::JplDe::isOpen()'],['../classast_1_1BKVParser.html#aa2f4a011f73e784e58321f64a9b1b030',1,'ast::BKVParser::isOpen()']]],
   ['isunit_33',['isUnit',['../classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210',1,'ast::Dimension']]],
   ['isvalid_34',['isValid',['../classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2',1,'ast::Quantity::isValid()'],['../classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c',1,'ast::Unit::isValid()']]],
-  ['iterate_5fbegin_35',['iterate_begin',['../namespaceast.html#a62018e586bdff7fd154f7c71b4bd6af2',1,'ast']]],
-  ['iterate_5fget_5ffunc_36',['iterate_get_func',['../namespaceast.html#a236320bc52680eb15582c6283715aa95',1,'ast']]],
-  ['iterate_5fnext_37',['iterate_next',['../namespaceast.html#a0fa8c52209d153fb8e308c1473b3960f',1,'ast']]]
+  ['isvaliddegreeorder_35',['isValidDegreeOrder',['../classast_1_1GravityField.html#ace7869e6a5481612ef36ba1480ce1b7f',1,'ast::GravityField']]],
+  ['iterate_5fbegin_36',['iterate_begin',['../namespaceast.html#a62018e586bdff7fd154f7c71b4bd6af2',1,'ast']]],
+  ['iterate_5fget_5ffunc_37',['iterate_get_func',['../namespaceast.html#a236320bc52680eb15582c6283715aa95',1,'ast']]],
+  ['iterate_5fnext_38',['iterate_next',['../namespaceast.html#a0fa8c52209d153fb8e308c1473b3960f',1,'ast']]]
 ];
