@@ -104,12 +104,18 @@ $(function(){initNavTree('group__Magnetosphere.html',''); initResizable(true); }
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<p>包括IGRF等磁场模型等。 </p>
+<p>包括IGRF、AE8、AP8等相关模型等。 </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
 <tr class="memitem:ga770033ee697753f6c5222ce2ba597a7f" id="r_ga770033ee697753f6c5222ce2ba597a7f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga770033ee697753f6c5222ce2ba597a7f">ast::aep8</a> (double e, double l, double bb0, int iname)</td></tr>
 <tr class="separator:ga770033ee697753f6c5222ce2ba597a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga685e75540c3bbad47c98107fdcc45ff3" id="r_ga685e75540c3bbad47c98107fdcc45ff3"><td class="memItemLeft" align="right" valign="top"><a id="ga685e75540c3bbad47c98107fdcc45ff3" name="ga685e75540c3bbad47c98107fdcc45ff3"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::get_flux</b> (double lon, double lat, double height, double energy, double year, int iname)</td></tr>
+<tr class="separator:ga685e75540c3bbad47c98107fdcc45ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47299e608849247ae0e11d1d124b5c77" id="r_ga47299e608849247ae0e11d1d124b5c77"><td class="memItemLeft" align="right" valign="top"><a id="ga47299e608849247ae0e11d1d124b5c77" name="ga47299e608849247ae0e11d1d124b5c77"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::igrf</b> (double lon, double lat, double height, double year, double &amp;xl, double &amp;bbx)</td></tr>
+<tr class="separator:ga47299e608849247ae0e11d1d124b5c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga76146fe3ab6056e3b54dc09881c96058" id="r_ga76146fe3ab6056e3b54dc09881c96058"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga76146fe3ab6056e3b54dc09881c96058">ast::igrf13syn</a> (int isv, double date, int itype, double alt, double colat, double elong, double &amp;x, double &amp;y, double &amp;z, double &amp;f)</td></tr>
 <tr class="separator:ga76146fe3ab6056e3b54dc09881c96058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

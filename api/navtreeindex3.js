@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"ModJulianDate_8hpp.html":[4,0,0,2,9,10],
 "ModJulianDate_8hpp_source.html":[4,0,0,2,9,10],
 "MoonFrame_8cpp.html":[4,0,0,2,2,7],
 "MoonFrame_8hpp.html":[4,0,0,2,2,8],
@@ -131,9 +132,9 @@ var NAVTREEINDEX3 =
 "PlanetFrame_8cpp.html":[4,0,0,2,2,9],
 "PlanetFrame_8hpp.html":[4,0,0,2,2,10],
 "PlanetFrame_8hpp_source.html":[4,0,0,2,2,10],
-"Platform_8cpp.html":[4,0,0,11,2,12],
-"Platform_8hpp.html":[4,0,0,11,2,13],
-"Platform_8hpp_source.html":[4,0,0,11,2,13],
+"Platform_8cpp.html":[4,0,0,11,2,13],
+"Platform_8hpp.html":[4,0,0,11,2,14],
+"Platform_8hpp_source.html":[4,0,0,11,2,14],
 "Point_8hpp_source.html":[4,0,0,2,5,0,4],
 "PointingDirection_8cpp.html":[4,0,0,0,0,14],
 "PointingDirection_8hpp.html":[4,0,0,0,0,15],
@@ -141,8 +142,12 @@ var NAVTREEINDEX3 =
 "Polynomial_8cpp.html":[4,0,0,11,6,10],
 "Polynomial_8hpp.html":[4,0,0,11,6,11],
 "Polynomial_8hpp_source.html":[4,0,0,11,6,11],
-"Posix_8cpp.html":[4,0,0,11,2,14],
-"Posix_8hpp_source.html":[4,0,0,11,2,15],
+"PosixExt_8cpp.html":[4,0,0,11,2,17],
+"PosixExt_8hpp.html":[4,0,0,11,2,18],
+"PosixExt_8hpp.html#a9c97106431856ac3fd1b9ac8308f39b1":[4,0,0,11,2,18,0],
+"PosixExt_8hpp_source.html":[4,0,0,11,2,18],
+"Posix_8cpp.html":[4,0,0,11,2,15],
+"Posix_8hpp_source.html":[4,0,0,11,2,16],
 "PropertyBool_8cpp.html":[4,0,0,11,4,0,6],
 "PropertyBool_8hpp.html":[4,0,0,11,4,0,7],
 "PropertyBool_8hpp_source.html":[4,0,0,11,4,0,7],
@@ -244,10 +249,5 @@ var NAVTREEINDEX3 =
 "Scanner_8hpp_source.html":[4,0,0,10,7,5],
 "ScriptAPI_8cpp.html":[4,0,0,10,0,2],
 "ScriptAPI_8hpp.html":[4,0,0,10,0,3],
-"ScriptAPI_8hpp_source.html":[4,0,0,10,0,3],
-"ScriptContext_8cpp.html":[4,0,0,10,4,5],
-"ScriptContext_8cpp.html#ae925f90bea37fb658e31bad362e5e55d":[4,0,0,10,4,5,11],
-"ScriptContext_8hpp.html":[4,0,0,10,4,6],
-"ScriptContext_8hpp_source.html":[4,0,0,10,4,6],
-"SecantSolver_8cpp.html":[4,0,0,5,4,0,7]
+"ScriptAPI_8hpp_source.html":[4,0,0,10,0,3]
 };

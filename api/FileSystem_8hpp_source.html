@@ -106,7 +106,7 @@ $(function(){initNavTree('FileSystem_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="SimpleFileSystem_8hpp.html">SimpleFileSystem.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;FileSystemSimple.hpp&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// 是否允许使用 std::experimental::filesystem 的c++实验特性，如果存在的话</span></div>
@@ -142,7 +142,7 @@ $(function(){initNavTree('FileSystem_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">namespace </span>filesystem = _A_STD_FILESYSTEM;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// #pragma message(&quot;use ast::simple_fs&quot;)</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">namespace </span>filesystem = simple_fs;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">namespace </span>filesystem = fs_simple;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">namespace </span>fs = filesystem;</div>
@@ -163,7 +163,6 @@ $(function(){initNavTree('FileSystem_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>AST_NAMESPACE_END</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="ttc" id="aSimpleFileSystem_8hpp_html"><div class="ttname"><a href="SimpleFileSystem_8hpp.html">SimpleFileSystem.hpp</a></div><div class="ttdoc">c++17 标准库 filesystem的简化实现，保证api规范一致，使得在c++11时也能使用filesystem</div></div>
 <div class="ttc" id="agroup__Platform_html_ga39dda408be669b8f5c88e097b0c73ca3"><div class="ttname"><a href="group__Platform.html#ga39dda408be669b8f5c88e097b0c73ca3">ast::aExePath</a></div><div class="ttdeci">std::string aExePath()</div><div class="ttdoc">获取当前的可执行文件路径</div><div class="ttdef"><b>定义</b> FileSystem.cpp:120</div></div>
 <div class="ttc" id="agroup__Platform_html_ga524821ccab59a9b4bc923f26dd3d3660"><div class="ttname"><a href="group__Platform.html#ga524821ccab59a9b4bc923f26dd3d3660">ast::aExeDir</a></div><div class="ttdeci">std::string aExeDir()</div><div class="ttdoc">获取当前的可执行文件所在目录</div><div class="ttdef"><b>定义</b> FileSystem.cpp:67</div></div>
 <div class="ttc" id="agroup__Platform_html_ga90c2f3a224c23802475e9ef9e63e763e"><div class="ttname"><a href="group__Platform.html#ga90c2f3a224c23802475e9ef9e63e763e">ast::aLibDir</a></div><div class="ttdeci">std::string aLibDir()</div><div class="ttdoc">获取当前的AstUtil动态库所在目录</div><div class="ttdef"><b>定义</b> FileSystem.cpp:62</div></div>

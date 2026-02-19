@@ -1,7 +1,7 @@
 var group__Platform =
 [
+    [ "ast::fs_simple", "namespaceast_1_1fs__simple.html", null ],
     [ "ast::posix", "namespaceast_1_1posix.html", null ],
-    [ "ast::simple_fs", "namespaceast_1_1simple__fs.html", null ],
     [ "ast::aCanDisplayGUI", "group__Platform.html#ga612f98b50735562fce328f4ad172a8de", null ],
     [ "ast::aCurrentLineNumber", "group__Platform.html#ga33ba0d9d87a56df2b6cf9a06df0fa6bd", null ],
     [ "ast::aExeDir", "group__Platform.html#ga524821ccab59a9b4bc923f26dd3d3660", null ],

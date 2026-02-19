@@ -15,7 +15,7 @@ var searchData=
   ['snoptcapi_12',['SnoptCAPI',['../structast_1_1SnoptCAPI.html',1,'ast']]],
   ['solarsystem_13',['SolarSystem',['../classast_1_1SolarSystem.html',1,'ast']]],
   ['solverstats_14',['SolverStats',['../structast_1_1SolverStats.html',1,'ast']]],
-  ['space_5finfo_15',['space_info',['../structast_1_1simple__fs_1_1space__info.html',1,'ast::simple_fs']]],
+  ['space_5finfo_15',['space_info',['../structast_1_1fs__simple_1_1space__info.html',1,'ast::fs_simple']]],
   ['spaceweather_16',['SpaceWeather',['../classast_1_1SpaceWeather.html',1,'ast']]],
   ['sparse_17',['Sparse',['../classast_1_1Sparse.html',1,'ast']]],
   ['sphereshape_18',['SphereShape',['../classast_1_1SphereShape.html',1,'ast']]],

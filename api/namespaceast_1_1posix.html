@@ -99,22 +99,180 @@ $(function(){initNavTree('namespaceast_1_1posix.html',''); initResizable(true); 
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">函数</a>  </div>
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">ast::posix 命名空间参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__Platform.html">平台相关接口</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a6b47d65bb7ff123675a08e19e5e85e74" id="r_a6b47d65bb7ff123675a08e19e5e85e74"><td class="memItemLeft" align="right" valign="top"><a id="a6b47d65bb7ff123675a08e19e5e85e74" name="a6b47d65bb7ff123675a08e19e5e85e74"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>stat</b> = struct ::_stat</td></tr>
+<tr class="separator:a6b47d65bb7ff123675a08e19e5e85e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a7411be4efd6a3bd9aaa31d756c07a793" id="r_a7411be4efd6a3bd9aaa31d756c07a793"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7411be4efd6a3bd9aaa31d756c07a793">isdir</a> (const struct stat &amp;st)</td></tr>
-<tr class="separator:a7411be4efd6a3bd9aaa31d756c07a793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabffdb7dd858ab788d340744b502603c" id="r_aabffdb7dd858ab788d340744b502603c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabffdb7dd858ab788d340744b502603c">fileno</a> (FILE *file)</td></tr>
+<tr class="separator:aabffdb7dd858ab788d340744b502603c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e90d3800c40de7e75eb1c3fca10dc4a" id="r_a7e90d3800c40de7e75eb1c3fca10dc4a"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e90d3800c40de7e75eb1c3fca10dc4a">rmdir</a> (const char *path)</td></tr>
+<tr class="separator:a7e90d3800c40de7e75eb1c3fca10dc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af224165c7d701178e9d3151c3f2c4333" id="r_af224165c7d701178e9d3151c3f2c4333"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af224165c7d701178e9d3151c3f2c4333">isdir</a> (const stat &amp;st)</td></tr>
+<tr class="separator:af224165c7d701178e9d3151c3f2c4333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe4f5e5287aa523aeb4a51b828caac1" id="r_affe4f5e5287aa523aeb4a51b828caac1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affe4f5e5287aa523aeb4a51b828caac1">isatty</a> (int fd)</td></tr>
+<tr class="separator:affe4f5e5287aa523aeb4a51b828caac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f28c319b242bab2f7bfc469dc71c14" id="r_ad3f28c319b242bab2f7bfc469dc71c14"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3f28c319b242bab2f7bfc469dc71c14">fstat</a> (int fd, stat *buf)</td></tr>
+<tr class="separator:ad3f28c319b242bab2f7bfc469dc71c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8c6e22f7f0a04805c1e7cba2142919" id="r_abf8c6e22f7f0a04805c1e7cba2142919"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf8c6e22f7f0a04805c1e7cba2142919">chdir</a> (const char *path)</td></tr>
+<tr class="separator:abf8c6e22f7f0a04805c1e7cba2142919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb2692b3fc86bd31288b83519b2861d" id="r_acbb2692b3fc86bd31288b83519b2861d"><td class="memItemLeft" align="right" valign="top"><a id="acbb2692b3fc86bd31288b83519b2861d" name="acbb2692b3fc86bd31288b83519b2861d"></a>
+AST_UTIL_API char *&#160;</td><td class="memItemRight" valign="bottom"><b>getcwd</b> (char *buf, size_t size)</td></tr>
+<tr class="separator:acbb2692b3fc86bd31288b83519b2861d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c97106431856ac3fd1b9ac8308f39b1" id="r_a9c97106431856ac3fd1b9ac8308f39b1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c97106431856ac3fd1b9ac8308f39b1">getcwd</a> ()</td></tr>
+<tr class="separator:a9c97106431856ac3fd1b9ac8308f39b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a53ce209127641b43b3d8278ae462936e" id="r_a53ce209127641b43b3d8278ae462936e"><td class="memItemLeft" align="right" valign="top"><a id="a53ce209127641b43b3d8278ae462936e" name="a53ce209127641b43b3d8278ae462936e"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxPath</b> = 255</td></tr>
+<tr class="separator:a53ce209127641b43b3d8278ae462936e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>posix 函数 </p>
-<p>该命名空间包含了可移植操作系统接口(posix)所定义的函数，并屏蔽了不同操作系统之间的差异。 </p>
+<p>该命名空间包含了可移植操作系统接口(posix)所定义的函数， 并屏蔽了不同操作系统之间的差异。 </p>
 </div><h2 class="groupheader">函数说明</h2>
-<a id="a7411be4efd6a3bd9aaa31d756c07a793" name="a7411be4efd6a3bd9aaa31d756c07a793"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7411be4efd6a3bd9aaa31d756c07a793">&#9670;&#160;</a></span>isdir()</h2>
+<a id="abf8c6e22f7f0a04805c1e7cba2142919" name="abf8c6e22f7f0a04805c1e7cba2142919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf8c6e22f7f0a04805c1e7cba2142919">&#9670;&#160;</a></span>chdir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API int ast::posix::chdir </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>改变当前工作目录 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>目录路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果成功则返回0，否则返回-1 </dd></dl>
+
+</div>
+</div>
+<a id="aabffdb7dd858ab788d340744b502603c" name="aabffdb7dd858ab788d340744b502603c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabffdb7dd858ab788d340744b502603c">&#9670;&#160;</a></span>fileno()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE int ast::posix::fileno </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取文件流的文件描述符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件流指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>文件描述符 </dd></dl>
+
+</div>
+</div>
+<a id="ad3f28c319b242bab2f7bfc469dc71c14" name="ad3f28c319b242bab2f7bfc469dc71c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f28c319b242bab2f7bfc469dc71c14">&#9670;&#160;</a></span>fstat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE int ast::posix::fstat </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">stat *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取文件状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>文件描述符 </td></tr>
+    <tr><td class="paramname">buf</td><td>指向stat结构体的指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果成功则返回0，否则返回-1 </dd></dl>
+
+</div>
+</div>
+<a id="a9c97106431856ac3fd1b9ac8308f39b1" name="a9c97106431856ac3fd1b9ac8308f39b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c97106431856ac3fd1b9ac8308f39b1">&#9670;&#160;</a></span>getcwd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE std::string ast::posix::getcwd </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前工作目录 </p>
+<dl class="section return"><dt>返回</dt><dd>当前工作目录的路径 </dd></dl>
+
+</div>
+</div>
+<a id="affe4f5e5287aa523aeb4a51b828caac1" name="affe4f5e5287aa523aeb4a51b828caac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe4f5e5287aa523aeb4a51b828caac1">&#9670;&#160;</a></span>isatty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE int ast::posix::isatty </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断文件描述符是否为终端 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>文件描述符 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果是终端则返回非0值，否则返回0 </dd></dl>
+
+</div>
+</div>
+<a id="af224165c7d701178e9d3151c3f2c4333" name="af224165c7d701178e9d3151c3f2c4333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af224165c7d701178e9d3151c3f2c4333">&#9670;&#160;</a></span>isdir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +280,7 @@ $(function(){initNavTree('namespaceast_1_1posix.html',''); initResizable(true); 
         <tr>
           <td class="memname">A_ALWAYS_INLINE bool ast::posix::isdir </td>
           <td>(</td>
-          <td class="paramtype">const struct stat &amp;</td>          <td class="paramname"><span class="paramname"><em>st</em></span></td><td>)</td>
+          <td class="paramtype">const stat &amp;</td>          <td class="paramname"><span class="paramname"><em>st</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -136,6 +294,32 @@ $(function(){initNavTree('namespaceast_1_1posix.html',''); initResizable(true); 
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>如果是目录则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a7e90d3800c40de7e75eb1c3fca10dc4a" name="a7e90d3800c40de7e75eb1c3fca10dc4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e90d3800c40de7e75eb1c3fca10dc4a">&#9670;&#160;</a></span>rmdir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API int ast::posix::rmdir </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>删除目录 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>目录路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果成功则返回0，否则返回-1 </dd></dl>
 
 </div>
 </div>

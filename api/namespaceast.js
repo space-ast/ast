@@ -1,5 +1,6 @@
 var namespaceast =
 [
+    [ "fs_simple", "namespaceast_1_1fs__simple.html", "namespaceast_1_1fs__simple" ],
     [ "literals", "namespaceast_1_1literals.html", [
       [ "operator\"\"_arcsec", "namespaceast_1_1literals.html#a7fbcde8f3335907138d94841e8b70033", null ],
       [ "operator\"\"_arcsec", "namespaceast_1_1literals.html#a120303f6251e93344d264b73ebd03f08", null ],
@@ -50,9 +51,14 @@ var namespaceast =
     ] ],
     [ "math", "namespaceast_1_1math.html", "namespaceast_1_1math" ],
     [ "posix", "namespaceast_1_1posix.html", [
-      [ "isdir", "namespaceast_1_1posix.html#a7411be4efd6a3bd9aaa31d756c07a793", null ]
+      [ "chdir", "namespaceast_1_1posix.html#abf8c6e22f7f0a04805c1e7cba2142919", null ],
+      [ "fileno", "namespaceast_1_1posix.html#aabffdb7dd858ab788d340744b502603c", null ],
+      [ "fstat", "namespaceast_1_1posix.html#ad3f28c319b242bab2f7bfc469dc71c14", null ],
+      [ "getcwd", "namespaceast_1_1posix.html#a9c97106431856ac3fd1b9ac8308f39b1", null ],
+      [ "isatty", "namespaceast_1_1posix.html#affe4f5e5287aa523aeb4a51b828caac1", null ],
+      [ "isdir", "namespaceast_1_1posix.html#af224165c7d701178e9d3151c3f2c4333", null ],
+      [ "rmdir", "namespaceast_1_1posix.html#a7e90d3800c40de7e75eb1c3fca10dc4a", null ]
     ] ],
-    [ "simple_fs", "namespaceast_1_1simple__fs.html", "namespaceast_1_1simple__fs" ],
     [ "AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
     [ "AngleAxis", "classast_1_1AngleAxis.html", "classast_1_1AngleAxis" ],
@@ -327,6 +333,7 @@ var namespaceast =
     [ "VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
     [ "VectorX", "classast_1_1VectorX.html", "classast_1_1VectorX" ],
     [ "WeakPtr", "classast_1_1WeakPtr.html", null ],
+    [ "WorkingDirectory", "classast_1_1WorkingDirectory.html", "classast_1_1WorkingDirectory" ],
     [ "XYSCache", "structast_1_1XYSCache.html", null ],
     [ "AEDimension", "namespaceast.html#af00b1ded2a8df0252b468907c5aab115", null ],
     [ "FPropertyGet", "group__RTTI.html#gae5e5616987acd034b10e01cd6edbbb48", null ],

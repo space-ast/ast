@@ -40,8 +40,8 @@ var hierarchy =
     [ "ast::Debugger", "classast_1_1Debugger.html", null ],
     [ "ast::DelaunayElem", "classast_1_1DelaunayElem.html", null ],
     [ "ast::Dimension", "classast_1_1Dimension.html", null ],
-    [ "ast::simple_fs::directory_entry", "classast_1_1simple__fs_1_1directory__entry.html", null ],
-    [ "ast::simple_fs::directory_iterator", "classast_1_1simple__fs_1_1directory__iterator.html", null ],
+    [ "ast::fs_simple::directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
+    [ "ast::fs_simple::directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
     [ "ast::HPOPForceModel::Drag", "structast_1_1HPOPForceModel_1_1Drag.html", null ],
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
@@ -69,7 +69,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::FieldOfView", "classast_1_1FieldOfView.html", null ],
-    [ "ast::simple_fs::file_status", "classast_1_1simple__fs_1_1file__status.html", null ],
+    [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],
@@ -128,7 +128,7 @@ var hierarchy =
     [ "icilist", "structicilist.html", null ],
     [ "ast::Identifier", "classast_1_1Identifier.html", null ],
     [ "ast::IdentifierTable", "classast_1_1IdentifierTable.html", null ],
-    [ "ast::simple_fs::directory_iterator::impl", "structast_1_1simple__fs_1_1directory__iterator_1_1impl.html", null ],
+    [ "ast::fs_simple::directory_iterator::impl", "structast_1_1fs__simple_1_1directory__iterator_1_1impl.html", null ],
     [ "ast::ImplFor< I, T >", "classast_1_1ImplFor.html", null ],
     [ "inlist", "structinlist.html", null ],
     [ "ast::INLPProblem", "classast_1_1INLPProblem.html", null ],
@@ -306,7 +306,7 @@ var hierarchy =
     [ "parm6_1_", "structparm6__1__.html", null ],
     [ "parm6_2_", "structparm6__2__.html", null ],
     [ "ast::Parser", "classast_1_1Parser.html", null ],
-    [ "ast::simple_fs::path", "classast_1_1simple__fs_1_1path.html", null ],
+    [ "ast::fs_simple::path", "classast_1_1fs__simple_1_1path.html", null ],
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", null ],
     [ "ast::PoleMotionSXY", "structast_1_1PoleMotionSXY.html", null ],
     [ "ast::Polynomial", "classast_1_1Polynomial.html", null ],
@@ -341,7 +341,7 @@ var hierarchy =
     [ "ast::SnoptCAPI", "structast_1_1SnoptCAPI.html", null ],
     [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
     [ "ast::SolverStats", "structast_1_1SolverStats.html", null ],
-    [ "ast::simple_fs::space_info", "structast_1_1simple__fs_1_1space__info.html", null ],
+    [ "ast::fs_simple::space_info", "structast_1_1fs__simple_1_1space__info.html", null ],
     [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", null ],
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
     [ "ast::HPOPForceModel::SRP", "structast_1_1HPOPForceModel_1_1SRP.html", null ],
@@ -351,7 +351,7 @@ var hierarchy =
     [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ],
     [ "ast::SymbolTable", "classast_1_1SymbolTable.html", null ],
     [ "std::system_error", null, [
-      [ "ast::simple_fs::filesystem_error", "classast_1_1simple__fs_1_1filesystem__error.html", null ]
+      [ "ast::fs_simple::filesystem_error", "classast_1_1fs__simple_1_1filesystem__error.html", null ]
     ] ],
     [ "ast::TAIScale", "classast_1_1TAIScale.html", null ],
     [ "ast::TDBScale", "classast_1_1TDBScale.html", null ],
@@ -380,5 +380,6 @@ var hierarchy =
     [ "ast::VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
     [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
     [ "ast::XYSCache", "structast_1_1XYSCache.html", null ]
 ];

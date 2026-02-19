@@ -27,6 +27,9 @@ var group__Util =
       [ "parse", "classast_1_1Polynomial.html#a7c6b2814b7b8fc3f956720c4433a9ac1", null ],
       [ "toString", "classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4", null ]
     ] ],
+    [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", [
+      [ "WorkingDirectory", "classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97", null ]
+    ] ],
     [ "ast::EColor", "group__Util.html#gac1947c945d205687379e80f42bba8dfd", [
       [ "ast::eBlack", "group__Util.html#ggac1947c945d205687379e80f42bba8dfda8500bf00445c40642c4ba1e7a1152173", null ],
       [ "ast::eSilver", "group__Util.html#ggac1947c945d205687379e80f42bba8dfdaf0e47b3ef25541f109570073db19c387", null ],

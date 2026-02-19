@@ -1,16 +1,16 @@
 var annotated_dup =
 [
     [ "ast", "namespaceast.html", [
+      [ "fs_simple", "namespaceast_1_1fs__simple.html", [
+        [ "directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
+        [ "directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", "classast_1_1fs__simple_1_1directory__iterator" ],
+        [ "file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
+        [ "filesystem_error", "classast_1_1fs__simple_1_1filesystem__error.html", null ],
+        [ "path", "classast_1_1fs__simple_1_1path.html", null ],
+        [ "space_info", "structast_1_1fs__simple_1_1space__info.html", null ]
+      ] ],
       [ "math", "namespaceast_1_1math.html", [
         [ "is_vector_like", "structast_1_1math_1_1is__vector__like.html", null ]
-      ] ],
-      [ "simple_fs", "namespaceast_1_1simple__fs.html", [
-        [ "directory_entry", "classast_1_1simple__fs_1_1directory__entry.html", null ],
-        [ "directory_iterator", "classast_1_1simple__fs_1_1directory__iterator.html", "classast_1_1simple__fs_1_1directory__iterator" ],
-        [ "file_status", "classast_1_1simple__fs_1_1file__status.html", null ],
-        [ "filesystem_error", "classast_1_1simple__fs_1_1filesystem__error.html", null ],
-        [ "path", "classast_1_1simple__fs_1_1path.html", null ],
-        [ "space_info", "structast_1_1simple__fs_1_1space__info.html", null ]
       ] ],
       [ "AEP8Data", "classast_1_1AEP8Data.html", null ],
       [ "AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
@@ -286,6 +286,7 @@ var annotated_dup =
       [ "VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
       [ "VectorX", "classast_1_1VectorX.html", "classast_1_1VectorX" ],
       [ "WeakPtr", "classast_1_1WeakPtr.html", null ],
+      [ "WorkingDirectory", "classast_1_1WorkingDirectory.html", "classast_1_1WorkingDirectory" ],
       [ "XYSCache", "structast_1_1XYSCache.html", null ]
     ] ],
     [ "std", null, [

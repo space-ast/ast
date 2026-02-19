@@ -101,13 +101,13 @@ $(function(){initNavTree('aep8_8cpp.html',''); initResizable(true); });
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
-<a href="#define-members">宏定义</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">aep8.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="aep8_8hpp_source.html">aep8.hpp</a>&quot;</code><br />
+<code>#include &quot;AstWeather/igrf.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ScopedPtr.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/RunTime.hpp&quot;</code><br />
@@ -132,12 +132,6 @@ $(function(){initNavTree('aep8_8cpp.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-宏定义</h2></td></tr>
-<tr class="memitem:a52b80590e24f61ccb9850f44bb5435c4" id="r_a52b80590e24f61ccb9850f44bb5435c4"><td class="memItemLeft" align="right" valign="top"><a id="a52b80590e24f61ccb9850f44bb5435c4" name="a52b80590e24f61ccb9850f44bb5435c4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_DIR_AEP8</b>&#160;&#160;&#160;&quot;SolarSystem/Earth/aep8/&quot;</td></tr>
-<tr class="separator:a52b80590e24f61ccb9850f44bb5435c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
 <tr class="memitem:a5ab871c3510a3b23d9e14a474476dab9" id="r_a5ab871c3510a3b23d9e14a474476dab9"><td class="memItemLeft" align="right" valign="top"><a id="a5ab871c3510a3b23d9e14a474476dab9" name="a5ab871c3510a3b23d9e14a474476dab9"></a>
@@ -154,6 +148,9 @@ A_ALWAYS_INLINE AEP8DataArray &amp;&#160;</td><td class="memItemRight" valign="b
 <tr class="separator:a7756c0674d89843661767c69235b7dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga770033ee697753f6c5222ce2ba597a7f" id="r_ga770033ee697753f6c5222ce2ba597a7f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Magnetosphere.html#ga770033ee697753f6c5222ce2ba597a7f">ast::aep8</a> (double e, double l, double bb0, int iname)</td></tr>
 <tr class="separator:ga770033ee697753f6c5222ce2ba597a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga685e75540c3bbad47c98107fdcc45ff3" id="r_ga685e75540c3bbad47c98107fdcc45ff3"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::get_flux</b> (double lon, double lat, double height, double energy, double year, int iname)</td></tr>
+<tr class="separator:ga685e75540c3bbad47c98107fdcc45ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
