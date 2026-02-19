@@ -101,6 +101,10 @@ namespace posix
     AST_UTIL_API
     int chdir(const char* path);
 
+    /// @brief 获取当前工作目录
+    /// @param buf 指向字符数组的指针，用于存储当前工作目录的路径
+    /// @param size buf数组的大小
+    /// @return 如果成功则返回buf，否则返回nullptr
     AST_UTIL_API
     char* getcwd(char* buf, size_t size);
 

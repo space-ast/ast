@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/PosixExt.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -40,12 +41,18 @@ public:
     WorkingDirectory(StringView path)
     {
         oldpath_ = posix::getcwd();
-        /// @todo: 需要考虑如何避免创建临时std::string对象 
-        posix::chdir(path.to_string().c_str());
+        /// @todo 需要考虑如何避免创建临时std::string对象 
+        int ret = posix::chdir(path.to_string().c_str());
+        if(ret != 0){
+            aError("failed to change working directory to %.*s", path.size(), path.data());
+        }
     }
     ~WorkingDirectory()
     {
-        posix::chdir(oldpath_.c_str());
+        int ret = posix::chdir(oldpath_.c_str());
+        if(ret != 0){
+            aError("failed to change working directory to %s", oldpath_.c_str());
+        }
     }
 protected:
     std::string oldpath_;
