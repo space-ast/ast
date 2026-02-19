@@ -83,6 +83,11 @@ public:
     /// @return 键值对项的类型（EToken）。
     EToken getNext(BKVItemView& item);
 
+    /// @brief 获取当前行（包含行结束符）
+    /// @details 获取当前行的内容，包含行结束符。
+    /// @return 当前行的内容（包含行结束符）
+    StringView getLineWithNewline();
+
     /// @brief 获取当前行
     /// @details 获取当前行的内容，不包含行结束符。
     /// @return 当前行的内容

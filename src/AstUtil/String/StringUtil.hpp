@@ -48,13 +48,13 @@ StringView aStripAsciiWhitespace(StringView str) noexcept;
 /// @brief 移除字符串尾部的ASCII空白字符
 /// @param str 输入字符串
 /// @return 移除尾部空白字符后的字符串视图
-StringView StripTrailingAsciiWhitespace(StringView str) noexcept;
+StringView aStripTrailingAsciiWhitespace(StringView str) noexcept;
 
 
 /// @brief 移除字符串首部的ASCII空白字符
 /// @param str 输入字符串
 /// @return 移除首部空白字符后的字符串视图
-StringView StripLeadingAsciiWhitespace(StringView str) noexcept;
+StringView aStripLeadingAsciiWhitespace(StringView str) noexcept;
 
 
 
@@ -86,7 +86,7 @@ StringView aStripAsciiWhitespace(StringView str) noexcept
 }
 
 inline
-StringView StripTrailingAsciiWhitespace(StringView str) noexcept
+StringView aStripTrailingAsciiWhitespace(StringView str) noexcept
 {
     const char* begin = str.data();
     const char* end = begin + str.size();
@@ -100,7 +100,7 @@ StringView StripTrailingAsciiWhitespace(StringView str) noexcept
 }
 
 inline
-StringView StripLeadingAsciiWhitespace(StringView str) noexcept
+StringView aStripLeadingAsciiWhitespace(StringView str) noexcept
 {
     const char* begin = str.data();
     const char* end = begin + str.size();
