@@ -106,6 +106,7 @@ err_t EOP::load(StringView filepath, std::vector<Entry>& data)
 
     if (!parser.isOpen())
     {
+        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile; // 文件打开失败
     }
 

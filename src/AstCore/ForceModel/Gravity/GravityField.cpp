@@ -61,7 +61,12 @@ static err_t loadGravityFieldGFC(BKVParser &parser, GravityFieldHead *head, Grav
 static err_t loadGravityField(StringView filepath, GravityFieldHead *head, GravityField *coeff);
 
 
-static err_t openGravityFile(BKVParser &parser, StringView model)
+/// @brief 打开重力场文件
+/// @param parser 解析器
+/// @param model 模型名称或文件路径
+/// @param filepath 输出文件路径
+/// @return 错误码
+static err_t openGravityFile(BKVParser &parser, StringView model, std::string& filepath)
 {
     parser.open(model);
     if(!parser.isOpen()){
@@ -71,7 +76,7 @@ static err_t openGravityFile(BKVParser &parser, StringView model)
         if(!has_dot && !has_dir_sep)
         {
             // 模型名称，添加默认路径
-            static const char* suffixes[]{ ".grv", ".cof" };
+            static const char* suffixes[]{ ".grv", ".cof", ".gfc" };
             std::string datadir = aDataDirGet() + "/SolarSystem/Earth/"; // @fixme: 非地球如何处理？
             // bool found = false;
             for(const char* suffix : suffixes)
@@ -81,12 +86,16 @@ static err_t openGravityFile(BKVParser &parser, StringView model)
                 {
                     parser.open(newfilepath);
                     if(parser.isOpen())
+                    {
+                        filepath = std::move(newfilepath);
                         return 0;
+                    }
                 }
             }
         }
         return eErrorInvalidFile;
     }
+    filepath = model.to_string();
     return 0;
 }
 
@@ -103,37 +112,39 @@ GravityField::GravityField()
 
 }
 
-err_t loadGravityField(StringView filepath, GravityFieldHead *head, GravityField *coeff)
+err_t loadGravityField(StringView model, GravityFieldHead *head, GravityField *coeff)
 {
     BKVParser parser;
-    parser.open(filepath);
-    if(err_t err = openGravityFile(parser, filepath))
+    std::string filepath;
+    if(err_t err = openGravityFile(parser, model, filepath))
     {
+        aError("failed to find gravity model %.*s", (int)model.size(), model.data());
         return err;
     }
+    model = filepath;
     StringView firstline = parser.getLine();
-    if(firstline.starts_with("COMMENT") || filepath.ends_with(".cof"))
+    if(firstline.starts_with("COMMENT") || model.ends_with(".cof"))
     {
         return loadGravityFieldGMAT(parser, head, coeff);
     }
-    else if(firstline.starts_with("stk") || filepath.ends_with(".grv"))
+    else if(firstline.starts_with("stk") || model.ends_with(".grv"))
     {
         return loadGravityFieldSTK(parser, head, coeff);
     }
-    else if(filepath.ends_with(".gfc"))
+    else if(model.ends_with(".gfc"))
     {
         return loadGravityFieldGFC(parser, head, coeff);
     }
     aError(
         "unsupported gravity field format, checking by first line: %s and filepath: %s", 
-        firstline.data(), filepath.data()
+        firstline.data(), model.data()
     );
     return eErrorParse;
 }
 
-err_t GravityField::load(StringView filepath)
+err_t GravityField::load(StringView model)
 {
-    return loadGravityField(filepath, nullptr, this);
+    return loadGravityField(model, nullptr, this);
 }
 
 /// @brief 计算重力场系数的归一化因子

@@ -95,6 +95,7 @@ err_t NutationSeries::load(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
+        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     StringView line = parser.getLine();
@@ -110,6 +111,7 @@ err_t NutationSeries::loadSTK(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
+        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     return loadSTK(parser);
@@ -119,6 +121,7 @@ err_t NutationSeries::loadIERS(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
+        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     return loadIERS(parser);

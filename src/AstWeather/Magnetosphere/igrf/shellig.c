@@ -14,6 +14,12 @@
 #	pragma GCC diagnostic ignored "-Wparentheses"
 #endif
 
+#ifdef __clang__
+#	pragma clang diagnostic ignored "-Wshift-op-parentheses"
+#   pragma clang diagnostic ignored "-Wunused-but-set-variable"
+#endif
+
+
 #if defined(_MSC_VER)
 #   pragma warning(disable:4554)
 #endif

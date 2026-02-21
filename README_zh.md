@@ -174,7 +174,9 @@ ast项目的开发参考和使用了很多资料与工具，感谢所有开源�
 - [Pagmo2](https://esa.github.io/pagmo2/): 欧洲空间局开发的并行全局优化库
 - [PyGMO2](https://esa.github.io/pygmo2/): Pagmo2的Python绑定，用于科学计算的优化工具
 - [PyKEP](https://esa.github.io/pykep/): 欧洲空间局的航天动力学Python库，专注于轨道优化
-- [AstroLib](https://gitee.com/wanghmail/AstroLib): 航天/卫星建模与仿真算法库AstroLib
+- [brahe](https://github.com/duncaneddy/brahe): 一个Rust航天动力学库，可用于研究和工程应用
+- [satkit](https://github.com/ssmichael1/satkit): 一个Rust航天动力学库，实现了一些航天中的基础功能
+- [AstroLib](https://gitee.com/wanghmail/AstroLib): 航天/卫星建模与仿真算法库
 - [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
 - [Scipy](https://scipy.org/): 一个Python库，用于科学计算和技术计算，提供了许多数学、科学和工程领域的功能
 - [GNU Octave](https://octave.org/): 开源数值计算软件，提供与MATLAB兼容的语法

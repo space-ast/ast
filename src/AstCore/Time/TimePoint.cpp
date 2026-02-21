@@ -133,6 +133,10 @@ TimePoint TimePoint::FromTT(const JulianDate &jdTT)
     return {duration.day() * 86400LL, duration.second()};
 }
 
+TimePoint TimePoint::FromImpreciseJDTT(double jdTT)
+{
+    return TimePoint::FromTT(JulianDate::FromImpreciseDay(jdTT));
+}
 
 TimePoint TimePoint::FromIntegerFractional(int64_t integer, double fractional)
 {
