@@ -29,6 +29,7 @@ var hierarchy =
     [ "cilist", "structcilist.html", null ],
     [ "cllist", "structcllist.html", null ],
     [ "ast::CNRLMSISE00", "classast_1_1CNRLMSISE00.html", null ],
+    [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
     [ "complex", "structcomplex.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
@@ -323,6 +324,8 @@ var hierarchy =
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],
+    [ "ast::RotationalData", "classast_1_1RotationalData.html", null ],
+    [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
     [ "ast::Scanner", "classast_1_1Scanner.html", [
       [ "ast::FileScanner", "classast_1_1FileScanner.html", null ],
       [ "ast::StreamScanner", "classast_1_1StreamScanner.html", null ],

@@ -106,72 +106,102 @@ $(function(){initNavTree('Duration_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>     <span class="comment">// for int64_t</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1ShortDuration.html">   36</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ShortDuration.html">ShortDuration</a></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span> second()<span class="keyword"> const</span>{<span class="keywordflow">return</span> second_;}</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">double</span>&amp; second(){<span class="keywordflow">return</span> second_;}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">double</span> second_;         <span class="comment">// 秒数</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/Constants.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>     <span class="comment">// for int64_t</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1ShortDuration.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ShortDuration.html">ShortDuration</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">double</span> second()<span class="keyword"> const</span>{<span class="keywordflow">return</span> second_;}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">double</span>&amp; second(){<span class="keywordflow">return</span> second_;}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">double</span> second_;         <span class="comment">// 秒数</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html">   47</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b">   51</a></span>    int64_t <a class="code hl_function" href="classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b">integer</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> integer_;}</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    int64_t&amp; <a class="code hl_typedef" href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a>(){<span class="keywordflow">return</span> integer_;}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4">   54</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4">fractional</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> fractional_;}</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">double</span>&amp; fractional(){<span class="keywordflow">return</span> fractional_;}</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56">   60</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a>&amp; other)<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">return</span> (integer_ - other.integer_) + (fractional_ - other.fractional_);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html">   48</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b">   52</a></span>    int64_t <a class="code hl_function" href="classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b">integer</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> integer_;}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    int64_t&amp; <a class="code hl_typedef" href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a>(){<span class="keywordflow">return</span> integer_;}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4">   55</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4">fractional</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> fractional_;}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">double</span>&amp; fractional(){<span class="keywordflow">return</span> fractional_;}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56">   61</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a>&amp; other)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> minusInSecond(other);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    int64_t integer_;       <span class="comment">// 整数秒部分</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">double</span>  fractional_;    <span class="comment">// 小数秒部分</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#aa5d0977ad72b669a2a7264712774c7ff">   68</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#aa5d0977ad72b669a2a7264712774c7ff">minusInSecond</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a>&amp; other)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> (integer_ - other.integer_) + (fractional_ - other.fractional_);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="};">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html">   70</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1DaySecDuration.html">DaySecDuration</a></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370">   74</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370">day</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> day_;}</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">int</span>&amp; day(){<span class="keywordflow">return</span> day_;}</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6">   78</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6">second</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> second_;}</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">double</span>&amp; second(){<span class="keywordflow">return</span> second_;}</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e">   84</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e">totalSecond</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> day_ * 86400.0 + second_;}</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">int</span>    day_;            <span class="comment">// 整数天部分</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">double</span> second_;         <span class="comment">// 小数秒部分</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#ab2f550c5ee95dec8e404c21c8ce6d350">   75</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#ab2f550c5ee95dec8e404c21c8ce6d350">minusInMinute</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a>&amp; other)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> (integer_ - other.integer_) / <a class="code hl_variable" href="group__Util.html#ga075984ce21a71002f5acf485f1c65c54">kSecondsPerMinute</a> + (fractional_ - other.fractional_) / <a class="code hl_variable" href="group__Util.html#ga075984ce21a71002f5acf485f1c65c54">kSecondsPerMinute</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">double</span> minusInHour(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a>&amp; other)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> (integer_ - other.integer_) / <a class="code hl_variable" href="group__Util.html#ga19f9bfcf3f62986215fe838d19bc3076">kSecondsPerHour</a> + (fractional_ - other.fractional_) / kSecondsPerHour;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classast_1_1LongDuration.html#abe03ad6a629c6b5b75958ef180326001">   86</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1LongDuration.html#abe03ad6a629c6b5b75958ef180326001">minusInDay</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LongDuration.html">LongDuration</a>&amp; other)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">return</span> (integer_ - other.integer_) / <a class="code hl_variable" href="group__Util.html#ga519c9ed1132612d1df14b0afacebea98">kSecondsPerDay</a> + (fractional_ - other.fractional_) / <a class="code hl_variable" href="group__Util.html#ga519c9ed1132612d1df14b0afacebea98">kSecondsPerDay</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
 </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    int64_t integer_;       <span class="comment">// 整数秒部分</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">double</span>  fractional_;    <span class="comment">// 小数秒部分</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="};">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html">   97</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1DaySecDuration.html">DaySecDuration</a></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370">  101</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370">day</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> day_;}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">int</span>&amp; day(){<span class="keywordflow">return</span> day_;}</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6">  105</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6">second</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> second_;}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">double</span>&amp; second(){<span class="keywordflow">return</span> second_;}</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e">  111</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e">totalSecond</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> day_ * 86400.0 + second_;}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">int</span>    day_;            <span class="comment">// 整数天部分</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">double</span> second_;         <span class="comment">// 小数秒部分</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="ttc" id="aMockSnopt_8c_html_a99e088ad9e1bf72a6c0e148a6c2b7012"><div class="ttname"><a href="MockSnopt_8c.html#a99e088ad9e1bf72a6c0e148a6c2b7012">integer</a></div><div class="ttdeci">long int integer</div><div class="ttdef"><b>定义</b> MockSnopt.c:24</div></div>
-<div class="ttc" id="aclassast_1_1DaySecDuration_html"><div class="ttname"><a href="classast_1_1DaySecDuration.html">ast::DaySecDuration</a></div><div class="ttdoc">整数天 + 小数秒时长（也能解决长时长问题）</div><div class="ttdef"><b>定义</b> Duration.hpp:71</div></div>
-<div class="ttc" id="aclassast_1_1DaySecDuration_html_a470f0c2ca4295d04d8d83990021bd2d6"><div class="ttname"><a href="classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6">ast::DaySecDuration::second</a></div><div class="ttdeci">double second() const</div><div class="ttdoc">获取小数部分的秒数</div><div class="ttdef"><b>定义</b> Duration.hpp:78</div></div>
-<div class="ttc" id="aclassast_1_1DaySecDuration_html_a78f853897f1a959875a18d8d61db391e"><div class="ttname"><a href="classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e">ast::DaySecDuration::totalSecond</a></div><div class="ttdeci">double totalSecond() const</div><div class="ttdef"><b>定义</b> Duration.hpp:84</div></div>
-<div class="ttc" id="aclassast_1_1DaySecDuration_html_a8fce61ded9db355640c584990ccae370"><div class="ttname"><a href="classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370">ast::DaySecDuration::day</a></div><div class="ttdeci">int day() const</div><div class="ttdoc">获取整数天部分</div><div class="ttdef"><b>定义</b> Duration.hpp:74</div></div>
-<div class="ttc" id="aclassast_1_1LongDuration_html"><div class="ttname"><a href="classast_1_1LongDuration.html">ast::LongDuration</a></div><div class="ttdoc">长时长</div><div class="ttdef"><b>定义</b> Duration.hpp:48</div></div>
-<div class="ttc" id="aclassast_1_1LongDuration_html_a88e5385bb8f19ac2a692d21402036d4b"><div class="ttname"><a href="classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b">ast::LongDuration::integer</a></div><div class="ttdeci">int64_t integer() const</div><div class="ttdoc">获取整数秒部分</div><div class="ttdef"><b>定义</b> Duration.hpp:51</div></div>
-<div class="ttc" id="aclassast_1_1LongDuration_html_abc7987f8b42f2bf55c6a33c9967552d4"><div class="ttname"><a href="classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4">ast::LongDuration::fractional</a></div><div class="ttdeci">double fractional() const</div><div class="ttdoc">获取小数秒部分</div><div class="ttdef"><b>定义</b> Duration.hpp:54</div></div>
-<div class="ttc" id="aclassast_1_1LongDuration_html_acef727fb43aa87d1dda87b0339667b56"><div class="ttname"><a href="classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56">ast::LongDuration::operator-</a></div><div class="ttdeci">double operator-(const LongDuration &amp;other) const</div><div class="ttdoc">时长减法运算符</div><div class="ttdef"><b>定义</b> Duration.hpp:60</div></div>
-<div class="ttc" id="aclassast_1_1ShortDuration_html"><div class="ttname"><a href="classast_1_1ShortDuration.html">ast::ShortDuration</a></div><div class="ttdoc">短时长</div><div class="ttdef"><b>定义</b> Duration.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1DaySecDuration_html"><div class="ttname"><a href="classast_1_1DaySecDuration.html">ast::DaySecDuration</a></div><div class="ttdoc">整数天 + 小数秒时长（也能解决长时长问题）</div><div class="ttdef"><b>定义</b> Duration.hpp:98</div></div>
+<div class="ttc" id="aclassast_1_1DaySecDuration_html_a470f0c2ca4295d04d8d83990021bd2d6"><div class="ttname"><a href="classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6">ast::DaySecDuration::second</a></div><div class="ttdeci">double second() const</div><div class="ttdoc">获取小数部分的秒数</div><div class="ttdef"><b>定义</b> Duration.hpp:105</div></div>
+<div class="ttc" id="aclassast_1_1DaySecDuration_html_a78f853897f1a959875a18d8d61db391e"><div class="ttname"><a href="classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e">ast::DaySecDuration::totalSecond</a></div><div class="ttdeci">double totalSecond() const</div><div class="ttdef"><b>定义</b> Duration.hpp:111</div></div>
+<div class="ttc" id="aclassast_1_1DaySecDuration_html_a8fce61ded9db355640c584990ccae370"><div class="ttname"><a href="classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370">ast::DaySecDuration::day</a></div><div class="ttdeci">int day() const</div><div class="ttdoc">获取整数天部分</div><div class="ttdef"><b>定义</b> Duration.hpp:101</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html"><div class="ttname"><a href="classast_1_1LongDuration.html">ast::LongDuration</a></div><div class="ttdoc">长时长</div><div class="ttdef"><b>定义</b> Duration.hpp:49</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html_a88e5385bb8f19ac2a692d21402036d4b"><div class="ttname"><a href="classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b">ast::LongDuration::integer</a></div><div class="ttdeci">int64_t integer() const</div><div class="ttdoc">获取整数秒部分</div><div class="ttdef"><b>定义</b> Duration.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html_aa5d0977ad72b669a2a7264712774c7ff"><div class="ttname"><a href="classast_1_1LongDuration.html#aa5d0977ad72b669a2a7264712774c7ff">ast::LongDuration::minusInSecond</a></div><div class="ttdeci">double minusInSecond(const LongDuration &amp;other) const</div><div class="ttdoc">时长减法方法（秒）</div><div class="ttdef"><b>定义</b> Duration.hpp:68</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html_ab2f550c5ee95dec8e404c21c8ce6d350"><div class="ttname"><a href="classast_1_1LongDuration.html#ab2f550c5ee95dec8e404c21c8ce6d350">ast::LongDuration::minusInMinute</a></div><div class="ttdeci">double minusInMinute(const LongDuration &amp;other) const</div><div class="ttdoc">时长减法方法（分钟）</div><div class="ttdef"><b>定义</b> Duration.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html_abc7987f8b42f2bf55c6a33c9967552d4"><div class="ttname"><a href="classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4">ast::LongDuration::fractional</a></div><div class="ttdeci">double fractional() const</div><div class="ttdoc">获取小数秒部分</div><div class="ttdef"><b>定义</b> Duration.hpp:55</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html_abe03ad6a629c6b5b75958ef180326001"><div class="ttname"><a href="classast_1_1LongDuration.html#abe03ad6a629c6b5b75958ef180326001">ast::LongDuration::minusInDay</a></div><div class="ttdeci">double minusInDay(const LongDuration &amp;other) const</div><div class="ttdoc">时长减法方法（天）</div><div class="ttdef"><b>定义</b> Duration.hpp:86</div></div>
+<div class="ttc" id="aclassast_1_1LongDuration_html_acef727fb43aa87d1dda87b0339667b56"><div class="ttname"><a href="classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56">ast::LongDuration::operator-</a></div><div class="ttdeci">double operator-(const LongDuration &amp;other) const</div><div class="ttdoc">时长减法运算符</div><div class="ttdef"><b>定义</b> Duration.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1ShortDuration_html"><div class="ttname"><a href="classast_1_1ShortDuration.html">ast::ShortDuration</a></div><div class="ttdoc">短时长</div><div class="ttdef"><b>定义</b> Duration.hpp:38</div></div>
+<div class="ttc" id="agroup__Util_html_ga075984ce21a71002f5acf485f1c65c54"><div class="ttname"><a href="group__Util.html#ga075984ce21a71002f5acf485f1c65c54">ast::kSecondsPerMinute</a></div><div class="ttdeci">constexpr double kSecondsPerMinute</div><div class="ttdoc">一分钟的秒数</div><div class="ttdef"><b>定义</b> Constants.h:192</div></div>
+<div class="ttc" id="agroup__Util_html_ga19f9bfcf3f62986215fe838d19bc3076"><div class="ttname"><a href="group__Util.html#ga19f9bfcf3f62986215fe838d19bc3076">ast::kSecondsPerHour</a></div><div class="ttdeci">constexpr double kSecondsPerHour</div><div class="ttdoc">一小时的秒数</div><div class="ttdef"><b>定义</b> Constants.h:191</div></div>
+<div class="ttc" id="agroup__Util_html_ga519c9ed1132612d1df14b0afacebea98"><div class="ttname"><a href="group__Util.html#ga519c9ed1132612d1df14b0afacebea98">ast::kSecondsPerDay</a></div><div class="ttdeci">constexpr double kSecondsPerDay</div><div class="ttdoc">一天的秒数</div><div class="ttdef"><b>定义</b> Constants.h:190</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

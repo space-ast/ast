@@ -1,5 +1,6 @@
 var classast_1_1TimePoint =
 [
+    [ "daysFrom", "classast_1_1TimePoint.html#afcfd4ed71772ea2071a59198c89a25fb", null ],
     [ "daysFromJ2000TT", "classast_1_1TimePoint.html#ab1f50ea1a90eef412e05126bdb3a7a10", null ],
     [ "durationFrom", "classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590", null ],
     [ "fractionalPart", "classast_1_1TimePoint.html#a547976b94f47d9ae39984ff34afb00b5", null ],

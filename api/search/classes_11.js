@@ -8,5 +8,7 @@ var searchData=
   ['rkf56_5',['RKF56',['../classast_1_1RKF56.html',1,'ast']]],
   ['rkf78_6',['RKF78',['../classast_1_1RKF78.html',1,'ast']]],
   ['rkv8_7',['RKV8',['../classast_1_1RKV8.html',1,'ast']]],
-  ['rotation_8',['Rotation',['../classast_1_1Rotation.html',1,'ast']]]
+  ['rotation_8',['Rotation',['../classast_1_1Rotation.html',1,'ast']]],
+  ['rotationaldata_9',['RotationalData',['../classast_1_1RotationalData.html',1,'ast']]],
+  ['rotationelement_10',['RotationElement',['../classast_1_1RotationElement.html',1,'ast']]]
 ];

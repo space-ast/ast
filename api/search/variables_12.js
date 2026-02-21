@@ -10,6 +10,7 @@ var searchData=
   ['right_5f_7',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
   ['righttype_5f_8',['rightType_',['../classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05',1,'ast::OpBin']]],
   ['rotation_5f_9',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
-  ['rowcol_5f_10',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
-  ['rp_5f_11',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]]
+  ['rotationepoch_5f_10',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
+  ['rowcol_5f_11',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
+  ['rp_5f_12',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]]
 ];

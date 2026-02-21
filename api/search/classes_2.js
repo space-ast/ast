@@ -10,6 +10,7 @@ var searchData=
   ['cnlpipoptsolver_7',['CNLPIpoptSolver',['../classast_1_1CNLPIpoptSolver.html',1,'ast']]],
   ['cnlpsnoptsolver_8',['CNLPSnoptSolver',['../classast_1_1CNLPSnoptSolver.html',1,'ast']]],
   ['cnrlmsise00_9',['CNRLMSISE00',['../classast_1_1CNRLMSISE00.html',1,'ast']]],
-  ['color_10',['Color',['../classast_1_1Color.html',1,'ast']]],
-  ['complex_11',['complex',['../structcomplex.html',1,'']]]
+  ['coefficient_10',['Coefficient',['../structast_1_1RotationElement_1_1Coefficient.html',1,'ast::RotationElement']]],
+  ['color_11',['Color',['../classast_1_1Color.html',1,'ast']]],
+  ['complex_12',['complex',['../structcomplex.html',1,'']]]
 ];

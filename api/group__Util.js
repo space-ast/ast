@@ -278,6 +278,8 @@ var group__Util =
     [ "ast::kSaturnMinRadius", "group__Util.html#gafbb4e8d5323964c41071b39df6cdb6e7", null ],
     [ "ast::kSaturnRadius", "group__Util.html#ga7459e1ed77895bb86cab1898c3ce4675", null ],
     [ "ast::kSecondsPerDay", "group__Util.html#ga519c9ed1132612d1df14b0afacebea98", null ],
+    [ "ast::kSecondsPerHour", "group__Util.html#ga19f9bfcf3f62986215fe838d19bc3076", null ],
+    [ "ast::kSecondsPerMinute", "group__Util.html#ga075984ce21a71002f5acf485f1c65c54", null ],
     [ "ast::kSecToDay", "group__Util.html#ga3a3ba07840469f9807648bb94d630ace", null ],
     [ "ast::kSecToHour", "group__Util.html#ga682fd03a1d7360ec5fed038ec8d664e5", null ],
     [ "ast::kSecToMicroSec", "group__Util.html#gab7375f616cd2034c527949e0f8482f1f", null ],

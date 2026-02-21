@@ -57,6 +57,9 @@ var group__Time =
     [ "ast::LongDuration", "classast_1_1LongDuration.html", [
       [ "fractional", "classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4", null ],
       [ "integer", "classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b", null ],
+      [ "minusInDay", "classast_1_1LongDuration.html#abe03ad6a629c6b5b75958ef180326001", null ],
+      [ "minusInMinute", "classast_1_1LongDuration.html#ab2f550c5ee95dec8e404c21c8ce6d350", null ],
+      [ "minusInSecond", "classast_1_1LongDuration.html#aa5d0977ad72b669a2a7264712774c7ff", null ],
       [ "operator-", "classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56", null ]
     ] ],
     [ "ast::DaySecDuration", "classast_1_1DaySecDuration.html", [
@@ -104,6 +107,7 @@ var group__Time =
       [ "start_", "classast_1_1TimeInterval.html#aa01b62410b016ba6505919c56ce294e8", null ]
     ] ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", [
+      [ "daysFrom", "classast_1_1TimePoint.html#afcfd4ed71772ea2071a59198c89a25fb", null ],
       [ "daysFromJ2000TT", "classast_1_1TimePoint.html#ab1f50ea1a90eef412e05126bdb3a7a10", null ],
       [ "durationFrom", "classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590", null ],
       [ "fractionalPart", "classast_1_1TimePoint.html#a547976b94f47d9ae39984ff34afb00b5", null ],

@@ -68,6 +68,8 @@ var AstUtil_2Util_2Constants_8h =
     [ "kSaturnMinRadius", "AstUtil_2Util_2Constants_8h.html#gafbb4e8d5323964c41071b39df6cdb6e7", null ],
     [ "kSaturnRadius", "AstUtil_2Util_2Constants_8h.html#ga7459e1ed77895bb86cab1898c3ce4675", null ],
     [ "kSecondsPerDay", "AstUtil_2Util_2Constants_8h.html#ga519c9ed1132612d1df14b0afacebea98", null ],
+    [ "kSecondsPerHour", "AstUtil_2Util_2Constants_8h.html#ga19f9bfcf3f62986215fe838d19bc3076", null ],
+    [ "kSecondsPerMinute", "AstUtil_2Util_2Constants_8h.html#ga075984ce21a71002f5acf485f1c65c54", null ],
     [ "kSecToDay", "AstUtil_2Util_2Constants_8h.html#ga3a3ba07840469f9807648bb94d630ace", null ],
     [ "kSecToHour", "AstUtil_2Util_2Constants_8h.html#ga682fd03a1d7360ec5fed038ec8d664e5", null ],
     [ "kSecToMicroSec", "AstUtil_2Util_2Constants_8h.html#gab7375f616cd2034c527949e0f8482f1f", null ],
