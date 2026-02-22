@@ -21,6 +21,8 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstCore/CelestialBody.hpp"
+#include <unordered_map>
  
 AST_NAMESPACE_BEGIN
 
@@ -40,27 +42,74 @@ AST_NAMESPACE_BEGIN
 class CelestialBody;
 class SolarSystem;
 
-/// @brief 获取地球
-AST_CORE_CAPI CelestialBody* aGetEarth(SolarSystem* ss);
-
-/// @brief 获取月球
-AST_CORE_CAPI CelestialBody* aGetMoon(SolarSystem* ss);
-
-/// @brief 获取火星
-AST_CORE_CAPI CelestialBody* aGetMars(SolarSystem* ss);
 
 
 /// @brief 太阳系
+/// @details 太阳系行星及行星卫星的集合，
+/// 包含水星、金星、地球、火星、木星、土星、天王星、海王星、冥王星、月球和太阳等。
 class AST_CORE_API SolarSystem
 {
 public:
-	SolarSystem();
+	SolarSystem() = default;
+	~SolarSystem() = default;
+
+	err_t load(StringView dirpath);
+	err_t loadDefault();
+	
+	/// @brief 获取水星
+	CelestialBody* getMercury() const { return mercury_.get(); }
+	
+	/// @brief 获取金星
+	CelestialBody* getVenus() const { return venus_.get(); }
+
 	/// @brief 获取地球
-	CelestialBody* getEarth();
-	/// @brief 获取月球
-	CelestialBody* getMoon();
+	CelestialBody* getEarth() const { return earth_.get(); }
+
 	/// @brief 获取火星
-	CelestialBody* getMars();
+	CelestialBody* getMars() const { return mars_.get(); }
+
+	/// @brief 获取木星
+	CelestialBody* getJupiter() const { return jupiter_.get(); }
+
+	/// @brief 获取土星
+	CelestialBody* getSaturn() const { return saturn_.get(); }
+
+	/// @brief 获取天王星	
+	CelestialBody* getUranus() const { return uranus_.get(); }
+
+	/// @brief 获取海王星	
+	CelestialBody* getNeptune() const { return neptune_.get(); }
+	
+	/// @brief 获取冥王星
+	CelestialBody* getPluto() const { return pluto_.get(); }
+
+	/// @brief 获取月球
+	CelestialBody* getMoon() const { return moon_.get(); }
+
+	/// @brief 获取火星
+	CelestialBody* getSun() const { return sun_.get(); }
+
+	/// @brief 获取指定名称的天体
+	/// @param  name        - 天体名称
+	/// @retval             - 天体指针
+	CelestialBody* getBody(StringView name) const;
+	
+protected:
+	using CelestialBodyMap = std::unordered_map<std::string, SharedPtr<CelestialBody>>;
+
+	SharedPtr<CelestialBody> mercury_;			///< 水星
+	SharedPtr<CelestialBody> venus_;			///< 金星
+    SharedPtr<CelestialBody> earth_;			///< 地球
+    SharedPtr<CelestialBody> mars_;				///< 火星
+	SharedPtr<CelestialBody> jupiter_;			///< 木星
+	SharedPtr<CelestialBody> saturn_;			///< 土星
+	SharedPtr<CelestialBody> uranus_;			///< 天王星
+	SharedPtr<CelestialBody> neptune_;			///< 海王星
+	SharedPtr<CelestialBody> pluto_;			///< 冥王星
+    SharedPtr<CelestialBody> moon_;				///< 月球
+	SharedPtr<CelestialBody> sun_;				///< 太阳
+	
+	CelestialBodyMap bodies_;					///< 太阳系天体映射表
 };
 
 /*! @} */

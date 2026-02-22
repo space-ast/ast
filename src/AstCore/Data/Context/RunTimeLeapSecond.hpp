@@ -1,5 +1,5 @@
 ///
-/// @file      Lambert.cpp
+/// @file      RunTimeLeapSecond.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -18,11 +18,30 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Lambert.hpp"
+#pragma once
+
+#include "AstGlobal.h"
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Data
+    @{
+*/
 
+
+/// @brief 获取UTC时间的闰秒数
+/// @param jdUTC 
+/// @return 
+AST_CORE_CAPI double aLeapSecondUTC(double jdUTC);
+
+/// @brief 获取UTC时间的闰秒数（MJD）
+/// @param mjdUTC 
+/// @return 
+AST_CORE_CAPI double aLeapSecondUTCMJD(double mjdUTC);
+
+
+/*! @} */
 
 AST_NAMESPACE_END
 

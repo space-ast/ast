@@ -35,7 +35,16 @@ class AST_CORE_API CelestialBody : public Object
 {
     AST_OBJECT(CelestialBody)
 public:
+    CelestialBody() = default;
+    ~CelestialBody() = default;
+
+    /// @brief 获取引力常数
+    double getGM() const { return gm_; }
+
     
+
+PROPERTIES:
+    double gm_; ///< 引力常数
 };
 
 /*! @} */

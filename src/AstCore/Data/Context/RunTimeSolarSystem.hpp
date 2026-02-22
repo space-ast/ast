@@ -1,5 +1,5 @@
 ///
-/// @file      Lambert.hpp
+/// @file      RunTimeSolarSystem.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -25,12 +25,44 @@
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup Orbit
+    @addtogroup Data
     @{
 */
+
+class SolarSystem;
+class CelestialBody;
+
+/// @brief 获取太阳系
+AST_CORE_CAPI SolarSystem* aGetSolarSystem();
+
+/// @brief 获取指定名称的天体
+AST_CORE_CAPI CelestialBody* aGetBody(StringView name);
+
+/// @brief 获取水星
+AST_CORE_CAPI CelestialBody* aGetMercury();
+
+/// @brief 获取金星
+AST_CORE_CAPI CelestialBody* aGetVenus();
+
+/// @brief 获取地球
+AST_CORE_CAPI CelestialBody* aGetEarth();
+
+/// @brief 获取火星
+AST_CORE_CAPI CelestialBody* aGetMars();
+
+/// @brief 获取木星
+AST_CORE_CAPI CelestialBody* aGetJupiter();
+
+/// @brief 获取土星
+AST_CORE_CAPI CelestialBody* aGetSaturn();
+
+/// @brief 获取月球
+AST_CORE_CAPI CelestialBody* aGetMoon();
 
 
 
 /*! @} */
 
 AST_NAMESPACE_END
+
+

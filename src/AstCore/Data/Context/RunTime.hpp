@@ -29,6 +29,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Data
+    @{
+*/
+
 class DataContext;
 class GlobalContext;
 class EOP;
@@ -101,6 +106,8 @@ AST_CORE_CAPI IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed();
 /// @brief 创建一个新的全局上下文
 AST_CORE_CAPI DataContext* aDataContext_New();
 
+
+/*! @} */
 
 AST_NAMESPACE_END
  

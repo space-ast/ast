@@ -1,5 +1,5 @@
 ///
-/// @file      Lambert.cpp
+/// @file      CircularOrbitDesigner.cpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -18,11 +18,20 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Lambert.hpp"
+#include "CircularOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
+err_t CircularOrbitDesigner::getOrbitState(TimePoint &orbitEpoch, ModOrbElem &orbElem) const
+{
+    return err_t();
+}
 
+err_t CircularOrbitDesigner::getCoordFrame(bool &useCoordEpoch, TimePoint &coordEpoch, SharedPtr<Frame> &coordFrame) const
+{
+    return err_t();
+}
 
 AST_NAMESPACE_END
+
 

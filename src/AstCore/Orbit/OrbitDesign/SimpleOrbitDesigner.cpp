@@ -1,5 +1,5 @@
 ///
-/// @file      Lambert.cpp
+/// @file      SimpleOrbitDesigner.cpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -18,11 +18,18 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Lambert.hpp"
+#include "SimpleOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
+err_t SimpleOrbitDesigner::getOrbitState(TimePoint& orbitEpoch, ModOrbElem &orbElem) const
+{
+    return err_t();
+}
 
+err_t SimpleOrbitDesigner::getCoordFrame(bool &useCoordEpoch, TimePoint &coordEpoch, SharedPtr<Frame> &coordFrame) const
+{
+    return err_t();
+}
 
 AST_NAMESPACE_END
-

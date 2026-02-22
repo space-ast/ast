@@ -25,6 +25,11 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Data
+    @{
+*/
+
 /// @brief     全局上下文
 /// @details   ~
 class GlobalContext
@@ -40,6 +45,6 @@ protected:
 	IAUXYS                  m_iauXYS;				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
 };
 
-
+/*! @} */
 
 AST_NAMESPACE_END

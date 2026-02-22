@@ -1,5 +1,5 @@
 ///
-/// @file      Lambert.cpp
+/// @file      SimpleOrbitDesigner.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -18,11 +18,30 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Lambert.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "OrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Orbit
+    @{
+*/
 
+class SimpleOrbitDesigner final: public OrbitDesigner
+{
+public:
+    SimpleOrbitDesigner() = default;
+    ~SimpleOrbitDesigner() = default;
+public:
+
+    err_t getOrbitState(TimePoint& orbitEpoch, ModOrbElem &orbElem) const;
+    
+    err_t getCoordFrame(bool& useCoordEpoch, TimePoint& coordEpoch, SharedPtr<Frame>& coordFrame) const;
+};
+
+/*! @} */
 
 AST_NAMESPACE_END
-

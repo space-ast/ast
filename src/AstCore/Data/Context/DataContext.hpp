@@ -33,7 +33,13 @@
 #include <string>
  
 AST_NAMESPACE_BEGIN
- 
+
+/*!
+    @addtogroup Data
+    @{
+*/
+
+
 
 class SolarSystem;
 class EOP;
@@ -87,8 +93,10 @@ protected:
     std::string     		m_dataDir;				///< 数据目录
 };
 
-
 constexpr size_t kSizeOfDataContext = sizeof(DataContext);
+
+/*! @} */
+
  
 AST_NAMESPACE_END
  

@@ -1,42 +1,46 @@
+///
+/// @file      SolarSystem.cpp
+/// @brief     
+/// @details   
+/// @author    axel
+/// @date      2026-02-22
+/// @copyright 版权所有 (C) 2026-present, ast项目.
+///
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+
 #include "SolarSystem.hpp"
+#include "AstUtil/StringView.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-
-
-CelestialBody* aGetEarth(SolarSystem* ss)
+err_t SolarSystem::load(StringView dirpath)
 {
-    return nullptr;
+    return err_t();
 }
 
-CelestialBody* aGetMoon(SolarSystem* ss)
-{
-    return nullptr;
-}
 
-CelestialBody* aGetMars(SolarSystem* ss)
+CelestialBody *SolarSystem::getBody(StringView name) const
 {
-    return nullptr;
-}
-
-SolarSystem::SolarSystem()
-{}
-
-CelestialBody* SolarSystem::getEarth()
-{
-    return nullptr;
-}
-
-CelestialBody* SolarSystem::getMoon()
-{
-    return nullptr;
-}
-
-CelestialBody* SolarSystem::getMars()
-{
+    auto it = bodies_.find(name.to_string());
+    if (it != bodies_.end())
+    {
+        return it->second.get();
+    }
     return nullptr;
 }
 
 
 AST_NAMESPACE_END
+
 

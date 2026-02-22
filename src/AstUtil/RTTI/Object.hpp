@@ -21,6 +21,9 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/ScopedPtr.hpp"
+#include "AstUtil/WeakPtr.hpp"
 #include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
 #include <assert.h>     // for assert

@@ -27,6 +27,7 @@
 #include "AstCore/GlobalContext.hpp"
 #include <assert.h>
 #include "RunTimeData.hpp"
+#include "RunTimeSolarSystem.hpp"
 
 #define AST_DEFAULT_FILE_LEAPSECOND             "Time/Leap_Second.dat"
 #define AST_DEFAULT_FILE_JPLDE                  "SolarSystem/plneph.430"
@@ -36,6 +37,7 @@
 #define AST_DEFAULT_FILE_IAUY                   "IERS-conventions/2010/tab5.2b.txt"
 #define AST_DEFAULT_FILE_IAUS                   "IERS-conventions/2010/tab5.2d.txt"
 #define AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED     "Test/ICRF/IAU2006_XYS.dat"
+#define AST_DEFAULT_DIR_SOLARSYSTEM             "SolarSystem/"
 
 AST_NAMESPACE_BEGIN
 
@@ -128,24 +130,35 @@ err_t IAUXYSPrecomputed::loadDefault()
 }
 
 
+err_t SolarSystem::loadDefault()
+{
+    fs::path dirpath = fs::path(aDataDirGet()) / AST_DEFAULT_DIR_SOLARSYSTEM;
+    err_t err = load(dirpath.string());
+    if (err)
+    {
+        aWarning("failed to load solar system from default data dir:\n%s", dirpath.string().c_str());
+    }
+    return err;
+}
 
 err_t aInitialize(DataContext* context)
 {
     err_t err = 0;
     
-    // global context
+    // init global context
     auto globalCxt = aGlobalContext_Get();
     if(!globalCxt->iauXYS()->isLoaded())
     {
         err |= globalCxt->iauXYS()->loadDefault();
     }
     
-    // local data context
+    // init thread local data context
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
     err |= context->eop()->loadDefault();
     err |= context->spaceWeather()->loadDefault();
     err |= context->iauXYSPrecomputed()->loadDefault();
+    err |= context->solarSystem()->loadDefault();
 
     if(err != eNoError) {
         aError("initialize failed: failed to load data.");
@@ -257,6 +270,11 @@ DataContext* aDataContext_New()
     return new DataContext{};
 }
 
+// ----------
+// Leap Second
+// ----------
+
+
 double aLeapSecondUTC(double jdUTC)
 {
     auto context = aDataContext_EnsureCurrent();
@@ -269,6 +287,9 @@ double aLeapSecondUTCMJD(double mjdUTC)
     return context->leapSecond()->leapSecondUTCMJD(mjdUTC);
 }
 
+// ----------
+// JPL DE
+// ----------
 
 
 err_t aJplDeGetPosVelICRF(
@@ -330,6 +351,12 @@ void aJplDeClose()
     context->jplDe()->close();
 }
 
+
+// ----------
+// EOP
+// ----------
+
+
 double aUT1MinusUTC_UTC(const JulianDate &jdUTC)
 {
     auto context = aDataContext_EnsureCurrent();
@@ -353,6 +380,10 @@ double aLOD(const TimePoint &tp)
     auto context = aDataContext_EnsureCurrent();
     return context->eop()->getLOD(tp);
 }
+
+// ----------
+// XYS
+// ----------
 
 void aTheoreticalXYS_IERS2010(double t, array3d& xys)
 {
@@ -442,5 +473,92 @@ void aXYS(const TimePoint &tp, array3d &xys)
     xys[0] += xyCorrection[0];
     xys[1] += xyCorrection[1];
 }
+
+
+// ----------
+// SolarSystem
+// ----------
+
+
+SolarSystem *aGetSolarSystem()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem();
+}
+
+CelestialBody *aGetBody(StringView name)
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getBody(name);
+}
+
+CelestialBody* aGetMercury()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getMercury();
+}
+
+CelestialBody* aGetVenus()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getVenus();
+}
+
+CelestialBody* aGetEarth()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getEarth();
+}
+
+CelestialBody* aGetMars()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getMars();
+}
+
+CelestialBody* aGetJupiter()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getJupiter();
+}
+
+CelestialBody* aGetSaturn()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getSaturn();
+}
+
+
+CelestialBody* aGetUranus()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getUranus();
+}   
+
+CelestialBody* aGetNeptune()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getNeptune();
+}
+
+CelestialBody* aGetPluto()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getPluto();
+}
+
+CelestialBody* aGetMoon()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getMoon();
+}
+
+CelestialBody* aGetSun()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem()->getSun();
+}
+
+
 
 AST_NAMESPACE_END
