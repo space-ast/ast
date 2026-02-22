@@ -20,9 +20,16 @@
 
 #include "MoonFrame.hpp"
 #include "AstCore/JplDe.hpp"
+#include "AstCore/RunTime.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/AttitudeConvert.hpp"
+#include "AstMath/Rotation.hpp"
+#include "AstMath/Euler.hpp"
+#include "AstUtil/Literals.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
+using namespace _AST literals;
 
 err_t aEarthICRFToMoonICRF(const TimePoint &tp, const Vector3d &posInEarthICRF, Vector3d &posInMoonICRF)
 {
@@ -39,6 +46,81 @@ err_t aEarthICRFToMoonICRF(const TimePoint &tp, const Vector3d &posInEarthICRF, 
     posInMoonICRF = posInEarthICRF - moonPos;
     velInMoonICRF = velInEarthICRF - moonVel;
     return rc;
+}
+
+err_t aICRFToMoonPrincipalAxesTransform(const TimePoint &tp, Rotation &rotation)
+{
+    Vector3d ang;
+    err_t rc = aJplDeGetLibration(tp, ang);
+    if(rc) return rc;
+    static_assert(sizeof(Euler) == sizeof(Vector3d), "Euler and Vector3d must have the same size");
+    aEuler313ToMatrix((const Euler&)ang, rotation.getMatrix());
+    return eNoError;
+}
+
+err_t aMoonPAToMeanEarthTransform(Rotation &rotation)
+{
+    auto denum = aJplDeNum();
+    switch (denum)
+    {
+    case 403:
+        aMoonPA403ToMeanEarthTransform(rotation);
+        break;
+    case 418:
+        aMoonPA418ToMeanEarthTransform(rotation);
+        break;
+    case 421:
+        aMoonPA421ToMeanEarthTransform(rotation);
+        break;
+    case 0:
+    case 430:
+        aMoonPA430ToMeanEarthTransform(rotation);
+        break;
+    default:
+        aError("JPL DE version %d is not supported", denum);
+        return eErrorInvalidParam;
+    }
+    return eNoError;
+}
+
+void aMoonPA430ToMeanEarthTransform(Rotation &rotation)
+{
+    Euler angle{-67.573_arcsec, -78.58_arcsec, -0.285_arcsec};
+    aEuler321ToMatrix(angle, rotation.getMatrix());
+}
+
+void aMoonPA421ToMeanEarthTransform(Rotation &rotation)
+{
+    Euler angle{-67.92_arcsec, -78.56_arcsec, -0.30_arcsec};
+    aEuler321ToMatrix(angle, rotation.getMatrix());
+}
+
+void aMoonPA418ToMeanEarthTransform(Rotation &rotation)
+{
+    Euler angle{-68.00_arcsec, -78.62_arcsec, -0.27_arcsec};
+    aEuler321ToMatrix(angle, rotation.getMatrix());
+}
+
+void aMoonPA403ToMeanEarthTransform(Rotation &rotation)
+{
+    Euler angle{-63.8986_arcsec, -79.0768_arcsec, -0.1462_arcsec};
+    aEuler321ToMatrix(angle, rotation.getMatrix());
+}
+
+err_t aICRFToMoonMeanEarthTransform_DE(const TimePoint &tp, Rotation &rotation)
+{
+    err_t rc = aICRFToMoonPrincipalAxesTransform(tp, rotation);
+    if(rc) return rc;
+    Rotation rotation2;
+    rc = aMoonPAToMeanEarthTransform(rotation2);
+    rotation *= rotation2;
+    return rc;
+}
+
+
+err_t aICRFToMoonMeanEarthTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aICRFToMoonMeanEarthTransform_DE(tp, rotation);
 }
 
 AST_NAMESPACE_END

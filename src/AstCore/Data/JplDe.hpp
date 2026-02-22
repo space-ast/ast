@@ -143,9 +143,9 @@ public:
     );
 
     
-    /// @brief  获取对应时间点的月面天平动
+    /// @brief  获取对应时间点的月面天平动相关角度
     /// @param  time        - 时间点
-    /// @param  ang         - 从月心J2000惯性坐标系到月固坐标系的转角(rad)
+    /// @param  ang         - 从ICRF到月球惯性主轴坐标系的转角(rad)
     ///                     - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
     /// @param  angRate     - 转动角速率(rad/s)
     /// @retval             - 错误码
@@ -155,6 +155,19 @@ public:
         Vector3d& angRate
     );
     
+    /// @brief  获取对应时间点的月面天平动角相关角度
+    /// @param  time        - 时间点
+    /// @param  ang         - 从ICRF到月球惯性主轴坐标系的转角(rad)
+    ///                     - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
+    /// @retval             - 错误码
+    err_t       getLibration(
+        const TimePoint& time,
+        Vector3d& ang
+    );
+    
+    /// @brief  获取JPL DE文件的星历版本
+    /// @retval             - 星历版本
+    uint32_t getEphemVersion() const{ return m_EphemVerion; }
 
 private:
     err_t         readDataBlock(size_t idx);

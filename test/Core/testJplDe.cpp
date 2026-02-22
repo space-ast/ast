@@ -47,6 +47,8 @@ TEST(JplDe, PosVel)
     JplDe jplDe;
     err_t err = jplDe.openDefault();
     EXPECT_FALSE(err);
+    int denum = jplDe.getEphemVersion();
+    EXPECT_EQ(denum, 430);
     auto time = TimePoint::FromUTC({2025, 12, 6, 4, 0, 0});
     Vector3d pos, vel;
     err = jplDe.getPosVelICRF(time, JplDe::eEarth, JplDe::eSSBarycenter, pos, vel);

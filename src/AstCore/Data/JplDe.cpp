@@ -698,6 +698,12 @@ err_t JplDe::getLibration(
     return this->getState(time, eDeLibration, ang.data(), angRate.data());
 }
 
+err_t JplDe::getLibration(const TimePoint &time, Vector3d &ang)
+{
+    return this->getState(time, eDeLibration, ang.data(), nullptr);
+}
+
+
 err_t JplDe::getPosICRF(
     const TimePoint& time,
     EDataCode target,

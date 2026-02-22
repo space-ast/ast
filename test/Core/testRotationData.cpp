@@ -243,5 +243,67 @@ TEST(RotationalData, JupiterAttitude2009)
     }
 }
 
+
+TEST(RotationalData, MoonAttitude2000)
+{
+    RotationalData data;
+    std::string datadir = aDataDirGet();
+    err_t rc = data.load(datadir + "/SolarSystem/Moon/MoonAttitude2000.rot");
+    EXPECT_EQ(rc, eNoError);
+    // test Fixed Frame
+    {
+        auto tp = TimePoint::FromUTC(2026, 3, 22, 0, 0, 0);
+        Rotation rotation;
+        data.getICRFToFixedTransform(tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d posFixed = rotation.transformVector(posICRF);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("posFixed: %s\n", posFixed.toString().c_str());
+        Vector3d posFixedExpect {-4324.097951102970910_km, -1878.910816636085656_km, 2602.281893338038117_km};
+        EXPECT_NEAR(posFixedExpect[0], posFixed[0], 1e-6);
+        EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-6);
+        EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-9);
+    }
+    // test Inertial Frame
+    {
+        auto tp = TimePoint::FromUTC(2026, 3, 22, 0, 0, 0);
+        Rotation rotation;
+        data.getICRFToInertialTransform(tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d posInertial = rotation.transformVector(posICRF);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("posInertial: %s\n", posInertial.toString().c_str());
+        Vector3d posInertialExpect {1832.546782605972339_km, 4478.505910121954003_km, 2363.209068737513462_km};
+        EXPECT_NEAR(posInertialExpect[0], posInertial[0], 1e-6);
+        EXPECT_NEAR(posInertialExpect[1], posInertial[1], 1e-6);
+        EXPECT_NEAR(posInertialExpect[2], posInertial[2], 1e-9);
+    }
+    // test TOD Frame
+    {
+        auto tp = TimePoint::FromUTC(2026, 3, 22, 0, 0, 0);
+        Rotation rotation;
+        data.getICRFToTODTransform(tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d posTOD = rotation.transformVector(posICRF);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("posTOD: %s\n", posTOD.toString().c_str());
+        // @todo: 月球的TOD与其他天体的TOD定义有区别
+    }
+    // test MOD Frame
+    {
+        auto tp = TimePoint::FromUTC(2026, 3, 22, 0, 0, 0);
+        Rotation rotation;
+        data.getICRFToMODTransform(tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d posMOD = rotation.transformVector(posICRF);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("posMOD: %s\n", posMOD.toString().c_str());
+        Vector3d posMODExpect {1999.775516607365034_km, 4344.474255799083039_km, 2475.164908420598294_km};
+        EXPECT_NEAR(posMODExpect[0], posMOD[0], 1e-6);
+        EXPECT_NEAR(posMODExpect[1], posMOD[1], 1e-6);
+        EXPECT_NEAR(posMODExpect[2], posMOD[2], 1e-9);
+    }
+}
+
 GTEST_MAIN()
 
