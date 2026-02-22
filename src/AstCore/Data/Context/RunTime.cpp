@@ -306,6 +306,12 @@ err_t aJplDeGetLibration(const TimePoint& time, Vector3d& ang)
     return context->jplDe()->getLibration(time, ang);
 }
 
+err_t aJplDeGetLibration(const TimePoint &time, Euler &ang)
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->jplDe()->getLibration(time, ang);
+}
+
 int aJplDeNum()
 {
     auto context = aDataContext_EnsureCurrent();

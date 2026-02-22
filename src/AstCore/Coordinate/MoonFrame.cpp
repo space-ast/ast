@@ -50,11 +50,11 @@ err_t aEarthICRFToMoonICRF(const TimePoint &tp, const Vector3d &posInEarthICRF, 
 
 err_t aICRFToMoonPrincipalAxesTransform(const TimePoint &tp, Rotation &rotation)
 {
-    Vector3d ang;
+    Euler ang;
     err_t rc = aJplDeGetLibration(tp, ang);
     if(rc) return rc;
-    static_assert(sizeof(Euler) == sizeof(Vector3d), "Euler and Vector3d must have the same size");
-    aEuler313ToMatrix((const Euler&)ang, rotation.getMatrix());
+    // static_assert(sizeof(Euler) == sizeof(Vector3d), "Euler and Vector3d must have the same size");
+    aEuler313ToMatrix(ang, rotation.getMatrix());
     return eNoError;
 }
 
