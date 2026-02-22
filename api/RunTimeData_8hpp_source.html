@@ -136,81 +136,94 @@ $(function(){initNavTree('RunTimeData_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">double</span>&amp; deps</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_CORE_CAPI err_t <a class="code hl_function" href="namespaceast.html#a886ee9d50d1b42b6924045ba73f515b0">aJplDeOpen</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a86326fcd6c451bdbaff8e7d5cecd9215">aJplDeClose</a>();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a69f5ec58e4208c07a64e3b6533a97da4">aUT1MinusUTC_UTC</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_CORE_CAPI err_t <a class="code hl_function" href="namespaceast.html#ad44f85638b51c418ac3b5914541e60a9">aJplDeGetLibration</a>(</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">const</span> TimePoint&amp; time,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    Vector3d&amp; ang</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>AST_CORE_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceast.html#adaaaff473ede71f83781bc5623a395e7">aJplDeNum</a>();</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structast_1_1PoleMotion.html">   93</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1PoleMotion.html">PoleMotion</a></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">   95</a></span>    <span class="keywordtype">double</span> x, <a class="code hl_variable" href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">y</a>;            </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
-</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">aPoleMotion</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keywordtype">double</span>&amp; x, <span class="keywordtype">double</span>&amp; y);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>AST_CORE_CAPI err_t <a class="code hl_function" href="namespaceast.html#a886ee9d50d1b42b6924045ba73f515b0">aJplDeOpen</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a86326fcd6c451bdbaff8e7d5cecd9215">aJplDeClose</a>();</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a0bebac9a35d34884b7b6b02fdd7511ad">aPoleMotionUTC</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a>&amp; jdUTC, <span class="keywordtype">double</span>&amp; x, <span class="keywordtype">double</span>&amp; y);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a69f5ec58e4208c07a64e3b6533a97da4">aUT1MinusUTC_UTC</a>(<span class="keyword">const</span> JulianDate&amp; jdUTC);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespaceast.html#ae98fe2e8d9036153d0b35e27561c5845">  115</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">aPoleMotion</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <a class="code hl_struct" href="structast_1_1PoleMotion.html">PoleMotion</a>&amp; pm)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>{</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">aPoleMotion</a>(tp, pm.x, pm.<a class="code hl_variable" href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">y</a>);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="};">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structast_1_1PoleMotion.html">  111</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1PoleMotion.html">PoleMotion</a></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">  113</a></span>    <span class="keywordtype">double</span> x, <a class="code hl_variable" href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">y</a>;            </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
 </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">aPoleMotion</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keywordtype">double</span>&amp; x, <span class="keywordtype">double</span>&amp; y);</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>AST_CORE_CAPI <span class="keywordtype">double</span> aLOD(<span class="keyword">const</span> TimePoint&amp; tp);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>AST_CORE_API <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>AST_CORE_API <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010(<span class="keywordtype">double</span> t, array3d&amp; xys);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>AST_CORE_API <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010_Cache(<span class="keywordtype">double</span> t, array3d&amp; xys);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a0bebac9a35d34884b7b6b02fdd7511ad">aPoleMotionUTC</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a>&amp; jdUTC, <span class="keywordtype">double</span>&amp; x, <span class="keywordtype">double</span>&amp; y);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="namespaceast.html#ae98fe2e8d9036153d0b35e27561c5845">  133</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">aPoleMotion</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <a class="code hl_struct" href="structast_1_1PoleMotion.html">PoleMotion</a>&amp; pm)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>{</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">aPoleMotion</a>(tp, pm.x, pm.<a class="code hl_variable" href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">y</a>);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>AST_CORE_CAPI <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010_TT(<span class="keyword">const</span> JulianDate&amp; jdTT, array3d&amp; xys);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>AST_CORE_CAPI <span class="keywordtype">double</span> aLOD(<span class="keyword">const</span> TimePoint&amp; tp);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>AST_CORE_CAPI err_t aTheoreticalXYS_IERS2010Precomputed(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>AST_CORE_API <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>AST_CORE_CAPI <span class="keywordtype">void</span> aTheoreticalXYS(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>AST_CORE_API <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010(<span class="keywordtype">double</span> t, array3d&amp; xys);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>AST_CORE_API <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010_Cache(<span class="keywordtype">double</span> t, array3d&amp; xys);</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>AST_CORE_CAPI <span class="keywordtype">void</span> aXYCorrection(<span class="keyword">const</span> TimePoint&amp; tp, array2d&amp; xyCorrection);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>AST_CORE_CAPI <span class="keywordtype">void</span> aTheoreticalXYS_IERS2010_TT(<span class="keyword">const</span> JulianDate&amp; jdTT, array3d&amp; xys);</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>AST_CORE_CAPI <span class="keywordtype">void</span> aXYS_IERS2010(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>AST_CORE_CAPI err_t aTheoreticalXYS_IERS2010Precomputed(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>AST_CORE_CAPI <span class="keywordtype">void</span> aXYS(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>AST_CORE_CAPI <span class="keywordtype">void</span> aTheoreticalXYS(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>AST_CORE_CAPI <span class="keywordtype">void</span> aXYCorrection(<span class="keyword">const</span> TimePoint&amp; tp, array2d&amp; xyCorrection);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>AST_CORE_CAPI <span class="keywordtype">void</span> aXYS_IERS2010(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>AST_CORE_CAPI <span class="keywordtype">void</span> aXYS(<span class="keyword">const</span> TimePoint&amp; tp, array3d&amp; xys);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1JulianDate_html"><div class="ttname"><a href="classast_1_1JulianDate.html">ast::JulianDate</a></div><div class="ttdoc">儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:82</div></div>
 <div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:105</div></div>
-<div class="ttc" id="anamespaceast_html_a0bebac9a35d34884b7b6b02fdd7511ad"><div class="ttname"><a href="namespaceast.html#a0bebac9a35d34884b7b6b02fdd7511ad">ast::aPoleMotionUTC</a></div><div class="ttdeci">void aPoleMotionUTC(const JulianDate &amp;jdUTC, double &amp;x, double &amp;y)</div><div class="ttdoc">获取给定UTC时间的极移</div><div class="ttdef"><b>定义</b> RunTime.cpp:326</div></div>
-<div class="ttc" id="anamespaceast_html_a199669285c0922b22b658f00d9dd4f87"><div class="ttname"><a href="namespaceast.html#a199669285c0922b22b658f00d9dd4f87">ast::aLeapSecondUTC</a></div><div class="ttdeci">double aLeapSecondUTC(double jdUTC)</div><div class="ttdoc">获取UTC时间的闰秒数</div><div class="ttdef"><b>定义</b> RunTime.cpp:259</div></div>
-<div class="ttc" id="anamespaceast_html_a650e3dfcfaf606777320594e19e3c8b8"><div class="ttname"><a href="namespaceast.html#a650e3dfcfaf606777320594e19e3c8b8">ast::aLeapSecondUTCMJD</a></div><div class="ttdeci">double aLeapSecondUTCMJD(double mjdUTC)</div><div class="ttdoc">获取UTC时间的闰秒数（MJD）</div><div class="ttdef"><b>定义</b> RunTime.cpp:265</div></div>
-<div class="ttc" id="anamespaceast_html_a66a2f4b3e4796c751d597d272ac567dd"><div class="ttname"><a href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">ast::aPoleMotion</a></div><div class="ttdeci">void aPoleMotion(const TimePoint &amp;tp, double &amp;x, double &amp;y)</div><div class="ttdoc">获取给定时间点的极移</div><div class="ttdef"><b>定义</b> RunTime.cpp:320</div></div>
-<div class="ttc" id="anamespaceast_html_a69f5ec58e4208c07a64e3b6533a97da4"><div class="ttname"><a href="namespaceast.html#a69f5ec58e4208c07a64e3b6533a97da4">ast::aUT1MinusUTC_UTC</a></div><div class="ttdeci">double aUT1MinusUTC_UTC(const JulianDate &amp;jdUTC)</div><div class="ttdoc">获取UT1时间与UTC时间的差值（秒）</div><div class="ttdef"><b>定义</b> RunTime.cpp:314</div></div>
-<div class="ttc" id="anamespaceast_html_a79a618c1dd5bc55893f49dcb00007b9e"><div class="ttname"><a href="namespaceast.html#a79a618c1dd5bc55893f49dcb00007b9e">ast::aJplDeGetPosVelICRF</a></div><div class="ttdeci">err_t aJplDeGetPosVelICRF(const TimePoint &amp;time, int target, int referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</div><div class="ttdoc">获取JPL DE星历数据的位置和速度（ICRF）</div><div class="ttdef"><b>定义</b> RunTime.cpp:273</div></div>
-<div class="ttc" id="anamespaceast_html_a86326fcd6c451bdbaff8e7d5cecd9215"><div class="ttname"><a href="namespaceast.html#a86326fcd6c451bdbaff8e7d5cecd9215">ast::aJplDeClose</a></div><div class="ttdeci">void aJplDeClose()</div><div class="ttdoc">关闭JPL DE星历数据文件</div><div class="ttdef"><b>定义</b> RunTime.cpp:308</div></div>
-<div class="ttc" id="anamespaceast_html_a886ee9d50d1b42b6924045ba73f515b0"><div class="ttname"><a href="namespaceast.html#a886ee9d50d1b42b6924045ba73f515b0">ast::aJplDeOpen</a></div><div class="ttdeci">err_t aJplDeOpen(const char *filepath)</div><div class="ttdoc">打开JPL DE星历数据文件</div><div class="ttdef"><b>定义</b> RunTime.cpp:302</div></div>
-<div class="ttc" id="anamespaceast_html_ab4fe9a815aac36c9f076f99c27ee5a69"><div class="ttname"><a href="namespaceast.html#ab4fe9a815aac36c9f076f99c27ee5a69">ast::aJplDeGetNutation</a></div><div class="ttdeci">err_t aJplDeGetNutation(const TimePoint &amp;time, double &amp;dpsi, double &amp;deps)</div><div class="ttdoc">获取JPL DE星历数据的中章动角数据</div><div class="ttdef"><b>定义</b> RunTime.cpp:296</div></div>
-<div class="ttc" id="anamespaceast_html_acdd9c100a086d822affd42b958c7ab94"><div class="ttname"><a href="namespaceast.html#acdd9c100a086d822affd42b958c7ab94">ast::aJplDeGetPosICRF</a></div><div class="ttdeci">err_t aJplDeGetPosICRF(const TimePoint &amp;time, int target, int referenceBody, Vector3d &amp;pos)</div><div class="ttdoc">获取JPL DE星历数据的位置（ICRF）</div><div class="ttdef"><b>定义</b> RunTime.cpp:285</div></div>
-<div class="ttc" id="astructast_1_1PoleMotion_html"><div class="ttname"><a href="structast_1_1PoleMotion.html">ast::PoleMotion</a></div><div class="ttdef"><b>定义</b> RunTimeData.hpp:94</div></div>
-<div class="ttc" id="astructast_1_1PoleMotion_html_abdf343d69c38122f6a70fec7df6975e4"><div class="ttname"><a href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">ast::PoleMotion::y</a></div><div class="ttdeci">double y</div><div class="ttdoc">极移</div><div class="ttdef"><b>定义</b> RunTimeData.hpp:95</div></div>
+<div class="ttc" id="anamespaceast_html_a0bebac9a35d34884b7b6b02fdd7511ad"><div class="ttname"><a href="namespaceast.html#a0bebac9a35d34884b7b6b02fdd7511ad">ast::aPoleMotionUTC</a></div><div class="ttdeci">void aPoleMotionUTC(const JulianDate &amp;jdUTC, double &amp;x, double &amp;y)</div><div class="ttdoc">获取给定UTC时间的极移</div><div class="ttdef"><b>定义</b> RunTime.cpp:339</div></div>
+<div class="ttc" id="anamespaceast_html_a199669285c0922b22b658f00d9dd4f87"><div class="ttname"><a href="namespaceast.html#a199669285c0922b22b658f00d9dd4f87">ast::aLeapSecondUTC</a></div><div class="ttdeci">double aLeapSecondUTC(double jdUTC)</div><div class="ttdoc">获取UTC时间的闰秒数</div><div class="ttdef"><b>定义</b> RunTime.cpp:260</div></div>
+<div class="ttc" id="anamespaceast_html_a650e3dfcfaf606777320594e19e3c8b8"><div class="ttname"><a href="namespaceast.html#a650e3dfcfaf606777320594e19e3c8b8">ast::aLeapSecondUTCMJD</a></div><div class="ttdeci">double aLeapSecondUTCMJD(double mjdUTC)</div><div class="ttdoc">获取UTC时间的闰秒数（MJD）</div><div class="ttdef"><b>定义</b> RunTime.cpp:266</div></div>
+<div class="ttc" id="anamespaceast_html_a66a2f4b3e4796c751d597d272ac567dd"><div class="ttname"><a href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">ast::aPoleMotion</a></div><div class="ttdeci">void aPoleMotion(const TimePoint &amp;tp, double &amp;x, double &amp;y)</div><div class="ttdoc">获取给定时间点的极移</div><div class="ttdef"><b>定义</b> RunTime.cpp:333</div></div>
+<div class="ttc" id="anamespaceast_html_a69f5ec58e4208c07a64e3b6533a97da4"><div class="ttname"><a href="namespaceast.html#a69f5ec58e4208c07a64e3b6533a97da4">ast::aUT1MinusUTC_UTC</a></div><div class="ttdeci">double aUT1MinusUTC_UTC(const JulianDate &amp;jdUTC)</div><div class="ttdoc">获取UT1时间与UTC时间的差值（秒）</div><div class="ttdef"><b>定义</b> RunTime.cpp:327</div></div>
+<div class="ttc" id="anamespaceast_html_a79a618c1dd5bc55893f49dcb00007b9e"><div class="ttname"><a href="namespaceast.html#a79a618c1dd5bc55893f49dcb00007b9e">ast::aJplDeGetPosVelICRF</a></div><div class="ttdeci">err_t aJplDeGetPosVelICRF(const TimePoint &amp;time, int target, int referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</div><div class="ttdoc">获取JPL DE星历数据的位置和速度（ICRF）</div><div class="ttdef"><b>定义</b> RunTime.cpp:274</div></div>
+<div class="ttc" id="anamespaceast_html_a86326fcd6c451bdbaff8e7d5cecd9215"><div class="ttname"><a href="namespaceast.html#a86326fcd6c451bdbaff8e7d5cecd9215">ast::aJplDeClose</a></div><div class="ttdeci">void aJplDeClose()</div><div class="ttdoc">关闭JPL DE星历数据文件</div><div class="ttdef"><b>定义</b> RunTime.cpp:321</div></div>
+<div class="ttc" id="anamespaceast_html_a886ee9d50d1b42b6924045ba73f515b0"><div class="ttname"><a href="namespaceast.html#a886ee9d50d1b42b6924045ba73f515b0">ast::aJplDeOpen</a></div><div class="ttdeci">err_t aJplDeOpen(const char *filepath)</div><div class="ttdoc">打开JPL DE星历数据文件</div><div class="ttdef"><b>定义</b> RunTime.cpp:315</div></div>
+<div class="ttc" id="anamespaceast_html_ab4fe9a815aac36c9f076f99c27ee5a69"><div class="ttname"><a href="namespaceast.html#ab4fe9a815aac36c9f076f99c27ee5a69">ast::aJplDeGetNutation</a></div><div class="ttdeci">err_t aJplDeGetNutation(const TimePoint &amp;time, double &amp;dpsi, double &amp;deps)</div><div class="ttdoc">获取JPL DE星历数据的中章动角数据</div><div class="ttdef"><b>定义</b> RunTime.cpp:297</div></div>
+<div class="ttc" id="anamespaceast_html_acdd9c100a086d822affd42b958c7ab94"><div class="ttname"><a href="namespaceast.html#acdd9c100a086d822affd42b958c7ab94">ast::aJplDeGetPosICRF</a></div><div class="ttdeci">err_t aJplDeGetPosICRF(const TimePoint &amp;time, int target, int referenceBody, Vector3d &amp;pos)</div><div class="ttdoc">获取JPL DE星历数据的位置（ICRF）</div><div class="ttdef"><b>定义</b> RunTime.cpp:286</div></div>
+<div class="ttc" id="anamespaceast_html_ad44f85638b51c418ac3b5914541e60a9"><div class="ttname"><a href="namespaceast.html#ad44f85638b51c418ac3b5914541e60a9">ast::aJplDeGetLibration</a></div><div class="ttdeci">err_t aJplDeGetLibration(const TimePoint &amp;time, Vector3d &amp;ang)</div><div class="ttdoc">获取JPL DE星历数据的月面天平动相关角度</div><div class="ttdef"><b>定义</b> RunTime.cpp:303</div></div>
+<div class="ttc" id="anamespaceast_html_adaaaff473ede71f83781bc5623a395e7"><div class="ttname"><a href="namespaceast.html#adaaaff473ede71f83781bc5623a395e7">ast::aJplDeNum</a></div><div class="ttdeci">int aJplDeNum()</div><div class="ttdoc">获取JPL DE星历数据的版本号</div><div class="ttdef"><b>定义</b> RunTime.cpp:309</div></div>
+<div class="ttc" id="astructast_1_1PoleMotion_html"><div class="ttname"><a href="structast_1_1PoleMotion.html">ast::PoleMotion</a></div><div class="ttdef"><b>定义</b> RunTimeData.hpp:112</div></div>
+<div class="ttc" id="astructast_1_1PoleMotion_html_abdf343d69c38122f6a70fec7df6975e4"><div class="ttname"><a href="structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4">ast::PoleMotion::y</a></div><div class="ttdeci">double y</div><div class="ttdoc">极移</div><div class="ttdef"><b>定义</b> RunTimeData.hpp:113</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

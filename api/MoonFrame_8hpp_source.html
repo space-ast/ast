@@ -109,24 +109,91 @@ $(function(){initNavTree('MoonFrame_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    Vector3d&amp;        posInMoonICRF</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> Vector3d&amp;  velInEarthICRF,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Vector3d&amp;        posInMoonICRF,  </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    Vector3d&amp;        velInMoonICRF</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="agroup__Coordinate_html_ga91d6cd70536ab87ab37193a3e0d97e8f"><div class="ttname"><a href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">ast::aEarthICRFToMoonICRF</a></div><div class="ttdeci">err_t aEarthICRFToMoonICRF(const TimePoint &amp;tp, const Vector3d &amp;posInEarthICRF, Vector3d &amp;posInMoonICRF)</div><div class="ttdoc">计算地球ICRF坐标系到月球ICRF坐标系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:27</div></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>Rotation;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>KinematicRotation;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    Vector3d&amp;        posInMoonICRF</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">aEarthICRFToMoonICRF</a>(</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> Vector3d&amp;  posInEarthICRF, </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> Vector3d&amp;  velInEarthICRF,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    Vector3d&amp;        posInMoonICRF,  </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    Vector3d&amp;        velInMoonICRF</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#gaebc526d740c21e27b1231aa43638b30b">aICRFToMoonPrincipalAxesTransform</a>(</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">const</span> TimePoint&amp; tp, </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Rotation&amp;        rotation</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="group__Coordinate.html#ga7c8675c5897b90fb957b2accbeee5233">   82</a></span>AST_CORE_API err_t <a class="code hl_function" href="group__Coordinate.html#gaebc526d740c21e27b1231aa43638b30b">aICRFToMoonPrincipalAxesTransform</a>(</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>&amp; rotation</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>AST_CORE_CAPI err_t <a class="code hl_function" href="group__Coordinate.html#ga300a76d3961462337f13b53d22babc43">aMoonPAToMeanEarthTransform</a>(</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp;        rotation</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Coordinate.html#gacfb694e39e2f40201048d92b35d61bb8">aMoonPA430ToMeanEarthTransform</a>(</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp;        rotation</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Coordinate.html#ga9e24bf77f39aa4c4fcf6c01b4c01a8cc">aMoonPA421ToMeanEarthTransform</a>(</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp; rotation</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Coordinate.html#ga5f51855b91a4c8377f6a38b2cf3ca113">aMoonPA418ToMeanEarthTransform</a>(</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp;        rotation</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Coordinate.html#gad81fe2d454105845c8d8e8d95ffa815c">aMoonPA403ToMeanEarthTransform</a>(</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp; rotation</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>AST_CORE_CAPI err_t <a class="code hl_function" href="group__Coordinate.html#gaf2088402f30e5828470bdce34d5b6dbe">aICRFToMoonMeanEarthTransform_DE</a>(</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp;        rotation</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="group__Coordinate.html#gab155941ba5f3d90440c43214ca5de071">  144</a></span>AST_CORE_CAPI err_t <a class="code hl_function" href="group__Coordinate.html#gab155941ba5f3d90440c43214ca5de071">aICRFToMoonMeanEarthTransform_IAU</a>(</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp;        rotation</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>AST_CORE_CAPI err_t <a class="code hl_function" href="group__Coordinate.html#ga05bf05989e63d36aebef1a9f54a156f1">aICRFToMoonMeanEarthTransform</a>(</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp;        rotation</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1KinematicRotation_html"><div class="ttname"><a href="classast_1_1KinematicRotation.html">ast::KinematicRotation</a></div><div class="ttdoc">运动学旋转</div><div class="ttdef"><b>定义</b> KinematicRotation.hpp:31</div></div>
+<div class="ttc" id="aclassast_1_1Rotation_html"><div class="ttname"><a href="classast_1_1Rotation.html">ast::Rotation</a></div><div class="ttdoc">旋转类</div><div class="ttdef"><b>定义</b> Rotation.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:105</div></div>
+<div class="ttc" id="agroup__Coordinate_html_ga05bf05989e63d36aebef1a9f54a156f1"><div class="ttname"><a href="group__Coordinate.html#ga05bf05989e63d36aebef1a9f54a156f1">ast::aICRFToMoonMeanEarthTransform</a></div><div class="ttdeci">err_t aICRFToMoonMeanEarthTransform(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">计算月球ICRF坐标系到月球MeanEarth系的转换(默认为DE实现)</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:121</div></div>
+<div class="ttc" id="agroup__Coordinate_html_ga300a76d3961462337f13b53d22babc43"><div class="ttname"><a href="group__Coordinate.html#ga300a76d3961462337f13b53d22babc43">ast::aMoonPAToMeanEarthTransform</a></div><div class="ttdeci">err_t aMoonPAToMeanEarthTransform(Rotation &amp;rotation)</div><div class="ttdoc">计算月球主轴系(PA)到月球MeanEarth系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:61</div></div>
+<div class="ttc" id="agroup__Coordinate_html_ga5f51855b91a4c8377f6a38b2cf3ca113"><div class="ttname"><a href="group__Coordinate.html#ga5f51855b91a4c8377f6a38b2cf3ca113">ast::aMoonPA418ToMeanEarthTransform</a></div><div class="ttdeci">void aMoonPA418ToMeanEarthTransform(Rotation &amp;rotation)</div><div class="ttdoc">计算月球主轴系(PA418)到月球MeanEarth系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:98</div></div>
+<div class="ttc" id="agroup__Coordinate_html_ga91d6cd70536ab87ab37193a3e0d97e8f"><div class="ttname"><a href="group__Coordinate.html#ga91d6cd70536ab87ab37193a3e0d97e8f">ast::aEarthICRFToMoonICRF</a></div><div class="ttdeci">err_t aEarthICRFToMoonICRF(const TimePoint &amp;tp, const Vector3d &amp;posInEarthICRF, Vector3d &amp;posInMoonICRF)</div><div class="ttdoc">计算地球ICRF坐标系到月球ICRF坐标系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:34</div></div>
+<div class="ttc" id="agroup__Coordinate_html_ga9e24bf77f39aa4c4fcf6c01b4c01a8cc"><div class="ttname"><a href="group__Coordinate.html#ga9e24bf77f39aa4c4fcf6c01b4c01a8cc">ast::aMoonPA421ToMeanEarthTransform</a></div><div class="ttdeci">void aMoonPA421ToMeanEarthTransform(Rotation &amp;rotation)</div><div class="ttdoc">计算月球主轴系(PA421)到月球MeanEarth系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:92</div></div>
+<div class="ttc" id="agroup__Coordinate_html_gab155941ba5f3d90440c43214ca5de071"><div class="ttname"><a href="group__Coordinate.html#gab155941ba5f3d90440c43214ca5de071">ast::aICRFToMoonMeanEarthTransform_IAU</a></div><div class="ttdeci">AST_CORE_CAPI err_t aICRFToMoonMeanEarthTransform_IAU(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">计算月球ICRF坐标系到月球MeanEarth系的转换(依赖IAU旋转系数)</div></div>
+<div class="ttc" id="agroup__Coordinate_html_gacfb694e39e2f40201048d92b35d61bb8"><div class="ttname"><a href="group__Coordinate.html#gacfb694e39e2f40201048d92b35d61bb8">ast::aMoonPA430ToMeanEarthTransform</a></div><div class="ttdeci">void aMoonPA430ToMeanEarthTransform(Rotation &amp;rotation)</div><div class="ttdoc">计算月球主轴系(PA430)到月球MeanEarth系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:86</div></div>
+<div class="ttc" id="agroup__Coordinate_html_gad81fe2d454105845c8d8e8d95ffa815c"><div class="ttname"><a href="group__Coordinate.html#gad81fe2d454105845c8d8e8d95ffa815c">ast::aMoonPA403ToMeanEarthTransform</a></div><div class="ttdeci">void aMoonPA403ToMeanEarthTransform(Rotation &amp;rotation)</div><div class="ttdoc">计算月球主轴系(PA403)到月球MeanEarth系的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:104</div></div>
+<div class="ttc" id="agroup__Coordinate_html_gaebc526d740c21e27b1231aa43638b30b"><div class="ttname"><a href="group__Coordinate.html#gaebc526d740c21e27b1231aa43638b30b">ast::aICRFToMoonPrincipalAxesTransform</a></div><div class="ttdeci">err_t aICRFToMoonPrincipalAxesTransform(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">计算ICRF到月球主轴系(PA)的转换</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:51</div></div>
+<div class="ttc" id="agroup__Coordinate_html_gaf2088402f30e5828470bdce34d5b6dbe"><div class="ttname"><a href="group__Coordinate.html#gaf2088402f30e5828470bdce34d5b6dbe">ast::aICRFToMoonMeanEarthTransform_DE</a></div><div class="ttdeci">err_t aICRFToMoonMeanEarthTransform_DE(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">计算月球ICRF坐标系到月球MeanEarth系的转换(依赖DE星历)</div><div class="ttdef"><b>定义</b> MoonFrame.cpp:110</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

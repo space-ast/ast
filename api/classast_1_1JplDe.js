@@ -17,6 +17,8 @@ var classast_1_1JplDe =
       [ "eEMBaryCenter", "classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1a9915ad10fcaf01987de3dcf8cbfe4512", null ]
     ] ],
     [ "close", "classast_1_1JplDe.html#a3195e2f276145ea57d57672b7b62d082", null ],
+    [ "getEphemVersion", "classast_1_1JplDe.html#ab9160925a27f8e35768b5dc441f3bf94", null ],
+    [ "getLibration", "classast_1_1JplDe.html#a774445d2213085dbe0cf6762b0b5c67b", null ],
     [ "getLibration", "classast_1_1JplDe.html#ac92aeeb67ec540daa23f2372cda198d8", null ],
     [ "getNutation", "classast_1_1JplDe.html#a8b465f6eaffab64f90d28bb1ded102aa", null ],
     [ "getPosICRF", "classast_1_1JplDe.html#a1357868f01604bcb18bc9d9997b6bb78", null ],
