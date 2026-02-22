@@ -31,12 +31,14 @@ var searchData=
   ['opunarypredefined_2ecpp_28',['OpUnaryPredefined.cpp',['../OpUnaryPredefined_8cpp.html',1,'']]],
   ['opunarypredefined_2ehpp_29',['OpUnaryPredefined.hpp',['../OpUnaryPredefined_8hpp.html',1,'']]],
   ['opunaryregister_2ehpp_30',['OpUnaryRegister.hpp',['../OpUnaryRegister_8hpp.html',1,'']]],
-  ['orbitelement_2ecpp_31',['OrbitElement.cpp',['../OrbitElement_8cpp.html',1,'']]],
-  ['orbitelement_2ehpp_32',['OrbitElement.hpp',['../OrbitElement_8hpp.html',1,'']]],
-  ['orbitparam_2ecpp_33',['OrbitParam.cpp',['../OrbitParam_8cpp.html',1,'']]],
-  ['orbitparam_2ehpp_34',['OrbitParam.hpp',['../OrbitParam_8hpp.html',1,'']]],
-  ['ordinarydifferentialequation_2ecpp_35',['OrdinaryDifferentialEquation.cpp',['../OrdinaryDifferentialEquation_8cpp.html',1,'']]],
-  ['ordinarydifferentialequation_2ehpp_36',['OrdinaryDifferentialEquation.hpp',['../OrdinaryDifferentialEquation_8hpp.html',1,'']]],
-  ['osculatingelements_2ecpp_37',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
-  ['osculatingelements_2ehpp_38',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]]
+  ['orbitdesigner_2ecpp_31',['OrbitDesigner.cpp',['../OrbitDesigner_8cpp.html',1,'']]],
+  ['orbitdesigner_2ehpp_32',['OrbitDesigner.hpp',['../OrbitDesigner_8hpp.html',1,'']]],
+  ['orbitelement_2ecpp_33',['OrbitElement.cpp',['../OrbitElement_8cpp.html',1,'']]],
+  ['orbitelement_2ehpp_34',['OrbitElement.hpp',['../OrbitElement_8hpp.html',1,'']]],
+  ['orbitparam_2ecpp_35',['OrbitParam.cpp',['../OrbitParam_8cpp.html',1,'']]],
+  ['orbitparam_2ehpp_36',['OrbitParam.hpp',['../OrbitParam_8hpp.html',1,'']]],
+  ['ordinarydifferentialequation_2ecpp_37',['OrdinaryDifferentialEquation.cpp',['../OrdinaryDifferentialEquation_8cpp.html',1,'']]],
+  ['ordinarydifferentialequation_2ehpp_38',['OrdinaryDifferentialEquation.hpp',['../OrdinaryDifferentialEquation_8hpp.html',1,'']]],
+  ['osculatingelements_2ecpp_39',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
+  ['osculatingelements_2ehpp_40',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]]
 ];

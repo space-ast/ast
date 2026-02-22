@@ -116,6 +116,7 @@ $(function(){initNavTree('AstCore_2Data_2Context_2RunTime_8cpp.html',''); initRe
 <code>#include &quot;AstCore/GlobalContext.hpp&quot;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;RunTimeData.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="RunTimeSolarSystem_8hpp_source.html">RunTimeSolarSystem.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
@@ -152,100 +153,142 @@ $(function(){initNavTree('AstCore_2Data_2Context_2RunTime_8cpp.html',''); initRe
 <tr class="memitem:a7e5376089107836be579edd6b6053b0d" id="r_a7e5376089107836be579edd6b6053b0d"><td class="memItemLeft" align="right" valign="top"><a id="a7e5376089107836be579edd6b6053b0d" name="a7e5376089107836be579edd6b6053b0d"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED</b>&#160;&#160;&#160;&quot;Test/ICRF/IAU2006_XYS.dat&quot;</td></tr>
 <tr class="separator:a7e5376089107836be579edd6b6053b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc1768917c179ab072ea2f33431ecc4" id="r_a4cc1768917c179ab072ea2f33431ecc4"><td class="memItemLeft" align="right" valign="top"><a id="a4cc1768917c179ab072ea2f33431ecc4" name="a4cc1768917c179ab072ea2f33431ecc4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_DIR_SOLARSYSTEM</b>&#160;&#160;&#160;&quot;SolarSystem/&quot;</td></tr>
+<tr class="separator:a4cc1768917c179ab072ea2f33431ecc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a4ccfea60ec40a0b914aee9714febd94e" id="r_a4ccfea60ec40a0b914aee9714febd94e"><td class="memItemLeft" align="right" valign="top"><a id="a4ccfea60ec40a0b914aee9714febd94e" name="a4ccfea60ec40a0b914aee9714febd94e"></a>
+<tr class="memitem:ga4ccfea60ec40a0b914aee9714febd94e" id="r_ga4ccfea60ec40a0b914aee9714febd94e"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1GlobalContext.html">GlobalContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_Get</b> ()</td></tr>
-<tr class="separator:a4ccfea60ec40a0b914aee9714febd94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6179a360a2bb2fa49e90ed13801fb7f" id="r_ab6179a360a2bb2fa49e90ed13801fb7f"><td class="memItemLeft" align="right" valign="top"><a id="ab6179a360a2bb2fa49e90ed13801fb7f" name="ab6179a360a2bb2fa49e90ed13801fb7f"></a>
+<tr class="separator:ga4ccfea60ec40a0b914aee9714febd94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6179a360a2bb2fa49e90ed13801fb7f" id="r_gab6179a360a2bb2fa49e90ed13801fb7f"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1IAUXYS.html">IAUXYS</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_GetIAUXYS</b> ()</td></tr>
-<tr class="separator:ab6179a360a2bb2fa49e90ed13801fb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gab6179a360a2bb2fa49e90ed13801fb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af557e9aaa8f27f2fd30afb53de89e3e1" id="r_af557e9aaa8f27f2fd30afb53de89e3e1"><td class="memItemLeft" align="right" valign="top"><a id="af557e9aaa8f27f2fd30afb53de89e3e1" name="af557e9aaa8f27f2fd30afb53de89e3e1"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> (<a class="el" href="classast_1_1DataContext.html">DataContext</a> *context)</td></tr>
 <tr class="separator:af557e9aaa8f27f2fd30afb53de89e3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6fd6e3387d57432da53d7bf5efd47a9" id="r_ab6fd6e3387d57432da53d7bf5efd47a9"><td class="memItemLeft" align="right" valign="top"><a id="ab6fd6e3387d57432da53d7bf5efd47a9" name="ab6fd6e3387d57432da53d7bf5efd47a9"></a>
+<tr class="memitem:gab6fd6e3387d57432da53d7bf5efd47a9" id="r_gab6fd6e3387d57432da53d7bf5efd47a9"><td class="memItemLeft" align="right" valign="top">
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> ()</td></tr>
-<tr class="separator:ab6fd6e3387d57432da53d7bf5efd47a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8b19885fd9876fa4ad93b63bc2c6d11" id="r_ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memItemLeft" align="right" valign="top"><a id="ae8b19885fd9876fa4ad93b63bc2c6d11" name="ae8b19885fd9876fa4ad93b63bc2c6d11"></a>
+<tr class="separator:gab6fd6e3387d57432da53d7bf5efd47a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8b19885fd9876fa4ad93b63bc2c6d11" id="r_gae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memItemLeft" align="right" valign="top">
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUninitialize</b> ()</td></tr>
-<tr class="separator:ae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29c564259f5de9210b7e4e39eb4dd878" id="r_a29c564259f5de9210b7e4e39eb4dd878"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a29c564259f5de9210b7e4e39eb4dd878">ast::aDataDirGet</a> ()</td></tr>
-<tr class="separator:a29c564259f5de9210b7e4e39eb4dd878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a554406609d8c3a1b8dd7020142cd04e7" id="r_a554406609d8c3a1b8dd7020142cd04e7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a554406609d8c3a1b8dd7020142cd04e7">ast::aDataDirGet</a> (std::string &amp;datadir)</td></tr>
-<tr class="separator:a554406609d8c3a1b8dd7020142cd04e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a178274c33d5da80112cf792bdbae6d9f" id="r_a178274c33d5da80112cf792bdbae6d9f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a178274c33d5da80112cf792bdbae6d9f">ast::aDataDirSet</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dirpath)</td></tr>
-<tr class="separator:a178274c33d5da80112cf792bdbae6d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40dcbf6fa05827fe9b7a7837a01105bd" id="r_a40dcbf6fa05827fe9b7a7837a01105bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a40dcbf6fa05827fe9b7a7837a01105bd">ast::aDataContext_GetCurrent</a> ()</td></tr>
-<tr class="separator:a40dcbf6fa05827fe9b7a7837a01105bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd352addd4bfd3dcecb35a480212d9f5" id="r_abd352addd4bfd3dcecb35a480212d9f5"><td class="memItemLeft" align="right" valign="top"><a id="abd352addd4bfd3dcecb35a480212d9f5" name="abd352addd4bfd3dcecb35a480212d9f5"></a>
+<tr class="separator:gae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29c564259f5de9210b7e4e39eb4dd878" id="r_ga29c564259f5de9210b7e4e39eb4dd878"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga29c564259f5de9210b7e4e39eb4dd878">ast::aDataDirGet</a> ()</td></tr>
+<tr class="separator:ga29c564259f5de9210b7e4e39eb4dd878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga554406609d8c3a1b8dd7020142cd04e7" id="r_ga554406609d8c3a1b8dd7020142cd04e7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga554406609d8c3a1b8dd7020142cd04e7">ast::aDataDirGet</a> (std::string &amp;datadir)</td></tr>
+<tr class="separator:ga554406609d8c3a1b8dd7020142cd04e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga178274c33d5da80112cf792bdbae6d9f" id="r_ga178274c33d5da80112cf792bdbae6d9f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga178274c33d5da80112cf792bdbae6d9f">ast::aDataDirSet</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dirpath)</td></tr>
+<tr class="separator:ga178274c33d5da80112cf792bdbae6d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40dcbf6fa05827fe9b7a7837a01105bd" id="r_ga40dcbf6fa05827fe9b7a7837a01105bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga40dcbf6fa05827fe9b7a7837a01105bd">ast::aDataContext_GetCurrent</a> ()</td></tr>
+<tr class="separator:ga40dcbf6fa05827fe9b7a7837a01105bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd352addd4bfd3dcecb35a480212d9f5" id="r_gabd352addd4bfd3dcecb35a480212d9f5"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetDefault</b> ()</td></tr>
-<tr class="separator:abd352addd4bfd3dcecb35a480212d9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b71837a4fa5dcbe6f059efca4e75297" id="r_a6b71837a4fa5dcbe6f059efca4e75297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6b71837a4fa5dcbe6f059efca4e75297">ast::aDataContext_EnsureDefault</a> ()</td></tr>
-<tr class="separator:a6b71837a4fa5dcbe6f059efca4e75297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a362102d8c58857b6e3d6b48b83bd0944" id="r_a362102d8c58857b6e3d6b48b83bd0944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a362102d8c58857b6e3d6b48b83bd0944">ast::aDataContext_EnsureCurrent</a> ()</td></tr>
-<tr class="separator:a362102d8c58857b6e3d6b48b83bd0944"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa090c6fa94e31ea974a5fd4604191397" id="r_aa090c6fa94e31ea974a5fd4604191397"><td class="memItemLeft" align="right" valign="top"><a id="aa090c6fa94e31ea974a5fd4604191397" name="aa090c6fa94e31ea974a5fd4604191397"></a>
+<tr class="separator:gabd352addd4bfd3dcecb35a480212d9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b71837a4fa5dcbe6f059efca4e75297" id="r_ga6b71837a4fa5dcbe6f059efca4e75297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga6b71837a4fa5dcbe6f059efca4e75297">ast::aDataContext_EnsureDefault</a> ()</td></tr>
+<tr class="separator:ga6b71837a4fa5dcbe6f059efca4e75297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga362102d8c58857b6e3d6b48b83bd0944" id="r_ga362102d8c58857b6e3d6b48b83bd0944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga362102d8c58857b6e3d6b48b83bd0944">ast::aDataContext_EnsureCurrent</a> ()</td></tr>
+<tr class="separator:ga362102d8c58857b6e3d6b48b83bd0944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa090c6fa94e31ea974a5fd4604191397" id="r_gaa090c6fa94e31ea974a5fd4604191397"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_SetCurrent</b> (<a class="el" href="classast_1_1DataContext.html">DataContext</a> *context)</td></tr>
-<tr class="separator:aa090c6fa94e31ea974a5fd4604191397"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a636a52a4e547b682627be2f3d551b7ad" id="r_a636a52a4e547b682627be2f3d551b7ad"><td class="memItemLeft" align="right" valign="top"><a id="a636a52a4e547b682627be2f3d551b7ad" name="a636a52a4e547b682627be2f3d551b7ad"></a>
+<tr class="separator:gaa090c6fa94e31ea974a5fd4604191397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga636a52a4e547b682627be2f3d551b7ad" id="r_ga636a52a4e547b682627be2f3d551b7ad"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1EOP.html">EOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetEOP</b> ()</td></tr>
-<tr class="separator:a636a52a4e547b682627be2f3d551b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbb534974c08b459d882595abb9a930e" id="r_adbb534974c08b459d882595abb9a930e"><td class="memItemLeft" align="right" valign="top"><a id="adbb534974c08b459d882595abb9a930e" name="adbb534974c08b459d882595abb9a930e"></a>
+<tr class="separator:ga636a52a4e547b682627be2f3d551b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbb534974c08b459d882595abb9a930e" id="r_gadbb534974c08b459d882595abb9a930e"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetIAUXYSPrecomputed</b> ()</td></tr>
-<tr class="separator:adbb534974c08b459d882595abb9a930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba56bd6c13a2672901309a0c4c695caf" id="r_aba56bd6c13a2672901309a0c4c695caf"><td class="memItemLeft" align="right" valign="top"><a id="aba56bd6c13a2672901309a0c4c695caf" name="aba56bd6c13a2672901309a0c4c695caf"></a>
+<tr class="separator:gadbb534974c08b459d882595abb9a930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba56bd6c13a2672901309a0c4c695caf" id="r_gaba56bd6c13a2672901309a0c4c695caf"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_New</b> ()</td></tr>
-<tr class="separator:aba56bd6c13a2672901309a0c4c695caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a199669285c0922b22b658f00d9dd4f87" id="r_a199669285c0922b22b658f00d9dd4f87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a199669285c0922b22b658f00d9dd4f87">ast::aLeapSecondUTC</a> (double jdUTC)</td></tr>
-<tr class="separator:a199669285c0922b22b658f00d9dd4f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a650e3dfcfaf606777320594e19e3c8b8" id="r_a650e3dfcfaf606777320594e19e3c8b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a650e3dfcfaf606777320594e19e3c8b8">ast::aLeapSecondUTCMJD</a> (double mjdUTC)</td></tr>
-<tr class="separator:a650e3dfcfaf606777320594e19e3c8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a618c1dd5bc55893f49dcb00007b9e" id="r_a79a618c1dd5bc55893f49dcb00007b9e"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a79a618c1dd5bc55893f49dcb00007b9e">ast::aJplDeGetPosVelICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
-<tr class="separator:a79a618c1dd5bc55893f49dcb00007b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdd9c100a086d822affd42b958c7ab94" id="r_acdd9c100a086d822affd42b958c7ab94"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acdd9c100a086d822affd42b958c7ab94">ast::aJplDeGetPosICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos)</td></tr>
-<tr class="separator:acdd9c100a086d822affd42b958c7ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4fe9a815aac36c9f076f99c27ee5a69" id="r_ab4fe9a815aac36c9f076f99c27ee5a69"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab4fe9a815aac36c9f076f99c27ee5a69">ast::aJplDeGetNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dpsi, double &amp;deps)</td></tr>
-<tr class="separator:ab4fe9a815aac36c9f076f99c27ee5a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca8df8b06f1508da070156e818d0644a" id="r_aca8df8b06f1508da070156e818d0644a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aca8df8b06f1508da070156e818d0644a">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
-<tr class="separator:aca8df8b06f1508da070156e818d0644a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5ff2a33de9ab9f703291baea5ffc18" id="r_afb5ff2a33de9ab9f703291baea5ffc18"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#afb5ff2a33de9ab9f703291baea5ffc18">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang)</td></tr>
-<tr class="separator:afb5ff2a33de9ab9f703291baea5ffc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adaaaff473ede71f83781bc5623a395e7" id="r_adaaaff473ede71f83781bc5623a395e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#adaaaff473ede71f83781bc5623a395e7">ast::aJplDeNum</a> ()</td></tr>
-<tr class="separator:adaaaff473ede71f83781bc5623a395e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a886ee9d50d1b42b6924045ba73f515b0" id="r_a886ee9d50d1b42b6924045ba73f515b0"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a886ee9d50d1b42b6924045ba73f515b0">ast::aJplDeOpen</a> (const char *filepath)</td></tr>
-<tr class="separator:a886ee9d50d1b42b6924045ba73f515b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86326fcd6c451bdbaff8e7d5cecd9215" id="r_a86326fcd6c451bdbaff8e7d5cecd9215"><td class="memItemLeft" align="right" valign="top"><a id="a86326fcd6c451bdbaff8e7d5cecd9215" name="a86326fcd6c451bdbaff8e7d5cecd9215"></a>
+<tr class="separator:gaba56bd6c13a2672901309a0c4c695caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga199669285c0922b22b658f00d9dd4f87" id="r_ga199669285c0922b22b658f00d9dd4f87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga199669285c0922b22b658f00d9dd4f87">ast::aLeapSecondUTC</a> (double jdUTC)</td></tr>
+<tr class="separator:ga199669285c0922b22b658f00d9dd4f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga650e3dfcfaf606777320594e19e3c8b8" id="r_ga650e3dfcfaf606777320594e19e3c8b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga650e3dfcfaf606777320594e19e3c8b8">ast::aLeapSecondUTCMJD</a> (double mjdUTC)</td></tr>
+<tr class="separator:ga650e3dfcfaf606777320594e19e3c8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79a618c1dd5bc55893f49dcb00007b9e" id="r_ga79a618c1dd5bc55893f49dcb00007b9e"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga79a618c1dd5bc55893f49dcb00007b9e">ast::aJplDeGetPosVelICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:ga79a618c1dd5bc55893f49dcb00007b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdd9c100a086d822affd42b958c7ab94" id="r_gacdd9c100a086d822affd42b958c7ab94"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gacdd9c100a086d822affd42b958c7ab94">ast::aJplDeGetPosICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos)</td></tr>
+<tr class="separator:gacdd9c100a086d822affd42b958c7ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4fe9a815aac36c9f076f99c27ee5a69" id="r_gab4fe9a815aac36c9f076f99c27ee5a69"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gab4fe9a815aac36c9f076f99c27ee5a69">ast::aJplDeGetNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dpsi, double &amp;deps)</td></tr>
+<tr class="separator:gab4fe9a815aac36c9f076f99c27ee5a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca8df8b06f1508da070156e818d0644a" id="r_gaca8df8b06f1508da070156e818d0644a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gaca8df8b06f1508da070156e818d0644a">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
+<tr class="separator:gaca8df8b06f1508da070156e818d0644a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb5ff2a33de9ab9f703291baea5ffc18" id="r_gafb5ff2a33de9ab9f703291baea5ffc18"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gafb5ff2a33de9ab9f703291baea5ffc18">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang)</td></tr>
+<tr class="separator:gafb5ff2a33de9ab9f703291baea5ffc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadaaaff473ede71f83781bc5623a395e7" id="r_gadaaaff473ede71f83781bc5623a395e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gadaaaff473ede71f83781bc5623a395e7">ast::aJplDeNum</a> ()</td></tr>
+<tr class="separator:gadaaaff473ede71f83781bc5623a395e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga886ee9d50d1b42b6924045ba73f515b0" id="r_ga886ee9d50d1b42b6924045ba73f515b0"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga886ee9d50d1b42b6924045ba73f515b0">ast::aJplDeOpen</a> (const char *filepath)</td></tr>
+<tr class="separator:ga886ee9d50d1b42b6924045ba73f515b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86326fcd6c451bdbaff8e7d5cecd9215" id="r_ga86326fcd6c451bdbaff8e7d5cecd9215"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJplDeClose</b> ()</td></tr>
-<tr class="separator:a86326fcd6c451bdbaff8e7d5cecd9215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f5ec58e4208c07a64e3b6533a97da4" id="r_a69f5ec58e4208c07a64e3b6533a97da4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a69f5ec58e4208c07a64e3b6533a97da4">ast::aUT1MinusUTC_UTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
-<tr class="separator:a69f5ec58e4208c07a64e3b6533a97da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66a2f4b3e4796c751d597d272ac567dd" id="r_a66a2f4b3e4796c751d597d272ac567dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a66a2f4b3e4796c751d597d272ac567dd">ast::aPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;x, double &amp;y)</td></tr>
-<tr class="separator:a66a2f4b3e4796c751d597d272ac567dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bebac9a35d34884b7b6b02fdd7511ad" id="r_a0bebac9a35d34884b7b6b02fdd7511ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0bebac9a35d34884b7b6b02fdd7511ad">ast::aPoleMotionUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, double &amp;x, double &amp;y)</td></tr>
-<tr class="separator:a0bebac9a35d34884b7b6b02fdd7511ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbc39836a2143bf579fe71b228d4f1de" id="r_acbc39836a2143bf579fe71b228d4f1de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acbc39836a2143bf579fe71b228d4f1de">ast::aLOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
-<tr class="separator:acbc39836a2143bf579fe71b228d4f1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a322f0ef44069d6d0286466ef3d8f5ec9" id="r_a322f0ef44069d6d0286466ef3d8f5ec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a322f0ef44069d6d0286466ef3d8f5ec9">ast::aTheoreticalXYS_IERS2010</a> (double t, array3d &amp;xys)</td></tr>
-<tr class="separator:a322f0ef44069d6d0286466ef3d8f5ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ead2c8c32a690ef06f9a3ef47406853" id="r_a2ead2c8c32a690ef06f9a3ef47406853"><td class="memItemLeft" align="right" valign="top"><a id="a2ead2c8c32a690ef06f9a3ef47406853" name="a2ead2c8c32a690ef06f9a3ef47406853"></a>
+<tr class="separator:ga86326fcd6c451bdbaff8e7d5cecd9215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69f5ec58e4208c07a64e3b6533a97da4" id="r_ga69f5ec58e4208c07a64e3b6533a97da4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga69f5ec58e4208c07a64e3b6533a97da4">ast::aUT1MinusUTC_UTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga69f5ec58e4208c07a64e3b6533a97da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66a2f4b3e4796c751d597d272ac567dd" id="r_ga66a2f4b3e4796c751d597d272ac567dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga66a2f4b3e4796c751d597d272ac567dd">ast::aPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;x, double &amp;y)</td></tr>
+<tr class="separator:ga66a2f4b3e4796c751d597d272ac567dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0bebac9a35d34884b7b6b02fdd7511ad" id="r_ga0bebac9a35d34884b7b6b02fdd7511ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga0bebac9a35d34884b7b6b02fdd7511ad">ast::aPoleMotionUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, double &amp;x, double &amp;y)</td></tr>
+<tr class="separator:ga0bebac9a35d34884b7b6b02fdd7511ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbc39836a2143bf579fe71b228d4f1de" id="r_gacbc39836a2143bf579fe71b228d4f1de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gacbc39836a2143bf579fe71b228d4f1de">ast::aLOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="separator:gacbc39836a2143bf579fe71b228d4f1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga322f0ef44069d6d0286466ef3d8f5ec9" id="r_ga322f0ef44069d6d0286466ef3d8f5ec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga322f0ef44069d6d0286466ef3d8f5ec9">ast::aTheoreticalXYS_IERS2010</a> (double t, array3d &amp;xys)</td></tr>
+<tr class="separator:ga322f0ef44069d6d0286466ef3d8f5ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ead2c8c32a690ef06f9a3ef47406853" id="r_ga2ead2c8c32a690ef06f9a3ef47406853"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTheoreticalXYS_IERS2010_Cache</b> (double t, array3d &amp;xys)</td></tr>
-<tr class="separator:a2ead2c8c32a690ef06f9a3ef47406853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74625ec2c9cb689a8d55076d6862a785" id="r_a74625ec2c9cb689a8d55076d6862a785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a74625ec2c9cb689a8d55076d6862a785">ast::aTheoreticalXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="separator:a74625ec2c9cb689a8d55076d6862a785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf01517668fb57011912e5abeb3ed3ff" id="r_acf01517668fb57011912e5abeb3ed3ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acf01517668fb57011912e5abeb3ed3ff">ast::aTheoreticalXYS_IERS2010_TT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, array3d &amp;xys)</td></tr>
-<tr class="separator:acf01517668fb57011912e5abeb3ed3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4174d1474102fd01849d4e1f0198f3d1" id="r_a4174d1474102fd01849d4e1f0198f3d1"><td class="memItemLeft" align="right" valign="top"><a id="a4174d1474102fd01849d4e1f0198f3d1" name="a4174d1474102fd01849d4e1f0198f3d1"></a>
+<tr class="separator:ga2ead2c8c32a690ef06f9a3ef47406853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74625ec2c9cb689a8d55076d6862a785" id="r_ga74625ec2c9cb689a8d55076d6862a785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga74625ec2c9cb689a8d55076d6862a785">ast::aTheoreticalXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga74625ec2c9cb689a8d55076d6862a785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf01517668fb57011912e5abeb3ed3ff" id="r_gacf01517668fb57011912e5abeb3ed3ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#gacf01517668fb57011912e5abeb3ed3ff">ast::aTheoreticalXYS_IERS2010_TT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, array3d &amp;xys)</td></tr>
+<tr class="separator:gacf01517668fb57011912e5abeb3ed3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4174d1474102fd01849d4e1f0198f3d1" id="r_ga4174d1474102fd01849d4e1f0198f3d1"><td class="memItemLeft" align="right" valign="top">
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTheoreticalXYS_IERS2010Precomputed</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="separator:a4174d1474102fd01849d4e1f0198f3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030bae706d318085b613e4431ee54600" id="r_a030bae706d318085b613e4431ee54600"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a030bae706d318085b613e4431ee54600">ast::aTheoreticalXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="separator:a030bae706d318085b613e4431ee54600"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8299cf8ede911cc33e4931a4dd17ec4d" id="r_a8299cf8ede911cc33e4931a4dd17ec4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a8299cf8ede911cc33e4931a4dd17ec4d">ast::aXYCorrection</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array2d &amp;xyCorrection)</td></tr>
-<tr class="separator:a8299cf8ede911cc33e4931a4dd17ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2751ea5eb0678ce4a61639cff1887ecd" id="r_a2751ea5eb0678ce4a61639cff1887ecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2751ea5eb0678ce4a61639cff1887ecd">ast::aXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="separator:a2751ea5eb0678ce4a61639cff1887ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a5d3605c09a1dc93ef5f96227ef897d" id="r_a9a5d3605c09a1dc93ef5f96227ef897d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a9a5d3605c09a1dc93ef5f96227ef897d">ast::aXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
-<tr class="separator:a9a5d3605c09a1dc93ef5f96227ef897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga4174d1474102fd01849d4e1f0198f3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga030bae706d318085b613e4431ee54600" id="r_ga030bae706d318085b613e4431ee54600"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga030bae706d318085b613e4431ee54600">ast::aTheoreticalXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga030bae706d318085b613e4431ee54600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8299cf8ede911cc33e4931a4dd17ec4d" id="r_ga8299cf8ede911cc33e4931a4dd17ec4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga8299cf8ede911cc33e4931a4dd17ec4d">ast::aXYCorrection</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array2d &amp;xyCorrection)</td></tr>
+<tr class="separator:ga8299cf8ede911cc33e4931a4dd17ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2751ea5eb0678ce4a61639cff1887ecd" id="r_ga2751ea5eb0678ce4a61639cff1887ecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga2751ea5eb0678ce4a61639cff1887ecd">ast::aXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga2751ea5eb0678ce4a61639cff1887ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a5d3605c09a1dc93ef5f96227ef897d" id="r_ga9a5d3605c09a1dc93ef5f96227ef897d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga9a5d3605c09a1dc93ef5f96227ef897d">ast::aXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga9a5d3605c09a1dc93ef5f96227ef897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6a3c7cc9ccf2f22d0e1922a9f541bff" id="r_gaf6a3c7cc9ccf2f22d0e1922a9f541bff"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1SolarSystem.html">SolarSystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetSolarSystem</b> ()</td></tr>
+<tr class="separator:gaf6a3c7cc9ccf2f22d0e1922a9f541bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5d0282ada45dcbf8c28009fc3c853bf" id="r_gab5d0282ada45dcbf8c28009fc3c853bf"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetBody</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:gab5d0282ada45dcbf8c28009fc3c853bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2beaa2fb58589b75c8e8d943742d1e0" id="r_gab2beaa2fb58589b75c8e8d943742d1e0"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetMercury</b> ()</td></tr>
+<tr class="separator:gab2beaa2fb58589b75c8e8d943742d1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52e92d9e4b8f7aeb85cee5d714f269b0" id="r_ga52e92d9e4b8f7aeb85cee5d714f269b0"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetVenus</b> ()</td></tr>
+<tr class="separator:ga52e92d9e4b8f7aeb85cee5d714f269b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a91df2c2ab249279ee7f949d16dce7d" id="r_ga6a91df2c2ab249279ee7f949d16dce7d"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetEarth</b> ()</td></tr>
+<tr class="separator:ga6a91df2c2ab249279ee7f949d16dce7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46f1d294e8e89a04cb3d8720721fc04c" id="r_ga46f1d294e8e89a04cb3d8720721fc04c"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetMars</b> ()</td></tr>
+<tr class="separator:ga46f1d294e8e89a04cb3d8720721fc04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa946dd4a18e60a17709cdcb0ef01d867" id="r_gaa946dd4a18e60a17709cdcb0ef01d867"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetJupiter</b> ()</td></tr>
+<tr class="separator:gaa946dd4a18e60a17709cdcb0ef01d867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63e6186026fde76382aec3fca10b3a02" id="r_ga63e6186026fde76382aec3fca10b3a02"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetSaturn</b> ()</td></tr>
+<tr class="separator:ga63e6186026fde76382aec3fca10b3a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b2a3b5c118b9f2a3f8e8a005c2820ca" id="r_a1b2a3b5c118b9f2a3f8e8a005c2820ca"><td class="memItemLeft" align="right" valign="top"><a id="a1b2a3b5c118b9f2a3f8e8a005c2820ca" name="a1b2a3b5c118b9f2a3f8e8a005c2820ca"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetUranus</b> ()</td></tr>
+<tr class="separator:a1b2a3b5c118b9f2a3f8e8a005c2820ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47725cb7149821d63c0e468caaad335a" id="r_a47725cb7149821d63c0e468caaad335a"><td class="memItemLeft" align="right" valign="top"><a id="a47725cb7149821d63c0e468caaad335a" name="a47725cb7149821d63c0e468caaad335a"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetNeptune</b> ()</td></tr>
+<tr class="separator:a47725cb7149821d63c0e468caaad335a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b3233254712883fa8559a726993afd5" id="r_a0b3233254712883fa8559a726993afd5"><td class="memItemLeft" align="right" valign="top"><a id="a0b3233254712883fa8559a726993afd5" name="a0b3233254712883fa8559a726993afd5"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetPluto</b> ()</td></tr>
+<tr class="separator:a0b3233254712883fa8559a726993afd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8630c70a6ed1ea42eb9de1c078a79add" id="r_ga8630c70a6ed1ea42eb9de1c078a79add"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetMoon</b> ()</td></tr>
+<tr class="separator:ga8630c70a6ed1ea42eb9de1c078a79add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e561471aa2b28d9f84088e6aa69b52" id="r_a53e561471aa2b28d9f84088e6aa69b52"><td class="memItemLeft" align="right" valign="top"><a id="a53e561471aa2b28d9f84088e6aa69b52" name="a53e561471aa2b28d9f84088e6aa69b52"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetSun</b> ()</td></tr>
+<tr class="separator:a53e561471aa2b28d9f84088e6aa69b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>

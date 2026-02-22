@@ -16,6 +16,8 @@ var searchData=
   ['mockstringview_2ecpp_13',['MockStringView.cpp',['../MockStringView_8cpp.html',1,'']]],
   ['mockstringview_2ehpp_14',['MockStringView.hpp',['../MockStringView_8hpp.html',1,'']]],
   ['modjuliandate_2ehpp_15',['ModJulianDate.hpp',['../ModJulianDate_8hpp.html',1,'']]],
-  ['moonframe_2ecpp_16',['MoonFrame.cpp',['../MoonFrame_8cpp.html',1,'']]],
-  ['moonframe_2ehpp_17',['MoonFrame.hpp',['../MoonFrame_8hpp.html',1,'']]]
+  ['molniyaorbitdesigner_2ecpp_16',['MolniyaOrbitDesigner.cpp',['../MolniyaOrbitDesigner_8cpp.html',1,'']]],
+  ['molniyaorbitdesigner_2ehpp_17',['MolniyaOrbitDesigner.hpp',['../MolniyaOrbitDesigner_8hpp.html',1,'']]],
+  ['moonframe_2ecpp_18',['MoonFrame.cpp',['../MoonFrame_8cpp.html',1,'']]],
+  ['moonframe_2ehpp_19',['MoonFrame.hpp',['../MoonFrame_8hpp.html',1,'']]]
 ];

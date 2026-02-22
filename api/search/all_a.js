@@ -18,5 +18,6 @@ var searchData=
   ['juliancenturyfromj2000tt_15',['julianCenturyFromJ2000TT',['../classast_1_1TimePoint.html#a179367da0b2cd785b6e15474a1372090',1,'ast::TimePoint']]],
   ['juliandate_16',['JulianDate',['../classast_1_1JulianDate.html',1,'ast']]],
   ['juliandate_2ecpp_17',['JulianDate.cpp',['../JulianDate_8cpp.html',1,'']]],
-  ['juliandate_2ehpp_18',['JulianDate.hpp',['../JulianDate_8hpp.html',1,'']]]
+  ['juliandate_2ehpp_18',['JulianDate.hpp',['../JulianDate_8hpp.html',1,'']]],
+  ['jupiter_5f_19',['jupiter_',['../classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5',1,'ast::SolarSystem']]]
 ];

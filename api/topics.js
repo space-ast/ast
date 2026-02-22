@@ -1,6 +1,7 @@
 var topics =
 [
     [ "航天模块", "group__Core.html", "group__Core" ],
+    [ "几何", "group__Geometry.html", "group__Geometry" ],
     [ "数学模块", "group__Math.html", "group__Math" ],
     [ "脚本模块", "group__Script.html", "group__Script" ],
     [ "工具模块", "group__Util.html", "group__Util" ],

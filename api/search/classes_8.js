@@ -16,9 +16,10 @@ var searchData=
   ['interpreter_13',['Interpreter',['../classast_1_1Interpreter.html',1,'ast']]],
   ['interpretercontext_14',['InterpreterContext',['../classast_1_1InterpreterContext.html',1,'ast']]],
   ['iodeintegrator_15',['IODEIntegrator',['../classast_1_1IODEIntegrator.html',1,'ast']]],
-  ['iposvelprv_16',['IPosVelPrv',['../classast_1_1IPosVelPrv.html',1,'ast']]],
-  ['is_5fcallable_17',['is_callable',['../structast_1_1is__callable.html',1,'ast']]],
-  ['is_5fvector_5flike_18',['is_vector_like',['../structast_1_1math_1_1is__vector__like.html',1,'ast::math']]],
-  ['iunarysolver_19',['IUnarySolver',['../classast_1_1IUnarySolver.html',1,'ast']]],
-  ['ivalueprv_20',['IValuePrv',['../classast_1_1IValuePrv.html',1,'ast']]]
+  ['iorbitdesigner_16',['IOrbitDesigner',['../classast_1_1IOrbitDesigner.html',1,'ast']]],
+  ['iposvelprv_17',['IPosVelPrv',['../classast_1_1IPosVelPrv.html',1,'ast']]],
+  ['is_5fcallable_18',['is_callable',['../structast_1_1is__callable.html',1,'ast']]],
+  ['is_5fvector_5flike_19',['is_vector_like',['../structast_1_1math_1_1is__vector__like.html',1,'ast::math']]],
+  ['iunarysolver_20',['IUnarySolver',['../classast_1_1IUnarySolver.html',1,'ast']]],
+  ['ivalueprv_21',['IValuePrv',['../classast_1_1IValuePrv.html',1,'ast']]]
 ];

@@ -26,5 +26,6 @@ var searchData=
   ['opunarykeyhash_23',['OpUnaryKeyHash',['../structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html',1,'ast::OpUnaryRegister']]],
   ['opunaryregister_24',['OpUnaryRegister',['../classast_1_1OpUnaryRegister.html',1,'ast']]],
   ['orbelem_25',['OrbElem',['../classast_1_1OrbElem.html',1,'ast']]],
-  ['ordinarydifferentialequation_26',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]]
+  ['orbitdesigner_26',['OrbitDesigner',['../classast_1_1OrbitDesigner.html',1,'ast']]],
+  ['ordinarydifferentialequation_27',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]]
 ];

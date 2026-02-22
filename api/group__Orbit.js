@@ -1,5 +1,20 @@
 var group__Orbit =
 [
+    [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", [
+      [ "getCoordFrame", "classast_1_1CircularOrbitDesigner.html#a0dd108f1af0e5eef3a68719eb5b7db20", null ],
+      [ "getOrbitState", "classast_1_1CircularOrbitDesigner.html#a2b4d4c2ee5d8fb0f8beb6100a54144ce", null ]
+    ] ],
+    [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
+      [ "getCoordFrame", "classast_1_1IOrbitDesigner.html#aac39331c5bfdc885e7b4d1db1ffacdfe", null ],
+      [ "getOrbitState", "classast_1_1IOrbitDesigner.html#a078a0815520b081faf19002a7dcb569a", null ]
+    ] ],
+    [ "ast::OrbitDesigner", "classast_1_1OrbitDesigner.html", [
+      [ "centralBody_", "classast_1_1OrbitDesigner.html#ac3b8342bc294b24f03f486dfd304ab1b", null ]
+    ] ],
+    [ "ast::SimpleOrbitDesigner", "classast_1_1SimpleOrbitDesigner.html", [
+      [ "getCoordFrame", "classast_1_1SimpleOrbitDesigner.html#a982c12f60de995f4ef498e3ce7078914", null ],
+      [ "getOrbitState", "classast_1_1SimpleOrbitDesigner.html#ad1abcffcd056bdd3ebfdb8d85f7c89f0", null ]
+    ] ],
     [ "ast::CartState", "classast_1_1CartState.html", [
       [ "pos_", "classast_1_1CartState.html#a5e0b9acca331852128aee2d0702f3840", null ],
       [ "vel_", "classast_1_1CartState.html#a5c6f073b9891a22a668a232a7168de81", null ]

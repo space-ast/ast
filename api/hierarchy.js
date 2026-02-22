@@ -159,6 +159,12 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
+      [ "ast::OrbitDesigner", "classast_1_1OrbitDesigner.html", [
+        [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", null ],
+        [ "ast::SimpleOrbitDesigner", "classast_1_1SimpleOrbitDesigner.html", null ]
+      ] ]
+    ] ],
     [ "ast::IPosVelPrv", "classast_1_1IPosVelPrv.html", [
       [ "ast::TraitObject< IPosVelPrv >", "classast_1_1TraitObject.html", [
         [ "ast::ImplFor< IPosVelPrv, T >", "classast_1_1ImplFor_3_01IPosVelPrv_00_01T_01_4.html", null ]
@@ -277,7 +283,8 @@ var hierarchy =
           [ "ast::ValString", "classast_1_1ValString.html", null ]
         ] ],
         [ "ast::Variable", "classast_1_1Variable.html", null ]
-      ] ]
+      ] ],
+      [ "ast::Frame", "classast_1_1Frame.html", null ]
     ] ],
     [ "ast::ODEEventDetector", "classast_1_1ODEEventDetector.html", [
       [ "ast::ODEEventDetectorGeneric< Func >", "classast_1_1ODEEventDetectorGeneric.html", null ]
@@ -336,6 +343,7 @@ var hierarchy =
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename std::enable_if< std::is_base_of< Object, T >::value >::type >", "structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html", null ],
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Expr >", "classast_1_1SharedPtr.html", null ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
     [ "ast::SimEngine", "classast_1_1SimEngine.html", null ],

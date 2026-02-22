@@ -99,7 +99,9 @@ $(function(){initNavTree('group__Data.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">数据读取<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
 </div><!--header-->
 <div class="contents">
@@ -108,6 +110,12 @@ $(function(){initNavTree('group__Data.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataContext.html">ast::DataContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GlobalContext.html">ast::GlobalContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1PoleMotion.html">ast::PoleMotion</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EOP.html">ast::EOP</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JplDe.html">ast::JplDe</a></td></tr>
@@ -116,7 +124,936 @@ $(function(){initNavTree('group__Data.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SpaceWeather.html">ast::SpaceWeather</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gab6fd6e3387d57432da53d7bf5efd47a9" id="r_gab6fd6e3387d57432da53d7bf5efd47a9"><td class="memItemLeft" align="right" valign="top"><a id="gab6fd6e3387d57432da53d7bf5efd47a9" name="gab6fd6e3387d57432da53d7bf5efd47a9"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> ()</td></tr>
+<tr class="separator:gab6fd6e3387d57432da53d7bf5efd47a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8b19885fd9876fa4ad93b63bc2c6d11" id="r_gae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memItemLeft" align="right" valign="top"><a id="gae8b19885fd9876fa4ad93b63bc2c6d11" name="gae8b19885fd9876fa4ad93b63bc2c6d11"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUninitialize</b> ()</td></tr>
+<tr class="separator:gae8b19885fd9876fa4ad93b63bc2c6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29c564259f5de9210b7e4e39eb4dd878" id="r_ga29c564259f5de9210b7e4e39eb4dd878"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga29c564259f5de9210b7e4e39eb4dd878">ast::aDataDirGet</a> ()</td></tr>
+<tr class="separator:ga29c564259f5de9210b7e4e39eb4dd878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga554406609d8c3a1b8dd7020142cd04e7" id="r_ga554406609d8c3a1b8dd7020142cd04e7"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga554406609d8c3a1b8dd7020142cd04e7">ast::aDataDirGet</a> (std::string &amp;datadir)</td></tr>
+<tr class="separator:ga554406609d8c3a1b8dd7020142cd04e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga178274c33d5da80112cf792bdbae6d9f" id="r_ga178274c33d5da80112cf792bdbae6d9f"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga178274c33d5da80112cf792bdbae6d9f">ast::aDataDirSet</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dirpath)</td></tr>
+<tr class="separator:ga178274c33d5da80112cf792bdbae6d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ccfea60ec40a0b914aee9714febd94e" id="r_ga4ccfea60ec40a0b914aee9714febd94e"><td class="memItemLeft" align="right" valign="top"><a id="ga4ccfea60ec40a0b914aee9714febd94e" name="ga4ccfea60ec40a0b914aee9714febd94e"></a>
+<a class="el" href="classast_1_1GlobalContext.html">GlobalContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_Get</b> ()</td></tr>
+<tr class="separator:ga4ccfea60ec40a0b914aee9714febd94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6179a360a2bb2fa49e90ed13801fb7f" id="r_gab6179a360a2bb2fa49e90ed13801fb7f"><td class="memItemLeft" align="right" valign="top"><a id="gab6179a360a2bb2fa49e90ed13801fb7f" name="gab6179a360a2bb2fa49e90ed13801fb7f"></a>
+<a class="el" href="classast_1_1IAUXYS.html">IAUXYS</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGlobalContext_GetIAUXYS</b> ()</td></tr>
+<tr class="separator:gab6179a360a2bb2fa49e90ed13801fb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40dcbf6fa05827fe9b7a7837a01105bd" id="r_ga40dcbf6fa05827fe9b7a7837a01105bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga40dcbf6fa05827fe9b7a7837a01105bd">ast::aDataContext_GetCurrent</a> ()</td></tr>
+<tr class="separator:ga40dcbf6fa05827fe9b7a7837a01105bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd352addd4bfd3dcecb35a480212d9f5" id="r_gabd352addd4bfd3dcecb35a480212d9f5"><td class="memItemLeft" align="right" valign="top"><a id="gabd352addd4bfd3dcecb35a480212d9f5" name="gabd352addd4bfd3dcecb35a480212d9f5"></a>
+<a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetDefault</b> ()</td></tr>
+<tr class="separator:gabd352addd4bfd3dcecb35a480212d9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b71837a4fa5dcbe6f059efca4e75297" id="r_ga6b71837a4fa5dcbe6f059efca4e75297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6b71837a4fa5dcbe6f059efca4e75297">ast::aDataContext_EnsureDefault</a> ()</td></tr>
+<tr class="separator:ga6b71837a4fa5dcbe6f059efca4e75297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga362102d8c58857b6e3d6b48b83bd0944" id="r_ga362102d8c58857b6e3d6b48b83bd0944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga362102d8c58857b6e3d6b48b83bd0944">ast::aDataContext_EnsureCurrent</a> ()</td></tr>
+<tr class="separator:ga362102d8c58857b6e3d6b48b83bd0944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa090c6fa94e31ea974a5fd4604191397" id="r_gaa090c6fa94e31ea974a5fd4604191397"><td class="memItemLeft" align="right" valign="top"><a id="gaa090c6fa94e31ea974a5fd4604191397" name="gaa090c6fa94e31ea974a5fd4604191397"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_SetCurrent</b> (<a class="el" href="classast_1_1DataContext.html">DataContext</a> *context)</td></tr>
+<tr class="separator:gaa090c6fa94e31ea974a5fd4604191397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga636a52a4e547b682627be2f3d551b7ad" id="r_ga636a52a4e547b682627be2f3d551b7ad"><td class="memItemLeft" align="right" valign="top"><a id="ga636a52a4e547b682627be2f3d551b7ad" name="ga636a52a4e547b682627be2f3d551b7ad"></a>
+<a class="el" href="classast_1_1EOP.html">EOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetEOP</b> ()</td></tr>
+<tr class="separator:ga636a52a4e547b682627be2f3d551b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbb534974c08b459d882595abb9a930e" id="r_gadbb534974c08b459d882595abb9a930e"><td class="memItemLeft" align="right" valign="top"><a id="gadbb534974c08b459d882595abb9a930e" name="gadbb534974c08b459d882595abb9a930e"></a>
+<a class="el" href="classast_1_1IAUXYSPrecomputed.html">IAUXYSPrecomputed</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_GetIAUXYSPrecomputed</b> ()</td></tr>
+<tr class="separator:gadbb534974c08b459d882595abb9a930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba56bd6c13a2672901309a0c4c695caf" id="r_gaba56bd6c13a2672901309a0c4c695caf"><td class="memItemLeft" align="right" valign="top"><a id="gaba56bd6c13a2672901309a0c4c695caf" name="gaba56bd6c13a2672901309a0c4c695caf"></a>
+<a class="el" href="classast_1_1DataContext.html">DataContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_New</b> ()</td></tr>
+<tr class="separator:gaba56bd6c13a2672901309a0c4c695caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69f5ec58e4208c07a64e3b6533a97da4" id="r_ga69f5ec58e4208c07a64e3b6533a97da4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69f5ec58e4208c07a64e3b6533a97da4">ast::aUT1MinusUTC_UTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC)</td></tr>
+<tr class="separator:ga69f5ec58e4208c07a64e3b6533a97da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66a2f4b3e4796c751d597d272ac567dd" id="r_ga66a2f4b3e4796c751d597d272ac567dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga66a2f4b3e4796c751d597d272ac567dd">ast::aPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double &amp;x, double &amp;y)</td></tr>
+<tr class="separator:ga66a2f4b3e4796c751d597d272ac567dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0bebac9a35d34884b7b6b02fdd7511ad" id="r_ga0bebac9a35d34884b7b6b02fdd7511ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0bebac9a35d34884b7b6b02fdd7511ad">ast::aPoleMotionUTC</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdUTC, double &amp;x, double &amp;y)</td></tr>
+<tr class="separator:ga0bebac9a35d34884b7b6b02fdd7511ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae98fe2e8d9036153d0b35e27561c5845" id="r_gae98fe2e8d9036153d0b35e27561c5845"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae98fe2e8d9036153d0b35e27561c5845">ast::aPoleMotion</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="structast_1_1PoleMotion.html">PoleMotion</a> &amp;pm)</td></tr>
+<tr class="separator:gae98fe2e8d9036153d0b35e27561c5845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbc39836a2143bf579fe71b228d4f1de" id="r_gacbc39836a2143bf579fe71b228d4f1de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacbc39836a2143bf579fe71b228d4f1de">ast::aLOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="separator:gacbc39836a2143bf579fe71b228d4f1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79a618c1dd5bc55893f49dcb00007b9e" id="r_ga79a618c1dd5bc55893f49dcb00007b9e"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga79a618c1dd5bc55893f49dcb00007b9e">ast::aJplDeGetPosVelICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:ga79a618c1dd5bc55893f49dcb00007b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdd9c100a086d822affd42b958c7ab94" id="r_gacdd9c100a086d822affd42b958c7ab94"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacdd9c100a086d822affd42b958c7ab94">ast::aJplDeGetPosICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, int target, int referenceBody, Vector3d &amp;pos)</td></tr>
+<tr class="separator:gacdd9c100a086d822affd42b958c7ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4fe9a815aac36c9f076f99c27ee5a69" id="r_gab4fe9a815aac36c9f076f99c27ee5a69"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab4fe9a815aac36c9f076f99c27ee5a69">ast::aJplDeGetNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dpsi, double &amp;deps)</td></tr>
+<tr class="separator:gab4fe9a815aac36c9f076f99c27ee5a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca8df8b06f1508da070156e818d0644a" id="r_gaca8df8b06f1508da070156e818d0644a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaca8df8b06f1508da070156e818d0644a">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
+<tr class="separator:gaca8df8b06f1508da070156e818d0644a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb5ff2a33de9ab9f703291baea5ffc18" id="r_gafb5ff2a33de9ab9f703291baea5ffc18"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafb5ff2a33de9ab9f703291baea5ffc18">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang)</td></tr>
+<tr class="separator:gafb5ff2a33de9ab9f703291baea5ffc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadaaaff473ede71f83781bc5623a395e7" id="r_gadaaaff473ede71f83781bc5623a395e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadaaaff473ede71f83781bc5623a395e7">ast::aJplDeNum</a> ()</td></tr>
+<tr class="separator:gadaaaff473ede71f83781bc5623a395e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga886ee9d50d1b42b6924045ba73f515b0" id="r_ga886ee9d50d1b42b6924045ba73f515b0"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga886ee9d50d1b42b6924045ba73f515b0">ast::aJplDeOpen</a> (const char *filepath)</td></tr>
+<tr class="separator:ga886ee9d50d1b42b6924045ba73f515b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86326fcd6c451bdbaff8e7d5cecd9215" id="r_ga86326fcd6c451bdbaff8e7d5cecd9215"><td class="memItemLeft" align="right" valign="top"><a id="ga86326fcd6c451bdbaff8e7d5cecd9215" name="ga86326fcd6c451bdbaff8e7d5cecd9215"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJplDeClose</b> ()</td></tr>
+<tr class="separator:ga86326fcd6c451bdbaff8e7d5cecd9215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga199669285c0922b22b658f00d9dd4f87" id="r_ga199669285c0922b22b658f00d9dd4f87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga199669285c0922b22b658f00d9dd4f87">ast::aLeapSecondUTC</a> (double jdUTC)</td></tr>
+<tr class="separator:ga199669285c0922b22b658f00d9dd4f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga650e3dfcfaf606777320594e19e3c8b8" id="r_ga650e3dfcfaf606777320594e19e3c8b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga650e3dfcfaf606777320594e19e3c8b8">ast::aLeapSecondUTCMJD</a> (double mjdUTC)</td></tr>
+<tr class="separator:ga650e3dfcfaf606777320594e19e3c8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6a3c7cc9ccf2f22d0e1922a9f541bff" id="r_gaf6a3c7cc9ccf2f22d0e1922a9f541bff"><td class="memItemLeft" align="right" valign="top"><a id="gaf6a3c7cc9ccf2f22d0e1922a9f541bff" name="gaf6a3c7cc9ccf2f22d0e1922a9f541bff"></a>
+<a class="el" href="classast_1_1SolarSystem.html">SolarSystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetSolarSystem</b> ()</td></tr>
+<tr class="separator:gaf6a3c7cc9ccf2f22d0e1922a9f541bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5d0282ada45dcbf8c28009fc3c853bf" id="r_gab5d0282ada45dcbf8c28009fc3c853bf"><td class="memItemLeft" align="right" valign="top"><a id="gab5d0282ada45dcbf8c28009fc3c853bf" name="gab5d0282ada45dcbf8c28009fc3c853bf"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetBody</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:gab5d0282ada45dcbf8c28009fc3c853bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2beaa2fb58589b75c8e8d943742d1e0" id="r_gab2beaa2fb58589b75c8e8d943742d1e0"><td class="memItemLeft" align="right" valign="top"><a id="gab2beaa2fb58589b75c8e8d943742d1e0" name="gab2beaa2fb58589b75c8e8d943742d1e0"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetMercury</b> ()</td></tr>
+<tr class="separator:gab2beaa2fb58589b75c8e8d943742d1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52e92d9e4b8f7aeb85cee5d714f269b0" id="r_ga52e92d9e4b8f7aeb85cee5d714f269b0"><td class="memItemLeft" align="right" valign="top"><a id="ga52e92d9e4b8f7aeb85cee5d714f269b0" name="ga52e92d9e4b8f7aeb85cee5d714f269b0"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetVenus</b> ()</td></tr>
+<tr class="separator:ga52e92d9e4b8f7aeb85cee5d714f269b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a91df2c2ab249279ee7f949d16dce7d" id="r_ga6a91df2c2ab249279ee7f949d16dce7d"><td class="memItemLeft" align="right" valign="top"><a id="ga6a91df2c2ab249279ee7f949d16dce7d" name="ga6a91df2c2ab249279ee7f949d16dce7d"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetEarth</b> ()</td></tr>
+<tr class="separator:ga6a91df2c2ab249279ee7f949d16dce7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46f1d294e8e89a04cb3d8720721fc04c" id="r_ga46f1d294e8e89a04cb3d8720721fc04c"><td class="memItemLeft" align="right" valign="top"><a id="ga46f1d294e8e89a04cb3d8720721fc04c" name="ga46f1d294e8e89a04cb3d8720721fc04c"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetMars</b> ()</td></tr>
+<tr class="separator:ga46f1d294e8e89a04cb3d8720721fc04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa946dd4a18e60a17709cdcb0ef01d867" id="r_gaa946dd4a18e60a17709cdcb0ef01d867"><td class="memItemLeft" align="right" valign="top"><a id="gaa946dd4a18e60a17709cdcb0ef01d867" name="gaa946dd4a18e60a17709cdcb0ef01d867"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetJupiter</b> ()</td></tr>
+<tr class="separator:gaa946dd4a18e60a17709cdcb0ef01d867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63e6186026fde76382aec3fca10b3a02" id="r_ga63e6186026fde76382aec3fca10b3a02"><td class="memItemLeft" align="right" valign="top"><a id="ga63e6186026fde76382aec3fca10b3a02" name="ga63e6186026fde76382aec3fca10b3a02"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetSaturn</b> ()</td></tr>
+<tr class="separator:ga63e6186026fde76382aec3fca10b3a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8630c70a6ed1ea42eb9de1c078a79add" id="r_ga8630c70a6ed1ea42eb9de1c078a79add"><td class="memItemLeft" align="right" valign="top"><a id="ga8630c70a6ed1ea42eb9de1c078a79add" name="ga8630c70a6ed1ea42eb9de1c078a79add"></a>
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetMoon</b> ()</td></tr>
+<tr class="separator:ga8630c70a6ed1ea42eb9de1c078a79add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74625ec2c9cb689a8d55076d6862a785" id="r_ga74625ec2c9cb689a8d55076d6862a785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga74625ec2c9cb689a8d55076d6862a785">ast::aTheoreticalXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga74625ec2c9cb689a8d55076d6862a785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga322f0ef44069d6d0286466ef3d8f5ec9" id="r_ga322f0ef44069d6d0286466ef3d8f5ec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga322f0ef44069d6d0286466ef3d8f5ec9">ast::aTheoreticalXYS_IERS2010</a> (double t, array3d &amp;xys)</td></tr>
+<tr class="separator:ga322f0ef44069d6d0286466ef3d8f5ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ead2c8c32a690ef06f9a3ef47406853" id="r_ga2ead2c8c32a690ef06f9a3ef47406853"><td class="memItemLeft" align="right" valign="top"><a id="ga2ead2c8c32a690ef06f9a3ef47406853" name="ga2ead2c8c32a690ef06f9a3ef47406853"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTheoreticalXYS_IERS2010_Cache</b> (double t, array3d &amp;xys)</td></tr>
+<tr class="separator:ga2ead2c8c32a690ef06f9a3ef47406853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf01517668fb57011912e5abeb3ed3ff" id="r_gacf01517668fb57011912e5abeb3ed3ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacf01517668fb57011912e5abeb3ed3ff">ast::aTheoreticalXYS_IERS2010_TT</a> (const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;jdTT, array3d &amp;xys)</td></tr>
+<tr class="separator:gacf01517668fb57011912e5abeb3ed3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4174d1474102fd01849d4e1f0198f3d1" id="r_ga4174d1474102fd01849d4e1f0198f3d1"><td class="memItemLeft" align="right" valign="top"><a id="ga4174d1474102fd01849d4e1f0198f3d1" name="ga4174d1474102fd01849d4e1f0198f3d1"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTheoreticalXYS_IERS2010Precomputed</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga4174d1474102fd01849d4e1f0198f3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga030bae706d318085b613e4431ee54600" id="r_ga030bae706d318085b613e4431ee54600"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga030bae706d318085b613e4431ee54600">ast::aTheoreticalXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga030bae706d318085b613e4431ee54600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8299cf8ede911cc33e4931a4dd17ec4d" id="r_ga8299cf8ede911cc33e4931a4dd17ec4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8299cf8ede911cc33e4931a4dd17ec4d">ast::aXYCorrection</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array2d &amp;xyCorrection)</td></tr>
+<tr class="separator:ga8299cf8ede911cc33e4931a4dd17ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2751ea5eb0678ce4a61639cff1887ecd" id="r_ga2751ea5eb0678ce4a61639cff1887ecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2751ea5eb0678ce4a61639cff1887ecd">ast::aXYS_IERS2010</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga2751ea5eb0678ce4a61639cff1887ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a5d3605c09a1dc93ef5f96227ef897d" id="r_ga9a5d3605c09a1dc93ef5f96227ef897d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9a5d3605c09a1dc93ef5f96227ef897d">ast::aXYS</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, array3d &amp;xys)</td></tr>
+<tr class="separator:ga9a5d3605c09a1dc93ef5f96227ef897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:gab809927d8cb43fc43d25a8f45f73ad74" id="r_gab809927d8cb43fc43d25a8f45f73ad74"><td class="memItemLeft" align="right" valign="top"><a id="gab809927d8cb43fc43d25a8f45f73ad74" name="gab809927d8cb43fc43d25a8f45f73ad74"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSizeOfDataContext</b> = sizeof(<a class="el" href="classast_1_1DataContext.html">DataContext</a>)</td></tr>
+<tr class="separator:gab809927d8cb43fc43d25a8f45f73ad74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga362102d8c58857b6e3d6b48b83bd0944" name="ga362102d8c58857b6e3d6b48b83bd0944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga362102d8c58857b6e3d6b48b83bd0944">&#9670;&#160;</a></span>aDataContext_EnsureCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI <a class="el" href="classast_1_1DataContext.html">DataContext</a> * ast::aDataContext_EnsureCurrent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>确保当前线程的数据上下文存在 如果当前线程的数据上下文不存在，则将默认数据上下文设置为当前线程的数据上下文。 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga6b71837a4fa5dcbe6f059efca4e75297" name="ga6b71837a4fa5dcbe6f059efca4e75297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b71837a4fa5dcbe6f059efca4e75297">&#9670;&#160;</a></span>aDataContext_EnsureDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI <a class="el" href="classast_1_1DataContext.html">DataContext</a> * ast::aDataContext_EnsureDefault </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>确保默认数据上下文存在 如果默认数据上下文不存在，则创建一个新的默认数据上下文。 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga40dcbf6fa05827fe9b7a7837a01105bd" name="ga40dcbf6fa05827fe9b7a7837a01105bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga40dcbf6fa05827fe9b7a7837a01105bd">&#9670;&#160;</a></span>aDataContext_GetCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI <a class="el" href="classast_1_1DataContext.html">DataContext</a> * ast::aDataContext_GetCurrent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前线程的数据上下文 </p>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga29c564259f5de9210b7e4e39eb4dd878" name="ga29c564259f5de9210b7e4e39eb4dd878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga29c564259f5de9210b7e4e39eb4dd878">&#9670;&#160;</a></span>aDataDirGet() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API std::string ast::aDataDirGet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取数据文件夹 </p>
+<dl class="section return"><dt>返回</dt><dd>数据文件夹路径 </dd></dl>
+
+</div>
+</div>
+<a id="ga554406609d8c3a1b8dd7020142cd04e7" name="ga554406609d8c3a1b8dd7020142cd04e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga554406609d8c3a1b8dd7020142cd04e7">&#9670;&#160;</a></span>aDataDirGet() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDataDirGet </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>datadir</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取数据文件夹 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">datadir</td><td>数据文件夹路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga178274c33d5da80112cf792bdbae6d9f" name="ga178274c33d5da80112cf792bdbae6d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga178274c33d5da80112cf792bdbae6d9f">&#9670;&#160;</a></span>aDataDirSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aDataDirSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>dirpath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置数据文件夹 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dirpath</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafb5ff2a33de9ab9f703291baea5ffc18" name="gafb5ff2a33de9ab9f703291baea5ffc18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafb5ff2a33de9ab9f703291baea5ffc18">&#9670;&#160;</a></span>aJplDeGetLibration() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API err_t ast::aJplDeGetLibration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ang</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的月面天平动相关角度（Euler） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+    <tr><td class="paramname">ang</td><td>- 从ICRF到月球惯性主轴坐标系的转角(rad)<ul>
+<li>[omega,i,u],[进动角,章动角,自转角],按照313顺序旋转 </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gaca8df8b06f1508da070156e818d0644a" name="gaca8df8b06f1508da070156e818d0644a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca8df8b06f1508da070156e818d0644a">&#9670;&#160;</a></span>aJplDeGetLibration() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API err_t ast::aJplDeGetLibration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>ang</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的月面天平动相关角度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+    <tr><td class="paramname">ang</td><td>- 从ICRF到月球惯性主轴坐标系的转角(rad)<ul>
+<li>[omega,i,u],[进动角,章动角,自转角],按照313顺序旋转 </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gab4fe9a815aac36c9f076f99c27ee5a69" name="gab4fe9a815aac36c9f076f99c27ee5a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4fe9a815aac36c9f076f99c27ee5a69">&#9670;&#160;</a></span>aJplDeGetNutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aJplDeGetNutation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>dpsi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>deps</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的中章动角数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+    <tr><td class="paramname">dpsi</td><td></td></tr>
+    <tr><td class="paramname">deps</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gacdd9c100a086d822affd42b958c7ab94" name="gacdd9c100a086d822affd42b958c7ab94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacdd9c100a086d822affd42b958c7ab94">&#9670;&#160;</a></span>aJplDeGetPosICRF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aJplDeGetPosICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>referenceBody</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的位置（ICRF） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+    <tr><td class="paramname">target</td><td></td></tr>
+    <tr><td class="paramname">referenceBody</td><td></td></tr>
+    <tr><td class="paramname">pos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga79a618c1dd5bc55893f49dcb00007b9e" name="ga79a618c1dd5bc55893f49dcb00007b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga79a618c1dd5bc55893f49dcb00007b9e">&#9670;&#160;</a></span>aJplDeGetPosVelICRF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aJplDeGetPosVelICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>referenceBody</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的位置和速度（ICRF） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+    <tr><td class="paramname">target</td><td></td></tr>
+    <tr><td class="paramname">referenceBody</td><td></td></tr>
+    <tr><td class="paramname">pos</td><td></td></tr>
+    <tr><td class="paramname">vel</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gadaaaff473ede71f83781bc5623a395e7" name="gadaaaff473ede71f83781bc5623a395e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadaaaff473ede71f83781bc5623a395e7">&#9670;&#160;</a></span>aJplDeNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI int ast::aJplDeNum </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的版本号 </p>
+<dl class="section return"><dt>返回</dt><dd>星历版本号 </dd></dl>
+
+</div>
+</div>
+<a id="ga886ee9d50d1b42b6924045ba73f515b0" name="ga886ee9d50d1b42b6924045ba73f515b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga886ee9d50d1b42b6924045ba73f515b0">&#9670;&#160;</a></span>aJplDeOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI err_t ast::aJplDeOpen </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>打开JPL DE星历数据文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga199669285c0922b22b658f00d9dd4f87" name="ga199669285c0922b22b658f00d9dd4f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga199669285c0922b22b658f00d9dd4f87">&#9670;&#160;</a></span>aLeapSecondUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aLeapSecondUTC </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取UTC时间的闰秒数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdUTC</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ga650e3dfcfaf606777320594e19e3c8b8" name="ga650e3dfcfaf606777320594e19e3c8b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga650e3dfcfaf606777320594e19e3c8b8">&#9670;&#160;</a></span>aLeapSecondUTCMJD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aLeapSecondUTCMJD </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>mjdUTC</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取UTC时间的闰秒数（MJD） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mjdUTC</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="gacbc39836a2143bf579fe71b228d4f1de" name="gacbc39836a2143bf579fe71b228d4f1de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacbc39836a2143bf579fe71b228d4f1de">&#9670;&#160;</a></span>aLOD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aLOD </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的LOD（秒） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>LOD（秒） </dd></dl>
+
+</div>
+</div>
+<a id="ga66a2f4b3e4796c751d597d272ac567dd" name="ga66a2f4b3e4796c751d597d272ac567dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66a2f4b3e4796c751d597d272ac567dd">&#9670;&#160;</a></span>aPoleMotion() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aPoleMotion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的极移 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">x</td><td>极移x </td></tr>
+    <tr><td class="paramname">y</td><td>极移y </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae98fe2e8d9036153d0b35e27561c5845" name="gae98fe2e8d9036153d0b35e27561c5845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae98fe2e8d9036153d0b35e27561c5845">&#9670;&#160;</a></span>aPoleMotion() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::aPoleMotion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structast_1_1PoleMotion.html">PoleMotion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的极移 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">pm</td><td>极移 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0bebac9a35d34884b7b6b02fdd7511ad" name="ga0bebac9a35d34884b7b6b02fdd7511ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0bebac9a35d34884b7b6b02fdd7511ad">&#9670;&#160;</a></span>aPoleMotionUTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aPoleMotionUTC </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定UTC时间的极移 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdUTC</td><td>协调世界时（UTC）的儒略日数 </td></tr>
+    <tr><td class="paramname">x</td><td>极移x </td></tr>
+    <tr><td class="paramname">y</td><td>极移y </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga030bae706d318085b613e4431ee54600" name="ga030bae706d318085b613e4431ee54600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga030bae706d318085b613e4431ee54600">&#9670;&#160;</a></span>aTheoreticalXYS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTheoreticalXYS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array3d &amp;</td>          <td class="paramname"><span class="paramname"><em>xys</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU 理论XYS值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">xys</td><td>iau xys数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga74625ec2c9cb689a8d55076d6862a785" name="ga74625ec2c9cb689a8d55076d6862a785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga74625ec2c9cb689a8d55076d6862a785">&#9670;&#160;</a></span>aTheoreticalXYS_IERS2010() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTheoreticalXYS_IERS2010 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array3d &amp;</td>          <td class="paramname"><span class="paramname"><em>xys</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU 理论XYS值（IERS 2010规范） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">xys</td><td>iau xys数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga322f0ef44069d6d0286466ef3d8f5ec9" name="ga322f0ef44069d6d0286466ef3d8f5ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga322f0ef44069d6d0286466ef3d8f5ec9">&#9670;&#160;</a></span>aTheoreticalXYS_IERS2010() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aTheoreticalXYS_IERS2010 </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array3d &amp;</td>          <td class="paramname"><span class="paramname"><em>xys</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU 理论XYS值（IERS 2010规范） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>时间点（距离J2000.0 TT的儒略日世纪数） </td></tr>
+    <tr><td class="paramname">xys</td><td>iau xys数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacf01517668fb57011912e5abeb3ed3ff" name="gacf01517668fb57011912e5abeb3ed3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf01517668fb57011912e5abeb3ed3ff">&#9670;&#160;</a></span>aTheoreticalXYS_IERS2010_TT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aTheoreticalXYS_IERS2010_TT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdTT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array3d &amp;</td>          <td class="paramname"><span class="paramname"><em>xys</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU 理论XYS值（IERS 2010规范） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdTT</td><td>时间点的儒略日数（TT） </td></tr>
+    <tr><td class="paramname">xys</td><td>iau xys数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga69f5ec58e4208c07a64e3b6533a97da4" name="ga69f5ec58e4208c07a64e3b6533a97da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga69f5ec58e4208c07a64e3b6533a97da4">&#9670;&#160;</a></span>aUT1MinusUTC_UTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aUT1MinusUTC_UTC </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JulianDate.html">JulianDate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jdUTC</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取UT1时间与UTC时间的差值（秒） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jdUTC</td><td>协调世界时（UTC）的儒略日数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>UT1时间与UTC时间的差值（秒） </dd></dl>
+
+</div>
+</div>
+<a id="ga8299cf8ede911cc33e4931a4dd17ec4d" name="ga8299cf8ede911cc33e4931a4dd17ec4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8299cf8ede911cc33e4931a4dd17ec4d">&#9670;&#160;</a></span>aXYCorrection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aXYCorrection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array2d &amp;</td>          <td class="paramname"><span class="paramname"><em>xyCorrection</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU 理论XYS值的修正项 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">xyCorrection</td><td>iau xys修正项 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9a5d3605c09a1dc93ef5f96227ef897d" name="ga9a5d3605c09a1dc93ef5f96227ef897d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a5d3605c09a1dc93ef5f96227ef897d">&#9670;&#160;</a></span>aXYS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aXYS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array3d &amp;</td>          <td class="paramname"><span class="paramname"><em>xys</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU XYS值（包含修正项） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">xys</td><td>iau xys数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2751ea5eb0678ce4a61639cff1887ecd" name="ga2751ea5eb0678ce4a61639cff1887ecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2751ea5eb0678ce4a61639cff1887ecd">&#9670;&#160;</a></span>aXYS_IERS2010()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aXYS_IERS2010 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array3d &amp;</td>          <td class="paramname"><span class="paramname"><em>xys</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取给定时间点的IAU XYS值（IERS 2010规范，包含修正项） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">xys</td><td>iau xys数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

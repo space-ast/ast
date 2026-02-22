@@ -42,11 +42,12 @@ var searchData=
   ['unnormalize_39',['unnormalize',['../classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598',1,'ast::GravityField']]],
   ['unnormalized_40',['unnormalized',['../classast_1_1GravityField.html#ace10e8e9a61a6fea914b1130db459297',1,'ast::GravityField']]],
   ['update_41',['update',['../classast_1_1AstGfxAPI.html#afd49c639f629c3b985309f0bd2d62963',1,'ast::AstGfxAPI::update()'],['../classast_1_1GfxCelestialBody.html#a4a13e86d282d1805f2e66f1982400fc5',1,'ast::GfxCelestialBody::update()'],['../classast_1_1GfxSolarSystem.html#a657b97b3ca30eb37db1d3a1affe2c8e7',1,'ast::GfxSolarSystem::update()']]],
-  ['usedrag_5f_42',['useDrag_',['../classast_1_1HPOPForceModel.html#ae365339df54b0c9043b9ab5b7b3ae2b8',1,'ast::HPOPForceModel']]],
-  ['usemoongravity_5f_43',['useMoonGravity_',['../classast_1_1HPOPForceModel.html#a89a8e5ec41d3c722e3acf1f183e4813b',1,'ast::HPOPForceModel']]],
-  ['usesrp_5f_44',['useSRP_',['../classast_1_1HPOPForceModel.html#a6992ff4410f0abee237a0a1e884926f0',1,'ast::HPOPForceModel']]],
-  ['ut1_5futc_45',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]],
-  ['utcscale_46',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]],
-  ['util_2ecpp_47',['Util.cpp',['../Util_8cpp.html',1,'']]],
-  ['util_2ehpp_48',['Util.hpp',['../Util_8hpp.html',1,'']]]
+  ['uranus_5f_42',['uranus_',['../classast_1_1SolarSystem.html#abfe7eccf6394b60c3d5bf653c63e937d',1,'ast::SolarSystem']]],
+  ['usedrag_5f_43',['useDrag_',['../classast_1_1HPOPForceModel.html#ae365339df54b0c9043b9ab5b7b3ae2b8',1,'ast::HPOPForceModel']]],
+  ['usemoongravity_5f_44',['useMoonGravity_',['../classast_1_1HPOPForceModel.html#a89a8e5ec41d3c722e3acf1f183e4813b',1,'ast::HPOPForceModel']]],
+  ['usesrp_5f_45',['useSRP_',['../classast_1_1HPOPForceModel.html#a6992ff4410f0abee237a0a1e884926f0',1,'ast::HPOPForceModel']]],
+  ['ut1_5futc_46',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]],
+  ['utcscale_47',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]],
+  ['util_2ecpp_48',['Util.cpp',['../Util_8cpp.html',1,'']]],
+  ['util_2ehpp_49',['Util.hpp',['../Util_8hpp.html',1,'']]]
 ];

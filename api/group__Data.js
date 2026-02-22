@@ -1,5 +1,29 @@
 var group__Data =
 [
+    [ "ast::DataContext", "classast_1_1DataContext.html", [
+      [ "dataDir", "classast_1_1DataContext.html#a21fda55c34849ca1f11b0988534751f0", null ],
+      [ "eop", "classast_1_1DataContext.html#a978e12ad204a3d7d56453f28a5013a2a", null ],
+      [ "iauXYSPrecomputed", "classast_1_1DataContext.html#a53d2c48438a7b873c00a0f31900f7dbe", null ],
+      [ "jplDe", "classast_1_1DataContext.html#aa57fbc55b98b2beea264f876b63c3ba0", null ],
+      [ "leapSecond", "classast_1_1DataContext.html#ad24432f99863bd4d7e2a9db2bcf335aa", null ],
+      [ "setDataDir", "classast_1_1DataContext.html#a55723c2bde9815b7c68eb3f42f47c23e", null ],
+      [ "solarSystem", "classast_1_1DataContext.html#a12c161c9f2a2dce896249e216112b1df", null ],
+      [ "spaceWeather", "classast_1_1DataContext.html#ab522069b2cc15392f226c659e464e29e", null ],
+      [ "m_dataDir", "classast_1_1DataContext.html#aab49aca89b54823adbd51caeecbd5cfa", null ],
+      [ "m_eop", "classast_1_1DataContext.html#ae1fde47899a36efe881fef87f650564b", null ],
+      [ "m_iauXYSPrecomputed", "classast_1_1DataContext.html#af02ea834b7ce89ae6a1e6c876230d770", null ],
+      [ "m_jplDe", "classast_1_1DataContext.html#a97db12cb921881440250009358e33d8e", null ],
+      [ "m_leapSecond", "classast_1_1DataContext.html#a8fd0e689bb94439d32c652bb5860aa3b", null ],
+      [ "m_solarSystem", "classast_1_1DataContext.html#ab63ba06d5b5f7a89b4eed04c514ce72c", null ],
+      [ "m_spaceWeather", "classast_1_1DataContext.html#acb3323232bfd7a282b09a479720ec1e3", null ]
+    ] ],
+    [ "ast::GlobalContext", "classast_1_1GlobalContext.html", [
+      [ "iauXYS", "classast_1_1GlobalContext.html#a788925c4722877fbb344ab5712b1f7b9", null ],
+      [ "m_iauXYS", "classast_1_1GlobalContext.html#acc1e339a77947a88a072b385d96094e0", null ]
+    ] ],
+    [ "ast::PoleMotion", "structast_1_1PoleMotion.html", [
+      [ "y", "structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4", null ]
+    ] ],
     [ "ast::EOP", "classast_1_1EOP.html", [
       [ "Entry", "structast_1_1EOP_1_1Entry.html", [
         [ "dat", "structast_1_1EOP_1_1Entry.html#a6517b482b8f6b403fd3ab313ede9dca8", null ],
@@ -80,5 +104,52 @@ var group__Data =
       [ "load", "classast_1_1SpaceWeather.html#aa6bbd975c97785fba630c40b170a9938", null ],
       [ "loadDefault", "classast_1_1SpaceWeather.html#a9da49e8f7e5825b0d8c5fff54e00c55f", null ],
       [ "setEntry", "classast_1_1SpaceWeather.html#a98a220897ba6c103036a66b1cfae2ff2", null ]
-    ] ]
+    ] ],
+    [ "ast::aDataContext_EnsureCurrent", "group__Data.html#ga362102d8c58857b6e3d6b48b83bd0944", null ],
+    [ "ast::aDataContext_EnsureDefault", "group__Data.html#ga6b71837a4fa5dcbe6f059efca4e75297", null ],
+    [ "ast::aDataContext_GetCurrent", "group__Data.html#ga40dcbf6fa05827fe9b7a7837a01105bd", null ],
+    [ "ast::aDataContext_GetDefault", "group__Data.html#gabd352addd4bfd3dcecb35a480212d9f5", null ],
+    [ "ast::aDataContext_GetEOP", "group__Data.html#ga636a52a4e547b682627be2f3d551b7ad", null ],
+    [ "ast::aDataContext_GetIAUXYSPrecomputed", "group__Data.html#gadbb534974c08b459d882595abb9a930e", null ],
+    [ "ast::aDataContext_New", "group__Data.html#gaba56bd6c13a2672901309a0c4c695caf", null ],
+    [ "ast::aDataContext_SetCurrent", "group__Data.html#gaa090c6fa94e31ea974a5fd4604191397", null ],
+    [ "ast::aDataDirGet", "group__Data.html#ga29c564259f5de9210b7e4e39eb4dd878", null ],
+    [ "ast::aDataDirGet", "group__Data.html#ga554406609d8c3a1b8dd7020142cd04e7", null ],
+    [ "ast::aDataDirSet", "group__Data.html#ga178274c33d5da80112cf792bdbae6d9f", null ],
+    [ "ast::aGetBody", "group__Data.html#gab5d0282ada45dcbf8c28009fc3c853bf", null ],
+    [ "ast::aGetEarth", "group__Data.html#ga6a91df2c2ab249279ee7f949d16dce7d", null ],
+    [ "ast::aGetJupiter", "group__Data.html#gaa946dd4a18e60a17709cdcb0ef01d867", null ],
+    [ "ast::aGetMars", "group__Data.html#ga46f1d294e8e89a04cb3d8720721fc04c", null ],
+    [ "ast::aGetMercury", "group__Data.html#gab2beaa2fb58589b75c8e8d943742d1e0", null ],
+    [ "ast::aGetMoon", "group__Data.html#ga8630c70a6ed1ea42eb9de1c078a79add", null ],
+    [ "ast::aGetSaturn", "group__Data.html#ga63e6186026fde76382aec3fca10b3a02", null ],
+    [ "ast::aGetSolarSystem", "group__Data.html#gaf6a3c7cc9ccf2f22d0e1922a9f541bff", null ],
+    [ "ast::aGetVenus", "group__Data.html#ga52e92d9e4b8f7aeb85cee5d714f269b0", null ],
+    [ "ast::aGlobalContext_Get", "group__Data.html#ga4ccfea60ec40a0b914aee9714febd94e", null ],
+    [ "ast::aGlobalContext_GetIAUXYS", "group__Data.html#gab6179a360a2bb2fa49e90ed13801fb7f", null ],
+    [ "ast::aInitialize", "group__Data.html#gab6fd6e3387d57432da53d7bf5efd47a9", null ],
+    [ "ast::aJplDeClose", "group__Data.html#ga86326fcd6c451bdbaff8e7d5cecd9215", null ],
+    [ "ast::aJplDeGetLibration", "group__Data.html#gafb5ff2a33de9ab9f703291baea5ffc18", null ],
+    [ "ast::aJplDeGetLibration", "group__Data.html#gaca8df8b06f1508da070156e818d0644a", null ],
+    [ "ast::aJplDeGetNutation", "group__Data.html#gab4fe9a815aac36c9f076f99c27ee5a69", null ],
+    [ "ast::aJplDeGetPosICRF", "group__Data.html#gacdd9c100a086d822affd42b958c7ab94", null ],
+    [ "ast::aJplDeGetPosVelICRF", "group__Data.html#ga79a618c1dd5bc55893f49dcb00007b9e", null ],
+    [ "ast::aJplDeNum", "group__Data.html#gadaaaff473ede71f83781bc5623a395e7", null ],
+    [ "ast::aJplDeOpen", "group__Data.html#ga886ee9d50d1b42b6924045ba73f515b0", null ],
+    [ "ast::aLeapSecondUTC", "group__Data.html#ga199669285c0922b22b658f00d9dd4f87", null ],
+    [ "ast::aLeapSecondUTCMJD", "group__Data.html#ga650e3dfcfaf606777320594e19e3c8b8", null ],
+    [ "ast::aLOD", "group__Data.html#gacbc39836a2143bf579fe71b228d4f1de", null ],
+    [ "ast::aPoleMotion", "group__Data.html#ga66a2f4b3e4796c751d597d272ac567dd", null ],
+    [ "ast::aPoleMotion", "group__Data.html#gae98fe2e8d9036153d0b35e27561c5845", null ],
+    [ "ast::aPoleMotionUTC", "group__Data.html#ga0bebac9a35d34884b7b6b02fdd7511ad", null ],
+    [ "ast::aTheoreticalXYS", "group__Data.html#ga030bae706d318085b613e4431ee54600", null ],
+    [ "ast::aTheoreticalXYS_IERS2010", "group__Data.html#ga74625ec2c9cb689a8d55076d6862a785", null ],
+    [ "ast::aTheoreticalXYS_IERS2010", "group__Data.html#ga322f0ef44069d6d0286466ef3d8f5ec9", null ],
+    [ "ast::aTheoreticalXYS_IERS2010_TT", "group__Data.html#gacf01517668fb57011912e5abeb3ed3ff", null ],
+    [ "ast::aTheoreticalXYS_IERS2010Precomputed", "group__Data.html#ga4174d1474102fd01849d4e1f0198f3d1", null ],
+    [ "ast::aUninitialize", "group__Data.html#gae8b19885fd9876fa4ad93b63bc2c6d11", null ],
+    [ "ast::aUT1MinusUTC_UTC", "group__Data.html#ga69f5ec58e4208c07a64e3b6533a97da4", null ],
+    [ "ast::aXYCorrection", "group__Data.html#ga8299cf8ede911cc33e4931a4dd17ec4d", null ],
+    [ "ast::aXYS", "group__Data.html#ga9a5d3605c09a1dc93ef5f96227ef897d", null ],
+    [ "ast::aXYS_IERS2010", "group__Data.html#ga2751ea5eb0678ce4a61639cff1887ecd", null ]
 ];
