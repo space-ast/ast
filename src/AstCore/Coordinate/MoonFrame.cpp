@@ -110,9 +110,10 @@ void aMoonPA403ToMeanEarthTransform(Rotation &rotation)
 err_t aICRFToMoonMeanEarthTransform_DE(const TimePoint &tp, Rotation &rotation)
 {
     err_t rc = aICRFToMoonPrincipalAxesTransform(tp, rotation);
-    if(rc) return rc;
+    if (rc != eNoError) return rc;
     Rotation rotation2;
     rc = aMoonPAToMeanEarthTransform(rotation2);
+    if (rc != eNoError) return rc;
     rotation *= rotation2;
     return rc;
 }
