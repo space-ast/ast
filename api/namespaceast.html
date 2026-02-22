@@ -1425,8 +1425,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aDataContext_SetCurre
 <tr class="separator:acdd9c100a086d822affd42b958c7ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4fe9a815aac36c9f076f99c27ee5a69" id="r_ab4fe9a815aac36c9f076f99c27ee5a69"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4fe9a815aac36c9f076f99c27ee5a69">aJplDeGetNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dpsi, double &amp;deps)</td></tr>
 <tr class="separator:ab4fe9a815aac36c9f076f99c27ee5a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44f85638b51c418ac3b5914541e60a9" id="r_ad44f85638b51c418ac3b5914541e60a9"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad44f85638b51c418ac3b5914541e60a9">aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
-<tr class="separator:ad44f85638b51c418ac3b5914541e60a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8df8b06f1508da070156e818d0644a" id="r_aca8df8b06f1508da070156e818d0644a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca8df8b06f1508da070156e818d0644a">aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
+<tr class="separator:aca8df8b06f1508da070156e818d0644a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5ff2a33de9ab9f703291baea5ffc18" id="r_afb5ff2a33de9ab9f703291baea5ffc18"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb5ff2a33de9ab9f703291baea5ffc18">aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang)</td></tr>
+<tr class="separator:afb5ff2a33de9ab9f703291baea5ffc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaaaff473ede71f83781bc5623a395e7" id="r_adaaaff473ede71f83781bc5623a395e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaaaff473ede71f83781bc5623a395e7">aJplDeNum</a> ()</td></tr>
 <tr class="separator:adaaaff473ede71f83781bc5623a395e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a886ee9d50d1b42b6924045ba73f515b0" id="r_a886ee9d50d1b42b6924045ba73f515b0"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a886ee9d50d1b42b6924045ba73f515b0">aJplDeOpen</a> (const char *filepath)</td></tr>
@@ -4824,14 +4826,49 @@ DataDirFunc&#160;</td><td class="memItemRight" valign="bottom"><b>fDataDir</b> {
 
 </div>
 </div>
-<a id="ad44f85638b51c418ac3b5914541e60a9" name="ad44f85638b51c418ac3b5914541e60a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad44f85638b51c418ac3b5914541e60a9">&#9670;&#160;</a></span>aJplDeGetLibration()</h2>
+<a id="afb5ff2a33de9ab9f703291baea5ffc18" name="afb5ff2a33de9ab9f703291baea5ffc18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb5ff2a33de9ab9f703291baea5ffc18">&#9670;&#160;</a></span>aJplDeGetLibration() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_CORE_CAPI err_t ast::aJplDeGetLibration </td>
+          <td class="memname">AST_CORE_API err_t ast::aJplDeGetLibration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ang</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE星历数据的月面天平动相关角度（Euler） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+    <tr><td class="paramname">ang</td><td>- 从ICRF到月球惯性主轴坐标系的转角(rad)<ul>
+<li>[omega,i,u],[进动角,章动角,自转角],按照313顺序旋转 </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="aca8df8b06f1508da070156e818d0644a" name="aca8df8b06f1508da070156e818d0644a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca8df8b06f1508da070156e818d0644a">&#9670;&#160;</a></span>aJplDeGetLibration() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API err_t ast::aJplDeGetLibration </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
         </tr>

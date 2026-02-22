@@ -80,7 +80,7 @@ var searchData=
   ['getkinematicrotation_77',['getKinematicRotation',['../classast_1_1KinematicTransform.html#af9462c2fa268378f8f643bdec32f0d59',1,'ast::KinematicTransform']]],
   ['getlargeststepsize_78',['getLargestStepSize',['../classast_1_1ODEVarStepIntegrator.html#a366227f2a2b1a0379e58c1716ed06e1c',1,'ast::ODEVarStepIntegrator']]],
   ['getlength_79',['getLength',['../classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43',1,'ast::Dimension']]],
-  ['getlibration_80',['getLibration',['../classast_1_1JplDe.html#ac92aeeb67ec540daa23f2372cda198d8',1,'ast::JplDe::getLibration(const TimePoint &amp;time, Vector3d &amp;ang, Vector3d &amp;angRate)'],['../classast_1_1JplDe.html#a774445d2213085dbe0cf6762b0b5c67b',1,'ast::JplDe::getLibration(const TimePoint &amp;time, Vector3d &amp;ang)']]],
+  ['getlibration_80',['getLibration',['../classast_1_1JplDe.html#ac92aeeb67ec540daa23f2372cda198d8',1,'ast::JplDe::getLibration(const TimePoint &amp;time, Vector3d &amp;ang, Vector3d &amp;angRate)'],['../classast_1_1JplDe.html#a774445d2213085dbe0cf6762b0b5c67b',1,'ast::JplDe::getLibration(const TimePoint &amp;time, Vector3d &amp;ang)'],['../classast_1_1JplDe.html#a1f9d4ae572b00df5f6ce9504f5289d8b',1,'ast::JplDe::getLibration(const TimePoint &amp;time, Euler &amp;ang)']]],
   ['getline_81',['getLine',['../classast_1_1Parser.html#a0334cd1edd397cc248c4a5066fa035f6',1,'ast::Parser::getLine()'],['../classast_1_1BKVParser.html#a5d050645e706306bd4cd4148b1ff9bdd',1,'ast::BKVParser::getLine()']]],
   ['getlinenumber_82',['getLineNumber',['../classast_1_1BKVParser.html#a82276b173c31088ca4f4042d790b090e',1,'ast::BKVParser']]],
   ['getlineskipcomment_83',['getLineSkipComment',['../classast_1_1BKVParser.html#ae9250e39c92322d981ea7e4a5b152a57',1,'ast::BKVParser']]],

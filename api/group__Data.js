@@ -50,6 +50,7 @@ var group__Data =
       ] ],
       [ "close", "classast_1_1JplDe.html#a3195e2f276145ea57d57672b7b62d082", null ],
       [ "getEphemVersion", "classast_1_1JplDe.html#ab9160925a27f8e35768b5dc441f3bf94", null ],
+      [ "getLibration", "classast_1_1JplDe.html#a1f9d4ae572b00df5f6ce9504f5289d8b", null ],
       [ "getLibration", "classast_1_1JplDe.html#a774445d2213085dbe0cf6762b0b5c67b", null ],
       [ "getLibration", "classast_1_1JplDe.html#ac92aeeb67ec540daa23f2372cda198d8", null ],
       [ "getNutation", "classast_1_1JplDe.html#a8b465f6eaffab64f90d28bb1ded102aa", null ],

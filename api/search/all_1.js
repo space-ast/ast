@@ -233,7 +233,7 @@ var searchData=
   ['ajdtomjd_230',['aJDToMJD',['../group__Time.html#gadb09c8c9dd69bfb1cac629da5a9d5853',1,'ast']]],
   ['ajdtomjd_5fimprecise_231',['aJDToMJD_Imprecise',['../group__Time.html#gadf6d3d56f8739b7a8b786490e6792341',1,'ast::aJDToMJD_Imprecise(const JulianDate &amp;jd)'],['../group__Time.html#ga1b895198b2420d761b6ce862dd3311c3',1,'ast::aJDToMJD_Imprecise(ImpreciseJD jd)']]],
   ['ajpldeclose_232',['aJplDeClose',['../namespaceast.html#a86326fcd6c451bdbaff8e7d5cecd9215',1,'ast']]],
-  ['ajpldegetlibration_233',['aJplDeGetLibration',['../namespaceast.html#ad44f85638b51c418ac3b5914541e60a9',1,'ast']]],
+  ['ajpldegetlibration_233',['aJplDeGetLibration',['../namespaceast.html#aca8df8b06f1508da070156e818d0644a',1,'ast::aJplDeGetLibration(const TimePoint &amp;time, Vector3d &amp;ang)'],['../namespaceast.html#afb5ff2a33de9ab9f703291baea5ffc18',1,'ast::aJplDeGetLibration(const TimePoint &amp;time, Euler &amp;ang)']]],
   ['ajpldegetnutation_234',['aJplDeGetNutation',['../namespaceast.html#ab4fe9a815aac36c9f076f99c27ee5a69',1,'ast']]],
   ['ajpldegetposicrf_235',['aJplDeGetPosICRF',['../namespaceast.html#acdd9c100a086d822affd42b958c7ab94',1,'ast']]],
   ['ajpldegetposvelicrf_236',['aJplDeGetPosVelICRF',['../namespaceast.html#a79a618c1dd5bc55893f49dcb00007b9e',1,'ast']]],

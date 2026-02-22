@@ -160,6 +160,8 @@ err_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelICRF</b> (c
 <tr class="separator:ac92aeeb67ec540daa23f2372cda198d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a774445d2213085dbe0cf6762b0b5c67b" id="r_a774445d2213085dbe0cf6762b0b5c67b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a774445d2213085dbe0cf6762b0b5c67b">getLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
 <tr class="separator:a774445d2213085dbe0cf6762b0b5c67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9d4ae572b00df5f6ce9504f5289d8b" id="r_a1f9d4ae572b00df5f6ce9504f5289d8b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f9d4ae572b00df5f6ce9504f5289d8b">getLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang)</td></tr>
+<tr class="separator:a1f9d4ae572b00df5f6ce9504f5289d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9160925a27f8e35768b5dc441f3bf94" id="r_ab9160925a27f8e35768b5dc441f3bf94"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9160925a27f8e35768b5dc441f3bf94">getEphemVersion</a> () const</td></tr>
 <tr class="separator:ab9160925a27f8e35768b5dc441f3bf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -298,8 +300,47 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
 
 </div>
 </div>
+<a id="a1f9d4ae572b00df5f6ce9504f5289d8b" name="a1f9d4ae572b00df5f6ce9504f5289d8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f9d4ae572b00df5f6ce9504f5289d8b">&#9670;&#160;</a></span>getLibration() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::JplDe::getLibration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ang</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取对应时间点的月面天平动相关角度（Euler） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
+    <tr><td class="paramname">ang</td><td>- 从ICRF到月球惯性主轴坐标系的转角(rad)<ul>
+<li>[omega,i,u],[进动角,章动角,自转角],按照313顺序旋转 </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>错误码 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a774445d2213085dbe0cf6762b0b5c67b" name="a774445d2213085dbe0cf6762b0b5c67b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a774445d2213085dbe0cf6762b0b5c67b">&#9670;&#160;</a></span>getLibration() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a774445d2213085dbe0cf6762b0b5c67b">&#9670;&#160;</a></span>getLibration() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,7 +379,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
 </div>
 </div>
 <a id="ac92aeeb67ec540daa23f2372cda198d8" name="ac92aeeb67ec540daa23f2372cda198d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac92aeeb67ec540daa23f2372cda198d8">&#9670;&#160;</a></span>getLibration() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac92aeeb67ec540daa23f2372cda198d8">&#9670;&#160;</a></span>getLibration() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
