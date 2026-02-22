@@ -120,6 +120,10 @@ public:
     AST_CORE_API
     static TimePoint FromTT(const JulianDate& jdTT);
 
+    /// @brief 从不精确的儒略日数（地球时TT）创建时间点
+    AST_CORE_API
+    static TimePoint FromImpreciseJDTT(double jdTT);
+
     /// @brief J2000.0 TT 时间点
     static TimePoint J2000TT(){
         return {0, -kTTMinusTAI};
@@ -183,8 +187,14 @@ public:
     }
     /// @brief 计算与另一个时间点的时间差（秒数）
     double durationFrom(const TimePoint& other) const{
-        return duration_ - other.duration_;
+        return duration_.minusInSecond(other.duration_);
     }
+
+    /// @brief 计算与另一个时间点的时间差（天）
+    double daysFrom(const TimePoint& other) const{
+        return duration_.minusInDay(other.duration_);
+    }
+
     /// @brief 时间点减法运算符
     /// @param other 另一个时间点
     /// @return 两个时间点的时间差（秒数）

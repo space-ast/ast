@@ -25,6 +25,10 @@
  
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup SolarSystem
+    @{
+*/
 
 /// @brief 天体
 class AST_CORE_API CelestialBody : public Object
@@ -34,6 +38,7 @@ public:
     
 };
 
+/*! @} */
 
 AST_NAMESPACE_END
  

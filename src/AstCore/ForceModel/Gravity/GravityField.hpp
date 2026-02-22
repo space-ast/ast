@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstMath/LowerMatrix.hpp"
+#include "AstUtil/StringView.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -38,6 +39,7 @@ void aGravityFieldNormalize(GravityField& gf);
 void aGravityFieldUnnormalize(GravityField& gf);
 
 /// @brief 重力场头信息
+/// @details 包含重力场的基本信息，如最大阶数、最大次数、中心天体名称等。
 class AST_CORE_API GravityFieldHead
 {
 public:
@@ -55,15 +57,31 @@ public:
 
 
 /// @brief 重力场系数
-class AST_CORE_API GravityField: public GravityFieldHead
+/// @details 包含重力场的头信息和系数矩阵，如Sn、Cn等。
+class AST_CORE_API GravityField: protected GravityFieldHead
 {
 public:
     GravityField();
     ~GravityField() = default;
 
+    using GravityFieldHead::maxDegree_;
+    using GravityFieldHead::maxOrder_;
+    using GravityFieldHead::centralBody_;
+    using GravityFieldHead::model_;
+    using GravityFieldHead::gm_;
+    using GravityFieldHead::refDistance_;
+    using GravityFieldHead::normalized_;
+    using GravityFieldHead::includesPermTide_;
+
+
+    /// @brief 获取重力场头信息
+    /// @return 重力场头信息
+    const GravityFieldHead& getHead() const { return *this; }
+
     /// @brief 获取重力场模型名称
     /// @return 重力场模型名称
     const std::string& getModelName() const { return model_; }
+    void setModelName(StringView model) { model_ = model.to_string(); }
     
     /// @brief 获取中心天体名称
     /// @return 中心天体名称
@@ -77,6 +95,12 @@ public:
     /// @return 最大次数
     int getMaxOrder() const { return maxOrder_; }
 
+    /// @brief 检查阶数和次数是否有效
+    /// @param degree 阶数
+    /// @param order 次数
+    /// @return 是否有效
+    bool isValidDegreeOrder(int degree, int order) const;
+    
     /// @brief 获取中心天体重力常数
     /// @return 中心天体重力常数
     double getGM() const { return gm_; }
@@ -144,6 +168,7 @@ public:
     /// @brief 初始化系数矩阵
     void initCoeffMatrices();
 protected:
+    
     LowerMatrixd sinCoeff_;         ///< Snm系数
     LowerMatrixd cosCoeff_;         ///< Cnm系数    
 };
@@ -156,6 +181,12 @@ inline double &GravityField::snm(int n, int m)
 inline double &GravityField::cnm(int n, int m)
 {
     return cosCoeff_(n, m);
+}
+
+inline bool GravityField::isValidDegreeOrder(int degree, int order) const
+{
+    return degree <= this->getMaxDegree() && order <= this->getMaxOrder() 
+            && degree >= order && order >= 0 && degree >= 0;
 }
 
 inline double GravityField::getSnm(int n, int m) const

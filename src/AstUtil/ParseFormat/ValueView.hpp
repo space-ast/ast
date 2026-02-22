@@ -77,6 +77,7 @@ public:
     operator StringView() const { return value_; }
 
     const char* data() const { return value_.data(); }
+    size_t size() const { return value_.size(); }
 public:
     StringView  value_;
 };

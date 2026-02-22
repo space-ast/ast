@@ -95,10 +95,10 @@ err_t loadSpaceWeather(BKVParser& parser, int numPoints, std::vector<SpaceWeathe
     return eNoError;
 }
 
-err_t SpaceWeather::load(StringView filePath)
+err_t SpaceWeather::load(StringView filepath)
 {
     std::vector<Entry> data;
-    if(err_t rc = load(filePath, data))
+    if(err_t rc = load(filepath, data))
     {
         return rc;
     }
@@ -139,11 +139,13 @@ err_t SpaceWeather::setEntry(int mjd, const Entry &entry)
     return eNoError;
 }
 
-err_t SpaceWeather::load(StringView filePath, std::vector<Entry> &data)
+err_t SpaceWeather::load(StringView filepath, std::vector<Entry> &data)
 {
-    BKVParser parser(filePath);
-    if(!parser.isOpen())
+    BKVParser parser(filepath);
+    if(!parser.isOpen()){
+        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
+    }
     BKVParser::EToken token;
     BKVItemView item;
     int numObservedPoints = 0;

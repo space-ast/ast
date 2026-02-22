@@ -24,11 +24,29 @@
  
 AST_NAMESPACE_BEGIN
 
+
+/*!
+	@ingroup Core
+	@defgroup SolarSystem 太阳系
+	@brief 提供太阳系及行星相关计算函数与类
+*/
+
+
+/*!
+	@addtogroup SolarSystem
+	@{
+*/
+
 class CelestialBody;
 class SolarSystem;
 
+/// @brief 获取地球
 AST_CORE_CAPI CelestialBody* aGetEarth(SolarSystem* ss);
+
+/// @brief 获取月球
 AST_CORE_CAPI CelestialBody* aGetMoon(SolarSystem* ss);
+
+/// @brief 获取火星
 AST_CORE_CAPI CelestialBody* aGetMars(SolarSystem* ss);
 
 
@@ -37,11 +55,15 @@ class AST_CORE_API SolarSystem
 {
 public:
 	SolarSystem();
+	/// @brief 获取地球
 	CelestialBody* getEarth();
+	/// @brief 获取月球
 	CelestialBody* getMoon();
+	/// @brief 获取火星
 	CelestialBody* getMars();
 };
 
+/*! @} */
 
 AST_NAMESPACE_END
 

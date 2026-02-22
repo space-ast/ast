@@ -75,10 +75,39 @@ AST_CORE_CAPI err_t aJplDeGetNutation(
     double& deps
 );
 
+/// @brief 获取JPL DE星历数据的月面天平动相关角度
+/// @param time 
+/// @param ang  - 从ICRF到月球惯性主轴坐标系的转角(rad)
+///             - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
+/// @return 
+AST_CORE_API err_t aJplDeGetLibration(
+    const TimePoint& time,
+    Vector3d& ang
+);
+
+
+/// @brief 获取JPL DE星历数据的月面天平动相关角度（Euler）
+/// @param time 
+/// @param ang  - 从ICRF到月球惯性主轴坐标系的转角(rad)
+///             - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
+/// @return 
+AST_CORE_API err_t aJplDeGetLibration(
+    const TimePoint& time,
+    Euler& ang
+);
+
+
+/// @brief 获取JPL DE星历数据的版本号
+/// @return 星历版本号
+AST_CORE_CAPI int aJplDeNum();
+
+
 /// @brief 打开JPL DE星历数据文件
 /// @param filepath 
 /// @return 
 AST_CORE_CAPI err_t aJplDeOpen(const char* filepath);
+
+
 
 /// @brief 关闭JPL DE星历数据文件
 AST_CORE_CAPI void aJplDeClose();

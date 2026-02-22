@@ -78,6 +78,47 @@ TEST(GravityField, loadJGM3)
         EXPECT_EQ(gf.getCnm(56, 51), 2.0872465219905e-09);
         EXPECT_EQ(gf.getSnm(56, 51), -2.2104224180283e-10);
     }
+
+    // load gfc
+    {
+        std::string file = aDataDirGet() + "/Test/satkit/JGM3.gfc";
+        GravityField gf;
+        err_t err = gf.load(file);
+        EXPECT_EQ(err, eNoError);
+
+        EXPECT_EQ(gf.getMaxDegree(), 70);
+        EXPECT_EQ(gf.getMaxOrder(), 70);
+        EXPECT_EQ(gf.getGM(), 3.98600441500e+14);
+        EXPECT_EQ(gf.getRefDistance(), 6378136.300000);
+        EXPECT_TRUE(gf.isNormalized());
+        EXPECT_FALSE(gf.isIncludesPermTide());
+
+        EXPECT_EQ(gf.getCnm(2, 0), -0.484169548456e-03);
+        EXPECT_EQ(gf.getSnm(2, 0), 0.0);
+
+
+        EXPECT_EQ(gf.getCnm(56, 51), 0.208724652199e-08);
+        EXPECT_EQ(gf.getSnm(56, 51), -0.221042241803e-09);
+    }
+}
+
+
+TEST(GravityField, load_gfc)
+{
+    std::string file = aDataDirGet() + "/Test/satkit/JGM2.gfc";
+    GravityField gf;
+    err_t err = gf.load(file);
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(gf.getMaxDegree(), 70);
+    EXPECT_EQ(gf.getMaxOrder(), 70);
+    EXPECT_EQ(gf.getGM(), 0.3986004415E+15);
+    EXPECT_EQ(gf.getRefDistance(), 0.6378136300E+07);
+    EXPECT_TRUE(gf.isNormalized());
+    EXPECT_EQ(gf.getCnm(3, 0), 0.957122390e-06);
+    EXPECT_EQ(gf.getSnm(3, 0), 0.0);
+    EXPECT_EQ(gf.getCnm(56, 51), 0.218529600e-08);
+    EXPECT_EQ(gf.getSnm(56, 51), -.487515800e-09);
+
 }
 
 
@@ -93,9 +134,9 @@ TEST(GravityField, normalize)
     GravityField gf_WGS84_old_normalized = gf_WGS84_old.normalized();
     for(int n = 0; n <= gf_WGS84_old_normalized.getMaxDegree(); n++){
         for(int m = 0; m <= n; m++){
-            printf("n = %d, m = %d\n", n, m);
-            printf("WGS84: %g, WGS84_old_normalized: %g\n", gf_WGS84.getCnm(n, m), gf_WGS84_old_normalized.getCnm(n, m));
-            printf("WGS84: %g, WGS84_old_normalized: %g\n", gf_WGS84.getSnm(n, m), gf_WGS84_old_normalized.getSnm(n, m));
+            // printf("n = %d, m = %d\n", n, m);
+            // printf("WGS84: %g, WGS84_old_normalized: %g\n", gf_WGS84.getCnm(n, m), gf_WGS84_old_normalized.getCnm(n, m));
+            // printf("WGS84: %g, WGS84_old_normalized: %g\n", gf_WGS84.getSnm(n, m), gf_WGS84_old_normalized.getSnm(n, m));
             if(n==12 && m ==7) continue;
             EXPECT_NEAR(gf_WGS84_old_normalized.getCnm(n, m), gf_WGS84.getCnm(n, m), fabs(gf_WGS84.getCnm(n, m)) * 5e-6);
             EXPECT_NEAR(gf_WGS84_old_normalized.getSnm(n, m), gf_WGS84.getSnm(n, m), fabs(gf_WGS84.getSnm(n, m)) * 5e-6);
@@ -105,9 +146,9 @@ TEST(GravityField, normalize)
     GravityField gf_WGS84_unnormalized = gf_WGS84.unnormalized();
     for(int n = 0; n <= gf_WGS84_old.getMaxDegree(); n++){
         for(int m = 0; m <= n; m++){
-            printf("n = %d, m = %d\n", n, m);
-            printf("WGS84_old: %g, WGS84_unnormalized: %g\n", gf_WGS84_old.getCnm(n, m), gf_WGS84_unnormalized.getCnm(n, m));
-            printf("WGS84_old: %g, WGS84_unnormalized: %g\n", gf_WGS84_old.getSnm(n, m), gf_WGS84_unnormalized.getSnm(n, m));
+            // printf("n = %d, m = %d\n", n, m);
+            // printf("WGS84_old: %g, WGS84_unnormalized: %g\n", gf_WGS84_old.getCnm(n, m), gf_WGS84_unnormalized.getCnm(n, m));
+            // printf("WGS84_old: %g, WGS84_unnormalized: %g\n", gf_WGS84_old.getSnm(n, m), gf_WGS84_unnormalized.getSnm(n, m));
             if(n==12 && m ==7) continue;
             EXPECT_NEAR(gf_WGS84_unnormalized.getCnm(n, m), gf_WGS84_old.getCnm(n, m), fabs(gf_WGS84_unnormalized.getCnm(n, m)) * 5e-6);
             EXPECT_NEAR(gf_WGS84_unnormalized.getSnm(n, m), gf_WGS84_old.getSnm(n, m), fabs(gf_WGS84_unnormalized.getSnm(n, m)) * 5e-6);

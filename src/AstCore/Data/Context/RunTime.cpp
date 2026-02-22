@@ -26,6 +26,7 @@
 #include "AstCore/FundamentalArguments.hpp"
 #include "AstCore/GlobalContext.hpp"
 #include <assert.h>
+#include "RunTimeData.hpp"
 
 #define AST_DEFAULT_FILE_LEAPSECOND             "Time/Leap_Second.dat"
 #define AST_DEFAULT_FILE_JPLDE                  "SolarSystem/plneph.430"
@@ -297,6 +298,24 @@ err_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
 {
     auto context = aDataContext_EnsureCurrent();
     return context->jplDe()->getNutation(time, dpsi, deps);
+}
+
+err_t aJplDeGetLibration(const TimePoint& time, Vector3d& ang)
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->jplDe()->getLibration(time, ang);
+}
+
+err_t aJplDeGetLibration(const TimePoint &time, Euler &ang)
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->jplDe()->getLibration(time, ang);
+}
+
+int aJplDeNum()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->jplDe()->getEphemVersion();
 }
 
 err_t aJplDeOpen(const char *filepath)

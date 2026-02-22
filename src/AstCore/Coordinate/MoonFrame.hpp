@@ -29,7 +29,11 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+class Rotation;
+class KinematicRotation;
+
 /// @brief 计算地球ICRF坐标系到月球ICRF坐标系的转换
+/// @note 该函数依赖DE星历数据
 /// @param tp 时间点
 /// @param posInEarthICRF 地球ICRF坐标系下的位置向量
 /// @param posInMoonICRF 月球ICRF坐标系下的位置向量
@@ -42,6 +46,7 @@ AST_CORE_API err_t aEarthICRFToMoonICRF(
 
 
 /// @brief 计算地球ICRF坐标系到月球ICRF坐标系的转换
+/// @note 该函数依赖DE星历数据
 /// @param tp 时间点
 /// @param posInEarthICRF 地球ICRF坐标系下的位置向量
 /// @param velInEarthICRF 地球ICRF坐标系下的速度向量
@@ -56,6 +61,99 @@ AST_CORE_API err_t aEarthICRFToMoonICRF(
     Vector3d&        velInMoonICRF
 );
 
+
+/// @brief 计算ICRF到月球主轴系(PA)的转换
+/// @note 该函数依赖DE星历数据里的月球平动角
+/// @param tp 时间点
+/// @param rotation 旋转矩阵
+/// @return err_t 错误码
+AST_CORE_API err_t aICRFToMoonPrincipalAxesTransform(
+    const TimePoint& tp, 
+    Rotation&        rotation
+);
+
+
+/// @brief 计算ICRF到月球主轴系(PA)的转换
+/// @note 该函数依赖DE星历数据里的月球平动角
+/// @todo 还未实现该函数，需要实现旋转角速度的计算
+/// @param tp 时间点
+/// @param rotation 旋转矩阵
+/// @return err_t 错误码
+AST_CORE_API err_t aICRFToMoonPrincipalAxesTransform(
+    const TimePoint& tp, 
+    KinematicRotation& rotation
+);
+
+
+/// @brief 计算月球主轴系(PA)到月球MeanEarth系的转换
+/// @note 该函数依赖DE星历数据
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI err_t aMoonPAToMeanEarthTransform(
+    Rotation&        rotation
+);
+
+
+/// @brief 计算月球主轴系(PA430)到月球MeanEarth系的转换
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI void aMoonPA430ToMeanEarthTransform(
+    Rotation&        rotation
+);
+
+
+/// @brief 计算月球主轴系(PA421)到月球MeanEarth系的转换
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI void aMoonPA421ToMeanEarthTransform(
+    Rotation& rotation
+);
+
+
+/// @brief 计算月球主轴系(PA418)到月球MeanEarth系的转换
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI void aMoonPA418ToMeanEarthTransform(
+    Rotation&        rotation
+);
+
+
+/// @brief 计算月球主轴系(PA403)到月球MeanEarth系的转换
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI void aMoonPA403ToMeanEarthTransform(
+    Rotation& rotation
+);
+
+/// @brief 计算月球ICRF坐标系到月球MeanEarth系的转换(依赖DE星历)
+/// @note 该函数依赖DE星历数据
+/// @param tp 时间点
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI err_t aICRFToMoonMeanEarthTransform_DE(
+    const TimePoint& tp, 
+    Rotation&        rotation
+);
+
+
+/// @brief 计算月球ICRF坐标系到月球MeanEarth系的转换(依赖IAU旋转系数)
+/// @todo 还未实现该函数
+/// @param tp 
+/// @param rotation 
+/// @return 
+AST_CORE_CAPI err_t aICRFToMoonMeanEarthTransform_IAU(
+    const TimePoint& tp, 
+    Rotation&        rotation
+);
+
+/// @brief 计算月球ICRF坐标系到月球MeanEarth系的转换(默认为DE实现)
+/// @param tp 时间点
+/// @param rotation 旋转
+/// @return err_t 错误码
+AST_CORE_CAPI err_t aICRFToMoonMeanEarthTransform(
+    const TimePoint& tp, 
+    Rotation&        rotation
+);
 
 /*! @} */
 

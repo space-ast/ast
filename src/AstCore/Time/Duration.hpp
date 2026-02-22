@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstUtil/Constants.h"
 #include <stdint.h>     // for int64_t
  
 AST_NAMESPACE_BEGIN
@@ -58,8 +59,34 @@ public:
     /// @param other 另一个时长
     /// @return 两个时长的差值（秒数）
     double operator-(const LongDuration& other) const{
+        return minusInSecond(other);
+    }
+
+    /// @brief 时长减法方法（秒）
+    /// @param other 另一个时长
+    /// @return 两个时长的差值（秒数）
+    double minusInSecond(const LongDuration& other) const{
         return (integer_ - other.integer_) + (fractional_ - other.fractional_);
     }
+
+    /// @brief 时长减法方法（分钟）
+    /// @param other 另一个时长
+    /// @return 两个时长的差值（分钟数）
+    double minusInMinute(const LongDuration& other) const{
+        return (integer_ - other.integer_) / kSecondsPerMinute + (fractional_ - other.fractional_) / kSecondsPerMinute;
+    }
+
+    double minusInHour(const LongDuration& other) const{
+        return (integer_ - other.integer_) / kSecondsPerHour + (fractional_ - other.fractional_) / kSecondsPerHour;
+    }
+
+    /// @brief 时长减法方法（天）
+    /// @param other 另一个时长
+    /// @return 两个时长的差值（天数）
+    double minusInDay(const LongDuration& other) const{
+        return (integer_ - other.integer_) / kSecondsPerDay + (fractional_ - other.fractional_) / kSecondsPerDay;
+    }
+
 public:
     int64_t integer_;       // 整数秒部分
     double  fractional_;    // 小数秒部分

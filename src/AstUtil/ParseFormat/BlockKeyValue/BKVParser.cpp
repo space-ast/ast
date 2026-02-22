@@ -168,16 +168,20 @@ BKVParser::EToken BKVParser::getNext(BKVItemView &item)
     return getNext(item.key(), item.value());
 }
 
+StringView BKVParser::getLineWithNewline()
+{
+    char* line = fgets(valueBuffer.data(), (int)valueBuffer.size(), file_);
+    return StringView(line);
+}
+
 StringView BKVParser::getLine()
 {
-    // @todo: 这个是不是需要跳过空行和注释行
     char* line = fgetline(valueBuffer.data(), (int)valueBuffer.size(), file_);
     return StringView(line);
 }
 
 StringView BKVParser::getLineTrim()
 {
-    // @todo: 这个是不是需要跳过空行和注释行
     char* line = fgetlinetrim(valueBuffer.data(), (int)valueBuffer.size(), file_);
     return StringView(line);
 }

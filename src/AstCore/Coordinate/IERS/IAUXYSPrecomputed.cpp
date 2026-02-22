@@ -75,6 +75,7 @@ err_t IAUXYSPrecomputed::load(StringView filepath)
     BKVParser parser(filepath);
     if (!parser.isOpen())
     {
+        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile; // 文件打开失败
     }
     BKVParser::EToken token;

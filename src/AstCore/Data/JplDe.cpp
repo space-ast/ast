@@ -23,6 +23,7 @@
 #include "AstCore/TimeSystem.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/JulianDate.hpp"
+#include "AstMath/Euler.hpp"
 #include "AstUtil/IO.hpp"       // for ast_fopen
 #include "AstUtil/Logger.hpp"   // for aError
 #include <assert.h>             // for assert
@@ -696,6 +697,16 @@ err_t JplDe::getLibration(
     Vector3d& angRate)
 {
     return this->getState(time, eDeLibration, ang.data(), angRate.data());
+}
+
+err_t JplDe::getLibration(const TimePoint &time, Vector3d &ang)
+{
+    return this->getState(time, eDeLibration, ang.data(), nullptr);
+}
+
+err_t JplDe::getLibration(const TimePoint &time, Euler &ang)
+{
+    return this->getState(time, eDeLibration, ang.data(), nullptr);
 }
 
 err_t JplDe::getPosICRF(

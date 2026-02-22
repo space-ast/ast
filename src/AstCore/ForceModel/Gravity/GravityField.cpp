@@ -40,12 +40,33 @@ void aGravityFieldUnnormalize(GravityField &gf)
     gf.unnormalize();
 }
 
+/// @brief 从GMAT格式文件(.cof文件)加载重力场
+/// @param parser 解析器
+/// @return 错误码
 static err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityField *coeff);
+
+/// @brief 从STK格式文件(.grv文件)加载重力场
+/// @param parser 解析器
+/// @return 错误码
 static err_t loadGravityFieldSTK(BKVParser &parser, GravityFieldHead *head, GravityField *coeff);
+
+/// @brief 从GFC格式文件(.gfc文件)加载重力场
+/// @param parser 解析器
+/// @return 错误码
+static err_t loadGravityFieldGFC(BKVParser &parser, GravityFieldHead *head, GravityField *coeff);
+
+/// @brief 从文件加载重力场
+/// @param filepath 文件路径
+/// @return 错误码
 static err_t loadGravityField(StringView filepath, GravityFieldHead *head, GravityField *coeff);
 
 
-static err_t openGravityFile(BKVParser &parser, StringView model)
+/// @brief 打开重力场文件
+/// @param parser 解析器
+/// @param model 模型名称或文件路径
+/// @param filepath 输出文件路径
+/// @return 错误码
+static err_t openGravityFile(BKVParser &parser, StringView model, std::string& filepath)
 {
     parser.open(model);
     if(!parser.isOpen()){
@@ -55,7 +76,7 @@ static err_t openGravityFile(BKVParser &parser, StringView model)
         if(!has_dot && !has_dir_sep)
         {
             // 模型名称，添加默认路径
-            static const char* suffixes[]{ ".grv", ".cof" };
+            static const char* suffixes[]{ ".grv", ".cof", ".gfc" };
             std::string datadir = aDataDirGet() + "/SolarSystem/Earth/"; // @fixme: 非地球如何处理？
             // bool found = false;
             for(const char* suffix : suffixes)
@@ -65,12 +86,16 @@ static err_t openGravityFile(BKVParser &parser, StringView model)
                 {
                     parser.open(newfilepath);
                     if(parser.isOpen())
+                    {
+                        filepath = std::move(newfilepath);
                         return 0;
+                    }
                 }
             }
         }
         return eErrorInvalidFile;
     }
+    filepath = model.to_string();
     return 0;
 }
 
@@ -87,33 +112,39 @@ GravityField::GravityField()
 
 }
 
-err_t loadGravityField(StringView filepath, GravityFieldHead *head, GravityField *coeff)
+err_t loadGravityField(StringView model, GravityFieldHead *head, GravityField *coeff)
 {
     BKVParser parser;
-    parser.open(filepath);
-    if(err_t err = openGravityFile(parser, filepath))
+    std::string filepath;
+    if(err_t err = openGravityFile(parser, model, filepath))
     {
+        aError("failed to find gravity model %.*s", (int)model.size(), model.data());
         return err;
     }
+    model = filepath;
     StringView firstline = parser.getLine();
-    if(firstline.starts_with("COMMENT") || filepath.ends_with(".cof"))
+    if(firstline.starts_with("COMMENT") || model.ends_with(".cof"))
     {
         return loadGravityFieldGMAT(parser, head, coeff);
     }
-    else if(firstline.starts_with("stk") || filepath.ends_with(".grv"))
+    else if(firstline.starts_with("stk") || model.ends_with(".grv"))
     {
         return loadGravityFieldSTK(parser, head, coeff);
     }
+    else if(model.ends_with(".gfc"))
+    {
+        return loadGravityFieldGFC(parser, head, coeff);
+    }
     aError(
         "unsupported gravity field format, checking by first line: %s and filepath: %s", 
-        firstline.data(), filepath.data()
+        firstline.data(), model.data()
     );
     return eErrorParse;
 }
 
-err_t GravityField::load(StringView filepath)
+err_t GravityField::load(StringView model)
 {
-    return loadGravityField(filepath, nullptr, this);
+    return loadGravityField(model, nullptr, this);
 }
 
 /// @brief 计算重力场系数的归一化因子
@@ -211,14 +242,14 @@ err_t loadGravityFieldSTK(BKVParser &parser, GravityFieldHead *head, GravityFiel
                         &degree, &order, &cnm, &snm
                     );
                     if(status == 4){
-                        if(degree <= gf.maxDegree_ && order <= gf.maxOrder_)
+                        if(gf.isValidDegreeOrder(degree, order))
                         {
                             gf.snm(degree, order) = snm;
                             gf.cnm(degree, order) = cnm;
                         }else{
                             aError(
                                 "Invalid degree or order: %d %d, with max degree %d and max order %d", 
-                                degree, order, gf.maxDegree_, gf.maxOrder_
+                                degree, order, gf.getMaxDegree(), gf.getMaxOrder()
                             );
                             return eErrorParse;
                         }
@@ -261,7 +292,141 @@ err_t loadGravityFieldSTK(BKVParser &parser, GravityFieldHead *head, GravityFiel
         }
     }while(token != BKVParser::EToken::eEOF);
     if(head)
-        *head = gf;
+        *head = gf.getHead();
+    if(loadCoeff)
+        *coeff = std::move(gf);
+    return eNoError;
+}
+
+err_t loadGravityFieldGFC(BKVParser &parser, GravityFieldHead *head, GravityField *coeff)
+{
+    // 1. 查找关键词'product_type'
+    while (true)
+    {
+        StringView line = parser.getLineWithNewline();
+        if(line.empty()){
+            aError("missing 'product_type' keyword in .gfc file.");
+            return eErrorParse;
+        }
+        if(line.starts_with("product_type")){
+            StringView productType = aStripAsciiWhitespace(line.substr(12));
+            if(productType != "gravity_field"){
+                aError("unsupported product type: '%.*s', expected 'gravity_field'", productType.size(), productType.data());
+                return eErrorParse;
+            }
+            break;
+        }
+    }
+    GravityField gf;
+    gf.normalized_ = true;  // gfc文件系数默认归一化
+
+    bool hasErrors = false;
+    bool loadCoeff = coeff != nullptr;
+
+    // 2. 读取头部信息
+    {
+        BKVItemView item;
+        BKVParser::EToken token;
+        bool findMaxOrder = false;
+        do{
+            token = parser.getNext(item);
+            if(token == BKVParser::eKeyValue){
+                if(aEqualsIgnoreCase(item.key(), "modelname"))
+                {
+                    gf.model_ = item.value().toString();
+                }
+                else if(aEqualsIgnoreCase(item.key(), "earth_gravity_constant"))
+                {
+                    gf.centralBody_ = "Earth";
+                    gf.gm_ = item.value().toDouble();
+                }
+                else if(aEqualsIgnoreCase(item.key(), "radius"))
+                {
+                    gf.refDistance_ = item.value().toDouble();
+                }
+                else if(aEqualsIgnoreCase(item.key(), "max_degree"))
+                {
+                    gf.maxDegree_ = item.value().toInt();
+                    if(!findMaxOrder)
+                        gf.maxOrder_ = gf.maxDegree_;
+                }
+                else if(aEqualsIgnoreCase(item.key(), "max_order"))
+                {
+                    gf.maxOrder_ = item.value().toInt();
+                    findMaxOrder = true;
+                }
+                else if(aEqualsIgnoreCase(item.key(), "errors"))
+                {
+                    if(aEqualsIgnoreCase(item.value(), "no"))
+                        hasErrors = false;
+                    else if(aEqualsIgnoreCase(item.value(), "formal"))
+                        hasErrors = true;
+                }
+                else if(aEqualsIgnoreCase(item.key(), "norm")){
+                    if(aEqualsIgnoreCase(item.value(), "fully_normalized"))
+                        gf.normalized_ = true;
+                    else{
+                        // todo
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.key(), "tide_system"))
+                {
+                    if(aEqualsIgnoreCase(item.value(), "tide_free")){
+                        // todo
+                    }else if(aEqualsIgnoreCase(item.value(), "zero tide")){
+                        // todo
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.key(), "J2-DOT"))
+                {
+                    // todo
+                }
+                else if(aEqualsIgnoreCase(item.key(), "end_of_head"))
+                {
+                    break;
+                }
+            }
+        }while(token != BKVParser::EToken::eEOF);
+    }
+    // 3. 读取系数
+    if(loadCoeff){
+        gf.initCoeffMatrices();
+        while(true){
+            StringView line = parser.getLineWithNewline();
+            if(line.empty()){
+                break;
+            }
+            int status;
+            if(line.starts_with("gfc")){
+                StringView lineData = line.substr(3);
+                int degree, order;
+                double c, s;
+                if(hasErrors){
+                    double sigma_c, sigma_s;
+                    status = sscanf(lineData.data(), "%d %d %lf %lf %lf %lf", &degree, &order, &c, &s, &sigma_c, &sigma_s);
+                    if(status != 6){
+                        aError("invalid gfc line: '%.*s'", lineData.size(), lineData.data());
+                        return eErrorParse;
+                    }
+                }else{
+                    status = sscanf(lineData.data(), "%d %d %lf %lf", &degree, &order, &c, &s);
+                    if(status != 4){
+                        aError("invalid gfc line: '%.*s'", lineData.size(), lineData.data());
+                        return eErrorParse;
+                    }
+                }
+                if(gf.isValidDegreeOrder(degree, order)){
+                    gf.cnm(degree, order) = c;
+                    gf.snm(degree, order) = s;
+                }else{
+                    aError("gfc degree or order out of range: %d %d", degree, order);
+                    return eErrorParse;
+                }
+            }
+        }
+    }
+    if(head)
+        *head = gf.getHead();
     if(loadCoeff)
         *coeff = std::move(gf);
     return eNoError;
@@ -320,7 +485,7 @@ err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityFie
                 aError("Invalid coefficient line: %s", line.data());
                 return eErrorParse;
             }
-            if(degree <= gf.maxDegree_ && order <= gf.maxOrder_)
+            if(gf.isValidDegreeOrder(degree, order))
             {
                 gf.snm(degree, order) = snm;
                 gf.cnm(degree, order) = cnm;
@@ -338,7 +503,7 @@ err_t loadGravityFieldGMAT(BKVParser &parser, GravityFieldHead *head, GravityFie
         }
     }
     if(head)
-        *head = gf;
+        *head = gf.getHead();
     if(loadCoeff)
         *coeff = std::move(gf);
     return eNoError;
