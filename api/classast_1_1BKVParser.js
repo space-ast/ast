@@ -9,6 +9,7 @@ var classast_1_1BKVParser =
     [ "allowComment", "classast_1_1BKVParser.html#a63a52ed4f2a7c565015901f9bc82f385", null ],
     [ "close", "classast_1_1BKVParser.html#a1c71ecbd37b7d4af4076a4bac13fe6f1", null ],
     [ "eof", "classast_1_1BKVParser.html#a04210c967cff5dcf19f19c187bff56cb", null ],
+    [ "getFilePath", "classast_1_1BKVParser.html#a19ebc6532ea06307c1004dded2184c51", null ],
     [ "getLine", "classast_1_1BKVParser.html#a5d050645e706306bd4cd4148b1ff9bdd", null ],
     [ "getLineNumber", "classast_1_1BKVParser.html#a82276b173c31088ca4f4042d790b090e", null ],
     [ "getLineSkipComment", "classast_1_1BKVParser.html#ae9250e39c92322d981ea7e4a5b152a57", null ],

@@ -14,10 +14,12 @@ var searchData=
   ['jplde_11',['jplDe',['../classast_1_1DataContext.html#aa57fbc55b98b2beea264f876b63c3ba0',1,'ast::DataContext']]],
   ['jplde_2ecpp_12',['JplDe.cpp',['../JplDe_8cpp.html',1,'']]],
   ['jplde_2ehpp_13',['JplDe.hpp',['../JplDe_8hpp.html',1,'']]],
-  ['juliancenturyfromj2000_14',['julianCenturyFromJ2000',['../classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1',1,'ast::JulianDate']]],
-  ['juliancenturyfromj2000tt_15',['julianCenturyFromJ2000TT',['../classast_1_1TimePoint.html#a179367da0b2cd785b6e15474a1372090',1,'ast::TimePoint']]],
-  ['juliandate_16',['JulianDate',['../classast_1_1JulianDate.html',1,'ast']]],
-  ['juliandate_2ecpp_17',['JulianDate.cpp',['../JulianDate_8cpp.html',1,'']]],
-  ['juliandate_2ehpp_18',['JulianDate.hpp',['../JulianDate_8hpp.html',1,'']]],
-  ['jupiter_5f_19',['jupiter_',['../classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5',1,'ast::SolarSystem']]]
+  ['jplindex_5f_14',['jplIndex_',['../classast_1_1CelestialBody.html#a72449b5ffc3db85db7e75ab6cb804058',1,'ast::CelestialBody']]],
+  ['jplspiceid_5f_15',['jplSpiceId_',['../classast_1_1CelestialBody.html#a89419dd08fc39451be2d87de4d4f26d4',1,'ast::CelestialBody']]],
+  ['juliancenturyfromj2000_16',['julianCenturyFromJ2000',['../classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1',1,'ast::JulianDate']]],
+  ['juliancenturyfromj2000tt_17',['julianCenturyFromJ2000TT',['../classast_1_1TimePoint.html#a179367da0b2cd785b6e15474a1372090',1,'ast::TimePoint']]],
+  ['juliandate_18',['JulianDate',['../classast_1_1JulianDate.html',1,'ast']]],
+  ['juliandate_2ecpp_19',['JulianDate.cpp',['../JulianDate_8cpp.html',1,'']]],
+  ['juliandate_2ehpp_20',['JulianDate.hpp',['../JulianDate_8hpp.html',1,'']]],
+  ['jupiter_5f_21',['jupiter_',['../classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5',1,'ast::SolarSystem']]]
 ];

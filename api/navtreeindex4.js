@@ -55,6 +55,9 @@ var NAVTREEINDEX4 =
 "SpaceWeather_8cpp.html#a94f4cf75f889ec56c67b248dea11ef71":[4,0,0,2,3,7,0],
 "SpaceWeather_8hpp.html":[4,0,0,2,3,8],
 "SpaceWeather_8hpp_source.html":[4,0,0,2,3,8],
+"Span_8cpp.html":[4,0,0,11,6,14],
+"Span_8hpp.html":[4,0,0,11,6,15],
+"Span_8hpp_source.html":[4,0,0,11,6,15],
 "Sparse_8hpp.html":[4,0,0,5,0,3],
 "Sparse_8hpp_source.html":[4,0,0,5,0,3],
 "SphereShape_8hpp.html":[4,0,0,2,5,2,0,3],
@@ -148,7 +151,7 @@ var NAVTREEINDEX4 =
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,2,7,8,0],
 "TwoBody_8hpp.html":[4,0,0,2,7,9],
 "TwoBody_8hpp_source.html":[4,0,0,2,7,9],
-"TypeTraits_8hpp_source.html":[4,0,0,11,6,14],
+"TypeTraits_8hpp_source.html":[4,0,0,11,6,16],
 "Type_8hpp.html":[4,0,0,11,4,5],
 "Type_8hpp_source.html":[4,0,0,11,4,5],
 "Types_8cpp.html":[4,0,0,10,0,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "ValQuantity_8cpp.html":[4,0,0,10,8,10],
 "ValQuantity_8hpp.html":[4,0,0,10,8,11],
 "ValQuantity_8hpp_source.html":[4,0,0,10,8,11],
-"ValRange_8cpp.html":[4,0,0,10,8,12],
-"ValRange_8hpp.html":[4,0,0,10,8,13],
-"ValRange_8hpp_source.html":[4,0,0,10,8,13],
-"ValScalar_8hpp.html":[4,0,0,10,8,14]
+"ValRange_8cpp.html":[4,0,0,10,8,12]
 };

@@ -27,6 +27,9 @@ var group__Util =
       [ "parse", "classast_1_1Polynomial.html#a7c6b2814b7b8fc3f956720c4433a9ac1", null ],
       [ "toString", "classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4", null ]
     ] ],
+    [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
+    [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
+    [ "ast::Span< T, Extent >", "classast_1_1Span.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", [
       [ "WorkingDirectory", "classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97", null ]
     ] ],

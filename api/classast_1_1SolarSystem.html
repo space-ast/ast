@@ -111,6 +111,9 @@ $(function(){initNavTree('classast_1_1SolarSystem.html',''); initResizable(true)
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
+<tr class="memitem:adf0f60d31d769b957dbe1a193df19eca" id="r_adf0f60d31d769b957dbe1a193df19eca"><td class="memItemLeft" align="right" valign="top"><a id="adf0f60d31d769b957dbe1a193df19eca" name="adf0f60d31d769b957dbe1a193df19eca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+<tr class="separator:adf0f60d31d769b957dbe1a193df19eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1578ab5b567bc17c056ef87c9ea717c9" id="r_a1578ab5b567bc17c056ef87c9ea717c9"><td class="memItemLeft" align="right" valign="top"><a id="a1578ab5b567bc17c056ef87c9ea717c9" name="a1578ab5b567bc17c056ef87c9ea717c9"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dirpath)</td></tr>
 <tr class="separator:a1578ab5b567bc17c056ef87c9ea717c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +155,10 @@ err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadDefault</b> ()</
 <tr class="separator:af6350a447e1fbe7fcc6def88f9f965a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d2635b97e1b7ab2ef413401a57e3f03" id="r_a6d2635b97e1b7ab2ef413401a57e3f03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d2635b97e1b7ab2ef413401a57e3f03">getBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) const</td></tr>
 <tr class="separator:a6d2635b97e1b7ab2ef413401a57e3f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad340db934e89550a5e9b276f8a022a2f" id="r_ad340db934e89550a5e9b276f8a022a2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad340db934e89550a5e9b276f8a022a2f">addBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:ad340db934e89550a5e9b276f8a022a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44ac1bb328585c3176f3b50fd7a30613" id="r_a44ac1bb328585c3176f3b50fd7a30613"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44ac1bb328585c3176f3b50fd7a30613">getOrAddBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:a44ac1bb328585c3176f3b50fd7a30613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
 Protected 类型</h2></td></tr>
@@ -202,6 +209,37 @@ CelestialBodyMap&#160;</td><td class="memItemRight" valign="bottom"><b>bodies_</
 <div class="textblock"><p>太阳系 </p>
 <p>太阳系行星及行星卫星的集合， 包含水星、金星、地球、火星、木星、土星、天王星、海王星、冥王星、月球和太阳等。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="ad340db934e89550a5e9b276f8a022a2f" name="ad340db934e89550a5e9b276f8a022a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad340db934e89550a5e9b276f8a022a2f">&#9670;&#160;</a></span>addBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> * ast::SolarSystem::addBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加一个新的天体 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- 天体名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>天体指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6d2635b97e1b7ab2ef413401a57e3f03" name="a6d2635b97e1b7ab2ef413401a57e3f03"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d2635b97e1b7ab2ef413401a57e3f03">&#9670;&#160;</a></span>getBody()</h2>
 
@@ -218,6 +256,37 @@ CelestialBodyMap&#160;</td><td class="memItemRight" valign="bottom"><b>bodies_</
 </div><div class="memdoc">
 
 <p>获取指定名称的天体 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- 天体名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>天体指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a44ac1bb328585c3176f3b50fd7a30613" name="a44ac1bb328585c3176f3b50fd7a30613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44ac1bb328585c3176f3b50fd7a30613">&#9670;&#160;</a></span>getOrAddBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> * ast::SolarSystem::getOrAddBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取指定名称的天体，若不存在则添加 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>- 天体名称 </td></tr>

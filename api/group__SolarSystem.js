@@ -2,7 +2,20 @@ var group__SolarSystem =
 [
     [ "ast::CelestialBody", "classast_1_1CelestialBody.html", [
       [ "getGM", "classast_1_1CelestialBody.html#a5fef29d135109b4b53feedfe50dc5c01", null ],
-      [ "__pad0__", "classast_1_1CelestialBody.html#a48afe6423f3c1eaf4dc1c30a1abc9c52", null ]
+      [ "getGravityModel", "classast_1_1CelestialBody.html#a33a059f3a4383fdab0ee4f2fe4e5b669", null ],
+      [ "getName", "classast_1_1CelestialBody.html#aabf36d0dd7857c676e2d19a13c9c9291", null ],
+      [ "load", "classast_1_1CelestialBody.html#ab5cf7a5d454630f530f60696c347d317", null ],
+      [ "loadAstroDefinition", "classast_1_1CelestialBody.html#a29f646ce844d67e4a3ba6594cdf42f33", null ],
+      [ "loadEarth", "classast_1_1CelestialBody.html#ad5b66f1b2b4431668c2807f4b80c2846", null ],
+      [ "loadEphemerisData", "classast_1_1CelestialBody.html#a6a624ea14aa4c5552b9eb22a5ed8b249", null ],
+      [ "loadSpinData", "classast_1_1CelestialBody.html#aedb5faa6c8ec0dba3f23f97b04c93dbb", null ],
+      [ "__pad0__", "classast_1_1CelestialBody.html#a48afe6423f3c1eaf4dc1c30a1abc9c52", null ],
+      [ "gm_", "classast_1_1CelestialBody.html#a6ae555744def2ce98844f1847a3d76da", null ],
+      [ "gravityField_", "classast_1_1CelestialBody.html#a0145f811890c19e2d95ed0782fc83f66", null ],
+      [ "jplIndex_", "classast_1_1CelestialBody.html#a72449b5ffc3db85db7e75ab6cb804058", null ],
+      [ "jplSpiceId_", "classast_1_1CelestialBody.html#a89419dd08fc39451be2d87de4d4f26d4", null ],
+      [ "name_", "classast_1_1CelestialBody.html#a9f2f187b7604ce4ffd70561e61084bae", null ],
+      [ "systemGm_", "classast_1_1CelestialBody.html#a98986c5495c9b941b9de810ca26c7f35", null ]
     ] ],
     [ "ast::RotationalData", "classast_1_1RotationalData.html", [
       [ "getICRFToFixedMatrix", "classast_1_1RotationalData.html#a4add2cb3f94273a4a9fcdd5f0fd6f7b8", null ],
@@ -23,6 +36,7 @@ var group__SolarSystem =
       [ "evaluateZero", "classast_1_1RotationElement.html#aea22c9fc9d14ad8d5930023571a016da", null ]
     ] ],
     [ "ast::SolarSystem", "classast_1_1SolarSystem.html", [
+      [ "addBody", "classast_1_1SolarSystem.html#ad340db934e89550a5e9b276f8a022a2f", null ],
       [ "getBody", "classast_1_1SolarSystem.html#a6d2635b97e1b7ab2ef413401a57e3f03", null ],
       [ "getEarth", "classast_1_1SolarSystem.html#acc2a5ee7843495997f3c206b8f029aa8", null ],
       [ "getJupiter", "classast_1_1SolarSystem.html#a4ae4ee60d7295b20eb321866c82962fc", null ],
@@ -30,6 +44,7 @@ var group__SolarSystem =
       [ "getMercury", "classast_1_1SolarSystem.html#ab58c1489c58ed6fbf1e6d260e614e927", null ],
       [ "getMoon", "classast_1_1SolarSystem.html#a61e091a3319474fdaf90c770a7b20040", null ],
       [ "getNeptune", "classast_1_1SolarSystem.html#a54578aee92704a294903e9944e1cc833", null ],
+      [ "getOrAddBody", "classast_1_1SolarSystem.html#a44ac1bb328585c3176f3b50fd7a30613", null ],
       [ "getPluto", "classast_1_1SolarSystem.html#a803d359c06b01aec96787a75d4068169", null ],
       [ "getSaturn", "classast_1_1SolarSystem.html#a53aa7479f71ef11c851e4bcc2f8c24f3", null ],
       [ "getSun", "classast_1_1SolarSystem.html#af6350a447e1fbe7fcc6def88f9f965a9", null ],

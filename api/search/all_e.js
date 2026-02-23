@@ -2,7 +2,7 @@ var searchData=
 [
   ['n_0',['N',['../Unit_8cpp.html#aa855b6dee85a8685cc6cad69db006c8a',1,'ast::units']]],
   ['name_1',['name',['../classast_1_1Dimension.html#a6a3715c1814d2694fb1ed35a0e880609',1,'ast::Dimension::name()'],['../classast_1_1Unit.html#a94bbbb90d92a77c89ec2bb49147b31af',1,'ast::Unit::name()'],['../classast_1_1Field.html#accc7daac76fbaa390e3e008497812de2',1,'ast::Field::name()']]],
-  ['name_5f_2',['name_',['../classast_1_1DataPort.html#a1aa3acb06b2a0d8a659013387598b604',1,'ast::DataPort::name_'],['../classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5',1,'ast::Variable::name_'],['../classast_1_1Unit_1_1UnitRep.html#a6453c7742b1f87d042a8795162e95329',1,'ast::Unit::UnitRep::name_'],['../classast_1_1Field.html#af63b2a5e4dd425a4d3ccc1a3fa18c56c',1,'ast::Field::name_']]],
+  ['name_5f_2',['name_',['../classast_1_1DataPort.html#a1aa3acb06b2a0d8a659013387598b604',1,'ast::DataPort::name_'],['../classast_1_1CelestialBody.html#a9f2f187b7604ce4ffd70561e61084bae',1,'ast::CelestialBody::name_'],['../classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5',1,'ast::Variable::name_'],['../classast_1_1Unit_1_1UnitRep.html#a6453c7742b1f87d042a8795162e95329',1,'ast::Unit::UnitRep::name_'],['../classast_1_1Field.html#af63b2a5e4dd425a4d3ccc1a3fa18c56c',1,'ast::Field::name_']]],
   ['namelist_3',['Namelist',['../structNamelist.html',1,'']]],
   ['nan_4',['NaN',['../classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af',1,'ast::Quantity::NaN()'],['../classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617',1,'ast::Unit::NaN()']]],
   ['neptune_5f_5',['neptune_',['../classast_1_1SolarSystem.html#a245d5ae8a51b1358fefeb0c54153895b',1,'ast::SolarSystem']]],

@@ -1,5 +1,6 @@
 var classast_1_1SolarSystem =
 [
+    [ "addBody", "classast_1_1SolarSystem.html#ad340db934e89550a5e9b276f8a022a2f", null ],
     [ "getBody", "classast_1_1SolarSystem.html#a6d2635b97e1b7ab2ef413401a57e3f03", null ],
     [ "getEarth", "classast_1_1SolarSystem.html#acc2a5ee7843495997f3c206b8f029aa8", null ],
     [ "getJupiter", "classast_1_1SolarSystem.html#a4ae4ee60d7295b20eb321866c82962fc", null ],
@@ -7,6 +8,7 @@ var classast_1_1SolarSystem =
     [ "getMercury", "classast_1_1SolarSystem.html#ab58c1489c58ed6fbf1e6d260e614e927", null ],
     [ "getMoon", "classast_1_1SolarSystem.html#a61e091a3319474fdaf90c770a7b20040", null ],
     [ "getNeptune", "classast_1_1SolarSystem.html#a54578aee92704a294903e9944e1cc833", null ],
+    [ "getOrAddBody", "classast_1_1SolarSystem.html#a44ac1bb328585c3176f3b50fd7a30613", null ],
     [ "getPluto", "classast_1_1SolarSystem.html#a803d359c06b01aec96787a75d4068169", null ],
     [ "getSaturn", "classast_1_1SolarSystem.html#a53aa7479f71ef11c851e4bcc2f8c24f3", null ],
     [ "getSun", "classast_1_1SolarSystem.html#af6350a447e1fbe7fcc6def88f9f965a9", null ],

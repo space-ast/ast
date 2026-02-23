@@ -100,7 +100,8 @@ $(function(){initNavTree('classast_1_1CelestialBody.html',''); initResizable(tru
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1CelestialBody-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::CelestialBody类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__SolarSystem.html">太阳系</a></div></div></div>
 </div><!--header-->
@@ -121,6 +122,14 @@ $(function(){initNavTree('classast_1_1CelestialBody.html',''); initResizable(tru
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
+<tr class="memitem:aabf36d0dd7857c676e2d19a13c9c9291" id="r_aabf36d0dd7857c676e2d19a13c9c9291"><td class="memItemLeft" align="right" valign="top"><a id="aabf36d0dd7857c676e2d19a13c9c9291" name="aabf36d0dd7857c676e2d19a13c9c9291"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
+<tr class="separator:aabf36d0dd7857c676e2d19a13c9c9291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a059f3a4383fdab0ee4f2fe4e5b669" id="r_a33a059f3a4383fdab0ee4f2fe4e5b669"><td class="memItemLeft" align="right" valign="top"><a id="a33a059f3a4383fdab0ee4f2fe4e5b669" name="a33a059f3a4383fdab0ee4f2fe4e5b669"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGravityModel</b> () const</td></tr>
+<tr class="separator:a33a059f3a4383fdab0ee4f2fe4e5b669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5cf7a5d454630f530f60696c347d317" id="r_ab5cf7a5d454630f530f60696c347d317"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5cf7a5d454630f530f60696c347d317">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
+<tr class="separator:ab5cf7a5d454630f530f60696c347d317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fef29d135109b4b53feedfe50dc5c01" id="r_a5fef29d135109b4b53feedfe50dc5c01"><td class="memItemLeft" align="right" valign="top"><a id="a5fef29d135109b4b53feedfe50dc5c01" name="a5fef29d135109b4b53feedfe50dc5c01"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getGM</b> () const</td></tr>
 <tr class="separator:a5fef29d135109b4b53feedfe50dc5c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,15 +176,45 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getGM</b> () const<
 <tr class="memitem:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object" id="r_aecd84a95fab6db0c0efb7fb34863b11c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c">decRefNoDelete</a> ()</td></tr>
 <tr class="separator:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public 属性</h2></td></tr>
-<tr class="memitem:a48afe6423f3c1eaf4dc1c30a1abc9c52" id="r_a48afe6423f3c1eaf4dc1c30a1abc9c52"><td class="memItemLeft" align="right" valign="top"><a id="a48afe6423f3c1eaf4dc1c30a1abc9c52" name="a48afe6423f3c1eaf4dc1c30a1abc9c52"></a>
-PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: double gm_</td></tr>
-<tr class="separator:a48afe6423f3c1eaf4dc1c30a1abc9c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-额外继承的成员函数</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a29f646ce844d67e4a3ba6594cdf42f33" id="r_a29f646ce844d67e4a3ba6594cdf42f33"><td class="memItemLeft" align="right" valign="top"><a id="a29f646ce844d67e4a3ba6594cdf42f33" name="a29f646ce844d67e4a3ba6594cdf42f33"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadAstroDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
+<tr class="separator:a29f646ce844d67e4a3ba6594cdf42f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb5faa6c8ec0dba3f23f97b04c93dbb" id="r_aedb5faa6c8ec0dba3f23f97b04c93dbb"><td class="memItemLeft" align="right" valign="top"><a id="aedb5faa6c8ec0dba3f23f97b04c93dbb" name="aedb5faa6c8ec0dba3f23f97b04c93dbb"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadSpinData</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
+<tr class="separator:aedb5faa6c8ec0dba3f23f97b04c93dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a624ea14aa4c5552b9eb22a5ed8b249" id="r_a6a624ea14aa4c5552b9eb22a5ed8b249"><td class="memItemLeft" align="right" valign="top"><a id="a6a624ea14aa4c5552b9eb22a5ed8b249" name="a6a624ea14aa4c5552b9eb22a5ed8b249"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadEphemerisData</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
+<tr class="separator:a6a624ea14aa4c5552b9eb22a5ed8b249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5b66f1b2b4431668c2807f4b80c2846" id="r_ad5b66f1b2b4431668c2807f4b80c2846"><td class="memItemLeft" align="right" valign="top"><a id="ad5b66f1b2b4431668c2807f4b80c2846" name="ad5b66f1b2b4431668c2807f4b80c2846"></a>
+err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadEarth</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
+<tr class="separator:ad5b66f1b2b4431668c2807f4b80c2846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a48afe6423f3c1eaf4dc1c30a1abc9c52" id="r_a48afe6423f3c1eaf4dc1c30a1abc9c52"><td class="memItemLeft" align="right" valign="top"><a id="a48afe6423f3c1eaf4dc1c30a1abc9c52" name="a48afe6423f3c1eaf4dc1c30a1abc9c52"></a>
+PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a>&gt; parent_</td></tr>
+<tr class="separator:a48afe6423f3c1eaf4dc1c30a1abc9c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2f187b7604ce4ffd70561e61084bae" id="r_a9f2f187b7604ce4ffd70561e61084bae"><td class="memItemLeft" align="right" valign="top"><a id="a9f2f187b7604ce4ffd70561e61084bae" name="a9f2f187b7604ce4ffd70561e61084bae"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="separator:a9f2f187b7604ce4ffd70561e61084bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ae555744def2ce98844f1847a3d76da" id="r_a6ae555744def2ce98844f1847a3d76da"><td class="memItemLeft" align="right" valign="top"><a id="a6ae555744def2ce98844f1847a3d76da" name="a6ae555744def2ce98844f1847a3d76da"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>gm_</b> {0.0}</td></tr>
+<tr class="separator:a6ae555744def2ce98844f1847a3d76da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98986c5495c9b941b9de810ca26c7f35" id="r_a98986c5495c9b941b9de810ca26c7f35"><td class="memItemLeft" align="right" valign="top"><a id="a98986c5495c9b941b9de810ca26c7f35" name="a98986c5495c9b941b9de810ca26c7f35"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>systemGm_</b> {0.0}</td></tr>
+<tr class="separator:a98986c5495c9b941b9de810ca26c7f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89419dd08fc39451be2d87de4d4f26d4" id="r_a89419dd08fc39451be2d87de4d4f26d4"><td class="memItemLeft" align="right" valign="top"><a id="a89419dd08fc39451be2d87de4d4f26d4" name="a89419dd08fc39451be2d87de4d4f26d4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>jplSpiceId_</b> {-1}</td></tr>
+<tr class="separator:a89419dd08fc39451be2d87de4d4f26d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72449b5ffc3db85db7e75ab6cb804058" id="r_a72449b5ffc3db85db7e75ab6cb804058"><td class="memItemLeft" align="right" valign="top"><a id="a72449b5ffc3db85db7e75ab6cb804058" name="a72449b5ffc3db85db7e75ab6cb804058"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>jplIndex_</b> {-1}</td></tr>
+<tr class="separator:a72449b5ffc3db85db7e75ab6cb804058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0145f811890c19e2d95ed0782fc83f66" id="r_a0145f811890c19e2d95ed0782fc83f66"><td class="memItemLeft" align="right" valign="top"><a id="a0145f811890c19e2d95ed0782fc83f66" name="a0145f811890c19e2d95ed0782fc83f66"></a>
+<a class="el" href="classast_1_1GravityField.html">GravityField</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravityField_</b></td></tr>
+<tr class="separator:a0145f811890c19e2d95ed0782fc83f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a6c877404cdffe6b9ad0fe03755c57148 inherit pro_attribs_classast_1_1Object" id="r_a6c877404cdffe6b9ad0fe03755c57148"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_type</b></td></tr>
@@ -189,8 +228,41 @@ std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>天体 </p>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ab5cf7a5d454630f530f60696c347d317" name="ab5cf7a5d454630f530f60696c347d317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cf7a5d454630f530f60696c347d317">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::CelestialBody::load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从文件加载天体数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>- 天体数据文件路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>错误码 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/SolarSystem/<a class="el" href="CelestialBody_8hpp_source.html">CelestialBody.hpp</a></li>
+<li>src/AstCore/SolarSystem/<a class="el" href="CelestialBody_8cpp.html">CelestialBody.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

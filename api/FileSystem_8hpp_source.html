@@ -137,7 +137,7 @@ $(function(){initNavTree('FileSystem_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// 如果 c++ 标准库没有 filesystem功能，则切换到ast项目对filesystem功能的简化实现</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#if defined _A_STD_FILESYSTEM &amp;&amp; defined AST_USE_STD_FILESYSTEM</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#if defined(_A_STD_FILESYSTEM) &amp;&amp; defined(AST_USE_STD_FILESYSTEM)</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// #pragma message(&quot;use std::filesystem&quot;)</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">namespace </span>filesystem = _A_STD_FILESYSTEM;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#else</span></div>
