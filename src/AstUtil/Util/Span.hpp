@@ -38,13 +38,13 @@ constexpr size_t dynamic_extent = static_cast<size_t>(-1);
 template<typename T, size_t Extent>
 class SpanStorage{
 public:
-    SpanStorage(T* data, size_t size) noexcept 
+    A_CONSTEXPR_CXX14 SpanStorage(T* data, size_t size) noexcept 
         : data_(data) 
     {
         static_assert(size == Extent, "Size must match the extent for fixed-size spans");
     }
     T* data() const noexcept { return data_; }
-    constexpr size_t size() const noexcept { return Extent; }
+    A_CONSTEXPR_CXX14 size_t size() const noexcept { return Extent; }
 public:
     T* data_;
 };
@@ -110,6 +110,7 @@ public:
     constexpr Span(const std::array<U, N>& arr) noexcept
         : storage_(arr.data(), N) {}
 
+#if 0 // 暂时不支持其他容器类型，因为无法确定其内存是否连续
     template <typename Container>
     constexpr Span(Container& cont) noexcept
         : storage_(cont.data(), cont.size()) {}
@@ -117,6 +118,7 @@ public:
     template <typename Container>
     constexpr Span(const Container& cont) noexcept
         : storage_(cont.data(), cont.size()) {}
+#endif
 
     // 元素访问
     constexpr reference operator[](index_type idx) const noexcept {

@@ -83,10 +83,14 @@ static err_t openGravityFile(BKVParser &parser, StringView model, std::string& f
 	    bool no_dir_sep = last_slash == StringView::npos;
         Span<char const* const> suffixes;
         std::vector<std::string> prefixes;
-        if(no_dot)
-            suffixes = {".grv", ".cof", ".gfc" };
-        else
-            suffixes = { "" };
+        if(no_dot){
+            static const char* suffixes1[] = {".grv", ".cof", ".gfc" };
+            suffixes = suffixes1;
+        }
+        else{
+            static const char* suffixes2[] = {""};
+            suffixes = suffixes2;
+        }
         if(no_dir_sep){
             prefixes = {
                 "",
