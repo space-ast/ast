@@ -24,7 +24,7 @@
 #include <cwchar>       // for wchar_t, wprintf, ...
 #include <cstdio>       // for std::fopen, std::printf, ...
 #include <cstdarg>      // for va_list, va_start, va_end
-
+#include <string>       // for std::string
 
 // 只有当启用命名空间且定义了AST_ENABLE_OVERRIDE_STDLIB时，才覆盖标准库的函数
 // 避免在极端情况下的名称冲突，例如using namespace std; using namespace ast; 虽然这不是推荐的做法
@@ -154,7 +154,26 @@ AST_UTIL_CAPI int ast_printf(const char* format, ...);
 /// @brief 获取文件当前行号
 /// @param file 文件指针
 /// @return 当前行号，从1开始计数
-AST_UTIL_API int aCurrentLineNumber(std::FILE* file);
+AST_UTIL_CAPI int aCurrentLineNumber(std::FILE* file);
+
+
+/// @brief 获取文件路径
+/// @param file 文件指针
+/// @param filepath 输出文件路径，utf-8编码
+/// @return 错误码
+AST_UTIL_CAPI err_t aGetFilePath(std::FILE* file, std::string& filepath);
+
+
+/// @brief 获取文件路径
+/// @param file 文件指针
+/// @return 文件路径，utf-8编码
+A_ALWAYS_INLINE std::string aGetFilePath(std::FILE* file)
+{
+    std::string filepath;
+    err_t rc = aGetFilePath(file, filepath);
+    A_UNUSED(rc);
+    return filepath;
+}
 
 
 

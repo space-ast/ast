@@ -19,10 +19,18 @@
  
 #include "IO.hpp"
 #include "AstUtil/Encode.hpp"
+#include "AstUtil/Logger.hpp"
 #include <clocale>              // for _create_locale, _free_locale
 #include <cstdarg>              // for va_list, va_start, va_end
 #include <memory>               // for std::unique_ptr
 #include <type_traits>          // for std::remove_pointer
+#ifdef _WIN32
+#include <windows.h>            // for Windows API
+#include <io.h>                 // for _get_osfhandle
+#else
+#include <fcntl.h>              // for fcntl, F_GETPATH
+#include <unistd.h>             // for fileno
+#endif
 
 
 AST_NAMESPACE_BEGIN
@@ -48,16 +56,20 @@ _locale_t _ast_locale_ensure()
             "zh_CN.UTF-8",
             "en_US.UTF-8",
             "C.UTF-8",
+            "C",
             ""
     };
 
-    if (!t_locale) {
+    if (A_UNLIKELY(!t_locale)) {
         for (const char* locale_str : locale_strs) {
             _locale_t locale = _create_locale(LC_ALL, locale_str);
             if (locale) {
                 t_locale.reset(locale);
                 break;
             }
+        }
+        if (!t_locale) {
+            aError("failed to create locale");
         }
     }
     return t_locale.get();
@@ -173,12 +185,14 @@ int aCurrentLineNumber(std::FILE *file)
     
     long currentPos = ftell(file);  // 保存当前位置
     if (currentPos == -1L) {
+        aError("failed to get file position");
         return -1;  // 错误：无法获取文件位置
     }
     
     // 移动到文件开头
     if (fseek(file, 0, SEEK_SET) != 0) {
-        return -1;  // 错误：无法移动文件指针
+        aError("failed to move file pointer to the beginning");
+        return -1;  // 错误：无法移动文件指针到开头
     }
     
     int lineCount = 1;  // 行号从1开始
@@ -192,12 +206,75 @@ int aCurrentLineNumber(std::FILE *file)
     }
     
     // 恢复原始位置
-    fseek(file, currentPos, SEEK_SET);
+    if (fseek(file, currentPos, SEEK_SET) != 0) {
+        aError("failed to move file pointer to the original position");
+        return -1;  // 错误：无法移动文件指针到原始位置
+    }
     
     return lineCount;
 }
 
+err_t aGetFilePath(std::FILE *file, std::string &filepath)
+{
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
 
+#ifdef _WIN32
+    // Windows平台实现
+    HANDLE hFile = (HANDLE)_get_osfhandle(_fileno(file));
+    if (hFile == INVALID_HANDLE_VALUE) {
+        aError("failed to get file handle");
+        return eErrorInvalidFile;
+    }
+
+    // 首先尝试获取路径大小
+    DWORD pathSize = GetFinalPathNameByHandleW(hFile, NULL, 0, FILE_NAME_NORMALIZED);
+    if (pathSize == 0) {
+        aError("failed to get file path size");
+        return eErrorInvalidParam;
+    }
+
+    // 分配缓冲区并获取路径
+    std::wstring wpath(pathSize, L'\0');
+    pathSize = GetFinalPathNameByHandleW(hFile, &wpath[0], pathSize, FILE_NAME_NORMALIZED);
+    if (pathSize == 0) {
+        aError("failed to get file path");
+        return eErrorInvalidParam;
+    }
+
+    // 移除"\\?\"前缀（如果存在）
+    if (wpath.size() >= 4 && wpath.substr(0, 4) == L"\\\\?\\") {
+        wpath = wpath.substr(4);
+    }
+
+    // 转换为UTF-8
+    aWideToUtf8(wpath.c_str(), filepath);
+    return eNoError;
+#else
+    // POSIX平台实现
+    int fd = fileno(file);
+    if (fd == -1) {
+        aError("failed to get file descriptor");
+        return eErrorInvalidParam;
+    }
+
+    // 使用fcntl获取路径
+    char path[PATH_MAX];
+    if (fcntl(fd, F_GETPATH, path) != -1) {
+        filepath = path;
+        return eNoError;
+    }
+
+    char proc_path[256];
+    snprintf(proc_path, sizeof(proc_path), "/proc/self/fd/%d", fd);
+    ssize_t len = readlink(proc_path, path, sizeof(path) - 1);
+    if (len == -1) 
+        return eErrorInvalidParam;
+    path[len] = '\0';
+    filepath = path;
+    return eNoError;
+#endif
+}
 
 AST_NAMESPACE_END
-

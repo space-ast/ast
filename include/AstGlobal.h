@@ -298,6 +298,7 @@ class Axes;
 class Point;
 
 class Identifier;           ///< 标识符
+class BKVParser;            ///< BKV解析器
 
 #endif
 
