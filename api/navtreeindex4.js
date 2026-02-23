@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"SecantSolver_8hpp.html":[4,0,0,5,4,0,8],
 "SecantSolver_8hpp_source.html":[4,0,0,5,4,0,8],
 "SimEngine_8cpp.html":[4,0,0,2,7,1,12],
 "SimEngine_8hpp.html":[4,0,0,2,7,1,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "ValRange_8cpp.html":[4,0,0,10,8,12],
 "ValRange_8hpp.html":[4,0,0,10,8,13],
 "ValRange_8hpp_source.html":[4,0,0,10,8,13],
-"ValScalar_8hpp.html":[4,0,0,10,8,14],
-"ValScalar_8hpp_source.html":[4,0,0,10,8,14]
+"ValScalar_8hpp.html":[4,0,0,10,8,14]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX19 =
 {
+"namespaceast_1_1literals.html#a9f03b2451f56628810eba0ecc1dea484":[2,0,0,1,17],
+"namespaceast_1_1literals.html#aa282faa6ad8c82763e3ba420523e0043":[2,0,0,1,4],
+"namespaceast_1_1literals.html#aa7dd550cd1c54eabcc7db38d1be4c1b1":[2,0,0,1,13],
 "namespaceast_1_1literals.html#aa8ca60375d84bce6a5b961580749b5ac":[2,0,0,1,30],
 "namespaceast_1_1literals.html#aac555008a40efd5890be60a7f2367dfb":[2,0,0,1,18],
 "namespaceast_1_1literals.html#ab2098f1491323d42ea31a75d65a2cf3c":[2,0,0,1,2],

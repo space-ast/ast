@@ -163,8 +163,12 @@ A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::a
 <tr class="memitem:ga86f36b18f798b1a50be84a8c0dff1c1e" id="r_ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top"><a id="ga86f36b18f798b1a50be84a8c0dff1c1e" name="ga86f36b18f798b1a50be84a8c0dff1c1e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (const char *format,...)</td></tr>
 <tr class="separator:ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga33ba0d9d87a56df2b6cf9a06df0fa6bd" id="r_ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
-<tr class="separator:ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19bcda407eb5e7e67ab74ccc0f8f5a23" id="r_ga19bcda407eb5e7e67ab74ccc0f8f5a23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga19bcda407eb5e7e67ab74ccc0f8f5a23">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
+<tr class="separator:ga19bcda407eb5e7e67ab74ccc0f8f5a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94be012c6354bd2451f5d3bd19cbdc96" id="r_ga94be012c6354bd2451f5d3bd19cbdc96"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga94be012c6354bd2451f5d3bd19cbdc96">ast::aGetFilePath</a> (std::FILE *file, std::string &amp;filepath)</td></tr>
+<tr class="separator:ga94be012c6354bd2451f5d3bd19cbdc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga696e5be3337a541eac1e81388379802f" id="r_ga696e5be3337a541eac1e81388379802f"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga696e5be3337a541eac1e81388379802f">ast::aGetFilePath</a> (std::FILE *file)</td></tr>
+<tr class="separator:ga696e5be3337a541eac1e81388379802f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ae35e43fab9b520dd904d744ba64ed4" id="r_ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4ae35e43fab9b520dd904d744ba64ed4">ast::aLoadLibrary</a> (const char *filepath)</td></tr>
 <tr class="separator:ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0f4600dceeffcc4993b66d33a3b8e680" id="r_ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a> (void *lib, const char *funcName)</td></tr>
@@ -205,14 +209,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 
 </div>
 </div>
-<a id="ga33ba0d9d87a56df2b6cf9a06df0fa6bd" name="ga33ba0d9d87a56df2b6cf9a06df0fa6bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">&#9670;&#160;</a></span>aCurrentLineNumber()</h2>
+<a id="ga19bcda407eb5e7e67ab74ccc0f8f5a23" name="ga19bcda407eb5e7e67ab74ccc0f8f5a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19bcda407eb5e7e67ab74ccc0f8f5a23">&#9670;&#160;</a></span>aCurrentLineNumber()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_UTIL_API int ast::aCurrentLineNumber </td>
+          <td class="memname">AST_UTIL_CAPI int ast::aCurrentLineNumber </td>
           <td>(</td>
           <td class="paramtype">std::FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
           <td></td>
@@ -296,6 +300,63 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>0: 成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga696e5be3337a541eac1e81388379802f" name="ga696e5be3337a541eac1e81388379802f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga696e5be3337a541eac1e81388379802f">&#9670;&#160;</a></span>aGetFilePath() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE std::string ast::aGetFilePath </td>
+          <td>(</td>
+          <td class="paramtype">std::FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取文件路径 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>文件路径，utf-8编码 </dd></dl>
+
+</div>
+</div>
+<a id="ga94be012c6354bd2451f5d3bd19cbdc96" name="ga94be012c6354bd2451f5d3bd19cbdc96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94be012c6354bd2451f5d3bd19cbdc96">&#9670;&#160;</a></span>aGetFilePath() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI err_t ast::aGetFilePath </td>
+          <td>(</td>
+          <td class="paramtype">std::FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取文件路径 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
+    <tr><td class="paramname">filepath</td><td>输出文件路径，utf-8编码 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>

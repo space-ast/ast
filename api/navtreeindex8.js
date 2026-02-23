@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"classast_1_1GeocentricPoint.html#ad736e724d00ca8e9e49a845d71371995":[3,0,0,99,1],
 "classast_1_1GeodeticPoint.html":[2,0,0,103],
 "classast_1_1GeodeticPoint.html":[3,0,0,101],
 "classast_1_1GeodeticPoint.html#a39e311b241d7d034841416b92419c5c6":[2,0,0,103,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "classast_1_1HPOPEquation.html#a3505487084841d1a9382d2ddc16aaa3f":[3,0,0,114,1],
 "classast_1_1HPOPEquation.html#a3accc94eaef2d5abd3bc134202770c48":[2,0,0,116,7],
 "classast_1_1HPOPEquation.html#a3accc94eaef2d5abd3bc134202770c48":[3,0,0,114,7],
-"classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed":[2,0,0,116,4],
-"classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed":[3,0,0,114,4]
+"classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed":[2,0,0,116,4]
 };

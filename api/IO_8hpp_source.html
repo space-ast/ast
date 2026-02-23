@@ -109,7 +109,7 @@ $(function(){initNavTree('IO_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;cwchar&gt;</span>       <span class="comment">// for wchar_t, wprintf, ...</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;cstdio&gt;</span>       <span class="comment">// for std::fopen, std::printf, ...</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;cstdarg&gt;</span>      <span class="comment">// for va_list, va_start, va_end</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;string&gt;</span>       <span class="comment">// for std::string</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// 只有当启用命名空间且定义了AST_ENABLE_OVERRIDE_STDLIB时，才覆盖标准库的函数</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// 避免在极端情况下的名称冲突，例如using namespace std; using namespace ast; 虽然这不是推荐的做法</span></div>
@@ -201,13 +201,28 @@ $(function(){initNavTree('IO_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>AST_UTIL_API <span class="keywordtype">int</span> <a class="code hl_function" href="group__Platform.html#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">aCurrentLineNumber</a>(std::FILE* file);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>AST_UTIL_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="group__Platform.html#ga19bcda407eb5e7e67ab74ccc0f8f5a23">aCurrentLineNumber</a>(std::FILE* file);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>AST_UTIL_CAPI err_t <a class="code hl_function" href="group__Platform.html#ga94be012c6354bd2451f5d3bd19cbdc96">aGetFilePath</a>(std::FILE* file, std::string&amp; filepath);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="ttc" id="agroup__Platform_html_ga33ba0d9d87a56df2b6cf9a06df0fa6bd"><div class="ttname"><a href="group__Platform.html#ga33ba0d9d87a56df2b6cf9a06df0fa6bd">ast::aCurrentLineNumber</a></div><div class="ttdeci">int aCurrentLineNumber(std::FILE *file)</div><div class="ttdoc">获取文件当前行号</div><div class="ttdef"><b>定义</b> IO.cpp:168</div></div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="group__Platform.html#ga696e5be3337a541eac1e81388379802f">  170</a></span>A_ALWAYS_INLINE std::string <a class="code hl_function" href="group__Platform.html#ga94be012c6354bd2451f5d3bd19cbdc96">aGetFilePath</a>(std::FILE* file)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>{</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    std::string filepath;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    err_t rc = <a class="code hl_function" href="group__Platform.html#ga94be012c6354bd2451f5d3bd19cbdc96">aGetFilePath</a>(file, filepath);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    A_UNUSED(rc);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> filepath;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="ttc" id="agroup__Platform_html_ga19bcda407eb5e7e67ab74ccc0f8f5a23"><div class="ttname"><a href="group__Platform.html#ga19bcda407eb5e7e67ab74ccc0f8f5a23">ast::aCurrentLineNumber</a></div><div class="ttdeci">int aCurrentLineNumber(std::FILE *file)</div><div class="ttdoc">获取文件当前行号</div><div class="ttdef"><b>定义</b> IO.cpp:180</div></div>
+<div class="ttc" id="agroup__Platform_html_ga94be012c6354bd2451f5d3bd19cbdc96"><div class="ttname"><a href="group__Platform.html#ga94be012c6354bd2451f5d3bd19cbdc96">ast::aGetFilePath</a></div><div class="ttdeci">err_t aGetFilePath(std::FILE *file, std::string &amp;filepath)</div><div class="ttdoc">获取文件路径</div><div class="ttdef"><b>定义</b> IO.cpp:217</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

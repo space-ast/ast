@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Platform/IO.cpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Data/Context/RunTimeData.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('IO_8cpp.html',''); initResizable(true); });
+$(function(){initNavTree('RunTimeData_8hpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -98,49 +98,31 @@ $(function(){initNavTree('IO_8cpp.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#func-members">函数</a>  </div>
-  <div class="headertitle"><div class="title">IO.cpp 文件参考</div></div>
+  <div class="headertitle"><div class="title">RunTimeData.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="IO_8hpp_source.html">IO.hpp</a>&quot;</code><br />
-<code>#include &quot;AstUtil/Encode.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
-<code>#include &lt;clocale&gt;</code><br />
-<code>#include &lt;cstdarg&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;type_traits&gt;</code><br />
-<code>#include &lt;fcntl.h&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-命名空间</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-函数</h2></td></tr>
-<tr class="memitem:ga86f36b18f798b1a50be84a8c0dff1c1e" id="r_ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (const char *format,...)</td></tr>
-<tr class="separator:ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga19bcda407eb5e7e67ab74ccc0f8f5a23" id="r_ga19bcda407eb5e7e67ab74ccc0f8f5a23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga19bcda407eb5e7e67ab74ccc0f8f5a23">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
-<tr class="separator:ga19bcda407eb5e7e67ab74ccc0f8f5a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga94be012c6354bd2451f5d3bd19cbdc96" id="r_ga94be012c6354bd2451f5d3bd19cbdc96"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga94be012c6354bd2451f5d3bd19cbdc96">ast::aGetFilePath</a> (std::FILE *file, std::string &amp;filepath)</td></tr>
-<tr class="separator:ga94be012c6354bd2451f5d3bd19cbdc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="RunTimeEOP_8hpp_source.html">RunTimeEOP.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RunTimeJplDe_8hpp_source.html">RunTimeJplDe.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RunTimeLeapSecond_8hpp_source.html">RunTimeLeapSecond.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RunTimeSolarSystem_8hpp_source.html">RunTimeSolarSystem.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RunTimeXYS_8hpp_source.html">RunTimeXYS.hpp</a>&quot;</code><br />
+</div>
+<p><a href="RunTimeData_8hpp_source.html">浏览该文件的源代码.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p><br  />
- </p>
+<div class="textblock"><p>~ </p>
 <p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
-<dl class="section date"><dt>日期</dt><dd>30.11.2025 </dd></dl>
-<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目. </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-01-24 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_58f1c1acee87c1819259ff24dc93e089.html">Platform</a></li><li class="navelem"><a class="el" href="IO_8cpp.html">IO.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_a0626de0dc3d3eb2f19b4cf1f78690c4.html">Data</a></li><li class="navelem"><a class="el" href="dir_9ee1a7d731e81e836c3ad9833d421101.html">Context</a></li><li class="navelem"><a class="el" href="RunTimeData_8hpp.html">RunTimeData.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

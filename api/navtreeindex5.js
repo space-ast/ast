@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"ValScalar_8hpp_source.html":[4,0,0,10,8,14],
 "ValString_8cpp.html":[4,0,0,10,8,15],
 "ValString_8hpp.html":[4,0,0,10,8,16],
 "ValString_8hpp_source.html":[4,0,0,10,8,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "classast_1_1BlockRelationalOperator.html#aeeae5c35dc395ff8f8485c92ae54749c":[3,0,0,34,2],
 "classast_1_1BlockSaturation.html":[2,0,0,37],
 "classast_1_1BlockSaturation.html":[3,0,0,35],
-"classast_1_1BlockSaturation.html#a19fa503c6204e4e9a6341dc4ddf6b4c9":[2,0,0,37,4],
-"classast_1_1BlockSaturation.html#a19fa503c6204e4e9a6341dc4ddf6b4c9":[3,0,0,35,4]
+"classast_1_1BlockSaturation.html#a19fa503c6204e4e9a6341dc4ddf6b4c9":[2,0,0,37,4]
 };
