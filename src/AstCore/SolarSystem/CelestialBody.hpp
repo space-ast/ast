@@ -22,6 +22,7 @@
  
 #include "AstGlobal.h"
 #include "AstCore/Object.hpp"
+#include "AstCore/GravityField.hpp"
  
 AST_NAMESPACE_BEGIN
 
@@ -38,13 +39,42 @@ public:
     CelestialBody() = default;
     ~CelestialBody() = default;
 
+    /// @brief 获取天体名称
+    const std::string& getName() const { return name_; }
+
+    /// @brief 获取重力模型名称
+    const std::string& getGravityModel() const{ return gravityField_.getModelName(); }
+
+    /// @brief 从文件加载天体数据
+    /// @param  filepath    - 天体数据文件路径
+    /// @retval             - 错误码
+    err_t load(StringView filepath);
+
     /// @brief 获取引力常数
     double getGM() const { return gm_; }
 
-    
+
+protected:
+    /// @brief 加载相关的天文参数
+    err_t loadAstroDefinition(BKVParser& parser);
+
+    /// @brief 加载旋转数据
+    err_t loadSpinData(BKVParser& parser);
+
+    /// @brief 加载星历相关参数
+    err_t loadEphemerisData(BKVParser& parser);
+
+    /// @brief 加载地球相关参数
+    err_t loadEarth(BKVParser& parser);    
 
 PROPERTIES:
-    double gm_; ///< 引力常数
+    SharedPtr<CelestialBody> parent_;          ///< 父天体
+    std::string     name_;                     ///< 天体名称
+    double          gm_{0.0};                  ///< 引力常数
+    double          systemGm_{0.0};            ///< 系统引力常数
+    int             jplSpiceId_{-1};           ///< JPL SPICE ID
+    int             jplIndex_{-1};             ///< JPL Index
+    GravityField    gravityField_;             ///< 重力场
 };
 
 /*! @} */

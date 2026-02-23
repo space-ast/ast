@@ -274,37 +274,7 @@ namespace fs_simple
     #endif
     }
 
-    bool is_directory(const path& p)
-    {
-    #ifdef _WIN32
-        std::wstring wide_path;
-        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
-        DWORD attrs = GetFileAttributesW(wide_path.c_str());
-        return (attrs != INVALID_FILE_ATTRIBUTES) && (attrs & FILE_ATTRIBUTE_DIRECTORY);
-    #else
-        struct stat sb;
-        if (stat(p.c_str(), &sb) == 0) {
-            return S_ISDIR(sb.st_mode);
-        }
-        return false;
-    #endif
-    }
-
-    bool is_regular_file(const path& p)
-    {
-    #ifdef _WIN32
-        std::wstring wide_path;
-        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
-        DWORD attrs = GetFileAttributesW(wide_path.c_str());
-        return (attrs != INVALID_FILE_ATTRIBUTES) && !(attrs & FILE_ATTRIBUTE_DIRECTORY);
-    #else
-        struct stat sb;
-        if (stat(p.c_str(), &sb) == 0) {
-            return S_ISREG(sb.st_mode);
-        }
-        return false;
-    #endif
-    }
+    
 
     uintmax_t file_size(const path& p)
     {
@@ -335,25 +305,42 @@ namespace fs_simple
     #endif
     }
 
-    file_status status(const path& p)
+    file_status status(const path& p) noexcept
     {
-        if (!exists(p)) {
+    #ifdef _WIN32
+        std::wstring wide_path;
+        aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
+        DWORD attrs = GetFileAttributesW(wide_path.c_str());
+        if (attrs == INVALID_FILE_ATTRIBUTES) {
             return file_status(file_type::not_found);
-        }
-
-        if (is_directory(p)) {
+        }else if (attrs & FILE_ATTRIBUTE_DIRECTORY) {
             return file_status(file_type::directory);
-        }
-
-        if (is_regular_file(p)) {
+        }else{
             return file_status(file_type::regular);
         }
-
-        return file_status(file_type::unknown);
+        // return file_status(file_type::unknown);
+    #else
+        struct stat sb;
+        if (stat(p.c_str(), &sb) == 0) {
+            if (S_ISDIR(sb.st_mode))
+            {
+                return file_status(file_type::directory);
+            }
+            else if (S_ISREG(sb.st_mode)) 
+            {
+                return file_status(file_type::regular);
+            }
+            else {
+                return file_status(file_type::unknown);
+            }
+        }else{
+            return file_status(file_type::not_found);
+        }
+    #endif
     }
 
     // 目录操作实现
-    bool create_directory(const path& p)
+    bool create_directory(const path& p) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_path;
@@ -364,7 +351,7 @@ namespace fs_simple
     #endif
     }
 
-    bool create_directories(const path& p)
+    bool create_directories(const path& p) noexcept
     {
         if (p.empty()) return false;
 
@@ -383,7 +370,7 @@ namespace fs_simple
         return create_directory(p);
     }
 
-    bool remove(const path& p)
+    bool remove(const path& p) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_path;
@@ -404,7 +391,7 @@ namespace fs_simple
     #endif
     }
 
-    uintmax_t remove_all(const path& p)
+    uintmax_t remove_all(const path& p) noexcept
     {
         if (!exists(p)) return 0;
 
@@ -433,7 +420,7 @@ namespace fs_simple
     // 文件操作实现
     // 在非Windows平台上使用Linux系统调用
     // 文件操作实现
-    bool copy_file(const path& from, const path& to)
+    bool copy_file(const path& from, const path& to) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_from, wide_to;
@@ -491,7 +478,7 @@ namespace fs_simple
     #endif
     }
 
-    bool rename(const path& old_p, const path& new_p)
+    bool rename(const path& old_p, const path& new_p) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_old, wide_new;

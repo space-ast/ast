@@ -215,6 +215,7 @@ namespace fs_simple
         {
             return path_;
         }
+        AST_UTIL_API
         file_status status() const;
     private:
         _AST_FS path path_;
@@ -264,20 +265,23 @@ namespace fs_simple
 
     // 基础文件操作
     AST_UTIL_API bool exists(const path& p);
-    AST_UTIL_API bool is_directory(const path& p);
-    AST_UTIL_API bool is_regular_file(const path& p);
     AST_UTIL_API uintmax_t file_size(const path& p);
-    AST_UTIL_API file_status status(const path& p);
+    AST_UTIL_API file_status status(const path& p) noexcept;
+
+    A_ALWAYS_INLINE bool is_regular_file(file_status s) noexcept{ return s.type() == file_type::regular; }
+    A_ALWAYS_INLINE bool is_directory(file_status s) noexcept{ return s.type() == file_type::directory; }
+    A_ALWAYS_INLINE bool is_directory(const path& p) noexcept{ return is_directory(status(p)); }
+    A_ALWAYS_INLINE bool is_regular_file(const path& p) noexcept{ return is_regular_file(status(p)); }
 
     // 目录操作
-    AST_UTIL_API bool create_directory(const path& p);
-    AST_UTIL_API bool create_directories(const path& p);
-    AST_UTIL_API bool remove(const path& p);
-    AST_UTIL_API uintmax_t remove_all(const path& p);
+    AST_UTIL_API bool create_directory(const path& p) noexcept;
+    AST_UTIL_API bool create_directories(const path& p) noexcept;
+    AST_UTIL_API bool remove(const path& p) noexcept;
+    AST_UTIL_API uintmax_t remove_all(const path& p) noexcept;
 
     // 文件操作
-    AST_UTIL_API bool copy_file(const path& from, const path& to);
-    AST_UTIL_API bool rename(const path& old_p, const path& new_p);
+    AST_UTIL_API bool copy_file(const path& from, const path& to) noexcept;
+    AST_UTIL_API bool rename(const path& old_p, const path& new_p) noexcept;
 
     // 目录迭代器相关
     inline directory_iterator begin(directory_iterator iter) noexcept
@@ -310,9 +314,9 @@ namespace fs_simple
     AST_UTIL_API std::time_t last_write_time(const path& p);
 
     // 当前路径相关函数
-    AST_UTIL_API path current_path();
+    AST_UTIL_API path current_path() noexcept(false);
     AST_UTIL_API path current_path(std::error_code& ec) noexcept;
-    AST_UTIL_API void current_path(const path& new_path);
+    AST_UTIL_API void current_path(const path& new_path) noexcept(false);
     AST_UTIL_API void current_path(const path& new_path, std::error_code& ec) noexcept;
 
 } // namespace simple_fs

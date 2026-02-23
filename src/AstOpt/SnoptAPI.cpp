@@ -78,7 +78,7 @@ void aSnopt_Unload()
 
 static SnoptCAPI* aSnopt_Load(const fs::path& path)
 {
-    return aSnopt_Load(path.c_str());
+    return aSnopt_Load(path.string().c_str());
 }
 
 SnoptCAPI* aSnopt_Find()

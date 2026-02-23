@@ -60,7 +60,7 @@ void* aLoadLibrary(const char* filepath)
 #if defined(_WIN32) || defined(_WIN64)
     // Windows平台
     static const char* prefixes[]{ "", "lib" };     // prefix `lib` for mingw
-    static const char* suffixes[]{ "" };
+    static const char* suffixes[]{ "", ".dll"};
 #else
     // Linux/Unix平台
     static const char* prefixes[]{ "", "lib" };
@@ -69,6 +69,9 @@ void* aLoadLibrary(const char* filepath)
 
 	bool has_dot = strrchr(filepath, '.') != nullptr;
 	bool has_dir_sep = strchr(filepath, '/') != nullptr;
+#ifdef _WIN32
+    has_dir_sep |= strchr(filepath, '\\') != nullptr;
+#endif
     
     if (has_dot || has_dir_sep) {
         // 如果路径中已经包含扩展名或目录分隔符，则直接尝试加载

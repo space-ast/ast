@@ -58,7 +58,7 @@ AST_NAMESPACE_BEGIN
 
 
 // 如果 c++ 标准库没有 filesystem功能，则切换到ast项目对filesystem功能的简化实现
-#if defined _A_STD_FILESYSTEM && defined AST_USE_STD_FILESYSTEM
+#if defined(_A_STD_FILESYSTEM) && defined(AST_USE_STD_FILESYSTEM)
 // #pragma message("use std::filesystem")
 namespace filesystem = _A_STD_FILESYSTEM;
 #else

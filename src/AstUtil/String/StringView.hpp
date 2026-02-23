@@ -268,6 +268,49 @@ public:
         return npos;
     }
 
+    // 查找第一个出现的指定字符集合中的字符
+    size_type find_first_of(_Char ch, size_type pos = 0) const noexcept
+    {
+        return find(ch, pos);
+    }
+
+    size_type find_first_of(StringViewBasic str, size_type pos = 0) const noexcept
+    {
+        if (pos >= m_size || str.empty()) return npos;
+
+        for (size_type i = pos; i < m_size; ++i) {
+            for (size_type j = 0; j < str.size(); ++j) {
+                if (m_data[i] == str[j]) {
+                    return i;
+                }
+            }
+        }
+
+        return npos;
+    }
+
+    // 查找最后一个出现的指定字符集合中的字符
+    size_type find_last_of(_Char ch, size_type pos = npos) const noexcept
+    {
+        return rfind(ch, pos);
+    }
+
+    size_type find_last_of(StringViewBasic str, size_type pos = npos) const noexcept
+    {
+        if (m_size == 0 || str.empty()) return npos;
+        if (pos >= m_size) pos = m_size - 1;
+
+        for (size_type i = pos + 1; i > 0; --i) {
+            for (size_type j = 0; j < str.size(); ++j) {
+                if (m_data[i - 1] == str[j]) {
+                    return i - 1;
+                }
+            }
+        }
+
+        return npos;
+    }
+
     // 检查是否以指定前缀/后缀开头/结尾
     bool starts_with(StringViewBasic str) const noexcept
     {

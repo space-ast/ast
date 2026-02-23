@@ -53,6 +53,8 @@ public:
 	SolarSystem() = default;
 	~SolarSystem() = default;
 
+	void init();
+
 	err_t load(StringView dirpath);
 	err_t loadDefault();
 	
@@ -93,7 +95,17 @@ public:
 	/// @param  name        - 天体名称
 	/// @retval             - 天体指针
 	CelestialBody* getBody(StringView name) const;
+
+	/// @brief 添加一个新的天体
+	/// @param  name        - 天体名称
+	/// @retval             - 天体指针
+	CelestialBody* addBody(StringView name);
 	
+	/// @brief 获取指定名称的天体，若不存在则添加
+	/// @param  name        - 天体名称
+	/// @retval             - 天体指针
+	CelestialBody* getOrAddBody(StringView name);
+		
 protected:
 	using CelestialBodyMap = std::unordered_map<std::string, SharedPtr<CelestialBody>>;
 

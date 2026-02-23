@@ -146,11 +146,16 @@ public:
     /// @return 如果到达文件末尾则返回 true，否则返回 false。
     bool eof() const { return feof(file_); }
 
+    /// @brief 获取当前文件路径
+    /// @details 获取当前打开文件的路径。
+    /// @return 当前文件路径
+    std::string getFilePath() const;
+
 protected:
     FILE* getFile() const { return file_; }
 protected:
-    FILE* file_;                        ///< 文件指针
-    bool allowComment_;                 ///< 是否允许注释行
+    FILE*             file_;            ///< 文件指针
+    bool              allowComment_;    ///< 是否允许注释行
     std::vector<char> keyBuffer;        ///< 内存缓冲区 for key
     std::vector<char> valueBuffer;      ///< 内存缓冲区 for value
 };

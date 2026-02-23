@@ -261,4 +261,9 @@ std::streamoff BKVParser::tell()
     return std::streamoff(ftell(file_));
 }
 
+std::string BKVParser::getFilePath() const
+{
+    return aGetFilePath(file_);
+}
+
 AST_NAMESPACE_END

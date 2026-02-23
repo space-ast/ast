@@ -23,6 +23,7 @@
 #include "AstUtil/String.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
+#include "AstUtil/Span.hpp"
 #include "AstCore/RunTime.hpp"
 #include <cmath>
 
@@ -71,24 +72,48 @@ static err_t openGravityFile(BKVParser &parser, StringView model, std::string& f
     parser.open(model);
     if(!parser.isOpen()){
         // 判断是不是模型名称
-        bool has_dot = model.rfind('.') != StringView::npos;
-	    bool has_dir_sep = model.rfind('/') != StringView::npos;
-        if(!has_dot && !has_dir_sep)
+        size_t last_dot = model.rfind('.');
+        #ifdef _WIN32
+        size_t last_slash = model.find_last_of("/\\");
+        #else
+        size_t last_slash = model.find_last_of('/');
+        #endif
+
+        bool no_dot = (last_dot == StringView::npos) || ((last_dot != StringView::npos) && (last_dot < last_slash));
+	    bool no_dir_sep = last_slash == StringView::npos;
+        Span<char const* const> suffixes;
+        std::vector<std::string> prefixes;
+        if(no_dot)
+            suffixes = {".grv", ".cof", ".gfc" };
+        else
+            suffixes = { "" };
+        if(no_dir_sep){
+            prefixes = {
+                "",
+                aDataDirGet() + "/SolarSystem/Earth/"  // @fixme: 非地球如何处理？
+            };
+        }else{
+            prefixes = {""};
+        }
+
+        /// 遍历所有可能的路径组合
         {
-            // 模型名称，添加默认路径
-            static const char* suffixes[]{ ".grv", ".cof", ".gfc" };
-            std::string datadir = aDataDirGet() + "/SolarSystem/Earth/"; // @fixme: 非地球如何处理？
-            // bool found = false;
-            for(const char* suffix : suffixes)
-            {
-                std::string newfilepath = datadir + "/" + model.to_string() + suffix;
-                if(fs::exists(newfilepath))
+            for(const std::string& prefix : prefixes){
+                for(const char* suffix : suffixes)
                 {
-                    parser.open(newfilepath);
-                    if(parser.isOpen())
+                    std::string newfilepath;
+                    if(prefix.empty())
+                        newfilepath = model.to_string() + suffix;
+                    else
+                        newfilepath = prefix + "/" + model.to_string() + suffix;
+                    if(fs::exists(newfilepath))
                     {
-                        filepath = std::move(newfilepath);
-                        return 0;
+                        parser.open(newfilepath);
+                        if(parser.isOpen())
+                        {
+                            filepath = std::move(newfilepath);
+                            return 0;
+                        }
                     }
                 }
             }
