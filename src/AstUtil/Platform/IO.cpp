@@ -24,10 +24,12 @@
 #include <cstdarg>              // for va_list, va_start, va_end
 #include <memory>               // for std::unique_ptr
 #include <type_traits>          // for std::remove_pointer
+
 #ifdef _WIN32
 #include <windows.h>            // for Windows API
 #include <io.h>                 // for _get_osfhandle
 #else
+#include <limits.h>             // for PATH_MAX
 #include <fcntl.h>              // for fcntl, F_GETPATH
 #include <unistd.h>             // for fileno
 #endif
@@ -259,21 +261,26 @@ err_t aGetFilePath(std::FILE *file, std::string &filepath)
         return eErrorInvalidParam;
     }
 
+    char path[PATH_MAX]{'\0'};
+
+    // 通过readlink获取路径
+    char proc_path[256];
+    snprintf(proc_path, sizeof(proc_path), "/proc/self/fd/%d", fd);
+    ssize_t len = readlink(proc_path, path, sizeof(path) - 1);
+    if (len != -1){
+        filepath = std::string(path, len);
+        return eNoError;
+    } 
+
     // 使用fcntl获取路径
-    char path[PATH_MAX];
+    #ifdef F_GETPATH
     if (fcntl(fd, F_GETPATH, path) != -1) {
         filepath = path;
         return eNoError;
     }
+    #endif
 
-    char proc_path[256];
-    snprintf(proc_path, sizeof(proc_path), "/proc/self/fd/%d", fd);
-    ssize_t len = readlink(proc_path, path, sizeof(path) - 1);
-    if (len == -1) 
-        return eErrorInvalidParam;
-    path[len] = '\0';
-    filepath = path;
-    return eNoError;
+    return eErrorInvalidParam;
 #endif
 }
 

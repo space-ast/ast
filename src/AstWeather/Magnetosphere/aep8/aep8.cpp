@@ -216,6 +216,7 @@ double aep8(double e, double l, double bb0, int iname)
     return flux;
 #else
     aError("function 'aep8' is not implemented, please check whether libf2c package is enabled.");
+    return 0;
 #endif
 
 }
