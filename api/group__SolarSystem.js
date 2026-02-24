@@ -3,7 +3,11 @@ var group__SolarSystem =
     [ "ast::CelestialBody", "classast_1_1CelestialBody.html", [
       [ "getGM", "classast_1_1CelestialBody.html#a5fef29d135109b4b53feedfe50dc5c01", null ],
       [ "getGravityModel", "classast_1_1CelestialBody.html#a33a059f3a4383fdab0ee4f2fe4e5b669", null ],
+      [ "getJn", "classast_1_1CelestialBody.html#a1f7101ee589b855385bcfa3e074a07d8", null ],
       [ "getName", "classast_1_1CelestialBody.html#aabf36d0dd7857c676e2d19a13c9c9291", null ],
+      [ "getRadius", "classast_1_1CelestialBody.html#a9a88a639e22509c81821b0e0c134f767", null ],
+      [ "getSystemGM", "classast_1_1CelestialBody.html#a9234119f1b8c604e8c2a0531e6ebc55b", null ],
+      [ "isEarth", "classast_1_1CelestialBody.html#aa929791242e4840e147e5c7d6c8a96cf", null ],
       [ "load", "classast_1_1CelestialBody.html#ab5cf7a5d454630f530f60696c347d317", null ],
       [ "loadAstroDefinition", "classast_1_1CelestialBody.html#a29f646ce844d67e4a3ba6594cdf42f33", null ],
       [ "loadEarth", "classast_1_1CelestialBody.html#ad5b66f1b2b4431668c2807f4b80c2846", null ],
@@ -15,7 +19,8 @@ var group__SolarSystem =
       [ "jplIndex_", "classast_1_1CelestialBody.html#a72449b5ffc3db85db7e75ab6cb804058", null ],
       [ "jplSpiceId_", "classast_1_1CelestialBody.html#a89419dd08fc39451be2d87de4d4f26d4", null ],
       [ "name_", "classast_1_1CelestialBody.html#a9f2f187b7604ce4ffd70561e61084bae", null ],
-      [ "systemGm_", "classast_1_1CelestialBody.html#a98986c5495c9b941b9de810ca26c7f35", null ]
+      [ "radius_", "classast_1_1CelestialBody.html#a87d4a909c92bfadee894f42cd5175838", null ],
+      [ "systemGM_", "classast_1_1CelestialBody.html#af7315bf6731ca1a1af2cfa28dde3edbf", null ]
     ] ],
     [ "ast::RotationalData", "classast_1_1RotationalData.html", [
       [ "getICRFToFixedMatrix", "classast_1_1RotationalData.html#a4add2cb3f94273a4a9fcdd5f0fd6f7b8", null ],
@@ -39,6 +44,7 @@ var group__SolarSystem =
       [ "addBody", "classast_1_1SolarSystem.html#ad340db934e89550a5e9b276f8a022a2f", null ],
       [ "getBody", "classast_1_1SolarSystem.html#a6d2635b97e1b7ab2ef413401a57e3f03", null ],
       [ "getEarth", "classast_1_1SolarSystem.html#acc2a5ee7843495997f3c206b8f029aa8", null ],
+      [ "getEarthMoonBarycenter", "classast_1_1SolarSystem.html#a16e6c3628a9b9a173b277e9c0250c3e3", null ],
       [ "getJupiter", "classast_1_1SolarSystem.html#a4ae4ee60d7295b20eb321866c82962fc", null ],
       [ "getMars", "classast_1_1SolarSystem.html#a2fb43e96dd5539dea731f14395eda7ed", null ],
       [ "getMercury", "classast_1_1SolarSystem.html#ab58c1489c58ed6fbf1e6d260e614e927", null ],
@@ -47,11 +53,13 @@ var group__SolarSystem =
       [ "getOrAddBody", "classast_1_1SolarSystem.html#a44ac1bb328585c3176f3b50fd7a30613", null ],
       [ "getPluto", "classast_1_1SolarSystem.html#a803d359c06b01aec96787a75d4068169", null ],
       [ "getSaturn", "classast_1_1SolarSystem.html#a53aa7479f71ef11c851e4bcc2f8c24f3", null ],
+      [ "getSolarSystemBarycenter", "classast_1_1SolarSystem.html#a69e0e6d52fe521c01e912cdd19545e87", null ],
       [ "getSun", "classast_1_1SolarSystem.html#af6350a447e1fbe7fcc6def88f9f965a9", null ],
       [ "getUranus", "classast_1_1SolarSystem.html#af41e3aea49eec17b6722c835fa2f2f33", null ],
       [ "getVenus", "classast_1_1SolarSystem.html#a796578409b03498296d2cd06aa8adedc", null ],
       [ "bodies_", "classast_1_1SolarSystem.html#a07c952bd9165e376d047b5975aeeef0c", null ],
       [ "earth_", "classast_1_1SolarSystem.html#a0c58f211acc4f53f78fd0cf8bf291509", null ],
+      [ "earthMoonBarycenter_", "classast_1_1SolarSystem.html#a3402fcc40c322cd39e7b527cefa6aed6", null ],
       [ "jupiter_", "classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5", null ],
       [ "mars_", "classast_1_1SolarSystem.html#a34a1b5d1ad9439c205f398ef55ee64c7", null ],
       [ "mercury_", "classast_1_1SolarSystem.html#a3ae9e4d9c4a6edfdaa93fa7abc92c7c3", null ],
@@ -59,6 +67,7 @@ var group__SolarSystem =
       [ "neptune_", "classast_1_1SolarSystem.html#a245d5ae8a51b1358fefeb0c54153895b", null ],
       [ "pluto_", "classast_1_1SolarSystem.html#a474fcf5c78757cf432116359035d822b", null ],
       [ "saturn_", "classast_1_1SolarSystem.html#ae59cb7566b86ae10ae1439229fe41590", null ],
+      [ "solarSystemBarycenter_", "classast_1_1SolarSystem.html#ad61664b80752c9ce9d12d54784e73eed", null ],
       [ "sun_", "classast_1_1SolarSystem.html#ae0679a4c0eedb7641a108d8d9769d2d2", null ],
       [ "uranus_", "classast_1_1SolarSystem.html#abfe7eccf6394b60c3d5bf653c63e937d", null ],
       [ "venus_", "classast_1_1SolarSystem.html#aba889e171b8c4b1f085d5f4223c0caf8", null ]

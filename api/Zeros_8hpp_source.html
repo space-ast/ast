@@ -122,7 +122,7 @@ $(function(){initNavTree('Zeros_8hpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="group__NLE.html#gae7b87132fc03898f8392005c491953ee">   53</a></span><span class="keywordtype">double</span> bisect(Func f, <span class="keywordtype">double</span> xa, <span class="keywordtype">double</span> xb, <span class="keywordtype">double</span> xtol, <span class="keywordtype">double</span> rtol, <span class="keywordtype">int</span> iter, scipy_zeros_info &amp;solver_stats)</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> bisect(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    return ::bisect(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
 </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
@@ -131,7 +131,7 @@ $(function(){initNavTree('Zeros_8hpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="group__NLE.html#gaab129d64b6af3006ace3ea69e1f238ef">   70</a></span><span class="keywordtype">double</span> ridder(Func f, <span class="keywordtype">double</span> xa, <span class="keywordtype">double</span> xb, <span class="keywordtype">double</span> xtol, <span class="keywordtype">double</span> rtol, <span class="keywordtype">int</span> iter, scipy_zeros_info &amp;solver_stats)</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> ridder(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    return ::ridder(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
 </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
@@ -140,7 +140,7 @@ $(function(){initNavTree('Zeros_8hpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa">   87</a></span><span class="keywordtype">double</span> brenth(Func f, <span class="keywordtype">double</span> xa, <span class="keywordtype">double</span> xb, <span class="keywordtype">double</span> xtol, <span class="keywordtype">double</span> rtol, <span class="keywordtype">int</span> iter, scipy_zeros_info &amp;solver_stats)</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">return</span> brenth(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    return ::brenth(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
 </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
@@ -149,7 +149,7 @@ $(function(){initNavTree('Zeros_8hpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05">  104</a></span><span class="keywordtype">double</span> brentq(Func f, <span class="keywordtype">double</span> xa, <span class="keywordtype">double</span> xb, <span class="keywordtype">double</span> xtol, <span class="keywordtype">double</span> rtol, <span class="keywordtype">int</span> iter, scipy_zeros_info &amp;solver_stats)</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">return</span> brentq(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    return ::brentq(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
 </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
@@ -158,7 +158,7 @@ $(function(){initNavTree('Zeros_8hpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="group__NLE.html#gab0dea09a12487e53d0b32c0af1d2d597">  121</a></span><span class="keywordtype">double</span> secant(Func f, <span class="keywordtype">double</span> xa, <span class="keywordtype">double</span> xb, <span class="keywordtype">double</span> xtol, <span class="keywordtype">double</span> rtol, <span class="keywordtype">int</span> iter, scipy_zeros_info &amp;solver_stats)</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>{</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">return</span> secant(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    return ::secant(details::callback_func&lt;Func&gt;, xa, xb, xtol, rtol, iter, &amp;f, &amp;solver_stats);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
 </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>

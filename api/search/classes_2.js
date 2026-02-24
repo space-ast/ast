@@ -13,5 +13,7 @@ var searchData=
   ['cnrlmsise00_10',['CNRLMSISE00',['../classast_1_1CNRLMSISE00.html',1,'ast']]],
   ['coefficient_11',['Coefficient',['../structast_1_1RotationElement_1_1Coefficient.html',1,'ast::RotationElement']]],
   ['color_12',['Color',['../classast_1_1Color.html',1,'ast']]],
-  ['complex_13',['complex',['../structcomplex.html',1,'']]]
+  ['complex_13',['complex',['../structcomplex.html',1,'']]],
+  ['criticallyinclinedorbitdesigner_14',['CriticallyInclinedOrbitDesigner',['../classast_1_1CriticallyInclinedOrbitDesigner.html',1,'ast']]],
+  ['criticallyinclinedsunsyncorbitdesigner_15',['CriticallyInclinedSunSyncOrbitDesigner',['../classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html',1,'ast']]]
 ];

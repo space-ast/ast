@@ -70,6 +70,8 @@ var annotated_dup =
       [ "CNLPSnoptSolver", "classast_1_1CNLPSnoptSolver.html", null ],
       [ "CNRLMSISE00", "classast_1_1CNRLMSISE00.html", null ],
       [ "Color", "classast_1_1Color.html", null ],
+      [ "CriticallyInclinedOrbitDesigner", "classast_1_1CriticallyInclinedOrbitDesigner.html", "classast_1_1CriticallyInclinedOrbitDesigner" ],
+      [ "CriticallyInclinedSunSyncOrbitDesigner", "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html", "classast_1_1CriticallyInclinedSunSyncOrbitDesigner" ],
       [ "DataContext", "classast_1_1DataContext.html", "classast_1_1DataContext" ],
       [ "DataPort", "classast_1_1DataPort.html", "classast_1_1DataPort" ],
       [ "Date", "classast_1_1Date.html", "classast_1_1Date" ],

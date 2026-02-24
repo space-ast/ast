@@ -4,6 +4,7 @@ var classast_1_1GravityField =
     [ "getCnm", "classast_1_1GravityField.html#a009bfd08da4f331e0b7b3e9868b53a57", null ],
     [ "getGM", "classast_1_1GravityField.html#ad5185b59b2ede5b0fafe25e310fd0e49", null ],
     [ "getHead", "classast_1_1GravityField.html#a8b85a1397f919ebba53a8a6ff435481d", null ],
+    [ "getJn", "classast_1_1GravityField.html#aee94524c17a0dc728dba2ef6a18f3414", null ],
     [ "getMaxDegree", "classast_1_1GravityField.html#a7a1a474360079d34fb54902c8f131d48", null ],
     [ "getMaxOrder", "classast_1_1GravityField.html#a53319fcbf904326ce558c7d2b394f154", null ],
     [ "getModelName", "classast_1_1GravityField.html#ac4e1e09d723fbe4952d6fb72d5670600", null ],

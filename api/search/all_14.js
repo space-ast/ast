@@ -47,7 +47,7 @@ var searchData=
   ['toquat_44',['toQuat',['../classast_1_1Euler.html#a4930f5342410ab07bc05c042eea2ecd2',1,'ast::Euler']]],
   ['torotationmatrix_45',['toRotationMatrix',['../classast_1_1AngleAxis.html#afaa6f1ddcbd1930bbcbd83706f3ee946',1,'ast::AngleAxis::toRotationMatrix()'],['../classast_1_1Quaternion.html#a74f632ce182f8b5a87073f7748b95122',1,'ast::Quaternion::toRotationMatrix()']]],
   ['tosi_46',['toSI',['../classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc',1,'ast::Unit']]],
-  ['tostring_47',['toString',['../classast_1_1ModOrbElem.html#accf864d319e8fc0f0b82c2c5e0518ba7',1,'ast::ModOrbElem::toString()'],['../classast_1_1TimeInterval.html#a9f131f0bfd39eb0ebe807981f6836f86',1,'ast::TimeInterval::toString()'],['../classast_1_1TimePoint.html#afcd52a7e2f0e8c0627ccf3918d2c2011',1,'ast::TimePoint::toString()'],['../classast_1_1ValueView.html#a539bd800e0a7ed48725edddb176780b4',1,'ast::ValueView::toString()'],['../classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f',1,'ast::Quantity::toString()'],['../classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4',1,'ast::Polynomial::toString()']]],
+  ['tostring_47',['toString',['../classast_1_1OrbElem.html#a8234d803330373a76540d6fbbe11a1fa',1,'ast::OrbElem::toString()'],['../classast_1_1ModOrbElem.html#accf864d319e8fc0f0b82c2c5e0518ba7',1,'ast::ModOrbElem::toString()'],['../classast_1_1TimeInterval.html#a9f131f0bfd39eb0ebe807981f6836f86',1,'ast::TimeInterval::toString()'],['../classast_1_1TimePoint.html#afcd52a7e2f0e8c0627ccf3918d2c2011',1,'ast::TimePoint::toString()'],['../classast_1_1ValueView.html#a539bd800e0a7ed48725edddb176780b4',1,'ast::ValueView::toString()'],['../classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f',1,'ast::Quantity::toString()'],['../classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4',1,'ast::Polynomial::toString()']]],
   ['tostringview_48',['toStringView',['../classast_1_1ValueView.html#aa6a86cf966fce62980d1dab94da32c3b',1,'ast::ValueView']]],
   ['totai_49',['toTAI',['../classast_1_1TimePoint.html#afd12e985220adfd9743435f0ebd55f5b',1,'ast::TimePoint::toTAI(JulianDate &amp;jdTAI) const'],['../classast_1_1TimePoint.html#a14f2bfb1304169854d3aa37cfc47e269',1,'ast::TimePoint::toTAI() const']]],
   ['totalsecond_50',['totalSecond',['../classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e',1,'ast::DaySecDuration::totalSecond()'],['../classast_1_1Time.html#a81796002df5e60cd6ebe140719b40772',1,'ast::Time::totalSecond()']]],
@@ -71,11 +71,12 @@ var searchData=
   ['transformvectorvelocity_68',['transformVectorVelocity',['../classast_1_1KinematicRotation.html#a950848ca0984c4b5cfacf3614999a584',1,'ast::KinematicRotation']]],
   ['translation_5f_69',['translation_',['../classast_1_1Transform.html#aa073642b1d18774e14a953f1e2e5f09a',1,'ast::Transform']]],
   ['truea_5f_70',['trueA_',['../classast_1_1OrbElem.html#a821bb0943770f3cdde0483cec1396a5b',1,'ast::OrbElem::trueA_'],['../classast_1_1ModOrbElem.html#a4df709ac890580d88f10a4a3aba42f66',1,'ast::ModOrbElem::trueA_']]],
-  ['twobody_2ecpp_71',['TwoBody.cpp',['../TwoBody_8cpp.html',1,'']]],
-  ['twobody_2ehpp_72',['TwoBody.hpp',['../TwoBody_8hpp.html',1,'']]],
-  ['type_73',['type',['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()'],['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()']]],
-  ['type_2ehpp_74',['Type.hpp',['../Type_8hpp.html',1,'']]],
-  ['type_5f_75',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../classast_1_1OpUnary.html#a0c8074072a0bfe6faf3894f1838a1320',1,'ast::OpUnary::type_']]],
-  ['types_2ecpp_76',['Types.cpp',['../Types_8cpp.html',1,'']]],
-  ['types_2ehpp_77',['Types.hpp',['../Types_8hpp.html',1,'']]]
+  ['trueanomaly_5f_71',['trueAnomaly_',['../classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea',1,'ast::SimpleOrbitDesigner']]],
+  ['twobody_2ecpp_72',['TwoBody.cpp',['../TwoBody_8cpp.html',1,'']]],
+  ['twobody_2ehpp_73',['TwoBody.hpp',['../TwoBody_8hpp.html',1,'']]],
+  ['type_74',['type',['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()'],['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()']]],
+  ['type_2ehpp_75',['Type.hpp',['../Type_8hpp.html',1,'']]],
+  ['type_5f_76',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../classast_1_1OpUnary.html#a0c8074072a0bfe6faf3894f1838a1320',1,'ast::OpUnary::type_']]],
+  ['types_2ecpp_77',['Types.cpp',['../Types_8cpp.html',1,'']]],
+  ['types_2ehpp_78',['Types.hpp',['../Types_8hpp.html',1,'']]]
 ];

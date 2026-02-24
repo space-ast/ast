@@ -1,5 +1,7 @@
 var classast_1_1OrbElem =
 [
+    [ "getMeanMotion", "classast_1_1OrbElem.html#ad34013e540a7b75f301a9d19230dcf45", null ],
+    [ "toString", "classast_1_1OrbElem.html#a8234d803330373a76540d6fbbe11a1fa", null ],
     [ "a_", "classast_1_1OrbElem.html#a1df5695b11c56714605af1fabd9ee652", null ],
     [ "argper_", "classast_1_1OrbElem.html#a6db5cd219cd750315acf078df98d45e0", null ],
     [ "e_", "classast_1_1OrbElem.html#aeb85820a2574c01f6e2c0f4a24f997ea", null ],

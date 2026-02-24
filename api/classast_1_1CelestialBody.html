@@ -102,6 +102,7 @@ $(function(){initNavTree('classast_1_1CelestialBody.html',''); initResizable(tru
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="#friends">友元</a> &#124;
 <a href="classast_1_1CelestialBody-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::CelestialBody类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__SolarSystem.html">太阳系</a></div></div></div>
 </div><!--header-->
@@ -130,9 +131,36 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ge
 <tr class="separator:a33a059f3a4383fdab0ee4f2fe4e5b669"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5cf7a5d454630f530f60696c347d317" id="r_ab5cf7a5d454630f530f60696c347d317"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5cf7a5d454630f530f60696c347d317">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
 <tr class="separator:ab5cf7a5d454630f530f60696c347d317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a88a639e22509c81821b0e0c134f767" id="r_a9a88a639e22509c81821b0e0c134f767"><td class="memItemLeft" align="right" valign="top"><a id="a9a88a639e22509c81821b0e0c134f767" name="a9a88a639e22509c81821b0e0c134f767"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getRadius</b> () const</td></tr>
+<tr class="separator:a9a88a639e22509c81821b0e0c134f767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fef29d135109b4b53feedfe50dc5c01" id="r_a5fef29d135109b4b53feedfe50dc5c01"><td class="memItemLeft" align="right" valign="top"><a id="a5fef29d135109b4b53feedfe50dc5c01" name="a5fef29d135109b4b53feedfe50dc5c01"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getGM</b> () const</td></tr>
 <tr class="separator:a5fef29d135109b4b53feedfe50dc5c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9234119f1b8c604e8c2a0531e6ebc55b" id="r_a9234119f1b8c604e8c2a0531e6ebc55b"><td class="memItemLeft" align="right" valign="top"><a id="a9234119f1b8c604e8c2a0531e6ebc55b" name="a9234119f1b8c604e8c2a0531e6ebc55b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemGM</b> () const</td></tr>
+<tr class="separator:a9234119f1b8c604e8c2a0531e6ebc55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f7101ee589b855385bcfa3e074a07d8" id="r_a1f7101ee589b855385bcfa3e074a07d8"><td class="memItemLeft" align="right" valign="top"><a id="a1f7101ee589b855385bcfa3e074a07d8" name="a1f7101ee589b855385bcfa3e074a07d8"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJn</b> (int n) const</td></tr>
+<tr class="separator:a1f7101ee589b855385bcfa3e074a07d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c9fbb215bac72a3e78a90af19e01b6" id="r_a50c9fbb215bac72a3e78a90af19e01b6"><td class="memItemLeft" align="right" valign="top"><a id="a50c9fbb215bac72a3e78a90af19e01b6" name="a50c9fbb215bac72a3e78a90af19e01b6"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ2</b> () const</td></tr>
+<tr class="separator:a50c9fbb215bac72a3e78a90af19e01b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a46672910c6d55714d734a5d38f9c0c" id="r_a0a46672910c6d55714d734a5d38f9c0c"><td class="memItemLeft" align="right" valign="top"><a id="a0a46672910c6d55714d734a5d38f9c0c" name="a0a46672910c6d55714d734a5d38f9c0c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ3</b> () const</td></tr>
+<tr class="separator:a0a46672910c6d55714d734a5d38f9c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ba6e2430d13176c4cec87ac50da9169" id="r_a3ba6e2430d13176c4cec87ac50da9169"><td class="memItemLeft" align="right" valign="top"><a id="a3ba6e2430d13176c4cec87ac50da9169" name="a3ba6e2430d13176c4cec87ac50da9169"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ4</b> () const</td></tr>
+<tr class="separator:a3ba6e2430d13176c4cec87ac50da9169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5b357c8bad555dffc0ef8e83427f46" id="r_aea5b357c8bad555dffc0ef8e83427f46"><td class="memItemLeft" align="right" valign="top"><a id="aea5b357c8bad555dffc0ef8e83427f46" name="aea5b357c8bad555dffc0ef8e83427f46"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ5</b> () const</td></tr>
+<tr class="separator:aea5b357c8bad555dffc0ef8e83427f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc9862be93820611004ab535ea41d93" id="r_abcc9862be93820611004ab535ea41d93"><td class="memItemLeft" align="right" valign="top"><a id="abcc9862be93820611004ab535ea41d93" name="abcc9862be93820611004ab535ea41d93"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ6</b> () const</td></tr>
+<tr class="separator:abcc9862be93820611004ab535ea41d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa929791242e4840e147e5c7d6c8a96cf" id="r_aa929791242e4840e147e5c7d6c8a96cf"><td class="memItemLeft" align="right" valign="top"><a id="aa929791242e4840e147e5c7d6c8a96cf" name="aa929791242e4840e147e5c7d6c8a96cf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEarth</b> () const</td></tr>
+<tr class="separator:aa929791242e4840e147e5c7d6c8a96cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a50d47914de91782bc7ac06dad5ca1e39 inherit pub_methods_classast_1_1Object" id="r_a50d47914de91782bc7ac06dad5ca1e39"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (<a class="el" href="classast_1_1Class.html">Class</a> *tp)</td></tr>
@@ -203,9 +231,12 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td>
 <tr class="memitem:a6ae555744def2ce98844f1847a3d76da" id="r_a6ae555744def2ce98844f1847a3d76da"><td class="memItemLeft" align="right" valign="top"><a id="a6ae555744def2ce98844f1847a3d76da" name="a6ae555744def2ce98844f1847a3d76da"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>gm_</b> {0.0}</td></tr>
 <tr class="separator:a6ae555744def2ce98844f1847a3d76da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98986c5495c9b941b9de810ca26c7f35" id="r_a98986c5495c9b941b9de810ca26c7f35"><td class="memItemLeft" align="right" valign="top"><a id="a98986c5495c9b941b9de810ca26c7f35" name="a98986c5495c9b941b9de810ca26c7f35"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>systemGm_</b> {0.0}</td></tr>
-<tr class="separator:a98986c5495c9b941b9de810ca26c7f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7315bf6731ca1a1af2cfa28dde3edbf" id="r_af7315bf6731ca1a1af2cfa28dde3edbf"><td class="memItemLeft" align="right" valign="top"><a id="af7315bf6731ca1a1af2cfa28dde3edbf" name="af7315bf6731ca1a1af2cfa28dde3edbf"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>systemGM_</b> {0.0}</td></tr>
+<tr class="separator:af7315bf6731ca1a1af2cfa28dde3edbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d4a909c92bfadee894f42cd5175838" id="r_a87d4a909c92bfadee894f42cd5175838"><td class="memItemLeft" align="right" valign="top"><a id="a87d4a909c92bfadee894f42cd5175838" name="a87d4a909c92bfadee894f42cd5175838"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>radius_</b> {0.0}</td></tr>
+<tr class="separator:a87d4a909c92bfadee894f42cd5175838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89419dd08fc39451be2d87de4d4f26d4" id="r_a89419dd08fc39451be2d87de4d4f26d4"><td class="memItemLeft" align="right" valign="top"><a id="a89419dd08fc39451be2d87de4d4f26d4" name="a89419dd08fc39451be2d87de4d4f26d4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>jplSpiceId_</b> {-1}</td></tr>
 <tr class="separator:a89419dd08fc39451be2d87de4d4f26d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +256,12 @@ std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"
 <tr class="memitem:a1018e40b8a092cab4902b762d78458a7 inherit pro_attribs_classast_1_1Object" id="r_a1018e40b8a092cab4902b762d78458a7"><td class="memItemLeft" align="right" valign="top">
 std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_weakrefcnt</b></td></tr>
 <tr class="separator:a1018e40b8a092cab4902b762d78458a7 inherit pro_attribs_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:a2251cbb5c5ad305d138da9f9b43f937d" id="r_a2251cbb5c5ad305d138da9f9b43f937d"><td class="memItemLeft" align="right" valign="top"><a id="a2251cbb5c5ad305d138da9f9b43f937d" name="a2251cbb5c5ad305d138da9f9b43f937d"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>SolarSystem</b></td></tr>
+<tr class="separator:a2251cbb5c5ad305d138da9f9b43f937d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>天体 </p>

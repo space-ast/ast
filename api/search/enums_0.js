@@ -4,7 +4,7 @@ var searchData=
   ['edatacode_1',['EDataCode',['../classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1',1,'ast::JplDe']]],
   ['ededatacode_2',['EDeDataCode',['../namespaceast.html#ad226f5138693fa4cb352f8c2201281df',1,'ast']]],
   ['edimension_3',['EDimension',['../namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14',1,'ast']]],
-  ['edirection_4',['EDirection',['../classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b',1,'ast::ODEEventDetector']]],
+  ['edirection_4',['EDirection',['../classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dd',1,'ast::CriticallyInclinedOrbitDesigner::EDirection'],['../classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b',1,'ast::ODEEventDetector::EDirection']]],
   ['elogicaloperatortype_5',['ELogicalOperatorType',['../namespaceast.html#a65999e43b74f73ebbbf95a9eea2e4269',1,'ast']]],
   ['eloglevel_6',['ELogLevel',['../group__Util.html#ga5bbb8d8bdd9f8766a334821bfbf1d01f',1,'ast']]],
   ['emonth_7',['EMonth',['../group__Time.html#ga4cdbb4699f636a8b836b9460d3d5b751',1,'ast::Date']]],
