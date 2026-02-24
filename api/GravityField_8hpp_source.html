@@ -186,68 +186,66 @@ $(function(){initNavTree('GravityField_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">double</span> getJn(<span class="keywordtype">int</span> n) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    err_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> model);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c">normalize</a>();</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">void</span> unnormalize() ;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a> <a class="code hl_function" href="namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf">normalized</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    err_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> model, <span class="keywordtype">int</span> maxLoadDegree, <span class="keywordtype">int</span> maxLoadOrder);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c">normalize</a>();</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a> unnormalized() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    err_t loadSTK(<a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>&amp; parser);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    err_t loadGMAT(<a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>&amp; parser);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">double</span>&amp; snm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m);</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">double</span>&amp; cnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">void</span> initCoeffMatrices();</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">  175</a></span>    <a class="code hl_class" href="classast_1_1LowerMatrix.html">LowerMatrixd</a> <a class="code hl_variable" href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">sinCoeff_</a>;         </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7">  176</a></span>    <a class="code hl_class" href="classast_1_1LowerMatrix.html">LowerMatrixd</a> <a class="code hl_variable" href="classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7">cosCoeff_</a>;         </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>};</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> unnormalize() ;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a> <a class="code hl_function" href="namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf">normalized</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a> unnormalized() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">double</span>&amp; snm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">double</span>&amp; cnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">void</span> initCoeffMatrices();</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">  173</a></span>    <a class="code hl_class" href="classast_1_1LowerMatrix.html">LowerMatrixd</a> <a class="code hl_variable" href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">sinCoeff_</a>;         </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7">  174</a></span>    <a class="code hl_class" href="classast_1_1LowerMatrix.html">LowerMatrixd</a> <a class="code hl_variable" href="classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7">cosCoeff_</a>;         </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>};</div>
 </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">inline</span> <span class="keywordtype">double</span> &amp;GravityField::snm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>{</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">return</span> sinCoeff_(n, m);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>}</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">inline</span> <span class="keywordtype">double</span> &amp;GravityField::cnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>{</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">return</span> cosCoeff_(n, m);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#ace7869e6a5481612ef36ba1480ce1b7f">  189</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> GravityField::isValidDegreeOrder(<span class="keywordtype">int</span> degree, <span class="keywordtype">int</span> order)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">return</span> degree &lt;= this-&gt;getMaxDegree() &amp;&amp; order &lt;= this-&gt;getMaxOrder() </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            &amp;&amp; degree &gt;= order &amp;&amp; order &gt;= 0 &amp;&amp; degree &gt;= 0;</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>}</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="keyword">inline</span> <span class="keywordtype">double</span> &amp;GravityField::snm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>{</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> sinCoeff_(n, m);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keyword">inline</span> <span class="keywordtype">double</span> &amp;GravityField::cnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>{</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">return</span> cosCoeff_(n, m);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>}</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#ace7869e6a5481612ef36ba1480ce1b7f">  187</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> GravityField::isValidDegreeOrder(<span class="keywordtype">int</span> degree, <span class="keywordtype">int</span> order)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keywordflow">return</span> degree &lt;= this-&gt;getMaxDegree() &amp;&amp; order &lt;= this-&gt;getMaxOrder() </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            &amp;&amp; degree &gt;= order &amp;&amp; order &gt;= 0 &amp;&amp; degree &gt;= 0;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
 </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#a44be0250f4ec6169de2c4162143360da">  195</a></span><span class="keyword">inline</span> <span class="keywordtype">double</span> GravityField::getSnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">if</span>(A_LIKELY(isValidDegreeOrder(n, m)))</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">return</span> sinCoeff_(n, m);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#a44be0250f4ec6169de2c4162143360da">  193</a></span><span class="keyword">inline</span> <span class="keywordtype">double</span> GravityField::getSnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">if</span>(A_LIKELY(isValidDegreeOrder(n, m)))</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordflow">return</span> sinCoeff_(n, m);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
 </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#a009bfd08da4f331e0b7b3e9868b53a57">  202</a></span><span class="keyword">inline</span> <span class="keywordtype">double</span> GravityField::getCnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">if</span>(A_LIKELY(isValidDegreeOrder(n, m)))</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">return</span> cosCoeff_(n, m);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>}</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="foldopen" id="foldopen00200" data-start="{" data-end="}">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classast_1_1GravityField.html#a009bfd08da4f331e0b7b3e9868b53a57">  200</a></span><span class="keyword">inline</span> <span class="keywordtype">double</span> GravityField::getCnm(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">if</span>(A_LIKELY(isValidDegreeOrder(n, m)))</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">return</span> cosCoeff_(n, m);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
 </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1BKVParser_html"><div class="ttname"><a href="classast_1_1BKVParser.html">ast::BKVParser</a></div><div class="ttdoc">键值对解析器（BlockKeyValueParser）</div><div class="ttdef"><b>定义</b> BKVParser.hpp:44</div></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1GravityFieldHead_html"><div class="ttname"><a href="classast_1_1GravityFieldHead.html">ast::GravityFieldHead</a></div><div class="ttdoc">重力场头信息</div><div class="ttdef"><b>定义</b> GravityField.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1GravityFieldHead_html_a5787cef48f07d8e20f80d020cefaa2a9"><div class="ttname"><a href="classast_1_1GravityFieldHead.html#a5787cef48f07d8e20f80d020cefaa2a9">ast::GravityFieldHead::model_</a></div><div class="ttdeci">std::string model_</div><div class="ttdoc">重力场模型名称</div><div class="ttdef"><b>定义</b> GravityField.hpp:51</div></div>
 <div class="ttc" id="aclassast_1_1GravityFieldHead_html_a9e998f6f3f44aa07d9b360217ea72aea"><div class="ttname"><a href="classast_1_1GravityFieldHead.html#a9e998f6f3f44aa07d9b360217ea72aea">ast::GravityFieldHead::centralBody_</a></div><div class="ttdeci">std::string centralBody_</div><div class="ttdoc">中心天体名称</div><div class="ttdef"><b>定义</b> GravityField.hpp:50</div></div>
@@ -258,17 +256,17 @@ $(function(){initNavTree('GravityField_8hpp_source.html',''); initResizable(true
 <div class="ttc" id="aclassast_1_1GravityField_html_a8b85a1397f919ebba53a8a6ff435481d"><div class="ttname"><a href="classast_1_1GravityField.html#a8b85a1397f919ebba53a8a6ff435481d">ast::GravityField::getHead</a></div><div class="ttdeci">const GravityFieldHead &amp; getHead() const</div><div class="ttdoc">获取重力场头信息</div><div class="ttdef"><b>定义</b> GravityField.hpp:79</div></div>
 <div class="ttc" id="aclassast_1_1GravityField_html_a91c361e7ae41455bd164122e91e693ea"><div class="ttname"><a href="classast_1_1GravityField.html#a91c361e7ae41455bd164122e91e693ea">ast::GravityField::isNormalized</a></div><div class="ttdeci">bool isNormalized() const</div><div class="ttdoc">是否归一化</div><div class="ttdef"><b>定义</b> GravityField.hpp:114</div></div>
 <div class="ttc" id="aclassast_1_1GravityField_html_ab0a82dbd82e1c829db425f3c501c0df8"><div class="ttname"><a href="classast_1_1GravityField.html#ab0a82dbd82e1c829db425f3c501c0df8">ast::GravityField::getCentralBodyName</a></div><div class="ttdeci">const std::string &amp; getCentralBodyName() const</div><div class="ttdoc">获取中心天体名称</div><div class="ttdef"><b>定义</b> GravityField.hpp:88</div></div>
-<div class="ttc" id="aclassast_1_1GravityField_html_ab6bcff41b82e377e0ad2dbded11a04c7"><div class="ttname"><a href="classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7">ast::GravityField::cosCoeff_</a></div><div class="ttdeci">LowerMatrixd cosCoeff_</div><div class="ttdoc">Cnm系数</div><div class="ttdef"><b>定义</b> GravityField.hpp:176</div></div>
+<div class="ttc" id="aclassast_1_1GravityField_html_ab6bcff41b82e377e0ad2dbded11a04c7"><div class="ttname"><a href="classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7">ast::GravityField::cosCoeff_</a></div><div class="ttdeci">LowerMatrixd cosCoeff_</div><div class="ttdoc">Cnm系数</div><div class="ttdef"><b>定义</b> GravityField.hpp:174</div></div>
 <div class="ttc" id="aclassast_1_1GravityField_html_ac4e1e09d723fbe4952d6fb72d5670600"><div class="ttname"><a href="classast_1_1GravityField.html#ac4e1e09d723fbe4952d6fb72d5670600">ast::GravityField::getModelName</a></div><div class="ttdeci">const std::string &amp; getModelName() const</div><div class="ttdoc">获取重力场模型名称</div><div class="ttdef"><b>定义</b> GravityField.hpp:83</div></div>
 <div class="ttc" id="aclassast_1_1GravityField_html_ad5185b59b2ede5b0fafe25e310fd0e49"><div class="ttname"><a href="classast_1_1GravityField.html#ad5185b59b2ede5b0fafe25e310fd0e49">ast::GravityField::getGM</a></div><div class="ttdeci">double getGM() const</div><div class="ttdoc">获取中心天体重力常数</div><div class="ttdef"><b>定义</b> GravityField.hpp:106</div></div>
-<div class="ttc" id="aclassast_1_1GravityField_html_ae3ab861d3a10664e253e4d599dcc929d"><div class="ttname"><a href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">ast::GravityField::sinCoeff_</a></div><div class="ttdeci">LowerMatrixd sinCoeff_</div><div class="ttdoc">Snm系数</div><div class="ttdef"><b>定义</b> GravityField.hpp:175</div></div>
+<div class="ttc" id="aclassast_1_1GravityField_html_ae3ab861d3a10664e253e4d599dcc929d"><div class="ttname"><a href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">ast::GravityField::sinCoeff_</a></div><div class="ttdeci">LowerMatrixd sinCoeff_</div><div class="ttdoc">Snm系数</div><div class="ttdef"><b>定义</b> GravityField.hpp:173</div></div>
 <div class="ttc" id="aclassast_1_1GravityField_html_af16cf9b255063280671ec093d416c4af"><div class="ttname"><a href="classast_1_1GravityField.html#af16cf9b255063280671ec093d416c4af">ast::GravityField::getRefDistance</a></div><div class="ttdeci">double getRefDistance() const</div><div class="ttdoc">获取参考距离</div><div class="ttdef"><b>定义</b> GravityField.hpp:110</div></div>
 <div class="ttc" id="aclassast_1_1LowerMatrix_html"><div class="ttname"><a href="classast_1_1LowerMatrix.html">ast::LowerMatrix&lt; double &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="anamespaceast_1_1math_html_ad7d48b99658c1144283823aa76621adf"><div class="ttname"><a href="namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf">ast::math::normalized</a></div><div class="ttdeci">auto normalized(const Vector &amp;vec) -&gt; typename std::enable_if&lt;!std::is_pointer&lt; Vector &gt;::value, Vector &gt;::type</div><div class="ttdoc">normalized</div><div class="ttdef"><b>定义</b> MathOperator.hpp:352</div></div>
 <div class="ttc" id="anamespaceast_1_1math_html_af4d91cee65bbdc213a65c66832b1dd8c"><div class="ttname"><a href="namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c">ast::math::normalize</a></div><div class="ttdeci">double normalize(double *vec, size_t N)</div><div class="ttdoc">normalize</div><div class="ttdef"><b>定义</b> MathOperator.hpp:306</div></div>
-<div class="ttc" id="anamespaceast_html_a11c803f467d9bc8438e4fe1fbcf4cd60"><div class="ttname"><a href="namespaceast.html#a11c803f467d9bc8438e4fe1fbcf4cd60">ast::aGravityFieldUnnormalize</a></div><div class="ttdeci">void aGravityFieldUnnormalize(GravityField &amp;gf)</div><div class="ttdoc">反归一化重力场</div><div class="ttdef"><b>定义</b> GravityField.cpp:39</div></div>
-<div class="ttc" id="anamespaceast_html_a93cf6fcb42c93306f2d3da87d00ce211"><div class="ttname"><a href="namespaceast.html#a93cf6fcb42c93306f2d3da87d00ce211">ast::aGravityFieldNormalize</a></div><div class="ttdeci">void aGravityFieldNormalize(GravityField &amp;gf)</div><div class="ttdoc">归一化重力场</div><div class="ttdef"><b>定义</b> GravityField.cpp:34</div></div>
+<div class="ttc" id="anamespaceast_html_a11c803f467d9bc8438e4fe1fbcf4cd60"><div class="ttname"><a href="namespaceast.html#a11c803f467d9bc8438e4fe1fbcf4cd60">ast::aGravityFieldUnnormalize</a></div><div class="ttdeci">void aGravityFieldUnnormalize(GravityField &amp;gf)</div><div class="ttdoc">反归一化重力场</div><div class="ttdef"><b>定义</b> GravityField.cpp:34</div></div>
+<div class="ttc" id="anamespaceast_html_a93cf6fcb42c93306f2d3da87d00ce211"><div class="ttname"><a href="namespaceast.html#a93cf6fcb42c93306f2d3da87d00ce211">ast::aGravityFieldNormalize</a></div><div class="ttdeci">void aGravityFieldNormalize(GravityField &amp;gf)</div><div class="ttdoc">归一化重力场</div><div class="ttdef"><b>定义</b> GravityField.cpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

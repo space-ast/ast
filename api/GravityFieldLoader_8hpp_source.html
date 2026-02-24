@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/ForceModel/Gravity/GravityFieldLoader.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('GravityFieldLoader_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GravityFieldLoader.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="GravityFieldLoader_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/BKVParser.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>GravityFieldHead;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>GravityField;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html">   40</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1GravityFieldLoader.html">GravityFieldLoader</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1GravityFieldLoader.html">GravityFieldLoader</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1GravityFieldLoader.html">GravityFieldLoader</a>(<span class="keywordtype">int</span> maxLoadDegree, <span class="keywordtype">int</span> maxLoadOrder)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        : maxLoadDegree_(maxLoadDegree), maxLoadOrder_(maxLoadOrder)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1GravityFieldLoader.html">~GravityFieldLoader</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    AST_CORE_API</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    err_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filePath, <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a>&amp; gravityField);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    AST_CORE_API</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    err_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filePath, <a class="code hl_class" href="classast_1_1GravityFieldHead.html">GravityFieldHead</a>&amp; head);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a2f3e22f008e6a3fe7aefc949c36657e7">   56</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1GravityFieldLoader.html#a2f3e22f008e6a3fe7aefc949c36657e7">getMaxLoadDegree</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxLoadDegree_; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#ae8380991478c82cfbfda8f9da77860ef">   59</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1GravityFieldLoader.html#ae8380991478c82cfbfda8f9da77860ef">getMaxLoadOrder</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxLoadOrder_; }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a5b3bfe329480b0e273594fb0be4e2f7c">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1GravityFieldLoader.html#a5b3bfe329480b0e273594fb0be4e2f7c">setMaxLoadDegree</a>(<span class="keywordtype">int</span> maxLoadDegree) { maxLoadDegree_ = maxLoadDegree; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a18ead310481da288d31aa6cceb01a8b4">   65</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1GravityFieldLoader.html#a18ead310481da288d31aa6cceb01a8b4">setMaxLoadOrder</a>(<span class="keywordtype">int</span> maxLoadOrder) { maxLoadOrder_ = maxLoadOrder; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">public</span>:    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#acb6ea8a76a32480231faa91179626ad9">   68</a></span>    <a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a> <a class="code hl_variable" href="classast_1_1GravityFieldLoader.html#acb6ea8a76a32480231faa91179626ad9">parser_</a>;                      </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a2596fc0d3b4b7b95daa41e76e3766853">   69</a></span>    <a class="code hl_class" href="classast_1_1GravityFieldHead.html">GravityFieldHead</a>* head_{<span class="keyword">nullptr</span>};       </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a612f301ad2a075b814daf792fca7a4d7">   70</a></span>    <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a>* coeff_{<span class="keyword">nullptr</span>};          </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a1a478851d541f18113735a0a58edea94">   71</a></span>    <span class="keywordtype">int</span> maxLoadDegree_ {-1};                </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1GravityFieldLoader.html#a50f089af73e109dddb6e209056a9b0cc">   72</a></span>    <span class="keywordtype">int</span> maxLoadOrder_ {-1};                 </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1BKVParser_html"><div class="ttname"><a href="classast_1_1BKVParser.html">ast::BKVParser</a></div><div class="ttdoc">键值对解析器（BlockKeyValueParser）</div><div class="ttdef"><b>定义</b> BKVParser.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldHead_html"><div class="ttname"><a href="classast_1_1GravityFieldHead.html">ast::GravityFieldHead</a></div><div class="ttdoc">重力场头信息</div><div class="ttdef"><b>定义</b> GravityField.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldLoader_html"><div class="ttname"><a href="classast_1_1GravityFieldLoader.html">ast::GravityFieldLoader</a></div><div class="ttdoc">重力场加载器</div><div class="ttdef"><b>定义</b> GravityFieldLoader.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldLoader_html_a18ead310481da288d31aa6cceb01a8b4"><div class="ttname"><a href="classast_1_1GravityFieldLoader.html#a18ead310481da288d31aa6cceb01a8b4">ast::GravityFieldLoader::setMaxLoadOrder</a></div><div class="ttdeci">void setMaxLoadOrder(int maxLoadOrder)</div><div class="ttdoc">设置最大加载次数</div><div class="ttdef"><b>定义</b> GravityFieldLoader.hpp:65</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldLoader_html_a2f3e22f008e6a3fe7aefc949c36657e7"><div class="ttname"><a href="classast_1_1GravityFieldLoader.html#a2f3e22f008e6a3fe7aefc949c36657e7">ast::GravityFieldLoader::getMaxLoadDegree</a></div><div class="ttdeci">int getMaxLoadDegree() const</div><div class="ttdoc">获取最大加载阶数</div><div class="ttdef"><b>定义</b> GravityFieldLoader.hpp:56</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldLoader_html_a5b3bfe329480b0e273594fb0be4e2f7c"><div class="ttname"><a href="classast_1_1GravityFieldLoader.html#a5b3bfe329480b0e273594fb0be4e2f7c">ast::GravityFieldLoader::setMaxLoadDegree</a></div><div class="ttdeci">void setMaxLoadDegree(int maxLoadDegree)</div><div class="ttdoc">设置最大加载阶数</div><div class="ttdef"><b>定义</b> GravityFieldLoader.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldLoader_html_acb6ea8a76a32480231faa91179626ad9"><div class="ttname"><a href="classast_1_1GravityFieldLoader.html#acb6ea8a76a32480231faa91179626ad9">ast::GravityFieldLoader::parser_</a></div><div class="ttdeci">BKVParser parser_</div><div class="ttdoc">解析器</div><div class="ttdef"><b>定义</b> GravityFieldLoader.hpp:68</div></div>
+<div class="ttc" id="aclassast_1_1GravityFieldLoader_html_ae8380991478c82cfbfda8f9da77860ef"><div class="ttname"><a href="classast_1_1GravityFieldLoader.html#ae8380991478c82cfbfda8f9da77860ef">ast::GravityFieldLoader::getMaxLoadOrder</a></div><div class="ttdeci">int getMaxLoadOrder() const</div><div class="ttdoc">获取最大加载次数</div><div class="ttdef"><b>定义</b> GravityFieldLoader.hpp:59</div></div>
+<div class="ttc" id="aclassast_1_1GravityField_html"><div class="ttname"><a href="classast_1_1GravityField.html">ast::GravityField</a></div><div class="ttdoc">重力场系数</div><div class="ttdef"><b>定义</b> GravityField.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_3ab28cabefdef7003e922e5fb654453b.html">ForceModel</a></li><li class="navelem"><a class="el" href="dir_3bc7f42affd080321aab9302944b73c5.html">Gravity</a></li><li class="navelem"><a class="el" href="GravityFieldLoader_8hpp.html">GravityFieldLoader.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

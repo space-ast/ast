@@ -15,5 +15,6 @@ var searchData=
   ['gravitycalculator4_12',['GravityCalculator4',['../classast_1_1GravityCalculator4.html',1,'ast']]],
   ['gravitycalculator5_13',['GravityCalculator5',['../classast_1_1GravityCalculator5.html',1,'ast']]],
   ['gravityfield_14',['GravityField',['../classast_1_1GravityField.html',1,'ast']]],
-  ['gravityfieldhead_15',['GravityFieldHead',['../classast_1_1GravityFieldHead.html',1,'ast']]]
+  ['gravityfieldhead_15',['GravityFieldHead',['../classast_1_1GravityFieldHead.html',1,'ast']]],
+  ['gravityfieldloader_16',['GravityFieldLoader',['../classast_1_1GravityFieldLoader.html',1,'ast']]]
 ];

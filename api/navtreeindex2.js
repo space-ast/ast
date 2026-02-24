@@ -16,6 +16,9 @@ var NAVTREEINDEX2 =
 "GravityCalculator5_8cpp.html":[4,0,0,2,4,0,5],
 "GravityCalculator_8cpp.html":[4,0,0,2,4,0,0],
 "GravityCalculator_8hpp_source.html":[4,0,0,2,4,0,1],
+"GravityFieldLoader_8cpp.html":[4,0,0,2,4,0,8],
+"GravityFieldLoader_8hpp.html":[4,0,0,2,4,0,9],
+"GravityFieldLoader_8hpp_source.html":[4,0,0,2,4,0,9],
 "GravityField_8cpp.html":[4,0,0,2,4,0,6],
 "GravityField_8cpp.html#a11c803f467d9bc8438e4fe1fbcf4cd60":[4,0,0,2,4,0,6,1],
 "GravityField_8cpp.html#a93cf6fcb42c93306f2d3da87d00ce211":[4,0,0,2,4,0,6,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "NLPProblem_8hpp_source.html":[4,0,0,8,11],
 "NLPSnoptSolver_8cpp.html":[4,0,0,8,13],
 "NLPSnoptSolver_8hpp.html":[4,0,0,8,14],
-"NLPSnoptSolver_8hpp_source.html":[4,0,0,8,14],
-"NLPSolver_8cpp.html":[4,0,0,8,15],
-"NLPSolver_8hpp.html":[4,0,0,8,16],
-"NLPSolver_8hpp_source.html":[4,0,0,8,16]
+"NLPSnoptSolver_8hpp_source.html":[4,0,0,8,14]
 };

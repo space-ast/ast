@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: 类成员</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/ForceModel/Gravity/GravityFieldLoader.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('functions_h.html',''); initResizable(true); });
+$(function(){initNavTree('GravityFieldLoader_8cpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -97,22 +97,49 @@ $(function(){initNavTree('functions_h.html',''); initResizable(true); });
 </div>
 </div>
 
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#typedef-members">类型定义</a>  </div>
+  <div class="headertitle"><div class="title">GravityFieldLoader.cpp 文件参考</div></div>
+</div><!--header-->
 <div class="contents">
-<div class="textblock">这里列出了所有文档化的类成员，并附带类所属的文件:</div>
-
-<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>h_&#160;:&#160;<a class="el" href="classast_1_1EquinElem.html#ae3be6a64d6c38d50d137761e9130444b">ast::EquinElem</a>, <a class="el" href="classast_1_1ModEquinElem.html#a315f3d084817bd5864d3e6ca31686ea9">ast::ModEquinElem</a></li>
-<li>hash()&#160;:&#160;<a class="el" href="classast_1_1Identifier.html#a7a303077a0d9cec5bc441cc10e37c3cd">ast::Identifier</a></li>
-<li>hasSymbol()&#160;:&#160;<a class="el" href="classast_1_1SymbolScope.html#a87d9d72d99a3ec8ada91b8fcece99590">ast::SymbolScope</a></li>
-<li>head_&#160;:&#160;<a class="el" href="classast_1_1GravityFieldLoader.html#a2596fc0d3b4b7b95daa41e76e3766853">ast::GravityFieldLoader</a></li>
-<li>Hour()&#160;:&#160;<a class="el" href="classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404">ast::Unit</a></li>
-<li>hour_&#160;:&#160;<a class="el" href="classast_1_1Time.html#a9669dcec160398e0355504ca161072b0">ast::Time</a></li>
-</ul>
-</div><!-- contents -->
+<div class="textblock"><code>#include &quot;<a class="el" href="GravityField_8hpp_source.html">GravityField.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="GravityFieldLoader_8hpp_source.html">GravityFieldLoader.hpp</a>&quot;</code><br />
+<code>#include &quot;AstUtil/BKVParser.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/String.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/FileSystem.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Span.hpp&quot;</code><br />
+<code>#include &quot;AstCore/RunTime.hpp&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a4ba5e2f1bbdbeb86b22f4f2fd614df76" id="r_a4ba5e2f1bbdbeb86b22f4f2fd614df76"><td class="memItemLeft" align="right" valign="top"><a id="a4ba5e2f1bbdbeb86b22f4f2fd614df76" name="a4ba5e2f1bbdbeb86b22f4f2fd614df76"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::GravityFieldLoaderContext</b> = <a class="el" href="classast_1_1GravityFieldLoader.html">GravityFieldLoader</a></td></tr>
+<tr class="separator:a4ba5e2f1bbdbeb86b22f4f2fd614df76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p><br  />
+ </p>
+<p><br  />
+ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-02-24 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
+<p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_3ab28cabefdef7003e922e5fb654453b.html">ForceModel</a></li><li class="navelem"><a class="el" href="dir_3bc7f42affd080321aab9302944b73c5.html">Gravity</a></li><li class="navelem"><a class="el" href="GravityFieldLoader_8cpp.html">GravityFieldLoader.cpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

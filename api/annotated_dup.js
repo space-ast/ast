@@ -125,6 +125,7 @@ var annotated_dup =
       [ "GravityCalculator5", "classast_1_1GravityCalculator5.html", "classast_1_1GravityCalculator5" ],
       [ "GravityField", "classast_1_1GravityField.html", "classast_1_1GravityField" ],
       [ "GravityFieldHead", "classast_1_1GravityFieldHead.html", "classast_1_1GravityFieldHead" ],
+      [ "GravityFieldLoader", "classast_1_1GravityFieldLoader.html", "classast_1_1GravityFieldLoader" ],
       [ "HPOP", "classast_1_1HPOP.html", "classast_1_1HPOP" ],
       [ "HPOPEquation", "classast_1_1HPOPEquation.html", "classast_1_1HPOPEquation" ],
       [ "HPOPForceModel", "classast_1_1HPOPForceModel.html", "classast_1_1HPOPForceModel" ],

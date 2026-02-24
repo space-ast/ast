@@ -7,5 +7,7 @@ var dir_3bc7f42affd080321aab9302944b73c5 =
     [ "GravityCalculator4.cpp", "GravityCalculator4_8cpp.html", null ],
     [ "GravityCalculator5.cpp", "GravityCalculator5_8cpp.html", null ],
     [ "GravityField.cpp", "GravityField_8cpp.html", "GravityField_8cpp" ],
-    [ "GravityField.hpp", "GravityField_8hpp.html", "GravityField_8hpp" ]
+    [ "GravityField.hpp", "GravityField_8hpp.html", "GravityField_8hpp" ],
+    [ "GravityFieldLoader.cpp", "GravityFieldLoader_8cpp.html", null ],
+    [ "GravityFieldLoader.hpp", "GravityFieldLoader_8hpp.html", "GravityFieldLoader_8hpp" ]
 ];
