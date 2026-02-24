@@ -60,8 +60,7 @@ public:
     /// @brief 获取系统引力常数
     double getSystemGM() const { return systemGM_; }
 
-    /// @brief 获取Jn项
-    double getJn(int n) const { return gravityField_.getJn(n); }
+    
     double getJ2() const { return getJn(2); }
     double getJ3() const { return getJn(3); }
     double getJ4() const { return getJn(4); }
@@ -70,6 +69,9 @@ public:
 
     /// @brief 是否为地球
     bool isEarth() const { return jplIndex_ == JplDe::eEarth; }
+protected:
+    /// @brief 获取Jn项
+    double getJn(int n) const { return gravityField_.getJn(n); }
 protected:
     friend class SolarSystem;
     /// @brief 加载相关的天文参数

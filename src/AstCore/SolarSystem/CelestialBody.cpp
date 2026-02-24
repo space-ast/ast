@@ -85,7 +85,7 @@ err_t CelestialBody::loadAstroDefinition(BKVParser &parser)
                 std::string model = item.value().toString();
                 fs::path filepath = parser.getFilePath();
                 filepath = filepath.parent_path() / model;
-                err_t rc = this->gravityField_.load(filepath.string());
+                err_t rc = this->gravityField_.load(filepath.string(), 6, 6);
                 if(rc) return rc;
             }
             else if(aEqualsIgnoreCase(item.key(), "Gm")){

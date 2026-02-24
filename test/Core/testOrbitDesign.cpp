@@ -133,10 +133,19 @@ TEST_F(OrbitDesignTest, CriticallyInclinedSunSyncOrbitDesigner)
         printf("orbElem: %s\n", orbElem.toString().c_str());
         EXPECT_NEAR(orbElem.getA(), 10640.1309854711416847_km, 600);
         EXPECT_NEAR(orbElem.getE(), 0.362965, 1e-4);
-        // EXPECT_NEAR(orbElem.getI(), 63.4349488226876375_deg, 1e-11);
-        // EXPECT_EQ(orbElem.getRAAN(), -100.0_deg);
-        // EXPECT_EQ(orbElem.getArgPer(), 0.0_deg);
-        // EXPECT_EQ(orbElem.getTrueA(), 0.0);
+        EXPECT_NEAR(orbElem.getI(), 116.5650511767512540_deg, 1e-11);
+    }
+    {
+        CriticallyInclinedSunSyncOrbitDesigner designer(aGetEarth());
+        designer.setPerigeeAltitude(2462_km);
+        designer.setRAAN(-100_deg);
+        OrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 9877.3708317850232561_km, 500);
+        EXPECT_NEAR(orbElem.getE(), 0.1050111258805068, 1e-4);
+        EXPECT_NEAR(orbElem.getI(), 116.5650511767512540_deg, 1e-11);
     }
 }
 

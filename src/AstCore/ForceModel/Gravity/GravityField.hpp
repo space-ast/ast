@@ -141,6 +141,13 @@ public:
     /// @param model 重力场模型文件路径，或者模型名称
     /// @return 加载状态
     err_t load(StringView model);
+
+    /// @brief 从文件加载重力场
+    /// @param model 重力场模型文件路径，或者模型名称
+    /// @param maxLoadDegree 最大加载阶数
+    /// @param maxLoadOrder 最大加载次数
+    /// @return 加载状态
+    err_t load(StringView model, int maxLoadDegree, int maxLoadOrder);
     
     /// @brief 归一化重力场
     void normalize();
@@ -155,16 +162,7 @@ public:
     /// @brief 获取反归一化后的重力场
     /// @return 反归一化后的重力场
     GravityField unnormalized() const;
-protected:
-    /// @brief 从STK文件加载重力场
-    /// @param parser STK文件解析器
-    /// @return 加载状态
-    err_t loadSTK(BKVParser& parser);
-
-    /// @brief 从GMAT文件加载重力场
-    /// @param parser GMAT文件解析器
-    /// @return 加载状态
-    err_t loadGMAT(BKVParser& parser);
+    
 public:
     double& snm(int n, int m);
     double& cnm(int n, int m);

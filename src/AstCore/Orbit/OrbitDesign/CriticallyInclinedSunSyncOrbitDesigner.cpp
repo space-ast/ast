@@ -61,7 +61,7 @@ err_t CriticallyInclinedSunSyncOrbitDesigner::getOrbitState(ModOrbElem &orbElem)
     orbElem.trueA_ = 0_deg;
     // printf("gm=%.15g rb=%.15g j2=%.15g\n", gm, rb, j2);
     
-    auto func = [rp=rp, j2=j2, gm=gm, rb=rb, inc=inc](double ecc) -> double { 
+    auto func = [rp, j2, gm, rb, inc](double ecc) -> double { 
         #if 1
         double a = aPeriRadToSMajAx(rp, ecc);
         double raanDot = -3./2. * j2 * sqrt(gm/ pow(rb, 3)) * pow(rb / a, 7./2.) * cos(inc) / pow(1 - ecc * ecc, 2);
