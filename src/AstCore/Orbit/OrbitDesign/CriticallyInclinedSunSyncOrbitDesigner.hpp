@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/OrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,7 +30,29 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief      太阳同步临界倾角轨道设计器
+class AST_CORE_API CriticallyInclinedSunSyncOrbitDesigner final: public OrbitDesigner
+{
+public:
+    CriticallyInclinedSunSyncOrbitDesigner();
+    CriticallyInclinedSunSyncOrbitDesigner(CelestialBody* body);
+    ~CriticallyInclinedSunSyncOrbitDesigner() = default;
 
+    using OrbitDesigner::getOrbitState;
+
+    err_t getOrbitState(ModOrbElem& orbElem) const override;
+
+    double getPerigeeAltitude() const { return perigeeAltitude_; }
+
+    double getRAAN() const { return raan_; }
+
+    void setPerigeeAltitude(double perigeeAltitude) { perigeeAltitude_ = perigeeAltitude; }
+
+    void setRAAN(double raan) { raan_ = raan; }
+protected:
+    double perigeeAltitude_;     ///< 近地点高度
+    double raan_;                ///< 升交点赤经
+};
 
 /*! @} */
 

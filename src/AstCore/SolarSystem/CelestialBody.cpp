@@ -91,13 +91,18 @@ err_t CelestialBody::loadAstroDefinition(BKVParser &parser)
             else if(aEqualsIgnoreCase(item.key(), "Gm")){
                 gm_ = item.value().toDouble();
             }else if(aEqualsIgnoreCase(item.key(), "SystemGM")){
-                systemGm_ = item.value().toDouble();
+                systemGM_ = item.value().toDouble();
             }else if(aEqualsIgnoreCase(item.key(), "ShapeName")){
                 // todo
             }else if(aEqualsIgnoreCase(item.key(), "Shape")){
                 // todo
-            }else if(aEqualsIgnoreCase(item.key(), "MajorAxis")){
+            }else if(aEqualsIgnoreCase(item.key(), "Radius")){
                 // todo
+                radius_ = item.value().toDouble();
+            }
+            else if(aEqualsIgnoreCase(item.key(), "MajorAxis")){
+                // todo
+                radius_ = item.value().toDouble();
             }else if(aEqualsIgnoreCase(item.key(), "MiddleAxis")){
                 // todo
             }else if(aEqualsIgnoreCase(item.key(), "MinorAxis")){

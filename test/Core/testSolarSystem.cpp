@@ -40,11 +40,35 @@ TEST(SolarSystem, load)
     SolarSystem system;
     err_t rc = system.load(aDataDirGet() + "/SolarSystem");
     EXPECT_EQ(rc, 0);
-    auto ariel = system.getBody("Ariel");
-    EXPECT_NE(ariel, nullptr);
 }
 
+TEST(SolarSystem, getBody)
+{
+    SolarSystem system;
+    err_t rc = system.load(aDataDirGet() + "/SolarSystem");
+    EXPECT_EQ(rc, 0);
+    auto ariel = system.getBody("Ariel");
+    EXPECT_NE(ariel, nullptr);
+    auto earth = system.getBody("Earth");
+    EXPECT_NE(earth, nullptr);
+}
 
+TEST(CelestialBody, getJn)
+{
+    CelestialBody earth;
+    err_t rc = earth.load(aDataDirGet() + "/SolarSystem/Earth/Earth.cb");
+    EXPECT_EQ(rc, 0);
+    EXPECT_EQ(earth.getJn(0), 0.0);
+    double j2 = earth.getJ2();
+    printf("J2 = %.15g\n", j2);
+    EXPECT_NEAR(j2, 0.0010826261738522, 1e-15);
+    double j3 = earth.getJ3();
+    printf("J3 = %.15g\n", j3);
+    EXPECT_NEAR(j3, -0.0000025324105186, 1e-15);
+    double j4 = earth.getJ4();
+    printf("J4 = %.15g\n", j4);
+    EXPECT_NEAR(j4, -0.0000016198975999, 1e-15);
+}
 
 GTEST_MAIN();
 

@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SolarSystem.hpp"
+#include "AstCore/JplDe.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include <iostream>
@@ -28,12 +29,18 @@ AST_NAMESPACE_BEGIN
 
 void SolarSystem::init()
 {
+    if(!solarSystemBarycenter_)
+        solarSystemBarycenter_ = new CelestialBody();
+    if(!earthMoonBarycenter_)
+        earthMoonBarycenter_ = new CelestialBody();
     if(!mercury_)
         mercury_ = new CelestialBody();
     if(!venus_)
         venus_ = new CelestialBody();
-    if(!earth_)
+    if(!earth_){
         earth_ = new CelestialBody();
+        earth_->jplIndex_ = JplDe::eEarth;
+    }
     if(!mars_)
         mars_ = new CelestialBody();
     if(!jupiter_)
@@ -50,7 +57,9 @@ void SolarSystem::init()
         moon_ = new CelestialBody();
     if(!sun_)
         sun_ = new CelestialBody();
-
+    
+    bodies_["SolarSystemBarycenter"] = solarSystemBarycenter_;
+    bodies_["EarthMoonBarycenter"] = earthMoonBarycenter_;
     bodies_["Mercury"] = mercury_;
     bodies_["Venus"] = venus_;
     bodies_["Earth"] = earth_;

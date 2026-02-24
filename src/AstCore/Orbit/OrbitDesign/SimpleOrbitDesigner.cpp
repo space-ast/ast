@@ -19,17 +19,46 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SimpleOrbitDesigner.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstUtil/Literals.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-err_t SimpleOrbitDesigner::getOrbitState(TimePoint& orbitEpoch, ModOrbElem &orbElem) const
+using namespace literals;
+
+SimpleOrbitDesigner::SimpleOrbitDesigner()
+    : SimpleOrbitDesigner{getDefaultCelestialBody()}
 {
-    return err_t();
 }
 
-err_t SimpleOrbitDesigner::getCoordFrame(bool &useCoordEpoch, TimePoint &coordEpoch, SharedPtr<Frame> &coordFrame) const
+
+SimpleOrbitDesigner::SimpleOrbitDesigner(CelestialBody *body)
+    : OrbitDesigner{body}
+    , semimajorAxis_{0.0}
+    , eccentricity_{0.0}
+    , inclination_{28.5_deg}
+    , rightAscensionOfAscendingNode_{0.0}
+    , argumentOfPeriapsis_{0.0}
+    , trueAnomaly_{0.0}
 {
-    return err_t();
+    this->semimajorAxis_ = getBodyRadius() + 300_km;
 }
+
+
+err_t SimpleOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
+{
+    OrbElem orbElemOrigin{
+        semimajorAxis_,
+        eccentricity_,
+        inclination_,
+        rightAscensionOfAscendingNode_,
+        argumentOfPeriapsis_,
+        trueAnomaly_
+    };
+    coe2moe(orbElemOrigin.data(), orbElem.data());
+    return eNoError;
+}
+
 
 AST_NAMESPACE_END

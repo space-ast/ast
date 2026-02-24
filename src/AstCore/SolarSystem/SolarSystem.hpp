@@ -57,7 +57,13 @@ public:
 
 	err_t load(StringView dirpath);
 	err_t loadDefault();
+
+	/// @brief 获取太阳系质心
+	CelestialBody* getSolarSystemBarycenter() const { return solarSystemBarycenter_.get(); }
 	
+	/// @brief 获取地月质心
+	CelestialBody* getEarthMoonBarycenter() const { return earthMoonBarycenter_.get(); }
+
 	/// @brief 获取水星
 	CelestialBody* getMercury() const { return mercury_.get(); }
 	
@@ -108,20 +114,23 @@ public:
 		
 protected:
 	using CelestialBodyMap = std::unordered_map<std::string, SharedPtr<CelestialBody>>;
-
-	SharedPtr<CelestialBody> mercury_;			///< 水星
-	SharedPtr<CelestialBody> venus_;			///< 金星
-    SharedPtr<CelestialBody> earth_;			///< 地球
-    SharedPtr<CelestialBody> mars_;				///< 火星
-	SharedPtr<CelestialBody> jupiter_;			///< 木星
-	SharedPtr<CelestialBody> saturn_;			///< 土星
-	SharedPtr<CelestialBody> uranus_;			///< 天王星
-	SharedPtr<CelestialBody> neptune_;			///< 海王星
-	SharedPtr<CelestialBody> pluto_;			///< 冥王星
-    SharedPtr<CelestialBody> moon_;				///< 月球
-	SharedPtr<CelestialBody> sun_;				///< 太阳
 	
-	CelestialBodyMap bodies_;					///< 太阳系天体映射表
+	SharedPtr<CelestialBody> solarSystemBarycenter_; ///< 太阳系质心
+	SharedPtr<CelestialBody> earthMoonBarycenter_;	 ///< 地月质心
+ 
+	SharedPtr<CelestialBody> mercury_;				 ///< 水星
+	SharedPtr<CelestialBody> venus_;				 ///< 金星
+    SharedPtr<CelestialBody> earth_;				 ///< 地球
+    SharedPtr<CelestialBody> mars_;					 ///< 火星
+	SharedPtr<CelestialBody> jupiter_;				 ///< 木星
+	SharedPtr<CelestialBody> saturn_;				 ///< 土星
+	SharedPtr<CelestialBody> uranus_;				 ///< 天王星
+	SharedPtr<CelestialBody> neptune_;				 ///< 海王星
+	SharedPtr<CelestialBody> pluto_;				 ///< 冥王星
+    SharedPtr<CelestialBody> moon_;					 ///< 月球
+	SharedPtr<CelestialBody> sun_;					 ///< 太阳
+ 
+	CelestialBodyMap bodies_;						 ///< 太阳系天体映射表
 };
 
 /*! @} */

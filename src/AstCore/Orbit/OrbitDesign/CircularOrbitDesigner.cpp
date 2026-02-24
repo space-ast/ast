@@ -19,19 +19,42 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "CircularOrbitDesigner.hpp"
+#include "AstUtil/Literals.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-err_t CircularOrbitDesigner::getOrbitState(TimePoint &orbitEpoch, ModOrbElem &orbElem) const
+using namespace literals;
+
+CircularOrbitDesigner::CircularOrbitDesigner()
+    :CircularOrbitDesigner(getDefaultCelestialBody())
 {
-    return err_t();
 }
 
-err_t CircularOrbitDesigner::getCoordFrame(bool &useCoordEpoch, TimePoint &coordEpoch, SharedPtr<Frame> &coordFrame) const
+CircularOrbitDesigner::CircularOrbitDesigner(CelestialBody *body)
+    : OrbitDesigner(body)
+    , inclination_(45_deg)
+    , altitude_(500_km)
+    , raan_(0_deg)
 {
-    return err_t();
+
 }
+
+err_t CircularOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
+{
+    OrbElem orbElemOrigin{
+        getBodyRadius() + altitude_,
+        0.0,
+        inclination_,
+        raan_,
+        0.0,
+        0.0
+    };
+    coe2moe(orbElemOrigin.data(), orbElem.data());
+    return eNoError;
+}
+
+
 
 AST_NAMESPACE_END
-
 

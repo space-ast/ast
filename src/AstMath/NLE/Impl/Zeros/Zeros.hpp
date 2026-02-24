@@ -52,7 +52,7 @@ namespace details{
 template<typename Func>
 double bisect(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
-    return bisect(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
+    return ::bisect(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
 
@@ -69,7 +69,7 @@ double bisect(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 template<typename Func>
 double ridder(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
-    return ridder(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
+    return ::ridder(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
 
@@ -86,7 +86,7 @@ double ridder(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 template<typename Func>
 double brenth(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
-    return brenth(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
+    return ::brenth(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
 
@@ -103,7 +103,7 @@ double brenth(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 template<typename Func>
 double brentq(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
-    return brentq(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
+    return ::brentq(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
 
@@ -120,7 +120,7 @@ double brentq(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 template<typename Func>
 double secant(Func f, double xa, double xb, double xtol, double rtol, int iter, scipy_zeros_info &solver_stats)
 {
-    return secant(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
+    return ::secant(details::callback_func<Func>, xa, xb, xtol, rtol, iter, &f, &solver_stats);
 }
 
 

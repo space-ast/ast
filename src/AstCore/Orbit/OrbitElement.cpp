@@ -45,6 +45,18 @@ std::string ModOrbElem::toString() const
         "}");
 }
 
+std::string OrbElem::toString() const
+{
+    return std::string(
+        "OrbElem{a: " + aFormatDouble(a_) + "m" + 
+        ", e: " + aFormatDouble(e_) + 
+        ", i: " + aFormatDouble(i_ * kRadToDeg) + "deg" + 
+        ", raan: " + aFormatDouble(raan_ * kRadToDeg) + "deg" + 
+        ", argper: " + aFormatDouble(argper_ * kRadToDeg) + "deg" + 
+        ", true: " + aFormatDouble(trueA_ * kRadToDeg) + "deg" + 
+        "}");
+}
+
 
 err_t coe2rv(const double* coe, double gm, double* pos, double* vel)
 {
@@ -1136,4 +1148,4 @@ err_t aDelaunayToOrbElem(const DelaunayElem &delaunay, double gm, OrbElem &elem)
 }
 
 AST_NAMESPACE_END
- 
+

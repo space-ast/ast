@@ -64,6 +64,25 @@ public:
     double	 argper_;     ///< 近拱点角
     double	 trueA_;      ///< 真近点角
 public:
+    /// @brief 计算平均角速度变化率
+    double getMeanMotion(double gm) const {return sqrt(gm / pow(getA(), 3));}
+
+    double getA() const {return a_;}
+
+    double getE() const {return e_;}
+
+    double getI() const {return i_;}
+
+    double getRAAN() const {return raan_;}
+
+    double getArgPer() const {return argper_;}
+
+    double getTrueA() const {return trueA_;}
+
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
+public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, a)
     AST_DEF_ACCESS_METHOD(double, e)
@@ -93,6 +112,16 @@ public:
 
     /// @brief 计算半通径
     double getP() const {return rp_ * (1 + e_);}
+
+    double getE() const {return e_;}
+
+    double getI() const {return i_;}
+
+    double getRAAN() const {return raan_;}
+
+    double getArgPer() const {return argper_;}
+
+    double getTrueA() const {return trueA_;}
 
     /// @brief 转换为字符串
     AST_CORE_API

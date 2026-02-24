@@ -129,10 +129,13 @@ public:
     /// @return Cnm系数
     double getCnm(int n, int m) const;
     
-    // double getSnmNormalized(int n, int m) const;
-    // double getCnmNormalized(int n, int m) const;
-    // double getSnmUnnormalized(int n, int m) const;
-    // double getCnmUnnormalized(int n, int m) const;
+    double getSnmNormalized(int n, int m) const;
+    double getCnmNormalized(int n, int m) const;
+    double getSnmUnnormalized(int n, int m) const;
+    double getCnmUnnormalized(int n, int m) const;
+
+    /// @brief 获取Jn项
+    double getJn(int n) const;
 
     /// @brief 从文件加载重力场
     /// @param model 重力场模型文件路径，或者模型名称
@@ -191,12 +194,16 @@ inline bool GravityField::isValidDegreeOrder(int degree, int order) const
 
 inline double GravityField::getSnm(int n, int m) const
 {
-    return sinCoeff_(n, m);
+    if(A_LIKELY(isValidDegreeOrder(n, m)))
+        return sinCoeff_(n, m);
+    return 0;
 }
 
 inline double GravityField::getCnm(int n, int m) const
 {
-    return cosCoeff_(n, m);
+    if(A_LIKELY(isValidDegreeOrder(n, m)))
+        return cosCoeff_(n, m);
+    return 0;
 }
 
 

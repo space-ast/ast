@@ -19,9 +19,47 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "CriticallyInclinedOrbitDesigner.hpp"
+#include "AstCore/OrbitParam.hpp"
+#include "AstUtil/Literals.hpp"
 
 AST_NAMESPACE_BEGIN
 
+using namespace literals;
+
+CriticallyInclinedOrbitDesigner::CriticallyInclinedOrbitDesigner()
+    : CriticallyInclinedOrbitDesigner(getDefaultCelestialBody())
+{
+}
+
+CriticallyInclinedOrbitDesigner::CriticallyInclinedOrbitDesigner(CelestialBody* body)
+    : OrbitDesigner(body)
+    , direction_(ePosigrade)
+    , apogeeAltitude_(12000_km)
+    , perigeeAltitude_(400_km)
+    //, longitudeOfAscendingNode_(-100_deg)
+    , raan_(-100_deg)
+{
+
+}
+
+
+err_t CriticallyInclinedOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
+{
+    double rp = perigeeAltitude_ + getBodyRadius();
+    double ra = apogeeAltitude_ + getBodyRadius();
+    orbElem.rp_ = rp;
+    orbElem.e_ = aRadiiToEcc(rp, ra);
+    if (direction_ == ePosigrade)
+        orbElem.i_ = acos(1/ sqrt(5));
+    else
+        orbElem.i_ = kPI - acos(1/ sqrt(5));
+    // orbElem.raan_ = longitudeOfAscendingNode_; // @todo 需要转换为raan
+    orbElem.raan_ = raan_;
+    orbElem.argper_ = 0_deg;
+    orbElem.trueA_ = 0_deg;
+    return eNoError;
+}
 
 
 AST_NAMESPACE_END
+

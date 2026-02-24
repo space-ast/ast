@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstCore/Object.hpp"
 #include "AstCore/GravityField.hpp"
+#include "AstCore/JplDe.hpp"
  
 AST_NAMESPACE_BEGIN
 
@@ -50,11 +51,27 @@ public:
     /// @retval             - 错误码
     err_t load(StringView filepath);
 
+    /// @brief 获取天体半径
+    double getRadius() const { return radius_; }
+
     /// @brief 获取引力常数
     double getGM() const { return gm_; }
 
+    /// @brief 获取系统引力常数
+    double getSystemGM() const { return systemGM_; }
 
+    /// @brief 获取Jn项
+    double getJn(int n) const { return gravityField_.getJn(n); }
+    double getJ2() const { return getJn(2); }
+    double getJ3() const { return getJn(3); }
+    double getJ4() const { return getJn(4); }
+    double getJ5() const { return getJn(5); }
+    double getJ6() const { return getJn(6); }
+
+    /// @brief 是否为地球
+    bool isEarth() const { return jplIndex_ == JplDe::eEarth; }
 protected:
+    friend class SolarSystem;
     /// @brief 加载相关的天文参数
     err_t loadAstroDefinition(BKVParser& parser);
 
@@ -71,7 +88,8 @@ PROPERTIES:
     SharedPtr<CelestialBody> parent_;          ///< 父天体
     std::string     name_;                     ///< 天体名称
     double          gm_{0.0};                  ///< 引力常数
-    double          systemGm_{0.0};            ///< 系统引力常数
+    double          systemGM_{0.0};            ///< 系统引力常数
+    double          radius_{0.0};              ///< 天体半径
     int             jplSpiceId_{-1};           ///< JPL SPICE ID
     int             jplIndex_{-1};             ///< JPL Index
     GravityField    gravityField_;             ///< 重力场

@@ -19,14 +19,58 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OrbitDesigner.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstCore/RunTime.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
-OrbitDesigner::OrbitDesigner(CelestialBody *cb)
-    : centralBody_{cb}
+OrbitDesigner::OrbitDesigner()
+    : OrbitDesigner{getDefaultCelestialBody()}
 {
 }
 
 
+OrbitDesigner::OrbitDesigner(CelestialBody *body)
+    : celestialBody_{body}
+{
+}
+
+CelestialBody *OrbitDesigner::getDefaultCelestialBody()
+{
+    return aGetEarth();
+}
+
+err_t OrbitDesigner::getOrbitState(CartState &cartState) const
+{
+    ModOrbElem orbElem;
+    err_t rc = getOrbitState(orbElem);
+    if(rc != eNoError){
+        return rc;
+    }
+    return aModOrbElemToCart(orbElem, getGM(), cartState.pos(), cartState.vel());
+}
+
+err_t OrbitDesigner::getOrbitState(OrbElem &orbElem) const
+{
+    ModOrbElem modOrbElem;
+    err_t rc = getOrbitState(modOrbElem);
+    if(rc != eNoError){
+        return rc;
+    }
+    moe2coe(modOrbElem.data(), orbElem.data());
+    return eNoError;
+}
+
+err_t OrbitDesigner::getCoordFrame(bool &useCoordEpoch, TimePoint &coordEpoch, SharedPtr<Frame> &coordFrame) const
+{
+    auto body = getCelestialBody();
+    if(!body)
+        return eErrorNullInput;
+    useCoordEpoch = false;
+    // coordFrame = body->getTODFrame();
+    return eNoError;
+}
+
 AST_NAMESPACE_END
+
+

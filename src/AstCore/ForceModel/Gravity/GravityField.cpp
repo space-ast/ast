@@ -196,9 +196,35 @@ static double gfNormalizeFactor(int n, int m)
         for(int i = n - m + 1; i <= n + m; i++)
             factor *= i;
     // }
-    factor = sqrt(factor / ((1 + delta)*(2 * n + 1)) );
+    factor = sqrt(((1 + delta)*(2 * n + 1)) / factor);
     return factor;
 }
+
+A_ALWAYS_INLINE void gfNormalize(int n, int m, double& value)
+{
+    value /= gfNormalizeFactor(n, m);
+}
+
+A_ALWAYS_INLINE void gfNormalize(int n, int m, double& value1, double& value2)
+{
+    double factor = gfNormalizeFactor(n, m);
+    value1 /= factor;
+    value2 /= factor;
+}
+
+A_ALWAYS_INLINE void gfUnnormalize(int n, int m, double& value)
+{
+    value *= gfNormalizeFactor(n, m);
+}
+
+A_ALWAYS_INLINE void gfUnnormalize(int n, int m, double& value1, double& value2)
+{
+    double factor = gfNormalizeFactor(n, m);
+    value1 *= factor;
+    value2 *= factor;
+}
+
+
 
 void GravityField::normalize()
 {
@@ -209,9 +235,7 @@ void GravityField::normalize()
     {
         for(int m = 0; m <= n; m++)
         {
-            double factor = gfNormalizeFactor(n, m);
-            snm(n, m) *= factor;
-            cnm(n, m) *= factor;
+            gfNormalize(n, m, cnm(n, m), snm(n, m));
         }
     }
 }
@@ -225,9 +249,7 @@ void GravityField::unnormalize()
     {
         for(int m = 0; m <= n; m++)
         {
-            double factor = gfNormalizeFactor(n, m);
-            snm(n, m) /= factor;
-            cnm(n, m) /= factor;
+            gfUnnormalize(n, m, cnm(n, m), snm(n, m));
         }
     }
 }
@@ -554,6 +576,50 @@ void GravityField::initCoeffMatrices()
 }
 
 
+double GravityField::getSnmNormalized(int n, int m) const
+{
+    double snm = getSnm(n, m);
+    if(!isNormalized())
+    {
+        gfNormalize(n, m, snm);
+    }
+    return snm;
+}
+
+double GravityField::getCnmNormalized(int n, int m) const
+{
+    double cnm = getCnm(n, m);
+    if(!isNormalized())
+    {
+        gfNormalize(n, m, cnm);
+    }
+    return cnm;
+}
+
+double GravityField::getSnmUnnormalized(int n, int m) const
+{
+    double snm = getSnm(n, m);
+    if(isNormalized())
+    {
+        gfUnnormalize(n, m, snm);
+    }
+    return snm;
+}
+
+double GravityField::getCnmUnnormalized(int n, int m) const
+{
+    double cnm = getCnm(n, m);
+    if(isNormalized())
+    {
+        gfUnnormalize(n, m, cnm);
+    }
+    return cnm;
+}
+
+double GravityField::getJn(int n) const
+{
+    return -getCnmUnnormalized(n, 0);
+}
 
 AST_NAMESPACE_END
 
