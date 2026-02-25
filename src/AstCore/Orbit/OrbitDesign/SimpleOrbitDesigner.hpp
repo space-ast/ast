@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "OrbitDesigner.hpp"
+#include "BaseOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,14 +31,14 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 基础轨道设计器
-class AST_CORE_API SimpleOrbitDesigner final: public OrbitDesigner
+class AST_CORE_API SimpleOrbitDesigner final: public BaseOrbitDesigner
 {
 public:
     SimpleOrbitDesigner();
     SimpleOrbitDesigner(CelestialBody *body);
     ~SimpleOrbitDesigner() = default;
 public:
-    using OrbitDesigner::getOrbitState;
+    using BaseOrbitDesigner::getOrbitState;
     
     err_t getOrbitState(ModOrbElem &orbElem) const override;
     

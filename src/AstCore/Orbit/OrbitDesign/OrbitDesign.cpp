@@ -3,7 +3,7 @@
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-02-23
+/// @date      2026-02-25
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -19,9 +19,20 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OrbitDesign.hpp"
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
+double aRAANRate(double gm, double j2, double rb, double a, double ecc, double inc)
+{
+    double n = sqrt(gm / pow(a, 3));
+    return -3./2. * j2 * n * pow(rb / a, 2) * cos(inc) / pow(1 - ecc * ecc, 2);
+}
 
+double aArgPerRate(double gm, double j2, double rb, double a, double ecc, double inc)
+{
+    double n = sqrt(gm / pow(a, 3));
+    return 3./4. * j2 * n * pow(rb / a, 2) * (5 * pow(cos(inc), 2) - 1) / pow(1 - ecc * ecc, 2);
+}
 
 AST_NAMESPACE_END

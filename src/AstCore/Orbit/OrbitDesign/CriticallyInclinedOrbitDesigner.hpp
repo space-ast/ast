@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "OrbitDesigner.hpp"
+#include "BaseOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 临界轨道设计器
-class AST_CORE_API CriticallyInclinedOrbitDesigner final: public OrbitDesigner
+class AST_CORE_API CriticallyInclinedOrbitDesigner final: public BaseOrbitDesigner
 {
 public:
     CriticallyInclinedOrbitDesigner();
@@ -43,7 +43,7 @@ public:
         eRetrograde,    ///< 逆行
     };
 
-    using OrbitDesigner::getOrbitState;
+    using BaseOrbitDesigner::getOrbitState;
     err_t getOrbitState(ModOrbElem& orbElem) const override;
 
     /// @brief 获取轨道方向

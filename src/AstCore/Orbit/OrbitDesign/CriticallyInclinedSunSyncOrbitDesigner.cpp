@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "CriticallyInclinedSunSyncOrbitDesigner.hpp"
+#include "AstCore/OrbitDesign.hpp"
 #include "AstCore/OrbitParam.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Literals.hpp"
@@ -35,7 +36,7 @@ CriticallyInclinedSunSyncOrbitDesigner::CriticallyInclinedSunSyncOrbitDesigner()
 }
 
 CriticallyInclinedSunSyncOrbitDesigner::CriticallyInclinedSunSyncOrbitDesigner(CelestialBody* body)
-    : OrbitDesigner(body)
+    : BaseOrbitDesigner(body)
     , perigeeAltitude_(400_km)
     , raan_(-100_deg)
 {
@@ -64,7 +65,8 @@ err_t CriticallyInclinedSunSyncOrbitDesigner::getOrbitState(ModOrbElem &orbElem)
     auto func = [rp, j2, gm, rb, inc](double ecc) -> double { 
         #if 1
         double a = aPeriRadToSMajAx(rp, ecc);
-        double raanDot = -3./2. * j2 * sqrt(gm/ pow(rb, 3)) * pow(rb / a, 7./2.) * cos(inc) / pow(1 - ecc * ecc, 2);
+        // double raanDot = -3./2. * j2 * sqrt(gm/ pow(rb, 3)) * pow(rb / a, 7./2.) * cos(inc) / pow(1 - ecc * ecc, 2);
+        double raanDot = aRAANRate(gm, j2, rb, a, ecc, inc);
         return raanDot - kEarthMeanMotion;
         #else
         double a = aPeriRadToSMajAx(rp, ecc);

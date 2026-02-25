@@ -32,7 +32,7 @@ CircularOrbitDesigner::CircularOrbitDesigner()
 }
 
 CircularOrbitDesigner::CircularOrbitDesigner(CelestialBody *body)
-    : OrbitDesigner(body)
+    : BaseOrbitDesigner(body)
     , inclination_(45_deg)
     , altitude_(500_km)
     , raan_(0_deg)

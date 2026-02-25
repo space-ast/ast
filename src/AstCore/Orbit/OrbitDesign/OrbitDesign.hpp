@@ -3,7 +3,7 @@
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-02-23
+/// @date      2026-02-25
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -21,25 +21,33 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "OrbitDesigner.hpp"
-#include "CircularOrbitDesigner.hpp"
-#include "CriticallyInclinedOrbitDesigner.hpp"
-#include "CriticallyInclinedSunSyncOrbitDesigner.hpp"
-#include "MolniyaOrbitDesigner.hpp"
-#include "RepeatingOrbitDesigner.hpp"
-#include "RepeatingSunSyncOrbitDesigner.hpp"
-#include "SimpleOrbitDesigner.hpp"
-#include "StationaryOrbitDesigner.hpp"
-#include "SunSynchronousOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup Orbit
+    @addtogroup 
     @{
 */
 
+/// @brief 计算轨道升交点赤经漂移速率
+/// @param gm 天体的引力参数
+/// @param j2 天体的J2项
+/// @param rb 天体的半径
+/// @param a 轨道的半长轴
+/// @param ecc 轨道的偏心率
+/// @param inc 轨道的倾角
+/// @return 轨道升交点赤经漂移速率
+AST_CORE_CAPI double aRAANRate(double gm, double j2, double rb, double a, double ecc, double inc);
 
+/// @brief 计算轨道近点幅角变化率
+/// @param gm 天体的引力参数
+/// @param j2 天体的J2项
+/// @param rb 天体的半径
+/// @param a 轨道的半长轴
+/// @param ecc 轨道的偏心率
+/// @param inc 轨道的倾角
+/// @return 轨道近点幅角变化率
+AST_CORE_CAPI double aArgPerRate(double gm, double j2, double rb, double a, double ecc, double inc);
 
 /*! @} */
 

@@ -19,9 +19,41 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "MolniyaOrbitDesigner.hpp"
-
+#include "AstUtil/Literals.hpp"
+#include "AstUtil/Logger.hpp"
 AST_NAMESPACE_BEGIN
 
+using namespace literals;
 
+MolniyaOrbitDesigner::MolniyaOrbitDesigner()
+    : MolniyaOrbitDesigner(getDefaultCelestialBody())
+{
+}
+
+MolniyaOrbitDesigner::MolniyaOrbitDesigner(CelestialBody *body)
+    : BaseOrbitDesigner(body)
+    , apogeeLongitude_(-100_deg)
+    , perigeeAltitude_(500_km)
+    , argumentOfPerigee_(270_deg)
+{
+    
+}
+
+err_t MolniyaOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
+{
+    const double inc = acos(1/sqrt(5));
+    const double rp = perigeeAltitude_ + getBodyRadius();
+    const double ecc = 0;
+    aError("not implemented");
+
+    orbElem.rp_ = rp;
+    orbElem.e_ = ecc;
+    orbElem.i_ = inc;
+    orbElem.raan_ = apogeeLongitude_;
+    orbElem.argper_ = argumentOfPerigee_;
+    orbElem.trueA_ = 0_deg;
+    return -1;
+}
 
 AST_NAMESPACE_END
+

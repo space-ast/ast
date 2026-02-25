@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "OrbitDesigner.hpp"
+#include "BaseOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 圆轨道设计器
-class CircularOrbitDesigner final: public OrbitDesigner
+class CircularOrbitDesigner final: public BaseOrbitDesigner
 {
 public:
     CircularOrbitDesigner();
@@ -39,7 +39,7 @@ public:
     ~CircularOrbitDesigner() = default;
 public:
     
-using OrbitDesigner::getOrbitState;
+    using BaseOrbitDesigner::getOrbitState;
 
     err_t getOrbitState(ModOrbElem &orbElem) const override;
 

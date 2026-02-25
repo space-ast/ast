@@ -32,7 +32,7 @@ CriticallyInclinedOrbitDesigner::CriticallyInclinedOrbitDesigner()
 }
 
 CriticallyInclinedOrbitDesigner::CriticallyInclinedOrbitDesigner(CelestialBody* body)
-    : OrbitDesigner(body)
+    : BaseOrbitDesigner(body)
     , direction_(ePosigrade)
     , apogeeAltitude_(12000_km)
     , perigeeAltitude_(400_km)

@@ -34,7 +34,7 @@ SimpleOrbitDesigner::SimpleOrbitDesigner()
 
 
 SimpleOrbitDesigner::SimpleOrbitDesigner(CelestialBody *body)
-    : OrbitDesigner{body}
+    : BaseOrbitDesigner{body}
     , semimajorAxis_{0.0}
     , eccentricity_{0.0}
     , inclination_{28.5_deg}

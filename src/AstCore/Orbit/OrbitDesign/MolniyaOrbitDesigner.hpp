@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "BaseOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,6 +30,21 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief      莫尼亚轨道/闪电轨道设计器
+class AST_CORE_API MolniyaOrbitDesigner : public BaseOrbitDesigner
+{
+public:
+    MolniyaOrbitDesigner();
+    MolniyaOrbitDesigner(CelestialBody* body);
+    ~MolniyaOrbitDesigner() = default;
+    using BaseOrbitDesigner::getOrbitState;
+
+    err_t getOrbitState(ModOrbElem& orbElem) const override;
+protected:
+    double apogeeLongitude_{0};
+    double perigeeAltitude_{0};
+    double argumentOfPerigee_{0};
+};
 
 
 /*! @} */
