@@ -29,7 +29,7 @@ var searchData=
   ['impreciseday_26',['impreciseDay',['../classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8',1,'ast::JulianDate::impreciseDay()'],['../classast_1_1ModJulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8',1,'ast::ModJulianDate::impreciseDay()']]],
   ['in_27',['in',['../Unit_8cpp.html#ae401b7f239f3217a5ad786e5457ecacb',1,'ast::units']]],
   ['inch_28',['Inch',['../classast_1_1Unit.html#acfcc867cd4f2e389ed3f1552443221f3',1,'ast::Unit']]],
-  ['inclination_5f_29',['inclination_',['../classast_1_1CircularOrbitDesigner.html#a60138ecdeae44ae67882434e196706db',1,'ast::CircularOrbitDesigner::inclination_'],['../classast_1_1SimpleOrbitDesigner.html#ad1014e8ee671fdfa9937fbb8bf0eabbb',1,'ast::SimpleOrbitDesigner::inclination_']]],
+  ['inclination_5f_29',['inclination_',['../classast_1_1CircularOrbitDesigner.html#a60138ecdeae44ae67882434e196706db',1,'ast::CircularOrbitDesigner::inclination_'],['../classast_1_1SimpleOrbitDesigner.html#ad1014e8ee671fdfa9937fbb8bf0eabbb',1,'ast::SimpleOrbitDesigner::inclination_'],['../classast_1_1StationaryOrbitDesigner.html#a77d96ea5ea1ac575f3fdecdc392588b6',1,'ast::StationaryOrbitDesigner::inclination_']]],
   ['includespermtide_5f_30',['includesPermTide_',['../classast_1_1GravityFieldHead.html#a8a5fcd8e72a0a468254753ee8baf4643',1,'ast::GravityFieldHead::includesPermTide_'],['../classast_1_1GravityField.html#a8a5fcd8e72a0a468254753ee8baf4643',1,'ast::GravityField::includesPermTide_']]],
   ['incref_31',['incRef',['../classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c',1,'ast::Object']]],
   ['incweakref_32',['incWeakRef',['../classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d',1,'ast::Object']]],

@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::SunSynchronousOrbitDesigner类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1SunSynchronousOrbitDesigner.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1SunSynchronousOrbitDesigner-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::SunSynchronousOrbitDesigner类 参考<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Orbit.html">轨道计算</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="SunSynchronousOrbitDesigner_8hpp_source.html">SunSynchronousOrbitDesigner.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::SunSynchronousOrbitDesigner 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1SunSynchronousOrbitDesigner.png" usemap="#ast::SunSynchronousOrbitDesigner_map" alt=""/>
+  <map id="ast::SunSynchronousOrbitDesigner_map" name="ast::SunSynchronousOrbitDesigner_map">
+<area href="classast_1_1BaseOrbitDesigner.html" title="轨道设计器基类" alt="ast::BaseOrbitDesigner" shape="rect" coords="0,56,210,80"/>
+<area href="classast_1_1IOrbitDesigner.html" title="轨道设计器接口" alt="ast::IOrbitDesigner" shape="rect" coords="0,0,210,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a5cc181691cb18923150b1789a42be2ed" id="r_a5cc181691cb18923150b1789a42be2ed"><td class="memItemLeft" align="right" valign="top"><a id="a5cc181691cb18923150b1789a42be2ed" name="a5cc181691cb18923150b1789a42be2ed"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>EGeometryDefinition</b> { <b>eAltitude</b> = 0
+, <b>eInclination</b> = 1
+ }</td></tr>
+<tr class="separator:a5cc181691cb18923150b1789a42be2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1572b2c5958522e4d081f9ac36c8cb4e" id="r_a1572b2c5958522e4d081f9ac36c8cb4e"><td class="memItemLeft" align="right" valign="top"><a id="a1572b2c5958522e4d081f9ac36c8cb4e" name="a1572b2c5958522e4d081f9ac36c8cb4e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ENodeDefinition</b> { <b>eAscendingNode</b> = 0
+, <b>eDescendingNode</b> = 1
+ }</td></tr>
+<tr class="separator:a1572b2c5958522e4d081f9ac36c8cb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a6255b81c2dca269829ce3e9a283a76d5" id="r_a6255b81c2dca269829ce3e9a283a76d5"><td class="memItemLeft" align="right" valign="top"><a id="a6255b81c2dca269829ce3e9a283a76d5" name="a6255b81c2dca269829ce3e9a283a76d5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SunSynchronousOrbitDesigner</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body)</td></tr>
+<tr class="separator:a6255b81c2dca269829ce3e9a283a76d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c3a655093e3ae8673ba6cfb4695dbc" id="r_a16c3a655093e3ae8673ba6cfb4695dbc"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16c3a655093e3ae8673ba6cfb4695dbc">getOrbitState</a> (<a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) const override</td></tr>
+<tr class="separator:a16c3a655093e3ae8673ba6cfb4695dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c019736be5bb4840dc9671f3e5d6cc" id="r_a00c019736be5bb4840dc9671f3e5d6cc"><td class="memItemLeft" align="right" valign="top"><a id="a00c019736be5bb4840dc9671f3e5d6cc" name="a00c019736be5bb4840dc9671f3e5d6cc"></a>
+EGeometryDefinition&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryDefinition</b> () const</td></tr>
+<tr class="separator:a00c019736be5bb4840dc9671f3e5d6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f6cd61c2094423d62b648c07ca6e56" id="r_ad9f6cd61c2094423d62b648c07ca6e56"><td class="memItemLeft" align="right" valign="top"><a id="ad9f6cd61c2094423d62b648c07ca6e56" name="ad9f6cd61c2094423d62b648c07ca6e56"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setGeometryDefinition</b> (EGeometryDefinition def)</td></tr>
+<tr class="separator:ad9f6cd61c2094423d62b648c07ca6e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e17cb88d6004a7eb2439adc6a6a925" id="r_a41e17cb88d6004a7eb2439adc6a6a925"><td class="memItemLeft" align="right" valign="top"><a id="a41e17cb88d6004a7eb2439adc6a6a925" name="a41e17cb88d6004a7eb2439adc6a6a925"></a>
+ENodeDefinition&#160;</td><td class="memItemRight" valign="bottom"><b>getNodeDefinition</b> () const</td></tr>
+<tr class="separator:a41e17cb88d6004a7eb2439adc6a6a925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f41e85bcc11100e2a5b8721697825d9" id="r_a2f41e85bcc11100e2a5b8721697825d9"><td class="memItemLeft" align="right" valign="top"><a id="a2f41e85bcc11100e2a5b8721697825d9" name="a2f41e85bcc11100e2a5b8721697825d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNodeDefinition</b> (ENodeDefinition def)</td></tr>
+<tr class="separator:a2f41e85bcc11100e2a5b8721697825d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a082cdd1fd028f07e5bd5a38b5a1d7b50" id="r_a082cdd1fd028f07e5bd5a38b5a1d7b50"><td class="memItemLeft" align="right" valign="top"><a id="a082cdd1fd028f07e5bd5a38b5a1d7b50" name="a082cdd1fd028f07e5bd5a38b5a1d7b50"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcInclination</b> (double alt) const</td></tr>
+<tr class="separator:a082cdd1fd028f07e5bd5a38b5a1d7b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a52b79f87ca80fc9fa9ebb6736e3862" id="r_a3a52b79f87ca80fc9fa9ebb6736e3862"><td class="memItemLeft" align="right" valign="top"><a id="a3a52b79f87ca80fc9fa9ebb6736e3862" name="a3a52b79f87ca80fc9fa9ebb6736e3862"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcInclination</b> () const</td></tr>
+<tr class="separator:a3a52b79f87ca80fc9fa9ebb6736e3862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d3e61a5ba5c4cd8b1664f4b8b36ca5" id="r_ad4d3e61a5ba5c4cd8b1664f4b8b36ca5"><td class="memItemLeft" align="right" valign="top"><a id="ad4d3e61a5ba5c4cd8b1664f4b8b36ca5" name="ad4d3e61a5ba5c4cd8b1664f4b8b36ca5"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcAltitude</b> (double inc) const</td></tr>
+<tr class="separator:ad4d3e61a5ba5c4cd8b1664f4b8b36ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a955dfaecc54044bcb1218d9cc5c3eeda" id="r_a955dfaecc54044bcb1218d9cc5c3eeda"><td class="memItemLeft" align="right" valign="top"><a id="a955dfaecc54044bcb1218d9cc5c3eeda" name="a955dfaecc54044bcb1218d9cc5c3eeda"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcAltitude</b> () const</td></tr>
+<tr class="separator:a955dfaecc54044bcb1218d9cc5c3eeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfb0148e92b4ea9ea1b618bf1a64aab" id="r_afcfb0148e92b4ea9ea1b618bf1a64aab"><td class="memItemLeft" align="right" valign="top"><a id="afcfb0148e92b4ea9ea1b618bf1a64aab" name="afcfb0148e92b4ea9ea1b618bf1a64aab"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getInclination</b> () const</td></tr>
+<tr class="separator:afcfb0148e92b4ea9ea1b618bf1a64aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6811310e4aca456e8f3585f8bee3b870" id="r_a6811310e4aca456e8f3585f8bee3b870"><td class="memItemLeft" align="right" valign="top"><a id="a6811310e4aca456e8f3585f8bee3b870" name="a6811310e4aca456e8f3585f8bee3b870"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setInclination</b> (double inc)</td></tr>
+<tr class="separator:a6811310e4aca456e8f3585f8bee3b870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dcc6369c35cf99be05e72b0c7dc4b57" id="r_a3dcc6369c35cf99be05e72b0c7dc4b57"><td class="memItemLeft" align="right" valign="top"><a id="a3dcc6369c35cf99be05e72b0c7dc4b57" name="a3dcc6369c35cf99be05e72b0c7dc4b57"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getAltitude</b> () const</td></tr>
+<tr class="separator:a3dcc6369c35cf99be05e72b0c7dc4b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08592d2c764c5183eb02f1e08c000e80" id="r_a08592d2c764c5183eb02f1e08c000e80"><td class="memItemLeft" align="right" valign="top"><a id="a08592d2c764c5183eb02f1e08c000e80" name="a08592d2c764c5183eb02f1e08c000e80"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAltitude</b> (double alt)</td></tr>
+<tr class="separator:a08592d2c764c5183eb02f1e08c000e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695ba4abfaeea8881f3d1d7fc3558c4f" id="r_a695ba4abfaeea8881f3d1d7fc3558c4f"><td class="memItemLeft" align="right" valign="top"><a id="a695ba4abfaeea8881f3d1d7fc3558c4f" name="a695ba4abfaeea8881f3d1d7fc3558c4f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getLocalTimeOfAscendingNode</b> () const</td></tr>
+<tr class="separator:a695ba4abfaeea8881f3d1d7fc3558c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82dffbdc47cb1083484cd80b4e2f146d" id="r_a82dffbdc47cb1083484cd80b4e2f146d"><td class="memItemLeft" align="right" valign="top"><a id="a82dffbdc47cb1083484cd80b4e2f146d" name="a82dffbdc47cb1083484cd80b4e2f146d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalTimeOfAscendingNode</b> (double t)</td></tr>
+<tr class="separator:a82dffbdc47cb1083484cd80b4e2f146d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
+<tr class="memitem:af549b2bd85b358f438d84cacd7148852 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_af549b2bd85b358f438d84cacd7148852"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseOrbitDesigner</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body)</td></tr>
+<tr class="separator:af549b2bd85b358f438d84cacd7148852 inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b6c850dbb5e709c0a0d425b6568adf inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a71b6c850dbb5e709c0a0d425b6568adf"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCelestialBody</b> () const</td></tr>
+<tr class="separator:a71b6c850dbb5e709c0a0d425b6568adf inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af176d9785645bd34d983c3c5fb60ce5f inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_af176d9785645bd34d983c3c5fb60ce5f"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getGM</b> () const</td></tr>
+<tr class="separator:af176d9785645bd34d983c3c5fb60ce5f inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e99899c3a40a482a0702bdf69bdc794 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a1e99899c3a40a482a0702bdf69bdc794"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ2</b> () const</td></tr>
+<tr class="separator:a1e99899c3a40a482a0702bdf69bdc794 inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa710d2d3dc564020791e348b760ec02c inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_aa710d2d3dc564020791e348b760ec02c"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getBodyRadius</b> () const</td></tr>
+<tr class="separator:aa710d2d3dc564020791e348b760ec02c inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ea3d93df28d60f292ab9f0e8663a932 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a5ea3d93df28d60f292ab9f0e8663a932"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#a5ea3d93df28d60f292ab9f0e8663a932">getOrbitEpoch</a> (<a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;orbitEpoch) const final</td></tr>
+<tr class="separator:a5ea3d93df28d60f292ab9f0e8663a932 inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cb096abf0c2bb9b007f62555c2365c inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_ab3cb096abf0c2bb9b007f62555c2365c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c">getOrbitState</a> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;cartState) const</td></tr>
+<tr class="separator:ab3cb096abf0c2bb9b007f62555c2365c inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c737b189f52bac72e246636527604a inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a55c737b189f52bac72e246636527604a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#a55c737b189f52bac72e246636527604a">getOrbitState</a> (<a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) const</td></tr>
+<tr class="separator:a55c737b189f52bac72e246636527604a inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a294a76d0db7dc6404e4e54d6e7815b inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a4a294a76d0db7dc6404e4e54d6e7815b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#a4a294a76d0db7dc6404e4e54d6e7815b">getCoordFrame</a> (bool &amp;useCoordEpoch, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;coordEpoch, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Frame.html">Frame</a> &gt; &amp;coordFrame) const override</td></tr>
+<tr class="separator:a4a294a76d0db7dc6404e4e54d6e7815b inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1IOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1IOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1IOrbitDesigner.html">ast::IOrbitDesigner</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_static_methods_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
+<tr class="memitem:a99f7d15d0d3377a90a54944aed2aa670 inherit pub_static_methods_classast_1_1BaseOrbitDesigner" id="r_a99f7d15d0d3377a90a54944aed2aa670"><td class="memItemLeft" align="right" valign="top">
+static <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getDefaultCelestialBody</b> ()</td></tr>
+<tr class="separator:a99f7d15d0d3377a90a54944aed2aa670 inherit pub_static_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
+<tr class="memitem:ad9ee006e9c77fe678a84287ed695ccf9 inherit pro_attribs_classast_1_1BaseOrbitDesigner" id="r_ad9ee006e9c77fe678a84287ed695ccf9"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>celestialBody_</b></td></tr>
+<tr class="separator:ad9ee006e9c77fe678a84287ed695ccf9 inherit pro_attribs_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab82f58afe9a01ffe9b46e1cf55d685bb inherit pro_attribs_classast_1_1BaseOrbitDesigner" id="r_ab82f58afe9a01ffe9b46e1cf55d685bb"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>orbitEpoch_</b> {}</td></tr>
+<tr class="separator:ab82f58afe9a01ffe9b46e1cf55d685bb inherit pro_attribs_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>太阳同步轨道设计器 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a16c3a655093e3ae8673ba6cfb4695dbc" name="a16c3a655093e3ae8673ba6cfb4695dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c3a655093e3ae8673ba6cfb4695dbc">&#9670;&#160;</a></span>getOrbitState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::SunSynchronousOrbitDesigner::getOrbitState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbElem</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取轨道状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orbitEpoch</td><td>轨道历元（可选） </td></tr>
+    <tr><td class="paramname">orbElem</td><td>轨道根数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1BaseOrbitDesigner.html#ac4981945f5e88a9163072584165a392f">ast::BaseOrbitDesigner</a> .</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Orbit/OrbitDesign/<a class="el" href="SunSynchronousOrbitDesigner_8hpp_source.html">SunSynchronousOrbitDesigner.hpp</a></li>
+<li>src/AstCore/Orbit/OrbitDesign/<a class="el" href="SunSynchronousOrbitDesigner_8cpp.html">SunSynchronousOrbitDesigner.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1SunSynchronousOrbitDesigner.html">SunSynchronousOrbitDesigner</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
