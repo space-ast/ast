@@ -161,10 +161,11 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
-      [ "ast::OrbitDesigner", "classast_1_1OrbitDesigner.html", [
+      [ "ast::BaseOrbitDesigner", "classast_1_1BaseOrbitDesigner.html", [
         [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", null ],
         [ "ast::CriticallyInclinedOrbitDesigner", "classast_1_1CriticallyInclinedOrbitDesigner.html", null ],
         [ "ast::CriticallyInclinedSunSyncOrbitDesigner", "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html", null ],
+        [ "ast::MolniyaOrbitDesigner", "classast_1_1MolniyaOrbitDesigner.html", null ],
         [ "ast::SimpleOrbitDesigner", "classast_1_1SimpleOrbitDesigner.html", null ]
       ] ]
     ] ],

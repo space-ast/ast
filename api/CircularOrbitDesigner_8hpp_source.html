@@ -106,12 +106,12 @@ $(function(){initNavTree('CircularOrbitDesigner_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="OrbitDesigner_8hpp.html">OrbitDesigner.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="BaseOrbitDesigner_8hpp.html">BaseOrbitDesigner.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1CircularOrbitDesigner.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1CircularOrbitDesigner.html">CircularOrbitDesigner</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1OrbitDesigner.html">OrbitDesigner</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1CircularOrbitDesigner.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1CircularOrbitDesigner.html">CircularOrbitDesigner</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BaseOrbitDesigner.html">BaseOrbitDesigner</a></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classast_1_1CircularOrbitDesigner.html">CircularOrbitDesigner</a>();</div>
@@ -119,7 +119,7 @@ $(function(){initNavTree('CircularOrbitDesigner_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1CircularOrbitDesigner.html">~CircularOrbitDesigner</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">using </span>OrbitDesigner::getOrbitState;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">using </span>BaseOrbitDesigner::getOrbitState;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    err_t getOrbitState(<a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
@@ -143,7 +143,8 @@ $(function(){initNavTree('CircularOrbitDesigner_8hpp_source.html',''); initResiz
 </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aOrbitDesigner_8hpp_html"><div class="ttname"><a href="OrbitDesigner_8hpp.html">OrbitDesigner.hpp</a></div></div>
+<div class="ttc" id="aBaseOrbitDesigner_8hpp_html"><div class="ttname"><a href="BaseOrbitDesigner_8hpp.html">BaseOrbitDesigner.hpp</a></div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></div><div class="ttdoc">轨道设计器基类</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:62</div></div>
 <div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1CircularOrbitDesigner_html"><div class="ttname"><a href="classast_1_1CircularOrbitDesigner.html">ast::CircularOrbitDesigner</a></div><div class="ttdoc">圆轨道设计器</div><div class="ttdef"><b>定义</b> CircularOrbitDesigner.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1CircularOrbitDesigner_html_a1017c352e5f8b88d7068ee6feba608f2"><div class="ttname"><a href="classast_1_1CircularOrbitDesigner.html#a1017c352e5f8b88d7068ee6feba608f2">ast::CircularOrbitDesigner::getRAAN</a></div><div class="ttdeci">double getRAAN() const</div><div class="ttdoc">获取升交点赤经</div><div class="ttdef"><b>定义</b> CircularOrbitDesigner.hpp:53</div></div>
@@ -153,7 +154,6 @@ $(function(){initNavTree('CircularOrbitDesigner_8hpp_source.html',''); initResiz
 <div class="ttc" id="aclassast_1_1CircularOrbitDesigner_html_ae3fd781aa58475aecccc194f7858d7af"><div class="ttname"><a href="classast_1_1CircularOrbitDesigner.html#ae3fd781aa58475aecccc194f7858d7af">ast::CircularOrbitDesigner::getInclination</a></div><div class="ttdeci">double getInclination() const</div><div class="ttdoc">获取轨道倾角</div><div class="ttdef"><b>定义</b> CircularOrbitDesigner.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1CircularOrbitDesigner_html_af72ad5616a35967f28eb463cc984e218"><div class="ttname"><a href="classast_1_1CircularOrbitDesigner.html#af72ad5616a35967f28eb463cc984e218">ast::CircularOrbitDesigner::setInclination</a></div><div class="ttdeci">void setInclination(double inclination)</div><div class="ttdoc">设置轨道倾角</div><div class="ttdef"><b>定义</b> CircularOrbitDesigner.hpp:56</div></div>
 <div class="ttc" id="aclassast_1_1ModOrbElem_html"><div class="ttname"><a href="classast_1_1ModOrbElem.html">ast::ModOrbElem</a></div><div class="ttdoc">修正轨道根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:98</div></div>
-<div class="ttc" id="aclassast_1_1OrbitDesigner_html"><div class="ttname"><a href="classast_1_1OrbitDesigner.html">ast::OrbitDesigner</a></div><div class="ttdoc">轨道设计器基类</div><div class="ttdef"><b>定义</b> OrbitDesigner.hpp:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

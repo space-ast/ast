@@ -115,7 +115,7 @@ $(function(){initNavTree('classast_1_1CircularOrbitDesigner.html',''); initResiz
  <div class="center">
   <img src="classast_1_1CircularOrbitDesigner.png" usemap="#ast::CircularOrbitDesigner_map" alt=""/>
   <map id="ast::CircularOrbitDesigner_map" name="ast::CircularOrbitDesigner_map">
-<area href="classast_1_1OrbitDesigner.html" title="轨道设计器基类" alt="ast::OrbitDesigner" shape="rect" coords="0,56,159,80"/>
+<area href="classast_1_1BaseOrbitDesigner.html" title="轨道设计器基类" alt="ast::BaseOrbitDesigner" shape="rect" coords="0,56,159,80"/>
 <area href="classast_1_1IOrbitDesigner.html" title="轨道设计器接口" alt="ast::IOrbitDesigner" shape="rect" coords="0,0,159,24"/>
   </map>
 </div></div>
@@ -145,36 +145,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAltitude</b> (doub
 <tr class="memitem:aa69aaae90682a4261c662cd9cf53d7ff" id="r_aa69aaae90682a4261c662cd9cf53d7ff"><td class="memItemLeft" align="right" valign="top"><a id="aa69aaae90682a4261c662cd9cf53d7ff" name="aa69aaae90682a4261c662cd9cf53d7ff"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRAAN</b> (double raan)</td></tr>
 <tr class="separator:aa69aaae90682a4261c662cd9cf53d7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d024f9f04b6be2264fe60e6ab7969d5" id="r_a3d024f9f04b6be2264fe60e6ab7969d5"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d024f9f04b6be2264fe60e6ab7969d5">getOrbitState</a> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;cartState) const</td></tr>
-<tr class="separator:a3d024f9f04b6be2264fe60e6ab7969d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20450d486050d4b0f46e1bfc59df8180" id="r_a20450d486050d4b0f46e1bfc59df8180"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20450d486050d4b0f46e1bfc59df8180">getOrbitState</a> (<a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) const</td></tr>
-<tr class="separator:a20450d486050d4b0f46e1bfc59df8180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classast_1_1OrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1OrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1OrbitDesigner.html">ast::OrbitDesigner</a></td></tr>
-<tr class="memitem:a084f45f0c1fedc0f2ff26d80ced8b54a inherit pub_methods_classast_1_1OrbitDesigner" id="r_a084f45f0c1fedc0f2ff26d80ced8b54a"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>OrbitDesigner</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body)</td></tr>
-<tr class="separator:a084f45f0c1fedc0f2ff26d80ced8b54a inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad03fd5e3429493b05bb10ca61030e30 inherit pub_methods_classast_1_1OrbitDesigner" id="r_aad03fd5e3429493b05bb10ca61030e30"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:ab3cb096abf0c2bb9b007f62555c2365c" id="r_ab3cb096abf0c2bb9b007f62555c2365c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3cb096abf0c2bb9b007f62555c2365c">getOrbitState</a> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;cartState) const</td></tr>
+<tr class="separator:ab3cb096abf0c2bb9b007f62555c2365c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c737b189f52bac72e246636527604a" id="r_a55c737b189f52bac72e246636527604a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55c737b189f52bac72e246636527604a">getOrbitState</a> (<a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) const</td></tr>
+<tr class="separator:a55c737b189f52bac72e246636527604a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
+<tr class="memitem:af549b2bd85b358f438d84cacd7148852 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_af549b2bd85b358f438d84cacd7148852"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseOrbitDesigner</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body)</td></tr>
+<tr class="separator:af549b2bd85b358f438d84cacd7148852 inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b6c850dbb5e709c0a0d425b6568adf inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a71b6c850dbb5e709c0a0d425b6568adf"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCelestialBody</b> () const</td></tr>
-<tr class="separator:aad03fd5e3429493b05bb10ca61030e30 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34f5176b6ffe1f7452301c1e73c9b4d2 inherit pub_methods_classast_1_1OrbitDesigner" id="r_a34f5176b6ffe1f7452301c1e73c9b4d2"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:a71b6c850dbb5e709c0a0d425b6568adf inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af176d9785645bd34d983c3c5fb60ce5f inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_af176d9785645bd34d983c3c5fb60ce5f"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getGM</b> () const</td></tr>
-<tr class="separator:a34f5176b6ffe1f7452301c1e73c9b4d2 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac40033f134cd46d4b3f75b626a0b36b1 inherit pub_methods_classast_1_1OrbitDesigner" id="r_ac40033f134cd46d4b3f75b626a0b36b1"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:af176d9785645bd34d983c3c5fb60ce5f inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e99899c3a40a482a0702bdf69bdc794 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a1e99899c3a40a482a0702bdf69bdc794"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getJ2</b> () const</td></tr>
-<tr class="separator:ac40033f134cd46d4b3f75b626a0b36b1 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e98737a2cdd940de3f36640bcc280a inherit pub_methods_classast_1_1OrbitDesigner" id="r_ab2e98737a2cdd940de3f36640bcc280a"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:a1e99899c3a40a482a0702bdf69bdc794 inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa710d2d3dc564020791e348b760ec02c inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_aa710d2d3dc564020791e348b760ec02c"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getBodyRadius</b> () const</td></tr>
-<tr class="separator:ab2e98737a2cdd940de3f36640bcc280a inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae611612bdd3c2a42cd93acdd7dd676 inherit pub_methods_classast_1_1OrbitDesigner" id="r_acae611612bdd3c2a42cd93acdd7dd676"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1OrbitDesigner.html#acae611612bdd3c2a42cd93acdd7dd676">getOrbitEpoch</a> (<a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;orbitEpoch) const final</td></tr>
-<tr class="separator:acae611612bdd3c2a42cd93acdd7dd676 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d024f9f04b6be2264fe60e6ab7969d5 inherit pub_methods_classast_1_1OrbitDesigner" id="r_a3d024f9f04b6be2264fe60e6ab7969d5"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1OrbitDesigner.html#a3d024f9f04b6be2264fe60e6ab7969d5">getOrbitState</a> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;cartState) const</td></tr>
-<tr class="separator:a3d024f9f04b6be2264fe60e6ab7969d5 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20450d486050d4b0f46e1bfc59df8180 inherit pub_methods_classast_1_1OrbitDesigner" id="r_a20450d486050d4b0f46e1bfc59df8180"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1OrbitDesigner.html#a20450d486050d4b0f46e1bfc59df8180">getOrbitState</a> (<a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) const</td></tr>
-<tr class="separator:a20450d486050d4b0f46e1bfc59df8180 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c71844b12dcdf5a213cab758c79a964 inherit pub_methods_classast_1_1OrbitDesigner" id="r_a4c71844b12dcdf5a213cab758c79a964"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1OrbitDesigner.html#a4c71844b12dcdf5a213cab758c79a964">getCoordFrame</a> (bool &amp;useCoordEpoch, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;coordEpoch, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Frame.html">Frame</a> &gt; &amp;coordFrame) const override</td></tr>
-<tr class="separator:a4c71844b12dcdf5a213cab758c79a964 inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4981945f5e88a9163072584165a392f inherit pub_methods_classast_1_1OrbitDesigner" id="r_ac4981945f5e88a9163072584165a392f"><td class="memItemLeft" align="right" valign="top">virtual err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1OrbitDesigner.html#ac4981945f5e88a9163072584165a392f">getOrbitState</a> (<a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) const=0</td></tr>
-<tr class="separator:ac4981945f5e88a9163072584165a392f inherit pub_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aa710d2d3dc564020791e348b760ec02c inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ea3d93df28d60f292ab9f0e8663a932 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a5ea3d93df28d60f292ab9f0e8663a932"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#a5ea3d93df28d60f292ab9f0e8663a932">getOrbitEpoch</a> (<a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;orbitEpoch) const final</td></tr>
+<tr class="separator:a5ea3d93df28d60f292ab9f0e8663a932 inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cb096abf0c2bb9b007f62555c2365c inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_ab3cb096abf0c2bb9b007f62555c2365c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c">getOrbitState</a> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;cartState) const</td></tr>
+<tr class="separator:ab3cb096abf0c2bb9b007f62555c2365c inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c737b189f52bac72e246636527604a inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a55c737b189f52bac72e246636527604a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#a55c737b189f52bac72e246636527604a">getOrbitState</a> (<a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) const</td></tr>
+<tr class="separator:a55c737b189f52bac72e246636527604a inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a294a76d0db7dc6404e4e54d6e7815b inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_a4a294a76d0db7dc6404e4e54d6e7815b"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BaseOrbitDesigner.html#a4a294a76d0db7dc6404e4e54d6e7815b">getCoordFrame</a> (bool &amp;useCoordEpoch, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;coordEpoch, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Frame.html">Frame</a> &gt; &amp;coordFrame) const override</td></tr>
+<tr class="separator:a4a294a76d0db7dc6404e4e54d6e7815b inherit pub_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1IOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1IOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1IOrbitDesigner.html">ast::IOrbitDesigner</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -188,32 +186,32 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>altitude_</b> {0}</
 <tr class="memitem:ab64bd2514dd39c8c12eb0e81f48aa60a" id="r_ab64bd2514dd39c8c12eb0e81f48aa60a"><td class="memItemLeft" align="right" valign="top"><a id="ab64bd2514dd39c8c12eb0e81f48aa60a" name="ab64bd2514dd39c8c12eb0e81f48aa60a"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>raan_</b> {0}</td></tr>
 <tr class="separator:ab64bd2514dd39c8c12eb0e81f48aa60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_classast_1_1OrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1OrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1OrbitDesigner.html">ast::OrbitDesigner</a></td></tr>
-<tr class="memitem:a9f1937fa14628c357d6a9c04975375c6 inherit pro_attribs_classast_1_1OrbitDesigner" id="r_a9f1937fa14628c357d6a9c04975375c6"><td class="memItemLeft" align="right" valign="top">
+<tr class="inherit_header pro_attribs_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
+<tr class="memitem:ad9ee006e9c77fe678a84287ed695ccf9 inherit pro_attribs_classast_1_1BaseOrbitDesigner" id="r_ad9ee006e9c77fe678a84287ed695ccf9"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>celestialBody_</b></td></tr>
-<tr class="separator:a9f1937fa14628c357d6a9c04975375c6 inherit pro_attribs_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae154a2356d55288941245476d82a3ad6 inherit pro_attribs_classast_1_1OrbitDesigner" id="r_ae154a2356d55288941245476d82a3ad6"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:ad9ee006e9c77fe678a84287ed695ccf9 inherit pro_attribs_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab82f58afe9a01ffe9b46e1cf55d685bb inherit pro_attribs_classast_1_1BaseOrbitDesigner" id="r_ab82f58afe9a01ffe9b46e1cf55d685bb"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>orbitEpoch_</b> {}</td></tr>
-<tr class="separator:ae154a2356d55288941245476d82a3ad6 inherit pro_attribs_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ab82f58afe9a01ffe9b46e1cf55d685bb inherit pro_attribs_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
-<tr class="inherit_header pub_static_methods_classast_1_1OrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1OrbitDesigner')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1OrbitDesigner.html">ast::OrbitDesigner</a></td></tr>
-<tr class="memitem:a39de82ea478bdc7239ef55f4ffcefc45 inherit pub_static_methods_classast_1_1OrbitDesigner" id="r_a39de82ea478bdc7239ef55f4ffcefc45"><td class="memItemLeft" align="right" valign="top">
+<tr class="inherit_header pub_static_methods_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
+<tr class="memitem:a99f7d15d0d3377a90a54944aed2aa670 inherit pub_static_methods_classast_1_1BaseOrbitDesigner" id="r_a99f7d15d0d3377a90a54944aed2aa670"><td class="memItemLeft" align="right" valign="top">
 static <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getDefaultCelestialBody</b> ()</td></tr>
-<tr class="separator:a39de82ea478bdc7239ef55f4ffcefc45 inherit pub_static_methods_classast_1_1OrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a99f7d15d0d3377a90a54944aed2aa670 inherit pub_static_methods_classast_1_1BaseOrbitDesigner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>圆轨道设计器 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a3d024f9f04b6be2264fe60e6ab7969d5" name="a3d024f9f04b6be2264fe60e6ab7969d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d024f9f04b6be2264fe60e6ab7969d5">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[1/3]</span></h2>
+<a id="ab3cb096abf0c2bb9b007f62555c2365c" name="ab3cb096abf0c2bb9b007f62555c2365c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3cb096abf0c2bb9b007f62555c2365c">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">err_t ast::OrbitDesigner::getOrbitState </td>
+          <td class="memname">err_t ast::BaseOrbitDesigner::getOrbitState </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1CartState.html">CartState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartState</em></span></td><td>)</td>
           <td> const</td>
@@ -263,18 +261,18 @@ static <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#
   </dd>
 </dl>
 
-<p>实现了 <a class="el" href="classast_1_1IOrbitDesigner.html#a5bdabce3dabe41884b44f2f3ba937420">ast::IOrbitDesigner</a>.</p>
+<p>重载 <a class="el" href="classast_1_1BaseOrbitDesigner.html#ac4981945f5e88a9163072584165a392f">ast::BaseOrbitDesigner</a> .</p>
 
 </div>
 </div>
-<a id="a20450d486050d4b0f46e1bfc59df8180" name="a20450d486050d4b0f46e1bfc59df8180"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20450d486050d4b0f46e1bfc59df8180">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[3/3]</span></h2>
+<a id="a55c737b189f52bac72e246636527604a" name="a55c737b189f52bac72e246636527604a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c737b189f52bac72e246636527604a">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">err_t ast::OrbitDesigner::getOrbitState </td>
+          <td class="memname">err_t ast::BaseOrbitDesigner::getOrbitState </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbElem</em></span></td><td>)</td>
           <td> const</td>

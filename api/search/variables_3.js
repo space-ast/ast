@@ -2,7 +2,7 @@ var searchData=
 [
   ['cache_5fmutex_5f_0',['cache_mutex_',['../classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f',1,'ast::OpBin::cache_mutex_'],['../classast_1_1OpUnary.html#ab47c0593951e58a10723c2678ac87f65',1,'ast::OpUnary::cache_mutex_']]],
   ['category_1',['category',['../classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398',1,'ast::MessageLogContext']]],
-  ['celestialbody_5f_2',['celestialBody_',['../classast_1_1OrbitDesigner.html#a9f1937fa14628c357d6a9c04975375c6',1,'ast::OrbitDesigner']]],
+  ['celestialbody_5f_2',['celestialBody_',['../classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9',1,'ast::BaseOrbitDesigner']]],
   ['centralbody_5f_3',['centralBody_',['../classast_1_1GravityFieldHead.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityFieldHead::centralBody_'],['../classast_1_1GravityField.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityField::centralBody_']]],
   ['cm_4',['cm',['../Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce',1,'ast::units']]],
   ['coeff_5f_5',['coeff_',['../classast_1_1GravityFieldLoader.html#a612f301ad2a075b814daf792fca7a4d7',1,'ast::GravityFieldLoader']]],

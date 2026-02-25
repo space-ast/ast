@@ -129,6 +129,9 @@ var NAVTREEINDEX0 =
 "BKVTree_8hpp_source.html":[4,0,0,11,1,0,15],
 "BackTrace_8hpp.html":[4,0,0,10,4,0],
 "BackTrace_8hpp_source.html":[4,0,0,10,4,0],
+"BaseOrbitDesigner_8cpp.html":[4,0,0,2,6,0,0],
+"BaseOrbitDesigner_8hpp.html":[4,0,0,2,6,0,1],
+"BaseOrbitDesigner_8hpp_source.html":[4,0,0,2,6,0,1],
 "BisectionSolver_8cpp.html":[4,0,0,5,4,0,1],
 "BisectionSolver_8hpp.html":[4,0,0,5,4,0,2],
 "BisectionSolver_8hpp_source.html":[4,0,0,5,4,0,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "BrentSolver_8hpp.html":[4,0,0,5,4,0,4],
 "BrentSolver_8hpp_source.html":[4,0,0,5,4,0,4],
 "CRT_8cpp.html":[4,0,0,11,2,0],
-"CRT_8hpp.html":[4,0,0,11,2,1],
-"CRT_8hpp.html#abe75c3527faada9e0650c4911a17eff4":[4,0,0,11,2,1,1],
-"CRT_8hpp_source.html":[4,0,0,11,2,1],
-"Calculation_8cpp.html":[4,0,0,0,0,4]
+"CRT_8hpp.html":[4,0,0,11,2,1]
 };

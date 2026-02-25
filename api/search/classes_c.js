@@ -12,5 +12,6 @@ var searchData=
   ['modequinelem_9',['ModEquinElem',['../classast_1_1ModEquinElem.html',1,'ast']]],
   ['modjuliandate_10',['ModJulianDate',['../classast_1_1ModJulianDate.html',1,'ast']]],
   ['modorbelem_11',['ModOrbElem',['../classast_1_1ModOrbElem.html',1,'ast']]],
-  ['multitype_12',['Multitype',['../unionMultitype.html',1,'']]]
+  ['molniyaorbitdesigner_12',['MolniyaOrbitDesigner',['../classast_1_1MolniyaOrbitDesigner.html',1,'ast']]],
+  ['multitype_13',['Multitype',['../unionMultitype.html',1,'']]]
 ];

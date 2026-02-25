@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"GfxFacility_8hpp_source.html":[4,0,0,3,7],
+"GfxMain_8cpp.html":[4,0,0,3,8],
+"GfxMain_8hpp.html":[4,0,0,3,9],
 "GfxMain_8hpp_source.html":[4,0,0,3,9],
 "GfxSolarSystem_8cpp.html":[4,0,0,3,10],
 "GfxSolarSystem_8hpp.html":[4,0,0,3,11],
@@ -221,9 +224,9 @@ var NAVTREEINDEX2 =
 "MockStringView_8hpp_source.html":[4,0,0,6,8],
 "ModJulianDate_8hpp.html":[4,0,0,2,9,10],
 "ModJulianDate_8hpp_source.html":[4,0,0,2,9,10],
-"MolniyaOrbitDesigner_8cpp.html":[4,0,0,2,6,0,6],
-"MolniyaOrbitDesigner_8hpp.html":[4,0,0,2,6,0,7],
-"MolniyaOrbitDesigner_8hpp_source.html":[4,0,0,2,6,0,7],
+"MolniyaOrbitDesigner_8cpp.html":[4,0,0,2,6,0,8],
+"MolniyaOrbitDesigner_8hpp.html":[4,0,0,2,6,0,9],
+"MolniyaOrbitDesigner_8hpp_source.html":[4,0,0,2,6,0,9],
 "MoonFrame_8cpp.html":[4,0,0,2,2,7],
 "MoonFrame_8hpp.html":[4,0,0,2,2,8],
 "MoonFrame_8hpp_source.html":[4,0,0,2,2,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "NLPProblem_8cpp.html#a7f2c5bfa7176f95a5e934b7484370f5e":[4,0,0,8,10,0],
 "NLPProblem_8hpp.html":[4,0,0,8,11],
 "NLPProblem_8hpp.html#a3fd746ebda039a488dc4a9f0db2073c2":[4,0,0,8,11,1],
-"NLPProblem_8hpp_source.html":[4,0,0,8,11],
-"NLPSnoptSolver_8cpp.html":[4,0,0,8,13],
-"NLPSnoptSolver_8hpp.html":[4,0,0,8,14],
-"NLPSnoptSolver_8hpp_source.html":[4,0,0,8,14]
+"NLPProblem_8hpp_source.html":[4,0,0,8,11]
 };

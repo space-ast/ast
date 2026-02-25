@@ -1,5 +1,7 @@
 var dir_234e7a292bab1f69d123025d93f68cf4 =
 [
+    [ "BaseOrbitDesigner.cpp", "BaseOrbitDesigner_8cpp.html", null ],
+    [ "BaseOrbitDesigner.hpp", "BaseOrbitDesigner_8hpp.html", null ],
     [ "CircularOrbitDesigner.cpp", "CircularOrbitDesigner_8cpp.html", null ],
     [ "CircularOrbitDesigner.hpp", "CircularOrbitDesigner_8hpp.html", null ],
     [ "CriticallyInclinedOrbitDesigner.cpp", "CriticallyInclinedOrbitDesigner_8cpp.html", null ],
@@ -7,11 +9,10 @@ var dir_234e7a292bab1f69d123025d93f68cf4 =
     [ "CriticallyInclinedSunSyncOrbitDesigner.cpp", "CriticallyInclinedSunSyncOrbitDesigner_8cpp.html", null ],
     [ "CriticallyInclinedSunSyncOrbitDesigner.hpp", "CriticallyInclinedSunSyncOrbitDesigner_8hpp.html", "CriticallyInclinedSunSyncOrbitDesigner_8hpp" ],
     [ "MolniyaOrbitDesigner.cpp", "MolniyaOrbitDesigner_8cpp.html", null ],
-    [ "MolniyaOrbitDesigner.hpp", "MolniyaOrbitDesigner_8hpp.html", null ],
-    [ "OrbitDesign.cpp", "OrbitDesign_8cpp.html", null ],
-    [ "OrbitDesign.hpp", "OrbitDesign_8hpp.html", null ],
-    [ "OrbitDesigner.cpp", "OrbitDesigner_8cpp.html", null ],
-    [ "OrbitDesigner.hpp", "OrbitDesigner_8hpp.html", null ],
+    [ "MolniyaOrbitDesigner.hpp", "MolniyaOrbitDesigner_8hpp.html", "MolniyaOrbitDesigner_8hpp" ],
+    [ "OrbitDesign.cpp", "OrbitDesign_8cpp.html", "OrbitDesign_8cpp" ],
+    [ "OrbitDesign.hpp", "OrbitDesign_8hpp.html", "OrbitDesign_8hpp" ],
+    [ "OrbitDesigner.hpp", "OrbitDesigner_8hpp_source.html", null ],
     [ "RepeatingOrbitDesigner.cpp", "RepeatingOrbitDesigner_8cpp.html", null ],
     [ "RepeatingOrbitDesigner.hpp", "RepeatingOrbitDesigner_8hpp.html", null ],
     [ "RepeatingSunSyncOrbitDesigner.cpp", "RepeatingSunSyncOrbitDesigner_8cpp.html", null ],

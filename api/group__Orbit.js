@@ -1,11 +1,28 @@
 var group__Orbit =
 [
+    [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
+      [ "getCoordFrame", "classast_1_1IOrbitDesigner.html#aac39331c5bfdc885e7b4d1db1ffacdfe", null ],
+      [ "getOrbitState", "classast_1_1IOrbitDesigner.html#a5bdabce3dabe41884b44f2f3ba937420", null ]
+    ] ],
+    [ "ast::BaseOrbitDesigner", "classast_1_1BaseOrbitDesigner.html", [
+      [ "getBodyRadius", "classast_1_1BaseOrbitDesigner.html#aa710d2d3dc564020791e348b760ec02c", null ],
+      [ "getCelestialBody", "classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf", null ],
+      [ "getCoordFrame", "classast_1_1BaseOrbitDesigner.html#a4a294a76d0db7dc6404e4e54d6e7815b", null ],
+      [ "getGM", "classast_1_1BaseOrbitDesigner.html#af176d9785645bd34d983c3c5fb60ce5f", null ],
+      [ "getJ2", "classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794", null ],
+      [ "getOrbitEpoch", "classast_1_1BaseOrbitDesigner.html#a5ea3d93df28d60f292ab9f0e8663a932", null ],
+      [ "getOrbitState", "classast_1_1BaseOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c", null ],
+      [ "getOrbitState", "classast_1_1BaseOrbitDesigner.html#ac4981945f5e88a9163072584165a392f", null ],
+      [ "getOrbitState", "classast_1_1BaseOrbitDesigner.html#a55c737b189f52bac72e246636527604a", null ],
+      [ "celestialBody_", "classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9", null ],
+      [ "orbitEpoch_", "classast_1_1BaseOrbitDesigner.html#ab82f58afe9a01ffe9b46e1cf55d685bb", null ]
+    ] ],
     [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", [
       [ "getAltitude", "classast_1_1CircularOrbitDesigner.html#a80c6d0f9db893f193cc87dba2586e380", null ],
       [ "getInclination", "classast_1_1CircularOrbitDesigner.html#ae3fd781aa58475aecccc194f7858d7af", null ],
-      [ "getOrbitState", "classast_1_1CircularOrbitDesigner.html#a3d024f9f04b6be2264fe60e6ab7969d5", null ],
+      [ "getOrbitState", "classast_1_1CircularOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c", null ],
       [ "getOrbitState", "classast_1_1CircularOrbitDesigner.html#a52a3d1ef9cf63a41b643729ffdb177ae", null ],
-      [ "getOrbitState", "classast_1_1CircularOrbitDesigner.html#a20450d486050d4b0f46e1bfc59df8180", null ],
+      [ "getOrbitState", "classast_1_1CircularOrbitDesigner.html#a55c737b189f52bac72e246636527604a", null ],
       [ "getRAAN", "classast_1_1CircularOrbitDesigner.html#a1017c352e5f8b88d7068ee6feba608f2", null ],
       [ "setAltitude", "classast_1_1CircularOrbitDesigner.html#a2a0c0687c187d965d04d91e1368cac06", null ],
       [ "setInclination", "classast_1_1CircularOrbitDesigner.html#af72ad5616a35967f28eb463cc984e218", null ],
@@ -21,9 +38,9 @@ var group__Orbit =
       ] ],
       [ "getApogeeAltitude", "classast_1_1CriticallyInclinedOrbitDesigner.html#a26a28a91a9aa64c7119a1c6f560d9b35", null ],
       [ "getDirection", "classast_1_1CriticallyInclinedOrbitDesigner.html#a012a7748d666fd658ecbf871b5032984", null ],
-      [ "getOrbitState", "classast_1_1CriticallyInclinedOrbitDesigner.html#a3d024f9f04b6be2264fe60e6ab7969d5", null ],
+      [ "getOrbitState", "classast_1_1CriticallyInclinedOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c", null ],
       [ "getOrbitState", "classast_1_1CriticallyInclinedOrbitDesigner.html#adb378cc1f42d3a96020fb449f253d595", null ],
-      [ "getOrbitState", "classast_1_1CriticallyInclinedOrbitDesigner.html#a20450d486050d4b0f46e1bfc59df8180", null ],
+      [ "getOrbitState", "classast_1_1CriticallyInclinedOrbitDesigner.html#a55c737b189f52bac72e246636527604a", null ],
       [ "getPerigeeAltitude", "classast_1_1CriticallyInclinedOrbitDesigner.html#abbb8b4a847bcd3b3e97f919c3169148c", null ],
       [ "getRAAN", "classast_1_1CriticallyInclinedOrbitDesigner.html#a4a8ca99fa0061e107c091670d874216c", null ],
       [ "setApogeeAltitude", "classast_1_1CriticallyInclinedOrbitDesigner.html#a84c82c89bab8f7d058ecabd3299d5b9e", null ],
@@ -35,30 +52,13 @@ var group__Orbit =
       [ "perigeeAltitude_", "classast_1_1CriticallyInclinedOrbitDesigner.html#a0c81042043d7bd005b6aa8a1d70b0b4d", null ],
       [ "raan_", "classast_1_1CriticallyInclinedOrbitDesigner.html#a15641fcc9dcd29e521f9b62ca254d035", null ]
     ] ],
-    [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
-      [ "getCoordFrame", "classast_1_1IOrbitDesigner.html#aac39331c5bfdc885e7b4d1db1ffacdfe", null ],
-      [ "getOrbitState", "classast_1_1IOrbitDesigner.html#a5bdabce3dabe41884b44f2f3ba937420", null ]
-    ] ],
-    [ "ast::OrbitDesigner", "classast_1_1OrbitDesigner.html", [
-      [ "getBodyRadius", "classast_1_1OrbitDesigner.html#ab2e98737a2cdd940de3f36640bcc280a", null ],
-      [ "getCelestialBody", "classast_1_1OrbitDesigner.html#aad03fd5e3429493b05bb10ca61030e30", null ],
-      [ "getCoordFrame", "classast_1_1OrbitDesigner.html#a4c71844b12dcdf5a213cab758c79a964", null ],
-      [ "getGM", "classast_1_1OrbitDesigner.html#a34f5176b6ffe1f7452301c1e73c9b4d2", null ],
-      [ "getJ2", "classast_1_1OrbitDesigner.html#ac40033f134cd46d4b3f75b626a0b36b1", null ],
-      [ "getOrbitEpoch", "classast_1_1OrbitDesigner.html#acae611612bdd3c2a42cd93acdd7dd676", null ],
-      [ "getOrbitState", "classast_1_1OrbitDesigner.html#a3d024f9f04b6be2264fe60e6ab7969d5", null ],
-      [ "getOrbitState", "classast_1_1OrbitDesigner.html#ac4981945f5e88a9163072584165a392f", null ],
-      [ "getOrbitState", "classast_1_1OrbitDesigner.html#a20450d486050d4b0f46e1bfc59df8180", null ],
-      [ "celestialBody_", "classast_1_1OrbitDesigner.html#a9f1937fa14628c357d6a9c04975375c6", null ],
-      [ "orbitEpoch_", "classast_1_1OrbitDesigner.html#ae154a2356d55288941245476d82a3ad6", null ]
-    ] ],
     [ "ast::SimpleOrbitDesigner", "classast_1_1SimpleOrbitDesigner.html", [
       [ "getArgumentOfPeriapsis", "classast_1_1SimpleOrbitDesigner.html#a8b995b789e2f19c737271ab6282eeaee", null ],
       [ "getEccentricity", "classast_1_1SimpleOrbitDesigner.html#a28f85999f3c9876c409334ee731c90ba", null ],
       [ "getInclination", "classast_1_1SimpleOrbitDesigner.html#a3cf7105209fbaf7cb0d44fd2a9be5c14", null ],
-      [ "getOrbitState", "classast_1_1SimpleOrbitDesigner.html#a3d024f9f04b6be2264fe60e6ab7969d5", null ],
+      [ "getOrbitState", "classast_1_1SimpleOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c", null ],
       [ "getOrbitState", "classast_1_1SimpleOrbitDesigner.html#aa1b9d4daf7740a2cbd316f43785412f0", null ],
-      [ "getOrbitState", "classast_1_1SimpleOrbitDesigner.html#a20450d486050d4b0f46e1bfc59df8180", null ],
+      [ "getOrbitState", "classast_1_1SimpleOrbitDesigner.html#a55c737b189f52bac72e246636527604a", null ],
       [ "getRightAscensionOfAscendingNode", "classast_1_1SimpleOrbitDesigner.html#aa1b7ef98d029de099d4dd53de0f91079", null ],
       [ "getSemimajorAxis", "classast_1_1SimpleOrbitDesigner.html#ade4327e008d96eb40694d60da63458ea", null ],
       [ "getTrueAnomaly", "classast_1_1SimpleOrbitDesigner.html#a3b5ed1db777c1288ed24b75e869d53fd", null ],

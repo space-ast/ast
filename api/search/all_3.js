@@ -14,7 +14,7 @@ var searchData=
   ['celestialbody_11',['CelestialBody',['../classast_1_1CelestialBody.html',1,'ast']]],
   ['celestialbody_2ecpp_12',['CelestialBody.cpp',['../CelestialBody_8cpp.html',1,'']]],
   ['celestialbody_2ehpp_13',['CelestialBody.hpp',['../CelestialBody_8hpp.html',1,'']]],
-  ['celestialbody_5f_14',['celestialBody_',['../classast_1_1OrbitDesigner.html#a9f1937fa14628c357d6a9c04975375c6',1,'ast::OrbitDesigner']]],
+  ['celestialbody_5f_14',['celestialBody_',['../classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9',1,'ast::BaseOrbitDesigner']]],
   ['centimeter_15',['Centimeter',['../classast_1_1Unit.html#a8df8e11ee775bd45fc2d52ca069bffb4',1,'ast::Unit']]],
   ['centimeterpersecond_16',['CentimeterPerSecond',['../classast_1_1Unit.html#aa82a3f4b88ef193c7f311896d2c86d23',1,'ast::Unit']]],
   ['centralbody_5f_17',['centralBody_',['../classast_1_1GravityFieldHead.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityFieldHead::centralBody_'],['../classast_1_1GravityField.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityField::centralBody_']]],

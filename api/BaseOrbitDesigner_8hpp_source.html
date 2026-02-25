@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Orbit/OrbitDesign/BaseOrbitDesigner.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('BaseOrbitDesigner_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BaseOrbitDesigner.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="BaseOrbitDesigner_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/OrbitElement.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstCore/Frame.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstCore/CelestialBody.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstCore/TimePoint.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;AstUtil/SharedPtr.hpp&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1IOrbitDesigner.html">   39</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1IOrbitDesigner.html">IOrbitDesigner</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1IOrbitDesigner.html">IOrbitDesigner</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1IOrbitDesigner.html">~IOrbitDesigner</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">virtual</span> err_t getOrbitEpoch(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; orbitEpoch) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1IOrbitDesigner.html#a5bdabce3dabe41884b44f2f3ba937420">   50</a></span>    <span class="keyword">virtual</span> err_t <a class="code hl_function" href="classast_1_1IOrbitDesigner.html#a5bdabce3dabe41884b44f2f3ba937420">getOrbitState</a>(<a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1IOrbitDesigner.html#aac39331c5bfdc885e7b4d1db1ffacdfe">   56</a></span>    <span class="keyword">virtual</span> err_t <a class="code hl_function" href="classast_1_1IOrbitDesigner.html#aac39331c5bfdc885e7b4d1db1ffacdfe">getCoordFrame</a>(<span class="keywordtype">bool</span>&amp; useCoordEpoch, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; coordEpoch, <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Frame&gt;</a>&amp; coordFrame) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html">   61</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1BaseOrbitDesigner.html">BaseOrbitDesigner</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1IOrbitDesigner.html">IOrbitDesigner</a></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="classast_1_1BaseOrbitDesigner.html">BaseOrbitDesigner</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classast_1_1BaseOrbitDesigner.html">BaseOrbitDesigner</a>(<a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a>* body);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1BaseOrbitDesigner.html">~BaseOrbitDesigner</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">using </span>IOrbitDesigner::getOrbitState;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a>* getDefaultCelestialBody();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf">   73</a></span>    <a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a>* <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf">getCelestialBody</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> celestialBody_.get(); }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#af176d9785645bd34d983c3c5fb60ce5f">   76</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#af176d9785645bd34d983c3c5fb60ce5f">getGM</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> celestialBody_?celestialBody_-&gt;getGM(): 0; }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794">   79</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794">getJ2</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> celestialBody_?celestialBody_-&gt;getJ2():0; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#aa710d2d3dc564020791e348b760ec02c">   82</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#aa710d2d3dc564020791e348b760ec02c">getBodyRadius</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> celestialBody_?celestialBody_-&gt;getRadius():0; }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#a5ea3d93df28d60f292ab9f0e8663a932">   85</a></span>    err_t <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#a5ea3d93df28d60f292ab9f0e8663a932">getOrbitEpoch</a>(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; orbitEpoch) <span class="keyword">const</span> <span class="keyword">final</span>{ orbitEpoch = orbitEpoch_; <span class="keywordflow">return</span> 0; };</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    err_t getOrbitState(<a class="code hl_class" href="classast_1_1CartState.html">CartState</a> &amp;cartState) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    err_t getOrbitState(<a class="code hl_class" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    err_t getCoordFrame(<span class="keywordtype">bool</span>&amp; useCoordEpoch, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; coordEpoch, <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Frame&gt;</a>&amp; coordFrame) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9">   97</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;CelestialBody&gt;</a> <a class="code hl_variable" href="classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9">celestialBody_</a>;    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classast_1_1BaseOrbitDesigner.html#ab82f58afe9a01ffe9b46e1cf55d685bb">   98</a></span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a> orbitEpoch_{};    </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></div><div class="ttdoc">轨道设计器基类</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_a1e99899c3a40a482a0702bdf69bdc794"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794">ast::BaseOrbitDesigner::getJ2</a></div><div class="ttdeci">double getJ2() const</div><div class="ttdoc">获取J2项</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:79</div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_a5ea3d93df28d60f292ab9f0e8663a932"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#a5ea3d93df28d60f292ab9f0e8663a932">ast::BaseOrbitDesigner::getOrbitEpoch</a></div><div class="ttdeci">err_t getOrbitEpoch(TimePoint &amp;orbitEpoch) const final</div><div class="ttdoc">获取轨道历元</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_a71b6c850dbb5e709c0a0d425b6568adf"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf">ast::BaseOrbitDesigner::getCelestialBody</a></div><div class="ttdeci">CelestialBody * getCelestialBody() const</div><div class="ttdoc">获取天体</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:73</div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_aa710d2d3dc564020791e348b760ec02c"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#aa710d2d3dc564020791e348b760ec02c">ast::BaseOrbitDesigner::getBodyRadius</a></div><div class="ttdeci">double getBodyRadius() const</div><div class="ttdoc">获取天体半径</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_ad9ee006e9c77fe678a84287ed695ccf9"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9">ast::BaseOrbitDesigner::celestialBody_</a></div><div class="ttdeci">SharedPtr&lt; CelestialBody &gt; celestialBody_</div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:97</div></div>
+<div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_af176d9785645bd34d983c3c5fb60ce5f"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#af176d9785645bd34d983c3c5fb60ce5f">ast::BaseOrbitDesigner::getGM</a></div><div class="ttdeci">double getGM() const</div><div class="ttdoc">获取引力参数</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1CartState_html"><div class="ttname"><a href="classast_1_1CartState.html">ast::CartState</a></div><div class="ttdoc">直角坐标</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1IOrbitDesigner_html"><div class="ttname"><a href="classast_1_1IOrbitDesigner.html">ast::IOrbitDesigner</a></div><div class="ttdoc">轨道设计器接口</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1IOrbitDesigner_html_a5bdabce3dabe41884b44f2f3ba937420"><div class="ttname"><a href="classast_1_1IOrbitDesigner.html#a5bdabce3dabe41884b44f2f3ba937420">ast::IOrbitDesigner::getOrbitState</a></div><div class="ttdeci">virtual err_t getOrbitState(ModOrbElem &amp;orbElem) const =0</div><div class="ttdoc">获取轨道状态</div></div>
+<div class="ttc" id="aclassast_1_1IOrbitDesigner_html_aac39331c5bfdc885e7b4d1db1ffacdfe"><div class="ttname"><a href="classast_1_1IOrbitDesigner.html#aac39331c5bfdc885e7b4d1db1ffacdfe">ast::IOrbitDesigner::getCoordFrame</a></div><div class="ttdeci">virtual err_t getCoordFrame(bool &amp;useCoordEpoch, TimePoint &amp;coordEpoch, SharedPtr&lt; Frame &gt; &amp;coordFrame) const =0</div><div class="ttdoc">获取坐标系定义</div></div>
+<div class="ttc" id="aclassast_1_1ModOrbElem_html"><div class="ttname"><a href="classast_1_1ModOrbElem.html">ast::ModOrbElem</a></div><div class="ttdoc">修正轨道根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:98</div></div>
+<div class="ttc" id="aclassast_1_1OrbElem_html"><div class="ttname"><a href="classast_1_1OrbElem.html">ast::OrbElem</a></div><div class="ttdoc">经典轨道根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:58</div></div>
+<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:105</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_fb8dea326293309ee9315e7aedad3578.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_234e7a292bab1f69d123025d93f68cf4.html">OrbitDesign</a></li><li class="navelem"><a class="el" href="BaseOrbitDesigner_8hpp.html">BaseOrbitDesigner.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
