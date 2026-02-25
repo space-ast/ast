@@ -150,5 +150,123 @@ TEST_F(OrbitDesignTest, CriticallyInclinedSunSyncOrbitDesigner)
 }
 
 
+TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
+{
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eAltitude);
+        designer.setAltitude(400_km);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_EQ(orbElem.getA(), designer.getBodyRadius() + 400_km);
+        EXPECT_EQ(orbElem.getE(), 0.);
+        EXPECT_NEAR(orbElem.getI(), 97.0346200763023461_deg, 0.005_deg);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eAltitude);
+        designer.setAltitude(500_km);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getI(), 97.4064613689951386_deg, 0.005_deg);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eAltitude);
+        designer.setAltitude(4027_km);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getI(), 123.2680989411700949_deg, 0.001_deg);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eAltitude);
+        designer.setAltitude(5974_km);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getI(), 178.0620579545929729_deg, 1.2_deg);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eInclination);
+        designer.setInclination(95.6813_deg);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 6378.1373998661465521_km, 2_km);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eInclination);
+        designer.setInclination(97.0346_deg);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 6778.1314983309675881_km, 2_km);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eInclination);
+        designer.setInclination(103_deg);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 8064.7015541284854407_km, 1_km);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eInclination);
+        designer.setInclination(166_deg);
+        
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 12248.0689991635717888_km, 2_km);
+    }
+    {
+        SunSynchronousOrbitDesigner designer(aGetEarth());
+        double altitude0 = 600_km;
+        printf("altitude0: %.15g\n", altitude0);
+        designer.setAltitude(altitude0);
+        double inclination = designer.getInclination();
+        designer.setInclination(inclination);
+        double altitude = designer.getAltitude();
+        printf("altitude: %.15g\n", altitude);
+        EXPECT_NEAR(altitude, altitude0, 1e5);
+    }
+}
+
+TEST_F(OrbitDesignTest, StationaryOrbitDesigner)
+{
+    StationaryOrbitDesigner designer(aGetEarth());
+    designer.setInclination(0_deg);
+    designer.setSubsatellitePoint(-100_deg);
+    ModOrbElem orbElem;
+    err_t rc = designer.getOrbitState(orbElem);
+    EXPECT_EQ(rc, eNoError);
+    printf("orbElem: %s\n", orbElem.toString().c_str());
+    EXPECT_NEAR(orbElem.getA(), 42166.258669178736_km, 2_km);
+}
+
+
 GTEST_MAIN();
 

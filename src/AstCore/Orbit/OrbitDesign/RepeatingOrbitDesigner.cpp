@@ -19,9 +19,28 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "RepeatingOrbitDesigner.hpp"
+#include "AstUtil/Literals.hpp"
 
 AST_NAMESPACE_BEGIN
 
+using namespace literals;
 
+RepeatingOrbitDesigner::RepeatingOrbitDesigner()
+    : RepeatingOrbitDesigner(getDefaultCelestialBody())
+{
+}
+
+RepeatingOrbitDesigner::RepeatingOrbitDesigner(CelestialBody *body)
+    : BaseOrbitDesigner(body)
+{
+    
+}
+
+err_t RepeatingOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
+{
+    return -1;
+}
 
 AST_NAMESPACE_END
+
+

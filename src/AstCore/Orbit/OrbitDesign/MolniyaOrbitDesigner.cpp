@@ -49,7 +49,7 @@ err_t MolniyaOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
     orbElem.rp_ = rp;
     orbElem.e_ = ecc;
     orbElem.i_ = inc;
-    orbElem.raan_ = apogeeLongitude_;
+    orbElem.raan_ = apogeeLongitude_;  // @fixme 
     orbElem.argper_ = argumentOfPerigee_;
     orbElem.trueA_ = 0_deg;
     return -1;

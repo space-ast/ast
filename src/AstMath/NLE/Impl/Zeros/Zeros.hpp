@@ -40,7 +40,7 @@ namespace details{
 
 
 /// @brief 二分法求解器
-/// @tparam Func 函数类型
+/// @tparam Func 函数对象
 /// @param f 函数对象
 /// @param xa 区间下限
 /// @param xb 区间上限
@@ -57,7 +57,7 @@ double bisect(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 
 
 /// @brief Ridder 方法求解器
-/// @tparam Func 函数类型
+/// @tparam Func 函数对象
 /// @param f 函数对象
 /// @param xa 区间下限
 /// @param xb 区间上限
@@ -74,7 +74,7 @@ double ridder(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 
 
 /// @brief Brenth法求解器
-/// @tparam Func 函数类型
+/// @tparam Func 函数对象
 /// @param f 函数对象
 /// @param xa 区间下限
 /// @param xb 区间上限
@@ -91,7 +91,7 @@ double brenth(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 
 
 /// @brief Brentq法求解器
-/// @tparam Func 函数类型
+/// @tparam Func 函数对象
 /// @param f 函数对象
 /// @param xa 区间下限
 /// @param xb 区间上限
@@ -108,7 +108,7 @@ double brentq(Func f, double xa, double xb, double xtol, double rtol, int iter, 
 
 
 /// @brief 割线法求解器
-/// @tparam Func 函数类型
+/// @tparam Func 函数对象
 /// @param f 函数对象
 /// @param xa 区间下限
 /// @param xb 区间上限

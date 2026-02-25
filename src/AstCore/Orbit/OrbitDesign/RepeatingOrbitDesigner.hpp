@@ -21,15 +21,38 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "BaseOrbitDesigner.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup Orbit
     @{
 */
 
-
+/// @brief 回归轨道设计器
+class AST_CORE_API RepeatingOrbitDesigner final: public BaseOrbitDesigner
+{
+public:
+    enum EPositionType
+    {
+        eAltitude,
+        eRevsPerDay
+    };
+    RepeatingOrbitDesigner();
+    RepeatingOrbitDesigner(CelestialBody *body);
+    ~RepeatingOrbitDesigner() = default;
+    
+    using BaseOrbitDesigner::getOrbitState;
+    err_t getOrbitState(ModOrbElem &orbElem) const override;
+protected:
+    EPositionType    positionType_{eAltitude};
+    double           approxAltitude_{0};
+    double           approxRevsPerDay_{0};
+    double           inclination_{0};
+    double           numberOfRevsRepeat_{0};
+    double           longitudeOfAscendingNode_{0};
+};
 
 /*! @} */
 

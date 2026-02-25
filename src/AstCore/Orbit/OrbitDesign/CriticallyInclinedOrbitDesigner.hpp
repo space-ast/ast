@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 临界轨道设计器
+/// @brief 临界倾角轨道/冻结轨道设计器
 class AST_CORE_API CriticallyInclinedOrbitDesigner final: public BaseOrbitDesigner
 {
 public:

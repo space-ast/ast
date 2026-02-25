@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OrbitDesign.hpp"
+#include "AstUtil/Constants.h"
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
@@ -33,6 +34,18 @@ double aArgPerRate(double gm, double j2, double rb, double a, double ecc, double
 {
     double n = sqrt(gm / pow(a, 3));
     return 3./4. * j2 * n * pow(rb / a, 2) * (5 * pow(cos(inc), 2) - 1) / pow(1 - ecc * ecc, 2);
+}
+
+double aMeanAnomalyRate(double gm, double j2, double rb, double a, double ecc, double inc)
+{
+    double n = sqrt(gm / pow(a, 3));
+    return n + 3./2. * j2 * n * pow(rb / a, 2) * (1 - 3./2. * pow(sin(inc), 2)) * pow(1 - ecc * ecc, -3./2.);
+}
+
+double aJ2Period(double gm, double j2, double rb, double a, double ecc, double inc)
+{
+    double rate = aMeanAnomalyRate(gm, j2, rb, a, ecc, inc) + aArgPerRate(gm, j2, rb, a, ecc, inc);
+    return kTwoPI / rate;
 }
 
 AST_NAMESPACE_END

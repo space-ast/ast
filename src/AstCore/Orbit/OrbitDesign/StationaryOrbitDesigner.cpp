@@ -19,9 +19,71 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "StationaryOrbitDesigner.hpp"
+#include "AstCore/OrbitParam.hpp"
+#include "AstCore/FrameTransform.hpp"
+#include "AstCore/OrbitDesign.hpp"
+#include "AstMath/KinematicRotation.hpp"
+#include "AstMath/Zeros.hpp"
+#include "AstUtil/Literals.hpp"
+#include "AstUtil/Logger.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
+using namespace literals;
 
+StationaryOrbitDesigner::StationaryOrbitDesigner()
+    : StationaryOrbitDesigner(getDefaultCelestialBody())
+{
+
+}
+
+StationaryOrbitDesigner::StationaryOrbitDesigner(CelestialBody *body) 
+    : BaseOrbitDesigner(body)
+    , subsatellitePoint_(-100_deg)
+    , inclination_(0_deg)
+{
+    if(body && !body->isEarth())
+    {
+        aError("StationaryOrbitDesigner currently only support Earth.");
+    }
+}
+
+err_t StationaryOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
+{
+    const double gm = getGM();
+    const double j2 = getJ2();
+    const double rb = getBodyRadius();
+    
+    KinematicRotation rot;
+    /// @todo 这里目前只能计算地球轨道，需要增加对其他天体的支持
+    aICRFToECFTransform(orbitEpoch_, rot);
+    double rotRate = rot.getRotationRate().norm();
+    double period = kTwoPI / rotRate;
+    double inc = inclination_;
+    auto func = [gm, j2, rb, period, inc](double a) -> double
+    {
+        // double p1 = aSMajAxToPeriod(a, gm);
+        const double ecc = 0.0;
+        double p2 = aJ2Period(gm, j2, rb, a, ecc, inc);
+        return p2 - period;
+    };
+    SolverStats stats{};
+    double a_upper = aPeriodToSMajAx(period, gm);
+    double a = brentq(func, 1, a_upper * 1.5, 1e-12, 1e-12, 100, stats);
+    if(stats.error_num == 0){
+        orbElem.rp_ = a;
+        orbElem.e_ = 0.0;
+        orbElem.i_ = inclination_;
+        orbElem.raan_ = 0_deg;
+        orbElem.argper_ = 0_deg;
+        orbElem.trueA_ = 0_deg;
+        return eNoError;
+    }else{
+        aError("StationaryOrbitDesigner failed to solve semimajor axis.");
+        return -1;
+    }
+}
 
 AST_NAMESPACE_END
+
