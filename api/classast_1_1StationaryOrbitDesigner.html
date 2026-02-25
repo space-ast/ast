@@ -139,6 +139,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setSubsatellitePoint<
 <tr class="memitem:a887551c2a93113f4e0f5764dc56e9e9c" id="r_a887551c2a93113f4e0f5764dc56e9e9c"><td class="memItemLeft" align="right" valign="top"><a id="a887551c2a93113f4e0f5764dc56e9e9c" name="a887551c2a93113f4e0f5764dc56e9e9c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInclination</b> (double inclination)</td></tr>
 <tr class="separator:a887551c2a93113f4e0f5764dc56e9e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cb096abf0c2bb9b007f62555c2365c" id="r_ab3cb096abf0c2bb9b007f62555c2365c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3cb096abf0c2bb9b007f62555c2365c">getOrbitState</a> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;cartState) const</td></tr>
+<tr class="separator:ab3cb096abf0c2bb9b007f62555c2365c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c737b189f52bac72e246636527604a" id="r_a55c737b189f52bac72e246636527604a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55c737b189f52bac72e246636527604a">getOrbitState</a> (<a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbElem) const</td></tr>
+<tr class="separator:a55c737b189f52bac72e246636527604a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1BaseOrbitDesigner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1BaseOrbitDesigner')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></td></tr>
 <tr class="memitem:af549b2bd85b358f438d84cacd7148852 inherit pub_methods_classast_1_1BaseOrbitDesigner" id="r_af549b2bd85b358f438d84cacd7148852"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseOrbitDesigner</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body)</td></tr>
@@ -191,8 +195,33 @@ static <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>静止轨道设计器 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="ab3cb096abf0c2bb9b007f62555c2365c" name="ab3cb096abf0c2bb9b007f62555c2365c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3cb096abf0c2bb9b007f62555c2365c">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::BaseOrbitDesigner::getOrbitState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1CartState.html">CartState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartState</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取轨道状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cartState</td><td>笛卡尔状态 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a886e381c4baf80b2c34cd6cf614ba1e2" name="a886e381c4baf80b2c34cd6cf614ba1e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a886e381c4baf80b2c34cd6cf614ba1e2">&#9670;&#160;</a></span>getOrbitState()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a886e381c4baf80b2c34cd6cf614ba1e2">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,8 +251,34 @@ static <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">待办事项</a></b></dt><dd>这里目前只能计算地球轨道，需要增加对其他天体的支持 </dd></dl>
 
 <p>重载 <a class="el" href="classast_1_1BaseOrbitDesigner.html#ac4981945f5e88a9163072584165a392f">ast::BaseOrbitDesigner</a> .</p>
+
+</div>
+</div>
+<a id="a55c737b189f52bac72e246636527604a" name="a55c737b189f52bac72e246636527604a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c737b189f52bac72e246636527604a">&#9670;&#160;</a></span>getOrbitState() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::BaseOrbitDesigner::getOrbitState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbElem</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取轨道状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orbElem</td><td>轨道根数 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

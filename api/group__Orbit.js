@@ -53,7 +53,9 @@ var group__Orbit =
       [ "raan_", "classast_1_1CriticallyInclinedOrbitDesigner.html#a15641fcc9dcd29e521f9b62ca254d035", null ]
     ] ],
     [ "ast::RepeatingOrbitDesigner", "classast_1_1RepeatingOrbitDesigner.html", [
-      [ "getOrbitState", "classast_1_1RepeatingOrbitDesigner.html#a9f9b08e947063f43e5beadf33b44ab3f", null ]
+      [ "getOrbitState", "classast_1_1RepeatingOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c", null ],
+      [ "getOrbitState", "classast_1_1RepeatingOrbitDesigner.html#a9f9b08e947063f43e5beadf33b44ab3f", null ],
+      [ "getOrbitState", "classast_1_1RepeatingOrbitDesigner.html#a55c737b189f52bac72e246636527604a", null ]
     ] ],
     [ "ast::SimpleOrbitDesigner", "classast_1_1SimpleOrbitDesigner.html", [
       [ "getArgumentOfPeriapsis", "classast_1_1SimpleOrbitDesigner.html#a8b995b789e2f19c737271ab6282eeaee", null ],
@@ -80,7 +82,9 @@ var group__Orbit =
     ] ],
     [ "ast::StationaryOrbitDesigner", "classast_1_1StationaryOrbitDesigner.html", [
       [ "getInclination", "classast_1_1StationaryOrbitDesigner.html#a1467d485d594217fcac48fc5993ea797", null ],
+      [ "getOrbitState", "classast_1_1StationaryOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c", null ],
       [ "getOrbitState", "classast_1_1StationaryOrbitDesigner.html#a886e381c4baf80b2c34cd6cf614ba1e2", null ],
+      [ "getOrbitState", "classast_1_1StationaryOrbitDesigner.html#a55c737b189f52bac72e246636527604a", null ],
       [ "getSubsatellitePoint", "classast_1_1StationaryOrbitDesigner.html#ae11194d184fe4188c639d6520ffc1462", null ],
       [ "setInclination", "classast_1_1StationaryOrbitDesigner.html#a887551c2a93113f4e0f5764dc56e9e9c", null ],
       [ "setSubsatellitePoint", "classast_1_1StationaryOrbitDesigner.html#a505d4e119a9531bd551b6e69d800f70e", null ],
@@ -173,6 +177,8 @@ var group__Orbit =
     [ "ast::aEquinElemToCart", "group__Orbit.html#ga7c28882096a40dd9a5a4186cb2f201f1", null ],
     [ "ast::aEquinElemToModOrb", "group__Orbit.html#ga232505c7e16b81de47621362e1dcd9d8", null ],
     [ "ast::aFlatToEcc", "group__Orbit.html#gad93a7b2f714513f09813165d1ef3b064", null ],
+    [ "ast::aJ2Period", "group__Orbit.html#gac4d6914c90df0d4ca29864f0c1d9568f", null ],
+    [ "ast::aMeanAnomalyRate", "group__Orbit.html#ga22cff0fd5d8473d6eae063a291a868e7", null ],
     [ "ast::aMeanMotnToApoAlt", "group__Orbit.html#ga21ec628e7f45c0080cdfcee407b513e7", null ],
     [ "ast::aMeanMotnToApoRad", "group__Orbit.html#ga90d2146f45ca6fce260ebff90ba8efce", null ],
     [ "ast::aMeanMotnToPeriAlt", "group__Orbit.html#ga852b19a8136e0e2810cd6ad14de3317b", null ],

@@ -114,17 +114,28 @@ $(function(){initNavTree('RepeatingOrbitDesigner_8hpp_source.html',''); initResi
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1RepeatingOrbitDesigner.html">   34</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">RepeatingOrbitDesigner</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BaseOrbitDesigner.html">BaseOrbitDesigner</a></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">RepeatingOrbitDesigner</a>();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">RepeatingOrbitDesigner</a>(<a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a> *body);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">~RepeatingOrbitDesigner</a>();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    err_t <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c">getOrbitState</a>(<a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">enum</span> EPositionType</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        eAltitude,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        eRevsPerDay</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">RepeatingOrbitDesigner</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">RepeatingOrbitDesigner</a>(<a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a> *body);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1RepeatingOrbitDesigner.html">~RepeatingOrbitDesigner</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">using </span>BaseOrbitDesigner::getOrbitState;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    err_t <a class="code hl_function" href="classast_1_1BaseOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c">getOrbitState</a>(<a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    EPositionType    positionType_{eAltitude};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">double</span>           approxAltitude_{0};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">double</span>           approxRevsPerDay_{0};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">double</span>           inclination_{0};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span>           numberOfRevsRepeat_{0};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">double</span>           longitudeOfAscendingNode_{0};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
 </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aBaseOrbitDesigner_8hpp_html"><div class="ttname"><a href="BaseOrbitDesigner_8hpp.html">BaseOrbitDesigner.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html">ast::BaseOrbitDesigner</a></div><div class="ttdoc">轨道设计器基类</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.hpp:62</div></div>
 <div class="ttc" id="aclassast_1_1BaseOrbitDesigner_html_ab3cb096abf0c2bb9b007f62555c2365c"><div class="ttname"><a href="classast_1_1BaseOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c">ast::BaseOrbitDesigner::getOrbitState</a></div><div class="ttdeci">err_t getOrbitState(CartState &amp;cartState) const</div><div class="ttdoc">获取轨道状态</div><div class="ttdef"><b>定义</b> BaseOrbitDesigner.cpp:43</div></div>

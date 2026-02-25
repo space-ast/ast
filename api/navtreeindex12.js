@@ -176,7 +176,9 @@ var NAVTREEINDEX12 =
 "classast_1_1RKV8.html#a3fbaff42735d914531775a503ae04d7b":[0,2,4,6,1],
 "classast_1_1RKV8.html#af388e2898334f847365237384b19a1bd":[0,2,4,6,0],
 "classast_1_1RepeatingOrbitDesigner.html":[0,0,2,4],
-"classast_1_1RepeatingOrbitDesigner.html#a9f9b08e947063f43e5beadf33b44ab3f":[0,0,2,4,0],
+"classast_1_1RepeatingOrbitDesigner.html#a55c737b189f52bac72e246636527604a":[0,0,2,4,2],
+"classast_1_1RepeatingOrbitDesigner.html#a9f9b08e947063f43e5beadf33b44ab3f":[0,0,2,4,1],
+"classast_1_1RepeatingOrbitDesigner.html#ab3cb096abf0c2bb9b007f62555c2365c":[0,0,2,4,0],
 "classast_1_1RidderSolver.html":[0,2,3,3],
 "classast_1_1RidderSolver.html#a097e8c7201ce12695046788db7019b17":[0,2,3,3,0],
 "classast_1_1RidderSolver.html#a1c2c5891960b50ab15ed661a4c889b4e":[0,2,3,3,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "classast_1_1RotationalData.html#af604f05383e45174d48a8a0349eed22e":[0,0,4,1,5],
 "classast_1_1Scanner.html":[0,3,31],
 "classast_1_1Scanner.html#a33ee5119251b068aaeb54126c00627dc":[0,3,31,2],
-"classast_1_1Scanner.html#a690a6d62d7dee8ea99062ac7aa2315b4":[0,3,31,3],
-"classast_1_1Scanner.html#ad8a65223b13e3eb057f7507a9b3619dd":[0,3,31,1],
-"classast_1_1Scanner.html#adb8c3749b2eed37db59e6d6fcc7d62fa":[0,3,31,0]
+"classast_1_1Scanner.html#a690a6d62d7dee8ea99062ac7aa2315b4":[0,3,31,3]
 };
