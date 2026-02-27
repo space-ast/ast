@@ -198,6 +198,8 @@ var NAVTREEINDEX2 =
 "Magnetosphere_8cpp.html":[4,0,0,12,2,2],
 "Magnetosphere_8hpp.html":[4,0,0,12,2,3],
 "Magnetosphere_8hpp_source.html":[4,0,0,12,2,3],
+"MathDegree_8hpp.html":[4,0,0,11,6,10],
+"MathDegree_8hpp_source.html":[4,0,0,11,6,10],
 "Math_8hpp.html":[4,0,0,11,6,9],
 "Math_8hpp_source.html":[4,0,0,11,6,9],
 "MockBuffer_8cpp.html":[4,0,0,6,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "NLPProblem_8cpp.html#a3fd746ebda039a488dc4a9f0db2073c2":[4,0,0,8,10,2],
 "NLPProblem_8cpp.html#a6e30b05b8b6d90c124e2ef6449238972":[4,0,0,8,10,1],
 "NLPProblem_8cpp.html#a7f2c5bfa7176f95a5e934b7484370f5e":[4,0,0,8,10,0],
-"NLPProblem_8hpp.html":[4,0,0,8,11],
-"NLPProblem_8hpp.html#a3fd746ebda039a488dc4a9f0db2073c2":[4,0,0,8,11,1],
-"NLPProblem_8hpp_source.html":[4,0,0,8,11]
+"NLPProblem_8hpp.html":[4,0,0,8,11]
 };

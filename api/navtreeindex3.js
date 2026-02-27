@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"NLPProblem_8hpp.html#a3fd746ebda039a488dc4a9f0db2073c2":[4,0,0,8,11,1],
+"NLPProblem_8hpp_source.html":[4,0,0,8,11],
 "NLPSnoptSolver_8cpp.html":[4,0,0,8,13],
 "NLPSnoptSolver_8hpp.html":[4,0,0,8,14],
 "NLPSnoptSolver_8hpp_source.html":[4,0,0,8,14],
@@ -118,9 +120,9 @@ var NAVTREEINDEX3 =
 "PointingDirection_8cpp.html":[4,0,0,0,0,14],
 "PointingDirection_8hpp.html":[4,0,0,0,0,15],
 "PointingDirection_8hpp_source.html":[4,0,0,0,0,15],
-"Polynomial_8cpp.html":[4,0,0,11,6,10],
-"Polynomial_8hpp.html":[4,0,0,11,6,11],
-"Polynomial_8hpp_source.html":[4,0,0,11,6,11],
+"Polynomial_8cpp.html":[4,0,0,11,6,11],
+"Polynomial_8hpp.html":[4,0,0,11,6,12],
+"Polynomial_8hpp_source.html":[4,0,0,11,6,12],
 "PosixExt_8cpp.html":[4,0,0,11,2,17],
 "PosixExt_8hpp.html":[4,0,0,11,2,18],
 "PosixExt_8hpp.html#a9c97106431856ac3fd1b9ac8308f39b1":[4,0,0,11,2,18,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "ScalarFunc_8hpp.html":[4,0,0,5,2,1],
 "ScalarFunc_8hpp_source.html":[4,0,0,5,2,1],
 "Scanner_8cpp.html":[4,0,0,10,7,4],
-"Scanner_8hpp.html":[4,0,0,10,7,5],
-"Scanner_8hpp_source.html":[4,0,0,10,7,5],
-"ScriptAPI_8cpp.html":[4,0,0,10,0,2]
+"Scanner_8hpp.html":[4,0,0,10,7,5]
 };

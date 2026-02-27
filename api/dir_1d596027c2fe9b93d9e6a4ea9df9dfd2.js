@@ -10,6 +10,7 @@ var dir_1d596027c2fe9b93d9e6a4ea9df9dfd2 =
     [ "Logger.cpp", "Logger_8cpp.html", null ],
     [ "Logger.hpp", "Logger_8hpp.html", "Logger_8hpp" ],
     [ "Math.hpp", "Math_8hpp.html", "Math_8hpp" ],
+    [ "MathDegree.hpp", "MathDegree_8hpp.html", "MathDegree_8hpp" ],
     [ "Polynomial.cpp", "Polynomial_8cpp.html", "Polynomial_8cpp" ],
     [ "Polynomial.hpp", "Polynomial_8hpp.html", "Polynomial_8hpp" ],
     [ "RunTime.cpp", "AstUtil_2Util_2RunTime_8cpp.html", "AstUtil_2Util_2RunTime_8cpp" ],

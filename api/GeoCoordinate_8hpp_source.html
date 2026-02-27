@@ -172,8 +172,8 @@ $(function(){initNavTree('GeoCoordinate_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">double</span> lat = latitude();</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">double</span> lon = longitude();</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">double</span> sLat, cLat, sLon, cLon;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    sincos(lat, &amp;sLat, &amp;cLat);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    sincos(lon, &amp;sLon, &amp;cLon);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_function" href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">sincos</a>(lat, &amp;sLat, &amp;cLat);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">sincos</a>(lon, &amp;sLon, &amp;cLon);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">return</span> {cLon * cLat, sLon * cLat, sLat};    </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
 </div>
@@ -189,7 +189,7 @@ $(function(){initNavTree('GeoCoordinate_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classast_1_1GeoCoordinate.html#acf605d982603ea25444bc3837db65228">  115</a></span><span class="keyword">inline</span> Vector3d GeoCoordinate::getEast()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">double</span> sLon, cLon;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    sincos(longitude(), &amp;sLon, &amp;cLon);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_function" href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">sincos</a>(longitude(), &amp;sLon, &amp;cLon);</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">return</span> {-sLon, cLon, 0};</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
 </div>
@@ -207,8 +207,8 @@ $(function(){initNavTree('GeoCoordinate_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">double</span> lat = latitude();</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">double</span> lon = longitude();</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">double</span> sLat, cLat, sLon, cLon;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    sincos(lat, &amp;sLat, &amp;cLat);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    sincos(lon, &amp;sLon, &amp;cLon);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <a class="code hl_function" href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">sincos</a>(lat, &amp;sLat, &amp;cLat);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">sincos</a>(lon, &amp;sLon, &amp;cLon);</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">return</span> {-cLon * sLat, -sLon * sLat, cLat};</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
 </div>
@@ -270,6 +270,7 @@ $(function(){initNavTree('GeoCoordinate_8hpp_source.html',''); initResizable(tru
 <div class="ttc" id="aclassast_1_1GeocentricPoint_html"><div class="ttname"><a href="classast_1_1GeocentricPoint.html">ast::GeocentricPoint</a></div><div class="ttdoc">地心坐标</div><div class="ttdef"><b>定义</b> GeocentricPoint.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1GeodeticPoint_html"><div class="ttname"><a href="classast_1_1GeodeticPoint.html">ast::GeodeticPoint</a></div><div class="ttdoc">大地坐标</div><div class="ttdef"><b>定义</b> GeodeticPoint.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1LatLonAlt_html"><div class="ttname"><a href="classast_1_1LatLonAlt.html">ast::LatLonAlt</a></div><div class="ttdoc">纬度、经度、高度坐标</div><div class="ttdef"><b>定义</b> LatLonAlt.hpp:30</div></div>
+<div class="ttc" id="agroup__Util_html_gafc70c145323140f0099c8226ab2161b5"><div class="ttname"><a href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">ast::sincos</a></div><div class="ttdeci">A_ALWAYS_INLINE void sincos(double x, double *psin, double *pcos)</div><div class="ttdoc">计算 sin(x) 和 cos(x) 值</div><div class="ttdef"><b>定义</b> Math.hpp:47</div></div>
 <div class="ttc" id="anamespaceast_html_a2716f3c71f6cd635ffaf3c4c76a2e667"><div class="ttname"><a href="namespaceast.html#a2716f3c71f6cd635ffaf3c4c76a2e667">ast::aSurfaceDeticToCentric</a></div><div class="ttdeci">void aSurfaceDeticToCentric(const GeodeticPoint &amp;detic, double flatFact, GeocentricPoint &amp;centric)</div><div class="ttdoc">将天体表面的大地坐标转换为地心坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:37</div></div>
 <div class="ttc" id="anamespaceast_html_a643d79418b063ea2bd4b4d98f9801405"><div class="ttname"><a href="namespaceast.html#a643d79418b063ea2bd4b4d98f9801405">ast::aSurfaceCentricToDeticLat</a></div><div class="ttdeci">double aSurfaceCentricToDeticLat(double centric, double flatFact)</div><div class="ttdoc">将天体表面的地心纬度转换为大地纬度</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:44</div></div>
 <div class="ttc" id="anamespaceast_html_a67f30cea55bfebe12f59a82fcaeb1f1a"><div class="ttname"><a href="namespaceast.html#a67f30cea55bfebe12f59a82fcaeb1f1a">ast::aSurfaceCentricToDetic</a></div><div class="ttdeci">void aSurfaceCentricToDetic(const GeocentricPoint &amp;centric, double flatFact, GeodeticPoint &amp;detic)</div><div class="ttdoc">将天体表面的地心坐标转换为大地坐标</div><div class="ttdef"><b>定义</b> GeoCoordinate.cpp:30</div></div>

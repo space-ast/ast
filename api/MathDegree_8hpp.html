@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Util/Math.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Util/MathDegree.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
+$(function(){initNavTree('MathDegree_8hpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,25 +99,17 @@ $(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
 <a href="#func-members">函数</a>  </div>
-  <div class="headertitle"><div class="title">Math.hpp 文件参考</div></div>
+  <div class="headertitle"><div class="title">MathDegree.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
-<code>#include &quot;AstUtil/MathDegree.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Constants.h&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
 </div>
-<p><a href="Math_8hpp_source.html">浏览该文件的源代码.</a></p>
+<p><a href="MathDegree_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SinCos.html">ast::SinCos</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
@@ -125,33 +117,30 @@ $(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gafc70c145323140f0099c8226ab2161b5" id="r_gafc70c145323140f0099c8226ab2161b5"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">ast::sincos</a> (double x, double *psin, double *pcos)</td></tr>
-<tr class="separator:gafc70c145323140f0099c8226ab2161b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga138fdd1a12245781f9122dfef37cabfc" id="r_ga138fdd1a12245781f9122dfef37cabfc"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1SinCos.html">SinCos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga138fdd1a12245781f9122dfef37cabfc">ast::sincos</a> (double x)</td></tr>
-<tr class="separator:ga138fdd1a12245781f9122dfef37cabfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8831f3e788e7c120569b0c8f00004ebf" id="r_ga8831f3e788e7c120569b0c8f00004ebf"><td class="memTemplParams" colspan="2">
-template&lt;typename Scalar &gt; </td></tr>
-<tr class="memitem:ga8831f3e788e7c120569b0c8f00004ebf"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMax</b> (Scalar a, Scalar b)</td></tr>
-<tr class="separator:ga8831f3e788e7c120569b0c8f00004ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae607d540253979beacb45ea4a55c0bb1" id="r_gae607d540253979beacb45ea4a55c0bb1"><td class="memTemplParams" colspan="2">
-template&lt;typename Scalar &gt; </td></tr>
-<tr class="memitem:gae607d540253979beacb45ea4a55c0bb1"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMin</b> (Scalar a, Scalar b)</td></tr>
-<tr class="separator:gae607d540253979beacb45ea4a55c0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae628da25178a68de57bdf3fdfd9e8dcb" id="r_gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a> (double angle, double start)</td></tr>
-<tr class="separator:gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaea03a932dcd544c97844e1f9eb451437" id="r_gaea03a932dcd544c97844e1f9eb451437"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a> (double angle, double center)</td></tr>
-<tr class="separator:gaea03a932dcd544c97844e1f9eb451437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5cd816a87700237b7696f6170ae4e474" id="r_ga5cd816a87700237b7696f6170ae4e474"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">ast::aNormalizeAngle0To2Pi</a> (double angle)</td></tr>
-<tr class="separator:ga5cd816a87700237b7696f6170ae4e474"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga70afc34acbd6e94be6c10c32ea03acbd" id="r_ga70afc34acbd6e94be6c10c32ea03acbd"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">ast::aNormalizeAngleNegPiToPi</a> (double angle)</td></tr>
-<tr class="separator:ga70afc34acbd6e94be6c10c32ea03acbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae34aefa61d4998de18c705a340bf3d9c" id="r_gae34aefa61d4998de18c705a340bf3d9c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a> (double angle)</td></tr>
-<tr class="separator:gae34aefa61d4998de18c705a340bf3d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga820cdafe9d38c66c5c0736d429aafabd" id="r_ga820cdafe9d38c66c5c0736d429aafabd"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">ast::rad2deg</a> (double x)</td></tr>
+<tr class="separator:ga820cdafe9d38c66c5c0736d429aafabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2829ae46176d2ae6b387706feba62fdb" id="r_ga2829ae46176d2ae6b387706feba62fdb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">ast::deg2rad</a> (double x)</td></tr>
+<tr class="separator:ga2829ae46176d2ae6b387706feba62fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaea030a8c994fded58797a7e7eefa3bfc" id="r_gaea030a8c994fded58797a7e7eefa3bfc"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaea030a8c994fded58797a7e7eefa3bfc">ast::sind</a> (double x)</td></tr>
+<tr class="separator:gaea030a8c994fded58797a7e7eefa3bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga224d796ee35c6b4d310a73ca0103c76a" id="r_ga224d796ee35c6b4d310a73ca0103c76a"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga224d796ee35c6b4d310a73ca0103c76a">ast::cosd</a> (double x)</td></tr>
+<tr class="separator:ga224d796ee35c6b4d310a73ca0103c76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab01c93ce1b8246baa2288ed6ec0efd60" id="r_gab01c93ce1b8246baa2288ed6ec0efd60"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gab01c93ce1b8246baa2288ed6ec0efd60">ast::tand</a> (double x)</td></tr>
+<tr class="separator:gab01c93ce1b8246baa2288ed6ec0efd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe0085135ce500f9b288a50ff63d5e8c" id="r_gafe0085135ce500f9b288a50ff63d5e8c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gafe0085135ce500f9b288a50ff63d5e8c">ast::asind</a> (double x)</td></tr>
+<tr class="separator:gafe0085135ce500f9b288a50ff63d5e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac806bd7b674d45101bed2b074eec2f36" id="r_gac806bd7b674d45101bed2b074eec2f36"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gac806bd7b674d45101bed2b074eec2f36">ast::acosd</a> (double x)</td></tr>
+<tr class="separator:gac806bd7b674d45101bed2b074eec2f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga438e82b6bc2e1b76563bf6e6caec0df9" id="r_ga438e82b6bc2e1b76563bf6e6caec0df9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9">ast::atand</a> (double x)</td></tr>
+<tr class="separator:ga438e82b6bc2e1b76563bf6e6caec0df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddc9ca4ebc4ce64ac86c0411f920a092" id="r_gaddc9ca4ebc4ce64ac86c0411f920a092"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaddc9ca4ebc4ce64ac86c0411f920a092">ast::atan2d</a> (double y, double x)</td></tr>
+<tr class="separator:gaddc9ca4ebc4ce64ac86c0411f920a092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>~ </p>
-<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
-<dl class="section date"><dt>日期</dt><dd>2026-01-05 </dd></dl>
+<div class="textblock"><p>角度量相关函数 </p>
+<p><br  />
+ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-02-27 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
 <p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
@@ -161,7 +150,7 @@ template&lt;typename Scalar &gt; </td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_1d596027c2fe9b93d9e6a4ea9df9dfd2.html">Util</a></li><li class="navelem"><a class="el" href="Math_8hpp.html">Math.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_1d596027c2fe9b93d9e6a4ea9df9dfd2.html">Util</a></li><li class="navelem"><a class="el" href="MathDegree_8hpp.html">MathDegree.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

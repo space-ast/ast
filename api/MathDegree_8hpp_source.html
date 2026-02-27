@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Util/MathDegree.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('MathDegree_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MathDegree.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MathDegree_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/Constants.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">   37</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">rad2deg</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> x * <a class="code hl_variable" href="group__Util.html#gad09241ea18c6169281fed8979fe2053f">kRadToDeg</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">   45</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">deg2rad</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">return</span> x * <a class="code hl_variable" href="group__Util.html#ga483214c031a4dac29c8756f72ce5e3b9">kDegToRad</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group__Util.html#gaea030a8c994fded58797a7e7eefa3bfc">   54</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gaea030a8c994fded58797a7e7eefa3bfc">sind</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> sin(<a class="code hl_function" href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">deg2rad</a>(x));</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="group__Util.html#ga224d796ee35c6b4d310a73ca0103c76a">   62</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga224d796ee35c6b4d310a73ca0103c76a">cosd</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> cos(<a class="code hl_function" href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">deg2rad</a>(x));</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="group__Util.html#gab01c93ce1b8246baa2288ed6ec0efd60">   70</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gab01c93ce1b8246baa2288ed6ec0efd60">tand</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> tan(<a class="code hl_function" href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">deg2rad</a>(x));</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="group__Util.html#gafe0085135ce500f9b288a50ff63d5e8c">   79</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gafe0085135ce500f9b288a50ff63d5e8c">asind</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">rad2deg</a>(asin(x));</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="group__Util.html#gac806bd7b674d45101bed2b074eec2f36">   88</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gac806bd7b674d45101bed2b074eec2f36">acosd</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">rad2deg</a>(acos(x));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9">   97</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9">atand</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">rad2deg</a>(atan(x));</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="group__Util.html#gaddc9ca4ebc4ce64ac86c0411f920a092">  107</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gaddc9ca4ebc4ce64ac86c0411f920a092">atan2d</a>(<span class="keywordtype">double</span> y, <span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">rad2deg</a>(atan2(y, x));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Util_html_ga224d796ee35c6b4d310a73ca0103c76a"><div class="ttname"><a href="group__Util.html#ga224d796ee35c6b4d310a73ca0103c76a">ast::cosd</a></div><div class="ttdeci">A_ALWAYS_INLINE double cosd(double x)</div><div class="ttdoc">计算余弦值(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:62</div></div>
+<div class="ttc" id="agroup__Util_html_ga2829ae46176d2ae6b387706feba62fdb"><div class="ttname"><a href="group__Util.html#ga2829ae46176d2ae6b387706feba62fdb">ast::deg2rad</a></div><div class="ttdeci">A_ALWAYS_INLINE double deg2rad(double x)</div><div class="ttdoc">将角度转换为弧度</div><div class="ttdef"><b>定义</b> MathDegree.hpp:45</div></div>
+<div class="ttc" id="agroup__Util_html_ga438e82b6bc2e1b76563bf6e6caec0df9"><div class="ttname"><a href="group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9">ast::atand</a></div><div class="ttdeci">A_ALWAYS_INLINE double atand(double x)</div><div class="ttdoc">计算反正切(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:97</div></div>
+<div class="ttc" id="agroup__Util_html_ga483214c031a4dac29c8756f72ce5e3b9"><div class="ttname"><a href="group__Util.html#ga483214c031a4dac29c8756f72ce5e3b9">ast::kDegToRad</a></div><div class="ttdeci">constexpr double kDegToRad</div><div class="ttdoc">角度到弧度 kPI/180.0</div><div class="ttdef"><b>定义</b> Constants.h:197</div></div>
+<div class="ttc" id="agroup__Util_html_ga820cdafe9d38c66c5c0736d429aafabd"><div class="ttname"><a href="group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd">ast::rad2deg</a></div><div class="ttdeci">A_ALWAYS_INLINE double rad2deg(double x)</div><div class="ttdoc">将弧度转换为角度</div><div class="ttdef"><b>定义</b> MathDegree.hpp:37</div></div>
+<div class="ttc" id="agroup__Util_html_gab01c93ce1b8246baa2288ed6ec0efd60"><div class="ttname"><a href="group__Util.html#gab01c93ce1b8246baa2288ed6ec0efd60">ast::tand</a></div><div class="ttdeci">A_ALWAYS_INLINE double tand(double x)</div><div class="ttdoc">计算正切值(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:70</div></div>
+<div class="ttc" id="agroup__Util_html_gac806bd7b674d45101bed2b074eec2f36"><div class="ttname"><a href="group__Util.html#gac806bd7b674d45101bed2b074eec2f36">ast::acosd</a></div><div class="ttdeci">A_ALWAYS_INLINE double acosd(double x)</div><div class="ttdoc">计算反余弦(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:88</div></div>
+<div class="ttc" id="agroup__Util_html_gad09241ea18c6169281fed8979fe2053f"><div class="ttname"><a href="group__Util.html#gad09241ea18c6169281fed8979fe2053f">ast::kRadToDeg</a></div><div class="ttdeci">constexpr double kRadToDeg</div><div class="ttdoc">弧度到角度 180.0/kPI</div><div class="ttdef"><b>定义</b> Constants.h:196</div></div>
+<div class="ttc" id="agroup__Util_html_gaddc9ca4ebc4ce64ac86c0411f920a092"><div class="ttname"><a href="group__Util.html#gaddc9ca4ebc4ce64ac86c0411f920a092">ast::atan2d</a></div><div class="ttdeci">A_ALWAYS_INLINE double atan2d(double y, double x)</div><div class="ttdoc">计算四象限反正切(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:107</div></div>
+<div class="ttc" id="agroup__Util_html_gaea030a8c994fded58797a7e7eefa3bfc"><div class="ttname"><a href="group__Util.html#gaea030a8c994fded58797a7e7eefa3bfc">ast::sind</a></div><div class="ttdeci">A_ALWAYS_INLINE double sind(double x)</div><div class="ttdoc">计算正弦值(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:54</div></div>
+<div class="ttc" id="agroup__Util_html_gafe0085135ce500f9b288a50ff63d5e8c"><div class="ttname"><a href="group__Util.html#gafe0085135ce500f9b288a50ff63d5e8c">ast::asind</a></div><div class="ttdeci">A_ALWAYS_INLINE double asind(double x)</div><div class="ttdoc">计算反正弦(以度为单位)</div><div class="ttdef"><b>定义</b> MathDegree.hpp:79</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_1d596027c2fe9b93d9e6a4ea9df9dfd2.html">Util</a></li><li class="navelem"><a class="el" href="MathDegree_8hpp.html">MathDegree.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

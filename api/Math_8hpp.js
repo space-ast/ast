@@ -7,5 +7,6 @@ var Math_8hpp =
     [ "aNormalizeAngleNeg2PiTo0", "Math_8hpp.html#gae34aefa61d4998de18c705a340bf3d9c", null ],
     [ "aNormalizeAngleNegPiToPi", "Math_8hpp.html#ga70afc34acbd6e94be6c10c32ea03acbd", null ],
     [ "aNormalizeAngleStart", "Math_8hpp.html#gae628da25178a68de57bdf3fdfd9e8dcb", null ],
-    [ "sincos", "Math_8hpp.html#ga138fdd1a12245781f9122dfef37cabfc", null ]
+    [ "sincos", "Math_8hpp.html#ga138fdd1a12245781f9122dfef37cabfc", null ],
+    [ "sincos", "Math_8hpp.html#gafc70c145323140f0099c8226ab2161b5", null ]
 ];

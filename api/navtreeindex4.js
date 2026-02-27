@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"Scanner_8hpp_source.html":[4,0,0,10,7,5],
+"ScriptAPI_8cpp.html":[4,0,0,10,0,2],
 "ScriptAPI_8hpp.html":[4,0,0,10,0,3],
 "ScriptAPI_8hpp_source.html":[4,0,0,10,0,3],
 "ScriptContext_8cpp.html":[4,0,0,10,4,5],
@@ -62,9 +64,9 @@ var NAVTREEINDEX4 =
 "SpaceWeather_8cpp.html#a94f4cf75f889ec56c67b248dea11ef71":[4,0,0,2,3,7,0],
 "SpaceWeather_8hpp.html":[4,0,0,2,3,8],
 "SpaceWeather_8hpp_source.html":[4,0,0,2,3,8],
-"Span_8cpp.html":[4,0,0,11,6,14],
-"Span_8hpp.html":[4,0,0,11,6,15],
-"Span_8hpp_source.html":[4,0,0,11,6,15],
+"Span_8cpp.html":[4,0,0,11,6,15],
+"Span_8hpp.html":[4,0,0,11,6,16],
+"Span_8hpp_source.html":[4,0,0,11,6,16],
 "Sparse_8hpp.html":[4,0,0,5,0,3],
 "Sparse_8hpp_source.html":[4,0,0,5,0,3],
 "SphereShape_8hpp.html":[4,0,0,2,5,2,0,3],
@@ -158,7 +160,7 @@ var NAVTREEINDEX4 =
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,2,7,8,0],
 "TwoBody_8hpp.html":[4,0,0,2,7,9],
 "TwoBody_8hpp_source.html":[4,0,0,2,7,9],
-"TypeTraits_8hpp_source.html":[4,0,0,11,6,16],
+"TypeTraits_8hpp_source.html":[4,0,0,11,6,17],
 "Type_8hpp.html":[4,0,0,11,4,5],
 "Type_8hpp_source.html":[4,0,0,11,4,5],
 "Types_8cpp.html":[4,0,0,10,0,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "ValDouble_8cpp.html":[4,0,0,10,8,4],
 "ValDouble_8hpp.html":[4,0,0,10,8,5],
 "ValDouble_8hpp_source.html":[4,0,0,10,8,5],
-"ValInt_8cpp.html":[4,0,0,10,8,6],
-"ValInt_8hpp.html":[4,0,0,10,8,7],
-"ValInt_8hpp_source.html":[4,0,0,10,8,7]
+"ValInt_8cpp.html":[4,0,0,10,8,6]
 };

@@ -251,7 +251,10 @@ static <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">待办事项</a></b></dt><dd>这里目前只能计算地球轨道，需要增加对其他天体的支持 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">待办事项</a></b></dt><dd>目前只能计算地球轨道，这里需要增加对其他天体的支持 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果地球同步轨道倾角不为0，根据轨道根数长期摄动项，其升交点赤经一定存在漂移率 在这种情况下，即使是在理想的J2长期摄动模型下，也无法始终保持在某点上空静止</dd></dl>
+<p>下面只考虑倾角为0和偏心率为0的情况， 根据轨道根数长期摄动项，此时J2项的raan和meanA的漂移率相互抵消 所以下面公式中仅通过argper的漂移率来计算周期</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">待办事项</a></b></dt><dd>这里应该可以采用解析公式直接计算得到半长轴 </dd></dl>
 
 <p>重载 <a class="el" href="classast_1_1BaseOrbitDesigner.html#ac4981945f5e88a9163072584165a392f">ast::BaseOrbitDesigner</a> .</p>
 
