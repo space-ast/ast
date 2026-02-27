@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"ScalarFunc_8hpp_source.html":[4,0,0,5,2,1],
+"Scanner_8cpp.html":[4,0,0,10,7,4],
+"Scanner_8hpp.html":[4,0,0,10,7,5],
 "Scanner_8hpp_source.html":[4,0,0,10,7,5],
 "ScriptAPI_8cpp.html":[4,0,0,10,0,2],
 "ScriptAPI_8hpp.html":[4,0,0,10,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "ValBool_8cpp.html":[4,0,0,10,8,2],
 "ValBool_8hpp.html":[4,0,0,10,8,3],
 "ValBool_8hpp_source.html":[4,0,0,10,8,3],
-"ValDouble_8cpp.html":[4,0,0,10,8,4],
-"ValDouble_8hpp.html":[4,0,0,10,8,5],
-"ValDouble_8hpp_source.html":[4,0,0,10,8,5],
-"ValInt_8cpp.html":[4,0,0,10,8,6]
+"ValDouble_8cpp.html":[4,0,0,10,8,4]
 };

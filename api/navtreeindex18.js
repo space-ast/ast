@@ -1,5 +1,8 @@
 var NAVTREEINDEX18 =
 {
+"group__Util.html#ga41255ef38b8253b08c439397df25521f":[0,4,99],
+"group__Util.html#ga42f29865a9fe786b8da4597e628663df":[0,4,109],
+"group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9":[0,4,39],
 "group__Util.html#ga45179888d6a55092ea4e991851392cc5":[0,4,72],
 "group__Util.html#ga45e1a29739987bb223b87a6ba61e4334":[0,4,123],
 "group__Util.html#ga483214c031a4dac29c8756f72ce5e3b9":[0,4,59],
@@ -246,8 +249,5 @@ var NAVTREEINDEX18 =
 "igrf_8cpp.html":[4,0,0,12,2,1,0],
 "igrf_8hpp.html":[4,0,0,12,2,1,1],
 "igrf_8hpp_source.html":[4,0,0,12,2,1,1],
-"index.html":[],
-"msise90_8h_source.html":[4,0,0,12,0,0,0],
-"namespaceast.html":[2,0,0],
-"namespaceast.html#a02d9806e4f3e5bd79a3faba8a44d2ad4":[2,0,0,663]
+"index.html":[]
 };
