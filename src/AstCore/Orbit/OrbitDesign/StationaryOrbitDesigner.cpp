@@ -22,6 +22,7 @@
 #include "AstCore/OrbitParam.hpp"
 #include "AstCore/FrameTransform.hpp"
 #include "AstCore/OrbitDesign.hpp"
+#include "AstCore/OrbitalPrecession.hpp"
 #include "AstMath/KinematicRotation.hpp"
 #include "AstMath/Zeros.hpp"
 #include "AstUtil/Literals.hpp"

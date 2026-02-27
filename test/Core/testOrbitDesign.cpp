@@ -40,7 +40,7 @@ protected:
 };
 
 
-TEST_F(OrbitDesignTest, SimpleOrbitDesigner)
+TEST_F(OrbitDesignTest, SimpleOrbitDesigner)  // OK
 {
     {
         SimpleOrbitDesigner designer(aGetEarth());
@@ -80,7 +80,7 @@ TEST_F(OrbitDesignTest, SimpleOrbitDesigner)
 }
 
 
-TEST_F(OrbitDesignTest, CriticallyInclinedOrbitDesigner)
+TEST_F(OrbitDesignTest, CriticallyInclinedOrbitDesigner) // OK
 {
     {
         CriticallyInclinedOrbitDesigner designer(aGetEarth());
@@ -257,14 +257,27 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
 
 TEST_F(OrbitDesignTest, StationaryOrbitDesigner)
 {
-    StationaryOrbitDesigner designer(aGetEarth());
-    designer.setInclination(0_deg);
-    designer.setSubsatellitePoint(-100_deg);
-    ModOrbElem orbElem;
-    err_t rc = designer.getOrbitState(orbElem);
-    EXPECT_EQ(rc, eNoError);
-    printf("orbElem: %s\n", orbElem.toString().c_str());
-    EXPECT_NEAR(orbElem.getA(), 42166.258669178736_km, 1_m);
+    {
+        StationaryOrbitDesigner designer(aGetEarth());
+        designer.setInclination(0_deg);
+        designer.setSubsatellitePoint(-100_deg);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 42166.258669178736_km, 0.5_m);
+    }
+    {
+        StationaryOrbitDesigner designer(aGetEarth());
+        designer.setInclination(45_deg);
+        designer.setSubsatellitePoint(100_deg);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 42166.258669178736_km, 0.5_m);
+        EXPECT_EQ(orbElem.getI(), 45_deg);
+    }
 }
 
 

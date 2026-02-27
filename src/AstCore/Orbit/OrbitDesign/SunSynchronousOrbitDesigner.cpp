@@ -19,7 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SunSynchronousOrbitDesigner.hpp"
-#include "OrbitDesign.hpp"
+#include "AstCore/OrbitDesign.hpp"
+#include "AstCore/OrbitalPrecession.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstMath/Zeros.hpp"
@@ -106,7 +107,9 @@ double SunSynchronousOrbitDesigner::calcAltitude(double inc) const
     {
         const double a = alt + rb;
         const double ecc = 0;
-        return aRAANRate(gm, j2, rb, a, ecc, inc) - kEarthMeanMotion;
+        // const double meanMotion = kEarthMeanMotion;
+        const double meanMotion = kTwoPI / (365.25636 * 86400);
+        return aRAANRate(gm, j2, rb, a, ecc, inc) - meanMotion;
     };
     SolverStats stats;
     double alt = brentq(func, 0, 10000_km, 1e-12, 1e-14, 100, stats);

@@ -21,6 +21,7 @@
 #include "CriticallyInclinedSunSyncOrbitDesigner.hpp"
 #include "AstCore/OrbitDesign.hpp"
 #include "AstCore/OrbitParam.hpp"
+#include "AstCore/OrbitalPrecession.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstMath/Zeros.hpp"
