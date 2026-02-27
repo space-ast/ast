@@ -20,9 +20,12 @@
 #include "AstCore/OrbitParam.hpp"
 #include "AstTest/AstTestMacro.h"
 #include "AstUtil/Constants.h"
+#include "AstUtil/Literals.hpp"
+#include "AstUtil/Math.hpp"
 #include <cstdio>
 
 AST_USING_NAMESPACE
+using namespace _AST literals;
 
 // 测试常量
 const double CB_RADIUS = 6378137.0; // 地球赤道半径 [m]
@@ -461,5 +464,26 @@ TEST(OrbitParam, GroundTrackRepeat)
         EXPECT_NEAR(orbitalPeriod, expectedPeriod, expectedPeriod * 0.01); // 允许1%误差
     }
 }
+
+
+
+TEST(OrbitParam, TrueToMean_Case1)
+{
+    {
+        double trueAnomaly = 201.874001_deg;
+        double eccentricity = 0.121106;
+        double eccAnomaly = aTrueToEcc(trueAnomaly, eccentricity);
+        double meanAnomaly = aTrueToMean(trueAnomaly, eccentricity);
+        eccAnomaly = aNormalizeAngle0To2Pi(eccAnomaly);
+        meanAnomaly = aNormalizeAngle0To2Pi(meanAnomaly);
+
+        printf("eccAnomaly = %f\n", eccAnomaly / 1_deg);
+        printf("meanAnomaly = %f\n", meanAnomaly / 1_deg);
+        EXPECT_NEAR(meanAnomaly, 207.514387_deg, 0.000001_deg);
+    }
+    
+
+}
+
 
 GTEST_MAIN()

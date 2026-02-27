@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/MathDegree.hpp"
 #include "AstUtil/Constants.h"
 #include <cmath>
 #include <algorithm>
@@ -39,6 +40,10 @@ using ::sincos;
 
 #else
 
+/// @brief 计算 sin(x) 和 cos(x) 值
+/// @param x 输入角度（弧度）
+/// @param psin 指向 sin(x) 值的指针
+/// @param pcos 指向 cos(x) 值的指针
 A_ALWAYS_INLINE void sincos (double x, double *psin, double *pcos)
 {
     *psin = sin(x);
