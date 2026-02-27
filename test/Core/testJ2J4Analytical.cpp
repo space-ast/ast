@@ -42,7 +42,7 @@ TEST(J2Analytical, J2Prop)
     double u = modOrbElem.trueA() + modOrbElem.argper();
     printf("u: %f\n", u * kRadToDeg);
     printf("raan: %f\n", modOrbElem.raan() * kRadToDeg);
-    EXPECT_NEAR(u * kRadToDeg, 344.671, 2e-2);
+    EXPECT_NEAR(u * kRadToDeg, 344.6712, 2e-2);
     printf("modOrbElem: %s\n", modOrbElem.toString().c_str());
 }
 

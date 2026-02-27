@@ -264,7 +264,7 @@ TEST_F(OrbitDesignTest, StationaryOrbitDesigner)
     err_t rc = designer.getOrbitState(orbElem);
     EXPECT_EQ(rc, eNoError);
     printf("orbElem: %s\n", orbElem.toString().c_str());
-    EXPECT_NEAR(orbElem.getA(), 42166.258669178736_km, 2_km);
+    EXPECT_NEAR(orbElem.getA(), 42166.258669178736_km, 1_m);
 }
 
 

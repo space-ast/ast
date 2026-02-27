@@ -55,22 +55,46 @@ err_t StationaryOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
     const double j2 = getJ2();
     const double rb = getBodyRadius();
     
-    KinematicRotation rot;
-    /// @todo 这里目前只能计算地球轨道，需要增加对其他天体的支持
-    aICRFToECFTransform(orbitEpoch_, rot);
-    double rotRate = rot.getRotationRate().norm();
-    double period = kTwoPI / rotRate;
-    double inc = inclination_;
-    auto func = [gm, j2, rb, period, inc](double a) -> double
+    double period = 0;
+    if(celestialBody_ && celestialBody_->isEarth()){
+        #if 0
+        // @fixme 这里应该计算TOD到GTOD的旋转速率
+        KinematicRotation rot;
+        aICRFToECFTransform(orbitEpoch_, rot);
+        double rotRate = rot.getRotationRate().norm();
+        period = kTwoPI / rotRate;
+        #else
+        period = 86164.09054;
+        #endif
+    }else{
+        /// @todo 目前只能计算地球轨道，这里需要增加对其他天体的支持
+    }
+    
+    // const double inc = inclination_;
+    auto func = [gm, j2, rb, period](double a) -> double
     {
-        // double p1 = aSMajAxToPeriod(a, gm);
+        /*!
+        @note 
+        如果地球同步轨道倾角不为0，根据轨道根数长期摄动项，其升交点赤经一定存在漂移率
+        在这种情况下，即使是在理想的J2长期摄动模型下，也无法始终保持在某点上空静止
+
+        下面只考虑倾角为0和偏心率为0的情况，
+        根据轨道根数长期摄动项，此时J2项的raan和meanA的漂移率相互抵消
+        所以下面公式中仅通过argper的漂移率来计算周期
+
+        @todo 这里应该可以采用解析公式直接计算得到半长轴
+        */
+       
         const double ecc = 0.0;
-        double p2 = aJ2Period(gm, j2, rb, a, ecc, inc);
-        return p2 - period;
+        const double inc = 0.0;
+        double n = aSMajAxToMeanMotn(a, gm);
+        double p = kTwoPI / ( n + aArgPerRate(gm, j2, rb, a, ecc, inc));
+        return p - period;
     };
     SolverStats stats{};
-    double a_upper = aPeriodToSMajAx(period, gm);
-    double a = brentq(func, 1, a_upper * 1.5, 1e-12, 1e-12, 100, stats);
+    double atwobody = aPeriodToSMajAx(period, gm);
+    double a = brentq(func, 1, atwobody * 1.5, 1e-12, 1e-12, 100, stats);
+
     if(stats.error_num == 0){
         orbElem.rp_ = a;
         orbElem.e_ = 0.0;
