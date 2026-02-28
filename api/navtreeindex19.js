@@ -1,5 +1,10 @@
 var NAVTREEINDEX19 =
 {
+"hierarchy.html":[3,2],
+"igrf_8cpp.html":[4,0,0,12,2,1,0],
+"igrf_8hpp.html":[4,0,0,12,2,1,1],
+"igrf_8hpp_source.html":[4,0,0,12,2,1,1],
+"index.html":[],
 "msise90_8h_source.html":[4,0,0,12,0,0,0],
 "namespaceast.html":[2,0,0],
 "namespaceast.html#a02d9806e4f3e5bd79a3faba8a44d2ad4":[2,0,0,663],
@@ -117,7 +122,7 @@ var NAVTREEINDEX19 =
 "namespaceast.html#ab9abbcd12ab8b99ea5d6126b9074004b":[2,0,0,939],
 "namespaceast.html#abb7c349c2d188b3ec7a6a81497318022":[2,0,0,446],
 "namespaceast.html#abe75c3527faada9e0650c4911a17eff4":[2,0,0,349],
-"namespaceast.html#ac04b780d9c8e3bf0786b7aa7da7ac813":[2,0,0,1039],
+"namespaceast.html#ac04b780d9c8e3bf0786b7aa7da7ac813":[2,0,0,1040],
 "namespaceast.html#ac67e70e7a0b4e22fbf6b82741c20e724":[2,0,0,938],
 "namespaceast.html#aca6a3cf571f946372790a9c912a9cc94":[2,0,0,462],
 "namespaceast.html#ace797c75c8b047ff468d01432be425fa":[2,0,0,665],
@@ -146,7 +151,7 @@ var NAVTREEINDEX19 =
 "namespaceast.html#ad960b2759fb42ddb1d94bf50e0123989":[2,0,0,618],
 "namespaceast.html#add4db3984e4ac425671893e9151d776c":[2,0,0,492],
 "namespaceast.html#ae692331576d0a2db7402b684d8c3dd1b":[2,0,0,514],
-"namespaceast.html#ae925f90bea37fb658e31bad362e5e55d":[2,0,0,1038],
+"namespaceast.html#ae925f90bea37fb658e31bad362e5e55d":[2,0,0,1039],
 "namespaceast.html#aee223619146482bb4212ef2208253f31":[2,0,0,546],
 "namespaceast.html#aeeb54fffcc4d1190586e6148f16be37e":[2,0,0,521],
 "namespaceast.html#af00b1ded2a8df0252b468907c5aab115":[2,0,0,297],
@@ -244,10 +249,5 @@ var NAVTREEINDEX19 =
 "namespacemembers_func_b.html":[2,1,1,2],
 "namespacemembers_func_c.html":[2,1,1,3],
 "namespacemembers_func_d.html":[2,1,1,4],
-"namespacemembers_func_e.html":[2,1,1,5],
-"namespacemembers_func_f.html":[2,1,1,6],
-"namespacemembers_func_g.html":[2,1,1,7],
-"namespacemembers_func_i.html":[2,1,1,8],
-"namespacemembers_func_l.html":[2,1,1,9],
-"namespacemembers_func_m.html":[2,1,1,10]
+"namespacemembers_func_e.html":[2,1,1,5]
 };

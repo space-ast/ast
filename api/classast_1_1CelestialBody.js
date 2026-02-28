@@ -12,6 +12,7 @@ var classast_1_1CelestialBody =
     [ "loadEarth", "classast_1_1CelestialBody.html#ad5b66f1b2b4431668c2807f4b80c2846", null ],
     [ "loadEphemerisData", "classast_1_1CelestialBody.html#a6a624ea14aa4c5552b9eb22a5ed8b249", null ],
     [ "loadSpinData", "classast_1_1CelestialBody.html#aedb5faa6c8ec0dba3f23f97b04c93dbb", null ],
+    [ "setGravityModel", "classast_1_1CelestialBody.html#acd582f585f803952c1855a4f439e2248", null ],
     [ "__pad0__", "classast_1_1CelestialBody.html#a48afe6423f3c1eaf4dc1c30a1abc9c52", null ],
     [ "gm_", "classast_1_1CelestialBody.html#a6ae555744def2ce98844f1847a3d76da", null ],
     [ "gravityField_", "classast_1_1CelestialBody.html#a0145f811890c19e2d95ed0782fc83f66", null ],
