@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "CelestialBody.hpp"
+#include "SolarSystem.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/String.hpp"
 #include "AstUtil/BKVParser.hpp"
@@ -74,6 +75,24 @@ err_t CelestialBody::load(StringView filepath)
     return eNoError;
 }
 
+err_t CelestialBody::setGravityModel(StringView model)
+{
+    err_t rc = this->loadGravityModel(model);
+    if(rc){
+        fs::path filepath = fs::path(SolarSystem::defaultSolarSystemDir()) / this->name_ / model.to_string();
+        rc = this->loadGravityModel(filepath.string());
+        if(rc){
+            aError("failed to load gravity model %s", model.to_string().c_str());
+        }
+    }
+    return rc;
+}
+
+err_t CelestialBody::loadGravityModel(StringView model)
+{
+    return gravityField_.load(model, 6, 6);
+}
+
 err_t CelestialBody::loadAstroDefinition(BKVParser &parser)
 {
     BKVParser::EToken token;
@@ -85,7 +104,7 @@ err_t CelestialBody::loadAstroDefinition(BKVParser &parser)
                 std::string model = item.value().toString();
                 fs::path filepath = parser.getFilePath();
                 filepath = filepath.parent_path() / model;
-                err_t rc = this->gravityField_.load(filepath.string(), 6, 6);
+                err_t rc = this->loadGravityModel(filepath.string());
                 if(rc) return rc;
             }
             else if(aEqualsIgnoreCase(item.key(), "Gm")){

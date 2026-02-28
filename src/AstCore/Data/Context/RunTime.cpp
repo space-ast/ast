@@ -132,13 +132,18 @@ err_t IAUXYSPrecomputed::loadDefault()
 
 err_t SolarSystem::loadDefault()
 {
-    fs::path dirpath = fs::path(aDataDirGet()) / AST_DEFAULT_DIR_SOLARSYSTEM;
-    err_t err = load(dirpath.string());
+    std::string dirpath = SolarSystem::defaultSolarSystemDir();
+    err_t err = load(dirpath);
     if (err)
     {
-        aWarning("failed to load solar system from default data dir:\n%s", dirpath.string().c_str());
+        aWarning("failed to load solar system from default data dir:\n%s", dirpath.c_str());
     }
     return err;
+}
+
+std::string SolarSystem::defaultSolarSystemDir()
+{
+    return fs::path(aDataDirGet()) / AST_DEFAULT_DIR_SOLARSYSTEM;
 }
 
 err_t aInitialize(DataContext* context)

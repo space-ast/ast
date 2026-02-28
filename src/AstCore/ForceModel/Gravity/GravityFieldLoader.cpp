@@ -213,12 +213,16 @@ err_t loadGravityFieldSTK(GravityFieldLoaderContext& ctx)
                                 goto endparse;
                                 // aWarning("already loaded coefficients, ignore the rest");
                                 break;
+                            }else{
+                                continue;
+                                // 忽略超出最大阶数的系数
+                                
+                                // aError(
+                                //     "Invalid degree or order: %d %d, with max degree %d and max order %d", 
+                                //     degree, order, gf.getMaxDegree(), gf.getMaxOrder()
+                                // );
+                                // return eErrorParse;
                             }
-                            aError(
-                                "Invalid degree or order: %d %d, with max degree %d and max order %d", 
-                                degree, order, gf.getMaxDegree(), gf.getMaxOrder()
-                            );
-                            return eErrorParse;
                         }
                     }else{
                         break;

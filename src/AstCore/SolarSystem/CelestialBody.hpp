@@ -60,6 +60,8 @@ public:
     /// @brief 获取系统引力常数
     double getSystemGM() const { return systemGM_; }
 
+    /// @brief 设置重力模型
+    err_t setGravityModel(StringView model);
     
     double getJ2() const { return getJn(2); }
     double getJ3() const { return getJn(3); }
@@ -72,6 +74,7 @@ public:
 protected:
     /// @brief 获取Jn项
     double getJn(int n) const { return gravityField_.getJn(n); }
+    err_t loadGravityModel(StringView model);
 protected:
     friend class SolarSystem;
     /// @brief 加载相关的天文参数

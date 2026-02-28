@@ -53,10 +53,19 @@ public:
 	SolarSystem() = default;
 	~SolarSystem() = default;
 
+	/// @brief 初始化太阳系
 	void init();
 
+	/// @brief 加载指定目录下的太阳系数据
+	/// @param  dirpath     - 数据目录路径
+	/// @retval             - 错误码
 	err_t load(StringView dirpath);
+
+	/// @brief 加载默认的太阳系数据
 	err_t loadDefault();
+
+	/// @brief 获取默认的太阳系数据目录
+	static std::string defaultSolarSystemDir();
 
 	/// @brief 获取太阳系质心
 	CelestialBody* getSolarSystemBarycenter() const { return solarSystemBarycenter_.get(); }

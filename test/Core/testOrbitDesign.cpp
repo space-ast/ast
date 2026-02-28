@@ -21,6 +21,7 @@
 #include "AstCore/OrbitDesigner.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/RunTime.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstTest/Test.hpp"
 
@@ -32,6 +33,9 @@ class OrbitDesignTest : public ::testing::Test
 protected:
     void SetUp() override {
         aInitialize();
+        auto earth = aGetEarth();
+        err_t rc = earth->setGravityModel("WGS84");
+        printf("rc: %d\n", rc);
     }
 
     void TearDown() override {
@@ -120,7 +124,7 @@ TEST_F(OrbitDesignTest, CriticallyInclinedOrbitDesigner) // OK
     }
 }
 
-TEST_F(OrbitDesignTest, CriticallyInclinedSunSyncOrbitDesigner)
+TEST_F(OrbitDesignTest, CriticallyInclinedSunSyncOrbitDesigner)  // OK
 {
     {
         CriticallyInclinedSunSyncOrbitDesigner designer(aGetEarth());
@@ -131,8 +135,8 @@ TEST_F(OrbitDesignTest, CriticallyInclinedSunSyncOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getA(), 10640.1309854711416847_km, 600);
-        EXPECT_NEAR(orbElem.getE(), 0.362965, 1e-4);
+        EXPECT_NEAR(orbElem.getA(), 10640.1451595068047027_km, 2e-2_m);
+        EXPECT_NEAR(orbElem.getE(), 0.3629657398100590, 1e-8);
         EXPECT_NEAR(orbElem.getI(), 116.5650511767512540_deg, 1e-11);
     }
     {
@@ -143,14 +147,14 @@ TEST_F(OrbitDesignTest, CriticallyInclinedSunSyncOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getA(), 9877.3708317850232561_km, 500);
-        EXPECT_NEAR(orbElem.getE(), 0.1050111258805068, 1e-4);
+        EXPECT_NEAR(orbElem.getA(), 9877.3811004795061308_km, 2e-2_m);
+        EXPECT_NEAR(orbElem.getE(), 0.1050120563262616, 1e-8);
         EXPECT_NEAR(orbElem.getI(), 116.5650511767512540_deg, 1e-11);
     }
 }
 
 
-TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
+TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner) // OK
 {
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -163,7 +167,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         printf("orbElem: %s\n", orbElem.toString().c_str());
         EXPECT_EQ(orbElem.getA(), designer.getBodyRadius() + 400_km);
         EXPECT_EQ(orbElem.getE(), 0.);
-        EXPECT_NEAR(orbElem.getI(), 97.0346200763023461_deg, 0.005_deg);
+        EXPECT_NEAR(orbElem.getI(), 97.0345971612483993_deg, 1e-4_deg);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -174,7 +178,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getI(), 97.4064613689951386_deg, 0.005_deg);
+        EXPECT_NEAR(orbElem.getI(), 97.4064372289805931_deg, 1e-4_deg);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -185,7 +189,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getI(), 123.2680989411700949_deg, 0.001_deg);
+        EXPECT_NEAR(orbElem.getI(), 123.2679770859048318_deg, 1e-7_deg);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -196,8 +200,9 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getI(), 178.0620579545929729_deg, 1.2_deg);
+        EXPECT_NEAR(orbElem.getI(), 178.0565781247555606_deg, 1e-6_deg);
     }
+    
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
         designer.setGeometryDefinition(SunSynchronousOrbitDesigner::eInclination);
@@ -207,7 +212,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getA(), 6378.1373998661465521_km, 2_km);
+        EXPECT_NEAR(orbElem.getA(), 6378.1448599859231763_km, 1e-3_m);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -218,7 +223,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getA(), 6778.1314983309675881_km, 2_km);
+        EXPECT_NEAR(orbElem.getA(), 6778.1370000012748278_km, 1_m);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -229,7 +234,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getA(), 8064.7015541284854407_km, 1_km);
+        EXPECT_NEAR(orbElem.getA(), 8064.7090264894568463_km, 1e-3_m);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -240,7 +245,7 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         err_t rc = designer.getOrbitState(orbElem);
         EXPECT_EQ(rc, eNoError);
         printf("orbElem: %s\n", orbElem.toString().c_str());
-        EXPECT_NEAR(orbElem.getA(), 12248.0689991635717888_km, 2_km);
+        EXPECT_NEAR(orbElem.getA(), 12248.0803516784781095_km, 1e-2_m);
     }
     {
         SunSynchronousOrbitDesigner designer(aGetEarth());
@@ -251,11 +256,11 @@ TEST_F(OrbitDesignTest, SunSynchronousOrbitDesigner)
         designer.setInclination(inclination);
         double altitude = designer.getAltitude();
         printf("altitude: %.15g\n", altitude);
-        EXPECT_NEAR(altitude, altitude0, 1e5);
+        EXPECT_NEAR(altitude, altitude0, 1e-5);
     }
 }
 
-TEST_F(OrbitDesignTest, StationaryOrbitDesigner)
+TEST_F(OrbitDesignTest, StationaryOrbitDesigner) // OK 
 {
     {
         StationaryOrbitDesigner designer(aGetEarth());

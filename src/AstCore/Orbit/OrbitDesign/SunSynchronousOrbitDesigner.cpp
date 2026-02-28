@@ -80,7 +80,10 @@ double SunSynchronousOrbitDesigner::calcInclination(double alt) const
     auto func = [gm, j2, rb, a](double inc) -> double 
     {
         const double ecc = 0;
-        return aRAANRate(gm, j2, rb, a, ecc, inc) - kEarthMeanMotion;
+        // const double meanMotion = kEarthMeanMotion;
+        // 这里应该使用恒星年
+        const double meanMotion = kTwoPI / (kEarthSiderealYear * kSecondsPerDay);
+        return aRAANRate(gm, j2, rb, a, ecc, inc) - meanMotion;
     };
     SolverStats stats;
     double inc = brentq(func, kHalfPI, kPI, 1e-12, 1e-14, 100, stats);
@@ -108,7 +111,8 @@ double SunSynchronousOrbitDesigner::calcAltitude(double inc) const
         const double a = alt + rb;
         const double ecc = 0;
         // const double meanMotion = kEarthMeanMotion;
-        const double meanMotion = kTwoPI / (365.25636 * 86400);
+        // 这里应该使用恒星年
+        const double meanMotion = kTwoPI / (kEarthSiderealYear * kSecondsPerDay);
         return aRAANRate(gm, j2, rb, a, ecc, inc) - meanMotion;
     };
     SolverStats stats;
