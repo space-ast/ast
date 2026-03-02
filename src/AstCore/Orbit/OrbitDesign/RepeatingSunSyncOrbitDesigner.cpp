@@ -54,7 +54,7 @@ err_t RepeatingSunSyncOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
     if(revsPerDay <= 0)
         revsPerDay = 1;
 
-    int D = round(N / revsPerDay);  // 四舍五入取整(D的单位是升交日)
+    int D = (int)round(N / revsPerDay);  // 四舍五入取整(D的单位是升交日)
     if(D<=0)
         D = 1;
     const double expectDeltaLon = D * kTwoPI / N;                 // 期望每一圈的经度变化角度
