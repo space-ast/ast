@@ -42,6 +42,25 @@ void azlrec(double range, double az, double el, bool azccw, bool elplsz, Vector3
     latrec(range, az, el, rectan);
 }
 
+double b1900()
+{
+    return kB1900Epoch;
+}
+
+double b1950()
+{
+    return kB1950Epoch;
+}
+
+// -----------------------------------------------------------
+
+
+double dpr()
+{
+    return kRadToDeg;
+}
+
+
 void latrec(double radius, double lon, double lat, Vector3d &rectan)
 {
     double cos_lon, sin_lon, cos_lat, sin_lat;
@@ -51,6 +70,16 @@ void latrec(double radius, double lon, double lat, Vector3d &rectan)
     rectan[0] = radius * cos_lon * cos_lat;
     rectan[1] = radius * sin_lon * cos_lat;
     rectan[2] = radius * sin_lat;
+}
+
+double j2000()
+{
+    return kJ2000Epoch;
+}
+
+double j2100()
+{
+    return kJ2100Epoch;
 }
 
 AST_NAMESPACE_END

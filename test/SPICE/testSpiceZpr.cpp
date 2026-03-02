@@ -128,6 +128,26 @@ TEST(SpiceZpr, azlrec)
     }
 }
 
+TEST(SpiceZpr, b1900)
+{
+    EXPECT_EQ(b1900(), b1900_c());
+}
+
+TEST(SpiceZpr, b1950)
+{
+    EXPECT_EQ(b1950(), b1950_c());
+}
+
+
+// -----------------------------------------------------------
+
+
+TEST(SpiceZpr, dpr)
+{
+    EXPECT_EQ(dpr(), dpr_c());
+}
+
+
 
 TEST(SpiceZpr, latrec)
 {
@@ -173,6 +193,17 @@ TEST(SpiceZpr, latrec)
             EXPECT_NEAR(rectan1[j], rectan2[j], 1e-12);
         }
     }
+}
+
+TEST(SpiceZpr, j2000)
+{
+    EXPECT_EQ(j2000(), j2000_c());
+}
+
+
+TEST(SpiceZpr, j2100)
+{
+    EXPECT_EQ(j2100(), j2100_c());
 }
 
 #endif

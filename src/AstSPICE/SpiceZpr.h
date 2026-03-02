@@ -29,23 +29,45 @@ A_CLINKAGE_BEGIN
     @{
 */
 
-void axisar(const double  axis[3],
-            double        angle,
-            double        r[3][3]);
+void axisar(
+    const double  axis[3],
+    double        angle,
+    double        r[3][3]
+);
+
+void azlrec(
+    double     range,
+    double     az,
+    double     el,
+    bool       azccw,
+    bool       elplsz,
+    double     rectan[3]
+);
 
 
-void azlrec(double     range,
-            double     az,
-            double     el,
-            bool       azccw,
-            bool       elplsz,
-            double     rectan[3]);
+double b1900();
 
-void latrec(double    radius,
-            double    lon,
-            double    lat,
-            double    rectan[3]);
-            
+double b1950();
+
+// -----------------------------------------------------------
+
+
+double dpr();
+
+void latrec(
+    double    radius,
+    double    lon,
+    double    lat,
+    double    rectan[3]
+);
+
+
+double j2000();
+
+
+double j2100();
+
+
 /*! @} */
 
 

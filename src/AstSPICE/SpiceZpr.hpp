@@ -41,9 +41,11 @@ AST_NAMESPACE_BEGIN
 /// @param[in] axis 旋转轴
 /// @param[in] angle 旋转角度（弧度）
 /// @param[out] r 输出旋转矩阵
-AST_SPICE_CAPI void axisar(const Vector3d&  axis,
-                           double           angle,
-                           Matrix3d&        r);
+AST_SPICE_CAPI void axisar(
+    const Vector3d&  axis,
+    double           angle,
+    Matrix3d&        r
+);
 
 
 // azlcpo
@@ -56,12 +58,30 @@ AST_SPICE_CAPI void axisar(const Vector3d&  axis,
 /// @param[in] azccw 如果为真，则方位角按逆时针方向计算，否则按顺时针方向计算
 /// @param[in] elplsz 如果为真，则俯仰角按正值上增加，否则按负值上增加
 /// @param[out] rectan 输出矩形坐标（x, y, z）
-AST_SPICE_CAPI void azlrec(double     range,
-                           double     az,
-                           double     el,
-                           bool       azccw,
-                           bool       elplsz,
-                           Vector3d&  rectan);
+AST_SPICE_CAPI void azlrec(
+    double     range,
+    double     az,
+    double     el,
+    bool       azccw,
+    bool       elplsz,
+    Vector3d&  rectan
+);
+
+
+
+/// @brief 贝塞耳纪元B1900.0历元(Besselian Date 1900.0 )
+AST_SPICE_CAPI double b1900();
+
+
+/// @brief 贝塞耳纪元B1950.0历元(Besselian Date 1950.0 )
+AST_SPICE_CAPI double b1950();
+
+
+// -----------------------------------------------------------
+
+
+/// @brief 弧度转换为角度的比例因子(Degrees per radian)
+AST_SPICE_CAPI double dpr();
 
 
 /// @brief 将纬度经度转换为矩形坐标(Latitudinal to rectangular coordinates)
@@ -69,11 +89,21 @@ AST_SPICE_CAPI void azlrec(double     range,
 /// @param[in] lon 经度（弧度）
 /// @param[in] lat 纬度（弧度）
 /// @param[out] rectan 输出矩形坐标（x, y, z）
-AST_SPICE_CAPI void latrec(double    radius,
-                           double    lon,
-                           double    lat,
-                           Vector3d&  rectan);
+AST_SPICE_CAPI 
+void latrec(
+    double    radius,
+    double    lon,
+    double    lat,
+    Vector3d&  rectan
+);
 
+
+/// @brief J2000.0历元(Julian Date of 2000 JAN 1.5)
+AST_SPICE_CAPI double j2000();
+
+
+/// @brief J2100.0历元(Julian Date of 2100 JAN 1.5)
+AST_SPICE_CAPI double j2100();
 
 
 /*! @} */

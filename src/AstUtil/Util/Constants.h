@@ -32,9 +32,15 @@ AST_NAMESPACE_BEGIN
 
 // 时间系统常量
 
-constexpr double kJ2000Epoch      = 2451545.0;        ///< J2000历元
-constexpr double kB1950Epoch      = 2433282.4234591;  ///< B1950历元
 constexpr double kJ1950Epoch      = 2433282.5;        ///< J1950历元
+constexpr double kJ2000Epoch      = 2451545.0;        ///< J2000历元
+constexpr double kJ2100Epoch      = 2488070.0;        ///< J2100历元
+
+constexpr double kB1900Epoch      = 2415020.31352;    ///< B1900历元
+// 原本定义为 2433282.4234591, 后改为SPICE中的定义 2433282.42345905
+constexpr double kB1950Epoch      = 2433282.42345905; ///< B1950历元
+
+
 constexpr double kTTMinusTAI      = 32.184;           ///< 地球时相对原子时的偏置[s]
 constexpr double kGPSMinusTAI     = 19.0;             ///< GPS 时间相对原子时的偏置[s]
 constexpr double kTTMinusTAIInDay = 32.184/86400;     ///< 地球时相对原子时的偏置[day]
