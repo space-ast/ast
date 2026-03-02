@@ -11,6 +11,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "AstOpt", "dir_4e08eb69a574dd068e91199ff0b09183.html", "dir_4e08eb69a574dd068e91199ff0b09183" ],
     [ "AstPlot", "dir_feae92dab5ce4d5f7cc8d9f72a3879bd.html", "dir_feae92dab5ce4d5f7cc8d9f72a3879bd" ],
     [ "AstScript", "dir_943b8559cfec6ca4c5bcb49ee46412f0.html", "dir_943b8559cfec6ca4c5bcb49ee46412f0" ],
+    [ "AstSPICE", "dir_c28a40f339b370bd30d45f651e4adfe9.html", "dir_c28a40f339b370bd30d45f651e4adfe9" ],
     [ "AstUtil", "dir_720108c7244deada8dab13596962e93b.html", "dir_720108c7244deada8dab13596962e93b" ],
     [ "AstWeather", "dir_d6e4ac8b78fda5c9099770e0f8f0c340.html", "dir_d6e4ac8b78fda5c9099770e0f8f0c340" ]
 ];

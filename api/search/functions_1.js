@@ -508,8 +508,10 @@ var searchData=
   ['awidetoansi_505',['aWideToAnsi',['../group__String.html#ga848cdd35cab0b48982803124939266aa',1,'ast']]],
   ['awidetoutf8_506',['aWideToUtf8',['../group__String.html#ga9ab0c886cea96cd8b6ead992408a3e21',1,'ast']]],
   ['axis_507',['axis',['../classast_1_1AngleAxis.html#a0e3a1964c6f782cc8399e7532fdba2ee',1,'ast::AngleAxis']]],
-  ['axycorrection_508',['aXYCorrection',['../group__Data.html#ga8299cf8ede911cc33e4931a4dd17ec4d',1,'ast']]],
-  ['axys_509',['aXYS',['../group__Data.html#ga9a5d3605c09a1dc93ef5f96227ef897d',1,'ast']]],
-  ['axys_5fiers2010_510',['aXYS_IERS2010',['../group__Data.html#ga2751ea5eb0678ce4a61639cff1887ecd',1,'ast']]],
-  ['aydtodate_511',['aYDToDate',['../group__Time.html#gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d',1,'ast']]]
+  ['axisar_508',['axisar',['../group__Spice.html#gaa492a6a07aed235f9ef4ea65c0ec1017',1,'ast']]],
+  ['axycorrection_509',['aXYCorrection',['../group__Data.html#ga8299cf8ede911cc33e4931a4dd17ec4d',1,'ast']]],
+  ['axys_510',['aXYS',['../group__Data.html#ga9a5d3605c09a1dc93ef5f96227ef897d',1,'ast']]],
+  ['axys_5fiers2010_511',['aXYS_IERS2010',['../group__Data.html#ga2751ea5eb0678ce4a61639cff1887ecd',1,'ast']]],
+  ['aydtodate_512',['aYDToDate',['../group__Time.html#gadcc1ee3e20f0f31b3b8cd3c8e2d11f8d',1,'ast']]],
+  ['azlrec_513',['azlrec',['../group__Spice.html#ga70544ad5025e6d1ee6668980a7ec6230',1,'ast']]]
 ];

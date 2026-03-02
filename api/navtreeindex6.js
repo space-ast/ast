@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"classast_1_1BlockLogicalOperator.html#a9e281e49c69975ad5486dc800a599df6":[2,0,0,33,1],
+"classast_1_1BlockLogicalOperator.html#a9e281e49c69975ad5486dc800a599df6":[3,0,0,31,1],
+"classast_1_1BlockLogicalOperator.html#aa4fcdd72e0cfdd3b3a4c247329807a09":[2,0,0,33,2],
+"classast_1_1BlockLogicalOperator.html#aa4fcdd72e0cfdd3b3a4c247329807a09":[3,0,0,31,2],
+"classast_1_1BlockMotion.html":[2,0,0,34],
+"classast_1_1BlockMotion.html":[3,0,0,32],
+"classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680":[2,0,0,34,1],
 "classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680":[3,0,0,32,1],
 "classast_1_1BlockMotion.html#aab6c79a244b2d249b083de0e3e586ff7":[2,0,0,34,2],
 "classast_1_1BlockMotion.html#aab6c79a244b2d249b083de0e3e586ff7":[3,0,0,32,2],
@@ -159,8 +166,8 @@ var NAVTREEINDEX6 =
 "classast_1_1CircularOrbitDesigner.html#ac594f6df2a05341dd1c2198f45a751c6":[0,0,2,2,9],
 "classast_1_1CircularOrbitDesigner.html#ae3fd781aa58475aecccc194f7858d7af":[0,0,2,2,1],
 "classast_1_1CircularOrbitDesigner.html#af72ad5616a35967f28eb463cc984e218":[0,0,2,2,7],
-"classast_1_1Class.html":[0,4,3,1],
-"classast_1_1Color.html":[0,4,6],
+"classast_1_1Class.html":[0,5,3,1],
+"classast_1_1Color.html":[0,5,6],
 "classast_1_1CriticallyInclinedOrbitDesigner.html":[0,0,2,3],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#a012a7748d666fd658ecbf871b5032984":[0,0,2,3,2],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#a0c81042043d7bd005b6aa8a1d70b0b4d":[0,0,2,3,14],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "classast_1_1DataPort.html#ad94a62475895a2478528afb540bcf0de":[3,0,0,64,11],
 "classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668":[2,0,0,66,1],
 "classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668":[3,0,0,64,1],
-"classast_1_1Date.html":[0,0,5,0],
-"classast_1_1DateTime.html":[0,0,5,1],
-"classast_1_1DateTime.html#a4dfd1e72a1730a4456aa76542b9de867":[0,0,5,1,0],
-"classast_1_1DateTime.html#a4dfd1e72a1730a4456aa76542b9de867a283e3b926300ac7626a18b93c2a32dd1":[0,0,5,1,0,1],
-"classast_1_1DateTime.html#a4dfd1e72a1730a4456aa76542b9de867acc0ee529d453f9d592c48f6695ecde89":[0,0,5,1,0,0],
-"classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4":[0,0,5,1,1],
-"classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa":[0,0,5,1,2],
-"classast_1_1DaySecDuration.html":[0,0,5,4]
+"classast_1_1Date.html":[0,0,5,0]
 };
