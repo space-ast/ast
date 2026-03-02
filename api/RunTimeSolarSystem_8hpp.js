@@ -6,7 +6,11 @@ var RunTimeSolarSystem_8hpp =
     [ "aGetMars", "RunTimeSolarSystem_8hpp.html#ga46f1d294e8e89a04cb3d8720721fc04c", null ],
     [ "aGetMercury", "RunTimeSolarSystem_8hpp.html#gab2beaa2fb58589b75c8e8d943742d1e0", null ],
     [ "aGetMoon", "RunTimeSolarSystem_8hpp.html#ga8630c70a6ed1ea42eb9de1c078a79add", null ],
+    [ "aGetNeptune", "RunTimeSolarSystem_8hpp.html#ga93c2dbec9b6595ea23b274a3b5b33a1a", null ],
+    [ "aGetPluto", "RunTimeSolarSystem_8hpp.html#ga9964cd04be056643339e57340ba71b71", null ],
     [ "aGetSaturn", "RunTimeSolarSystem_8hpp.html#ga63e6186026fde76382aec3fca10b3a02", null ],
     [ "aGetSolarSystem", "RunTimeSolarSystem_8hpp.html#gaf6a3c7cc9ccf2f22d0e1922a9f541bff", null ],
+    [ "aGetSun", "RunTimeSolarSystem_8hpp.html#gaaa2081372365f9b59aaa5fef917946d6", null ],
+    [ "aGetUranus", "RunTimeSolarSystem_8hpp.html#ga67b0370e6c92e1f5b51a18a97d729708", null ],
     [ "aGetVenus", "RunTimeSolarSystem_8hpp.html#ga52e92d9e4b8f7aeb85cee5d714f269b0", null ]
 ];

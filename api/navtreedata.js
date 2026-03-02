@@ -83,11 +83,11 @@ var NAVTREEINDEX =
 "classast_1_1RotationalData.html#a4add2cb3f94273a4a9fcdd5f0fd6f7b8",
 "classast_1_1Transform.html#a8565a8bbd83c9da21508085829caa500",
 "dir_e1927719528d6cb1bdaa69005f4c8693.html",
-"group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa",
-"group__Script.html#ga4a3435fb2657aa607b7c2dab49eb8cc4",
-"group__Util.html#ga24462254330f46f79ee9866f1a04d85f",
-"group__Util.html#ggac1947c945d205687379e80f42bba8dfdaf80f4e7f77db7c8a2d4f1e66d624525c",
-"namespacemembers_eval_n.html"
+"group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058",
+"group__Script.html#ga2d51d50df8618ba6dfc50f630c12a6ce",
+"group__Util.html#ga222c03abb706c84cd14fd1ab32d0cb94",
+"group__Util.html#ggac1947c945d205687379e80f42bba8dfdaf39e03b55ee308a561fb97a9cb684d9f",
+"namespacemembers_enum.html"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';
