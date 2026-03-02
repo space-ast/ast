@@ -116,8 +116,12 @@
 
 #ifdef __cplusplus
 #   define A_DECL_EXTERN_C extern "C"
+#   define A_CLINKAGE_BEGIN extern "C" {        
+#   define A_CLINKAGE_END }
 #else
 #   define A_DECL_EXTERN_C
+#   define A_CLINKAGE_BEGIN
+#   define A_CLINKAGE_END
 #endif
 
 

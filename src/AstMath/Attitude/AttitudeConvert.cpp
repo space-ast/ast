@@ -724,11 +724,12 @@ void aAngleAxisToQuat(const AngleAxis &aa, Quaternion &quat)
 	double half_angle = aa.angle() / 2.;
 	double sina = sin(half_angle);
 	double cosa = cos(half_angle);
+	auto axis = aa.axis().normalized();
 	quat = {
 		cosa,
-		aa.axis()[0] * sina,
-		aa.axis()[1] * sina,
-		aa.axis()[2] * sina,
+		axis[0] * sina,
+		axis[1] * sina,
+		axis[2] * sina,
 	};
 }
 

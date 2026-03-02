@@ -1,0 +1,5 @@
+target("AstSPICE")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_defines("AST_BUILD_LIB_SPICE")
+    add_deps("AstMath")
