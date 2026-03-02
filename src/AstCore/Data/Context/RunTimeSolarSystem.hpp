@@ -56,8 +56,20 @@ AST_CORE_CAPI CelestialBody* aGetJupiter();
 /// @brief 获取土星
 AST_CORE_CAPI CelestialBody* aGetSaturn();
 
+/// @brief 获取天王星
+AST_CORE_CAPI CelestialBody* aGetUranus();
+
+/// @brief 获取海王星
+AST_CORE_CAPI CelestialBody* aGetNeptune();
+
+/// @brief 获取冥王星
+AST_CORE_CAPI CelestialBody* aGetPluto();
+
 /// @brief 获取月球
 AST_CORE_CAPI CelestialBody* aGetMoon();
+
+/// @brief 获取太阳
+AST_CORE_CAPI CelestialBody* aGetSun();
 
 
 

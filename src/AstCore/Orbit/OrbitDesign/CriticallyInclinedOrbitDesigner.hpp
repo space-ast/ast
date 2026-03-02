@@ -90,7 +90,7 @@ protected:
     double apogeeAltitude_{0};                   ///< 远地点高度
     double perigeeAltitude_{0};                  ///< 近地点高度
     // double longitudeOfAscendingNode_{0};         ///< 升交点经度
-    double raan_{0};                            ///< 升交点经度
+    double raan_{0};                            ///< 升交点赤经
 };
 
 
