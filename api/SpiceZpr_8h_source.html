@@ -109,27 +109,54 @@ $(function(){initNavTree('SpiceZpr_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>A_CLINKAGE_BEGIN</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__Spice.html#gaa492a6a07aed235f9ef4ea65c0ec1017">axisar</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>  axis[3],</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordtype">double</span>        angle,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordtype">double</span>        r[3][3]);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__Spice.html#ga70544ad5025e6d1ee6668980a7ec6230">azlrec</a>(<span class="keywordtype">double</span>     range,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordtype">double</span>     az,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordtype">double</span>     el,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordtype">bool</span>       azccw,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordtype">bool</span>       elplsz,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordtype">double</span>     rectan[3]);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__Spice.html#ga681668a99acdec72888a3ee355098016">latrec</a>(<span class="keywordtype">double</span>    radius,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordtype">double</span>    lon,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordtype">double</span>    lat,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordtype">double</span>    rectan[3]);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>A_CLINKAGE_END</div>
-<div class="ttc" id="agroup__Spice_html_ga681668a99acdec72888a3ee355098016"><div class="ttname"><a href="group__Spice.html#ga681668a99acdec72888a3ee355098016">ast::latrec</a></div><div class="ttdeci">void latrec(double radius, double lon, double lat, Vector3d &amp;rectan)</div><div class="ttdoc">将纬度经度转换为矩形坐标(Latitudinal to rectangular coordinates)</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:45</div></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__Spice.html#gaa492a6a07aed235f9ef4ea65c0ec1017">axisar</a>(</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <span class="keywordtype">double</span>  axis[3],</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">double</span>        angle,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">double</span>        r[3][3]</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__Spice.html#ga70544ad5025e6d1ee6668980a7ec6230">azlrec</a>(</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span>     range,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">double</span>     az,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">double</span>     el,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span>       azccw,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">bool</span>       elplsz,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">double</span>     rectan[3]</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">double</span> <a class="code hl_function" href="group__Spice.html#ga840c1478e8c535f6105c0c16a048190c">b1900</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">double</span> <a class="code hl_function" href="group__Spice.html#ga1c965afa318862a1d267f929c0803a38">b1950</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// -----------------------------------------------------------</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">double</span> <a class="code hl_function" href="group__Spice.html#gae84bbf14131d083d3886978ca516e180">dpr</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__Spice.html#ga681668a99acdec72888a3ee355098016">latrec</a>(</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span>    radius,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">double</span>    lon,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">double</span>    lat,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">double</span>    rectan[3]</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">double</span> <a class="code hl_function" href="group__Spice.html#ga0be90b1e3a056875b9818c355406be70">j2000</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">double</span> <a class="code hl_function" href="group__Spice.html#ga7106a408072e99f310464bc658ebe97b">j2100</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>A_CLINKAGE_END</div>
+<div class="ttc" id="agroup__Spice_html_ga0be90b1e3a056875b9818c355406be70"><div class="ttname"><a href="group__Spice.html#ga0be90b1e3a056875b9818c355406be70">ast::j2000</a></div><div class="ttdeci">double j2000()</div><div class="ttdoc">J2000.0历元(Julian Date of 2000 JAN 1.5)</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:75</div></div>
+<div class="ttc" id="agroup__Spice_html_ga1c965afa318862a1d267f929c0803a38"><div class="ttname"><a href="group__Spice.html#ga1c965afa318862a1d267f929c0803a38">ast::b1950</a></div><div class="ttdeci">double b1950()</div><div class="ttdoc">贝塞耳纪元B1950.0历元(Besselian Date 1950.0 )</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:50</div></div>
+<div class="ttc" id="agroup__Spice_html_ga681668a99acdec72888a3ee355098016"><div class="ttname"><a href="group__Spice.html#ga681668a99acdec72888a3ee355098016">ast::latrec</a></div><div class="ttdeci">void latrec(double radius, double lon, double lat, Vector3d &amp;rectan)</div><div class="ttdoc">将纬度经度转换为矩形坐标(Latitudinal to rectangular coordinates)</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:64</div></div>
 <div class="ttc" id="agroup__Spice_html_ga70544ad5025e6d1ee6668980a7ec6230"><div class="ttname"><a href="group__Spice.html#ga70544ad5025e6d1ee6668980a7ec6230">ast::azlrec</a></div><div class="ttdeci">void azlrec(double range, double az, double el, bool azccw, bool elplsz, Vector3d &amp;rectan)</div><div class="ttdoc">将极坐标转换为矩形坐标(AZ/EL to rectangular coordinates)</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:34</div></div>
+<div class="ttc" id="agroup__Spice_html_ga7106a408072e99f310464bc658ebe97b"><div class="ttname"><a href="group__Spice.html#ga7106a408072e99f310464bc658ebe97b">ast::j2100</a></div><div class="ttdeci">double j2100()</div><div class="ttdoc">J2100.0历元(Julian Date of 2100 JAN 1.5)</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:80</div></div>
+<div class="ttc" id="agroup__Spice_html_ga840c1478e8c535f6105c0c16a048190c"><div class="ttname"><a href="group__Spice.html#ga840c1478e8c535f6105c0c16a048190c">ast::b1900</a></div><div class="ttdeci">double b1900()</div><div class="ttdoc">贝塞耳纪元B1900.0历元(Besselian Date 1900.0 )</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:45</div></div>
 <div class="ttc" id="agroup__Spice_html_gaa492a6a07aed235f9ef4ea65c0ec1017"><div class="ttname"><a href="group__Spice.html#gaa492a6a07aed235f9ef4ea65c0ec1017">ast::axisar</a></div><div class="ttdeci">void axisar(const Vector3d &amp;axis, double angle, Matrix3d &amp;r)</div><div class="ttdoc">根据旋转轴和角度计算旋转矩阵(Axis and angle to rotation) 输出的矩阵表示将向量绕轴旋转给定角度</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:29</div></div>
+<div class="ttc" id="agroup__Spice_html_gae84bbf14131d083d3886978ca516e180"><div class="ttname"><a href="group__Spice.html#gae84bbf14131d083d3886978ca516e180">ast::dpr</a></div><div class="ttdeci">double dpr()</div><div class="ttdoc">弧度转换为角度的比例因子(Degrees per radian)</div><div class="ttdef"><b>定义</b> SpiceZpr.cpp:58</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

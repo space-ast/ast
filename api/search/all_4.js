@@ -73,12 +73,13 @@ var searchData=
   ['dm_70',['dm',['../Unit_8cpp.html#a567c78044182d62bdfd482ade453488f',1,'ast::units']]],
   ['dot_71',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
   ['doublecomplex_72',['doublecomplex',['../structdoublecomplex.html',1,'']]],
-  ['drag_73',['Drag',['../structast_1_1HPOPForceModel_1_1Drag.html',1,'ast::HPOPForceModel']]],
-  ['drag_5f_74',['drag_',['../classast_1_1HPOPForceModel.html#a54f4de37fd487f9c72b7ce79eb3bd2c9',1,'ast::HPOPForceModel']]],
-  ['duration_75',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
-  ['duration_2ecpp_76',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
-  ['duration_2ehpp_77',['Duration.hpp',['../Duration_8hpp.html',1,'']]],
-  ['durationfrom_78',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]],
-  ['dy_79',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]],
-  ['dynamicsystem_5f_80',['dynamicSystem_',['../classast_1_1HPOPEquation.html#ad0c20d16cce4c511c79c09f464fb49d6',1,'ast::HPOPEquation']]]
+  ['dpr_73',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
+  ['drag_74',['Drag',['../structast_1_1HPOPForceModel_1_1Drag.html',1,'ast::HPOPForceModel']]],
+  ['drag_5f_75',['drag_',['../classast_1_1HPOPForceModel.html#a54f4de37fd487f9c72b7ce79eb3bd2c9',1,'ast::HPOPForceModel']]],
+  ['duration_76',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
+  ['duration_2ecpp_77',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
+  ['duration_2ehpp_78',['Duration.hpp',['../Duration_8hpp.html',1,'']]],
+  ['durationfrom_79',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]],
+  ['dy_80',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]],
+  ['dynamicsystem_5f_81',['dynamicSystem_',['../classast_1_1HPOPEquation.html#ad0c20d16cce4c511c79c09f464fb49d6',1,'ast::HPOPEquation']]]
 ];

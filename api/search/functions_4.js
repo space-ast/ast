@@ -30,6 +30,7 @@ var searchData=
   ['dimension_27',['dimension',['../classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393',1,'ast::Quantity::dimension()'],['../classast_1_1Unit.html#a737479417a4c6db862752355e6334984',1,'ast::Unit::dimension() const']]],
   ['divide_28',['divide',['../classast_1_1Unit.html#a40d890822f24e239617f9aba3a87cf42',1,'ast::Unit']]],
   ['dot_29',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
-  ['duration_30',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
-  ['durationfrom_31',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
+  ['dpr_30',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
+  ['duration_31',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
+  ['durationfrom_32',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
 ];
