@@ -46,9 +46,14 @@ double aMeanAnomalyRate(double gm, double j2, double rb, double a, double ecc, d
     return n + 3./2. * j2 * n * pow(rb / a, 2) * (1 - 3./2. * pow(sin(inc), 2)) * pow(1 - ecc * ecc, -3./2.);
 }
 
+double aMeanArgLatRate(double gm, double j2, double rb, double a, double ecc, double inc)
+{
+    return aMeanAnomalyRate(gm, j2, rb, a, ecc, inc) + aArgPerRate(gm, j2, rb, a, ecc, inc);
+}
+
 double aJ2Period(double gm, double j2, double rb, double a, double ecc, double inc)
 {
-    double rate = aMeanAnomalyRate(gm, j2, rb, a, ecc, inc) + aArgPerRate(gm, j2, rb, a, ecc, inc);
+    double rate = aMeanArgLatRate(gm, j2, rb, a, ecc, inc);
     return kTwoPI / rate;
 }
 

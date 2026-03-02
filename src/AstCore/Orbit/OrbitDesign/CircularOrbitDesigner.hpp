@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 圆轨道设计器
-class CircularOrbitDesigner final: public BaseOrbitDesigner
+class AST_CORE_API CircularOrbitDesigner final: public BaseOrbitDesigner
 {
 public:
     CircularOrbitDesigner();

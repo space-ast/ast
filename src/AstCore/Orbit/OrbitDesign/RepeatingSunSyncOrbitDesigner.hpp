@@ -21,15 +21,53 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "BaseOrbitDesigner.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup Orbit
     @{
 */
 
+/// @brief 太阳同步回归轨道设计器
+class AST_CORE_API RepeatingSunSyncOrbitDesigner final: public BaseOrbitDesigner
+{
+public:
+    enum EPositionType
+    {
+        eAltitude,
+        eRevsPerDay
+    };
+    RepeatingSunSyncOrbitDesigner();
+    RepeatingSunSyncOrbitDesigner(CelestialBody *body);
+    ~RepeatingSunSyncOrbitDesigner() = default;
+    
+    using BaseOrbitDesigner::getOrbitState;
+    err_t getOrbitState(ModOrbElem &orbElem) const override;
 
+    EPositionType getPositionType() const { return positionType_; }
+    void setPositionType(EPositionType type) { positionType_ = type; }
+
+    double getApproxAltitude() const { return approxAltitude_; }
+    err_t setApproxAltitude(double alt);
+
+    double getApproxRevsPerDay() const { return approxRevsPerDay_; }
+    err_t setApproxRevsPerDay(double revs);
+
+    int getNumberOfRevsRepeat() const { return numberOfRevsRepeat_; }
+    void setNumberOfRevsRepeat(int revs) { numberOfRevsRepeat_ = revs; }
+    
+    double getLongitudeOfAscendingNode() const { return longitudeOfAscendingNode_; }
+    void setLongitudeOfAscendingNode(double node) { longitudeOfAscendingNode_ = node; }
+protected:
+    EPositionType    positionType_{eAltitude};
+    double           approxAltitude_{0};
+    double           approxRevsPerDay_{0};
+    int              numberOfRevsRepeat_{0};
+    double           longitudeOfAscendingNode_{0};
+};
 
 /*! @} */
 

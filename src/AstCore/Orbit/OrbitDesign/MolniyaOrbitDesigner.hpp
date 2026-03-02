@@ -40,6 +40,16 @@ public:
     using BaseOrbitDesigner::getOrbitState;
 
     err_t getOrbitState(ModOrbElem& orbElem) const override;
+
+    double getApogeeLongitude() const { return apogeeLongitude_; }
+    void setApogeeLongitude(double lon) { apogeeLongitude_ = lon; }
+
+    double getPerigeeAltitude() const { return perigeeAltitude_; }
+    void setPerigeeAltitude(double alt) { perigeeAltitude_ = alt; }
+
+    double getArgumentOfPerigee() const { return argumentOfPerigee_; }
+    void setArgumentOfPerigee(double arg) { argumentOfPerigee_ = arg; }
+    
 protected:
     double apogeeLongitude_{0};
     double perigeeAltitude_{0};

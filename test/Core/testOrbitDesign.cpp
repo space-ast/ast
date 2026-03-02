@@ -286,5 +286,119 @@ TEST_F(OrbitDesignTest, StationaryOrbitDesigner) // OK
 }
 
 
+TEST_F(OrbitDesignTest, RepeatingOrbitDesigner) // OK 
+{
+    {
+        RepeatingOrbitDesigner designer(aGetEarth());
+        designer.setPositionType(RepeatingOrbitDesigner::eRevsPerDay);
+        designer.setApproxRevsPerDay(16);
+        designer.setInclination(98_deg);
+        designer.setNumberOfRevsRepeat(5);
+        designer.setLongitudeOfAscendingNode(0);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 14419.2516557074923185_km, 5e-3_m);
+    }
+    {
+        RepeatingOrbitDesigner designer(aGetEarth());
+        designer.setPositionType(RepeatingOrbitDesigner::eRevsPerDay);
+        designer.setApproxRevsPerDay(10);
+        designer.setInclination(20_deg);
+        designer.setNumberOfRevsRepeat(107);
+        designer.setLongitudeOfAscendingNode(0);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 9221.2842205231263506_km, 5e-3_m);
+    }
+    {
+        RepeatingOrbitDesigner designer(aGetEarth());
+        designer.setPositionType(RepeatingOrbitDesigner::eAltitude);
+        designer.setInclination(68_deg);
+        designer.setApproxAltitude(600_km);
+        designer.setNumberOfRevsRepeat(100);
+        designer.setLongitudeOfAscendingNode(0);
+        double approxRevsPerDay = designer.getApproxRevsPerDay();
+        printf("approxRevsPerDay: %.15g\n", approxRevsPerDay);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 7125.5799774372935644_km, 5e-3_m);
+    }
+}
+
+
+TEST_F(OrbitDesignTest, RepeatingSunSyncOrbitDesigner) // OK 
+{
+    {
+        RepeatingSunSyncOrbitDesigner designer(aGetEarth());
+        designer.setPositionType(RepeatingSunSyncOrbitDesigner::eAltitude);
+        designer.setApproxAltitude(600_km);
+        designer.setNumberOfRevsRepeat(107);
+        designer.setLongitudeOfAscendingNode(0);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 6852.2029907422047472_km, 5e-3_m);
+        EXPECT_NEAR(orbElem.getI(), 97.3086651806316638_deg, 1e-5_deg);
+    }
+    {
+        RepeatingSunSyncOrbitDesigner designer(aGetEarth());
+        designer.setPositionType(RepeatingSunSyncOrbitDesigner::eAltitude);
+        designer.setApproxAltitude(800_km);
+        designer.setNumberOfRevsRepeat(100);
+        designer.setLongitudeOfAscendingNode(0);
+        ModOrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 7169.0453347685170229_km, 5e-3_m);
+        EXPECT_NEAR(orbElem.getI(), 98.5695646709206272_deg, 1e-5_deg);    
+    }
+}
+
+TEST_F(OrbitDesignTest, MolniyaOrbitDesigner) // OK 
+{
+    {
+        MolniyaOrbitDesigner designer(aGetEarth());
+        designer.setArgumentOfPerigee(270_deg);
+        designer.setPerigeeAltitude(500_km);
+        designer.setApogeeLongitude(-100_deg);
+        OrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 26553.3745462318947830_km, 5_m);
+    }
+    {
+        MolniyaOrbitDesigner designer(aGetEarth());
+        designer.setArgumentOfPerigee(270_deg);
+        designer.setPerigeeAltitude(700_km);
+        designer.setApogeeLongitude(-100_deg);
+        OrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 26553.7602141223542276_km, 5_m);
+    }
+    {
+        MolniyaOrbitDesigner designer(aGetEarth());
+        designer.setArgumentOfPerigee(270_deg);
+        designer.setPerigeeAltitude(13042_km);
+        designer.setApogeeLongitude(-100_deg);
+        OrbElem orbElem;
+        err_t rc = designer.getOrbitState(orbElem);
+        EXPECT_EQ(rc, eNoError);
+        printf("orbElem: %s\n", orbElem.toString().c_str());
+        EXPECT_NEAR(orbElem.getA(), 26559.6695341680606361_km, 1_m);
+    }
+}
+
+
 GTEST_MAIN();
 

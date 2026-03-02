@@ -77,22 +77,14 @@ double SunSynchronousOrbitDesigner::calcInclination(double alt) const
     const double j2 = getJ2();
 
     const double a = alt + rb;
-    auto func = [gm, j2, rb, a](double inc) -> double 
-    {
-        const double ecc = 0;
-        // const double meanMotion = kEarthMeanMotion;
-        // 这里应该使用恒星年
-        const double meanMotion = kTwoPI / (kEarthSiderealYear * kSecondsPerDay);
-        return aRAANRate(gm, j2, rb, a, ecc, inc) - meanMotion;
-    };
-    SolverStats stats;
-    double inc = brentq(func, kHalfPI, kPI, 1e-12, 1e-14, 100, stats);
-    if(stats.error_num == 0){
-        return inc;
-    }else{
-        aError("failed to solve inclination for sun synchronous orbit.");
-        return 0.0;
+    const double ecc = 0;
+    const double bodyMeanMotion = kTwoPI / (kEarthSiderealYear * kSecondsPerDay);
+    double inc;
+    err_t rc = aSunSynchronousInclination(gm, j2, rb, bodyMeanMotion, a, ecc, inc);
+    if(rc != eNoError){
+        return 0;
     }
+    return inc;
 }
 
 double SunSynchronousOrbitDesigner::calcInclination() const
@@ -100,29 +92,21 @@ double SunSynchronousOrbitDesigner::calcInclination() const
     return calcInclination(altitude_);
 }
 
+
 double SunSynchronousOrbitDesigner::calcAltitude(double inc) const
 {
     const double rb = getBodyRadius();
     const double gm = getGM();
     const double j2 = getJ2();
+    const double ecc = 0;
+    const double bodyMeanMotion = kTwoPI / (kEarthSiderealYear * kSecondsPerDay);
 
-    auto func = [gm, j2, rb, inc](double alt) -> double 
-    {
-        const double a = alt + rb;
-        const double ecc = 0;
-        // const double meanMotion = kEarthMeanMotion;
-        // 这里应该使用恒星年
-        const double meanMotion = kTwoPI / (kEarthSiderealYear * kSecondsPerDay);
-        return aRAANRate(gm, j2, rb, a, ecc, inc) - meanMotion;
-    };
-    SolverStats stats;
-    double alt = brentq(func, 0, 10000_km, 1e-12, 1e-14, 100, stats);
-    if(stats.error_num == 0){
-        return alt;
-    }else{
-        aError("failed to solve altitude for sun synchronous orbit.");
-        return 0.0;
+    double semiMajorAxis;
+    err_t rc = aSunSynchronousSemiMajorAxis(gm, j2, rb, bodyMeanMotion, inc, ecc, semiMajorAxis);
+    if(rc != eNoError){
+        return 0;
     }
+    return semiMajorAxis - rb;
 }
 
 double SunSynchronousOrbitDesigner::calcAltitude() const

@@ -65,7 +65,7 @@ err_t StationaryOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
         double rotRate = rot.getRotationRate().norm();
         period = kTwoPI / rotRate;
         #else
-        period = 86164.09054;
+        period = kEarthSiderealDay; // 86164.09054;
         #endif
     }else{
         /// @todo 目前只能计算地球轨道，这里需要增加对其他天体的支持
