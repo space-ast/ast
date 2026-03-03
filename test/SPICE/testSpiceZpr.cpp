@@ -1047,6 +1047,51 @@ TEST(SpiceZpr, etcal)
 
 TEST(SpiceZpr, eul2m)
 {
+    static const struct{
+        double angle3;
+        double angle2;
+        double angle1;
+    } testData[] = {
+        {0.0, 0.0, 0.0},
+        {dpr(), 0.0, 0.0},
+        {0.0, dpr(), 0.0},
+        {0.0, 0.0, dpr()},
+        {1,2,3},
+        {4,-5,6},
+        {-4,1,3.3}
+    };
+    for(auto& data : testData)
+    {
+        static const struct{
+            int axis3;
+            int axis2;
+            int axis1;
+        } testData2[] = {
+            {1, 2, 3},
+            {1, 3, 2},
+            {2, 1, 3},
+            {2, 3, 1},
+            {3, 1, 2},
+            {3, 2, 1},
+            {1, 2, 1},
+            {1, 3, 1},
+            {2, 1, 2},
+            {2, 3, 2},
+            {3, 1, 3},
+            {3, 2, 3}
+        };
+        double mtx[3][3];
+        double mtx_c[3][3];
+        for(auto& data2: testData2){
+            eul2m(data.angle3, data.angle2, data.angle1, data2.axis3, data2.axis2, data2.axis1, mtx);
+            eul2m_c(data.angle3, data.angle2, data.angle1, data2.axis3, data2.axis2, data2.axis1, mtx_c);
+            for(int i = 0; i < 3; i++){
+                for(int j = 0; j < 3; j++){
+                    EXPECT_NEAR(mtx[i][j], mtx_c[i][j], 1e-12);
+                }
+            }
+        }
+    }
 }
 
 TEST(SpiceZpr, eul2xf)
@@ -1602,6 +1647,50 @@ TEST(SpiceZpr, lxqstr)
 
 TEST(SpiceZpr, m2eul)
 {
+    aInitialize();
+    double mtx[3][3];
+    aICRFToECFMatrix(TimePoint::FromUTC(2022, 1, 2, 3, 0, 0), mtx);
+    // printf("mtx:\n");
+    // for(int i = 0; i < 3; i++)
+    // {
+    //     for(int j = 0; j < 3; j++)
+    //     {
+    //         printf("%lf ", mtx[i][j]);
+    //     }
+    //     printf("\n");
+    // }
+
+    static const struct{
+        int axis3;
+        int axis2;
+        int axis1;
+    } testData[] = {
+        {1, 2, 3},
+        {1, 3, 2},
+        {2, 1, 3},
+        {2, 3, 1},
+        {3, 1, 2},
+        {3, 2, 1},
+        {1, 2, 1},
+        {1, 3, 1},
+        {2, 1, 2},
+        {2, 3, 2},
+        {3, 1, 3},
+        {3, 2, 3}
+    };
+    for(auto& data: testData)
+    {
+        double angle3, angle2, angle1;
+        double angle3_c, angle2_c, angle1_c;
+        m2eul(mtx, data.axis3, data.axis2, data.axis1, &angle3, &angle2, &angle1);
+        m2eul_c(mtx, data.axis3, data.axis2, data.axis1, &angle3_c, &angle2_c, &angle1_c);
+        printf("angle3: %lf, angle3_c: %lf\n", angle3, angle3_c);
+        printf("angle2: %lf, angle2_c: %lf\n", angle2, angle2_c);
+        printf("angle1: %lf, angle1_c: %lf\n", angle1, angle1_c);
+        EXPECT_NEAR(angle3, angle3_c, 1e-12);
+        EXPECT_NEAR(angle2, angle2_c, 1e-12);
+        EXPECT_NEAR(angle1, angle1_c, 1e-12);
+    }
 }
 
 TEST(SpiceZpr, m2q)

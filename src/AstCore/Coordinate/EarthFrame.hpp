@@ -465,6 +465,15 @@ AST_CORE_CAPI void aTIRFToECFMatrix(const TimePoint& tp, Matrix3d& matrix);
 AST_CORE_CAPI void aTIRFToECF(const TimePoint& tp, const Vector3d& vecTIRF, Vector3d& vecECF);
 
 
+// ----------------
+// Alias
+// ----------------
+
+
+A_ALWAYS_INLINE void aICRFToECFMatrix(const TimePoint& tp, double matrix[3][3])
+{
+    return aICRFToECFMatrix(tp, *((Matrix3d*)matrix));
+}
 
 /*! @} */
 

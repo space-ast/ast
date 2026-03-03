@@ -21,6 +21,7 @@
 #include "SpiceZpr.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/AngleAxis.hpp"
+#include "AstMath/Euler.hpp"
 #include "AstUtil/Constants.h"
 #include "AstUtil/Math.hpp"
 
@@ -75,6 +76,17 @@ void latrec(double radius, double lon, double lat, Vector3d &rectan)
     rectan[2] = radius * sin_lat;
 }
 
+void m2eul(const Matrix3d &r, int axis3, int axis2, int axis1, double &angle3, double &angle2, double &angle1)
+{
+    int seq = axis1 * 100 + axis2 * 10 + axis3;
+    Euler euler;
+    err_t rc = aMatrixToEuler(r, seq, euler);
+    A_UNUSED(rc);
+    angle3 = euler.angle3();
+    angle2 = euler.angle2();
+    angle1 = euler.angle1();
+}
+
 void mxm(const Matrix3d &m1, const Matrix3d &m2, Matrix3d &mout)
 {
     mout = m1 * m2;
@@ -122,6 +134,14 @@ void rav2xf(const Matrix3d &rot, const Vector3d &av, Matrix6d &xform)
             xform(i+3, j)  = drdt(i, j);
         }
     }
+}
+
+void eul2m(double angle3, double angle2, double angle1, int axis3, int axis2, int axis1, Matrix3d &r)
+{
+    int seq = axis1 * 100 + axis2 * 10 + axis3;
+    Euler euler{angle1, angle2, angle3};
+    err_t rc = aEulerToMatrix(euler, seq, r);
+    A_UNUSED(rc);
 }
 
 void ident(Matrix3d &matrix)

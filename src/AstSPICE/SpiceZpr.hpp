@@ -524,7 +524,23 @@ AST_SPICE_CAPI double dpr();
 
 // etcal
 
-// eul2m
+/// @brief 欧拉角转换为旋转矩阵(Euler angles to matrix)
+/// @param angle3 旋转角度3（弧度）
+/// @param angle2 旋转角度2（弧度）
+/// @param angle1 旋转角度1（弧度）
+/// @param axis3 旋转轴3（1, 2, 3 分别对应 X, Y, Z 轴）
+/// @param axis2 旋转轴2（1, 2, 3 分别对应 X, Y, Z 轴）
+/// @param axis1 旋转轴1（1, 2, 3 分别对应 X, Y, Z 轴）
+/// @param r 输出旋转矩阵
+AST_SPICE_CAPI void eul2m(
+    double     angle3,
+    double     angle2,
+    double     angle1,
+    int        axis3,
+    int        axis2,
+    int        axis1,
+    Matrix3d&  r
+);
 
 // eul2xf
 
@@ -791,7 +807,23 @@ void latrec(
 
 // lxqstr
 
-// m2eul
+/// @brief 将旋转矩阵转换为欧拉角 (Matrix to Euler angles) 
+/// @param r 旋转矩阵
+/// @param axis3 第3轴（1, 2, 3 分别对应 X, Y, Z 轴）
+/// @param axis2 第2轴（1, 2, 3 分别对应 X, Y, Z 轴）
+/// @param axis1 第1轴（1, 2, 3 分别对应 X, Y, Z 轴）
+/// @param angle3 输出第3轴的角度（弧度）
+/// @param angle2 输出第2轴的角度（弧度）
+/// @param angle1 输出第1轴的角度（弧度）
+AST_SPICE_CAPI void  m2eul(
+    const Matrix3d& r,
+    int             axis3,
+    int             axis2,
+    int             axis1,
+    double        & angle3,
+    double        & angle2,
+    double        & angle1
+);
 
 // m2q
 

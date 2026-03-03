@@ -492,7 +492,16 @@ double dpr();
 
 // etcal
 
-// eul2m
+void eul2m(
+    double  angle3,
+    double  angle2,
+    double  angle1,
+    int     axis3,
+    int     axis2,
+    int     axis1,
+    double  r [3][3]
+);
+
 
 // eul2xf
 
@@ -743,7 +752,15 @@ void latrec(
 
 // lxqstr
 
-// m2eul
+void m2eul(
+    const double    r[3][3],
+    int             axis3,
+    int             axis2,
+    int             axis1,
+    double        * angle3,
+    double        * angle2,
+    double        * angle1  
+);
 
 // m2q
 
