@@ -121,6 +121,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::b1950</b> ()</
 <tr class="memitem:gae84bbf14131d083d3886978ca516e180" id="r_gae84bbf14131d083d3886978ca516e180"><td class="memItemLeft" align="right" valign="top"><a id="gae84bbf14131d083d3886978ca516e180" name="gae84bbf14131d083d3886978ca516e180"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dpr</b> ()</td></tr>
 <tr class="separator:gae84bbf14131d083d3886978ca516e180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e731824b990e410fb69e97f5f05c283" id="r_ga5e731824b990e410fb69e97f5f05c283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5e731824b990e410fb69e97f5f05c283">ast::eul2m</a> (double angle3, double angle2, double angle1, int axis3, int axis2, int axis1, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
+<tr class="separator:ga5e731824b990e410fb69e97f5f05c283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga69e7485a9fbd13916ae87dbf0ba84562" id="r_ga69e7485a9fbd13916ae87dbf0ba84562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69e7485a9fbd13916ae87dbf0ba84562">ast::ident</a> (<a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:ga69e7485a9fbd13916ae87dbf0ba84562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03c40552799c64c5894b07ed280c2bc0" id="r_ga03c40552799c64c5894b07ed280c2bc0"><td class="memItemLeft" align="right" valign="top"><a id="ga03c40552799c64c5894b07ed280c2bc0" name="ga03c40552799c64c5894b07ed280c2bc0"></a>
@@ -140,6 +142,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::jyear</b> ()</
 <tr class="separator:gae378623c62ab40755fb7a3e2782611a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga681668a99acdec72888a3ee355098016" id="r_ga681668a99acdec72888a3ee355098016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga681668a99acdec72888a3ee355098016">ast::latrec</a> (double radius, double lon, double lat, Vector3d &amp;rectan)</td></tr>
 <tr class="separator:ga681668a99acdec72888a3ee355098016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae64d4b9ccf02cdb3ca2e46d24351dc07" id="r_gae64d4b9ccf02cdb3ca2e46d24351dc07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae64d4b9ccf02cdb3ca2e46d24351dc07">ast::m2eul</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r, int axis3, int axis2, int axis1, double &amp;angle3, double &amp;angle2, double &amp;angle1)</td></tr>
+<tr class="separator:gae64d4b9ccf02cdb3ca2e46d24351dc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga186312adcab3a6cc586e7affaa431d69" id="r_ga186312adcab3a6cc586e7affaa431d69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga186312adcab3a6cc586e7affaa431d69">ast::mxm</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;m1, const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;m2, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mout)</td></tr>
 <tr class="separator:ga186312adcab3a6cc586e7affaa431d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad90e6b55870d2a694400ebc5c8c6548f" id="r_gad90e6b55870d2a694400ebc5c8c6548f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad90e6b55870d2a694400ebc5c8c6548f">ast::mxvg</a> (const void *m1, const void *v2, int nr1, int nc1r2, void *vout)</td></tr>
@@ -241,6 +245,66 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::rav2xf</b> (cons
 
 </div>
 </div>
+<a id="ga5e731824b990e410fb69e97f5f05c283" name="ga5e731824b990e410fb69e97f5f05c283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e731824b990e410fb69e97f5f05c283">&#9670;&#160;</a></span>eul2m()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SPICE_CAPI void ast::eul2m </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>angle3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>angle2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>angle1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>axis3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>axis2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>axis1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>欧拉角转换为旋转矩阵(Euler angles to matrix) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle3</td><td>旋转角度3（弧度） </td></tr>
+    <tr><td class="paramname">angle2</td><td>旋转角度2（弧度） </td></tr>
+    <tr><td class="paramname">angle1</td><td>旋转角度1（弧度） </td></tr>
+    <tr><td class="paramname">axis3</td><td>旋转轴3（1, 2, 3 分别对应 X, Y, Z 轴） </td></tr>
+    <tr><td class="paramname">axis2</td><td>旋转轴2（1, 2, 3 分别对应 X, Y, Z 轴） </td></tr>
+    <tr><td class="paramname">axis1</td><td>旋转轴1（1, 2, 3 分别对应 X, Y, Z 轴） </td></tr>
+    <tr><td class="paramname">r</td><td>输出旋转矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga69e7485a9fbd13916ae87dbf0ba84562" name="ga69e7485a9fbd13916ae87dbf0ba84562"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga69e7485a9fbd13916ae87dbf0ba84562">&#9670;&#160;</a></span>ident()</h2>
 
@@ -302,6 +366,66 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::rav2xf</b> (cons
     <tr><td class="paramdir">[in]</td><td class="paramname">lon</td><td>经度（弧度） </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">lat</td><td>纬度（弧度） </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">rectan</td><td>输出直角坐标（x, y, z） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae64d4b9ccf02cdb3ca2e46d24351dc07" name="gae64d4b9ccf02cdb3ca2e46d24351dc07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae64d4b9ccf02cdb3ca2e46d24351dc07">&#9670;&#160;</a></span>m2eul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SPICE_CAPI void ast::m2eul </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>axis3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>axis2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>axis1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>angle3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>angle2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>angle1</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将旋转矩阵转换为欧拉角 (<a class="el" href="classast_1_1Matrix.html">Matrix</a> to <a class="el" href="classast_1_1Euler.html" title="欧拉角">Euler</a> angles) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>旋转矩阵 </td></tr>
+    <tr><td class="paramname">axis3</td><td>第3轴（1, 2, 3 分别对应 X, Y, Z 轴） </td></tr>
+    <tr><td class="paramname">axis2</td><td>第2轴（1, 2, 3 分别对应 X, Y, Z 轴） </td></tr>
+    <tr><td class="paramname">axis1</td><td>第1轴（1, 2, 3 分别对应 X, Y, Z 轴） </td></tr>
+    <tr><td class="paramname">angle3</td><td>输出第3轴的角度（弧度） </td></tr>
+    <tr><td class="paramname">angle2</td><td>输出第2轴的角度（弧度） </td></tr>
+    <tr><td class="paramname">angle1</td><td>输出第1轴的角度（弧度） </td></tr>
   </table>
   </dd>
 </dl>

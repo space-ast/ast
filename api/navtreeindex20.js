@@ -1,5 +1,7 @@
 var NAVTREEINDEX20 =
 {
+"namespaceast_1_1literals.html#adb47150baf194db232bdbb92a39efadd":[2,0,0,1,23],
+"namespaceast_1_1literals.html#ae3596dc7462fbadb4b38dc55878c074e":[2,0,0,1,7],
 "namespaceast_1_1literals.html#ae60947175eaa8faac7143fd5f60b8997":[2,0,0,1,44],
 "namespaceast_1_1literals.html#ae75856045494bc38a64e4e4fa2b86da9":[2,0,0,1,41],
 "namespaceast_1_1literals.html#af11fab1d040c1dfc47d10aa468c4ca6f":[2,0,0,1,5],

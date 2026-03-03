@@ -313,8 +313,17 @@ $(function(){initNavTree('EarthFrame_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Coordinate.html#gad597a12c3db45045ce5bc3160ee388ba">aTIRFToECF</a>(<span class="keyword">const</span> TimePoint&amp; tp, <span class="keyword">const</span> Vector3d&amp; vecTIRF, Vector3d&amp; vecECF);</div>
 <div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span> </div>
 <div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span> </div>
-<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
-<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span><span class="comment">// ----------------</span></div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span><span class="comment">// Alias</span></div>
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span><span class="comment">// ----------------</span></div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span> </div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span> </div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="group__Coordinate.html#gae44bb8a0a5cd3b4c6c4f4098840cd979">aICRFToECFMatrix</a>(<span class="keyword">const</span> TimePoint&amp; tp, <span class="keywordtype">double</span> matrix[3][3])</div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>{</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Coordinate.html#gae44bb8a0a5cd3b4c6c4f4098840cd979">aICRFToECFMatrix</a>(tp, *((Matrix3d*)matrix));</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>}</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span> </div>
+<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="agroup__Coordinate_html_ga06e0ca1ba93739f4fc6fa209e0157dd4"><div class="ttname"><a href="group__Coordinate.html#ga06e0ca1ba93739f4fc6fa209e0157dd4">ast::aECIToECFTransform</a></div><div class="ttdeci">void aECIToECFTransform(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">从ECI转换为ECF的坐标旋转变换</div><div class="ttdef"><b>定义</b> EarthFrame.cpp:37</div></div>
 <div class="ttc" id="agroup__Coordinate_html_ga11bd42fda73f858e027c2bed9cf4868b"><div class="ttname"><a href="group__Coordinate.html#ga11bd42fda73f858e027c2bed9cf4868b">ast::aCIRFToTIRFTransform</a></div><div class="ttdeci">void aCIRFToTIRFTransform(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">从CIRF转换为TIRF的坐标旋转变换</div><div class="ttdef"><b>定义</b> EarthFrame.cpp:379</div></div>
 <div class="ttc" id="agroup__Coordinate_html_ga18659d9b5726d2e8b1235d3515724690"><div class="ttname"><a href="group__Coordinate.html#ga18659d9b5726d2e8b1235d3515724690">ast::aJ2000ToMODTransform</a></div><div class="ttdeci">void aJ2000ToMODTransform(const TimePoint &amp;tp, Rotation &amp;rotation)</div><div class="ttdoc">从J2000转换为MOD的坐标旋转变换</div><div class="ttdef"><b>定义</b> EarthFrame.cpp:117</div></div>
