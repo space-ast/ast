@@ -239,6 +239,8 @@ var hierarchy =
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
       [ "ast::Axes", "classast_1_1Axes.html", [
+        [ "ast::AxesB1950", "classast_1_1AxesB1950.html", null ],
+        [ "ast::AxesB1950Spice", "classast_1_1AxesB1950Spice.html", null ],
         [ "ast::AxesECF", "classast_1_1AxesECF.html", null ],
         [ "ast::AxesGTOD", "classast_1_1AxesGTOD.html", null ],
         [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
@@ -375,6 +377,7 @@ var hierarchy =
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
+    [ "ast::SpiceAxesRegistry", "classast_1_1SpiceAxesRegistry.html", null ],
     [ "ast::HPOPForceModel::SRP", "structast_1_1HPOPForceModel_1_1SRP.html", null ],
     [ "ast::StackFrame", "classast_1_1StackFrame.html", null ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['插值功能_0',['插值功能',['../group__Interpolator.html',1,'']]]
+  ['平台相关接口_0',['平台相关接口',['../group__Platform.html',1,'']]]
 ];

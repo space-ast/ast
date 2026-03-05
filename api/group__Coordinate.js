@@ -1,5 +1,15 @@
 var group__Coordinate =
 [
+    [ "ast::AxesB1950", "classast_1_1AxesB1950.html", [
+      [ "getParent", "classast_1_1AxesB1950.html#a409f0249a4e0ecf4591b712c065a7bb4", null ],
+      [ "getTransform", "classast_1_1AxesB1950.html#adec8eeaec24992cf92e06656a0b17ff5", null ],
+      [ "getTransform", "classast_1_1AxesB1950.html#aa7afdeccb01351fbb67c4a28e176e4ae", null ]
+    ] ],
+    [ "ast::AxesB1950Spice", "classast_1_1AxesB1950Spice.html", [
+      [ "getParent", "classast_1_1AxesB1950Spice.html#ac800c2f9d4b3c66283b972f9dfefaf79", null ],
+      [ "getTransform", "classast_1_1AxesB1950Spice.html#a86aedd89228f83d2966170d3e380a827", null ],
+      [ "getTransform", "classast_1_1AxesB1950Spice.html#a80f398c06b6ae7e3620f62aa698d403c", null ]
+    ] ],
     [ "ast::AxesECF", "classast_1_1AxesECF.html", [
       [ "getParent", "classast_1_1AxesECF.html#ad64cd7b258c1f1f4d2a1d44a7f1caea8", null ],
       [ "getTransform", "classast_1_1AxesECF.html#aff29b4409ccded0f64368099188ca173", null ],
@@ -35,6 +45,17 @@ var group__Coordinate =
       [ "getTransform", "classast_1_1AxesTOD.html#aeca88ce2baf247baaf2c1985a6e3071b", null ],
       [ "getTransform", "classast_1_1AxesTOD.html#a9a655abd51f5ad516076373ed213a5e2", null ]
     ] ],
+    [ "ast::aAxesB1950", "group__Coordinate.html#ga9f6742a6d4c94db55a8cb21de4d7c680", null ],
+    [ "ast::aAxesB1950Spice", "group__Coordinate.html#ga0538628426d2ca5626ca75f92ead86d4", null ],
+    [ "ast::aAxesECF", "group__Coordinate.html#gad5750467aede05574ac908279ab23d23", null ],
+    [ "ast::aAxesGTOD", "group__Coordinate.html#gac7b20fee531739ad11da5b921d12faa6", null ],
+    [ "ast::aAxesICRF", "group__Coordinate.html#ga64be8976bcc6f66bfdbfad6cccd35c2f", null ],
+    [ "ast::aAxesJ2000", "group__Coordinate.html#ga5841a846e03d20764ad1c0bb597d8b53", null ],
+    [ "ast::aAxesMOD", "group__Coordinate.html#gad5cbb1ea6d920ab9432f174819e2687d", null ],
+    [ "ast::aAxesRoot", "group__Coordinate.html#gaae5acb8a6fc562202647e24a31461e07", null ],
+    [ "ast::aAxesTOD", "group__Coordinate.html#gadbca59b8ca76891bc3e8ac8230486b26", null ],
+    [ "ast::aB1950ToJ2000Matrix", "group__Coordinate.html#ga27ceff8d3da8f2ba58d64dfb021b1651", null ],
+    [ "ast::aB1950ToJ2000Matrix_SPICE", "group__Coordinate.html#ga0aedd84fa6eb79b9d553bf53bda7fe4b", null ],
     [ "ast::aCIRFToTIRF", "group__Coordinate.html#ga226c2de1691c1af853b19016b1d00a7a", null ],
     [ "ast::aCIRFToTIRF", "group__Coordinate.html#ga18a2c3242d54eaa3cacf45030c570bd9", null ],
     [ "ast::aCIRFToTIRFMatrix", "group__Coordinate.html#gaeec537394f88d81bb75d0dff584f3408", null ],
@@ -74,6 +95,8 @@ var group__Coordinate =
     [ "ast::aICRFToMoonMeanEarthTransform_IAU", "group__Coordinate.html#gab155941ba5f3d90440c43214ca5de071", null ],
     [ "ast::aICRFToMoonPrincipalAxesTransform", "group__Coordinate.html#ga7c8675c5897b90fb957b2accbeee5233", null ],
     [ "ast::aICRFToMoonPrincipalAxesTransform", "group__Coordinate.html#gaebc526d740c21e27b1231aa43638b30b", null ],
+    [ "ast::aJ2000ToB1950Matrix", "group__Coordinate.html#gaf5cbe6bbfcd24c2856b7f096d3276195", null ],
+    [ "ast::aJ2000ToB1950Matrix_SPICE", "group__Coordinate.html#gac7104d1ef4b5ae7f47b456704f56687c", null ],
     [ "ast::aJ2000ToECF", "group__Coordinate.html#ga497a07c3248fd6dd0d78535e144dda2d", null ],
     [ "ast::aJ2000ToECF", "group__Coordinate.html#ga4a584928352d273f8d1746829858e4a2", null ],
     [ "ast::aJ2000ToECFMatrix", "group__Coordinate.html#ga27c8cca4e2542e9623118d3ae06b5573", null ],

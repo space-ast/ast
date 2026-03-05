@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['b1900_0',['b1900',['../group__Spice.html#ga840c1478e8c535f6105c0c16a048190c',1,'ast']]],
-  ['b1950_1',['b1950',['../group__Spice.html#ga1c965afa318862a1d267f929c0803a38',1,'ast']]],
+  ['b1900_0',['b1900',['../group__A__CLINKAGE__BEGIN.html#gab5390b7ed0c1c1088d0dfdd6803ffbb7',1,'ast']]],
+  ['b1950_1',['b1950',['../group__A__CLINKAGE__BEGIN.html#gac99546520a2498b865578a108413b350',1,'ast']]],
   ['backtrace_2',['BackTrace',['../classast_1_1BackTrace.html',1,'ast']]],
   ['backtrace_2ehpp_3',['BackTrace.hpp',['../BackTrace_8hpp.html',1,'']]],
   ['baseorbitdesigner_4',['BaseOrbitDesigner',['../classast_1_1BaseOrbitDesigner.html',1,'ast']]],

@@ -104,5 +104,6 @@ var searchData=
   ['propertystruct_2ecpp_101',['PropertyStruct.cpp',['../PropertyStruct_8cpp.html',1,'']]],
   ['propertystruct_2ehpp_102',['PropertyStruct.hpp',['../PropertyStruct_8hpp.html',1,'']]],
   ['propnonormalize_103',['propNoNormalize',['../classast_1_1J2J4Analytical.html#a2f6ef9d3c240981fd32b96a7a3a9b3cb',1,'ast::J2J4Analytical']]],
-  ['push_5fback_104',['push_back',['../classast_1_1ExprContainer.html#a7693c4461fff8bd2095cbb0e54cbaad0',1,'ast::ExprContainer']]]
+  ['push_5fback_104',['push_back',['../classast_1_1ExprContainer.html#a7693c4461fff8bd2095cbb0e54cbaad0',1,'ast::ExprContainer']]],
+  ['pxform_105',['pxform',['../group__Spice.html#ga5751be1205b7faa7f89fdda7fd242ea8',1,'ast']]]
 ];

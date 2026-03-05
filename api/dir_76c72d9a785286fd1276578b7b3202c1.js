@@ -1,5 +1,9 @@
 var dir_76c72d9a785286fd1276578b7b3202c1 =
 [
+    [ "AxesB1950.cpp", "AxesB1950_8cpp.html", null ],
+    [ "AxesB1950.hpp", "AxesB1950_8hpp.html", null ],
+    [ "AxesB1950Spice.cpp", "AxesB1950Spice_8cpp.html", null ],
+    [ "AxesB1950Spice.hpp", "AxesB1950Spice_8hpp.html", null ],
     [ "AxesECF.cpp", "AxesECF_8cpp.html", null ],
     [ "AxesECF.hpp", "AxesECF_8hpp.html", null ],
     [ "AxesGTOD.cpp", "AxesGTOD_8cpp.html", null ],

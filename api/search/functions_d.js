@@ -29,5 +29,5 @@ var searchData=
   ['mtimes_26',['mtimes',['../namespaceast_1_1math.html#ad55476707790d13c96d9eef28526cbcf',1,'ast::math']]],
   ['multiply_27',['multiply',['../classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee',1,'ast::Unit']]],
   ['mxm_28',['mxm',['../group__Spice.html#ga186312adcab3a6cc586e7affaa431d69',1,'ast']]],
-  ['mxvg_29',['mxvg',['../group__Spice.html#gad90e6b55870d2a694400ebc5c8c6548f',1,'ast']]]
+  ['mxvg_29',['mxvg',['../group__A__CLINKAGE__BEGIN.html#ga9eb15e905fc60681ba3f67aab5183492',1,'ast']]]
 ];

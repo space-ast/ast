@@ -127,6 +127,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::HAxes</b> = <a 
 函数</h2></td></tr>
 <tr class="memitem:gad752a4457ffba86f9908e0bc3a5a7939" id="r_gad752a4457ffba86f9908e0bc3a5a7939"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad752a4457ffba86f9908e0bc3a5a7939">ast::aAxesTransform</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, <a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gad752a4457ffba86f9908e0bc3a5a7939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga040e91ddf3f1c730e3d25f9dd27f9798" id="r_ga040e91ddf3f1c730e3d25f9dd27f9798"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga040e91ddf3f1c730e3d25f9dd27f9798">ast::aAxesTransform</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, <a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga040e91ddf3f1c730e3d25f9dd27f9798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b00e9af0b74fe6473523d20b6c86b6c" id="r_ga4b00e9af0b74fe6473523d20b6c86b6c"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4b00e9af0b74fe6473523d20b6c86b6c">ast::aAxesTransform</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, <a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga4b00e9af0b74fe6473523d20b6c86b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga004ae9150f4360f07d00026a3378f81e" id="r_ga004ae9150f4360f07d00026a3378f81e"><td class="memItemLeft" align="right" valign="top">AST_CORE_API err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga004ae9150f4360f07d00026a3378f81e">ast::aFrameTransform</a> (<a class="el" href="classast_1_1Frame.html">Frame</a> *source, <a class="el" href="classast_1_1Frame.html">Frame</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Transform.html">Transform</a> &amp;transform)</td></tr>
@@ -136,7 +138,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::HAxes</b> = <a 
 </table>
 <h2 class="groupheader">函数说明</h2>
 <a id="ga4b00e9af0b74fe6473523d20b6c86b6c" name="ga4b00e9af0b74fe6473523d20b6c86b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4b00e9af0b74fe6473523d20b6c86b6c">&#9670;&#160;</a></span>aAxesTransform() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b00e9af0b74fe6473523d20b6c86b6c">&#9670;&#160;</a></span>aAxesTransform() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,8 +180,51 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::HAxes</b> = <a 
 
 </div>
 </div>
+<a id="ga040e91ddf3f1c730e3d25f9dd27f9798" name="ga040e91ddf3f1c730e3d25f9dd27f9798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga040e91ddf3f1c730e3d25f9dd27f9798">&#9670;&#160;</a></span>aAxesTransform() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API err_t ast::aAxesTransform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算轴系之间的转换矩阵。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>源轴系 </td></tr>
+    <tr><td class="paramname">target</td><td>目标轴系 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">matrix</td><td>输出的转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="gad752a4457ffba86f9908e0bc3a5a7939" name="gad752a4457ffba86f9908e0bc3a5a7939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad752a4457ffba86f9908e0bc3a5a7939">&#9670;&#160;</a></span>aAxesTransform() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gad752a4457ffba86f9908e0bc3a5a7939">&#9670;&#160;</a></span>aAxesTransform() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

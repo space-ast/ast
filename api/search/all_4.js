@@ -73,7 +73,7 @@ var searchData=
   ['dm_70',['dm',['../Unit_8cpp.html#a567c78044182d62bdfd482ade453488f',1,'ast::units']]],
   ['dot_71',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
   ['doublecomplex_72',['doublecomplex',['../structdoublecomplex.html',1,'']]],
-  ['dpr_73',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
+  ['dpr_73',['dpr',['../group__A__CLINKAGE__BEGIN.html#ga9be32a1020b0fb8e90a049a8ec7b957a',1,'ast']]],
   ['drag_74',['Drag',['../structast_1_1HPOPForceModel_1_1Drag.html',1,'ast::HPOPForceModel']]],
   ['drag_5f_75',['drag_',['../classast_1_1HPOPForceModel.html#a54f4de37fd487f9c72b7ce79eb3bd2c9',1,'ast::HPOPForceModel']]],
   ['duration_76',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],

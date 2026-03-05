@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['j1900_0',['j1900',['../group__Spice.html#ga03c40552799c64c5894b07ed280c2bc0',1,'ast']]],
-  ['j1950_1',['j1950',['../group__Spice.html#ga806d626961b828d740df3e5efd12a9dc',1,'ast']]],
-  ['j2000_2',['j2000',['../group__Spice.html#ga0be90b1e3a056875b9818c355406be70',1,'ast']]],
+  ['j1900_0',['j1900',['../group__A__CLINKAGE__BEGIN.html#ga2408d5adf2439ec405d3534528413be0',1,'ast']]],
+  ['j1950_1',['j1950',['../group__A__CLINKAGE__BEGIN.html#gad1653664d9915e0bacd8e9293b2086e8',1,'ast']]],
+  ['j2000_2',['j2000',['../group__A__CLINKAGE__BEGIN.html#ga8db06c886dd7bd8546e0156d3f6130b9',1,'ast']]],
   ['j2000tt_3',['J2000TT',['../classast_1_1TimePoint.html#a3d5cd99da80bdc75c3e4f448ebad3272',1,'ast::TimePoint']]],
-  ['j2100_4',['j2100',['../group__Spice.html#ga7106a408072e99f310464bc658ebe97b',1,'ast']]],
+  ['j2100_4',['j2100',['../group__A__CLINKAGE__BEGIN.html#ga80a928b1ba888f2eac5799fe0b012f96',1,'ast']]],
   ['j2_5f_5',['j2_',['../classast_1_1J2Analytical.html#a982e98ec047a980153965fef44db85d7',1,'ast::J2Analytical']]],
   ['j2analytical_6',['J2Analytical',['../classast_1_1J2Analytical.html',1,'ast::J2Analytical'],['../classast_1_1J2Analytical.html#a1b6ab658ce67a4339c30711f757f77a0',1,'ast::J2Analytical::J2Analytical(const ModOrbElem &amp;modOrbElem, const TimePoint &amp;epoch, double gm, double j2, double re)'],['../classast_1_1J2Analytical.html#a8e6e2e277a81758084a76e7623cbda54',1,'ast::J2Analytical::J2Analytical(const Vector3d &amp;pos, const Vector3d &amp;vel, const TimePoint &amp;epoch, double gm, double j2, double re)']]],
   ['j2analytical_2ecpp_7',['J2Analytical.cpp',['../J2Analytical_8cpp.html',1,'']]],
@@ -26,5 +26,5 @@ var searchData=
   ['juliandate_2ecpp_23',['JulianDate.cpp',['../JulianDate_8cpp.html',1,'']]],
   ['juliandate_2ehpp_24',['JulianDate.hpp',['../JulianDate_8hpp.html',1,'']]],
   ['jupiter_5f_25',['jupiter_',['../classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5',1,'ast::SolarSystem']]],
-  ['jyear_26',['jyear',['../group__Spice.html#gae378623c62ab40755fb7a3e2782611a5',1,'ast']]]
+  ['jyear_26',['jyear',['../group__A__CLINKAGE__BEGIN.html#ga0f9fa567a2f572d47a9877342bece878',1,'ast']]]
 ];

@@ -27,6 +27,7 @@ var group__Geometry =
     [ "ast::HAxes", "group__Geometry.html#gaaab907250c9aee1581ceb9b9b6889fc1", null ],
     [ "ast::PAxes", "group__Geometry.html#ga6794e41c122afa91d068db80969a7e23", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#ga4b00e9af0b74fe6473523d20b6c86b6c", null ],
+    [ "ast::aAxesTransform", "group__Geometry.html#ga040e91ddf3f1c730e3d25f9dd27f9798", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#gad752a4457ffba86f9908e0bc3a5a7939", null ],
     [ "ast::aFrameTransform", "group__Geometry.html#gaeb5e9d90dc72b3072c519330ff312e37", null ],
     [ "ast::aFrameTransform", "group__Geometry.html#ga004ae9150f4360f07d00026a3378f81e", null ]
