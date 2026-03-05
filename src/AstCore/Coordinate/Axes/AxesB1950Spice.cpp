@@ -41,14 +41,14 @@ Axes *AxesB1950Spice::getParent() const
 err_t AxesB1950Spice::getTransform(const TimePoint &tp, Rotation &rotation) const
 {
     A_UNUSED(tp);
-    aJ2000ToB1950Matrix_SPICE(rotation.getMatrix());
+    aJ2000ToB1950Transform_SPICE(rotation);
     return eNoError;
 }
 
 err_t AxesB1950Spice::getTransform(const TimePoint &tp, KinematicRotation &rotation) const
 {
     A_UNUSED(tp);
-    aJ2000ToB1950Matrix_SPICE(rotation.getMatrix());
+    aJ2000ToB1950Transform_SPICE(rotation.getRotation());
     rotation.setRotationRate(Vector3d::Zero());
     return eNoError;
 }

@@ -29,20 +29,43 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+class Rotation;
 
-/// @brief      J2000 到 B1950 转换矩阵
+
+/// @brief      J2000 到 B1950 的转换矩阵
 AST_CORE_CAPI void aJ2000ToB1950Matrix(Matrix3d& m);
 
-/// @brief      B1950 到 J2000 转换矩阵
+
+/// @brief      J2000 到 B1950 的坐标旋转变换
+AST_CORE_CAPI void aJ2000ToB1950Transform(Rotation& rotation);
+
+
+/// @brief      B1950 到 J2000 的转换矩阵
 AST_CORE_CAPI void aB1950ToJ2000Matrix(Matrix3d& m);
+
+
+/// @brief      B1950 到 J2000 的坐标旋转变换
+AST_CORE_CAPI void aB1950ToJ2000Transform(Rotation& rotation);
 
 
 /// @brief      J2000 到 B1950 转换矩阵（SPICE 版本）
 AST_CORE_CAPI void aJ2000ToB1950Matrix_SPICE(Matrix3d& m);
 
 
+/// @brief      J2000 到 B1950 的坐标旋转变换（SPICE 版本）
+AST_CORE_CAPI void aJ2000ToB1950Transform_SPICE(Rotation& rotation);
+
+
 /// @brief      B1950 到 J2000 转换矩阵（SPICE 版本）
 AST_CORE_CAPI void aB1950ToJ2000Matrix_SPICE(Matrix3d& m);
+
+
+/// @brief      B1950 到 J2000 的坐标旋转变换（SPICE 版本）
+AST_CORE_CAPI void aB1950ToJ2000Transform_SPICE(Rotation& rotation);
+
+
+/// @brief      B1950 到 FK4 的坐标旋转变换
+AST_CORE_CAPI void aB1950ToFK4Transform(Rotation& rotation);
 
 
 /*! @} */

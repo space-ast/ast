@@ -21,6 +21,7 @@
 #include "InertialAxes.hpp"
 #include "AstMath/Matrix.hpp"
 #include "AstMath/AttitudeConvert.hpp"
+#include "AstMath/Rotation.hpp"
 #include "AstUtil/Literals.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -41,6 +42,11 @@ void aJ2000ToB1950Matrix(Matrix3d &m)
     };
 }
 
+void aJ2000ToB1950Transform(Rotation &rotation)
+{
+    aJ2000ToB1950Matrix(rotation.getMatrix());
+}
+
 void aB1950ToJ2000Matrix(Matrix3d &m)
 {
     m = {
@@ -48,6 +54,11 @@ void aB1950ToJ2000Matrix(Matrix3d &m)
         0.0111814832391717,   0.9999374848933135, -0.0000271625947142,
         0.0048590037723143,  -0.000027170293744,   0.9999881946043742,
     };
+}
+
+void aB1950ToJ2000Transform(Rotation &rotation)
+{
+    aB1950ToJ2000Matrix(rotation.getMatrix());
 }
 
 void aJ2000ToB1950Matrix_SPICE(Matrix3d &m)
@@ -63,11 +74,20 @@ void aJ2000ToB1950Matrix_SPICE(Matrix3d &m)
     m = mtx;
 }
 
+void aJ2000ToB1950Transform_SPICE(Rotation &rotation)
+{
+    aJ2000ToB1950Matrix_SPICE(rotation.getMatrix());
+}
+
 void aB1950ToJ2000Matrix_SPICE(Matrix3d &m)
 {
     aJ2000ToB1950Matrix_SPICE(m);
     m.transposeInPlace();
 }
 
+void aB1950ToJ2000Transform_SPICE(Rotation &rotation)
+{
+    aB1950ToJ2000Matrix_SPICE(rotation.getMatrix());
+}
 
 AST_NAMESPACE_END
