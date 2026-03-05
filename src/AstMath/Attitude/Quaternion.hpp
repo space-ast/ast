@@ -23,7 +23,7 @@
 #include "AstGlobal.h"
 #include "AstMath/MathOperator.hpp"
 #include "AstMath/Matrix.hpp"
-#include "AstMath/AttitudeConvert.hpp"
+#include "AstMath/AttitudeConvertProto.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -183,20 +183,13 @@ inline Quaternion aQuatProduct(const Quaternion& q1, const Quaternion& q2)
 	};
 }
 
-/// @brief 矩阵转四元数
-/// @param mtx 旋转矩阵
-/// @return 四元数
-A_ALWAYS_INLINE	Quaternion aMatrixToQuat(const Matrix3d& mtx)
-{
-	Quaternion q;
-	aMatrixToQuat(mtx, q);
-	return q;
-}
 
 
 /*! @} */
 
 AST_NAMESPACE_END
+
+#include "AttitudeConvertInline.hpp"
 
 
 AST_DECL_TYPE_ALIAS(Quaternion)

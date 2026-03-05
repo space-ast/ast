@@ -32,13 +32,27 @@ AST_NAMESPACE_BEGIN
 class Axes;
 
 
+/// @brief      根轴系
 AST_CORE_CAPI Axes* aAxesRoot();
+
+/// @brief      国际天球参考系轴系（ICRF）
 AST_CORE_CAPI Axes* aAxesICRF();
+
+/// @brief      地球固连参考系轴系（ECF）
 AST_CORE_CAPI Axes* aAxesECF();
+
+/// @brief      J2000 轴系
 AST_CORE_CAPI Axes* aAxesJ2000();
+
+/// @brief       MOD 轴系
 AST_CORE_CAPI Axes* aAxesMOD();
+
+/// @brief       TOD 轴系
 AST_CORE_CAPI Axes* aAxesTOD();
+
+/// @brief       GTOD 轴系
 AST_CORE_CAPI Axes* aAxesGTOD();
+
 
 /*! @} */
 

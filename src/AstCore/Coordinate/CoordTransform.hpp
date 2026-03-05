@@ -1,5 +1,5 @@
 ///
-/// @file      AttitudeConvert.hpp
+/// @file      CoordTransform.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -21,6 +21,23 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AttitudeConvertProto.hpp"
-#include "AttitudeConvertInline.hpp"
+#include "LocalOrbitFrame.hpp"
+#include "PlanetFrame.hpp"
+#include "EarthFrame.hpp"
+#include "MoonFrame.hpp"
+#include "InertialFrame.hpp"
+#include "AxesTransform.hpp"
+#include "FrameTransform.hpp"
 
+AST_NAMESPACE_BEGIN
+
+/*!
+    @addtogroup CoordTransform
+    @{
+*/
+
+
+
+/*! @} */
+
+AST_NAMESPACE_END

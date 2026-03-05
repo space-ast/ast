@@ -21,7 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "AstCore/AttitudeConvert.hpp"
+#include "AstMath/AttitudeConvertProto.hpp"
 
 AST_NAMESPACE_BEGIN
  

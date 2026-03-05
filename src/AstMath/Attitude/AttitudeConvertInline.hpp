@@ -1,5 +1,5 @@
 ///
-/// @file      AttitudeConvert.hpp
+/// @file      AttitudeConvertInline.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -22,5 +22,36 @@
 
 #include "AstGlobal.h"
 #include "AttitudeConvertProto.hpp"
-#include "AttitudeConvertInline.hpp"
+#include "AstMath/Quaternion.hpp"
+#include "AstMath/Matrix.hpp"
+#include "AstMath/Euler.hpp"
 
+AST_NAMESPACE_BEGIN
+
+/*!
+    @addtogroup Attitude
+    @{
+*/
+
+
+/// @brief 矩阵转四元数
+/// @param mtx 旋转矩阵
+/// @return 四元数
+A_ALWAYS_INLINE	Quaternion aMatrixToQuat(const Matrix3d& mtx)
+{
+	Quaternion q;
+	aMatrixToQuat(mtx, q);
+	return q;
+}
+
+
+A_ALWAYS_INLINE	Matrix3d aEuler323ToMatrix(const Euler& euler)
+{
+	Matrix3d mtx;
+	aEuler323ToMatrix(euler, mtx);
+	return mtx;
+}
+
+/*! @} */
+
+AST_NAMESPACE_END

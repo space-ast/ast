@@ -2000,6 +2000,27 @@ TEST(SpiceZpr, putcml)
 
 TEST(SpiceZpr, pxform)
 {
+    {
+        double mtx_c[3][3];
+        pxform_c("J2000", "B1950", 0, mtx_c);
+        printf("mtx_c: \n%.16g, %.16g, %.16g\n%.16g, %.16g, %.16g\n%.16g, %.16g, %.16g\n", 
+            mtx_c[0][0], mtx_c[0][1], mtx_c[0][2],
+            mtx_c[1][0], mtx_c[1][1], mtx_c[1][2],
+            mtx_c[2][0], mtx_c[2][1], mtx_c[2][2]);
+        Matrix3d mtx2;
+        aJ2000ToB1950Matrix_SPICE(mtx2);
+        printf("mtx2: \n%.16g, %.16g, %.16g\n%.16g, %.16g, %.16g\n%.16g, %.16g, %.16g\n", 
+            mtx2(0,0), mtx2(0,1), mtx2(0,2),
+            mtx2(1,0), mtx2(1,1), mtx2(1,2),
+            mtx2(2,0), mtx2(2,1), mtx2(2,2));
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                EXPECT_DOUBLE_EQ(mtx_c[i][j], mtx2(i,j));
+            }
+        }
+    }
 }
 
 TEST(SpiceZpr, pxfrm2)

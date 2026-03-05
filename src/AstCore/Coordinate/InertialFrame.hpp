@@ -1,5 +1,5 @@
 ///
-/// @file      AttitudeConvert.hpp
+/// @file      InertialFrame.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -21,6 +21,28 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AttitudeConvertProto.hpp"
-#include "AttitudeConvertInline.hpp"
 
+AST_NAMESPACE_BEGIN
+
+/*!
+    @addtogroup Coordinate
+    @{
+*/
+
+/// @brief      J2000 到 B1950 转换矩阵
+AST_CORE_CAPI void aJ2000ToB1950Matrix(Matrix3d& m);
+
+/// @brief      B1950 到 J2000 转换矩阵
+AST_CORE_CAPI void aB1950ToJ2000Matrix(Matrix3d& m);
+
+
+/// @brief      J2000 到 B1950 转换矩阵（SPICE 版本）
+AST_CORE_CAPI void aJ2000ToB1950Matrix_SPICE(Matrix3d& m);
+
+
+/// @brief      B1950 到 J2000 转换矩阵（SPICE 版本）
+AST_CORE_CAPI void aB1950ToJ2000Matrix_SPICE(Matrix3d& m);
+
+/*! @} */
+
+AST_NAMESPACE_END

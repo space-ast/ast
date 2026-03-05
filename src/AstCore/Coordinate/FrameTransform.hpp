@@ -25,13 +25,15 @@
 #include "PlanetFrame.hpp"
 #include "EarthFrame.hpp"
 #include "MoonFrame.hpp"
+#include "InertialFrame.hpp"
+#include "AxesTransform.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
-// @todo 实现通用的坐标转换函数
-// 参考orekit、GMAT的坐标系统类，还有spice的坐标转换函数
-// 实现从一个坐标系统到另一个坐标系统的转换
+/// @todo 实现通用的坐标转换函数
+/// 参考orekit、GMAT的坐标系统类，还有spice的坐标转换函数
+/// 实现从一个坐标系统到另一个坐标系统的转换
 
 
 
