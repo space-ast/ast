@@ -56,6 +56,12 @@ AST_CORE_CAPI void aJ2000ToB1950Matrix_SPICE(Matrix3d& m);
 AST_CORE_CAPI void aJ2000ToB1950Transform_SPICE(Rotation& rotation);
 
 
+A_ALWAYS_INLINE void aJ2000ToB1950SpiceTransform(Rotation& rotation)
+{
+    aJ2000ToB1950Transform_SPICE(rotation);
+}
+
+
 /// @brief      B1950 到 J2000 转换矩阵（SPICE 版本）
 AST_CORE_CAPI void aB1950ToJ2000Matrix_SPICE(Matrix3d& m);
 

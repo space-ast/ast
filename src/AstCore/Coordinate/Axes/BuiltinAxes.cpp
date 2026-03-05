@@ -1,9 +1,9 @@
 ///
-/// @file      AxesGTOD.cpp
+/// @file      BuiltinAxes.cpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-03-04
+/// @date      2026-03-05
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,34 +18,22 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AxesGTOD.hpp"
-#include "AxesTOD.hpp"
-#include "AstCore/EarthFrame.hpp"
+#include "BuiltinAxes.hpp"
+#include "AstCore/FrameTransform.hpp"
+#include "AstMath/Rotation.hpp"
+#include "AstMath/KinematicRotation.hpp"
 
 AST_NAMESPACE_BEGIN
 
-AxesGTOD *AxesGTOD::Instance()
-{
-    static SharedPtr<AxesGTOD> instance(new AxesGTOD());
-    return instance.get();
-}
 
-Axes *AxesGTOD::getParent() const
-{
-    return AxesTOD::Instance();
-}
 
-err_t AxesGTOD::getTransform(const TimePoint &tp, Rotation &rotation) const
-{
-    aTODToGTODTransform(tp, rotation);
-    return eNoError;
-}
+_AST_IMPL_AXES_DYNAMIC(ECF, ICRF)
+_AST_IMPL_AXES_DYNAMIC(J2000, ECF)
+_AST_IMPL_AXES_PSEUDO_INERTIAL(MOD, J2000)
+_AST_IMPL_AXES_PSEUDO_INERTIAL(TOD, MOD)
+_AST_IMPL_AXES_DYNAMIC(GTOD, TOD)
 
-err_t AxesGTOD::getTransform(const TimePoint &tp, KinematicRotation &rotation) const
-{
-    aTODToGTODTransform(tp, rotation);
-    return eNoError;
-}
+_AST_IMPL_AXES_INERTIAL(B1950, J2000)
+_AST_IMPL_AXES_INERTIAL(B1950Spice, J2000)
 
 AST_NAMESPACE_END
-

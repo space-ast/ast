@@ -90,4 +90,15 @@ void aB1950ToJ2000Transform_SPICE(Rotation &rotation)
     aB1950ToJ2000Matrix_SPICE(rotation.getMatrix());
 }
 
+void aB1950ToFK4Transform(Rotation &rotation)
+{
+    /*!
+    参考SPICE程序 src/spicelib/chgirf.for
+    */
+    static Matrix3d mtx = aRotationZMatrix(0.525_arcsec);
+    rotation.setMatrix(mtx);
+}
+
+
+
 AST_NAMESPACE_END

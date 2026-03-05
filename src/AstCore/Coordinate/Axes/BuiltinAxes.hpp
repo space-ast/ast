@@ -1,9 +1,9 @@
 ///
-/// @file      AxesJ2000.cpp
+/// @file      BuiltinAxes.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-03-04
+/// @date      2026-03-05
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
@@ -18,36 +18,32 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AxesJ2000.hpp"
-#include "AxesECF.hpp"
-#include "AstCore/EarthFrame.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstCore/Axes.hpp"
+#include "AstCore/AxesRoot.hpp"
+#include "AstCore/AxesICRF.hpp"
+#include "AstCore/AxesMacro.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-AxesJ2000 *AxesJ2000::Instance()
-{
-    static SharedPtr<AxesJ2000> instance(new AxesJ2000());
-    return instance.get();
-}
+/*!
+    @addtogroup Coordinate
+    @{
+*/
 
 
-Axes *AxesJ2000::getParent() const
-{
-    return AxesECF::Instance();
-}
+_AST_DECL_AXES(ECF)
+_AST_DECL_AXES(J2000)
+_AST_DECL_AXES(MOD)
+_AST_DECL_AXES(TOD)
+_AST_DECL_AXES(GTOD)
 
-err_t AxesJ2000::getTransform(const TimePoint &tp, Rotation &rotation) const
-{
-    aECFToJ2000Transform(tp, rotation);
-    return eNoError;
-}
+_AST_DECL_AXES(B1950)
+_AST_DECL_AXES(B1950Spice)
 
-err_t AxesJ2000::getTransform(const TimePoint &tp, KinematicRotation &rotation) const
-{
-    aECFToJ2000Transform(tp, rotation);
-    return eNoError;
-}
+/*! @} */
 
 AST_NAMESPACE_END
-
-

@@ -19,16 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AxesTransform.hpp"
-#include "AstCore/AxesRoot.hpp"
-#include "AstCore/AxesICRF.hpp"
-#include "AstCore/AxesECF.hpp"
-#include "AstCore/AxesJ2000.hpp"
-#include "AstCore/AxesMOD.hpp"
-#include "AstCore/AxesTOD.hpp"
-#include "AstCore/AxesGTOD.hpp"
-#include "AstCore/AxesB1950.hpp"
-#include "AstCore/AxesB1950Spice.hpp"
-#
+#include "AstCore/BuiltinAxes.hpp"
 
 
 AST_NAMESPACE_BEGIN
