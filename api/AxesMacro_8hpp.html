@@ -153,7 +153,7 @@ $(function(){initNavTree('AxesMacro_8hpp.html',''); initResizable(true); });
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">class </span>Axes##NAME : <span class="keyword">public</span> Axes \</div>
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">class </span>AST_CORE_API Axes##NAME : <span class="keyword">public</span> Axes \</div>
 <div class="line">    { \</div>
 <div class="line">    <span class="keyword">public</span>: \</div>
 <div class="line">        Axes##NAME() = <span class="keywordflow">default</span>; \</div>
@@ -162,7 +162,11 @@ $(function(){initNavTree('AxesMacro_8hpp.html',''); initResizable(true); });
 <div class="line">        Axes* getParent() <span class="keyword">const override</span>; \</div>
 <div class="line">        err_t getTransform(<span class="keyword">const</span> TimePoint&amp; tp, Rotation&amp; rotation) <span class="keyword">const override</span>; \</div>
 <div class="line">        err_t getTransform(<span class="keyword">const</span> TimePoint&amp; tp, KinematicRotation&amp; rotation) <span class="keyword">const override</span>; \</div>
-<div class="line">    };</div>
+<div class="line">    };\</div>
+<div class="line">    A_ALWAYS_INLINE Axes* aAxes##NAME()\</div>
+<div class="line">    {\</div>
+<div class="line">        <span class="keywordflow">return</span> Axes##NAME::Instance();\</div>
+<div class="line">    }\</div>
 </div><!-- fragment -->
 </div>
 </div>

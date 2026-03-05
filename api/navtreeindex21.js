@@ -1,5 +1,8 @@
 var NAVTREEINDEX21 =
 {
+"structast_1_1OpBinRegistry_1_1OpBinKeyHash.html":[2,0,0,197,0],
+"structast_1_1OpBinRegistry_1_1OpBinKeyHash.html":[3,0,0,195,0],
+"structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html":[2,0,0,199,0],
 "structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html":[3,0,0,197,0],
 "structast_1_1PoleMotion.html":[0,0,1,2],
 "structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4":[0,0,1,2,0],

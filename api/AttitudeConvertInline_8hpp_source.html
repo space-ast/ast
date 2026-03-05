@@ -131,18 +131,33 @@ $(function(){initNavTree('AttitudeConvertInline_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>A_ALWAYS_INLINE Matrix3d <a class="code hl_function" href="group__Attitude.html#ga8be8e79a9868d89557f88ef15055119e">aRotationZMatrix</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>A_ALWAYS_INLINE Matrix3d aEuler313ToMatrix(<span class="keyword">const</span> Euler&amp; euler)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    Matrix3d mtx;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_function" href="group__Attitude.html#ga8be8e79a9868d89557f88ef15055119e">aRotationZMatrix</a>(angle, mtx);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    aEuler313ToMatrix(euler, mtx);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> mtx;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>A_ALWAYS_INLINE Matrix3d <a class="code hl_function" href="group__Attitude.html#ga8be8e79a9868d89557f88ef15055119e">aRotationZMatrix</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    Matrix3d mtx;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_function" href="group__Attitude.html#ga8be8e79a9868d89557f88ef15055119e">aRotationZMatrix</a>(angle, mtx);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> mtx;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>A_ALWAYS_INLINE Matrix3d <a class="code hl_function" href="group__Attitude.html#ga9023a0b690543945cb6231843b71baf8">aRotationXMatrix</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Matrix3d mtx;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="group__Attitude.html#ga9023a0b690543945cb6231843b71baf8">aRotationXMatrix</a>(angle, mtx);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> mtx;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 3, 3 &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1Quaternion_html"><div class="ttname"><a href="classast_1_1Quaternion.html">ast::Quaternion</a></div><div class="ttdoc">四元数</div><div class="ttdef"><b>定义</b> Quaternion.hpp:47</div></div>
 <div class="ttc" id="agroup__Attitude_html_ga8be8e79a9868d89557f88ef15055119e"><div class="ttname"><a href="group__Attitude.html#ga8be8e79a9868d89557f88ef15055119e">ast::aRotationZMatrix</a></div><div class="ttdeci">void aRotationZMatrix(double angle, Matrix3d &amp;mtx)</div><div class="ttdoc">绕Z轴坐标旋转矩阵</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:80</div></div>
+<div class="ttc" id="agroup__Attitude_html_ga9023a0b690543945cb6231843b71baf8"><div class="ttname"><a href="group__Attitude.html#ga9023a0b690543945cb6231843b71baf8">ast::aRotationXMatrix</a></div><div class="ttdeci">void aRotationXMatrix(double angle, Matrix3d &amp;mtx)</div><div class="ttdoc">绕X轴坐标旋转矩阵</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:61</div></div>
 <div class="ttc" id="agroup__Attitude_html_gad654a224cee5d31ca96d2b13c9a95af8"><div class="ttname"><a href="group__Attitude.html#gad654a224cee5d31ca96d2b13c9a95af8">ast::aMatrixToQuat</a></div><div class="ttdeci">void aMatrixToQuat(const Matrix3d &amp;mtx, Quaternion &amp;quat)</div><div class="ttdoc">矩阵转四元数</div><div class="ttdef"><b>定义</b> AttitudeConvert.cpp:115</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
