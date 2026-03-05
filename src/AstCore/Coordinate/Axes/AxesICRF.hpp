@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief  ICRF 轴系
-class AxesICRF: public Axes
+class AST_CORE_API AxesICRF: public Axes
 {
 public:
     AxesICRF() = default;
@@ -41,6 +41,12 @@ public:
     err_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
     err_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const override;
 };
+
+A_ALWAYS_INLINE Axes* aAxesICRF()
+{
+    return AxesICRF::Instance();
+}
+
 
 
 /*! @} */

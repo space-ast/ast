@@ -43,6 +43,11 @@ public:
     err_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const override;
 };
 
+A_ALWAYS_INLINE Axes* aAxesRoot()
+{
+    return AxesRoot::Instance();
+}
+
 /*! @} */
 
 AST_NAMESPACE_END

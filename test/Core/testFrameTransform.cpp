@@ -24,19 +24,5 @@
 
 AST_USING_NAMESPACE
 
-TEST(FrameTransformTest, B1950)
-{
-    Matrix3d m1, m2;
-    aB1950ToJ2000Matrix(m1);
-    aJ2000ToB1950Matrix(m2);
-    m1.transposeInPlace();
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            EXPECT_DOUBLE_EQ(m1(i, j), m2(i, j));
-        }
-    }
-}
 
 GTEST_MAIN()

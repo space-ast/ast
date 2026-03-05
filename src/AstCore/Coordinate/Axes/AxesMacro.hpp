@@ -36,7 +36,7 @@ class Rotation;
 
 
 #define _AST_DECL_AXES(NAME) \
-    class Axes##NAME : public Axes \
+    class AST_CORE_API Axes##NAME : public Axes \
     { \
     public: \
         Axes##NAME() = default; \
@@ -45,7 +45,11 @@ class Rotation;
         Axes* getParent() const override; \
         err_t getTransform(const TimePoint& tp, Rotation& rotation) const override; \
         err_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const override; \
-    };
+    };\
+    A_ALWAYS_INLINE Axes* aAxes##NAME()\
+    {\
+        return Axes##NAME::Instance();\
+    }\
 
 #define _AST_IMPL_AXES_BASE(NAME, PARENT)\
     Axes##NAME* Axes##NAME::Instance() \

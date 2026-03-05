@@ -38,6 +38,18 @@
 AST_USING_NAMESPACE
 using namespace _AST literals;
 
+void printMatrix3d(double mtx[3][3])
+{
+    printf("\n");
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            printf("%.15g, ", mtx[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 TEST(SpiceZpr, appndc)
 {
@@ -2008,7 +2020,7 @@ TEST(SpiceZpr, pxform)
             mtx_c[1][0], mtx_c[1][1], mtx_c[1][2],
             mtx_c[2][0], mtx_c[2][1], mtx_c[2][2]);
         Matrix3d mtx2;
-        aJ2000ToB1950Matrix_SPICE(mtx2);
+        aJ2000ToB1950Transform_SPICE(Rotation::CastFrom(mtx2));
         printf("mtx2: \n%.16g, %.16g, %.16g\n%.16g, %.16g, %.16g\n%.16g, %.16g, %.16g\n", 
             mtx2(0,0), mtx2(0,1), mtx2(0,2),
             mtx2(1,0), mtx2(1,1), mtx2(1,2),
@@ -2033,6 +2045,63 @@ TEST(SpiceZpr, pxform)
                 EXPECT_DOUBLE_EQ(mtx_c[i][j], mtx[i][j]);
             }
         }
+    }
+    {
+        double mtx_c[3][3];
+        double mtx[3][3];
+        pxform_c("B1950", "FK4", 0, mtx_c);
+        pxform("B1950", "FK4", 0, mtx);
+        // printMatrix3d(mtx_c);
+        // printMatrix3d(mtx);
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(mtx_c[i][j], mtx[i][j], 1e-14);
+            }
+        }
+    }
+    {
+        double mtx_c[3][3];
+        double mtx[3][3];
+        pxform_c("J2000", "DE-140", 0, mtx_c);
+        pxform("J2000", "DE-140", 0, mtx);
+        // printMatrix3d(mtx_c);
+        // printMatrix3d(mtx);
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                EXPECT_DOUBLE_EQ(mtx_c[i][j], mtx[i][j]);
+            }
+        }
+    }
+    {
+        std::vector<std::string> axesNames = {
+            "J2000", "B1950", "FK4", 
+            "DE-118", "DE-96", "DE-102", "DE-108", "DE-111", "DE-114", "DE-122", 
+            "DE-125", "DE-130", "Galactic", "DE-200", "DE-202", 
+            "MarsIAU", "EclipJ2000", "EclipB1950", 
+            "DE-140", "DE-142", "DE-143"
+        };
+        for(auto& name1: axesNames)
+        {
+            for(auto& name2: axesNames)
+            {
+                double mtx_c[3][3];
+                double mtx[3][3];
+                pxform_c(name1.c_str(), name2.c_str(), 0, mtx_c);
+                pxform(name1.c_str(), name2.c_str(), 0, mtx);
+                for(int i = 0; i < 3; i++)
+                {
+                    for(int j = 0; j < 3; j++)
+                    {
+                        EXPECT_NEAR(mtx_c[i][j], mtx[i][j], 1e-15);
+                    }
+                }
+            }
+        }
+
     }
 }
 

@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/BuiltinAxes.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,33 +32,6 @@ AST_NAMESPACE_BEGIN
 
 class Axes;
 
-
-/// @brief      根轴系
-AST_CORE_CAPI Axes* aAxesRoot();
-
-/// @brief      国际天球参考系轴系（ICRF）
-AST_CORE_CAPI Axes* aAxesICRF();
-
-/// @brief      地球固连参考系轴系（ECF）
-AST_CORE_CAPI Axes* aAxesECF();
-
-/// @brief      J2000 轴系
-AST_CORE_CAPI Axes* aAxesJ2000();
-
-/// @brief       MOD 轴系
-AST_CORE_CAPI Axes* aAxesMOD();
-
-/// @brief       TOD 轴系
-AST_CORE_CAPI Axes* aAxesTOD();
-
-/// @brief       GTOD 轴系
-AST_CORE_CAPI Axes* aAxesGTOD();
-
-/// @brief       B1950 轴系
-AST_CORE_CAPI Axes* aAxesB1950();
-
-/// @brief       B1950 轴系（基于SPICE工具的算法计算）
-AST_CORE_CAPI Axes* aAxesB1950Spice();
 
 
 /*! @} */

@@ -60,6 +60,25 @@ err_t SpiceAxesRegistry::init()
     axesMap_["GTOD"] = aAxesGTOD();
     // axesMap_["B1950"] = aAxesB1950();
     axesMap_["B1950"] = aAxesB1950Spice();
+    axesMap_["FK4"] = aAxesFK4();
+    axesMap_["DE-118"] = aAxesDE118();
+    axesMap_["DE-96"] = aAxesDE96();
+    axesMap_["DE-102"] = aAxesDE102();
+    axesMap_["DE-108"] = aAxesDE108();
+    axesMap_["DE-111"] = aAxesDE111();
+    axesMap_["DE-114"] = aAxesDE114();
+    axesMap_["DE-122"] = aAxesDE122();
+    axesMap_["DE-125"] = aAxesDE125();
+    axesMap_["DE-130"] = aAxesDE130();
+    axesMap_["Galactic"] = aAxesGalactic();
+    axesMap_["DE-200"] = aAxesDE200();
+    axesMap_["DE-202"] = aAxesDE202();
+    axesMap_["MarsIAU"] = aAxesMarsIAU();
+    axesMap_["EclipJ2000"] = aAxesEclipJ2000();
+    axesMap_["EclipB1950"] = aAxesEclipB1950();
+    axesMap_["DE-140"] = aAxesDE140();
+    axesMap_["DE-142"] = aAxesDE142();
+    axesMap_["DE-143"] = aAxesDE143();
     return eNoError;
 }
 

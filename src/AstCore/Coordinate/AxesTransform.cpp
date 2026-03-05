@@ -24,50 +24,5 @@
 
 AST_NAMESPACE_BEGIN
 
-Axes *aAxesRoot()
-{
-    return AxesRoot::Instance();
-}
-
-Axes *aAxesICRF()
-{
-    return AxesICRF::Instance();
-}
-
-Axes *aAxesECF()
-{
-    return AxesECF::Instance();
-}
-
-
-Axes *aAxesJ2000()
-{
-    return AxesJ2000::Instance();
-}
-
-Axes *aAxesMOD()
-{
-    return AxesMOD::Instance();
-}
-
-Axes *aAxesTOD()
-{
-    return AxesTOD::Instance();
-}
-
-Axes *aAxesGTOD()
-{
-    return AxesGTOD::Instance();
-}
-
-Axes *aAxesB1950()
-{
-    return AxesB1950::Instance();
-}
-
-Axes* aAxesB1950Spice()
-{
-    return AxesB1950Spice::Instance();
-}
 
 AST_NAMESPACE_END

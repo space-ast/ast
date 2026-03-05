@@ -53,10 +53,24 @@ A_ALWAYS_INLINE	Matrix3d aEuler323ToMatrix(const Euler& euler)
 }
 
 
+A_ALWAYS_INLINE	Matrix3d aEuler313ToMatrix(const Euler& euler)
+{
+	Matrix3d mtx;
+	aEuler313ToMatrix(euler, mtx);
+	return mtx;
+}
+
 A_ALWAYS_INLINE	Matrix3d aRotationZMatrix(double angle)
 {
 	Matrix3d mtx;
 	aRotationZMatrix(angle, mtx);
+	return mtx;
+}
+
+A_ALWAYS_INLINE	Matrix3d aRotationXMatrix(double angle)
+{
+	Matrix3d mtx;
+	aRotationXMatrix(angle, mtx);
 	return mtx;
 }
 
