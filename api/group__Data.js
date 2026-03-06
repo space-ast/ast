@@ -111,6 +111,7 @@ var group__Data =
     [ "ast::aDataContext_GetDefault", "group__Data.html#gabd352addd4bfd3dcecb35a480212d9f5", null ],
     [ "ast::aDataContext_GetEOP", "group__Data.html#ga636a52a4e547b682627be2f3d551b7ad", null ],
     [ "ast::aDataContext_GetIAUXYSPrecomputed", "group__Data.html#gadbb534974c08b459d882595abb9a930e", null ],
+    [ "ast::aDataContext_GetSolarSystem", "group__Data.html#gaeb916afcd63511ce2c13306b269bc0f3", null ],
     [ "ast::aDataContext_New", "group__Data.html#gaba56bd6c13a2672901309a0c4c695caf", null ],
     [ "ast::aDataContext_SetCurrent", "group__Data.html#gaa090c6fa94e31ea974a5fd4604191397", null ],
     [ "ast::aDataDirGet", "group__Data.html#ga29c564259f5de9210b7e4e39eb4dd878", null ],

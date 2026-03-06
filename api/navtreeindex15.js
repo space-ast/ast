@@ -1,5 +1,6 @@
 var NAVTREEINDEX15 =
 {
+"classast_1_1UnaryScalarGenericFunc.html":[2,0,0,289],
 "classast_1_1UnaryScalarGenericFunc.html":[3,0,0,287],
 "classast_1_1UnaryScalarGenericFunc.html#a0ec6dfee59fedff01f5cee153082e5c5":[2,0,0,289,0],
 "classast_1_1UnaryScalarGenericFunc.html#a0ec6dfee59fedff01f5cee153082e5c5":[3,0,0,287,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX15 =
 "functions.html":[3,3,0],
 "functions.html":[3,3,0,0],
 "functions_a.html":[3,3,0,1],
-"functions_b.html":[3,3,0,2],
-"functions_c.html":[3,3,0,3]
+"functions_b.html":[3,3,0,2]
 };

@@ -85,6 +85,7 @@ var NAVTREEINDEX14 =
 "classast_1_1SpheroidShape.html#ab86cf9d999457c585b29c3149047dacc":[3,0,0,260,0],
 "classast_1_1SpiceAxesRegistry.html":[0,3,0],
 "classast_1_1SpiceBodyRegistry.html":[0,3,1],
+"classast_1_1SpiceBodyRegistry.html#a6fd64b0df22892f39805a79e62ad03e7":[0,3,1,0],
 "classast_1_1SpiceFrameRegistry.html":[0,3,2],
 "classast_1_1SpiceParser.html":[0,4,0,10],
 "classast_1_1StackFrame.html":[0,2,21],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "classast_1_1UnaryScalarFunc.html#a7b673ef8dbd4ca089ffea28f618504dd":[2,0,0,288,1],
 "classast_1_1UnaryScalarFunc.html#a7b673ef8dbd4ca089ffea28f618504dd":[3,0,0,286,1],
 "classast_1_1UnaryScalarFunc.html#a8c6990116cef908b15616cf70526585b":[2,0,0,288,0],
-"classast_1_1UnaryScalarFunc.html#a8c6990116cef908b15616cf70526585b":[3,0,0,286,0],
-"classast_1_1UnaryScalarGenericFunc.html":[2,0,0,289]
+"classast_1_1UnaryScalarFunc.html#a8c6990116cef908b15616cf70526585b":[3,0,0,286,0]
 };

@@ -272,7 +272,7 @@ var annotated_dup =
       [ "SphereShape", "classast_1_1SphereShape.html", "classast_1_1SphereShape" ],
       [ "SpheroidShape", "classast_1_1SpheroidShape.html", "classast_1_1SpheroidShape" ],
       [ "SpiceAxesRegistry", "classast_1_1SpiceAxesRegistry.html", null ],
-      [ "SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", null ],
+      [ "SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", "classast_1_1SpiceBodyRegistry" ],
       [ "SpiceFrameRegistry", "classast_1_1SpiceFrameRegistry.html", null ],
       [ "SpiceParser", "classast_1_1SpiceParser.html", null ],
       [ "StackFrame", "classast_1_1StackFrame.html", null ],

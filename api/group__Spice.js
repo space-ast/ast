@@ -1,7 +1,9 @@
 var group__Spice =
 [
     [ "ast::SpiceAxesRegistry", "classast_1_1SpiceAxesRegistry.html", null ],
-    [ "ast::SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", null ],
+    [ "ast::SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", [
+      [ "init", "classast_1_1SpiceBodyRegistry.html#a6fd64b0df22892f39805a79e62ad03e7", null ]
+    ] ],
     [ "ast::SpiceFrameRegistry", "classast_1_1SpiceFrameRegistry.html", null ],
     [ "ast::aSpiceEtToTimePoint", "group__Spice.html#ga28fa4207db53a0374e67d175d4177703", null ],
     [ "ast::aSpiceFindAxes", "group__Spice.html#ga3245987ee7f10c497082ce21a60c4857", null ],

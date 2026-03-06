@@ -8,6 +8,7 @@ var AstCore_2Data_2Context_2RunTime_8cpp =
     [ "aDataContext_GetDefault", "AstCore_2Data_2Context_2RunTime_8cpp.html#gabd352addd4bfd3dcecb35a480212d9f5", null ],
     [ "aDataContext_GetEOP", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga636a52a4e547b682627be2f3d551b7ad", null ],
     [ "aDataContext_GetIAUXYSPrecomputed", "AstCore_2Data_2Context_2RunTime_8cpp.html#gadbb534974c08b459d882595abb9a930e", null ],
+    [ "aDataContext_GetSolarSystem", "AstCore_2Data_2Context_2RunTime_8cpp.html#gaeb916afcd63511ce2c13306b269bc0f3", null ],
     [ "aDataContext_New", "AstCore_2Data_2Context_2RunTime_8cpp.html#gaba56bd6c13a2672901309a0c4c695caf", null ],
     [ "aDataContext_SetCurrent", "AstCore_2Data_2Context_2RunTime_8cpp.html#gaa090c6fa94e31ea974a5fd4604191397", null ],
     [ "aDataDirGet", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga29c564259f5de9210b7e4e39eb4dd878", null ],
