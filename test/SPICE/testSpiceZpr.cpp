@@ -2770,6 +2770,15 @@ TEST(SpiceZpr, timout)
 
 TEST(SpiceZpr, tipbod)
 {
+    furnsh_c("data/Test/kernels/pck/pck00011.tpc");
+    double tipm_c[3][3];
+    double tipm[3][3];
+    enum {jupiter = 599};
+    tipbod_c("J2000", jupiter, 0, tipm_c);
+    tipbod("J2000", jupiter, 0, tipm);
+    printMatrix3d(tipm_c);
+    printMatrix3d(tipm);
+    // @todo 验证结果是否一致
 }
 
 TEST(SpiceZpr, tisbod)

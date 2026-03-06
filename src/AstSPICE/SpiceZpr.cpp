@@ -186,7 +186,7 @@ err_t tipbod(Axes *ref, CelestialBody *body, const TimePoint &et, Matrix3d &tipm
     auto bodyFixed = body->getAxesFixed();
     if ( bodyFixed == nullptr )
         return -1;
-    return aAxesTransform(bodyFixed, ref, et, tipm);
+    return aAxesTransform(ref, bodyFixed, et, tipm);
 }
 
 AST_SPICE_CAPI
@@ -200,10 +200,10 @@ err_t tipbod(
     auto refAxes = aSpiceFindAxes(ref);
     if ( refAxes == nullptr )
         return -1;
-    auto bodyPtr = aSpiceFindBody(body);
-    if ( bodyPtr == nullptr )
+    auto bodyIns = aSpiceFindBody(body);
+    if ( bodyIns == nullptr )
         return -1;
-    return tipbod(refAxes, bodyPtr, aSpiceEtToTimePoint(et), tipm);
+    return tipbod(refAxes, bodyIns, aSpiceEtToTimePoint(et), tipm);
 }
 
 

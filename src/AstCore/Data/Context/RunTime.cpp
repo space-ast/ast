@@ -264,6 +264,12 @@ EOP * aDataContext_GetEOP()
     return context->eop();
 }
 
+SolarSystem *aDataContext_GetSolarSystem()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem();
+}
+
 IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed()
 {
     auto context = aDataContext_EnsureCurrent();
