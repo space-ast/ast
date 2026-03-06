@@ -160,6 +160,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a04210c967cff5dcf19f19c187bff56cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19ebc6532ea06307c1004dded2184c51" id="r_a19ebc6532ea06307c1004dded2184c51"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19ebc6532ea06307c1004dded2184c51">getFilePath</a> () const</td></tr>
 <tr class="separator:a19ebc6532ea06307c1004dded2184c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab910d614b29c6735612767e310de0db" id="r_aab910d614b29c6735612767e310de0db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab910d614b29c6735612767e310de0db">setBorrowedFile</a> (FILE *file)</td></tr>
+<tr class="separator:aab910d614b29c6735612767e310de0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9c91824387cb3d10bc7c503265c72a" id="r_aad9c91824387cb3d10bc7c503265c72a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad9c91824387cb3d10bc7c503265c72a">setOwnedFile</a> (FILE *file)</td></tr>
+<tr class="separator:aad9c91824387cb3d10bc7c503265c72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
@@ -172,6 +176,9 @@ Protected 属性</h2></td></tr>
 <tr class="memitem:ab5eadabf6e0c6ce2b6657d9871999b86" id="r_ab5eadabf6e0c6ce2b6657d9871999b86"><td class="memItemLeft" align="right" valign="top"><a id="ab5eadabf6e0c6ce2b6657d9871999b86" name="ab5eadabf6e0c6ce2b6657d9871999b86"></a>
 FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>file_</b></td></tr>
 <tr class="separator:ab5eadabf6e0c6ce2b6657d9871999b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb53beaf5cb7961635c6d41493330720" id="r_abb53beaf5cb7961635c6d41493330720"><td class="memItemLeft" align="right" valign="top"><a id="abb53beaf5cb7961635c6d41493330720" name="abb53beaf5cb7961635c6d41493330720"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>fileBorrowed_</b> {false}</td></tr>
+<tr class="separator:abb53beaf5cb7961635c6d41493330720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a738ba19baafea456ca1eae248f2c750a" id="r_a738ba19baafea456ca1eae248f2c750a"><td class="memItemLeft" align="right" valign="top"><a id="a738ba19baafea456ca1eae248f2c750a" name="a738ba19baafea456ca1eae248f2c750a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>allowComment_</b></td></tr>
 <tr class="separator:a738ba19baafea456ca1eae248f2c750a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -631,6 +638,56 @@ std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>
 <p>设置是否允许解析注释行。 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">allow</td><td>是否允许注释 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aab910d614b29c6735612767e310de0db" name="aab910d614b29c6735612767e310de0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab910d614b29c6735612767e310de0db">&#9670;&#160;</a></span>setBorrowedFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BKVParser::setBorrowedFile </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置外部借用的文件指针，不转移文件指针的所有权。 </p>
+<p>设置当前解析器使用的文件指针为外部借用的文件指针。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>外部借用的文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aad9c91824387cb3d10bc7c503265c72a" name="aad9c91824387cb3d10bc7c503265c72a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9c91824387cb3d10bc7c503265c72a">&#9670;&#160;</a></span>setOwnedFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BKVParser::setOwnedFile </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置文件指针，将文件指针的所有权转移给解析器。 </p>
+<p>设置当前解析器使用的文件指针，并将文件指针的所有权转移给解析器。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
   </table>
   </dd>
 </dl>

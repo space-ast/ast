@@ -892,6 +892,27 @@ typedef err_t(*&#160;</td><td class="memItemRight" valign="bottom"><b>FPropertyS
 <tr class="memitem:a6f1f997e7154c5f166605427c717761f" id="r_a6f1f997e7154c5f166605427c717761f"><td class="memItemLeft" align="right" valign="top"><a id="a6f1f997e7154c5f166605427c717761f" name="a6f1f997e7154c5f166605427c717761f"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> = <a class="el" href="classast_1_1Class.html">Class</a></td></tr>
 <tr class="separator:a6f1f997e7154c5f166605427c717761f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ac18ebf785075d9a4d8d0810175a231" id="r_ga2ac18ebf785075d9a4d8d0810175a231"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ByString</b> = <a class="el" href="classast_1_1strings__internal_1_1ByString.html">strings_internal::ByString</a></td></tr>
+<tr class="separator:ga2ac18ebf785075d9a4d8d0810175a231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2a95d7ee57632b69b401bcbd9d6e2a1" id="r_gaf2a95d7ee57632b69b401bcbd9d6e2a1"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ByChar</b> = <a class="el" href="classast_1_1strings__internal_1_1ByChar.html">strings_internal::ByChar</a></td></tr>
+<tr class="separator:gaf2a95d7ee57632b69b401bcbd9d6e2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28c00e90f68966fd578465eca8a7f7a1" id="r_ga28c00e90f68966fd578465eca8a7f7a1"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ByAnyChar</b> = <a class="el" href="classast_1_1strings__internal_1_1ByAnyChar.html">strings_internal::ByAnyChar</a></td></tr>
+<tr class="separator:ga28c00e90f68966fd578465eca8a7f7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac88f1d6c02b18bf200c98cd560115f8e" id="r_gac88f1d6c02b18bf200c98cd560115f8e"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ByLength</b> = <a class="el" href="classast_1_1strings__internal_1_1ByLength.html">strings_internal::ByLength</a></td></tr>
+<tr class="separator:gac88f1d6c02b18bf200c98cd560115f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga567e76fad3e9f34575b5fed67efa53be" id="r_ga567e76fad3e9f34575b5fed67efa53be"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>AllowEmpty</b> = <a class="el" href="structast_1_1strings__internal_1_1AllowEmpty.html">strings_internal::AllowEmpty</a></td></tr>
+<tr class="separator:ga567e76fad3e9f34575b5fed67efa53be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga409273a6fdd112a8a8ac76d8c85f4969" id="r_ga409273a6fdd112a8a8ac76d8c85f4969"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SkipEmpty</b> = <a class="el" href="structast_1_1strings__internal_1_1SkipEmpty.html">strings_internal::SkipEmpty</a></td></tr>
+<tr class="separator:ga409273a6fdd112a8a8ac76d8c85f4969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabef741dd9121c91dd5d9b3b51e1ad438" id="r_gabef741dd9121c91dd5d9b3b51e1ad438"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SkipWhitespace</b> = <a class="el" href="structast_1_1strings__internal_1_1SkipWhitespace.html">strings_internal::SkipWhitespace</a></td></tr>
+<tr class="separator:gabef741dd9121c91dd5d9b3b51e1ad438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad4af5a1832ab025a1ebd2fdd220be76b" id="r_gad4af5a1832ab025a1ebd2fdd220be76b"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a>&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>StringView</b></td></tr>
 <tr class="separator:gad4af5a1832ab025a1ebd2fdd220be76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3355,6 +3376,18 @@ template&lt;typename T , std::string T::* Member&gt; </td></tr>
 <tr class="separator:ga848cdd35cab0b48982803124939266aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9ab0c886cea96cd8b6ead992408a3e21" id="r_ga9ab0c886cea96cd8b6ead992408a3e21"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga9ab0c886cea96cd8b6ead992408a3e21">aWideToUtf8</a> (const wchar_t *wide, std::string &amp;utf8)</td></tr>
 <tr class="separator:ga9ab0c886cea96cd8b6ead992408a3e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf81d23a13b876b4b5683a6c6b7a09c93" id="r_gaf81d23a13b876b4b5683a6c6b7a09c93"><td class="memTemplParams" colspan="2">
+template&lt;typename Delimiter &gt; </td></tr>
+<tr class="memitem:gaf81d23a13b876b4b5683a6c6b7a09c93"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1strings__internal_1_1Splitter.html">strings_internal::Splitter</a>&lt; typename <a class="el" href="structast_1_1strings__internal_1_1SelectDelimiter.html">strings_internal::SelectDelimiter</a>&lt; Delimiter &gt;::type, <a class="el" href="structast_1_1strings__internal_1_1AllowEmpty.html">strings_internal::AllowEmpty</a>, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>aStrSplit</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> text, Delimiter delimiter)</td></tr>
+<tr class="separator:gaf81d23a13b876b4b5683a6c6b7a09c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81a7b348c2d38df07a01f644e30cb7a2" id="r_ga81a7b348c2d38df07a01f644e30cb7a2"><td class="memTemplParams" colspan="2">
+template&lt;typename Delimiter , typename Predicate &gt; </td></tr>
+<tr class="memitem:ga81a7b348c2d38df07a01f644e30cb7a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1strings__internal_1_1Splitter.html">strings_internal::Splitter</a>&lt; typename <a class="el" href="structast_1_1strings__internal_1_1SelectDelimiter.html">strings_internal::SelectDelimiter</a>&lt; Delimiter &gt;::type, Predicate, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>aStrSplit</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> text, Delimiter delimiter, Predicate predicate)</td></tr>
+<tr class="separator:ga81a7b348c2d38df07a01f644e30cb7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23b571e554986d779a8a24063270b42b" id="r_ga23b571e554986d779a8a24063270b42b"><td class="memTemplParams" colspan="2">
+template&lt;typename Delimiter &gt; </td></tr>
+<tr class="memitem:ga23b571e554986d779a8a24063270b42b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1strings__internal_1_1MaxSplitsImpl.html">strings_internal::MaxSplitsImpl</a>&lt; typename <a class="el" href="structast_1_1strings__internal_1_1SelectDelimiter.html">strings_internal::SelectDelimiter</a>&lt; Delimiter &gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>MaxSplits</b> (Delimiter delimiter, int limit)</td></tr>
+<tr class="separator:ga23b571e554986d779a8a24063270b42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e06d4cb23f5d977cfe5d5ee874e7bf4" id="r_ga6e06d4cb23f5d977cfe5d5ee874e7bf4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga6e06d4cb23f5d977cfe5d5ee874e7bf4">aEqualsIgnoreCase</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> piece1, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> piece2) noexcept</td></tr>
 <tr class="separator:ga6e06d4cb23f5d977cfe5d5ee874e7bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7552f594ff7df00f6d93fe019a5a2213" id="r_ga7552f594ff7df00f6d93fe019a5a2213"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga7552f594ff7df00f6d93fe019a5a2213">aStripAsciiWhitespace</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str) noexcept</td></tr>

@@ -43,5 +43,9 @@ var searchData=
   ['bodyshape_40',['BodyShape',['../classast_1_1BodyShape.html',1,'ast']]],
   ['breakpoint_41',['Breakpoint',['../classast_1_1Breakpoint.html',1,'ast']]],
   ['brenthsolver_42',['BrenthSolver',['../classast_1_1BrenthSolver.html',1,'ast']]],
-  ['brentqsolver_43',['BrentqSolver',['../classast_1_1BrentqSolver.html',1,'ast']]]
+  ['brentqsolver_43',['BrentqSolver',['../classast_1_1BrentqSolver.html',1,'ast']]],
+  ['byanychar_44',['ByAnyChar',['../classast_1_1strings__internal_1_1ByAnyChar.html',1,'ast::strings_internal']]],
+  ['bychar_45',['ByChar',['../classast_1_1strings__internal_1_1ByChar.html',1,'ast::strings_internal']]],
+  ['bylength_46',['ByLength',['../classast_1_1strings__internal_1_1ByLength.html',1,'ast::strings_internal']]],
+  ['bystring_47',['ByString',['../classast_1_1strings__internal_1_1ByString.html',1,'ast::strings_internal']]]
 ];

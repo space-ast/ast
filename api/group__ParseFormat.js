@@ -37,9 +37,12 @@ var group__ParseFormat =
       [ "parseFile", "classast_1_1BKVParser.html#a8d7f34e1b4134168462d9b2f578c90bb", null ],
       [ "seek", "classast_1_1BKVParser.html#ab5e3b9d20a38dd3718980b64de2233e1", null ],
       [ "setAllowComment", "classast_1_1BKVParser.html#ac3b3fda438e76bbc8d86755773dc1d8a", null ],
+      [ "setBorrowedFile", "classast_1_1BKVParser.html#aab910d614b29c6735612767e310de0db", null ],
+      [ "setOwnedFile", "classast_1_1BKVParser.html#aad9c91824387cb3d10bc7c503265c72a", null ],
       [ "tell", "classast_1_1BKVParser.html#a56d65b7678a798ee2ab627d39118a469", null ],
       [ "allowComment_", "classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a", null ],
       [ "file_", "classast_1_1BKVParser.html#ab5eadabf6e0c6ce2b6657d9871999b86", null ],
+      [ "fileBorrowed_", "classast_1_1BKVParser.html#abb53beaf5cb7961635c6d41493330720", null ],
       [ "keyBuffer", "classast_1_1BKVParser.html#a65a55897a4546955337443cd7d9ae1f6", null ],
       [ "valueBuffer", "classast_1_1BKVParser.html#aa31776af959e457628ab241ff94cdf49", null ]
     ] ],

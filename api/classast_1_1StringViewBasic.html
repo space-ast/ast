@@ -144,16 +144,16 @@ typedef ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><b>differen
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:afe23dd44bd3a98b2dab5086adf94e181" id="r_afe23dd44bd3a98b2dab5086adf94e181"><td class="memItemLeft" align="right" valign="top"><a id="afe23dd44bd3a98b2dab5086adf94e181" name="afe23dd44bd3a98b2dab5086adf94e181"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>StringViewBasic</b> (const _Char *str)</td></tr>
-<tr class="separator:afe23dd44bd3a98b2dab5086adf94e181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78ab99841c71bd0e47e6b2d6fcd12c43" id="r_a78ab99841c71bd0e47e6b2d6fcd12c43"><td class="memItemLeft" align="right" valign="top"><a id="a78ab99841c71bd0e47e6b2d6fcd12c43" name="a78ab99841c71bd0e47e6b2d6fcd12c43"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>StringViewBasic</b> (const _Char *str, size_type len)</td></tr>
-<tr class="separator:a78ab99841c71bd0e47e6b2d6fcd12c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2d6f66d5a0b400ae6a7b5fc5c787f9b" id="r_ae2d6f66d5a0b400ae6a7b5fc5c787f9b"><td class="memTemplParams" colspan="2"><a id="ae2d6f66d5a0b400ae6a7b5fc5c787f9b" name="ae2d6f66d5a0b400ae6a7b5fc5c787f9b"></a>
+<tr class="memitem:affb984f0e1e9293f82be17f4c051785d" id="r_affb984f0e1e9293f82be17f4c051785d"><td class="memItemLeft" align="right" valign="top"><a id="affb984f0e1e9293f82be17f4c051785d" name="affb984f0e1e9293f82be17f4c051785d"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>StringViewBasic</b> (const _Char *str) noexcept</td></tr>
+<tr class="separator:affb984f0e1e9293f82be17f4c051785d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ff97114adc7637acd18b09ac84d250" id="r_ab6ff97114adc7637acd18b09ac84d250"><td class="memItemLeft" align="right" valign="top"><a id="ab6ff97114adc7637acd18b09ac84d250" name="ab6ff97114adc7637acd18b09ac84d250"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>StringViewBasic</b> (const _Char *str, size_type len) noexcept</td></tr>
+<tr class="separator:ab6ff97114adc7637acd18b09ac84d250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a7cca7f7beae820f8fd66dde0cc3dc" id="r_af5a7cca7f7beae820f8fd66dde0cc3dc"><td class="memTemplParams" colspan="2"><a id="af5a7cca7f7beae820f8fd66dde0cc3dc" name="af5a7cca7f7beae820f8fd66dde0cc3dc"></a>
 template&lt;typename _Allocator &gt; </td></tr>
-<tr class="memitem:ae2d6f66d5a0b400ae6a7b5fc5c787f9b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>StringViewBasic</b> (const std::basic_string&lt; _Char, std::char_traits&lt; _Char &gt;, _Allocator &gt; &amp;str)</td></tr>
-<tr class="separator:ae2d6f66d5a0b400ae6a7b5fc5c787f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a7cca7f7beae820f8fd66dde0cc3dc"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>StringViewBasic</b> (const std::basic_string&lt; _Char, std::char_traits&lt; _Char &gt;, _Allocator &gt; &amp;str) noexcept</td></tr>
+<tr class="separator:af5a7cca7f7beae820f8fd66dde0cc3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a1add97ebd06fb08beec4df26ff32b6" id="r_a8a1add97ebd06fb08beec4df26ff32b6"><td class="memItemLeft" align="right" valign="top"><a id="a8a1add97ebd06fb08beec4df26ff32b6" name="a8a1add97ebd06fb08beec4df26ff32b6"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>StringViewBasic</b> (const <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a> &amp;other) noexcept=default</td></tr>
 <tr class="separator:a8a1add97ebd06fb08beec4df26ff32b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -271,12 +271,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>ends_with</b> (<a cla
 <tr class="memitem:a65c2abfb6e629a70a5e441481db6f6f5" id="r_a65c2abfb6e629a70a5e441481db6f6f5"><td class="memItemLeft" align="right" valign="top"><a id="a65c2abfb6e629a70a5e441481db6f6f5" name="a65c2abfb6e629a70a5e441481db6f6f5"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ends_with</b> (_Char ch) const noexcept</td></tr>
 <tr class="separator:a65c2abfb6e629a70a5e441481db6f6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13ffec0ff669fcc4af0b608ae074a8ba" id="r_a13ffec0ff669fcc4af0b608ae074a8ba"><td class="memItemLeft" align="right" valign="top"><a id="a13ffec0ff669fcc4af0b608ae074a8ba" name="a13ffec0ff669fcc4af0b608ae074a8ba"></a>
-std::basic_string&lt; _Char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> () const</td></tr>
-<tr class="separator:a13ffec0ff669fcc4af0b608ae074a8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c95ad75405fdf113dfd71ce3ca3533" id="r_a42c95ad75405fdf113dfd71ce3ca3533"><td class="memItemLeft" align="right" valign="top"><a id="a42c95ad75405fdf113dfd71ce3ca3533" name="a42c95ad75405fdf113dfd71ce3ca3533"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator std::basic_string&lt; _Char &gt;</b> () const</td></tr>
-<tr class="separator:a42c95ad75405fdf113dfd71ce3ca3533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30700d4250d5d84601be8a13f7de61d7" id="r_a30700d4250d5d84601be8a13f7de61d7"><td class="memItemLeft" align="right" valign="top"><a id="a30700d4250d5d84601be8a13f7de61d7" name="a30700d4250d5d84601be8a13f7de61d7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator std::basic_string&lt; _Char &gt;</b> () const noexcept</td></tr>
+<tr class="separator:a30700d4250d5d84601be8a13f7de61d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静态 Public 属性</h2></td></tr>
