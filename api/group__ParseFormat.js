@@ -57,6 +57,7 @@ var group__ParseFormat =
     ] ],
     [ "ast::BKVTree", "classast_1_1BKVTree.html", null ],
     [ "ast::GenericValue", "classast_1_1GenericValue.html", null ],
+    [ "ast::SpiceParser", "classast_1_1SpiceParser.html", null ],
     [ "ast::ValueView", "classast_1_1ValueView.html", [
       [ "toBool", "classast_1_1ValueView.html#aecb93813bb4b92c0c6d364bc65fbda4f", null ],
       [ "toColor", "classast_1_1ValueView.html#a7b0fe3305619e8aab325c50a0c8522dd", null ],

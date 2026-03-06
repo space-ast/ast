@@ -6,6 +6,8 @@ var dir_d4f37a8c842ac907ebbff47eaf6f4e6a =
     [ "Point", "dir_286a3fd196a64d9553ffb5ae50fb0078.html", "dir_286a3fd196a64d9553ffb5ae50fb0078" ],
     [ "AxesTransform.cpp", "AxesTransform_8cpp.html", null ],
     [ "AxesTransform.hpp", "AxesTransform_8hpp.html", null ],
+    [ "AxesTransformer.cpp", "AxesTransformer_8cpp.html", null ],
+    [ "AxesTransformer.hpp", "AxesTransformer_8hpp.html", null ],
     [ "CoordTransform.cpp", "CoordTransform_8cpp.html", null ],
     [ "CoordTransform.hpp", "CoordTransform_8hpp.html", null ],
     [ "EarthAxes.hpp", "EarthAxes_8hpp_source.html", null ],

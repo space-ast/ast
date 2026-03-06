@@ -120,6 +120,7 @@ var searchData=
   ['ordinarydifferentialequation_117',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]],
   ['ordinarydifferentialequation_2ecpp_118',['OrdinaryDifferentialEquation.cpp',['../OrdinaryDifferentialEquation_8cpp.html',1,'']]],
   ['ordinarydifferentialequation_2ehpp_119',['OrdinaryDifferentialEquation.hpp',['../OrdinaryDifferentialEquation_8hpp.html',1,'']]],
-  ['osculatingelements_2ecpp_120',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
-  ['osculatingelements_2ehpp_121',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]]
+  ['orientation_5f_120',['orientation_',['../classast_1_1CelestialBody.html#a44182741b2ae49b7c5ce5bfcde6275b0',1,'ast::CelestialBody']]],
+  ['osculatingelements_2ecpp_121',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
+  ['osculatingelements_2ehpp_122',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]]
 ];

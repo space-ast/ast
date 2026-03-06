@@ -114,9 +114,14 @@ $(function(){initNavTree('classast_1_1Axes.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1Axes.png" usemap="#ast::Axes_map" alt=""/>
   <map id="ast::Axes_map" name="ast::Axes_map">
-<area href="classast_1_1Object.html" title="对象基类，实现运行时元信息、强弱引用计数" alt="ast::Object" shape="rect" coords="50,0,140,24"/>
-<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="0,112,90,136"/>
-<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="100,112,190,136"/>
+<area href="classast_1_1Object.html" title="对象基类，实现运行时元信息、强弱引用计数" alt="ast::Object" shape="rect" coords="357,0,490,24"/>
+<area href="classast_1_1AxesBodyRelated.html" title="天体相关的轴系" alt="ast::AxesBodyRelated" shape="rect" coords="214,112,347,136"/>
+<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="357,112,490,136"/>
+<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="500,112,633,136"/>
+<area href="classast_1_1AxesBodyFixed.html" title="天体固连轴系" alt="ast::AxesBodyFixed" shape="rect" coords="0,168,133,192"/>
+<area href="classast_1_1AxesBodyInertial.html" title="天体惯性轴系" alt="ast::AxesBodyInertial" shape="rect" coords="143,168,276,192"/>
+<area href="classast_1_1AxesBodyMOD.html" title="天体MOD轴系" alt="ast::AxesBodyMOD" shape="rect" coords="286,168,419,192"/>
+<area href="classast_1_1AxesBodyTOD.html" title="天体TOD轴系" alt="ast::AxesBodyTOD" shape="rect" coords="429,168,562,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -277,7 +282,7 @@ std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"
 <p>获取当前轴系的父轴系 </p>
 <dl class="section return"><dt>返回</dt><dd>父轴系 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>
@@ -318,7 +323,7 @@ std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AxesICRF.html#a1b3826f4bca86b3e23351ceb60797087">ast::AxesICRF</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#ac4e8b8fd37bf9f581ec9a2ec4baa48c7">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#ab7f10d3f2ad0855bd3d9ff5f8b93e9a0">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a1eab770e26b63a087b4b9d695df89305">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a6d9e5b94312d497e61ca764473097186">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a21f67d54ef4fabe53a0ae5ed306271bd">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesICRF.html#a1b3826f4bca86b3e23351ceb60797087">ast::AxesICRF</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#ac4e8b8fd37bf9f581ec9a2ec4baa48c7">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>
@@ -359,7 +364,7 @@ std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AxesICRF.html#a69a3cf2b8a6afeb07c15074a0740a058">ast::AxesICRF</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a11bfd82f159a9c5e2b31173e197882c0">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#a3975a8435b77ad63f8cf535fd2ae2d51">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#acfc162f771c14f224f04c2c5b5f704b5">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a27bf97c1e27b630667827bd02161abfa">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a305793c083f54bb30ac42191d38faf66">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesICRF.html#a69a3cf2b8a6afeb07c15074a0740a058">ast::AxesICRF</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a11bfd82f159a9c5e2b31173e197882c0">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>

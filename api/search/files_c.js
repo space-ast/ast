@@ -20,5 +20,7 @@ var searchData=
   ['molniyaorbitdesigner_2ecpp_17',['MolniyaOrbitDesigner.cpp',['../MolniyaOrbitDesigner_8cpp.html',1,'']]],
   ['molniyaorbitdesigner_2ehpp_18',['MolniyaOrbitDesigner.hpp',['../MolniyaOrbitDesigner_8hpp.html',1,'']]],
   ['moonframe_2ecpp_19',['MoonFrame.cpp',['../MoonFrame_8cpp.html',1,'']]],
-  ['moonframe_2ehpp_20',['MoonFrame.hpp',['../MoonFrame_8hpp.html',1,'']]]
+  ['moonframe_2ehpp_20',['MoonFrame.hpp',['../MoonFrame_8hpp.html',1,'']]],
+  ['moonorientation_2ecpp_21',['MoonOrientation.cpp',['../MoonOrientation_8cpp.html',1,'']]],
+  ['moonorientation_2ehpp_22',['MoonOrientation.hpp',['../MoonOrientation_8hpp.html',1,'']]]
 ];

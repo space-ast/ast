@@ -38,8 +38,10 @@ var searchData=
   ['blockthirdbody_35',['BlockThirdBody',['../classast_1_1BlockThirdBody.html',1,'ast']]],
   ['blocktwobody_36',['BlockTwoBody',['../classast_1_1BlockTwoBody.html',1,'ast']]],
   ['blockunaryminus_37',['BlockUnaryMinus',['../classast_1_1BlockUnaryMinus.html',1,'ast']]],
-  ['bodyshape_38',['BodyShape',['../classast_1_1BodyShape.html',1,'ast']]],
-  ['breakpoint_39',['Breakpoint',['../classast_1_1Breakpoint.html',1,'ast']]],
-  ['brenthsolver_40',['BrenthSolver',['../classast_1_1BrenthSolver.html',1,'ast']]],
-  ['brentqsolver_41',['BrentqSolver',['../classast_1_1BrentqSolver.html',1,'ast']]]
+  ['bodyephemeris_38',['BodyEphemeris',['../classast_1_1BodyEphemeris.html',1,'ast']]],
+  ['bodyorientation_39',['BodyOrientation',['../classast_1_1BodyOrientation.html',1,'ast']]],
+  ['bodyshape_40',['BodyShape',['../classast_1_1BodyShape.html',1,'ast']]],
+  ['breakpoint_41',['Breakpoint',['../classast_1_1Breakpoint.html',1,'ast']]],
+  ['brenthsolver_42',['BrenthSolver',['../classast_1_1BrenthSolver.html',1,'ast']]],
+  ['brentqsolver_43',['BrentqSolver',['../classast_1_1BrentqSolver.html',1,'ast']]]
 ];

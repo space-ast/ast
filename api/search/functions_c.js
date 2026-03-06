@@ -14,11 +14,12 @@ var searchData=
   ['loaddefault_11',['loadDefault',['../classast_1_1IAUXYS.html#a7d5daec489f976f9348c4476d88c2345',1,'ast::IAUXYS::loadDefault()'],['../classast_1_1IAUXYSPrecomputed.html#aebd0e44f2e1627e3c36e29965e2d808d',1,'ast::IAUXYSPrecomputed::loadDefault()'],['../classast_1_1EOP.html#adf23dd8875fee92af98e99573db2bd9a',1,'ast::EOP::loadDefault()'],['../classast_1_1LeapSecond.html#a9bbcee0832f52ae557b338cb74734a38',1,'ast::LeapSecond::loadDefault()'],['../classast_1_1SpaceWeather.html#a9da49e8f7e5825b0d8c5fff54e00c55f',1,'ast::SpaceWeather::loadDefault()'],['../classast_1_1SolarSystem.html#aff303030ede3db3a326e13d50e3cc63b',1,'ast::SolarSystem::loadDefault()']]],
   ['loadearth_12',['loadEarth',['../classast_1_1CelestialBody.html#ad5b66f1b2b4431668c2807f4b80c2846',1,'ast::CelestialBody']]],
   ['loadephemerisdata_13',['loadEphemerisData',['../classast_1_1CelestialBody.html#a6a624ea14aa4c5552b9eb22a5ed8b249',1,'ast::CelestialBody']]],
-  ['loadhpiers_14',['loadHPIERS',['../classast_1_1LeapSecond.html#a8ca1e1a8bef4ece7e81b4055ed9f408a',1,'ast::LeapSecond']]],
-  ['loadiers_15',['loadIERS',['../classast_1_1NutationSeries.html#a120126fdd82ed0d91ddc848728f016de',1,'ast::NutationSeries']]],
-  ['loadspaceweather_16',['loadSpaceWeather',['../namespaceast.html#a94f4cf75f889ec56c67b248dea11ef71',1,'ast']]],
-  ['loadspindata_17',['loadSpinData',['../classast_1_1CelestialBody.html#aedb5faa6c8ec0dba3f23f97b04c93dbb',1,'ast::CelestialBody']]],
-  ['loadstk_18',['loadSTK',['../classast_1_1NutationSeries.html#a869cd5a209a9a95fe59635e8960a886b',1,'ast::NutationSeries']]],
-  ['longitude_19',['longitude',['../classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9',1,'ast::GeoCoordinate::longitude() const'],['../classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280',1,'ast::GeoCoordinate::longitude()'],['../classast_1_1LatLonAlt.html#a77ac2552ea9ebde8c3be5886a7f911ed',1,'ast::LatLonAlt::longitude() const'],['../classast_1_1LatLonAlt.html#aacdeccd7f62b46738ee57bc706824dcc',1,'ast::LatLonAlt::longitude()']]],
-  ['luminous_20',['Luminous',['../classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978',1,'ast::Dimension']]]
+  ['loadgravitymodel_14',['loadGravityModel',['../classast_1_1CelestialBody.html#ae7d3d7c1c92f69d792ebe383cc45e34f',1,'ast::CelestialBody']]],
+  ['loadhpiers_15',['loadHPIERS',['../classast_1_1LeapSecond.html#a8ca1e1a8bef4ece7e81b4055ed9f408a',1,'ast::LeapSecond']]],
+  ['loadiers_16',['loadIERS',['../classast_1_1NutationSeries.html#a120126fdd82ed0d91ddc848728f016de',1,'ast::NutationSeries']]],
+  ['loadspaceweather_17',['loadSpaceWeather',['../namespaceast.html#a94f4cf75f889ec56c67b248dea11ef71',1,'ast']]],
+  ['loadspindata_18',['loadSpinData',['../classast_1_1CelestialBody.html#aedb5faa6c8ec0dba3f23f97b04c93dbb',1,'ast::CelestialBody']]],
+  ['loadstk_19',['loadSTK',['../classast_1_1NutationSeries.html#a869cd5a209a9a95fe59635e8960a886b',1,'ast::NutationSeries']]],
+  ['longitude_20',['longitude',['../classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9',1,'ast::GeoCoordinate::longitude() const'],['../classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280',1,'ast::GeoCoordinate::longitude()'],['../classast_1_1LatLonAlt.html#a77ac2552ea9ebde8c3be5886a7f911ed',1,'ast::LatLonAlt::longitude() const'],['../classast_1_1LatLonAlt.html#aacdeccd7f62b46738ee57bc706824dcc',1,'ast::LatLonAlt::longitude()']]],
+  ['luminous_21',['Luminous',['../classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978',1,'ast::Dimension']]]
 ];

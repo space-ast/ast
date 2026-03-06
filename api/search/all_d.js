@@ -98,10 +98,12 @@ var searchData=
   ['moonframe_2ecpp_95',['MoonFrame.cpp',['../MoonFrame_8cpp.html',1,'']]],
   ['moonframe_2ehpp_96',['MoonFrame.hpp',['../MoonFrame_8hpp.html',1,'']]],
   ['moongravity_5f_97',['moonGravity_',['../classast_1_1HPOPForceModel.html#a85e853fc4194338a7b3f231dc50c416c',1,'ast::HPOPForceModel']]],
-  ['ms_98',['ms',['../Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8',1,'ast::units']]],
-  ['mtimes_99',['mtimes',['../namespaceast_1_1math.html#ad55476707790d13c96d9eef28526cbcf',1,'ast::math']]],
-  ['multiply_100',['multiply',['../classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee',1,'ast::Unit']]],
-  ['multitype_101',['Multitype',['../unionMultitype.html',1,'']]],
-  ['mxm_102',['mxm',['../group__Spice.html#ga186312adcab3a6cc586e7affaa431d69',1,'ast']]],
-  ['mxvg_103',['mxvg',['../group__A__CLINKAGE__BEGIN.html#ga9eb15e905fc60681ba3f67aab5183492',1,'ast']]]
+  ['moonorientation_2ecpp_98',['MoonOrientation.cpp',['../MoonOrientation_8cpp.html',1,'']]],
+  ['moonorientation_2ehpp_99',['MoonOrientation.hpp',['../MoonOrientation_8hpp.html',1,'']]],
+  ['ms_100',['ms',['../Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8',1,'ast::units']]],
+  ['mtimes_101',['mtimes',['../namespaceast_1_1math.html#ad55476707790d13c96d9eef28526cbcf',1,'ast::math']]],
+  ['multiply_102',['multiply',['../classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee',1,'ast::Unit']]],
+  ['multitype_103',['Multitype',['../unionMultitype.html',1,'']]],
+  ['mxm_104',['mxm',['../group__Spice.html#ga186312adcab3a6cc586e7affaa431d69',1,'ast']]],
+  ['mxvg_105',['mxvg',['../group__A__CLINKAGE__BEGIN.html#ga9eb15e905fc60681ba3f67aab5183492',1,'ast']]]
 ];

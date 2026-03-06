@@ -25,5 +25,9 @@ var searchData=
   ['avalquantity_5ftype_22',['aValQuantity_Type',['../namespaceast.html#a14bb96767b334777d8feb34bd589e78b',1,'ast']]],
   ['avalrange_5ftype_23',['aValRange_Type',['../namespaceast.html#a19592fb0313b0eeb8a108ad4db5f1d27',1,'ast']]],
   ['avalstring_5ftype_24',['aValString_Type',['../namespaceast.html#a9c9dc8b0376bee509f23cd301f2dea0b',1,'ast']]],
-  ['axis_5f_25',['axis_',['../classast_1_1AngleAxis.html#ae403cba318176d5a4d12a6406c48c4e9',1,'ast::AngleAxis']]]
+  ['axesfixed_5f_25',['axesFixed_',['../classast_1_1CelestialBody.html#a8c579706d5ac87f5ef0fc8a1c0c8c9d8',1,'ast::CelestialBody']]],
+  ['axesinertial_5f_26',['axesInertial_',['../classast_1_1CelestialBody.html#abef5cc4326c1d9f3e839868d2722c9f6',1,'ast::CelestialBody']]],
+  ['axesmod_5f_27',['axesMOD_',['../classast_1_1CelestialBody.html#a11879995b1f42dbcdff2f0c966b4ebd2',1,'ast::CelestialBody']]],
+  ['axestod_5f_28',['axesTOD_',['../classast_1_1CelestialBody.html#a3846f684b8934029ddd0c0c23f28e41f',1,'ast::CelestialBody']]],
+  ['axis_5f_29',['axis_',['../classast_1_1AngleAxis.html#ae403cba318176d5a4d12a6406c48c4e9',1,'ast::AngleAxis']]]
 ];

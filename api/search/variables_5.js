@@ -7,9 +7,10 @@ var searchData=
   ['elapsedtime_5f_4',['elapsedTime_',['../classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081',1,'ast::SimTime']]],
   ['elems_5f_5',['elems_',['../classast_1_1ExprContainer.html#aa75aa4460115d0197563ab85a73466b6',1,'ast::ExprContainer']]],
   ['end_5f_6',['end_',['../classast_1_1TimeInterval.html#a752c23e1997ada9bd50aff076bbcb81c',1,'ast::TimeInterval']]],
-  ['epoch_5f_7',['epoch_',['../classast_1_1HPOPEquation.html#a3accc94eaef2d5abd3bc134202770c48',1,'ast::HPOPEquation::epoch_'],['../classast_1_1J2J4Analytical.html#a9910ce3bb4991ceca4bbbf7d663b363e',1,'ast::J2J4Analytical::epoch_'],['../classast_1_1TimeInterval.html#a30a4b9dc4484a1e5db955dd25d586829',1,'ast::TimeInterval::epoch_']]],
-  ['equation_5f_8',['equation_',['../classast_1_1HPOP.html#a35fca2be2f3d9005b6dc517d71a27611',1,'ast::HPOP']]],
-  ['errstring_5f_9',['errString_',['../classast_1_1Interpreter.html#a5d7a5b673c762bf5dc91fd1b79005167',1,'ast::Interpreter']]],
-  ['eventdetectorlist_5f_10',['eventDetectorList_',['../classast_1_1ODEIntegrator.html#ad03353fdea45aa002356a2659684e7e7',1,'ast::ODEIntegrator']]],
-  ['expr_5f_11',['expr_',['../classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532',1,'ast::OpUnary::expr_'],['../classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4',1,'ast::Variable::expr_']]]
+  ['ephemeris_5f_7',['ephemeris_',['../classast_1_1CelestialBody.html#ac6e982c6c9db4e20ac0263743ec90631',1,'ast::CelestialBody']]],
+  ['epoch_5f_8',['epoch_',['../classast_1_1HPOPEquation.html#a3accc94eaef2d5abd3bc134202770c48',1,'ast::HPOPEquation::epoch_'],['../classast_1_1J2J4Analytical.html#a9910ce3bb4991ceca4bbbf7d663b363e',1,'ast::J2J4Analytical::epoch_'],['../classast_1_1TimeInterval.html#a30a4b9dc4484a1e5db955dd25d586829',1,'ast::TimeInterval::epoch_']]],
+  ['equation_5f_9',['equation_',['../classast_1_1HPOP.html#a35fca2be2f3d9005b6dc517d71a27611',1,'ast::HPOP']]],
+  ['errstring_5f_10',['errString_',['../classast_1_1Interpreter.html#a5d7a5b673c762bf5dc91fd1b79005167',1,'ast::Interpreter']]],
+  ['eventdetectorlist_5f_11',['eventDetectorList_',['../classast_1_1ODEIntegrator.html#ad03353fdea45aa002356a2659684e7e7',1,'ast::ODEIntegrator']]],
+  ['expr_5f_12',['expr_',['../classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532',1,'ast::OpUnary::expr_'],['../classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4',1,'ast::Variable::expr_']]]
 ];

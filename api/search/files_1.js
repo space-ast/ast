@@ -81,11 +81,13 @@ var searchData=
   ['blocktwobody_2ehpp_78',['BlockTwoBody.hpp',['../BlockTwoBody_8hpp.html',1,'']]],
   ['blockunaryminus_2ecpp_79',['BlockUnaryMinus.cpp',['../BlockUnaryMinus_8cpp.html',1,'']]],
   ['blockunaryminus_2ehpp_80',['BlockUnaryMinus.hpp',['../BlockUnaryMinus_8hpp.html',1,'']]],
-  ['bodyshape_2ecpp_81',['BodyShape.cpp',['../BodyShape_8cpp.html',1,'']]],
-  ['bodyshape_2ehpp_82',['BodyShape.hpp',['../BodyShape_8hpp.html',1,'']]],
-  ['breakpoint_2ecpp_83',['Breakpoint.cpp',['../Breakpoint_8cpp.html',1,'']]],
-  ['brentsolver_2ecpp_84',['BrentSolver.cpp',['../BrentSolver_8cpp.html',1,'']]],
-  ['brentsolver_2ehpp_85',['BrentSolver.hpp',['../BrentSolver_8hpp.html',1,'']]],
-  ['builtinaxes_2ecpp_86',['BuiltinAxes.cpp',['../BuiltinAxes_8cpp.html',1,'']]],
-  ['builtinaxes_2ehpp_87',['BuiltinAxes.hpp',['../BuiltinAxes_8hpp.html',1,'']]]
+  ['bodyephemeris_2ecpp_81',['BodyEphemeris.cpp',['../BodyEphemeris_8cpp.html',1,'']]],
+  ['bodyephemeris_2ehpp_82',['BodyEphemeris.hpp',['../BodyEphemeris_8hpp.html',1,'']]],
+  ['bodyshape_2ecpp_83',['BodyShape.cpp',['../BodyShape_8cpp.html',1,'']]],
+  ['bodyshape_2ehpp_84',['BodyShape.hpp',['../BodyShape_8hpp.html',1,'']]],
+  ['breakpoint_2ecpp_85',['Breakpoint.cpp',['../Breakpoint_8cpp.html',1,'']]],
+  ['brentsolver_2ecpp_86',['BrentSolver.cpp',['../BrentSolver_8cpp.html',1,'']]],
+  ['brentsolver_2ehpp_87',['BrentSolver.hpp',['../BrentSolver_8hpp.html',1,'']]],
+  ['builtinaxes_2ecpp_88',['BuiltinAxes.cpp',['../BuiltinAxes_8cpp.html',1,'']]],
+  ['builtinaxes_2ehpp_89',['BuiltinAxes.hpp',['../BuiltinAxes_8hpp.html',1,'']]]
 ];

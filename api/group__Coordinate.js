@@ -1,5 +1,29 @@
 var group__Coordinate =
 [
+    [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", [
+      [ "getParent", "classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda", null ],
+      [ "getTransform", "classast_1_1AxesBodyFixed.html#ab7f10d3f2ad0855bd3d9ff5f8b93e9a0", null ],
+      [ "getTransform", "classast_1_1AxesBodyFixed.html#a3975a8435b77ad63f8cf535fd2ae2d51", null ]
+    ] ],
+    [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", [
+      [ "getParent", "classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35", null ],
+      [ "getTransform", "classast_1_1AxesBodyInertial.html#a1eab770e26b63a087b4b9d695df89305", null ],
+      [ "getTransform", "classast_1_1AxesBodyInertial.html#acfc162f771c14f224f04c2c5b5f704b5", null ]
+    ] ],
+    [ "ast::AxesBodyMOD", "classast_1_1AxesBodyMOD.html", [
+      [ "getParent", "classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c", null ],
+      [ "getTransform", "classast_1_1AxesBodyMOD.html#a6d9e5b94312d497e61ca764473097186", null ],
+      [ "getTransform", "classast_1_1AxesBodyMOD.html#a27bf97c1e27b630667827bd02161abfa", null ]
+    ] ],
+    [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
+      [ "getBodyOrientation", "classast_1_1AxesBodyRelated.html#ab066ed33cc9d9b789e121a80ba88f761", null ],
+      [ "body_", "classast_1_1AxesBodyRelated.html#aa8fb4d373ecb9259ef507dce6910d0e2", null ]
+    ] ],
+    [ "ast::AxesBodyTOD", "classast_1_1AxesBodyTOD.html", [
+      [ "getParent", "classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe", null ],
+      [ "getTransform", "classast_1_1AxesBodyTOD.html#a21f67d54ef4fabe53a0ae5ed306271bd", null ],
+      [ "getTransform", "classast_1_1AxesBodyTOD.html#a305793c083f54bb30ac42191d38faf66", null ]
+    ] ],
     [ "ast::AxesICRF", "classast_1_1AxesICRF.html", [
       [ "getParent", "classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb", null ],
       [ "getTransform", "classast_1_1AxesICRF.html#a1b3826f4bca86b3e23351ceb60797087", null ],

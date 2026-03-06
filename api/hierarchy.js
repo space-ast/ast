@@ -23,6 +23,10 @@ var hierarchy =
       [ "ast::BKVSaxPrint", "classast_1_1BKVSaxPrint.html", null ]
     ] ],
     [ "ast::BKVTree", "classast_1_1BKVTree.html", null ],
+    [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", null ],
+    [ "ast::BodyOrientation", "classast_1_1BodyOrientation.html", [
+      [ "ast::RotationalData", "classast_1_1RotationalData.html", null ]
+    ] ],
     [ "ast::Breakpoint", "classast_1_1Breakpoint.html", null ],
     [ "ast::CallStack", "classast_1_1CallStack.html", null ],
     [ "ast::CartState", "classast_1_1CartState.html", null ],
@@ -239,6 +243,12 @@ var hierarchy =
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
       [ "ast::Axes", "classast_1_1Axes.html", [
+        [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
+          [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
+          [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
+          [ "ast::AxesBodyMOD", "classast_1_1AxesBodyMOD.html", null ],
+          [ "ast::AxesBodyTOD", "classast_1_1AxesBodyTOD.html", null ]
+        ] ],
         [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
         [ "ast::AxesRoot", "classast_1_1AxesRoot.html", null ]
       ] ],
@@ -343,7 +353,6 @@ var hierarchy =
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],
-    [ "ast::RotationalData", "classast_1_1RotationalData.html", null ],
     [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
     [ "ast::Scanner", "classast_1_1Scanner.html", [
       [ "ast::FileScanner", "classast_1_1FileScanner.html", null ],
@@ -351,10 +360,16 @@ var hierarchy =
       [ "ast::StringScanner", "classast_1_1StringScanner.html", null ]
     ] ],
     [ "ast::ScopedPtr< T >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::AxesBodyFixed >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::AxesBodyInertial >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::BodyEphemeris >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::BodyOrientation >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename >", "structast_1_1ScopedPtrDeleter.html", null ],
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename std::enable_if< std::is_base_of< Object, T >::value >::type >", "structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html", null ],
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::AxesBodyMOD >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::AxesBodyTOD >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Expr >", "classast_1_1SharedPtr.html", null ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
@@ -371,6 +386,7 @@ var hierarchy =
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
     [ "ast::SpiceAxesRegistry", "classast_1_1SpiceAxesRegistry.html", null ],
+    [ "ast::SpiceParser", "classast_1_1SpiceParser.html", null ],
     [ "ast::HPOPForceModel::SRP", "structast_1_1HPOPForceModel_1_1SRP.html", null ],
     [ "ast::StackFrame", "classast_1_1StackFrame.html", null ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
