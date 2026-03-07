@@ -112,27 +112,35 @@ $(function(){initNavTree('StringSplit_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Delimiter&gt;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">inline</span> strings_internal::Splitter&lt;typename strings_internal::SelectDelimiter&lt;Delimiter&gt;::type, strings_internal::AllowEmpty, StringView&gt;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>aStrSplit(StringView text, Delimiter delimiter) {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">using </span>DelimiterType = <span class="keyword">typename</span> strings_internal::SelectDelimiter&lt;Delimiter&gt;::type;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> strings_internal::Splitter&lt;DelimiterType, strings_internal::AllowEmpty, StringView&gt;(</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        text, DelimiterType(delimiter), strings_internal::AllowEmpty());</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Delimiter, <span class="keyword">typename</span> Predicate&gt;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">inline</span> strings_internal::Splitter&lt;typename strings_internal::SelectDelimiter&lt;Delimiter&gt;::type, Predicate, StringView&gt;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>aStrSplit(StringView text, Delimiter delimiter, Predicate predicate) {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">using </span>DelimiterType = <span class="keyword">typename</span> strings_internal::SelectDelimiter&lt;Delimiter&gt;::type;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">return</span> strings_internal::Splitter&lt;DelimiterType, Predicate, StringView&gt;(</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        text, DelimiterType(delimiter), std::move(predicate));</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Delimiter&gt;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">inline</span> strings_internal::Splitter&lt;typename strings_internal::SelectDelimiter&lt;Delimiter&gt;::type, strings_internal::AllowEmpty, StringView&gt;</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="group__String.html#gaf81d23a13b876b4b5683a6c6b7a09c93">   42</a></span><a class="code hl_function" href="group__String.html#gaf81d23a13b876b4b5683a6c6b7a09c93">aStrSplit</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> text, Delimiter delimiter) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">using </span>DelimiterType = <span class="keyword">typename</span> strings_internal::SelectDelimiter&lt;Delimiter&gt;::type;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1strings__internal_1_1Splitter.html">strings_internal::Splitter&lt;DelimiterType, strings_internal::AllowEmpty, StringView&gt;</a>(</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        text, DelimiterType(delimiter), <a class="code hl_struct" href="structast_1_1strings__internal_1_1AllowEmpty.html">strings_internal::AllowEmpty</a>());</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Delimiter, <span class="keyword">typename</span> Predicate&gt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">inline</span> strings_internal::Splitter&lt;typename strings_internal::SelectDelimiter&lt;Delimiter&gt;::type, Predicate, StringView&gt;</div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="group__String.html#ga81a7b348c2d38df07a01f644e30cb7a2">   57</a></span><a class="code hl_function" href="group__String.html#gaf81d23a13b876b4b5683a6c6b7a09c93">aStrSplit</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> text, Delimiter delimiter, Predicate predicate) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">using </span>DelimiterType = <span class="keyword">typename</span> strings_internal::SelectDelimiter&lt;Delimiter&gt;::type;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1strings__internal_1_1Splitter.html">strings_internal::Splitter&lt;DelimiterType, Predicate, StringView&gt;</a>(</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        text, DelimiterType(delimiter), std::move(predicate));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aStringSplitter_8hpp_html"><div class="ttname"><a href="StringSplitter_8hpp.html">StringSplitter.hpp</a></div></div>
 <div class="ttc" id="aStringView_8hpp_html"><div class="ttname"><a href="StringView_8hpp.html">StringView.hpp</a></div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1strings__internal_1_1Splitter_html"><div class="ttname"><a href="classast_1_1strings__internal_1_1Splitter.html">ast::strings_internal::Splitter</a></div><div class="ttdoc">字符串分隔器</div><div class="ttdef"><b>定义</b> StringSplitter.hpp:258</div></div>
+<div class="ttc" id="agroup__String_html_gaf81d23a13b876b4b5683a6c6b7a09c93"><div class="ttname"><a href="group__String.html#gaf81d23a13b876b4b5683a6c6b7a09c93">ast::aStrSplit</a></div><div class="ttdeci">strings_internal::Splitter&lt; typename strings_internal::SelectDelimiter&lt; Delimiter &gt;::type, strings_internal::AllowEmpty, StringView &gt; aStrSplit(StringView text, Delimiter delimiter)</div><div class="ttdoc">字符串分割函数</div><div class="ttdef"><b>定义</b> StringSplit.hpp:42</div></div>
+<div class="ttc" id="astructast_1_1strings__internal_1_1AllowEmpty_html"><div class="ttname"><a href="structast_1_1strings__internal_1_1AllowEmpty.html">ast::strings_internal::AllowEmpty</a></div><div class="ttdef"><b>定义</b> StringSplitter.hpp:202</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

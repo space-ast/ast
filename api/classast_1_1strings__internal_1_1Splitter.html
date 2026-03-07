@@ -105,6 +105,8 @@ $(function(){initNavTree('classast_1_1strings__internal_1_1Splitter.html',''); i
   <div class="headertitle"><div class="title">ast::strings_internal::Splitter&lt; Delimiter, Predicate, StringType &gt; 模板类 参考</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="StringSplitter_8hpp_source.html">StringSplitter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
@@ -133,7 +135,18 @@ template&lt;typename Container &gt; </td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator std::vector&lt; StringView &gt;</b> () const</td></tr>
 <tr class="separator:a2ff86cf77c3a66b2daeb66de9126e9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>该类的文档由以下文件生成:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Delimiter, typename Predicate, typename StringType = StringView&gt;<br />
+class ast::strings_internal::Splitter&lt; Delimiter, Predicate, StringType &gt;</div><p>字符串分隔器 </p>
+<p>该类用于将字符串 text 按照分隔符 delimiter 进行分割, 并根据分割条件 predicate 进行筛选。 </p><dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Delimiter</td><td>- 分隔符类型 </td></tr>
+    <tr><td class="paramname">Predicate</td><td>- 分割条件类型 </td></tr>
+    <tr><td class="paramname">StringType</td><td>- 字符串类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/String/<a class="el" href="StringSplitter_8hpp_source.html">StringSplitter.hpp</a></li>
 </ul>
 </div><!-- contents -->

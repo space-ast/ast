@@ -18,5 +18,6 @@ var StringSplitter_8hpp =
     [ "ast::strings_internal::SelectDelimiter< StringView >", "structast_1_1strings__internal_1_1SelectDelimiter_3_01StringView_01_4.html", null ],
     [ "ast::strings_internal::SelectDelimiter< std::string >", "structast_1_1strings__internal_1_1SelectDelimiter_3_01std_1_1string_01_4.html", null ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >", "classast_1_1strings__internal_1_1Splitter.html", "classast_1_1strings__internal_1_1Splitter" ],
-    [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ]
+    [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ],
+    [ "MaxSplits", "StringSplitter_8hpp.html#ga23b571e554986d779a8a24063270b42b", null ]
 ];

@@ -5,7 +5,7 @@ var dir_13ac9e70f9049d516b8f1ea23eb3d46d =
     [ "String.cpp", "String_8cpp.html", null ],
     [ "String.hpp", "String_8hpp.html", null ],
     [ "StringSplit.cpp", "StringSplit_8cpp.html", null ],
-    [ "StringSplit.hpp", "StringSplit_8hpp.html", null ],
+    [ "StringSplit.hpp", "StringSplit_8hpp.html", "StringSplit_8hpp" ],
     [ "StringSplitter.cpp", "StringSplitter_8cpp.html", null ],
     [ "StringSplitter.hpp", "StringSplitter_8hpp.html", "StringSplitter_8hpp" ],
     [ "StringUtil.cpp", "StringUtil_8cpp.html", null ],

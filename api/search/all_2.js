@@ -7,7 +7,7 @@ var searchData=
   ['baseorbitdesigner_4',['BaseOrbitDesigner',['../classast_1_1BaseOrbitDesigner.html',1,'ast']]],
   ['baseorbitdesigner_2ecpp_5',['BaseOrbitDesigner.cpp',['../BaseOrbitDesigner_8cpp.html',1,'']]],
   ['baseorbitdesigner_2ehpp_6',['BaseOrbitDesigner.hpp',['../BaseOrbitDesigner_8hpp.html',1,'']]],
-  ['begin_7',['begin',['../classast_1_1BKVSax.html#a9e71b322c3546bd8f45de3d845ff5965',1,'ast::BKVSax::begin()'],['../classast_1_1BKVSaxPrint.html#ad46361ff56f96d8d8ecdcf13b43728a0',1,'ast::BKVSaxPrint::begin()']]],
+  ['begin_7',['begin',['../classast_1_1BKVSax.html#a9e71b322c3546bd8f45de3d845ff5965',1,'ast::BKVSax::begin()'],['../classast_1_1BKVSaxPrint.html#ad46361ff56f96d8d8ecdcf13b43728a0',1,'ast::BKVSaxPrint::begin()'],['../classast_1_1strings__internal_1_1Splitter.html#ad412432d4ff0528b31017ec47afe6e67',1,'ast::strings_internal::Splitter::begin()']]],
   ['bind_8',['bind',['../classast_1_1Variable.html#ab0310fb05d4b6c86a68b5f04a81e742d',1,'ast::Variable']]],
   ['bind_5f_9',['bind_',['../classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6',1,'ast::Variable']]],
   ['bisect_10',['bisect',['../group__NLE.html#gae7b87132fc03898f8392005c491953ee',1,'ast']]],
