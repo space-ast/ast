@@ -2,8 +2,8 @@ var searchData=
 [
   ['f_5f_0',['f_',['../classast_1_1FundamentalArguments.html#a74d7f58e0f547eccfca2651331be7a8f',1,'ast::FundamentalArguments::f_'],['../classast_1_1ModEquinElem.html#acf5868e16af6f2c772c8ad1ed1784c4e',1,'ast::ModEquinElem::f_']]],
   ['file_1',['file',['../classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4',1,'ast::MessageLogContext']]],
-  ['file_5f_2',['file_',['../classast_1_1BKVParser.html#ab5eadabf6e0c6ce2b6657d9871999b86',1,'ast::BKVParser']]],
-  ['fileborrowed_5f_3',['fileBorrowed_',['../classast_1_1BKVParser.html#abb53beaf5cb7961635c6d41493330720',1,'ast::BKVParser']]],
+  ['file_5f_2',['file_',['../classast_1_1BaseParser.html#acf99ca176b2891a208cc64b66768ad1f',1,'ast::BaseParser']]],
+  ['fileborrowed_5f_3',['fileBorrowed_',['../classast_1_1BaseParser.html#af38d5b757affee30e69dfb7615d2acdc',1,'ast::BaseParser']]],
   ['flatfactor_5f_4',['flatfactor_',['../classast_1_1SpheroidShape.html#a7aea6a0c4df65e69c1867bb80901a313',1,'ast::SpheroidShape']]],
   ['forcemodel_5f_5',['forcemodel_',['../classast_1_1HPOP.html#a0b09762e785a6f7536afa526d7694a35',1,'ast::HPOP']]],
   ['fromunit_5f_6',['fromUnit_',['../classast_1_1UnitConverter.html#a66f9c0d3b47f576a3fba2f7eb10f2839',1,'ast::UnitConverter']]],

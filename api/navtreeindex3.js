@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"Literals_8hpp.html#ad6b2feff329f085cdb765ce3fcd1294a":[4,0,0,12,6,5,25],
+"Literals_8hpp.html#adb47150baf194db232bdbb92a39efadd":[4,0,0,12,6,5,23],
+"Literals_8hpp.html#ae3596dc7462fbadb4b38dc55878c074e":[4,0,0,12,6,5,7],
 "Literals_8hpp.html#ae60947175eaa8faac7143fd5f60b8997":[4,0,0,12,6,5,44],
 "Literals_8hpp.html#ae75856045494bc38a64e4e4fa2b86da9":[4,0,0,12,6,5,41],
 "Literals_8hpp.html#af11fab1d040c1dfc47d10aa468c4ca6f":[4,0,0,12,6,5,5],
@@ -182,9 +185,9 @@ var NAVTREEINDEX3 =
 "OsculatingElements_8cpp.html":[4,0,0,0,0,10],
 "OsculatingElements_8hpp.html":[4,0,0,0,0,11],
 "OsculatingElements_8hpp_source.html":[4,0,0,0,0,11],
-"ParseFormat_8cpp.html":[4,0,0,12,1,4],
-"ParseFormat_8hpp.html":[4,0,0,12,1,5],
-"ParseFormat_8hpp_source.html":[4,0,0,12,1,5],
+"ParseFormat_8cpp.html":[4,0,0,12,1,6],
+"ParseFormat_8hpp.html":[4,0,0,12,1,7],
+"ParseFormat_8hpp_source.html":[4,0,0,12,1,7],
 "Parser_8cpp.html":[4,0,0,10,7,2],
 "Parser_8hpp.html":[4,0,0,10,7,3],
 "Parser_8hpp_source.html":[4,0,0,10,7,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "Quantity_8hpp_source.html":[4,0,0,12,3,3],
 "Quaternion_8cpp.html":[4,0,0,5,1,9],
 "RK4_8cpp.html":[4,0,0,5,5,0,0],
-"RK4_8hpp.html":[4,0,0,5,5,0,1],
-"RK4_8hpp_source.html":[4,0,0,5,5,0,1],
-"RK8_8cpp.html":[4,0,0,5,5,0,2],
-"RK8_8hpp.html":[4,0,0,5,5,0,3]
+"RK4_8hpp.html":[4,0,0,5,5,0,1]
 };

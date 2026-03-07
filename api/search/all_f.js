@@ -56,7 +56,7 @@ var searchData=
   ['opbinregistry_53',['OpBinRegistry',['../classast_1_1OpBinRegistry.html',1,'ast']]],
   ['opbinregistry_2ecpp_54',['OpBinRegistry.cpp',['../OpBinRegistry_8cpp.html',1,'']]],
   ['opbinregistry_2ehpp_55',['OpBinRegistry.hpp',['../OpBinRegistry_8hpp.html',1,'']]],
-  ['open_56',['open',['../classast_1_1JplDe.html#aa45e7778ca7853a1fbb406b2448c38a3',1,'ast::JplDe::open()'],['../classast_1_1BKVParser.html#af589ae985e7e64535a369a8a32bb0676',1,'ast::BKVParser::open()']]],
+  ['open_56',['open',['../classast_1_1JplDe.html#aa45e7778ca7853a1fbb406b2448c38a3',1,'ast::JplDe::open()'],['../classast_1_1BaseParser.html#a668c69dc73c3e8e0ed327e6af19d569d',1,'ast::BaseParser::open()']]],
   ['operator_20container_57',['operator Container',['../classast_1_1strings__internal_1_1Splitter.html#a854c828dcbd9c509b041ef6577ea5c14',1,'ast::strings_internal::Splitter']]],
   ['operator_20edimension_58',['operator EDimension',['../classast_1_1Dimension.html#a57acfc3f10b516dfe46450011d033848',1,'ast::Dimension']]],
   ['operator_20std_3a_3avector_3c_20std_3a_3astring_20_3e_59',['vector&lt; std::string &gt;',['../classast_1_1strings__internal_1_1Splitter.html#ad4a8b911ac94202ccb286827461d4d11',1,'ast::strings_internal::Splitter']]],

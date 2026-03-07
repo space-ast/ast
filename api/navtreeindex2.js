@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"GFAngularSeparationSearch_8hpp.html":[4,0,0,0,1,3],
+"GFAngularSeparationSearch_8hpp_source.html":[4,0,0,0,1,3],
+"GFCoordinateSearch_8cpp.html":[4,0,0,0,1,4],
 "GFCoordinateSearch_8hpp.html":[4,0,0,0,1,5],
 "GFCoordinateSearch_8hpp_source.html":[4,0,0,0,1,5],
 "GFDistanceSearch_8cpp.html":[4,0,0,0,1,6],
@@ -32,9 +35,9 @@ var NAVTREEINDEX2 =
 "GUI_8cpp.html":[4,0,0,12,2,7],
 "GUI_8hpp.html":[4,0,0,12,2,8],
 "GUI_8hpp_source.html":[4,0,0,12,2,8],
-"GenericValue_8cpp.html":[4,0,0,12,1,2],
-"GenericValue_8hpp.html":[4,0,0,12,1,3],
-"GenericValue_8hpp_source.html":[4,0,0,12,1,3],
+"GenericValue_8cpp.html":[4,0,0,12,1,4],
+"GenericValue_8hpp.html":[4,0,0,12,1,5],
+"GenericValue_8hpp_source.html":[4,0,0,12,1,5],
 "GeoCoordinate_8cpp.html":[4,0,0,2,5,2,1,1],
 "GeoCoordinate_8cpp.html#a2716f3c71f6cd635ffaf3c4c76a2e667":[4,0,0,2,5,2,1,1,2],
 "GeoCoordinate_8cpp.html#a643d79418b063ea2bd4b4d98f9801405":[4,0,0,2,5,2,1,1,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "Literals_8hpp.html#abde92cf5f25ada5bfe409de36295c59e":[4,0,0,12,6,5,9],
 "Literals_8hpp.html#ac6a292274cfd596c85b05d6cbf0153ef":[4,0,0,12,6,5,36],
 "Literals_8hpp.html#aceb9bef91cffb399ead643bba3528915":[4,0,0,12,6,5,20],
-"Literals_8hpp.html#ad4a530d5fcb3c2c2343def8dcbde3aa2":[4,0,0,12,6,5,11],
-"Literals_8hpp.html#ad6b2feff329f085cdb765ce3fcd1294a":[4,0,0,12,6,5,25],
-"Literals_8hpp.html#adb47150baf194db232bdbb92a39efadd":[4,0,0,12,6,5,23],
-"Literals_8hpp.html#ae3596dc7462fbadb4b38dc55878c074e":[4,0,0,12,6,5,7]
+"Literals_8hpp.html#ad4a530d5fcb3c2c2343def8dcbde3aa2":[4,0,0,12,6,5,11]
 };

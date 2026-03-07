@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::BaseParser类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1BaseParser.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1BaseParser-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::BaseParser类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__ParseFormat.html">文本解析和格式化</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BaseParser_8hpp_source.html">BaseParser.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::BaseParser 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1BaseParser.png" usemap="#ast::BaseParser_map" alt=""/>
+  <map id="ast::BaseParser_map" name="ast::BaseParser_map">
+<area href="classast_1_1BKVParser.html" title="键值对解析器（BlockKeyValueParser）" alt="ast::BKVParser" shape="rect" coords="0,56,104,80"/>
+<area href="classast_1_1SpiceParser.html" title="SPICE内核文件解析器(parser for SPICE kernel file)" alt="ast::SpiceParser" shape="rect" coords="114,56,218,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:acb772a638cdba05ae44dd5b9a9c045bb" id="r_acb772a638cdba05ae44dd5b9a9c045bb"><td class="memItemLeft" align="right" valign="top"><a id="acb772a638cdba05ae44dd5b9a9c045bb" name="acb772a638cdba05ae44dd5b9a9c045bb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseParser</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
+<tr class="separator:acb772a638cdba05ae44dd5b9a9c045bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a668c69dc73c3e8e0ed327e6af19d569d" id="r_a668c69dc73c3e8e0ed327e6af19d569d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a668c69dc73c3e8e0ed327e6af19d569d">open</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
+<tr class="separator:a668c69dc73c3e8e0ed327e6af19d569d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d5391a1aea013594950400a030065c" id="r_a24d5391a1aea013594950400a030065c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24d5391a1aea013594950400a030065c">isOpen</a> () const</td></tr>
+<tr class="separator:a24d5391a1aea013594950400a030065c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf727ec1d7cf9c20af89b93523cad51a" id="r_aaf727ec1d7cf9c20af89b93523cad51a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf727ec1d7cf9c20af89b93523cad51a">close</a> ()</td></tr>
+<tr class="separator:aaf727ec1d7cf9c20af89b93523cad51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8198c9c0e1d48ecbcef8dc936a57b1ac" id="r_a8198c9c0e1d48ecbcef8dc936a57b1ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8198c9c0e1d48ecbcef8dc936a57b1ac">seek</a> (std::streamoff pos, std::ios::seekdir dir)</td></tr>
+<tr class="separator:a8198c9c0e1d48ecbcef8dc936a57b1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac368ef116424352bb0ad91ca29b49ded" id="r_ac368ef116424352bb0ad91ca29b49ded"><td class="memItemLeft" align="right" valign="top">std::streamoff&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac368ef116424352bb0ad91ca29b49ded">tell</a> ()</td></tr>
+<tr class="separator:ac368ef116424352bb0ad91ca29b49ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4807b86dfe5303eba5a8701cd9ad9f2d" id="r_a4807b86dfe5303eba5a8701cd9ad9f2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4807b86dfe5303eba5a8701cd9ad9f2d">eof</a> () const</td></tr>
+<tr class="separator:a4807b86dfe5303eba5a8701cd9ad9f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21da5069622d910ae3784a60af89de6d" id="r_a21da5069622d910ae3784a60af89de6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21da5069622d910ae3784a60af89de6d">getLineNumber</a> ()</td></tr>
+<tr class="separator:a21da5069622d910ae3784a60af89de6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f36fb73ad99afd14da9774aa18f41e8" id="r_a4f36fb73ad99afd14da9774aa18f41e8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f36fb73ad99afd14da9774aa18f41e8">getFilePath</a> () const</td></tr>
+<tr class="separator:a4f36fb73ad99afd14da9774aa18f41e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ffc6e1ebca53ddfe3f0b78dd6dd8307" id="r_a0ffc6e1ebca53ddfe3f0b78dd6dd8307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ffc6e1ebca53ddfe3f0b78dd6dd8307">setBorrowedFile</a> (FILE *file)</td></tr>
+<tr class="separator:a0ffc6e1ebca53ddfe3f0b78dd6dd8307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e9236f80e0c1d50aa87bd46180d500" id="r_af4e9236f80e0c1d50aa87bd46180d500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4e9236f80e0c1d50aa87bd46180d500">setOwnedFile</a> (FILE *file)</td></tr>
+<tr class="separator:af4e9236f80e0c1d50aa87bd46180d500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:ac4732cf70fbc24d627ea01a0fe63f975" id="r_ac4732cf70fbc24d627ea01a0fe63f975"><td class="memItemLeft" align="right" valign="top"><a id="ac4732cf70fbc24d627ea01a0fe63f975" name="ac4732cf70fbc24d627ea01a0fe63f975"></a>
+FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>getFile</b> () const</td></tr>
+<tr class="separator:ac4732cf70fbc24d627ea01a0fe63f975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:acf99ca176b2891a208cc64b66768ad1f" id="r_acf99ca176b2891a208cc64b66768ad1f"><td class="memItemLeft" align="right" valign="top"><a id="acf99ca176b2891a208cc64b66768ad1f" name="acf99ca176b2891a208cc64b66768ad1f"></a>
+FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>file_</b> {nullptr}</td></tr>
+<tr class="separator:acf99ca176b2891a208cc64b66768ad1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38d5b757affee30e69dfb7615d2acdc" id="r_af38d5b757affee30e69dfb7615d2acdc"><td class="memItemLeft" align="right" valign="top"><a id="af38d5b757affee30e69dfb7615d2acdc" name="af38d5b757affee30e69dfb7615d2acdc"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>fileBorrowed_</b> {false}</td></tr>
+<tr class="separator:af38d5b757affee30e69dfb7615d2acdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>解析器基类 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="aaf727ec1d7cf9c20af89b93523cad51a" name="aaf727ec1d7cf9c20af89b93523cad51a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf727ec1d7cf9c20af89b93523cad51a">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BaseParser::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>关闭文件 </p>
+<p>关闭当前打开的文件。 </p>
+
+</div>
+</div>
+<a id="a4807b86dfe5303eba5a8701cd9ad9f2d" name="a4807b86dfe5303eba5a8701cd9ad9f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4807b86dfe5303eba5a8701cd9ad9f2d">&#9670;&#160;</a></span>eof()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::BaseParser::eof </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>是否到达文件末尾 </p>
+<p>判断当前文件指针是否到达文件末尾。 </p><dl class="section return"><dt>返回</dt><dd>如果到达文件末尾则返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="a4f36fb73ad99afd14da9774aa18f41e8" name="a4f36fb73ad99afd14da9774aa18f41e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f36fb73ad99afd14da9774aa18f41e8">&#9670;&#160;</a></span>getFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::BaseParser::getFilePath </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前文件路径 </p>
+<p>获取当前打开文件的路径。 </p><dl class="section return"><dt>返回</dt><dd>当前文件路径 </dd></dl>
+
+</div>
+</div>
+<a id="a21da5069622d910ae3784a60af89de6d" name="a21da5069622d910ae3784a60af89de6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21da5069622d910ae3784a60af89de6d">&#9670;&#160;</a></span>getLineNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::BaseParser::getLineNumber </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前行号 </p>
+<p>获取当前解析器所在的行号。 </p><dl class="section return"><dt>返回</dt><dd>当前行号 </dd></dl>
+
+</div>
+</div>
+<a id="a24d5391a1aea013594950400a030065c" name="a24d5391a1aea013594950400a030065c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d5391a1aea013594950400a030065c">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::BaseParser::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>是否打开文件 </p>
+<p>判断当前是否有文件打开。 </p><dl class="section return"><dt>返回</dt><dd>如果有文件打开则返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="a668c69dc73c3e8e0ed327e6af19d569d" name="a668c69dc73c3e8e0ed327e6af19d569d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a668c69dc73c3e8e0ed327e6af19d569d">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BaseParser::open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>打开文件 </p>
+<p>打开指定路径的文件，用于后续的解析操作。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>文件路径视图，指定要打开的文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8198c9c0e1d48ecbcef8dc936a57b1ac" name="a8198c9c0e1d48ecbcef8dc936a57b1ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8198c9c0e1d48ecbcef8dc936a57b1ac">&#9670;&#160;</a></span>seek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BaseParser::seek </td>
+          <td>(</td>
+          <td class="paramtype">std::streamoff</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ios::seekdir</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>移动文件指针 </p>
+<p>移动当前打开文件的指针到指定位置。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>偏移量，指定要移动的字节数。 </td></tr>
+    <tr><td class="paramname">dir</td><td>方向，指定移动的方向（如 std::ios::beg, std::ios::cur, std::ios::end）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0ffc6e1ebca53ddfe3f0b78dd6dd8307" name="a0ffc6e1ebca53ddfe3f0b78dd6dd8307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ffc6e1ebca53ddfe3f0b78dd6dd8307">&#9670;&#160;</a></span>setBorrowedFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BaseParser::setBorrowedFile </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置外部借用的文件指针，不转移文件指针的所有权。 </p>
+<p>设置当前解析器使用的文件指针为外部借用的文件指针。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>外部借用的文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4e9236f80e0c1d50aa87bd46180d500" name="af4e9236f80e0c1d50aa87bd46180d500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e9236f80e0c1d50aa87bd46180d500">&#9670;&#160;</a></span>setOwnedFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BaseParser::setOwnedFile </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置文件指针，将文件指针的所有权转移给解析器。 </p>
+<p>设置当前解析器使用的文件指针，并将文件指针的所有权转移给解析器。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac368ef116424352bb0ad91ca29b49ded" name="ac368ef116424352bb0ad91ca29b49ded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac368ef116424352bb0ad91ca29b49ded">&#9670;&#160;</a></span>tell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::streamoff ast::BaseParser::tell </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前文件指针位置 </p>
+<p>获取当前打开文件的指针位置。 </p><dl class="section return"><dt>返回</dt><dd>当前文件指针位置 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/ParseFormat/<a class="el" href="BaseParser_8hpp_source.html">BaseParser.hpp</a></li>
+<li>src/AstUtil/ParseFormat/<a class="el" href="BaseParser_8cpp.html">BaseParser.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1BaseParser.html">BaseParser</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

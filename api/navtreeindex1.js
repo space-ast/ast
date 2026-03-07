@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"BlockSign_8hpp_source.html":[4,0,0,2,7,1,1,2,13],
+"BlockSin_8cpp.html":[4,0,0,2,7,1,1,5,4],
+"BlockSin_8hpp.html":[4,0,0,2,7,1,1,5,5],
 "BlockSin_8hpp_source.html":[4,0,0,2,7,1,1,5,5],
 "BlockSubtract_8cpp.html":[4,0,0,2,7,1,1,2,14],
 "BlockSubtract_8hpp.html":[4,0,0,2,7,1,1,2,15],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "FundamentalArguments_8hpp.html#a1b9159b0e123b3109b2efc385bd6c8f9":[4,0,0,2,2,2,1,2],
 "FundamentalArguments_8hpp.html#a8eae24d01051b469c69252dbdaff3236":[4,0,0,2,2,2,1,3],
 "FundamentalArguments_8hpp_source.html":[4,0,0,2,2,2,1],
-"GFAngularSeparationSearch_8cpp.html":[4,0,0,0,1,2],
-"GFAngularSeparationSearch_8hpp.html":[4,0,0,0,1,3],
-"GFAngularSeparationSearch_8hpp_source.html":[4,0,0,0,1,3],
-"GFCoordinateSearch_8cpp.html":[4,0,0,0,1,4]
+"GFAngularSeparationSearch_8cpp.html":[4,0,0,0,1,2]
 };

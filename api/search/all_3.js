@@ -37,7 +37,7 @@ var searchData=
   ['clearerrstring_34',['clearErrString',['../classast_1_1Interpreter.html#a145d9bc69a2f6b41de63774075cb0d15',1,'ast::Interpreter']]],
   ['cllist_35',['cllist',['../structcllist.html',1,'']]],
   ['clone_36',['clone',['../classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58',1,'ast::Unit']]],
-  ['close_37',['close',['../classast_1_1JplDe.html#a3195e2f276145ea57d57672b7b62d082',1,'ast::JplDe::close()'],['../classast_1_1BKVParser.html#a1c71ecbd37b7d4af4076a4bac13fe6f1',1,'ast::BKVParser::close()']]],
+  ['close_37',['close',['../classast_1_1JplDe.html#a3195e2f276145ea57d57672b7b62d082',1,'ast::JplDe::close()'],['../classast_1_1BaseParser.html#aaf727ec1d7cf9c20af89b93523cad51a',1,'ast::BaseParser::close()']]],
   ['cm_38',['cm',['../Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce',1,'ast::units']]],
   ['cnleminpacksolver_39',['CNLEMinpackSolver',['../classast_1_1CNLEMinpackSolver.html',1,'ast']]],
   ['cnlpipoptsolver_40',['CNLPIpoptSolver',['../classast_1_1CNLPIpoptSolver.html',1,'ast']]],

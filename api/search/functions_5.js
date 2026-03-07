@@ -7,7 +7,7 @@ var searchData=
   ['elapsedtime_4',['elapsedTime',['../classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88',1,'ast::SimTime']]],
   ['end_5',['end',['../classast_1_1TimeInterval.html#a6599be486269cf587b3ca4b65d41ebdd',1,'ast::TimeInterval::end()'],['../classast_1_1BKVSax.html#a362ff87ec7186ce694c2b103493b7417',1,'ast::BKVSax::end()'],['../classast_1_1BKVSaxPrint.html#aff0086d86bf3beda155b413acc4a0247',1,'ast::BKVSaxPrint::end()'],['../classast_1_1strings__internal_1_1Splitter.html#ab0309158d24a4326c2267aab29613b02',1,'ast::strings_internal::Splitter::end()']]],
   ['energy_6',['Energy',['../classast_1_1Dimension.html#a5f0ba2ddbe6add6765b51a5f86eda038',1,'ast::Dimension']]],
-  ['eof_7',['eof',['../classast_1_1BKVParser.html#a04210c967cff5dcf19f19c187bff56cb',1,'ast::BKVParser']]],
+  ['eof_7',['eof',['../classast_1_1BaseParser.html#a4807b86dfe5303eba5a8701cd9ad9f2d',1,'ast::BaseParser']]],
   ['eop_8',['eop',['../classast_1_1DataContext.html#a978e12ad204a3d7d56453f28a5013a2a',1,'ast::DataContext']]],
   ['errstring_9',['errString',['../classast_1_1Interpreter.html#a7cfd249ae449283f68748420fd27544e',1,'ast::Interpreter']]],
   ['eul2m_10',['eul2m',['../group__Spice.html#ga5e731824b990e410fb69e97f5f05c283',1,'ast']]],

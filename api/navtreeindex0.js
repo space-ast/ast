@@ -168,6 +168,9 @@ var NAVTREEINDEX0 =
 "BaseOrbitDesigner_8cpp.html":[4,0,0,2,6,0,0],
 "BaseOrbitDesigner_8hpp.html":[4,0,0,2,6,0,1],
 "BaseOrbitDesigner_8hpp_source.html":[4,0,0,2,6,0,1],
+"BaseParser_8cpp.html":[4,0,0,12,1,2],
+"BaseParser_8hpp.html":[4,0,0,12,1,3],
+"BaseParser_8hpp_source.html":[4,0,0,12,1,3],
 "BisectionSolver_8cpp.html":[4,0,0,5,4,0,1],
 "BisectionSolver_8hpp.html":[4,0,0,5,4,0,2],
 "BisectionSolver_8hpp_source.html":[4,0,0,5,4,0,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "BlockSaturation_8hpp.html":[4,0,0,2,7,1,1,0,3],
 "BlockSaturation_8hpp_source.html":[4,0,0,2,7,1,1,0,3],
 "BlockSign_8cpp.html":[4,0,0,2,7,1,1,2,12],
-"BlockSign_8hpp.html":[4,0,0,2,7,1,1,2,13],
-"BlockSign_8hpp_source.html":[4,0,0,2,7,1,1,2,13],
-"BlockSin_8cpp.html":[4,0,0,2,7,1,1,5,4],
-"BlockSin_8hpp.html":[4,0,0,2,7,1,1,5,5]
+"BlockSign_8hpp.html":[4,0,0,2,7,1,1,2,13]
 };

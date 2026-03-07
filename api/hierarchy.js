@@ -13,12 +13,15 @@ var hierarchy =
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "AVector3d", "structAVector3d.html", null ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
+    [ "ast::BaseParser", "classast_1_1BaseParser.html", [
+      [ "ast::BKVParser", "classast_1_1BKVParser.html", null ],
+      [ "ast::SpiceParser", "classast_1_1SpiceParser.html", null ]
+    ] ],
     [ "ast::BKVItemView", "classast_1_1BKVItemView.html", null ],
     [ "ast::BKVNode", "classast_1_1BKVNode.html", [
       [ "ast::BKVBlock", "classast_1_1BKVBlock.html", null ],
       [ "ast::BKVItem", "classast_1_1BKVItem.html", null ]
     ] ],
-    [ "ast::BKVParser", "classast_1_1BKVParser.html", null ],
     [ "ast::BKVSax", "classast_1_1BKVSax.html", [
       [ "ast::BKVSaxDOM", "classast_1_1BKVSaxDOM.html", null ],
       [ "ast::BKVSaxPrint", "classast_1_1BKVSaxPrint.html", null ]
@@ -409,7 +412,6 @@ var hierarchy =
     [ "ast::SpiceAxesRegistry", "classast_1_1SpiceAxesRegistry.html", null ],
     [ "ast::SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", null ],
     [ "ast::SpiceFrameRegistry", "classast_1_1SpiceFrameRegistry.html", null ],
-    [ "ast::SpiceParser", "classast_1_1SpiceParser.html", null ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >", "classast_1_1strings__internal_1_1Splitter.html", null ],
     [ "ast::HPOPForceModel::SRP", "structast_1_1HPOPForceModel_1_1SRP.html", null ],
     [ "ast::StackFrame", "classast_1_1StackFrame.html", null ],

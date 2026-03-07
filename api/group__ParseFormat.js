@@ -1,5 +1,19 @@
 var group__ParseFormat =
 [
+    [ "ast::BaseParser", "classast_1_1BaseParser.html", [
+      [ "close", "classast_1_1BaseParser.html#aaf727ec1d7cf9c20af89b93523cad51a", null ],
+      [ "eof", "classast_1_1BaseParser.html#a4807b86dfe5303eba5a8701cd9ad9f2d", null ],
+      [ "getFilePath", "classast_1_1BaseParser.html#a4f36fb73ad99afd14da9774aa18f41e8", null ],
+      [ "getLineNumber", "classast_1_1BaseParser.html#a21da5069622d910ae3784a60af89de6d", null ],
+      [ "isOpen", "classast_1_1BaseParser.html#a24d5391a1aea013594950400a030065c", null ],
+      [ "open", "classast_1_1BaseParser.html#a668c69dc73c3e8e0ed327e6af19d569d", null ],
+      [ "seek", "classast_1_1BaseParser.html#a8198c9c0e1d48ecbcef8dc936a57b1ac", null ],
+      [ "setBorrowedFile", "classast_1_1BaseParser.html#a0ffc6e1ebca53ddfe3f0b78dd6dd8307", null ],
+      [ "setOwnedFile", "classast_1_1BaseParser.html#af4e9236f80e0c1d50aa87bd46180d500", null ],
+      [ "tell", "classast_1_1BaseParser.html#ac368ef116424352bb0ad91ca29b49ded", null ],
+      [ "file_", "classast_1_1BaseParser.html#acf99ca176b2891a208cc64b66768ad1f", null ],
+      [ "fileBorrowed_", "classast_1_1BaseParser.html#af38d5b757affee30e69dfb7615d2acdc", null ]
+    ] ],
     [ "ast::BKVBlock", "classast_1_1BKVBlock.html", null ],
     [ "ast::BKVItem", "classast_1_1BKVItem.html", [
       [ "BKVItem", "classast_1_1BKVItem.html#a8fef94947d4d4550e5ae413c3fdda67c", null ]
@@ -21,28 +35,16 @@ var group__ParseFormat =
         [ "eEOF", "classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fac7e1355f4ab9c9ddcd0f96af8cec7ec2", null ]
       ] ],
       [ "allowComment", "classast_1_1BKVParser.html#a63a52ed4f2a7c565015901f9bc82f385", null ],
-      [ "close", "classast_1_1BKVParser.html#a1c71ecbd37b7d4af4076a4bac13fe6f1", null ],
-      [ "eof", "classast_1_1BKVParser.html#a04210c967cff5dcf19f19c187bff56cb", null ],
-      [ "getFilePath", "classast_1_1BKVParser.html#a19ebc6532ea06307c1004dded2184c51", null ],
       [ "getLine", "classast_1_1BKVParser.html#a5d050645e706306bd4cd4148b1ff9bdd", null ],
-      [ "getLineNumber", "classast_1_1BKVParser.html#a82276b173c31088ca4f4042d790b090e", null ],
       [ "getLineSkipComment", "classast_1_1BKVParser.html#ae9250e39c92322d981ea7e4a5b152a57", null ],
       [ "getLineTrim", "classast_1_1BKVParser.html#a8aafcb92ea2666ab298df7404853d20a", null ],
       [ "getLineWithNewline", "classast_1_1BKVParser.html#aa573f25d2c79836358dcca1965ee3e27", null ],
       [ "getNext", "classast_1_1BKVParser.html#a17f23e91ec51777fd6db5638e89f6351", null ],
       [ "getNext", "classast_1_1BKVParser.html#a5ca7454cc8a700a271a76f81e7c5d5c9", null ],
-      [ "isOpen", "classast_1_1BKVParser.html#aa2f4a011f73e784e58321f64a9b1b030", null ],
-      [ "open", "classast_1_1BKVParser.html#af589ae985e7e64535a369a8a32bb0676", null ],
       [ "parse", "classast_1_1BKVParser.html#a7cb0e9045a9729b58d4240028b842662", null ],
       [ "parseFile", "classast_1_1BKVParser.html#a8d7f34e1b4134168462d9b2f578c90bb", null ],
-      [ "seek", "classast_1_1BKVParser.html#ab5e3b9d20a38dd3718980b64de2233e1", null ],
       [ "setAllowComment", "classast_1_1BKVParser.html#ac3b3fda438e76bbc8d86755773dc1d8a", null ],
-      [ "setBorrowedFile", "classast_1_1BKVParser.html#aab910d614b29c6735612767e310de0db", null ],
-      [ "setOwnedFile", "classast_1_1BKVParser.html#aad9c91824387cb3d10bc7c503265c72a", null ],
-      [ "tell", "classast_1_1BKVParser.html#a56d65b7678a798ee2ab627d39118a469", null ],
       [ "allowComment_", "classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a", null ],
-      [ "file_", "classast_1_1BKVParser.html#ab5eadabf6e0c6ce2b6657d9871999b86", null ],
-      [ "fileBorrowed_", "classast_1_1BKVParser.html#abb53beaf5cb7961635c6d41493330720", null ],
       [ "keyBuffer", "classast_1_1BKVParser.html#a65a55897a4546955337443cd7d9ae1f6", null ],
       [ "valueBuffer", "classast_1_1BKVParser.html#aa31776af959e457628ab241ff94cdf49", null ]
     ] ],

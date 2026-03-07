@@ -87,7 +87,7 @@ var searchData=
   ['isloaded_5f_84',['isLoaded_',['../classast_1_1IAUXYS.html#ab8872368ab4a6040eded4117a44484fd',1,'ast::IAUXYS']]],
   ['isnormalized_85',['isNormalized',['../classast_1_1GravityField.html#a91c361e7ae41455bd164122e91e693ea',1,'ast::GravityField']]],
   ['isoctaldigit_86',['isOctalDigit',['../namespaceast.html#a7355dae83cf21fdd8862a4f2e84dc01d',1,'ast']]],
-  ['isopen_87',['isOpen',['../classast_1_1JplDe.html#a5091d44c89924335deb184e72715723d',1,'ast::JplDe::isOpen()'],['../classast_1_1BKVParser.html#aa2f4a011f73e784e58321f64a9b1b030',1,'ast::BKVParser::isOpen()']]],
+  ['isopen_87',['isOpen',['../classast_1_1JplDe.html#a5091d44c89924335deb184e72715723d',1,'ast::JplDe::isOpen()'],['../classast_1_1BaseParser.html#a24d5391a1aea013594950400a030065c',1,'ast::BaseParser::isOpen()']]],
   ['isunit_88',['isUnit',['../classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210',1,'ast::Dimension']]],
   ['isvalid_89',['isValid',['../classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2',1,'ast::Quantity::isValid()'],['../classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c',1,'ast::Unit::isValid()']]],
   ['isvaliddegreeorder_90',['isValidDegreeOrder',['../classast_1_1GravityField.html#ace7869e6a5481612ef36ba1480ce1b7f',1,'ast::GravityField']]],

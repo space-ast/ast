@@ -49,6 +49,7 @@ var annotated_dup =
       [ "AxesRoot", "classast_1_1AxesRoot.html", "classast_1_1AxesRoot" ],
       [ "BackTrace", "classast_1_1BackTrace.html", null ],
       [ "BaseOrbitDesigner", "classast_1_1BaseOrbitDesigner.html", "classast_1_1BaseOrbitDesigner" ],
+      [ "BaseParser", "classast_1_1BaseParser.html", "classast_1_1BaseParser" ],
       [ "BisectionSolver", "classast_1_1BisectionSolver.html", "classast_1_1BisectionSolver" ],
       [ "BKVBlock", "classast_1_1BKVBlock.html", null ],
       [ "BKVItem", "classast_1_1BKVItem.html", "classast_1_1BKVItem" ],
