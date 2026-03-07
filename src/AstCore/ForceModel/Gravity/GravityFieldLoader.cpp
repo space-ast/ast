@@ -98,9 +98,9 @@ static err_t openGravityFile(BKVParser &parser, StringView model, std::string& f
                 {
                     std::string newfilepath;
                     if(prefix.empty())
-                        newfilepath = model.to_string() + suffix;
+                        newfilepath = std::string(model) + suffix;
                     else
-                        newfilepath = prefix + "/" + model.to_string() + suffix;
+                        newfilepath = prefix + "/" + std::string(model) + suffix;
                     if(fs::exists(newfilepath))
                     {
                         parser.open(newfilepath);
@@ -115,7 +115,7 @@ static err_t openGravityFile(BKVParser &parser, StringView model, std::string& f
         }
         return eErrorInvalidFile;
     }
-    filepath = model.to_string();
+    filepath = std::string(model);
     return 0;
 }
 

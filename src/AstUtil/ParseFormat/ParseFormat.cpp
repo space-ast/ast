@@ -49,7 +49,7 @@ AST_NAMESPACE_BEGIN
 
 err_t aParseBool(StringView str, bool& value)
 {
-    if (str.empty() || !str.data())
+    if (str.empty())
     {
         return eErrorNullInput;
     }
@@ -81,13 +81,13 @@ err_t aParseInt(StringView str, int& value)
     #ifdef A_CXX17
     return _aParseInt_FromChars(str, value);
     #else
-    return _aParseInt_LibC_1(str, value);
+    return _aParseInt_LibC_3(str, value);
     #endif
 }
 
 err_t _aParseInt_LibC_1(StringView sv, int& value)
 {
-    if (sv.empty() || !sv.data())
+    if (sv.empty())
     {
         return eErrorNullInput;
     }
@@ -95,7 +95,7 @@ err_t _aParseInt_LibC_1(StringView sv, int& value)
 
     // @fixme: 如果StringView 是取了字符串中的一段，可能会有问题，所以在这里先转换为string
     // @todo: 这里的效率有待提升
-    std::string str = sv.to_string();
+    std::string str(sv);
     
     // 使用标准库函数strtol进行转换
     char* endptr = nullptr;
@@ -124,11 +124,54 @@ err_t _aParseInt_LibC_2(StringView sv, int& value)
     return 0;
 }
 
+err_t _aParseInt_LibC_3(StringView sv, int &value)
+{
+    if (sv.empty())
+    {
+        return eErrorNullInput;
+    }
+
+    char buf[32];
+    char* p;
+    if(sv.size() < sizeof(buf))
+    {
+        p = buf;
+        std::memcpy(buf, sv.data(), sv.size());
+        buf[sv.size()] = '\0';
+    }else{
+        /*!
+        @bug 如果输入的字符串很长很长，可能会导致栈溢出
+        */
+        p = (char*)alloca(sv.size() + 1);
+        std::memcpy(p, sv.data(), sv.size());
+        p[sv.size()] = '\0';
+    }
+    
+    // 使用标准库函数strtol进行转换
+    char* endptr = nullptr;
+    long result = std::strtol(p, &endptr, 10);
+    
+    // 检查转换是否成功
+    if (endptr == p)
+    {
+        return eErrorParse;
+    }
+
+    // 检查是否超出int范围
+    if (result < INT_MIN || result > INT_MAX)
+    {
+        return eErrorInvalidParam;
+    }
+
+    value = static_cast<int>(result);
+    return eNoError;
+}
+
 #ifdef A_CXX17
 err_t _aParseInt_FromChars(StringView str, int &value)
 {
     str = aStripAsciiWhitespace(str);
-    auto result = std::from_chars(str.begin(), str.end(), value);
+    auto result = std::from_chars(str.data(), str.data() + str.size(), value);
     return result.ec == std::errc() ? eNoError : eErrorParse;
 }
 #endif
@@ -218,13 +261,46 @@ err_t aParseDouble(StringView str, double& value)
     #ifdef A_CXX17
     return _aParseDouble_FromChars(str, value);
     #else
-    return _aParseDouble_LibC_1(str, value);
+    return _aParseDouble_LibC_3(str, value);
     #endif
+}
+
+err_t aParseFortranDouble(StringView sv, double &value)
+{
+    return _aParseFortranDouble_2(sv, value);
+}
+
+err_t _aParseFortranDouble_1(StringView sv, double& value)
+{
+    std::string s(sv);
+    // 将 'D' 或 'd' 替换为 'e'（科学计数法标准标识符）
+    for (char& c : s) {
+        if (c == 'D' || c == 'd') 
+            c = 'e';
+    }
+    return aParseDouble(s, value);
+}
+
+err_t _aParseFortranDouble_2(StringView sv, double& value)
+{
+    char buf[32];
+    char* p = buf;
+    if(sv.size() > sizeof(buf)){
+        p = (char*)alloca(sv.size());
+    }
+    // 将 'D' 或 'd' 替换为 'e'（科学计数法标准标识符）
+    for (size_t i = 0; i < sv.size(); ++i) {
+        if (sv[i] == 'D' || sv[i] == 'd') 
+            p[i] = 'e';
+        else
+            p[i] = sv[i];
+    }
+    return aParseDouble(StringView{p, sv.size()}, value);
 }
 
 err_t _aParseDouble_LibC_1(StringView sv, double& value)
 {
-    if (sv.empty() || !sv.data())
+    if (sv.empty())
     {
         return eErrorNullInput;
     }
@@ -232,7 +308,7 @@ err_t _aParseDouble_LibC_1(StringView sv, double& value)
 
     // @fixme: 如果StringView 是取了字符串中的一段，可能会有问题，所以在这里先转换为string
     // @todo: 这里的效率有待提升
-    std::string str = sv.to_string();
+    std::string str(sv);
 
     // 使用标准库函数strtod进行转换
     char* endptr = nullptr;
@@ -248,6 +324,42 @@ err_t _aParseDouble_LibC_1(StringView sv, double& value)
     return eNoError;
 }
 
+
+err_t _aParseDouble_LibC_3(StringView sv, double& value)
+{
+    if (sv.empty())
+    {
+        return eErrorNullInput;
+    }
+
+    char buf[32];
+    char* p;
+    if(sv.size() < sizeof(buf))
+    {
+        p = buf;
+        std::memcpy(buf, sv.data(), sv.size());
+        buf[sv.size()] = '\0';
+    }else{
+        p = (char*)alloca(sv.size() + 1);
+        std::memcpy(p, sv.data(), sv.size());
+        p[sv.size()] = '\0';
+    }
+
+    // 使用标准库函数strtod进行转换
+    char* endptr = nullptr;
+    double result = std::strtod(p, &endptr);
+
+    // 检查转换是否成功
+    if (endptr == p )
+    {
+        return eErrorParse;
+    }
+
+    value = result;
+    return eNoError;
+}
+
+
 err_t _aParseDouble_LibC_2(StringView sv, double& value)
 {
     // sv = aStripAsciiWhitespace(sv);
@@ -259,7 +371,7 @@ err_t _aParseDouble_LibC_2(StringView sv, double& value)
 err_t _aParseDouble_FromChars(StringView str, double &value)
 {
     str = aStripAsciiWhitespace(str);
-    auto result = std::from_chars(str.begin(), str.end(), value);
+    auto result = std::from_chars(str.data(), str.data() + str.size(), value);
     return result.ec == std::errc() ? eNoError : eErrorParse;
 }
 
@@ -269,7 +381,7 @@ err_t _aParseDouble_FromChars(StringView str, double &value)
 err_t _aParseDouble_FromChars_Abseil(StringView str, double &value)
 {
     str = aStripAsciiWhitespace(str);
-    auto result = absl::from_chars(str.begin(), str.end(), value);
+    auto result = absl::from_chars(str.data(), str.data() + str.size(), value);
     return result.ec == std::errc() ? eNoError : eErrorParse;
 }
 #endif

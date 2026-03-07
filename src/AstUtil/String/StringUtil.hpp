@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/StringPosix.hpp"
+#include "AstUtil/StringSplit.hpp"
 
 AST_NAMESPACE_BEGIN
 

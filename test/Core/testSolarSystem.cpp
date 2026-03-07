@@ -21,19 +21,14 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/SolarSystem.hpp"
 #include "AstCore/RunTime.hpp"
+#include "AstCore/BuiltinAxes.hpp"
+#include "AstCore/FrameTransform.hpp"
+#include "AstCore/TimePoint.hpp"
 #include "AstTest/Test.hpp"
 
 
 AST_USING_NAMESPACE
 
-TEST(CelestialBody, loadEarth)
-{
-    CelestialBody earth;
-    err_t rc = earth.load(aDataDirGet() + "/SolarSystem/Earth/Earth.cb");
-    EXPECT_EQ(rc, 0);
-    EXPECT_EQ(earth.getName(), "Earth");
-
-}
 
 TEST(SolarSystem, load)
 {
@@ -52,6 +47,78 @@ TEST(SolarSystem, getBody)
     auto earth = system.getBody("Earth");
     EXPECT_NE(earth, nullptr);
 }
+
+TEST(CelestialBody, loadEarth)
+{
+    CelestialBody earth;
+    err_t rc = earth.load(aDataDirGet() + "/SolarSystem/Earth/Earth.cb");
+    EXPECT_EQ(rc, 0);
+    EXPECT_EQ(earth.getName(), "Earth");
+
+}
+
+
+TEST(CelestialBody, bodyAxes)
+{
+    aInitialize();
+    CelestialBody* earth = aGetEarth();
+    {
+        auto ecf = earth->getAxesFixed();
+        auto j2000 = aAxesJ2000();
+        KinematicRotation rot1, rot2;
+        auto tp = TimePoint::FromUTC(2022, 3, 8, 3, 11, 3);
+        aAxesTransform(j2000, ecf, tp, rot1);
+        aJ2000ToECFTransform(tp, rot2);
+        auto mtx1 = rot1.getMatrix();
+        auto mtx2 = rot2.getMatrix();
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(mtx1(i, j), mtx2(i, j), 1e-15);
+            }
+            EXPECT_NEAR(rot1.getRotationRate()[i], rot2.getRotationRate()[i], 1e-15);
+        }
+    }
+    {
+        auto ecf = earth->getAxesFixed();
+        auto icrf = aAxesICRF();
+        KinematicRotation rot1, rot2;
+        auto tp = TimePoint::FromUTC(2022, 3, 8, 3, 11, 3);
+        aAxesTransform(icrf, ecf, tp, rot1);
+        aICRFToECFTransform(tp, rot2);
+        auto mtx1 = rot1.getMatrix();
+        auto mtx2 = rot2.getMatrix();
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(mtx1(i, j), mtx2(i, j), 1e-15);
+            }
+            EXPECT_DOUBLE_EQ(rot1.getRotationRate()[i], rot2.getRotationRate()[i]);
+        }
+    }
+    {
+        auto mod1 = earth->getAxesMOD();
+        auto mod2 = aAxesMOD();
+        auto icrf = aAxesICRF();
+        KinematicRotation rot1, rot2;
+        auto tp = TimePoint::FromUTC(2022, 3, 8, 3, 11, 3);
+        aAxesTransform(icrf, mod1, tp, rot1);
+        aAxesTransform(icrf, mod2, tp, rot2);
+        auto mtx1 = rot1.getMatrix();
+        auto mtx2 = rot2.getMatrix();
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(mtx1(i, j), mtx2(i, j), 1e-15);
+            }
+            EXPECT_DOUBLE_EQ(rot1.getRotationRate()[i], rot2.getRotationRate()[i]);
+        }
+    }
+}
+
 
 TEST(CelestialBody, getJn)
 {

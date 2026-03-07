@@ -20,17 +20,32 @@
 
 #include "CelestialBody.hpp"
 #include "SolarSystem.hpp"
+#include "AstCore/NoopOrientation.hpp"
+#include "AstCore/RotationalData.hpp"
+#include "AstCore/EarthOrientation.hpp"
+#include "AstCore/MoonOrientation.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/String.hpp"
 #include "AstUtil/BKVParser.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
 
+
+
 AST_NAMESPACE_BEGIN
+
+CelestialBody::CelestialBody()
+{
+    orientation_  = new NoopOrientation();
+    axesFixed_    = new AxesBodyFixed(this);
+    axesInertial_ = new AxesBodyInertial(this);
+    axesMOD_      = new AxesBodyMOD(this);
+    axesTOD_      = new AxesBodyTOD(this);
+}
 
 err_t CelestialBody::load(StringView filepath)
 {
-    fs::path path = filepath.to_string();
+    fs::path path = std::string(filepath);
     if(!fs::is_regular_file(path))
     {
         path = path / (path.filename().string() + ".cb");
@@ -66,6 +81,12 @@ err_t CelestialBody::load(StringView filepath)
             }else if(aEqualsIgnoreCase(item.value(), "Earth")){
                 err_t rc = loadEarth(parser);
                 if(rc) return rc;
+            }else if(aEqualsIgnoreCase(item.value(), "Moon")){
+                err_t rc = loadMoon(parser);
+                if(rc) return rc;
+            }else if(aEqualsIgnoreCase(item.value(), "MeanEarthDefinition")){
+                err_t rc = loadMeanEarthDefinition(parser);
+                if(rc) return rc;
             }
         }else if(token == BKVParser::eBlockEnd){
 
@@ -79,10 +100,10 @@ err_t CelestialBody::setGravityModel(StringView model)
 {
     err_t rc = this->loadGravityModel(model);
     if(rc){
-        fs::path filepath = fs::path(SolarSystem::defaultSolarSystemDir()) / this->name_ / model.to_string();
+        fs::path filepath = fs::path(SolarSystem::defaultSolarSystemDir()) / this->name_ / std::string(model);
         rc = this->loadGravityModel(filepath.string());
         if(rc){
-            aError("failed to load gravity model %s", model.to_string().c_str());
+            aError("failed to load gravity model %.*s", (int)model.size(), model.data());
         }
     }
     return rc;
@@ -103,6 +124,12 @@ err_t CelestialBody::loadAstroDefinition(BKVParser &parser)
             if(aEqualsIgnoreCase(item.key(), "GravityModel")){
                 std::string model = item.value().toString();
                 fs::path filepath = parser.getFilePath();
+                /*!
+                @bug
+                如果model 被恶意写成 ../../../../etc/passwd，
+                拼接后就成了 /home/user/project/configs/../../../../etc/passwd，
+                经过路径解析后可能指向 /etc/passwd，从而读取系统关键文件。
+                */
                 filepath = filepath.parent_path() / model;
                 err_t rc = this->loadGravityModel(filepath.string());
                 if(rc) return rc;
@@ -158,7 +185,13 @@ err_t CelestialBody::loadSpinData(BKVParser &parser)
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "RotationDefinitionFile")){
-                // todo
+                auto rotData = new RotationalData();
+                std::string model = item.value().toString();
+                fs::path filepath = parser.getFilePath();
+                filepath = filepath.parent_path() / model;
+                err_t rc = rotData->load(filepath.string());
+                this->orientation_ = rotData;
+                if(rc) return rc;
             }
         }
         else if(token == BKVParser::eBlockEnd)
@@ -198,6 +231,8 @@ err_t CelestialBody::loadEphemerisData(BKVParser & parser)
 
 err_t CelestialBody::loadEarth(BKVParser &parser)
 {
+    this->orientation_ = new EarthOrientation();
+
     BKVParser::EToken token;
     BKVItemView item;
     do{
@@ -226,6 +261,58 @@ err_t CelestialBody::loadEarth(BKVParser &parser)
         else if(token == BKVParser::eBlockEnd)
         {
             if(aEqualsIgnoreCase(item.value(), "Earth")){
+                break;
+            }
+        }
+    }while(token != BKVParser::eEOF);
+    return eNoError;
+}
+
+err_t CelestialBody::loadMoon(BKVParser &parser)
+{
+    this->orientation_ = new MoonOrientation();
+
+    BKVParser::EToken token;
+    BKVItemView item;
+    do{
+        token = parser.getNext(item);
+        if(token == BKVParser::eKeyValue){
+            if(aEqualsIgnoreCase(item.key(), "FixedFrame")){
+                // todo
+            }else if(aEqualsIgnoreCase(item.key(), "FixedFrameForGravity")){
+                // todo
+            }
+        }
+        else if(token == BKVParser::eBlockEnd)
+        {
+            if(aEqualsIgnoreCase(item.value(), "Moon")){
+                break;
+            }
+        }
+    }while(token != BKVParser::eEOF);
+    return eNoError;
+}
+
+err_t CelestialBody::loadMeanEarthDefinition(BKVParser &parser)
+{
+    BKVParser::EToken token;
+    BKVItemView item;
+    do{
+        token = parser.getNext(item);
+        if(token == BKVParser::eKeyValue){
+            if(aEqualsIgnoreCase(item.key(), "DeNum")){
+                // todo
+            }else if(aEqualsIgnoreCase(item.key(), "XAngle")){
+                // todo
+            }else if(aEqualsIgnoreCase(item.key(), "YAngle")){
+                // todo
+            }else if(aEqualsIgnoreCase(item.key(), "ZAngle")){
+                // todo
+            }
+        }
+        else if(token == BKVParser::eBlockEnd)
+        {
+            if(aEqualsIgnoreCase(item.value(), "MeanEarthDefinition")){
                 break;
             }
         }

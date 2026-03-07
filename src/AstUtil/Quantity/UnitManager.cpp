@@ -82,12 +82,12 @@ err_t UnitManager::addUnit(const Unit& unit)
 
 err_t UnitManager::addUnit(StringView name, const Unit& unit)
 {
-    return _addUnit(name.to_string(), unit);
+    return _addUnit(std::string(name), unit);
 }
 
 Unit* UnitManager::getUnit(StringView name)
 {
-    auto it = units_.find(name.to_string());
+    auto it = units_.find(std::string(name));
     if (it == units_.end())
     {
         return nullptr;

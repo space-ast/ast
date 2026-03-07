@@ -39,7 +39,7 @@ public:
         eInt,
         eBoolean,
     };
-    DataPort() = default;
+    // DataPort() = default;
     ~DataPort() = default;
 
     AST_CORE_API

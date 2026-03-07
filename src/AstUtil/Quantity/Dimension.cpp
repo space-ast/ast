@@ -194,7 +194,7 @@ std::string aDimSymbol(EDimension dimension)
                 if (exponent < 0)
                 {
                     // symbol += aText("⁻");
-                    symbol += aText("\u207b");
+                    symbol += std::string((const char*)aText("\u207b"));
                 }
                 symbol += aNumberToSuperscript(std::abs(exponent));
             }

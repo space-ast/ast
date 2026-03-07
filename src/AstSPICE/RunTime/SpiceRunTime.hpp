@@ -29,12 +29,23 @@ AST_NAMESPACE_BEGIN
     @{
 */
 class Axes;
+class CelestialBody;
 class TimePoint;
 
 /// @brief 查找指定名称的参考系统轴
 /// @param name 参考系统名称
 /// @return 指向 Axes 实例的指针，如果未找到则为 nullptr
 AST_SPICE_CAPI Axes* aSpiceFindAxes(StringView name);
+
+/// @brief 查找指定名称的天体
+/// @param name 天体名称
+/// @return 指向 CelestialBody 实例的指针，如果未找到则为 nullptr
+AST_SPICE_API CelestialBody* aSpiceFindBody(StringView name);
+
+/// @brief 查找指定 ID 的天体
+/// @param id 天体 ID
+/// @return 指向 CelestialBody 实例的指针，如果未找到则为 nullptr
+AST_SPICE_API CelestialBody* aSpiceFindBody(int id);
 
 
 /// @brief 将 SPICE 时间转换为 TimePoint

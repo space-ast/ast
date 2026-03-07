@@ -25,6 +25,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstMath/Transform.hpp"
 #include "AstMath/Rotation.hpp"
+#include "BodyOrientation.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -36,37 +37,41 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 行星旋转数据
 /// @details 描述行星旋转状态的系数
-class AST_CORE_API RotationalData
+class AST_CORE_API RotationalData final: public BodyOrientation
 {
 public:
     RotationalData() = default;
     ~RotationalData() = default;
     err_t load(StringView filepath);
 
-    /// @brief 获取ICRF到天体固连系的旋转矩阵
-    /// @param tp 时间点
-    /// @param matrix 矩阵
-    void getICRFToFixedMatrix(const TimePoint& tp, Matrix3d &matrix) const;
-
+    
     /// @brief 获取ICRF到天体固连系的旋转
     /// @param tp 时间点
     /// @param rot 旋转
-    void getICRFToFixedTransform(const TimePoint& tp, Rotation &rot) const;
+    void getICRFToFixedTransform(const TimePoint& tp, Rotation &rot) const override;
 
-    /// @brief 获取ICRF到天体惯性系的旋转矩阵
+    
+    /// @brief 获取ICRF到天体固连系的旋转变换
     /// @param tp 时间点
-    /// @param matrix 矩阵
-    void getICRFToInertialMatrix(const TimePoint& tp, Matrix3d &matrix) const;
+    /// @param rotation 旋转变换
+    void getICRFToFixedTransform(const TimePoint& tp, KinematicRotation &rotation) const override;
+
 
     /// @brief 获取ICRF到天体惯性系的旋转
     /// @param tp 时间点
     /// @param rot 旋转
-    void getICRFToInertialTransform(const TimePoint& tp, Rotation &rot) const;
+    void getICRFToInertialTransform(const TimePoint& tp, Rotation &rot) const override;
 
-    /// @brief 获取ICRF到TOD系的旋转矩阵
+
+    Axes* getMODParent() const override;
+    void getMODTransform(const TimePoint& tp, Rotation &rot) const override;
+    Axes* getTODParent() const override;
+    void getTODTransform(const TimePoint& tp, Rotation &rot) const override;
+    
+    /// @brief 获取ICRF到MOD系的旋转    
     /// @param tp 时间点
-    /// @param matrix 矩阵
-    void getICRFToTODMatrix(const TimePoint& tp, Matrix3d &matrix) const;
+    /// @param rot 旋转
+    void getICRFToMODTransform(const TimePoint& tp, Rotation &rot) const;
 
     /// @brief 获取ICRF到TOD系的旋转
     /// @param tp 时间点
@@ -74,15 +79,30 @@ public:
     void getICRFToTODTransform(const TimePoint& tp, Rotation &rot) const;
 
 
+    /// @brief 获取ICRF到天体固连系的旋转矩阵
+    /// @param tp 时间点
+    /// @param matrix 矩阵
+    void getICRFToFixedMatrix(const TimePoint& tp, Matrix3d &matrix) const;
+
+
+    /// @brief 获取ICRF到天体惯性系的旋转矩阵
+    /// @param tp 时间点
+    /// @param matrix 矩阵
+    void getICRFToInertialMatrix(const TimePoint& tp, Matrix3d &matrix) const;
+
+
     /// @brief 获取ICRF到MOD系的旋转矩阵
     /// @param tp 时间点
     /// @param matrix 矩阵
     void getICRFToMODMatrix(const TimePoint& tp, Matrix3d &matrix) const;
 
-    /// @brief 获取ICRF到MOD系的旋转    
+
+    /// @brief 获取ICRF到TOD系的旋转矩阵
     /// @param tp 时间点
-    /// @param rot 旋转
-    void getICRFToMODTransform(const TimePoint& tp, Rotation &rot) const;
+    /// @param matrix 矩阵
+    void getICRFToTODMatrix(const TimePoint& tp, Matrix3d &matrix) const;
+
+    
 
 protected:
     TimePoint rotationEpoch_;           ///< 旋转历元

@@ -25,7 +25,7 @@ AST_NAMESPACE_BEGIN
 
 
 Variable::Variable(StringView name, Expr *expr, bool bind)
-    : name_(name.to_string()), expr_(expr), bind_(bind)
+    : name_(name), expr_(expr), bind_(bind)
 {};
 
 Variable::Variable(Expr *expr, bool bind)

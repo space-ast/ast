@@ -65,7 +65,7 @@ public:
     /// @details
     /// 设置解释器执行代码时产生的错误字符串。
     /// @param err 错误字符串
-    void setErrString(StringView err) { errString_ = err.to_string(); }
+    void setErrString(StringView err) { errString_ = std::string(err); }
 
 
     /// @brief 清除错误字符串

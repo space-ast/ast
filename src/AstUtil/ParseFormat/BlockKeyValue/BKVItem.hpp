@@ -37,7 +37,7 @@ public:
     /// @brief 键值对项节点（BlockKeyValueItemNode）
     BKVItem(StringView key, ValueView value)
         : BKVNode{eItem}
-        , key_(key.to_string())
+        , key_(key)
         , value_(value.toValue()) 
     {}
     

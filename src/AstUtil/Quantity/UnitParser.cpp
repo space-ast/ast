@@ -395,7 +395,7 @@ static err_t parseExpression(ParserContext& ctx, Unit& unit)
 /// @return err_t 错误码
 static err_t parseCompoundUnit(StringView unitName, Unit& unit)
 {
-    ParserContext ctx(unitName.begin(), unitName.end());
+    ParserContext ctx(unitName.data(), unitName.data() + unitName.size());
     
     // 解析表达式
     err_t err = parseExpression(ctx, unit);

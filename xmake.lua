@@ -14,6 +14,7 @@ if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有
     set_languages("c++11")
 end
 
+
 -- 添加包含目录
 add_includedirs("include")
 

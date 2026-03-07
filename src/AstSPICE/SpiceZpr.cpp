@@ -22,6 +22,7 @@
 #include "AstCore/AxesTransform.hpp"
 #include "AstCore/Axes.hpp"
 #include "AstCore/TimePoint.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/AngleAxis.hpp"
 #include "AstMath/Euler.hpp"
@@ -177,6 +178,35 @@ void rav2xf(const Matrix3d &rot, const Vector3d &av, Matrix6d &xform)
         }
     }
 }
+
+err_t tipbod(Axes *ref, CelestialBody *body, const TimePoint &et, Matrix3d &tipm)
+{
+    if ( ref == nullptr || body == nullptr )
+        return -1;
+    auto bodyFixed = body->getAxesFixed();
+    if ( bodyFixed == nullptr )
+        return -1;
+    return aAxesTransform(ref, bodyFixed, et, tipm);
+}
+
+AST_SPICE_CAPI
+err_t tipbod(
+    const char      * ref,
+    int               body,
+    double            et,
+    Matrix3d&         tipm
+)
+{
+    auto refAxes = aSpiceFindAxes(ref);
+    if ( refAxes == nullptr )
+        return -1;
+    auto bodyIns = aSpiceFindBody(body);
+    if ( bodyIns == nullptr )
+        return -1;
+    return tipbod(refAxes, bodyIns, aSpiceEtToTimePoint(et), tipm);
+}
+
+
 
 void eul2m(double angle3, double angle2, double angle1, int axis3, int axis2, int axis1, Matrix3d &r)
 {

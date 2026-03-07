@@ -952,7 +952,7 @@ Expr* Parser::parsePrimaryExpr()
     }
     
     if (currentTokenType() == Lexer::eNumber) {
-        std::string numStr = currentLexeme().to_string();
+        std::string numStr(currentLexeme());
         advance();
         
         // 检查是否后面紧跟单位（支持 1.2[km/s]、12 [km]、1.2 [m] 格式）
@@ -962,7 +962,7 @@ Expr* Parser::parsePrimaryExpr()
             
             // 跳过可能的空白符
             while (!match(Lexer::eRightBracket)) {
-                unitStr += currentLexeme().to_string();
+                unitStr += std::string(currentLexeme());
                 advance();
             }
             

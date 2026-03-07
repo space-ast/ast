@@ -1306,6 +1306,13 @@ AST_SPICE_CAPI void rav2xf(
 // timout
 
 // tipbod
+AST_SPICE_API err_t tipbod(
+    Axes            * ref,
+    CelestialBody   * body,
+    const TimePoint & et,
+    Matrix3d&         tipm 
+);
+
 
 // tisbod
 

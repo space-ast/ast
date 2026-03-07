@@ -44,7 +44,10 @@ jobs:
           version: 2          
 
       - name: 配置项目
+        # 1. 复制归档测试用例到测试目录
+        # 2. 配置项目
         run: |
+          cp -r test/Archive/* test
           xmake f -cy --with_test=y -m coverage
           xmake show
 

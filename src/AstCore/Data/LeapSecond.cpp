@@ -23,10 +23,14 @@
 #include "AstCore/RunTime.hpp"
 #include "AstCore/Date.hpp"
 #include "AstCore/JulianDate.hpp"
+#include "AstCore/DateTime.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/ScopedPtr.hpp"
+#include "AstUtil/StringView.hpp"
+#include "AstUtil/StringSplit.hpp"
+#include "AstUtil/SpiceParser.hpp"
 #include <assert.h>
 #include <fstream>
 #include <cmath>
@@ -40,11 +44,11 @@ LeapSecond::LeapSecond()
     
 }
 
+constexpr int MAX_EXPECTED_LINES = 10000000;  
 
 
-err_t LeapSecond::loadATK(const char* filepath)
+err_t LeapSecond::loadATK(FILE* file)
 {
-    ScopedPtr<std::FILE> file(ast_fopen(filepath, "r"));
     if (file == NULL) {
         return eErrorNullInput;
     }
@@ -53,6 +57,10 @@ err_t LeapSecond::loadATK(const char* filepath)
     // #pragma warning(suppress: 4996)
     status = fscanf(file, "%d", &line);
     if (status == EOF) {
+        return eErrorInvalidFile;
+    }
+    if(line > MAX_EXPECTED_LINES){
+        aError("line number %d is too large", line);
         return eErrorInvalidFile;
     }
     data.reserve(line);
@@ -79,7 +87,7 @@ err_t LeapSecond::loadATK(const char* filepath)
                 &year, month_str, &day
             );
             entry.leapSecond = static_cast<int>(leapsec);
-            if (status == EOF) {
+            if (status != 5) {
                 return eErrorInvalidFile;
             }
             data.push_back(entry);
@@ -92,10 +100,64 @@ err_t LeapSecond::loadATK(const char* filepath)
     return eNoError;
 }
 
-
-err_t LeapSecond::loadHPIERS(const char* filepath)
+err_t LeapSecond::loadSTK(FILE *file)
 {
-    ScopedPtr<std::FILE> file(ast_fopen(filepath, "r"));
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
+    std::vector<Entry> data;
+    int line, status;
+    // #pragma warning(suppress: 4996)
+    status = fscanf(file, "%d", &line);
+    if (status == EOF) {
+        return eErrorInvalidFile;
+    }
+    if(line > MAX_EXPECTED_LINES){
+        aError("line number %d is too large", line);
+        return eErrorInvalidFile;
+    }
+    data.reserve(line);
+
+    char linebuf[1024];
+    double leapsec;
+    int year;
+    char month_str[10];
+    int day;
+    double jd;
+    double mjd;
+    double temp;
+    while ((int)data.size() < line) {
+        if (fgets(linebuf, sizeof(linebuf), file))
+        {
+            // 跳过空行和注释行
+            if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {
+                continue;
+            }
+            Entry entry{};
+            // #pragma warning(suppress: 4996)
+            status = sscanf(
+                linebuf,
+                "%d %5s %d %lf %lf %lf %lf",
+                &year, month_str, &day, &jd,
+                &leapsec, &mjd, &temp
+            );
+            entry.mjd = static_cast<int>(mjd);
+            entry.leapSecond = static_cast<int>(leapsec);
+            if (status != 7) {
+                return eErrorInvalidFile;
+            }
+            data.push_back(entry);
+        }
+        else {
+            return eErrorInvalidFile;
+        }
+    }
+    m_data = std::move(data);
+    return eNoError;
+}
+
+err_t LeapSecond::loadHPIERS(FILE* file)
+{
     if (file == NULL) {
         return eErrorNullInput;
     }
@@ -150,11 +212,101 @@ err_t LeapSecond::loadHPIERS(const char* filepath)
     return eNoError;
 }
 
-err_t LeapSecond::load(const char* filepath)
+err_t LeapSecond::loadSpice(FILE* file)
 {
-    return loadHPIERS(filepath);
+    SpiceParser parser;
+    parser.setBorrowedFile(file);
+    BKVItemView item;
+    err_t rc;
+    while(1){
+        rc = parser.getNext(item);
+        if(rc == EOF) { // 文件结束但未找到
+            break;
+        }
+        if(rc) { // 其他解析错误
+            return rc;
+        }
+        else if(item.key() == "DELTET/DELTA_AT"){
+            std::vector<ValueView> values = item.value().toVector();
+            size_t count = values.size() / 2;
+            std::vector<Entry> data;
+            for(size_t i = 0; i < count; i++){
+                Entry entry{};
+                DateTime dttm;
+                StringView datesv = values[i * 2 + 1].value();
+                ValueView leapsec = values[i * 2];
+                err_t rc = aDateTimeParse(datesv, "@%Y-%h-%d", dttm);
+                if(rc){
+                    aError("failed to parse date string = %.*s", datesv.size(), datesv.data());
+                    return rc;
+                }
+                entry.mjd = aDateToMJD(dttm.date());
+                entry.leapSecond = leapsec.toInt();
+                data.push_back(entry);
+            }
+            m_data = std::move(data);
+            return eNoError;
+        }
+    };
+    aError("failed to load leap second file, with format = spice");
+    return eErrorInvalidFile;
 }
 
+err_t LeapSecond::load(StringView filepath)
+{
+    // 1. 打开文件
+    ScopedPtr<std::FILE> file(ast_fopen(std::string(filepath).c_str(), "r"));
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
+    // 2. 读取第一行
+    char linebuf[2048];
+    if (!fgets(linebuf, sizeof(linebuf), file)) {
+        return eErrorInvalidFile;
+    }
+    // 3. 通过第一行来判断文件格式
+    if(linebuf[0] >= '0' && linebuf[0] <= '9'){
+        // 读取第二行
+        if (!fgets(linebuf, sizeof(linebuf), file)) {
+            return eErrorInvalidFile;
+        }
+        std::vector<StringView> cols = aStrSplit(linebuf, ByRepeatedWhitespace(), SkipEmpty());
+        // 重置文件指针到开头
+        fseek(file, 0, SEEK_SET);
+        // 根据列数判断文件格式
+        if(cols.size() == 5){
+            return loadATK(file);
+        }else if(cols.size() == 7){
+            return loadSTK(file);
+        }
+    }else if(strncmp(linebuf, "KPL/LSK", 7) == 0){
+        return loadSpice(file);
+    }
+    else{
+        return loadHPIERS(file);
+    }
+    aError("failed to load leap second file, with format = unknown");
+    return eErrorInvalidFile;
+}
+
+
+err_t LeapSecond::loadHPIERS(StringView filepath)
+{
+    ScopedPtr<std::FILE> file(ast_fopen(std::string(filepath).c_str(), "r"));
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
+    return loadHPIERS(file);
+}
+
+err_t LeapSecond::loadATK(StringView filepath)
+{
+    ScopedPtr<std::FILE> file(ast_fopen(std::string(filepath).c_str(), "r"));
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
+    return loadATK(file);
+}
 
 void LeapSecond::setDefaultData()
 {

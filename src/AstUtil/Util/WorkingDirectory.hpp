@@ -42,7 +42,7 @@ public:
     {
         oldpath_ = posix::getcwd();
         /// @todo 需要考虑如何避免创建临时std::string对象 
-        int ret = posix::chdir(path.to_string().c_str());
+        int ret = posix::chdir(std::string(path).c_str());
         if(ret != 0){
             aError("failed to change working directory to %.*s", path.size(), path.data());
         }

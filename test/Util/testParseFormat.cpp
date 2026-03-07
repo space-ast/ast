@@ -104,6 +104,19 @@ TEST(ParseFormat, _aParseInt_FromChars) {
 }
 #endif
 
+TEST(ParseFormat, aParseFortranDouble)
+{
+    double value = -1;
+    err_t rc;
+    rc = aParseFortranDouble("1.657D-3", value);
+    EXPECT_EQ(rc, eNoError);
+    EXPECT_DOUBLE_EQ(value, 1.657e-3);
+
+    rc = aParseFortranDouble("1.657d-3", value);
+    EXPECT_EQ(rc, eNoError);
+    EXPECT_DOUBLE_EQ(value, 1.657e-3);
+}
+
 // 测试 _aParseDouble_LibC_2 函数
 TEST(ParseFormat, _aParseDouble_LibC_2) {
     double value;

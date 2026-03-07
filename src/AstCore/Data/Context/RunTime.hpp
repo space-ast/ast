@@ -39,6 +39,7 @@ class GlobalContext;
 class EOP;
 class IAUXYS;
 class IAUXYSPrecomputed;
+class SolarSystem;
 
 
 /// @brief 初始化
@@ -98,6 +99,9 @@ AST_CORE_CAPI void aDataContext_SetCurrent(DataContext* context);
 
 /// @brief 获取当前全局上下文的EOP
 AST_CORE_CAPI EOP* aDataContext_GetEOP();
+
+/// @brief 获取当前全局上下文的太阳系
+AST_CORE_CAPI SolarSystem* aDataContext_GetSolarSystem();
 
 /// @brief 获取当前线程的数据上下文的IAUXYSPrecomputed
 AST_CORE_CAPI IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed();

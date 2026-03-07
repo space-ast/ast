@@ -26,23 +26,23 @@ AST_NAMESPACE_BEGIN
 bool SymbolScope::addSymbol(StringView name, Expr* expr)
 {
     // 如果符号已存在，则返回false
-    if (symbols_.find(name.to_string()) != symbols_.end()) {
+    if (symbols_.find(std::string(name)) != symbols_.end()) {
         return false;
     }
 
-    symbols_[name.to_string()] = expr;
+    symbols_[std::string(name)] = expr;
     return true;
 }
 
 void SymbolScope::setSymbol(StringView name, Expr* expr)
 {
-    symbols_[name.to_string()] = expr;
+    symbols_[std::string(name)] = expr;
 }
 
 Expr* SymbolScope::findSymbol(StringView name, bool searchParent) const
 {
     // 首先在当前符号表查找
-    auto it = symbols_.find(name.to_string());
+    auto it = symbols_.find(std::string(name));
     if (it != symbols_.end()) {
         return it->second.get();
     }
@@ -59,7 +59,7 @@ Expr* SymbolScope::findSymbol(StringView name, bool searchParent) const
 Expr *SymbolScope::resolveSymbol(StringView name) 
 {
     // 首先在当前符号表查找
-    auto name_ = name.to_string();
+    std::string name_(name);
     auto it = symbols_.find(name_);
     if (it != symbols_.end()) {
         return it->second.get();
@@ -72,7 +72,7 @@ Expr *SymbolScope::resolveSymbol(StringView name)
 
 bool SymbolScope::removeSymbol(StringView name)
 {
-    auto it = symbols_.find(name.to_string());
+    auto it = symbols_.find(std::string(name));
     if (it != symbols_.end()) {
         symbols_.erase(it);
         return true;
@@ -84,7 +84,7 @@ bool SymbolScope::removeSymbol(StringView name)
 bool SymbolScope::hasSymbol(StringView name, bool searchParent) const
 {
     // 首先在当前符号表查找
-    if (symbols_.find(name.to_string()) != symbols_.end()) {
+    if (symbols_.find(std::string(name)) != symbols_.end()) {
         return true;
     }
 

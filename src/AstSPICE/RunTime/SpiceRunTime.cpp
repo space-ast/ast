@@ -20,6 +20,7 @@
 
 #include "SpiceRunTime.hpp"
 #include "SpiceAxesRegistry.hpp"
+#include "SpiceBodyRegistry.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstCore/TimePoint.hpp"
 
@@ -28,6 +29,16 @@ AST_NAMESPACE_BEGIN
 Axes *aSpiceFindAxes(StringView name)
 {
     return SpiceAxesRegistry::Instance().findAxes(name);
+}
+
+CelestialBody *aSpiceFindBody(StringView name)
+{
+    return SpiceBodyRegistry::Instance().findBody(name);
+}
+
+CelestialBody *aSpiceFindBody(int id)
+{
+    return SpiceBodyRegistry::Instance().findBody(id);
 }
 
 TimePoint aSpiceEtToTimePoint(double et)

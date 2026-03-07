@@ -58,8 +58,10 @@ AST_UTIL_CAPI err_t aParseInt(StringView str, int& value);
 /// @param str 输入字符串
 /// @param value 输出整数
 /// @return 0 成功，其他值 失败
-AST_UTIL_CAPI err_t _aParseInt_LibC_1(StringView str, int& value);      // 基于 strtol 函数(stol函数)
+AST_UTIL_CAPI err_t _aParseInt_LibC_1(StringView str, int& value);      // 基于 strtol 函数(stol函数)，堆内存
 AST_UTIL_CAPI err_t _aParseInt_LibC_2(StringView str, int& value);      // 基于 atoi 函数
+AST_UTIL_CAPI err_t _aParseInt_LibC_3(StringView str, int& value);      // 基于 strtol 函数(stol函数)，栈内存
+
 
 #ifdef A_CXX17
 AST_UTIL_CAPI err_t _aParseInt_FromChars(StringView str, int& value);    // 基于 std::from_chars 函数
@@ -94,12 +96,23 @@ AST_UTIL_CAPI err_t _aParseInt_Scanf(StringView str, int& value);      // 基于
 AST_UTIL_CAPI err_t aParseDouble(StringView str, double& value);
 
 
+/// @brief 解析Fortran格式的双精度浮点数，例如"1.23D-4"、"1.23d-4"等
+/// @param str 输入字符串
+/// @param value 输出双精度浮点数
+/// @return 0 成功，其他值 失败
+AST_UTIL_CAPI err_t aParseFortranDouble(StringView str, double& value);
+AST_UTIL_CAPI err_t _aParseFortranDouble_1(StringView str, double& value);  // 堆内存
+AST_UTIL_CAPI err_t _aParseFortranDouble_2(StringView str, double& value);  // 栈内存
+
+
+
 /// @brief 内部函数，将字符串转换为双精度浮点数（基于C标准库函数）
 /// @param str 输入字符串
 /// @param value 输出双精度浮点数
 /// @return 0 成功，其他值 失败
-AST_UTIL_CAPI err_t _aParseDouble_LibC_1(StringView str, double& value);  // 基于 strtod 函数(stod函数)
+AST_UTIL_CAPI err_t _aParseDouble_LibC_1(StringView str, double& value);  // 基于 strtod 函数(stod函数)，堆内存
 AST_UTIL_CAPI err_t _aParseDouble_LibC_2(StringView str, double& value);  // 基于 atof 函数
+AST_UTIL_CAPI err_t _aParseDouble_LibC_3(StringView str, double& value);  // 基于 strtod 函数(stod函数)，栈内存
 
 
 #ifdef A_CXX17
@@ -271,6 +284,21 @@ double aParseDouble(StringView str)
     if (A_UNLIKELY(err != eNoError))
     {
         aWarning("failed to parse double value from '%.*s', err = %d", str.size(), str.data(), err);
+    }
+    return value;
+}
+
+/// @brief 按 Fortran 格式将字符串转换为双精度浮点数
+/// @param str 输入字符串
+/// @return 转换后的双精度浮点数
+A_ALWAYS_INLINE
+double aParseFortranDouble(StringView str)
+{
+    double value;
+    err_t err = aParseFortranDouble(str, value);
+    if (A_UNLIKELY(err != eNoError))
+    {
+        aWarning("failed to parse fortran double value from '%.*s', err = %d", str.size(), str.data(), err);
     }
     return value;
 }

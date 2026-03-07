@@ -35,7 +35,7 @@ Struct::~Struct()
 
 Property *Struct::addProperty(StringView name, Property *property)
 {
-    m_propertyMap[name.to_string()] = property;
+    m_propertyMap[std::string(name)] = property;
     m_properties.push_back(property);
     return property;
 }
@@ -47,7 +47,7 @@ Property *Struct::addProperty(Property *property)
 
 Property *Struct::getProperty(StringView name)
 {
-    auto it = m_propertyMap.find(name.to_string());
+    auto it = m_propertyMap.find(std::string(name));
     if (it == m_propertyMap.end())
     {
         return nullptr;

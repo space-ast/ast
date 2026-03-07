@@ -68,7 +68,7 @@ public:
     {}
     
     StringScanner(StringView str) 
-        : str_(str.to_string()), current_(0) 
+        : str_(str), current_(0) 
     {}
     
     char consume() override;

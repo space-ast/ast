@@ -23,9 +23,26 @@
 
 AST_USING_NAMESPACE
 
-const std::string str_int = "123456789";
+#if 1
+const std::string str_int = "1234567890";
 
 const std::string str_double = "123456789.0123456789";
+
+const std::string str_fortran_double = "123456789.012345678D42";
+#elif 0
+const std::string str_int = "                     1234567890     ";
+
+const std::string str_double = "          1234567890123.0123456789   ";
+
+const std::string str_fortran_double = "           1234567890123.012345678D42   ";
+
+#else
+const std::string str_int = "1234567";
+
+const std::string str_double = "1234.56";
+
+const std::string str_fortran_double = "12.34D2";
+#endif
 
 static void parseInt_LibC_1(benchmark::State& state)
 {
@@ -47,6 +64,17 @@ static void parseInt_LibC_2(benchmark::State& state)
     }
 }
 BENCHMARK(parseInt_LibC_2);
+
+
+static void parseInt_LibC_3(benchmark::State& state)
+{
+    int value = 0;
+    for (auto _ : state)
+    {
+        _aParseInt_LibC_3(str_int, value);
+    }
+}
+BENCHMARK(parseInt_LibC_3);
 
 #ifdef A_CXX17
 static void parseInt_FromChars(benchmark::State& state)
@@ -117,6 +145,18 @@ static void parseDouble_LibC_2(benchmark::State& state)
 BENCHMARK(parseDouble_LibC_2);
 
 
+static void parseDouble_LibC_3(benchmark::State& state)
+{
+    double value = 0.0;
+    for (auto _ : state)
+    {
+        _aParseDouble_LibC_3(str_double, value);
+    }
+}
+BENCHMARK(parseDouble_LibC_3);
+
+
+
 #ifdef A_CXX17
 
 
@@ -166,6 +206,28 @@ static void parseDouble_Scanf(benchmark::State& state)
     }
 }
 BENCHMARK(parseDouble_Scanf);
+
+
+static void parseFortranDouble_1(benchmark::State& state)
+{
+    double value = 0.0;
+    for (auto _ : state)
+    {
+        _aParseFortranDouble_1(str_fortran_double, value);
+    }
+}
+BENCHMARK(parseFortranDouble_1);
+
+
+static void parseFortranDouble_2(benchmark::State& state)
+{
+    double value = 0.0;
+    for (auto _ : state)
+    {
+        _aParseFortranDouble_2(str_fortran_double, value);
+    }
+}
+BENCHMARK(parseFortranDouble_2);
 
 
 

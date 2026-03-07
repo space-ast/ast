@@ -36,7 +36,7 @@ public:
     AST_EXPR(ValString)
 
     ValString(StringView value)
-        :value_{value.to_string()}
+        :value_{value}
     {}
     ValString(): value_{}{}
     std::string getExpression(Object* context=nullptr) const override;

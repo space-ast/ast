@@ -34,7 +34,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief      SPICE 轴系注册器
-class SpiceAxesRegistry
+class AST_SPICE_API SpiceAxesRegistry
 {
 public:
     SpiceAxesRegistry() = default;

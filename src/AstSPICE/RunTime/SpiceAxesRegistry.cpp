@@ -42,7 +42,7 @@ SpiceAxesRegistry::SpiceAxesRegistry(bool whetherInit)
 
 PAxes SpiceAxesRegistry::findAxes(StringView name) const
 {
-    auto it = axesMap_.find(name.to_string());
+    auto it = axesMap_.find(std::string(name));
     if (it == axesMap_.end())
     {
         return nullptr;

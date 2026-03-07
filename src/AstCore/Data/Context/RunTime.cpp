@@ -214,7 +214,7 @@ err_t aDataDirGet(std::string &datadir)
 
 err_t aDataDirSet(StringView dirpath)
 {
-    if (!fs::is_directory(dirpath.to_string())) {
+    if (!fs::is_directory(std::string(dirpath))) {
         aError("dirpath is not a directory.");
         return eErrorInvalidParam;
     }
@@ -262,6 +262,12 @@ EOP * aDataContext_GetEOP()
 {
     auto context = aDataContext_EnsureCurrent();
     return context->eop();
+}
+
+SolarSystem *aDataContext_GetSolarSystem()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->solarSystem();
 }
 
 IAUXYSPrecomputed* aDataContext_GetIAUXYSPrecomputed()

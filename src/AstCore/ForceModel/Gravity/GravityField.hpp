@@ -81,7 +81,7 @@ public:
     /// @brief 获取重力场模型名称
     /// @return 重力场模型名称
     const std::string& getModelName() const { return model_; }
-    void setModelName(StringView model) { model_ = model.to_string(); }
+    void setModelName(StringView model) { model_ = std::string(model); }
     
     /// @brief 获取中心天体名称
     /// @return 中心天体名称

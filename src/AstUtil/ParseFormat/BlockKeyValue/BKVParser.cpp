@@ -30,55 +30,6 @@ AST_NAMESPACE_BEGIN
 // #define AST_DEBUG_PARSER 1
 
 
-/// @brief     从文件中读取一行文本，移除行尾的换行符。
-/// @param     buffer  用于存储读取文本的缓冲区。
-/// @param     size    缓冲区的大小。
-/// @param     file    文件指针，指向要读取的文件。
-/// @return    如果成功读取到一行文本，返回指向缓冲区的指针；否则返回 nullptr。
-static char* fgetline(char* buffer, int size, FILE* file)
-{
-    char* ret = fgets(buffer, size, file);
-    if(ret != nullptr)
-    {
-        buffer[strcspn(buffer, "\n")] = '\0';
-    }
-    return ret;
-}
-
-
-/// @brief     从文件中读取一行文本，跳过行首的空白字符，移除行尾的换行符。
-/// @param     buffer  用于存储读取文本的缓冲区。
-/// @param     size    缓冲区的大小。
-/// @param     file    文件指针，指向要读取的文件。
-/// @return    如果成功读取到一行文本，返回指向缓冲区的指针；否则返回 nullptr。
-static char* fgetlinetrim(char* buffer, int size, FILE* file)
-{
-    int c;
-    while ((c = fgetc(file)) != EOF && isspace(static_cast<unsigned char>(c)) && c != '\n') {
-        // 跳过空白
-    }
-    
-    if (c == EOF || c == '\n') {
-        // 没有更多内容，返回空字符串
-        if(size > 0)
-            buffer[0] = '\0';
-        return nullptr;
-    }else{
-        buffer[0] = static_cast<char>(c);
-        char* ret = fgets(buffer + 1, size - 1, file);
-        if(ret != nullptr)
-        {
-            size_t len = strlen(ret);
-            char* end = ret + len - 1;
-            while(end > buffer && isspace(static_cast<unsigned char>(*end)))
-            {
-                *end = '\0';
-                end--;
-            }
-        }
-        return buffer;
-    }
-}
 
 
 static bool isCommentLine(StringView line)
@@ -94,63 +45,60 @@ static bool isCommentLine(StringView line)
 }
 
 BKVParser::BKVParser()
-    : file_(nullptr)
+    : BaseParser()
     , allowComment_(true)
-    , keyBuffer(1024)
-    , valueBuffer(1024)
+    , keyBuffer_(1024)
+    , valueBuffer_(1024)
 {
 }
 
 BKVParser::BKVParser(StringView filepath)
-    : BKVParser{}
+    : BaseParser{filepath}
+    , allowComment_(true)
+    , keyBuffer_(1024)
+    , valueBuffer_(1024)
 {
-    open(filepath);
 }
 
 
 
 BKVParser::~BKVParser()
 {
-    close();
 }
 
 
-int BKVParser::getLineNumber()
-{
-    return aCurrentLineNumber(file_);
-}
 
 BKVParser::EToken BKVParser::getNext(StringView &key, ValueView &value)
 {
 start:
     // #pragma warning(suppress: 4996)
-    if(fscanf(file_, "%1024s", keyBuffer.data()) != EOF)
+    if(fscanf(file_, "%1023s", keyBuffer_.data()) != EOF)
     {
-        if(keyBuffer[0] == '#' && allowComment_)
+        if(keyBuffer_[0] == '#' && allowComment_)
         {
             // fscanf(file_, "%*[^\n]%*c");                           // 跳过注释行
-            char* str = fgets(valueBuffer.data(), (int)valueBuffer.size(), file_);     // 跳过注释行
+            char* str = fgets(valueBuffer_.data(), (int)valueBuffer_.size(), file_);     // 跳过注释行
             A_UNUSED(str);
             // printf("comment left parts: %s", value);
             // continue;
             goto start;
         }
-        key = StringView(keyBuffer.data());
-        if(strcasecmp(keyBuffer.data(), "BEGIN") == 0)
+        key = StringView(keyBuffer_.data());
+        if(strcasecmp(keyBuffer_.data(), "BEGIN") == 0)
         {
 
-            char* line = fgetlinetrim(valueBuffer.data(), (int)valueBuffer.size(), file_);
+            char* line = fgetlinetrim(valueBuffer_.data(), (int)valueBuffer_.size(), file_);
             value = StringView(line);
             return eBlockBegin;
         }
-        else if(strcasecmp(keyBuffer.data(), "END") == 0)
+        else if(strcasecmp(keyBuffer_.data(), "END") == 0)
         {
-            char* line = fgetlinetrim(valueBuffer.data(), (int)valueBuffer.size(), file_);
+            char* line = fgetlinetrim(valueBuffer_.data(), (int)valueBuffer_.size(), file_);
             value = StringView(line);
             return eBlockEnd;
         }else{
             long pos = ftell(file_);        // 记录当前位置
-            char* line = fgetlinetrim(valueBuffer.data(), (int)valueBuffer.size(), file_);
+            char* line = fgetlinetrim(valueBuffer_.data(), (int)valueBuffer_.size(), file_);
             if(line && strncasecmp(line, "END ", 4) == 0){
                 fseek(file_, pos, SEEK_SET); // 回退到记录位置
                 value = nullptr;
@@ -166,24 +114,6 @@ start:
 BKVParser::EToken BKVParser::getNext(BKVItemView &item)
 {
     return getNext(item.key(), item.value());
-}
-
-StringView BKVParser::getLineWithNewline()
-{
-    char* line = fgets(valueBuffer.data(), (int)valueBuffer.size(), file_);
-    return StringView(line);
-}
-
-StringView BKVParser::getLine()
-{
-    char* line = fgetline(valueBuffer.data(), (int)valueBuffer.size(), file_);
-    return StringView(line);
-}
-
-StringView BKVParser::getLineTrim()
-{
-    char* line = fgetlinetrim(valueBuffer.data(), (int)valueBuffer.size(), file_);
-    return StringView(line);
 }
 
 StringView BKVParser::getLineSkipComment()
@@ -225,45 +155,6 @@ err_t BKVParser::parse(BKVSax &sax)
         }
     }while(token != eEOF);
     return eNoError;
-}
-
-void BKVParser::open(StringView filepath)
-{
-    if(isOpen())
-    {
-        close();
-    }
-    file_ = ast_fopen(filepath.data(), "rb");  // 注意：这里使用二进制模式读取，避免文本模式下的ftell和fseek行为不一致
-}
-
-void BKVParser::close()
-{
-    if (file_ != stdout && file_ != nullptr && file_ != stderr)
-    {
-        fclose(file_);
-    }
-    file_ = nullptr;
-}
-
-void BKVParser::seek(std::streamoff pos, std::ios::seekdir dir)
-{
-    if (file_ != nullptr)
-    {
-        fseek(file_, (long)pos, (int)dir);
-    }
-    static_assert(std::ios::beg == SEEK_SET, "value not correct");
-    static_assert(std::ios::cur == SEEK_CUR, "value not correct");
-    static_assert(std::ios::end == SEEK_END, "value not correct");
-}
-
-std::streamoff BKVParser::tell()
-{
-    return std::streamoff(ftell(file_));
-}
-
-std::string BKVParser::getFilePath() const
-{
-    return aGetFilePath(file_);
 }
 
 AST_NAMESPACE_END

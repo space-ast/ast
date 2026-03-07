@@ -11,6 +11,8 @@ coverage.info
 __pycache__
 *.zip
 # doxyfile
+*.gch
+*.exe
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md

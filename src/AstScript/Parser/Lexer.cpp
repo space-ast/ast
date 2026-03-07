@@ -181,8 +181,8 @@ Lexer::ETokenType Lexer::getNextToken()
         case '~':
             return Lexer::eTilde;
         case (char)0xE2: // aText("\u22BB")[0]:  // \u22BB 位异或运算符 ⊻
-            static_assert(0xE2 == (unsigned char)aText("\u22BB")[0], "Invalid value");
-            static_assert((char)0xE2 == aText("\u22BB")[0], "Invalid value");
+            static_assert(0xE2 == (unsigned char)_aText("\u22BB")[0], "Invalid value");
+            //static_assert((char)0xE2 == _aText("\u22BB")[0], "Invalid value");
             // 检查是否为⊻符号
             if (match(&(aText("\u22BB")[1]))) {
                 return Lexer::eXor;

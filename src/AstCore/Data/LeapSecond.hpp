@@ -52,21 +52,21 @@ public:
 public:
     LeapSecond();
 public:
-	/// @brief  从ATK格式文件加载闰秒数据
-	/// @param  filepath - ATK格式文件路径
-	/// @retval          - 错误码
-    err_t loadATK(const char* filepath);
-
-	/// @brief  从HPIERS格式文件加载闰秒数据
-	/// @details 见 <https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat>
-	/// @param  filepath - HPIERS格式文件路径
-	/// @retval          - 错误码
-    err_t loadHPIERS(const char* filepath);
-
 	/// @brief  从文件加载闰秒数据，按照默认格式进行加载
 	/// @param  filepath - 文件路径
 	/// @retval          - 错误码
-    err_t load(const char* filepath);
+    err_t load(StringView filepath);
+
+	/// @brief  从HPIERS格式文件加载闰秒数据
+	/// @details 见 <https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat>
+	/// @param  filepath - 文件路径
+	/// @retval          - 错误码
+	err_t loadHPIERS(StringView filepath);
+
+	/// @brief  从ATK格式文件加载闰秒数据
+	/// @param  filepath - 文件路径
+	/// @retval          - 错误码
+	err_t loadATK(StringView filepath);
 
     /// @brief 从默认文件加载闰秒数据
     /// @return 错误码
@@ -77,7 +77,28 @@ public:
 
 	/// @brief  设置数据
 	void setData(const std::vector<int>& mjd, const std::vector<int>& taiMinusUTC);
-	
+protected:
+	/// @brief  从ATK格式文件加载闰秒数据
+	/// @param  file - ATK格式文件指针
+	/// @retval          - 错误码
+    err_t loadATK(FILE* file);
+
+	/// @brief  从STK格式文件加载闰秒数据
+	/// @param  file - STK格式文件指针
+	/// @retval          - 错误码
+	err_t loadSTK(FILE* file);
+
+	/// @brief  从HPIERS格式文件加载闰秒数据
+	/// @details 见 <https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat>
+	/// @param  file - HPIERS格式文件指针
+	/// @retval          - 错误码
+    err_t loadHPIERS(FILE* file);
+
+	/// @brief  从SPICE内核文件加载闰秒数据
+	/// @details 见 <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/kernel.html>
+	/// @param  file - SPICE内核文件指针
+	/// @retval          - 错误码
+	err_t loadSpice(FILE* file);
 public:
 	/// @brief  获取UTC秒数
 	/// @param  jdUTC -  儒略日Julian Date (UTC)

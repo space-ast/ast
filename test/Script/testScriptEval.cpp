@@ -33,7 +33,7 @@ AST_USING_NAMESPACE
 // 辅助函数：测试布尔值表达式
 void testScriptEvalBool(StringView str, bool expectedValue)
 {
-    ast_printf("testScriptEvalBool: %s\n", str.to_string().c_str());
+    ast_printf("testScriptEvalBool: %s\n", (std::string(str)).c_str());
     SharedPtr<Value> value = aEval(str);
     EXPECT_TRUE(value.get() != nullptr);
     if(value.get()){
@@ -45,7 +45,7 @@ void testScriptEvalBool(StringView str, bool expectedValue)
 // 辅助函数：测试整数值表达式
 void testScriptEvalInt(StringView str, int expectedValue)
 {
-    printf("testScriptEvalInt: %s\n", str.to_string().c_str());
+    ast_printf("testScriptEvalInt: %s\n", (std::string(str)).c_str());
     SharedPtr<Value> value = aEval(str);
     EXPECT_TRUE(value.get() != nullptr);
     if(value.get()){
@@ -57,7 +57,7 @@ void testScriptEvalInt(StringView str, int expectedValue)
 // 辅助函数：测试双精度浮点数值表达式
 void testScriptEvalDouble(StringView str, double expectedValue)
 {
-    printf("testScriptEvalDouble: %s\n", str.to_string().c_str());
+    printf("testScriptEvalDouble: %s\n", (std::string(str)).c_str());
     SharedPtr<Value> value = aEval(str);
     EXPECT_TRUE(value.get() != nullptr);
     if(value.get()){
@@ -69,19 +69,19 @@ void testScriptEvalDouble(StringView str, double expectedValue)
 // 辅助函数：测试字符串值表达式
 void testScriptEvalString(StringView str, StringView expectedValue)
 {
-    printf("testScriptEvalString: %s\n", str.to_string().c_str());
+    printf("testScriptEvalString: %s\n", (std::string(str)).c_str());
     SharedPtr<Value> value = aEval(str);
     EXPECT_TRUE(value.get() != nullptr);
     if(value.get()){
         EXPECT_TRUE(dynamic_cast<ValString*>(value.get()) != nullptr);
         ValString* strValue = static_cast<ValString*>(value.get());
-        EXPECT_EQ(strValue->value(), expectedValue.to_string());
+        EXPECT_EQ(strValue->value(), std::string(expectedValue));
     }
 }
 
 void testScriptEval(StringView str)
 {
-    printf("testScriptEval: %s\n", str.to_string().c_str());
+    printf("testScriptEval: %s\n", (std::string(str)).c_str());
     SharedPtr<Value> value = aEval(str);
     EXPECT_TRUE(value.get() != nullptr);
     if(value.get()){
@@ -284,7 +284,7 @@ TEST(ScriptEval, EvalComplexExpressions)
 // 辅助函数：测试语法错误情况（预期返回nullptr）
 void testScriptEvalSyntaxError(StringView str)
 {
-    printf("testScriptEvalSyntaxError: %s\n", str.to_string().c_str());
+    printf("testScriptEvalSyntaxError: %s\n", (std::string(str)).c_str());
     Value* value = aEval(str);
     EXPECT_FALSE(value); // 语法错误应该返回nullptr
     if(value){
@@ -295,7 +295,7 @@ void testScriptEvalSyntaxError(StringView str)
 // 辅助函数：测试运行时错误情况（预期执行时失败）
 void testScriptEvalRuntimeError(StringView str)
 {
-    printf("testScriptEvalRuntimeError: %s\n", str.to_string().c_str());
+    printf("testScriptEvalRuntimeError: %s\n", (std::string(str)).c_str());
     Value* value = aEval(str);
     // 这些表达式在语法上是正确的，但在运行时会失败
     // 注意：当前实现中，aEval可能会返回非nullptr但执行时抛出错误

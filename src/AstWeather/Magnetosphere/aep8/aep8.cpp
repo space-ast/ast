@@ -162,7 +162,7 @@ err_t AEPDataCollection::loadDefault()
 err_t AEPDataCollection::load(StringView dirpath)
 {
     err_t rc;
-    fs::path path = dirpath.to_string();
+    fs::path path = std::string(dirpath);
     rc = ae8max_.load((path / "ae8min.asc").string());
     if(rc != eNoError)
         return rc;

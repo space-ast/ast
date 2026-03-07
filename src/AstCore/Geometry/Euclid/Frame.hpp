@@ -118,6 +118,8 @@ public:
     }
 };
 
+using HFrame = SharedPtr<Frame>;
+using PFrame = Frame*;
 
 /*! @} */
 

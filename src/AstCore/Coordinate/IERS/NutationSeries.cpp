@@ -280,7 +280,7 @@ err_t NutationSeries::loadIERS(BKVParser &parser)
             if(err == eNoError){
                 jlist.push_back(numTerms);
             }else if(polynomial.coeffs().empty()){
-                polynomial.parse(line.to_string());
+                polynomial.parse(line);
                 if(!polynomial.coeffs().empty()){
                     for(auto& val : polynomial.coeffs()){
                         val *= 1e-6 * kArcSecToRad;

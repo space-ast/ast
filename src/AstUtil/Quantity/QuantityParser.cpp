@@ -34,7 +34,7 @@ static void skipWhitespace(const char*& position, const char* end)
 
 err_t aQuantityParse(StringView sv, double& value, Unit& unit)
 {
-    std::string str = sv.to_string();
+    std::string str(sv);
     const char* end = str.c_str() + str.size();
     const char* position = nullptr;
 

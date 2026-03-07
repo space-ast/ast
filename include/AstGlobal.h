@@ -44,6 +44,7 @@
 #include <stdint.h>         // for uint32_t
 #ifdef __cplusplus
 #include <array>            // for array
+// #include <string_view>
 #endif
 
 // 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
@@ -112,7 +113,12 @@
 // 字符串宏，用于在编译时将字符串转换为ast项目内部运行时编码
 // 当前ast项目内部运行时采用utf-8编码，所有字符串字面量都需要在编译时转换为utf-8编码
 // 但是考虑到为了有可能会采用其他编码，例如utf-16等，所以这里保留宏定义
-#define aText(x) u8 ## x
+#define _aText(x) (u8 ## x)
+#ifdef A_CXX20
+#   define aText(x) (reinterpret_cast<const char*>(u8 ## x))
+#else
+#   define aText(x) (u8 ## x)
+#endif
 
 
 // ast项目脚本模块导出声明
@@ -289,7 +295,8 @@ typedef MatrixMN<double, 6, 6> Matrix6d;
 template<typename _Char>
 class StringViewBasic;
 
-typedef StringViewBasic<char>     StringView;
+typedef StringViewBasic<char>  StringView;
+// typedef std::string_view     StringView;
 
 class Color;                 ///< 颜色
 
@@ -309,6 +316,7 @@ class ModJulianDate;        ///< 简约儒略日
 class System;
 class Axes;
 class Point;
+class CelestialBody;
 
 class Identifier;           ///< 标识符
 class BKVParser;            ///< BKV解析器

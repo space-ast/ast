@@ -39,7 +39,7 @@ int aMockSetStringView(StringView str)
 #if _HAS_CXX17
 int aMockSetStringViewStd(StringView str)
 {
-	return str.size();
+	return (int)str.size();
 }
 #endif
 

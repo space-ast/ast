@@ -5,7 +5,7 @@ add_packages("benchmark")
 
 
 if has_package("gtest") then
-    local test_files = os.files("**/test*.c*")
+    local test_files = os.files("**/test*.c*|Archive/**")
     for _, file in ipairs(test_files) do
         local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
         local basename = path.basename(file)
@@ -18,7 +18,7 @@ if has_package("gtest") then
 end
 
 if has_package("benchmark") then
-    local bm_files = os.files("**/bm*.cpp", "**/bm*.c")
+    local bm_files = os.files("**/bm*.cpp|Archive/**", "**/bm*.c")
     for _, file in ipairs(bm_files) do
         local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
         local basename = path.basename(file)

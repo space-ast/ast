@@ -30,7 +30,7 @@ using namespace _AST units;
 void testParseQuantity(StringView quantityStr, const Quantity& expectedQuantity)
 {
     ast_printf("testParseQuantity: %s\n", quantityStr.data());
-    Value* val = aEval(quantityStr.to_string());
+    Value* val = aEval(std::string(quantityStr));
     ASSERT_TRUE(val != nullptr);
     ASSERT_TRUE(aValueIsQuantity(val));
     Quantity quantity = aValueUnboxQuantity(val);

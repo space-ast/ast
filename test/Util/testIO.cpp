@@ -11,16 +11,16 @@ AST_USING_NAMESPACE
 void testPrintf()
 {
     printf("----------------------\n");
-    wprintf(L"😊😀\n");
-    printf(u8"😊😀\n");
-    printf(u8"中文utf8\n");
-    fprintf(stdout, u8"中文utf8\n");
-    printf("中文gbk\n");
-    printf(u8"محتوى عربي\n");
-    posix::printf(u8"😊😀 ast\n");
-    posix::printf(u8"中文utf8 ast\n");
-    posix::fprintf(stdout, u8"中文utf8 ast\n");
-    posix::printf(u8"محتوى عربي\n");
+    wprintf(L"%s", L"😊😀\n");
+    printf("%s", u8"😊😀\n");
+    printf("%s", u8"中文utf8\n");
+    fprintf(stdout, "%s", u8"中文utf8\n");
+    printf("%s", "中文gbk\n");
+    printf("%s", u8"محتوى عربي\n");
+    posix::printf("%s", u8"😊😀 ast\n");
+    posix::printf("%s", u8"中文utf8 ast\n");
+    posix::fprintf(stdout, "%s", u8"中文utf8 ast\n");
+    posix::printf("%s", u8"محتوى عربي\n");
     printf("----------------------\n");
 }
 

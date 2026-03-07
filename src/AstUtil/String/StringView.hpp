@@ -67,16 +67,16 @@ public:
         : m_data(nullptr), m_size(0)
     {}
 
-    constexpr StringViewBasic(const _Char* str)
+    constexpr StringViewBasic(const _Char* str) noexcept
         : m_data(str), m_size(str ? traits_type::length(str) : 0)
     {}
 
-    constexpr StringViewBasic(const _Char* str, size_type len)
+    constexpr StringViewBasic(const _Char* str, size_type len) noexcept
         : m_data(str), m_size(len)
     {}
 
     template<typename _Allocator>
-    StringViewBasic(const std::basic_string<_Char, std::char_traits<_Char>, _Allocator>& str)
+    StringViewBasic(const std::basic_string<_Char, std::char_traits<_Char>, _Allocator>& str) noexcept
         : m_data(str.data()), m_size(str.size())
     {}
 
@@ -239,7 +239,7 @@ public:
 
     size_type find(StringViewBasic str, size_type pos = 0) const noexcept
     {
-        if (pos > m_size || str.empty() || str.size() > m_size - pos)
+        if (pos > m_size || str.size() + pos> m_size)
             return npos;
 
         const _Char* start = m_data + pos;
@@ -335,17 +335,17 @@ public:
     }
 
     // 转换为字符串
-    std::basic_string<_Char> to_string() const
+    // std::basic_string<_Char> to_string() const noexcept
+    // {
+    //     return std::basic_string<_Char>(m_data, m_size);
+    // }
+
+    // 显式转换到 std::string
+    explicit 
+    operator std::basic_string<_Char>() const noexcept
     {
         return std::basic_string<_Char>(m_data, m_size);
     }
-
-    // 显式转换到 std::string
-    explicit operator std::basic_string<_Char>() const
-    {
-        return to_string();
-    }
-
 private:
     typedef std::char_traits<_Char> traits_type;
 };
@@ -366,6 +366,7 @@ typedef StringViewBasic<char32_t> u32string_view;
 #endif
 
 typedef StringViewBasic<char>     StringView;
+// typedef std::string_view       StringView;
 typedef StringViewBasic<wchar_t>  WStringView;
 typedef StringViewBasic<char16_t> U16StringView;
 typedef StringViewBasic<char32_t> U32StringView;

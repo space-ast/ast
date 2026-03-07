@@ -201,7 +201,7 @@ std::string aFormatPolynomial(const std::vector<double> &coeffs, StringView varn
         }
         if (i > 0)
         {
-            result += " " + varname.to_string();
+            result += " " + std::string(varname);
             result += "^" + aFormatInt(i);
         }
     }

@@ -1212,7 +1212,12 @@ void rav2xf(
 
 // timout
 
-// tipbod
+err_t tipbod(
+    const char      * ref,
+    int               body,
+    double            et,
+    double            tipm[3][3]
+);
 
 // tisbod
 

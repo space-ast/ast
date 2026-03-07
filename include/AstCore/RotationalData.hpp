@@ -1,1 +1,1 @@
-#include "../../src/AstCore/SolarSystem/PlanetOrientation/RotationalData.hpp"
+#include "../../src/AstCore/SolarSystem/Orientation/RotationalData.hpp"

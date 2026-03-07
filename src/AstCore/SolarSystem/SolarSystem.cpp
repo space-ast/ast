@@ -77,7 +77,7 @@ err_t SolarSystem::load(StringView dirpath)
 {
     init();
     err_t rc = 0;
-    for (const auto& entry : fs::directory_iterator(dirpath.to_string())) {
+    for (const auto& entry : fs::directory_iterator(std::string(dirpath))) {
         if (fs::is_directory(entry.status())) {
             std::string bodyname = entry.path().filename();
             CelestialBody *body = getOrAddBody(bodyname);
@@ -90,7 +90,7 @@ err_t SolarSystem::load(StringView dirpath)
 
 CelestialBody *SolarSystem::getBody(StringView name) const
 {
-    auto it = bodies_.find(name.to_string());
+    auto it = bodies_.find(std::string(name));
     if (it != bodies_.end())
     {
         return it->second.get();
@@ -103,7 +103,7 @@ CelestialBody *SolarSystem::addBody(StringView name)
     if (getBody(name))
         return nullptr;
     CelestialBody *body = new CelestialBody();
-    bodies_[name.to_string()] = body;
+    bodies_[std::string(name)] = body;
     return body;
 }
 
@@ -113,7 +113,7 @@ CelestialBody *SolarSystem::getOrAddBody(StringView name)
     if (!body)
     {
         body = new CelestialBody();
-        bodies_[name.to_string()] = body;    
+        bodies_[std::string(name)] = body;    
     }
     return body;
 }
