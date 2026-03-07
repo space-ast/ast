@@ -45,7 +45,10 @@ var searchData=
   ['brenthsolver_42',['BrenthSolver',['../classast_1_1BrenthSolver.html',1,'ast']]],
   ['brentqsolver_43',['BrentqSolver',['../classast_1_1BrentqSolver.html',1,'ast']]],
   ['byanychar_44',['ByAnyChar',['../classast_1_1strings__internal_1_1ByAnyChar.html',1,'ast::strings_internal']]],
-  ['bychar_45',['ByChar',['../classast_1_1strings__internal_1_1ByChar.html',1,'ast::strings_internal']]],
-  ['bylength_46',['ByLength',['../classast_1_1strings__internal_1_1ByLength.html',1,'ast::strings_internal']]],
-  ['bystring_47',['ByString',['../classast_1_1strings__internal_1_1ByString.html',1,'ast::strings_internal']]]
+  ['byasciiwhitespace_45',['ByAsciiWhitespace',['../classast_1_1strings__internal_1_1ByAsciiWhitespace.html',1,'ast::strings_internal']]],
+  ['bychar_46',['ByChar',['../classast_1_1strings__internal_1_1ByChar.html',1,'ast::strings_internal']]],
+  ['bylength_47',['ByLength',['../classast_1_1strings__internal_1_1ByLength.html',1,'ast::strings_internal']]],
+  ['byrepeatedchar_48',['ByRepeatedChar',['../classast_1_1strings__internal_1_1ByRepeatedChar.html',1,'ast::strings_internal']]],
+  ['byrepeatedwhitespace_49',['ByRepeatedWhitespace',['../classast_1_1strings__internal_1_1ByRepeatedWhitespace.html',1,'ast::strings_internal']]],
+  ['bystring_50',['ByString',['../classast_1_1strings__internal_1_1ByString.html',1,'ast::strings_internal']]]
 ];

@@ -156,6 +156,8 @@ std::vector&lt; <a class="el" href="structast_1_1LeapSecond_1_1Entry.html">Entry
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a7c918a12eb72990fd2990437f7b04c16" id="r_a7c918a12eb72990fd2990437f7b04c16"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c918a12eb72990fd2990437f7b04c16">loadATK</a> (FILE *file)</td></tr>
 <tr class="separator:a7c918a12eb72990fd2990437f7b04c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab448fb27b8315add197bc919b4f0c053" id="r_ab448fb27b8315add197bc919b4f0c053"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab448fb27b8315add197bc919b4f0c053">loadSTK</a> (FILE *file)</td></tr>
+<tr class="separator:ab448fb27b8315add197bc919b4f0c053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a052ff04e82cc981a9401e9db8a8d1daf" id="r_a052ff04e82cc981a9401e9db8a8d1daf"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a052ff04e82cc981a9401e9db8a8d1daf">loadHPIERS</a> (FILE *file)</td></tr>
 <tr class="separator:a052ff04e82cc981a9401e9db8a8d1daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d7d70aa03c2f0c85d4212663c12f6a" id="r_a13d7d70aa03c2f0c85d4212663c12f6a"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13d7d70aa03c2f0c85d4212663c12f6a">loadSpice</a> (FILE *file)</td></tr>
@@ -513,6 +515,45 @@ std::vector&lt; <a class="el" href="structast_1_1LeapSecond_1_1Entry.html">Entry
 <p>见 <a href="https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/kernel.html">https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/kernel.html</a> </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>- SPICE内核文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>错误码 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab448fb27b8315add197bc919b4f0c053" name="ab448fb27b8315add197bc919b4f0c053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab448fb27b8315add197bc919b4f0c053">&#9670;&#160;</a></span>loadSTK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::LeapSecond::loadSTK </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从STK格式文件加载闰秒数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>- STK格式文件指针 </td></tr>
   </table>
   </dd>
 </dl>

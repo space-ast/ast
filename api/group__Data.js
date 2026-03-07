@@ -98,6 +98,7 @@ var group__Data =
       [ "loadHPIERS", "classast_1_1LeapSecond.html#a052ff04e82cc981a9401e9db8a8d1daf", null ],
       [ "loadHPIERS", "classast_1_1LeapSecond.html#aa81fec4b77976e3d48d4deb16a0100ff", null ],
       [ "loadSpice", "classast_1_1LeapSecond.html#a13d7d70aa03c2f0c85d4212663c12f6a", null ],
+      [ "loadSTK", "classast_1_1LeapSecond.html#ab448fb27b8315add197bc919b4f0c053", null ],
       [ "setData", "classast_1_1LeapSecond.html#a9c1b2fa4a302aa4d99ea770b65fed6ec", null ],
       [ "setDefaultData", "classast_1_1LeapSecond.html#a547b20b20d6e93be2de6874f542dfa49", null ]
     ] ],

@@ -52,7 +52,7 @@ var searchData=
   ['loadspaceweather_49',['loadSpaceWeather',['../namespaceast.html#a94f4cf75f889ec56c67b248dea11ef71',1,'ast']]],
   ['loadspice_50',['loadSpice',['../classast_1_1LeapSecond.html#a13d7d70aa03c2f0c85d4212663c12f6a',1,'ast::LeapSecond']]],
   ['loadspindata_51',['loadSpinData',['../classast_1_1CelestialBody.html#aedb5faa6c8ec0dba3f23f97b04c93dbb',1,'ast::CelestialBody']]],
-  ['loadstk_52',['loadSTK',['../classast_1_1NutationSeries.html#a869cd5a209a9a95fe59635e8960a886b',1,'ast::NutationSeries']]],
+  ['loadstk_52',['loadSTK',['../classast_1_1NutationSeries.html#a869cd5a209a9a95fe59635e8960a886b',1,'ast::NutationSeries::loadSTK()'],['../classast_1_1LeapSecond.html#ab448fb27b8315add197bc919b4f0c053',1,'ast::LeapSecond::loadSTK()']]],
   ['localorbitframe_2ecpp_53',['LocalOrbitFrame.cpp',['../LocalOrbitFrame_8cpp.html',1,'']]],
   ['localorbitframe_2ehpp_54',['LocalOrbitFrame.hpp',['../LocalOrbitFrame_8hpp.html',1,'']]],
   ['lod_55',['lod',['../structast_1_1EOP_1_1Entry.html#acc126454814cd7cba70acd5c9c1e8beb',1,'ast::EOP::Entry']]],

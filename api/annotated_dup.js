@@ -15,8 +15,11 @@ var annotated_dup =
       [ "strings_internal", null, [
         [ "AllowEmpty", "structast_1_1strings__internal_1_1AllowEmpty.html", null ],
         [ "ByAnyChar", "classast_1_1strings__internal_1_1ByAnyChar.html", null ],
+        [ "ByAsciiWhitespace", "classast_1_1strings__internal_1_1ByAsciiWhitespace.html", null ],
         [ "ByChar", "classast_1_1strings__internal_1_1ByChar.html", null ],
         [ "ByLength", "classast_1_1strings__internal_1_1ByLength.html", null ],
+        [ "ByRepeatedChar", "classast_1_1strings__internal_1_1ByRepeatedChar.html", null ],
+        [ "ByRepeatedWhitespace", "classast_1_1strings__internal_1_1ByRepeatedWhitespace.html", null ],
         [ "ByString", "classast_1_1strings__internal_1_1ByString.html", null ],
         [ "DelimiterConcept", "structast_1_1strings__internal_1_1DelimiterConcept.html", null ],
         [ "MaxSplitsImpl", "classast_1_1strings__internal_1_1MaxSplitsImpl.html", null ],

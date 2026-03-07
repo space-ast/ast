@@ -146,7 +146,10 @@ var searchData=
   ['builtinaxes_2ecpp_143',['BuiltinAxes.cpp',['../BuiltinAxes_8cpp.html',1,'']]],
   ['builtinaxes_2ehpp_144',['BuiltinAxes.hpp',['../BuiltinAxes_8hpp.html',1,'']]],
   ['byanychar_145',['ByAnyChar',['../classast_1_1strings__internal_1_1ByAnyChar.html',1,'ast::strings_internal']]],
-  ['bychar_146',['ByChar',['../classast_1_1strings__internal_1_1ByChar.html',1,'ast::strings_internal']]],
-  ['bylength_147',['ByLength',['../classast_1_1strings__internal_1_1ByLength.html',1,'ast::strings_internal']]],
-  ['bystring_148',['ByString',['../classast_1_1strings__internal_1_1ByString.html',1,'ast::strings_internal']]]
+  ['byasciiwhitespace_146',['ByAsciiWhitespace',['../classast_1_1strings__internal_1_1ByAsciiWhitespace.html',1,'ast::strings_internal']]],
+  ['bychar_147',['ByChar',['../classast_1_1strings__internal_1_1ByChar.html',1,'ast::strings_internal']]],
+  ['bylength_148',['ByLength',['../classast_1_1strings__internal_1_1ByLength.html',1,'ast::strings_internal']]],
+  ['byrepeatedchar_149',['ByRepeatedChar',['../classast_1_1strings__internal_1_1ByRepeatedChar.html',1,'ast::strings_internal']]],
+  ['byrepeatedwhitespace_150',['ByRepeatedWhitespace',['../classast_1_1strings__internal_1_1ByRepeatedWhitespace.html',1,'ast::strings_internal']]],
+  ['bystring_151',['ByString',['../classast_1_1strings__internal_1_1ByString.html',1,'ast::strings_internal']]]
 ];

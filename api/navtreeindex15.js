@@ -1,5 +1,6 @@
 var NAVTREEINDEX15 =
 {
+"classast_1_1Transform.html#ae9d9a42377f8d7c02088e8ba1e025f24":[3,0,0,284,5],
 "classast_1_1UTCScale.html":[2,0,0,295],
 "classast_1_1UTCScale.html":[3,0,0,294],
 "classast_1_1UiMainWindow.html":[2,0,0,286],
@@ -161,12 +162,15 @@ var NAVTREEINDEX15 =
 "classast_1_1fs__simple_1_1path.html":[2,0,0,0,4],
 "classast_1_1fs__simple_1_1path.html":[3,0,0,0,4],
 "classast_1_1strings__internal_1_1ByAnyChar.html":[3,0,0,2,1],
-"classast_1_1strings__internal_1_1ByChar.html":[3,0,0,2,2],
-"classast_1_1strings__internal_1_1ByLength.html":[3,0,0,2,3],
-"classast_1_1strings__internal_1_1ByString.html":[3,0,0,2,4],
-"classast_1_1strings__internal_1_1MaxSplitsImpl.html":[3,0,0,2,6],
-"classast_1_1strings__internal_1_1Splitter.html":[3,0,0,2,14],
-"classast_1_1strings__internal_1_1Splitter_1_1Iterator.html":[3,0,0,2,14,0],
+"classast_1_1strings__internal_1_1ByAsciiWhitespace.html":[3,0,0,2,2],
+"classast_1_1strings__internal_1_1ByChar.html":[3,0,0,2,3],
+"classast_1_1strings__internal_1_1ByLength.html":[3,0,0,2,4],
+"classast_1_1strings__internal_1_1ByRepeatedChar.html":[3,0,0,2,5],
+"classast_1_1strings__internal_1_1ByRepeatedWhitespace.html":[3,0,0,2,6],
+"classast_1_1strings__internal_1_1ByString.html":[3,0,0,2,7],
+"classast_1_1strings__internal_1_1MaxSplitsImpl.html":[3,0,0,2,9],
+"classast_1_1strings__internal_1_1Splitter.html":[3,0,0,2,17],
+"classast_1_1strings__internal_1_1Splitter_1_1Iterator.html":[3,0,0,2,17,0],
 "classes.html":[3,1],
 "dir_05bbeb6cdde6aee3e8dbcae60260af6c.html":[4,0,0,10,5],
 "dir_06885893937105035a40843f51017357.html":[4,0,0,5,4,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX15 =
 "dir_bdb25c7bd40858c0ea2b71c5e17b2266.html":[4,0,0,7],
 "dir_c28a40f339b370bd30d45f651e4adfe9.html":[4,0,0,11],
 "dir_c55449375985824c4f31f3873912e152.html":[4,0,0,12,1,1],
-"dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html":[4,0,0,2,2],
-"dir_d6e4ac8b78fda5c9099770e0f8f0c340.html":[4,0,0,13],
-"dir_de24395002d50067c90a155730d79f2b.html":[4,0,0,2,5,2,1],
-"dir_deb258cf57e277be5b7cec8bb6708261.html":[4,0,0,2,7],
-"dir_df22833fddc7a1ebcc4c75e49f4c2324.html":[4,0,0,6]
+"dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html":[4,0,0,2,2]
 };

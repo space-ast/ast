@@ -1,6 +1,9 @@
 var StringSplitter_8hpp =
 [
     [ "ast::strings_internal::DelimiterConcept", "structast_1_1strings__internal_1_1DelimiterConcept.html", null ],
+    [ "ast::strings_internal::ByRepeatedChar", "classast_1_1strings__internal_1_1ByRepeatedChar.html", null ],
+    [ "ast::strings_internal::ByRepeatedWhitespace", "classast_1_1strings__internal_1_1ByRepeatedWhitespace.html", null ],
+    [ "ast::strings_internal::ByAsciiWhitespace", "classast_1_1strings__internal_1_1ByAsciiWhitespace.html", null ],
     [ "ast::strings_internal::ByString", "classast_1_1strings__internal_1_1ByString.html", null ],
     [ "ast::strings_internal::ByChar", "classast_1_1strings__internal_1_1ByChar.html", null ],
     [ "ast::strings_internal::ByAnyChar", "classast_1_1strings__internal_1_1ByAnyChar.html", null ],
