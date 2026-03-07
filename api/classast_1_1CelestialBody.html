@@ -230,8 +230,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getJn</b> (int n) c
 <tr class="memitem:ae7d3d7c1c92f69d792ebe383cc45e34f" id="r_ae7d3d7c1c92f69d792ebe383cc45e34f"><td class="memItemLeft" align="right" valign="top"><a id="ae7d3d7c1c92f69d792ebe383cc45e34f" name="ae7d3d7c1c92f69d792ebe383cc45e34f"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadGravityModel</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> model)</td></tr>
 <tr class="separator:ae7d3d7c1c92f69d792ebe383cc45e34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f646ce844d67e4a3ba6594cdf42f33" id="r_a29f646ce844d67e4a3ba6594cdf42f33"><td class="memItemLeft" align="right" valign="top"><a id="a29f646ce844d67e4a3ba6594cdf42f33" name="a29f646ce844d67e4a3ba6594cdf42f33"></a>
-err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadAstroDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
+<tr class="memitem:a29f646ce844d67e4a3ba6594cdf42f33" id="r_a29f646ce844d67e4a3ba6594cdf42f33"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29f646ce844d67e4a3ba6594cdf42f33">loadAstroDefinition</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
 <tr class="separator:a29f646ce844d67e4a3ba6594cdf42f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb5faa6c8ec0dba3f23f97b04c93dbb" id="r_aedb5faa6c8ec0dba3f23f97b04c93dbb"><td class="memItemLeft" align="right" valign="top"><a id="aedb5faa6c8ec0dba3f23f97b04c93dbb" name="aedb5faa6c8ec0dba3f23f97b04c93dbb"></a>
 err_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadSpinData</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser)</td></tr>
@@ -342,6 +341,34 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>SolarSystem</b></td>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a29f646ce844d67e4a3ba6594cdf42f33" name="a29f646ce844d67e4a3ba6594cdf42f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f646ce844d67e4a3ba6594cdf42f33">&#9670;&#160;</a></span>loadAstroDefinition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">err_t ast::CelestialBody::loadAstroDefinition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>加载相关的天文参数 </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug</a></b></dt><dd>如果model 被恶意写成 ../../../../etc/passwd， 拼接后就成了 /home/user/project/configs/../../../../etc/passwd， 经过路径解析后可能指向 /etc/passwd，从而读取系统关键文件。 </dd></dl>
 
 </div>
 </div>

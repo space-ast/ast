@@ -102,12 +102,16 @@ $(function(){initNavTree('bug.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt>成员 <a class="el" href="group__ParseFormat.html#gaf558cb2781e624e1228b2d61ab9de454">ast::_aParseInt_LibC_3</a>  (StringView sv, int &amp;value)</dt>
+<dd><a class="anchor" id="_bug000005"></a>如果输入的字符串很长很长，可能会导致栈溢出  </dd>
+<dt>成员 <a class="el" href="classast_1_1CelestialBody.html#a29f646ce844d67e4a3ba6594cdf42f33">ast::CelestialBody::loadAstroDefinition</a>  (<a class="el" href="classast_1_1BKVParser.html" title="键值对解析器（BlockKeyValueParser）">BKVParser</a> &amp;parser)</dt>
+<dd><a class="anchor" id="_bug000001"></a> 如果model 被恶意写成 ../../../../etc/passwd， 拼接后就成了 /home/user/project/configs/../../../../etc/passwd， 经过路径解析后可能指向 /etc/passwd，从而读取系统关键文件。  </dd>
 <dt>成员 <a class="el" href="classast_1_1ODEIntegrator.html#a4da8602cc2555b747a38ec04f35cc340">ast::ODEIntegrator::addEventDetector</a>  (<a class="el" href="classast_1_1ODEEventDetector.html" title="ODE积分的事件检测器">ODEEventDetector</a> *detector)</dt>
-<dd><a class="anchor" id="_bug000002"></a>目前只能添加在堆上动态创建的事件检测器，如果添加栈上的事件检测器，会导致内存问题  </dd>
+<dd><a class="anchor" id="_bug000003"></a>目前只能添加在堆上动态创建的事件检测器，如果添加栈上的事件检测器，会导致内存问题  </dd>
 <dt>成员 <a class="el" href="classast_1_1ODEIntegrator.html#abef67d9cce067b12e355543b5ac80af9">ast::ODEIntegrator::addStateObserver</a>  (<a class="el" href="classast_1_1ODEStateObserver.html" title="ODE状态量观察者">ODEStateObserver</a> *observer)</dt>
-<dd><a class="anchor" id="_bug000003"></a>目前只能添加在堆上动态创建的状态观察者，如果添加栈上的状态观察者，会导致内存问题  </dd>
+<dd><a class="anchor" id="_bug000004"></a>目前只能添加在堆上动态创建的状态观察者，如果添加栈上的状态观察者，会导致内存问题  </dd>
 <dt>成员 <a class="el" href="classast_1_1RotationalData.html#a8f3a713383752955b620a7e8246d9f25">ast::RotationalData::getICRFToFixedTransform</a>  (const <a class="el" href="classast_1_1TimePoint.html" title="绝对时间点">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html" title="运动学旋转">KinematicRotation</a> &amp;rotation) const override</dt>
-<dd><a class="anchor" id="_bug000001"></a>这里需要实现角速度的计算 </dd>
+<dd><a class="anchor" id="_bug000002"></a>这里需要实现角速度的计算 </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

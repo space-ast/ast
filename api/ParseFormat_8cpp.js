@@ -4,6 +4,7 @@ var ParseFormat_8cpp =
     [ "_aParseDouble_Scanf", "ParseFormat_8cpp.html#ga6c43cfb381d9a42de70f347e3391c6b7", null ],
     [ "_aParseDouble_StringStream", "ParseFormat_8cpp.html#ga24df01ee6f1cdd6a815e7c48f6a21221", null ],
     [ "_aParseInt_LibC_1", "ParseFormat_8cpp.html#gae9b51bc61cf9af3a7f467fa2d49a9670", null ],
+    [ "_aParseInt_LibC_3", "ParseFormat_8cpp.html#gaf558cb2781e624e1228b2d61ab9de454", null ],
     [ "_aParseInt_Scanf", "ParseFormat_8cpp.html#gaedc0b619600c9e9a0d252d2daac1d896", null ],
     [ "_aParseInt_Simple", "ParseFormat_8cpp.html#gae28c8c8f19b7caa5d13770497140e420", null ],
     [ "_aParseInt_StringStream", "ParseFormat_8cpp.html#gaee61ea763344f3f4320133dd07e94c90", null ],
