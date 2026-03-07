@@ -36,6 +36,157 @@ TEST(LeapSecond, LoadDefault)
     EXPECT_EQ(err, eNoError);
 }
 
+TEST(LeapSecond, load) {
+    const auto atkfile = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
+    const auto stkfile = fs::path(aDataDirGet()) / "Test/STK/LeapSecond.dat";
+    const auto hiersfile = fs::path(aDataDirGet()) / "Time/Leap_Second.dat";
+
+    {
+        LeapSecond leapSecond;
+        leapSecond.data().clear();
+        err_t rc = leapSecond.load(atkfile.string());
+        EXPECT_EQ(rc, eNoError);
+        size_t size = leapSecond.data().size();
+        EXPECT_GT(size, 0);
+    }
+    {
+        LeapSecond leapSecond;
+        leapSecond.data().clear();
+        err_t rc = leapSecond.load(stkfile.string());
+        EXPECT_EQ(rc, eNoError);
+        size_t size = leapSecond.data().size();
+        EXPECT_GT(size, 0);
+    }
+    {
+        LeapSecond leapSecond;
+        leapSecond.data().clear();
+        err_t rc = leapSecond.load(hiersfile.string());
+        EXPECT_EQ(rc, eNoError);
+        size_t size = leapSecond.data().size();
+        EXPECT_GT(size, 0);
+    }
+
+}
+
+// 测试文件加载函数（使用临时文件）
+TEST(LeapSecond, loadHPIERS) {
+    LeapSecond leapSecond;
+    
+    // 创建临时HPIERS格式文件进行测试
+    std::string tempFilePath = "temp_leap_second.dat";
+    {
+        std::ofstream tempFile(tempFilePath);
+        tempFile << "# 临时闰秒测试文件\n";
+        tempFile << "57023 1 1 2015 36\n";
+        tempFile << "58119 1 1 2018 37\n";
+        tempFile.close();
+    }
+    
+    // 测试loadHPIERS
+    err_t err = leapSecond.loadHPIERS(tempFilePath.c_str());
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(leapSecond.data().size(), 2);
+    EXPECT_EQ(leapSecond.data()[0].mjd, 57023);
+    EXPECT_EQ(leapSecond.data()[0].leapSecond, 36);
+    
+    // 测试load（应该调用loadHPIERS）
+    LeapSecond leapSecond2;
+    err = leapSecond2.load(tempFilePath.c_str());
+    EXPECT_EQ(err, eNoError);
+    EXPECT_EQ(leapSecond2.data().size(), 2);
+    
+    // 清理临时文件
+    std::remove(tempFilePath.c_str());
+    
+    // 测试空指针和不存在的文件
+    EXPECT_EQ(leapSecond.loadHPIERS((const char*)nullptr), eErrorNullInput);
+    EXPECT_NE(leapSecond.loadHPIERS("non_existent_file.dat"), 0);
+}
+
+
+
+// 测试ATK格式文件加载
+TEST(LeapSecond, loadATK) {
+    {
+        LeapSecond leapSecond;
+        
+        // 创建ATK格式的临时文件
+        std::string tempFilePath = "temp_atk_leap_second.dat";
+        {
+            std::ofstream tempFile(tempFilePath);
+            tempFile << "2\n"; // 两行数据
+            tempFile << "57000 36 2015 JAN 1\n";
+            tempFile << "58000 37 2018 JAN 1\n";
+            tempFile.close();
+        }
+        
+        // 测试loadATK
+        err_t err = leapSecond.loadATK(tempFilePath.c_str());
+        EXPECT_EQ(err, eNoError);
+        EXPECT_EQ(leapSecond.data().size(), 2);
+        EXPECT_EQ(leapSecond.data()[0].mjd, 57000);
+        EXPECT_EQ(leapSecond.data()[0].leapSecond, 36);
+        
+        // 清理
+        std::remove(tempFilePath.c_str());
+
+        err = leapSecond.loadHPIERS(tempFilePath.c_str());
+        EXPECT_NE(err, 0);
+    }
+    {
+        LeapSecond leapSecond;
+        auto filepath = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
+        err_t err = leapSecond.loadATK(filepath.c_str());
+        EXPECT_EQ(err, 0);
+        EXPECT_EQ(leapSecond.loadATK((const char*)nullptr), eErrorNullInput);
+        EXPECT_NE(leapSecond.loadATK("non_existent_file.dat"), 0);
+    }
+    {
+        LeapSecond leapSecond;
+        auto filepath = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
+        err_t err = leapSecond.load(filepath.c_str());
+        EXPECT_EQ(err, 0);
+        EXPECT_EQ(leapSecond.load((const char*)nullptr), eErrorNullInput);
+        EXPECT_NE(leapSecond.load("non_existent_file.dat"), 0);
+    }
+}
+
+
+
+// 测试文件加载边界情况 - 错误格式的文件
+TEST(LeapSecond, invalidFileFormat) {
+    LeapSecond leapSecond;
+    
+    // 创建格式错误的临时文件
+    std::string tempFilePath = "temp_invalid_leap_second.dat";
+    {
+        std::ofstream tempFile(tempFilePath);
+        tempFile << "# 格式错误的文件\n";
+        tempFile << "这不是有效的数据行\n";
+        tempFile << "57000 abc 1 2015 36\n"; // 格式错误
+        tempFile.close();
+    }
+    
+    // 测试加载格式错误的文件
+    err_t err = leapSecond.loadHPIERS(tempFilePath.c_str());
+    EXPECT_EQ(err, eErrorInvalidFile);
+    
+    // 创建空文件
+    std::ofstream emptyFile(tempFilePath, std::ios::trunc);
+    emptyFile.close();
+    
+    // 测试加载空文件
+    err = leapSecond.loadHPIERS(tempFilePath.c_str());
+    EXPECT_NE(err, 0);
+
+    err = leapSecond.loadATK(tempFilePath.c_str());
+    EXPECT_NE(err, 0);
+
+    // 清理
+    std::remove(tempFilePath.c_str());
+}
+
+
 TEST(LeapSecond, normalize)
 {
     DateTime dateTime{ 2023, 12, 31, 23, 59, 60 };
@@ -206,51 +357,6 @@ TEST(LeapSecond, getLodUTC) {
     EXPECT_DOUBLE_EQ(leapSecond.getLodUTCMJD(mjdLeapBefore), expectedLod);
 }
 
-// 测试文件加载函数（使用临时文件）
-TEST(LeapSecond, fileLoading) {
-    LeapSecond leapSecond;
-    
-    // 创建临时HPIERS格式文件进行测试
-    std::string tempFilePath = "temp_leap_second.dat";
-    {
-        std::ofstream tempFile(tempFilePath);
-        tempFile << "# 临时闰秒测试文件\n";
-        tempFile << "57023 1 1 2015 36\n";
-        tempFile << "58119 1 1 2018 37\n";
-        tempFile.close();
-    }
-    
-    // 测试loadHPIERS
-    err_t err = leapSecond.loadHPIERS(tempFilePath.c_str());
-    EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(leapSecond.data().size(), 2);
-    EXPECT_EQ(leapSecond.data()[0].mjd, 57023);
-    EXPECT_EQ(leapSecond.data()[0].leapSecond, 36);
-    
-    // 测试load（应该调用loadHPIERS）
-    LeapSecond leapSecond2;
-    err = leapSecond2.load(tempFilePath.c_str());
-    EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(leapSecond2.data().size(), 2);
-    
-    // 清理临时文件
-    std::remove(tempFilePath.c_str());
-    
-    // 测试空指针和不存在的文件
-    EXPECT_EQ(leapSecond.loadHPIERS((const char*)nullptr), eErrorNullInput);
-    EXPECT_NE(leapSecond.loadHPIERS("non_existent_file.dat"), 0);
-}
-
-
-TEST(LeapSecond, loadATK)
-{
-    LeapSecond leapSecond;
-    auto filepath = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
-    err_t err = leapSecond.loadATK(filepath.c_str());
-    EXPECT_EQ(err, 0);
-    EXPECT_EQ(leapSecond.loadATK((const char*)nullptr), eErrorNullInput);
-    EXPECT_NE(leapSecond.loadATK("non_existent_file.dat"), 0);
-}
 // 测试边界情况 - 空数据
 TEST(LeapSecond, emptyDataBoundary) {
     LeapSecond leapSecond;
@@ -345,66 +451,6 @@ TEST(LeapSecond, midnightBoundary) {
     EXPECT_DOUBLE_EQ(leapBeforeMidnight, leapAfterMidnight);
 }
 
-// 测试文件加载边界情况 - 错误格式的文件
-TEST(LeapSecond, invalidFileFormat) {
-    LeapSecond leapSecond;
-    
-    // 创建格式错误的临时文件
-    std::string tempFilePath = "temp_invalid_leap_second.dat";
-    {
-        std::ofstream tempFile(tempFilePath);
-        tempFile << "# 格式错误的文件\n";
-        tempFile << "这不是有效的数据行\n";
-        tempFile << "57000 abc 1 2015 36\n"; // 格式错误
-        tempFile.close();
-    }
-    
-    // 测试加载格式错误的文件
-    err_t err = leapSecond.loadHPIERS(tempFilePath.c_str());
-    EXPECT_EQ(err, eErrorInvalidFile);
-    
-    // 创建空文件
-    std::ofstream emptyFile(tempFilePath, std::ios::trunc);
-    emptyFile.close();
-    
-    // 测试加载空文件
-    err = leapSecond.loadHPIERS(tempFilePath.c_str());
-    EXPECT_NE(err, 0);
-
-    err = leapSecond.loadATK(tempFilePath.c_str());
-    EXPECT_NE(err, 0);
-
-    // 清理
-    std::remove(tempFilePath.c_str());
-}
-
-// 测试ATK格式文件加载
-TEST(LeapSecond, loadATKFormat) {
-    LeapSecond leapSecond;
-    
-    // 创建ATK格式的临时文件
-    std::string tempFilePath = "temp_atk_leap_second.dat";
-    {
-        std::ofstream tempFile(tempFilePath);
-        tempFile << "2\n"; // 两行数据
-        tempFile << "57000 36 2015 JAN 1\n";
-        tempFile << "58000 37 2018 JAN 1\n";
-        tempFile.close();
-    }
-    
-    // 测试loadATK
-    err_t err = leapSecond.loadATK(tempFilePath.c_str());
-    EXPECT_EQ(err, eNoError);
-    EXPECT_EQ(leapSecond.data().size(), 2);
-    EXPECT_EQ(leapSecond.data()[0].mjd, 57000);
-    EXPECT_EQ(leapSecond.data()[0].leapSecond, 36);
-    
-    // 清理
-    std::remove(tempFilePath.c_str());
-
-    err = leapSecond.loadHPIERS(tempFilePath.c_str());
-    EXPECT_NE(err, 0);
-}
 
 // 测试getLodUTC的边界情况 - 闰秒变更当天
 TEST(LeapSecond, getLodUTCOnLeapSecondDay) {

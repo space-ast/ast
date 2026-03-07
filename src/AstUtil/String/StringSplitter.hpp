@@ -41,7 +41,59 @@ struct DelimiterConcept {
     }
 };
 
-// ByString 分隔符
+/// @brief 重复字符分隔符
+class ByRepeatedChar {
+public:
+    explicit ByRepeatedChar(char c) : c_(c) {}
+    
+    StringView Find(StringView text, size_t pos) const {
+        size_t start = text.find(c_, pos);
+        if (start == StringView::npos) {
+            return StringView(text.data() + text.size(), 0); // 未找到
+        }
+        size_t end = start;
+        while (end < text.size() && text[end] == c_) {
+            ++end;
+        }
+        return text.substr(start, end - start);
+    }
+private:
+    char c_;
+};
+
+/// @brief 重复空白字符分隔符
+class ByRepeatedWhitespace {
+public:
+    StringView Find(StringView text, size_t pos) const {
+        // 查找第一个空白字符
+        while (pos < text.size() && !std::isspace(static_cast<unsigned char>(text[pos]))) {
+            ++pos;
+        }
+        if (pos >= text.size()) {
+            return StringView(text.data() + text.size(), 0); // 未找到
+        }
+        size_t start = pos;
+        // 连续跳过所有空白字符
+        while (pos < text.size() && std::isspace(static_cast<unsigned char>(text[pos]))) {
+            ++pos;
+        }
+        return text.substr(start, pos - start);
+    }
+};
+
+/// @brief ASCII空白字符分隔符
+class ByAsciiWhitespace
+ {
+public:
+    StringView Find(StringView text, size_t pos) const {
+        while(pos < text.size() && std::isspace(static_cast<unsigned char>(text[pos]))) {
+            pos++;
+        }
+        return text.substr(pos, 1);
+    }
+};
+
+/// @brief 字符串分隔符
 class ByString {
 public:
     explicit ByString(StringView sp) 
@@ -72,7 +124,7 @@ private:
     StringView delimiter_;
 };
 
-// ByChar 分隔符
+/// @brief 字符分隔符
 class ByChar {
 public:
     explicit ByChar(char c) : c_(c) {}
@@ -89,7 +141,7 @@ private:
     char c_;
 };
 
-// ByAnyChar 分隔符
+/// @brief 任意字符分隔符
 class ByAnyChar {
 public:
     explicit ByAnyChar(StringView sp) : delimiters_(sp) {}
@@ -106,7 +158,7 @@ private:
     StringView delimiters_;
 };
 
-// ByLength 分隔符
+/// @brief 固定长度分隔符
 class ByLength {
 public:
     explicit ByLength(std::ptrdiff_t length) : length_(length) {}
@@ -126,7 +178,7 @@ private:
     const std::ptrdiff_t length_;
 };
 
-// MaxSplits 实现
+/// @brief 最大分割次数分隔符
 template <typename Delimiter>
 class MaxSplitsImpl {
 public:
@@ -358,6 +410,8 @@ using ByString = strings_internal::ByString;
 using ByChar = strings_internal::ByChar;
 using ByAnyChar = strings_internal::ByAnyChar;
 using ByLength = strings_internal::ByLength;
+using ByRepeatedWhitespace = strings_internal::ByRepeatedWhitespace;
+using ByRepeatedChar = strings_internal::ByRepeatedChar;
 
 // 谓词类型
 using AllowEmpty = strings_internal::AllowEmpty;

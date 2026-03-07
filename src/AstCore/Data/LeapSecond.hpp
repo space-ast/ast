@@ -83,6 +83,11 @@ protected:
 	/// @retval          - 错误码
     err_t loadATK(FILE* file);
 
+	/// @brief  从STK格式文件加载闰秒数据
+	/// @param  file - STK格式文件指针
+	/// @retval          - 错误码
+	err_t loadSTK(FILE* file);
+
 	/// @brief  从HPIERS格式文件加载闰秒数据
 	/// @details 见 <https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat>
 	/// @param  file - HPIERS格式文件指针

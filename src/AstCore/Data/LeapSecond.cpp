@@ -28,6 +28,7 @@
 #include "AstUtil/IO.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/StringSplit.hpp"
 #include <assert.h>
 #include <fstream>
 #include <cmath>
@@ -92,6 +93,57 @@ err_t LeapSecond::loadATK(FILE* file)
     return eNoError;
 }
 
+err_t LeapSecond::loadSTK(FILE *file)
+{
+    if (file == NULL) {
+        return eErrorNullInput;
+    }
+    std::vector<Entry> data;
+    int line, status;
+    // #pragma warning(suppress: 4996)
+    status = fscanf(file, "%d", &line);
+    if (status == EOF) {
+        return eErrorInvalidFile;
+    }
+    data.reserve(line);
+
+    char linebuf[1024];
+    double leapsec;
+    int year;
+    char month_str[10];
+    int day;
+    double jd;
+    double mjd;
+    double temp;
+    while ((int)data.size() < line) {
+        if (fgets(linebuf, sizeof(linebuf), file))
+        {
+            // 跳过空行和注释行
+            if (linebuf[0] == '#' || linebuf[0] == '\n' || linebuf[0] == '\r') {
+                continue;
+            }
+            Entry entry{};
+            // #pragma warning(suppress: 4996)
+            status = sscanf(
+                linebuf,
+                "%d %5s %d %lf %lf %lf %lf",
+                &year, month_str, &day, &jd,
+                &leapsec, &mjd, &temp
+            );
+            entry.mjd = static_cast<int>(mjd);
+            entry.leapSecond = static_cast<int>(leapsec);
+            if (status == EOF) {
+                return eErrorInvalidFile;
+            }
+            data.push_back(entry);
+        }
+        else {
+            return eErrorInvalidFile;
+        }
+    }
+    m_data = std::move(data);
+    return eNoError;
+}
 
 err_t LeapSecond::loadHPIERS(FILE* file)
 {
@@ -167,9 +219,25 @@ err_t LeapSecond::load(StringView filepath)
         return eErrorInvalidFile;
     }
     // 3. 通过第一行来判断文件格式
-    
-
-    return loadHPIERS(file);
+    if(linebuf[0] >= '0' && linebuf[0] <= '9'){
+        // 读取第二行
+        if (!fgets(linebuf, sizeof(linebuf), file)) {
+            return eErrorInvalidFile;
+        }
+        std::vector<StringView> cols = aStrSplit(linebuf, ByRepeatedWhitespace(), SkipEmpty());
+        // 重置文件指针到开头
+        fseek(file, 0, SEEK_SET);
+        // 根据列数判断文件格式
+        if(cols.size() == 5){
+            return loadATK(file);
+        }else if(cols.size() == 7){
+            return loadSTK(file);
+        }
+    }else{
+        return loadHPIERS(file);
+    }
+    aError("failed to load leap second file, with format = unknown");
+    return eErrorInvalidFile;
 }
 
 
