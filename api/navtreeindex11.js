@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[3,0,0,156,6],
 "classast_1_1KinematicRotation.html#a7a7cf3a0ee52f90857a27348663ae289":[2,0,0,157,0],
 "classast_1_1KinematicRotation.html#a7a7cf3a0ee52f90857a27348663ae289":[3,0,0,156,0],
 "classast_1_1KinematicRotation.html#a7f7b4d0505a9ed34e081b9ea256d5663":[2,0,0,157,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "classast_1_1NLPProblem.html#a962def5dd1d88d77e657b00bea06b1f1":[3,0,0,180,18],
 "classast_1_1NLPProblem.html#a9c489761b464416289d3c92aa6e51fef":[2,0,0,181,22],
 "classast_1_1NLPProblem.html#a9c489761b464416289d3c92aa6e51fef":[3,0,0,180,22],
-"classast_1_1NLPProblem.html#aa4da2a3b595654d047a1666d4fe51c2f":[2,0,0,181,7],
-"classast_1_1NLPProblem.html#aa4da2a3b595654d047a1666d4fe51c2f":[3,0,0,180,7]
+"classast_1_1NLPProblem.html#aa4da2a3b595654d047a1666d4fe51c2f":[2,0,0,181,7]
 };

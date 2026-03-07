@@ -14,5 +14,6 @@ var ParseFormat_8cpp =
     [ "aParseBool", "ParseFormat_8cpp.html#gabf3c2c64218370dfc40719d20c6fc654", null ],
     [ "aParseColor", "ParseFormat_8cpp.html#ga20d11068e57303bfdc08dee58ac74f5b", null ],
     [ "aParseDouble", "ParseFormat_8cpp.html#ga2755892db63f0090449b00f4db59e4d8", null ],
+    [ "aParseFortranDouble", "ParseFormat_8cpp.html#gaca98816c4ad9ff294b409612262e7198", null ],
     [ "aParseInt", "ParseFormat_8cpp.html#gaf44a279042760faa6761c53920365cf8", null ]
 ];

@@ -7,10 +7,7 @@ var classast_1_1BKVParser =
       [ "eEOF", "classast_1_1BKVParser.html#a84da3cc338200e6187bfffe0be8f2a7fac7e1355f4ab9c9ddcd0f96af8cec7ec2", null ]
     ] ],
     [ "allowComment", "classast_1_1BKVParser.html#a63a52ed4f2a7c565015901f9bc82f385", null ],
-    [ "getLine", "classast_1_1BKVParser.html#a5d050645e706306bd4cd4148b1ff9bdd", null ],
     [ "getLineSkipComment", "classast_1_1BKVParser.html#ae9250e39c92322d981ea7e4a5b152a57", null ],
-    [ "getLineTrim", "classast_1_1BKVParser.html#a8aafcb92ea2666ab298df7404853d20a", null ],
-    [ "getLineWithNewline", "classast_1_1BKVParser.html#aa573f25d2c79836358dcca1965ee3e27", null ],
     [ "getNext", "classast_1_1BKVParser.html#a17f23e91ec51777fd6db5638e89f6351", null ],
     [ "getNext", "classast_1_1BKVParser.html#a5ca7454cc8a700a271a76f81e7c5d5c9", null ],
     [ "parse", "classast_1_1BKVParser.html#a7cb0e9045a9729b58d4240028b842662", null ],

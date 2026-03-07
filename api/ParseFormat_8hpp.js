@@ -21,6 +21,7 @@ var ParseFormat_8hpp =
     [ "aParseColor", "ParseFormat_8hpp.html#ga20d11068e57303bfdc08dee58ac74f5b", null ],
     [ "aParseDouble", "ParseFormat_8hpp.html#ga4c89ec12f4f456cdb8ff0b250710a858", null ],
     [ "aParseDouble", "ParseFormat_8hpp.html#ga2755892db63f0090449b00f4db59e4d8", null ],
+    [ "aParseFortranDouble", "ParseFormat_8hpp.html#gaca98816c4ad9ff294b409612262e7198", null ],
     [ "aParseInt", "ParseFormat_8hpp.html#gafa3bc05b20e1307e5911f952efe5cbbc", null ],
     [ "aParseInt", "ParseFormat_8hpp.html#gaf44a279042760faa6761c53920365cf8", null ]
 ];
