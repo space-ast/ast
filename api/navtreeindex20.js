@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1Quaternion.html#abf34f1d3eadf0c11d520bfebd571a2d2":[0,1,1,2,24],
 "classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b":[0,1,1,2,16],
 "classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770":[0,1,1,2,14],
 "classast_1_1Quaternion.html#affd2c78251b00a2662ceb6045f6fcc81":[0,1,1,2,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1SolarSystem.html#a53aa7479f71ef11c851e4bcc2f8c24f3":[0,0,5,11,15],
 "classast_1_1SolarSystem.html#a54578aee92704a294903e9944e1cc833":[0,0,5,11,12],
 "classast_1_1SolarSystem.html#a61e091a3319474fdaf90c770a7b20040":[0,0,5,11,11],
-"classast_1_1SolarSystem.html#a62116574b5a26af266075674c9c6722a":[0,0,5,11,28],
-"classast_1_1SolarSystem.html#a69e0e6d52fe521c01e912cdd19545e87":[0,0,5,11,16]
+"classast_1_1SolarSystem.html#a62116574b5a26af266075674c9c6722a":[0,0,5,11,28]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX17 =
 {
+"classast_1_1MolniyaOrbitDesigner.html":[2,0,0,245],
 "classast_1_1MolniyaOrbitDesigner.html":[3,0,0,244],
 "classast_1_1MolniyaOrbitDesigner.html#a1d21556907ff557bf972b608967c22e7":[2,0,0,245,1],
 "classast_1_1MolniyaOrbitDesigner.html#a1d21556907ff557bf972b608967c22e7":[3,0,0,244,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX17 =
 "classast_1_1ODEEventDetector.html#a4fdcfcc8d60f2514d6116efbf1ab058f":[0,1,4,7,1],
 "classast_1_1ODEEventDetector.html#ab0a3a2806c2306c5af64084c2329a7cd":[0,1,4,7,3],
 "classast_1_1ODEEventDetector.html#abb685ac438f6135d5ec6c328bbd3cc29":[0,1,4,7,5],
-"classast_1_1ODEEventDetector.html#abd85219122cf5d8d1d2f755dc27c9794":[0,1,4,7,4],
-"classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b":[0,1,4,7,0]
+"classast_1_1ODEEventDetector.html#abd85219122cf5d8d1d2f755dc27c9794":[0,1,4,7,4]
 };

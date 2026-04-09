@@ -265,7 +265,7 @@ var annotated_dup =
       [ "Macro", "classast_1_1Macro.html", null ],
       [ "Matrix", "classast_1_1Matrix.html", null ],
       [ "MatrixMN", "classast_1_1MatrixMN.html", null ],
-      [ "MatrixMN< _Scalar, 3, 3 >", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html", null ],
+      [ "MatrixMN< _Scalar, 3, 3 >", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4" ],
       [ "MessageLogContext", "classast_1_1MessageLogContext.html", "classast_1_1MessageLogContext" ],
       [ "MessageLogger", "classast_1_1MessageLogger.html", null ],
       [ "MockObject", "classast_1_1MockObject.html", null ],
