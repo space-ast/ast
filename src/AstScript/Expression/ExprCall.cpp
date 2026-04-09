@@ -23,7 +23,6 @@
 #include "AstScript/Function.hpp"
 #include "AstScript/Variable.hpp"
 #include "AstScript/ScriptAPI.hpp"
-#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
