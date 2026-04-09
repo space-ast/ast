@@ -42,6 +42,8 @@ static const std::unordered_map<StringView, Lexer::ETokenType> keywords = {
     {"for", Lexer::eFor},
     {"in", Lexer::eIn},
     {"function", Lexer::eFunction},
+    {"return", Lexer::eReturn},
+    {"function", Lexer::eFunction},
     {"return", Lexer::eReturn}
 };
 

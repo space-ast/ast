@@ -22,7 +22,6 @@
 #include "Function.hpp"
 #include "AstScript/Variable.hpp"
 #include "AstScript/ScriptAPI.hpp"
-#include "AstUtil/Logger.hpp"
 #include <sstream>
 
 AST_NAMESPACE_BEGIN
@@ -31,8 +30,10 @@ Value* Function::call(const std::vector<Value*>& args) const
 {
     // 参数个数检查
     if (args.size() != params_.size()) {
-        aError("Function %s expects %zu arguments but got %zu", 
-               name_.c_str(), params_.size(), args.size());
+        aError("Function " + name_ + " expects " + 
+               std::to_string(params_.size()) + 
+               " arguments but got " + 
+               std::to_string(args.size()));
         return aValueNull();
     }
 
@@ -43,7 +44,6 @@ Value* Function::call(const std::vector<Value*>& args) const
         auto var = new Variable(params_[i], args[i], false);
         // 将变量添加到当前作用域
         // TODO: 实现作用域管理
-        A_UNUSED(var);
     }
 
     // 执行函数体

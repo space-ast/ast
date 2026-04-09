@@ -41,6 +41,7 @@
 #include "AstScript/ExprCatVertical.hpp"
 #include "AstScript/ExprCall.hpp"
 #include "AstScript/ExprMacroExpand.hpp"
+#include "AstScript/Function/ExprFunction.hpp"
 #include "Function/ExprFunction.hpp"
 #include "Function/ExprFunction.hpp"
 #include "AstScript/Function.hpp"
@@ -1231,7 +1232,107 @@ std::vector<std::string> Parser::parseParameterList()
     return params;
 }
 
+AST_NAMESPACE_END
 
+
+
+/// @brief 解析函数定义表达式（Julia标准语法）
+/// @details 语法：function name(params) ... body ... end
+Expr* Parser::parseFunctionDefinition()
+{
+    if (!match(Lexer::eFunction)) {
+        return nullptr;
+    }
+
+    // 解析函数名
+    if (currentTokenType() != Lexer::eIdentifier) {
+        aError("Expected function name after 'function' keyword");
+        return nullptr;
+    }
+    std::string funcName = std::string(currentLexeme());
+    advance();
+
+    // 解析参数列表
+    std::vector<std::string> params;
+    if (!match(Lexer::eLeftParen)) {
+        aError("Expected '(' after function name");
+        return nullptr;
+    }
+    if (!check(Lexer::eRightParen)) {
+        do {
+            if (currentTokenType() != Lexer::eIdentifier) {
+                aError("Expected parameter name");
+                return nullptr;
+            }
+            params.push_back(std::string(currentLexeme()));
+            advance();
+        } while (match(Lexer::eComma));
+    }
+    if (!match(Lexer::eRightParen)) {
+        aError("Expected ')' after parameter list");
+        return nullptr;
+    }
+
+    // 解析函数体（多个语句）
+    Expr* body = parseBlockExpr();
+    if (!body) {
+        aError("Expected function body");
+        return nullptr;
+    }
+
+    // 匹配 end
+    if (!match(Lexer::eEnd)) {
+        aError("Expected 'end' after function body");
+        delete body;
+        return nullptr;
+    }
+
+    return new ExprFunction(funcName, params, body);
+}
+
+/// @brief 解析简洁函数定义语法
+/// @details 语法：name(params) = expression
+Expr* Parser::parseShorthandFunction()
+{
+    // 已经在标识符处，当前token是函数名
+    if (currentTokenType() != Lexer::eIdentifier) {
+        return nullptr;
+    }
+    
+    // 检查是否有左括号（简洁函数语法）
+    // 保存当前位置以便回溯
+    std::string funcName = std::string(currentLexeme());
+    
+    // 向前看，检查下一个token是否是左括号
+    // 由于我们使用 scanner，需要用其他方式处理
+    // 简化处理：解析标识符后的参数列表
+    
+    return nullptr; // 暂时不支持，简洁语法通过赋值实现
+}
+
+/// @brief 解析参数列表
+std::vector<std::string> Parser::parseParameterList()
+{
+    std::vector<std::string> params;
+
+    if (check(Lexer::eRightParen)) {
+        return params;
+    }
+
+    do {
+        if (currentTokenType() != Lexer::eIdentifier) {
+            break;
+        }
+        params.push_back(std::string(currentLexeme()));
+        advance();
+    } while (match(Lexer::eComma));
+
+    return params;
+}
+
+AST_NAMESPACE_END
+
+AST_NAMESPACE_END
 
 /// @brief 解析函数定义表达式（Julia标准语法）
 /// @details 语法：function name(params) ... body ... end

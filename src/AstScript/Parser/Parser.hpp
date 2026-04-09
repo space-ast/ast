@@ -23,6 +23,8 @@
 #include <string>
 #include <vector>
 #include <string>
+#include <vector>
+#include <string>
 
 #include "AstGlobal.h"
 #include "AstScript/Expr.hpp"
@@ -154,6 +156,15 @@ private:
 };
 
 AST_NAMESPACE_END
+
+    /// @brief 解析函数定义（标准语法）
+    Expr* parseFunctionDefinition();
+    
+    /// @brief 解析简洁函数定义语法 name(params) = body
+    Expr* parseShorthandFunction();
+    
+    /// @brief 解析参数列表
+    std::vector<std::string> parseParameterList();
 
     /// @brief 解析函数定义（标准语法）
     Expr* parseFunctionDefinition();
