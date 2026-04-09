@@ -221,15 +221,15 @@ $(function(){initNavTree('JplDe_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordtype">bool</span>        m_IsSameEndian;        <span class="comment">// 二进制文件与系统大小端是否一致</span></div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    uint32_t    m_EphemVerion{ 0 };    <span class="comment">// De星历版本</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    uint32_t    m_NumConstants;        <span class="comment">// 文件的常量个数</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    uint32_t    m_NumConstants{};        <span class="comment">// 文件的常量个数</span></div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    uint32_t    m_NumDataBlock{0};     <span class="comment">// 星历总的数据块个数      </span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    uint32_t    m_NumCoeff;            <span class="comment">// 星历每个数据块的系数数量</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    uint32_t    m_NumCoeff{};            <span class="comment">// 星历每个数据块的系数数量</span></div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    uint32_t    m_ipt[15][3]{};        <span class="comment">// 数据指针[数据起始位置；每个坐标分量的数据量；子块个数：如4代表了32天要分为四块，每个子块包含了8天的数据]</span></div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">double</span>      m_EphemStart{0};       <span class="comment">// 星历起始时间(JED)</span></div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">double</span>      m_EphemEnd{0};         <span class="comment">// 星历结束时间(JED)</span></div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">double</span>      m_EphemStep{0};        <span class="comment">// 星历每个数据块的天数</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">double</span>      m_AU;                  <span class="comment">// 光速 km</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">double</span>      m_EMMassRatio;         <span class="comment">// 地球月球质量比</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">double</span>      m_AU{};                  <span class="comment">// 光速 km</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">double</span>      m_EMMassRatio{};         <span class="comment">// 地球月球质量比</span></div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    FILE*       m_DeFile{ NULL };      <span class="comment">// De二进制文件</span></div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">double</span>**    m_DataBlocks{NULL};    <span class="comment">// 星历数据块的内存缓存</span></div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    std::mutex  m_DataBlockMutex;      <span class="comment">// 数据块缓存互斥锁</span></div>

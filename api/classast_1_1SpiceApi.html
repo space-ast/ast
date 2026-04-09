@@ -148,12 +148,12 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:af4ac244d75f452e0cfc5fbe1b85d51e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3d3cd5f52594b6dc3fef9502b43ab20" id="r_ad3d3cd5f52594b6dc3fef9502b43ab20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3d3cd5f52594b6dc3fef9502b43ab20">isLoaded</a> () const</td></tr>
 <tr class="separator:ad3d3cd5f52594b6dc3fef9502b43ab20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5969d0e333364771c8f9133cc894594" id="r_aa5969d0e333364771c8f9133cc894594"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5969d0e333364771c8f9133cc894594">furnsh</a> (const char *libpath)</td></tr>
-<tr class="separator:aa5969d0e333364771c8f9133cc894594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b97c9eddf89dc06838751e2cccd9ed" id="r_a31b97c9eddf89dc06838751e2cccd9ed"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31b97c9eddf89dc06838751e2cccd9ed">furnsh</a> (const char *file)</td></tr>
+<tr class="separator:a31b97c9eddf89dc06838751e2cccd9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a5755098855be2e6d90277301d89fa8" id="r_a0a5755098855be2e6d90277301d89fa8"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a5755098855be2e6d90277301d89fa8">spkgeo</a> (int targ, double et, const char *ref, int obs, double state[6], double *lt)</td></tr>
 <tr class="separator:a0a5755098855be2e6d90277301d89fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f5b5b6f29defd2bfbabe62b51969377" id="r_a2f5b5b6f29defd2bfbabe62b51969377"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5b5b6f29defd2bfbabe62b51969377">spklef</a> (const char *libpath, int *handle)</td></tr>
-<tr class="separator:a2f5b5b6f29defd2bfbabe62b51969377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba0c5cac4cd24d0849ff27a7ad35271" id="r_a5ba0c5cac4cd24d0849ff27a7ad35271"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ba0c5cac4cd24d0849ff27a7ad35271">spklef</a> (const char *filename, int *handle)</td></tr>
+<tr class="separator:a5ba0c5cac4cd24d0849ff27a7ad35271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad236d4a09ed080a08f15c7ead40d86b5" id="r_ad236d4a09ed080a08f15c7ead40d86b5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad236d4a09ed080a08f15c7ead40d86b5">spkuef</a> (int handle)</td></tr>
 <tr class="separator:ad236d4a09ed080a08f15c7ead40d86b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b0d2b1f1079418ebc09a7225b4b045e" id="r_a5b0d2b1f1079418ebc09a7225b4b045e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0d2b1f1079418ebc09a7225b4b045e">ktotal</a> (const char *kind, int *count)</td></tr>
@@ -206,7 +206,12 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>Spice API </p>
-<p>处理CSPICE库的动态加载、卸载、函数调用等 </p><dl class="section warning"><dt>警告</dt><dd>注意CSPICE库的默认长度单位是**千米** 这里不会对CSPICE库进行额外的包装，只会进行一次调用的转发 </dd></dl>
+<p>处理CSPICE库的动态加载、卸载、函数调用等 这里只对CSPICE库进行简单的包装：</p><ul>
+<li>在保证接口不变的情况下，确保线程安全</li>
+<li>针对文件加载增加了引用计数机制</li>
+<li>处理了文件路径的编码问题 <dl class="section warning"><dt>警告</dt><dd>注意CSPICE库的默认长度单位是**千米** </dd></dl>
+</li>
+</ul>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a90c2726ce57fa70e07ea2f45b695773c" name="a90c2726ce57fa70e07ea2f45b695773c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90c2726ce57fa70e07ea2f45b695773c">&#9670;&#160;</a></span>SpiceApi()</h2>
@@ -286,8 +291,8 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
 
 </div>
 </div>
-<a id="aa5969d0e333364771c8f9133cc894594" name="aa5969d0e333364771c8f9133cc894594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5969d0e333364771c8f9133cc894594">&#9670;&#160;</a></span>furnsh()</h2>
+<a id="a31b97c9eddf89dc06838751e2cccd9ed" name="a31b97c9eddf89dc06838751e2cccd9ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b97c9eddf89dc06838751e2cccd9ed">&#9670;&#160;</a></span>furnsh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +300,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
         <tr>
           <td class="memname">errc_t ast::SpiceApi::furnsh </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>libpath</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -304,7 +309,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
 <p>加载spice内核文件 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">libpath</td><td>内核文件路径 </td></tr>
+    <tr><td class="paramname">file</td><td>内核文件路径 </td></tr>
   </table>
   </dd>
 </dl>
@@ -478,8 +483,8 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
 
 </div>
 </div>
-<a id="a2f5b5b6f29defd2bfbabe62b51969377" name="a2f5b5b6f29defd2bfbabe62b51969377"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f5b5b6f29defd2bfbabe62b51969377">&#9670;&#160;</a></span>spklef()</h2>
+<a id="a5ba0c5cac4cd24d0849ff27a7ad35271" name="a5ba0c5cac4cd24d0849ff27a7ad35271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba0c5cac4cd24d0849ff27a7ad35271">&#9670;&#160;</a></span>spklef()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -487,7 +492,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
         <tr>
           <td class="memname">errc_t ast::SpiceApi::spklef </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>libpath</em></span>, </td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -500,7 +505,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td>
 <p>加载SPK内核文件 </p>
 <p>在CSPICE的接口基础上增加了引用计数机制 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">libpath</td><td>内核文件路径 </td></tr>
+    <tr><td class="paramname">filename</td><td>内核文件路径 </td></tr>
     <tr><td class="paramname">handle</td><td>内核句柄 </td></tr>
   </table>
   </dd>

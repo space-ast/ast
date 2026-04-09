@@ -118,18 +118,33 @@ $(function(){initNavTree('classast_1_1Object.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1Object.png" usemap="#ast::Object_map" alt=""/>
   <map id="ast::Object_map" name="ast::Object_map">
-<area href="classast_1_1Axes.html" title="轴系类" alt="ast::Axes" shape="rect" coords="135,56,260,80"/>
-<area href="classast_1_1BodyOrientation.html" title="天体姿态/指向" alt="ast::BodyOrientation" shape="rect" coords="135,112,260,136"/>
-<area href="classast_1_1BodyShape.html" title="天体形状基类" alt="ast::BodyShape" shape="rect" coords="135,168,260,192"/>
-<area href="classast_1_1EventInterval.html" title="事件时间段" alt="ast::EventInterval" shape="rect" coords="135,224,260,248"/>
-<area href="classast_1_1EventTime.html" title="事件时间" alt="ast::EventTime" shape="rect" coords="135,280,260,304"/>
-<area href="classast_1_1Expr.html" title="表达式基类" alt="ast::Expr" shape="rect" coords="135,336,260,360"/>
-<area href="classast_1_1Frame.html" title="坐标系类" alt="ast::Frame" shape="rect" coords="135,392,260,416"/>
-<area href="classast_1_1MockObject.html" alt="ast::MockObject" shape="rect" coords="135,448,260,472"/>
-<area href="classast_1_1MotionProfile.html" title="运动定义接口" alt="ast::MotionProfile" shape="rect" coords="135,504,260,528"/>
-<area href="classast_1_1Point.html" alt="ast::Point" shape="rect" coords="135,560,260,584"/>
-<area href="classast_1_1SolarSystem.html" title="太阳系" alt="ast::SolarSystem" shape="rect" coords="135,616,260,640"/>
-<area href="classast_1_1State.html" title="航天器状态" alt="ast::State" shape="rect" coords="135,672,260,696"/>
+<area href="classast_1_1AdvCAT.html" title="高级CAT对象" alt="ast::AdvCAT" shape="rect" coords="153,56,296,80"/>
+<area href="classast_1_1Antenna.html" title="天线对象" alt="ast::Antenna" shape="rect" coords="153,112,296,136"/>
+<area href="classast_1_1AreaTarget.html" title="区域目标对象" alt="ast::AreaTarget" shape="rect" coords="153,168,296,192"/>
+<area href="classast_1_1AttitudeCoverage.html" title="姿态覆盖对象" alt="ast::AttitudeCoverage" shape="rect" coords="153,224,296,248"/>
+<area href="classast_1_1Axes.html" title="轴系类" alt="ast::Axes" shape="rect" coords="153,280,296,304"/>
+<area href="classast_1_1BodyOrientation.html" title="天体姿态/指向" alt="ast::BodyOrientation" shape="rect" coords="153,336,296,360"/>
+<area href="classast_1_1BodyShape.html" title="天体形状基类" alt="ast::BodyShape" shape="rect" coords="153,392,296,416"/>
+<area href="classast_1_1Chain.html" title="链对象" alt="ast::Chain" shape="rect" coords="153,448,296,472"/>
+<area href="classast_1_1CommSystem.html" title="通信系统对象" alt="ast::CommSystem" shape="rect" coords="153,504,296,528"/>
+<area href="classast_1_1Constellation.html" title="星座对象" alt="ast::Constellation" shape="rect" coords="153,560,296,584"/>
+<area href="classast_1_1CoverageDefinition.html" title="覆盖定义对象" alt="ast::CoverageDefinition" shape="rect" coords="153,616,296,640"/>
+<area href="classast_1_1EventInterval.html" title="事件时间段" alt="ast::EventInterval" shape="rect" coords="153,672,296,696"/>
+<area href="classast_1_1EventTime.html" title="事件时间" alt="ast::EventTime" shape="rect" coords="153,728,296,752"/>
+<area href="classast_1_1Expr.html" title="表达式基类" alt="ast::Expr" shape="rect" coords="153,784,296,808"/>
+<area href="classast_1_1FieldOfView.html" title="视场基类" alt="ast::FieldOfView" shape="rect" coords="153,840,296,864"/>
+<area href="classast_1_1Frame.html" title="坐标系类" alt="ast::Frame" shape="rect" coords="153,896,296,920"/>
+<area href="classast_1_1LineTarget.html" title="线目标对象" alt="ast::LineTarget" shape="rect" coords="153,952,296,976"/>
+<area href="classast_1_1MTO.html" title="多目标对象" alt="ast::MTO" shape="rect" coords="153,1008,296,1032"/>
+<area href="classast_1_1MockObject.html" alt="ast::MockObject" shape="rect" coords="153,1064,296,1088"/>
+<area href="classast_1_1MotionProfile.html" title="运动定义接口" alt="ast::MotionProfile" shape="rect" coords="153,1120,296,1144"/>
+<area href="classast_1_1Point.html" alt="ast::Point" shape="rect" coords="153,1176,296,1200"/>
+<area href="classast_1_1Radar.html" title="雷达对象" alt="ast::Radar" shape="rect" coords="153,1232,296,1256"/>
+<area href="classast_1_1Receiver.html" title="接收器对象" alt="ast::Receiver" shape="rect" coords="153,1288,296,1312"/>
+<area href="classast_1_1Scenario.html" title="场景类" alt="ast::Scenario" shape="rect" coords="153,1344,296,1368"/>
+<area href="classast_1_1SolarSystem.html" title="太阳系" alt="ast::SolarSystem" shape="rect" coords="153,1400,296,1424"/>
+<area href="classast_1_1State.html" title="航天器状态" alt="ast::State" shape="rect" coords="153,1456,296,1480"/>
+<area href="classast_1_1Volumetric.html" title="体积对象" alt="ast::Volumetric" shape="rect" coords="153,1512,296,1536"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -228,6 +243,21 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:a8b86bdcdb7c54a536293d8632363e114" id="r_a8b86bdcdb7c54a536293d8632363e114"><td class="memItemLeft" align="right" valign="top"><a id="a8b86bdcdb7c54a536293d8632363e114" name="a8b86bdcdb7c54a536293d8632363e114"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectManager</b></td></tr>
 <tr class="separator:a8b86bdcdb7c54a536293d8632363e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af864f465a8a8a04afca4aa305fb63d15" id="r_af864f465a8a8a04afca4aa305fb63d15"><td class="memItemLeft" align="right" valign="top"><a id="af864f465a8a8a04afca4aa305fb63d15" name="af864f465a8a8a04afca4aa305fb63d15"></a>
+A_ALWAYS_INLINE friend uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>aObject_IncRef</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:af864f465a8a8a04afca4aa305fb63d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4e7d09bf3a993be047827f33657799b" id="r_ae4e7d09bf3a993be047827f33657799b"><td class="memItemLeft" align="right" valign="top"><a id="ae4e7d09bf3a993be047827f33657799b" name="ae4e7d09bf3a993be047827f33657799b"></a>
+A_ALWAYS_INLINE friend uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>aObject_DecRef</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:ae4e7d09bf3a993be047827f33657799b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201541dd06ef1a2e5e4f1c865d82f035" id="r_a201541dd06ef1a2e5e4f1c865d82f035"><td class="memItemLeft" align="right" valign="top"><a id="a201541dd06ef1a2e5e4f1c865d82f035" name="a201541dd06ef1a2e5e4f1c865d82f035"></a>
+A_ALWAYS_INLINE friend uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>aObject_IncWeakRef</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:a201541dd06ef1a2e5e4f1c865d82f035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abac2562679ddee45793a4cebf422e27f" id="r_abac2562679ddee45793a4cebf422e27f"><td class="memItemLeft" align="right" valign="top"><a id="abac2562679ddee45793a4cebf422e27f" name="abac2562679ddee45793a4cebf422e27f"></a>
+A_ALWAYS_INLINE friend uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>aObject_DecWeakRef</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:abac2562679ddee45793a4cebf422e27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df1cbc290a63d6b92cd802f22750938" id="r_a1df1cbc290a63d6b92cd802f22750938"><td class="memItemLeft" align="right" valign="top"><a id="a1df1cbc290a63d6b92cd802f22750938" name="a1df1cbc290a63d6b92cd802f22750938"></a>
+A_ALWAYS_INLINE friend bool&#160;</td><td class="memItemRight" valign="bottom"><b>aObject_IsDestructed</b> (const <a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:a1df1cbc290a63d6b92cd802f22750938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能 </p>
@@ -645,7 +675,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectManager</b></t
 <p>获取对象的名称 </p>
 <dl class="section return"><dt>返回</dt><dd>const char* 对象名称 </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1CelestialBody.html#aaf8e86ad6783f5af889fb098b73419f7">ast::CelestialBody</a> , 以及 <a class="el" href="classast_1_1Mover.html#a85ebd59213acea75af9784ce0b423b6e">ast::Mover</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1CelestialBody.html#aaf8e86ad6783f5af889fb098b73419f7">ast::CelestialBody</a>, <a class="el" href="classast_1_1Facility.html#a594449ec45fdd69b2808593cea1ee571">ast::Facility</a>, <a class="el" href="classast_1_1Mover.html#af526a5e3e9b81e19cffbc546da988b25">ast::Mover</a>, <a class="el" href="classast_1_1Scenario.html#a474f54cc0d76278131c3202c558c681c">ast::Scenario</a> , 以及 <a class="el" href="classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead">ast::Sensor</a> 重载.</p>
 
 </div>
 </div>

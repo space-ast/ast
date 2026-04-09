@@ -5,6 +5,7 @@ var classast_1_1DataContext =
     [ "eop", "classast_1_1DataContext.html#a978e12ad204a3d7d56453f28a5013a2a", null ],
     [ "epoch", "classast_1_1DataContext.html#a4cdf43d0849a9dfa516305a2090592fe", null ],
     [ "iauXYSPrecomputed", "classast_1_1DataContext.html#a53d2c48438a7b873c00a0f31900f7dbe", null ],
+    [ "isInitialized", "classast_1_1DataContext.html#a9e049e190ef1ff098dae6d3048a803cd", null ],
     [ "jplDe", "classast_1_1DataContext.html#aa57fbc55b98b2beea264f876b63c3ba0", null ],
     [ "leapSecond", "classast_1_1DataContext.html#ad24432f99863bd4d7e2a9db2bcf335aa", null ],
     [ "setDataDir", "classast_1_1DataContext.html#a55723c2bde9815b7c68eb3f42f47c23e", null ],

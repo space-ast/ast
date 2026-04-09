@@ -141,13 +141,14 @@ $(function(){initNavTree('WorkingDirectory_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1WorkingDirectory.html#ad5349edc69071c8e44dcf246e8b1fcb7">   66</a></span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> <a class="code hl_function" href="classast_1_1WorkingDirectory.html#ad5349edc69071c8e44dcf246e8b1fcb7">getCurrentPath</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> curpath_; }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    std::string oldpath_;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> curpath_;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1WorkingDirectory.html">WorkingDirectory</a>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::string oldpath_;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> curpath_;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1WorkingDirectory_html"><div class="ttname"><a href="classast_1_1WorkingDirectory.html">ast::WorkingDirectory</a></div><div class="ttdoc">工作目录切换器</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1WorkingDirectory_html_a244b21f6a2d8c6c94a913be2d8096f97"><div class="ttname"><a href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">ast::WorkingDirectory::WorkingDirectory</a></div><div class="ttdeci">WorkingDirectory(StringView path)</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:41</div></div>

@@ -1,0 +1,693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::BuildTarget类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1BuildTarget.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1BuildTarget-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::BuildTarget类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BuildTarget_8hpp_source.html">BuildTarget.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:ad7230eb00109bcc59d29223f7f221c1d" id="r_ad7230eb00109bcc59d29223f7f221c1d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">EKind</a> { <a class="el" href="#ad7230eb00109bcc59d29223f7f221c1da59a0a921a05989d82827aed0cd017982">eShared</a>
+, <a class="el" href="#ad7230eb00109bcc59d29223f7f221c1da5d82b7685980fb9aa32bc355aa0f65b8">eStatic</a>
+, <a class="el" href="#ad7230eb00109bcc59d29223f7f221c1daf38d96fc405fe363243ce933b97c8a95">eBinary</a>
+ }</td></tr>
+<tr class="separator:ad7230eb00109bcc59d29223f7f221c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:afcb30a22f33b3edb4701b4f640259d6e" id="r_afcb30a22f33b3edb4701b4f640259d6e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcb30a22f33b3edb4701b4f640259d6e">BuildTarget</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#a9c4019eedb651eedbe45b10a021c01c3">name</a>)</td></tr>
+<tr class="separator:afcb30a22f33b3edb4701b4f640259d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c4019eedb651eedbe45b10a021c01c3" id="r_a9c4019eedb651eedbe45b10a021c01c3"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c4019eedb651eedbe45b10a021c01c3">name</a> () const</td></tr>
+<tr class="separator:a9c4019eedb651eedbe45b10a021c01c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d538090e667a05c09f7967f0308cd5c" id="r_a7d538090e667a05c09f7967f0308cd5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d538090e667a05c09f7967f0308cd5c">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#a9c4019eedb651eedbe45b10a021c01c3">name</a>)</td></tr>
+<tr class="separator:a7d538090e667a05c09f7967f0308cd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a09807fcd24f7b8a82525536570ea31" id="r_a4a09807fcd24f7b8a82525536570ea31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">EKind</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a09807fcd24f7b8a82525536570ea31">kind</a> () const</td></tr>
+<tr class="separator:a4a09807fcd24f7b8a82525536570ea31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a230759033d26dcb822581047f381ac02" id="r_a230759033d26dcb822581047f381ac02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a230759033d26dcb822581047f381ac02">setKind</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#a4a09807fcd24f7b8a82525536570ea31">kind</a>)</td></tr>
+<tr class="separator:a230759033d26dcb822581047f381ac02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73022d15562c85a6c12d1697accd316e" id="r_a73022d15562c85a6c12d1697accd316e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73022d15562c85a6c12d1697accd316e">setKind</a> (<a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">EKind</a> <a class="el" href="#a4a09807fcd24f7b8a82525536570ea31">kind</a>)</td></tr>
+<tr class="separator:a73022d15562c85a6c12d1697accd316e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade25448fd4369ec041b68538b9c06d8e" id="r_ade25448fd4369ec041b68538b9c06d8e"><td class="memItemLeft" align="right" valign="top">const StringVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade25448fd4369ec041b68538b9c06d8e">files</a> () const</td></tr>
+<tr class="separator:ade25448fd4369ec041b68538b9c06d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c975f2590632c2252e8c2ebf19a8c22" id="r_a7c975f2590632c2252e8c2ebf19a8c22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c975f2590632c2252e8c2ebf19a8c22">addFiles</a> (const std::vector&lt; std::string &gt; &amp;<a class="el" href="#ade25448fd4369ec041b68538b9c06d8e">files</a>)</td></tr>
+<tr class="separator:a7c975f2590632c2252e8c2ebf19a8c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4b116c10988821df26f075f25628b5" id="r_aef4b116c10988821df26f075f25628b5"><td class="memItemLeft" align="right" valign="top">const StringVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef4b116c10988821df26f075f25628b5">includeDirs</a> () const</td></tr>
+<tr class="separator:aef4b116c10988821df26f075f25628b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831b71cb370c81db523970f6d4ed14d5" id="r_a831b71cb370c81db523970f6d4ed14d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a831b71cb370c81db523970f6d4ed14d5">addIncludeDirs</a> (const std::vector&lt; std::string &gt; &amp;dirs)</td></tr>
+<tr class="separator:a831b71cb370c81db523970f6d4ed14d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c745c71caa1af77027b2294fd3c73c4" id="r_a1c745c71caa1af77027b2294fd3c73c4"><td class="memItemLeft" align="right" valign="top">const StringVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c745c71caa1af77027b2294fd3c73c4">linkDirs</a> () const</td></tr>
+<tr class="separator:a1c745c71caa1af77027b2294fd3c73c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a2460e92a49e80731738d21e45f024" id="r_aa4a2460e92a49e80731738d21e45f024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4a2460e92a49e80731738d21e45f024">addLinkDirs</a> (const std::vector&lt; std::string &gt; &amp;dirs)</td></tr>
+<tr class="separator:aa4a2460e92a49e80731738d21e45f024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2d9f6e8c40e454f7cb9f989da0395b" id="r_a6e2d9f6e8c40e454f7cb9f989da0395b"><td class="memItemLeft" align="right" valign="top">const StringVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e2d9f6e8c40e454f7cb9f989da0395b">links</a> () const</td></tr>
+<tr class="separator:a6e2d9f6e8c40e454f7cb9f989da0395b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5276888e6af4f512083dac435a4daaf7" id="r_a5276888e6af4f512083dac435a4daaf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5276888e6af4f512083dac435a4daaf7">addLinks</a> (const std::vector&lt; std::string &gt; &amp;libs)</td></tr>
+<tr class="separator:a5276888e6af4f512083dac435a4daaf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c9f41b022ffca0fa1c3e469c5e6c9e2" id="r_a0c9f41b022ffca0fa1c3e469c5e6c9e2"><td class="memItemLeft" align="right" valign="top">const StringVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c9f41b022ffca0fa1c3e469c5e6c9e2">defines</a> () const</td></tr>
+<tr class="separator:a0c9f41b022ffca0fa1c3e469c5e6c9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7359a19b6f091bf78610b842d187ba83" id="r_a7359a19b6f091bf78610b842d187ba83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7359a19b6f091bf78610b842d187ba83">addDefines</a> (const std::vector&lt; std::string &gt; &amp;<a class="el" href="#a0c9f41b022ffca0fa1c3e469c5e6c9e2">defines</a>)</td></tr>
+<tr class="separator:a7359a19b6f091bf78610b842d187ba83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f8c3355df07a5a3f4478ac68acc1a24" id="r_a3f8c3355df07a5a3f4478ac68acc1a24"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f8c3355df07a5a3f4478ac68acc1a24">build</a> ()</td></tr>
+<tr class="separator:a3f8c3355df07a5a3f4478ac68acc1a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f4358a806a2c4c85508239f7ec2963" id="r_ac0f4358a806a2c4c85508239f7ec2963"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0f4358a806a2c4c85508239f7ec2963">run</a> ()</td></tr>
+<tr class="separator:ac0f4358a806a2c4c85508239f7ec2963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a04298101642832d630b91c50450a83ae" id="r_a04298101642832d630b91c50450a83ae"><td class="memItemLeft" align="right" valign="top"><a id="a04298101642832d630b91c50450a83ae" name="a04298101642832d630b91c50450a83ae"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="separator:a04298101642832d630b91c50450a83ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a971750a8a35291aeab43f65ea2addafd" id="r_a971750a8a35291aeab43f65ea2addafd"><td class="memItemLeft" align="right" valign="top"><a id="a971750a8a35291aeab43f65ea2addafd" name="a971750a8a35291aeab43f65ea2addafd"></a>
+<a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">EKind</a>&#160;</td><td class="memItemRight" valign="bottom"><b>kind_</b> {<a class="el" href="#ad7230eb00109bcc59d29223f7f221c1daf38d96fc405fe363243ce933b97c8a95">EKind::eBinary</a>}</td></tr>
+<tr class="separator:a971750a8a35291aeab43f65ea2addafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1ba3d19586ed089c6bdffb08c9281dc" id="r_ac1ba3d19586ed089c6bdffb08c9281dc"><td class="memItemLeft" align="right" valign="top"><a id="ac1ba3d19586ed089c6bdffb08c9281dc" name="ac1ba3d19586ed089c6bdffb08c9281dc"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>files_</b></td></tr>
+<tr class="separator:ac1ba3d19586ed089c6bdffb08c9281dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af26eaa38c76203693f35b718c350fdff" id="r_af26eaa38c76203693f35b718c350fdff"><td class="memItemLeft" align="right" valign="top"><a id="af26eaa38c76203693f35b718c350fdff" name="af26eaa38c76203693f35b718c350fdff"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>includeDirs_</b></td></tr>
+<tr class="separator:af26eaa38c76203693f35b718c350fdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3d05117df498d38f19133d92f7aeeab" id="r_aa3d05117df498d38f19133d92f7aeeab"><td class="memItemLeft" align="right" valign="top"><a id="aa3d05117df498d38f19133d92f7aeeab" name="aa3d05117df498d38f19133d92f7aeeab"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>linkDirs_</b></td></tr>
+<tr class="separator:aa3d05117df498d38f19133d92f7aeeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5e267060681ec6bd071b72edc763520" id="r_ad5e267060681ec6bd071b72edc763520"><td class="memItemLeft" align="right" valign="top"><a id="ad5e267060681ec6bd071b72edc763520" name="ad5e267060681ec6bd071b72edc763520"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>defines_</b></td></tr>
+<tr class="separator:ad5e267060681ec6bd071b72edc763520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e0cfc3c4d9a6c4c8df365c1315a9e8" id="r_ac6e0cfc3c4d9a6c4c8df365c1315a9e8"><td class="memItemLeft" align="right" valign="top"><a id="ac6e0cfc3c4d9a6c4c8df365c1315a9e8" name="ac6e0cfc3c4d9a6c4c8df365c1315a9e8"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>links_</b></td></tr>
+<tr class="separator:ac6e0cfc3c4d9a6c4c8df365c1315a9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>目标 </p>
+<p>目标类，用于表示构建目标 </p><dl class="section warning"><dt>警告</dt><dd>当前只支持g++编译器，无法切换为其他编译器 </dd></dl>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="ad7230eb00109bcc59d29223f7f221c1d" name="ad7230eb00109bcc59d29223f7f221c1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7230eb00109bcc59d29223f7f221c1d">&#9670;&#160;</a></span>EKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">ast::BuildTarget::EKind</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>目标类型 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ad7230eb00109bcc59d29223f7f221c1da59a0a921a05989d82827aed0cd017982" name="ad7230eb00109bcc59d29223f7f221c1da59a0a921a05989d82827aed0cd017982"></a>eShared&#160;</td><td class="fielddoc"><p>共享库目标 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7230eb00109bcc59d29223f7f221c1da5d82b7685980fb9aa32bc355aa0f65b8" name="ad7230eb00109bcc59d29223f7f221c1da5d82b7685980fb9aa32bc355aa0f65b8"></a>eStatic&#160;</td><td class="fielddoc"><p>静态库目标 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7230eb00109bcc59d29223f7f221c1daf38d96fc405fe363243ce933b97c8a95" name="ad7230eb00109bcc59d29223f7f221c1daf38d96fc405fe363243ce933b97c8a95"></a>eBinary&#160;</td><td class="fielddoc"><p>可执行文件目标 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="afcb30a22f33b3edb4701b4f640259d6e" name="afcb30a22f33b3edb4701b4f640259d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcb30a22f33b3edb4701b4f640259d6e">&#9670;&#160;</a></span>BuildTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::BuildTarget::BuildTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>构造函数 </p>
+<p>构造函数，用于创建目标。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>目标名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a7359a19b6f091bf78610b842d187ba83" name="a7359a19b6f091bf78610b842d187ba83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7359a19b6f091bf78610b842d187ba83">&#9670;&#160;</a></span>addDefines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::addDefines </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>defines</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加宏定义 </p>
+<p>添加宏定义到目标中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defines</td><td>定义列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c975f2590632c2252e8c2ebf19a8c22" name="a7c975f2590632c2252e8c2ebf19a8c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c975f2590632c2252e8c2ebf19a8c22">&#9670;&#160;</a></span>addFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::addFiles </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>files</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加源文件 </p>
+<p>添加源文件到目标中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">files</td><td>文件路径列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a831b71cb370c81db523970f6d4ed14d5" name="a831b71cb370c81db523970f6d4ed14d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831b71cb370c81db523970f6d4ed14d5">&#9670;&#160;</a></span>addIncludeDirs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::addIncludeDirs </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dirs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加包含目录 </p>
+<p>添加包含目录到目标中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dirs</td><td>目录路径列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa4a2460e92a49e80731738d21e45f024" name="aa4a2460e92a49e80731738d21e45f024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a2460e92a49e80731738d21e45f024">&#9670;&#160;</a></span>addLinkDirs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::addLinkDirs </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dirs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加链接目录 </p>
+<p>添加链接目录到目标中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dirs</td><td>目录路径列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5276888e6af4f512083dac435a4daaf7" name="a5276888e6af4f512083dac435a4daaf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5276888e6af4f512083dac435a4daaf7">&#9670;&#160;</a></span>addLinks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::addLinks </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>libs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加链接库 </p>
+<p>添加链接库到目标中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">libs</td><td>库路径列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f8c3355df07a5a3f4478ac68acc1a24" name="a3f8c3355df07a5a3f4478ac68acc1a24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f8c3355df07a5a3f4478ac68acc1a24">&#9670;&#160;</a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::BuildTarget::build </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取目标文件名 </p>
+<p>获取目标文件名 </p><dl class="section return"><dt>返回</dt><dd>目标文件名</dd></dl>
+<p>获取目标目录</p>
+<p>获取目标文件路径</p>
+<p>获取目标文件路径 </p><dl class="section return"><dt>返回</dt><dd>目标文件路径</dd></dl>
+<p>构建目标</p>
+<p>构建目标，包括编译、链接等操作 </p><dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a0c9f41b022ffca0fa1c3e469c5e6c9e2" name="a0c9f41b022ffca0fa1c3e469c5e6c9e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9f41b022ffca0fa1c3e469c5e6c9e2">&#9670;&#160;</a></span>defines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const StringVector &amp; ast::BuildTarget::defines </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取宏定义列表 </p>
+<p>获取宏定义列表 </p><dl class="section return"><dt>返回</dt><dd>宏定义列表 </dd></dl>
+
+</div>
+</div>
+<a id="ade25448fd4369ec041b68538b9c06d8e" name="ade25448fd4369ec041b68538b9c06d8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade25448fd4369ec041b68538b9c06d8e">&#9670;&#160;</a></span>files()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const StringVector &amp; ast::BuildTarget::files </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取源文件列表 </p>
+<p>获取源文件列表 </p><dl class="section return"><dt>返回</dt><dd>源文件列表 </dd></dl>
+
+</div>
+</div>
+<a id="aef4b116c10988821df26f075f25628b5" name="aef4b116c10988821df26f075f25628b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4b116c10988821df26f075f25628b5">&#9670;&#160;</a></span>includeDirs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const StringVector &amp; ast::BuildTarget::includeDirs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取包含目录列表 </p>
+<p>获取包含目录列表 </p><dl class="section return"><dt>返回</dt><dd>包含目录列表 </dd></dl>
+
+</div>
+</div>
+<a id="a4a09807fcd24f7b8a82525536570ea31" name="a4a09807fcd24f7b8a82525536570ea31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a09807fcd24f7b8a82525536570ea31">&#9670;&#160;</a></span>kind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">EKind</a> ast::BuildTarget::kind </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取目标类型 </p>
+<p>获取目标类型 </p><dl class="section return"><dt>返回</dt><dd>目标类型 </dd></dl>
+
+</div>
+</div>
+<a id="a1c745c71caa1af77027b2294fd3c73c4" name="a1c745c71caa1af77027b2294fd3c73c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c745c71caa1af77027b2294fd3c73c4">&#9670;&#160;</a></span>linkDirs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const StringVector &amp; ast::BuildTarget::linkDirs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取链接目录列表 </p>
+<p>获取链接目录列表 </p><dl class="section return"><dt>返回</dt><dd>链接目录列表 </dd></dl>
+
+</div>
+</div>
+<a id="a6e2d9f6e8c40e454f7cb9f989da0395b" name="a6e2d9f6e8c40e454f7cb9f989da0395b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2d9f6e8c40e454f7cb9f989da0395b">&#9670;&#160;</a></span>links()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const StringVector &amp; ast::BuildTarget::links </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取链接库列表 </p>
+<p>获取链接库列表 </p><dl class="section return"><dt>返回</dt><dd>链接库列表 </dd></dl>
+
+</div>
+</div>
+<a id="a9c4019eedb651eedbe45b10a021c01c3" name="a9c4019eedb651eedbe45b10a021c01c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c4019eedb651eedbe45b10a021c01c3">&#9670;&#160;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ast::BuildTarget::name </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取目标名称 </p>
+<p>获取目标名称 </p><dl class="section return"><dt>返回</dt><dd>目标名称 </dd></dl>
+
+</div>
+</div>
+<a id="ac0f4358a806a2c4c85508239f7ec2963" name="ac0f4358a806a2c4c85508239f7ec2963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f4358a806a2c4c85508239f7ec2963">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::BuildTarget::run </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>运行目标 </p>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a73022d15562c85a6c12d1697accd316e" name="a73022d15562c85a6c12d1697accd316e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73022d15562c85a6c12d1697accd316e">&#9670;&#160;</a></span>setKind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::setKind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad7230eb00109bcc59d29223f7f221c1d">EKind</a></td>          <td class="paramname"><span class="paramname"><em>kind</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置目标类型 </p>
+<p>设置目标类型 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kind</td><td>目标类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a230759033d26dcb822581047f381ac02" name="a230759033d26dcb822581047f381ac02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230759033d26dcb822581047f381ac02">&#9670;&#160;</a></span>setKind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::setKind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>kind</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置目标类型 </p>
+<p>设置目标类型 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kind</td><td>目标类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7d538090e667a05c09f7967f0308cd5c" name="a7d538090e667a05c09f7967f0308cd5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d538090e667a05c09f7967f0308cd5c">&#9670;&#160;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a> &amp; ast::BuildTarget::setName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置目标名称 </p>
+<p>设置目标名称 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>目标名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Builder/<a class="el" href="BuildTarget_8hpp_source.html">BuildTarget.hpp</a></li>
+<li>src/AstUtil/Builder/<a class="el" href="BuildTarget_8cpp.html">BuildTarget.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1BuildTarget.html">BuildTarget</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

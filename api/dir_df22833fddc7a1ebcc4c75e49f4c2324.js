@@ -11,5 +11,7 @@ var dir_df22833fddc7a1ebcc4c75e49f4c2324 =
     [ "MockSnopt.c", "MockSnopt_8c.html", "MockSnopt_8c" ],
     [ "MockStringView.cpp", "MockStringView_8cpp.html", null ],
     [ "MockStringView.hpp", "MockStringView_8hpp.html", null ],
-    [ "MockStringView2.cpp", "MockStringView2_8cpp.html", null ]
+    [ "MockStringView2.cpp", "MockStringView2_8cpp.html", null ],
+    [ "MockUninitializedPointer.cpp", "MockUninitializedPointer_8cpp.html", null ],
+    [ "MockUninitializedPointer.hpp", "MockUninitializedPointer_8hpp.html", "MockUninitializedPointer_8hpp" ]
 ];

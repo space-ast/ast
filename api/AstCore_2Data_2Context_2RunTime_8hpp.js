@@ -1,7 +1,6 @@
 var AstCore_2Data_2Context_2RunTime_8hpp =
 [
     [ "aDataContext_EnsureCurrent", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga362102d8c58857b6e3d6b48b83bd0944", null ],
-    [ "aDataContext_EnsureDefault", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga6b71837a4fa5dcbe6f059efca4e75297", null ],
     [ "aDataContext_GetConfig", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga93abea7bea04f5667e212fb829e51cb7", null ],
     [ "aDataContext_GetCurrent", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga40dcbf6fa05827fe9b7a7837a01105bd", null ],
     [ "aDataContext_GetDefault", "AstCore_2Data_2Context_2RunTime_8hpp.html#gabd352addd4bfd3dcecb35a480212d9f5", null ],
@@ -18,5 +17,6 @@ var AstCore_2Data_2Context_2RunTime_8hpp =
     [ "aGlobalContext_GetIAUXYS", "AstCore_2Data_2Context_2RunTime_8hpp.html#gab6179a360a2bb2fa49e90ed13801fb7f", null ],
     [ "aInitialize", "AstCore_2Data_2Context_2RunTime_8hpp.html#gab8a08c106d3feb750fdda376651fe6bc", null ],
     [ "aInitializeByConfig", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga6e69b33e4e4f1493b29ea7f4492b2f12", null ],
+    [ "aInitializeConfig", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga950d27b4d045b30589976f1125c168ba", null ],
     [ "aUninitialize", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga864b7bad4c069e934f76e71daf8d4b11", null ]
 ];

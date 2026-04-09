@@ -6,7 +6,7 @@ var classast_1_1Mover =
     [ "getEphemerisHandle", "classast_1_1Mover.html#ae084c716d3b402fc56e940e8fca91cef", null ],
     [ "getFrame", "classast_1_1Mover.html#a9ad465560a941dbf562b30818774edcd", null ],
     [ "getMotionProfile", "classast_1_1Mover.html#ae0b1c654592ff9a492ff0e7348b262dd", null ],
-    [ "getName", "classast_1_1Mover.html#a85ebd59213acea75af9784ce0b423b6e", null ],
+    [ "getName", "classast_1_1Mover.html#af526a5e3e9b81e19cffbc546da988b25", null ],
     [ "getPos", "classast_1_1Mover.html#ab9686a0438cfdfa55f999bcc7057ae09", null ],
     [ "getPosVel", "classast_1_1Mover.html#adaa412039573782833027dedb0cbd218", null ],
     [ "setAttitudeProfile", "classast_1_1Mover.html#a6d04ad461e03056d2a9596e4affe5170", null ],
