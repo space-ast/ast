@@ -430,6 +430,18 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileScanner.html">FileScanner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FOVConical.html">FOVConical</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FOVCustom.html">FOVCustom</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FOVHalfPower.html">FOVHalfPower</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FOVRectangular.html">FOVRectangular</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FOVSAR.html">FOVSAR</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FOVSimpleCone.html">FOVSimpleCone</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Frame.html">Frame</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FrameAssembly.html">FrameAssembly</a></td></tr>
@@ -1397,6 +1409,17 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <br />
  }</td></tr>
 <tr class="separator:ad226f5138693fa4cb352f8c2201281df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9845a533634a5314f75b3fa04dc274ba" id="r_a9845a533634a5314f75b3fa04dc274ba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9845a533634a5314f75b3fa04dc274ba">EFOVType</a> { <br />
+&#160;&#160;<a class="el" href="#a9845a533634a5314f75b3fa04dc274baa2d390d9c68c5b3cd6c1c9ceae96e37db">eSimpleCone</a>
+, <a class="el" href="#a9845a533634a5314f75b3fa04dc274baa05ce095cc3630fda9e7d21c0af0e6d62">eConical</a>
+, <a class="el" href="#a9845a533634a5314f75b3fa04dc274baaa3956943ad4bdd5c38b07fc39866c154">eHalfPower</a>
+, <a class="el" href="#a9845a533634a5314f75b3fa04dc274baa957fc9f3628d4891fadf23c736ba708b">eRectangular</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9845a533634a5314f75b3fa04dc274baa74dfa905c86044aa6a5516cf606b4da2">eSAR</a>
+, <a class="el" href="#a9845a533634a5314f75b3fa04dc274baa5bca659531259314bb61d5e1fe859cd1">eCustom</a>
+<br />
+ }</td></tr>
+<tr class="separator:a9845a533634a5314f75b3fa04dc274ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab96fec81957cc2c158036b02a89198f0" id="r_ab96fec81957cc2c158036b02a89198f0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab96fec81957cc2c158036b02a89198f0">EStateType</a> { <a class="el" href="#ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707">eCartesian</a>
 , <a class="el" href="#ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c">eKeplerian</a>
 , <a class="el" href="#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508">eUnknown</a>
@@ -3926,6 +3949,22 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadExtensions</b
 <tr class="separator:ab3ead603f63d3e3581d965dd13daba22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f153a9398e1ac61f90600cdcf3f78e3" id="r_a4f153a9398e1ac61f90600cdcf3f78e3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f153a9398e1ac61f90600cdcf3f78e3">aLoadScenario</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Scenario.html">Scenario</a> &amp;scenario)</td></tr>
 <tr class="separator:a4f153a9398e1ac61f90600cdcf3f78e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a395cdcfcde5ca501683046cbb24d7b79" id="r_a395cdcfcde5ca501683046cbb24d7b79"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a395cdcfcde5ca501683046cbb24d7b79">_aLoadSensorPattern</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a395cdcfcde5ca501683046cbb24d7b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72d6c7d559a075d676d1a2fc230cb793" id="r_a72d6c7d559a075d676d1a2fc230cb793"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72d6c7d559a075d676d1a2fc230cb793">_aLoadSensorPointing</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a72d6c7d559a075d676d1a2fc230cb793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6910dfafe47499385fa89f31cf64e5ba" id="r_a6910dfafe47499385fa89f31cf64e5ba"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6910dfafe47499385fa89f31cf64e5ba">_aLoadSensorOptics</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a6910dfafe47499385fa89f31cf64e5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5cc15ba8d0b5e43478b9124694ae597" id="r_aa5cc15ba8d0b5e43478b9124694ae597"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5cc15ba8d0b5e43478b9124694ae597">_aLoadSensorLocation</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:aa5cc15ba8d0b5e43478b9124694ae597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e4718b3496ba51005ca358675a24b7" id="r_a22e4718b3496ba51005ca358675a24b7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22e4718b3496ba51005ca358675a24b7">_aLoadSensorExtensions</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a22e4718b3496ba51005ca358675a24b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13149c2aad90e333045efd5d11c329b" id="r_ab13149c2aad90e333045efd5d11c329b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab13149c2aad90e333045efd5d11c329b">aLoadSensor</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> sensorType, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:ab13149c2aad90e333045efd5d11c329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c642c8a2c7632ee52d37d55d2bc7c6e" id="r_a0c642c8a2c7632ee52d37d55d2bc7c6e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c642c8a2c7632ee52d37d55d2bc7c6e">aLoadSensor</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a0c642c8a2c7632ee52d37d55d2bc7c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2245fa858038d8ea7fe5d850930c68ca" id="r_a2245fa858038d8ea7fe5d850930c68ca"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2245fa858038d8ea7fe5d850930c68ca">aLoadSensor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> sensorType, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a2245fa858038d8ea7fe5d850930c68ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa97b54d39dd0a5aaa95f2ad866c78109" id="r_aa97b54d39dd0a5aaa95f2ad866c78109"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa97b54d39dd0a5aaa95f2ad866c78109">aLoadSensor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
 <tr class="separator:aa97b54d39dd0a5aaa95f2ad866c78109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f843921d8a773853b6c1d9254d358d2" id="r_a8f843921d8a773853b6c1d9254d358d2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f843921d8a773853b6c1d9254d358d2">aLoadTarget</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Target.html">Target</a> &amp;target)</td></tr>
@@ -5285,6 +5324,44 @@ DataDirFunc&#160;</td><td class="memItemRight" valign="bottom"><b>fDataDir</b> {
 
 </div>
 </div>
+<a id="a9845a533634a5314f75b3fa04dc274ba" name="a9845a533634a5314f75b3fa04dc274ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9845a533634a5314f75b3fa04dc274ba">&#9670;&#160;</a></span>EFOVType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a9845a533634a5314f75b3fa04dc274ba">ast::EFOVType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>视场类型枚举 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a9845a533634a5314f75b3fa04dc274baa2d390d9c68c5b3cd6c1c9ceae96e37db" name="a9845a533634a5314f75b3fa04dc274baa2d390d9c68c5b3cd6c1c9ceae96e37db"></a>eSimpleCone&#160;</td><td class="fielddoc"><p>简单圆锥视场 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9845a533634a5314f75b3fa04dc274baa05ce095cc3630fda9e7d21c0af0e6d62" name="a9845a533634a5314f75b3fa04dc274baa05ce095cc3630fda9e7d21c0af0e6d62"></a>eConical&#160;</td><td class="fielddoc"><p>复杂圆锥视场 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9845a533634a5314f75b3fa04dc274baaa3956943ad4bdd5c38b07fc39866c154" name="a9845a533634a5314f75b3fa04dc274baaa3956943ad4bdd5c38b07fc39866c154"></a>eHalfPower&#160;</td><td class="fielddoc"><p>半功率视场 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9845a533634a5314f75b3fa04dc274baa957fc9f3628d4891fadf23c736ba708b" name="a9845a533634a5314f75b3fa04dc274baa957fc9f3628d4891fadf23c736ba708b"></a>eRectangular&#160;</td><td class="fielddoc"><p>矩形视场 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9845a533634a5314f75b3fa04dc274baa74dfa905c86044aa6a5516cf606b4da2" name="a9845a533634a5314f75b3fa04dc274baa74dfa905c86044aa6a5516cf606b4da2"></a>eSAR&#160;</td><td class="fielddoc"><p>合成孔径雷达视场 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9845a533634a5314f75b3fa04dc274baa5bca659531259314bb61d5e1fe859cd1" name="a9845a533634a5314f75b3fa04dc274baa5bca659531259314bb61d5e1fe859cd1"></a>eCustom&#160;</td><td class="fielddoc"><p>自定义视场 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="ad5260f2008c9ceaced8a537b5877c379" name="ad5260f2008c9ceaced8a537b5877c379"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5260f2008c9ceaced8a537b5877c379">&#9670;&#160;</a></span>EInterpolationMethod</h2>
 
@@ -5712,6 +5789,161 @@ DataDirFunc&#160;</td><td class="memItemRight" valign="bottom"><b>fDataDir</b> {
   <table class="params">
     <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
     <tr><td class="paramname">facility</td><td>设施引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a22e4718b3496ba51005ca358675a24b7" name="a22e4718b3496ba51005ca358675a24b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e4718b3496ba51005ca358675a24b7">&#9670;&#160;</a></span>_aLoadSensorExtensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadSensorExtensions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器扩展信息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="aa5cc15ba8d0b5e43478b9124694ae597" name="aa5cc15ba8d0b5e43478b9124694ae597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5cc15ba8d0b5e43478b9124694ae597">&#9670;&#160;</a></span>_aLoadSensorLocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadSensorLocation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器位置信息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a6910dfafe47499385fa89f31cf64e5ba" name="a6910dfafe47499385fa89f31cf64e5ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6910dfafe47499385fa89f31cf64e5ba">&#9670;&#160;</a></span>_aLoadSensorOptics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadSensorOptics </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器光学信息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a395cdcfcde5ca501683046cbb24d7b79" name="a395cdcfcde5ca501683046cbb24d7b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a395cdcfcde5ca501683046cbb24d7b79">&#9670;&#160;</a></span>_aLoadSensorPattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadSensorPattern </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器图案信息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a72d6c7d559a075d676d1a2fc230cb793" name="a72d6c7d559a075d676d1a2fc230cb793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72d6c7d559a075d676d1a2fc230cb793">&#9670;&#160;</a></span>_aLoadSensorPointing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadSensorPointing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器指向信息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
   </table>
   </dd>
 </dl>
@@ -7561,8 +7793,76 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 
 </div>
 </div>
+<a id="a0c642c8a2c7632ee52d37d55d2bc7c6e" name="a0c642c8a2c7632ee52d37d55d2bc7c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c642c8a2c7632ee52d37d55d2bc7c6e">&#9670;&#160;</a></span>aLoadSensor() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::aLoadSensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ab13149c2aad90e333045efd5d11c329b" name="ab13149c2aad90e333045efd5d11c329b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13149c2aad90e333045efd5d11c329b">&#9670;&#160;</a></span>aLoadSensor() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::aLoadSensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>sensorType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">sensorType</td><td>传感器类型 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="aa97b54d39dd0a5aaa95f2ad866c78109" name="aa97b54d39dd0a5aaa95f2ad866c78109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa97b54d39dd0a5aaa95f2ad866c78109">&#9670;&#160;</a></span>aLoadSensor()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa97b54d39dd0a5aaa95f2ad866c78109">&#9670;&#160;</a></span>aLoadSensor() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7581,10 +7881,55 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 </div><div class="memdoc">
 
 <p>加载传感器对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>文件路径 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码</dd></dl>
 <p>从文件加载传感器对象 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">filepath</td><td>文件路径 </td></tr>
     <tr><td class="paramname">sensor</td><td>传感器对象引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a2245fa858038d8ea7fe5d850930c68ca" name="a2245fa858038d8ea7fe5d850930c68ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2245fa858038d8ea7fe5d850930c68ca">&#9670;&#160;</a></span>aLoadSensor() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::aLoadSensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>sensorType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载传感器对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>文件路径 </td></tr>
+    <tr><td class="paramname">sensorType</td><td>传感器类型 </td></tr>
+    <tr><td class="paramname">sensor</td><td>传感器引用 </td></tr>
   </table>
   </dd>
 </dl>

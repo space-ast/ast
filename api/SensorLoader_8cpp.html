@@ -105,11 +105,9 @@ $(function(){initNavTree('SensorLoader_8cpp.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="SensorLoader_8hpp_source.html">SensorLoader.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Sensor_8hpp_source.html">../Object/Sensor.hpp</a>&quot;</code><br />
-<code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/StringUtil.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/BKVParser.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="CommonlyUsedHeaders_8hpp_source.html">CommonlyUsedHeaders.hpp</a>&quot;</code><br />
+<code>#include &quot;AstSim/Sensor.hpp&quot;</code><br />
+<code>#include &quot;AstSim/CentroidPosition.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -118,6 +116,22 @@ $(function(){initNavTree('SensorLoader_8cpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:a395cdcfcde5ca501683046cbb24d7b79" id="r_a395cdcfcde5ca501683046cbb24d7b79"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a395cdcfcde5ca501683046cbb24d7b79">ast::_aLoadSensorPattern</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a395cdcfcde5ca501683046cbb24d7b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72d6c7d559a075d676d1a2fc230cb793" id="r_a72d6c7d559a075d676d1a2fc230cb793"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a72d6c7d559a075d676d1a2fc230cb793">ast::_aLoadSensorPointing</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a72d6c7d559a075d676d1a2fc230cb793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6910dfafe47499385fa89f31cf64e5ba" id="r_a6910dfafe47499385fa89f31cf64e5ba"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a6910dfafe47499385fa89f31cf64e5ba">ast::_aLoadSensorOptics</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a6910dfafe47499385fa89f31cf64e5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5cc15ba8d0b5e43478b9124694ae597" id="r_aa5cc15ba8d0b5e43478b9124694ae597"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa5cc15ba8d0b5e43478b9124694ae597">ast::_aLoadSensorLocation</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:aa5cc15ba8d0b5e43478b9124694ae597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e4718b3496ba51005ca358675a24b7" id="r_a22e4718b3496ba51005ca358675a24b7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a22e4718b3496ba51005ca358675a24b7">ast::_aLoadSensorExtensions</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a22e4718b3496ba51005ca358675a24b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13149c2aad90e333045efd5d11c329b" id="r_ab13149c2aad90e333045efd5d11c329b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab13149c2aad90e333045efd5d11c329b">ast::aLoadSensor</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> sensorType, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:ab13149c2aad90e333045efd5d11c329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c642c8a2c7632ee52d37d55d2bc7c6e" id="r_a0c642c8a2c7632ee52d37d55d2bc7c6e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a0c642c8a2c7632ee52d37d55d2bc7c6e">ast::aLoadSensor</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a0c642c8a2c7632ee52d37d55d2bc7c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2245fa858038d8ea7fe5d850930c68ca" id="r_a2245fa858038d8ea7fe5d850930c68ca"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2245fa858038d8ea7fe5d850930c68ca">ast::aLoadSensor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> sensorType, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
+<tr class="separator:a2245fa858038d8ea7fe5d850930c68ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa97b54d39dd0a5aaa95f2ad866c78109" id="r_aa97b54d39dd0a5aaa95f2ad866c78109"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa97b54d39dd0a5aaa95f2ad866c78109">ast::aLoadSensor</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
 <tr class="separator:aa97b54d39dd0a5aaa95f2ad866c78109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

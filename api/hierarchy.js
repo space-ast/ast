@@ -122,7 +122,6 @@ var hierarchy =
         [ "ast::Class", "classast_1_1Class.html", null ]
       ] ]
     ] ],
-    [ "ast::FieldOfView", "classast_1_1FieldOfView.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
@@ -396,6 +395,14 @@ var hierarchy =
         ] ],
         [ "ast::Variable", "classast_1_1Variable.html", null ]
       ] ],
+      [ "ast::FieldOfView", "classast_1_1FieldOfView.html", [
+        [ "ast::FOVConical", "classast_1_1FOVConical.html", null ],
+        [ "ast::FOVCustom", "classast_1_1FOVCustom.html", null ],
+        [ "ast::FOVHalfPower", "classast_1_1FOVHalfPower.html", null ],
+        [ "ast::FOVRectangular", "classast_1_1FOVRectangular.html", null ],
+        [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
+        [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
+      ] ],
       [ "ast::Frame", "classast_1_1Frame.html", [
         [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
         [ "ast::FrameICRF", "classast_1_1FrameICRF.html", null ],
@@ -440,12 +447,12 @@ var hierarchy =
         ] ],
         [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
         [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
-        [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ]
+        [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
+        [ "ast::Sensor", "classast_1_1Sensor.html", null ]
       ] ],
       [ "ast::Radar", "classast_1_1Radar.html", null ],
       [ "ast::Receiver", "classast_1_1Receiver.html", null ],
       [ "ast::Scenario", "classast_1_1Scenario.html", null ],
-      [ "ast::Sensor", "classast_1_1Sensor.html", null ],
       [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
       [ "ast::State", "classast_1_1State.html", [
         [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
@@ -573,6 +580,7 @@ var hierarchy =
     [ "ast::SharedPtr< ast::EventInterval >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::EventTime >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Expr >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::FieldOfView >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Frame >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Point >", "classast_1_1SharedPtr.html", null ],
@@ -656,6 +664,7 @@ var hierarchy =
     [ "ast::VehiclePathData", "structast_1_1VehiclePathData.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Object >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::Point >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],

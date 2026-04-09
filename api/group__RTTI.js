@@ -13,6 +13,7 @@ var group__RTTI =
       [ "setValueInt", "classast_1_1PropertyTimePoint.html#a51343cb6e7a320dd762dad0f0c365567", null ],
       [ "setValueString", "classast_1_1PropertyTimePoint.html#afd2bbf7316a49375d97e0ca7e0a4aa3b", null ]
     ] ],
+    [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
       [ "attr", "classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170", null ],
@@ -165,7 +166,6 @@ var group__RTTI =
       [ "getProperty", "classast_1_1Struct.html#a7bbe79a1e47872f1e674bfd0ff53ddbf", null ]
     ] ],
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
-    [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::FPropertyGet", "group__RTTI.html#gaaa80cc63cbbd9c142d7dbfc004d488e0", null ],
     [ "ast::FPropertySet", "group__RTTI.html#ga8cc34d7734e33615df1cef43f8725b5a", [
       [ "ast::INVALID_ID", "group__RTTI.html#ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2", null ]
