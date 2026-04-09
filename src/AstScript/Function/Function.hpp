@@ -1,10 +1,11 @@
 ///
 /// @file      Function.hpp
-/// @brief     ~
-/// @details   ~
+/// @brief     函数对象
+/// @details   用于表示脚本中定义的函数
 /// @author    axel
 /// @date      2025-12-19
 /// @copyright 版权所有 (C) 2025-present, ast项目.
+///
 ///
 /// ast项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -22,25 +23,44 @@
 
 #include "AstGlobal.h"
 #include "AstScript/Macro.hpp"
+#include "AstUtil/SharedPtr.hpp"
+#include <vector>
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 函数对象基类
-/// @details
-/// 函数对象用于表示脚本中的函数定义，可以包含参数和函数体。
-/// 函数是一种特殊的值对象
-/// 函数的特点是“可以被调用，且会将输入的值转换为另一个值”
-/// 因为值也是一种表达式，所以函数是一种特殊的宏，其输出的表达式是一个值对象
+/// @brief 函数对象
+/// @details 函数对象用于表示脚本中的函数定义
 /// @ingroup Script
 class Function: public Macro
 {
 public:
     AST_EXPR(Function)
 
-    using Macro::Macro;
+    Function() = default;
+
+    Function(const std::string& name, 
+             const std::vector<std::string>& params,
+             Expr* body)
+        : name_(name), params_(params), body_(body) {}
+
     ~Function() override = default;
+
+    const std::string& name() const { return name_; }
+    const std::vector<std::string>& params() const { return params_; }
+    size_t paramCount() const { return params_.size(); }
+    Expr* body() const { return body_.get(); }
+    void setBody(Expr* body) { body_ = body; }
+
+    /// @brief 调用函数
+    Value* call(const std::vector<Value*>& args) const;
+
+    std::string getExpression(Object* context = nullptr) const override;
+
+private:
+    std::string name_;
+    std::vector<std::string> params_;
+    SharedPtr<Expr> body_;
 };
-
-
 
 AST_NAMESPACE_END

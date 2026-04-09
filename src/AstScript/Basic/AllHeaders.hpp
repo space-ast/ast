@@ -47,5 +47,7 @@
 #include "AstScript/OpBinPredefined.hpp"
 #include "AstScript/OpAssignPredefined.hpp"
 #include "AstScript/OpUnaryPredefined.hpp"
+#include "AstScript/Function.hpp"
+#include "Function/ExprFunction.hpp"
 #include "AstScript/IteratePredefined.hpp"
 #include "AstScript/Types.hpp"

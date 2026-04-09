@@ -40,7 +40,9 @@ static const std::unordered_map<StringView, Lexer::ETokenType> keywords = {
     {"else", Lexer::eElse},
     {"while", Lexer::eWhile},
     {"for", Lexer::eFor},
-    {"in", Lexer::eIn}
+    {"in", Lexer::eIn},
+    {"function", Lexer::eFunction},
+    {"return", Lexer::eReturn}
 };
 
 /// @brief 获取下一个令牌

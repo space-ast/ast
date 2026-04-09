@@ -19,6 +19,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #pragma once
+#include <vector>
+#include <string>
+#include <vector>
+#include <string>
 
 #include "AstGlobal.h"
 #include "AstScript/Expr.hpp"
@@ -130,10 +134,20 @@ public:
     /// @return true 如果当前令牌可以作为表达式的开始
     bool canStartExpression() const;
     
+    /// @brief 解析函数定义（标准语法）
+    Expr* parseFunctionDefinition();
+    
+    /// @brief 解析简洁函数定义语法 name(params) = body
+    Expr* parseShorthandFunction();
+    
+    /// @brief 解析参数列表
+    std::vector<std::string> parseParameterList();
+    
     /// @brief 解析表达式
     /// @param script 脚本文本
     /// @return Expr* 解析得到的表达式对象，解析失败返回nullptr
     static Expr* parseExpr(StringView script);
+    
 private:
     Lexer& lexer_;
     Lexer::ETokenType currentTokenType_;

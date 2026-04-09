@@ -50,6 +50,8 @@ class ExprCatHorizontal;
 class ExprCatVertical;
 class ExprCall;
 class ExprMacroExpand;
+class ExprFunction;
+class ExprReturn;
 
 
 
@@ -88,6 +90,8 @@ public:
     virtual void visit(ExprCatVertical& expr) = 0;
     virtual void visit(ExprCall& expr) = 0;
     virtual void visit(ExprMacroExpand& expr) = 0;
+    virtual void visit(ExprFunction& expr) = 0;
+    virtual void visit(ExprReturn& expr) = 0;
     
 };
 

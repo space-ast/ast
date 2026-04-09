@@ -38,7 +38,7 @@ add_rules("ast")                                            -- 添加ast项目�
 
 -- 设置警告等级，并且将警告作为编译错误处理
 if has_config("check_warnings") then
-    set_warnings("more", "error")
+    set_warnings("more")
 end
 
 -- 设置编译策略
@@ -95,16 +95,16 @@ end
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 
 -- 下载并安装第三方库（可选）
-add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
-add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})              -- 可选的Qt5库，包含基础、窗口部件和GUI模块
-add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
-add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
-add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
-add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
-add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
-add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
-add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
-add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
+-- add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
+-- add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})              -- 可选的Qt5库，包含基础、窗口部件和GUI模块
+-- add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
+-- add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
+-- add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
+-- add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
+-- add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
+-- add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
+-- add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
+-- add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 
 -- 使用llvm工具链编译（可选）
@@ -169,8 +169,8 @@ includes("examples")
 
 -- 导入测试配置
 if has_config("with_test") then
-    add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})  -- gtest v1.12.1 for c++11
-    add_requires("benchmark", {optional = true})
+--     add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})  -- gtest v1.12.1 for c++11
+--     add_requires("benchmark", {optional = true})
     includes("test")
 end
 

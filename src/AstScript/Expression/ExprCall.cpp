@@ -1,10 +1,11 @@
 ///
-/// @file      ExprFuncCall.cpp
-/// @brief     ~
+/// @file      ExprCall.cpp
+/// @brief     函数调用表达式实现
 /// @details   ~
 /// @author    axel
 /// @date      2025-12-24
 /// @copyright 版权所有 (C) 2025-present, ast项目.
+///
 ///
 /// ast项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -19,33 +20,73 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ExprCall.hpp"
+#include "AstScript/Function.hpp"
+#include "AstScript/Variable.hpp"
+#include "AstScript/ScriptAPI.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
 Value* ExprCall::eval() const
 {
-    // 这里需要实现函数调用的求值逻辑
-    // 1. 先求值函数表达式，得到函数对象
+    // 1. 求值函数表达式
+    // 如果函数表达式是变量，则获取变量的值（应该是函数对象）
+    // 否则直接求值
+    Value* funcVal = func_->eval();
+    if (!funcVal) {
+        aError("Failed to evaluate function expression");
+        return aValueNull();
+    }
+
+    // 检查是否是函数对象
+    Function* func = dynamic_cast<Function*>(funcVal);
+    if (!func) {
+        // 如果不是函数，检查是否是变量，可能是通过变量间接调用
+        Variable* var = dynamic_cast<Variable*>(funcVal);
+        if (var) {
+            func = dynamic_cast<Function*>(var);
+        }
+    }
+    
+    if (!func) {
+        aError("Expression is not a function");
+        return aValueNull();
+    }
+
     // 2. 求值所有参数
-    // 3. 调用函数并返回结果
-    // 暂时返回 nullptr，需要根据实际的函数调用机制来实现
-    return nullptr;
+    std::vector<Value*> argValues;
+    for (const auto& arg : args_) {
+        Value* argVal = arg->eval();
+        if (!argVal) {
+            aError("Failed to evaluate argument");
+            // 清理已求值的参数
+            for (auto v : argValues) {
+                delete v;
+            }
+            return aValueNull();
+        }
+        argValues.push_back(argVal);
+    }
+
+    // 3. 调用函数
+    Value* result = func->call(argValues);
+
+    // 清理参数值
+    for (auto v : argValues) {
+        delete v;
+    }
+
+    return result;
 }
 
 std::string ExprCall::getExpression(Object* context) const
 {
     std::string result;
     
-    // 如果函数表达式是变量或其他简单表达式，直接使用其字符串表示
-    // 如果是复杂表达式（如二元表达式），需要添加括号
-    bool needParentheses = false;
-    A_UNUSED(needParentheses);
-    // 这里可以根据 m_func 的类型判断是否需要添加括号
-    // 暂时简化处理，直接调用 getExpression
+    // 获取函数表达式的字符串表示
     result = func_->getExpression(context);
     
-    // 添加参数列表，使用 Julia 语言的语法：func(args...)
+    // 添加参数列表
     result += "(";
     for (size_t i = 0; i < args_.size(); ++i) {
         if (i > 0) {

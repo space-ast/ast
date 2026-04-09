@@ -45,6 +45,9 @@ _AST_IMPL_OBJECT(ExprCatHorizontal)
 _AST_IMPL_OBJECT(ExprCatVertical)
 _AST_IMPL_OBJECT(ExprCall)
 _AST_IMPL_OBJECT(ExprMacroExpand)
+_AST_IMPL_OBJECT(Function)
+_AST_IMPL_OBJECT(ExprFunction)
+_AST_IMPL_OBJECT(ExprReturn)
 
 
 

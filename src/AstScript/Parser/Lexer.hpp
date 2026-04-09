@@ -111,6 +111,10 @@ public:
         eWhile,                 ///< while
         eFor,                   ///< for
         eIn,                    ///< in (for循环中使用)
+
+        // 函数定义关键字
+        eFunction,              ///\u003c function
+        eReturn,                ///\u003c return
     };
 
 public:
