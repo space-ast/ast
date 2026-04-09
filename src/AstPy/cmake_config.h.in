@@ -1,0 +1,29 @@
+/**
+ * @file CMakeLists.txt.in
+ * @brief CMake 配置模板文件
+ * 
+ * CMake 配置模板，用于配置 AstPy Python 绑定的构建选项。
+ */
+
+#pragma once
+
+#include <pybind11/pybind11.h>
+
+// 命名空间别名
+namespace py = pybind11;
+
+// 版本信息
+#define ASTPY_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define ASTPY_VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define ASTPY_VERSION_PATCH @PROJECT_VERSION_PATCH@
+#define ASTPY_VERSION_STRING "@PROJECT_VERSION@"
+
+// Python 版本检查
+#if PY_VERSION_HEX < 0x03070000
+#error "AstPy requires Python 3.7 or later"
+#endif
+
+// C++ 版本检查
+#if __cplusplus < 201703L
+#error "AstPy requires C++17 or later"
+#endif
