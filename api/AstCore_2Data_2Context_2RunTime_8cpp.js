@@ -4,6 +4,7 @@ var AstCore_2Data_2Context_2RunTime_8cpp =
     [ "ast::XYSCache", "structast_1_1XYSCache.html", null ],
     [ "AST_DEFAULT_FILE_LEAPSECOND", "AstCore_2Data_2Context_2RunTime_8cpp.html#a5805211b4ae656f073656aa14cc7fd44", null ],
     [ "aDataContext_EnsureCurrent", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga362102d8c58857b6e3d6b48b83bd0944", null ],
+    [ "aDataContext_EnsureDefault", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga6b71837a4fa5dcbe6f059efca4e75297", null ],
     [ "aDataContext_GetConfig", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga93abea7bea04f5667e212fb829e51cb7", null ],
     [ "aDataContext_GetCurrent", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga40dcbf6fa05827fe9b7a7837a01105bd", null ],
     [ "aDataContext_GetDefault", "AstCore_2Data_2Context_2RunTime_8cpp.html#gabd352addd4bfd3dcecb35a480212d9f5", null ],

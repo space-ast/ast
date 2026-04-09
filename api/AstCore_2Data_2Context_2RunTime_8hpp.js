@@ -1,6 +1,7 @@
 var AstCore_2Data_2Context_2RunTime_8hpp =
 [
     [ "aDataContext_EnsureCurrent", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga362102d8c58857b6e3d6b48b83bd0944", null ],
+    [ "aDataContext_EnsureDefault", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga6b71837a4fa5dcbe6f059efca4e75297", null ],
     [ "aDataContext_GetConfig", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga93abea7bea04f5667e212fb829e51cb7", null ],
     [ "aDataContext_GetCurrent", "AstCore_2Data_2Context_2RunTime_8hpp.html#ga40dcbf6fa05827fe9b7a7837a01105bd", null ],
     [ "aDataContext_GetDefault", "AstCore_2Data_2Context_2RunTime_8hpp.html#gabd352addd4bfd3dcecb35a480212d9f5", null ],

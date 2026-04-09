@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstSim/Object/Target.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Builder/Target.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,35 +102,122 @@ $(function(){initNavTree('Target_8hpp_source.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <a href="Target_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstSim/Mover.hpp&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstSim/Facility.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1Target.html">   34</a></span><span class="keyword">class </span>AST_SIM_API <a class="code hl_class" href="classast_1_1Target.html">Target</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Facility.html">Facility</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classast_1_1Target.html">~Target</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1Target.html">Target</a>)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">using </span>StringVector = std::vector&lt;std::string&gt;;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1Target.html">   39</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1Target.html">Target</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>: <span class="comment">// 配置接口</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1Facility_html"><div class="ttname"><a href="classast_1_1Facility.html">ast::Facility</a></div><div class="ttdoc">设施对象</div><div class="ttdef"><b>定义</b> Facility.hpp:39</div></div>
-<div class="ttc" id="aclassast_1_1Target_html"><div class="ttname"><a href="classast_1_1Target.html">ast::Target</a></div><div class="ttdoc">目标对象</div><div class="ttdef"><b>定义</b> Target.hpp:35</div></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9">   44</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9">EKind</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9a3c1820cb196772d85200cf6943844e48">   46</a></span>        <a class="code hl_enumvalue" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9a3c1820cb196772d85200cf6943844e48">eShared</a>,    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9acd18a30ee06fd6e6239425f071a84611">   47</a></span>        <a class="code hl_enumvalue" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9acd18a30ee06fd6e6239425f071a84611">eStatic</a>,    </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9a55bbfea60f8bce3c0537b65f0118a731">   48</a></span>        <a class="code hl_enumvalue" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9a55bbfea60f8bce3c0537b65f0118a731">eBinary</a>,    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    };</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1Target.html">~Target</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a2228a365a3c893ba3ed0bfa08aa15e2a">   63</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1Target.html#a2228a365a3c893ba3ed0bfa08aa15e2a">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; setName(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a0396e4a0b80cac004e5f6e70ffa80372">   73</a></span>    <a class="code hl_enumeration" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9">EKind</a> <a class="code hl_function" href="classast_1_1Target.html#a0396e4a0b80cac004e5f6e70ffa80372">kind</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> kind_; }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; setKind(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> kind);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; setKind(EKind kind);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#aa196e13d6088c13817f586903a6aec42">   89</a></span>    <span class="keyword">const</span> StringVector&amp; <a class="code hl_function" href="classast_1_1Target.html#aa196e13d6088c13817f586903a6aec42">files</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> files_; }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; addFiles(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; files);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#aa3d7dfb6e763426fec520158e0f056a9">  100</a></span>    <span class="keyword">const</span> StringVector&amp; <a class="code hl_function" href="classast_1_1Target.html#aa3d7dfb6e763426fec520158e0f056a9">includeDirs</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> includeDirs_; }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; addIncludeDirs(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dirs);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a43270a2258b7566b130b0f73301c2e32">  111</a></span>    <span class="keyword">const</span> StringVector&amp; <a class="code hl_function" href="classast_1_1Target.html#a43270a2258b7566b130b0f73301c2e32">linkDirs</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> linkDirs_; }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; addLinkDirs(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dirs);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a3417069dc23580a31e7d4aab3e39c508">  122</a></span>    <span class="keyword">const</span> StringVector&amp; <a class="code hl_function" href="classast_1_1Target.html#a3417069dc23580a31e7d4aab3e39c508">links</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> links_; }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; addLinks(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; libs);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a96fcf11d31f02822dec1ab230d02ab49">  133</a></span>    <span class="keyword">const</span> StringVector&amp; <a class="code hl_function" href="classast_1_1Target.html#a96fcf11d31f02822dec1ab230d02ab49">defines</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> defines_; }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_class" href="classast_1_1Target.html">Target</a>&amp; addDefines(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; defines);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="comment">// std::string fileName() const;</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">// std::string targetDir() const;</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// std::string targetFile() const;</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">public</span>: <span class="comment">// 编译、链接、构建、运行、打包等接口</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    errc_t build();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    errc_t run();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a30438440fd7f0b912585f9d1ae6ecae8">  165</a></span>    std::string <a class="code hl_variable" href="classast_1_1Target.html#a30438440fd7f0b912585f9d1ae6ecae8">name_</a>;                     </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a5caedcad0d2e2be18a57b04fed2ed84d">  166</a></span>    <a class="code hl_enumeration" href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9">EKind</a> <a class="code hl_variable" href="classast_1_1Target.html#a5caedcad0d2e2be18a57b04fed2ed84d">kind_</a>;                           </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#acf69a99e0b37103470fae2711ffd7b19">  167</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classast_1_1Target.html#acf69a99e0b37103470fae2711ffd7b19">files_</a>;       </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a6783ae651caa5e3d4ee99bb4c8160aba">  168</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classast_1_1Target.html#a6783ae651caa5e3d4ee99bb4c8160aba">includeDirs_</a>; </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#aab2a30e4c787a4da91d974c2aef65c5a">  169</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classast_1_1Target.html#aab2a30e4c787a4da91d974c2aef65c5a">linkDirs_</a>;    </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#ae085bce2d10707237eacbdba4f99c5c7">  170</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classast_1_1Target.html#ae085bce2d10707237eacbdba4f99c5c7">defines_</a>;     </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classast_1_1Target.html#a0539ded2eb58c86167acb18995cf68dc">  171</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classast_1_1Target.html#a0539ded2eb58c86167acb18995cf68dc">links_</a>;       </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
+</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1Target_html"><div class="ttname"><a href="classast_1_1Target.html">ast::Target</a></div><div class="ttdoc">目标</div><div class="ttdef"><b>定义</b> Target.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a0396e4a0b80cac004e5f6e70ffa80372"><div class="ttname"><a href="classast_1_1Target.html#a0396e4a0b80cac004e5f6e70ffa80372">ast::Target::kind</a></div><div class="ttdeci">EKind kind() const</div><div class="ttdoc">获取目标类型</div><div class="ttdef"><b>定义</b> Target.hpp:73</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a0539ded2eb58c86167acb18995cf68dc"><div class="ttname"><a href="classast_1_1Target.html#a0539ded2eb58c86167acb18995cf68dc">ast::Target::links_</a></div><div class="ttdeci">std::vector&lt; std::string &gt; links_</div><div class="ttdoc">链接库列表</div><div class="ttdef"><b>定义</b> Target.hpp:171</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a2228a365a3c893ba3ed0bfa08aa15e2a"><div class="ttname"><a href="classast_1_1Target.html#a2228a365a3c893ba3ed0bfa08aa15e2a">ast::Target::name</a></div><div class="ttdeci">const std::string &amp; name() const</div><div class="ttdoc">获取目标名称</div><div class="ttdef"><b>定义</b> Target.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a30438440fd7f0b912585f9d1ae6ecae8"><div class="ttname"><a href="classast_1_1Target.html#a30438440fd7f0b912585f9d1ae6ecae8">ast::Target::name_</a></div><div class="ttdeci">std::string name_</div><div class="ttdoc">目标名称</div><div class="ttdef"><b>定义</b> Target.hpp:165</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a3417069dc23580a31e7d4aab3e39c508"><div class="ttname"><a href="classast_1_1Target.html#a3417069dc23580a31e7d4aab3e39c508">ast::Target::links</a></div><div class="ttdeci">const StringVector &amp; links() const</div><div class="ttdoc">获取链接库列表</div><div class="ttdef"><b>定义</b> Target.hpp:122</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a43270a2258b7566b130b0f73301c2e32"><div class="ttname"><a href="classast_1_1Target.html#a43270a2258b7566b130b0f73301c2e32">ast::Target::linkDirs</a></div><div class="ttdeci">const StringVector &amp; linkDirs() const</div><div class="ttdoc">获取链接目录列表</div><div class="ttdef"><b>定义</b> Target.hpp:111</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a5caedcad0d2e2be18a57b04fed2ed84d"><div class="ttname"><a href="classast_1_1Target.html#a5caedcad0d2e2be18a57b04fed2ed84d">ast::Target::kind_</a></div><div class="ttdeci">EKind kind_</div><div class="ttdoc">目标类型</div><div class="ttdef"><b>定义</b> Target.hpp:166</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a6783ae651caa5e3d4ee99bb4c8160aba"><div class="ttname"><a href="classast_1_1Target.html#a6783ae651caa5e3d4ee99bb4c8160aba">ast::Target::includeDirs_</a></div><div class="ttdeci">std::vector&lt; std::string &gt; includeDirs_</div><div class="ttdoc">包含目录列表</div><div class="ttdef"><b>定义</b> Target.hpp:168</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a7cb0bec0c79a6ef451d778892b81a2b9"><div class="ttname"><a href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9">ast::Target::EKind</a></div><div class="ttdeci">EKind</div><div class="ttdoc">目标类型</div><div class="ttdef"><b>定义</b> Target.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a7cb0bec0c79a6ef451d778892b81a2b9a3c1820cb196772d85200cf6943844e48"><div class="ttname"><a href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9a3c1820cb196772d85200cf6943844e48">ast::Target::eShared</a></div><div class="ttdeci">@ eShared</div><div class="ttdoc">共享库目标</div><div class="ttdef"><b>定义</b> Target.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a7cb0bec0c79a6ef451d778892b81a2b9a55bbfea60f8bce3c0537b65f0118a731"><div class="ttname"><a href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9a55bbfea60f8bce3c0537b65f0118a731">ast::Target::eBinary</a></div><div class="ttdeci">@ eBinary</div><div class="ttdoc">可执行文件目标</div><div class="ttdef"><b>定义</b> Target.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a7cb0bec0c79a6ef451d778892b81a2b9acd18a30ee06fd6e6239425f071a84611"><div class="ttname"><a href="classast_1_1Target.html#a7cb0bec0c79a6ef451d778892b81a2b9acd18a30ee06fd6e6239425f071a84611">ast::Target::eStatic</a></div><div class="ttdeci">@ eStatic</div><div class="ttdoc">静态库目标</div><div class="ttdef"><b>定义</b> Target.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_a96fcf11d31f02822dec1ab230d02ab49"><div class="ttname"><a href="classast_1_1Target.html#a96fcf11d31f02822dec1ab230d02ab49">ast::Target::defines</a></div><div class="ttdeci">const StringVector &amp; defines() const</div><div class="ttdoc">获取宏定义列表</div><div class="ttdef"><b>定义</b> Target.hpp:133</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_aa196e13d6088c13817f586903a6aec42"><div class="ttname"><a href="classast_1_1Target.html#aa196e13d6088c13817f586903a6aec42">ast::Target::files</a></div><div class="ttdeci">const StringVector &amp; files() const</div><div class="ttdoc">获取源文件列表</div><div class="ttdef"><b>定义</b> Target.hpp:89</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_aa3d7dfb6e763426fec520158e0f056a9"><div class="ttname"><a href="classast_1_1Target.html#aa3d7dfb6e763426fec520158e0f056a9">ast::Target::includeDirs</a></div><div class="ttdeci">const StringVector &amp; includeDirs() const</div><div class="ttdoc">获取包含目录列表</div><div class="ttdef"><b>定义</b> Target.hpp:100</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_aab2a30e4c787a4da91d974c2aef65c5a"><div class="ttname"><a href="classast_1_1Target.html#aab2a30e4c787a4da91d974c2aef65c5a">ast::Target::linkDirs_</a></div><div class="ttdeci">std::vector&lt; std::string &gt; linkDirs_</div><div class="ttdoc">链接目录列表</div><div class="ttdef"><b>定义</b> Target.hpp:169</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_acf69a99e0b37103470fae2711ffd7b19"><div class="ttname"><a href="classast_1_1Target.html#acf69a99e0b37103470fae2711ffd7b19">ast::Target::files_</a></div><div class="ttdeci">std::vector&lt; std::string &gt; files_</div><div class="ttdoc">源文件列表</div><div class="ttdef"><b>定义</b> Target.hpp:167</div></div>
+<div class="ttc" id="aclassast_1_1Target_html_ae085bce2d10707237eacbdba4f99c5c7"><div class="ttname"><a href="classast_1_1Target.html#ae085bce2d10707237eacbdba4f99c5c7">ast::Target::defines_</a></div><div class="ttdeci">std::vector&lt; std::string &gt; defines_</div><div class="ttdoc">宏定义列表</div><div class="ttdef"><b>定义</b> Target.hpp:170</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9c9106fcc7ff0f590973c837d2bf1f53.html">AstSim</a></li><li class="navelem"><a class="el" href="dir_128c6f41eb6cfa5c0de7e053913da9fb.html">Object</a></li><li class="navelem"><a class="el" href="Target_8hpp.html">Target.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_43361428101e92f870935eca1664b50c.html">Builder</a></li><li class="navelem"><a class="el" href="Target_8hpp.html">Target.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
