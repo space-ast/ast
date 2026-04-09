@@ -108,6 +108,13 @@ $(function(){initNavTree('SensorLoader_8cpp.html',''); initResizable(true); });
 <code>#include &quot;<a class="el" href="CommonlyUsedHeaders_8hpp_source.html">CommonlyUsedHeaders.hpp</a>&quot;</code><br />
 <code>#include &quot;AstSim/Sensor.hpp&quot;</code><br />
 <code>#include &quot;AstSim/CentroidPosition.hpp&quot;</code><br />
+<code>#include &quot;AstCore/FOVSimpleCone.hpp&quot;</code><br />
+<code>#include &quot;AstCore/FOVConical.hpp&quot;</code><br />
+<code>#include &quot;AstCore/FOVHalfPower.hpp&quot;</code><br />
+<code>#include &quot;AstCore/FOVRectangular.hpp&quot;</code><br />
+<code>#include &quot;AstCore/FOVSAR.hpp&quot;</code><br />
+<code>#include &quot;AstCore/FOVCustom.hpp&quot;</code><br />
+<code>#include &quot;AstMath/Vector.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -116,6 +123,24 @@ $(function(){initNavTree('SensorLoader_8cpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:a5331b5d339b5570053d5d6d8d8911c9b" id="r_a5331b5d339b5570053d5d6d8d8911c9b"><td class="memItemLeft" align="right" valign="top"><a id="a5331b5d339b5570053d5d6d8d8911c9b" name="a5331b5d339b5570053d5d6d8d8911c9b"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadSimpleCone</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1FOVSimpleCone.html">FOVSimpleCone</a> &amp;fov)</td></tr>
+<tr class="separator:a5331b5d339b5570053d5d6d8d8911c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fbec47c16cd6e433e73fbf349aed73e" id="r_a1fbec47c16cd6e433e73fbf349aed73e"><td class="memItemLeft" align="right" valign="top"><a id="a1fbec47c16cd6e433e73fbf349aed73e" name="a1fbec47c16cd6e433e73fbf349aed73e"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadConical</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1FOVConical.html">FOVConical</a> &amp;fov)</td></tr>
+<tr class="separator:a1fbec47c16cd6e433e73fbf349aed73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53a54227a8754c1d2e072cb0876f1c3" id="r_ab53a54227a8754c1d2e072cb0876f1c3"><td class="memItemLeft" align="right" valign="top"><a id="ab53a54227a8754c1d2e072cb0876f1c3" name="ab53a54227a8754c1d2e072cb0876f1c3"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadHalfPower</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1FOVHalfPower.html">FOVHalfPower</a> &amp;fov)</td></tr>
+<tr class="separator:ab53a54227a8754c1d2e072cb0876f1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97a4955e3a967824d6fe5f43628c39a" id="r_aa97a4955e3a967824d6fe5f43628c39a"><td class="memItemLeft" align="right" valign="top"><a id="aa97a4955e3a967824d6fe5f43628c39a" name="aa97a4955e3a967824d6fe5f43628c39a"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadRectangular</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1FOVRectangular.html">FOVRectangular</a> &amp;fov)</td></tr>
+<tr class="separator:aa97a4955e3a967824d6fe5f43628c39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2596caa539c8c62c2b94ee7bf84bd8b5" id="r_a2596caa539c8c62c2b94ee7bf84bd8b5"><td class="memItemLeft" align="right" valign="top"><a id="a2596caa539c8c62c2b94ee7bf84bd8b5" name="a2596caa539c8c62c2b94ee7bf84bd8b5"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadSAR</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1FOVSAR.html">FOVSAR</a> &amp;fov)</td></tr>
+<tr class="separator:a2596caa539c8c62c2b94ee7bf84bd8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a279f11e328083eee4afb4128f83cfad6" id="r_a279f11e328083eee4afb4128f83cfad6"><td class="memItemLeft" align="right" valign="top"><a id="a279f11e328083eee4afb4128f83cfad6" name="a279f11e328083eee4afb4128f83cfad6"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadCustom</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1FOVCustom.html">FOVCustom</a> &amp;fov)</td></tr>
+<tr class="separator:a279f11e328083eee4afb4128f83cfad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a395cdcfcde5ca501683046cbb24d7b79" id="r_a395cdcfcde5ca501683046cbb24d7b79"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a395cdcfcde5ca501683046cbb24d7b79">ast::_aLoadSensorPattern</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
 <tr class="separator:a395cdcfcde5ca501683046cbb24d7b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72d6c7d559a075d676d1a2fc230cb793" id="r_a72d6c7d559a075d676d1a2fc230cb793"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a72d6c7d559a075d676d1a2fc230cb793">ast::_aLoadSensorPointing</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Sensor.html">Sensor</a> &amp;sensor)</td></tr>
