@@ -41,6 +41,7 @@
 #include "AstScript/ExprCatVertical.hpp"
 #include "AstScript/ExprCall.hpp"
 #include "AstScript/ExprMacroExpand.hpp"
+#include "AstScript/ExprFunction.hpp"
 #include "Scanner.hpp"
 #include "Lexer.hpp"
 #include "AstUtil/QuantityParser.hpp"
@@ -793,6 +794,68 @@ Expr* Parser::parseForRangeLoop()
     return new ExprForRange(variable, range, body);
 }
 
+/// @brief 解析函数定义语句
+/// @details 实现Julia风格的函数定义语法: function name(params) ... end
+Expr* Parser::parseFunctionDefinition()
+{
+    // 匹配function关键字
+    if (!match(Lexer::eFunction)) {
+        return nullptr;
+    }
+    
+    // 解析函数名称
+    if (currentTokenType() != Lexer::eIdentifier) {
+        aError("Expected function name after 'function' keyword");
+        return nullptr;
+    }
+    
+    std::string funcName = std::string(currentLexeme());
+    advance();
+    
+    // 匹配左括号
+    if (!match(Lexer::eLeftParen)) {
+        aError("Expected '(' after function name");
+        return nullptr;
+    }
+    
+    // 解析参数列表
+    std::vector<std::string> params;
+    if (!check(Lexer::eRightParen)) {
+        do {
+            if (currentTokenType() == Lexer::eIdentifier) {
+                params.push_back(std::string(currentLexeme()));
+                advance();
+            } else {
+                aError("Expected parameter name");
+                return nullptr;
+            }
+        } while (match(Lexer::eComma));
+    }
+    
+    // 匹配右括号
+    if (!match(Lexer::eRightParen)) {
+        aError("Expected ')' after parameter list");
+        return nullptr;
+    }
+    
+    // 解析函数体
+    Expr* body = parseBlockExpr();
+    if (!body) {
+        aError("Expected function body");
+        return nullptr;
+    }
+    
+    // 匹配end关键字
+    if (!match(Lexer::eEnd)) {
+        delete body;
+        aError("Expected 'end' after function body");
+        return nullptr;
+    }
+    
+    // 创建并返回函数定义表达式
+    return new ExprFunction(funcName, params, body);
+}
+
 /// @brief 解析基本表达式
 Expr* Parser::parsePrimaryExpr()
 {
@@ -805,6 +868,8 @@ Expr* Parser::parsePrimaryExpr()
         return parseForRangeLoop();
     }else if(check(Lexer::eBegin)){
         return parseBeginEndBlock();
+    }else if(check(Lexer::eFunction)){
+        return parseFunctionDefinition();
     }
     
     // 处理括号表达式

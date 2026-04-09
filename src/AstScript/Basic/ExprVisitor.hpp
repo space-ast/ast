@@ -50,8 +50,7 @@ class ExprCatHorizontal;
 class ExprCatVertical;
 class ExprCall;
 class ExprMacroExpand;
-
-
+class ExprFunction;
 
 /// @brief 表达式访问器
 /// @details 用于遍历表达式树的访问器。
@@ -88,6 +87,7 @@ public:
     virtual void visit(ExprCatVertical& expr) = 0;
     virtual void visit(ExprCall& expr) = 0;
     virtual void visit(ExprMacroExpand& expr) = 0;
+    virtual void visit(ExprFunction& expr) = 0;
     
 };
 

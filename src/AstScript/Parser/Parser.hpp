@@ -126,6 +126,9 @@ public:
     /// @brief 解析for循环语句（范围风格）
     Expr* parseForRangeLoop();
     
+    /// @brief 解析函数定义语句
+    Expr* parseFunctionDefinition();
+    
     /// @brief 检查当前令牌是否可以作为表达式的开始
     /// @return true 如果当前令牌可以作为表达式的开始
     bool canStartExpression() const;
