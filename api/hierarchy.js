@@ -413,6 +413,8 @@ var hierarchy =
       [ "ast::MTO", "classast_1_1MTO.html", null ],
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
       [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
+        [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
+        [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
         [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [
           [ "ast::MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", [
             [ "ast::MotionHPOP", "classast_1_1MotionHPOP.html", null ],

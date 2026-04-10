@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"SOFA_8cpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,1,2,2,9,2],
+"SOFA_8cpp.html#ac67e70e7a0b4e22fbf6b82741c20e724":[4,0,0,1,2,2,9,13],
+"SOFA_8cpp.html#aca6a3cf571f946372790a9c912a9cc94":[4,0,0,1,2,2,9,3],
+"SOFA_8cpp.html#ad4d33fedb094a2588449938697651f14":[4,0,0,1,2,2,9,1],
 "SOFA_8cpp.html#add4db3984e4ac425671893e9151d776c":[4,0,0,1,2,2,9,4],
 "SOFA_8cpp.html#aeeb54fffcc4d1190586e6148f16be37e":[4,0,0,1,2,2,9,5],
 "SOFA_8cpp.html#af01f70ad0322291b74d4cbfc99cccd2a":[4,0,0,1,2,2,9,9],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "StopCondition_8hpp.html":[4,0,0,1,7,0,3],
 "StopCondition_8hpp_source.html":[4,0,0,1,7,0,3],
 "StringPosix_8cpp.html":[4,0,0,13,5,23],
-"StringPosix_8hpp.html":[4,0,0,13,5,24],
-"StringPosix_8hpp.html#a2dbc046c9cca54d791ab5bd5739c8953":[4,0,0,13,5,24,0],
-"StringPosix_8hpp.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc":[4,0,0,13,5,24,1],
-"StringPosix_8hpp_source.html":[4,0,0,13,5,24],
-"StringSplit_8cpp.html":[4,0,0,13,9,4]
+"StringPosix_8hpp.html":[4,0,0,13,5,24]
 };

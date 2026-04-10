@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"StringPosix_8hpp.html#a2dbc046c9cca54d791ab5bd5739c8953":[4,0,0,13,5,24,0],
+"StringPosix_8hpp.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc":[4,0,0,13,5,24,1],
+"StringPosix_8hpp_source.html":[4,0,0,13,5,24],
+"StringSplit_8cpp.html":[4,0,0,13,9,4],
 "StringSplit_8hpp.html":[4,0,0,13,9,5],
 "StringSplit_8hpp_source.html":[4,0,0,13,9,5],
 "StringSplitter_8cpp.html":[4,0,0,13,9,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "Util_8hpp.html#a1a1fafa43b88e769e2a1975a243d928e":[4,0,0,4,7,1,1],
 "Util_8hpp.html#a685c95e8d547e5b005f64cb6ab42a739":[4,0,0,4,7,1,0],
 "Util_8hpp_source.html":[4,0,0,4,7,1],
-"ValArray_8cpp.html":[4,0,0,9,8,0],
-"ValArray_8hpp.html":[4,0,0,9,8,1],
-"ValArray_8hpp_source.html":[4,0,0,9,8,1],
-"ValBool_8cpp.html":[4,0,0,9,8,2],
-"ValBool_8hpp.html":[4,0,0,9,8,3]
+"ValArray_8cpp.html":[4,0,0,9,8,0]
 };
