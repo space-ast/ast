@@ -185,6 +185,7 @@ var annotated_dup =
       [ "Facility", "classast_1_1Facility.html", "classast_1_1Facility" ],
       [ "Field", "classast_1_1Field.html", "classast_1_1Field" ],
       [ "FieldOfView", "classast_1_1FieldOfView.html", "classast_1_1FieldOfView" ],
+      [ "FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
       [ "FileScanner", "classast_1_1FileScanner.html", "classast_1_1FileScanner" ],
       [ "FOVConical", "classast_1_1FOVConical.html", "classast_1_1FOVConical" ],
       [ "FOVCustom", "classast_1_1FOVCustom.html", "classast_1_1FOVCustom" ],

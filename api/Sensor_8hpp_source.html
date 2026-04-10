@@ -131,9 +131,9 @@ $(function(){initNavTree('Sensor_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    errc_t getPos(const TimePoint&amp; tp, Vector3d&amp; pos) const final;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    errc_t getPosVel(const TimePoint&amp; tp, Vector3d&amp; pos, Vector3d&amp; vel) const final;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>public:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1Sensor.html#af86b8e1e6290f9abd7da0a63f9e4d7a3">   55</a></span>    <span class="keywordtype">void</span> setFieldOfView(<a class="code hl_class" href="classast_1_1FieldOfView.html">FieldOfView</a>* fov) { fov_ = fov; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> setFieldOfView(FieldOfView* fov);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1Sensor.html#ac8b79859e98bd7c995033355589eaa6c">   59</a></span>    <a class="code hl_class" href="classast_1_1FieldOfView.html">FieldOfView</a>* <a class="code hl_function" href="classast_1_1Sensor.html#ac8b79859e98bd7c995033355589eaa6c">getFieldOfView</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> fov_; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1Sensor.html#ac8b79859e98bd7c995033355589eaa6c">   59</a></span>    <a class="code hl_class" href="classast_1_1FieldOfView.html">FieldOfView</a>* getFieldOfView()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> fov_; }</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::string name_;               </div>
@@ -143,12 +143,11 @@ $(function(){initNavTree('Sensor_8hpp_source.html',''); initResizable(true); });
 </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1FieldOfView_html"><div class="ttname"><a href="classast_1_1FieldOfView.html">ast::FieldOfView</a></div><div class="ttdoc">视场基类</div><div class="ttdef"><b>定义</b> FieldOfView.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1FieldOfView_html"><div class="ttname"><a href="classast_1_1FieldOfView.html">ast::FieldOfView</a></div><div class="ttdoc">视场基类</div><div class="ttdef"><b>定义</b> FieldOfView.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1Point_html"><div class="ttname"><a href="classast_1_1Point.html">ast::Point</a></div><div class="ttdef"><b>定义</b> Point.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1Point_html_a287f65e8827b82134ae01e0244385680"><div class="ttname"><a href="classast_1_1Point.html#a287f65e8827b82134ae01e0244385680">ast::Point::getFrame</a></div><div class="ttdeci">virtual Frame * getFrame() const =0</div><div class="ttdoc">获取点所在的参考坐标系</div></div>
 <div class="ttc" id="aclassast_1_1Sensor_html"><div class="ttname"><a href="classast_1_1Sensor.html">ast::Sensor</a></div><div class="ttdoc">传感器对象</div><div class="ttdef"><b>定义</b> Sensor.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Sensor_html_a16a4178ca034dda6f4cad0397223cead"><div class="ttname"><a href="classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead">ast::Sensor::getName</a></div><div class="ttdeci">const std::string &amp; getName() const override</div><div class="ttdoc">获取对象的名称</div><div class="ttdef"><b>定义</b> Sensor.hpp:45</div></div>
-<div class="ttc" id="aclassast_1_1Sensor_html_ac8b79859e98bd7c995033355589eaa6c"><div class="ttname"><a href="classast_1_1Sensor.html#ac8b79859e98bd7c995033355589eaa6c">ast::Sensor::getFieldOfView</a></div><div class="ttdeci">FieldOfView * getFieldOfView() const</div><div class="ttdoc">获取传感器视场</div><div class="ttdef"><b>定义</b> Sensor.hpp:59</div></div>
 <div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1WeakPtr_html"><div class="ttname"><a href="classast_1_1WeakPtr.html">ast::WeakPtr</a></div><div class="ttdoc">弱引用指针</div><div class="ttdef"><b>定义</b> WeakPtr.hpp:35</div></div>

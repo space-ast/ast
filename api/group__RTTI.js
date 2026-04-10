@@ -190,6 +190,7 @@ var group__RTTI =
     [ "ast::aFakeGet", "group__RTTI.html#ga708c0d060e7266fe3d57b9bc92d99ab4", null ],
     [ "ast::aFakeSet", "group__RTTI.html#ga893ef21004e2b6d3cd44dbf165a1d212", null ],
     [ "ast::aFindChild", "group__RTTI.html#ga4cf4746905276a2cd14409a73d584ea1", null ],
+    [ "ast::aFindChildren", "group__RTTI.html#ga9bec0271f82d527b70f6a29ebfe3abf3", null ],
     [ "ast::aGetAllClassNames", "group__RTTI.html#gad5657a636622fe1200c3978ec4325a0a", null ],
     [ "ast::aGetClass", "group__RTTI.html#ga4ab0aeafea06cb726b9b242379d361df", null ],
     [ "ast::aGetClassDefaultObject", "group__RTTI.html#ga846b248935590d9072cdb05af6534f8b", null ],

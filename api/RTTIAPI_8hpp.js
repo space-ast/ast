@@ -3,6 +3,7 @@ var RTTIAPI_8hpp =
     [ "aAddObject", "RTTIAPI_8hpp.html#ga33abde566a2b1d0d9477262b58394145", null ],
     [ "aDeleteObject", "RTTIAPI_8hpp.html#gac773a55dc25b4065657e0d2ab5ce3b21", null ],
     [ "aFindChild", "RTTIAPI_8hpp.html#ga4cf4746905276a2cd14409a73d584ea1", null ],
+    [ "aFindChildren", "RTTIAPI_8hpp.html#ga9bec0271f82d527b70f6a29ebfe3abf3", null ],
     [ "aGetAllClassNames", "RTTIAPI_8hpp.html#gad5657a636622fe1200c3978ec4325a0a", null ],
     [ "aGetClass", "RTTIAPI_8hpp.html#ga4ab0aeafea06cb726b9b242379d361df", null ],
     [ "aGetClassDefaultObject", "RTTIAPI_8hpp.html#ga846b248935590d9072cdb05af6534f8b", null ],

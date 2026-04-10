@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"classast_1_1BodyOrientation.html#a2384e0907e2ce282265581d576e43dd9":[0,0,5,5,0],
+"classast_1_1BodyOrientation.html#a68325f0d68bc3d217a516b4810db0b77":[0,0,5,5,2],
+"classast_1_1BodyOrientation.html#a942f024773def64e955703df743f27ad":[0,0,5,5,5],
 "classast_1_1BodyOrientation.html#ab910ef0fdb7315a3283984b23f87f50e":[0,0,5,5,3],
 "classast_1_1BodyOrientation.html#ac6b4ec0c002d4e10bcca42111c326952":[0,0,5,5,1],
 "classast_1_1BodyOrientation.html#af02c96b6f8dc5731b4ef95f4735ba843":[0,0,5,5,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[3,0,0,101],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[2,0,0,102,3],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[3,0,0,101,3],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[2,0,0,102,1],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[3,0,0,101,1],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[2,0,0,102,2],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[3,0,0,101,2]
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[2,0,0,102,1]
 };

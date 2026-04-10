@@ -122,6 +122,7 @@ var hierarchy =
         [ "ast::Class", "classast_1_1Class.html", null ]
       ] ]
     ] ],
+    [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],

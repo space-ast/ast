@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"SOFA_8cpp.html#a7d564ce583d0c3862921ecceecf6935c":[4,0,0,1,2,2,9,8],
+"SOFA_8cpp.html#a914b7293a4d365eac439568ee4b12a46":[4,0,0,1,2,2,9,11],
+"SOFA_8cpp.html#a964414a5f16ed2a874e02aa19af1129e":[4,0,0,1,2,2,9,10],
 "SOFA_8cpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,1,2,2,9,2],
 "SOFA_8cpp.html#ac67e70e7a0b4e22fbf6b82741c20e724":[4,0,0,1,2,2,9,13],
 "SOFA_8cpp.html#aca6a3cf571f946372790a9c912a9cc94":[4,0,0,1,2,2,9,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "StationaryOrbitDesigner_8hpp.html":[4,0,0,1,6,1,20],
 "StationaryOrbitDesigner_8hpp_source.html":[4,0,0,1,6,1,20],
 "StopCondition_8cpp.html":[4,0,0,1,7,0,2],
-"StopCondition_8hpp.html":[4,0,0,1,7,0,3],
-"StopCondition_8hpp_source.html":[4,0,0,1,7,0,3],
-"StringPosix_8cpp.html":[4,0,0,13,5,23],
-"StringPosix_8hpp.html":[4,0,0,13,5,24]
+"StopCondition_8hpp.html":[4,0,0,1,7,0,3]
 };

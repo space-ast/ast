@@ -6,6 +6,7 @@ var classast_1_1FOVSAR =
     ] ],
     [ "FOVSAR", "classast_1_1FOVSAR.html#a773d0299712d42210619637185d9346a", null ],
     [ "~FOVSAR", "classast_1_1FOVSAR.html#a37e3ff3fb096180e41a3902253ec9a1f", null ],
+    [ "accept", "classast_1_1FOVSAR.html#a572afe0a7aac7ad49f4d0f8fc351fa33", null ],
     [ "getAltitude", "classast_1_1FOVSAR.html#a2be3d0fb2509fff09b2495ab4a220062", null ],
     [ "getBackwardExcludeAngle", "classast_1_1FOVSAR.html#a07104d6e0a391ce23a8a251d13e272e4", null ],
     [ "getForwardExcludeAngle", "classast_1_1FOVSAR.html#a5dea8a64c421b7de34e7323fa474b12b", null ],
