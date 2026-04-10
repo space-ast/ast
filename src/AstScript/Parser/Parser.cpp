@@ -41,7 +41,7 @@
 #include "AstScript/ExprCatVertical.hpp"
 #include "AstScript/ExprCall.hpp"
 #include "AstScript/ExprMacroExpand.hpp"
-#include "AstScript/Function/ExprFunction.hpp"
+#include "Function/ExprFunction.hpp"
 #include "Function/ExprFunction.hpp"
 #include "Function/ExprFunction.hpp"
 #include "AstScript/Function.hpp"
@@ -1232,7 +1232,6 @@ std::vector<std::string> Parser::parseParameterList()
     return params;
 }
 
-AST_NAMESPACE_END
 
 
 
@@ -1330,9 +1329,7 @@ std::vector<std::string> Parser::parseParameterList()
     return params;
 }
 
-AST_NAMESPACE_END
 
-AST_NAMESPACE_END
 
 /// @brief 解析函数定义表达式（Julia标准语法）
 /// @details 语法：function name(params) ... body ... end

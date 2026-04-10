@@ -119,6 +119,14 @@ public:
         // 函数定义关键字
         eFunction,              ///\u003c function
         eReturn,                ///\u003c return
+
+        // 函数定义关键字
+        eFunction,              ///\u003c function
+        eReturn,                ///\u003c return
+
+        // 函数定义关键字
+        eFunction,              ///\u003c function
+        eReturn,                ///\u003c return
     };
 
 public:

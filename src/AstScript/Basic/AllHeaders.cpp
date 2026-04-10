@@ -48,6 +48,7 @@ _AST_IMPL_OBJECT(ExprMacroExpand)
 _AST_IMPL_OBJECT(Function)
 _AST_IMPL_OBJECT(Function)
 _AST_IMPL_OBJECT(Function)
+_AST_IMPL_OBJECT(Function)
 _AST_IMPL_OBJECT(ExprFunction)
 _AST_IMPL_OBJECT(ExprReturn)
 
