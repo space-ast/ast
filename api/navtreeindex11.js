@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[3,0,0,101],
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[2,0,0,102,3],
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[3,0,0,101,3],
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[2,0,0,102,1],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[3,0,0,101,1],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[2,0,0,102,2],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[3,0,0,101,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "classast_1_1EphemerisLagrangeVar.html#a9af0958ad95547f1211ee45ffa4dc050":[3,0,0,124,0],
 "classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[2,0,0,125,9],
 "classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[3,0,0,124,9],
-"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[2,0,0,125,1],
-"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[3,0,0,124,1],
-"classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[2,0,0,125,2],
-"classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[3,0,0,124,2],
-"classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae":[2,0,0,125,7]
+"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[2,0,0,125,1]
 };

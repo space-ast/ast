@@ -309,7 +309,6 @@ var hierarchy =
     [ "ast::Object", "classast_1_1Object.html", [
       [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
       [ "ast::Antenna", "classast_1_1Antenna.html", null ],
-      [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
       [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
       [ "ast::Axes", "classast_1_1Axes.html", [
         [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
@@ -424,6 +423,9 @@ var hierarchy =
           [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
         ] ]
       ] ],
+      [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
+        [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ]
+      ] ],
       [ "ast::Point", "classast_1_1Point.html", [
         [ "ast::CelestialBody", "classast_1_1CelestialBody.html", [
           [ "ast::Planet", "classast_1_1Planet.html", null ],
@@ -498,6 +500,7 @@ var hierarchy =
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", null ],
     [ "ast::PoleMotionSXY", "structast_1_1PoleMotionSXY.html", null ],
     [ "ast::Polynomial", "classast_1_1Polynomial.html", null ],
+    [ "ast::PrintObjectTreeConfig", "structast_1_1PrintObjectTreeConfig.html", null ],
     [ "ast::MotionOrbitDynamics::PropagationParams", "structast_1_1MotionOrbitDynamics_1_1PropagationParams.html", null ],
     [ "ast::Propagator", "classast_1_1Propagator.html", [
       [ "ast::TwoBody", "classast_1_1TwoBody.html", null ]

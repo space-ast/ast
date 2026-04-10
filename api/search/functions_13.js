@@ -131,7 +131,7 @@ var searchData=
   ['setminclockangle_128',['setMinClockAngle',['../classast_1_1FOVConical.html#ae34b5364c9e143ae4ec7ecbc46fa3800',1,'ast::FOVConical']]],
   ['setminelevangle_129',['setMinElevAngle',['../classast_1_1FOVSAR.html#a13ed314969c3dd8dc73a63454346986e',1,'ast::FOVSAR']]],
   ['setmotionprofile_130',['setMotionProfile',['../classast_1_1Mover.html#a567016239c7a6e5d9730148b9952d95f',1,'ast::Mover']]],
-  ['setname_131',['setName',['../classast_1_1Mover.html#acf33ad3fc567c885cbf3d6f3694aff8b',1,'ast::Mover::setName()'],['../classast_1_1BuildTarget.html#a7d538090e667a05c09f7967f0308cd5c',1,'ast::BuildTarget::setName()'],['../classast_1_1Field.html#a04f2f4ca6bbc59e37bf7fade92c9f57f',1,'ast::Field::setName()']]],
+  ['setname_131',['setName',['../classast_1_1Mover.html#acf33ad3fc567c885cbf3d6f3694aff8b',1,'ast::Mover::setName()'],['../classast_1_1BuildTarget.html#a7d538090e667a05c09f7967f0308cd5c',1,'ast::BuildTarget::setName()'],['../classast_1_1ObjectNamed.html#a1a108c921fd80011ab34cb4e1a38a5f7',1,'ast::ObjectNamed::setName()'],['../classast_1_1Field.html#a04f2f4ca6bbc59e37bf7fade92c9f57f',1,'ast::Field::setName()']]],
   ['setnodedefinition_132',['setNodeDefinition',['../classast_1_1SunSynchronousOrbitDesigner.html#a2f41e85bcc11100e2a5b8721697825d9',1,'ast::SunSynchronousOrbitDesigner']]],
   ['setnormal_133',['setNormal',['../classast_1_1UiValueEdit.html#a4956c629a22b7a5b52877aa5a9f6d179',1,'ast::UiValueEdit']]],
   ['setobject_134',['setObject',['../classast_1_1UiObject.html#a9de8d82ac20d04dbb306df00469f4fad',1,'ast::UiObject']]],

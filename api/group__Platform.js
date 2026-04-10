@@ -38,6 +38,7 @@ var group__Platform =
     [ "ast::aStdInIsTerminal", "group__Platform.html#ga402c35c20112c81a16c5410823e030ca", null ],
     [ "ast::aStdOutIsFile", "group__Platform.html#ga038a62d786234b02f668f9460bbd86f6", null ],
     [ "ast::aStdOutIsTerminal", "group__Platform.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5", null ],
+    [ "ast::aTerminalSupportColor", "group__Platform.html#gaf933b51a61fdbc6724497ceae15bcb17", null ],
     [ "ast::aUiEditObject", "group__Platform.html#ga0e988e64c58fbe5bfa847b6ae04d8dba", null ],
     [ "ast::aUiSelectObject", "group__Platform.html#ga9d38a8540eaa686e730caab9e588e35f", null ]
 ];

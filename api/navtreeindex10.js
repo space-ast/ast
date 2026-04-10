@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"classast_1_1BodyEphemerisSPK.html":[0,0,5,4],
+"classast_1_1BodyEphemerisSPK.html#a41de34573ca0ff16cb82ea45ab25ee8b":[0,0,5,4,1],
+"classast_1_1BodyEphemerisSPK.html#ad5d52bc32a6e33ca2ac878da655cc1d5":[0,0,5,4,0],
+"classast_1_1BodyOrientation.html":[0,0,5,5],
 "classast_1_1BodyOrientation.html#a2384e0907e2ce282265581d576e43dd9":[0,0,5,5,0],
 "classast_1_1BodyOrientation.html#a68325f0d68bc3d217a516b4810db0b77":[0,0,5,5,2],
 "classast_1_1BodyOrientation.html#a942f024773def64e955703df743f27ad":[0,0,5,5,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dd":[0,0,3,3,0],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dda2c960f38133fb827437b72b59d64875e":[0,0,3,3,0,1],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89ddafff03efdc0d42aec622a56e1c3cc69ad":[0,0,3,3,0,0],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[2,0,0,102],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[3,0,0,101],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[2,0,0,102,3],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[3,0,0,101,3],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[2,0,0,102,1]
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[2,0,0,102]
 };

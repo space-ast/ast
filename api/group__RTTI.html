@@ -150,6 +150,8 @@ $(function(){initNavTree('group__RTTI.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Struct.html">ast::Struct</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1PrintObjectTreeConfig.html">ast::PrintObjectTreeConfig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SharedPtr.html">ast::SharedPtr&lt; _Object &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -298,10 +300,17 @@ template&lt;typename T , std::string T::* Member&gt; </td></tr>
 <tr class="separator:ga7ed60d1a7c0c2d4cbbd535e0b4f2b051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25a796d58add8beaf21d2c9a61b0434d" id="r_ga25a796d58add8beaf21d2c9a61b0434d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga25a796d58add8beaf21d2c9a61b0434d">ast::aGetParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:ga25a796d58add8beaf21d2c9a61b0434d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4cf4746905276a2cd14409a73d584ea1" id="r_ga4cf4746905276a2cd14409a73d584ea1"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4cf4746905276a2cd14409a73d584ea1">ast::aFindChild</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="separator:ga4cf4746905276a2cd14409a73d584ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9bec0271f82d527b70f6a29ebfe3abf3" id="r_ga9bec0271f82d527b70f6a29ebfe3abf3"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9bec0271f82d527b70f6a29ebfe3abf3">ast::aFindChildren</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt; &amp;children)</td></tr>
+<tr class="memitem:ga1a58411c2aa026059e31156794deebf7" id="r_ga1a58411c2aa026059e31156794deebf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1a58411c2aa026059e31156794deebf7">ast::aFindChild</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls=nullptr, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:ga1a58411c2aa026059e31156794deebf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bec0271f82d527b70f6a29ebfe3abf3" id="r_ga9bec0271f82d527b70f6a29ebfe3abf3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9bec0271f82d527b70f6a29ebfe3abf3">ast::aFindChildren</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt; &amp;children)</td></tr>
 <tr class="separator:ga9bec0271f82d527b70f6a29ebfe3abf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae963543de147f10b506abb6aace79589" id="r_gae963543de147f10b506abb6aace79589"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae963543de147f10b506abb6aace79589">ast::aFindChildren</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls=nullptr, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:gae963543de147f10b506abb6aace79589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf82b69919faf9d958f4ad3ebff8b3882" id="r_gaf82b69919faf9d958f4ad3ebff8b3882"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf82b69919faf9d958f4ad3ebff8b3882">ast::aPrintObjectTree</a> (<a class="el" href="classast_1_1Object.html">Object</a> *root, int indent=0)</td></tr>
+<tr class="separator:gaf82b69919faf9d958f4ad3ebff8b3882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88fe86fc01062ccd7c293707754259bf" id="r_ga88fe86fc01062ccd7c293707754259bf"><td class="memItemLeft" align="right" valign="top"><a id="ga88fe86fc01062ccd7c293707754259bf" name="ga88fe86fc01062ccd7c293707754259bf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aPrintObjectTree</b> (<a class="el" href="classast_1_1Object.html">Object</a> *root, int indent, const <a class="el" href="structast_1_1PrintObjectTreeConfig.html">PrintObjectTreeConfig</a> &amp;config)</td></tr>
+<tr class="separator:ga88fe86fc01062ccd7c293707754259bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">宏定义说明</h2>
 <a id="gaee87285b5b93d27bb93d178bb84edf19" name="gaee87285b5b93d27bb93d178bb84edf19"></a>
@@ -863,8 +872,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="ga4cf4746905276a2cd14409a73d584ea1" name="ga4cf4746905276a2cd14409a73d584ea1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4cf4746905276a2cd14409a73d584ea1">&#9670;&#160;</a></span>aFindChild()</h2>
+<a id="ga1a58411c2aa026059e31156794deebf7" name="ga1a58411c2aa026059e31156794deebf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a58411c2aa026059e31156794deebf7">&#9670;&#160;</a></span>aFindChild()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -877,12 +886,12 @@ template&lt;&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -891,8 +900,8 @@ template&lt;&gt; </div>
 <p>根据父对象、类指针和子对象名查找子对象 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">parentScope</td><td>父对象指针 </td></tr>
-    <tr><td class="paramname">cls</td><td>类指针 </td></tr>
-    <tr><td class="paramname">name</td><td>子对象名，如果为空则匹配所有子对象 </td></tr>
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+    <tr><td class="paramname">name</td><td>子对象名，如果为空则匹配所有名称 </td></tr>
   </table>
   </dd>
 </dl>
@@ -901,7 +910,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="ga9bec0271f82d527b70f6a29ebfe3abf3" name="ga9bec0271f82d527b70f6a29ebfe3abf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9bec0271f82d527b70f6a29ebfe3abf3">&#9670;&#160;</a></span>aFindChildren()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9bec0271f82d527b70f6a29ebfe3abf3">&#9670;&#160;</a></span>aFindChildren() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -933,13 +942,50 @@ template&lt;&gt; </div>
 <p>根据父对象、类指针和子对象名查找子对象 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">parentScope</td><td>父对象指针 </td></tr>
-    <tr><td class="paramname">cls</td><td>类指针 </td></tr>
-    <tr><td class="paramname">name</td><td>子对象名，如果为空则匹配所有子对象 </td></tr>
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+    <tr><td class="paramname">name</td><td>子对象名，如果为空则匹配所有名称 </td></tr>
     <tr><td class="paramname">children</td><td>输出参数，用于存储子对象指针 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gae963543de147f10b506abb6aace79589" name="gae963543de147f10b506abb6aace79589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae963543de147f10b506abb6aace79589">&#9670;&#160;</a></span>aFindChildren() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt; ast::aFindChildren </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>parentScope</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>查找对象的子对象 </p>
+<p>根据父对象、类指针和子对象名查找子对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentScope</td><td>父对象指针 </td></tr>
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+    <tr><td class="paramname">name</td><td>子对象名，如果为空则匹配所有名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>子对象指针向量 </dd></dl>
 
 </div>
 </div>
@@ -1506,6 +1552,37 @@ template&lt;typename T , const std::string &amp;(T::*)() const Getter, void(T::*
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Property* 属性指针 </dd></dl>
+
+</div>
+</div>
+<a id="gaf82b69919faf9d958f4ad3ebff8b3882" name="gaf82b69919faf9d958f4ad3ebff8b3882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf82b69919faf9d958f4ad3ebff8b3882">&#9670;&#160;</a></span>aPrintObjectTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API void ast::aPrintObjectTree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>打印对象树的结构 </p>
+<p>递归打印对象树的结构，包括对象名称、类型等信息 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>根对象指针 </td></tr>
+    <tr><td class="paramname">indent</td><td>缩进级别，默认为0 </td></tr>
+    <tr><td class="paramname">config</td><td>配置结构体，默认为不打印引用计数 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
