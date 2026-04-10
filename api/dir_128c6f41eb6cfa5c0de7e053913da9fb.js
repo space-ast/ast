@@ -10,6 +10,8 @@ var dir_128c6f41eb6cfa5c0de7e053913da9fb =
     [ "Asteroid.hpp", "Asteroid_8hpp.html", "Asteroid_8hpp" ],
     [ "AttitudeCoverage.cpp", "AttitudeCoverage_8cpp.html", null ],
     [ "AttitudeCoverage.hpp", "AttitudeCoverage_8hpp.html", "AttitudeCoverage_8hpp" ],
+    [ "AttitudeFigureOfMerit.cpp", "AttitudeFigureOfMerit_8cpp.html", null ],
+    [ "AttitudeFigureOfMerit.hpp", "AttitudeFigureOfMerit_8hpp.html", "AttitudeFigureOfMerit_8hpp" ],
     [ "Chain.cpp", "Chain_8cpp.html", null ],
     [ "Chain.hpp", "Chain_8hpp.html", "Chain_8hpp" ],
     [ "CommSystem.cpp", "CommSystem_8cpp.html", null ],
@@ -20,6 +22,8 @@ var dir_128c6f41eb6cfa5c0de7e053913da9fb =
     [ "CoverageDefinition.hpp", "CoverageDefinition_8hpp.html", "CoverageDefinition_8hpp" ],
     [ "Facility.cpp", "Facility_8cpp.html", null ],
     [ "Facility.hpp", "Facility_8hpp.html", "Facility_8hpp" ],
+    [ "FigureOfMerit.cpp", "FigureOfMerit_8cpp.html", null ],
+    [ "FigureOfMerit.hpp", "FigureOfMerit_8hpp.html", "FigureOfMerit_8hpp" ],
     [ "LineTarget.cpp", "LineTarget_8cpp.html", null ],
     [ "LineTarget.hpp", "LineTarget_8hpp.html", "LineTarget_8hpp" ],
     [ "Mover.cpp", "Mover_8cpp.html", null ],
@@ -46,6 +50,8 @@ var dir_128c6f41eb6cfa5c0de7e053913da9fb =
     [ "Star.hpp", "Star_8hpp.html", "Star_8hpp" ],
     [ "Target.cpp", "Target_8cpp.html", null ],
     [ "Target.hpp", "Target_8hpp.html", "Target_8hpp" ],
+    [ "Transmitter.cpp", "Transmitter_8cpp.html", null ],
+    [ "Transmitter.hpp", "Transmitter_8hpp.html", "Transmitter_8hpp" ],
     [ "Volumetric.cpp", "Volumetric_8cpp.html", null ],
     [ "Volumetric.hpp", "Volumetric_8hpp.html", "Volumetric_8hpp" ]
 ];

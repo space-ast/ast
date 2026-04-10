@@ -307,9 +307,6 @@ var hierarchy =
     [ "ast::NutationSeries", "classast_1_1NutationSeries.html", null ],
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
-      [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
-      [ "ast::Antenna", "classast_1_1Antenna.html", null ],
-      [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
       [ "ast::Axes", "classast_1_1Axes.html", [
         [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
           [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
@@ -333,10 +330,6 @@ var hierarchy =
         [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
         [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
       ] ],
-      [ "ast::Chain", "classast_1_1Chain.html", null ],
-      [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
-      [ "ast::Constellation", "classast_1_1Constellation.html", null ],
-      [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
       [ "ast::EventInterval", "classast_1_1EventInterval.html", [
         [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
         [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
@@ -409,8 +402,6 @@ var hierarchy =
         [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
         [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
       ] ],
-      [ "ast::LineTarget", "classast_1_1LineTarget.html", null ],
-      [ "ast::MTO", "classast_1_1MTO.html", null ],
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
       [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
         [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
@@ -424,13 +415,28 @@ var hierarchy =
         ] ]
       ] ],
       [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
-        [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ]
+        [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
+        [ "ast::Antenna", "classast_1_1Antenna.html", null ],
+        [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
+        [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
+        [ "ast::Chain", "classast_1_1Chain.html", null ],
+        [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
+        [ "ast::Constellation", "classast_1_1Constellation.html", null ],
+        [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
+        [ "ast::FigureOfMerit", "classast_1_1FigureOfMerit.html", [
+          [ "ast::AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ]
+        ] ],
+        [ "ast::LineTarget", "classast_1_1LineTarget.html", null ],
+        [ "ast::MTO", "classast_1_1MTO.html", null ],
+        [ "ast::Planet", "classast_1_1Planet.html", null ],
+        [ "ast::Radar", "classast_1_1Radar.html", null ],
+        [ "ast::Receiver", "classast_1_1Receiver.html", null ],
+        [ "ast::Star", "classast_1_1Star.html", null ],
+        [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
+        [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
       ] ],
       [ "ast::Point", "classast_1_1Point.html", [
-        [ "ast::CelestialBody", "classast_1_1CelestialBody.html", [
-          [ "ast::Planet", "classast_1_1Planet.html", null ],
-          [ "ast::Star", "classast_1_1Star.html", null ]
-        ] ],
+        [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
         [ "ast::Ephemeris", "classast_1_1Ephemeris.html", [
           [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
             [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
@@ -455,15 +461,12 @@ var hierarchy =
         [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
         [ "ast::Sensor", "classast_1_1Sensor.html", null ]
       ] ],
-      [ "ast::Radar", "classast_1_1Radar.html", null ],
-      [ "ast::Receiver", "classast_1_1Receiver.html", null ],
       [ "ast::Scenario", "classast_1_1Scenario.html", null ],
       [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
       [ "ast::State", "classast_1_1State.html", [
         [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
         [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
-      ] ],
-      [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
+      ] ]
     ] ],
     [ "ast::ObjectEditRegistry", "classast_1_1ObjectEditRegistry.html", null ],
     [ "ast::ObjectManager", "classast_1_1ObjectManager.html", null ],
