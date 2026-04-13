@@ -507,6 +507,11 @@ var annotated_dup =
       [ "Volumetric", "classast_1_1Volumetric.html", null ],
       [ "WeakPtr", "classast_1_1WeakPtr.html", null ],
       [ "WorkingDirectory", "classast_1_1WorkingDirectory.html", "classast_1_1WorkingDirectory" ],
+      [ "XMLDocument", "classast_1_1XMLDocument.html", "classast_1_1XMLDocument" ],
+      [ "XMLDomSax", "classast_1_1XMLDomSax.html", "classast_1_1XMLDomSax" ],
+      [ "XMLNode", "classast_1_1XMLNode.html", "classast_1_1XMLNode" ],
+      [ "XMLParser", "classast_1_1XMLParser.html", "classast_1_1XMLParser" ],
+      [ "XMLSax", "classast_1_1XMLSax.html", "classast_1_1XMLSax" ],
       [ "XmlSerializer", "classast_1_1XmlSerializer.html", "classast_1_1XmlSerializer" ],
       [ "XYSCache", "structast_1_1XYSCache.html", null ]
     ] ],

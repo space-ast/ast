@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"CorVector_8hpp_source.html":[4,0,0,13,1,2],
+"CoverageDefinitionLoader_8cpp.html":[4,0,0,10,2,19],
 "CoverageDefinitionLoader_8cpp.html#ac55a627d73fe78816c722aabdc70a13f":[4,0,0,10,2,19,0],
 "CoverageDefinitionLoader_8hpp.html":[4,0,0,10,2,20],
 "CoverageDefinitionLoader_8hpp.html#ac55a627d73fe78816c722aabdc70a13f":[4,0,0,10,2,20,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "FigureOfMeritLoader_8cpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,10,2,23,0],
 "FigureOfMeritLoader_8hpp.html":[4,0,0,10,2,24],
 "FigureOfMeritLoader_8hpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,10,2,24,0],
-"FigureOfMeritLoader_8hpp_source.html":[4,0,0,10,2,24],
-"FigureOfMerit_8cpp.html":[4,0,0,10,4,22],
-"FigureOfMerit_8hpp.html":[4,0,0,10,4,23]
+"FigureOfMeritLoader_8hpp_source.html":[4,0,0,10,2,24]
 };

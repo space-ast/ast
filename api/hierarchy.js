@@ -27,7 +27,8 @@ var hierarchy =
         [ "ast::SPKParser", "classast_1_1SPKParser.html", null ]
       ] ],
       [ "ast::KVParser", "classast_1_1KVParser.html", null ],
-      [ "ast::PCKParser", "classast_1_1PCKParser.html", null ]
+      [ "ast::PCKParser", "classast_1_1PCKParser.html", null ],
+      [ "ast::XMLParser", "classast_1_1XMLParser.html", null ]
     ] ],
     [ "ast::BKVItemView", "classast_1_1BKVItemView.html", null ],
     [ "ast::BKVNode", "classast_1_1BKVNode.html", [
@@ -677,5 +678,10 @@ var hierarchy =
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
+    [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],
+    [ "ast::XMLNode", "classast_1_1XMLNode.html", null ],
+    [ "ast::XMLSax", "classast_1_1XMLSax.html", [
+      [ "ast::XMLDomSax", "classast_1_1XMLDomSax.html", null ]
+    ] ],
     [ "ast::XYSCache", "structast_1_1XYSCache.html", null ]
 ];

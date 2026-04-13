@@ -1,5 +1,10 @@
 var NAVTREEINDEX5 =
 {
+"NutationSeries_8hpp.html":[4,0,0,1,2,2,6],
+"NutationSeries_8hpp_source.html":[4,0,0,1,2,2,6],
+"NutationTerm_8cpp.html":[4,0,0,1,2,2,7],
+"NutationTerm_8hpp.html":[4,0,0,1,2,2,8],
+"NutationTerm_8hpp_source.html":[4,0,0,1,2,2,8],
 "OArchive_8hpp.html":[4,0,0,13,8,0,6],
 "OArchive_8hpp_source.html":[4,0,0,13,8,0,6],
 "OCPProblem_8hpp_source.html":[4,0,0,6,0],
@@ -108,9 +113,9 @@ var NAVTREEINDEX5 =
 "OsculatingElements_8hpp.html":[4,0,0,0,0,11],
 "OsculatingElements_8hpp_source.html":[4,0,0,0,0,11],
 "PCKParser_8hpp_source.html":[4,0,0,13,4,2,4],
-"ParseFormat_8cpp.html":[4,0,0,13,4,7],
-"ParseFormat_8hpp.html":[4,0,0,13,4,8],
-"ParseFormat_8hpp_source.html":[4,0,0,13,4,8],
+"ParseFormat_8cpp.html":[4,0,0,13,4,8],
+"ParseFormat_8hpp.html":[4,0,0,13,4,9],
+"ParseFormat_8hpp_source.html":[4,0,0,13,4,9],
 "Parser_8cpp.html":[4,0,0,9,7,2],
 "Parser_8hpp.html":[4,0,0,9,7,3],
 "Parser_8hpp_source.html":[4,0,0,9,7,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX5 =
 "RKV8_8hpp_source.html":[4,0,0,4,5,0,13],
 "RTTIAPI_8cpp.html":[4,0,0,13,7,11],
 "RTTIAPI_8hpp.html":[4,0,0,13,7,12],
-"RTTIAPI_8hpp_source.html":[4,0,0,13,7,12],
-"RadarLoader_8cpp.html":[4,0,0,10,2,41],
-"RadarLoader_8cpp.html#a012a5cd048251cf7da1a6acb86163bed":[4,0,0,10,2,41,7],
-"RadarLoader_8cpp.html#a1316ed15747bc96b697828a7fd0e2c7b":[4,0,0,10,2,41,3],
-"RadarLoader_8cpp.html#a132cc1eb655543e94964df2270a86bb3":[4,0,0,10,2,41,5],
-"RadarLoader_8cpp.html#a5cab80753aa3685434a0c300f4a56d4c":[4,0,0,10,2,41,4]
+"RTTIAPI_8hpp_source.html":[4,0,0,13,7,12]
 };

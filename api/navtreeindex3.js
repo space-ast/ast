@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"FigureOfMerit_8cpp.html":[4,0,0,10,4,22],
+"FigureOfMerit_8hpp.html":[4,0,0,10,4,23],
 "FigureOfMerit_8hpp_source.html":[4,0,0,10,4,23],
 "FileSystemSimple_8hpp_source.html":[4,0,0,13,5,10],
 "FileSystem_8cpp.html":[4,0,0,13,5,8],
@@ -86,9 +88,9 @@ var NAVTREEINDEX3 =
 "GUI_8cpp.html":[4,0,0,13,5,11],
 "GUI_8hpp.html":[4,0,0,13,5,12],
 "GUI_8hpp_source.html":[4,0,0,13,5,12],
-"GenericValue_8cpp.html":[4,0,0,13,4,5],
-"GenericValue_8hpp.html":[4,0,0,13,4,6],
-"GenericValue_8hpp_source.html":[4,0,0,13,4,6],
+"GenericValue_8cpp.html":[4,0,0,13,4,6],
+"GenericValue_8hpp.html":[4,0,0,13,4,7],
+"GenericValue_8hpp_source.html":[4,0,0,13,4,7],
 "GeoCoordinate_8cpp.html":[4,0,0,1,5,2,1,1],
 "GeoCoordinate_8cpp.html#a2716f3c71f6cd635ffaf3c4c76a2e667":[4,0,0,1,5,2,1,1,2],
 "GeoCoordinate_8cpp.html#a643d79418b063ea2bd4b4d98f9801405":[4,0,0,1,5,2,1,1,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "JsonIArchive_8hpp_source.html":[4,0,0,13,8,0,4],
 "JsonOArchive_8hpp_source.html":[4,0,0,13,8,0,5],
 "JsonSerializer_8cpp.html":[4,0,0,13,8,5],
-"JsonSerializer_8hpp.html":[4,0,0,13,8,6],
-"JsonSerializer_8hpp_source.html":[4,0,0,13,8,6],
-"JulianDate_8cpp.html":[4,0,0,1,10,9]
+"JsonSerializer_8hpp.html":[4,0,0,13,8,6]
 };

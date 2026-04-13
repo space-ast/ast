@@ -537,6 +537,11 @@ var namespaceast =
     [ "Volumetric", "classast_1_1Volumetric.html", null ],
     [ "WeakPtr", "classast_1_1WeakPtr.html", null ],
     [ "WorkingDirectory", "classast_1_1WorkingDirectory.html", "classast_1_1WorkingDirectory" ],
+    [ "XMLDocument", "classast_1_1XMLDocument.html", "classast_1_1XMLDocument" ],
+    [ "XMLDomSax", "classast_1_1XMLDomSax.html", "classast_1_1XMLDomSax" ],
+    [ "XMLNode", "classast_1_1XMLNode.html", "classast_1_1XMLNode" ],
+    [ "XMLParser", "classast_1_1XMLParser.html", "classast_1_1XMLParser" ],
+    [ "XMLSax", "classast_1_1XMLSax.html", "classast_1_1XMLSax" ],
     [ "XmlSerializer", "classast_1_1XmlSerializer.html", "classast_1_1XmlSerializer" ],
     [ "XYSCache", "structast_1_1XYSCache.html", null ],
     [ "AEDimension", "namespaceast.html#af00b1ded2a8df0252b468907c5aab115", null ],
@@ -978,6 +983,13 @@ var namespaceast =
       [ "eInt", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242", null ],
       [ "eBool", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa005483d8e82f7e1a1c8fb4217956699b", null ],
       [ "eString", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa35382ccaf85aca20434f772622969e3e", null ]
+    ] ],
+    [ "EXMLNodeType", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672", [
+      [ "eElement", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672a3a9a2d7cbd285f70b2e8b13258bf89a6", null ],
+      [ "eText", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672a8c15e6038102a3065760b26043b9c162", null ],
+      [ "eComment", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672ad1ceca21cc65981801342049682a4fe2", null ],
+      [ "eCDATA", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672a548320d7da4333aae7cce728f6d151a5", null ],
+      [ "eDocType", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672af02c492dd5e173576ebbc1bf8b373101", null ]
     ] ],
     [ "_aLoadAntennaExtensions", "namespaceast.html#a14f5e3b11f41813063bc4b0c07cb69d0", null ],
     [ "_aLoadAntennaPattern", "namespaceast.html#a1629d405949345122c6e106bbcc71ab3", null ],

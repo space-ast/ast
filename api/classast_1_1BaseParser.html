@@ -100,7 +100,7 @@ $(function(){initNavTree('classast_1_1BaseParser.html',''); initResizable(true);
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="classast_1_1BaseParser-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::BaseParser类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__ParseFormat.html">文本解析和格式化</a></div></div></div>
 </div><!--header-->
@@ -119,6 +119,7 @@ $(function(){initNavTree('classast_1_1BaseParser.html',''); initResizable(true);
 <area href="classast_1_1DAFParser.html" title="SPICE 双精度数组文件解析器 DAF（Double Precision Array File，双精度数组文件）" alt="ast::DAFParser" shape="rect" coords="110,56,210,80"/>
 <area href="classast_1_1KVParser.html" alt="ast::KVParser" shape="rect" coords="220,56,320,80"/>
 <area href="classast_1_1PCKParser.html" title="SPICE文本内核文件解析器(parser for SPICE text kernel file)" alt="ast::PCKParser" shape="rect" coords="330,56,430,80"/>
+<area href="classast_1_1XMLParser.html" title="轻量级的SAX解析器" alt="ast::XMLParser" shape="rect" coords="440,56,540,80"/>
 <area href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)" alt="ast::SPKParser" shape="rect" coords="110,112,210,136"/>
   </map>
 </div></div>
@@ -162,17 +163,11 @@ Public 成员函数</h2></td></tr>
 FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>getFile</b> () const</td></tr>
 <tr class="separator:ac4732cf70fbc24d627ea01a0fe63f975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected 属性</h2></td></tr>
-<tr class="memitem:acf99ca176b2891a208cc64b66768ad1f" id="r_acf99ca176b2891a208cc64b66768ad1f"><td class="memItemLeft" align="right" valign="top"><a id="acf99ca176b2891a208cc64b66768ad1f" name="acf99ca176b2891a208cc64b66768ad1f"></a>
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>file_</b> {nullptr}</td></tr>
-<tr class="separator:acf99ca176b2891a208cc64b66768ad1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af38d5b757affee30e69dfb7615d2acdc" id="r_af38d5b757affee30e69dfb7615d2acdc"><td class="memItemLeft" align="right" valign="top"><a id="af38d5b757affee30e69dfb7615d2acdc" name="af38d5b757affee30e69dfb7615d2acdc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>fileBorrowed_</b> {false}</td></tr>
-<tr class="separator:af38d5b757affee30e69dfb7615d2acdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29df168554b0f72f93c1bc9fb88bcca4" id="r_a29df168554b0f72f93c1bc9fb88bcca4"><td class="memItemLeft" align="right" valign="top"><a id="a29df168554b0f72f93c1bc9fb88bcca4" name="a29df168554b0f72f93c1bc9fb88bcca4"></a>
-std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lineBuffer_</b></td></tr>
-<tr class="separator:a29df168554b0f72f93c1bc9fb88bcca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a02b1cadcc2db4834d50d0e2eee715b56" id="r_a02b1cadcc2db4834d50d0e2eee715b56"><td class="memItemLeft" align="right" valign="top"><a id="a02b1cadcc2db4834d50d0e2eee715b56" name="a02b1cadcc2db4834d50d0e2eee715b56"></a>
+std::vector&lt; char &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLineBuffer</b> ()</td></tr>
+<tr class="separator:a02b1cadcc2db4834d50d0e2eee715b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>解析器基类 </p>

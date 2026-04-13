@@ -164,18 +164,20 @@ $(function(){initNavTree('BaseParser_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">void</span> setOwnedFile(FILE* file);</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="classast_1_1BaseParser.html#ac4732cf70fbc24d627ea01a0fe63f975">  149</a></span>    FILE* <a class="code hl_function" href="classast_1_1BaseParser.html#ac4732cf70fbc24d627ea01a0fe63f975">getFile</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> file_; }</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classast_1_1BaseParser.html#acf99ca176b2891a208cc64b66768ad1f">  151</a></span>    FILE*             file_{<span class="keyword">nullptr</span>};           </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="classast_1_1BaseParser.html#af38d5b757affee30e69dfb7615d2acdc">  152</a></span>    <span class="keywordtype">bool</span>              fileBorrowed_{<span class="keyword">false</span>};     </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classast_1_1BaseParser.html#a29df168554b0f72f93c1bc9fb88bcca4">  153</a></span>    std::vector&lt;char&gt; <a class="code hl_variable" href="classast_1_1BaseParser.html#a29df168554b0f72f93c1bc9fb88bcca4">lineBuffer_</a>;               </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>};</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::vector&lt;char&gt;&amp; getLineBuffer() { <span class="keywordflow">return</span> lineBuffer_; }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    FILE*             file_{<span class="keyword">nullptr</span>};           </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">bool</span>              fileBorrowed_{<span class="keyword">false</span>};     </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    std::vector&lt;char&gt; lineBuffer_;               </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>};</div>
 </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1BaseParser_html"><div class="ttname"><a href="classast_1_1BaseParser.html">ast::BaseParser</a></div><div class="ttdoc">解析器基类</div><div class="ttdef"><b>定义</b> BaseParser.hpp:56</div></div>
 <div class="ttc" id="aclassast_1_1BaseParser_html_a24d5391a1aea013594950400a030065c"><div class="ttname"><a href="classast_1_1BaseParser.html#a24d5391a1aea013594950400a030065c">ast::BaseParser::isOpen</a></div><div class="ttdeci">bool isOpen() const</div><div class="ttdoc">是否打开文件</div><div class="ttdef"><b>定义</b> BaseParser.hpp:72</div></div>
-<div class="ttc" id="aclassast_1_1BaseParser_html_a29df168554b0f72f93c1bc9fb88bcca4"><div class="ttname"><a href="classast_1_1BaseParser.html#a29df168554b0f72f93c1bc9fb88bcca4">ast::BaseParser::lineBuffer_</a></div><div class="ttdeci">std::vector&lt; char &gt; lineBuffer_</div><div class="ttdoc">行缓冲区</div><div class="ttdef"><b>定义</b> BaseParser.hpp:153</div></div>
 <div class="ttc" id="aclassast_1_1BaseParser_html_a4807b86dfe5303eba5a8701cd9ad9f2d"><div class="ttname"><a href="classast_1_1BaseParser.html#a4807b86dfe5303eba5a8701cd9ad9f2d">ast::BaseParser::eof</a></div><div class="ttdeci">bool eof() const</div><div class="ttdoc">是否到达文件末尾</div><div class="ttdef"><b>定义</b> BaseParser.hpp:92</div></div>
 <div class="ttc" id="aclassast_1_1BaseParser_html_ac4732cf70fbc24d627ea01a0fe63f975"><div class="ttname"><a href="classast_1_1BaseParser.html#ac4732cf70fbc24d627ea01a0fe63f975">ast::BaseParser::getFile</a></div><div class="ttdeci">FILE * getFile() const</div><div class="ttdoc">获取当前解析器使用的文件指针</div><div class="ttdef"><b>定义</b> BaseParser.hpp:149</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
