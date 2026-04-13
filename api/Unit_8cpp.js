@@ -34,7 +34,7 @@ var Unit_8cpp =
     [ "m3", "Unit_8cpp.html#a0990e0945adaa6e0b651b1c2e194f6cb", null ],
     [ "mg", "Unit_8cpp.html#a0fe52e4a38940eea606c33210cf9f1d2", null ],
     [ "mi", "Unit_8cpp.html#a43cd73360527e95bdea7f5347673bb4c", null ],
-    [ "min", "Unit_8cpp.html#aa57bd09bb7a3c5b2a916d9d94ed79983", null ],
+    [ "minute", "Unit_8cpp.html#a2d6fb503bf6082f07cb7c76eb28dd653", null ],
     [ "mm", "Unit_8cpp.html#a7b0c49927f01dc0647079c0e8d949521", null ],
     [ "ms", "Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8", null ],
     [ "N", "Unit_8cpp.html#aa855b6dee85a8685cc6cad69db006c8a", null ],

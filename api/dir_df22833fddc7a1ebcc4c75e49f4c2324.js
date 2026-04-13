@@ -8,6 +8,8 @@ var dir_df22833fddc7a1ebcc4c75e49f4c2324 =
     [ "MockContext.hpp", "MockContext_8hpp.html", null ],
     [ "MockObject.cpp", "MockObject_8cpp.html", null ],
     [ "MockObject.hpp", "MockObject_8hpp.html", "MockObject_8hpp" ],
+    [ "MockRVO.cpp", "MockRVO_8cpp.html", null ],
+    [ "MockRVO.hpp", "MockRVO_8hpp.html", null ],
     [ "MockSnopt.c", "MockSnopt_8c.html", "MockSnopt_8c" ],
     [ "MockStringView.cpp", "MockStringView_8cpp.html", null ],
     [ "MockStringView.hpp", "MockStringView_8hpp.html", null ],

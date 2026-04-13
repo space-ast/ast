@@ -101,13 +101,83 @@ $(function(){initNavTree('MotionGreatArc_8hpp_source.html',''); initResizable(tr
   <div class="headertitle"><div class="title">MotionGreatArc.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="MotionGreatArc_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="MotionProfile_8hpp.html">MotionProfile.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstCore/GeodeticPoint.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1WayPoint.html">   36</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1WayPoint.html">WayPoint</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span> time()<span class="keyword"> const </span>{<span class="keywordflow">return</span> time_;}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1WayPoint.html#a20e9f53a7e9ab472588e7638eaad4d1e">   41</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1WayPoint.html#a20e9f53a7e9ab472588e7638eaad4d1e">time_</a>;             </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd">   42</a></span>    <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> <a class="code hl_variable" href="classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd">position_</a>;  </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1WayPoint.html#a848d4fc4f0f971bb8938b5e017b12d0d">   43</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1WayPoint.html#a848d4fc4f0f971bb8938b5e017b12d0d">speed_</a>;            </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33">   44</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33">acceleration_</a>;     </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267">   45</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267">turnRadius_</a>;       </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1MotionGreatArc.html">MotionGreatArc</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">using </span><a class="code hl_class" href="classast_1_1MotionGreatArc.html">PMotionGreatArc</a> = <a class="code hl_class" href="classast_1_1MotionGreatArc.html">MotionGreatArc</a>*;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">using </span><a class="code hl_class" href="classast_1_1SharedPtr.html">HMotionGreatArc</a> = <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;MotionGreatArc&gt;</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1MotionGreatArc.html">   53</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1MotionGreatArc.html">MotionGreatArc</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1MotionProfile.html">MotionProfile</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1MotionGreatArc.html">PMotionGreatArc</a> New();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1MotionGreatArc.html">MotionGreatArc</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1MotionGreatArc.html">~MotionGreatArc</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    errc_t makeEphemerisSpec(<a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr&lt;Ephemeris&gt;</a>&amp; eph) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    errc_t makeEphemerisSimple(<a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr&lt;Ephemeris&gt;</a>&amp; eph) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> accept(<a class="code hl_class" href="classast_1_1MotionProfileVisitor.html">MotionProfileVisitor</a>&amp; visitor) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">using </span>WayPointVector = std::vector&lt;WayPoint&gt;;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> setStartTime(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    errc_t getStartTime(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    errc_t getStopTime(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    errc_t getInterval(<a class="code hl_class" href="classast_1_1TimeInterval.html">TimeInterval</a>&amp; interval) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">const</span> WayPointVector&amp; getWayPoints()<span class="keyword"> const</span>{<span class="keywordflow">return</span> wayPoints_;}</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> setWayPoints(<span class="keyword">const</span> WayPointVector&amp; wayPoints){wayPoints_ = wayPoints;}</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;EventTime&gt;</a> startTime_;        </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    WayPointVector wayPoints_;              </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aMotionProfile_8hpp_html"><div class="ttname"><a href="MotionProfile_8hpp.html">MotionProfile.hpp</a></div></div>
+<div class="ttc" id="aclassast_1_1GeodeticPoint_html"><div class="ttname"><a href="classast_1_1GeodeticPoint.html">ast::GeodeticPoint</a></div><div class="ttdoc">大地坐标</div><div class="ttdef"><b>定义</b> GeodeticPoint.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1MotionGreatArc_html"><div class="ttname"><a href="classast_1_1MotionGreatArc.html">ast::MotionGreatArc</a></div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1MotionProfileVisitor_html"><div class="ttname"><a href="classast_1_1MotionProfileVisitor.html">ast::MotionProfileVisitor</a></div><div class="ttdef"><b>定义</b> MotionProfileVisitor.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1MotionProfile_html"><div class="ttname"><a href="classast_1_1MotionProfile.html">ast::MotionProfile</a></div><div class="ttdoc">运动定义接口</div><div class="ttdef"><b>定义</b> MotionProfile.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1ScopedPtr_html"><div class="ttname"><a href="classast_1_1ScopedPtr.html">ast::ScopedPtr</a></div><div class="ttdef"><b>定义</b> ScopedPtr.hpp:59</div></div>
+<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1TimeInterval_html"><div class="ttname"><a href="classast_1_1TimeInterval.html">ast::TimeInterval</a></div><div class="ttdoc">时间区间</div><div class="ttdef"><b>定义</b> TimeInterval.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:106</div></div>
+<div class="ttc" id="aclassast_1_1WayPoint_html"><div class="ttname"><a href="classast_1_1WayPoint.html">ast::WayPoint</a></div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1WayPoint_html_a104aa36f3989a2343ef44651f3b7a7dd"><div class="ttname"><a href="classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd">ast::WayPoint::position_</a></div><div class="ttdeci">GeodeticPoint position_</div><div class="ttdoc">位置</div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1WayPoint_html_a1b4f1dc8f9c9d332e6f3c1b4d65a9267"><div class="ttname"><a href="classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267">ast::WayPoint::turnRadius_</a></div><div class="ttdeci">double turnRadius_</div><div class="ttdoc">转弯半径</div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1WayPoint_html_a20e9f53a7e9ab472588e7638eaad4d1e"><div class="ttname"><a href="classast_1_1WayPoint.html#a20e9f53a7e9ab472588e7638eaad4d1e">ast::WayPoint::time_</a></div><div class="ttdeci">double time_</div><div class="ttdoc">时间</div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1WayPoint_html_a848d4fc4f0f971bb8938b5e017b12d0d"><div class="ttname"><a href="classast_1_1WayPoint.html#a848d4fc4f0f971bb8938b5e017b12d0d">ast::WayPoint::speed_</a></div><div class="ttdeci">double speed_</div><div class="ttdoc">速度</div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1WayPoint_html_ac544ada0d6af25eaa00b4e0e3581fc33"><div class="ttname"><a href="classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33">ast::WayPoint::acceleration_</a></div><div class="ttdeci">double acceleration_</div><div class="ttdoc">加速度</div><div class="ttdef"><b>定义</b> MotionGreatArc.hpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9c9106fcc7ff0f590973c837d2bf1f53.html">AstSim</a></li><li class="navelem"><a class="el" href="dir_0d88fe3c379cdebdd567bb4304149f2c.html">Motion</a></li><li class="navelem"><b>MotionGreatArc.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9c9106fcc7ff0f590973c837d2bf1f53.html">AstSim</a></li><li class="navelem"><a class="el" href="dir_0d88fe3c379cdebdd567bb4304149f2c.html">Motion</a></li><li class="navelem"><a class="el" href="MotionGreatArc_8hpp.html">MotionGreatArc.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -105,11 +105,8 @@ $(function(){initNavTree('CoverageDefinitionLoader_8cpp.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="CoverageDefinitionLoader_8hpp_source.html">CoverageDefinitionLoader.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="CoverageDefinition_8hpp_source.html">../Object/CoverageDefinition.hpp</a>&quot;</code><br />
-<code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/StringUtil.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/BKVParser.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="CommonlyUsedHeaders_8hpp_source.html">CommonlyUsedHeaders.hpp</a>&quot;</code><br />
+<code>#include &quot;AstSim/CoverageDefinition.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -118,6 +115,21 @@ $(function(){initNavTree('CoverageDefinitionLoader_8cpp.html',''); initResizable
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:a413f6c1792b599e141861cce4485f825" id="r_a413f6c1792b599e141861cce4485f825"><td class="memItemLeft" align="right" valign="top"><a id="a413f6c1792b599e141861cce4485f825" name="a413f6c1792b599e141861cce4485f825"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadGridDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1CoverageDefinition.html">CoverageDefinition</a> &amp;coverageDefinition)</td></tr>
+<tr class="separator:a413f6c1792b599e141861cce4485f825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a046a23650df26ceaa8fff338be05c618" id="r_a046a23650df26ceaa8fff338be05c618"><td class="memItemLeft" align="right" valign="top"><a id="a046a23650df26ceaa8fff338be05c618" name="a046a23650df26ceaa8fff338be05c618"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAccessDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1CoverageDefinition.html">CoverageDefinition</a> &amp;coverageDefinition)</td></tr>
+<tr class="separator:a046a23650df26ceaa8fff338be05c618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c43f7482716daedcc8a3a14a9f094a" id="r_ab7c43f7482716daedcc8a3a14a9f094a"><td class="memItemLeft" align="right" valign="top"><a id="ab7c43f7482716daedcc8a3a14a9f094a" name="ab7c43f7482716daedcc8a3a14a9f094a"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAssetList</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1CoverageDefinition.html">CoverageDefinition</a> &amp;coverageDefinition)</td></tr>
+<tr class="separator:ab7c43f7482716daedcc8a3a14a9f094a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7d43caff36f17aa553f9e2215470f5" id="r_aeb7d43caff36f17aa553f9e2215470f5"><td class="memItemLeft" align="right" valign="top"><a id="aeb7d43caff36f17aa553f9e2215470f5" name="aeb7d43caff36f17aa553f9e2215470f5"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadInterval</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1CoverageDefinition.html">CoverageDefinition</a> &amp;coverageDefinition)</td></tr>
+<tr class="separator:aeb7d43caff36f17aa553f9e2215470f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae619a932ea73b783da44a49907aacbec" id="r_ae619a932ea73b783da44a49907aacbec"><td class="memItemLeft" align="right" valign="top"><a id="ae619a932ea73b783da44a49907aacbec" name="ae619a932ea73b783da44a49907aacbec"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadExtensions</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1CoverageDefinition.html">CoverageDefinition</a> &amp;coverageDefinition)</td></tr>
+<tr class="separator:ae619a932ea73b783da44a49907aacbec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac55a627d73fe78816c722aabdc70a13f" id="r_ac55a627d73fe78816c722aabdc70a13f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac55a627d73fe78816c722aabdc70a13f">ast::aLoadCoverageDefinition</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1CoverageDefinition.html">CoverageDefinition</a> &amp;coverageDefinition)</td></tr>
 <tr class="separator:ac55a627d73fe78816c722aabdc70a13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

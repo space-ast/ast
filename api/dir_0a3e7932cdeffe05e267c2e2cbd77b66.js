@@ -2,6 +2,8 @@ var dir_0a3e7932cdeffe05e267c2e2cbd77b66 =
 [
     [ "FieldOfView.cpp", "FieldOfView_8cpp.html", null ],
     [ "FieldOfView.hpp", "FieldOfView_8hpp.html", "FieldOfView_8hpp" ],
+    [ "FieldOfViewVisitor.cpp", "FieldOfViewVisitor_8cpp.html", null ],
+    [ "FieldOfViewVisitor.hpp", "FieldOfViewVisitor_8hpp.html", "FieldOfViewVisitor_8hpp" ],
     [ "FOVConical.cpp", "FOVConical_8cpp.html", null ],
     [ "FOVConical.hpp", "FOVConical_8hpp.html", "FOVConical_8hpp" ],
     [ "FOVCustom.cpp", "FOVCustom_8cpp.html", null ],

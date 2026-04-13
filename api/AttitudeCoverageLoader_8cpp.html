@@ -105,11 +105,8 @@ $(function(){initNavTree('AttitudeCoverageLoader_8cpp.html',''); initResizable(t
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="AttitudeCoverageLoader_8hpp_source.html">AttitudeCoverageLoader.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="AttitudeCoverage_8hpp_source.html">../Object/AttitudeCoverage.hpp</a>&quot;</code><br />
-<code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/StringUtil.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
-<code>#include &quot;AstUtil/BKVParser.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="CommonlyUsedHeaders_8hpp_source.html">CommonlyUsedHeaders.hpp</a>&quot;</code><br />
+<code>#include &quot;AstSim/AttitudeCoverage.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -118,6 +115,24 @@ $(function(){initNavTree('AttitudeCoverageLoader_8cpp.html',''); initResizable(t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:a4b269a5ece1d614401a9795a72234e25" id="r_a4b269a5ece1d614401a9795a72234e25"><td class="memItemLeft" align="right" valign="top"><a id="a4b269a5ece1d614401a9795a72234e25" name="a4b269a5ece1d614401a9795a72234e25"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadGridDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
+<tr class="separator:a4b269a5ece1d614401a9795a72234e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf423363838b6727b857aed26c789553" id="r_acf423363838b6727b857aed26c789553"><td class="memItemLeft" align="right" valign="top"><a id="acf423363838b6727b857aed26c789553" name="acf423363838b6727b857aed26c789553"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAccessDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
+<tr class="separator:acf423363838b6727b857aed26c789553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac24875573b3729e23ea4c7f84c82572e" id="r_ac24875573b3729e23ea4c7f84c82572e"><td class="memItemLeft" align="right" valign="top"><a id="ac24875573b3729e23ea4c7f84c82572e" name="ac24875573b3729e23ea4c7f84c82572e"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAssetList</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
+<tr class="separator:ac24875573b3729e23ea4c7f84c82572e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ab6d440d2f8b8725f1021567d29d1e" id="r_a23ab6d440d2f8b8725f1021567d29d1e"><td class="memItemLeft" align="right" valign="top"><a id="a23ab6d440d2f8b8725f1021567d29d1e" name="a23ab6d440d2f8b8725f1021567d29d1e"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadInterval</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
+<tr class="separator:a23ab6d440d2f8b8725f1021567d29d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270b8de7cea5193808c60a16f566527f" id="r_a270b8de7cea5193808c60a16f566527f"><td class="memItemLeft" align="right" valign="top"><a id="a270b8de7cea5193808c60a16f566527f" name="a270b8de7cea5193808c60a16f566527f"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAttitudeCovData</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
+<tr class="separator:a270b8de7cea5193808c60a16f566527f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c7cbba02c4003b7ef91023c97d2c59" id="r_a28c7cbba02c4003b7ef91023c97d2c59"><td class="memItemLeft" align="right" valign="top"><a id="a28c7cbba02c4003b7ef91023c97d2c59" name="a28c7cbba02c4003b7ef91023c97d2c59"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadExtensions</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
+<tr class="separator:a28c7cbba02c4003b7ef91023c97d2c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd198124460fad50fc39a5e1462e1d85" id="r_afd198124460fad50fc39a5e1462e1d85"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#afd198124460fad50fc39a5e1462e1d85">ast::aLoadAttitudeCoverage</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1AttitudeCoverage.html">AttitudeCoverage</a> &amp;attitudeCoverage)</td></tr>
 <tr class="separator:afd198124460fad50fc39a5e1462e1d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

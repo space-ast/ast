@@ -223,6 +223,10 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>readSummaryRecords<
 <tr class="memitem:aa880e2b60171c20e00921194a4e1c0a1 inherit pro_methods_classast_1_1DAFParser" id="r_aa880e2b60171c20e00921194a4e1c0a1"><td class="memItemLeft" align="right" valign="top">
 const <a class="el" href="structast_1_1DAF__FileRecord.html">DAF_FileRecord</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFileRecord</b> () const</td></tr>
 <tr class="separator:aa880e2b60171c20e00921194a4e1c0a1 inherit pro_methods_classast_1_1DAFParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1BaseParser"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1BaseParser')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1BaseParser.html">ast::BaseParser</a></td></tr>
+<tr class="memitem:a02b1cadcc2db4834d50d0e2eee715b56 inherit pro_methods_classast_1_1BaseParser" id="r_a02b1cadcc2db4834d50d0e2eee715b56"><td class="memItemLeft" align="right" valign="top">
+std::vector&lt; char &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLineBuffer</b> ()</td></tr>
+<tr class="separator:a02b1cadcc2db4834d50d0e2eee715b56 inherit pro_methods_classast_1_1BaseParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
@@ -242,16 +246,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValidFile_</b> =fal
 <tr class="memitem:ab8039a409504d55b2be173ff7807d4a4 inherit pro_attribs_classast_1_1DAFParser" id="r_ab8039a409504d55b2be173ff7807d4a4"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSameEndian_</b> =false</td></tr>
 <tr class="separator:ab8039a409504d55b2be173ff7807d4a4 inherit pro_attribs_classast_1_1DAFParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_classast_1_1BaseParser"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BaseParser')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BaseParser.html">ast::BaseParser</a></td></tr>
-<tr class="memitem:acf99ca176b2891a208cc64b66768ad1f inherit pro_attribs_classast_1_1BaseParser" id="r_acf99ca176b2891a208cc64b66768ad1f"><td class="memItemLeft" align="right" valign="top">
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>file_</b> {nullptr}</td></tr>
-<tr class="separator:acf99ca176b2891a208cc64b66768ad1f inherit pro_attribs_classast_1_1BaseParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af38d5b757affee30e69dfb7615d2acdc inherit pro_attribs_classast_1_1BaseParser" id="r_af38d5b757affee30e69dfb7615d2acdc"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>fileBorrowed_</b> {false}</td></tr>
-<tr class="separator:af38d5b757affee30e69dfb7615d2acdc inherit pro_attribs_classast_1_1BaseParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29df168554b0f72f93c1bc9fb88bcca4 inherit pro_attribs_classast_1_1BaseParser" id="r_a29df168554b0f72f93c1bc9fb88bcca4"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lineBuffer_</b></td></tr>
-<tr class="separator:a29df168554b0f72f93c1bc9fb88bcca4 inherit pro_attribs_classast_1_1BaseParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
@@ -264,7 +258,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Record</b> = std::ar
 <div class="textblock"><p>SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file) </p>
 <dl class="section see"><dt>参见</dt><dd>cspice库里的文档 doc/html/req/spk.html</dd></dl>
 <p>用于解析SPICE二进制SPK内核文件（.bsp），提供获取目标在指定时刻的原始位置和速度的功能。 “原始”意味着直接返回SPK文件中存储的相对于相应参考系的位置和速度，不进行任何额外的坐标转换。 使用前需通过 SpiceDAFParser::parse() 等方法打开并解析SPK文件 </p><dl class="section warning"><dt>警告</dt><dd>该类型的单个实例暂不支持多线程并发访问 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000045">待办事项</a></b></dt><dd>处理不同类型的SPK数据，目前仅支持类型2 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000046">待办事项</a></b></dt><dd>处理不同类型的SPK数据，目前仅支持类型2 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a89ecfa6f51cfe1f354537bc844f89fd2" name="a89ecfa6f51cfe1f354537bc844f89fd2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89ecfa6f51cfe1f354537bc844f89fd2">&#9670;&#160;</a></span>findSpkDescriptor()</h2>

@@ -588,6 +588,8 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160
 <tr class="separator:gabe360a12179445a578f36cbb87b55aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabf30f22652768af0923dcc7729e84cb5" id="r_gabf30f22652768af0923dcc7729e84cb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">DiscreteEpochSecondRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabf30f22652768af0923dcc7729e84cb5">ast::TimeInterval::discrete</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step) const</td></tr>
 <tr class="separator:gabf30f22652768af0923dcc7729e84cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e1d8fc152b9efe4b7a44ee9b4826511" id="r_ga9e1d8fc152b9efe4b7a44ee9b4826511"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9e1d8fc152b9efe4b7a44ee9b4826511">ast::TimeInterval::merge</a> (const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;other)</td></tr>
+<tr class="separator:ga9e1d8fc152b9efe4b7a44ee9b4826511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>
@@ -2796,6 +2798,41 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>离散化时间点范围 </dd></dl>
+
+</div>
+</div>
+<a id="ga9e1d8fc152b9efe4b7a44ee9b4826511" name="ga9e1d8fc152b9efe4b7a44ee9b4826511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e1d8fc152b9efe4b7a44ee9b4826511">&#9670;&#160;</a></span>merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::TimeInterval::merge </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>合并时间区间 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>要合并的时间区间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>警告</dt><dd>如果时间区间与当前时间区间不重叠，合并操作将失败。 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
 </div>

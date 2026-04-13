@@ -105,7 +105,8 @@ $(function(){initNavTree('AntennaLoader_8cpp.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="AntennaLoader_8hpp_source.html">AntennaLoader.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Antenna_8hpp_source.html">../Object/Antenna.hpp</a>&quot;</code><br />
+<code>#include &quot;AstSim/Antenna.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="BasicComponentLoader_8hpp_source.html">BasicComponentLoader.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/StringUtil.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
@@ -118,6 +119,18 @@ $(function(){initNavTree('AntennaLoader_8cpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:a1629d405949345122c6e106bbcc71ab3" id="r_a1629d405949345122c6e106bbcc71ab3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1629d405949345122c6e106bbcc71ab3">ast::_aLoadAntennaPattern</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
+<tr class="separator:a1629d405949345122c6e106bbcc71ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fdd6bb1a480a7455ab190e65d2ea284" id="r_a4fdd6bb1a480a7455ab190e65d2ea284"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a4fdd6bb1a480a7455ab190e65d2ea284">ast::_aLoadAntennaPointing</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
+<tr class="separator:a4fdd6bb1a480a7455ab190e65d2ea284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14f5e3b11f41813063bc4b0c07cb69d0" id="r_a14f5e3b11f41813063bc4b0c07cb69d0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a14f5e3b11f41813063bc4b0c07cb69d0">ast::_aLoadAntennaExtensions</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
+<tr class="separator:a14f5e3b11f41813063bc4b0c07cb69d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a87eb9c7459c1115f5744d989a9b4dd" id="r_a1a87eb9c7459c1115f5744d989a9b4dd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1a87eb9c7459c1115f5744d989a9b4dd">ast::aLoadAntenna</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> objectType, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
+<tr class="separator:a1a87eb9c7459c1115f5744d989a9b4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52f7da2826b1c46a118f8cb5c51f9cd8" id="r_a52f7da2826b1c46a118f8cb5c51f9cd8"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a52f7da2826b1c46a118f8cb5c51f9cd8">ast::aLoadAntenna</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
+<tr class="separator:a52f7da2826b1c46a118f8cb5c51f9cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d98c0d3af570627ea7916c26c89e1c6" id="r_a1d98c0d3af570627ea7916c26c89e1c6"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1d98c0d3af570627ea7916c26c89e1c6">ast::aLoadAntenna</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> objectType, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
+<tr class="separator:a1d98c0d3af570627ea7916c26c89e1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06bb3b227c9d919c6f7448610aca4214" id="r_a06bb3b227c9d919c6f7448610aca4214"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a06bb3b227c9d919c6f7448610aca4214">ast::aLoadAntenna</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Antenna.html">Antenna</a> &amp;antenna)</td></tr>
 <tr class="separator:a06bb3b227c9d919c6f7448610aca4214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

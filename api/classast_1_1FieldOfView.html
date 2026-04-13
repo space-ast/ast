@@ -135,6 +135,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~FieldOfView</b> (
 <tr class="separator:a4eaaccf3271d46449247da6cc8806d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab023f0078d1ca7b188d7f3d5c0980917" id="r_ab023f0078d1ca7b188d7f3d5c0980917"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceast.html#a9845a533634a5314f75b3fa04dc274ba">EFOVType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab023f0078d1ca7b188d7f3d5c0980917">getFOVType</a> () const =0</td></tr>
 <tr class="separator:ab023f0078d1ca7b188d7f3d5c0980917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22902a92ae8fbf2059fea0cfcacead2" id="r_ad22902a92ae8fbf2059fea0cfcacead2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad22902a92ae8fbf2059fea0cfcacead2">accept</a> (<a class="el" href="classast_1_1FieldOfViewVisitor.html">FieldOfViewVisitor</a> &amp;visitor)=0</td></tr>
+<tr class="separator:ad22902a92ae8fbf2059fea0cfcacead2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6941aa22d836b53802af0f1cde542561" id="r_a6941aa22d836b53802af0f1cde542561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6941aa22d836b53802af0f1cde542561">setDetailedTerrainHorizon</a> (bool value)</td></tr>
 <tr class="separator:a6941aa22d836b53802af0f1cde542561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4abce0d4edc7a0d115b7e691303cb91a" id="r_a4abce0d4edc7a0d115b7e691303cb91a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4abce0d4edc7a0d115b7e691303cb91a">getDetailedTerrainHorizon</a> () const</td></tr>
@@ -234,6 +236,41 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>视场基类 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="ad22902a92ae8fbf2059fea0cfcacead2" name="ad22902a92ae8fbf2059fea0cfcacead2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad22902a92ae8fbf2059fea0cfcacead2">&#9670;&#160;</a></span>accept()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::FieldOfView::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1FieldOfViewVisitor.html">FieldOfViewVisitor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>visitor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>接受访问者 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">visitor</td><td>访问者 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1FOVConical.html#a873a98b6d146078fe1563da4d5b14713">ast::FOVConical</a>, <a class="el" href="classast_1_1FOVCustom.html#a6c4f68d8fb6c13ba7ce5e5f75a0b21aa">ast::FOVCustom</a>, <a class="el" href="classast_1_1FOVHalfPower.html#a15d9f46dc9e5eb98799abe9660e60e05">ast::FOVHalfPower</a>, <a class="el" href="classast_1_1FOVRectangular.html#ac0e4043f1f8c8bdea8756a49f175687d">ast::FOVRectangular</a>, <a class="el" href="classast_1_1FOVSAR.html#a572afe0a7aac7ad49f4d0f8fc351fa33">ast::FOVSAR</a> , 以及 <a class="el" href="classast_1_1FOVSimpleCone.html#aa3ce793c80627c028360865fd99b0e18">ast::FOVSimpleCone</a> 内被实现.</p>
+
+</div>
+</div>
 <a id="a4abce0d4edc7a0d115b7e691303cb91a" name="a4abce0d4edc7a0d115b7e691303cb91a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4abce0d4edc7a0d115b7e691303cb91a">&#9670;&#160;</a></span>getDetailedTerrainHorizon()</h2>
 
