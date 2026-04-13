@@ -1,5 +1,7 @@
 var dir_58f1c1acee87c1819259ff24dc93e089 =
 [
+    [ "ColoredPrint.cpp", "ColoredPrint_8cpp.html", "ColoredPrint_8cpp" ],
+    [ "ColoredPrint.hpp", "ColoredPrint_8hpp.html", "ColoredPrint_8hpp" ],
     [ "CRT.cpp", "CRT_8cpp.html", null ],
     [ "CRT.hpp", "CRT_8hpp.html", "CRT_8hpp" ],
     [ "Endian.cpp", "Endian_8cpp.html", "Endian_8cpp" ],

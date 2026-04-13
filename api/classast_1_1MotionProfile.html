@@ -115,11 +115,13 @@ $(function(){initNavTree('classast_1_1MotionProfile.html',''); initResizable(tru
   <img src="classast_1_1MotionProfile.png" usemap="#ast::MotionProfile_map" alt=""/>
   <map id="ast::MotionProfile_map" name="ast::MotionProfile_map">
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="173,0,336,24"/>
-<area href="classast_1_1MotionWithIntervalStep.html" title="具有时间段和步长的运动模型" alt="ast::MotionWithIntervalStep" shape="rect" coords="173,112,336,136"/>
-<area href="classast_1_1MotionOrbitDynamics.html" title="轨道动力学基础运动模型数据结构" alt="ast::MotionOrbitDynamics" shape="rect" coords="86,168,249,192"/>
-<area href="classast_1_1MotionSPICE.html" title="SPICE星历预报器/运动模型类" alt="ast::MotionSPICE" shape="rect" coords="259,168,422,192"/>
-<area href="classast_1_1MotionHPOP.html" alt="ast::MotionHPOP" shape="rect" coords="0,224,163,248"/>
-<area href="classast_1_1MotionTwoBody.html" alt="ast::MotionTwoBody" shape="rect" coords="173,224,336,248"/>
+<area href="classast_1_1MotionBallistic.html" title="弹道运动" alt="ast::MotionBallistic" shape="rect" coords="0,112,163,136"/>
+<area href="classast_1_1MotionSimpleAscent.html" alt="ast::MotionSimpleAscent" shape="rect" coords="173,112,336,136"/>
+<area href="classast_1_1MotionWithIntervalStep.html" title="具有时间段和步长的运动模型" alt="ast::MotionWithIntervalStep" shape="rect" coords="346,112,509,136"/>
+<area href="classast_1_1MotionOrbitDynamics.html" title="轨道动力学基础运动模型数据结构" alt="ast::MotionOrbitDynamics" shape="rect" coords="259,168,422,192"/>
+<area href="classast_1_1MotionSPICE.html" title="SPICE星历预报器/运动模型类" alt="ast::MotionSPICE" shape="rect" coords="432,168,595,192"/>
+<area href="classast_1_1MotionHPOP.html" alt="ast::MotionHPOP" shape="rect" coords="173,224,336,248"/>
+<area href="classast_1_1MotionTwoBody.html" alt="ast::MotionTwoBody" shape="rect" coords="346,224,509,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -131,6 +133,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:af1d72e20a127d832d674203909817bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeb7f48ebef97563d872e6fd17ef8f96" id="r_aeeb7f48ebef97563d872e6fd17ef8f96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1MotionSPICE.html">MotionSPICE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeeb7f48ebef97563d872e6fd17ef8f96">toSPICE</a> () const</td></tr>
 <tr class="separator:aeeb7f48ebef97563d872e6fd17ef8f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1fe39e8d81c44943cec983e0b3b660c" id="r_ab1fe39e8d81c44943cec983e0b3b660c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1MotionBallistic.html">MotionBallistic</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1fe39e8d81c44943cec983e0b3b660c">toBallistic</a> () const</td></tr>
+<tr class="separator:ab1fe39e8d81c44943cec983e0b3b660c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5122118383ab1352706fef904f6507" id="r_a7d5122118383ab1352706fef904f6507"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1MotionSimpleAscent.html">MotionSimpleAscent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d5122118383ab1352706fef904f6507">toSimpleAscent</a> () const</td></tr>
+<tr class="separator:a7d5122118383ab1352706fef904f6507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06cb1d3da3df01d2e15595f338a8ee67" id="r_a06cb1d3da3df01d2e15595f338a8ee67"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06cb1d3da3df01d2e15595f338a8ee67">makeEphemerisSpec</a> (<a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1Ephemeris.html">Ephemeris</a> &gt; &amp;eph) const =0</td></tr>
 <tr class="separator:a06cb1d3da3df01d2e15595f338a8ee67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1850333a3b28a3ea78b3e1721fb79ecb" id="r_a1850333a3b28a3ea78b3e1721fb79ecb"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1850333a3b28a3ea78b3e1721fb79ecb">makeEphemerisSimple</a> (<a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1Ephemeris.html">Ephemeris</a> &gt; &amp;eph) const =0</td></tr>
@@ -257,7 +263,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   </dd>
 </dl>
 
-<p>在 <a class="el" href="classast_1_1MotionHPOP.html#a8fb791abe504e493fc96932ff459e945">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSPICE.html#ab68cf4c69dad3ec8ee42446e99d31c8b">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#ac8dcf4eb809aebda9c322afc02f254e6">ast::MotionTwoBody</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionHPOP.html#a8fb791abe504e493fc96932ff459e945">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#ab68cf4c69dad3ec8ee42446e99d31c8b">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#ac8dcf4eb809aebda9c322afc02f254e6">ast::MotionTwoBody</a> 内被实现.</p>
 
 </div>
 </div>
@@ -293,7 +299,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1MotionHPOP.html#acc396813183f9b256fa721ee7b3d2174">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSPICE.html#a5fb541da48fa6407717bc5fbd8054937">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#a0cead494bdf53c2a4efc05573330a27b">ast::MotionTwoBody</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1MotionBallistic.html#a558629fee159c1a334e97d041ef055e0">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionHPOP.html#acc396813183f9b256fa721ee7b3d2174">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#a4ec891f95667ba0adfbc277908e41984">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#a5fb541da48fa6407717bc5fbd8054937">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#a0cead494bdf53c2a4efc05573330a27b">ast::MotionTwoBody</a> 内被实现.</p>
 
 </div>
 </div>
@@ -329,7 +335,25 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1MotionHPOP.html#a3b9e9342e2baec055ae48152e237a446">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSPICE.html#a61402711abde7a9b8f5c1a3b07023e74">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#aff4164d03c105f605e2411446fe0c82a">ast::MotionTwoBody</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1MotionBallistic.html#a0936848b33ae73c624e9802155828b40">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionHPOP.html#a3b9e9342e2baec055ae48152e237a446">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#a86d681e0f5a629b164d6d0f8ba0544ea">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#a61402711abde7a9b8f5c1a3b07023e74">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#aff4164d03c105f605e2411446fe0c82a">ast::MotionTwoBody</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ab1fe39e8d81c44943cec983e0b3b660c" name="ab1fe39e8d81c44943cec983e0b3b660c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1fe39e8d81c44943cec983e0b3b660c">&#9670;&#160;</a></span>toBallistic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1MotionBallistic.html">MotionBallistic</a> * ast::MotionProfile::toBallistic </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000040">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
 
 </div>
 </div>
@@ -347,7 +371,25 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000038">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000037">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
+
+</div>
+</div>
+<a id="a7d5122118383ab1352706fef904f6507" name="a7d5122118383ab1352706fef904f6507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5122118383ab1352706fef904f6507">&#9670;&#160;</a></span>toSimpleAscent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1MotionSimpleAscent.html">MotionSimpleAscent</a> * ast::MotionProfile::toSimpleAscent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000041">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
 
 </div>
 </div>
@@ -365,7 +407,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000040">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000039">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
 
 </div>
 </div>
@@ -383,7 +425,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000039">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000038">待办事项</a></b></dt><dd>提升类型动态转换效率 </dd></dl>
 
 </div>
 </div>

@@ -122,12 +122,16 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ae769a2f8459fc69de26a315877cd9f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a915744dcf7daaf93f4612976507951b8" id="r_a915744dcf7daaf93f4612976507951b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a915744dcf7daaf93f4612976507951b8">getParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:a915744dcf7daaf93f4612976507951b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab323221297ed4fb560aa50545e371392" id="r_ab323221297ed4fb560aa50545e371392"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab323221297ed4fb560aa50545e371392">getNodeCount</a> () const</td></tr>
+<tr class="separator:ab323221297ed4fb560aa50545e371392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa02917a20538ee26a443e5efeb71781f" id="r_aa02917a20538ee26a443e5efeb71781f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02917a20538ee26a443e5efeb71781f">getMaxObjectCount</a> () const</td></tr>
 <tr class="separator:aa02917a20538ee26a443e5efeb71781f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63cfb9957ea2d9c55724801e282348ad" id="r_a63cfb9957ea2d9c55724801e282348ad"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63cfb9957ea2d9c55724801e282348ad">setMaxObjectCount</a> (uint32_t maxCount)</td></tr>
 <tr class="separator:a63cfb9957ea2d9c55724801e282348ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96fdb8d4b60e0d6c74266a1dd233b911" id="r_a96fdb8d4b60e0d6c74266a1dd233b911"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96fdb8d4b60e0d6c74266a1dd233b911">getObjectCount</a> () const</td></tr>
 <tr class="separator:a96fdb8d4b60e0d6c74266a1dd233b911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad359bc103c89830e8265885d95606ed" id="r_aad359bc103c89830e8265885d95606ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ObjectNode.html">ObjectNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad359bc103c89830e8265885d95606ed">getObjectNode</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:aad359bc103c89830e8265885d95606ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -220,8 +224,37 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>获取最大对象数量 </p>
+<p>获取可以管理的最大对象数量 </p>
 <dl class="section return"><dt>返回</dt><dd>最大对象数量 </dd></dl>
+
+</div>
+</div>
+<a id="ab323221297ed4fb560aa50545e371392" name="ab323221297ed4fb560aa50545e371392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab323221297ed4fb560aa50545e371392">&#9670;&#160;</a></span>getNodeCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ast::ObjectManager::getNodeCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取对象节点数量 </p>
+<dl class="section warning"><dt>警告</dt><dd>对象节点数量可能大于对象数量，因为对象节点对应的对象可能已被删除 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>对象节点数量 </dd></dl>
 
 </div>
 </div>
@@ -272,6 +305,32 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b></td></tr>
 
 </div>
 </div>
+<a id="aad359bc103c89830e8265885d95606ed" name="aad359bc103c89830e8265885d95606ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad359bc103c89830e8265885d95606ed">&#9670;&#160;</a></span>getObjectNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1ObjectNode.html">ObjectNode</a> * ast::ObjectManager::getObjectNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取对象对应的对象节点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>对象指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象节点指针 </dd></dl>
+
+</div>
+</div>
 <a id="a915744dcf7daaf93f4612976507951b8" name="a915744dcf7daaf93f4612976507951b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a915744dcf7daaf93f4612976507951b8">&#9670;&#160;</a></span>getParentScope()</h2>
 
@@ -307,7 +366,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>设置最大对象数量 </p>
+<p>设置可以管理的最大对象数量 </p>
 <p>如果最大对象数量小于当前对象数量，则设置失败 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">maxCount</td><td>最大对象数量 </td></tr>

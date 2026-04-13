@@ -216,6 +216,7 @@ var group__Util =
     [ "ast::atan2d", "group__Util.html#gaddc9ca4ebc4ce64ac86c0411f920a092", null ],
     [ "ast::atand", "group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9", null ],
     [ "ast::cosd", "group__Util.html#ga224d796ee35c6b4d310a73ca0103c76a", null ],
+    [ "ast::cprintf", "group__Util.html#ga1c2b8c25e70849b06c5463ab1de5539b", null ],
     [ "ast::deg2rad", "group__Util.html#ga2829ae46176d2ae6b387706feba62fdb", null ],
     [ "ast::Polynomial::eval", "group__Util.html#gaad67fee67dde91d39aea8e0b9ebacbee", null ],
     [ "ast::rad2deg", "group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd", null ],
