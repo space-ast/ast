@@ -3,7 +3,6 @@ var dir_480cf6b53fcea3873823fd76d21e216e =
     [ "BlockKeyValue", "dir_3ab7394bc97099408356ca1b6cbc32f6.html", "dir_3ab7394bc97099408356ca1b6cbc32f6" ],
     [ "KeyValue", "dir_5e8439b47e313ecb65b7d460d02d9dd6.html", "dir_5e8439b47e313ecb65b7d460d02d9dd6" ],
     [ "SpiceParser", "dir_c55449375985824c4f31f3873912e152.html", "dir_c55449375985824c4f31f3873912e152" ],
-    [ "XML", "dir_d350cb4fb1cc55e4e1297df999c38070.html", "dir_d350cb4fb1cc55e4e1297df999c38070" ],
     [ "BaseParser.cpp", "BaseParser_8cpp.html", "BaseParser_8cpp" ],
     [ "BaseParser.hpp", "BaseParser_8hpp.html", "BaseParser_8hpp" ],
     [ "GenericValue.cpp", "GenericValue_8cpp.html", null ],

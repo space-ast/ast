@@ -16,7 +16,10 @@ var group__ParseFormat =
       [ "seek", "classast_1_1BaseParser.html#a8198c9c0e1d48ecbcef8dc936a57b1ac", null ],
       [ "setBorrowedFile", "classast_1_1BaseParser.html#a0ffc6e1ebca53ddfe3f0b78dd6dd8307", null ],
       [ "setOwnedFile", "classast_1_1BaseParser.html#af4e9236f80e0c1d50aa87bd46180d500", null ],
-      [ "tell", "classast_1_1BaseParser.html#ac368ef116424352bb0ad91ca29b49ded", null ]
+      [ "tell", "classast_1_1BaseParser.html#ac368ef116424352bb0ad91ca29b49ded", null ],
+      [ "file_", "classast_1_1BaseParser.html#acf99ca176b2891a208cc64b66768ad1f", null ],
+      [ "fileBorrowed_", "classast_1_1BaseParser.html#af38d5b757affee30e69dfb7615d2acdc", null ],
+      [ "lineBuffer_", "classast_1_1BaseParser.html#a29df168554b0f72f93c1bc9fb88bcca4", null ]
     ] ],
     [ "ast::BKVBlock", "classast_1_1BKVBlock.html", null ],
     [ "ast::BKVItem", "classast_1_1BKVItem.html", [
@@ -82,7 +85,6 @@ var group__ParseFormat =
       [ "spkDescriptors_", "classast_1_1SPKParser.html#ae6204688bb2703a4f178cc0d8612a352", null ]
     ] ],
     [ "ast::ValueView", "classast_1_1ValueView.html", [
-      [ "toAngleRad", "classast_1_1ValueView.html#ac0bccd22e38d178682f5741b493b6631", null ],
       [ "toBool", "classast_1_1ValueView.html#aecb93813bb4b92c0c6d364bc65fbda4f", null ],
       [ "toColor", "classast_1_1ValueView.html#a7b0fe3305619e8aab325c50a0c8522dd", null ],
       [ "toDouble", "classast_1_1ValueView.html#a2f703fc1e95c184a6598a97f561fc145", null ],

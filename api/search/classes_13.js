@@ -12,6 +12,5 @@ var searchData=
   ['traitobject_3c_20iposvelprv_20_3e_9',['TraitObject&lt; IPosVelPrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
   ['traitobject_3c_20ivalueprv_20_3e_10',['TraitObject&lt; IValuePrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
   ['transform_11',['Transform',['../classast_1_1Transform.html',1,'ast']]],
-  ['transmitter_12',['Transmitter',['../classast_1_1Transmitter.html',1,'ast']]],
-  ['twobody_13',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]]
+  ['twobody_12',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]]
 ];
