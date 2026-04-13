@@ -106,6 +106,7 @@ $(function(){initNavTree('Encode_8hpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;clocale&gt;</code><br />
 </div>
 <p><a href="Encode_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
@@ -118,12 +119,20 @@ $(function(){initNavTree('Encode_8hpp.html',''); initResizable(true); });
 函数</h2></td></tr>
 <tr class="memitem:gaf2fc97e4c61a4d07cf3301c4487027b2" id="r_gaf2fc97e4c61a4d07cf3301c4487027b2"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#gaf2fc97e4c61a4d07cf3301c4487027b2">ast::aAnsiToWide</a> (const char *ansi, std::wstring &amp;wide)</td></tr>
 <tr class="separator:gaf2fc97e4c61a4d07cf3301c4487027b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga352ccc1e3481487dce54533d2615f634" id="r_ga352ccc1e3481487dce54533d2615f634"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga352ccc1e3481487dce54533d2615f634">ast::aUtf8ToWide</a> (const char *utf8, std::wstring &amp;wide)</td></tr>
-<tr class="separator:ga352ccc1e3481487dce54533d2615f634"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga40d79277119322d1fb84debba51a5767" id="r_ga40d79277119322d1fb84debba51a5767"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga40d79277119322d1fb84debba51a5767">ast::aWideToAnsi</a> (const wchar_t *wide, std::string &amp;ansi)</td></tr>
 <tr class="separator:ga40d79277119322d1fb84debba51a5767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa69d330049fa1dbef77203c98b2f938c" id="r_gaa69d330049fa1dbef77203c98b2f938c"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#gaa69d330049fa1dbef77203c98b2f938c">ast::aWideToUtf8</a> (const wchar_t *wide, std::string &amp;utf8)</td></tr>
+<tr class="memitem:ga352ccc1e3481487dce54533d2615f634" id="r_ga352ccc1e3481487dce54533d2615f634"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga352ccc1e3481487dce54533d2615f634">ast::aUtf8ToWide</a> (const char *utf8, std::wstring &amp;wide)</td></tr>
+<tr class="separator:ga352ccc1e3481487dce54533d2615f634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa69d330049fa1dbef77203c98b2f938c" id="r_gaa69d330049fa1dbef77203c98b2f938c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#gaa69d330049fa1dbef77203c98b2f938c">ast::aWideToUtf8</a> (const wchar_t *wide, std::string &amp;utf8)</td></tr>
 <tr class="separator:gaa69d330049fa1dbef77203c98b2f938c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade923a9e656922dfc6d2057be1848fee" id="r_gade923a9e656922dfc6d2057be1848fee"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#gade923a9e656922dfc6d2057be1848fee">ast::aWideToCRT</a> (const wchar_t *wide, std::string &amp;crt)</td></tr>
+<tr class="separator:gade923a9e656922dfc6d2057be1848fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a393fd60e66dd4d4fa767568e4c2f50" id="r_ga7a393fd60e66dd4d4fa767568e4c2f50"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga7a393fd60e66dd4d4fa767568e4c2f50">ast::aCRTToWide</a> (const char *crt, std::wstring &amp;wide)</td></tr>
+<tr class="separator:ga7a393fd60e66dd4d4fa767568e4c2f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f19f6dfcf855f14a41c5aadac0d53ac" id="r_ga3f19f6dfcf855f14a41c5aadac0d53ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac">ast::aCRTIsUTF8</a> ()</td></tr>
+<tr class="separator:ga3f19f6dfcf855f14a41c5aadac0d53ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae615837fdd5d1428ce0e44c75eac5dd8" id="r_gae615837fdd5d1428ce0e44c75eac5dd8"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8">ast::aUTF8ToCRT</a> (const char *utf8, std::string &amp;crt)</td></tr>
+<tr class="separator:gae615837fdd5d1428ce0e44c75eac5dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

@@ -246,8 +246,8 @@ var NAVTREEINDEX28 =
 "group__Spice.html#gae64d4b9ccf02cdb3ca2e46d24351dc07":[0,3,20],
 "group__Spice.html#gae84bbf14131d083d3886978ca516e180":[0,3,11],
 "group__String.html":[0,4,5],
-"group__String.html#ga23b571e554986d779a8a24063270b42b":[0,4,5,13],
-"group__String.html#ga352ccc1e3481487dce54533d2615f634":[0,4,5,10],
-"group__String.html#ga40d79277119322d1fb84debba51a5767":[0,4,5,11],
-"group__String.html#ga4b6cb9cc23c061e592fe4a40ff42d890":[0,4,5,3]
+"group__String.html#ga23b571e554986d779a8a24063270b42b":[0,4,5,17],
+"group__String.html#ga352ccc1e3481487dce54533d2615f634":[0,4,5,13],
+"group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac":[0,4,5,4],
+"group__String.html#ga40d79277119322d1fb84debba51a5767":[0,4,5,14]
 };
