@@ -101,7 +101,6 @@ $(function(){initNavTree('classast_1_1TimeInterval.html',''); initResizable(true
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1TimeInterval-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::TimeInterval类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Time.html">时间转换</a></div></div></div>
 </div><!--header-->
@@ -141,6 +140,8 @@ const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;&#160;<
 <tr class="memitem:a0ddd950e3f25705ae1a1504c89c94778" id="r_a0ddd950e3f25705ae1a1504c89c94778"><td class="memItemLeft" align="right" valign="top"><a id="a0ddd950e3f25705ae1a1504c89c94778" name="a0ddd950e3f25705ae1a1504c89c94778"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInfinite</b> ()</td></tr>
 <tr class="separator:a0ddd950e3f25705ae1a1504c89c94778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52844685e45a000dcc28792c5e10093a" id="r_a52844685e45a000dcc28792c5e10093a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52844685e45a000dcc28792c5e10093a">setZero</a> ()</td></tr>
+<tr class="separator:a52844685e45a000dcc28792c5e10093a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a203d1051e9e7f49d721dad76848b0b4f" id="r_a203d1051e9e7f49d721dad76848b0b4f"><td class="memItemLeft" align="right" valign="top"><a id="a203d1051e9e7f49d721dad76848b0b4f" name="a203d1051e9e7f49d721dad76848b0b4f"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>duration</b> () const</td></tr>
 <tr class="separator:a203d1051e9e7f49d721dad76848b0b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,18 +156,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (
 <tr class="separator:gabe360a12179445a578f36cbb87b55aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabf30f22652768af0923dcc7729e84cb5" id="r_gabf30f22652768af0923dcc7729e84cb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">DiscreteEpochSecondRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gabf30f22652768af0923dcc7729e84cb5">discrete</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step) const</td></tr>
 <tr class="separator:gabf30f22652768af0923dcc7729e84cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected 属性</h2></td></tr>
-<tr class="memitem:a30a4b9dc4484a1e5db955dd25d586829" id="r_a30a4b9dc4484a1e5db955dd25d586829"><td class="memItemLeft" align="right" valign="top"><a id="a30a4b9dc4484a1e5db955dd25d586829" name="a30a4b9dc4484a1e5db955dd25d586829"></a>
-int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>epoch_</b></td></tr>
-<tr class="separator:a30a4b9dc4484a1e5db955dd25d586829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa01b62410b016ba6505919c56ce294e8" id="r_aa01b62410b016ba6505919c56ce294e8"><td class="memItemLeft" align="right" valign="top"><a id="aa01b62410b016ba6505919c56ce294e8" name="aa01b62410b016ba6505919c56ce294e8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>start_</b></td></tr>
-<tr class="separator:aa01b62410b016ba6505919c56ce294e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fceb3cb175cea2683f30fcd3a7aa9f3" id="r_a0fceb3cb175cea2683f30fcd3a7aa9f3"><td class="memItemLeft" align="right" valign="top"><a id="a0fceb3cb175cea2683f30fcd3a7aa9f3" name="a0fceb3cb175cea2683f30fcd3a7aa9f3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>stop_</b></td></tr>
-<tr class="separator:a0fceb3cb175cea2683f30fcd3a7aa9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e1d8fc152b9efe4b7a44ee9b4826511" id="r_ga9e1d8fc152b9efe4b7a44ee9b4826511"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#ga9e1d8fc152b9efe4b7a44ee9b4826511">merge</a> (const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;other)</td></tr>
+<tr class="separator:ga9e1d8fc152b9efe4b7a44ee9b4826511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>时间区间 </p>
@@ -402,6 +393,34 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>stop_</b></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a52844685e45a000dcc28792c5e10093a" name="a52844685e45a000dcc28792c5e10093a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52844685e45a000dcc28792c5e10093a">&#9670;&#160;</a></span>setZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::TimeInterval::setZero </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置时间区间为零时间区间 </p>
+<dl class="section warning"><dt>警告</dt><dd>这将使时间区间无效，无法用于计算。 </dd></dl>
 
 </div>
 </div>

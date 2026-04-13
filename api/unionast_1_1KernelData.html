@@ -165,7 +165,7 @@ std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>SPICE 数据容器 </p>
 <p>该类用于存储从 SPICE 内核文件加载的不同类型的数据 使得在 SPICE 内核文件中加载不同类型的数据变得更加方便和高效 </p><dl class="section note"><dt>注解</dt><dd>std::vector&lt;double&gt;, std::vector&lt;int&gt;, std::vector&lt;char&gt;的内存布局是相同的，都是3个指针 对于这个数据容器类型，统一通过charData_来进行复制、移动、析构 这确保了不同类型的数据容器可以在相同的内存布局下进行存储和操作 通过指针之间的地址差，判断是否可以安全地直接将一个数据容器转换为另一个数据容器 例如将一个char类型的数据容器转换为double类型的数据容器， 只需要判断地址差是否为sizeof(double)的整数倍即可 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000046">待办事项</a></b></dt><dd>使用union不太合适，考虑其他的实现方式 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000045">待办事项</a></b></dt><dd>使用union不太合适，考虑其他的实现方式 </dd></dl>
 </div><hr/>该联合体的文档由以下文件生成:<ul>
 <li>src/AstUtil/ParseFormat/SpiceParser/<a class="el" href="KernelPool_8hpp_source.html">KernelPool.hpp</a></li>
 </ul>

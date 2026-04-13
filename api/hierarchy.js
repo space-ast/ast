@@ -204,6 +204,7 @@ var hierarchy =
     ] ],
     [ "ast::Interpreter", "classast_1_1Interpreter.html", null ],
     [ "ast::InterpreterContext", "classast_1_1InterpreterContext.html", null ],
+    [ "ast::Interval", "classast_1_1Interval.html", null ],
     [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
       [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
         [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [

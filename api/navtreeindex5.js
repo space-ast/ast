@@ -1,5 +1,8 @@
 var NAVTREEINDEX5 =
 {
+"NoopOrientation_8hpp.html":[4,0,0,1,9,1,6],
+"NoopOrientation_8hpp_source.html":[4,0,0,1,9,1,6],
+"NutationSeries_8cpp.html":[4,0,0,1,2,2,5],
 "NutationSeries_8hpp.html":[4,0,0,1,2,2,6],
 "NutationSeries_8hpp_source.html":[4,0,0,1,2,2,6],
 "NutationTerm_8cpp.html":[4,0,0,1,2,2,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "RKF78_8hpp_source.html":[4,0,0,4,5,0,11],
 "RKV8_8cpp.html":[4,0,0,4,5,0,12],
 "RKV8_8hpp.html":[4,0,0,4,5,0,13],
-"RKV8_8hpp_source.html":[4,0,0,4,5,0,13],
-"RTTIAPI_8cpp.html":[4,0,0,13,7,11],
-"RTTIAPI_8hpp.html":[4,0,0,13,7,12],
-"RTTIAPI_8hpp_source.html":[4,0,0,13,7,12]
+"RKV8_8hpp_source.html":[4,0,0,4,5,0,13]
 };
