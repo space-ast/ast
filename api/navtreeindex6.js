@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"RKF45_8cpp.html":[4,0,0,4,5,0,6],
-"RKF45_8hpp.html":[4,0,0,4,5,0,7],
 "RKF45_8hpp_source.html":[4,0,0,4,5,0,7],
 "RKF56_8cpp.html":[4,0,0,4,5,0,8],
 "RKF56_8hpp.html":[4,0,0,4,5,0,9],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "SpacecraftState_8hpp.html":[4,0,0,1,6,2,1],
 "SpacecraftState_8hpp_source.html":[4,0,0,1,6,2,1],
 "Spacecraft_8cpp.html":[4,0,0,10,4,54],
-"Spacecraft_8hpp.html":[4,0,0,10,4,55]
+"Spacecraft_8hpp.html":[4,0,0,10,4,55],
+"Spacecraft_8hpp_source.html":[4,0,0,10,4,55],
+"Span_8cpp.html":[4,0,0,13,1,3]
 };

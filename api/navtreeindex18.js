@@ -1,7 +1,5 @@
 var NAVTREEINDEX18 =
 {
-"classast_1_1MotionBallistic.html#adad179d613a867b36f24546555390568":[2,0,0,255,3],
-"classast_1_1MotionBallistic.html#adad179d613a867b36f24546555390568":[3,0,0,254,3],
 "classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350":[2,0,0,255,0],
 "classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350":[3,0,0,254,0],
 "classast_1_1MotionBallistic.html#af37804949f155745bba2ca9f5df5cd7b":[2,0,0,255,7],
@@ -249,5 +247,7 @@ var NAVTREEINDEX18 =
 "classast_1_1NLPProblem.html#afcea04c6c23a0a724457ca9ea640a138":[2,0,0,275,23],
 "classast_1_1NLPProblem.html#afcea04c6c23a0a724457ca9ea640a138":[3,0,0,274,23],
 "classast_1_1NameValuePair.html":[2,0,0,269],
-"classast_1_1NameValuePair.html":[3,0,0,268]
+"classast_1_1NameValuePair.html":[3,0,0,268],
+"classast_1_1NoopOrientation.html":[0,0,5,8],
+"classast_1_1NoopOrientation.html#a1dbfc984762283ba9ed7012f74f8d269":[0,0,5,8,3]
 };

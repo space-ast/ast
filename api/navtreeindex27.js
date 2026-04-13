@@ -1,7 +1,5 @@
 var NAVTREEINDEX27 =
 {
-"group__Coordinate.html#gae5ac4ff902e2f25bdcecaba00f89c524":[0,0,0,135],
-"group__Coordinate.html#gae98fec1874c4a2f3f608e1fb94bb1864":[0,0,0,35],
 "group__Coordinate.html#gaeab84ac7cd1eceb8ac32ea26c2337621":[0,0,0,63],
 "group__Coordinate.html#gaecf57cfbcc8544da60122e4a13be4253":[0,0,0,46],
 "group__Coordinate.html#gaeec537394f88d81bb75d0dff584f3408":[0,0,0,26],
@@ -249,5 +247,7 @@ var NAVTREEINDEX27 =
 "group__ParseFormat.html#ga3da146e5bf25b1d0bd220e879d9eaa25":[0,4,1,38],
 "group__ParseFormat.html#ga442f4720018d6dd4576b5def3f32222b":[0,4,1,25],
 "group__ParseFormat.html#ga4c89ec12f4f456cdb8ff0b250710a858":[0,4,1,36],
-"group__ParseFormat.html#ga4ca49df1fdd27618f3983d6318265ea1":[0,4,1,29]
+"group__ParseFormat.html#ga4ca49df1fdd27618f3983d6318265ea1":[0,4,1,29],
+"group__ParseFormat.html#ga5c4d8dd1940e4f4b79408c9b480c10d1":[0,4,1,28],
+"group__ParseFormat.html#ga6307a7f2b5f19ffda5917dc388fc9a88":[0,4,1,16]
 };

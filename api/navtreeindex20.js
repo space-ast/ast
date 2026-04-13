@@ -1,7 +1,5 @@
 var NAVTREEINDEX20 =
 {
-"classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f":[0,2,27,2],
-"classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4":[0,2,27,7],
 "classast_1_1OpBinRegistry.html":[2,0,0,307],
 "classast_1_1OpBinRegistry.html":[3,0,0,306],
 "classast_1_1OpUnary.html":[0,2,28],
@@ -249,5 +247,7 @@ var NAVTREEINDEX20 =
 "classast_1_1Quantity.html#a516a4c733fb13be3f8e789bd96a11877":[0,4,3,0,12],
 "classast_1_1Quantity.html#a5497edf2e03e51b29c138905ac291935":[0,4,3,0,7],
 "classast_1_1Quantity.html#a5fe59771e407a13ed5bb8d9aa97b9a4c":[0,4,3,0,26],
-"classast_1_1Quantity.html#a6343290425e03e408101e6e1e3ee040b":[0,4,3,0,21]
+"classast_1_1Quantity.html#a6343290425e03e408101e6e1e3ee040b":[0,4,3,0,21],
+"classast_1_1Quantity.html#a6886278043783d6f0bd106a4416df264":[0,4,3,0,13],
+"classast_1_1Quantity.html#a6df5a84f1a98aeafb0e946a832018835":[0,4,3,0,35]
 };

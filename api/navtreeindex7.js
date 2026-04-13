@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"Spacecraft_8hpp_source.html":[4,0,0,10,4,55],
-"Span_8cpp.html":[4,0,0,13,1,3],
 "Span_8hpp.html":[4,0,0,13,1,4],
 "Span_8hpp_source.html":[4,0,0,13,1,4],
 "Sparse_8hpp.html":[4,0,0,4,0,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX7 =
 "UiInteger_8cpp.html":[4,0,0,3,2,8],
 "UiInteger_8hpp.html":[4,0,0,3,2,9],
 "UiInteger_8hpp_source.html":[4,0,0,3,2,9],
-"UiMainWindow_8cpp.html":[4,0,0,3,7,0]
+"UiMainWindow_8cpp.html":[4,0,0,3,7,0],
+"UiMainWindow_8hpp.html":[4,0,0,3,7,1],
+"UiMainWindow_8hpp_source.html":[4,0,0,3,7,1]
 };

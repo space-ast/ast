@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"JplDe_8hpp.html":[4,0,0,1,3,5],
-"JplDe_8hpp_source.html":[4,0,0,1,3,5],
 "JplSpk_8cpp.html":[4,0,0,1,3,6],
 "JplSpk_8hpp.html":[4,0,0,1,3,7],
 "JplSpk_8hpp_source.html":[4,0,0,1,3,7],
@@ -249,5 +247,7 @@ var NAVTREEINDEX4 =
 "NLPProblem_8cpp.html#a7f2c5bfa7176f95a5e934b7484370f5e":[4,0,0,7,10,0],
 "NLPProblem_8hpp.html":[4,0,0,7,11],
 "NLPProblem_8hpp.html#a3fd746ebda039a488dc4a9f0db2073c2":[4,0,0,7,11,1],
-"NLPProblem_8hpp_source.html":[4,0,0,7,11]
+"NLPProblem_8hpp_source.html":[4,0,0,7,11],
+"NLPSnoptSolver_8cpp.html":[4,0,0,7,13],
+"NLPSnoptSolver_8hpp.html":[4,0,0,7,14]
 };

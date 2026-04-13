@@ -1,7 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"NLPSnoptSolver_8cpp.html":[4,0,0,7,13],
-"NLPSnoptSolver_8hpp.html":[4,0,0,7,14],
 "NLPSnoptSolver_8hpp_source.html":[4,0,0,7,14],
 "NLPSolver_8cpp.html":[4,0,0,7,15],
 "NLPSolver_8hpp.html":[4,0,0,7,16],
@@ -249,5 +247,7 @@ var NAVTREEINDEX5 =
 "RK8_8hpp_source.html":[4,0,0,4,5,0,3],
 "RKCK_8cpp.html":[4,0,0,4,5,0,4],
 "RKCK_8hpp.html":[4,0,0,4,5,0,5],
-"RKCK_8hpp_source.html":[4,0,0,4,5,0,5]
+"RKCK_8hpp_source.html":[4,0,0,4,5,0,5],
+"RKF45_8cpp.html":[4,0,0,4,5,0,6],
+"RKF45_8hpp.html":[4,0,0,4,5,0,7]
 };

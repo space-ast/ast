@@ -1,7 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"classast_1_1BlockMotion.html":[3,0,0,54],
-"classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680":[2,0,0,55,1],
 "classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680":[3,0,0,54,1],
 "classast_1_1BlockMotion.html#aa0ccd0340d39c9848f7b9688eca09617":[2,0,0,55,0],
 "classast_1_1BlockMotion.html#aa0ccd0340d39c9848f7b9688eca09617":[3,0,0,54,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX10 =
 "classast_1_1CelestialBody.html#a478e9f8b8cc710cb50366d8269dcdf43":[0,0,5,0,35],
 "classast_1_1CelestialBody.html#a48d73324d6882c5015aaec772fc6a5ba":[0,0,5,0,21],
 "classast_1_1CelestialBody.html#a4949cdd1204db082d6ab9d00035a6563":[0,0,5,0,52],
-"classast_1_1CelestialBody.html#a4f515f7c98c853b7818ff4ee2ca4fc46":[0,0,5,0,46]
+"classast_1_1CelestialBody.html#a4f515f7c98c853b7818ff4ee2ca4fc46":[0,0,5,0,46],
+"classast_1_1CelestialBody.html#a50c9fbb215bac72a3e78a90af19e01b6":[0,0,5,0,11],
+"classast_1_1CelestialBody.html#a5608bdf86dd052260c8c155a1f4eb83e":[0,0,5,0,4]
 };

@@ -1,7 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"UiMainWindow_8hpp.html":[4,0,0,3,7,1],
-"UiMainWindow_8hpp_source.html":[4,0,0,3,7,1],
 "UiMotionHPOP_8hpp_source.html":[4,0,0,3,4,0],
 "UiMotionProfile_8cpp.html":[4,0,0,3,4,1],
 "UiMotionProfile_8hpp.html":[4,0,0,3,4,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX8 =
 "classast_1_1Axes.html#af96a030bdddc38749d211924146618b2":[0,0,2,0,10],
 "classast_1_1AxesBodyFixed.html":[0,0,0,0],
 "classast_1_1AxesBodyFixed.html#a61bb2ff9d228a573e8ba4e69d827ffa7":[0,0,0,0,2],
-"classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85":[0,0,0,0,1]
+"classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85":[0,0,0,0,1],
+"classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda":[0,0,0,0,0],
+"classast_1_1AxesBodyInertial.html":[0,0,0,1]
 };

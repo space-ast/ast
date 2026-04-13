@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"FigureOfMeritLoader_8hpp.html":[4,0,0,10,2,24],
-"FigureOfMeritLoader_8hpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,10,2,24,0],
 "FigureOfMeritLoader_8hpp_source.html":[4,0,0,10,2,24],
 "FigureOfMerit_8cpp.html":[4,0,0,10,4,24],
 "FigureOfMerit_8hpp.html":[4,0,0,10,4,25],
@@ -249,5 +247,7 @@ var NAVTREEINDEX3 =
 "JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfabf801f109a2d482e89bb91f3ce02bf67":[4,0,0,1,3,4,1,10],
 "JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfacb763434a44618b03294c79f8c818f64":[4,0,0,1,3,4,1,12],
 "JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfaf0d387c42ebe862b738f7cc8f3902952":[4,0,0,1,3,4,1,9],
-"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfafa4ba5ef8b80084b8cfb20328a7719e9":[4,0,0,1,3,4,1,5]
+"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfafa4ba5ef8b80084b8cfb20328a7719e9":[4,0,0,1,3,4,1,5],
+"JplDe_8hpp.html":[4,0,0,1,3,5],
+"JplDe_8hpp_source.html":[4,0,0,1,3,5]
 };

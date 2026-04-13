@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"CoordTransform_8hpp_source.html":[4,0,0,1,2,9],
-"CorVector_8cpp.html":[4,0,0,13,1,1],
 "CorVector_8hpp.html":[4,0,0,13,1,2],
 "CorVector_8hpp_source.html":[4,0,0,13,1,2],
 "CoverageDefinitionLoader_8cpp.html":[4,0,0,10,2,19],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "Field_8hpp.html":[4,0,0,13,7,0,5],
 "Field_8hpp_source.html":[4,0,0,13,7,0,5],
 "FigureOfMeritLoader_8cpp.html":[4,0,0,10,2,23],
-"FigureOfMeritLoader_8cpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,10,2,23,0]
+"FigureOfMeritLoader_8cpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,10,2,23,0],
+"FigureOfMeritLoader_8hpp.html":[4,0,0,10,2,24],
+"FigureOfMeritLoader_8hpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,10,2,24,0]
 };
