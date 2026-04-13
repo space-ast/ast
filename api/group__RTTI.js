@@ -165,10 +165,6 @@ var group__RTTI =
       [ "getProperties", "classast_1_1Struct.html#a704028bbbf138179fa28b4abd78ec385", null ],
       [ "getProperty", "classast_1_1Struct.html#a7bbe79a1e47872f1e674bfd0ff53ddbf", null ]
     ] ],
-    [ "ast::PrintObjectTreeConfig", "structast_1_1PrintObjectTreeConfig.html", [
-      [ "printRefCount", "structast_1_1PrintObjectTreeConfig.html#a2ab70ed769e937bab9593f1324f40e68", null ],
-      [ "printWeakRefCount", "structast_1_1PrintObjectTreeConfig.html#adb0a457ef5da21ede13b21a07a8845ef", null ]
-    ] ],
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::FPropertyGet", "group__RTTI.html#gaaa80cc63cbbd9c142d7dbfc004d488e0", null ],
     [ "ast::FPropertySet", "group__RTTI.html#ga8cc34d7734e33615df1cef43f8725b5a", [
@@ -193,9 +189,7 @@ var group__RTTI =
     [ "ast::aDeleteObject", "group__RTTI.html#gac773a55dc25b4065657e0d2ab5ce3b21", null ],
     [ "ast::aFakeGet", "group__RTTI.html#ga708c0d060e7266fe3d57b9bc92d99ab4", null ],
     [ "ast::aFakeSet", "group__RTTI.html#ga893ef21004e2b6d3cd44dbf165a1d212", null ],
-    [ "ast::aFindChild", "group__RTTI.html#ga1a58411c2aa026059e31156794deebf7", null ],
-    [ "ast::aFindChildren", "group__RTTI.html#ga9bec0271f82d527b70f6a29ebfe3abf3", null ],
-    [ "ast::aFindChildren", "group__RTTI.html#gae963543de147f10b506abb6aace79589", null ],
+    [ "ast::aFindChild", "group__RTTI.html#ga4cf4746905276a2cd14409a73d584ea1", null ],
     [ "ast::aGetAllClassNames", "group__RTTI.html#gad5657a636622fe1200c3978ec4325a0a", null ],
     [ "ast::aGetClass", "group__RTTI.html#ga4ab0aeafea06cb726b9b242379d361df", null ],
     [ "ast::aGetClassDefaultObject", "group__RTTI.html#ga846b248935590d9072cdb05af6534f8b", null ],
@@ -215,7 +209,6 @@ var group__RTTI =
     [ "ast::aNewPropertyQuantity", "group__RTTI.html#ga5a6cc334e226efc477c6ce395ad14ed7", null ],
     [ "ast::aNewPropertyString", "group__RTTI.html#gad3f0c83f3703a466479984a0b62fba71", null ],
     [ "ast::aNewPropertyString", "group__RTTI.html#gab1f1da4e88219f2a7797a180f28a869f", null ],
-    [ "ast::aPrintObjectTree", "group__RTTI.html#gaf82b69919faf9d958f4ad3ebff8b3882", null ],
     [ "ast::aRegisterClass", "group__RTTI.html#gafca0a4e10333068c12cfadc1b5bdb145", null ],
     [ "ast::aSetParentScope", "group__RTTI.html#ga7ed60d1a7c0c2d4cbbd535e0b4f2b051", null ]
 ];

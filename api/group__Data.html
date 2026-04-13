@@ -1109,9 +1109,10 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSiz
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>该函数会解析SPK文件，因此在调用前请确保文件存在 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>CSPICE 所提供的获取SPK段覆盖时间区间的方法涉及 <code>SpiceCell</code> 结构体，调用比较麻烦， 而且CSPICE提供的方法也需要重新打开文件 因此这里直接使用 <code><a class="el" href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)">SPKParser</a></code> 类来获取SPK段描述符数组，然后从数组中提取目标体的时间间隔</dd>
-<dd>
-CSPICE 所提供的获取SPK段覆盖时间区间的方法涉及 <code>SpiceCell</code> 结构体，调用比较麻烦， 而且CSPICE提供的方法也需要重新打开文件 因此这里直接使用 <code><a class="el" href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)">SPKParser</a></code> 类来获取SPK段描述符数组，然后从数组中提取目标体的时间间隔</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>CSPICE 所提供的获取SPK段覆盖时间区间的方法涉及 <code>SpiceCell</code> 结构体，调用比较麻烦， 而且CSPICE提供的方法也需要重新打开文件 因此这里直接使用 <code><a class="el" href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)">SPKParser</a></code> 类来获取SPK段描述符数组，然后从数组中提取目标体的时间间隔</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">待办事项</a></b></dt><dd>这里需要支持多个SPK段的时间间隔的合并 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>CSPICE 所提供的获取SPK段覆盖时间区间的方法涉及 <code>SpiceCell</code> 结构体，调用比较麻烦， 而且CSPICE提供的方法也需要重新打开文件 因此这里直接使用 <code><a class="el" href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)">SPKParser</a></code> 类来获取SPK段描述符数组，然后从数组中提取目标体的时间间隔</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">待办事项</a></b></dt><dd>这里需要支持多个SPK段的时间间隔的合并 </dd></dl>
 
 </div>
 </div>

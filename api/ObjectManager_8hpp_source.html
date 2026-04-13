@@ -130,37 +130,32 @@ $(function(){initNavTree('ObjectManager_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* getParentScope(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* obj);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#ab323221297ed4fb560aa50545e371392">   72</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ObjectManager.html#ab323221297ed4fb560aa50545e371392">getNodeCount</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> objects_.size();}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f">   72</a></span>    uint32_t <a class="code hl_function" href="classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f">getMaxObjectCount</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> maxObjectCount_;}</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f">   76</a></span>    uint32_t <a class="code hl_function" href="classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f">getMaxObjectCount</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> maxObjectCount_;}</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    errc_t setMaxObjectCount(uint32_t maxCount);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    uint32_t getObjectCount() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    errc_t setMaxObjectCount(uint32_t maxCount);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    uint32_t getObjectCount() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classast_1_1Object.html">Object</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    errc_t removeNode(uint32_t index);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="classast_1_1ObjectNode.html">ObjectNode</a>* getObjectNode(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* obj);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classast_1_1Object.html">Object</a>;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    errc_t removeNode(uint32_t index);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> advanceIndex();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> uint32_t kDefaultMaxObjectCount = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(-1) - 1;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#ab37a30373bee1f9101569a39f67fe67e">  102</a></span>    std::vector&lt;ObjectNode*&gt; <a class="code hl_variable" href="classast_1_1ObjectManager.html#ab37a30373bee1f9101569a39f67fe67e">objects_</a>;                      </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#aed29f74969dbb4905f183df0a3b71b4a">  103</a></span>    uint32_t nextIndex_{0};                                 </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#aaae37ad27754f2c130726e0ae70e9c4a">  104</a></span>    uint32_t maxObjectCount_{kDefaultMaxObjectCount};       </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> advanceIndex();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> uint32_t kDefaultMaxObjectCount = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(-1) - 1;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#ab37a30373bee1f9101569a39f67fe67e">   93</a></span>    std::vector&lt;ObjectNode*&gt; <a class="code hl_variable" href="classast_1_1ObjectManager.html#ab37a30373bee1f9101569a39f67fe67e">objects_</a>;                      </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#aed29f74969dbb4905f183df0a3b71b4a">   94</a></span>    uint32_t nextIndex_{0};                                 </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1ObjectManager.html#aaae37ad27754f2c130726e0ae70e9c4a">   95</a></span>    uint32_t maxObjectCount_{kDefaultMaxObjectCount};       </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
 </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aObjectNode_8hpp_html"><div class="ttname"><a href="ObjectNode_8hpp.html">ObjectNode.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1ObjectManager_html"><div class="ttname"><a href="classast_1_1ObjectManager.html">ast::ObjectManager</a></div><div class="ttdoc">对象管理器</div><div class="ttdef"><b>定义</b> ObjectManager.hpp:38</div></div>
-<div class="ttc" id="aclassast_1_1ObjectManager_html_aa02917a20538ee26a443e5efeb71781f"><div class="ttname"><a href="classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f">ast::ObjectManager::getMaxObjectCount</a></div><div class="ttdeci">uint32_t getMaxObjectCount() const</div><div class="ttdoc">获取可以管理的最大对象数量</div><div class="ttdef"><b>定义</b> ObjectManager.hpp:76</div></div>
-<div class="ttc" id="aclassast_1_1ObjectManager_html_ab323221297ed4fb560aa50545e371392"><div class="ttname"><a href="classast_1_1ObjectManager.html#ab323221297ed4fb560aa50545e371392">ast::ObjectManager::getNodeCount</a></div><div class="ttdeci">size_t getNodeCount() const</div><div class="ttdoc">获取对象节点数量</div><div class="ttdef"><b>定义</b> ObjectManager.hpp:72</div></div>
-<div class="ttc" id="aclassast_1_1ObjectManager_html_ab37a30373bee1f9101569a39f67fe67e"><div class="ttname"><a href="classast_1_1ObjectManager.html#ab37a30373bee1f9101569a39f67fe67e">ast::ObjectManager::objects_</a></div><div class="ttdeci">std::vector&lt; ObjectNode * &gt; objects_</div><div class="ttdoc">所有对象节点</div><div class="ttdef"><b>定义</b> ObjectManager.hpp:102</div></div>
-<div class="ttc" id="aclassast_1_1ObjectNode_html"><div class="ttname"><a href="classast_1_1ObjectNode.html">ast::ObjectNode</a></div><div class="ttdoc">对象节点</div><div class="ttdef"><b>定义</b> ObjectNode.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1ObjectManager_html_aa02917a20538ee26a443e5efeb71781f"><div class="ttname"><a href="classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f">ast::ObjectManager::getMaxObjectCount</a></div><div class="ttdeci">uint32_t getMaxObjectCount() const</div><div class="ttdoc">获取最大对象数量</div><div class="ttdef"><b>定义</b> ObjectManager.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1ObjectManager_html_ab37a30373bee1f9101569a39f67fe67e"><div class="ttname"><a href="classast_1_1ObjectManager.html#ab37a30373bee1f9101569a39f67fe67e">ast::ObjectManager::objects_</a></div><div class="ttdeci">std::vector&lt; ObjectNode * &gt; objects_</div><div class="ttdoc">所有对象节点</div><div class="ttdef"><b>定义</b> ObjectManager.hpp:93</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:84</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -7,8 +7,6 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "Object.hpp", "AstUtil_2RTTI_2Object_8hpp.html", null ],
     [ "ObjectManager.cpp", "ObjectManager_8cpp.html", null ],
     [ "ObjectManager.hpp", "ObjectManager_8hpp.html", "ObjectManager_8hpp" ],
-    [ "ObjectNamed.cpp", "ObjectNamed_8cpp.html", null ],
-    [ "ObjectNamed.hpp", "ObjectNamed_8hpp_source.html", null ],
     [ "ObjectNode.cpp", "ObjectNode_8cpp.html", null ],
     [ "ObjectNode.hpp", "ObjectNode_8hpp.html", "ObjectNode_8hpp" ],
     [ "RTTIAPI.cpp", "RTTIAPI_8cpp.html", "RTTIAPI_8cpp" ],
