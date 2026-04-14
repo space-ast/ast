@@ -4,6 +4,8 @@ var dir_0d88fe3c379cdebdd567bb4304149f2c =
     [ "Motion11Parameter.hpp", "Motion11Parameter_8hpp_source.html", null ],
     [ "MotionBallistic.cpp", "MotionBallistic_8cpp.html", null ],
     [ "MotionBallistic.hpp", "MotionBallistic_8hpp.html", "MotionBallistic_8hpp" ],
+    [ "MotionExternalEphemeris.cpp", "MotionExternalEphemeris_8cpp.html", null ],
+    [ "MotionExternalEphemeris.hpp", "MotionExternalEphemeris_8hpp.html", "MotionExternalEphemeris_8hpp" ],
     [ "MotionGPS.hpp", "MotionGPS_8hpp_source.html", null ],
     [ "MotionGreatArc.cpp", "MotionGreatArc_8cpp.html", null ],
     [ "MotionGreatArc.hpp", "MotionGreatArc_8hpp.html", "MotionGreatArc_8hpp" ],
@@ -21,7 +23,6 @@ var dir_0d88fe3c379cdebdd567bb4304149f2c =
     [ "MotionSP3.hpp", "MotionSP3_8hpp_source.html", null ],
     [ "MotionSPICE.cpp", "MotionSPICE_8cpp.html", null ],
     [ "MotionSPICE.hpp", "MotionSPICE_8hpp.html", "MotionSPICE_8hpp" ],
-    [ "MotionSTKEphemeris.hpp", "MotionSTKEphemeris_8hpp_source.html", null ],
     [ "MotionTwoBody.cpp", "MotionTwoBody_8cpp.html", null ],
     [ "MotionTwoBody.hpp", "MotionTwoBody_8hpp.html", "MotionTwoBody_8hpp" ]
 ];

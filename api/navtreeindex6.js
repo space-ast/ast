@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"PropertyQuantity_8hpp_source.html":[4,0,0,13,7,0,21],
+"PropertyString_8cpp.html":[4,0,0,13,7,0,22],
+"PropertyString_8hpp.html":[4,0,0,13,7,0,23],
+"PropertyString_8hpp_source.html":[4,0,0,13,7,0,23],
+"PropertyStruct_8cpp.html":[4,0,0,13,7,0,24],
+"PropertyStruct_8hpp.html":[4,0,0,13,7,0,25],
+"PropertyStruct_8hpp_source.html":[4,0,0,13,7,0,25],
 "PropertyTimePoint_8cpp.html":[4,0,0,1,8,0],
 "PropertyTimePoint_8hpp.html":[4,0,0,1,8,1],
 "PropertyTimePoint_8hpp_source.html":[4,0,0,1,8,1],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "SimulationAPI_8hpp.html#a33d0f2fd3f50f38098e542fe9ff44189":[4,0,0,1,7,1,20,8],
 "SimulationAPI_8hpp.html#a47a1d1ae2184d0c97a4959492ea25303":[4,0,0,1,7,1,20,2],
 "SimulationAPI_8hpp.html#a50f8dc49a8317b1153e6f3950e1d8769":[4,0,0,1,7,1,20,5],
-"SimulationAPI_8hpp.html#a535095762f75138397446877ff73879f":[4,0,0,1,7,1,20,11],
-"SimulationAPI_8hpp.html#a88ba3135befc3979999d5b460c2e273a":[4,0,0,1,7,1,20,3],
-"SimulationAPI_8hpp.html#a8b89b9ad7d5122d815cd2d844361be30":[4,0,0,1,7,1,20,6],
-"SimulationAPI_8hpp.html#ae692331576d0a2db7402b684d8c3dd1b":[4,0,0,1,7,1,20,9],
-"SimulationAPI_8hpp.html#af168d1051b28363b8fb28f9d9568ddb0":[4,0,0,1,7,1,20,1],
-"SimulationAPI_8hpp.html#af5441328b5602713639d73364ef1b3cf":[4,0,0,1,7,1,20,4],
-"SimulationAPI_8hpp_source.html":[4,0,0,1,7,1,20],
-"Simulation_8cpp.html":[4,0,0,1,7,1,17]
+"SimulationAPI_8hpp.html#a535095762f75138397446877ff73879f":[4,0,0,1,7,1,20,11]
 };

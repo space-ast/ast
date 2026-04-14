@@ -7,6 +7,7 @@ var classast_1_1SpiceApi =
     [ "failed", "classast_1_1SpiceApi.html#af7ac4a12c1b7a3ac1b2e85d46462c456", null ],
     [ "furnsh", "classast_1_1SpiceApi.html#a31b97c9eddf89dc06838751e2cccd9ed", null ],
     [ "isLoaded", "classast_1_1SpiceApi.html#ad3d3cd5f52594b6dc3fef9502b43ab20", null ],
+    [ "kclear", "classast_1_1SpiceApi.html#a1d36099821c5effde59a14ec40215794", null ],
     [ "ktotal", "classast_1_1SpiceApi.html#a5b0d2b1f1079418ebc09a7225b4b045e", null ],
     [ "load", "classast_1_1SpiceApi.html#a77b803830c23ca8e929edcf3b584ab61", null ],
     [ "reset", "classast_1_1SpiceApi.html#a4b915270175529fe76f7c3546fd33194", null ],

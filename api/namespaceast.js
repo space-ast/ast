@@ -314,6 +314,7 @@ var namespaceast =
     [ "MolniyaOrbitDesigner", "classast_1_1MolniyaOrbitDesigner.html", "classast_1_1MolniyaOrbitDesigner" ],
     [ "MoonOrientation", "classast_1_1MoonOrientation.html", "classast_1_1MoonOrientation" ],
     [ "MotionBallistic", "classast_1_1MotionBallistic.html", "classast_1_1MotionBallistic" ],
+    [ "MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", "classast_1_1MotionExternalEphemeris" ],
     [ "MotionGreatArc", "classast_1_1MotionGreatArc.html", "classast_1_1MotionGreatArc" ],
     [ "MotionHPOP", "classast_1_1MotionHPOP.html", "classast_1_1MotionHPOP" ],
     [ "MotionHPOPSax", "classast_1_1MotionHPOPSax.html", "classast_1_1MotionHPOPSax" ],
@@ -762,6 +763,12 @@ var namespaceast =
     [ "EEndian", "group__Platform.html#gae5cf4de7adb0a012861b982458f81526", [
       [ "eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
+    ] ],
+    [ "EEphemerisType", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fda", [
+      [ "eSTKEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d", null ],
+      [ "eSTKBinaryEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9", null ],
+      [ "eCCSDSEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b", null ],
+      [ "eITCEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a", null ]
     ] ],
     [ "EFOVType", "namespaceast.html#a9845a533634a5314f75b3fa04dc274ba", [
       [ "eSimpleCone", "namespaceast.html#a9845a533634a5314f75b3fa04dc274baa2d390d9c68c5b3cd6c1c9ceae96e37db", null ],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: ast::MotionProfileVisitor类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstSim/Motion/MotionExternalEphemeris.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('classast_1_1MotionProfileVisitor.html',''); initResizable(true); });
+$(function(){initNavTree('MotionExternalEphemeris_8hpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,42 +99,53 @@ $(function(){initNavTree('classast_1_1MotionProfileVisitor.html',''); initResiza
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="classast_1_1MotionProfileVisitor-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::MotionProfileVisitor类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#enum-members">枚举</a>  </div>
+  <div class="headertitle"><div class="title">MotionExternalEphemeris.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &quot;AstSim/MotionProfile.hpp&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div>
+<p><a href="MotionExternalEphemeris_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public 成员函数</h2></td></tr>
-<tr class="memitem:ae2deab0142c651ed54015fac10a6fef1" id="r_ae2deab0142c651ed54015fac10a6fef1"><td class="memItemLeft" align="right" valign="top"><a id="ae2deab0142c651ed54015fac10a6fef1" name="ae2deab0142c651ed54015fac10a6fef1"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &amp;profile)=0</td></tr>
-<tr class="separator:ae2deab0142c651ed54015fac10a6fef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8816ffd582f943caf2c276853096157" id="r_af8816ffd582f943caf2c276853096157"><td class="memItemLeft" align="right" valign="top"><a id="af8816ffd582f943caf2c276853096157" name="af8816ffd582f943caf2c276853096157"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1MotionTwoBody.html">MotionTwoBody</a> &amp;profile)=0</td></tr>
-<tr class="separator:af8816ffd582f943caf2c276853096157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9882e77225305df4c3dc27ae5e8c2a0" id="r_aa9882e77225305df4c3dc27ae5e8c2a0"><td class="memItemLeft" align="right" valign="top"><a id="aa9882e77225305df4c3dc27ae5e8c2a0" name="aa9882e77225305df4c3dc27ae5e8c2a0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1MotionHPOP.html">MotionHPOP</a> &amp;profile)=0</td></tr>
-<tr class="separator:aa9882e77225305df4c3dc27ae5e8c2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb6ae6ab885280f28c8f3ad29ab2c92c" id="r_aeb6ae6ab885280f28c8f3ad29ab2c92c"><td class="memItemLeft" align="right" valign="top"><a id="aeb6ae6ab885280f28c8f3ad29ab2c92c" name="aeb6ae6ab885280f28c8f3ad29ab2c92c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1MotionSPICE.html">MotionSPICE</a> &amp;profile)=0</td></tr>
-<tr class="separator:aeb6ae6ab885280f28c8f3ad29ab2c92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5bd576bace63d3295099f4a1a4e9555" id="r_aa5bd576bace63d3295099f4a1a4e9555"><td class="memItemLeft" align="right" valign="top"><a id="aa5bd576bace63d3295099f4a1a4e9555" name="aa5bd576bace63d3295099f4a1a4e9555"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1MotionGreatArc.html">MotionGreatArc</a> &amp;profile)=0</td></tr>
-<tr class="separator:aa5bd576bace63d3295099f4a1a4e9555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b1f1ae17518fbf8fb399f5819f0fe6e" id="r_a2b1f1ae17518fbf8fb399f5819f0fe6e"><td class="memItemLeft" align="right" valign="top"><a id="a2b1f1ae17518fbf8fb399f5819f0fe6e" name="a2b1f1ae17518fbf8fb399f5819f0fe6e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1MotionExternalEphemeris.html">MotionExternalEphemeris</a> &amp;profile)=0</td></tr>
-<tr class="separator:a2b1f1ae17518fbf8fb399f5819f0fe6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MotionExternalEphemeris.html">ast::MotionExternalEphemeris</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a364fd776aa5b05ed45dae4534b252fda" id="r_a364fd776aa5b05ed45dae4534b252fda"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a364fd776aa5b05ed45dae4534b252fda">ast::EEphemerisType</a> { <a class="el" href="namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d">ast::eSTKEphemeris</a>
+, <a class="el" href="namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9">ast::eSTKBinaryEphemeris</a>
+, <a class="el" href="namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b">ast::eCCSDSEphemeris</a>
+, <a class="el" href="namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a">ast::eITCEphemeris</a>
+ }</td></tr>
+<tr class="separator:a364fd776aa5b05ed45dae4534b252fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstSim/Visitor/<a class="el" href="MotionProfileVisitor_8hpp_source.html">MotionProfileVisitor.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p><br  />
+ </p>
+<p><br  />
+ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-04-14 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
+<p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1MotionProfileVisitor.html">MotionProfileVisitor</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9c9106fcc7ff0f590973c837d2bf1f53.html">AstSim</a></li><li class="navelem"><a class="el" href="dir_0d88fe3c379cdebdd567bb4304149f2c.html">Motion</a></li><li class="navelem"><a class="el" href="MotionExternalEphemeris_8hpp.html">MotionExternalEphemeris.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

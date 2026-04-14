@@ -407,6 +407,7 @@ var hierarchy =
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
       [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
         [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
+        [ "ast::MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", null ],
         [ "ast::MotionGreatArc", "classast_1_1MotionGreatArc.html", null ],
         [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
         [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [

@@ -626,6 +626,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MotionBallistic.html">MotionBallistic</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MotionExternalEphemeris.html">MotionExternalEphemeris</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MotionGreatArc.html">MotionGreatArc</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MotionHPOP.html">MotionHPOP</a></td></tr>
@@ -1769,6 +1771,12 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="memitem:gada0cf11a34db419d663fd9c7fbf10f98" id="r_gada0cf11a34db419d663fd9c7fbf10f98"><td class="memItemLeft" align="right" valign="top"><a id="gada0cf11a34db419d663fd9c7fbf10f98" name="gada0cf11a34db419d663fd9c7fbf10f98"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>eIterBegin</b> =0
  }</td></tr>
 <tr class="separator:gada0cf11a34db419d663fd9c7fbf10f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364fd776aa5b05ed45dae4534b252fda" id="r_a364fd776aa5b05ed45dae4534b252fda"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a364fd776aa5b05ed45dae4534b252fda">EEphemerisType</a> { <a class="el" href="#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d">eSTKEphemeris</a>
+, <a class="el" href="#a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9">eSTKBinaryEphemeris</a>
+, <a class="el" href="#a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b">eCCSDSEphemeris</a>
+, <a class="el" href="#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a">eITCEphemeris</a>
+ }</td></tr>
+<tr class="separator:a364fd776aa5b05ed45dae4534b252fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga82f2843bc989eecb3ee2ca749615c015" id="r_ga82f2843bc989eecb3ee2ca749615c015"><td class="memItemLeft" align="right" valign="top"><a id="ga82f2843bc989eecb3ee2ca749615c015" name="ga82f2843bc989eecb3ee2ca749615c015"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
  }</td></tr>
 <tr class="separator:ga82f2843bc989eecb3ee2ca749615c015"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4078,6 +4086,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadSimpleAscent<
 <tr class="memitem:a4d9db56d7f33d63d061cc0440e8c0afc" id="r_a4d9db56d7f33d63d061cc0440e8c0afc"><td class="memItemLeft" align="right" valign="top"><a id="a4d9db56d7f33d63d061cc0440e8c0afc" name="a4d9db56d7f33d63d061cc0440e8c0afc"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadGreatArc</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, const <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;vehiclePathData, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &gt; &amp;motionProfile)</td></tr>
 <tr class="separator:a4d9db56d7f33d63d061cc0440e8c0afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a671015182705b9dab784f300a4d6a7ba" id="r_a671015182705b9dab784f300a4d6a7ba"><td class="memItemLeft" align="right" valign="top"><a id="a671015182705b9dab784f300a4d6a7ba" name="a671015182705b9dab784f300a4d6a7ba"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadExternExternalEphemeris</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, const <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;<a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a>, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &gt; &amp;motionProfile)</td></tr>
+<tr class="separator:a671015182705b9dab784f300a4d6a7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7b84377e44fb6e908cdacf0fe98702d" id="r_af7b84377e44fb6e908cdacf0fe98702d"><td class="memItemLeft" align="right" valign="top"><a id="af7b84377e44fb6e908cdacf0fe98702d" name="af7b84377e44fb6e908cdacf0fe98702d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadPassDefn</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:af7b84377e44fb6e908cdacf0fe98702d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5602,6 +5613,38 @@ DataDirFunc&#160;</td><td class="memItemRight" valign="bottom"><b>fDataDir</b> {
 <tr><td class="fieldname"><a id="ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3" name="ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3"></a>ePower&#160;</td><td class="fielddoc"><p>功率 M·L^2·T^-3 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8" name="ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8"></a>eFrequency&#160;</td><td class="fielddoc"><p>频率 T^-1 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a364fd776aa5b05ed45dae4534b252fda" name="a364fd776aa5b05ed45dae4534b252fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364fd776aa5b05ed45dae4534b252fda">&#9670;&#160;</a></span>EEphemerisType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a364fd776aa5b05ed45dae4534b252fda">ast::EEphemerisType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d" name="a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d"></a>eSTKEphemeris&#160;</td><td class="fielddoc"><p>STK格式星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9" name="a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9"></a>eSTKBinaryEphemeris&#160;</td><td class="fielddoc"><p>STK二进制格式星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b" name="a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b"></a>eCCSDSEphemeris&#160;</td><td class="fielddoc"><p>CCSDS格式星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a" name="a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a"></a>eITCEphemeris&#160;</td><td class="fielddoc"><p>ITC格式星历 </p>
 </td></tr>
 </table>
 

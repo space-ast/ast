@@ -284,6 +284,7 @@ var annotated_dup =
       [ "MolniyaOrbitDesigner", "classast_1_1MolniyaOrbitDesigner.html", "classast_1_1MolniyaOrbitDesigner" ],
       [ "MoonOrientation", "classast_1_1MoonOrientation.html", "classast_1_1MoonOrientation" ],
       [ "MotionBallistic", "classast_1_1MotionBallistic.html", "classast_1_1MotionBallistic" ],
+      [ "MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", "classast_1_1MotionExternalEphemeris" ],
       [ "MotionGreatArc", "classast_1_1MotionGreatArc.html", "classast_1_1MotionGreatArc" ],
       [ "MotionHPOP", "classast_1_1MotionHPOP.html", "classast_1_1MotionHPOP" ],
       [ "MotionHPOPSax", "classast_1_1MotionHPOPSax.html", "classast_1_1MotionHPOPSax" ],
