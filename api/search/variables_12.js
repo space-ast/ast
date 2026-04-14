@@ -10,12 +10,14 @@ var searchData=
   ['refdistance_5f_7',['refDistance_',['../classast_1_1GravityFieldHead.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityFieldHead::refDistance_'],['../classast_1_1GravityField.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityField::refDistance_']]],
   ['referenceaxes_5f_8',['referenceAxes_',['../classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba',1,'ast::AxesFrozen::referenceAxes_'],['../classast_1_1AxesFrozenAtEventTime.html#ae57193cc789b68f04bf4c3a028dd0044',1,'ast::AxesFrozenAtEventTime::referenceAxes_']]],
   ['reltol_5f_9',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver']]],
-  ['right_5f_10',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
-  ['rightascensionofascendingnode_5f_11',['rightAscensionOfAscendingNode_',['../classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412',1,'ast::SimpleOrbitDesigner']]],
-  ['righttype_5f_12',['rightType_',['../classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05',1,'ast::OpBin']]],
-  ['rotation_5f_13',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
-  ['rotationepoch_5f_14',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
-  ['rowcol_5f_15',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
-  ['rp_5f_16',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
-  ['rsize_17',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
+  ['revnumber_5f_10',['revNumber_',['../classast_1_1TwoLineElement.html#a03b39d69dc8d7004042e7cddd7a8b07e',1,'ast::TwoLineElement']]],
+  ['right_5f_11',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
+  ['rightascenofnode_5f_12',['rightAscenOfNode_',['../classast_1_1TwoLineElement.html#a8658471c714b9a92d61ce9df8dcc1eae',1,'ast::TwoLineElement']]],
+  ['rightascensionofascendingnode_5f_13',['rightAscensionOfAscendingNode_',['../classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412',1,'ast::SimpleOrbitDesigner']]],
+  ['righttype_5f_14',['rightType_',['../classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05',1,'ast::OpBin']]],
+  ['rotation_5f_15',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
+  ['rotationepoch_5f_16',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
+  ['rowcol_5f_17',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
+  ['rp_5f_18',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
+  ['rsize_19',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
 ];
