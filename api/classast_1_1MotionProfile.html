@@ -114,15 +114,19 @@ $(function(){initNavTree('classast_1_1MotionProfile.html',''); initResizable(tru
  <div class="center">
   <img src="classast_1_1MotionProfile.png" usemap="#ast::MotionProfile_map" alt=""/>
   <map id="ast::MotionProfile_map" name="ast::MotionProfile_map">
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="259,0,422,24"/>
-<area href="classast_1_1MotionBallistic.html" title="弹道运动" alt="ast::MotionBallistic" shape="rect" coords="0,112,163,136"/>
-<area href="classast_1_1MotionGreatArc.html" alt="ast::MotionGreatArc" shape="rect" coords="173,112,336,136"/>
-<area href="classast_1_1MotionSimpleAscent.html" alt="ast::MotionSimpleAscent" shape="rect" coords="346,112,509,136"/>
-<area href="classast_1_1MotionWithIntervalStep.html" title="具有时间段和步长的运动模型" alt="ast::MotionWithIntervalStep" shape="rect" coords="519,112,682,136"/>
-<area href="classast_1_1MotionOrbitDynamics.html" title="轨道动力学基础运动模型数据结构" alt="ast::MotionOrbitDynamics" shape="rect" coords="432,168,595,192"/>
-<area href="classast_1_1MotionSPICE.html" title="SPICE星历预报器/运动模型类" alt="ast::MotionSPICE" shape="rect" coords="605,168,768,192"/>
-<area href="classast_1_1MotionHPOP.html" alt="ast::MotionHPOP" shape="rect" coords="346,224,509,248"/>
-<area href="classast_1_1MotionTwoBody.html" alt="ast::MotionTwoBody" shape="rect" coords="519,224,682,248"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="374,0,551,24"/>
+<area href="classast_1_1MotionBallistic.html" title="弹道运动" alt="ast::MotionBallistic" shape="rect" coords="0,112,177,136"/>
+<area href="classast_1_1MotionExternalEphemeris.html" title="外部星历运动模型" alt="ast::MotionExternalEphemeris" shape="rect" coords="187,112,364,136"/>
+<area href="classast_1_1MotionGreatArc.html" alt="ast::MotionGreatArc" shape="rect" coords="374,112,551,136"/>
+<area href="classast_1_1MotionSimpleAscent.html" alt="ast::MotionSimpleAscent" shape="rect" coords="561,112,738,136"/>
+<area href="classast_1_1MotionWithIntervalStep.html" title="具有时间段和步长的运动模型" alt="ast::MotionWithIntervalStep" shape="rect" coords="748,112,925,136"/>
+<area href="classast_1_1MotionOrbitDynamics.html" title="轨道动力学基础运动模型数据结构" alt="ast::MotionOrbitDynamics" shape="rect" coords="561,168,738,192"/>
+<area href="classast_1_1MotionSGP4.html" title="SGP4 运动模型" alt="ast::MotionSGP4" shape="rect" coords="748,168,925,192"/>
+<area href="classast_1_1MotionSPICE.html" title="SPICE星历预报器/运动模型类" alt="ast::MotionSPICE" shape="rect" coords="935,168,1112,192"/>
+<area href="classast_1_1MotionHPOP.html" alt="ast::MotionHPOP" shape="rect" coords="280,224,457,248"/>
+<area href="classast_1_1MotionJ2Analytical.html" alt="ast::MotionJ2Analytical" shape="rect" coords="467,224,644,248"/>
+<area href="classast_1_1MotionJ4Analytical.html" alt="ast::MotionJ4Analytical" shape="rect" coords="654,224,831,248"/>
+<area href="classast_1_1MotionTwoBody.html" alt="ast::MotionTwoBody" shape="rect" coords="841,224,1018,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -264,7 +268,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   </dd>
 </dl>
 
-<p>在 <a class="el" href="classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionGreatArc.html#af056426945872d9d2c331aff2d29b316">ast::MotionGreatArc</a>, <a class="el" href="classast_1_1MotionHPOP.html#a8fb791abe504e493fc96932ff459e945">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#ab68cf4c69dad3ec8ee42446e99d31c8b">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#ac8dcf4eb809aebda9c322afc02f254e6">ast::MotionTwoBody</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionExternalEphemeris.html#a259293cdd069ac31d140888c530a1847">ast::MotionExternalEphemeris</a>, <a class="el" href="classast_1_1MotionGreatArc.html#af056426945872d9d2c331aff2d29b316">ast::MotionGreatArc</a>, <a class="el" href="classast_1_1MotionHPOP.html#a8fb791abe504e493fc96932ff459e945">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionJ2Analytical.html#a33911d474cc9eee5ebd3e48aef13c446">ast::MotionJ2Analytical</a>, <a class="el" href="classast_1_1MotionJ4Analytical.html#a99130d9be5cdcbd85479fbcf71fa31b3">ast::MotionJ4Analytical</a>, <a class="el" href="classast_1_1MotionSGP4.html#a3a92001e6fcca82269d521a1de532af6">ast::MotionSGP4</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#ab68cf4c69dad3ec8ee42446e99d31c8b">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#ac8dcf4eb809aebda9c322afc02f254e6">ast::MotionTwoBody</a> 内被实现.</p>
 
 </div>
 </div>
@@ -300,7 +304,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1MotionBallistic.html#a558629fee159c1a334e97d041ef055e0">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionGreatArc.html#a564dfde67041338c4381dc8c97f67156">ast::MotionGreatArc</a>, <a class="el" href="classast_1_1MotionHPOP.html#acc396813183f9b256fa721ee7b3d2174">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#a4ec891f95667ba0adfbc277908e41984">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#a5fb541da48fa6407717bc5fbd8054937">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#a0cead494bdf53c2a4efc05573330a27b">ast::MotionTwoBody</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1MotionBallistic.html#a558629fee159c1a334e97d041ef055e0">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionExternalEphemeris.html#a3cfc5e41f51c454ebaff0c0571ac2eb3">ast::MotionExternalEphemeris</a>, <a class="el" href="classast_1_1MotionGreatArc.html#a564dfde67041338c4381dc8c97f67156">ast::MotionGreatArc</a>, <a class="el" href="classast_1_1MotionHPOP.html#acc396813183f9b256fa721ee7b3d2174">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionJ2Analytical.html#a0a07817141efd613769ac8a7626e4b7c">ast::MotionJ2Analytical</a>, <a class="el" href="classast_1_1MotionJ4Analytical.html#a5c339b92f79febd3acc3919955bc930c">ast::MotionJ4Analytical</a>, <a class="el" href="classast_1_1MotionSGP4.html#a0f6537beb3ae4e3c2916d7efd6852022">ast::MotionSGP4</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#a4ec891f95667ba0adfbc277908e41984">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#a5fb541da48fa6407717bc5fbd8054937">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#a0cead494bdf53c2a4efc05573330a27b">ast::MotionTwoBody</a> 内被实现.</p>
 
 </div>
 </div>
@@ -336,7 +340,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1MotionBallistic.html#a0936848b33ae73c624e9802155828b40">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionGreatArc.html#aba617550e3967ce723f6e3aa328d4acf">ast::MotionGreatArc</a>, <a class="el" href="classast_1_1MotionHPOP.html#a3b9e9342e2baec055ae48152e237a446">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#a86d681e0f5a629b164d6d0f8ba0544ea">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#a61402711abde7a9b8f5c1a3b07023e74">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#aff4164d03c105f605e2411446fe0c82a">ast::MotionTwoBody</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1MotionBallistic.html#a0936848b33ae73c624e9802155828b40">ast::MotionBallistic</a>, <a class="el" href="classast_1_1MotionExternalEphemeris.html#aa5e2896ee1837e1a55c5d56c847d07f2">ast::MotionExternalEphemeris</a>, <a class="el" href="classast_1_1MotionGreatArc.html#aba617550e3967ce723f6e3aa328d4acf">ast::MotionGreatArc</a>, <a class="el" href="classast_1_1MotionHPOP.html#a3b9e9342e2baec055ae48152e237a446">ast::MotionHPOP</a>, <a class="el" href="classast_1_1MotionJ2Analytical.html#a881ac67a2d2339aff2ca90f0900052f1">ast::MotionJ2Analytical</a>, <a class="el" href="classast_1_1MotionJ4Analytical.html#a36021c84d16dde637b86e27733ccc74f">ast::MotionJ4Analytical</a>, <a class="el" href="classast_1_1MotionSGP4.html#aac66062beab588087111ed5226eff645">ast::MotionSGP4</a>, <a class="el" href="classast_1_1MotionSimpleAscent.html#a86d681e0f5a629b164d6d0f8ba0544ea">ast::MotionSimpleAscent</a>, <a class="el" href="classast_1_1MotionSPICE.html#a61402711abde7a9b8f5c1a3b07023e74">ast::MotionSPICE</a> , 以及 <a class="el" href="classast_1_1MotionTwoBody.html#aff4164d03c105f605e2411446fe0c82a">ast::MotionTwoBody</a> 内被实现.</p>
 
 </div>
 </div>

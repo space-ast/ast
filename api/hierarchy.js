@@ -40,7 +40,11 @@ var hierarchy =
       [ "ast::BKVSaxPrint", "classast_1_1BKVSaxPrint.html", null ],
       [ "ast::MotionOrbitDynamicsSax", "classast_1_1MotionOrbitDynamicsSax.html", [
         [ "ast::MotionHPOPSax", "classast_1_1MotionHPOPSax.html", null ],
-        [ "ast::MotionTwoBodySax", "classast_1_1MotionTwoBodySax.html", null ]
+        [ "ast::MotionOrbitDynamicsKeplerianSax", "classast_1_1MotionOrbitDynamicsKeplerianSax.html", [
+          [ "ast::MotionJ2AnalyticalSax", "classast_1_1MotionJ2AnalyticalSax.html", null ],
+          [ "ast::MotionJ4AnalyticalSax", "classast_1_1MotionJ4AnalyticalSax.html", null ],
+          [ "ast::MotionTwoBodySax", "classast_1_1MotionTwoBodySax.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "ast::BKVTree", "classast_1_1BKVTree.html", null ],
@@ -407,13 +411,17 @@ var hierarchy =
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
       [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
         [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
+        [ "ast::MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", null ],
         [ "ast::MotionGreatArc", "classast_1_1MotionGreatArc.html", null ],
         [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
         [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [
           [ "ast::MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", [
             [ "ast::MotionHPOP", "classast_1_1MotionHPOP.html", null ],
+            [ "ast::MotionJ2Analytical", "classast_1_1MotionJ2Analytical.html", null ],
+            [ "ast::MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", null ],
             [ "ast::MotionTwoBody", "classast_1_1MotionTwoBody.html", null ]
           ] ],
+          [ "ast::MotionSGP4", "classast_1_1MotionSGP4.html", null ],
           [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
         ] ]
       ] ],
@@ -662,9 +670,11 @@ var hierarchy =
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", null ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
+    [ "ast::TLE", "classast_1_1TLE.html", null ],
     [ "ast::Transform", "classast_1_1Transform.html", [
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
     ] ],
+    [ "ast::TwoLineElement", "classast_1_1TwoLineElement.html", null ],
     [ "ast::UnaryVectorFunc", "classast_1_1UnaryVectorFunc.html", [
       [ "ast::Interpolator", "classast_1_1Interpolator.html", null ],
       [ "ast::UnaryScalarFunc", "classast_1_1UnaryScalarFunc.html", [
