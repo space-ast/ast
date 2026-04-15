@@ -16,6 +16,7 @@ var dir_0d88fe3c379cdebdd567bb4304149f2c =
     [ "MotionJ4Analytical.cpp", "MotionJ4Analytical_8cpp.html", null ],
     [ "MotionJ4Analytical.hpp", "MotionJ4Analytical_8hpp.html", "MotionJ4Analytical_8hpp" ],
     [ "MotionLOP.hpp", "MotionLOP_8hpp_source.html", null ],
+    [ "MotionMissionCommand.hpp", "MotionMissionCommand_8hpp_source.html", null ],
     [ "MotionProfile.cpp", "MotionProfile_8cpp.html", null ],
     [ "MotionProfile.hpp", "MotionProfile_8hpp.html", "MotionProfile_8hpp" ],
     [ "MotionRealTime.hpp", "MotionRealTime_8hpp_source.html", null ],
