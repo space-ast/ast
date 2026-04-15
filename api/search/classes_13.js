@@ -8,12 +8,10 @@ var searchData=
   ['timeinterval_5',['TimeInterval',['../classast_1_1TimeInterval.html',1,'ast']]],
   ['timepoint_6',['TimePoint',['../classast_1_1TimePoint.html',1,'ast']]],
   ['timescale_7',['TimeScale',['../classast_1_1TimeScale.html',1,'ast']]],
-  ['tle_8',['TLE',['../classast_1_1TLE.html',1,'ast']]],
-  ['traitobject_9',['TraitObject',['../classast_1_1TraitObject.html',1,'ast']]],
-  ['traitobject_3c_20iposvelprv_20_3e_10',['TraitObject&lt; IPosVelPrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
-  ['traitobject_3c_20ivalueprv_20_3e_11',['TraitObject&lt; IValuePrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
-  ['transform_12',['Transform',['../classast_1_1Transform.html',1,'ast']]],
-  ['transmitter_13',['Transmitter',['../classast_1_1Transmitter.html',1,'ast']]],
-  ['twobody_14',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]],
-  ['twolineelement_15',['TwoLineElement',['../classast_1_1TwoLineElement.html',1,'ast']]]
+  ['traitobject_8',['TraitObject',['../classast_1_1TraitObject.html',1,'ast']]],
+  ['traitobject_3c_20iposvelprv_20_3e_9',['TraitObject&lt; IPosVelPrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
+  ['traitobject_3c_20ivalueprv_20_3e_10',['TraitObject&lt; IValuePrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
+  ['transform_11',['Transform',['../classast_1_1Transform.html',1,'ast']]],
+  ['transmitter_12',['Transmitter',['../classast_1_1Transmitter.html',1,'ast']]],
+  ['twobody_13',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]]
 ];

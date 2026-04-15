@@ -314,24 +314,17 @@ var namespaceast =
     [ "MolniyaOrbitDesigner", "classast_1_1MolniyaOrbitDesigner.html", "classast_1_1MolniyaOrbitDesigner" ],
     [ "MoonOrientation", "classast_1_1MoonOrientation.html", "classast_1_1MoonOrientation" ],
     [ "MotionBallistic", "classast_1_1MotionBallistic.html", "classast_1_1MotionBallistic" ],
-    [ "MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", "classast_1_1MotionExternalEphemeris" ],
     [ "MotionGreatArc", "classast_1_1MotionGreatArc.html", "classast_1_1MotionGreatArc" ],
     [ "MotionHPOP", "classast_1_1MotionHPOP.html", "classast_1_1MotionHPOP" ],
     [ "MotionHPOPSax", "classast_1_1MotionHPOPSax.html", "classast_1_1MotionHPOPSax" ],
-    [ "MotionJ2Analytical", "classast_1_1MotionJ2Analytical.html", "classast_1_1MotionJ2Analytical" ],
-    [ "MotionJ2AnalyticalSax", "classast_1_1MotionJ2AnalyticalSax.html", null ],
-    [ "MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", "classast_1_1MotionJ4Analytical" ],
-    [ "MotionJ4AnalyticalSax", "classast_1_1MotionJ4AnalyticalSax.html", null ],
     [ "MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", "classast_1_1MotionOrbitDynamics" ],
-    [ "MotionOrbitDynamicsKeplerianSax", "classast_1_1MotionOrbitDynamicsKeplerianSax.html", "classast_1_1MotionOrbitDynamicsKeplerianSax" ],
     [ "MotionOrbitDynamicsSax", "classast_1_1MotionOrbitDynamicsSax.html", "classast_1_1MotionOrbitDynamicsSax" ],
     [ "MotionProfile", "classast_1_1MotionProfile.html", "classast_1_1MotionProfile" ],
     [ "MotionProfileVisitor", "classast_1_1MotionProfileVisitor.html", null ],
-    [ "MotionSGP4", "classast_1_1MotionSGP4.html", "classast_1_1MotionSGP4" ],
     [ "MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", "classast_1_1MotionSimpleAscent" ],
     [ "MotionSPICE", "classast_1_1MotionSPICE.html", "classast_1_1MotionSPICE" ],
     [ "MotionTwoBody", "classast_1_1MotionTwoBody.html", "classast_1_1MotionTwoBody" ],
-    [ "MotionTwoBodySax", "classast_1_1MotionTwoBodySax.html", null ],
+    [ "MotionTwoBodySax", "classast_1_1MotionTwoBodySax.html", "classast_1_1MotionTwoBodySax" ],
     [ "MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", "classast_1_1MotionWithIntervalStep" ],
     [ "Mover", "classast_1_1Mover.html", "classast_1_1Mover" ],
     [ "MTO", "classast_1_1MTO.html", null ],
@@ -503,12 +496,10 @@ var namespaceast =
     [ "TimeInterval", "classast_1_1TimeInterval.html", "classast_1_1TimeInterval" ],
     [ "TimePoint", "classast_1_1TimePoint.html", "classast_1_1TimePoint" ],
     [ "TimeScale", "classast_1_1TimeScale.html", null ],
-    [ "TLE", "classast_1_1TLE.html", "classast_1_1TLE" ],
     [ "TraitObject", "classast_1_1TraitObject.html", null ],
     [ "Transform", "classast_1_1Transform.html", "classast_1_1Transform" ],
     [ "Transmitter", "classast_1_1Transmitter.html", null ],
     [ "TwoBody", "classast_1_1TwoBody.html", null ],
-    [ "TwoLineElement", "classast_1_1TwoLineElement.html", "classast_1_1TwoLineElement" ],
     [ "UiBodyEphemerisDE", "classast_1_1UiBodyEphemerisDE.html", null ],
     [ "UiBodyEphemerisSPK", "classast_1_1UiBodyEphemerisSPK.html", null ],
     [ "UiCelestialBody", "classast_1_1UiCelestialBody.html", null ],
@@ -772,12 +763,6 @@ var namespaceast =
       [ "eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
     ] ],
-    [ "EEphemerisType", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fda", [
-      [ "eSTKEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d", null ],
-      [ "eSTKBinaryEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9", null ],
-      [ "eCCSDSEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b", null ],
-      [ "eITCEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a", null ]
-    ] ],
     [ "EFOVType", "namespaceast.html#a9845a533634a5314f75b3fa04dc274ba", [
       [ "eSimpleCone", "namespaceast.html#a9845a533634a5314f75b3fa04dc274baa2d390d9c68c5b3cd6c1c9ceae96e37db", null ],
       [ "eConical", "namespaceast.html#a9845a533634a5314f75b3fa04dc274baa05ce095cc3630fda9e7d21c0af0e6d62", null ],
@@ -1002,11 +987,6 @@ var namespaceast =
       [ "eCartesian", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707", null ],
       [ "eKeplerian", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c", null ],
       [ "eUnknown", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508", null ]
-    ] ],
-    [ "ETLESource", "namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374", [
-      [ "eFile", "namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2", null ],
-      [ "eEdited", "namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374acba3a33e9d84e554247adf2d2ecedcbe", null ],
-      [ "eServer", "namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a799d484f5ed364902438d214b7d04302", null ]
     ] ],
     [ "EValueType", "group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a", [
       [ "eDouble", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14", null ],
