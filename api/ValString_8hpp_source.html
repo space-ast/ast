@@ -114,7 +114,7 @@ $(function(){initNavTree('ValString_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1ValString.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ValString.html">ValString</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1ValString.html">   33</a></span><span class="keyword">class </span>AST_SCRIPT_API <a class="code hl_class" href="classast_1_1ValString.html">ValString</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    AST_EXPR(<a class="code hl_class" href="classast_1_1ValString.html">ValString</a>)</div>
@@ -123,7 +123,7 @@ $(function(){initNavTree('ValString_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        :value_{value}</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {}</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1ValString.html">ValString</a>(): value_{}{}</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::string getExpression(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::string <a class="code hl_function" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">getExpression</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> std::string&amp; value()<span class="keyword"> const</span>{<span class="keywordflow">return</span> value_;}</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::string value_;</div>
@@ -132,6 +132,7 @@ $(function(){initNavTree('ValString_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aValue_8hpp_html"><div class="ttname"><a href="Value_8hpp.html">Value.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html_abc5ee070c08edb6a5bb1faa55858083a"><div class="ttname"><a href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">ast::Expr::getExpression</a></div><div class="ttdeci">virtual std::string getExpression(Object *context=nullptr) const =0</div><div class="ttdoc">获取表达式的字符串表示</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:84</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1ValString_html"><div class="ttname"><a href="classast_1_1ValString.html">ast::ValString</a></div><div class="ttdoc">字符串值</div><div class="ttdef"><b>定义</b> ValString.hpp:34</div></div>

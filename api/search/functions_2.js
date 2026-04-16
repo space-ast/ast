@@ -7,9 +7,10 @@ var searchData=
   ['bisect_4',['bisect',['../group__NLE.html#gae7b87132fc03898f8392005c491953ee',1,'ast']]],
   ['bkvitem_5',['BKVItem',['../classast_1_1BKVItem.html#a8fef94947d4d4550e5ae413c3fdda67c',1,'ast::BKVItem']]],
   ['bodc2n_6',['bodc2n',['../classast_1_1SpiceApi.html#a09a9cab2cbcb31dfc31a0ae956a8ae49',1,'ast::SpiceApi']]],
-  ['borrow_5ffrom_7',['borrow_from',['../classast_1_1CorVector.html#ad189ee7ec64af1def41a8ec9ecce1c77',1,'ast::CorVector']]],
-  ['brenth_8',['brenth',['../group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa',1,'ast']]],
-  ['brentq_9',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
-  ['build_10',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
-  ['buildtarget_11',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
+  ['boolvalue_7',['boolValue',['../classast_1_1JsonSax.html#aff59d51c85b25b43a0796eea528ecd06',1,'ast::JsonSax']]],
+  ['borrow_5ffrom_8',['borrow_from',['../classast_1_1CorVector.html#ad189ee7ec64af1def41a8ec9ecce1c77',1,'ast::CorVector']]],
+  ['brenth_9',['brenth',['../group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa',1,'ast']]],
+  ['brentq_10',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
+  ['build_11',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
+  ['buildtarget_12',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
 ];

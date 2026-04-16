@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::JsonSax类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1JsonSax.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1JsonSax-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::JsonSax类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::JsonSax 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1JsonSax.png" usemap="#ast::JsonSax_map" alt=""/>
+  <map id="ast::JsonSax_map" name="ast::JsonSax_map">
+<area href="classast_1_1JsonDomSax.html" alt="ast::JsonDomSax" shape="rect" coords="0,56,107,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ae1347ca72cff43ea4227004567b46e38" id="r_ae1347ca72cff43ea4227004567b46e38"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1347ca72cff43ea4227004567b46e38">startObject</a> ()</td></tr>
+<tr class="separator:ae1347ca72cff43ea4227004567b46e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b6d60838279bafe83f162a9c599850" id="r_a64b6d60838279bafe83f162a9c599850"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64b6d60838279bafe83f162a9c599850">endObject</a> ()</td></tr>
+<tr class="separator:a64b6d60838279bafe83f162a9c599850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7184ed00c4e74e28701b111798f1046" id="r_ab7184ed00c4e74e28701b111798f1046"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7184ed00c4e74e28701b111798f1046">startArray</a> ()</td></tr>
+<tr class="separator:ab7184ed00c4e74e28701b111798f1046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7831c0c0693d98933337c48fb9193352" id="r_a7831c0c0693d98933337c48fb9193352"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7831c0c0693d98933337c48fb9193352">endArray</a> ()</td></tr>
+<tr class="separator:a7831c0c0693d98933337c48fb9193352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c43f0766247d5da2d2505ff38d85b94" id="r_a5c43f0766247d5da2d2505ff38d85b94"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c43f0766247d5da2d2505ff38d85b94">key</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> key)</td></tr>
+<tr class="separator:a5c43f0766247d5da2d2505ff38d85b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae6bc4175f029e195d51538a325070a0" id="r_aae6bc4175f029e195d51538a325070a0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae6bc4175f029e195d51538a325070a0">nullValue</a> ()</td></tr>
+<tr class="separator:aae6bc4175f029e195d51538a325070a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff59d51c85b25b43a0796eea528ecd06" id="r_aff59d51c85b25b43a0796eea528ecd06"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff59d51c85b25b43a0796eea528ecd06">boolValue</a> (bool value)</td></tr>
+<tr class="separator:aff59d51c85b25b43a0796eea528ecd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dce7562410dbc959c94538d0ab6ebad" id="r_a2dce7562410dbc959c94538d0ab6ebad"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dce7562410dbc959c94538d0ab6ebad">intValue</a> (int value)</td></tr>
+<tr class="separator:a2dce7562410dbc959c94538d0ab6ebad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5418efba1f7a085763d674b676b5c18" id="r_af5418efba1f7a085763d674b676b5c18"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5418efba1f7a085763d674b676b5c18">doubleValue</a> (double value)</td></tr>
+<tr class="separator:af5418efba1f7a085763d674b676b5c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3780ac8e592290a4d5938c15b9c3d3b" id="r_ad3780ac8e592290a4d5938c15b9c3d3b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3780ac8e592290a4d5938c15b9c3d3b">stringValue</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
+<tr class="separator:ad3780ac8e592290a4d5938c15b9c3d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac08892ce426d30b88c8d13416766c753" id="r_ac08892ce426d30b88c8d13416766c753"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac08892ce426d30b88c8d13416766c753">parseError</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> message, int line, int column)</td></tr>
+<tr class="separator:ac08892ce426d30b88c8d13416766c753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aff59d51c85b25b43a0796eea528ecd06" name="aff59d51c85b25b43a0796eea528ecd06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff59d51c85b25b43a0796eea528ecd06">&#9670;&#160;</a></span>boolValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::boolValue </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析布尔值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>布尔值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="af5418efba1f7a085763d674b676b5c18" name="af5418efba1f7a085763d674b676b5c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5418efba1f7a085763d674b676b5c18">&#9670;&#160;</a></span>doubleValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::doubleValue </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析双精度浮点数值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>双精度浮点数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a7831c0c0693d98933337c48fb9193352" name="a7831c0c0693d98933337c48fb9193352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7831c0c0693d98933337c48fb9193352">&#9670;&#160;</a></span>endArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::endArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>结束解析数组 </p>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a64b6d60838279bafe83f162a9c599850" name="a64b6d60838279bafe83f162a9c599850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64b6d60838279bafe83f162a9c599850">&#9670;&#160;</a></span>endObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::endObject </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>结束解析对象 </p>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a2dce7562410dbc959c94538d0ab6ebad" name="a2dce7562410dbc959c94538d0ab6ebad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dce7562410dbc959c94538d0ab6ebad">&#9670;&#160;</a></span>intValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::intValue </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析整数值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>整数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a5c43f0766247d5da2d2505ff38d85b94" name="a5c43f0766247d5da2d2505ff38d85b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c43f0766247d5da2d2505ff38d85b94">&#9670;&#160;</a></span>key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::key </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析对象键 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>对象键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="aae6bc4175f029e195d51538a325070a0" name="aae6bc4175f029e195d51538a325070a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6bc4175f029e195d51538a325070a0">&#9670;&#160;</a></span>nullValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::nullValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析 null 值 </p>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="ac08892ce426d30b88c8d13416766c753" name="ac08892ce426d30b88c8d13416766c753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac08892ce426d30b88c8d13416766c753">&#9670;&#160;</a></span>parseError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::parseError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>column</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析错误 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>错误消息 </td></tr>
+    <tr><td class="paramname">line</td><td>错误行号 </td></tr>
+    <tr><td class="paramname">column</td><td>错误列号 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="ab7184ed00c4e74e28701b111798f1046" name="ab7184ed00c4e74e28701b111798f1046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7184ed00c4e74e28701b111798f1046">&#9670;&#160;</a></span>startArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::startArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>开始解析数组 </p>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="ae1347ca72cff43ea4227004567b46e38" name="ae1347ca72cff43ea4227004567b46e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1347ca72cff43ea4227004567b46e38">&#9670;&#160;</a></span>startObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::startObject </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>开始解析对象 </p>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="ad3780ac8e592290a4d5938c15b9c3d3b" name="ad3780ac8e592290a4d5938c15b9c3d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3780ac8e592290a4d5938c15b9c3d3b">&#9670;&#160;</a></span>stringValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ast::JsonSax::stringValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析字符串值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果继续解析返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/ParseFormat/Json/<a class="el" href="JsonSax_8hpp_source.html">JsonSax.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1JsonSax.html">JsonSax</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -9,8 +9,8 @@ var dir_19dc63c44f84cdfd9928e9074fa18e8a =
     [ "MissionCommandVisitor.hpp", "MissionCommandVisitor_8hpp_source.html", null ],
     [ "MissionModerator.cpp", "MissionModerator_8cpp.html", null ],
     [ "MissionModerator.hpp", "MissionModerator_8hpp.html", "MissionModerator_8hpp" ],
-    [ "Propagate.cpp", "Orbit_2Mission_2Propagate_8cpp.html", null ],
-    [ "Propagate.hpp", "Orbit_2Mission_2Propagate_8hpp.html", "Orbit_2Mission_2Propagate_8hpp" ],
+    [ "Propagate.cpp", "Propagate_8cpp.html", null ],
+    [ "Propagate.hpp", "Propagate_8hpp.html", "Propagate_8hpp" ],
     [ "Sequence.cpp", "Sequence_8cpp.html", null ],
     [ "Sequence.hpp", "Sequence_8hpp.html", "Sequence_8hpp" ]
 ];

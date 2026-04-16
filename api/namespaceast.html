@@ -566,7 +566,19 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JplSpk.html">JplSpk</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonDomSax.html">JsonDomSax</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonParser.html">JsonParser</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonParserImpl.html">JsonParserImpl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonSax.html">JsonSax</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonSerializer.html">JsonSerializer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1JsonToken.html">JsonToken</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JulianDate.html">JulianDate</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1091,6 +1103,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ValDouble.html">ValDouble</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ValInt.html">ValInt</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ValMap.html">ValMap</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ValNull.html">ValNull</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1841,9 +1855,55 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="memitem:a4762321db57fe068f02270972bf5fee7" id="r_a4762321db57fe068f02270972bf5fee7"><td class="memItemLeft" align="right" valign="top"><a id="a4762321db57fe068f02270972bf5fee7" name="a4762321db57fe068f02270972bf5fee7"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESwitchMethod</b> { <b>eEpoch</b>
  }</td></tr>
 <tr class="separator:a4762321db57fe068f02270972bf5fee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga82f2843bc989eecb3ee2ca749615c015" id="r_ga82f2843bc989eecb3ee2ca749615c015"><td class="memItemLeft" align="right" valign="top"><a id="ga82f2843bc989eecb3ee2ca749615c015" name="ga82f2843bc989eecb3ee2ca749615c015"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
+<tr class="memitem:ad2031b3384013b13b606dc1dec1e97f5" id="r_ad2031b3384013b13b606dc1dec1e97f5"><td class="memItemLeft" align="right" valign="top"><a id="ad2031b3384013b13b606dc1dec1e97f5" name="ad2031b3384013b13b606dc1dec1e97f5"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>JsonParseState</b> { <br />
+&#160;&#160;<b>Start</b>
+, <b>InString</b>
+, <b>InStringEscape</b>
+, <b>InNumber</b>
+, <br />
+&#160;&#160;<b>InTrue</b>
+, <b>InFalse</b>
+, <b>InNull</b>
+, <b>AfterValue</b>
+, <br />
+&#160;&#160;<b>Error</b>
+<br />
  }</td></tr>
-<tr class="separator:ga82f2843bc989eecb3ee2ca749615c015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ad2031b3384013b13b606dc1dec1e97f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce4a10fddb2794c94a746eedead4cd5" id="r_abce4a10fddb2794c94a746eedead4cd5"><td class="memItemLeft" align="right" valign="top"><a id="abce4a10fddb2794c94a746eedead4cd5" name="abce4a10fddb2794c94a746eedead4cd5"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>JsonTokenType</b> { <br />
+&#160;&#160;<b>BeginObject</b>
+, <b>EndObject</b>
+, <b>BeginArray</b>
+, <b>EndArray</b>
+, <br />
+&#160;&#160;<b>NameSeparator</b>
+, <b>ValueSeparator</b>
+, <b>String</b>
+, <b>Number</b>
+, <br />
+&#160;&#160;<b>True</b>
+, <b>False</b>
+, <b>Null</b>
+, <b>EndOfDocument</b>
+, <br />
+&#160;&#160;<b>Error</b>
+<br />
+ }</td></tr>
+<tr class="separator:abce4a10fddb2794c94a746eedead4cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb21a621d587fbb5072f2738aefa1a26" id="r_gaeb21a621d587fbb5072f2738aefa1a26"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ParseFormat.html#gaeb21a621d587fbb5072f2738aefa1a26">JsonValueType</a> { <br />
+&#160;&#160;<a class="el" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26abbb93ef26e3c101ff11cdd21cab08a94">JsonValueType::Null</a>
+, <a class="el" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26a27226c864bac7454a8504f8edb15d95b">JsonValueType::Boolean</a>
+, <a class="el" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26ab2ee912b91d69b435159c7c3f6df7f5f">JsonValueType::Number</a>
+, <a class="el" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26a27118326006d3829667a400ad23d5d98">JsonValueType::String</a>
+, <br />
+&#160;&#160;<a class="el" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26a4410ec34d9e6c1a68100ca0ce033fb17">JsonValueType::Array</a>
+, <a class="el" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b">JsonValueType::Object</a>
+<br />
+ }</td></tr>
+<tr class="separator:gaeb21a621d587fbb5072f2738aefa1a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga571a9aa9a0d405214905fe0b31e3d383" id="r_ga571a9aa9a0d405214905fe0b31e3d383"><td class="memItemLeft" align="right" valign="top"><a id="ga571a9aa9a0d405214905fe0b31e3d383" name="ga571a9aa9a0d405214905fe0b31e3d383"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
+ }</td></tr>
+<tr class="separator:ga571a9aa9a0d405214905fe0b31e3d383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e508696256a2c3780c71d54a51d5672" id="r_a2e508696256a2c3780c71d54a51d5672"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e508696256a2c3780c71d54a51d5672">EXMLNodeType</a> { <br />
 &#160;&#160;<a class="el" href="#a2e508696256a2c3780c71d54a51d5672a3a9a2d7cbd285f70b2e8b13258bf89a6">eElement</a>
 , <a class="el" href="#a2e508696256a2c3780c71d54a51d5672a8c15e6038102a3065760b26043b9c162">eText</a>
@@ -1858,7 +1918,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637">eBigEndian</a>
  }</td></tr>
 <tr class="separator:gae5cf4de7adb0a012861b982458f81526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe447c1cbde23a26a07a8a50032d367d" id="r_afe447c1cbde23a26a07a8a50032d367d"><td class="memItemLeft" align="right" valign="top"><a id="afe447c1cbde23a26a07a8a50032d367d" name="afe447c1cbde23a26a07a8a50032d367d"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+<tr class="memitem:ac13a9c098b6368f2d73d61bed3b324ec" id="r_ac13a9c098b6368f2d73d61bed3b324ec"><td class="memItemLeft" align="right" valign="top"><a id="ac13a9c098b6368f2d73d61bed3b324ec" name="ac13a9c098b6368f2d73d61bed3b324ec"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
 &#160;&#160;<b>kIdxMass</b>
 , <b>kIdxLength</b>
 , <b>kIdxAngle</b>
@@ -1870,7 +1930,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <b>kIdxLuminous</b>
 <br />
  }</td></tr>
-<tr class="separator:afe447c1cbde23a26a07a8a50032d367d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac13a9c098b6368f2d73d61bed3b324ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30969f1d9a484eedacefdc5a6953f14" id="r_ab30969f1d9a484eedacefdc5a6953f14"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> : dimension_t { <br />
 &#160;&#160;<a class="el" href="#ab30969f1d9a484eedacefdc5a6953f14a40180dbf986774f37463e57071df86fb">eUnit</a> = dimensions::kUnit
 , <a class="el" href="#ab30969f1d9a484eedacefdc5a6953f14ae916a836776f210c45a720500eff6c01">eLength</a> = dimensions::kLength
@@ -1899,9 +1959,9 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <br />
  }</td></tr>
 <tr class="separator:ab30969f1d9a484eedacefdc5a6953f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac13a9c098b6368f2d73d61bed3b324ec" id="r_gac13a9c098b6368f2d73d61bed3b324ec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1
+<tr class="memitem:gacf47765b3debdc569a49073eaa3fd1d1" id="r_gacf47765b3debdc569a49073eaa3fd1d1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1
  }</td></tr>
-<tr class="separator:gac13a9c098b6368f2d73d61bed3b324ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gacf47765b3debdc569a49073eaa3fd1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab1de86ab568b3c12ac0a28cb2d5dda9a" id="r_gab1de86ab568b3c12ac0a28cb2d5dda9a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a">EValueType</a> { <a class="el" href="group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14">eDouble</a>
 , <a class="el" href="group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242">eInt</a>
 , <a class="el" href="group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa005483d8e82f7e1a1c8fb4217956699b">eBool</a>
@@ -2738,6 +2798,8 @@ template&lt;typename GeometryType &gt; </td></tr>
 <tr class="separator:ad9579798057a997a2296ca71329bf352"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ce5d518cea1c8bc9d9750c1a64fbc15" id="r_a2ce5d518cea1c8bc9d9750c1a64fbc15"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ce5d518cea1c8bc9d9750c1a64fbc15">aSurfaceDeticToCentric</a> (double deticLat, double flatFact)</td></tr>
 <tr class="separator:a2ce5d518cea1c8bc9d9750c1a64fbc15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454232f3c6fae116c10c47811165aacb" id="r_a454232f3c6fae116c10c47811165aacb"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a454232f3c6fae116c10c47811165aacb">aLoadInitialState</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filePath, <a class="el" href="classast_1_1InitialState.html">InitialState</a> &amp;initialState)</td></tr>
+<tr class="separator:a454232f3c6fae116c10c47811165aacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad8f0755e84ade8bc28b27a2eea2fd6b" id="r_gaad8f0755e84ade8bc28b27a2eea2fd6b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gaad8f0755e84ade8bc28b27a2eea2fd6b">aRAANRate</a> (double gm, double j2, double rb, double a, double ecc, double inc)</td></tr>
 <tr class="separator:gaad8f0755e84ade8bc28b27a2eea2fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3444ec7958b204a724623ace81173f00" id="r_ga3444ec7958b204a724623ace81173f00"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga3444ec7958b204a724623ace81173f00">aArgPeriRate</a> (double gm, double j2, double rb, double a, double ecc, double inc)</td></tr>
@@ -9047,6 +9109,36 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a454232f3c6fae116c10c47811165aacb" name="a454232f3c6fae116c10c47811165aacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454232f3c6fae116c10c47811165aacb">&#9670;&#160;</a></span>aLoadInitialState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aLoadInitialState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filePath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1InitialState.html">InitialState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>initialState</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载初始状态任务 </p>
+<p>filePath 初始状态任务的文件路径 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initialState</td><td>初始状态任务 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 加载结果 </dd></dl>
 
 </div>
 </div>

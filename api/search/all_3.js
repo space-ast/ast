@@ -50,7 +50,7 @@ var searchData=
   ['classregistry_47',['ClassRegistry',['../classast_1_1ClassRegistry.html',1,'ast']]],
   ['classregistry_2ecpp_48',['ClassRegistry.cpp',['../ClassRegistry_8cpp.html',1,'']]],
   ['classregistry_2ehpp_49',['ClassRegistry.hpp',['../ClassRegistry_8hpp.html',1,'']]],
-  ['clear_50',['clear',['../classast_1_1XMLDocument.html#ad73cafb54405b39460aee42ad457768b',1,'ast::XMLDocument::clear()'],['../classast_1_1XMLNode.html#a8bafe3fd4d73cd61d0547e6770214c30',1,'ast::XMLNode::clear()'],['../classast_1_1ObjectNode.html#a1ea412e72232dc1f321e4a901cb120e8',1,'ast::ObjectNode::clear()']]],
+  ['clear_50',['clear',['../classast_1_1JsonValue.html#a1742cb3bc4a75134dd98f6c618963551',1,'ast::JsonValue::clear()'],['../classast_1_1XMLDocument.html#ad73cafb54405b39460aee42ad457768b',1,'ast::XMLDocument::clear()'],['../classast_1_1XMLNode.html#a8bafe3fd4d73cd61d0547e6770214c30',1,'ast::XMLNode::clear()'],['../classast_1_1ObjectNode.html#a1ea412e72232dc1f321e4a901cb120e8',1,'ast::ObjectNode::clear()']]],
   ['clearattributes_51',['clearAttributes',['../classast_1_1XMLNode.html#a153c94cfe0d91d46b2f7b8a3fd244ff2',1,'ast::XMLNode']]],
   ['clearblocks_52',['clearBlocks',['../classast_1_1BlockDynamicSystem.html#a4b723a64263ed0b2687deaed472373c4',1,'ast::BlockDynamicSystem::clearBlocks()'],['../classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3',1,'ast::BlockSystem::clearBlocks()']]],
   ['clearchildren_53',['clearChildren',['../classast_1_1XMLNode.html#a7ee32ef1356a4fbdb60529ed2e90d8f3',1,'ast::XMLNode::clearChildren()'],['../classast_1_1ObjectNode.html#ab3634958598205345e55a28da21586d3',1,'ast::ObjectNode::clearChildren()']]],

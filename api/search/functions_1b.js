@@ -14,5 +14,6 @@ var searchData=
   ['_7egfxmain_11',['~GfxMain',['../classast_1_1GfxMain.html#a4a2c217af55956b72ef9df2575f965fd',1,'ast::GfxMain']]],
   ['_7egfxsolarsystem_12',['~GfxSolarSystem',['../classast_1_1GfxSolarSystem.html#abef2341ab4d0615308cc9ff9c17018f0',1,'ast::GfxSolarSystem']]],
   ['_7eguiinterface_13',['~GUIInterface',['../classast_1_1GUIInterface.html#a21fd42ca1ddf0dc1eb5e83df4c338f36',1,'ast::GUIInterface']]],
-  ['_7einlpproblem_14',['~INLPProblem',['../classast_1_1INLPProblem.html#a5bd273b6afc818829a36d745147e8aea',1,'ast::INLPProblem']]]
+  ['_7einlpproblem_14',['~INLPProblem',['../classast_1_1INLPProblem.html#a5bd273b6afc818829a36d745147e8aea',1,'ast::INLPProblem']]],
+  ['_7ejsonvalue_15',['~JsonValue',['../classast_1_1JsonValue.html#a9d0d6b32fd751daaaa4d5a55f3cf45d7',1,'ast::JsonValue']]]
 ];

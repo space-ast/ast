@@ -1,0 +1,1311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::JsonValue类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1JsonValue.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1JsonValue-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::JsonValue类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__ParseFormat.html">文本解析和格式化</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="JsonValue_8hpp_source.html">JsonValue.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a6b7a746af636ebd120d1dac86e4fb5a7" id="r_a6b7a746af636ebd120d1dac86e4fb5a7"><td class="memItemLeft" align="right" valign="top"><a id="a6b7a746af636ebd120d1dac86e4fb5a7" name="a6b7a746af636ebd120d1dac86e4fb5a7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>JsonValue</b> ()</td></tr>
+<tr class="separator:a6b7a746af636ebd120d1dac86e4fb5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c181958c7dc2801816372247088fac" id="r_ae2c181958c7dc2801816372247088fac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2c181958c7dc2801816372247088fac">JsonValue</a> (bool value)</td></tr>
+<tr class="separator:ae2c181958c7dc2801816372247088fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd9deaa4dbdf0df977c9627978ed93c" id="r_adfd9deaa4dbdf0df977c9627978ed93c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfd9deaa4dbdf0df977c9627978ed93c">JsonValue</a> (int value)</td></tr>
+<tr class="separator:adfd9deaa4dbdf0df977c9627978ed93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0006938b5499397d71b14184f9cba58e" id="r_a0006938b5499397d71b14184f9cba58e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0006938b5499397d71b14184f9cba58e">JsonValue</a> (double value)</td></tr>
+<tr class="separator:a0006938b5499397d71b14184f9cba58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a558eef85cd7eedfb14233e24e4682b" id="r_a3a558eef85cd7eedfb14233e24e4682b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a558eef85cd7eedfb14233e24e4682b">JsonValue</a> (const char *value)</td></tr>
+<tr class="separator:a3a558eef85cd7eedfb14233e24e4682b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc1e52d2a548af38c8c19296f9f7c2f5" id="r_abc1e52d2a548af38c8c19296f9f7c2f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc1e52d2a548af38c8c19296f9f7c2f5">JsonValue</a> (const std::string &amp;value)</td></tr>
+<tr class="separator:abc1e52d2a548af38c8c19296f9f7c2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e0af30b5482dec7cec2abcec44ffa1a" id="r_a3e0af30b5482dec7cec2abcec44ffa1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e0af30b5482dec7cec2abcec44ffa1a">JsonValue</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
+<tr class="separator:a3e0af30b5482dec7cec2abcec44ffa1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f209d301dc5261f21630b6eddb0b6b6" id="r_a5f209d301dc5261f21630b6eddb0b6b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f209d301dc5261f21630b6eddb0b6b6">JsonValue</a> (const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;values)</td></tr>
+<tr class="separator:a5f209d301dc5261f21630b6eddb0b6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18cb93bb132677f0e16984276ffa33a5" id="r_a18cb93bb132677f0e16984276ffa33a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18cb93bb132677f0e16984276ffa33a5">JsonValue</a> (const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;values)</td></tr>
+<tr class="separator:a18cb93bb132677f0e16984276ffa33a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65476b06c5898b848655f05a32ca46d3" id="r_a65476b06c5898b848655f05a32ca46d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65476b06c5898b848655f05a32ca46d3">JsonValue</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;other)</td></tr>
+<tr class="separator:a65476b06c5898b848655f05a32ca46d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a863ea1bb10863d6b6d86a7cf0d292db5" id="r_a863ea1bb10863d6b6d86a7cf0d292db5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a863ea1bb10863d6b6d86a7cf0d292db5">JsonValue</a> (<a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:a863ea1bb10863d6b6d86a7cf0d292db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f65a71f81eac65be55df713650ca6f" id="r_ae6f65a71f81eac65be55df713650ca6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6f65a71f81eac65be55df713650ca6f">operator=</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;other)</td></tr>
+<tr class="separator:ae6f65a71f81eac65be55df713650ca6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a306be3ef61f572befcf0e5cba78a6c" id="r_a7a306be3ef61f572befcf0e5cba78a6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a306be3ef61f572befcf0e5cba78a6c">operator=</a> (<a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:a7a306be3ef61f572befcf0e5cba78a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0d6b32fd751daaaa4d5a55f3cf45d7" id="r_a9d0d6b32fd751daaaa4d5a55f3cf45d7"><td class="memItemLeft" align="right" valign="top"><a id="a9d0d6b32fd751daaaa4d5a55f3cf45d7" name="a9d0d6b32fd751daaaa4d5a55f3cf45d7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~JsonValue</b> ()</td></tr>
+<tr class="separator:a9d0d6b32fd751daaaa4d5a55f3cf45d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e11fe5dff77631da63d505cfd1afa86" id="r_a7e11fe5dff77631da63d505cfd1afa86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__ParseFormat.html#gaeb21a621d587fbb5072f2738aefa1a26">JsonValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e11fe5dff77631da63d505cfd1afa86">type</a> () const</td></tr>
+<tr class="separator:a7e11fe5dff77631da63d505cfd1afa86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b824c4736667c926f12c793afb3e005" id="r_a4b824c4736667c926f12c793afb3e005"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b824c4736667c926f12c793afb3e005">isNull</a> () const</td></tr>
+<tr class="separator:a4b824c4736667c926f12c793afb3e005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4d13af7cdf617d09508032ce73c2d5" id="r_a9e4d13af7cdf617d09508032ce73c2d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e4d13af7cdf617d09508032ce73c2d5">isBoolean</a> () const</td></tr>
+<tr class="separator:a9e4d13af7cdf617d09508032ce73c2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb911a037ebdec194424e7f39ad4d707" id="r_abb911a037ebdec194424e7f39ad4d707"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb911a037ebdec194424e7f39ad4d707">isNumber</a> () const</td></tr>
+<tr class="separator:abb911a037ebdec194424e7f39ad4d707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78bdb20bcb7db2edf64b761a48b3b68c" id="r_a78bdb20bcb7db2edf64b761a48b3b68c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78bdb20bcb7db2edf64b761a48b3b68c">isString</a> () const</td></tr>
+<tr class="separator:a78bdb20bcb7db2edf64b761a48b3b68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13ad011202c14d910e02f4332a6b460" id="r_ab13ad011202c14d910e02f4332a6b460"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab13ad011202c14d910e02f4332a6b460">isArray</a> () const</td></tr>
+<tr class="separator:ab13ad011202c14d910e02f4332a6b460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68fd5a17a7e18cde88ccf81c2b074abe" id="r_a68fd5a17a7e18cde88ccf81c2b074abe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68fd5a17a7e18cde88ccf81c2b074abe">isObject</a> () const</td></tr>
+<tr class="separator:a68fd5a17a7e18cde88ccf81c2b074abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f7132319522341cf12edea69286fbb" id="r_ae6f7132319522341cf12edea69286fbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6f7132319522341cf12edea69286fbb">toBool</a> (bool defaultValue=false) const</td></tr>
+<tr class="separator:ae6f7132319522341cf12edea69286fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0ce163d4191bc30467c3bb134d070a" id="r_add0ce163d4191bc30467c3bb134d070a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add0ce163d4191bc30467c3bb134d070a">toInt</a> (int defaultValue=0) const</td></tr>
+<tr class="separator:add0ce163d4191bc30467c3bb134d070a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb2ec5636eff98a95729c1a56589a06f" id="r_acb2ec5636eff98a95729c1a56589a06f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb2ec5636eff98a95729c1a56589a06f">toDouble</a> (double defaultValue=0.0) const</td></tr>
+<tr class="separator:acb2ec5636eff98a95729c1a56589a06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1022a94f8c03869aeb10a39f3295832" id="r_ae1022a94f8c03869aeb10a39f3295832"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1022a94f8c03869aeb10a39f3295832">toString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> defaultValue=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()) const</td></tr>
+<tr class="separator:ae1022a94f8c03869aeb10a39f3295832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369b0556ef2c18dac0c1b92c9f4d29c1" id="r_a369b0556ef2c18dac0c1b92c9f4d29c1"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a369b0556ef2c18dac0c1b92c9f4d29c1">getArray</a> (const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;defaultValue=std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt;()) const</td></tr>
+<tr class="separator:a369b0556ef2c18dac0c1b92c9f4d29c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25dcc5c5d3333c567b867752baee860e" id="r_a25dcc5c5d3333c567b867752baee860e"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25dcc5c5d3333c567b867752baee860e">getObject</a> (const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;defaultValue=std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt;()) const</td></tr>
+<tr class="separator:a25dcc5c5d3333c567b867752baee860e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd2d4b40020aee43e6c8e70e894b3b4b" id="r_abd2d4b40020aee43e6c8e70e894b3b4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd2d4b40020aee43e6c8e70e894b3b4b">operator bool</a> () const</td></tr>
+<tr class="separator:abd2d4b40020aee43e6c8e70e894b3b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3aacae55b341febb1c9df15eb8edee6" id="r_aa3aacae55b341febb1c9df15eb8edee6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3aacae55b341febb1c9df15eb8edee6">operator int</a> () const</td></tr>
+<tr class="separator:aa3aacae55b341febb1c9df15eb8edee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3546e9a009a5e13778eff416f2fb27a6" id="r_a3546e9a009a5e13778eff416f2fb27a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3546e9a009a5e13778eff416f2fb27a6">operator double</a> () const</td></tr>
+<tr class="separator:a3546e9a009a5e13778eff416f2fb27a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c3d2eafb4df46de53dc505959d8f515" id="r_a0c3d2eafb4df46de53dc505959d8f515"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c3d2eafb4df46de53dc505959d8f515">operator std::string</a> () const</td></tr>
+<tr class="separator:a0c3d2eafb4df46de53dc505959d8f515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb2fc8983fc8ad50f995a93328ab61b" id="r_affb2fc8983fc8ad50f995a93328ab61b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affb2fc8983fc8ad50f995a93328ab61b">operator[]</a> (size_t index)</td></tr>
+<tr class="separator:affb2fc8983fc8ad50f995a93328ab61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9f44781abf54bdfc929e71884d79d9" id="r_a0a9f44781abf54bdfc929e71884d79d9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a9f44781abf54bdfc929e71884d79d9">operator[]</a> (size_t index) const</td></tr>
+<tr class="separator:a0a9f44781abf54bdfc929e71884d79d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0f57f51f07f2138f1f7c2154c516d84" id="r_af0f57f51f07f2138f1f7c2154c516d84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0f57f51f07f2138f1f7c2154c516d84">operator[]</a> (const std::string &amp;key)</td></tr>
+<tr class="separator:af0f57f51f07f2138f1f7c2154c516d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1036f7fb3316f65adf8793f001d63ef" id="r_af1036f7fb3316f65adf8793f001d63ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1036f7fb3316f65adf8793f001d63ef">operator[]</a> (const char *key)</td></tr>
+<tr class="separator:af1036f7fb3316f65adf8793f001d63ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a822fc8eaa955b771eb69fd15bef28d9c" id="r_a822fc8eaa955b771eb69fd15bef28d9c"><td class="memItemLeft" align="right" valign="top"><a id="a822fc8eaa955b771eb69fd15bef28d9c" name="a822fc8eaa955b771eb69fd15bef28d9c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNull</b> ()</td></tr>
+<tr class="separator:a822fc8eaa955b771eb69fd15bef28d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb24e1323cf00e793ce05898668f718a" id="r_aeb24e1323cf00e793ce05898668f718a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb24e1323cf00e793ce05898668f718a">setBoolean</a> (bool value)</td></tr>
+<tr class="separator:aeb24e1323cf00e793ce05898668f718a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0bd041027d8f76b83438fe1229e0543" id="r_ac0bd041027d8f76b83438fe1229e0543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0bd041027d8f76b83438fe1229e0543">setInt</a> (int value)</td></tr>
+<tr class="separator:ac0bd041027d8f76b83438fe1229e0543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeabd537ac2558c3de9e1d4f89024ee37" id="r_aeabd537ac2558c3de9e1d4f89024ee37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeabd537ac2558c3de9e1d4f89024ee37">setDouble</a> (double value)</td></tr>
+<tr class="separator:aeabd537ac2558c3de9e1d4f89024ee37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f28d57ba2c4f8ce85ba9f02cdd75a8" id="r_af5f28d57ba2c4f8ce85ba9f02cdd75a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5f28d57ba2c4f8ce85ba9f02cdd75a8">setString</a> (const std::string &amp;value)</td></tr>
+<tr class="separator:af5f28d57ba2c4f8ce85ba9f02cdd75a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a820bf38a399073c50efff65b460f71f4" id="r_a820bf38a399073c50efff65b460f71f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a820bf38a399073c50efff65b460f71f4">setString</a> (const char *value)</td></tr>
+<tr class="separator:a820bf38a399073c50efff65b460f71f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a3ce7baf01cbae546339f2acc19c2c9" id="r_a5a3ce7baf01cbae546339f2acc19c2c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a3ce7baf01cbae546339f2acc19c2c9">setArray</a> (const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;values)</td></tr>
+<tr class="separator:a5a3ce7baf01cbae546339f2acc19c2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3ddb279c707191b492f0414875e9b2" id="r_aba3ddb279c707191b492f0414875e9b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba3ddb279c707191b492f0414875e9b2">setObject</a> (const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;values)</td></tr>
+<tr class="separator:aba3ddb279c707191b492f0414875e9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1742cb3bc4a75134dd98f6c618963551" id="r_a1742cb3bc4a75134dd98f6c618963551"><td class="memItemLeft" align="right" valign="top"><a id="a1742cb3bc4a75134dd98f6c618963551" name="a1742cb3bc4a75134dd98f6c618963551"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="separator:a1742cb3bc4a75134dd98f6c618963551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1460a232b00d1ecb814eab7a97c04216" id="r_a1460a232b00d1ecb814eab7a97c04216"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1460a232b00d1ecb814eab7a97c04216">toJsonString</a> () const</td></tr>
+<tr class="separator:a1460a232b00d1ecb814eab7a97c04216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38aa62e70f8dae22f7db71d3fa75078" id="r_af38aa62e70f8dae22f7db71d3fa75078"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af38aa62e70f8dae22f7db71d3fa75078">toFormattedString</a> (int indent=2) const</td></tr>
+<tr class="separator:af38aa62e70f8dae22f7db71d3fa75078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>JSON 值类 </p>
+<p>提供 JSON 值的表示和操作 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="ae2c181958c7dc2801816372247088fac" name="ae2c181958c7dc2801816372247088fac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2c181958c7dc2801816372247088fac">&#9670;&#160;</a></span>JsonValue() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从布尔值构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>布尔值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adfd9deaa4dbdf0df977c9627978ed93c" name="adfd9deaa4dbdf0df977c9627978ed93c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd9deaa4dbdf0df977c9627978ed93c">&#9670;&#160;</a></span>JsonValue() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从整数构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>整数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0006938b5499397d71b14184f9cba58e" name="a0006938b5499397d71b14184f9cba58e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0006938b5499397d71b14184f9cba58e">&#9670;&#160;</a></span>JsonValue() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从双精度浮点数构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>双精度浮点数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3a558eef85cd7eedfb14233e24e4682b" name="a3a558eef85cd7eedfb14233e24e4682b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a558eef85cd7eedfb14233e24e4682b">&#9670;&#160;</a></span>JsonValue() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从字符串构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc1e52d2a548af38c8c19296f9f7c2f5" name="abc1e52d2a548af38c8c19296f9f7c2f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1e52d2a548af38c8c19296f9f7c2f5">&#9670;&#160;</a></span>JsonValue() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从字符串构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3e0af30b5482dec7cec2abcec44ffa1a" name="a3e0af30b5482dec7cec2abcec44ffa1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0af30b5482dec7cec2abcec44ffa1a">&#9670;&#160;</a></span>JsonValue() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从字符串视图构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5f209d301dc5261f21630b6eddb0b6b6" name="a5f209d301dc5261f21630b6eddb0b6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f209d301dc5261f21630b6eddb0b6b6">&#9670;&#160;</a></span>JsonValue() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>values</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从数组构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>JSON 值数组 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a18cb93bb132677f0e16984276ffa33a5" name="a18cb93bb132677f0e16984276ffa33a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18cb93bb132677f0e16984276ffa33a5">&#9670;&#160;</a></span>JsonValue() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>values</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从对象构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>JSON 对象（键值对映射） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a65476b06c5898b848655f05a32ca46d3" name="a65476b06c5898b848655f05a32ca46d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65476b06c5898b848655f05a32ca46d3">&#9670;&#160;</a></span>JsonValue() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>拷贝构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>其他 JSON 值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a863ea1bb10863d6b6d86a7cf0d292db5" name="a863ea1bb10863d6b6d86a7cf0d292db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a863ea1bb10863d6b6d86a7cf0d292db5">&#9670;&#160;</a></span>JsonValue() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::JsonValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移动构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>其他 JSON 值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a369b0556ef2c18dac0c1b92c9f4d29c1" name="a369b0556ef2c18dac0c1b92c9f4d29c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369b0556ef2c18dac0c1b92c9f4d29c1">&#9670;&#160;</a></span>getArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp; ast::JsonValue::getArray </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::vector&lt;<a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&gt;()</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取数组引用（安全版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defaultValue</td><td>默认值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>数组引用，如果类型不匹配返回默认值 </dd></dl>
+
+</div>
+</div>
+<a id="a25dcc5c5d3333c567b867752baee860e" name="a25dcc5c5d3333c567b867752baee860e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25dcc5c5d3333c567b867752baee860e">&#9670;&#160;</a></span>getObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp; ast::JsonValue::getObject </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::map&lt;std::string,&#160;<a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&gt;()</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取对象引用（安全版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defaultValue</td><td>默认值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象引用，如果类型不匹配返回默认值 </dd></dl>
+
+</div>
+</div>
+<a id="ab13ad011202c14d910e02f4332a6b460" name="ab13ad011202c14d910e02f4332a6b460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13ad011202c14d910e02f4332a6b460">&#9670;&#160;</a></span>isArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::isArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否为数组 </p>
+<dl class="section return"><dt>返回</dt><dd>如果是数组返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a9e4d13af7cdf617d09508032ce73c2d5" name="a9e4d13af7cdf617d09508032ce73c2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e4d13af7cdf617d09508032ce73c2d5">&#9670;&#160;</a></span>isBoolean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::isBoolean </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否为布尔值 </p>
+<dl class="section return"><dt>返回</dt><dd>如果是布尔值返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a4b824c4736667c926f12c793afb3e005" name="a4b824c4736667c926f12c793afb3e005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b824c4736667c926f12c793afb3e005">&#9670;&#160;</a></span>isNull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::isNull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否为 null 值 </p>
+<dl class="section return"><dt>返回</dt><dd>如果是 null 值返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="abb911a037ebdec194424e7f39ad4d707" name="abb911a037ebdec194424e7f39ad4d707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb911a037ebdec194424e7f39ad4d707">&#9670;&#160;</a></span>isNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::isNumber </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否为数值 </p>
+<dl class="section return"><dt>返回</dt><dd>如果是数值返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a68fd5a17a7e18cde88ccf81c2b074abe" name="a68fd5a17a7e18cde88ccf81c2b074abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68fd5a17a7e18cde88ccf81c2b074abe">&#9670;&#160;</a></span>isObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::isObject </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否为对象 </p>
+<dl class="section return"><dt>返回</dt><dd>如果是对象返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a78bdb20bcb7db2edf64b761a48b3b68c" name="a78bdb20bcb7db2edf64b761a48b3b68c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78bdb20bcb7db2edf64b761a48b3b68c">&#9670;&#160;</a></span>isString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::isString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断是否为字符串 </p>
+<dl class="section return"><dt>返回</dt><dd>如果是字符串返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="abd2d4b40020aee43e6c8e70e894b3b4b" name="abd2d4b40020aee43e6c8e70e894b3b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd2d4b40020aee43e6c8e70e894b3b4b">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为布尔值运算符 </p>
+<dl class="section return"><dt>返回</dt><dd>布尔值，null 值返回 false，数值非零返回 true，字符串非空返回 true </dd></dl>
+
+</div>
+</div>
+<a id="a3546e9a009a5e13778eff416f2fb27a6" name="a3546e9a009a5e13778eff416f2fb27a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3546e9a009a5e13778eff416f2fb27a6">&#9670;&#160;</a></span>operator double()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::operator double </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为双精度浮点数值运算符 </p>
+<dl class="section return"><dt>返回</dt><dd>双精度浮点数值，null 值返回 0.0，布尔值 true 返回 1.0，false 返回 0.0，字符串转换为浮点数 </dd></dl>
+
+</div>
+</div>
+<a id="aa3aacae55b341febb1c9df15eb8edee6" name="aa3aacae55b341febb1c9df15eb8edee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3aacae55b341febb1c9df15eb8edee6">&#9670;&#160;</a></span>operator int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::operator int </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为整数值运算符 </p>
+<dl class="section return"><dt>返回</dt><dd>整数值，null 值返回 0，布尔值 true 返回 1，false 返回 0，字符串转换为整数 </dd></dl>
+
+</div>
+</div>
+<a id="a0c3d2eafb4df46de53dc505959d8f515" name="a0c3d2eafb4df46de53dc505959d8f515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3d2eafb4df46de53dc505959d8f515">&#9670;&#160;</a></span>operator std::string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::JsonValue::operator std::string </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为字符串值运算符 </p>
+<dl class="section return"><dt>返回</dt><dd>字符串值，null 值返回 "null"，布尔值返回 "true" 或 "false"，数值转换为字符串 </dd></dl>
+
+</div>
+</div>
+<a id="ae6f65a71f81eac65be55df713650ca6f" name="ae6f65a71f81eac65be55df713650ca6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f65a71f81eac65be55df713650ca6f">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp; ast::JsonValue::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>拷贝赋值运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>其他 JSON 值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>当前 JSON 值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a7a306be3ef61f572befcf0e5cba78a6c" name="a7a306be3ef61f572befcf0e5cba78a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a306be3ef61f572befcf0e5cba78a6c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp; ast::JsonValue::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移动赋值运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>其他 JSON 值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>当前 JSON 值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="af1036f7fb3316f65adf8793f001d63ef" name="af1036f7fb3316f65adf8793f001d63ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1036f7fb3316f65adf8793f001d63ef">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp; ast::JsonValue::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对象下标运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>对象键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对应键的 JSON 值引用，如果类型不匹配返回空值 </dd></dl>
+
+</div>
+</div>
+<a id="af0f57f51f07f2138f1f7c2154c516d84" name="af0f57f51f07f2138f1f7c2154c516d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f57f51f07f2138f1f7c2154c516d84">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp; ast::JsonValue::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对象下标运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>对象键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对应键的 JSON 值引用，如果类型不匹配返回空值 </dd></dl>
+
+</div>
+</div>
+<a id="affb2fc8983fc8ad50f995a93328ab61b" name="affb2fc8983fc8ad50f995a93328ab61b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affb2fc8983fc8ad50f995a93328ab61b">&#9670;&#160;</a></span>operator[]() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp; ast::JsonValue::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数组下标运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>数组索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对应索引的 JSON 值引用，如果类型不匹配或索引越界返回空值 </dd></dl>
+
+</div>
+</div>
+<a id="a0a9f44781abf54bdfc929e71884d79d9" name="a0a9f44781abf54bdfc929e71884d79d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9f44781abf54bdfc929e71884d79d9">&#9670;&#160;</a></span>operator[]() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp; ast::JsonValue::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>数组下标运算符（常量版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>数组索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对应索引的 JSON 值常量引用，如果类型不匹配或索引越界返回空值 </dd></dl>
+
+</div>
+</div>
+<a id="a5a3ce7baf01cbae546339f2acc19c2c9" name="a5a3ce7baf01cbae546339f2acc19c2c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3ce7baf01cbae546339f2acc19c2c9">&#9670;&#160;</a></span>setArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setArray </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>values</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置数组值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>JSON 值数组 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeb24e1323cf00e793ce05898668f718a" name="aeb24e1323cf00e793ce05898668f718a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb24e1323cf00e793ce05898668f718a">&#9670;&#160;</a></span>setBoolean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setBoolean </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置布尔值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>布尔值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeabd537ac2558c3de9e1d4f89024ee37" name="aeabd537ac2558c3de9e1d4f89024ee37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeabd537ac2558c3de9e1d4f89024ee37">&#9670;&#160;</a></span>setDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setDouble </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置双精度浮点数值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>双精度浮点数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0bd041027d8f76b83438fe1229e0543" name="ac0bd041027d8f76b83438fe1229e0543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0bd041027d8f76b83438fe1229e0543">&#9670;&#160;</a></span>setInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setInt </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置整数值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>整数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba3ddb279c707191b492f0414875e9b2" name="aba3ddb279c707191b492f0414875e9b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3ddb279c707191b492f0414875e9b2">&#9670;&#160;</a></span>setObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setObject </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>values</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置对象值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>JSON 对象（键值对映射） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a820bf38a399073c50efff65b460f71f4" name="a820bf38a399073c50efff65b460f71f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820bf38a399073c50efff65b460f71f4">&#9670;&#160;</a></span>setString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setString </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置字符串值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5f28d57ba2c4f8ce85ba9f02cdd75a8" name="af5f28d57ba2c4f8ce85ba9f02cdd75a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5f28d57ba2c4f8ce85ba9f02cdd75a8">&#9670;&#160;</a></span>setString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::setString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置字符串值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae6f7132319522341cf12edea69286fbb" name="ae6f7132319522341cf12edea69286fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f7132319522341cf12edea69286fbb">&#9670;&#160;</a></span>toBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::JsonValue::toBool </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为布尔值（安全版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defaultValue</td><td>默认值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>布尔值，尝试转换为布尔值，否则返回默认值 </dd></dl>
+
+</div>
+</div>
+<a id="acb2ec5636eff98a95729c1a56589a06f" name="acb2ec5636eff98a95729c1a56589a06f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb2ec5636eff98a95729c1a56589a06f">&#9670;&#160;</a></span>toDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::JsonValue::toDouble </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为双精度浮点数值（安全版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defaultValue</td><td>默认值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>双精度浮点数值，尝试转换为浮点数，否则返回默认值 </dd></dl>
+
+</div>
+</div>
+<a id="af38aa62e70f8dae22f7db71d3fa75078" name="af38aa62e70f8dae22f7db71d3fa75078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af38aa62e70f8dae22f7db71d3fa75078">&#9670;&#160;</a></span>toFormattedString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::JsonValue::toFormattedString </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">2</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为格式化的 JSON 字符串表示 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indent</td><td>缩进空格数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>格式化的 JSON 字符串 </dd></dl>
+
+</div>
+</div>
+<a id="add0ce163d4191bc30467c3bb134d070a" name="add0ce163d4191bc30467c3bb134d070a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0ce163d4191bc30467c3bb134d070a">&#9670;&#160;</a></span>toInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::JsonValue::toInt </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为整数值（安全版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defaultValue</td><td>默认值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>整数值，尝试转换为整数，否则返回默认值 </dd></dl>
+
+</div>
+</div>
+<a id="a1460a232b00d1ecb814eab7a97c04216" name="a1460a232b00d1ecb814eab7a97c04216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1460a232b00d1ecb814eab7a97c04216">&#9670;&#160;</a></span>toJsonString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::JsonValue::toJsonString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为 JSON 字符串表示 </p>
+<dl class="section return"><dt>返回</dt><dd>JSON 值的字符串表示 </dd></dl>
+
+</div>
+</div>
+<a id="ae1022a94f8c03869aeb10a39f3295832" name="ae1022a94f8c03869aeb10a39f3295832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1022a94f8c03869aeb10a39f3295832">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::JsonValue::toString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>defaultValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换为字符串值（安全版本） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defaultValue</td><td>默认值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>字符串值，尝试转换为字符串，否则返回默认值 </dd></dl>
+
+</div>
+</div>
+<a id="a7e11fe5dff77631da63d505cfd1afa86" name="a7e11fe5dff77631da63d505cfd1afa86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e11fe5dff77631da63d505cfd1afa86">&#9670;&#160;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__ParseFormat.html#gaeb21a621d587fbb5072f2738aefa1a26">JsonValueType</a> ast::JsonValue::type </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取值类型 </p>
+<dl class="section return"><dt>返回</dt><dd>JSON 值类型 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/ParseFormat/Json/<a class="el" href="JsonValue_8hpp_source.html">JsonValue.hpp</a></li>
+<li>src/AstUtil/ParseFormat/Json/<a class="el" href="JsonValue_8cpp.html">JsonValue.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

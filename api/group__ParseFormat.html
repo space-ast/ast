@@ -132,6 +132,8 @@ $(function(){initNavTree('group__ParseFormat.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GenericValue.html">ast::GenericValue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonValue.html">ast::JsonValue</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1PCKParser.html">ast::PCKParser</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1SPK__Descriptor.html">ast::SPK_Descriptor</a></td></tr>
@@ -143,9 +145,20 @@ $(function(){initNavTree('group__ParseFormat.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:ga82f2843bc989eecb3ee2ca749615c015" id="r_ga82f2843bc989eecb3ee2ca749615c015"><td class="memItemLeft" align="right" valign="top"><a id="ga82f2843bc989eecb3ee2ca749615c015" name="ga82f2843bc989eecb3ee2ca749615c015"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
+<tr class="memitem:gaeb21a621d587fbb5072f2738aefa1a26" id="r_gaeb21a621d587fbb5072f2738aefa1a26"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeb21a621d587fbb5072f2738aefa1a26">ast::JsonValueType</a> { <br />
+&#160;&#160;<a class="el" href="#ggaeb21a621d587fbb5072f2738aefa1a26abbb93ef26e3c101ff11cdd21cab08a94">ast::JsonValueType::Null</a>
+, <a class="el" href="#ggaeb21a621d587fbb5072f2738aefa1a26a27226c864bac7454a8504f8edb15d95b">ast::JsonValueType::Boolean</a>
+, <a class="el" href="#ggaeb21a621d587fbb5072f2738aefa1a26ab2ee912b91d69b435159c7c3f6df7f5f">ast::JsonValueType::Number</a>
+, <a class="el" href="#ggaeb21a621d587fbb5072f2738aefa1a26a27118326006d3829667a400ad23d5d98">ast::JsonValueType::String</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggaeb21a621d587fbb5072f2738aefa1a26a4410ec34d9e6c1a68100ca0ce033fb17">ast::JsonValueType::Array</a>
+, <a class="el" href="#ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b">ast::JsonValueType::Object</a>
+<br />
  }</td></tr>
-<tr class="separator:ga82f2843bc989eecb3ee2ca749615c015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gaeb21a621d587fbb5072f2738aefa1a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga571a9aa9a0d405214905fe0b31e3d383" id="r_ga571a9aa9a0d405214905fe0b31e3d383"><td class="memItemLeft" align="right" valign="top"><a id="ga571a9aa9a0d405214905fe0b31e3d383" name="ga571a9aa9a0d405214905fe0b31e3d383"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
+ }</td></tr>
+<tr class="separator:ga571a9aa9a0d405214905fe0b31e3d383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
@@ -239,6 +252,45 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFormatScalar</b> (bool value)</td></tr>
 <tr class="separator:gac9cc81266d32f8b38f8269aad07c5065"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="gaeb21a621d587fbb5072f2738aefa1a26" name="gaeb21a621d587fbb5072f2738aefa1a26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb21a621d587fbb5072f2738aefa1a26">&#9670;&#160;</a></span>JsonValueType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gaeb21a621d587fbb5072f2738aefa1a26">ast::JsonValueType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>JSON 值类型枚举 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggaeb21a621d587fbb5072f2738aefa1a26abbb93ef26e3c101ff11cdd21cab08a94" name="ggaeb21a621d587fbb5072f2738aefa1a26abbb93ef26e3c101ff11cdd21cab08a94"></a>Null&#160;</td><td class="fielddoc"><p>null 值 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeb21a621d587fbb5072f2738aefa1a26a27226c864bac7454a8504f8edb15d95b" name="ggaeb21a621d587fbb5072f2738aefa1a26a27226c864bac7454a8504f8edb15d95b"></a>Boolean&#160;</td><td class="fielddoc"><p>布尔值 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeb21a621d587fbb5072f2738aefa1a26ab2ee912b91d69b435159c7c3f6df7f5f" name="ggaeb21a621d587fbb5072f2738aefa1a26ab2ee912b91d69b435159c7c3f6df7f5f"></a>Number&#160;</td><td class="fielddoc"><p>数值 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeb21a621d587fbb5072f2738aefa1a26a27118326006d3829667a400ad23d5d98" name="ggaeb21a621d587fbb5072f2738aefa1a26a27118326006d3829667a400ad23d5d98"></a>String&#160;</td><td class="fielddoc"><p>字符串 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeb21a621d587fbb5072f2738aefa1a26a4410ec34d9e6c1a68100ca0ce033fb17" name="ggaeb21a621d587fbb5072f2738aefa1a26a4410ec34d9e6c1a68100ca0ce033fb17"></a>Array&#160;</td><td class="fielddoc"><p>数组 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b" name="ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b"></a>Object&#160;</td><td class="fielddoc"><p>对象 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">函数说明</h2>
 <a id="ga828d0a91a2c52522a8dc9412a1634283" name="ga828d0a91a2c52522a8dc9412a1634283"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga828d0a91a2c52522a8dc9412a1634283">&#9670;&#160;</a></span>_aParseDouble_LibC_1()</h2>

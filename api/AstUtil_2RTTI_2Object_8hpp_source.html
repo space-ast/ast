@@ -147,7 +147,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor"></span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="group__RTTI.html#ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2">   76</a></span>    <a class="code hl_enumvalue" href="group__RTTI.html#ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1, </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">   76</a></span>    <a class="code hl_enumvalue" href="group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1, </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
@@ -286,7 +286,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        : refcnt_(0)</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        , weakrefcnt_(1)</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    {}</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    Object&amp; operator=(<span class="keyword">const</span> Object&amp; obj)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <a class="code hl_enumvalue" href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b">Object</a>&amp; operator=(<span class="keyword">const</span> Object&amp; obj)</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    {</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        A_UNUSED(obj);</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -332,7 +332,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="comment">// Class*                type_;                                     ///&lt; 类型元信息，同时用于标识对象是否被析构(废弃)</span></div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    std::atomic&lt;uint32_t&gt;    refcnt_{0};                                </div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    std::atomic&lt;uint32_t&gt;    weakrefcnt_{1};                            </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    uint32_t                 index_{<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_enumvalue" href="group__RTTI.html#ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a>)}; </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    uint32_t                 index_{<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_enumvalue" href="group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a>)}; </div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="comment">// uint32_t                 flags_{0};                                 ///&lt; 对象标志位，用于存储对象的额外信息</span></div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>};</div>
 </div>
@@ -361,7 +361,8 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp_source.html',''); initResiz
 <div class="ttc" id="aclassast_1_1Object_html_aecd84a95fab6db0c0efb7fb34863b11c"><div class="ttname"><a href="classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c">ast::Object::decRefNoDelete</a></div><div class="ttdeci">uint32_t decRefNoDelete()</div><div class="ttdoc">减少强引用计数，不删除对象</div><div class="ttdef"><b>定义</b> Object.hpp:267</div></div>
 <div class="ttc" id="aclassast_1_1Property_html"><div class="ttname"><a href="classast_1_1Property.html">ast::Property</a></div><div class="ttdoc">反射属性类</div><div class="ttdef"><b>定义</b> Property.hpp:58</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="agroup__RTTI_html_ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2"><div class="ttname"><a href="group__RTTI.html#ggac13a9c098b6368f2d73d61bed3b324ecabb2ccfb13bbc2fc2827f77f2a3556ea2">ast::INVALID_ID</a></div><div class="ttdeci">@ INVALID_ID</div><div class="ttdoc">无效对象ID</div><div class="ttdef"><b>定义</b> Object.hpp:76</div></div>
+<div class="ttc" id="agroup__ParseFormat_html_ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b"><div class="ttname"><a href="group__ParseFormat.html#ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b">ast::JsonValueType::Object</a></div><div class="ttdeci">@ Object</div><div class="ttdoc">对象</div></div>
+<div class="ttc" id="agroup__RTTI_html_ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2"><div class="ttname"><a href="group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">ast::INVALID_ID</a></div><div class="ttdeci">@ INVALID_ID</div><div class="ttdoc">无效对象ID</div><div class="ttdef"><b>定义</b> Object.hpp:76</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

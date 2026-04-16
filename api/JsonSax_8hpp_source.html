@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/ParseFormat/Json/JsonSax.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('JsonSax_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">JsonSax.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="JsonSax_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html">   33</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1JsonSax.html">JsonSax</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1JsonSax.html">~JsonSax</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#ae1347ca72cff43ea4227004567b46e38">   40</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#ae1347ca72cff43ea4227004567b46e38">startObject</a>() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#a64b6d60838279bafe83f162a9c599850">   44</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#a64b6d60838279bafe83f162a9c599850">endObject</a>() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#ab7184ed00c4e74e28701b111798f1046">   48</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#ab7184ed00c4e74e28701b111798f1046">startArray</a>() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#a7831c0c0693d98933337c48fb9193352">   52</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#a7831c0c0693d98933337c48fb9193352">endArray</a>() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#a5c43f0766247d5da2d2505ff38d85b94">   57</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#a5c43f0766247d5da2d2505ff38d85b94">key</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> key) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#aae6bc4175f029e195d51538a325070a0">   61</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#aae6bc4175f029e195d51538a325070a0">nullValue</a>() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#aff59d51c85b25b43a0796eea528ecd06">   66</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#aff59d51c85b25b43a0796eea528ecd06">boolValue</a>(<span class="keywordtype">bool</span> value) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#a2dce7562410dbc959c94538d0ab6ebad">   71</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#a2dce7562410dbc959c94538d0ab6ebad">intValue</a>(<span class="keywordtype">int</span> value) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#af5418efba1f7a085763d674b676b5c18">   76</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#af5418efba1f7a085763d674b676b5c18">doubleValue</a>(<span class="keywordtype">double</span> value) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#ad3780ac8e592290a4d5938c15b9c3d3b">   81</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#ad3780ac8e592290a4d5938c15b9c3d3b">stringValue</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> value) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1JsonSax.html#ac08892ce426d30b88c8d13416766c753">   88</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1JsonSax.html#ac08892ce426d30b88c8d13416766c753">parseError</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> message, <span class="keywordtype">int</span> line, <span class="keywordtype">int</span> column) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1JsonSax_html"><div class="ttname"><a href="classast_1_1JsonSax.html">ast::JsonSax</a></div><div class="ttdef"><b>定义</b> JsonSax.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a2dce7562410dbc959c94538d0ab6ebad"><div class="ttname"><a href="classast_1_1JsonSax.html#a2dce7562410dbc959c94538d0ab6ebad">ast::JsonSax::intValue</a></div><div class="ttdeci">virtual bool intValue(int value)</div><div class="ttdoc">解析整数值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:71</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a5c43f0766247d5da2d2505ff38d85b94"><div class="ttname"><a href="classast_1_1JsonSax.html#a5c43f0766247d5da2d2505ff38d85b94">ast::JsonSax::key</a></div><div class="ttdeci">virtual bool key(StringView key)</div><div class="ttdoc">解析对象键</div><div class="ttdef"><b>定义</b> JsonSax.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a64b6d60838279bafe83f162a9c599850"><div class="ttname"><a href="classast_1_1JsonSax.html#a64b6d60838279bafe83f162a9c599850">ast::JsonSax::endObject</a></div><div class="ttdeci">virtual bool endObject()</div><div class="ttdoc">结束解析对象</div><div class="ttdef"><b>定义</b> JsonSax.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a7831c0c0693d98933337c48fb9193352"><div class="ttname"><a href="classast_1_1JsonSax.html#a7831c0c0693d98933337c48fb9193352">ast::JsonSax::endArray</a></div><div class="ttdeci">virtual bool endArray()</div><div class="ttdoc">结束解析数组</div><div class="ttdef"><b>定义</b> JsonSax.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_aae6bc4175f029e195d51538a325070a0"><div class="ttname"><a href="classast_1_1JsonSax.html#aae6bc4175f029e195d51538a325070a0">ast::JsonSax::nullValue</a></div><div class="ttdeci">virtual bool nullValue()</div><div class="ttdoc">解析 null 值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_ab7184ed00c4e74e28701b111798f1046"><div class="ttname"><a href="classast_1_1JsonSax.html#ab7184ed00c4e74e28701b111798f1046">ast::JsonSax::startArray</a></div><div class="ttdeci">virtual bool startArray()</div><div class="ttdoc">开始解析数组</div><div class="ttdef"><b>定义</b> JsonSax.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_ac08892ce426d30b88c8d13416766c753"><div class="ttname"><a href="classast_1_1JsonSax.html#ac08892ce426d30b88c8d13416766c753">ast::JsonSax::parseError</a></div><div class="ttdeci">virtual bool parseError(StringView message, int line, int column)</div><div class="ttdoc">解析错误</div><div class="ttdef"><b>定义</b> JsonSax.hpp:88</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_ad3780ac8e592290a4d5938c15b9c3d3b"><div class="ttname"><a href="classast_1_1JsonSax.html#ad3780ac8e592290a4d5938c15b9c3d3b">ast::JsonSax::stringValue</a></div><div class="ttdeci">virtual bool stringValue(StringView value)</div><div class="ttdoc">解析字符串值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:81</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_ae1347ca72cff43ea4227004567b46e38"><div class="ttname"><a href="classast_1_1JsonSax.html#ae1347ca72cff43ea4227004567b46e38">ast::JsonSax::startObject</a></div><div class="ttdeci">virtual bool startObject()</div><div class="ttdoc">开始解析对象</div><div class="ttdef"><b>定义</b> JsonSax.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_af5418efba1f7a085763d674b676b5c18"><div class="ttname"><a href="classast_1_1JsonSax.html#af5418efba1f7a085763d674b676b5c18">ast::JsonSax::doubleValue</a></div><div class="ttdeci">virtual bool doubleValue(double value)</div><div class="ttdoc">解析双精度浮点数值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_aff59d51c85b25b43a0796eea528ecd06"><div class="ttname"><a href="classast_1_1JsonSax.html#aff59d51c85b25b43a0796eea528ecd06">ast::JsonSax::boolValue</a></div><div class="ttdeci">virtual bool boolValue(bool value)</div><div class="ttdoc">解析布尔值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_480cf6b53fcea3873823fd76d21e216e.html">ParseFormat</a></li><li class="navelem"><a class="el" href="dir_31515de02407b27498818b9363e93461.html">Json</a></li><li class="navelem"><a class="el" href="JsonSax_8hpp.html">JsonSax.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

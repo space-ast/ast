@@ -15,7 +15,7 @@ var searchData=
   ['check_12',['check',['../classast_1_1Parser.html#a7eb04cba4f018a85cbaeb6b8ba7a5a8b',1,'ast::Parser']]],
   ['children_13',['children',['../classast_1_1ExprContainer.html#a867436ec8964090c7ef90caa9d8329d9',1,'ast::ExprContainer']]],
   ['class_14',['Class',['../classast_1_1Class.html#a2c5dca1364c3582b2c26ba40502c5356',1,'ast::Class']]],
-  ['clear_15',['clear',['../classast_1_1XMLDocument.html#ad73cafb54405b39460aee42ad457768b',1,'ast::XMLDocument::clear()'],['../classast_1_1XMLNode.html#a8bafe3fd4d73cd61d0547e6770214c30',1,'ast::XMLNode::clear()'],['../classast_1_1ObjectNode.html#a1ea412e72232dc1f321e4a901cb120e8',1,'ast::ObjectNode::clear()']]],
+  ['clear_15',['clear',['../classast_1_1JsonValue.html#a1742cb3bc4a75134dd98f6c618963551',1,'ast::JsonValue::clear()'],['../classast_1_1XMLDocument.html#ad73cafb54405b39460aee42ad457768b',1,'ast::XMLDocument::clear()'],['../classast_1_1XMLNode.html#a8bafe3fd4d73cd61d0547e6770214c30',1,'ast::XMLNode::clear()'],['../classast_1_1ObjectNode.html#a1ea412e72232dc1f321e4a901cb120e8',1,'ast::ObjectNode::clear()']]],
   ['clearattributes_16',['clearAttributes',['../classast_1_1XMLNode.html#a153c94cfe0d91d46b2f7b8a3fd244ff2',1,'ast::XMLNode']]],
   ['clearblocks_17',['clearBlocks',['../classast_1_1BlockDynamicSystem.html#a4b723a64263ed0b2687deaed472373c4',1,'ast::BlockDynamicSystem::clearBlocks()'],['../classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3',1,'ast::BlockSystem::clearBlocks()']]],
   ['clearchildren_18',['clearChildren',['../classast_1_1XMLNode.html#a7ee32ef1356a4fbdb60529ed2e90d8f3',1,'ast::XMLNode::clearChildren()'],['../classast_1_1ObjectNode.html#ab3634958598205345e55a28da21586d3',1,'ast::ObjectNode::clearChildren()']]],
