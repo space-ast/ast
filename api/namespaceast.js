@@ -1832,6 +1832,7 @@ var namespaceast =
     [ "aValueIsDouble", "group__Script.html#gab768e3043877867fb78816859ba251d4", null ],
     [ "aValueIsInt", "group__Script.html#ga17551072bb490c3522cfd5743381514f", null ],
     [ "aValueIsQuantity", "group__Script.html#ga261bfbc9719653f4de251214cda60865", null ],
+    [ "aValueIsString", "group__Script.html#ga1495ff179705bc93fd48ce7f7d64ec64", null ],
     [ "aValueNull", "group__Script.html#gabd53b801eb96bf7a645dfee7a8e43252", null ],
     [ "aValueToDouble", "group__Script.html#gaa0c639adaf1de92fa4ff668480234bfa", null ],
     [ "aValueUnboxBool", "group__Script.html#gae284441e06166d4d582f8cf38f8678f8", null ],
