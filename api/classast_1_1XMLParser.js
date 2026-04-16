@@ -10,7 +10,7 @@ var classast_1_1XMLParser =
       [ "eComment", "classast_1_1XMLParser.html#ae84c5ac58e85955b7ac05b7ea1c22046addec7feee507fe96920c2f49adea6022", null ],
       [ "eUnknown", "classast_1_1XMLParser.html#ae84c5ac58e85955b7ac05b7ea1c22046aec0cd1072223d01abbdc06af2c6b4a90", null ]
     ] ],
-    [ "getAttributes", "classast_1_1XMLParser.html#a36ab25c4ae2d0139b7dc6ccc794ac9b9", null ],
+    [ "getAttributes", "classast_1_1XMLParser.html#aa8da8876674c11d678779ccf912241fc", null ],
     [ "getComment", "classast_1_1XMLParser.html#ad2e628e79e2d97eae01b8313dd2e070d", null ],
     [ "getName", "classast_1_1XMLParser.html#afa5d22d4f9b8b84fcce932cb2ae1b2d5", null ],
     [ "getNext", "classast_1_1XMLParser.html#a6b2def1f42ae8f16983c0eea49eb2b52", null ],

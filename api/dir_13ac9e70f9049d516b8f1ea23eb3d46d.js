@@ -2,6 +2,8 @@ var dir_13ac9e70f9049d516b8f1ea23eb3d46d =
 [
     [ "Encode.cpp", "Encode_8cpp.html", "Encode_8cpp" ],
     [ "Encode.hpp", "Encode_8hpp.html", "Encode_8hpp" ],
+    [ "Escape.cpp", "Escape_8cpp.html", "Escape_8cpp" ],
+    [ "Escape.hpp", "Escape_8hpp.html", "Escape_8hpp" ],
     [ "String.cpp", "String_8cpp.html", null ],
     [ "String.hpp", "String_8hpp.html", null ],
     [ "StringSplit.cpp", "StringSplit_8cpp.html", null ],

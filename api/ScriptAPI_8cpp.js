@@ -17,6 +17,7 @@ var ScriptAPI_8cpp =
     [ "aNewOpUnary", "ScriptAPI_8cpp.html#ga99487240e80b500ffd4a23ac28f759ee", null ],
     [ "aNewSymbol", "ScriptAPI_8cpp.html#gadd5d4fde9c50b6d8030d1456095e2bf9", null ],
     [ "aNewValueBool", "ScriptAPI_8cpp.html#ga1ca221151c1d7d3d9ff1f044a0d17e83", null ],
+    [ "aNewValueDict", "ScriptAPI_8cpp.html#gaf7135b7cf1fa65a340e5487cded4ef87", null ],
     [ "aNewValueDouble", "ScriptAPI_8cpp.html#ga4b10a73c6d0d8a15df81182989939943", null ],
     [ "aNewValueInt", "ScriptAPI_8cpp.html#ga47305b78b744defeecf93b518cb43be0", null ],
     [ "aNewValueQuantity", "ScriptAPI_8cpp.html#gab8ddff4f4074b44ec82a979b80a1c31a", null ],

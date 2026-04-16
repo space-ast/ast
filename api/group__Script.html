@@ -334,6 +334,8 @@ typedef <a class="el" href="classast_1_1Value.html">Value</a> *(*&#160;</td><td 
 <tr class="separator:ga1ca221151c1d7d3d9ff1f044a0d17e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b10a73c6d0d8a15df81182989939943" id="r_ga4b10a73c6d0d8a15df81182989939943"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4b10a73c6d0d8a15df81182989939943">ast::aNewValueDouble</a> (double value)</td></tr>
 <tr class="separator:ga4b10a73c6d0d8a15df81182989939943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7135b7cf1fa65a340e5487cded4ef87" id="r_gaf7135b7cf1fa65a340e5487cded4ef87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf7135b7cf1fa65a340e5487cded4ef87">ast::aNewValueDict</a> ()</td></tr>
+<tr class="separator:gaf7135b7cf1fa65a340e5487cded4ef87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8ddff4f4074b44ec82a979b80a1c31a" id="r_gab8ddff4f4074b44ec82a979b80a1c31a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab8ddff4f4074b44ec82a979b80a1c31a">ast::aNewValueQuantity</a> (const <a class="el" href="classast_1_1Quantity.html">Quantity</a> &amp;value)</td></tr>
 <tr class="separator:gab8ddff4f4074b44ec82a979b80a1c31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabd53b801eb96bf7a645dfee7a8e43252" id="r_gabd53b801eb96bf7a645dfee7a8e43252"><td class="memItemLeft" align="right" valign="top"><a id="gabd53b801eb96bf7a645dfee7a8e43252" name="gabd53b801eb96bf7a645dfee7a8e43252"></a>
@@ -406,6 +408,10 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Value.html">Value</a> *&#160;</t
 <tr class="memitem:ga5e8ea7aa78fa04072635f596fc8c1624" id="r_ga5e8ea7aa78fa04072635f596fc8c1624"><td class="memItemLeft" align="right" valign="top"><a id="ga5e8ea7aa78fa04072635f596fc8c1624" name="ga5e8ea7aa78fa04072635f596fc8c1624"></a>
 A_ALWAYS_INLINE <a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aNewValue</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
 <tr class="separator:ga5e8ea7aa78fa04072635f596fc8c1624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b3c80e15c286bd2f6c9f9b161412fb4" id="r_ga7b3c80e15c286bd2f6c9f9b161412fb4"><td class="memTemplParams" colspan="2"><a id="ga7b3c80e15c286bd2f6c9f9b161412fb4" name="ga7b3c80e15c286bd2f6c9f9b161412fb4"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga7b3c80e15c286bd2f6c9f9b161412fb4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewValue</b> (T)=delete</td></tr>
+<tr class="separator:ga7b3c80e15c286bd2f6c9f9b161412fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga704a4bc9c883f76fb67b5967921e7dd0" id="r_ga704a4bc9c883f76fb67b5967921e7dd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga704a4bc9c883f76fb67b5967921e7dd0">ast::aScript_GetInterpreter</a> ()</td></tr>
 <tr class="separator:ga704a4bc9c883f76fb67b5967921e7dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad99b2bd0b7bcb7874b5440846ab02dae" id="r_gad99b2bd0b7bcb7874b5440846ab02dae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a> (<a class="el" href="classast_1_1Interpreter.html">Interpreter</a> *interpreter)</td></tr>
@@ -1099,6 +1105,27 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Value.html">Value</a> *&#160;</t
 
 <p>创建布尔值对象 </p>
 <dl class="section warning"><dt>警告</dt><dd>返回的 <code>Value*</code> 指针由调用者拥有，需要管理其生命周期 </dd></dl>
+
+</div>
+</div>
+<a id="gaf7135b7cf1fa65a340e5487cded4ef87" name="gaf7135b7cf1fa65a340e5487cded4ef87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf7135b7cf1fa65a340e5487cded4ef87">&#9670;&#160;</a></span>aNewValueDict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SCRIPT_API <a class="el" href="classast_1_1Value.html">Value</a> * ast::aNewValueDict </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>创建字典值对象 </p>
+<dl class="section warning"><dt>警告</dt><dd>返回的指针由调用者拥有，需要管理其生命周期 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>字典值对象 </dd></dl>
 
 </div>
 </div>

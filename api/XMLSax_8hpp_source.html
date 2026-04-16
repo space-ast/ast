@@ -115,22 +115,43 @@ $(function(){initNavTree('XMLSax_8hpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html">   37</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1XMLSax.html">XMLSax</a> {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1XMLSax.html">~XMLSax</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">using </span>AttributeList = std::vector&lt;BKVItemView&gt;;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">class </span><a class="code hl_class" href="classast_1_1XMLSax_1_1AttributeList.html">AttributeList</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1XMLSax.html">~XMLSax</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#a176f1ed3b1639a9a1db3728558a502c5">   42</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#a176f1ed3b1639a9a1db3728558a502c5">startDocument</a>() = 0;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#a7ca094b34bd61643ea9b56cde083b827">   44</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#a7ca094b34bd61643ea9b56cde083b827">endDocument</a>() = 0;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#ad973a16c38c3e8007196d1b2f21d9f65">   46</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#ad973a16c38c3e8007196d1b2f21d9f65">startElement</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keyword">const</span> AttributeList&amp; attributes) = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#ad973a16c38c3e8007196d1b2f21d9f65">   46</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#ad973a16c38c3e8007196d1b2f21d9f65">startElement</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1XMLSax_1_1AttributeList.html">AttributeList</a>&amp; attributes) = 0;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#a29da7971152e438b7730f8fc52f1084b">   48</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#a29da7971152e438b7730f8fc52f1084b">endElement</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name) = 0;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#a4bbf03873a5bd3de1eda6324e4bcf00b">   50</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#a4bbf03873a5bd3de1eda6324e4bcf00b">characters</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> text) = 0;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#ae548e77f01eb8423241924a38fa31246">   52</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#ae548e77f01eb8423241924a38fa31246">comment</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> text){};</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax.html#a16e783a21e3cb09c10a22499868dad40">   55</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1XMLSax.html#a16e783a21e3cb09c10a22499868dad40">error</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> msg){};</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1XMLSax_1_1AttributeList.html">   59</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classast_1_1XMLSax_1_1AttributeList.html">AttributeList</a>: <span class="keyword">public</span> std::vector&lt;BKVItemView&gt;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_class" href="classast_1_1ValueView.html">ValueView</a> get(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; item: *<span class="keyword">this</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keywordflow">if</span>(item.key() == name)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    <span class="keywordflow">return</span> item.value();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1ValueView_html"><div class="ttname"><a href="classast_1_1ValueView.html">ast::ValueView</a></div><div class="ttdoc">值视图类</div><div class="ttdef"><b>定义</b> ValueView.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1XMLSax_1_1AttributeList_html"><div class="ttname"><a href="classast_1_1XMLSax_1_1AttributeList.html">ast::XMLSax::AttributeList</a></div><div class="ttdoc">XML SAX解析器的属性列表</div><div class="ttdef"><b>定义</b> XMLSax.hpp:60</div></div>
 <div class="ttc" id="aclassast_1_1XMLSax_html"><div class="ttname"><a href="classast_1_1XMLSax.html">ast::XMLSax</a></div><div class="ttdoc">XML SAX解析器的回调接口</div><div class="ttdef"><b>定义</b> XMLSax.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1XMLSax_html_a16e783a21e3cb09c10a22499868dad40"><div class="ttname"><a href="classast_1_1XMLSax.html#a16e783a21e3cb09c10a22499868dad40">ast::XMLSax::error</a></div><div class="ttdeci">virtual void error(StringView msg)</div><div class="ttdoc">错误回调</div><div class="ttdef"><b>定义</b> XMLSax.hpp:55</div></div>
 <div class="ttc" id="aclassast_1_1XMLSax_html_a176f1ed3b1639a9a1db3728558a502c5"><div class="ttname"><a href="classast_1_1XMLSax.html#a176f1ed3b1639a9a1db3728558a502c5">ast::XMLSax::startDocument</a></div><div class="ttdeci">virtual void startDocument()=0</div><div class="ttdoc">文档开始回调</div></div>

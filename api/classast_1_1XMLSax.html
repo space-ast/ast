@@ -99,7 +99,7 @@ $(function(){initNavTree('classast_1_1XMLSax.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public 类型</a> &#124;
+<a href="#nested-classes">类</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1XMLSax-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::XMLSax类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
@@ -115,15 +115,15 @@ $(function(){initNavTree('classast_1_1XMLSax.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1XMLSax.png" usemap="#ast::XMLSax_map" alt=""/>
   <map id="ast::XMLSax_map" name="ast::XMLSax_map">
-<area href="classast_1_1XMLDomSax.html" title="XML DOM SAX解析器" alt="ast::XMLDomSax" shape="rect" coords="0,56,107,80"/>
+<area href="classast_1_1ValXMLSax.html" alt="ast::ValXMLSax" shape="rect" coords="0,56,107,80"/>
+<area href="classast_1_1XMLDomSax.html" title="XML DOM SAX解析器" alt="ast::XMLDomSax" shape="rect" coords="117,56,224,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public 类型</h2></td></tr>
-<tr class="memitem:a033b4a9619a7d51a77d61a3356433d59" id="r_a033b4a9619a7d51a77d61a3356433d59"><td class="memItemLeft" align="right" valign="top"><a id="a033b4a9619a7d51a77d61a3356433d59" name="a033b4a9619a7d51a77d61a3356433d59"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>AttributeList</b> = std::vector&lt;<a class="el" href="classast_1_1BKVItemView.html">BKVItemView</a>&gt;</td></tr>
-<tr class="separator:a033b4a9619a7d51a77d61a3356433d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1XMLSax_1_1AttributeList.html">AttributeList</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
@@ -131,7 +131,7 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a176f1ed3b1639a9a1db3728558a502c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ca094b34bd61643ea9b56cde083b827" id="r_a7ca094b34bd61643ea9b56cde083b827"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ca094b34bd61643ea9b56cde083b827">endDocument</a> ()=0</td></tr>
 <tr class="separator:a7ca094b34bd61643ea9b56cde083b827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad973a16c38c3e8007196d1b2f21d9f65" id="r_ad973a16c38c3e8007196d1b2f21d9f65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad973a16c38c3e8007196d1b2f21d9f65">startElement</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, const AttributeList &amp;attributes)=0</td></tr>
+<tr class="memitem:ad973a16c38c3e8007196d1b2f21d9f65" id="r_ad973a16c38c3e8007196d1b2f21d9f65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad973a16c38c3e8007196d1b2f21d9f65">startElement</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, const <a class="el" href="classast_1_1XMLSax_1_1AttributeList.html">AttributeList</a> &amp;attributes)=0</td></tr>
 <tr class="separator:ad973a16c38c3e8007196d1b2f21d9f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29da7971152e438b7730f8fc52f1084b" id="r_a29da7971152e438b7730f8fc52f1084b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29da7971152e438b7730f8fc52f1084b">endElement</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)=0</td></tr>
 <tr class="separator:a29da7971152e438b7730f8fc52f1084b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,7 +170,7 @@ Public 成员函数</h2></td></tr>
 
 <p>文本内容回调 </p>
 
-<p>在 <a class="el" href="classast_1_1XMLDomSax.html#a4f630defa3bcd323492591bbfca225a9">ast::XMLDomSax</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ValXMLSax.html#aa67ca5bdf1c8db9e517106e3faca2b75">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#a4f630defa3bcd323492591bbfca225a9">ast::XMLDomSax</a> 内被实现.</p>
 
 </div>
 </div>
@@ -199,7 +199,7 @@ Public 成员函数</h2></td></tr>
 
 <p>注释回调 </p>
 
-<p>被 <a class="el" href="classast_1_1XMLDomSax.html#a44eadec5685cec7132b2529f186166c0">ast::XMLDomSax</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1ValXMLSax.html#a66d0f2a52bf45b86ca85074cb2ae26d3">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#a44eadec5685cec7132b2529f186166c0">ast::XMLDomSax</a> 重载.</p>
 
 </div>
 </div>
@@ -228,7 +228,7 @@ Public 成员函数</h2></td></tr>
 
 <p>文档结束回调 </p>
 
-<p>在 <a class="el" href="classast_1_1XMLDomSax.html#ab5c1f82b709f409a2c6f2b0c03a33c0c">ast::XMLDomSax</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ValXMLSax.html#a73e0901296838607d055ddf42f7f4761">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#ab5c1f82b709f409a2c6f2b0c03a33c0c">ast::XMLDomSax</a> 内被实现.</p>
 
 </div>
 </div>
@@ -257,7 +257,7 @@ Public 成员函数</h2></td></tr>
 
 <p>元素结束回调 </p>
 
-<p>在 <a class="el" href="classast_1_1XMLDomSax.html#abc31e52e17fe4aa5d3c5f12623701b10">ast::XMLDomSax</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ValXMLSax.html#afb3540b0ea64af3809f27c2b8a1c0707">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#abc31e52e17fe4aa5d3c5f12623701b10">ast::XMLDomSax</a> 内被实现.</p>
 
 </div>
 </div>
@@ -292,7 +292,7 @@ Public 成员函数</h2></td></tr>
   </dd>
 </dl>
 
-<p>被 <a class="el" href="classast_1_1XMLDomSax.html#ac0404a2b73cbfaf7b35060e8ae3c6f1c">ast::XMLDomSax</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1ValXMLSax.html#a4f0f8676b52b584902a4e307459586d7">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#ac0404a2b73cbfaf7b35060e8ae3c6f1c">ast::XMLDomSax</a> 重载.</p>
 
 </div>
 </div>
@@ -321,7 +321,7 @@ Public 成员函数</h2></td></tr>
 
 <p>文档开始回调 </p>
 
-<p>在 <a class="el" href="classast_1_1XMLDomSax.html#a0d7d5deea5fd3597c6c1673fbda1be62">ast::XMLDomSax</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ValXMLSax.html#a4e21dd792b49722390413ed97035bf3e">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#a0d7d5deea5fd3597c6c1673fbda1be62">ast::XMLDomSax</a> 内被实现.</p>
 
 </div>
 </div>
@@ -342,7 +342,7 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const AttributeList &amp;</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1XMLSax_1_1AttributeList.html">AttributeList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -354,7 +354,7 @@ Public 成员函数</h2></td></tr>
 
 <p>元素开始回调 </p>
 
-<p>在 <a class="el" href="classast_1_1XMLDomSax.html#a7d7a08ed71a7c029898dfd783e811720">ast::XMLDomSax</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ValXMLSax.html#acf09018c44579ca35524e378a728b72e">ast::ValXMLSax</a> , 以及 <a class="el" href="classast_1_1XMLDomSax.html#a7d7a08ed71a7c029898dfd783e811720">ast::XMLDomSax</a> 内被实现.</p>
 
 </div>
 </div>

@@ -395,7 +395,7 @@ var hierarchy =
             [ "ast::Function", "classast_1_1Function.html", null ]
           ] ],
           [ "ast::ValArray< T, NDIM >", "classast_1_1ValArray.html", null ],
-          [ "ast::ValMap", "classast_1_1ValMap.html", null ],
+          [ "ast::ValDict", "classast_1_1ValDict.html", null ],
           [ "ast::ValNull", "classast_1_1ValNull.html", null ],
           [ "ast::ValQuantity", "classast_1_1ValQuantity.html", null ],
           [ "ast::ValRange", "classast_1_1ValRange.html", null ],
@@ -630,6 +630,7 @@ var hierarchy =
     [ "ast::SharedPtr< ast::Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Point >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::State >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::Value >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Axes >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Frame >", "classast_1_1SharedPtr.html", null ],
@@ -705,6 +706,9 @@ var hierarchy =
     [ "ast::UTCScale", "classast_1_1UTCScale.html", null ],
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
     [ "Vardesc", "structVardesc.html", null ],
+    [ "std::vector", null, [
+      [ "ast::XMLSax::AttributeList", "classast_1_1XMLSax_1_1AttributeList.html", null ]
+    ] ],
     [ "ast::VectorN< _Scalar, N >", "classast_1_1VectorN.html", null ],
     [ "ast::VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
     [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", null ],
@@ -719,6 +723,7 @@ var hierarchy =
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],
     [ "ast::XMLNode", "classast_1_1XMLNode.html", null ],
     [ "ast::XMLSax", "classast_1_1XMLSax.html", [
+      [ "ast::ValXMLSax", "classast_1_1ValXMLSax.html", null ],
       [ "ast::XMLDomSax", "classast_1_1XMLDomSax.html", null ]
     ] ],
     [ "ast::XYSCache", "structast_1_1XYSCache.html", null ]
