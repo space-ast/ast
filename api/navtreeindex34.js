@@ -1,7 +1,5 @@
 var NAVTREEINDEX34 =
 {
-"namespaceast_1_1literals.html#af2c6bf04dacf1e87018f6b42ed46f9ec":[2,0,0,1,8],
-"namespaceast_1_1math.html":[0,1,0,0],
 "namespaceast_1_1math.html#a04a4b8d988da2035897df6832c1182d5":[2,0,0,2,8],
 "namespaceast_1_1math.html#a762ef5701ce8b50600daa804623886da":[2,0,0,2,1],
 "namespaceast_1_1math.html#a7cdd6932f756ddd49b3afe080e33d857":[2,0,0,2,5],
@@ -249,5 +247,7 @@ var NAVTREEINDEX34 =
 "structast_1_1InitalizeConfig.html#a9f7551779769a9be86d550df86b1a359":[2,0,0,206,3],
 "structast_1_1InitalizeConfig.html#a9f7551779769a9be86d550df86b1a359":[3,0,0,205,3],
 "structast_1_1InitalizeConfig.html#aaa8732511edfd21a0c997c6417d8590e":[2,0,0,206,5],
-"structast_1_1InitalizeConfig.html#aaa8732511edfd21a0c997c6417d8590e":[3,0,0,205,5]
+"structast_1_1InitalizeConfig.html#aaa8732511edfd21a0c997c6417d8590e":[3,0,0,205,5],
+"structast_1_1InitalizeConfig.html#aab54959512d8958594d1fb9a5e73feaf":[2,0,0,206,7],
+"structast_1_1InitalizeConfig.html#aab54959512d8958594d1fb9a5e73feaf":[3,0,0,205,7]
 };

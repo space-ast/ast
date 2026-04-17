@@ -1,7 +1,5 @@
 var NAVTREEINDEX35 =
 {
-"structast_1_1InitalizeConfig.html#aab54959512d8958594d1fb9a5e73feaf":[2,0,0,206,7],
-"structast_1_1InitalizeConfig.html#aab54959512d8958594d1fb9a5e73feaf":[3,0,0,205,7],
 "structast_1_1InitalizeConfig.html#ac5f76bc464e252ffacd27baf5302823f":[2,0,0,206,8],
 "structast_1_1InitalizeConfig.html#ac5f76bc464e252ffacd27baf5302823f":[3,0,0,205,8],
 "structast_1_1InitalizeConfig.html#ae20b57d4d9fa2e7ae8d68f50b6b94a93":[2,0,0,206,1],

@@ -1,7 +1,5 @@
 var NAVTREEINDEX28 =
 {
-"functions_vars_q.html":[3,3,2,17],
-"functions_vars_r.html":[3,3,2,18],
 "functions_vars_s.html":[3,3,2,19],
 "functions_vars_t.html":[3,3,2,20],
 "functions_vars_u.html":[3,3,2,21],
@@ -249,5 +247,7 @@ var NAVTREEINDEX28 =
 "group__Interpolator.html#ga57a9be52506d2085036239d5b56ed7b5":[0,1,2,1],
 "group__Interpolator.html#ga72416d27fb3619fdd15706a2b8451869":[0,1,2,4],
 "group__Interpolator.html#gaa267788471ee95d2bf7e4af949601b35":[0,1,2,2],
-"group__Magnetosphere.html":[0,5,2]
+"group__Magnetosphere.html":[0,5,2],
+"group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058":[0,5,2,1],
+"group__Magnetosphere.html#ga770033ee697753f6c5222ce2ba597a7f":[0,5,2,0]
 };

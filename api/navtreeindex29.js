@@ -1,7 +1,5 @@
 var NAVTREEINDEX29 =
 {
-"group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058":[0,5,2,1],
-"group__Magnetosphere.html#ga770033ee697753f6c5222ce2ba597a7f":[0,5,2,0],
 "group__Math.html":[0,1],
 "group__NLE.html":[0,1,3],
 "group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa":[0,1,3,10],
@@ -249,5 +247,7 @@ var NAVTREEINDEX29 =
 "group__RTTI.html#ga0412979dc85fa7823d19a0d4ea5d4a52":[0,4,4,25],
 "group__RTTI.html#ga0e7b21139f9b78f32be3e1920dc0cdf7":[0,4,4,47],
 "group__RTTI.html#ga1a58411c2aa026059e31156794deebf7":[0,4,4,37],
-"group__RTTI.html#ga23ab56939991a5c55275128b84332bcd":[0,4,4,50]
+"group__RTTI.html#ga23ab56939991a5c55275128b84332bcd":[0,4,4,50],
+"group__RTTI.html#ga25a796d58add8beaf21d2c9a61b0434d":[0,4,4,46],
+"group__RTTI.html#ga33abde566a2b1d0d9477262b58394145":[0,4,4,33]
 };

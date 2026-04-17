@@ -13,6 +13,7 @@ var classast_1_1State =
     [ "getStateInBodyInertial", "classast_1_1State.html#ab654ca49e23a6146af21ad9894c4f443", null ],
     [ "getStateType", "classast_1_1State.html#a11f9784196ddaa52fb79ea823e3f00ea", null ],
     [ "setFrame", "classast_1_1State.html#af8fa9d8ed8c5008e1618021e80a531c2", null ],
+    [ "setFrameByName", "classast_1_1State.html#a56cad94d8465d303e77e46c78e1306e9", null ],
     [ "setGM", "classast_1_1State.html#ac6a240e18730dd99f8c7c9643688154b", null ],
     [ "setState", "classast_1_1State.html#a459d28a4e3666674d0d8a795227432e4", null ],
     [ "setStateEpoch", "classast_1_1State.html#a104699141fd9ab22650bc9013f4f1bf0", null ],
