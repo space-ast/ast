@@ -412,12 +412,6 @@ var hierarchy =
         [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
         [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
       ] ],
-      [ "ast::Frame", "classast_1_1Frame.html", [
-        [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
-        [ "ast::FrameICRF", "classast_1_1FrameICRF.html", null ],
-        [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
-        [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
-      ] ],
       [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
         [ "ast::InitialState", "classast_1_1InitialState.html", null ],
         [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
@@ -453,6 +447,12 @@ var hierarchy =
         [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
         [ "ast::FigureOfMerit", "classast_1_1FigureOfMerit.html", [
           [ "ast::AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ]
+        ] ],
+        [ "ast::Frame", "classast_1_1Frame.html", [
+          [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
+          [ "ast::FrameICRF", "classast_1_1FrameICRF.html", null ],
+          [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
+          [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
         ] ],
         [ "ast::LineTarget", "classast_1_1LineTarget.html", null ],
         [ "ast::MTO", "classast_1_1MTO.html", null ],
@@ -507,6 +507,7 @@ var hierarchy =
     [ "ast::ObjectEditRegistry", "classast_1_1ObjectEditRegistry.html", null ],
     [ "ast::ObjectManager", "classast_1_1ObjectManager.html", null ],
     [ "ast::ObjectNode", "classast_1_1ObjectNode.html", null ],
+    [ "ast::ObjectResolver", "classast_1_1ObjectResolver.html", null ],
     [ "ast::ODEEventDetector", "classast_1_1ODEEventDetector.html", [
       [ "ast::ODEEventDetectorGeneric< Func >", "classast_1_1ODEEventDetectorGeneric.html", null ]
     ] ],

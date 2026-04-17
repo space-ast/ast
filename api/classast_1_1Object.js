@@ -1,5 +1,6 @@
 var classast_1_1Object =
 [
+    [ "addDelayedLink", "classast_1_1Object.html#acbcaa214db3200de3a405c6fed8185a9", null ],
     [ "attr", "classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170", null ],
     [ "decRef", "classast_1_1Object.html#aa4697ffa258dc386c82f6e496ee6f513", null ],
     [ "decRefNoDelete", "classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c", null ],
@@ -23,6 +24,7 @@ var classast_1_1Object =
     [ "isDestructed", "classast_1_1Object.html#a6fd5f058fcc84490d373f3194a001397", null ],
     [ "openEditDialog", "classast_1_1Object.html#a267659228339fcfd14616d55b87d2abd", null ],
     [ "refCount", "classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b", null ],
+    [ "resolveLinks", "classast_1_1Object.html#aa453ffb19abb19515a7c96df726f47d9", null ],
     [ "setAttrBool", "classast_1_1Object.html#a5072bda9b7931524868edbf014d4ff92", null ],
     [ "setAttrDouble", "classast_1_1Object.html#acac18023e736d3e498ab1cf2965b9abf", null ],
     [ "setAttrInt", "classast_1_1Object.html#aed0f50f23efc8b9b92411a70723a0ce6", null ],

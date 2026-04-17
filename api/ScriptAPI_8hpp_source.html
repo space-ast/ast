@@ -358,11 +358,21 @@ $(function(){initNavTree('ScriptAPI_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Script.html#gabfd10cb6893bf9194329215f683d84c4">aNewValueString</a>(value);</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>}</div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span><span class="comment">// 通过模板捕获所有其他类型并删除</span></div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>Value* aNewValue(T) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>A_ALWAYS_INLINE Value* aNewValue(<span class="keyword">const</span> std::string&amp; value)</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>{</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Script.html#gabfd10cb6893bf9194329215f683d84c4">aNewValueString</a>(value);</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>}</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>A_ALWAYS_INLINE Value* aNewValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* value)</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>{</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Script.html#gabfd10cb6893bf9194329215f683d84c4">aNewValueString</a>(value);</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>}</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span> </div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="comment">// 通过模板捕获所有其他类型并删除，防止隐式转换为 `bool` 类型</span></div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>Value* aNewValue(T) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Class_html"><div class="ttname"><a href="classast_1_1Class.html">ast::Class</a></div><div class="ttdoc">类元信息</div><div class="ttdef"><b>定义</b> Class.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:39</div></div>

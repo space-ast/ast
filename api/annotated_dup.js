@@ -337,6 +337,7 @@ var annotated_dup =
       [ "ObjectManager", "classast_1_1ObjectManager.html", "classast_1_1ObjectManager" ],
       [ "ObjectNamed", "classast_1_1ObjectNamed.html", "classast_1_1ObjectNamed" ],
       [ "ObjectNode", "classast_1_1ObjectNode.html", "classast_1_1ObjectNode" ],
+      [ "ObjectResolver", "classast_1_1ObjectResolver.html", "classast_1_1ObjectResolver" ],
       [ "ODEEventDetector", "classast_1_1ODEEventDetector.html", "classast_1_1ODEEventDetector" ],
       [ "ODEEventDetectorGeneric", "classast_1_1ODEEventDetectorGeneric.html", "classast_1_1ODEEventDetectorGeneric" ],
       [ "ODEEventDetectorList", "classast_1_1ODEEventDetectorList.html", "classast_1_1ODEEventDetectorList" ],
