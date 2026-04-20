@@ -1,7 +1,5 @@
 var NAVTREEINDEX16 =
 {
-"classast_1_1GravityCalculator.html#abcebe6c641bddf8b2dff9e4955af2b41":[3,0,0,190,1],
-"classast_1_1GravityCalculator2.html":[2,0,0,192],
 "classast_1_1GravityCalculator2.html":[3,0,0,191],
 "classast_1_1GravityCalculator2.html#afb242100a2fc489c52b2555be6049e20":[2,0,0,192,0],
 "classast_1_1GravityCalculator2.html#afb242100a2fc489c52b2555be6049e20":[3,0,0,191,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX16 =
 "classast_1_1IODEIntegrator.html":[0,1,4,9],
 "classast_1_1IODEIntegrator.html#a13492e744f630de69e788687296ea294":[0,1,4,9,3],
 "classast_1_1IODEIntegrator.html#a671bd7e164262f9f4923d7e1d5563114":[0,1,4,9,2],
-"classast_1_1IODEIntegrator.html#a8e10779b9b7f657535a8e345be798cb2":[0,1,4,9,1]
+"classast_1_1IODEIntegrator.html#a8e10779b9b7f657535a8e345be798cb2":[0,1,4,9,1],
+"classast_1_1IODEIntegrator.html#aa778531d90dc51c2e11d1c7ed0f6b759":[0,1,4,9,0],
+"classast_1_1IOrbitDesigner.html":[0,0,3,0]
 };

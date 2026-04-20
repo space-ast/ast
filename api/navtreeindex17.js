@@ -1,7 +1,5 @@
 var NAVTREEINDEX17 =
 {
-"classast_1_1IODEIntegrator.html#aa778531d90dc51c2e11d1c7ed0f6b759":[0,1,4,9,0],
-"classast_1_1IOrbitDesigner.html":[0,0,3,0],
 "classast_1_1IOrbitDesigner.html#a14aaf365555f99e7d80fcbb44f049cc9":[0,0,3,0,1],
 "classast_1_1IOrbitDesigner.html#a9a13b5968446fc457a22d5d1b3219297":[0,0,3,0,0],
 "classast_1_1IPosVelPrv.html":[2,0,0,223],
@@ -249,5 +247,7 @@ var NAVTREEINDEX17 =
 "classast_1_1KernelPool.html#aa70e3697b2df89f1366a000f32981981":[3,0,0,241,5],
 "classast_1_1KernelPool.html#adbf466d51dece62be2d971faf1edcb04":[2,0,0,242,7],
 "classast_1_1KernelPool.html#adbf466d51dece62be2d971faf1edcb04":[3,0,0,241,7],
-"classast_1_1KinematicRotation.html":[2,0,0,243]
+"classast_1_1KinematicRotation.html":[2,0,0,243],
+"classast_1_1KinematicRotation.html":[3,0,0,242],
+"classast_1_1KinematicRotation.html#a088bae2548fbc4d1153ceac5dd26882e":[2,0,0,243,17]
 };

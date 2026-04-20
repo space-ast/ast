@@ -1,7 +1,5 @@
 var NAVTREEINDEX23 =
 {
-"classast_1_1RK8.html":[0,1,4,1],
-"classast_1_1RK8.html#a7dd739be8c4171c8da40cc73afd2d109":[0,1,4,1,1],
 "classast_1_1RK8.html#a8aba2410c51cb685395bb6ff7cbb5d55":[0,1,4,1,0],
 "classast_1_1RKCK.html":[0,1,4,2],
 "classast_1_1RKCK.html#aaa1d1edd63b17c00f055ced142e16660":[0,1,4,2,1],
@@ -249,5 +247,7 @@ var NAVTREEINDEX23 =
 "classast_1_1SimpleOrbitDesigner.html#a8b995b789e2f19c737271ab6282eeaee":[0,0,3,6,0],
 "classast_1_1SimpleOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,0,3,6,5],
 "classast_1_1SimpleOrbitDesigner.html#aa0b74d899c850bf0820cc8793e7ad97d":[0,0,3,6,12],
-"classast_1_1SimpleOrbitDesigner.html#aa1b7ef98d029de099d4dd53de0f91079":[0,0,3,6,6]
+"classast_1_1SimpleOrbitDesigner.html#aa1b7ef98d029de099d4dd53de0f91079":[0,0,3,6,6],
+"classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea":[0,0,3,6,20],
+"classast_1_1SimpleOrbitDesigner.html#ab7a52a8f2f4c8b1140c8ebcf979f9318":[0,0,3,6,4]
 };

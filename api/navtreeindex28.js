@@ -1,7 +1,5 @@
 var NAVTREEINDEX28 =
 {
-"dir_3d510ba8b0868dc0f4c18bbd5b6af976.html":[4,0,0,12],
-"dir_3da88ad09c38da0aadfcd56f4438d95a.html":[4,0,0,11,0],
 "dir_43361428101e92f870935eca1664b50c.html":[4,0,0,13,0],
 "dir_455ace0eeab4ac475b242b1d1f8df258.html":[4,0,0,10,0],
 "dir_480cf6b53fcea3873823fd76d21e216e.html":[4,0,0,13,4],
@@ -96,7 +94,6 @@ var NAVTREEINDEX28 =
 "dir_feae92dab5ce4d5f7cc8d9f72a3879bd.html":[4,0,0,8],
 "dir_ff278e91be49e334779468bebca74b4a.html":[4,0,0,3,5],
 "dir_ffb17bd88152b7b44cfa97dfb12b9528.html":[4,0,0,9,8],
-"examples.html":[5],
 "f2c_8h_source.html":[4,0,0,7,2],
 "files.html":[4,0],
 "functions.html":[3,3,0],
@@ -249,5 +246,8 @@ var NAVTREEINDEX28 =
 "group__Coordinate.html#ga52cc58e5f2acf25c825218cdf3e3420f":[0,0,0,56],
 "group__Coordinate.html#ga53d52553695ab6cf6ce5d0dbff2babcf":[0,0,0,128],
 "group__Coordinate.html#ga54d54de3b074b9edebb61dc6ee3c2f46":[0,0,0,22],
-"group__Coordinate.html#ga5649d62c4fbf03490485578745115047":[0,0,0,77]
+"group__Coordinate.html#ga5649d62c4fbf03490485578745115047":[0,0,0,77],
+"group__Coordinate.html#ga576edb662d8f746f0d6e6cb979cc0105":[0,0,0,80],
+"group__Coordinate.html#ga5e19e2e2d1c5750f6408bf19fd285796":[0,0,0,66],
+"group__Coordinate.html#ga5f51855b91a4c8377f6a38b2cf3ca113":[0,0,0,111]
 };
