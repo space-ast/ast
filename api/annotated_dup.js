@@ -548,7 +548,6 @@ var annotated_dup =
       [ "Value", "classast_1_1Value.html", "classast_1_1Value" ],
       [ "ValueView", "classast_1_1ValueView.html", "classast_1_1ValueView" ],
       [ "ValVector", "classast_1_1ValVector.html", null ],
-      [ "ValXMLSax", "classast_1_1ValXMLSax.html", "classast_1_1ValXMLSax" ],
       [ "Variable", "classast_1_1Variable.html", "classast_1_1Variable" ],
       [ "VectorN", "classast_1_1VectorN.html", null ],
       [ "VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],

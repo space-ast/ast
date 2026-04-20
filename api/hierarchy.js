@@ -650,7 +650,6 @@ var hierarchy =
     [ "ast::SharedPtr< ast::Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Point >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::State >", "classast_1_1SharedPtr.html", null ],
-    [ "ast::SharedPtr< ast::Value >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Axes >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Frame >", "classast_1_1SharedPtr.html", null ],
@@ -743,7 +742,6 @@ var hierarchy =
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],
     [ "ast::XMLNode", "classast_1_1XMLNode.html", null ],
     [ "ast::XMLSax", "classast_1_1XMLSax.html", [
-      [ "ast::ValXMLSax", "classast_1_1ValXMLSax.html", null ],
       [ "ast::XMLDomSax", "classast_1_1XMLDomSax.html", null ]
     ] ],
     [ "ast::XYSCache", "structast_1_1XYSCache.html", null ]
