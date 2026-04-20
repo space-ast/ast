@@ -49,6 +49,10 @@ var group__RTTI =
       [ "type", "classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157", null ],
       [ "weakRefCount", "classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b", null ]
     ] ],
+    [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
+      [ "calculate", "classast_1_1ObjectCalculation.html#ac72ad09cca86ba0514a7d1caaa35e4fc", null ],
+      [ "getExpectedType", "classast_1_1ObjectCalculation.html#ad107791b02e43d08c38898cb607b0f19", null ]
+    ] ],
     [ "ast::Class", "classast_1_1Class.html", [
       [ "Class", "classast_1_1Class.html#a2c5dca1364c3582b2c26ba40502c5356", null ],
       [ "addToRegistry", "classast_1_1Class.html#a8341b220558cbac691cb6cb8ce10d52a", null ],

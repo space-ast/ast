@@ -106,20 +106,65 @@ $(function(){initNavTree('EventDetector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classast_1_1EventDetector.html">   30</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1EventDetector.html">~EventDetector</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstMath/ODEEventDetector.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span>SpacecraftState;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classast_1_1EventDetector.html">   35</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">using </span><a class="code hl_enumeration" href="classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b">EDirection</a> = <a class="code hl_enumeration" href="classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b">ODEEventDetector::EDirection</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1EventDetector.html">~EventDetector</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1EventDetector.html#aef7de50faf0c059fb2f83789e719bb96">   48</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1EventDetector.html#aef7de50faf0c059fb2f83789e719bb96">getDifference</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>&amp; state, <span class="keywordtype">double</span> t)<span class="keyword"> const</span>{<span class="keywordflow">return</span> getValue(state, t) - goal_;}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4">   54</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4">getValue</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>&amp; state, <span class="keywordtype">double</span> t) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span>         repeatCount_{1};                </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    EDirection  direction_{EDirection::eBoth};  </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span>      threshold_{1e-10};              </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">double</span>      goal_{0.0};                     </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:31</div></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1EventDetectorGeneric.html">   66</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1EventDetectorGeneric.html">EventDetectorGeneric</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1EventDetectorGeneric.html">EventDetectorGeneric</a>(Func func) </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        : func_(std::move(func)) </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1EventDetectorGeneric.html#a9da155b942ef56f5fab6d405bf143489">   73</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1EventDetectorGeneric.html#a9da155b942ef56f5fab6d405bf143489">getValue</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>&amp; state, <span class="keywordtype">double</span> t)<span class="keyword"> const override </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">return</span> func_(state, t);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    Func func_;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1EventDetectorGeneric_html"><div class="ttname"><a href="classast_1_1EventDetectorGeneric.html">ast::EventDetectorGeneric</a></div><div class="ttdoc">泛型事件检测器</div><div class="ttdef"><b>定义</b> EventDetector.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1EventDetectorGeneric_html_a9da155b942ef56f5fab6d405bf143489"><div class="ttname"><a href="classast_1_1EventDetectorGeneric.html#a9da155b942ef56f5fab6d405bf143489">ast::EventDetectorGeneric::getValue</a></div><div class="ttdeci">double getValue(const SpacecraftState &amp;state, double t) const override</div><div class="ttdoc">获取事件检测开关函数的值</div><div class="ttdef"><b>定义</b> EventDetector.hpp:73</div></div>
+<div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1EventDetector_html_a1fb0d5745861c1934f0e0df52f5a5ec4"><div class="ttname"><a href="classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4">ast::EventDetector::getValue</a></div><div class="ttdeci">virtual double getValue(const SpacecraftState &amp;state, double t) const =0</div><div class="ttdoc">获取事件检测开关函数的值</div></div>
+<div class="ttc" id="aclassast_1_1EventDetector_html_aef7de50faf0c059fb2f83789e719bb96"><div class="ttname"><a href="classast_1_1EventDetector.html#aef7de50faf0c059fb2f83789e719bb96">ast::EventDetector::getDifference</a></div><div class="ttdeci">virtual double getDifference(const SpacecraftState &amp;state, double t) const</div><div class="ttdoc">获取事件检测开关函数与目标值的差值</div><div class="ttdef"><b>定义</b> EventDetector.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1ODEEventDetector_html_ac1de44b6cd73fb6989716b0821ce656b"><div class="ttname"><a href="classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b">ast::ODEEventDetector::EDirection</a></div><div class="ttdeci">EDirection</div><div class="ttdoc">事件检测开关函数的条件</div><div class="ttdef"><b>定义</b> ODEEventDetector.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1SpacecraftState_html"><div class="ttname"><a href="classast_1_1SpacecraftState.html">ast::SpacecraftState</a></div><div class="ttdoc">空间飞行器状态量</div><div class="ttdef"><b>定义</b> SpacecraftState.hpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

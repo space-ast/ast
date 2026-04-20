@@ -107,6 +107,7 @@ var hierarchy =
     [ "ast::EquinElem", "classast_1_1EquinElem.html", null ],
     [ "ast::Euler", "classast_1_1Euler.html", null ],
     [ "ast::EventDetector", "classast_1_1EventDetector.html", [
+      [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
       [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
     ] ],
     [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", null ],
@@ -345,6 +346,11 @@ var hierarchy =
         [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
         [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
       ] ],
+      [ "ast::Burn", "classast_1_1Burn.html", [
+        [ "ast::BurnCollocation", "classast_1_1BurnCollocation.html", null ],
+        [ "ast::BurnFinite", "classast_1_1BurnFinite.html", null ],
+        [ "ast::BurnImpulsive", "classast_1_1BurnImpulsive.html", null ]
+      ] ],
       [ "ast::EventInterval", "classast_1_1EventInterval.html", [
         [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
         [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
@@ -413,10 +419,16 @@ var hierarchy =
         [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
       ] ],
       [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
-        [ "ast::InitialState", "classast_1_1InitialState.html", null ],
-        [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
-        [ "ast::Propagate", "classast_1_1Propagate.html", null ],
-        [ "ast::Sequence", "classast_1_1Sequence.html", null ]
+        [ "ast::End", "classast_1_1End.html", null ],
+        [ "ast::Return", "classast_1_1Return.html", null ],
+        [ "ast::Segment", "classast_1_1Segment.html", [
+          [ "ast::InitialState", "classast_1_1InitialState.html", null ],
+          [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
+          [ "ast::Propagate", "classast_1_1Propagate.html", null ],
+          [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
+          [ "ast::Sequence", "classast_1_1Sequence.html", null ]
+        ] ],
+        [ "ast::Stop", "classast_1_1Stop.html", null ]
       ] ],
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
       [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
@@ -435,6 +447,11 @@ var hierarchy =
           [ "ast::MotionSGP4", "classast_1_1MotionSGP4.html", null ],
           [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
         ] ]
+      ] ],
+      [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
+        [ "ast::ScStateCalculation", "classast_1_1ScStateCalculation.html", null ],
+        [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", null ],
+        [ "ast::StateCalculation", "classast_1_1StateCalculation.html", null ]
       ] ],
       [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
         [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
@@ -472,6 +489,7 @@ var hierarchy =
             [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
           ] ],
           [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
+          [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
           [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
         ] ],
         [ "ast::Facility", "classast_1_1Facility.html", [
@@ -499,6 +517,7 @@ var hierarchy =
       ] ],
       [ "ast::Scenario", "classast_1_1Scenario.html", null ],
       [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
+      [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
       [ "ast::State", "classast_1_1State.html", [
         [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
         [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
@@ -646,7 +665,6 @@ var hierarchy =
     [ "ast::SnoptCAPI", "structast_1_1SnoptCAPI.html", null ],
     [ "ast::SolverStats", "structast_1_1SolverStats.html", null ],
     [ "ast::fs_simple::space_info", "structast_1_1fs__simple_1_1space__info.html", null ],
-    [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
     [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", null ],
     [ "ast::Span< T, Extent >", "classast_1_1Span.html", null ],
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
@@ -716,6 +734,7 @@ var hierarchy =
     [ "ast::VehiclePathData", "structast_1_1VehiclePathData.html", null ],
     [ "ast::WayPoint", "classast_1_1WayPoint.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Point >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],

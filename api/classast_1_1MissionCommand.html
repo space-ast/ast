@@ -99,6 +99,7 @@ $(function(){initNavTree('classast_1_1MissionCommand.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1MissionCommand-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::MissionCommand类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
@@ -115,13 +116,27 @@ $(function(){initNavTree('classast_1_1MissionCommand.html',''); initResizable(tr
   <img src="classast_1_1MissionCommand.png" usemap="#ast::MissionCommand_map" alt=""/>
   <map id="ast::MissionCommand_map" name="ast::MissionCommand_map">
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="213,0,345,24"/>
-<area href="classast_1_1InitialState.html" title="初始状态任务" alt="ast::InitialState" shape="rect" coords="0,112,132,136"/>
-<area href="classast_1_1Maneuver.html" alt="ast::Maneuver" shape="rect" coords="142,112,274,136"/>
-<area href="classast_1_1Propagate.html" alt="ast::Propagate" shape="rect" coords="284,112,416,136"/>
-<area href="classast_1_1Sequence.html" alt="ast::Sequence" shape="rect" coords="426,112,558,136"/>
+<area href="classast_1_1End.html" title="End命令" alt="ast::End" shape="rect" coords="0,112,132,136"/>
+<area href="classast_1_1Return.html" alt="ast::Return" shape="rect" coords="142,112,274,136"/>
+<area href="classast_1_1Segment.html" title="任务段" alt="ast::Segment" shape="rect" coords="284,112,416,136"/>
+<area href="classast_1_1Stop.html" alt="ast::Stop" shape="rect" coords="426,112,558,136"/>
+<area href="classast_1_1InitialState.html" title="初始状态任务" alt="ast::InitialState" shape="rect" coords="0,168,132,192"/>
+<area href="classast_1_1Maneuver.html" title="机动" alt="ast::Maneuver" shape="rect" coords="142,168,274,192"/>
+<area href="classast_1_1Propagate.html" alt="ast::Propagate" shape="rect" coords="284,168,416,192"/>
+<area href="classast_1_1SegmentGraph.html" alt="ast::SegmentGraph" shape="rect" coords="426,168,558,192"/>
+<area href="classast_1_1Sequence.html" alt="ast::Sequence" shape="rect" coords="568,168,700,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a0d4b1dc468ae788d49fbc417c0a735a2" id="r_a0d4b1dc468ae788d49fbc417c0a735a2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d4b1dc468ae788d49fbc417c0a735a2">EControlCommand</a> { <a class="el" href="#a0d4b1dc468ae788d49fbc417c0a735a2a0d5656caecf1f5d17e878cc94071a118">eReturn</a> = -999
+, <a class="el" href="#a0d4b1dc468ae788d49fbc417c0a735a2aec73157ad9f56753910a525891b7bdb8">eStop</a> = -1999
+, <a class="el" href="#a0d4b1dc468ae788d49fbc417c0a735a2aaeec7fed703c3c188cb95be578a39d32">eBreak</a> = -2999
+, <a class="el" href="#a0d4b1dc468ae788d49fbc417c0a735a2ade6f758238a48365b4c8ee81fb70b1cb">eContinue</a> = -3999
+ }</td></tr>
+<tr class="separator:a0d4b1dc468ae788d49fbc417c0a735a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a1c9d211c7b7e9b4bc829d8ee7b37d7f0" id="r_a1c9d211c7b7e9b4bc829d8ee7b37d7f0"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c9d211c7b7e9b4bc829d8ee7b37d7f0">execute</a> ()=0</td></tr>
@@ -219,8 +234,35 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>任务命令 </p>
-<p>任务命令负责执行任务序列中的任务 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
+<p>任务命令负责执行任务序列中的任务 参考GMAT的GmatCommand.hpp </p>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="a0d4b1dc468ae788d49fbc417c0a735a2" name="a0d4b1dc468ae788d49fbc417c0a735a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4b1dc468ae788d49fbc417c0a735a2">&#9670;&#160;</a></span>EControlCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a0d4b1dc468ae788d49fbc417c0a735a2">ast::MissionCommand::EControlCommand</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>控制命令 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a0d4b1dc468ae788d49fbc417c0a735a2a0d5656caecf1f5d17e878cc94071a118" name="a0d4b1dc468ae788d49fbc417c0a735a2a0d5656caecf1f5d17e878cc94071a118"></a>eReturn&#160;</td><td class="fielddoc"><p>返回到上级 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0d4b1dc468ae788d49fbc417c0a735a2aec73157ad9f56753910a525891b7bdb8" name="a0d4b1dc468ae788d49fbc417c0a735a2aec73157ad9f56753910a525891b7bdb8"></a>eStop&#160;</td><td class="fielddoc"><p>停止任务序列 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0d4b1dc468ae788d49fbc417c0a735a2aaeec7fed703c3c188cb95be578a39d32" name="a0d4b1dc468ae788d49fbc417c0a735a2aaeec7fed703c3c188cb95be578a39d32"></a>eBreak&#160;</td><td class="fielddoc"><p>跳出当前任务序列 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0d4b1dc468ae788d49fbc417c0a735a2ade6f758238a48365b4c8ee81fb70b1cb" name="a0d4b1dc468ae788d49fbc417c0a735a2ade6f758238a48365b4c8ee81fb70b1cb"></a>eContinue&#160;</td><td class="fielddoc"><p>继续当前任务序列的下一次执行 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
 <a id="a1c9d211c7b7e9b4bc829d8ee7b37d7f0" name="a1c9d211c7b7e9b4bc829d8ee7b37d7f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c9d211c7b7e9b4bc829d8ee7b37d7f0">&#9670;&#160;</a></span>execute()</h2>
 
@@ -247,7 +289,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <p>执行任务 </p>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1InitialState.html#ac4e54146833a3c40d342a5bb88c29ba7">ast::InitialState</a>, <a class="el" href="classast_1_1Maneuver.html#ac662587b3a49cd14618598794bb1342c">ast::Maneuver</a>, <a class="el" href="classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438">ast::Propagate</a> , 以及 <a class="el" href="classast_1_1Sequence.html#ab69d692eaeb6c7ba5ff868a4d90574ab">ast::Sequence</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1End.html#a8c22be48646cdae98ff5fe7476fbe05e">ast::End</a>, <a class="el" href="classast_1_1InitialState.html#ac4e54146833a3c40d342a5bb88c29ba7">ast::InitialState</a>, <a class="el" href="classast_1_1Maneuver.html#ac662587b3a49cd14618598794bb1342c">ast::Maneuver</a>, <a class="el" href="classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438">ast::Propagate</a>, <a class="el" href="classast_1_1Return.html#adcad394a4e41fe48805c7eb94465123f">ast::Return</a>, <a class="el" href="classast_1_1Segment.html#a099498044c1713bd58dc1871ad4920f5">ast::Segment</a>, <a class="el" href="classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c">ast::SegmentGraph</a>, <a class="el" href="classast_1_1Sequence.html#ab69d692eaeb6c7ba5ff868a4d90574ab">ast::Sequence</a> , 以及 <a class="el" href="classast_1_1Stop.html#a82d9f3b8a99608d3eca3c1b3ff860341">ast::Stop</a> 内被实现.</p>
 
 </div>
 </div>
