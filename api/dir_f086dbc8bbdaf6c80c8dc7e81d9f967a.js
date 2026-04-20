@@ -5,6 +5,7 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "ClassRegistry.hpp", "ClassRegistry_8hpp.html", "ClassRegistry_8hpp" ],
     [ "Object.cpp", "Object_8cpp.html", null ],
     [ "Object.hpp", "AstUtil_2RTTI_2Object_8hpp.html", null ],
+    [ "ObjectCalculation.cpp", "ObjectCalculation_8cpp.html", null ],
     [ "ObjectCalculation.hpp", "ObjectCalculation_8hpp.html", null ],
     [ "ObjectLinkerManager.hpp", "ObjectLinkerManager_8hpp_source.html", null ],
     [ "ObjectManager.cpp", "ObjectManager_8cpp.html", null ],

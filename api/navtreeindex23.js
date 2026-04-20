@@ -1,5 +1,16 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1Quaternion.html#aa7cbd868ff6e832612a85b2027659041":[0,1,1,2,7],
+"classast_1_1Quaternion.html#ab18b74959f0806ebb092f6e493f38893":[0,1,1,2,26],
+"classast_1_1Quaternion.html#abf34f1d3eadf0c11d520bfebd571a2d2":[0,1,1,2,24],
+"classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b":[0,1,1,2,16],
+"classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770":[0,1,1,2,14],
+"classast_1_1Quaternion.html#affd2c78251b00a2662ceb6045f6fcc81":[0,1,1,2,4],
+"classast_1_1RK4.html":[0,1,4,0],
+"classast_1_1RK4.html#a7408a1d1172f6b4dc25330199af2b0f2":[0,1,4,0,1],
+"classast_1_1RK4.html#ad687849b0bc5b34fc0cc69bf32c101f8":[0,1,4,0,0],
+"classast_1_1RK8.html":[0,1,4,1],
+"classast_1_1RK8.html#a7dd739be8c4171c8da40cc73afd2d109":[0,1,4,1,1],
 "classast_1_1RK8.html#a8aba2410c51cb685395bb6ff7cbb5d55":[0,1,4,1,0],
 "classast_1_1RKCK.html":[0,1,4,2],
 "classast_1_1RKCK.html#aaa1d1edd63b17c00f055ced142e16660":[0,1,4,2,1],
@@ -238,16 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1SimpleOrbitDesigner.html":[0,0,3,6],
 "classast_1_1SimpleOrbitDesigner.html#a1e242ff61d0648c4c5dbfed919f9af2d":[0,0,3,6,16],
 "classast_1_1SimpleOrbitDesigner.html#a28f85999f3c9876c409334ee731c90ba":[0,0,3,6,1],
-"classast_1_1SimpleOrbitDesigner.html#a3aee12bf9e1b2d7a9abee8fd8cb337bb":[0,0,3,6,9],
-"classast_1_1SimpleOrbitDesigner.html#a3b5ed1db777c1288ed24b75e869d53fd":[0,0,3,6,8],
-"classast_1_1SimpleOrbitDesigner.html#a3cf7105209fbaf7cb0d44fd2a9be5c14":[0,0,3,6,2],
-"classast_1_1SimpleOrbitDesigner.html#a510822282b3844fd1957db80ddce1e5a":[0,0,3,6,14],
-"classast_1_1SimpleOrbitDesigner.html#a6e57d80dcb3500400d1d9444c7c6a7fa":[0,0,3,6,19],
-"classast_1_1SimpleOrbitDesigner.html#a86593fdef2a8adbd682b6d3e25a33e7c":[0,0,3,6,13],
-"classast_1_1SimpleOrbitDesigner.html#a8b995b789e2f19c737271ab6282eeaee":[0,0,3,6,0],
-"classast_1_1SimpleOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,0,3,6,5],
-"classast_1_1SimpleOrbitDesigner.html#aa0b74d899c850bf0820cc8793e7ad97d":[0,0,3,6,12],
-"classast_1_1SimpleOrbitDesigner.html#aa1b7ef98d029de099d4dd53de0f91079":[0,0,3,6,6],
-"classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea":[0,0,3,6,20],
-"classast_1_1SimpleOrbitDesigner.html#ab7a52a8f2f4c8b1140c8ebcf979f9318":[0,0,3,6,4]
+"classast_1_1SimpleOrbitDesigner.html#a3aee12bf9e1b2d7a9abee8fd8cb337bb":[0,0,3,6,9]
 };

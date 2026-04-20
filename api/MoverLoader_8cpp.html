@@ -111,11 +111,15 @@ $(function(){initNavTree('MoverLoader_8cpp.html',''); initResizable(true); });
 <code>#include &quot;MotionJ4AnalyticalSax.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="MotionHPOPSax_8hpp_source.html">MotionHPOPSax.hpp</a>&quot;</code><br />
 <code>#include &quot;AstCore/STKEphemerisFileParser.hpp&quot;</code><br />
+<code>#include &quot;AstCore/ValXMLLoader.hpp&quot;</code><br />
+<code>#include &quot;AstCore/MissionCommandLoader.hpp&quot;</code><br />
+<code>#include &quot;AstScript/Value.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionBallistic.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionSimpleAscent.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionGreatArc.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionExternalEphemeris.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionSGP4.hpp&quot;</code><br />
+<code>#include &quot;AstSim/MotionMissionCommand.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Literals.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/StringUtil.hpp&quot;</code><br />
 </div><table class="memberdecls">
@@ -156,6 +160,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadGreatArc
 <tr class="memitem:a671015182705b9dab784f300a4d6a7ba" id="r_a671015182705b9dab784f300a4d6a7ba"><td class="memItemLeft" align="right" valign="top"><a id="a671015182705b9dab784f300a4d6a7ba" name="a671015182705b9dab784f300a4d6a7ba"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadExternExternalEphemeris</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, const <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;<a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a>, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &gt; &amp;motionProfile)</td></tr>
 <tr class="separator:a671015182705b9dab784f300a4d6a7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7d29dd5ddbef860064d1940c3eaef4" id="r_a2c7d29dd5ddbef860064d1940c3eaef4"><td class="memItemLeft" align="right" valign="top"><a id="a2c7d29dd5ddbef860064d1940c3eaef4" name="a2c7d29dd5ddbef860064d1940c3eaef4"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAstrogator</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, const <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;<a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a>, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &gt; &amp;motionProfile)</td></tr>
+<tr class="separator:a2c7d29dd5ddbef860064d1940c3eaef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7b84377e44fb6e908cdacf0fe98702d" id="r_af7b84377e44fb6e908cdacf0fe98702d"><td class="memItemLeft" align="right" valign="top"><a id="af7b84377e44fb6e908cdacf0fe98702d" name="af7b84377e44fb6e908cdacf0fe98702d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadPassDefn</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:af7b84377e44fb6e908cdacf0fe98702d"><td class="memSeparator" colspan="2">&#160;</td></tr>

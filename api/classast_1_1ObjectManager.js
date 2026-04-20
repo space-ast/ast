@@ -1,6 +1,7 @@
 var classast_1_1ObjectManager =
 [
     [ "addObject", "classast_1_1ObjectManager.html#a9544d7835f57f773976bf91a3bd0d0a8", null ],
+    [ "getAllObjects", "classast_1_1ObjectManager.html#a1429a050edb79e8115aa8681021b4f25", null ],
     [ "getMaxObjectCount", "classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f", null ],
     [ "getNodeCount", "classast_1_1ObjectManager.html#ab323221297ed4fb560aa50545e371392", null ],
     [ "getObject", "classast_1_1ObjectManager.html#a0ee7766213b53591741da4f65e0aa660", null ],

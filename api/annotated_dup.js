@@ -310,7 +310,7 @@ var annotated_dup =
       [ "MotionJ2AnalyticalSax", "classast_1_1MotionJ2AnalyticalSax.html", null ],
       [ "MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", "classast_1_1MotionJ4Analytical" ],
       [ "MotionJ4AnalyticalSax", "classast_1_1MotionJ4AnalyticalSax.html", null ],
-      [ "MotionMissionCommand", "classast_1_1MotionMissionCommand.html", null ],
+      [ "MotionMissionCommand", "classast_1_1MotionMissionCommand.html", "classast_1_1MotionMissionCommand" ],
       [ "MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", "classast_1_1MotionOrbitDynamics" ],
       [ "MotionOrbitDynamicsKeplerianSax", "classast_1_1MotionOrbitDynamicsKeplerianSax.html", "classast_1_1MotionOrbitDynamicsKeplerianSax" ],
       [ "MotionOrbitDynamicsSax", "classast_1_1MotionOrbitDynamicsSax.html", "classast_1_1MotionOrbitDynamicsSax" ],

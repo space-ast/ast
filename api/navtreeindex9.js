@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"UiValueEdit_8cpp.html":[4,0,0,3,2,18],
 "UiValueEdit_8hpp.html":[4,0,0,3,2,19],
 "UiValueEdit_8hpp_source.html":[4,0,0,3,2,19],
 "UiWidget_8cpp.html":[4,0,0,3,2,20],
@@ -98,9 +99,11 @@ var NAVTREEINDEX9 =
 "ValVector_8hpp.html":[4,0,0,9,8,21],
 "ValVector_8hpp_source.html":[4,0,0,9,8,21],
 "ValXMLLoader_8cpp.html":[4,0,0,1,6,3,0,9],
-"ValXMLLoader_8cpp.html#ac3dcf2aab340936d652403501090e826":[4,0,0,1,6,3,0,9,1],
+"ValXMLLoader_8cpp.html#a258fb071367b38e48970b8463d3c9cca":[4,0,0,1,6,3,0,9,2],
+"ValXMLLoader_8cpp.html#af694703e50e63a45441b4cce4a650e15":[4,0,0,1,6,3,0,9,1],
 "ValXMLLoader_8hpp.html":[4,0,0,1,6,3,0,10],
-"ValXMLLoader_8hpp.html#ac3dcf2aab340936d652403501090e826":[4,0,0,1,6,3,0,10,0],
+"ValXMLLoader_8hpp.html#a258fb071367b38e48970b8463d3c9cca":[4,0,0,1,6,3,0,10,1],
+"ValXMLLoader_8hpp.html#af694703e50e63a45441b4cce4a650e15":[4,0,0,1,6,3,0,10,0],
 "ValXMLLoader_8hpp_source.html":[4,0,0,1,6,3,0,10],
 "ValueView_8cpp.html":[4,0,0,13,4,11],
 "ValueView_8hpp.html":[4,0,0,13,4,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "classast_1_1AxesFrozen.html#a7d770abcd6cbdaa1b982a106414ca01c":[3,0,0,26,3],
 "classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5":[2,0,0,27,0],
 "classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5":[3,0,0,26,0],
-"classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba":[2,0,0,27,5],
-"classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba":[3,0,0,26,5],
-"classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e":[2,0,0,27,1],
-"classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e":[3,0,0,26,1]
+"classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba":[2,0,0,27,5]
 };

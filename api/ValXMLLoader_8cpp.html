@@ -107,6 +107,7 @@ $(function(){initNavTree('ValXMLLoader_8cpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ValXMLLoader_8hpp_source.html">ValXMLLoader.hpp</a>&quot;</code><br />
 <code>#include &quot;AstScript/ValDict.hpp&quot;</code><br />
+<code>#include &quot;AstScript/Value.hpp&quot;</code><br />
 <code>#include &quot;AstScript/ScriptAPI.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/XMLSax.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/XMLParser.hpp&quot;</code><br />
@@ -129,8 +130,13 @@ $(function(){initNavTree('ValXMLLoader_8cpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ac3dcf2aab340936d652403501090e826" id="r_ac3dcf2aab340936d652403501090e826"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac3dcf2aab340936d652403501090e826">ast::aLoadValue</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
-<tr class="separator:ac3dcf2aab340936d652403501090e826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22dc177f067349f69ee155d9a24e519f" id="r_a22dc177f067349f69ee155d9a24e519f"><td class="memItemLeft" align="right" valign="top"><a id="a22dc177f067349f69ee155d9a24e519f" name="a22dc177f067349f69ee155d9a24e519f"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aLoadValue</b> (<a class="el" href="classast_1_1XMLParser.html">XMLParser</a> &amp;parser, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a22dc177f067349f69ee155d9a24e519f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258fb071367b38e48970b8463d3c9cca" id="r_a258fb071367b38e48970b8463d3c9cca"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a258fb071367b38e48970b8463d3c9cca">ast::aLoadValue</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a258fb071367b38e48970b8463d3c9cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af694703e50e63a45441b4cce4a650e15" id="r_af694703e50e63a45441b4cce4a650e15"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af694703e50e63a45441b4cce4a650e15">ast::aLoadValue</a> (FILE *file, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
+<tr class="separator:af694703e50e63a45441b4cce4a650e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

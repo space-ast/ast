@@ -2869,8 +2869,13 @@ template&lt;typename GeometryType &gt; </td></tr>
 <tr class="separator:a6230dd055d994a4f5659c9244dbc62cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f3023b79095c8f87128c574a95ec159" id="r_a5f3023b79095c8f87128c574a95ec159"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f3023b79095c8f87128c574a95ec159">aLoadSequence</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;sequence)</td></tr>
 <tr class="separator:a5f3023b79095c8f87128c574a95ec159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3dcf2aab340936d652403501090e826" id="r_ac3dcf2aab340936d652403501090e826"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3dcf2aab340936d652403501090e826">aLoadValue</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
-<tr class="separator:ac3dcf2aab340936d652403501090e826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22dc177f067349f69ee155d9a24e519f" id="r_a22dc177f067349f69ee155d9a24e519f"><td class="memItemLeft" align="right" valign="top"><a id="a22dc177f067349f69ee155d9a24e519f" name="a22dc177f067349f69ee155d9a24e519f"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadValue</b> (<a class="el" href="classast_1_1XMLParser.html">XMLParser</a> &amp;parser, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a22dc177f067349f69ee155d9a24e519f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258fb071367b38e48970b8463d3c9cca" id="r_a258fb071367b38e48970b8463d3c9cca"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a258fb071367b38e48970b8463d3c9cca">aLoadValue</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a258fb071367b38e48970b8463d3c9cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af694703e50e63a45441b4cce4a650e15" id="r_af694703e50e63a45441b4cce4a650e15"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af694703e50e63a45441b4cce4a650e15">aLoadValue</a> (FILE *file, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
+<tr class="separator:af694703e50e63a45441b4cce4a650e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad8f0755e84ade8bc28b27a2eea2fd6b" id="r_gaad8f0755e84ade8bc28b27a2eea2fd6b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gaad8f0755e84ade8bc28b27a2eea2fd6b">aRAANRate</a> (double gm, double j2, double rb, double a, double ecc, double inc)</td></tr>
 <tr class="separator:gaad8f0755e84ade8bc28b27a2eea2fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3444ec7958b204a724623ace81173f00" id="r_ga3444ec7958b204a724623ace81173f00"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga3444ec7958b204a724623ace81173f00">aArgPeriRate</a> (double gm, double j2, double rb, double a, double ecc, double inc)</td></tr>
@@ -4325,6 +4330,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadGreatArc</b> 
 <tr class="memitem:a671015182705b9dab784f300a4d6a7ba" id="r_a671015182705b9dab784f300a4d6a7ba"><td class="memItemLeft" align="right" valign="top"><a id="a671015182705b9dab784f300a4d6a7ba" name="a671015182705b9dab784f300a4d6a7ba"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadExternExternalEphemeris</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, const <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;<a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a>, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &gt; &amp;motionProfile)</td></tr>
 <tr class="separator:a671015182705b9dab784f300a4d6a7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7d29dd5ddbef860064d1940c3eaef4" id="r_a2c7d29dd5ddbef860064d1940c3eaef4"><td class="memItemLeft" align="right" valign="top"><a id="a2c7d29dd5ddbef860064d1940c3eaef4" name="a2c7d29dd5ddbef860064d1940c3eaef4"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadAstrogator</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, const <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;<a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a>, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1MotionProfile.html">MotionProfile</a> &gt; &amp;motionProfile)</td></tr>
+<tr class="separator:a2c7d29dd5ddbef860064d1940c3eaef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7b84377e44fb6e908cdacf0fe98702d" id="r_af7b84377e44fb6e908cdacf0fe98702d"><td class="memItemLeft" align="right" valign="top"><a id="af7b84377e44fb6e908cdacf0fe98702d" name="af7b84377e44fb6e908cdacf0fe98702d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadPassDefn</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:af7b84377e44fb6e908cdacf0fe98702d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -10433,14 +10441,45 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 
 </div>
 </div>
-<a id="ac3dcf2aab340936d652403501090e826" name="ac3dcf2aab340936d652403501090e826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3dcf2aab340936d652403501090e826">&#9670;&#160;</a></span>aLoadValue()</h2>
+<a id="af694703e50e63a45441b4cce4a650e15" name="af694703e50e63a45441b4cce4a650e15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af694703e50e63a45441b4cce4a650e15">&#9670;&#160;</a></span>aLoadValue() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">errc_t ast::aLoadValue </td>
+          <td class="memname">AST_CORE_API errc_t ast::aLoadValue </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>值文件指针 </td></tr>
+    <tr><td class="paramname">value</td><td>加载后的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a258fb071367b38e48970b8463d3c9cca" name="a258fb071367b38e48970b8463d3c9cca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258fb071367b38e48970b8463d3c9cca">&#9670;&#160;</a></span>aLoadValue() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aLoadValue </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
         </tr>
