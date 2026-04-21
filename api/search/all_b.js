@@ -88,7 +88,7 @@ var searchData=
   ['kneptunegrav_85',['kNeptuneGrav',['../group__Util.html#ga243118f7219bc974db07df5468f59179',1,'ast']]],
   ['kneptuneminradius_86',['kNeptuneMinRadius',['../group__Util.html#gae27790c3d101a3bb3b738181c460261a',1,'ast']]],
   ['kneptuneradius_87',['kNeptuneRadius',['../group__Util.html#ga60df24b7ba3bf35ced4a18b3f80ab1a2',1,'ast']]],
-  ['kp_5f_88',['kp_',['../structast_1_1HPOPForceModel_1_1Drag.html#ace95b019c90f1c8d5fd84f2bea119fe3',1,'ast::HPOPForceModel::Drag']]],
+  ['kp_5f_88',['kp_',['../classast_1_1DragForce.html#a4466804f4e10391c8981d5519526f498',1,'ast::DragForce::kp_'],['../structast_1_1HPOPForceModel_1_1Drag.html#ace95b019c90f1c8d5fd84f2bea119fe3',1,'ast::HPOPForceModel::Drag::kp_']]],
   ['kpi_89',['kPI',['../group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc',1,'ast']]],
   ['kpicosectosec_90',['kPicoSecToSec',['../group__Util.html#gaed9c2c2d4ad459431ab236eb7609ad93',1,'ast']]],
   ['kplutograv_91',['kPlutoGrav',['../group__Util.html#ga42f29865a9fe786b8da4597e628663df',1,'ast']]],

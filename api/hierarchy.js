@@ -131,6 +131,9 @@ var hierarchy =
     ] ],
     [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
+    [ "ast::ForceModel", "classast_1_1ForceModel.html", [
+      [ "ast::DragForce", "classast_1_1DragForce.html", null ]
+    ] ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],

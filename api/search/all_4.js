@@ -101,11 +101,14 @@ var searchData=
   ['drag_98',['Drag',['../structast_1_1HPOPForceModel_1_1Drag.html',1,'ast::HPOPForceModel']]],
   ['drag_5f_99',['drag_',['../classast_1_1HPOPForceModel.html#a54f4de37fd487f9c72b7ce79eb3bd2c9',1,'ast::HPOPForceModel']]],
   ['dragcoefficient_5f_100',['dragCoefficient_',['../structast_1_1HPOPForceModel_1_1Drag.html#a08c849f926236eef6bc0bcd3775cfcbe',1,'ast::HPOPForceModel::Drag']]],
-  ['duration_101',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
-  ['duration_2ecpp_102',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
-  ['duration_2ehpp_103',['Duration.hpp',['../Duration_8hpp.html',1,'']]],
-  ['durationfrom_104',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]],
-  ['dval_105',['dval',['../structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b',1,'ast::DAF_SummaryRecords']]],
-  ['dy_106',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]],
-  ['dynamicsystem_5f_107',['dynamicSystem_',['../classast_1_1HPOPEquation.html#ad0c20d16cce4c511c79c09f464fb49d6',1,'ast::HPOPEquation']]]
+  ['dragforce_101',['DragForce',['../classast_1_1DragForce.html',1,'ast']]],
+  ['dragforce_2ecpp_102',['DragForce.cpp',['../DragForce_8cpp.html',1,'']]],
+  ['dragforce_2ehpp_103',['DragForce.hpp',['../DragForce_8hpp.html',1,'']]],
+  ['duration_104',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
+  ['duration_2ecpp_105',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
+  ['duration_2ehpp_106',['Duration.hpp',['../Duration_8hpp.html',1,'']]],
+  ['durationfrom_107',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]],
+  ['dval_108',['dval',['../structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b',1,'ast::DAF_SummaryRecords']]],
+  ['dy_109',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]],
+  ['dynamicsystem_5f_110',['dynamicSystem_',['../classast_1_1HPOPEquation.html#ad0c20d16cce4c511c79c09f464fb49d6',1,'ast::HPOPEquation']]]
 ];

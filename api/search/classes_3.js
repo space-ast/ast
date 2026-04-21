@@ -23,5 +23,6 @@ var searchData=
   ['discreteepochsecondrange_20',['DiscreteEpochSecondRange',['../classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html',1,'ast::TimeInterval']]],
   ['discretetimepointrange_21',['DiscreteTimePointRange',['../classast_1_1TimeInterval_1_1DiscreteTimePointRange.html',1,'ast::TimeInterval']]],
   ['doublecomplex_22',['doublecomplex',['../structdoublecomplex.html',1,'']]],
-  ['drag_23',['Drag',['../structast_1_1HPOPForceModel_1_1Drag.html',1,'ast::HPOPForceModel']]]
+  ['drag_23',['Drag',['../structast_1_1HPOPForceModel_1_1Drag.html',1,'ast::HPOPForceModel']]],
+  ['dragforce_24',['DragForce',['../classast_1_1DragForce.html',1,'ast']]]
 ];
