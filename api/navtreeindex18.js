@@ -1,5 +1,6 @@
 var NAVTREEINDEX18 =
 {
+"classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1":[0,0,6,5,4],
 "classast_1_1JulianDate.html#a7fedf3b700c471b228abf1dd7487b30b":[0,0,6,5,5],
 "classast_1_1JulianDate.html#a84787d21f050ff5bafec038662a82316":[0,0,6,5,0],
 "classast_1_1JulianDate.html#a87055b6bc22499096b60dac1ce0f67dc":[0,0,6,5,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX18 =
 "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html":[0,1,0,4],
 "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html#a67fb22197f1a01bf499e23f926eb5059":[0,1,0,4,0],
 "classast_1_1MessageLogContext.html":[0,4,8],
-"classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4":[0,4,8,1],
-"classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398":[0,4,8,0]
+"classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4":[0,4,8,1]
 };

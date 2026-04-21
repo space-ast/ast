@@ -12,6 +12,6 @@ var AdvCATLoader_8cpp =
     [ "_aLoadSSCHardBodyRadFile", "AdvCATLoader_8cpp.html#aad0a6ece0e94316ee74710ae42bcdcd3", null ],
     [ "aLoadAdvCAT", "AdvCATLoader_8cpp.html#a120d9f199d7929b9f8c2e5c59569f6d1", null ],
     [ "aLoadAdvCAT", "AdvCATLoader_8cpp.html#a63cdce2d21d103cdb6c6b7529e34e3a3", null ],
-    [ "aLoadAdvCAT", "AdvCATLoader_8cpp.html#a4a21ee31929148f73a98c534b976b90c", null ],
+    [ "aLoadAdvCAT", "AdvCATLoader_8cpp.html#afc60c93a2da3f96b6d84fda392c790e5", null ],
     [ "aLoadAdvCAT", "AdvCATLoader_8cpp.html#af5d3aba9497417d886bf2f549e1ce49c", null ]
 ];

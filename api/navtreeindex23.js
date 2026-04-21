@@ -1,5 +1,6 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1Quantity.html#afc11f8398979bb9e565e99eb4cd7b86e":[0,4,3,0,40],
 "classast_1_1Quantity.html#afc302dc37a47b5a3f47ab1da4307b7ad":[0,4,3,0,27],
 "classast_1_1Quaternion.html":[0,1,1,2],
 "classast_1_1Quaternion.html#a0a08007e0a8053e0fa7c5961a35e2cd1":[0,1,1,2,25],
@@ -248,6 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1Serializer.html":[2,0,0,406],
 "classast_1_1Serializer.html":[3,0,0,405],
 "classast_1_1Serializer.html#abbab2673a6026a7298ee96ba0d151305":[2,0,0,406,0],
-"classast_1_1Serializer.html#abbab2673a6026a7298ee96ba0d151305":[3,0,0,405,0],
-"classast_1_1Serializer.html#aea3c7763876583dedddbdf494927921c":[2,0,0,406,1]
+"classast_1_1Serializer.html#abbab2673a6026a7298ee96ba0d151305":[3,0,0,405,0]
 };

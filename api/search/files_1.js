@@ -113,9 +113,10 @@ var searchData=
   ['burn_2ehpp_110',['Burn.hpp',['../Burn_8hpp.html',1,'']]],
   ['burncollocation_2ecpp_111',['BurnCollocation.cpp',['../BurnCollocation_8cpp.html',1,'']]],
   ['burncollocation_2ehpp_112',['BurnCollocation.hpp',['../BurnCollocation_8hpp.html',1,'']]],
-  ['burnfinite_2ehpp_113',['BurnFinite.hpp',['../BurnFinite_8hpp.html',1,'']]],
-  ['burnimpulsive_2ecpp_114',['BurnImpulsive.cpp',['../BurnImpulsive_8cpp.html',1,'']]],
-  ['burnimpulsive_2ehpp_115',['BurnImpulsive.hpp',['../BurnImpulsive_8hpp.html',1,'']]],
-  ['burnloader_2ecpp_116',['BurnLoader.cpp',['../BurnLoader_8cpp.html',1,'']]],
-  ['burnloader_2ehpp_117',['BurnLoader.hpp',['../BurnLoader_8hpp.html',1,'']]]
+  ['burnfinite_2ecpp_113',['BurnFinite.cpp',['../BurnFinite_8cpp.html',1,'']]],
+  ['burnfinite_2ehpp_114',['BurnFinite.hpp',['../BurnFinite_8hpp.html',1,'']]],
+  ['burnimpulsive_2ecpp_115',['BurnImpulsive.cpp',['../BurnImpulsive_8cpp.html',1,'']]],
+  ['burnimpulsive_2ehpp_116',['BurnImpulsive.hpp',['../BurnImpulsive_8hpp.html',1,'']]],
+  ['burnloader_2ecpp_117',['BurnLoader.cpp',['../BurnLoader_8cpp.html',1,'']]],
+  ['burnloader_2ehpp_118',['BurnLoader.hpp',['../BurnLoader_8hpp.html',1,'']]]
 ];

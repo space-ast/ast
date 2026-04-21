@@ -1,5 +1,8 @@
 var NAVTREEINDEX36 =
 {
+"structast_1_1NLPVectorBounds.html":[2,0,0,306],
+"structast_1_1NLPVectorBounds.html":[3,0,0,305],
+"structast_1_1NutationCache.html":[2,0,0,309],
 "structast_1_1NutationCache.html":[3,0,0,308],
 "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html":[2,0,0,338,0],
 "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html":[3,0,0,337,0],
@@ -116,5 +119,5 @@ var NAVTREEINDEX36 =
 "unionMultitype.html":[3,0,15],
 "unionast_1_1KernelData.html":[2,0,0,243],
 "unionast_1_1KernelData.html":[3,0,0,242],
-"zeros_8h_source.html":[4,0,0,4,4,0,0,1]
+"zeros_8h_source.html":[4,0,0,5,4,0,0,1]
 };

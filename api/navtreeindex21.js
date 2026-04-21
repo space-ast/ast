@@ -1,5 +1,6 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656ba46b77ceffde8a50a4d804bca3741c5f8":[0,1,4,7,0,1],
 "classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656ba937d11412931c615d0a1b5898167ebfc":[0,1,4,7,0,0],
 "classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656baa596a53563a72fde1a9a6fd1a9ba8af8":[0,1,4,7,0,2],
 "classast_1_1ODEEventDetectorGeneric.html":[2,0,0,321],
@@ -248,6 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1OrbElem.html#aeb85820a2574c01f6e2c0f4a24f997ea":[0,0,3,10,4],
 "classast_1_1OrdinaryDifferentialEquation.html":[0,1,4,13],
 "classast_1_1OrdinaryDifferentialEquation.html#a0963660459787299637e98c013fddc5a":[0,1,4,13,2],
-"classast_1_1OrdinaryDifferentialEquation.html#adfda594f046b4fce867117ac966cc497":[0,1,4,13,1],
-"classast_1_1OrdinaryDifferentialEquation.html#af9a8fb3d5c59b75b6439743cd3638ac9":[0,1,4,13,0]
+"classast_1_1OrdinaryDifferentialEquation.html#adfda594f046b4fce867117ac966cc497":[0,1,4,13,1]
 };

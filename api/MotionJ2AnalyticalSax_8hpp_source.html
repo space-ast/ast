@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstSim/Loader/MotionJ2AnalyticalSax.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstLoader/Sim/MotionJ2AnalyticalSax.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,12 +107,12 @@ $(function(){initNavTree('MotionJ2AnalyticalSax_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;MotionOrbitDynamicsKeplerianSax.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="MotionJ2Analytical_8hpp.html">MotionJ2Analytical.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstSim/MotionJ2Analytical.hpp&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1MotionJ2AnalyticalSax.html">   34</a></span><span class="keyword">class </span>AST_SIM_API <a class="code hl_class" href="classast_1_1MotionJ2AnalyticalSax.html">MotionJ2AnalyticalSax</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1MotionOrbitDynamicsKeplerianSax.html">MotionOrbitDynamicsKeplerianSax</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1MotionJ2AnalyticalSax.html">   34</a></span><span class="keyword">class </span>AST_LOADER_API <a class="code hl_class" href="classast_1_1MotionJ2AnalyticalSax.html">MotionJ2AnalyticalSax</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1MotionOrbitDynamicsKeplerianSax.html">MotionOrbitDynamicsKeplerianSax</a></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">using </span>MotionOrbitDynamicsKeplerianSax::MotionOrbitDynamicsKeplerianSax;</div>
@@ -123,7 +123,6 @@ $(function(){initNavTree('MotionJ2AnalyticalSax_8hpp_source.html',''); initResiz
 </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aMotionJ2Analytical_8hpp_html"><div class="ttname"><a href="MotionJ2Analytical_8hpp.html">MotionJ2Analytical.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1MotionJ2AnalyticalSax_html"><div class="ttname"><a href="classast_1_1MotionJ2AnalyticalSax.html">ast::MotionJ2AnalyticalSax</a></div><div class="ttdef"><b>定义</b> MotionJ2AnalyticalSax.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1MotionJ2Analytical_html"><div class="ttname"><a href="classast_1_1MotionJ2Analytical.html">ast::MotionJ2Analytical</a></div><div class="ttdef"><b>定义</b> MotionJ2Analytical.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1MotionOrbitDynamicsKeplerianSax_html"><div class="ttname"><a href="classast_1_1MotionOrbitDynamicsKeplerianSax.html">ast::MotionOrbitDynamicsKeplerianSax</a></div><div class="ttdef"><b>定义</b> MotionOrbitDynamicsKeplerianSax.hpp:34</div></div>
@@ -133,7 +132,7 @@ $(function(){initNavTree('MotionJ2AnalyticalSax_8hpp_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9c9106fcc7ff0f590973c837d2bf1f53.html">AstSim</a></li><li class="navelem"><a class="el" href="dir_ab20f66dbe4b1cae9579ed01e4f7b7d8.html">Loader</a></li><li class="navelem"><b>MotionJ2AnalyticalSax.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0c3e1a5d8bf0fe75b10e37d3496a0636.html">AstLoader</a></li><li class="navelem"><a class="el" href="dir_0e2092a13bf35ef4389b5537d500946c.html">Sim</a></li><li class="navelem"><b>MotionJ2AnalyticalSax.hpp</b></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

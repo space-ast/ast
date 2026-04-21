@@ -1,5 +1,6 @@
 var NAVTREEINDEX17 =
 {
+"classast_1_1IAUXYSPrecomputed.html#af101b739d6ae3ee94db70aeef077e0b1":[3,0,0,208,4],
 "classast_1_1IAUXYSPrecomputed.html#afe5fbe0ccbff67c10f3046287519751c":[2,0,0,209,6],
 "classast_1_1IAUXYSPrecomputed.html#afe5fbe0ccbff67c10f3046287519751c":[3,0,0,208,6],
 "classast_1_1IArchive.html":[2,0,0,207],
@@ -248,6 +249,5 @@ var NAVTREEINDEX17 =
 "classast_1_1JsonValue.html#affb2fc8983fc8ad50f995a93328ab61b":[0,4,1,11,32],
 "classast_1_1JulianDate.html":[0,0,6,5],
 "classast_1_1JulianDate.html#a1b8919d5d7d7431a64b6f75b2bc8d7cc":[0,0,6,5,1],
-"classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8":[0,0,6,5,3],
-"classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1":[0,0,6,5,4]
+"classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8":[0,0,6,5,3]
 };

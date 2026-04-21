@@ -1,5 +1,6 @@
 var NAVTREEINDEX16 =
 {
+"classast_1_1GfxSolarSystem.html#abef2341ab4d0615308cc9ff9c17018f0":[3,0,0,190,1],
 "classast_1_1GfxSolarSystem.html#adbce60753911b91b0b497d9f4e4d92c8":[2,0,0,191,7],
 "classast_1_1GfxSolarSystem.html#adbce60753911b91b0b497d9f4e4d92c8":[3,0,0,190,7],
 "classast_1_1GfxSolarSystem.html#aedd31b771c600cf140cc0f40873ea10c":[2,0,0,191,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX16 =
 "classast_1_1IAUXYSPrecomputed.html#a5726cee55e23f9d875cc2d5642777cc4":[3,0,0,208,2],
 "classast_1_1IAUXYSPrecomputed.html#ac6dc3ebaf103d6aff8797059136cb59e":[2,0,0,209,8],
 "classast_1_1IAUXYSPrecomputed.html#ac6dc3ebaf103d6aff8797059136cb59e":[3,0,0,208,8],
-"classast_1_1IAUXYSPrecomputed.html#af101b739d6ae3ee94db70aeef077e0b1":[2,0,0,209,4],
-"classast_1_1IAUXYSPrecomputed.html#af101b739d6ae3ee94db70aeef077e0b1":[3,0,0,208,4]
+"classast_1_1IAUXYSPrecomputed.html#af101b739d6ae3ee94db70aeef077e0b1":[2,0,0,209,4]
 };
