@@ -1,10 +1,10 @@
 ///
 /// @file      bmIdentifier.cpp
-/// @brief     ~
-/// @details   ~
+/// @brief     Identifier 性能基准测试
+/// @details   测试 Identifier 类的各种操作性能
 /// @author    axel
-/// @date      2026-01-18
-/// @copyright 版权所有 (C) 2026-present, ast项目.
+/// @date      2025-12-17
+/// @copyright 版权所有 (C) 2025-present, ast项目.
 ///
 /// ast项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -18,65 +18,30 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/IdentifierTable.hpp"
-#include "AstUtil/IdentifierAPI.hpp"
+#include "AstUtil/Identifier.hpp"
 #include <benchmark/benchmark.h>
+#include <string>
+#include <unordered_map>
 
+AST_USING_NAMESPACE
 
-AST_USING_NAMESPACE 
-
-struct Param1 {
-    std::string str;
+struct IdentifierParam {
+    Identifier id;
 };
 
-struct Param2{
-    Identifier* id;
-};
-
-
-void bmStringAssign(benchmark::State& state) {
-    Param1 param;
+static void bmIdentifierCreate(benchmark::State& state) {
     int length = (int)state.range(0);
     std::string str(length, 'a');
     for (auto _ : state) {
-        param.str = str;
-        benchmark::DoNotOptimize(param.str);
+        Identifier id(str);
+        benchmark::DoNotOptimize(id);
     }
 }
 
-BENCHMARK(bmStringAssign)->Range(1, 100);
+BENCHMARK(bmIdentifierCreate)->Range(1, 100);
 
-
-void bmIdentitiferAssign(benchmark::State& state) {
-    Param2 param;
-    int length = (int)state.range(0);
-    std::string str(length, 'a');
-    for (auto _ : state) {
-        param.id = aIdentifier(str);
-        benchmark::DoNotOptimize(param.id);
-    }
-}
-
-BENCHMARK(bmIdentitiferAssign)->Range(1, 100);
-
-
-void bmStringCompare(benchmark::State& state) {
-    Param1 param;
-    int length = (int)state.range(0);
-    std::string str(length, 'a');
-    param.str = str;
-    str = std::string(length, 'b');
-    for (auto _ : state) {
-        bool isEqual = param.str == str;
-        benchmark::DoNotOptimize(isEqual);
-    }
-}
-
-BENCHMARK(bmStringCompare)->Range(1, 100);
-
-
-void bmIdentifierCompare(benchmark::State& state) {
-    Param2 param;
+static void bmIdentifierCompare(benchmark::State& state) {
+    IdentifierParam param;
     int length = (int)state.range(0);
     std::string str(length, 'a');
     param.id = aIdentifier(str);
@@ -110,10 +75,9 @@ void bmStringUnoderedMap(benchmark::State& state) {
     int length = (int)state.range(0);
     int i = 0;
     for (const auto& s : strings) {
+        if (i >= length) break;
         map.insert({s + std::to_string(i), 0});
-        if (i++ >= length) {
-            break;
-        }
+        i++;
     }
     for (auto _ : state) {
         auto it = map.find(str);
@@ -130,10 +94,9 @@ void bmIdentifierUnoderedMap(benchmark::State& state) {
     int i = 0;
     auto id = aIdentifier(str);
     for (const auto& s : strings) {
+        if (i >= length) break;
         map.insert({aIdentifier(s + std::to_string(i)), 0});
-        if (i++ >= length) {
-            break;
-        }
+        i++;
     }
     for (auto _ : state) {
         auto it = map.find(id);
@@ -142,6 +105,3 @@ void bmIdentifierUnoderedMap(benchmark::State& state) {
 }
 
 BENCHMARK(bmIdentifierUnoderedMap)->Range(1, 100);
-
-BENCHMARK_MAIN();
-
