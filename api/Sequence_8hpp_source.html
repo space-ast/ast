@@ -125,12 +125,13 @@ $(function(){initNavTree('Sequence_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    errc_t <a class="code hl_function" href="classast_1_1Segment.html#a099498044c1713bd58dc1871ad4920f5">execute</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> setCommands(<span class="keyword">const</span> std::vector&lt;HMissionCommand&gt;&amp; commands);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> setCommands(std::vector&lt;HMissionCommand&gt;&amp;&amp; commands);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::vector&lt;HMissionCommand&gt; commands_;     </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> std::vector&lt;HMissionCommand&gt;&amp; getCommands() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::vector&lt;HMissionCommand&gt; commands_;     </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
 </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aMissionCommand_8hpp_html"><div class="ttname"><a href="MissionCommand_8hpp.html">MissionCommand.hpp</a></div></div>
 <div class="ttc" id="aSegment_8hpp_html"><div class="ttname"><a href="Segment_8hpp.html">Segment.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1Segment_html"><div class="ttname"><a href="classast_1_1Segment.html">ast::Segment</a></div><div class="ttdoc">任务段</div><div class="ttdef"><b>定义</b> Segment.hpp:39</div></div>
