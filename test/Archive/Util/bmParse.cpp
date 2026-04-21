@@ -23,26 +23,11 @@
 
 AST_USING_NAMESPACE
 
-#if 1
 const std::string str_int = "1234567890";
 
 const std::string str_double = "123456789.0123456789";
 
 const std::string str_fortran_double = "123456789.012345678D42";
-#elif 0
-const std::string str_int = "                     1234567890     ";
-
-const std::string str_double = "          1234567890123.0123456789   ";
-
-const std::string str_fortran_double = "           1234567890123.012345678D42   ";
-
-#else
-const std::string str_int = "1234567";
-
-const std::string str_double = "1234.56";
-
-const std::string str_fortran_double = "12.34D2";
-#endif
 
 static void parseInt_LibC_1(benchmark::State& state)
 {

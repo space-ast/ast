@@ -93,7 +93,7 @@ BENCHMARK(bmIdentifierCompare)->Range(1, 100);
 
 std::vector<std::string> strings = {
     "1234",
-    "abcdetdu1272312"
+    "abcdetdu1272312",
     "5678",
     "9012",
     "3456",
@@ -109,8 +109,8 @@ void bmStringUnoderedMap(benchmark::State& state) {
     std::string str(10, 'a');
     int length = (int)state.range(0);
     int i = 0;
-    for (const auto& str : strings) {
-        map.insert({str + std::to_string(i), 0});
+    for (const auto& s : strings) {
+        map.insert({s + std::to_string(i), 0});
         if (i++ >= length) {
             break;
         }
@@ -129,8 +129,8 @@ void bmIdentifierUnoderedMap(benchmark::State& state) {
     int length = (int)state.range(0);
     int i = 0;
     auto id = aIdentifier(str);
-    for (const auto& str : strings) {
-        map.insert({aIdentifier(str + std::to_string(i)), 0});
+    for (const auto& s : strings) {
+        map.insert({aIdentifier(s + std::to_string(i)), 0});
         if (i++ >= length) {
             break;
         }
