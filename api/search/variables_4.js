@@ -15,15 +15,14 @@ var searchData=
   ['desc_5f_12',['desc_',['../classast_1_1Field.html#ac9892e80ad6ea95308f2ebf4783ecf4e',1,'ast::Field']]],
   ['descriptors_13',['descriptors',['../structast_1_1DAF__SPKSummaryRecords.html#a5b4c7bca9ee562968ea70b164fef28dc',1,'ast::DAF_SPKSummaryRecords']]],
   ['detailedterrainhorizon_5f_14',['detailedTerrainHorizon_',['../classast_1_1FieldOfView.html#a901f4b069bb0ae3c2d405450a5432b7b',1,'ast::FieldOfView']]],
-  ['detectshadowboundaries_5f_15',['detectShadowBoundaries_',['../structast_1_1HPOPForceModel_1_1SRP.html#a8da68ec4323f57d3b62afe88e0f1ed30',1,'ast::HPOPForceModel::SRP']]],
+  ['detectshadowboundaries_5f_15',['detectShadowBoundaries_',['../classast_1_1SolarRadiationPressure.html#a77909811c966c50c0563e04d47b2fdf4',1,'ast::SolarRadiationPressure']]],
   ['dimension_5f_16',['dimension_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4e0505f4f6e0ceb4eb49ba510f61b69c',1,'ast::ODEFixedStepIntegrator::Workspace::dimension_'],['../classast_1_1Unit_1_1UnitRep.html#a270fa398df6868375f5db125920b05ac',1,'ast::Unit::UnitRep::dimension_'],['../classast_1_1PropertyQuantity.html#a2a08668fd3fdc96e9940bbad1f6a8730',1,'ast::PropertyQuantity::dimension_']]],
   ['dims_5f_17',['dims_',['../classast_1_1ValArray.html#aefb5076bfe561d7498f557c6297fc9a8',1,'ast::ValArray']]],
   ['direction_5f_18',['direction_',['../classast_1_1CriticallyInclinedOrbitDesigner.html#a771ab05caca4a307e4f15692d6ee96ae',1,'ast::CriticallyInclinedOrbitDesigner']]],
   ['dirpath_5f_19',['dirpath_',['../classast_1_1GravityFieldLoader.html#a35b4d83a3160eaed9fbed4959b7c5a32',1,'ast::GravityFieldLoader::dirpath_'],['../classast_1_1SolarSystem.html#a00ab55b3f026a57e64b222d167aa2340',1,'ast::SolarSystem::dirpath_']]],
   ['dm_20',['dm',['../Unit_8cpp.html#a567c78044182d62bdfd482ade453488f',1,'ast::units']]],
-  ['drag_5f_21',['drag_',['../classast_1_1HPOPForceModel.html#a54f4de37fd487f9c72b7ce79eb3bd2c9',1,'ast::HPOPForceModel']]],
-  ['dragcoefficient_5f_22',['dragCoefficient_',['../structast_1_1HPOPForceModel_1_1Drag.html#a08c849f926236eef6bc0bcd3775cfcbe',1,'ast::HPOPForceModel::Drag']]],
-  ['dval_23',['dval',['../structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b',1,'ast::DAF_SummaryRecords']]],
-  ['dy_24',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]],
-  ['dynamicsystem_5f_25',['dynamicSystem_',['../classast_1_1HPOPEquation.html#ad0c20d16cce4c511c79c09f464fb49d6',1,'ast::HPOPEquation']]]
+  ['drag_5f_21',['drag_',['../classast_1_1HPOPForceModel.html#a8a4123789a194a221d255a6d0762be87',1,'ast::HPOPForceModel']]],
+  ['dval_22',['dval',['../structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b',1,'ast::DAF_SummaryRecords']]],
+  ['dy_23',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]],
+  ['dynamicsystem_5f_24',['dynamicSystem_',['../classast_1_1HPOPEquation.html#ad0c20d16cce4c511c79c09f464fb49d6',1,'ast::HPOPEquation']]]
 ];

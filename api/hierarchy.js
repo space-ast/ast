@@ -96,7 +96,6 @@ var hierarchy =
     [ "ast::TimeInterval::DiscreteEpochSecondRange", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
-    [ "ast::HPOPForceModel::Drag", "structast_1_1HPOPForceModel_1_1Drag.html", null ],
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
     [ "ast::LeapSecond::Entry", "structast_1_1LeapSecond_1_1Entry.html", null ],
     [ "ast::SpaceWeather::Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
@@ -132,7 +131,14 @@ var hierarchy =
     [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "ast::ForceModel", "classast_1_1ForceModel.html", [
-      [ "ast::DragForce", "classast_1_1DragForce.html", null ]
+      [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
+        [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
+        [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
+        [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ],
+        [ "ast::TwoBodyForce", "classast_1_1TwoBodyForce.html", null ]
+      ] ],
+      [ "ast::DragForce", "classast_1_1DragForce.html", null ],
+      [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ]
     ] ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
@@ -175,7 +181,6 @@ var hierarchy =
     [ "ast::GfxMain", "classast_1_1GfxMain.html", null ],
     [ "ast::GfxSolarSystem", "classast_1_1GfxSolarSystem.html", null ],
     [ "ast::GlobalContext", "classast_1_1GlobalContext.html", null ],
-    [ "ast::HPOPForceModel::Gravity", "structast_1_1HPOPForceModel_1_1Gravity.html", null ],
     [ "ast::GravityCalculator", "classast_1_1GravityCalculator.html", [
       [ "ast::GravityCalculator2", "classast_1_1GravityCalculator2.html", null ],
       [ "ast::GravityCalculator3", "classast_1_1GravityCalculator3.html", null ],
@@ -613,13 +618,20 @@ var hierarchy =
       [ "ast::StreamScanner", "classast_1_1StreamScanner.html", null ],
       [ "ast::StringScanner", "classast_1_1StringScanner.html", null ]
     ] ],
-    [ "ast::ScopedPtr< T >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< T >", "classast_1_1ScopedPtr.html", [
+      [ "ast::ClonePtr< T >", "classast_1_1ClonePtr.html", null ]
+    ] ],
     [ "ast::ScopedPtr< ast::AttitudeProfile >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::BodyAttraction >", "classast_1_1ScopedPtr.html", [
+      [ "ast::ClonePtr< ast::BodyAttraction >", "classast_1_1ClonePtr.html", null ]
+    ] ],
     [ "ast::ScopedPtr< ast::BodyEphemeris >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::BodyOrientation >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::BodyShape >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::Ephemeris >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::HPOPEquation >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::MotionProfile >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::ODEIntegrator >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename >", "structast_1_1ScopedPtrDeleter.html", null ],
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename std::enable_if< std::is_base_of< Object, T >::value >::type >", "structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html", null ],
@@ -692,7 +704,6 @@ var hierarchy =
     [ "ast::SPK_Type5_Trailer", "structast_1_1SPK__Type5__Trailer.html", null ],
     [ "ast::SPK_Type8_Trailer", "structast_1_1SPK__Type8__Trailer.html", null ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >", "classast_1_1strings__internal_1_1Splitter.html", null ],
-    [ "ast::HPOPForceModel::SRP", "structast_1_1HPOPForceModel_1_1SRP.html", null ],
     [ "ast::StackFrame", "classast_1_1StackFrame.html", null ],
     [ "ast::StartupConfig", "classast_1_1StartupConfig.html", null ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
@@ -704,7 +715,6 @@ var hierarchy =
     ] ],
     [ "ast::TAIScale", "classast_1_1TAIScale.html", null ],
     [ "ast::TDBScale", "classast_1_1TDBScale.html", null ],
-    [ "ast::HPOPForceModel::ThirdBody", "structast_1_1HPOPForceModel_1_1ThirdBody.html", null ],
     [ "ast::Time", "classast_1_1Time.html", null ],
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", null ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],

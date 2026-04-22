@@ -13,6 +13,7 @@ var group__RTTI =
       [ "setValueInt", "classast_1_1PropertyTimePoint.html#a51343cb6e7a320dd762dad0f0c365567", null ],
       [ "setValueString", "classast_1_1PropertyTimePoint.html#afd2bbf7316a49375d97e0ca7e0a4aa3b", null ]
     ] ],
+    [ "ast::ClonePtr< T >", "classast_1_1ClonePtr.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
@@ -174,6 +175,10 @@ var group__RTTI =
     [ "ast::PrintObjectTreeConfig", "structast_1_1PrintObjectTreeConfig.html", [
       [ "printRefCount", "structast_1_1PrintObjectTreeConfig.html#a2ab70ed769e937bab9593f1324f40e68", null ],
       [ "printWeakRefCount", "structast_1_1PrintObjectTreeConfig.html#adb0a457ef5da21ede13b21a07a8845ef", null ]
+    ] ],
+    [ "ast::ScopedPtr< T >", "classast_1_1ScopedPtr.html", [
+      [ "ScopedPtr", "classast_1_1ScopedPtr.html#a029fecfd485da5745d1b38f2803b5d5b", null ],
+      [ "operator=", "classast_1_1ScopedPtr.html#a47452465807e982349b82bb5d5f4cd9b", null ]
     ] ],
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::FPropertyGet", "group__RTTI.html#gaaa80cc63cbbd9c142d7dbfc004d488e0", null ],

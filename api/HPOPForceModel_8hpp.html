@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Propagator/HPOP/HPOPForceModel.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/ForceModel/HPOPForceModel.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,14 +100,21 @@ $(function(){initNavTree('HPOPForceModel_8hpp.html',''); initResizable(true); })
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#namespaces">命名空间</a>  </div>
   <div class="headertitle"><div class="title">HPOPForceModel.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstCore/CelestialBody.hpp&quot;</code><br />
+<code>#include &quot;AstCore/GravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TwoBodyForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/DragForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/ThirdBodyForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/SolarRadiationPressure.hpp&quot;</code><br />
+<code>#include &quot;AstCore/RelativityCorrection.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Constants.h&quot;</code><br />
+<code>#include &quot;AstUtil/ScopedPtr.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/ClonePtr.hpp&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="HPOPForceModel_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -116,69 +123,11 @@ $(function(){initNavTree('HPOPForceModel_8hpp.html',''); initResizable(true); })
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1HPOPForceModel_1_1Gravity.html">ast::HPOPForceModel::Gravity</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1HPOPForceModel_1_1Drag.html">ast::HPOPForceModel::Drag</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1HPOPForceModel_1_1SRP.html">ast::HPOPForceModel::SRP</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1HPOPForceModel_1_1ThirdBody.html">ast::HPOPForceModel::ThirdBody</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-枚举</h2></td></tr>
-<tr class="memitem:abf7ad908ac403269c383f0f661b4b15b" id="r_abf7ad908ac403269c383f0f661b4b15b"><td class="memItemLeft" align="right" valign="top"><a id="abf7ad908ac403269c383f0f661b4b15b" name="abf7ad908ac403269c383f0f661b4b15b"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESolidTideType</b> { <b>eFull</b>
-, <b>ePermanentOnly</b>
-, <b>eNone</b>
- }</td></tr>
-<tr class="separator:abf7ad908ac403269c383f0f661b4b15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7d345e328c706e11b589b6545de1b01" id="r_ae7d345e328c706e11b589b6545de1b01"><td class="memItemLeft" align="right" valign="top"><a id="ae7d345e328c706e11b589b6545de1b01" name="ae7d345e328c706e11b589b6545de1b01"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EAtmDensityModel</b> { <br />
-&#160;&#160;<b>e1976Standard</b>
-, <b>eHarrisPriester</b>
-, <b>eJacchia60</b>
-, <b>eJacchia70</b>
-, <br />
-&#160;&#160;<b>eJacchia71</b>
-, <b>eJacchiaRoberts</b>
-, <b>eMSIS1986</b>
-, <b>eMSISE1990</b>
-, <br />
-&#160;&#160;<b>eNRLMSISE2000</b>
-, <b>eCIRA72</b>
-, <b>eDTM2012</b>
-<br />
- }</td></tr>
-<tr class="separator:ae7d345e328c706e11b589b6545de1b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab6e1fa4dff11ac13473fb4ca3b4c997" id="r_aab6e1fa4dff11ac13473fb4ca3b4c997"><td class="memItemLeft" align="right" valign="top"><a id="aab6e1fa4dff11ac13473fb4ca3b4c997" name="aab6e1fa4dff11ac13473fb4ca3b4c997"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EGeoMagneticFluxSource</b> { <b>eKp</b>
-, <b>eAp</b>
- }</td></tr>
-<tr class="separator:aab6e1fa4dff11ac13473fb4ca3b4c997"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adadcecc404b12b4ec1913fdc98a02905" id="r_adadcecc404b12b4ec1913fdc98a02905"><td class="memItemLeft" align="right" valign="top"><a id="adadcecc404b12b4ec1913fdc98a02905" name="adadcecc404b12b4ec1913fdc98a02905"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EGeoMagneticFluxUpdateMethod</b> { <b>eDaily</b>
-, <b>e3Hourly</b>
-, <b>e3HourlyInterp</b>
-, <b>e3HourlyCubicSpline</b>
- }</td></tr>
-<tr class="separator:adadcecc404b12b4ec1913fdc98a02905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf48439a4f7c7769a0f7e017ef7f055" id="r_a2bf48439a4f7c7769a0f7e017ef7f055"><td class="memItemLeft" align="right" valign="top"><a id="a2bf48439a4f7c7769a0f7e017ef7f055" name="a2bf48439a4f7c7769a0f7e017ef7f055"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESunPosition</b> { <b>eTrue</b>
-, <b>eApparentSunToTrueCB</b>
-, <b>eApparent</b>
- }</td></tr>
-<tr class="separator:a2bf48439a4f7c7769a0f7e017ef7f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8ff3707856a9a8ca144d9ab41f54416" id="r_af8ff3707856a9a8ca144d9ab41f54416"><td class="memItemLeft" align="right" valign="top"><a id="af8ff3707856a9a8ca144d9ab41f54416" name="af8ff3707856a9a8ca144d9ab41f54416"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EShadowModel</b> { <b>eNone</b>
-, <b>eCylindrical</b>
-, <b>eDualCone</b>
- }</td></tr>
-<tr class="separator:af8ff3707856a9a8ca144d9ab41f54416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12dca510680d7ff59d3e93fb379eba9" id="r_ae12dca510680d7ff59d3e93fb379eba9"><td class="memItemLeft" align="right" valign="top"><a id="ae12dca510680d7ff59d3e93fb379eba9" name="ae12dca510680d7ff59d3e93fb379eba9"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EGMSource</b> { <b>eCbValue</b>
-, <b>eJplDE</b>
-, <b>eSpecifiedValue</b>
- }</td></tr>
-<tr class="separator:ae12dca510680d7ff59d3e93fb379eba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -195,7 +144,7 @@ $(function(){initNavTree('HPOPForceModel_8hpp.html',''); initResizable(true); })
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_deb258cf57e277be5b7cec8bb6708261.html">Propagator</a></li><li class="navelem"><a class="el" href="dir_99d89bf1bb3c699199c624a04c84ff81.html">HPOP</a></li><li class="navelem"><a class="el" href="HPOPForceModel_8hpp.html">HPOPForceModel.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_3ab28cabefdef7003e922e5fb654453b.html">ForceModel</a></li><li class="navelem"><a class="el" href="HPOPForceModel_8hpp.html">HPOPForceModel.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

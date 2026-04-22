@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['f10p7average_5f_0',['f10p7Average_',['../classast_1_1DragForce.html#a457c2aa252d085b9e377133b9fa8af04',1,'ast::DragForce::f10p7Average_'],['../structast_1_1HPOPForceModel_1_1Drag.html#a2e0c810dab8a7591a5181f8924ce39ae',1,'ast::HPOPForceModel::Drag::f10p7Average_']]],
-  ['f10p7daily_5f_1',['f10p7Daily_',['../classast_1_1DragForce.html#a0699a3feadd9ee089dde5ea6645533df',1,'ast::DragForce::f10p7Daily_'],['../structast_1_1HPOPForceModel_1_1Drag.html#a870918d5154c85ebe5fb31dfa0b932f6',1,'ast::HPOPForceModel::Drag::f10p7Daily_']]],
+  ['f10p7average_5f_0',['f10p7Average_',['../classast_1_1DragForce.html#a457c2aa252d085b9e377133b9fa8af04',1,'ast::DragForce']]],
+  ['f10p7daily_5f_1',['f10p7Daily_',['../classast_1_1DragForce.html#a0699a3feadd9ee089dde5ea6645533df',1,'ast::DragForce']]],
   ['f_5f_2',['f_',['../classast_1_1FundamentalArguments.html#a74d7f58e0f547eccfca2651331be7a8f',1,'ast::FundamentalArguments::f_'],['../classast_1_1ModEquinElem.html#acf5868e16af6f2c772c8ad1ed1784c4e',1,'ast::ModEquinElem::f_']]],
   ['fallback_5f_3',['fallback_',['../classast_1_1EventIntervalFallback.html#aa7f272d144d7fc1ac6293ff6f2424c5d',1,'ast::EventIntervalFallback::fallback_'],['../classast_1_1EventTimeFallback.html#a493fc107d9e5c2641a57ffc2c62ec4ca',1,'ast::EventTimeFallback::fallback_']]],
   ['file_4',['file',['../classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4',1,'ast::MessageLogContext']]],
   ['filerecord_5f_5',['fileRecord_',['../classast_1_1DAFParser.html#a87fd4ea05a9476c83b9a424203c3b1a9',1,'ast::DAFParser']]],
   ['files_5f_6',['files_',['../classast_1_1BuildTarget.html#ac1ba3d19586ed089c6bdffb08c9281dc',1,'ast::BuildTarget']]],
   ['flatfactor_5f_7',['flatfactor_',['../classast_1_1SpheroidShape.html#a7aea6a0c4df65e69c1867bb80901a313',1,'ast::SpheroidShape']]],
-  ['fluxapfile_5f_8',['fluxApFile_',['../structast_1_1HPOPForceModel_1_1Drag.html#ad3e55d429272abf5558db43827d83c08',1,'ast::HPOPForceModel::Drag']]],
+  ['fluxapfile_5f_8',['fluxApFile_',['../classast_1_1DragForce.html#a397fcd45c4ec9d06d72fadec245abef5',1,'ast::DragForce']]],
   ['forcemodel_5f_9',['forceModel_',['../classast_1_1HPOPEquation.html#a8d093909e62a162d3c6c6020a6be7bcf',1,'ast::HPOPEquation::forceModel_'],['../classast_1_1MotionHPOPSax.html#a4b8fd8130b5de55e15e744aa8ed9745b',1,'ast::MotionHPOPSax::forceModel_'],['../classast_1_1MotionHPOP.html#ad64f84ee523c16a915960179a0b53ecb',1,'ast::MotionHPOP::forceModel_']]],
   ['frame_5f_10',['frame_',['../classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302',1,'ast::EphemerisLagrangeVar::frame_'],['../classast_1_1State.html#afd76bc624bd9bfdcd1d21937afeff909',1,'ast::State::frame_']]],
   ['free_11',['free',['../structast_1_1DAF__FileRecord.html#a2374ff9dcca78746eb384c4775ec8251',1,'ast::DAF_FileRecord']]],

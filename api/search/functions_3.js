@@ -22,7 +22,7 @@ var searchData=
   ['clearchildren_19',['clearChildren',['../classast_1_1XMLNode.html#a7ee32ef1356a4fbdb60529ed2e90d8f3',1,'ast::XMLNode::clearChildren()'],['../classast_1_1ObjectNode.html#ab3634958598205345e55a28da21586d3',1,'ast::ObjectNode::clearChildren()']]],
   ['clearerrstring_20',['clearErrString',['../classast_1_1Interpreter.html#a145d9bc69a2f6b41de63774075cb0d15',1,'ast::Interpreter']]],
   ['clight_21',['clight',['../group__Spice.html#ga25c738419df2fd10336f9551c6c5c8a8',1,'ast']]],
-  ['clone_22',['clone',['../classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58',1,'ast::Unit']]],
+  ['clone_22',['clone',['../classast_1_1BodyAttraction.html#a250e0402a1ec08ef9f9434d7faa30bd8',1,'ast::BodyAttraction::clone()'],['../classast_1_1GravityForce.html#a7dff82d968d27a90a4a8cf2e371b0b25',1,'ast::GravityForce::clone()'],['../classast_1_1ThirdBodyForce.html#ae4aaef773c5228e25b47258b04a27c48',1,'ast::ThirdBodyForce::clone()'],['../classast_1_1TwoBodyForce.html#a880b77a18ff8dd7d5cc621aa5ee1da08',1,'ast::TwoBodyForce::clone()'],['../classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58',1,'ast::Unit::clone()']]],
   ['close_23',['close',['../classast_1_1JplDe.html#a3195e2f276145ea57d57672b7b62d082',1,'ast::JplDe::close()'],['../classast_1_1JplSpk.html#aefcbd4d7646bf1797a8fde42e9d7636e',1,'ast::JplSpk::close()'],['../classast_1_1BaseParser.html#aaf727ec1d7cf9c20af89b93523cad51a',1,'ast::BaseParser::close()']]],
   ['coe2dela_24',['coe2dela',['../group__Orbit.html#gae1b4739cdd33711caece8d80c2b57fd6',1,'ast']]],
   ['coe2ee_25',['coe2ee',['../group__Orbit.html#gac24cf541c5331c1cd23900e1f8713a9c',1,'ast']]],

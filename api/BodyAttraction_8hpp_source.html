@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/ForceModel/BodyAttraction.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('BodyAttraction_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BodyAttraction.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="BodyAttraction_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/ForceModel.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>GravityForce;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>TwoBodyForce;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>ThirdBodyForce;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">   38</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">EBodyAttractionType</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626">eGravity</a>,       </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3">eTwoBody</a>,       </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_enumvalue" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192">eThirdBody</a>,     </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumvalue" href="namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5">eUnknown</a>,       </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1BodyAttraction.html">   48</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1BodyAttraction.html">BodyAttraction</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1BodyAttraction.html#aa6e1554366bd471e51b46110b09ad641">   53</a></span>    <span class="keyword">virtual</span> <a class="code hl_enumeration" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">EBodyAttractionType</a> <a class="code hl_function" href="classast_1_1BodyAttraction.html#aa6e1554366bd471e51b46110b09ad641">getBodyAttractionType</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1BodyAttraction.html#a250e0402a1ec08ef9f9434d7faa30bd8">   57</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1BodyAttraction.html">BodyAttraction</a>* <a class="code hl_function" href="classast_1_1BodyAttraction.html#a250e0402a1ec08ef9f9434d7faa30bd8">clone</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1BodyAttraction.html#ae71e7843f765000620fcc1c0155cb696">   62</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1BodyAttraction.html#ae71e7843f765000620fcc1c0155cb696">isAttractionType</a>(<a class="code hl_enumeration" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">EBodyAttractionType</a> type)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> getBodyAttractionType() == type;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1GravityForce.html">GravityForce</a>* toGravityForce() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="classast_1_1TwoBodyForce.html">TwoBodyForce</a>* toTwoBodyForce() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>* toThirdBodyForce() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1BodyAttraction_html"><div class="ttname"><a href="classast_1_1BodyAttraction.html">ast::BodyAttraction</a></div><div class="ttdoc">天体引力模型</div><div class="ttdef"><b>定义</b> BodyAttraction.hpp:49</div></div>
+<div class="ttc" id="aclassast_1_1BodyAttraction_html_a250e0402a1ec08ef9f9434d7faa30bd8"><div class="ttname"><a href="classast_1_1BodyAttraction.html#a250e0402a1ec08ef9f9434d7faa30bd8">ast::BodyAttraction::clone</a></div><div class="ttdeci">virtual BodyAttraction * clone() const =0</div><div class="ttdoc">克隆引力模型</div></div>
+<div class="ttc" id="aclassast_1_1BodyAttraction_html_aa6e1554366bd471e51b46110b09ad641"><div class="ttname"><a href="classast_1_1BodyAttraction.html#aa6e1554366bd471e51b46110b09ad641">ast::BodyAttraction::getBodyAttractionType</a></div><div class="ttdeci">virtual EBodyAttractionType getBodyAttractionType() const =0</div><div class="ttdoc">获取引力模型类型</div></div>
+<div class="ttc" id="aclassast_1_1BodyAttraction_html_ae71e7843f765000620fcc1c0155cb696"><div class="ttname"><a href="classast_1_1BodyAttraction.html#ae71e7843f765000620fcc1c0155cb696">ast::BodyAttraction::isAttractionType</a></div><div class="ttdeci">bool isAttractionType(EBodyAttractionType type) const</div><div class="ttdoc">检查是否为指定引力模型类型</div><div class="ttdef"><b>定义</b> BodyAttraction.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1ForceModel_html"><div class="ttname"><a href="classast_1_1ForceModel.html">ast::ForceModel</a></div><div class="ttdoc">力模型</div><div class="ttdef"><b>定义</b> ForceModel.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1GravityForce_html"><div class="ttname"><a href="classast_1_1GravityForce.html">ast::GravityForce</a></div><div class="ttdef"><b>定义</b> GravityForce.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1ThirdBodyForce_html"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html">ast::ThirdBodyForce</a></div><div class="ttdoc">三体引力模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1TwoBodyForce_html"><div class="ttname"><a href="classast_1_1TwoBodyForce.html">ast::TwoBodyForce</a></div><div class="ttdoc">二体引力模型</div><div class="ttdef"><b>定义</b> TwoBodyForce.hpp:35</div></div>
+<div class="ttc" id="anamespaceast_html_a43d71d83017c19bf8ce6e3b2ca7961e8"><div class="ttname"><a href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">ast::EBodyAttractionType</a></div><div class="ttdeci">EBodyAttractionType</div><div class="ttdoc">天体引力模型类型</div><div class="ttdef"><b>定义</b> BodyAttraction.hpp:39</div></div>
+<div class="ttc" id="anamespaceast_html_a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3"><div class="ttname"><a href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3">ast::EBodyAttractionType::eTwoBody</a></div><div class="ttdeci">@ eTwoBody</div><div class="ttdoc">中心天体二体引力模型</div></div>
+<div class="ttc" id="anamespaceast_html_a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192"><div class="ttname"><a href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192">ast::EBodyAttractionType::eThirdBody</a></div><div class="ttdeci">@ eThirdBody</div><div class="ttdoc">三体引力模型</div></div>
+<div class="ttc" id="anamespaceast_html_a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626"><div class="ttname"><a href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626">ast::EBodyAttractionType::eGravity</a></div><div class="ttdeci">@ eGravity</div><div class="ttdoc">中心天体重力场模型</div></div>
+<div class="ttc" id="anamespaceast_html_ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5"><div class="ttname"><a href="namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5">ast::eUnknown</a></div><div class="ttdeci">@ eUnknown</div><div class="ttdoc">未知插值方法</div><div class="ttdef"><b>定义</b> STKEphemerisFileParser.cpp:43</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_3ab28cabefdef7003e922e5fb654453b.html">ForceModel</a></li><li class="navelem"><a class="el" href="BodyAttraction_8hpp.html">BodyAttraction.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

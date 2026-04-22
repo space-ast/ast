@@ -4,7 +4,7 @@ var searchData=
   ['earth_5f_1',['earth_',['../classast_1_1SolarSystem.html#a0c58f211acc4f53f78fd0cf8bf291509',1,'ast::SolarSystem']]],
   ['earthmoonbarycenter_5f_2',['earthMoonBarycenter_',['../classast_1_1SolarSystem.html#a3402fcc40c322cd39e7b527cefa6aed6',1,'ast::SolarSystem']]],
   ['eccentricity_5f_3',['eccentricity_',['../classast_1_1SimpleOrbitDesigner.html#a1e242ff61d0648c4c5dbfed919f9af2d',1,'ast::SimpleOrbitDesigner::eccentricity_'],['../classast_1_1TwoLineElement.html#af174ad58a4892ea0fa79ebdc9b8599a1',1,'ast::TwoLineElement::eccentricity_']]],
-  ['eclipsingbodies_5f_4',['eclipsingBodies_',['../structast_1_1HPOPForceModel_1_1SRP.html#a60b5b6d4ef5e703c43bc07db5f319510',1,'ast::HPOPForceModel::SRP']]],
+  ['eclipsingbodies_5f_4',['eclipsingBodies_',['../classast_1_1SolarRadiationPressure.html#a6b5dcc609cd0dbaa7a52a2247e91ceeb',1,'ast::SolarRadiationPressure']]],
   ['elapsedtime_5f_5',['elapsedTime_',['../classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081',1,'ast::SimTime']]],
   ['elementnumber_5f_6',['elementNumber_',['../classast_1_1TwoLineElement.html#aa3f9fdd199e7a9eb799ca400f981b0fa',1,'ast::TwoLineElement']]],
   ['elements_7',['elements',['../structast_1_1DAF__ElementRecords.html#acd52bdf5b2c30f437e789becaa2e186e',1,'ast::DAF_ElementRecords']]],
@@ -18,7 +18,7 @@ var searchData=
   ['ephtype_5f_15',['ephType_',['../classast_1_1TwoLineElement.html#a41ce97dd6452f9d75084a720aa3c0703',1,'ast::TwoLineElement']]],
   ['epoch_5f_16',['epoch_',['../classast_1_1AxesFrozen.html#a185b80963e8c557ec999dfc9c3048351',1,'ast::AxesFrozen::epoch_'],['../classast_1_1AxesFrozenAtEventTime.html#a784864c13e11501b92569e7cde8c7593',1,'ast::AxesFrozenAtEventTime::epoch_'],['../classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2',1,'ast::EphemerisLagrangeVar::epoch_'],['../classast_1_1HPOPEquation.html#a3accc94eaef2d5abd3bc134202770c48',1,'ast::HPOPEquation::epoch_'],['../classast_1_1J2J4Analytical.html#a9910ce3bb4991ceca4bbbf7d663b363e',1,'ast::J2J4Analytical::epoch_'],['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#a417f941b4bda6a45fcc2673ac38a0637',1,'ast::MotionOrbitDynamics::PropagationParams::epoch_'],['../classast_1_1Scenario.html#a252f8aab2056d07e13bc9e2b9e5ba24e',1,'ast::Scenario::epoch_']]],
   ['epochtime_5f_17',['epochTime_',['../classast_1_1TwoLineElement.html#aa6d30c017452decd708365e1d8e864b8',1,'ast::TwoLineElement']]],
-  ['equation_5f_18',['equation_',['../classast_1_1HPOP.html#a35fca2be2f3d9005b6dc517d71a27611',1,'ast::HPOP']]],
+  ['equation_5f_18',['equation_',['../classast_1_1HPOP.html#abd48480d84f1f001f512825671ed7028',1,'ast::HPOP']]],
   ['errstring_5f_19',['errString_',['../classast_1_1Interpreter.html#a5d7a5b673c762bf5dc91fd1b79005167',1,'ast::Interpreter']]],
   ['eventdetectorlist_5f_20',['eventDetectorList_',['../classast_1_1ODEIntegrator.html#ad03353fdea45aa002356a2659684e7e7',1,'ast::ODEIntegrator']]],
   ['expr_5f_21',['expr_',['../classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532',1,'ast::OpUnary::expr_'],['../classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4',1,'ast::Variable::expr_']]]

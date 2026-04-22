@@ -84,13 +84,14 @@ var searchData=
   ['lon_5f_81',['lon_',['../classast_1_1LatLonAlt.html#a7fa10bbee112efd2c4d00329d11015e0',1,'ast::LatLonAlt']]],
   ['longduration_82',['LongDuration',['../classast_1_1LongDuration.html',1,'ast']]],
   ['longitude_83',['longitude',['../classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9',1,'ast::GeoCoordinate::longitude() const'],['../classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280',1,'ast::GeoCoordinate::longitude()'],['../classast_1_1LatLonAlt.html#a77ac2552ea9ebde8c3be5886a7f911ed',1,'ast::LatLonAlt::longitude() const'],['../classast_1_1LatLonAlt.html#aacdeccd7f62b46738ee57bc706824dcc',1,'ast::LatLonAlt::longitude()']]],
-  ['lower6_5f1_5f_84',['lower6_1_',['../structlower6__1__.html',1,'']]],
-  ['lowermatrix_85',['LowerMatrix',['../classast_1_1LowerMatrix.html',1,'ast']]],
-  ['lowermatrix_2ehpp_86',['LowerMatrix.hpp',['../LowerMatrix_8hpp.html',1,'']]],
-  ['lowermatrix_3c_20double_20_3e_87',['LowerMatrix&lt; double &gt;',['../classast_1_1LowerMatrix.html',1,'ast']]],
-  ['lp_5f_88',['lP_',['../classast_1_1FundamentalArguments.html#aa88e43d2a9c3cafdc85e1409d44a8790',1,'ast::FundamentalArguments']]],
-  ['lsa_5f_89',['lSa_',['../classast_1_1FundamentalArguments.html#a2141517bf8f0e7a5ba6dcaba20c0b520',1,'ast::FundamentalArguments']]],
-  ['luminous_90',['Luminous',['../classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978',1,'ast::Dimension']]],
-  ['lur_5f_91',['lUr_',['../classast_1_1FundamentalArguments.html#aaf24567b46d304f3fc9283deef265585',1,'ast::FundamentalArguments']]],
-  ['lve_5f_92',['lVe_',['../classast_1_1FundamentalArguments.html#ae950d76285b28f7a6261d8dc0f15b205',1,'ast::FundamentalArguments']]]
+  ['lowaltatmdensitymodel_5f_84',['lowAltAtmDensityModel_',['../classast_1_1DragForce.html#a4e4465b25da690f9040bc3aa06a8ccfc',1,'ast::DragForce']]],
+  ['lower6_5f1_5f_85',['lower6_1_',['../structlower6__1__.html',1,'']]],
+  ['lowermatrix_86',['LowerMatrix',['../classast_1_1LowerMatrix.html',1,'ast']]],
+  ['lowermatrix_2ehpp_87',['LowerMatrix.hpp',['../LowerMatrix_8hpp.html',1,'']]],
+  ['lowermatrix_3c_20double_20_3e_88',['LowerMatrix&lt; double &gt;',['../classast_1_1LowerMatrix.html',1,'ast']]],
+  ['lp_5f_89',['lP_',['../classast_1_1FundamentalArguments.html#aa88e43d2a9c3cafdc85e1409d44a8790',1,'ast::FundamentalArguments']]],
+  ['lsa_5f_90',['lSa_',['../classast_1_1FundamentalArguments.html#a2141517bf8f0e7a5ba6dcaba20c0b520',1,'ast::FundamentalArguments']]],
+  ['luminous_91',['Luminous',['../classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978',1,'ast::Dimension']]],
+  ['lur_5f_92',['lUr_',['../classast_1_1FundamentalArguments.html#aaf24567b46d304f3fc9283deef265585',1,'ast::FundamentalArguments']]],
+  ['lve_5f_93',['lVe_',['../classast_1_1FundamentalArguments.html#ae950d76285b28f7a6261d8dc0f15b205',1,'ast::FundamentalArguments']]]
 ];

@@ -123,6 +123,8 @@ $(function(){initNavTree('classast_1_1ValArray.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
+<tr class="memitem:a4940febc99dc2cc497479acce8588dd9" id="r_a4940febc99dc2cc497479acce8588dd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4940febc99dc2cc497479acce8588dd9">resize</a> (size_t <a class="el" href="#a02f6b171c8adfd17b6b09695656c805b">size</a>)</td></tr>
+<tr class="separator:a4940febc99dc2cc497479acce8588dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a696d6542796fa7616243e17c67174ef9" id="r_a696d6542796fa7616243e17c67174ef9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a696d6542796fa7616243e17c67174ef9">column</a> () const</td></tr>
 <tr class="separator:a696d6542796fa7616243e17c67174ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bcde5454ede8e51867c75d812b7908d" id="r_a9bcde5454ede8e51867c75d812b7908d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bcde5454ede8e51867c75d812b7908d">row</a> () const</td></tr>
@@ -291,7 +293,7 @@ Protected 属性</h2></td></tr>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dims_</b> [NDIM]</td></tr>
 <tr class="separator:aefb5076bfe561d7498f557c6297fc9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23b7d75dffbb7227d2ad5c90366cba49" id="r_a23b7d75dffbb7227d2ad5c90366cba49"><td class="memItemLeft" align="right" valign="top"><a id="a23b7d75dffbb7227d2ad5c90366cba49" name="a23b7d75dffbb7227d2ad5c90366cba49"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b></td></tr>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b> {nullptr}</td></tr>
 <tr class="separator:a23b7d75dffbb7227d2ad5c90366cba49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -461,6 +463,33 @@ template&lt;typename T , size_t NDIM&gt; </div>
 
 <p>获取数组页数 </p>
 <dl class="section return"><dt>返回</dt><dd>size_t 数组页数 </dd></dl>
+
+</div>
+</div>
+<a id="a4940febc99dc2cc497479acce8588dd9" name="a4940febc99dc2cc497479acce8588dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4940febc99dc2cc497479acce8588dd9">&#9670;&#160;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t NDIM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classast_1_1ValArray.html">ast::ValArray</a>&lt; T, NDIM &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>重新调整数组大小 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>数组元素数量 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
