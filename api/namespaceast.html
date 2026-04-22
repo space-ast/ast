@@ -818,6 +818,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1PointBodyCenter.html">PointBodyCenter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1PointMassForce.html">PointMassForce</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1PointRoot.html">PointRoot</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1PointSSBarycenter.html">PointSSBarycenter</a></td></tr>
@@ -1089,8 +1091,6 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Transmitter.html">Transmitter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TwoBody.html">TwoBody</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TwoBodyForce.html">TwoBodyForce</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TwoLineElement.html">TwoLineElement</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1584,8 +1584,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
  }</td></tr>
 <tr class="separator:ad226f5138693fa4cb352f8c2201281df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43d71d83017c19bf8ce6e3b2ca7961e8" id="r_a43d71d83017c19bf8ce6e3b2ca7961e8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43d71d83017c19bf8ce6e3b2ca7961e8">EBodyAttractionType</a> { <a class="el" href="#a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626">eGravity</a>
-, <a class="el" href="#a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3">eTwoBody</a>
-, <a class="el" href="#a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192">eThirdBody</a>
+, <a class="el" href="#a43d71d83017c19bf8ce6e3b2ca7961e8a3f0c135486e78f33ef23971c5daeecf5">ePointMass</a>
 , <a class="el" href="#a43d71d83017c19bf8ce6e3b2ca7961e8a64c3acc11ffdb1be30ea339290bd1508">eUnknown</a>
  }</td></tr>
 <tr class="separator:a43d71d83017c19bf8ce6e3b2ca7961e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1622,6 +1621,11 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <b>eApparent</b>
  }</td></tr>
 <tr class="separator:ga2bf48439a4f7c7769a0f7e017ef7f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae12dca510680d7ff59d3e93fb379eba9" id="r_gae12dca510680d7ff59d3e93fb379eba9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">EGMSource</a> { <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5">EGMSource::eBodyGravity</a>
+, <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">EGMSource::eJplDE</a>
+, <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6">EGMSource::eSpecifiedValue</a>
+ }</td></tr>
+<tr class="separator:gae12dca510680d7ff59d3e93fb379eba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf7ad908ac403269c383f0f661b4b15b" id="r_abf7ad908ac403269c383f0f661b4b15b"><td class="memItemLeft" align="right" valign="top"><a id="abf7ad908ac403269c383f0f661b4b15b" name="abf7ad908ac403269c383f0f661b4b15b"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESolidTideType</b> { <b>eFull</b>
 , <b>ePermanentOnly</b>
 , <b>eNone</b>
@@ -1632,11 +1636,11 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <b>eDualCone</b>
  }</td></tr>
 <tr class="separator:af8ff3707856a9a8ca144d9ab41f54416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12dca510680d7ff59d3e93fb379eba9" id="r_ae12dca510680d7ff59d3e93fb379eba9"><td class="memItemLeft" align="right" valign="top"><a id="ae12dca510680d7ff59d3e93fb379eba9" name="ae12dca510680d7ff59d3e93fb379eba9"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae12dca510680d7ff59d3e93fb379eba9">EGMSource</a> { <b>eCbValue</b>
-, <b>eJplDE</b>
-, <b>eSpecifiedValue</b>
+<tr class="memitem:ac22db6298835f5ffbad88bd9c01c4d08" id="r_ac22db6298835f5ffbad88bd9c01c4d08"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> { <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">eBodyEphemeris</a>
+, <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8">eJplDE</a>
+, <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6">eJplSpice</a>
  }</td></tr>
-<tr class="separator:ae12dca510680d7ff59d3e93fb379eba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac22db6298835f5ffbad88bd9c01c4d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9845a533634a5314f75b3fa04dc274ba" id="r_a9845a533634a5314f75b3fa04dc274ba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9845a533634a5314f75b3fa04dc274ba">EFOVType</a> { <br />
 &#160;&#160;<a class="el" href="#a9845a533634a5314f75b3fa04dc274baa2d390d9c68c5b3cd6c1c9ceae96e37db">eSimpleCone</a>
 , <a class="el" href="#a9845a533634a5314f75b3fa04dc274baa05ce095cc3630fda9e7d21c0af0e6d62">eConical</a>
@@ -3557,6 +3561,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>AstGfxSetBackgroundCo
 <tr class="separator:ab119adf720503d798035623fbee69a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb786ad34e543a259ae24486eeffe1c4" id="r_adb786ad34e543a259ae24486eeffe1c4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb786ad34e543a259ae24486eeffe1c4">aLoadBurn</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Burn.html">Burn</a> &gt; &amp;burn)</td></tr>
 <tr class="separator:adb786ad34e543a259ae24486eeffe1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d63a08609788cbd49926de1d0dfdb03" id="r_a2d63a08609788cbd49926de1d0dfdb03"><td class="memItemLeft" align="right" valign="top"><a id="a2d63a08609788cbd49926de1d0dfdb03" name="a2d63a08609788cbd49926de1d0dfdb03"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadGravityForce</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1GravityForce.html">GravityForce</a> &amp;gravityForce)</td></tr>
+<tr class="separator:a2d63a08609788cbd49926de1d0dfdb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc558f2e1fc5fd5b6aafc4473a170d7d" id="r_abc558f2e1fc5fd5b6aafc4473a170d7d"><td class="memItemLeft" align="right" valign="top"><a id="abc558f2e1fc5fd5b6aafc4473a170d7d" name="abc558f2e1fc5fd5b6aafc4473a170d7d"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadPointMassForce</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1PointMassForce.html">PointMassForce</a> &amp;pointMassForce)</td></tr>
+<tr class="separator:abc558f2e1fc5fd5b6aafc4473a170d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53643deb1c61ca257821aca73027552f" id="r_a53643deb1c61ca257821aca73027552f"><td class="memItemLeft" align="right" valign="top"><a id="a53643deb1c61ca257821aca73027552f" name="a53643deb1c61ca257821aca73027552f"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadThirdBodyForce</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a> &amp;thirdBodyForce)</td></tr>
+<tr class="separator:a53643deb1c61ca257821aca73027552f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa52fc64de39e3c15ecfa9674a56d05f4" id="r_aa52fc64de39e3c15ecfa9674a56d05f4"><td class="memItemLeft" align="right" valign="top"><a id="aa52fc64de39e3c15ecfa9674a56d05f4" name="aa52fc64de39e3c15ecfa9674a56d05f4"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadDragForce</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1DragForce.html">DragForce</a> &amp;dragForce)</td></tr>
+<tr class="separator:aa52fc64de39e3c15ecfa9674a56d05f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b732c1a023105aa5d54e0cca3668c1" id="r_a64b732c1a023105aa5d54e0cca3668c1"><td class="memItemLeft" align="right" valign="top"><a id="a64b732c1a023105aa5d54e0cca3668c1" name="a64b732c1a023105aa5d54e0cca3668c1"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadSolarRadiationPressure</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1SolarRadiationPressure.html">SolarRadiationPressure</a> &amp;srp, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *centerBody)</td></tr>
+<tr class="separator:a64b732c1a023105aa5d54e0cca3668c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42eebb88466c04d863c92eb9c452550" id="r_ad42eebb88466c04d863c92eb9c452550"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad42eebb88466c04d863c92eb9c452550">aLoadForceModel</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;forceModel)</td></tr>
+<tr class="separator:ad42eebb88466c04d863c92eb9c452550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c8466fffe82f771e01c2324f22840e6" id="r_a1c8466fffe82f771e01c2324f22840e6"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c8466fffe82f771e01c2324f22840e6">aLoadInitialState</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1InitialState.html">InitialState</a> &amp;initialState)</td></tr>
 <tr class="separator:a1c8466fffe82f771e01c2324f22840e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab777323c93273d20c2ec933fc7e85dbc" id="r_ab777323c93273d20c2ec933fc7e85dbc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab777323c93273d20c2ec933fc7e85dbc">aLoadInitialState</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1InitialState.html">InitialState</a> &amp;initialState)</td></tr>
@@ -3584,17 +3605,6 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadValue</b> (<a 
 <tr class="separator:aa081519fa07bcd688c20e300085c4475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54045e25b8a86ec534c450714c4fae43" id="r_a54045e25b8a86ec534c450714c4fae43"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54045e25b8a86ec534c450714c4fae43">aLoadValue</a> (FILE *file, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Value.html">Value</a> &gt; &amp;value)</td></tr>
 <tr class="separator:a54045e25b8a86ec534c450714c4fae43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d63a08609788cbd49926de1d0dfdb03" id="r_a2d63a08609788cbd49926de1d0dfdb03"><td class="memItemLeft" align="right" valign="top"><a id="a2d63a08609788cbd49926de1d0dfdb03" name="a2d63a08609788cbd49926de1d0dfdb03"></a>
-errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadGravityForce</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1GravityForce.html">GravityForce</a> &amp;gravityForce)</td></tr>
-<tr class="separator:a2d63a08609788cbd49926de1d0dfdb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa52fc64de39e3c15ecfa9674a56d05f4" id="r_aa52fc64de39e3c15ecfa9674a56d05f4"><td class="memItemLeft" align="right" valign="top"><a id="aa52fc64de39e3c15ecfa9674a56d05f4" name="aa52fc64de39e3c15ecfa9674a56d05f4"></a>
-errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadDragForce</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1DragForce.html">DragForce</a> &amp;dragForce)</td></tr>
-<tr class="separator:aa52fc64de39e3c15ecfa9674a56d05f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64b732c1a023105aa5d54e0cca3668c1" id="r_a64b732c1a023105aa5d54e0cca3668c1"><td class="memItemLeft" align="right" valign="top"><a id="a64b732c1a023105aa5d54e0cca3668c1" name="a64b732c1a023105aa5d54e0cca3668c1"></a>
-errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadSolarRadiationPressure</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1SolarRadiationPressure.html">SolarRadiationPressure</a> &amp;srp, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *centerBody)</td></tr>
-<tr class="separator:a64b732c1a023105aa5d54e0cca3668c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad42eebb88466c04d863c92eb9c452550" id="r_ad42eebb88466c04d863c92eb9c452550"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad42eebb88466c04d863c92eb9c452550">aLoadForceModel</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;forceModel)</td></tr>
-<tr class="separator:ad42eebb88466c04d863c92eb9c452550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9277420775c8409f3e05adbbc9630b4" id="r_af9277420775c8409f3e05adbbc9630b4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9277420775c8409f3e05adbbc9630b4">aLoadPropagator</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filename, <a class="el" href="classast_1_1HPOP.html">HPOP</a> &amp;propagator)</td></tr>
 <tr class="separator:af9277420775c8409f3e05adbbc9630b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02cedf7698e0967b59c75d19bae3cbcc" id="r_a02cedf7698e0967b59c75d19bae3cbcc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02cedf7698e0967b59c75d19bae3cbcc">aLoadPropagator</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1HPOP.html">HPOP</a> &amp;propagator)</td></tr>
@@ -5871,9 +5881,7 @@ DataDirFunc&#160;</td><td class="memItemRight" valign="bottom"><b>fDataDir</b> {
 <table class="fieldtable">
 <tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626" name="a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626"></a>eGravity&#160;</td><td class="fielddoc"><p>中心天体重力场模型 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3" name="a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3"></a>eTwoBody&#160;</td><td class="fielddoc"><p>中心天体二体引力模型 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192" name="a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192"></a>eThirdBody&#160;</td><td class="fielddoc"><p>三体引力模型 </p>
+<tr><td class="fieldname"><a id="a43d71d83017c19bf8ce6e3b2ca7961e8a3f0c135486e78f33ef23971c5daeecf5" name="a43d71d83017c19bf8ce6e3b2ca7961e8a3f0c135486e78f33ef23971c5daeecf5"></a>ePointMass&#160;</td><td class="fielddoc"><p>中心天体点质量引力模型 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a43d71d83017c19bf8ce6e3b2ca7961e8a64c3acc11ffdb1be30ea339290bd1508" name="a43d71d83017c19bf8ce6e3b2ca7961e8a64c3acc11ffdb1be30ea339290bd1508"></a>eUnknown&#160;</td><td class="fielddoc"><p>未知引力模型类型 </p>
 </td></tr>
@@ -5990,6 +5998,38 @@ DataDirFunc&#160;</td><td class="memItemRight" valign="bottom"><b>fDataDir</b> {
 <tr><td class="fieldname"><a id="ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3" name="ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3"></a>ePower&#160;</td><td class="fielddoc"><p>功率 M·L^2·T^-3 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8" name="ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8"></a>eFrequency&#160;</td><td class="fielddoc"><p>频率 T^-1 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ac22db6298835f5ffbad88bd9c01c4d08" name="ac22db6298835f5ffbad88bd9c01c4d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22db6298835f5ffbad88bd9c01c4d08">&#9670;&#160;</a></span>EEphemerisSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08">ast::EEphemerisSource</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>星历来源 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5" name="ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5"></a>eBodyEphemeris&#160;</td><td class="fielddoc"><p>天体星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8" name="ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8"></a>eJplDE&#160;</td><td class="fielddoc"><p>JPL DE 星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6" name="ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6"></a>eJplSpice&#160;</td><td class="fielddoc"><p>JPL SPICE 星历 </p>
 </td></tr>
 </table>
 

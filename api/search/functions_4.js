@@ -37,6 +37,7 @@ var searchData=
   ['dot_34',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
   ['doublevalue_35',['doubleValue',['../classast_1_1JsonSax.html#af5418efba1f7a085763d674b676b5c18',1,'ast::JsonSax']]],
   ['dpr_36',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
-  ['duration_37',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
-  ['durationfrom_38',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
+  ['drag_37',['drag',['../classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa',1,'ast::HPOPForceModel']]],
+  ['duration_38',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
+  ['durationfrom_39',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
 ];

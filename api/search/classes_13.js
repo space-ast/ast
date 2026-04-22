@@ -15,6 +15,5 @@ var searchData=
   ['transform_12',['Transform',['../classast_1_1Transform.html',1,'ast']]],
   ['transmitter_13',['Transmitter',['../classast_1_1Transmitter.html',1,'ast']]],
   ['twobody_14',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]],
-  ['twobodyforce_15',['TwoBodyForce',['../classast_1_1TwoBodyForce.html',1,'ast']]],
-  ['twolineelement_16',['TwoLineElement',['../classast_1_1TwoLineElement.html',1,'ast']]]
+  ['twolineelement_15',['TwoLineElement',['../classast_1_1TwoLineElement.html',1,'ast']]]
 ];

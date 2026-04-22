@@ -1,9 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"Magnetosphere_8hpp.html":[4,0,0,15,2,3],
-"Magnetosphere_8hpp_source.html":[4,0,0,15,2,3],
-"ManeuverLoader_8cpp.html":[4,0,0,4,0,2,2],
-"ManeuverLoader_8cpp.html#a36f0705f4f8761cd91885b482b96344b":[4,0,0,4,0,2,2,0],
 "ManeuverLoader_8cpp.html#ab9cfdaafcfee7be95236aa5554456d93":[4,0,0,4,0,2,2,1],
 "ManeuverLoader_8hpp.html":[4,0,0,4,0,2,3],
 "ManeuverLoader_8hpp.html#a36f0705f4f8761cd91885b482b96344b":[4,0,0,4,0,2,3,0],
@@ -249,5 +245,9 @@ var NAVTREEINDEX5 =
 "ObjectNode_8hpp.html":[4,0,0,14,7,14],
 "ObjectNode_8hpp_source.html":[4,0,0,14,7,14],
 "ObjectResolver_8hpp.html":[4,0,0,14,7,15],
-"ObjectResolver_8hpp_source.html":[4,0,0,14,7,15]
+"ObjectResolver_8hpp_source.html":[4,0,0,14,7,15],
+"Object_8cpp.html":[4,0,0,14,7,4],
+"OpAssignPredefined_8cpp.html":[4,0,0,10,6,0,2],
+"OpAssignPredefined_8hpp.html":[4,0,0,10,6,0,3],
+"OpAssignPredefined_8hpp_source.html":[4,0,0,10,6,0,3]
 };

@@ -1,7 +1,5 @@
 var NAVTREEINDEX20 =
 {
-"classast_1_1MotionExternalEphemeris.html#ac535c87a5f4e64642480c81dbf2bc7c4":[2,0,0,279,7],
-"classast_1_1MotionExternalEphemeris.html#ac535c87a5f4e64642480c81dbf2bc7c4":[3,0,0,278,7],
 "classast_1_1MotionExternalEphemeris.html#aeed5c4a75b2fc19b49c42d404c0b582e":[2,0,0,279,5],
 "classast_1_1MotionExternalEphemeris.html#aeed5c4a75b2fc19b49c42d404c0b582e":[3,0,0,278,5],
 "classast_1_1MotionGreatArc.html":[2,0,0,280],
@@ -249,5 +247,7 @@ var NAVTREEINDEX20 =
 "classast_1_1NLPProblem.html#a117f3aedc0991fb8e35834c5a8e7298b":[2,0,0,307,21],
 "classast_1_1NLPProblem.html#a117f3aedc0991fb8e35834c5a8e7298b":[3,0,0,306,21],
 "classast_1_1NLPProblem.html#a1c9ef4475616204e8485238fdaf6f87d":[2,0,0,307,1],
-"classast_1_1NLPProblem.html#a1c9ef4475616204e8485238fdaf6f87d":[3,0,0,306,1]
+"classast_1_1NLPProblem.html#a1c9ef4475616204e8485238fdaf6f87d":[3,0,0,306,1],
+"classast_1_1NLPProblem.html#a20b27b01fdeb383e178c1caebd6b9f13":[2,0,0,307,3],
+"classast_1_1NLPProblem.html#a20b27b01fdeb383e178c1caebd6b9f13":[3,0,0,306,3]
 };

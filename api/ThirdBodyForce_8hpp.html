@@ -108,6 +108,9 @@ $(function(){initNavTree('ThirdBodyForce_8hpp.html',''); initResizable(true); })
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="BodyAttraction_8hpp_source.html">BodyAttraction.hpp</a>&quot;</code><br />
 <code>#include &quot;AstCore/CelestialBody.hpp&quot;</code><br />
+<code>#include &quot;AstCore/PointMassForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/GravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/ClonePtr.hpp&quot;</code><br />
 </div>
 <p><a href="ThirdBodyForce_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
@@ -123,11 +126,11 @@ $(function(){initNavTree('ThirdBodyForce_8hpp.html',''); initResizable(true); })
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:ae12dca510680d7ff59d3e93fb379eba9" id="r_ae12dca510680d7ff59d3e93fb379eba9"><td class="memItemLeft" align="right" valign="top"><a id="ae12dca510680d7ff59d3e93fb379eba9" name="ae12dca510680d7ff59d3e93fb379eba9"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae12dca510680d7ff59d3e93fb379eba9">ast::EGMSource</a> { <b>eCbValue</b>
-, <b>eJplDE</b>
-, <b>eSpecifiedValue</b>
+<tr class="memitem:ac22db6298835f5ffbad88bd9c01c4d08" id="r_ac22db6298835f5ffbad88bd9c01c4d08"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">ast::EEphemerisSource</a> { <a class="el" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">ast::eBodyEphemeris</a>
+, <a class="el" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8">ast::eJplDE</a>
+, <a class="el" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6">ast::eJplSpice</a>
  }</td></tr>
-<tr class="separator:ae12dca510680d7ff59d3e93fb379eba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac22db6298835f5ffbad88bd9c01c4d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

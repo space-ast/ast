@@ -1,8 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"Return_8cpp.html":[4,0,0,1,6,3,19],
-"Return_8hpp.html":[4,0,0,1,6,3,20],
-"Return_8hpp_source.html":[4,0,0,1,6,3,20],
 "RidderSolver_8cpp.html":[4,0,0,5,4,0,5],
 "RidderSolver_8hpp.html":[4,0,0,5,4,0,6],
 "RidderSolver_8hpp_source.html":[4,0,0,5,4,0,6],
@@ -209,7 +206,7 @@ var NAVTREEINDEX7 =
 "SnoptAPI_8hpp.html":[4,0,0,8,19],
 "SnoptAPI_8hpp.html#ad58bab1e7f3d254721b5cbd0ef30299a":[4,0,0,8,19,1],
 "SnoptAPI_8hpp_source.html":[4,0,0,8,19],
-"SolarRadiationPressure_8hpp_source.html":[4,0,0,1,4,13],
+"SolarRadiationPressure_8hpp_source.html":[4,0,0,1,4,14],
 "SolarSystemLoader_8cpp.html":[4,0,0,1,9,8],
 "SolarSystemLoader_8hpp.html":[4,0,0,1,9,9],
 "SolarSystemLoader_8hpp_source.html":[4,0,0,1,9,9],
@@ -249,5 +246,8 @@ var NAVTREEINDEX7 =
 "SpiceFrameRegistry_8cpp.html":[4,0,0,12,0,2],
 "SpiceFrameRegistry_8hpp.html":[4,0,0,12,0,3],
 "SpiceFrameRegistry_8hpp_source.html":[4,0,0,12,0,3],
-"SpiceRunTime_8cpp.html":[4,0,0,12,0,4]
+"SpiceRunTime_8cpp.html":[4,0,0,12,0,4],
+"SpiceRunTime_8hpp.html":[4,0,0,12,0,5],
+"SpiceRunTime_8hpp_source.html":[4,0,0,12,0,5],
+"SpiceUsr_8h_source.html":[4,0,0,12,1]
 };

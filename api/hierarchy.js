@@ -133,12 +133,12 @@ var hierarchy =
     [ "ast::ForceModel", "classast_1_1ForceModel.html", [
       [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
         [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
-        [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
-        [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ],
-        [ "ast::TwoBodyForce", "classast_1_1TwoBodyForce.html", null ]
+        [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ],
+        [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ]
       ] ],
       [ "ast::DragForce", "classast_1_1DragForce.html", null ],
-      [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ]
+      [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
+      [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
     ] ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],

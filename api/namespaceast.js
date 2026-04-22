@@ -410,6 +410,7 @@ var namespaceast =
     [ "Planet", "classast_1_1Planet.html", null ],
     [ "Point", "classast_1_1Point.html", "classast_1_1Point" ],
     [ "PointBodyCenter", "classast_1_1PointBodyCenter.html", "classast_1_1PointBodyCenter" ],
+    [ "PointMassForce", "classast_1_1PointMassForce.html", "classast_1_1PointMassForce" ],
     [ "PointRoot", "classast_1_1PointRoot.html", "classast_1_1PointRoot" ],
     [ "PointSSBarycenter", "classast_1_1PointSSBarycenter.html", "classast_1_1PointSSBarycenter" ],
     [ "PoleMotion", "structast_1_1PoleMotion.html", "structast_1_1PoleMotion" ],
@@ -546,7 +547,6 @@ var namespaceast =
     [ "Transform", "classast_1_1Transform.html", "classast_1_1Transform" ],
     [ "Transmitter", "classast_1_1Transmitter.html", null ],
     [ "TwoBody", "classast_1_1TwoBody.html", null ],
-    [ "TwoBodyForce", "classast_1_1TwoBodyForce.html", "classast_1_1TwoBodyForce" ],
     [ "TwoLineElement", "classast_1_1TwoLineElement.html", "classast_1_1TwoLineElement" ],
     [ "UiBodyEphemerisDE", "classast_1_1UiBodyEphemerisDE.html", null ],
     [ "UiBodyEphemerisSPK", "classast_1_1UiBodyEphemerisSPK.html", null ],
@@ -620,8 +620,7 @@ var namespaceast =
     [ "SolverStats", "group__NLE.html#ga771d73ba9a27d2e576e456870e706c69", null ],
     [ "EBodyAttractionType", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8", [
       [ "eGravity", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626", null ],
-      [ "eTwoBody", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a6e267c36e735245700cfb520cbb9e4a3", null ],
-      [ "eThirdBody", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ab9e61a696d8334486ce51227301c3192", null ],
+      [ "ePointMass", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a3f0c135486e78f33ef23971c5daeecf5", null ],
       [ "eUnknown", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a64c3acc11ffdb1be30ea339290bd1508", null ]
     ] ],
     [ "EColor", "group__Util.html#gac1947c945d205687379e80f42bba8dfd", [
@@ -818,6 +817,11 @@ var namespaceast =
       [ "eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
     ] ],
+    [ "EEphemerisSource", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08", [
+      [ "eBodyEphemeris", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
+      [ "eJplDE", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],
+      [ "eJplSpice", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ]
+    ] ],
     [ "EEphemerisType", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fda", [
       [ "eSTKEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d", null ],
       [ "eSTKBinaryEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa1ec6026d86f3bfe051f0bd3ea33f97f9", null ],
@@ -832,10 +836,10 @@ var namespaceast =
       [ "eSAR", "namespaceast.html#a9845a533634a5314f75b3fa04dc274baa74dfa905c86044aa6a5516cf606b4da2", null ],
       [ "eCustom", "namespaceast.html#a9845a533634a5314f75b3fa04dc274baa5bca659531259314bb61d5e1fe859cd1", null ]
     ] ],
-    [ "EGMSource", "namespaceast.html#ae12dca510680d7ff59d3e93fb379eba9", [
-      [ "eCbValue", "namespaceast.html#ae12dca510680d7ff59d3e93fb379eba9ac4ab35342270aa814eb12f9d1e34c0d4", null ],
-      [ "eJplDE", "namespaceast.html#ae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8", null ],
-      [ "eSpecifiedValue", "namespaceast.html#ae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6", null ]
+    [ "EGMSource", "group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9", [
+      [ "eBodyGravity", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5", null ],
+      [ "eJplDE", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8", null ],
+      [ "eSpecifiedValue", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6", null ]
     ] ],
     [ "EInterpolationMethod", "namespaceast.html#ad5260f2008c9ceaced8a537b5877c379", [
       [ "eUnknown", "namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5", null ],

@@ -7,11 +7,13 @@ var searchData=
   ['bisect_4',['bisect',['../group__NLE.html#gae7b87132fc03898f8392005c491953ee',1,'ast']]],
   ['bkvitem_5',['BKVItem',['../classast_1_1BKVItem.html#a8fef94947d4d4550e5ae413c3fdda67c',1,'ast::BKVItem']]],
   ['bodc2n_6',['bodc2n',['../classast_1_1SpiceApi.html#a09a9cab2cbcb31dfc31a0ae956a8ae49',1,'ast::SpiceApi']]],
-  ['bodyattraction_7',['bodyAttraction',['../classast_1_1HPOPForceModel.html#a57c5aed5f921158e03a8e7e2a9a2e278',1,'ast::HPOPForceModel::bodyAttraction()'],['../classast_1_1HPOPForceModel.html#a2d507a0f5e18e01b817d0dc14be5c1c8',1,'ast::HPOPForceModel::bodyAttraction() const']]],
-  ['boolvalue_8',['boolValue',['../classast_1_1JsonSax.html#aff59d51c85b25b43a0796eea528ecd06',1,'ast::JsonSax']]],
-  ['borrow_5ffrom_9',['borrow_from',['../classast_1_1CorVector.html#ad189ee7ec64af1def41a8ec9ecce1c77',1,'ast::CorVector']]],
-  ['brenth_10',['brenth',['../group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa',1,'ast']]],
-  ['brentq_11',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
-  ['build_12',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
-  ['buildtarget_13',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
+  ['body_7',['body',['../classast_1_1ThirdBodyForce.html#a03909272d0a0be0e51bcd721826c6e36',1,'ast::ThirdBodyForce']]],
+  ['bodyattraction_8',['bodyAttraction',['../classast_1_1HPOPForceModel.html#a57c5aed5f921158e03a8e7e2a9a2e278',1,'ast::HPOPForceModel::bodyAttraction()'],['../classast_1_1HPOPForceModel.html#a2d507a0f5e18e01b817d0dc14be5c1c8',1,'ast::HPOPForceModel::bodyAttraction() const'],['../classast_1_1ThirdBodyForce.html#ac2dac5f43da076e1ba454724762ee788',1,'ast::ThirdBodyForce::bodyAttraction()'],['../classast_1_1ThirdBodyForce.html#ab5ed1d3aa3f81726b0b1d6261dce9342',1,'ast::ThirdBodyForce::bodyAttraction() const']]],
+  ['bodyattractiontype_9',['bodyAttractionType',['../classast_1_1HPOPForceModel.html#ac1b20df62fcfdedb0f3b51373932747b',1,'ast::HPOPForceModel::bodyAttractionType()'],['../classast_1_1ThirdBodyForce.html#a1cd9f88cf641f8433900ab554eb19646',1,'ast::ThirdBodyForce::bodyAttractionType()']]],
+  ['boolvalue_10',['boolValue',['../classast_1_1JsonSax.html#aff59d51c85b25b43a0796eea528ecd06',1,'ast::JsonSax']]],
+  ['borrow_5ffrom_11',['borrow_from',['../classast_1_1CorVector.html#ad189ee7ec64af1def41a8ec9ecce1c77',1,'ast::CorVector']]],
+  ['brenth_12',['brenth',['../group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa',1,'ast']]],
+  ['brentq_13',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
+  ['build_14',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
+  ['buildtarget_15',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
 ];
