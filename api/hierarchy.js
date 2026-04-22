@@ -199,7 +199,6 @@ var hierarchy =
     ] ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
     [ "ast::HPOP", "classast_1_1HPOP.html", null ],
-    [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
     [ "icilist", "structicilist.html", null ],
@@ -430,6 +429,7 @@ var hierarchy =
         [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
         [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
       ] ],
+      [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
       [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
         [ "ast::End", "classast_1_1End.html", null ],
         [ "ast::Return", "classast_1_1Return.html", null ],
@@ -759,6 +759,7 @@ var hierarchy =
     [ "ast::WayPoint", "classast_1_1WayPoint.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::HPOP >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Point >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
