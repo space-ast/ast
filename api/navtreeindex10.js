@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"classast_1_1AttitudeCoverage.html":[3,0,0,16],
+"classast_1_1AttitudeFigureOfMerit.html":[2,0,0,18],
+"classast_1_1AttitudeFigureOfMerit.html":[3,0,0,17],
 "classast_1_1AttitudeProfile.html":[2,0,0,19],
 "classast_1_1AttitudeProfile.html":[3,0,0,18],
 "classast_1_1AttributeBasic.html":[0,4,4,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "classast_1_1BlockGravity.html#a65eca9a55dec171af243476acd6a7764":[2,0,0,52,7],
 "classast_1_1BlockGravity.html#a65eca9a55dec171af243476acd6a7764":[3,0,0,51,7],
 "classast_1_1BlockGravity.html#a6c0b1bf649359f6393a234406da13157":[2,0,0,52,4],
-"classast_1_1BlockGravity.html#a6c0b1bf649359f6393a234406da13157":[3,0,0,51,4],
-"classast_1_1BlockGravity.html#a921513f986371f869b59b734ba5cfff2":[2,0,0,52,0],
-"classast_1_1BlockGravity.html#a921513f986371f869b59b734ba5cfff2":[3,0,0,51,0],
-"classast_1_1BlockGravity.html#ab5718a224cb4bff62edde0db55afd6d9":[2,0,0,52,3]
+"classast_1_1BlockGravity.html#a6c0b1bf649359f6393a234406da13157":[3,0,0,51,4]
 };

@@ -292,6 +292,9 @@ template&lt;typename T , std::string T::* Member&gt; </td></tr>
 <tr class="separator:ga846b248935590d9072cdb05af6534f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga949a9d47b45a81d30148cb09b83ab35b" id="r_ga949a9d47b45a81d30148cb09b83ab35b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga949a9d47b45a81d30148cb09b83ab35b">ast::aNewObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Object.html">Object</a> *parentScope=nullptr)</td></tr>
 <tr class="separator:ga949a9d47b45a81d30148cb09b83ab35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc002263f7cd7c9a750a10073a1df929" id="r_gadc002263f7cd7c9a750a10073a1df929"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gadc002263f7cd7c9a750a10073a1df929"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gadc002263f7cd7c9a750a10073a1df929">ast::aNewObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope=nullptr)</td></tr>
+<tr class="separator:gadc002263f7cd7c9a750a10073a1df929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac773a55dc25b4065657e0d2ab5ce3b21" id="r_gac773a55dc25b4065657e0d2ab5ce3b21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac773a55dc25b4065657e0d2ab5ce3b21">ast::aDeleteObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:gac773a55dc25b4065657e0d2ab5ce3b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0e7b21139f9b78f32be3e1920dc0cdf7" id="r_ga0e7b21139f9b78f32be3e1920dc0cdf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0e7b21139f9b78f32be3e1920dc0cdf7">ast::aMakeObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Object.html">Object</a> *parentScope=nullptr)</td></tr>
@@ -1190,8 +1193,36 @@ template&lt;&gt; </div>
 
 </div>
 </div>
+<a id="gadc002263f7cd7c9a750a10073a1df929" name="gadc002263f7cd7c9a750a10073a1df929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc002263f7cd7c9a750a10073a1df929">&#9670;&#160;</a></span>aNewObject() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T * ast::aNewObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>parentScope</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>创建对象，返回裸指针 </p>
+<p>根据类名创建对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentScope</td><td>父作用域指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象指针 </dd></dl>
+
+</div>
+</div>
 <a id="ga949a9d47b45a81d30148cb09b83ab35b" name="ga949a9d47b45a81d30148cb09b83ab35b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga949a9d47b45a81d30148cb09b83ab35b">&#9670;&#160;</a></span>aNewObject()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga949a9d47b45a81d30148cb09b83ab35b">&#9670;&#160;</a></span>aNewObject() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

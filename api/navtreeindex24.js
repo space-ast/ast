@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1RotationalData.html#aa3f2af2ba353bfcf94cb2fe3d2832f82":[0,0,6,9,4],
 "classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f":[0,0,6,9,13],
 "classast_1_1RotationalData.html#ad9b765d7aa4c8ba674a60c8b12a873a8":[0,0,6,9,3],
 "classast_1_1RotationalData.html#adac71698b6ff3fdb6d3b5e871342b55a":[0,0,6,9,9],
@@ -69,8 +70,14 @@ var NAVTREEINDEX24 =
 "classast_1_1SecantSolver.html#ae3e8ad3d1ed39e2f429de1d4395f92fb":[0,1,3,4,1],
 "classast_1_1Segment.html":[2,0,0,405],
 "classast_1_1Segment.html":[3,0,0,404],
-"classast_1_1Segment.html#a099498044c1713bd58dc1871ad4920f5":[2,0,0,405,0],
-"classast_1_1Segment.html#a099498044c1713bd58dc1871ad4920f5":[3,0,0,404,0],
+"classast_1_1Segment.html#a081cf5c764b36a5f2f2eb994fc3f68a7":[2,0,0,405,0],
+"classast_1_1Segment.html#a081cf5c764b36a5f2f2eb994fc3f68a7":[3,0,0,404,0],
+"classast_1_1Segment.html#a2ead22e52ad65b1400603c18967681e0":[2,0,0,405,1],
+"classast_1_1Segment.html#a2ead22e52ad65b1400603c18967681e0":[3,0,0,404,1],
+"classast_1_1Segment.html#aa031896d71ad146d40c780fbe9346227":[2,0,0,405,2],
+"classast_1_1Segment.html#aa031896d71ad146d40c780fbe9346227":[3,0,0,404,2],
+"classast_1_1Segment.html#aeb1c8d75b461947d33715b8ed056fc0f":[2,0,0,405,3],
+"classast_1_1Segment.html#aeb1c8d75b461947d33715b8ed056fc0f":[3,0,0,404,3],
 "classast_1_1SegmentCalculation.html":[2,0,0,406],
 "classast_1_1SegmentCalculation.html":[3,0,0,405],
 "classast_1_1SegmentCalculation.html#a0fc3ca06c5868f6d7ecb4bb129ae702a":[2,0,0,406,0],
@@ -242,12 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1SpheroidShape.html":[2,0,0,434],
 "classast_1_1SpheroidShape.html":[3,0,0,433],
 "classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[2,0,0,434,0],
-"classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[3,0,0,433,0],
-"classast_1_1SpheroidShape.html#a7aea6a0c4df65e69c1867bb80901a313":[2,0,0,434,1],
-"classast_1_1SpheroidShape.html#a7aea6a0c4df65e69c1867bb80901a313":[3,0,0,433,1],
-"classast_1_1SpiceApi.html":[0,0,1,7],
-"classast_1_1SpiceApi.html#a09a9cab2cbcb31dfc31a0ae956a8ae49":[0,0,1,7,2],
-"classast_1_1SpiceApi.html#a0a5755098855be2e6d90277301d89fa8":[0,0,1,7,11],
-"classast_1_1SpiceApi.html#a1d36099821c5effde59a14ec40215794":[0,0,1,7,7],
-"classast_1_1SpiceApi.html#a31b97c9eddf89dc06838751e2cccd9ed":[0,0,1,7,5]
+"classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[3,0,0,433,0]
 };

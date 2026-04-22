@@ -101,7 +101,7 @@ var searchData=
   ['setinc_98',['setInc',['../classast_1_1StateKeplerian.html#a6da95fc11ed71fd3f2612e22e60292ac',1,'ast::StateKeplerian']]],
   ['setinclination_99',['setInclination',['../classast_1_1CircularOrbitDesigner.html#af72ad5616a35967f28eb463cc984e218',1,'ast::CircularOrbitDesigner::setInclination()'],['../classast_1_1SimpleOrbitDesigner.html#af43ee75b42c92b555f9c56c38a89faa6',1,'ast::SimpleOrbitDesigner::setInclination()'],['../classast_1_1StationaryOrbitDesigner.html#a887551c2a93113f4e0f5764dc56e9e9c',1,'ast::StationaryOrbitDesigner::setInclination()'],['../classast_1_1SunSynchronousOrbitDesigner.html#a6811310e4aca456e8f3585f8bee3b870',1,'ast::SunSynchronousOrbitDesigner::setInclination()']]],
   ['setinfinite_100',['setInfinite',['../classast_1_1TimeInterval.html#a0ddd950e3f25705ae1a1504c89c94778',1,'ast::TimeInterval']]],
-  ['setinitialstate_101',['setInitialState',['../classast_1_1MotionOrbitDynamics.html#abf0979bd656a9ae615e90a144bd7573c',1,'ast::MotionOrbitDynamics']]],
+  ['setinitialstate_101',['setInitialState',['../classast_1_1Segment.html#aeb1c8d75b461947d33715b8ed056fc0f',1,'ast::Segment::setInitialState()'],['../classast_1_1MotionOrbitDynamics.html#abf0979bd656a9ae615e90a144bd7573c',1,'ast::MotionOrbitDynamics::setInitialState()']]],
   ['setinitialstepsize_102',['setInitialStepSize',['../classast_1_1ODEVarStepIntegrator.html#ae1f1d5067be5feaaa7054313a53376b6',1,'ast::ODEVarStepIntegrator']]],
   ['setinnerconeangle_103',['setInnerConeAngle',['../classast_1_1FOVConical.html#ae9eccc707446cafe06fa4be5e0a2ad09',1,'ast::FOVConical']]],
   ['setint_104',['setInt',['../classast_1_1JsonValue.html#ac0bd041027d8f76b83438fe1229e0543',1,'ast::JsonValue']]],

@@ -476,7 +476,7 @@ var searchData=
   ['aneptuneposvelinicrf_473',['aNeptunePosVelInICRF',['../group__Coordinate.html#ga9d1116657f2d9dc47c6490bb476ac4aa',1,'ast']]],
   ['anewexprcondition_474',['aNewExprCondition',['../group__Script.html#ga99a0eca7183a984c25b7c67d5f5fdd53',1,'ast']]],
   ['anewexprrange_475',['aNewExprRange',['../group__Script.html#ga66917cbaa3cd966ecf57f76502469e27',1,'ast']]],
-  ['anewobject_476',['aNewObject',['../group__RTTI.html#ga949a9d47b45a81d30148cb09b83ab35b',1,'ast']]],
+  ['anewobject_476',['aNewObject',['../group__RTTI.html#ga949a9d47b45a81d30148cb09b83ab35b',1,'ast::aNewObject(StringView name, Object *parentScope=nullptr)'],['../group__RTTI.html#gadc002263f7cd7c9a750a10073a1df929',1,'ast::aNewObject(Object *parentScope=nullptr)']]],
   ['anewopassign_477',['aNewOpAssign',['../group__Script.html#ga779073b57080a753eab0f9f358487ae8',1,'ast']]],
   ['anewopbin_478',['aNewOpBin',['../group__Script.html#ga86846799de6af428f6f8692ba14bced4',1,'ast']]],
   ['anewopunary_479',['aNewOpUnary',['../group__Script.html#ga99487240e80b500ffd4a23ac28f759ee',1,'ast']]],

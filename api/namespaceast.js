@@ -1622,6 +1622,7 @@ var namespaceast =
     [ "aNeptunePosVelInICRF", "group__Coordinate.html#ga9d1116657f2d9dc47c6490bb476ac4aa", null ],
     [ "aNewExprCondition", "group__Script.html#ga99a0eca7183a984c25b7c67d5f5fdd53", null ],
     [ "aNewExprRange", "group__Script.html#ga66917cbaa3cd966ecf57f76502469e27", null ],
+    [ "aNewObject", "group__RTTI.html#gadc002263f7cd7c9a750a10073a1df929", null ],
     [ "aNewObject", "group__RTTI.html#ga949a9d47b45a81d30148cb09b83ab35b", null ],
     [ "aNewOpAssign", "group__Script.html#ga779073b57080a753eab0f9f358487ae8", null ],
     [ "aNewOpBin", "group__Script.html#ga86846799de6af428f6f8692ba14bced4", null ],

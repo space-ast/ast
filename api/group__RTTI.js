@@ -215,6 +215,7 @@ var group__RTTI =
     [ "ast::aGetObjectID", "group__RTTI.html#gaaf1c525b5e6a41dcf1f853523b8500c7", null ],
     [ "ast::aGetParentScope", "group__RTTI.html#ga25a796d58add8beaf21d2c9a61b0434d", null ],
     [ "ast::aMakeObject", "group__RTTI.html#ga0e7b21139f9b78f32be3e1920dc0cdf7", null ],
+    [ "ast::aNewObject", "group__RTTI.html#gadc002263f7cd7c9a750a10073a1df929", null ],
     [ "ast::aNewObject", "group__RTTI.html#ga949a9d47b45a81d30148cb09b83ab35b", null ],
     [ "ast::aNewPropertyBool", "group__RTTI.html#gae279d6b4de36d7726e7d19dbcfeeca73", null ],
     [ "ast::aNewPropertyBool", "group__RTTI.html#ga23ab56939991a5c55275128b84332bcd", null ],

@@ -126,11 +126,14 @@ $(function(){initNavTree('classast_1_1Segment.html',''); initResizable(true); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a099498044c1713bd58dc1871ad4920f5" id="r_a099498044c1713bd58dc1871ad4920f5"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a099498044c1713bd58dc1871ad4920f5">execute</a> ()=0</td></tr>
-<tr class="separator:a099498044c1713bd58dc1871ad4920f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579ebdccfb12820bcdd398428db8939a" id="r_a579ebdccfb12820bcdd398428db8939a"><td class="memItemLeft" align="right" valign="top"><a id="a579ebdccfb12820bcdd398428db8939a" name="a579ebdccfb12820bcdd398428db8939a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MissionCommand</b> ()=default</td></tr>
-<tr class="separator:a579ebdccfb12820bcdd398428db8939a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081cf5c764b36a5f2f2eb994fc3f68a7" id="r_a081cf5c764b36a5f2f2eb994fc3f68a7"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a081cf5c764b36a5f2f2eb994fc3f68a7">execute</a> () override=0</td></tr>
+<tr class="separator:a081cf5c764b36a5f2f2eb994fc3f68a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb1c8d75b461947d33715b8ed056fc0f" id="r_aeb1c8d75b461947d33715b8ed056fc0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb1c8d75b461947d33715b8ed056fc0f">setInitialState</a> (<a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *initialState)</td></tr>
+<tr class="separator:aeb1c8d75b461947d33715b8ed056fc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa031896d71ad146d40c780fbe9346227" id="r_aa031896d71ad146d40c780fbe9346227"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa031896d71ad146d40c780fbe9346227">getInitialState</a> () const</td></tr>
+<tr class="separator:aa031896d71ad146d40c780fbe9346227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ead22e52ad65b1400603c18967681e0" id="r_a2ead22e52ad65b1400603c18967681e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ead22e52ad65b1400603c18967681e0">getFinalState</a> () const</td></tr>
+<tr class="separator:a2ead22e52ad65b1400603c18967681e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1MissionCommand"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1MissionCommand')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1MissionCommand.html">ast::MissionCommand</a></td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Object" id="r_a3e2ce8041e46f520a6f50b2d661245b9"><td class="memItemLeft" align="right" valign="top">
@@ -234,8 +237,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <div class="textblock"><p>任务段 </p>
 <p>任务段负责执行任务序列中的任务 参考了GMAT-Architectural-Specification.pdf第26章的Mission Control <a class="el" href="classast_1_1Sequence.html">Sequence</a> Commands 参考了STK的轨道段MCSSegment </p>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a099498044c1713bd58dc1871ad4920f5" name="a099498044c1713bd58dc1871ad4920f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a099498044c1713bd58dc1871ad4920f5">&#9670;&#160;</a></span>execute()</h2>
+<a id="a081cf5c764b36a5f2f2eb994fc3f68a7" name="a081cf5c764b36a5f2f2eb994fc3f68a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081cf5c764b36a5f2f2eb994fc3f68a7">&#9670;&#160;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +255,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -266,8 +269,98 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a2ead22e52ad65b1400603c18967681e0" name="a2ead22e52ad65b1400603c18967681e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ead22e52ad65b1400603c18967681e0">&#9670;&#160;</a></span>getFinalState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> * ast::Segment::getFinalState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取最终状态 </p>
+<dl class="section return"><dt>返回</dt><dd>最终状态 </dd></dl>
+
+</div>
+</div>
+<a id="aa031896d71ad146d40c780fbe9346227" name="aa031896d71ad146d40c780fbe9346227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa031896d71ad146d40c780fbe9346227">&#9670;&#160;</a></span>getInitialState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> * ast::Segment::getInitialState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取初始状态 </p>
+<dl class="section return"><dt>返回</dt><dd>初始状态 </dd></dl>
+
+</div>
+</div>
+<a id="aeb1c8d75b461947d33715b8ed056fc0f" name="aeb1c8d75b461947d33715b8ed056fc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb1c8d75b461947d33715b8ed056fc0f">&#9670;&#160;</a></span>setInitialState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Segment::setInitialState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *</td>          <td class="paramname"><span class="paramname"><em>initialState</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置初始状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initialState</td><td>初始状态 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Orbit/Mission/<a class="el" href="Segment_8hpp_source.html">Segment.hpp</a></li>
+<li>src/AstCore/Orbit/Mission/<a class="el" href="Segment_8cpp.html">Segment.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

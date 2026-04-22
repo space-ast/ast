@@ -13,6 +13,7 @@ var RTTIAPI_8hpp =
     [ "aGetObjectID", "RTTIAPI_8hpp.html#gaaf1c525b5e6a41dcf1f853523b8500c7", null ],
     [ "aGetParentScope", "RTTIAPI_8hpp.html#ga25a796d58add8beaf21d2c9a61b0434d", null ],
     [ "aMakeObject", "RTTIAPI_8hpp.html#ga0e7b21139f9b78f32be3e1920dc0cdf7", null ],
+    [ "aNewObject", "RTTIAPI_8hpp.html#gadc002263f7cd7c9a750a10073a1df929", null ],
     [ "aNewObject", "RTTIAPI_8hpp.html#ga949a9d47b45a81d30148cb09b83ab35b", null ],
     [ "aPrintObjectTree", "RTTIAPI_8hpp.html#gaf82b69919faf9d958f4ad3ebff8b3882", null ],
     [ "aRegisterClass", "RTTIAPI_8hpp.html#gafca0a4e10333068c12cfadc1b5bdb145", null ],

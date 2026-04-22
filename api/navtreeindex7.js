@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"Return_8hpp.html":[4,0,0,1,6,3,21],
+"Return_8hpp_source.html":[4,0,0,1,6,3,21],
 "RidderSolver_8cpp.html":[4,0,0,5,4,0,5],
 "RidderSolver_8hpp.html":[4,0,0,5,4,0,6],
 "RidderSolver_8hpp_source.html":[4,0,0,5,4,0,6],
@@ -110,11 +112,12 @@ var NAVTREEINDEX7 =
 "SegmentCalculation_8cpp.html":[4,0,0,1,6,1,2],
 "SegmentCalculation_8hpp.html":[4,0,0,1,6,1,3],
 "SegmentCalculation_8hpp_source.html":[4,0,0,1,6,1,3],
-"SegmentGraph_8cpp.html":[4,0,0,1,6,3,22],
-"SegmentGraph_8hpp.html":[4,0,0,1,6,3,23],
-"SegmentGraph_8hpp_source.html":[4,0,0,1,6,3,23],
-"Segment_8hpp.html":[4,0,0,1,6,3,21],
-"Segment_8hpp_source.html":[4,0,0,1,6,3,21],
+"SegmentGraph_8cpp.html":[4,0,0,1,6,3,24],
+"SegmentGraph_8hpp.html":[4,0,0,1,6,3,25],
+"SegmentGraph_8hpp_source.html":[4,0,0,1,6,3,25],
+"Segment_8cpp.html":[4,0,0,1,6,3,22],
+"Segment_8hpp.html":[4,0,0,1,6,3,23],
+"Segment_8hpp_source.html":[4,0,0,1,6,3,23],
 "SensorLoader_8cpp.html":[4,0,0,4,2,50],
 "SensorLoader_8cpp.html#a0c642c8a2c7632ee52d37d55d2bc7c6e":[4,0,0,4,2,50,5],
 "SensorLoader_8cpp.html#a10226e550709cf50ceb9d80d29297654":[4,0,0,4,2,50,7],
@@ -138,9 +141,9 @@ var NAVTREEINDEX7 =
 "SequenceLoader_8hpp.html#a08f918c7ddde0137d2cd2baa655814e1":[4,0,0,4,0,2,8,0],
 "SequenceLoader_8hpp.html#ab48efe26930d2a372c98541f967a6540":[4,0,0,4,0,2,8,1],
 "SequenceLoader_8hpp_source.html":[4,0,0,4,0,2,8],
-"Sequence_8cpp.html":[4,0,0,1,6,3,24],
-"Sequence_8hpp.html":[4,0,0,1,6,3,25],
-"Sequence_8hpp_source.html":[4,0,0,1,6,3,25],
+"Sequence_8cpp.html":[4,0,0,1,6,3,26],
+"Sequence_8hpp.html":[4,0,0,1,6,3,27],
+"Sequence_8hpp_source.html":[4,0,0,1,6,3,27],
 "SerdeAPI_8cpp.html":[4,0,0,14,8,10],
 "SerdeAPI_8hpp.html":[4,0,0,14,8,11],
 "SerdeAPI_8hpp_source.html":[4,0,0,14,8,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "SpiceFrameRegistry_8cpp.html":[4,0,0,12,0,2],
 "SpiceFrameRegistry_8hpp.html":[4,0,0,12,0,3],
 "SpiceFrameRegistry_8hpp_source.html":[4,0,0,12,0,3],
-"SpiceRunTime_8cpp.html":[4,0,0,12,0,4],
-"SpiceRunTime_8hpp.html":[4,0,0,12,0,5],
-"SpiceRunTime_8hpp_source.html":[4,0,0,12,0,5],
-"SpiceUsr_8h_source.html":[4,0,0,12,1]
+"SpiceRunTime_8cpp.html":[4,0,0,12,0,4]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"OpAssignPredefined_8hpp.html":[4,0,0,10,6,0,3],
+"OpAssignPredefined_8hpp_source.html":[4,0,0,10,6,0,3],
 "OpAssign_8cpp.html":[4,0,0,10,6,3],
 "OpAssign_8hpp.html":[4,0,0,10,6,4],
 "OpAssign_8hpp_source.html":[4,0,0,10,6,4],
@@ -120,9 +122,9 @@ var NAVTREEINDEX6 =
 "Posix_8cpp.html":[4,0,0,14,5,21],
 "Posix_8hpp_source.html":[4,0,0,14,5,22],
 "PropagateLoader_8hpp_source.html":[4,0,0,4,0,2,6],
-"Propagate_8cpp.html":[4,0,0,1,6,3,17],
-"Propagate_8hpp.html":[4,0,0,1,6,3,18],
-"Propagate_8hpp_source.html":[4,0,0,1,6,3,18],
+"Propagate_8cpp.html":[4,0,0,1,6,3,18],
+"Propagate_8hpp.html":[4,0,0,1,6,3,19],
+"Propagate_8hpp_source.html":[4,0,0,1,6,3,19],
 "PropagatorLoader_8cpp.html":[4,0,0,4,0,3,0],
 "PropagatorLoader_8cpp.html#a02cedf7698e0967b59c75d19bae3cbcc":[4,0,0,4,0,3,0,0],
 "PropagatorLoader_8cpp.html#af9277420775c8409f3e05adbbc9630b4":[4,0,0,4,0,3,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "Resolve_8hpp.html#abeb8d087c27330b729ce5cd32da7c081":[4,0,0,1,8,5,1],
 "Resolve_8hpp.html#aeb86996b8d5dbc791896395d2d95e2ae":[4,0,0,1,8,5,0],
 "Resolve_8hpp_source.html":[4,0,0,1,8,5],
-"Return_8cpp.html":[4,0,0,1,6,3,19],
-"Return_8hpp.html":[4,0,0,1,6,3,20],
-"Return_8hpp_source.html":[4,0,0,1,6,3,20]
+"Return_8cpp.html":[4,0,0,1,6,3,20]
 };

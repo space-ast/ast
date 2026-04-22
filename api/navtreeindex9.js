@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"UiEventInterval_8hpp.html":[4,0,0,3,2,3],
+"UiEventInterval_8hpp_source.html":[4,0,0,3,2,3],
+"UiEventTime_8hpp_source.html":[4,0,0,3,2,4],
 "UiFilePath_8cpp.html":[4,0,0,3,2,5],
 "UiFilePath_8hpp.html":[4,0,0,3,2,6],
 "UiFilePath_8hpp_source.html":[4,0,0,3,2,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "classast_1_1AstGfxAPI.html#afd49c639f629c3b985309f0bd2d62963":[3,0,0,15,5],
 "classast_1_1Asteroid.html":[2,0,0,15],
 "classast_1_1Asteroid.html":[3,0,0,14],
-"classast_1_1AttitudeCoverage.html":[2,0,0,17],
-"classast_1_1AttitudeCoverage.html":[3,0,0,16],
-"classast_1_1AttitudeFigureOfMerit.html":[2,0,0,18],
-"classast_1_1AttitudeFigureOfMerit.html":[3,0,0,17]
+"classast_1_1AttitudeCoverage.html":[2,0,0,17]
 };
