@@ -2,7 +2,7 @@ var classast_1_1GravityForce =
 [
     [ "clone", "classast_1_1GravityForce.html#a7dff82d968d27a90a4a8cf2e371b0b25", null ],
     [ "getBodyAttractionType", "classast_1_1GravityForce.html#a623ef9e61d28f8164e94a292814a1456", null ],
-    [ "includeTimeDependentSolidTides", "classast_1_1GravityForce.html#a69d33fb7ea34597c4ac00481cd87c2f4", null ],
+    [ "includeTimeDependentSolidTides_", "classast_1_1GravityForce.html#a70df4c6702d30d3f26f9603fa92a3f52", null ],
     [ "maxDegree_", "classast_1_1GravityForce.html#a44a2e6168d18dfb750645454950304f3", null ],
     [ "maxDegreeOceanTides_", "classast_1_1GravityForce.html#a66b36bae08174b95f1da83701bfbf904", null ],
     [ "maxOrder_", "classast_1_1GravityForce.html#ac25ef5e5b865161c59e9e68875a50e9c", null ],
