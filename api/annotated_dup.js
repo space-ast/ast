@@ -1,6 +1,19 @@
 var annotated_dup =
 [
     [ "ast", "namespaceast.html", [
+      [ "detail", null, [
+        [ "GetterErrorSetterTag", "structast_1_1detail_1_1GetterErrorSetterTag.html", null ],
+        [ "GetterOnlyTag", "structast_1_1detail_1_1GetterOnlyTag.html", null ],
+        [ "GetterVoidSetterTag", "structast_1_1detail_1_1GetterVoidSetterTag.html", null ],
+        [ "MemberPtrTag", "structast_1_1detail_1_1MemberPtrTag.html", null ],
+        [ "PropertyBuilder", "structast_1_1detail_1_1PropertyBuilder.html", null ],
+        [ "PropertyBuilder< T, std::string, GetterErrorSetterTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01std_1_1string_00_01GetterErrorSetterTag_01_4.html", null ],
+        [ "PropertyBuilder< T, std::string, GetterVoidSetterTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01std_1_1string_00_01GetterVoidSetterTag_01_4.html", null ],
+        [ "PropertyBuilder< T, ValueType, GetterErrorSetterTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01GetterErrorSetterTag_01_4.html", null ],
+        [ "PropertyBuilder< T, ValueType, GetterOnlyTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01GetterOnlyTag_01_4.html", null ],
+        [ "PropertyBuilder< T, ValueType, GetterVoidSetterTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01GetterVoidSetterTag_01_4.html", null ],
+        [ "PropertyBuilder< T, ValueType, MemberPtrTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01MemberPtrTag_01_4.html", null ]
+      ] ],
       [ "fs_simple", "namespaceast_1_1fs__simple.html", [
         [ "directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
         [ "directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", "classast_1_1fs__simple_1_1directory__iterator" ],
