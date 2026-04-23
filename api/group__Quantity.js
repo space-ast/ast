@@ -58,6 +58,7 @@ var group__Quantity =
       [ "UnitRepPair", "classast_1_1Unit.html#affbd95f55a69380dc9d68e3c0d29a7d8", null ],
       [ "UnitRepPairConst", "classast_1_1Unit.html#ab58c5c61256f1ea280ca87f04889d858", null ],
       [ "Unit", "classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614", null ],
+      [ "Unit", "classast_1_1Unit.html#a8f701fc4e62e1272ce9fab9dea60103d", null ],
       [ "Unit", "classast_1_1Unit.html#a01f131b66681d59fb0b731e0ec675080", null ],
       [ "Unit", "classast_1_1Unit.html#ac9c6a03f40114106d9347585c9d9903f", null ],
       [ "clone", "classast_1_1Unit.html#a9c365643bf4c15fa51c06df158636d58", null ],

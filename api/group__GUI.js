@@ -8,7 +8,8 @@ var group__GUI =
       [ "filter", "classast_1_1UiFilePath.html#a395de0cd222650578c4246cd03e9eb81", null ],
       [ "path", "classast_1_1UiFilePath.html#a9a7a11f75a496757c7fe75e6aed7a514", null ],
       [ "setFilter", "classast_1_1UiFilePath.html#a20f8ae9e92e4494274d13fff83e9d5cd", null ],
-      [ "setPath", "classast_1_1UiFilePath.html#ab85dfa783b0413db4b2ce9c88f814293", null ]
+      [ "setPath", "classast_1_1UiFilePath.html#ab85dfa783b0413db4b2ce9c88f814293", null ],
+      [ "setPath", "classast_1_1UiFilePath.html#a3e29a8449ce22fa897bbadd2f51d7d8a", null ]
     ] ],
     [ "ast::UiInteger", "classast_1_1UiInteger.html", [
       [ "setValue", "classast_1_1UiInteger.html#ac4f321b6a7485a99997c987176374a15", null ],
@@ -24,9 +25,11 @@ var group__GUI =
       [ "setMagnitude", "classast_1_1UiQuantity.html#a3b250de1ee70aee863b8de5cda4e953b", null ],
       [ "setQuantity", "classast_1_1UiQuantity.html#a164a50e10cc48a9840e0ee3282aa1d4a", null ],
       [ "setUnit", "classast_1_1UiQuantity.html#acda7477cac5832188e65eba57728c641", null ],
+      [ "setValue", "classast_1_1UiQuantity.html#a4c5d82867b8c44f5113558d218a8c839", null ],
       [ "setValueInUnit", "classast_1_1UiQuantity.html#a0dabaa4ce22168ac6021e4a750b7f136", null ],
       [ "setValueSI", "classast_1_1UiQuantity.html#a030405447a04eccc960585cb76ab322e", null ],
-      [ "setValueUnit", "classast_1_1UiQuantity.html#aedaec01af15bb3eb1c77a49276c67988", null ]
+      [ "setValueUnit", "classast_1_1UiQuantity.html#aedaec01af15bb3eb1c77a49276c67988", null ],
+      [ "value", "classast_1_1UiQuantity.html#a32a39bdf006f4f8216f8683e34d6e3a7", null ]
     ] ],
     [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", [
       [ "getTimeInterval", "classast_1_1UiTimeInterval.html#a181efaf4a9a516d56fd5fe26080b1a7c", null ],

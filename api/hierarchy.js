@@ -105,10 +105,6 @@ var hierarchy =
     ] ],
     [ "ast::EquinElem", "classast_1_1EquinElem.html", null ],
     [ "ast::Euler", "classast_1_1Euler.html", null ],
-    [ "ast::EventDetector", "classast_1_1EventDetector.html", [
-      [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
-      [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
-    ] ],
     [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", null ],
     [ "ast::Field", "classast_1_1Field.html", [
       [ "ast::Property", "classast_1_1Property.html", [
@@ -130,16 +126,6 @@ var hierarchy =
     ] ],
     [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
-    [ "ast::ForceModel", "classast_1_1ForceModel.html", [
-      [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
-        [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
-        [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ]
-      ] ],
-      [ "ast::DragForce", "classast_1_1DragForce.html", null ],
-      [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
-      [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
-      [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
-    ] ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],
@@ -198,7 +184,6 @@ var hierarchy =
       [ "ast::GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", null ]
     ] ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
-    [ "ast::HPOP", "classast_1_1HPOP.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
     [ "icilist", "structicilist.html", null ],
@@ -221,21 +206,6 @@ var hierarchy =
     [ "ast::Interpreter", "classast_1_1Interpreter.html", null ],
     [ "ast::InterpreterContext", "classast_1_1InterpreterContext.html", null ],
     [ "ast::Interval", "classast_1_1Interval.html", null ],
-    [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
-      [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
-        [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [
-          [ "ast::ODEVarStepIntegrator", "classast_1_1ODEVarStepIntegrator.html", [
-            [ "ast::RKCK", "classast_1_1RKCK.html", null ],
-            [ "ast::RKF45", "classast_1_1RKF45.html", null ],
-            [ "ast::RKF56", "classast_1_1RKF56.html", null ],
-            [ "ast::RKF78", "classast_1_1RKF78.html", null ]
-          ] ],
-          [ "ast::RK4", "classast_1_1RK4.html", null ],
-          [ "ast::RK8", "classast_1_1RK8.html", null ],
-          [ "ast::RKV8", "classast_1_1RKV8.html", null ]
-        ] ]
-      ] ]
-    ] ],
     [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
       [ "ast::BaseOrbitDesigner", "classast_1_1BaseOrbitDesigner.html", [
         [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", null ],
@@ -362,6 +332,10 @@ var hierarchy =
         [ "ast::BurnFinite", "classast_1_1BurnFinite.html", null ],
         [ "ast::BurnImpulsive", "classast_1_1BurnImpulsive.html", null ]
       ] ],
+      [ "ast::EventDetector", "classast_1_1EventDetector.html", [
+        [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
+        [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
+      ] ],
       [ "ast::EventInterval", "classast_1_1EventInterval.html", [
         [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
         [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
@@ -429,7 +403,33 @@ var hierarchy =
         [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
         [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
       ] ],
+      [ "ast::ForceModel", "classast_1_1ForceModel.html", [
+        [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
+          [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
+          [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ]
+        ] ],
+        [ "ast::DragForce", "classast_1_1DragForce.html", null ],
+        [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
+        [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
+        [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
+      ] ],
+      [ "ast::HPOP", "classast_1_1HPOP.html", null ],
       [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
+      [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
+        [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
+          [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [
+            [ "ast::ODEVarStepIntegrator", "classast_1_1ODEVarStepIntegrator.html", [
+              [ "ast::RKCK", "classast_1_1RKCK.html", null ],
+              [ "ast::RKF45", "classast_1_1RKF45.html", null ],
+              [ "ast::RKF56", "classast_1_1RKF56.html", null ],
+              [ "ast::RKF78", "classast_1_1RKF78.html", null ]
+            ] ],
+            [ "ast::RK4", "classast_1_1RK4.html", null ],
+            [ "ast::RK8", "classast_1_1RK8.html", null ],
+            [ "ast::RKV8", "classast_1_1RKV8.html", null ]
+          ] ]
+        ] ]
+      ] ],
       [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
         [ "ast::End", "classast_1_1End.html", null ],
         [ "ast::Return", "classast_1_1Return.html", null ],
@@ -609,13 +609,21 @@ var hierarchy =
         [ "ast::UiBodyEphemerisDE", "classast_1_1UiBodyEphemerisDE.html", null ],
         [ "ast::UiBodyEphemerisSPK", "classast_1_1UiBodyEphemerisSPK.html", null ],
         [ "ast::UiCelestialBody", "classast_1_1UiCelestialBody.html", null ],
+        [ "ast::UiDragForce", "classast_1_1UiDragForce.html", null ],
+        [ "ast::UiGravityForce", "classast_1_1UiGravityForce.html", null ],
+        [ "ast::UiHPOPForceModel", "classast_1_1UiHPOPForceModel.html", null ],
         [ "ast::UiMotionProfile", "classast_1_1UiMotionProfile.html", [
           [ "ast::UiMotionTwoBody", "classast_1_1UiMotionTwoBody.html", null ]
         ] ],
+        [ "ast::UiODEVarStepIntegrator", "classast_1_1UiODEVarStepIntegrator.html", null ],
+        [ "ast::UiPointMassForce", "classast_1_1UiPointMassForce.html", null ],
+        [ "ast::UiSolarRadiationPressure", "classast_1_1UiSolarRadiationPressure.html", null ],
         [ "ast::UiState", "classast_1_1UiState.html", [
           [ "ast::UiStateCartesian", "classast_1_1UiStateCartesian.html", null ],
           [ "ast::UiStateKeplerian", "classast_1_1UiStateKeplerian.html", null ]
-        ] ]
+        ] ],
+        [ "ast::UiThirdBodyForce", "classast_1_1UiThirdBodyForce.html", null ],
+        [ "ast::UiThirdBodyForceList", "classast_1_1UiThirdBodyForceList.html", null ]
       ] ],
       [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", null ],
       [ "ast::UiWidget", "classast_1_1UiWidget.html", null ]

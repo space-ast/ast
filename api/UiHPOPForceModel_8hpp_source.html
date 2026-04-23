@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstGUI/Foundation/UiHPOPForceModel.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstGUI/ForceModel/UiHPOPForceModel.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,13 +101,97 @@ $(function(){initNavTree('UiHPOPForceModel_8hpp_source.html',''); initResizable(
   <div class="headertitle"><div class="title">UiHPOPForceModel.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="UiHPOPForceModel_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstGUI/UiObject.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;QGroupBox&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;QComboBox&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;QRadioButton&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;QCheckBox&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;QListWidget&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;QHBoxLayout&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;QTabWidget&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;QFileDialog&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;AstGUI/UiDragForce.hpp&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;AstGUI/UiSolarRadiationPressure.hpp&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;AstGUI/UiGravityForce.hpp&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;AstGUI/UiThirdBodyForce.hpp&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;AstGUI/UiThirdBodyForceList.hpp&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">class </span>HPOPForceModel;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1UiHPOPForceModel.html">   53</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1UiHPOPForceModel.html">UiHPOPForceModel</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1UiObject.html">UiObject</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Q_OBJECT</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1UiHPOPForceModel.html">UiHPOPForceModel</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1UiHPOPForceModel.html">UiHPOPForceModel</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classast_1_1UiHPOPForceModel.html">~UiHPOPForceModel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>* getHPOPForceModel() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> setHPOPForceModel(<a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>* hpop);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> refreshUi();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> apply();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> setupUi();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> applyTo(<a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>* hpop);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// 布局</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    QVBoxLayout* mainLayout_;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    QTabWidget* tabWidget_;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// 引力模型标签页</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    QWidget* gravityTab_;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    QVBoxLayout* gravityTabLayout_;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="classast_1_1UiGravityForce.html">UiGravityForce</a>* gravityWidget_;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// 三体引力配置</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    QWidget* thirdBodyTab_;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    QVBoxLayout* thirdBodyTabLayout_;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_class" href="classast_1_1UiThirdBodyForceList.html">UiThirdBodyForceList</a>* thirdBodyWidget_;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// 大气阻力标签页</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    QWidget* dragTab_;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    QVBoxLayout* dragTabLayout_;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="classast_1_1UiDragForce.html">UiDragForce</a>* dragWidget_;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// 太阳光压标签页</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    QWidget* srpTab_;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    QVBoxLayout* srpTabLayout_;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="classast_1_1UiSolarRadiationPressure.html">UiSolarRadiationPressure</a>* srpWidget_;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1HPOPForceModel_html"><div class="ttname"><a href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></div><div class="ttdoc">高精度轨道预报力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:84</div></div>
+<div class="ttc" id="aclassast_1_1UiDragForce_html"><div class="ttname"><a href="classast_1_1UiDragForce.html">ast::UiDragForce</a></div><div class="ttdef"><b>定义</b> UiDragForce.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1UiGravityForce_html"><div class="ttname"><a href="classast_1_1UiGravityForce.html">ast::UiGravityForce</a></div><div class="ttdef"><b>定义</b> UiGravityForce.hpp:22</div></div>
+<div class="ttc" id="aclassast_1_1UiHPOPForceModel_html"><div class="ttname"><a href="classast_1_1UiHPOPForceModel.html">ast::UiHPOPForceModel</a></div><div class="ttdef"><b>定义</b> UiHPOPForceModel.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1UiObject_html"><div class="ttname"><a href="classast_1_1UiObject.html">ast::UiObject</a></div><div class="ttdoc">与对象关联的 QWidget</div><div class="ttdef"><b>定义</b> UiObject.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1UiSolarRadiationPressure_html"><div class="ttname"><a href="classast_1_1UiSolarRadiationPressure.html">ast::UiSolarRadiationPressure</a></div><div class="ttdef"><b>定义</b> UiSolarRadiationPressure.hpp:23</div></div>
+<div class="ttc" id="aclassast_1_1UiThirdBodyForceList_html"><div class="ttname"><a href="classast_1_1UiThirdBodyForceList.html">ast::UiThirdBodyForceList</a></div><div class="ttdef"><b>定义</b> UiThirdBodyForceList.hpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1aa6ec13829cacb2d194b2b5829946f0.html">AstGUI</a></li><li class="navelem"><a class="el" href="dir_f8a3f3054cde6af382aa6e3c7bfec459.html">Foundation</a></li><li class="navelem"><b>UiHPOPForceModel.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1aa6ec13829cacb2d194b2b5829946f0.html">AstGUI</a></li><li class="navelem"><a class="el" href="dir_c64d82c32bf29d73de5e106b81a27492.html">ForceModel</a></li><li class="navelem"><a class="el" href="UiHPOPForceModel_8hpp.html">UiHPOPForceModel.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

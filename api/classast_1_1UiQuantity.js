@@ -9,7 +9,9 @@ var classast_1_1UiQuantity =
     [ "setMagnitude", "classast_1_1UiQuantity.html#a3b250de1ee70aee863b8de5cda4e953b", null ],
     [ "setQuantity", "classast_1_1UiQuantity.html#a164a50e10cc48a9840e0ee3282aa1d4a", null ],
     [ "setUnit", "classast_1_1UiQuantity.html#acda7477cac5832188e65eba57728c641", null ],
+    [ "setValue", "classast_1_1UiQuantity.html#a4c5d82867b8c44f5113558d218a8c839", null ],
     [ "setValueInUnit", "classast_1_1UiQuantity.html#a0dabaa4ce22168ac6021e4a750b7f136", null ],
     [ "setValueSI", "classast_1_1UiQuantity.html#a030405447a04eccc960585cb76ab322e", null ],
-    [ "setValueUnit", "classast_1_1UiQuantity.html#aedaec01af15bb3eb1c77a49276c67988", null ]
+    [ "setValueUnit", "classast_1_1UiQuantity.html#aedaec01af15bb3eb1c77a49276c67988", null ],
+    [ "value", "classast_1_1UiQuantity.html#a32a39bdf006f4f8216f8683e34d6e3a7", null ]
 ];
