@@ -10,6 +10,7 @@ var NetworkRequest_8hpp =
       [ "eOptions", "NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3faabf4689530790b5dc40eeb379830a882", null ],
       [ "eTrace", "NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa884fd8777b228c63388fd108895217bf", null ],
       [ "eConnect", "NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa1929dcb2c6bd4267ec3fb10a33e0ec8e", null ],
-      [ "ePatch", "NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa92e5778ba7e95d2174375c5eec10bdd3", null ]
+      [ "ePatch", "NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa92e5778ba7e95d2174375c5eec10bdd3", null ],
+      [ "eUnknown", "NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa64c3acc11ffdb1be30ea339290bd1508", null ]
     ] ]
 ];

@@ -107,21 +107,73 @@ $(function(){initNavTree('JsonDomSax_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="JsonSax_8hpp.html">JsonSax.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1JsonDomSax.html">   34</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1JsonDomSax.html">JsonDomSax</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1JsonSax.html">JsonSax</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="JsonValue_8hpp.html">JsonValue.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;stack&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1JsonDomSax.html">   40</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1JsonDomSax.html">JsonDomSax</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1JsonSax.html">JsonSax</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1JsonDomSax.html">JsonDomSax</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1JsonDomSax.html">JsonDomSax</a>(<a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; result);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1JsonDomSax.html">~JsonDomSax</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; getResult() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">bool</span> hasError() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// SAX 事件处理</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a95fa2a8ac0f9709eb6319afa19b0740c">startObject</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#afbf6b8232aa099442b8ede09f9468b13">endObject</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a5938b61b305f92fe21687b9c5961df08">startArray</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#ab224730f248c2235cd35a178e2b5d833">endArray</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a05d548c24a43be8d68089dffab395fa0">key</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> key) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a333517c3fb4dd5279e5dc2f70c7cd07a">index</a>(<span class="keywordtype">size_t</span> index) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a702b7b75905924e296b437f8a36dff52">nullValue</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a9cc19faa804f983db816bb646fe5956d">boolValue</a>(<span class="keywordtype">bool</span> value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#ae7ae37b010bbd88ace7c5f0d1766aff4">intValue</a>(<span class="keywordtype">int</span> value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a02b5e3a87b2b47eb108e53155f56c965">doubleValue</a>(<span class="keywordtype">double</span> value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#a06b2520d7b28a3e4a4c850c36e70559b">stringValue</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    errc_t <a class="code hl_function" href="classast_1_1JsonSax.html#acf49318c4185c2f69903f57843df3066">parseError</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> message) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// 错误/中止用的错误码</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">static</span> <span class="keyword">const</span> errc_t kStopParsing = -1;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; currentValue();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">bool</span>                   error_ = <span class="keyword">false</span>;           </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::stack&lt;JsonValue*&gt; stack_;                   </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>              internalResult_;          </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp;             result_;                  </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aJsonSax_8hpp_html"><div class="ttname"><a href="JsonSax_8hpp.html">JsonSax.hpp</a></div></div>
-<div class="ttc" id="aclassast_1_1JsonDomSax_html"><div class="ttname"><a href="classast_1_1JsonDomSax.html">ast::JsonDomSax</a></div><div class="ttdef"><b>定义</b> JsonDomSax.hpp:35</div></div>
+<div class="ttc" id="aJsonValue_8hpp_html"><div class="ttname"><a href="JsonValue_8hpp.html">JsonValue.hpp</a></div><div class="ttdoc">JSON 值类</div></div>
+<div class="ttc" id="aclassast_1_1JsonDomSax_html"><div class="ttname"><a href="classast_1_1JsonDomSax.html">ast::JsonDomSax</a></div><div class="ttdoc">基于 SAX 事件构建 JSON DOM 的类</div><div class="ttdef"><b>定义</b> JsonDomSax.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1JsonSax_html"><div class="ttname"><a href="classast_1_1JsonSax.html">ast::JsonSax</a></div><div class="ttdef"><b>定义</b> JsonSax.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a02b5e3a87b2b47eb108e53155f56c965"><div class="ttname"><a href="classast_1_1JsonSax.html#a02b5e3a87b2b47eb108e53155f56c965">ast::JsonSax::doubleValue</a></div><div class="ttdeci">virtual errc_t doubleValue(double value)</div><div class="ttdoc">解析双精度浮点数值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a05d548c24a43be8d68089dffab395fa0"><div class="ttname"><a href="classast_1_1JsonSax.html#a05d548c24a43be8d68089dffab395fa0">ast::JsonSax::key</a></div><div class="ttdeci">virtual errc_t key(StringView key)</div><div class="ttdoc">解析对象键</div><div class="ttdef"><b>定义</b> JsonSax.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a06b2520d7b28a3e4a4c850c36e70559b"><div class="ttname"><a href="classast_1_1JsonSax.html#a06b2520d7b28a3e4a4c850c36e70559b">ast::JsonSax::stringValue</a></div><div class="ttdeci">virtual errc_t stringValue(StringView value)</div><div class="ttdoc">解析字符串值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:87</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a333517c3fb4dd5279e5dc2f70c7cd07a"><div class="ttname"><a href="classast_1_1JsonSax.html#a333517c3fb4dd5279e5dc2f70c7cd07a">ast::JsonSax::index</a></div><div class="ttdeci">virtual errc_t index(size_t index)</div><div class="ttdoc">解析数组索引</div><div class="ttdef"><b>定义</b> JsonSax.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a5938b61b305f92fe21687b9c5961df08"><div class="ttname"><a href="classast_1_1JsonSax.html#a5938b61b305f92fe21687b9c5961df08">ast::JsonSax::startArray</a></div><div class="ttdeci">virtual errc_t startArray()</div><div class="ttdoc">开始解析数组</div><div class="ttdef"><b>定义</b> JsonSax.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a702b7b75905924e296b437f8a36dff52"><div class="ttname"><a href="classast_1_1JsonSax.html#a702b7b75905924e296b437f8a36dff52">ast::JsonSax::nullValue</a></div><div class="ttdeci">virtual errc_t nullValue()</div><div class="ttdoc">解析 null 值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a95fa2a8ac0f9709eb6319afa19b0740c"><div class="ttname"><a href="classast_1_1JsonSax.html#a95fa2a8ac0f9709eb6319afa19b0740c">ast::JsonSax::startObject</a></div><div class="ttdeci">virtual errc_t startObject()</div><div class="ttdoc">开始解析对象</div><div class="ttdef"><b>定义</b> JsonSax.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_a9cc19faa804f983db816bb646fe5956d"><div class="ttname"><a href="classast_1_1JsonSax.html#a9cc19faa804f983db816bb646fe5956d">ast::JsonSax::boolValue</a></div><div class="ttdeci">virtual errc_t boolValue(bool value)</div><div class="ttdoc">解析布尔值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_ab224730f248c2235cd35a178e2b5d833"><div class="ttname"><a href="classast_1_1JsonSax.html#ab224730f248c2235cd35a178e2b5d833">ast::JsonSax::endArray</a></div><div class="ttdeci">virtual errc_t endArray()</div><div class="ttdoc">结束解析数组</div><div class="ttdef"><b>定义</b> JsonSax.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_acf49318c4185c2f69903f57843df3066"><div class="ttname"><a href="classast_1_1JsonSax.html#acf49318c4185c2f69903f57843df3066">ast::JsonSax::parseError</a></div><div class="ttdeci">virtual errc_t parseError(StringView message)</div><div class="ttdoc">解析错误</div><div class="ttdef"><b>定义</b> JsonSax.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_ae7ae37b010bbd88ace7c5f0d1766aff4"><div class="ttname"><a href="classast_1_1JsonSax.html#ae7ae37b010bbd88ace7c5f0d1766aff4">ast::JsonSax::intValue</a></div><div class="ttdeci">virtual errc_t intValue(int value)</div><div class="ttdoc">解析整数值</div><div class="ttdef"><b>定义</b> JsonSax.hpp:77</div></div>
+<div class="ttc" id="aclassast_1_1JsonSax_html_afbf6b8232aa099442b8ede09f9468b13"><div class="ttname"><a href="classast_1_1JsonSax.html#afbf6b8232aa099442b8ede09f9468b13">ast::JsonSax::endObject</a></div><div class="ttdeci">virtual errc_t endObject()</div><div class="ttdoc">结束解析对象</div><div class="ttdef"><b>定义</b> JsonSax.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

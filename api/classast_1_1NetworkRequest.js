@@ -7,6 +7,7 @@ var classast_1_1NetworkRequest =
     [ "setBody", "classast_1_1NetworkRequest.html#a25cd5a16232f7872574980365809f04d", null ],
     [ "setHeaders", "classast_1_1NetworkRequest.html#a5745322d0dc5b4e75277260861b3f6a5", null ],
     [ "setMethod", "classast_1_1NetworkRequest.html#a20d91eec1f213b8150218167b154ecd1", null ],
+    [ "setMethod", "classast_1_1NetworkRequest.html#a8c52917e5a1c0efdd2127b5d51f1de32", null ],
     [ "setUrl", "classast_1_1NetworkRequest.html#a35c0fae8c3a42f837bf02bb61c462c45", null ],
     [ "url", "classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe", null ]
 ];

@@ -115,13 +115,12 @@ $(function(){initNavTree('classast_1_1BaseParser.html',''); initResizable(true);
  <div class="center">
   <img src="classast_1_1BaseParser.png" usemap="#ast::BaseParser_map" alt=""/>
   <map id="ast::BaseParser_map" name="ast::BaseParser_map">
-<area href="classast_1_1BKVParser.html" title="键值对解析器（BlockKeyValueParser）" alt="ast::BKVParser" shape="rect" coords="0,56,121,80"/>
-<area href="classast_1_1DAFParser.html" title="SPICE 双精度数组文件解析器 DAF（Double Precision Array File，双精度数组文件）" alt="ast::DAFParser" shape="rect" coords="131,56,252,80"/>
-<area href="classast_1_1JsonParserImpl.html" alt="ast::JsonParserImpl" shape="rect" coords="262,56,383,80"/>
-<area href="classast_1_1KVParser.html" alt="ast::KVParser" shape="rect" coords="393,56,514,80"/>
-<area href="classast_1_1PCKParser.html" title="SPICE文本内核文件解析器(parser for SPICE text kernel file)" alt="ast::PCKParser" shape="rect" coords="524,56,645,80"/>
-<area href="classast_1_1XMLParser.html" title="轻量级的SAX解析器" alt="ast::XMLParser" shape="rect" coords="655,56,776,80"/>
-<area href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)" alt="ast::SPKParser" shape="rect" coords="131,112,252,136"/>
+<area href="classast_1_1BKVParser.html" title="键值对解析器（BlockKeyValueParser）" alt="ast::BKVParser" shape="rect" coords="0,56,100,80"/>
+<area href="classast_1_1DAFParser.html" title="SPICE 双精度数组文件解析器 DAF（Double Precision Array File，双精度数组文件）" alt="ast::DAFParser" shape="rect" coords="110,56,210,80"/>
+<area href="classast_1_1KVParser.html" alt="ast::KVParser" shape="rect" coords="220,56,320,80"/>
+<area href="classast_1_1PCKParser.html" title="SPICE文本内核文件解析器(parser for SPICE text kernel file)" alt="ast::PCKParser" shape="rect" coords="330,56,430,80"/>
+<area href="classast_1_1XMLParser.html" title="轻量级的SAX解析器" alt="ast::XMLParser" shape="rect" coords="440,56,540,80"/>
+<area href="classast_1_1SPKParser.html" title="SPICE二进制SPK内核文件解析器(parser for SPICE SPK kernel file)" alt="ast::SPKParser" shape="rect" coords="110,112,210,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -144,6 +143,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a4807b86dfe5303eba5a8701cd9ad9f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ac170ef6035641cae5e3c7a9843c9c5" id="r_a7ac170ef6035641cae5e3c7a9843c9c5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ac170ef6035641cae5e3c7a9843c9c5">read</a> (void *buffer, size_t size, size_t pos) const</td></tr>
 <tr class="separator:a7ac170ef6035641cae5e3c7a9843c9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10959dc5bc355836d3239e91d11278a7" id="r_a10959dc5bc355836d3239e91d11278a7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10959dc5bc355836d3239e91d11278a7">read</a> (void *buffer, size_t size) const</td></tr>
+<tr class="separator:a10959dc5bc355836d3239e91d11278a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d27e9f9940a2cdf8416c7f4de164ea8" id="r_a8d27e9f9940a2cdf8416c7f4de164ea8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d27e9f9940a2cdf8416c7f4de164ea8">getLineWithNewline</a> ()</td></tr>
 <tr class="separator:a8d27e9f9940a2cdf8416c7f4de164ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bfcd16c7414029bccdd5eafb8d409b8" id="r_a5bfcd16c7414029bccdd5eafb8d409b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bfcd16c7414029bccdd5eafb8d409b8">getLine</a> ()</td></tr>
@@ -394,8 +395,39 @@ std::vector&lt; char &gt; &amp;&#160;</td><td class="memItemRight" valign="botto
 
 </div>
 </div>
+<a id="a10959dc5bc355836d3239e91d11278a7" name="a10959dc5bc355836d3239e91d11278a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10959dc5bc355836d3239e91d11278a7">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ast::BaseParser::read </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取文件内容 </p>
+<p>从当前文件指针位置读取指定数量的字节到缓冲区。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>用于存储读取内容的缓冲区。 </td></tr>
+    <tr><td class="paramname">size</td><td>要读取的字节数。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>实际读取的字节数。 </dd></dl>
+
+</div>
+</div>
 <a id="a7ac170ef6035641cae5e3c7a9843c9c5" name="a7ac170ef6035641cae5e3c7a9843c9c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ac170ef6035641cae5e3c7a9843c9c5">&#9670;&#160;</a></span>read()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac170ef6035641cae5e3c7a9843c9c5">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

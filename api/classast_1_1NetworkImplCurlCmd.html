@@ -134,7 +134,9 @@ static <a class="el" href="classast_1_1NetworkImplCurlCmd.html">NetworkImplCurlC
 <tr class="separator:a28b86e3a12262f682c3750cbd2f79cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>网络接口实现，通过curl命令与网络进行交互 </p>
+<div class="textblock"><p>网络接口实现，通过curl命令与网络进行交互</p>
+<p>该实现使用curl命令行工具与网络进行交互，支持GET、POST、PUT、DELETE等HTTP方法 </p><dl class="section note"><dt>注解</dt><dd>该实现需要已安装curl命令行工具，一般操作系统已默认安装 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>注意不要通过该实现发送敏感数据，如密码、API密钥等 因为该实现使用了临时文件与curl命令行工具交互 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="aba1aefaee628d1a11f3af8263848ee6a" name="aba1aefaee628d1a11f3af8263848ee6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba1aefaee628d1a11f3af8263848ee6a">&#9670;&#160;</a></span>isSupported()</h2>
@@ -200,6 +202,7 @@ static <a class="el" href="classast_1_1NetworkImplCurlCmd.html">NetworkImplCurlC
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>注解</dt><dd>该接口会阻塞调用线程，直到网络请求完成或超时为止 </dd></dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1NetworkInterface.html#aa36a05ab337b39fdcbcece5245ab24dd">ast::NetworkInterface</a>.</p>

@@ -3,7 +3,7 @@ var searchData=
   ['rad2deg_0',['rad2deg',['../group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd',1,'ast']]],
   ['radian_1',['Radian',['../classast_1_1Unit.html#ac2cd6e4ca65e96a425e4da2f437e7a89',1,'ast::Unit']]],
   ['radrec_2',['radrec',['../group__Spice.html#ga925fcb5be8351292ea60a4b53e1aadd5',1,'ast']]],
-  ['read_3',['read',['../classast_1_1BaseParser.html#a7ac170ef6035641cae5e3c7a9843c9c5',1,'ast::BaseParser']]],
+  ['read_3',['read',['../classast_1_1BaseParser.html#a7ac170ef6035641cae5e3c7a9843c9c5',1,'ast::BaseParser::read(void *buffer, size_t size, size_t pos) const'],['../classast_1_1BaseParser.html#a10959dc5bc355836d3239e91d11278a7',1,'ast::BaseParser::read(void *buffer, size_t size) const']]],
   ['readdata_4',['readData',['../classast_1_1PCKParser.html#a5e33187b0311a647a758b672553091d3',1,'ast::PCKParser']]],
   ['readfilerecord_5',['readFileRecord',['../classast_1_1DAFParser.html#a175f6c1d2df6f20bbfd81af6f6738b65',1,'ast::DAFParser']]],
   ['readrecord_6',['readRecord',['../classast_1_1DAFParser.html#a6d0725fc20a55de4d3dafe29a26fa7c3',1,'ast::DAFParser']]],

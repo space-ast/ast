@@ -1,4 +1,4 @@
 var JsonDomSax_8hpp =
 [
-    [ "ast::JsonDomSax", "classast_1_1JsonDomSax.html", null ]
+    [ "ast::JsonDomSax", "classast_1_1JsonDomSax.html", "classast_1_1JsonDomSax" ]
 ];

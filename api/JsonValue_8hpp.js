@@ -1,11 +1,11 @@
 var JsonValue_8hpp =
 [
-    [ "JsonValueType", "JsonValue_8hpp.html#gaeb21a621d587fbb5072f2738aefa1a26", [
-      [ "Null", "JsonValue_8hpp.html#ggaeb21a621d587fbb5072f2738aefa1a26abbb93ef26e3c101ff11cdd21cab08a94", null ],
-      [ "Boolean", "JsonValue_8hpp.html#ggaeb21a621d587fbb5072f2738aefa1a26a27226c864bac7454a8504f8edb15d95b", null ],
-      [ "Number", "JsonValue_8hpp.html#ggaeb21a621d587fbb5072f2738aefa1a26ab2ee912b91d69b435159c7c3f6df7f5f", null ],
-      [ "String", "JsonValue_8hpp.html#ggaeb21a621d587fbb5072f2738aefa1a26a27118326006d3829667a400ad23d5d98", null ],
-      [ "Array", "JsonValue_8hpp.html#ggaeb21a621d587fbb5072f2738aefa1a26a4410ec34d9e6c1a68100ca0ce033fb17", null ],
-      [ "Object", "JsonValue_8hpp.html#ggaeb21a621d587fbb5072f2738aefa1a26a497031794414a552435f90151ac3b54b", null ]
+    [ "EJsonValueType", "JsonValue_8hpp.html#ga6bceb3e7a191b76ce5708a7eea693d08", [
+      [ "eNull", "JsonValue_8hpp.html#gga6bceb3e7a191b76ce5708a7eea693d08a7b23b1a8f21b0b115f6543deb240236f", null ],
+      [ "eBool", "JsonValue_8hpp.html#gga6bceb3e7a191b76ce5708a7eea693d08aa72ae44cce754ef20278e5367b74afb8", null ],
+      [ "eNumber", "JsonValue_8hpp.html#gga6bceb3e7a191b76ce5708a7eea693d08a5c4951049cb4bcce791130c9b1e217be", null ],
+      [ "eString", "JsonValue_8hpp.html#gga6bceb3e7a191b76ce5708a7eea693d08afd94ed04f3a7c67da610ca46950edc26", null ],
+      [ "eArray", "JsonValue_8hpp.html#gga6bceb3e7a191b76ce5708a7eea693d08a859997d3d472c83372c6e0179d2025bb", null ],
+      [ "eObject", "JsonValue_8hpp.html#gga6bceb3e7a191b76ce5708a7eea693d08ac92038caaf313844f673a690ac5c88bf", null ]
     ] ]
 ];

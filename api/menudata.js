@@ -81,7 +81,6 @@ var menudata={children:[
 {text:"类型定义",url:"namespacemembers_type.html"},
 {text:"枚举",url:"namespacemembers_enum.html",children:[
 {text:"e",url:"namespacemembers_enum.html#index_e"},
-{text:"j",url:"namespacemembers_enum.html#index_j"},
 {text:"m",url:"namespacemembers_enum.html#index_m"}]},
 {text:"枚举值",url:"namespacemembers_eval.html",children:[
 {text:"e",url:"namespacemembers_eval.html#index_e"},

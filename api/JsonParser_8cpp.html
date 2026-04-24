@@ -99,76 +99,29 @@ $(function(){initNavTree('JsonParser_8cpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#namespaces">命名空间</a>  </div>
   <div class="headertitle"><div class="title">JsonParser.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="JsonParser_8hpp_source.html">JsonParser.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsonDomSax_8hpp_source.html">JsonDomSax.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="JsonValue_8hpp_source.html">JsonValue.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="JsonSax_8hpp_source.html">JsonSax.hpp</a>&quot;</code><br />
-<code>#include &quot;AstUtil/String.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/IO.hpp&quot;</code><br />
-<code>#include &lt;cctype&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;cstring&gt;</code><br />
-<code>#include &lt;climits&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1JsonToken.html">ast::JsonToken</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JsonParserImpl.html">ast::JsonParserImpl</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-枚举</h2></td></tr>
-<tr class="memitem:ad2031b3384013b13b606dc1dec1e97f5" id="r_ad2031b3384013b13b606dc1dec1e97f5"><td class="memItemLeft" align="right" valign="top"><a id="ad2031b3384013b13b606dc1dec1e97f5" name="ad2031b3384013b13b606dc1dec1e97f5"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>JsonParseState</b> { <br />
-&#160;&#160;<b>Start</b>
-, <b>InString</b>
-, <b>InStringEscape</b>
-, <b>InNumber</b>
-, <br />
-&#160;&#160;<b>InTrue</b>
-, <b>InFalse</b>
-, <b>InNull</b>
-, <b>AfterValue</b>
-, <br />
-&#160;&#160;<b>Error</b>
-<br />
- }</td></tr>
-<tr class="separator:ad2031b3384013b13b606dc1dec1e97f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce4a10fddb2794c94a746eedead4cd5" id="r_abce4a10fddb2794c94a746eedead4cd5"><td class="memItemLeft" align="right" valign="top"><a id="abce4a10fddb2794c94a746eedead4cd5" name="abce4a10fddb2794c94a746eedead4cd5"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>JsonTokenType</b> { <br />
-&#160;&#160;<b>BeginObject</b>
-, <b>EndObject</b>
-, <b>BeginArray</b>
-, <b>EndArray</b>
-, <br />
-&#160;&#160;<b>NameSeparator</b>
-, <b>ValueSeparator</b>
-, <b>String</b>
-, <b>Number</b>
-, <br />
-&#160;&#160;<b>True</b>
-, <b>False</b>
-, <b>Null</b>
-, <b>EndOfDocument</b>
-, <br />
-&#160;&#160;<b>Error</b>
-<br />
- }</td></tr>
-<tr class="separator:abce4a10fddb2794c94a746eedead4cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>JSON 解析器实现 </p>
-<p>提供 JSON 字符串和文件的解析功能 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
-<dl class="section date"><dt>日期</dt><dd>2026-04-16 </dd></dl>
+<div class="textblock"><p><br  />
+ </p>
+<p><br  />
+ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-04-24 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
 <p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>

@@ -11,6 +11,7 @@ var classast_1_1BaseParser =
     [ "getLineWithNewline", "classast_1_1BaseParser.html#a8d27e9f9940a2cdf8416c7f4de164ea8", null ],
     [ "isOpen", "classast_1_1BaseParser.html#a24d5391a1aea013594950400a030065c", null ],
     [ "open", "classast_1_1BaseParser.html#a668c69dc73c3e8e0ed327e6af19d569d", null ],
+    [ "read", "classast_1_1BaseParser.html#a10959dc5bc355836d3239e91d11278a7", null ],
     [ "read", "classast_1_1BaseParser.html#a7ac170ef6035641cae5e3c7a9843c9c5", null ],
     [ "seek", "classast_1_1BaseParser.html#a8198c9c0e1d48ecbcef8dc936a57b1ac", null ],
     [ "setBorrowedFile", "classast_1_1BaseParser.html#a0ffc6e1ebca53ddfe3f0b78dd6dd8307", null ],

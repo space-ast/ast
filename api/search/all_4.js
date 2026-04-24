@@ -97,7 +97,7 @@ var searchData=
   ['dm_94',['dm',['../Unit_8cpp.html#a567c78044182d62bdfd482ade453488f',1,'ast::units']]],
   ['dot_95',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
   ['doublecomplex_96',['doublecomplex',['../structdoublecomplex.html',1,'']]],
-  ['doublevalue_97',['doubleValue',['../classast_1_1JsonSax.html#af5418efba1f7a085763d674b676b5c18',1,'ast::JsonSax']]],
+  ['doublevalue_97',['doubleValue',['../classast_1_1JsonDomSax.html#aef9d686e4b1bf6d382046c70bcd0583a',1,'ast::JsonDomSax::doubleValue()'],['../classast_1_1JsonSax.html#a02b5e3a87b2b47eb108e53155f56c965',1,'ast::JsonSax::doubleValue()']]],
   ['dpr_98',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
   ['drag_99',['drag',['../classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa',1,'ast::HPOPForceModel']]],
   ['dragforce_100',['DragForce',['../classast_1_1DragForce.html',1,'ast']]],

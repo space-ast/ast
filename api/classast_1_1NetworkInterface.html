@@ -114,7 +114,7 @@ $(function(){initNavTree('classast_1_1NetworkInterface.html',''); initResizable(
  <div class="center">
   <img src="classast_1_1NetworkInterface.png" usemap="#ast::NetworkInterface_map" alt=""/>
   <map id="ast::NetworkInterface_map" name="ast::NetworkInterface_map">
-<area href="classast_1_1NetworkImplCurlCmd.html" title="网络接口实现，通过curl命令与网络进行交互" alt="ast::NetworkImplCurlCmd" shape="rect" coords="0,56,154,80"/>
+<area href="classast_1_1NetworkImplCurlCmd.html" alt="ast::NetworkImplCurlCmd" shape="rect" coords="0,56,154,80"/>
 <area href="classast_1_1NetworkImplWinHTTP.html" alt="ast::NetworkImplWinHTTP" shape="rect" coords="164,56,318,80"/>
 <area href="classast_1_1NetworkImplWinINet.html" alt="ast::NetworkImplWinINet" shape="rect" coords="328,56,482,80"/>
   </map>
@@ -128,8 +128,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a849f29eba8e6c853c0fcfe3375e106e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>网络接口</p>
-<p>网络接口，用于与网络进行交互。 </p>
+<div class="textblock"><p>网络抽象接口</p>
+<p>网络抽象接口，用于与网络进行交互 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a849f29eba8e6c853c0fcfe3375e106e1" name="a849f29eba8e6c853c0fcfe3375e106e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a849f29eba8e6c853c0fcfe3375e106e1">&#9670;&#160;</a></span>isSupported()</h2>
@@ -155,7 +155,7 @@ Public 成员函数</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查是否支持该网络实现 </p>
-<dl class="section return"><dt>返回</dt><dd>true 如果支持，false 否则 </dd></dl>
+<p>检查该网络实现是否在当前操作系统上受支持，例如： 基于curl命令的实现会检查当前操作系统是否安装了curl 命令行工具 基于WinHTTP的实现会检查是否是Windows操作系统，且支持加载WinHTTP库 基于WinINet的实现会检查是否是Windows操作系统，且支持加载WinINet库 </p><dl class="section return"><dt>返回</dt><dd>true 如果支持，false 否则 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1NetworkImplCurlCmd.html#aba1aefaee628d1a11f3af8263848ee6a">ast::NetworkImplCurlCmd</a>, <a class="el" href="classast_1_1NetworkImplWinHTTP.html#a691b74fc924c6744f7e3f6572920fe20">ast::NetworkImplWinHTTP</a> , 以及 <a class="el" href="classast_1_1NetworkImplWinINet.html#a406a700eec5a91de78e319793ae80a4c">ast::NetworkImplWinINet</a> 内被实现.</p>
 
@@ -195,6 +195,7 @@ Public 成员函数</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>注解</dt><dd>该接口会阻塞调用线程，直到网络请求完成或超时为止 </dd></dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1NetworkImplCurlCmd.html#a2cf35ad8d732ca4e6e997404079d105d">ast::NetworkImplCurlCmd</a>, <a class="el" href="classast_1_1NetworkImplWinHTTP.html#a00fd708723ea6f1f6f1343edd5853c2d">ast::NetworkImplWinHTTP</a> , 以及 <a class="el" href="classast_1_1NetworkImplWinINet.html#a219981c562f3f227eab1aba0b5dad4fe">ast::NetworkImplWinINet</a> 内被实现.</p>

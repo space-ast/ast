@@ -115,6 +115,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a20d91eec1f213b8150218167b154ecd1" id="r_a20d91eec1f213b8150218167b154ecd1"><td class="memItemLeft" align="right" valign="top"><a id="a20d91eec1f213b8150218167b154ecd1" name="a20d91eec1f213b8150218167b154ecd1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setMethod</b> (<a class="el" href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">ENetworkRequestMethod</a> <a class="el" href="#a2925f369ff23f7f9e6f64eeaee88d5b8">method</a>)</td></tr>
 <tr class="separator:a20d91eec1f213b8150218167b154ecd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c52917e5a1c0efdd2127b5d51f1de32" id="r_a8c52917e5a1c0efdd2127b5d51f1de32"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c52917e5a1c0efdd2127b5d51f1de32">setMethod</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#a2925f369ff23f7f9e6f64eeaee88d5b8">method</a>)</td></tr>
+<tr class="separator:a8c52917e5a1c0efdd2127b5d51f1de32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad685f8c1c032e2ce181b0d2d462ffe" id="r_a7ad685f8c1c032e2ce181b0d2d462ffe"><td class="memItemLeft" align="right" valign="top"><a id="a7ad685f8c1c032e2ce181b0d2d462ffe" name="a7ad685f8c1c032e2ce181b0d2d462ffe"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>url</b> () const</td></tr>
 <tr class="separator:a7ad685f8c1c032e2ce181b0d2d462ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,8 +142,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addHeader</b> (const 
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>网络请求</p>
 <p>网络请求，包含方法、URL、体和头 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000042">待办事项</a></b></dt><dd>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制 </dd></dl>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a8c52917e5a1c0efdd2127b5d51f1de32" name="a8c52917e5a1c0efdd2127b5d51f1de32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c52917e5a1c0efdd2127b5d51f1de32">&#9670;&#160;</a></span>setMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::NetworkRequest::setMethod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>method</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>设置网络请求方法</p>
+<p>从字符串视图设置网络请求方法，支持 GET、POST、PUT、DELETE 等方法。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/Network/<a class="el" href="NetworkRequest_8hpp_source.html">NetworkRequest.hpp</a></li>
+<li>src/AstUtil/Network/<a class="el" href="NetworkRequest_8cpp.html">NetworkRequest.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
