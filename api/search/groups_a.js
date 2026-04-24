@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['字符串相关函数_0',['字符串相关函数',['../group__String.html',1,'']]]
+  ['姿态功能_0',['姿态功能',['../group__Attitude.html',1,'']]]
 ];

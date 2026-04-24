@@ -8,11 +8,13 @@ var searchData=
   ['timepoint_5f_5',['timePoint_',['../classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931',1,'ast::SimTime']]],
   ['times_5f_6',['times_',['../classast_1_1EphemerisLagrangeVar.html#a7050cb580f42182e380ca7b977453505',1,'ast::EphemerisLagrangeVar']]],
   ['tle_5f_7',['tle_',['../classast_1_1TwoLineElement.html#ad40917a992ad22d4563743682fe3e87a',1,'ast::TwoLineElement']]],
-  ['tounit_5f_8',['toUnit_',['../classast_1_1UnitConverter.html#ad2bfacefe3458c7133bfaec4d528ab84',1,'ast::UnitConverter']]],
-  ['translation_5f_9',['translation_',['../classast_1_1Transform.html#aa073642b1d18774e14a953f1e2e5f09a',1,'ast::Transform']]],
-  ['truea_5f_10',['trueA_',['../classast_1_1OrbElem.html#a821bb0943770f3cdde0483cec1396a5b',1,'ast::OrbElem::trueA_'],['../classast_1_1ModOrbElem.html#a4df709ac890580d88f10a4a3aba42f66',1,'ast::ModOrbElem::trueA_']]],
-  ['trueanomaly_5f_11',['trueAnomaly_',['../classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea',1,'ast::SimpleOrbitDesigner']]],
-  ['truncatesolidtides_5f_12',['truncateSolidTides_',['../classast_1_1GravityForce.html#a14cc152898af34511ea27b7ab3beffb7',1,'ast::GravityForce']]],
-  ['turnradius_5f_13',['turnRadius_',['../classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267',1,'ast::WayPoint']]],
-  ['type_5f_14',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../classast_1_1OpUnary.html#a0c8074072a0bfe6faf3894f1838a1320',1,'ast::OpUnary::type_']]]
+  ['tool_5fcall_5fid_8',['tool_call_id',['../structast_1_1ChatMessage.html#aef6cf974eb9c17d50d026e307ea06c77',1,'ast::ChatMessage']]],
+  ['tounit_5f_9',['toUnit_',['../classast_1_1UnitConverter.html#ad2bfacefe3458c7133bfaec4d528ab84',1,'ast::UnitConverter']]],
+  ['translation_5f_10',['translation_',['../classast_1_1Transform.html#aa073642b1d18774e14a953f1e2e5f09a',1,'ast::Transform']]],
+  ['truea_5f_11',['trueA_',['../classast_1_1OrbElem.html#a821bb0943770f3cdde0483cec1396a5b',1,'ast::OrbElem::trueA_'],['../classast_1_1ModOrbElem.html#a4df709ac890580d88f10a4a3aba42f66',1,'ast::ModOrbElem::trueA_']]],
+  ['trueanomaly_5f_12',['trueAnomaly_',['../classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea',1,'ast::SimpleOrbitDesigner']]],
+  ['truncatesolidtides_5f_13',['truncateSolidTides_',['../classast_1_1GravityForce.html#a14cc152898af34511ea27b7ab3beffb7',1,'ast::GravityForce']]],
+  ['turnradius_5f_14',['turnRadius_',['../classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267',1,'ast::WayPoint']]],
+  ['type_15',['type',['../structast_1_1AIToolParameter.html#adeab99b523970791340105b62bcd27a4',1,'ast::AIToolParameter::type'],['../structast_1_1AIToolCall.html#a4c88a227c2258f1df2ef915423e5145a',1,'ast::AIToolCall::type'],['../structast_1_1AIToolResponse.html#a0a15f6e70fbfd064a892afab63098491',1,'ast::AIToolResponse::type']]],
+  ['type_5f_16',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../classast_1_1OpUnary.html#a0c8074072a0bfe6faf3894f1838a1320',1,'ast::OpUnary::type_']]]
 ];

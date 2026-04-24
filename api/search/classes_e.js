@@ -29,9 +29,10 @@ var searchData=
   ['opbin_26',['OpBin',['../classast_1_1OpBin.html',1,'ast']]],
   ['opbinkeyhash_27',['OpBinKeyHash',['../structast_1_1OpBinRegistry_1_1OpBinKeyHash.html',1,'ast::OpBinRegistry']]],
   ['opbinregistry_28',['OpBinRegistry',['../classast_1_1OpBinRegistry.html',1,'ast']]],
-  ['opunary_29',['OpUnary',['../classast_1_1OpUnary.html',1,'ast']]],
-  ['opunarykeyhash_30',['OpUnaryKeyHash',['../structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html',1,'ast::OpUnaryRegister']]],
-  ['opunaryregister_31',['OpUnaryRegister',['../classast_1_1OpUnaryRegister.html',1,'ast']]],
-  ['orbelem_32',['OrbElem',['../classast_1_1OrbElem.html',1,'ast']]],
-  ['ordinarydifferentialequation_33',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]]
+  ['openaiclient_29',['OpenAIClient',['../classast_1_1OpenAIClient.html',1,'ast']]],
+  ['opunary_30',['OpUnary',['../classast_1_1OpUnary.html',1,'ast']]],
+  ['opunarykeyhash_31',['OpUnaryKeyHash',['../structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html',1,'ast::OpUnaryRegister']]],
+  ['opunaryregister_32',['OpUnaryRegister',['../classast_1_1OpUnaryRegister.html',1,'ast']]],
+  ['orbelem_33',['OrbElem',['../classast_1_1OrbElem.html',1,'ast']]],
+  ['ordinarydifferentialequation_34',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]]
 ];

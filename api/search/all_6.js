@@ -136,10 +136,11 @@ var searchData=
   ['function_133',['function',['../classast_1_1MessageLogContext.html#ad382c95f9cf23ea66c95459d2f5f5028',1,'ast::MessageLogContext']]],
   ['function_2ecpp_134',['Function.cpp',['../Function_8cpp.html',1,'']]],
   ['function_2ehpp_135',['Function.hpp',['../AstMath_2Function_2Function_8hpp.html',1,'(全局命名空间)'],['../AstScript_2Function_2Function_8hpp.html',1,'(全局命名空间)']]],
-  ['functions_5f_136',['functions_',['../classast_1_1SpiceApi.html#a80bc4fe79b7450a41f7c0b88d8a23ad2',1,'ast::SpiceApi']]],
-  ['fundamentalarguments_137',['FundamentalArguments',['../classast_1_1FundamentalArguments.html',1,'ast']]],
-  ['fundamentalarguments_2ecpp_138',['FundamentalArguments.cpp',['../FundamentalArguments_8cpp.html',1,'']]],
-  ['fundamentalarguments_2ehpp_139',['FundamentalArguments.hpp',['../FundamentalArguments_8hpp.html',1,'']]],
-  ['furnsh_140',['furnsh',['../classast_1_1SpiceApi.html#a31b97c9eddf89dc06838751e2cccd9ed',1,'ast::SpiceApi']]],
-  ['fward_141',['fward',['../structast_1_1DAF__FileRecord.html#a192e1ddbc2228d64a713d97462863803',1,'ast::DAF_FileRecord']]]
+  ['function_5fname_136',['function_name',['../structast_1_1AIToolCall.html#a5cdead0391f5c7ad30b3fa0976f3841b',1,'ast::AIToolCall::function_name'],['../structast_1_1AIToolResponse.html#a3dc73842fcb0fead1ae72ee7508efa5a',1,'ast::AIToolResponse::function_name']]],
+  ['functions_5f_137',['functions_',['../classast_1_1SpiceApi.html#a80bc4fe79b7450a41f7c0b88d8a23ad2',1,'ast::SpiceApi']]],
+  ['fundamentalarguments_138',['FundamentalArguments',['../classast_1_1FundamentalArguments.html',1,'ast']]],
+  ['fundamentalarguments_2ecpp_139',['FundamentalArguments.cpp',['../FundamentalArguments_8cpp.html',1,'']]],
+  ['fundamentalarguments_2ehpp_140',['FundamentalArguments.hpp',['../FundamentalArguments_8hpp.html',1,'']]],
+  ['furnsh_141',['furnsh',['../classast_1_1SpiceApi.html#a31b97c9eddf89dc06838751e2cccd9ed',1,'ast::SpiceApi']]],
+  ['fward_142',['fward',['../structast_1_1DAF__FileRecord.html#a192e1ddbc2228d64a713d97462863803',1,'ast::DAF_FileRecord']]]
 ];

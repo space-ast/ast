@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Network/NetworkRequest.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('NetworkRequest_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NetworkRequest.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="NetworkRequest_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">   36</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">ENetworkRequestMethod</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    eGet,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    eHead,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    ePost,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    ePut,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    eDelete,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    eOptions,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    eTrace,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    eConnect,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    ePatch,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html">   53</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1NetworkRequest.html">NetworkRequest</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1NetworkRequest.html">NetworkRequest</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1NetworkRequest.html">~NetworkRequest</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#a2925f369ff23f7f9e6f64eeaee88d5b8">   60</a></span>    <a class="code hl_enumeration" href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">ENetworkRequestMethod</a> <a class="code hl_function" href="classast_1_1NetworkRequest.html#a2925f369ff23f7f9e6f64eeaee88d5b8">method</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> method_; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#a20d91eec1f213b8150218167b154ecd1">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1NetworkRequest.html#a20d91eec1f213b8150218167b154ecd1">setMethod</a>(<a class="code hl_enumeration" href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">ENetworkRequestMethod</a> method) { method_ = method; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe">   66</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe">url</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> url_; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#a35c0fae8c3a42f837bf02bb61c462c45">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1NetworkRequest.html#a35c0fae8c3a42f837bf02bb61c462c45">setUrl</a>(<span class="keyword">const</span> std::string&amp; url) { url_ = url; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#acb90655c4a6913324f1e4310ddedce25">   72</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1NetworkRequest.html#acb90655c4a6913324f1e4310ddedce25">body</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> body_; }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#a25cd5a16232f7872574980365809f04d">   75</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1NetworkRequest.html#a25cd5a16232f7872574980365809f04d">setBody</a>(<span class="keyword">const</span> std::string&amp; body) { body_ = body; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#acf6095f104f8f736cae35968d57a96d8">   78</a></span>    <span class="keyword">const</span> std::map&lt;std::string, std::string&gt;&amp; <a class="code hl_function" href="classast_1_1NetworkRequest.html#acf6095f104f8f736cae35968d57a96d8">headers</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> headers_; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#a5745322d0dc5b4e75277260861b3f6a5">   81</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1NetworkRequest.html#a5745322d0dc5b4e75277260861b3f6a5">setHeaders</a>(<span class="keyword">const</span> std::map&lt;std::string, std::string&gt;&amp; headers) { headers_ = headers; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classast_1_1NetworkRequest.html#aab2b3b85a6723a76d3c03e62fe9f3a4e">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1NetworkRequest.html#aab2b3b85a6723a76d3c03e62fe9f3a4e">addHeader</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; value) { headers_[key] = value; }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_enumeration" href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">ENetworkRequestMethod</a> method_{ENetworkRequestMethod::eGet};      </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    std::string url_;                                                </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    std::string body_;                                               </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    std::map&lt;std::string, std::string&gt; headers_;                     </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html"><div class="ttname"><a href="classast_1_1NetworkRequest.html">ast::NetworkRequest</a></div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_a20d91eec1f213b8150218167b154ecd1"><div class="ttname"><a href="classast_1_1NetworkRequest.html#a20d91eec1f213b8150218167b154ecd1">ast::NetworkRequest::setMethod</a></div><div class="ttdeci">void setMethod(ENetworkRequestMethod method)</div><div class="ttdoc">设置网络请求方法</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_a25cd5a16232f7872574980365809f04d"><div class="ttname"><a href="classast_1_1NetworkRequest.html#a25cd5a16232f7872574980365809f04d">ast::NetworkRequest::setBody</a></div><div class="ttdeci">void setBody(const std::string &amp;body)</div><div class="ttdoc">设置网络请求体</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_a2925f369ff23f7f9e6f64eeaee88d5b8"><div class="ttname"><a href="classast_1_1NetworkRequest.html#a2925f369ff23f7f9e6f64eeaee88d5b8">ast::NetworkRequest::method</a></div><div class="ttdeci">ENetworkRequestMethod method() const</div><div class="ttdoc">获取网络请求方法</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_a35c0fae8c3a42f837bf02bb61c462c45"><div class="ttname"><a href="classast_1_1NetworkRequest.html#a35c0fae8c3a42f837bf02bb61c462c45">ast::NetworkRequest::setUrl</a></div><div class="ttdeci">void setUrl(const std::string &amp;url)</div><div class="ttdoc">设置网络请求 URL</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:69</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_a5745322d0dc5b4e75277260861b3f6a5"><div class="ttname"><a href="classast_1_1NetworkRequest.html#a5745322d0dc5b4e75277260861b3f6a5">ast::NetworkRequest::setHeaders</a></div><div class="ttdeci">void setHeaders(const std::map&lt; std::string, std::string &gt; &amp;headers)</div><div class="ttdoc">设置网络请求头</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:81</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_a7ad685f8c1c032e2ce181b0d2d462ffe"><div class="ttname"><a href="classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe">ast::NetworkRequest::url</a></div><div class="ttdeci">const std::string &amp; url() const</div><div class="ttdoc">获取网络请求 URL</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_aab2b3b85a6723a76d3c03e62fe9f3a4e"><div class="ttname"><a href="classast_1_1NetworkRequest.html#aab2b3b85a6723a76d3c03e62fe9f3a4e">ast::NetworkRequest::addHeader</a></div><div class="ttdeci">void addHeader(const std::string &amp;key, const std::string &amp;value)</div><div class="ttdoc">添加网络请求头</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:84</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_acb90655c4a6913324f1e4310ddedce25"><div class="ttname"><a href="classast_1_1NetworkRequest.html#acb90655c4a6913324f1e4310ddedce25">ast::NetworkRequest::body</a></div><div class="ttdeci">const std::string &amp; body() const</div><div class="ttdoc">获取网络请求体</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html_acf6095f104f8f736cae35968d57a96d8"><div class="ttname"><a href="classast_1_1NetworkRequest.html#acf6095f104f8f736cae35968d57a96d8">ast::NetworkRequest::headers</a></div><div class="ttdeci">const std::map&lt; std::string, std::string &gt; &amp; headers() const</div><div class="ttdoc">获取网络请求头</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:78</div></div>
+<div class="ttc" id="anamespaceast_html_afda769e799815f9e238fec24fb39ee3f"><div class="ttname"><a href="namespaceast.html#afda769e799815f9e238fec24fb39ee3f">ast::ENetworkRequestMethod</a></div><div class="ttdeci">ENetworkRequestMethod</div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_b63ee357c7472c6dbdbf28146b6f1139.html">Network</a></li><li class="navelem"><a class="el" href="NetworkRequest_8hpp.html">NetworkRequest.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

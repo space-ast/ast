@@ -2,6 +2,10 @@ var hierarchy =
 [
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
+    [ "ast::AITool", "structast_1_1AITool.html", null ],
+    [ "ast::AIToolCall", "structast_1_1AIToolCall.html", null ],
+    [ "ast::AIToolParameter", "structast_1_1AIToolParameter.html", null ],
+    [ "ast::AIToolResponse", "structast_1_1AIToolResponse.html", null ],
     [ "alist", "structalist.html", null ],
     [ "allocator_type", null, [
       [ "ast::CorVector< T >::CorVectorAllocator", "structast_1_1CorVector_1_1CorVectorAllocator.html", null ]
@@ -67,6 +71,8 @@ var hierarchy =
     [ "ast::CallStack", "classast_1_1CallStack.html", null ],
     [ "ast::CartState", "classast_1_1CartState.html", null ],
     [ "ast::CentroidPosition", "classast_1_1CentroidPosition.html", null ],
+    [ "ast::ChatMessage", "structast_1_1ChatMessage.html", null ],
+    [ "ast::ChatSession", "classast_1_1ChatSession.html", null ],
     [ "cilist", "structcilist.html", null ],
     [ "ast::ClassRegistry", "classast_1_1ClassRegistry.html", null ],
     [ "cllist", "structcllist.html", null ],
@@ -189,6 +195,8 @@ var hierarchy =
     [ "icilist", "structicilist.html", null ],
     [ "ast::Identifier", "classast_1_1Identifier.html", null ],
     [ "ast::IdentifierTable", "classast_1_1IdentifierTable.html", null ],
+    [ "ast::NetworkImplWinHTTP::Impl", "classast_1_1NetworkImplWinHTTP_1_1Impl.html", null ],
+    [ "ast::NetworkImplWinINet::Impl", "classast_1_1NetworkImplWinINet_1_1Impl.html", null ],
     [ "ast::fs_simple::directory_iterator::impl", "structast_1_1fs__simple_1_1directory__iterator_1_1impl.html", null ],
     [ "ast::ImplFor< I, T >", "classast_1_1ImplFor.html", null ],
     [ "ast::InitalizeConfig", "structast_1_1InitalizeConfig.html", null ],
@@ -288,6 +296,14 @@ var hierarchy =
     [ "Multitype", "unionMultitype.html", null ],
     [ "Namelist", "structNamelist.html", null ],
     [ "ast::NameValuePair< T >", "classast_1_1NameValuePair.html", null ],
+    [ "ast::NetworkInterface", "classast_1_1NetworkInterface.html", [
+      [ "ast::NetworkImplCurlCmd", "classast_1_1NetworkImplCurlCmd.html", null ],
+      [ "ast::NetworkImplWinHTTP", "classast_1_1NetworkImplWinHTTP.html", null ],
+      [ "ast::NetworkImplWinINet", "classast_1_1NetworkImplWinINet.html", null ]
+    ] ],
+    [ "ast::NetworkRequest", "classast_1_1NetworkRequest.html", null ],
+    [ "ast::NetworkResponse", "classast_1_1NetworkResponse.html", null ],
+    [ "ast::NetworkSession", "classast_1_1NetworkSession.html", null ],
     [ "ast::NLPBounds", "structast_1_1NLPBounds.html", null ],
     [ "ast::NLPInfo", "structast_1_1NLPInfo.html", null ],
     [ "ast::NLPInput", "structast_1_1NLPInput.html", null ],
@@ -557,6 +573,7 @@ var hierarchy =
     [ "olist", "structolist.html", null ],
     [ "ast::OpBinRegistry::OpBinKeyHash", "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html", null ],
     [ "ast::OpBinRegistry", "classast_1_1OpBinRegistry.html", null ],
+    [ "ast::OpenAIClient", "classast_1_1OpenAIClient.html", null ],
     [ "ast::OpUnaryRegister::OpUnaryKeyHash", "structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html", null ],
     [ "ast::OpUnaryRegister", "classast_1_1OpUnaryRegister.html", null ],
     [ "ast::OrbElem", "classast_1_1OrbElem.html", null ],

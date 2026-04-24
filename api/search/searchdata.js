@@ -6,13 +6,13 @@ var indexSectionsWithContent =
   3: "abcdefghijklmnopqrstuvwxz",
   4: "_abcdefghijklmnopqrstuvwxyz~",
   5: "_abcdefghijklmnopqrstuvwxy",
-  6: "afhioprsu",
-  7: "ej",
-  8: "abeinos",
+  6: "afhioprstu",
+  7: "ejm",
+  8: "abeinostu",
   9: "r",
   10: "u",
   11: "_aiopt",
-  12: "fgs几单向坐大太姿字容工常平插数文时磁空脚航轨运非",
+  12: "cfgs几单向坐大太姿字容工常平插数文时磁空脚航轨运非",
   13: "bs列待🛰"
 };
 

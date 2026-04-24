@@ -51,11 +51,12 @@ var searchData=
   ['isoctaldigit_48',['isOctalDigit',['../namespaceast.html#a7355dae83cf21fdd8862a4f2e84dc01d',1,'ast']]],
   ['isopen_49',['isOpen',['../classast_1_1JplDe.html#a5091d44c89924335deb184e72715723d',1,'ast::JplDe::isOpen()'],['../classast_1_1JplSpk.html#ac6c4c38069315c826c8ecd0031d3acb8',1,'ast::JplSpk::isOpen()'],['../classast_1_1BaseParser.html#a24d5391a1aea013594950400a030065c',1,'ast::BaseParser::isOpen()']]],
   ['isstring_50',['isString',['../classast_1_1JsonValue.html#a78bdb20bcb7db2edf64b761a48b3b68c',1,'ast::JsonValue']]],
-  ['isunit_51',['isUnit',['../classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210',1,'ast::Dimension']]],
-  ['isvalid_52',['isValid',['../classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2',1,'ast::Quantity::isValid()'],['../classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c',1,'ast::Unit::isValid()']]],
-  ['isvaliddegreeorder_53',['isValidDegreeOrder',['../classast_1_1GravityField.html#ace7869e6a5481612ef36ba1480ce1b7f',1,'ast::GravityField']]],
-  ['isvalidfile_54',['isValidFile',['../classast_1_1DAFParser.html#ac1d1f2167184aebcdab33a2f3c69604e',1,'ast::DAFParser']]],
-  ['iterate_5fbegin_55',['iterate_begin',['../namespaceast.html#a62018e586bdff7fd154f7c71b4bd6af2',1,'ast']]],
-  ['iterate_5fget_5ffunc_56',['iterate_get_func',['../namespaceast.html#a236320bc52680eb15582c6283715aa95',1,'ast']]],
-  ['iterate_5fnext_57',['iterate_next',['../namespaceast.html#a0fa8c52209d153fb8e308c1473b3960f',1,'ast']]]
+  ['issupported_51',['isSupported',['../classast_1_1NetworkImplCurlCmd.html#aba1aefaee628d1a11f3af8263848ee6a',1,'ast::NetworkImplCurlCmd::isSupported()'],['../classast_1_1NetworkImplWinHTTP.html#a691b74fc924c6744f7e3f6572920fe20',1,'ast::NetworkImplWinHTTP::isSupported()'],['../classast_1_1NetworkImplWinINet.html#a406a700eec5a91de78e319793ae80a4c',1,'ast::NetworkImplWinINet::isSupported()'],['../classast_1_1NetworkInterface.html#a849f29eba8e6c853c0fcfe3375e106e1',1,'ast::NetworkInterface::isSupported()']]],
+  ['isunit_52',['isUnit',['../classast_1_1Dimension.html#a5b13432f8daf056d966cb4d5f38fa210',1,'ast::Dimension']]],
+  ['isvalid_53',['isValid',['../classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2',1,'ast::Quantity::isValid()'],['../classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c',1,'ast::Unit::isValid()']]],
+  ['isvaliddegreeorder_54',['isValidDegreeOrder',['../classast_1_1GravityField.html#ace7869e6a5481612ef36ba1480ce1b7f',1,'ast::GravityField']]],
+  ['isvalidfile_55',['isValidFile',['../classast_1_1DAFParser.html#ac1d1f2167184aebcdab33a2f3c69604e',1,'ast::DAFParser']]],
+  ['iterate_5fbegin_56',['iterate_begin',['../namespaceast.html#a62018e586bdff7fd154f7c71b4bd6af2',1,'ast']]],
+  ['iterate_5fget_5ffunc_57',['iterate_get_func',['../namespaceast.html#a236320bc52680eb15582c6283715aa95',1,'ast']]],
+  ['iterate_5fnext_58',['iterate_next',['../namespaceast.html#a0fa8c52209d153fb8e308c1473b3960f',1,'ast']]]
 ];

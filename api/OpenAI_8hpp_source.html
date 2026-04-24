@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstAI/OpenAI.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('OpenAI_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">OpenAI.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="OpenAI_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="AITool_8hpp.html">AITool.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group__Chat.html#ga0944c6d1f00cbfac2c73e16f50ad7dc5">   38</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__Chat.html#ga0944c6d1f00cbfac2c73e16f50ad7dc5">MessageRole</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumvalue" href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5a2e40ad879e955201df4dedbf8d479a12">USER</a>,      </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5ac1af95e2b7f8a385263807fc8bdd66c5">ASSISTANT</a>, </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5afa177138f94a7ea01f549b1aa7893d03">SYSTEM</a>,    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_enumvalue" href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5a6d968f544234ee91647113b2f6eec82e">TOOL</a>       </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structast_1_1ChatMessage.html">   48</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1ChatMessage.html">ChatMessage</a> {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structast_1_1ChatMessage.html#aed0ffdfc5d38079f0ed0567b8886da80">   49</a></span>    <a class="code hl_enumeration" href="group__Chat.html#ga0944c6d1f00cbfac2c73e16f50ad7dc5">MessageRole</a> <a class="code hl_variable" href="structast_1_1ChatMessage.html#aed0ffdfc5d38079f0ed0567b8886da80">role</a>;          </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structast_1_1ChatMessage.html#a7ffefc405755a70679f84d40acc565c8">   50</a></span>    std::string <a class="code hl_variable" href="structast_1_1ChatMessage.html#a7ffefc405755a70679f84d40acc565c8">content</a>;       </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structast_1_1ChatMessage.html#aef6cf974eb9c17d50d026e307ea06c77">   51</a></span>    std::string <a class="code hl_variable" href="structast_1_1ChatMessage.html#aef6cf974eb9c17d50d026e307ea06c77">tool_call_id</a>;  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1OpenAIClient.html">   57</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1OpenAIClient.html">OpenAIClient</a> {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1OpenAIClient.html#af2aa7dd0aada0757eff219f057397f9d">   64</a></span>    <a class="code hl_function" href="classast_1_1OpenAIClient.html#af2aa7dd0aada0757eff219f057397f9d">OpenAIClient</a>(<span class="keyword">const</span> std::string&amp; api_key, <span class="keyword">const</span> std::string&amp; base_url = <span class="stringliteral">&quot;https://api.openai.com/v1&quot;</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1OpenAIClient.html#a3d9d15c5ea2e18d4a79353c899d60f92">   74</a></span>    std::string <a class="code hl_function" href="classast_1_1OpenAIClient.html#a3d9d15c5ea2e18d4a79353c899d60f92">chat</a>(<span class="keyword">const</span> std::string&amp; model, <span class="keyword">const</span> std::vector&lt;ChatMessage&gt;&amp; messages, </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                    <span class="keyword">const</span> std::vector&lt;AITool&gt;&amp; tools = {}, <span class="keywordtype">float</span> temperature = 0.7f);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::string api_key_;  </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string base_url_; </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>};</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aAITool_8hpp_html"><div class="ttname"><a href="AITool_8hpp.html">AITool.hpp</a></div><div class="ttdoc">AI工具定义</div></div>
+<div class="ttc" id="aclassast_1_1OpenAIClient_html"><div class="ttname"><a href="classast_1_1OpenAIClient.html">ast::OpenAIClient</a></div><div class="ttdoc">OpenAI客户端</div><div class="ttdef"><b>定义</b> OpenAI.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1OpenAIClient_html_a3d9d15c5ea2e18d4a79353c899d60f92"><div class="ttname"><a href="classast_1_1OpenAIClient.html#a3d9d15c5ea2e18d4a79353c899d60f92">ast::OpenAIClient::chat</a></div><div class="ttdeci">std::string chat(const std::string &amp;model, const std::vector&lt; ChatMessage &gt; &amp;messages, const std::vector&lt; AITool &gt; &amp;tools={}, float temperature=0.7f)</div><div class="ttdoc">发送聊天请求</div></div>
+<div class="ttc" id="aclassast_1_1OpenAIClient_html_af2aa7dd0aada0757eff219f057397f9d"><div class="ttname"><a href="classast_1_1OpenAIClient.html#af2aa7dd0aada0757eff219f057397f9d">ast::OpenAIClient::OpenAIClient</a></div><div class="ttdeci">OpenAIClient(const std::string &amp;api_key, const std::string &amp;base_url=&quot;https://api.openai.com/v1&quot;)</div><div class="ttdoc">构造函数</div></div>
+<div class="ttc" id="agroup__Chat_html_ga0944c6d1f00cbfac2c73e16f50ad7dc5"><div class="ttname"><a href="group__Chat.html#ga0944c6d1f00cbfac2c73e16f50ad7dc5">ast::MessageRole</a></div><div class="ttdeci">MessageRole</div><div class="ttdoc">消息角色</div><div class="ttdef"><b>定义</b> OpenAI.hpp:38</div></div>
+<div class="ttc" id="agroup__Chat_html_gga0944c6d1f00cbfac2c73e16f50ad7dc5a2e40ad879e955201df4dedbf8d479a12"><div class="ttname"><a href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5a2e40ad879e955201df4dedbf8d479a12">ast::MessageRole::USER</a></div><div class="ttdeci">@ USER</div><div class="ttdoc">用户</div></div>
+<div class="ttc" id="agroup__Chat_html_gga0944c6d1f00cbfac2c73e16f50ad7dc5a6d968f544234ee91647113b2f6eec82e"><div class="ttname"><a href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5a6d968f544234ee91647113b2f6eec82e">ast::MessageRole::TOOL</a></div><div class="ttdeci">@ TOOL</div><div class="ttdoc">工具</div></div>
+<div class="ttc" id="agroup__Chat_html_gga0944c6d1f00cbfac2c73e16f50ad7dc5ac1af95e2b7f8a385263807fc8bdd66c5"><div class="ttname"><a href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5ac1af95e2b7f8a385263807fc8bdd66c5">ast::MessageRole::ASSISTANT</a></div><div class="ttdeci">@ ASSISTANT</div><div class="ttdoc">助手</div></div>
+<div class="ttc" id="agroup__Chat_html_gga0944c6d1f00cbfac2c73e16f50ad7dc5afa177138f94a7ea01f549b1aa7893d03"><div class="ttname"><a href="group__Chat.html#gga0944c6d1f00cbfac2c73e16f50ad7dc5afa177138f94a7ea01f549b1aa7893d03">ast::MessageRole::SYSTEM</a></div><div class="ttdeci">@ SYSTEM</div><div class="ttdoc">系统</div></div>
+<div class="ttc" id="astructast_1_1ChatMessage_html"><div class="ttname"><a href="structast_1_1ChatMessage.html">ast::ChatMessage</a></div><div class="ttdoc">聊天消息</div><div class="ttdef"><b>定义</b> OpenAI.hpp:48</div></div>
+<div class="ttc" id="astructast_1_1ChatMessage_html_a7ffefc405755a70679f84d40acc565c8"><div class="ttname"><a href="structast_1_1ChatMessage.html#a7ffefc405755a70679f84d40acc565c8">ast::ChatMessage::content</a></div><div class="ttdeci">std::string content</div><div class="ttdoc">消息内容</div><div class="ttdef"><b>定义</b> OpenAI.hpp:50</div></div>
+<div class="ttc" id="astructast_1_1ChatMessage_html_aed0ffdfc5d38079f0ed0567b8886da80"><div class="ttname"><a href="structast_1_1ChatMessage.html#aed0ffdfc5d38079f0ed0567b8886da80">ast::ChatMessage::role</a></div><div class="ttdeci">MessageRole role</div><div class="ttdoc">消息角色</div><div class="ttdef"><b>定义</b> OpenAI.hpp:49</div></div>
+<div class="ttc" id="astructast_1_1ChatMessage_html_aef6cf974eb9c17d50d026e307ea06c77"><div class="ttname"><a href="structast_1_1ChatMessage.html#aef6cf974eb9c17d50d026e307ea06c77">ast::ChatMessage::tool_call_id</a></div><div class="ttdeci">std::string tool_call_id</div><div class="ttdoc">工具调用ID（当角色为TOOL时使用）</div><div class="ttdef"><b>定义</b> OpenAI.hpp:51</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ea6136a52e1cd5f6e6b20d5ee7560754.html">AstAI</a></li><li class="navelem"><a class="el" href="OpenAI_8hpp.html">OpenAI.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
