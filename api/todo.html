@@ -115,7 +115,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>类 <a class="el" href="classast_1_1BackTrace.html">ast::BackTrace</a>  </dt>
 <dd><a class="anchor" id="_todo000031"></a>实现回溯信息  </dd>
 <dt>成员 <a class="el" href="classast_1_1BaseParser.html#a7ac170ef6035641cae5e3c7a9843c9c5">ast::BaseParser::read</a>  (void *buffer, size_t size, size_t pos) const</dt>
-<dd><a class="anchor" id="_todo000044"></a>当前的函数实现未考虑线程安全问题，该接口需要线程安全的实现，考虑在linux下使用pread函数  </dd>
+<dd><a class="anchor" id="_todo000045"></a>当前的函数实现未考虑线程安全问题，该接口需要线程安全的实现，考虑在linux下使用pread函数  </dd>
 <dt>类 <a class="el" href="classast_1_1BodyEphemeris.html">ast::BodyEphemeris</a>  </dt>
 <dd><a class="anchor" id="_todo000022"></a>但是对于行星卫星，他们的星历是相对于行星系的，例如月球 此时 <code>getPosVelICRF</code> 接口会产生数值截断误差，需要考虑如何处理  </dd>
 <dt>类 <a class="el" href="classast_1_1Breakpoint.html">ast::Breakpoint</a>  </dt>
@@ -125,11 +125,11 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>成员 <a class="el" href="classast_1_1CelestialBody.html#a38e7ed7241c4ae5c7aff86d631779d62">ast::CelestialBody::getAxes</a>  (StringView name) const</dt>
 <dd><a class="anchor" id="_todo000021"></a>这里考虑使用哈希表来存储映射关系  </dd>
 <dt>类 <a class="el" href="classast_1_1Class.html">ast::Class</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000050"></a>实现类的反射机制</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000051"></a>实现类的反射机制</p>
 <p class="enddd"></p>
 </dd>
 <dt>类 <a class="el" href="classast_1_1DAFParser.html">ast::DAFParser</a>  </dt>
-<dd><a class="anchor" id="_todo000046"></a>在读取数据时需要处理数据的大小端问题  </dd>
+<dd><a class="anchor" id="_todo000047"></a>在读取数据时需要处理数据的大小端问题  </dd>
 <dt>成员 <a class="el" href="classast_1_1DataContext.html#af02ea834b7ce89ae6a1e6c876230d770">ast::DataContext::m_iauXYSPrecomputed</a>  </dt>
 <dd><a class="anchor" id="_todo000004"></a>: 这个考虑更改为静态数据  </dd>
 <dt>类 <a class="el" href="classast_1_1Debugger.html">ast::Debugger</a>  </dt>
@@ -137,7 +137,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>成员 <a class="el" href="classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e">ast::EphemerisLagrangeVar::getPosVel</a>  (const <a class="el" href="classast_1_1TimePoint.html" title="绝对时间点">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel) const override</dt>
 <dd><a class="anchor" id="_todo000011"></a>这里有一点优化空间，可以避免重复计算插值点的系数  </dd>
 <dt>类 <a class="el" href="classast_1_1GenericValue.html">ast::GenericValue</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000045"></a>考虑参考variant进行存储，保留原始值</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000046"></a>考虑参考variant进行存储，保留原始值</p>
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1GlobalContext.html#acc1e339a77947a88a072b385d96094e0">ast::GlobalContext::m_iauXYS</a>  </dt>
@@ -151,7 +151,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>类 <a class="el" href="classast_1_1InterpreterContext.html">ast::InterpreterContext</a>  </dt>
 <dd><a class="anchor" id="_todo000033"></a>暂时不支持子解释器，只能区分全局解释器和当前解释器。  </dd>
 <dt>联合体 <a class="el" href="unionast_1_1KernelData.html">ast::KernelData</a>  </dt>
-<dd><a class="anchor" id="_todo000047"></a>使用union不太合适，考虑其他的实现方式  </dd>
+<dd><a class="anchor" id="_todo000048"></a>使用union不太合适，考虑其他的实现方式  </dd>
 <dt>类 <a class="el" href="classast_1_1LeapSecond.html">ast::LeapSecond</a>  </dt>
 <dd><a class="anchor" id="_todo000007"></a>支持读取Spice的闰秒内核文件  </dd>
 <dt>成员 <a class="el" href="classast_1_1MolniyaOrbitDesigner.html#a1d21556907ff557bf972b608967c22e7">ast::MolniyaOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
@@ -175,17 +175,17 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>成员 <a class="el" href="classast_1_1MotionProfile.html#af1d72e20a127d832d674203909817bd3">ast::MotionProfile::toTwoBody</a>  () const</dt>
 <dd><a class="anchor" id="_todo000038"></a>提升类型动态转换效率  </dd>
 <dt>类 <a class="el" href="classast_1_1NetworkRequest.html">ast::NetworkRequest</a>  </dt>
-<dd><a class="anchor" id="_todo000042"></a>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制  </dd>
+<dd><a class="anchor" id="_todo000043"></a>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制  </dd>
 <dt>类 <a class="el" href="classast_1_1NetworkSession.html">ast::NetworkSession</a>  </dt>
-<dd><a class="anchor" id="_todo000043"></a>实现网络会话管理功能  </dd>
+<dd><a class="anchor" id="_todo000044"></a>实现网络会话管理功能  </dd>
 <dt>成员 <a class="el" href="classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74">ast::Point::toBody</a>  () const</dt>
 <dd><a class="anchor" id="_todo000010"></a>这里需要优化动态类型转换的执行效率  </dd>
 <dt>类 <a class="el" href="classast_1_1PropertyPOD.html">ast::PropertyPOD</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000051"></a>拟作为int, double, bool等的基础属性类，其他属性类继承自该类。</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000052"></a>拟作为int, double, bool等的基础属性类，其他属性类继承自该类。</p>
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1PropertyQuantity.html#a400a4dc225836b6280adcf4533d754d9">ast::PropertyQuantity::getValueString</a>  (const void *container, std::string &amp;value) override</dt>
-<dd><a class="anchor" id="_todo000052"></a>这里需要一个通过量纲获取国际制单位的函数  </dd>
+<dd><a class="anchor" id="_todo000053"></a>这里需要一个通过量纲获取国际制单位的函数  </dd>
 <dt>成员 <a class="el" href="classast_1_1RepeatingOrbitDesigner.html#abfa31813ade19c0886ae28428258b2a8">ast::RepeatingOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
 <dd><a class="anchor" id="_todo000013"></a>这里目前只支持地球，需要增加对其他天体的支持  </dd>
 <dt>成员 <a class="el" href="classast_1_1RepeatingSunSyncOrbitDesigner.html#a6d19228276fee3bd624788d5abf6ce01">ast::RepeatingSunSyncOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
@@ -197,7 +197,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <p class="enddd"></p>
 </dd>
 <dt>类 <a class="el" href="classast_1_1SPKParser.html">ast::SPKParser</a>  </dt>
-<dd><a class="anchor" id="_todo000048"></a>处理不同类型的SPK数据，目前仅支持类型2  </dd>
+<dd><a class="anchor" id="_todo000049"></a>处理不同类型的SPK数据，目前仅支持类型2  </dd>
 <dt>类 <a class="el" href="classast_1_1StackFrame.html">ast::StackFrame</a>  </dt>
 <dd><a class="anchor" id="_todo000034"></a>实现栈帧相关功能  </dd>
 <dt>成员 <a class="el" href="classast_1_1StationaryOrbitDesigner.html#ad38941e3fcc8fa58cd1c475d4cf23527">ast::StationaryOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
@@ -215,9 +215,9 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">ast::WorkingDirectory::WorkingDirectory</a>  (StringView path)</dt>
-<dd><a class="anchor" id="_todo000053"></a>需要考虑如何避免创建临时std::string对象  </dd>
+<dd><a class="anchor" id="_todo000054"></a>需要考虑如何避免创建临时std::string对象  </dd>
 <dt>组 <a class="el" href="group__Debris.html">Debris</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000054"></a>实现空间碎片模型</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000055"></a>实现空间碎片模型</p>
 <p class="enddd"></p>
 </dd>
 </dl>

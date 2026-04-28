@@ -160,52 +160,48 @@ $(function(){initNavTree('ValArray_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a4940febc99dc2cc497479acce8588dd9">   92</a></span><span class="keywordtype">void</span> <a class="code hl_class" href="classast_1_1ValArray.html">ValArray&lt;T, NDIM&gt;::resize</a>(<span class="keywordtype">size_t</span> size)</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">/*</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">    @fixme @see pr60</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">    The resize method is not exception-safe. </span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">    It modifies the internal state (dims_[0]) before the memory allocation new T[size]. </span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">    If the allocation throws an exception (e.g., std::bad_alloc), </span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">    the object will be left in an inconsistent state where the reported size does not match the actual allocated buffer, </span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">    leading to potential out-of-bounds access.</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">size_t</span> old_size = this-&gt;size();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    T* old_data = data_;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    dims_[0] = size;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 1; i &lt; NDIM; ++i)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        dims_[i] = 1;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    data_ = <span class="keyword">new</span> T[size];</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">if</span>(old_data)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordtype">size_t</span> copy_size = old_size &lt; size ? old_size : size;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; copy_size; ++i)</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            data_[i] = old_data[i];</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keyword">delete</span>[] old_data;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">size_t</span> old_size = this-&gt;size();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// 判断是否需要扩充数组大小</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span>(old_size &gt;= size)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        T* old_data = data_;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        data_ = <span class="keyword">new</span> T[size];</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">if</span>(old_data)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordtype">size_t</span> copy_size = old_size &lt; size ? old_size : size;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; copy_size; ++i)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                data_[i] = old_data[i];</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keyword">delete</span>[] old_data;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    dims_[0] = size;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 1; i &lt; NDIM; ++i)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        dims_[i] = 1;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
 </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> NDIM&gt;</div>
-<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">  118</a></span><span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code hl_class" href="classast_1_1ValArray.html">ValArray&lt;T, NDIM&gt;::size</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">size_t</span> size = 1;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; NDIM; ++i)</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        size *= dims_[i];</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">return</span> size;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> NDIM&gt;</div>
+<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">  114</a></span><span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code hl_class" href="classast_1_1ValArray.html">ValArray&lt;T, NDIM&gt;::size</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">size_t</span> size = 1;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; NDIM; ++i)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        size *= dims_[i];</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordflow">return</span> size;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
 </div>
 </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
 </div>
 </div>
 <div class="ttc" id="aclassast_1_1ValArray_html"><div class="ttname"><a href="classast_1_1ValArray.html">ast::ValArray</a></div><div class="ttdoc">数组值类</div><div class="ttdef"><b>定义</b> ValArray.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html_a0200070cb5f89f45856614b2fab47013"><div class="ttname"><a href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">ast::ValArray::page</a></div><div class="ttdeci">size_t page() const</div><div class="ttdoc">获取数组页数</div><div class="ttdef"><b>定义</b> ValArray.hpp:56</div></div>
-<div class="ttc" id="aclassast_1_1ValArray_html_a02f6b171c8adfd17b6b09695656c805b"><div class="ttname"><a href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取数组元素数量</div><div class="ttdef"><b>定义</b> ValArray.hpp:118</div></div>
+<div class="ttc" id="aclassast_1_1ValArray_html_a02f6b171c8adfd17b6b09695656c805b"><div class="ttname"><a href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取数组元素数量</div><div class="ttdef"><b>定义</b> ValArray.hpp:114</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html_a4940febc99dc2cc497479acce8588dd9"><div class="ttname"><a href="classast_1_1ValArray.html#a4940febc99dc2cc497479acce8588dd9">ast::ValArray::resize</a></div><div class="ttdeci">void resize(size_t size)</div><div class="ttdoc">重新调整数组大小</div><div class="ttdef"><b>定义</b> ValArray.hpp:92</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html_a696d6542796fa7616243e17c67174ef9"><div class="ttname"><a href="classast_1_1ValArray.html#a696d6542796fa7616243e17c67174ef9">ast::ValArray::column</a></div><div class="ttdeci">size_t column() const</div><div class="ttdoc">获取数组列数</div><div class="ttdef"><b>定义</b> ValArray.hpp:48</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html_a9bcde5454ede8e51867c75d812b7908d"><div class="ttname"><a href="classast_1_1ValArray.html#a9bcde5454ede8e51867c75d812b7908d">ast::ValArray::row</a></div><div class="ttdeci">size_t row() const</div><div class="ttdoc">获取数组行数</div><div class="ttdef"><b>定义</b> ValArray.hpp:52</div></div>
