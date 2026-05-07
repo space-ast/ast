@@ -36,9 +36,11 @@ public:
     GenericValue() = default;
     explicit GenericValue(StringView value)
         : value_(value){}
-    explicit GenericValue(const char* value)
+    // explicit 
+    GenericValue(const char* value)
         : value_(value){}
-    explicit GenericValue(const std::string& value)
+    // explicit 
+    GenericValue(const std::string& value)
         : value_(value){}
     explicit GenericValue(int value)
         : value_(aFormatInt(value)){}

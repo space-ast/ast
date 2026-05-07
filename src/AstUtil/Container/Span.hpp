@@ -99,7 +99,9 @@ public:
         : storage_(first, last - first) {}
 
     template <std::size_t N>
-    constexpr explicit Span(element_type (&arr)[N]) noexcept
+    constexpr 
+    /*explicit*/ 
+    Span(element_type (&arr)[N]) noexcept
         : storage_(arr, N) {}
 
     template <typename U, std::size_t N>

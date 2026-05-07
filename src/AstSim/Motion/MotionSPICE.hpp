@@ -42,7 +42,7 @@ class AST_SIM_API MotionSPICE: public MotionWithIntervalStep
 public:
     static MotionSPICE* New();
     MotionSPICE() : spiceIndex_() {}
-    ~MotionSPICE() : spiceIndex_() {}
+    ~MotionSPICE() {}
 public:
     errc_t makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const override;
     errc_t makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const override;
@@ -54,7 +54,7 @@ public:
     int getSpiceIndex() const {return spiceIndex_;}
     void setSpiceIndex(int spiceIndex){spiceIndex_ = spiceIndex;}
 protected:
-    int spiceIndex_;                    ///< SPICE星历索引号
+    int spiceIndex_{};                    ///< SPICE星历索引号
 private:
     JplSpk spk_;                        ///< SPICE星历接口
 };

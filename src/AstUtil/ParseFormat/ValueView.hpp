@@ -41,14 +41,19 @@ class ValueView
 {
 public:
     ValueView() = default;
-    explicit ValueView(StringView value)
+    // explicit 
+    ValueView(StringView value)
         : value_(value){}
     explicit ValueView(const char* value)
         : value_(value){}
-    explicit ValueView(const std::string& value)
+    // explicit 
+    ValueView(const std::string& value)
         : value_(value){}
-    explicit ValueView(const GenericValue& value)
+    // explicit 
+    ValueView(const GenericValue& value)
         : value_(value.value()) {}
+    ValueView(std::nullptr_t)
+        : value_() {}
     
     /// @brief 获取值视图
     const StringView& value() const { return value_; }

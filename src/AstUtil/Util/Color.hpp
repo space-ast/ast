@@ -87,8 +87,8 @@ class Color
 {
 public:
     A_CONSTEXPR_CXX14 Color() noexcept: value_(static_cast<EColor>(0)) {}
-    A_CONSTEXPR_CXX14 explicit Color(EColor value) noexcept: value_(value) {}
-    A_CONSTEXPR_CXX14 explicit Color(color_t value) noexcept: Color(EColor(value)) {}
+    A_CONSTEXPR_CXX14 /*explicit*/ Color(EColor value) noexcept: value_(value) {}
+    A_CONSTEXPR_CXX14 /*explicit*/ Color(color_t value) noexcept: Color(EColor(value)) {}
     A_CONSTEXPR_CXX14 Color(uint8_t r, uint8_t g, uint8_t b) noexcept: Color(rgb(r, g, b)) {}
     A_CONSTEXPR_CXX14 Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) noexcept: Color(rgba(r, g, b, a)) {}
     A_CONSTEXPR_CXX14 operator EColor() const noexcept { return value_; }

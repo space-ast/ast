@@ -194,7 +194,7 @@ public:
 
         iterator() = default;
         iterator(const DiscreteTimePointRange* range, size_t idx)
-            : value_(), range_(range), idx_(idx) {}
+            : range_(range), idx_(idx), value_() {}
 
         reference operator*() const {
             if (idx_ == range_->n_ - 1) {
@@ -243,7 +243,7 @@ public:
 
         iterator() = default;
         iterator(const DiscreteEpochSecondRange* range, size_t idx)
-            : value_(), range_(range), idx_(idx) {}
+            : range_(range), idx_(idx), value_() {}
 
         reference operator*() const {
             if (idx_ == range_->n_ - 1) {
