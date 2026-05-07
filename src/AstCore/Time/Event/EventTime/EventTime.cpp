@@ -19,9 +19,15 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "EventTime.hpp"
+#include "EventTimeExplicit.hpp"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+EventTime* EventTime::Resolve(StringView value)
+{
+    /// @todo 处理新建对象的父作用域问题
+    return EventTimeExplicit::New(TimePoint::Parse(value));
+}
 
 AST_NAMESPACE_END

@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(CoverageDefinition)
 
-static bool CoverageDefinition_ClassInited = (CoverageDefinition::ClassInit(&CoverageDefinition::staticType), true);
-
-void CoverageDefinition::ClassInit(Class* cls)
-{
-    cls->setName("CoverageDefinition");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<CoverageDefinition>();
-}
 
 AST_NAMESPACE_END

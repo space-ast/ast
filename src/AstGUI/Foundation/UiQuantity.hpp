@@ -81,11 +81,19 @@ public:
     /// @brief 获取国际单位表示的值
     /// @return 国际单位表示的值
     double getValueSI() const;
+    
+    /// @brief 获取国际单位表示的值
+    /// @return 国际单位表示的值
+    double value() const{return getValueSI();}
 
     /// @brief 设置国际单位下的值
     /// @details 只会改变数量值的数值大小，不会改变数量值的单位
     /// @param value 国际单位下的值
     void setValueSI(double value);
+
+    /// @brief 设置国际单位下的值
+    /// @param value 国际单位下的值
+    void setValue(double valueInSI){setValueSI(valueInSI);}
 
     /// @brief 获取指定单位下的值
     /// @param unit 指定单位

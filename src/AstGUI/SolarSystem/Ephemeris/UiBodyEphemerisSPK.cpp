@@ -78,7 +78,7 @@ void UiBodyEphemerisSPK::refreshUi()
         }
         else
         {
-            filePathEdit_->setPath("");
+            filePathEdit_->setPath(QString());
         }
     }
 }

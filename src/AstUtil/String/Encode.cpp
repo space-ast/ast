@@ -20,6 +20,7 @@
 
 #include "Encode.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/StringView.hpp"
 #include <vector>
 #include <memory>
 #include <stdexcept>
@@ -91,6 +92,11 @@ _locale_t aUTF8Locale()
     };
 
     if (A_UNLIKELY(!t_utf8_locale)) {
+        // 设置控制台I/O编码为UTF-8
+        {
+            SetConsoleOutputCP(CP_UTF8);
+            SetConsoleCP(CP_UTF8);
+        }
         for (const char* locale_str : locale_strs) {
             _locale_t locale = _create_locale(LC_CTYPE, locale_str);
             if (locale) {
@@ -141,6 +147,18 @@ errc_t aUtf8ToWide(const char* utf8, std::wstring& wide)
     return eErrorInvalidParam;
 }
 
+std::wstring aUtf8ToWide(StringView utf8)
+{
+    int len = MultiByteToWideChar(CP_UTF8, 0, utf8.data(), (int)utf8.size(), nullptr, 0);
+    if (len > 0)
+    {
+        std::wstring wide(len, L'\0');
+        wchar_t* buffer = &wide[0];
+        MultiByteToWideChar(CP_UTF8, 0, utf8.data(), (int)utf8.size(), buffer, len);
+        return wide;
+    }
+    return {};
+}
 
 
 errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8)
@@ -158,6 +176,19 @@ errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8)
 
 #else
 
+#if defined(__wasm__)
+errc_t aUtf8ToWide(const char* utf8, std::wstring& wide) {
+    aError("utf8ToWide not supported on wasm");
+    return -1;
+}
+
+errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8) 
+{
+    aError("wideToUtf8 not supported on wasm");
+    return -1;
+}
+
+#else
 errc_t aUtf8ToWide(const char* utf8, std::wstring& wide) {
     if (utf8 == nullptr) {
         return eErrorNullInput;
@@ -177,8 +208,8 @@ errc_t aUtf8ToWide(const char* utf8, std::wstring& wide) {
     }
 }
 
-
-errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8) {
+errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8) 
+{
     if (wide == nullptr) {
         return eErrorNullInput;
     }
@@ -195,6 +226,8 @@ errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8) {
         return eErrorInvalidParam;
     }
 }
+#endif
+
 #endif
 
 

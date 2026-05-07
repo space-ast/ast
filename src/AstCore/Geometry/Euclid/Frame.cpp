@@ -22,12 +22,19 @@
 #include "AstCore/Point.hpp"
 #include "AstCore/Axes.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/Resolve.hpp"
 #include "AstMath/Transform.hpp"
 #include "AstMath/KinematicTransform.hpp"
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Frame)
+
+
+Frame* Frame::Resolve(StringView value)
+{
+    return aResolveFrame(value);
+}
+
 
 CelestialBody *Frame::getBody()
 {

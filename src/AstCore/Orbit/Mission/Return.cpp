@@ -24,6 +24,10 @@ AST_NAMESPACE_BEGIN
 
 errc_t Return::execute()
 {
+    if(enabled())
+    {
+        throw *this;
+    }
     return eNoError;
 }
 

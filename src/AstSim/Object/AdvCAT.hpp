@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 高级CAT对象
+/// @brief 高级接近分析工具
 class AST_SIM_API AdvCAT: public ObjectNamed
 {
 public:

@@ -1,0 +1,357 @@
+///
+/// @file      evalJScript.cpp
+/// @brief     
+/// @details   
+/// @author    axel
+/// @date      2026-04-29
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
+///
+/// SpaceAST项目（https://github.com/space-ast/ast）
+/// 本软件基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
+/// 
+/// 重要须知：
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+
+#if !defined(_WIN32)
+
+int main()
+{
+    return 0;
+}
+
+#else
+
+#define _WIN32_DCOM
+#include <windows.h>
+#include <iostream>
+#include <string>
+#include <comdef.h>
+#include <activscp.h>
+
+// 链接：activscp.lib ole32.lib oleaut32.lib
+
+// 简单的脚本站点实现
+class SimpleScriptSite : public IActiveScriptSite
+{
+    LONG m_ref;
+public:
+    SimpleScriptSite() : m_ref(1) {}
+
+    // IUnknown
+    STDMETHODIMP QueryInterface(REFIID riid, void **ppv)
+    {
+        if (riid == IID_IUnknown || riid == IID_IActiveScriptSite)
+        {
+            *ppv = static_cast<IActiveScriptSite *>(this);
+            AddRef();
+            return S_OK;
+        }
+        *ppv = NULL;
+        return E_NOINTERFACE;
+    }
+    STDMETHODIMP_(ULONG) AddRef()  { return InterlockedIncrement(&m_ref); }
+    STDMETHODIMP_(ULONG) Release()
+    {
+        LONG r = InterlockedDecrement(&m_ref);
+        if (r == 0) delete this;
+        return r;
+    }
+
+    // IActiveScriptSite
+    STDMETHODIMP GetLCID(LCID *plcid) { *plcid = LOCALE_USER_DEFAULT; return S_OK; }
+    STDMETHODIMP GetItemInfo(LPCOLESTR pstrName, DWORD dwReturnMask,
+        IUnknown **ppunkItem, ITypeInfo **ppti)
+    {
+        // 本示例未使用命名项，直接返回未找到
+        if (ppunkItem) *ppunkItem = NULL;
+        if (ppti) *ppti = NULL;
+        return TYPE_E_ELEMENTNOTFOUND;
+    }
+    STDMETHODIMP GetDocVersionString(BSTR *pbstrVersion)
+    {
+        *pbstrVersion = SysAllocString(L"1.0");
+        return S_OK;
+    }
+    STDMETHODIMP OnScriptTerminate(const VARIANT *pvarResult, const EXCEPINFO *pexcepinfo)
+    { return S_OK; }
+    STDMETHODIMP OnStateChange(SCRIPTSTATE ssScriptState) { return S_OK; }
+    STDMETHODIMP OnScriptError(IActiveScriptError *pscripterror)
+    {
+        // 简单打印错误信息
+        EXCEPINFO ei;
+        ZeroMemory(&ei, sizeof(ei));
+        pscripterror->GetExceptionInfo(&ei);
+        if (ei.bstrSource)
+            std::wcerr << L"Script error: " << ei.bstrSource << L" - "
+                       << (ei.bstrDescription ? ei.bstrDescription : L"") << std::endl;
+        else
+            std::wcerr << L"Script error occurred." << std::endl;
+        return S_OK;
+    }
+    STDMETHODIMP OnEnterScript() { return S_OK; }
+    STDMETHODIMP OnLeaveScript() { return S_OK; }
+};
+
+#include <comdef.h>
+#include <Windows.h>
+
+/// 设置脚本全局变量的值
+/// pScriptDisp : 通过 IActiveScript::GetScriptDispatch 获得的 IDispatch
+/// name       : 变量名（宽字符，如 L"FinalRMag"）
+/// value      : 要赋的值（VARIANT，类型需匹配，如 int→VT_I4, double→VT_R8, BSTR→VT_BSTR）
+bool SetScriptVariable(IDispatch* pScriptDisp, const wchar_t* name, const VARIANT& value)
+{
+    if (!pScriptDisp)
+        return false;
+
+    // 1. 获取变量的 DISPID
+    DISPID dispid;
+    HRESULT hr = pScriptDisp->GetIDsOfNames(IID_NULL,
+                                            const_cast<LPOLESTR*>(&name),
+                                            1,
+                                            LOCALE_USER_DEFAULT,
+                                            &dispid);
+    if (FAILED(hr))
+        return false;
+
+    // 2. 构造参数：调用 PROPERTYPUT 需要将值放在第一个参数，并指定命名参数 DISPID_PROPERTYPUT
+    VARIANT v;           // 复制一份，避免 const 问题
+    VariantInit(&v);
+    hr = VariantCopyInd(&v, const_cast<VARIANT*>(&value));  // 安全拷贝（若 value 包含指针，会正确复制）
+    if (FAILED(hr))
+        return false;
+
+    DISPID dispidNamed = DISPID_PROPERTYPUT;
+    DISPPARAMS params = {0};
+    params.rgvarg = &v;                  // 新值放在 rgvarg[0]
+    params.cArgs = 1;
+    params.rgdispidNamedArgs = &dispidNamed; // 指明是属性赋值
+    params.cNamedArgs = 1;
+
+    // 3. 调用 Invoke 设置属性
+    hr = pScriptDisp->Invoke(dispid,
+                             IID_NULL,
+                             LOCALE_USER_DEFAULT,
+                             DISPATCH_PROPERTYPUT,
+                             &params,
+                             NULL, NULL, NULL);
+
+    VariantClear(&v);   // 释放副本
+    return SUCCEEDED(hr);
+}
+
+// 读取脚本全局变量
+bool GetScriptVariable(IDispatch *pScriptDisp, const wchar_t *name, VARIANT &result)
+{
+    DISPID dispid;
+    HRESULT hr = pScriptDisp->GetIDsOfNames(IID_NULL, const_cast<LPOLESTR *>(&name), 1,
+        LOCALE_USER_DEFAULT, &dispid);
+    if (FAILED(hr)) return false;
+
+    DISPPARAMS params = {NULL, NULL, 0, 0};
+    hr = pScriptDisp->Invoke(dispid, IID_NULL, LOCALE_USER_DEFAULT,
+        DISPATCH_PROPERTYGET, &params, &result, NULL, NULL);
+    return SUCCEEDED(hr);
+}
+
+// ---------- 主函数 ----------
+int main()
+{
+    // 1. 初始化 COM
+    HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+    if (FAILED(hr))
+    {
+        std::cerr << "CoInitializeEx failed." << std::endl;
+        return 1;
+    }
+
+    IActiveScript *pScript = NULL;
+    IActiveScriptParse *pParse = NULL;
+    IDispatch *pScriptDisp = NULL;
+
+    do // 伪循环用于统一错误处理与清理
+    {
+        // 2. 创建 JScript 脚本引擎
+        CLSID clsid;
+        hr = CLSIDFromProgID(L"JScript", &clsid);
+        if (FAILED(hr))
+        {
+            std::cerr << "CLSIDFromProgID failed. JScript engine not registered?" << std::endl;
+            break;
+        }
+        hr = CoCreateInstance(clsid, NULL, CLSCTX_INPROC_SERVER,
+            IID_IActiveScript, (void **)&pScript);
+        if (FAILED(hr))
+        {
+            std::cerr << "CoCreateInstance failed." << std::endl;
+            break;
+        }
+
+        // 获取解析接口
+        hr = pScript->QueryInterface(IID_IActiveScriptParse, (void **)&pParse);
+        if (FAILED(hr))
+        {
+            std::cerr << "QueryInterface for IActiveScriptParse failed." << std::endl;
+            break;
+        }
+
+        // 3. 设置脚本站点
+        SimpleScriptSite* pSite = new SimpleScriptSite();
+        hr = pScript->SetScriptSite(pSite);
+        pSite->Release();
+        if (FAILED(hr))
+        {
+            std::cerr << "SetScriptSite failed." << std::endl;
+            break;
+        }
+
+        // 4.初始化解析器 —— 注意是调用 pParse->InitNew()
+        hr = pParse->InitNew();
+        if (FAILED(hr))
+        {
+            std::cerr << "InitNew failed." << std::endl;
+            break;
+        }
+
+        // 8. 获取全局脚本对象的 IDispatch，读取输出变量
+        hr = pScript->GetScriptDispatch(NULL, &pScriptDisp);
+        if (FAILED(hr) || !pScriptDisp)
+        {
+            std::cerr << "GetScriptDispatch failed." << std::endl;
+            break;
+        }
+
+        // 5. 输入变量（根据实际需求修改）
+        const wchar_t *inputVars = LR"script(
+            var FinalRMag = 7000.1;
+            var CurrentApoapsisMag = 6800.1;
+            var CurrentEccentricity = 0.2;
+            var CurrentTrueAnomaly = 2.1;
+            var StopOnPeriapsisCoast = false;
+            var StopOnApoapsisCoast = false;
+            var StopOnPeriapsisTransfer = false;
+            var StopOnApoapsisTransfer = false;
+            var SkipInitialCoast = "";
+            var DesiredRMagScript = 0;
+            var DesiredRMagDC = 0;
+        )script";
+
+        // 这是用户提供的脚本
+        const wchar_t* userScript = LR"script(
+            // This script sets up a Hohmann transfer sequence.
+            // ... (完整脚本内容如下)
+            var startTrueAnomA;
+            var startTrueAnomB;
+
+            if (FinalRMag > CurrentApoapsisMag)
+            {
+                StopOnPeriapsisCoast = true;
+                StopOnApoapsisCoast = false;
+                StopOnPeriapsisTransfer = false;
+                StopOnApoapsisTransfer = true;
+                startTrueAnomA = 0.0;
+                startTrueAnomB = 360.0;
+            }
+            else
+            {
+                StopOnPeriapsisCoast = false;
+                StopOnApoapsisCoast = true;
+                StopOnPeriapsisTransfer = true;
+                StopOnApoapsisTransfer = false;
+                startTrueAnomA = 180.0;
+                startTrueAnomB = 180.0;
+            }
+
+            if ( CurrentEccentricity < 0.01 ||
+                 Math.abs(startTrueAnomA - CurrentTrueAnomaly) < 0.01 ||
+                 Math.abs(startTrueAnomB - CurrentTrueAnomaly) < 0.01 )
+            {
+                SkipInitialCoast = "Enable";
+            }
+            else
+            {
+                SkipInitialCoast = "Disable";
+            }
+
+            DesiredRMagScript = FinalRMag;
+            DesiredRMagDC = FinalRMag;
+        )script";
+
+        std::wstring fullScript = std::wstring(inputVars) + L"\n" + userScript;
+
+        // 6. 解析脚本（但还未执行）
+        EXCEPINFO ei;
+        ZeroMemory(&ei, sizeof(ei));
+        hr = pParse->ParseScriptText(
+            fullScript.c_str(),
+            NULL,               // 没有显式的项名
+            NULL,               // 没有宿主提供的对象
+            NULL,               // 没有分隔符
+            0,                  // 源代码行号
+            0,                  // 标志
+            SCRIPTTEXT_ISVISIBLE,
+            NULL,               // 不需要返回结果
+            &ei);
+        if (FAILED(hr))
+        {
+            std::wcerr << L"ParseScriptText failed: "
+                       << (ei.bstrDescription ? ei.bstrDescription : L"") << std::endl;
+            break;
+        }
+
+        // 7. 将引擎置为 Connected 状态，此时脚本开始执行
+        hr = pScript->SetScriptState(SCRIPTSTATE_CONNECTED);
+        if (FAILED(hr))
+        {
+            std::cerr << "SetScriptState(CONNECTED) failed." << std::endl;
+            break;
+        }
+
+        
+
+        // 示例：读取几个关键结果
+        VARIANT var;
+        VariantInit(&var);
+
+        if (GetScriptVariable(pScriptDisp, L"SkipInitialCoast", var))
+        {
+            std::wcout << L"SkipInitialCoast = " << var.bstrVal << std::endl;
+            VariantClear(&var);
+        }
+        if (GetScriptVariable(pScriptDisp, L"StopOnPeriapsisCoast", var))
+        {
+            std::wcout << L"StopOnPeriapsisCoast = " << (var.boolVal ? L"true" : L"false") << std::endl;
+            VariantClear(&var);
+        }
+        if (GetScriptVariable(pScriptDisp, L"DesiredRMagScript", var))
+        {
+            std::wcout << L"DesiredRMagScript = " << var.dblVal << std::endl;
+            VariantClear(&var);
+        }
+        if (GetScriptVariable(pScriptDisp, L"DesiredRMagDC", var))
+        {
+            std::wcout << L"DesiredRMagDC = " << var.dblVal << std::endl;
+            VariantClear(&var);
+        }
+
+    } while (false);
+
+    // 清理资源
+    if (pScriptDisp) pScriptDisp->Release();
+    if (pParse) pParse->Release();
+    if (pScript)
+    {
+        pScript->Close();
+        pScript->Release();
+    }
+    CoUninitialize();
+    return 0;
+}
+
+#endif

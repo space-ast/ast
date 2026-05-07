@@ -20,20 +20,11 @@
 
 #include "Mover.hpp"
 #include "AstUtil/Class.hpp"
+#include "AstSim/MotionProfile.hpp"
+#include "AstSim/MotionOrbitDynamics.hpp"
+
 
 AST_NAMESPACE_BEGIN
-
-_AST_IMPL_OBJECT(Mover)
-
-static bool Mover_ClassInited = (Mover::ClassInit(&Mover::staticType), true);
-
-void Mover::ClassInit(Class* cls)
-{
-    cls->setName("Mover");
-    cls->addToRegistry();
-    cls->setParent<Point>();
-    cls->setConstructor<Mover>();
-}
 
 errc_t Mover::generateEphemeris()
 {
@@ -65,6 +56,27 @@ errc_t Mover::getPos(const TimePoint &tp, Vector3d &pos) const
 errc_t Mover::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
     return ephemeris_->getPosVel(tp, pos, vel);
+}
+
+void Mover::setMotionProfile(MotionProfile* profile)
+{
+    if(!profile)
+        return;
+    if(profile->getParentScope() == nullptr)
+        profile->setParentScope(this);
+    motionProfile_ = profile;
+}
+
+State* Mover::getInitialState() const
+{
+    auto profile = motionProfile_.get();
+    if(!profile)
+        return nullptr;
+    if(motionProfile_->isOfType(MotionOrbitDynamics::StaticType()))
+    {
+        return static_cast<MotionOrbitDynamics*>(profile)->getInitialState();
+    }
+    return nullptr;
 }
 
 AST_NAMESPACE_END

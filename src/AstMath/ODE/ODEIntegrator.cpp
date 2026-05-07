@@ -66,6 +66,11 @@ void ODEIntegrator::removeEventDetector(ODEEventDetector *detector)
     eventDetectorList_.removeEventDetector(detector);
 }
 
+void ODEIntegrator::clearEventDetectors()
+{
+    eventDetectorList_.clear();
+}
+
 void ODEIntegrator::addStateObserver(ODEStateObserver *observer)
 {
     stateObserverList_.addStateObserver(observer);

@@ -37,7 +37,6 @@ class AST_CORE_API BodyEphemerisDE : public BodyEphemeris
 public:
     AST_OBJECT(BodyEphemerisDE)
     AST_PROPERT(JplIndex)
-    
     BodyEphemerisDE() = default;
 
     BodyEphemerisDE(int jplIndex)

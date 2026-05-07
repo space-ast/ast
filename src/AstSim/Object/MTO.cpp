@@ -22,16 +22,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(MTO)
-
-static bool MTO_ClassInited = (MTO::ClassInit(&MTO::staticType), true);
-
-void MTO::ClassInit(Class* cls)
-{
-    cls->setName("MTO");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<MTO>();
-}
 
 AST_NAMESPACE_END

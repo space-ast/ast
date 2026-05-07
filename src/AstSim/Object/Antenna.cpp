@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Antenna)
 
-static bool Antenna_ClassInited = (Antenna::ClassInit(&Antenna::staticType), true);
-
-void Antenna::ClassInit(Class* cls)
-{
-    cls->setName("Antenna");
-    cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
-    cls->setConstructor<Antenna>();
-}
 
 AST_NAMESPACE_END

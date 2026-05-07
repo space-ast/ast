@@ -72,6 +72,35 @@ uint32_t ObjectManager::addObject(Object *object)
     return index;
 }
 
+errc_t ObjectManager::removeObject(Object *object)
+{
+    SharedPtr<Object> objectPtr = object;
+    if(objectPtr){
+        auto objNode = this->getObjectNode(object);
+        if(!objNode)
+            return eErrorInvalidParam;
+        objNode->clear();
+        return 0;
+    }
+    return eErrorNullPtr;
+}
+
+
+void ObjectManager::removeAllObjects()
+{
+    for(auto objNode : objects_)
+    {
+        SharedPtr<Object> object = objNode->getObject();
+        if(object)
+            object->index_ = static_cast<uint32_t>(INVALID_ID);
+        objNode->clear();
+    }
+    nextIndex_ = 0;
+}
+
+
+
+
 errc_t ObjectManager::setParentScope(Object *obj, Object *parentScope)
 {
     if(!obj || !parentScope)
@@ -99,6 +128,26 @@ Object *ObjectManager::getParentScope(Object *obj)
     return nullptr;
 }
 
+Object *ObjectManager::getAncestorScope(Object *obj, Class*cls)
+{
+    if(!obj || !cls)
+        return nullptr;
+    if(obj->index_ == static_cast<uint32_t>(INVALID_ID))
+        return nullptr;
+    auto objNode = objects_[obj->index_];
+    auto parentNode = objNode->parentNode_;
+    while(parentNode)
+    {
+        auto parentObject = parentNode->getObject();
+        if(cls->cast(parentObject))
+        {
+            return parentObject;
+        }
+        parentNode = parentNode->parentNode_;
+    }
+    return nullptr;
+}
+
 errc_t ObjectManager::setMaxObjectCount(uint32_t maxCount)
 {
     uint32_t count = getObjectCount();
@@ -118,6 +167,44 @@ uint32_t ObjectManager::getObjectCount() const
     }
     return count;
 }
+
+std::vector<Object*> ObjectManager::findObjects(Class* cls, StringView name)
+{
+    std::vector<Object*> objects;
+    for(auto objNode : objects_)
+    {
+        if(auto object = objNode->getObject())
+        {
+            if(cls == nullptr || object->isOfType(cls))
+            {
+                if(name.empty() || name == object->getName())
+                {
+                    objects.push_back(object);
+                }
+            }
+        }
+    }
+    return objects;
+}
+
+Object* ObjectManager::findObject(Class* cls, StringView name)
+{
+    for(auto objNode : objects_)
+    {
+        if(auto object = objNode->getObject())
+        {
+            if(cls == nullptr || object->isOfType(cls))
+            {
+                if(name.empty() || name == object->getName())
+                {
+                    return object;
+                }
+            }
+        }
+    }
+    return nullptr;
+}
+
 
 ObjectNode* ObjectManager::getObjectNode(Object* obj)
 {

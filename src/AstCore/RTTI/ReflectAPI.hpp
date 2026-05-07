@@ -97,6 +97,90 @@ A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
 }
 
 
+/// @brief 创建一个时间点属性
+/// @details 本函数创建一个时间点属性，属性值通过调用对象的成员函数获取和设置。
+/// @tparam T 类类型
+/// @tparam Getter 时间点属性获取函数指针
+/// @tparam Setter 时间点属性设置函数指针
+/// @return Property* 属性指针
+template<typename T, TimePoint(T::*Getter)() const, void (T::*Setter)(TimePoint)>
+A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
+{
+    A_STATIC_ASSERT_CXX14(Getter!=nullptr, "invalid getter");
+    A_STATIC_ASSERT_CXX14(Setter!=nullptr, "invalid setter");
+    
+    return _aNewPropertyTimePoint(
+        [](const void* obj, void* value) -> errc_t
+        {
+            *((TimePoint*)value) = (((T*)obj)->*Getter)();
+            return 0;
+        },
+        [](void* obj, const void* value) -> errc_t
+        {
+            (((T*)obj)->*Setter)(*((TimePoint*)value));
+            return 0;
+        }
+    );
+}
+
+
+/// @brief 创建一个时间点属性
+/// @details 本函数创建一个时间点属性，属性值通过调用对象的成员函数获取和设置，支持错误返回值。
+/// @tparam T 类类型
+/// @tparam Getter 时间点属性获取函数指针
+/// @tparam Setter 时间点属性设置函数指针（带错误返回值）
+/// @return Property* 属性指针
+template<typename T, TimePoint(T::*Getter)() const, errc_t (T::*Setter)(TimePoint)>
+A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
+{
+    A_STATIC_ASSERT_CXX14(Getter!=nullptr, "invalid getter");
+    A_STATIC_ASSERT_CXX14(Setter!=nullptr, "invalid setter");
+    
+    return _aNewPropertyTimePoint(
+        [](const void* obj, void* value) -> errc_t
+        {
+            *((TimePoint*)value) = (((T*)obj)->*Getter)();
+            return 0;
+        },
+        [](void* obj, const void* value) -> errc_t
+        {
+            return (((T*)obj)->*Setter)(*((TimePoint*)value));
+        }
+    );
+}
+
+
+/// @brief 创建一个时间点属性
+/// @details 本函数创建一个时间点属性，属性值通过调用对象的成员函数获取和设置，支持引用参数的 getter。
+/// @tparam T 类类型
+/// @tparam Getter 时间点属性获取函数指针（接受引用参数）
+/// @tparam Setter 时间点属性设置函数指针
+/// @return Property* 属性指针
+template<typename T, errc_t (T::*Getter)(TimePoint&) const, void (T::*Setter)(const TimePoint&)>
+A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
+{
+    A_STATIC_ASSERT_CXX14(Getter!=nullptr, "invalid getter");
+    A_STATIC_ASSERT_CXX14(Setter!=nullptr, "invalid setter");
+    
+    return _aNewPropertyTimePoint(
+        [](const void* obj, void* value) -> errc_t
+        {
+            TimePoint time;
+            errc_t result = (static_cast<const T*>(obj)->*Getter)(time);
+            if (result == 0) {
+                *static_cast<TimePoint*>(value) = time;
+            }
+            return result;
+        },
+        [](void* obj, const void* value) -> errc_t
+        {
+            (static_cast<T*>(obj)->*Setter)(*static_cast<const TimePoint*>(value));
+            return 0;
+        }
+    );
+}
+
+
 template<typename T, const TimePoint& (T::* Getter) () const, void (T::* Setter)(const TimePoint&)>
 A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
 {
@@ -116,7 +200,6 @@ A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
     }
     );
 }
-
 
 
 template<typename T, const TimePoint& (T::* Getter) () const, errc_t (T::* Setter)(const TimePoint& value)>

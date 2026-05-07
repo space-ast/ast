@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/ObjectNamed.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,7 +32,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 姿态定义接口
-class AttitudeProfile
+class AttitudeProfile: public ObjectNamed
 {
 public:
     AttitudeProfile() = default;

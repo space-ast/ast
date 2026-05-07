@@ -91,7 +91,11 @@ protected:
         }
         if(parentDict)
         {
-            parentDict->insert(context.name_, context.value_.get());
+            if(context.name_.empty()){
+                parentDict->insert(context.text_, context.value_.get());
+            }else{
+                parentDict->insert(context.name_, context.value_.get());
+            }
         }else{
             aError("parent element is not a object or container");
         }
@@ -123,7 +127,13 @@ public:
                 context = {};
                 context.name_ = attrs.get("Name").toString();
                 context.class_ = attrs.get("Class").toString();
-            }else{
+            }
+            else if(element == "STRING")
+            {
+                ParseContext& context = getCurrentContext();
+                context = {};
+            }
+            else{
                 aError("unknown element '%.*s', expect 'OBJECT'", element.size(), element.data());
             }
         }
@@ -156,6 +166,10 @@ public:
             {
                 context.value_ = aNewValueBool(aParseBool(context.text_));
             }
+            else if(context.class_ == "int")
+            {
+                context.value_ = aNewValueInt(aParseInt(context.text_));
+            }
             else if(context.class_ == "date")
             {
                 std::string datestr = aUnquote(context.text_);
@@ -167,11 +181,12 @@ public:
                 errc_t rc = aQuantityParse(context.text_, quantity);
                 // 很奇怪，有些数量值会以""结尾，导致解析数量值时失败，例如： 2.2 ""
                 if(rc){
-                    double d;
-                    rc = aParseDouble(context.text_, d);
-                    if(!StringView(context.text_).ends_with("\"\"") || rc != eNoError)
+                    double d = 0.0;
+                    StringView text = aStripAsciiWhitespace(context.text_);
+                    rc = aParseDouble(text, d);
+                    if(!text.ends_with("\"\"") || rc != eNoError)
                     {
-                        aError("failed to parse quantity '%.*s'", context.text_.size(), context.text_.data());
+                        aError("failed to parse quantity '%.*s'", text.size(), text.data());
                     }
                     context.value_ = aNewValueDouble(d);
                 }else{
@@ -195,7 +210,14 @@ public:
                     insertCurrentValueToParentDict();
                 }
             }
-        }else
+        }
+        else if(element == "STRING")
+        {
+            ParseContext& context = getCurrentContext();
+            context.value_ = aNewValueString(aUnquote(context.text_));
+            insertCurrentValueToParentDict();
+        }
+        else
         {
             aError("unknown element '%.*s', expect 'OBJECT'", element.size(), element.data());
         }
@@ -243,6 +265,7 @@ public:
         context.class_ = std::string(element);
         if(element == "QUANTITY")
         {
+            // 针对QUANTITY元素，需要特殊处理
             context.name_ = attributes.get("Unit").toString();
         }
     }

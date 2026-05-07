@@ -28,8 +28,8 @@ void bmSetForceModel(benchmark::State& state)
 {
     HPOPEquation equation;
     HPOPForceModel forcemodel;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.useMoonGravity_ = true;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.useMoonGravity(true);
     for(auto _ : state)
     {
         errc_t err = equation.setForceModel(forcemodel);

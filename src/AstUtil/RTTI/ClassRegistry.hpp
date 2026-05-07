@@ -39,16 +39,18 @@ class Class;
 class ClassRegistry
 {
 public:
+    using ClassMap = std::unordered_map<std::string, Class*>;
+
     ClassRegistry() = default;
     ~ClassRegistry() = default;
     static ClassRegistry* Instance();
 
     Class* getClass(StringView name) const;
     void getAllClassNames(std::vector<std::string>& names) const;
+    const ClassMap& getAllClasses() const { return classMap_; }
     void registerClass(Class* cls);
-    void registerClass(StringView name, Class* cls);
+    void registerClass(Class* cls, StringView name);
 protected:
-    using ClassMap = std::unordered_map<std::string, Class*>;
     ClassMap classMap_;
 };
 

@@ -19,9 +19,29 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ObjectCalculation.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
+bool ObjectCalculation::isExpectedType(const Object* obj) const
+{
+    Class* expectedType = getExpectedType();
+    return expectedType->cast(const_cast<Object*>(obj)) != nullptr;
+}
+
+errc_t ObjectCalculation::calculate(const Object* obj, double& result)
+{
+    Class* expectedType = getExpectedType();
+    if (auto expectedObj = expectedType->cast(const_cast<Object*>(obj)))
+    {
+        return calculateNoCheckType(expectedObj, result);
+    }
+    else
+    {
+        aError("object is null or is not expected type");
+        return eErrorInvalidType;
+    }
+}
 
 AST_NAMESPACE_END

@@ -48,6 +48,7 @@ public:
 public:
     /// @brief 设置力模型
     /// @param forceModel 力模型
+    void setForceModel(HPOPForceModel&& forceModel){forceModel_ = std::move(forceModel);}
     void setForceModel(const HPOPForceModel& forceModel){forceModel_ = forceModel;}
 
     /// @brief 获取力模型

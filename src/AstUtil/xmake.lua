@@ -1,6 +1,7 @@
 ﻿target("AstUtil")
     set_kind("shared")
     add_files("**.cpp")
+    add_files("**.cxx")
     add_headerfiles("**.hpp", {prefixdir="AstUtil"})
     add_headerfiles("**.h", {prefixdir="AstUtil"})
     add_headerfiles("../../include/AstGlobal.h")

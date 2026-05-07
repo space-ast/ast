@@ -23,16 +23,10 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Facility)
 
-static bool Facility_ClassInited = (Facility::ClassInit(&Facility::staticType), true);
-
-void Facility::ClassInit(Class* cls)
+Facility::Facility()
 {
-    cls->setName("Facility");
-    cls->addToRegistry();
-    cls->setParent<Point>();
-    cls->setConstructor<Facility>();
+    setBody(aGetEarth());
 }
 
 Frame *Facility::getFrame() const

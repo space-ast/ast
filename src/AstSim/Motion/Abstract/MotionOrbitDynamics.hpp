@@ -43,24 +43,12 @@ using MotionBasic = MotionOrbitDynamics; // 兼容处理
 class AST_SIM_API MotionOrbitDynamics: public MotionWithIntervalStep
 {
 public:
+    AST_OBJECT(MotionOrbitDynamics)
+    AST_PROPERT(InitialState)
+    AST_PROPERT(PropagationFrame)
     MotionOrbitDynamics() = default;
     ~MotionOrbitDynamics() = default;
 
-    /// @brief 获取初始状态
-    /// @return 状态指针
-    State* getInitialState() const { return initialState_.get(); }
-
-    /// @brief 设置初始状态
-    void setInitialState(State* state) { initialState_ = state; }
-
-
-    /// @brief 获取预报坐标系
-    /// @return 预报坐标系指针
-    Frame* getPropagationFrame() const { return propagationFrame_.get(); }
-
-    /// @brief 设置预报坐标系
-    /// @param frame 预报坐标系指针
-    void setPropagationFrame(Frame* frame) { propagationFrame_ = frame; }
 
     /// @brief 获取状态类型
     /// @return 状态类型
@@ -80,6 +68,11 @@ protected:
     errc_t getPropagationParams(PropagationParams& params) const;
 
     errc_t discreteInterval(const TimePoint& epoch, double stepSize, std::vector<double>& times) const;
+PROPERTIES:
+    State* getInitialState() const { return initialState_.get(); }
+    void setInitialState(State* state) { initialState_ = state; }
+    Frame* getPropagationFrame() const { return propagationFrame_.get(); }
+    void setPropagationFrame(Frame* frame) { propagationFrame_ = frame; }
 protected:
     SharedPtr<State>            initialState_;          ///< 初始状态
     SharedPtr<Frame>            propagationFrame_;      ///< 预报坐标系

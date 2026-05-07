@@ -31,11 +31,12 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief End命令
+/// @brief 结束段，仅用于标识任务序列Sequence的结束
 /// @details 仅仅是标识结束，不执行任何操作
 class AST_CORE_API End : public MissionCommand
 {
 public:
+    AST_OBJECT(End)
     End() = default;
     ~End() = default;
 public:

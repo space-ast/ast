@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -34,7 +35,7 @@ class Rotation;
 class KinematicRotation;
 
 /// @brief 天体姿态/指向
-class AST_CORE_API BodyOrientation: public Object
+class AST_CORE_API BodyOrientation: public ObjectNamed
 {
 public:
     BodyOrientation() = default;

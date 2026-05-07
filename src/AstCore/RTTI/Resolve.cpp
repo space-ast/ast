@@ -24,17 +24,21 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/BuiltinFrame.hpp"
 #include "AstCore/FrameAssembly.hpp"
+#include "AstCore/EventTimeExplicit.hpp"
+#include "AstCore/BuiltinAxes.hpp"
+#include "AstCore/AxesLinkTo.hpp"
 
 AST_NAMESPACE_BEGIN
 
 Frame *aObject_GetFrame(Object* obj, StringView frameName)
 {
-    auto frame = aFindChild(obj, Frame::getStaticType(), frameName);
+    if(!obj)
+        return nullptr;
+    auto frame = aFindChild(obj, Frame::StaticType(), frameName);
     if(frame)
         return (Frame*)frame;
-    if(obj->getType() == CelestialBody::getStaticType())
+    if(auto body = aobject_cast<CelestialBody*>(obj))
     {
-        CelestialBody* body = (CelestialBody*)obj;
         HFrame frame;
         if(frameName == "Inertial")
         {
@@ -48,6 +52,10 @@ Frame *aObject_GetFrame(Object* obj, StringView frameName)
         {
             frame = body->makeFrameTOD();
         }
+        else if(frameName == "J2000")
+        {
+            frame = body->makeFrameJ2000();
+        }
         if(frame)
         {
             frame->setName(frameName);
@@ -59,13 +67,67 @@ Frame *aObject_GetFrame(Object* obj, StringView frameName)
 }
 
 
+Point *aObject_GetPoint(Object* obj, StringView pointName)
+{
+    if(!obj)
+        return nullptr;
+    auto point = aFindChild(obj, Point::StaticType(), pointName);
+    if(point)
+        return (Point*)point;
+    if(auto body = aobject_cast<CelestialBody*>(obj))
+    {
+        if(pointName == "Center")
+        {
+            return body->getPointCenter();
+        }
+    }
+    return nullptr;
+}
+
+
+Axes* aObject_GetAxes(Object* obj, StringView axesName)
+{
+    if(!obj)
+        return nullptr;
+    auto axes = aFindChild(obj, Axes::StaticType(), axesName);
+    if(axes)
+        return (Axes*)axes;
+    if(auto body = aobject_cast<CelestialBody*>(obj))
+    {
+        if(axesName == "Inertial")
+        {
+            return body->getAxesInertial();
+        }
+        else if(axesName == "ICRF")
+        {
+            return aAxesICRF();
+        }
+        else if(axesName == "TOD")
+        {
+            return body->getAxesTOD();
+        }
+        else if(axesName == "J2000")
+        {
+            return aAxesJ2000();
+        }
+    }
+    else if(auto cls = aobject_cast<Class*>(obj))
+    {
+        auto axes = AxesLinkTo::New(cls->name(), axesName);
+        axes->setParentScope(cls);
+        return axes;
+    }
+    return nullptr;
+}
+
+
 
 Body *aResolveBody(StringView name)
 {
     auto iter = name.find("/");
     if(iter == StringView::npos)
     {
-        return nullptr;
+        return aGetBody(name);
     }
     auto prefix = name.substr(0, iter);
     if(prefix!="CentralBody")
@@ -78,30 +140,102 @@ Frame *aResolveFrame(StringView name)
 {
     auto iter = name.find(' ');
     if(iter == StringView::npos)
-        return nullptr;
+    {
+        if(name == "EarthInertial")
+        {
+            return aObject_GetFrame(aGetEarth(), "Inertial");
+        }
+        else if(name == "EarthICRF")
+        {
+            return aObject_GetFrame(aGetEarth(), "ICRF");
+        }
+        else if(name == "EarthTOD")
+        {
+            return aObject_GetFrame(aGetEarth(), "TOD");
+        }
+        else if(name == "EarthJ2000")
+        {
+            return aObject_GetFrame(aGetEarth(), "J2000");
+        }
+    }
     StringView objpath = name.substr(0, iter);
     auto obj = aResolveObject(objpath);
     if(obj == nullptr)
-        return nullptr;
+        obj = aResolveBody(objpath);
     StringView frameName = name.substr(iter + 1);
     return aObject_GetFrame(obj, frameName);
 }
 
-Object *aResolveObject(StringView path)
+Axes* aResolveAxes(StringView name)
 {
-    auto iter = path.find("/");
+    auto iter = name.find(' ');
     if(iter == StringView::npos)
     {
         return nullptr;
     }
-    auto className = path.substr(0, iter);
-    auto objName = path.substr(iter + 1);
-    if(className=="CentralBody")
+    StringView objpath = name.substr(0, iter);
+    auto obj = aResolveObject(objpath);
+    if(obj == nullptr)
+        obj = aResolveBody(objpath);
+    StringView axesName = name.substr(iter + 1);
+    return aObject_GetAxes(obj, axesName);
+}
+
+
+Point *aResolvePoint(StringView name)
+{
+    auto iter = name.find(' ');
+    if(iter == StringView::npos)
     {
-        return aGetBody(objName);
+        return nullptr;
     }
+    StringView objpath = name.substr(0, iter);
+    auto obj = aResolveObject(objpath);
+    if(obj == nullptr)
+        obj = aResolveBody(objpath);
+    StringView pointName = name.substr(iter + 1);
+    return aObject_GetPoint(obj, pointName);
+}
+
+
+#if 0
+
+Object *aResolveObject(StringView value, Class* type)
+{
+    if(type == EventTime::StaticType())
+    {
+        /// @todo 处理新建对象的父作用域问题
+        auto eventTime = new EventTimeExplicit(TimePoint::Parse(value));
+        return eventTime;
+    }
+    else if(type == Frame::StaticType())
+    {
+        return aResolveFrame(value);
+    }
+    else
+    {
+        StringView path = value;
+        auto iter = path.find("/");
+        if(iter == StringView::npos)
+        {
+            return nullptr;
+        }
+        auto className = path.substr(0, iter);
+        auto objName = path.substr(iter + 1);
+        if(className=="CentralBody")
+        {
+            return aGetBody(objName);
+        }
+    }
+    if(type == nullptr || type == CelestialBody::StaticType())
+    {
+        return aGetBody(value);
+    }
+
     return nullptr;    
 }
+
+#endif
 
 AST_NAMESPACE_END
 

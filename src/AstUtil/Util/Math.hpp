@@ -106,7 +106,7 @@ using std::min;
 /// @return 规范化后的角度 angle - k*2π, 其中k是整数，使得 angle - k*2π >= start
 A_ALWAYS_INLINE double aNormalizeAngleStart(double angle, double start)
 {
-    return angle - floor((angle + start) / kTwoPI) * kTwoPI;
+    return angle - floor((angle - start) / kTwoPI) * kTwoPI;
 }
 
 

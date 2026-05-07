@@ -54,12 +54,12 @@ errc_t aParseBool(StringView str, bool& value)
         return eErrorNullInput;
     }
 
-    if (aEqualsIgnoreCase(str, "true") || aEqualsIgnoreCase(str, "yes") || (str == "1"))
+    if (aEqualsIgnoreCase(str, "true") || aEqualsIgnoreCase(str, "yes") || aEqualsIgnoreCase(str, "enable") || (str == "1"))
     {
         value = true;
         return eNoError;
     }
-    else if (aEqualsIgnoreCase(str, "false") || aEqualsIgnoreCase(str, "no") || (str == "0"))
+    else if (aEqualsIgnoreCase(str, "false") || aEqualsIgnoreCase(str, "no") || aEqualsIgnoreCase(str, "disable") || (str == "0"))
     {
         value = false;
         return eNoError;

@@ -35,6 +35,9 @@ AST_NAMESPACE_BEGIN
 class MotionJ2Analytical;
 using PMotionJ2Analytical = MotionJ2Analytical*;
 
+/// @brief J2解析轨道动力学
+/// @details
+/// @see MotionOrbitDynamics
 class AST_SIM_API MotionJ2Analytical final: public MotionOrbitDynamics
 {
 public:

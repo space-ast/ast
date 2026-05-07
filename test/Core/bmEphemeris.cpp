@@ -22,8 +22,10 @@
 #include "AstUtil/SPKParser.hpp"
 #include "AstUtil/Environment.hpp"
 #include "AstCore/JplDe.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstCore/SpiceApi.hpp"
 #include <benchmark/benchmark.h>
 
 
@@ -45,20 +47,38 @@ void bmEphemerisDE(benchmark::State& state)
 BENCHMARK(bmEphemerisDE);
 
 
-void bmEphemerisSpice(benchmark::State& state)
+void bmEphemerisSPKParser(benchmark::State& state)
 {
     if(aIsCI()) return;
     SPKParser spk("data/Test/kernels/spk/de430.bsp");
     double et = 0;
+    Vector3d pos;
+    Vector3d vel;
     for(auto _ : state)
     {
-        Vector3d pos;
-        spk.getPosNative(et, JplDe::eMars, pos);
+        spk.getPosVelNative(et, ESpiceId::eMarsBarycenter, pos, vel);
         benchmark::DoNotOptimize(pos);
     }
 }
 
-BENCHMARK(bmEphemerisSpice);
+BENCHMARK(bmEphemerisSPKParser);
 
+
+void bmEphemerisSpice(benchmark::State& state)
+{
+    if(aIsCI()) return;
+    SpiceApi api(true);
+    api.furnsh("data/Test/kernels/spk/de430.bsp");
+    double et = 0;
+    double lt;
+    array6d posvel;
+    for(auto _ : state)
+    {
+        api.spkgeo(ESpiceId::eMarsBarycenter, et, "J2000", 0, posvel.data(), &lt);
+        benchmark::DoNotOptimize(posvel);
+    }
+}
+
+BENCHMARK(bmEphemerisSpice);
 
 BENCHMARK_MAIN();

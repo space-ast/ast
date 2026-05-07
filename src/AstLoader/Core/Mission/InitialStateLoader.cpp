@@ -19,6 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "InitialStateLoader.hpp"
+#include "SegmentLoader.hpp"
+#include "SpacecraftStateLoader.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/StateKeplerian.hpp"
@@ -45,6 +47,7 @@ AST_NAMESPACE_BEGIN
 XMLNode似乎不太合适用于这个场景
 */
 
+#if 0
 namespace{
 // 方案1废弃
 class InitialStateArchive: public Archive
@@ -72,6 +75,7 @@ private:
     InitialState& initialState_;
 };
 }
+#endif
 
 errc_t aLoadInitialState(const Value& dictRoot, InitialState& initialState)
 {
@@ -80,51 +84,20 @@ errc_t aLoadInitialState(const Value& dictRoot, InitialState& initialState)
         aError("invalid type, expect 'InitialState'");
         return eErrorInvalidParam;
     }
+
+    
     // 似乎不用判断"CoordinateType"字段，因为默认存的都是Cartesian坐标
     // auto& dictCoordinateType = dictRoot["CoordinateType"];
-    auto& spacecraftState = initialState.getInitialState();
     // if(!dictCoordinateType.isNull())
+    auto spacecraftStatePtr = initialState.getInitialState();
+    if(spacecraftStatePtr)
     {
-        HState state;
-        auto& dictOrbitState = dictRoot["InitialState"]["Orbit_State"];
-        // std::string coordType = dictCoordinateType.toString();
-        // if(coordType == "Cartesian")
-        {
-            StateCartesian* cartesian = StateCartesian::New();
-            state = cartesian;
-            auto& dictCartesian = dictOrbitState["Cartesian"];
-            if(!dictCartesian.isNull()){
-                cartesian->setX(dictCartesian["X"]);
-                cartesian->setY(dictCartesian["Y"]);
-                cartesian->setZ(dictCartesian["Z"]);
-                cartesian->setVx(dictCartesian["Vx"]);
-                cartesian->setVy(dictCartesian["Vy"]);
-                cartesian->setVz(dictCartesian["Vz"]);
-            }
-        }
-        if(state){
-            TimePoint epoch = TimePoint::Parse(dictOrbitState["Epoch"].toString());
-            state->setStateEpoch(epoch);
-            spacecraftState.setOrbitState(state);
-            std::string coordSystem = dictOrbitState["CoordSysRep"];
-            state->setFrameByName(coordSystem);
-        }
-        spacecraftState.setCd(dictOrbitState["Cd"]);
-        spacecraftState.setCr(dictOrbitState["Cr"]);
-        spacecraftState.setDragArea(dictOrbitState["DragArea"]);
-        spacecraftState.setSRPArea(dictOrbitState["SRPArea"]);
-        spacecraftState.setDryMass(dictOrbitState["DryMass"]);
-        spacecraftState.setFuelMass(dictOrbitState["FuelMass"]);
-        spacecraftState.setFuelDensity(dictOrbitState["FuelDensity"]);
-        spacecraftState.setK1(dictOrbitState["K1"]);
-        spacecraftState.setK2(dictOrbitState["K2"]);
-        spacecraftState.setRadPressureCoeff(dictOrbitState["RadPressureCoeff"]);
-        spacecraftState.setRadPressureArea(dictOrbitState["RadPressureArea"]);
-        spacecraftState.setTankPressure(dictOrbitState["TankPressure"]);
-        spacecraftState.setTankTemperature(dictOrbitState["TankTemperature"]);
-
-
+        auto& spacecraftState = *spacecraftStatePtr;
+        aLoadSpacecraftState(dictRoot["InitialState"], spacecraftState);
     }
+
+    // 加载公共属性
+    aLoadSegment(dictRoot, initialState);
     return eNoError;
 }
 

@@ -12,6 +12,11 @@ static bool MockObject_ClassInited = (MockObject::ClassInit(&MockObject::staticT
 void MockObject::ClassInit(Class* cls)
 {
 
+    cls->setName("MockObject");
+    cls->addToRegistry();
+    cls->setParent<Object>();
+    cls->setConstructor<MockObject>();
+
     cls->addProperty("x", aNewPropertyQuantity<MockObject, &MockObject::x, &MockObject::setX>(Dimension::Length()));
     cls->addProperty("duration", aNewPropertyQuantity<MockObject, &MockObject::duration, &MockObject::setDuration>(Dimension::Time()));
     cls->addProperty("factor", aNewPropertyDouble<MockObject, &MockObject::factor, &MockObject::setFactor>());

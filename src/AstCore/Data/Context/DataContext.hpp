@@ -98,15 +98,15 @@ public:
 	/// @brief 是否初始化
 	bool isInitialized() const {return !m_dataDir.empty();}
 protected:
-	SolarSystem  			m_solarSystem;			///< 太阳系数据
-	EOP		    			m_eop;					///< 地球指向数据
-	LeapSecond  			m_leapSecond;			///< 闰秒数据
-	SpaceWeather            m_spaceWeather;			///< 空间天气数据
-    JplDe                   m_jplDe;				///< JPL DE星历数据
-	IAUXYSPrecomputed       m_iauXYSPrecomputed;	///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
-    std::string     		m_dataDir;				///< 数据目录
-	TimePoint				m_epoch{};				///< 参考历元
-	StartupConfig           m_config;				///< 配置
+	SolarSystem  			m_solarSystem;						///< 太阳系数据
+	EOP		    			m_eop;								///< 地球指向数据
+	LeapSecond  			m_leapSecond;						///< 闰秒数据
+	SpaceWeather            m_spaceWeather;						///< 空间天气数据
+    JplDe                   m_jplDe;							///< JPL DE星历数据
+	IAUXYSPrecomputed       m_iauXYSPrecomputed;				///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
+    std::string     		m_dataDir;							///< 数据目录
+	TimePoint				m_epoch{};							///< 参考历元
+	StartupConfig           m_config;							///< 配置
 };
 
 constexpr size_t kSizeOfDataContext = sizeof(DataContext);

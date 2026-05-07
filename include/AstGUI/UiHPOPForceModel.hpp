@@ -1,1 +1,1 @@
-#include "../../src/AstGUI/Foundation/UiHPOPForceModel.hpp"
+#include "../../src/AstGUI/ForceModel/UiHPOPForceModel.hpp"

@@ -19,12 +19,66 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Propagate.hpp"
+#include "AstCore/HPOP.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstCore/SpacecraftState.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstMath/ODEIntegrator.hpp"
 
 AST_NAMESPACE_BEGIN
 
+// #define AST_DEBUG_PROPAGATE
+
 errc_t Propagate::execute()
 {
+    const auto inputState   = this->getInputState();  AST_CHECK_NULLPTR(inputState);
+    auto outputState  = this->getOutputState();       AST_CHECK_NULLPTR(outputState);
+    auto propagator   = this->propagator();           AST_CHECK_NULLPTR(propagator);
+    auto integrator   = propagator->getIntegrator();  AST_CHECK_NULLPTR(integrator);
+    
+    // 获取初始状态
+    State* orbitState = inputState->getOrbitState();  AST_CHECK_NULLPTR(orbitState);
+    TimePoint startTime;
+    errc_t rc = orbitState->getStateEpoch(startTime); AST_CHECK_ERRCODE(rc, "Failed to get state epoch");
+    CartState inputCartState;
+    rc = orbitState->getState(inputCartState);             AST_CHECK_ERRCODE(rc, "Failed to get cart state");
+    
+    TimePoint endTime = startTime + maxPropTime();
+    // 添加停止条件
+    integrator->clearEventDetectors();
+    for(auto& eventDetector: eventDetectors_)
+    {
+        // 检查事件检测器是否激活
+        if(eventDetector->active())
+            propagator->getIntegrator()->addEventDetector(eventDetector->newODEEventDetector());
+    }
+    CartState outputCartState = inputCartState;
+    rc = propagator->propagate(startTime, endTime, outputCartState.pos(), outputCartState.vel()); AST_CHECK_ERRCODE(rc, "Failed to propagate");
+    // 输出结果
+    outputState->setStateEpoch(endTime);
+    rc = outputState->setState(outputCartState);       AST_CHECK_ERRCODE(rc, "Failed to set cart state");
+
+    #ifdef AST_DEBUG_PROPAGATE
+    printf("\n------------------------------------\n");
+    printf("Propagate: %s\n", getName().c_str());
+    printf("------------------------------------\n");
+    printf("startTime: %s\n", startTime.toString().c_str());
+    printf("startState: %s\n", inputCartState.toString().c_str());
+    printf("endTime: %s\n", endTime.toString().c_str());
+    printf("endState: %s\n", outputCartState.toString().c_str());
+    printf("------------------------------------\n");
+    #endif
     return 0;
+}
+
+EventDetector* Propagate::getEventDetector(StringView name) const
+{
+    for(auto& eventDetector: eventDetectors_)
+    {
+        if(name == eventDetector->getName())
+            return eventDetector.get();
+    }
+    return nullptr;
 }
 
 AST_NAMESPACE_END

@@ -22,6 +22,7 @@
  
 #include "AstGlobal.h"
 #include "AstMath/MathOperator.hpp"
+#include "AstUtil/Constants.h"
 #include <stdlib.h>    // for malloc
 #include <string>      // for std::string
  
@@ -79,6 +80,7 @@ public:
     static Self UnitX() {return Self{1,0,0}; }
     static Self UnitY() {return Self{0,1,0}; }
     static Self UnitZ() {return Self{0,0,1}; }
+    static double Angle(const Self& v1, const Self & v2);
     _Scalar at(size_t idx) const{return data()[idx]; }
     _Scalar& at(size_t idx) {return data()[idx]; }
     double normalize(){return _ASTMATH normalize(*this);}
@@ -86,6 +88,7 @@ public:
     double norm() const{return _ASTMATH norm(*this);}
     double squaredNorm() const{return _ASTMATH squaredNorm(*this);}
     Self cross(const Self& other) const{return _ASTMATH cross(*this, other);}
+    double angle(const Self& other) const{return Angle(*this, other);}
     double dot(const Self& other) const{return _ASTMATH dot(*this, other);}
     void setZero(){x_ = y_ = z_ = 0;}
     Self& operator*=(Scalar s){return *this = _ASTMATH operator*(*this, s);}
@@ -121,6 +124,27 @@ public:
 
 /// inlines
 
+
+template<typename _Scalar>
+inline double VectorN<_Scalar, 3>::Angle(const Self& v1, const Self & v2)
+{
+    double normProduct = v1.norm() * v2.norm();
+    if (normProduct == 0) {
+        return 0;
+    }
+
+    double dot = v1.dot(v2);
+    double threshold = normProduct * 0.9999;
+    if ((dot < -threshold) || (dot > threshold)) {
+        Self v3 = v1.cross(v2);
+        if (dot >= 0) {
+            return asin(v3.norm() / normProduct);
+        }
+        return kPI - asin(v3.norm() / normProduct);
+    }
+
+    return acos(dot / normProduct);
+}
 
 template<typename _Scalar>
 inline VectorX<_Scalar>::VectorX()

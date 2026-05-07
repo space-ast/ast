@@ -32,21 +32,21 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 初始状态任务
+/// @brief 初始轨道段，用于建模任务序列(MissionCommand)中的初始状态任务
 /// @details 初始状态任务负责设置初始状态参数，确保任务序列的执行从正确的状态开始
 class AST_CORE_API InitialState: public Segment
 {
 public:
-    InitialState() = default;
+    AST_OBJECT(InitialState)
+    InitialState();
     ~InitialState() = default;
 public:
+    /// @brief 获取初始状态
+    /// @details 对于初始轨道段，其初始状态就是输出状态
+    /// @return 初始状态
+    SpacecraftState* getInitialState() const{return getOutputState();}
+public:
     errc_t execute() override;
-    
-    /// @brief 获取初始状态参数
-    const SpacecraftState& getInitialState() const{return initialState_;}
-    SpacecraftState& getInitialState(){return initialState_;}
-private:
-    SpacecraftState initialState_;      ///< 初始状态参数
 };
 
 /*! @} */

@@ -23,16 +23,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Spacecraft)
-
-static bool Spacecraft_ClassInited = (Spacecraft::ClassInit(&Spacecraft::staticType), true);
-
-void Spacecraft::ClassInit(Class* cls)
-{
-    cls->setName("Spacecraft");
-    cls->addToRegistry();
-    cls->setParent<SpaceObject>();
-    cls->setConstructor<Spacecraft>();
-}
 
 AST_NAMESPACE_END

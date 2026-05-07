@@ -20,8 +20,90 @@
 
 #include "PropertyObject.hpp"
 #include "AstUtil/PropertyVisitor.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/Object.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
+
+PropertyObject::PropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls)
+    : Property(getter, setter)
+    , class_(cls)
+{
+}
+
+errc_t PropertyObject::getValueBool(const void* container, bool& value)
+{
+    aError("failed to get bool value from property object");
+    return -1;
+}
+
+errc_t PropertyObject::setValueBool(void* container, bool value)
+{
+    aError("failed to set bool value to property object");
+    return -1;
+}
+
+errc_t PropertyObject::getValueInt(const void* container, int& value)
+{
+    Object* object = nullptr;
+    errc_t rc = getValue(container, &object);
+    if(rc != 0)
+        return rc;
+    if(!object)
+        return -1;
+    value = object->getID();
+    return 0;
+}
+
+errc_t PropertyObject::setValueInt(void* container, int value)
+{
+    Object* object = aGetObject(value);
+    return setValue(container, object);
+}
+
+errc_t PropertyObject::getValueString(const void* container, std::string& value)
+{
+    aError("failed to get string value from property object");
+    return -1;
+}
+
+errc_t PropertyObject::setValueString(void* container, StringView value)
+{
+    Object* object = aResolveObject(value, class_);
+    return setValue(container, object);
+}
+
+errc_t PropertyObject::getValueDouble(const void* container, double& value)
+{
+    aError("failed to get double value from property object");
+    return -1;
+}
+
+errc_t PropertyObject::setValueDouble(void* container, double value)
+{
+    aError("failed to set double value to property object");
+    return -1;
+}
+
+
+errc_t PropertyObject::setValue(void* container, const InputType* value)
+{
+    if(!value)
+        return eErrorNullInput;
+    if(class_ && !value->isOfType(class_))
+    {
+        aError("invalid type for property object, expect '%s', but given '%s'", class_->name().c_str(), value->getType()->name().c_str());
+        return eErrorInvalidType;
+    }
+    return setter_(container, &value);
+}
+
+
+errc_t PropertyObject::getValue(const void* container, OutputType* value)
+{
+    return getter_(container, value);
+}
 
 errc_t PropertyObject::accept(PropertyVisitor& visitor, const void* container)
 {

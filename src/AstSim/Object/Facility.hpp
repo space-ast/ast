@@ -39,7 +39,11 @@ class AST_SIM_API Facility: public Point
 {
 public:
     AST_OBJECT(Facility)
-    Facility() = default;
+    AST_PROPERT(latitude)
+    AST_PROPERT(longitude)
+    AST_PROPERT(altitude)
+    AST_PROPERT(body)
+    Facility();
     ~Facility() override = default;
 public: // 从Point继承重写的函数
     Frame* getFrame() const final;
@@ -47,12 +51,25 @@ public: // 从Point继承重写的函数
     errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const final;
 public:
     const std::string& getName() const override {return name_;}
-    void setName(StringView name){name_ = std::string(name);}
+    void setName(StringView name) override {name_ = std::string(name);}
 public:
-    Body* getBody() const {return position_.getBody();}
     void setPosition(const CentroidPosition& position){position_ = position;}
     const CentroidPosition& getPosition() const{return position_;}
     CentroidPosition& position(){return position_;}
+    const GeodeticPoint& getGeodeticPosition() const {return position_.getPosition();}
+    void setGeodeticPosition(const GeodeticPoint& position){position_.setPosition(position);}
+PROPERTIES:
+    angle_d latitude() const {return position_.latitude();}
+    void setLatitude(angle_d latitude) {position_.setLatitude(latitude);}
+
+    angle_d longitude() const {return position_.longitude();}
+    void setLongitude(angle_d longitude) {position_.setLongitude(longitude);}
+
+    length_d altitude() const {return position_.altitude();}
+    void setAltitude(length_d altitude) {position_.setAltitude(altitude);}
+
+    Body* body() const {return position_.body();}
+    void setBody(Body* body) {position_.setBody(body);}
 protected:
     std::string name_;
     CentroidPosition position_;

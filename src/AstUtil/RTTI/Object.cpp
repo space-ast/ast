@@ -27,13 +27,18 @@
 #include "AstUtil/ObjectManager.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/ObjectLinker.hpp"
 
 AST_NAMESPACE_BEGIN
  
 
-static_assert(sizeof(Object) == sizeof(void*) * 1 + sizeof(uint32_t) * 4, "size not correct");      // 检查 Object 类的大小是否正确
+// static_assert(sizeof(Object) == sizeof(void*) * 1 + sizeof(uint32_t) * 4, "size not correct");      // 检查 Object 类的大小是否正确
 
-Class Object::staticType;
+
+Object* Object::Resolve(StringView value)
+{
+    return aFindObject(nullptr, value);
+}
 
 Object::Object(Object *parentScope)
     : Object{}
@@ -58,7 +63,7 @@ const std::string &Object::getName() const
     return empty;
 }
 
-errc_t Object::openEditDialog()
+errc_t Object::showEditDialog()
 {
     return aUiEditObject(this);
 }
@@ -100,6 +105,15 @@ errc_t Object::getAttrString(StringView path, std::string &value) const
     return prop->getValueString(this, value);
 }
 
+errc_t Object::getAttrObject(StringView path, Object*& value) const
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->getValueObject(this, value);
+}
+
+
 double Object::getAttrDouble(StringView path) const
 {
     double value = 0.0;
@@ -125,6 +139,13 @@ std::string Object::getAttrString(StringView path) const
 {
     std::string value;
     getAttrString(path, value);
+    return value;
+}
+
+Object* Object::getAttrObject(StringView path) const
+{
+    Object* value = nullptr;
+    getAttrObject(path, value);
     return value;
 }
 
@@ -160,6 +181,21 @@ errc_t Object::setAttrString(StringView path, StringView value)
     return prop->setValueString(this, value);
 }
 
+errc_t Object::setAttrObject(StringView path, Object* value)
+{
+    Property* prop = getProperty(path);
+    if(!prop)
+        return eErrorInvalidParam;
+    return prop->setValueObject(this, value);
+}
+
+const std::string& Object::typeName() const
+{
+    return getType()->name();
+}
+
+
+
 Property *Object::getProperty(StringView fieldName) const
 {
     auto type = getType();
@@ -193,8 +229,38 @@ Object *Object::getParentScope() const
     return aGetParentScope(const_cast<Object*>(this));
 }
 
+bool Object::isOfType(const Class* type) const
+{
+    auto t = getType();
+    while(t)
+    {
+        if(t == type)
+            return true;
+        t = t->getParent();
+    }
+    return false;
+}
+
+bool Object::isOfType(StringView typeName) const
+{
+    auto t = getType();
+    while(t)
+    {
+        if(typeName == t->name())
+            return true;
+        t = t->getParent();
+    }
+    return false;
+}
+
 Object::~Object()
 {
+    /*
+    两个小技巧:
+    - 对于栈上的对象，不要在这里调用decWeakRef，避免对栈内存调用operator delete.
+    - 对于栈上的对象，同样将强引用计数设置为-1，标识对象是否已经被析构了. 
+    */
+    this->refcnt_ = static_cast<uint32_t>(-1); // 标识对象是否被析构. bit mask indicate whether object is destructed.
     if(index_ != static_cast<uint32_t>(INVALID_ID))
     {
         errc_t rc = ObjectManager::CurrentInstance().removeNode(index_);

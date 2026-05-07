@@ -20,17 +20,5 @@
 #include "FigureOfMerit.hpp"
 
 AST_NAMESPACE_BEGIN
-_AST_IMPL_OBJECT(FigureOfMerit)
-
-static bool FigureOfMerit_ClassInited = (FigureOfMerit::ClassInit(&FigureOfMerit::staticType), true);
-
-void FigureOfMerit::ClassInit(Class* cls)
-{
-    cls->setName("FigureOfMerit");
-    cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
-    cls->setConstructor<FigureOfMerit>();
-}
-
 
 AST_NAMESPACE_END

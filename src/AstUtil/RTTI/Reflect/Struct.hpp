@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "Field.hpp"
+#include "AstUtil/Object.hpp"
 #include <unordered_map>
 #include <vector>
 
@@ -33,10 +34,12 @@ class Property;
 /// @brief 结构体类
 /// @details 结构体类，包含属性的名称、描述等信息
 /// @ingroup RTTI
-class AST_UTIL_API Struct: public Field
+class AST_UTIL_API Struct: public Object
 {
 public:
-    using Field::Field;
+    Struct()
+        : Object(initial_strong_ref)
+    {}
 
     ~Struct() override;
 
@@ -44,6 +47,24 @@ public:
     using PropertyMap = std::unordered_map<std::string, Property*>;
     using PropertyList = std::vector<Property*>;
     
+    /// @brief 获取字段名称
+    const std::string& getName() const final {return name_;}
+    
+    /// @brief 设置字段名称
+    /// @param name 字段名称
+    void setName(StringView name) final {name_ = std::string(name);}
+    
+    /// @brief 获取字段描述
+    const std::string& desc() const{return desc_;}
+
+    /// @brief 设置字段描述
+    /// @param desc 字段描述
+    void setDesc(StringView desc){desc_ = std::string(desc);}
+
+    /// @brief 添加属性
+    /// @param name 属性名
+    /// @param property 属性
+    /// @return Property* 属性指针
     Property* addProperty(StringView name, Property* property);
 
     /// @brief 添加属性
@@ -65,8 +86,10 @@ public:
     std::string getModuleName() const;
 
 protected:
-    PropertyList properties_;
-    PropertyMap  propertyMap_;
+    std::string name_;              ///< 名称
+    std::string desc_;              ///< 描述
+    PropertyList properties_;       ///< 属性列表 
+    PropertyMap  propertyMap_;      ///< 属性映射表
 };
 
 

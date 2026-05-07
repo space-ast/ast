@@ -155,6 +155,11 @@ size_t BaseParser::read(void *buffer, size_t size, size_t pos) const
     return fread(buffer, 1, size, file_);
 }
 
+size_t BaseParser::read(void *buffer, size_t size) const
+{
+    return fread(buffer, 1, size, file_);
+}
+
 StringView BaseParser::getLineWithNewline()
 {
     char* line = fgets(lineBuffer_.data(), (int)lineBuffer_.size(), file_);

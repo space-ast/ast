@@ -63,10 +63,22 @@ errc_t StateCartesian::getState(CartState& state) const
     return eNoError;
 }
 
+errc_t StateCartesian::getState(ModOrbElem& orbElem) const
+{
+    double gm = this->getGM();
+    return aCartToModOrbElem(cartState_.pos(), cartState_.vel(), gm, orbElem);
+}
+
 errc_t StateCartesian::setState(const CartState &state)
 {
     cartState_ = state;
     return eNoError;
+}
+
+errc_t StateCartesian::setState(const ModOrbElem& orbElem)
+{
+    double gm = this->getGM();
+    return aModOrbElemToCart(orbElem, gm, cartState_.pos(), cartState_.vel());
 }
 
 AST_NAMESPACE_END

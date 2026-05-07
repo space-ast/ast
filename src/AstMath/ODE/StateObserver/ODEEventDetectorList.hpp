@@ -44,6 +44,8 @@ public:
 
     size_t size() const { return eventObservers_.size(); }
 
+    void clear(){ eventObservers_.clear(); }
+
     ODEEventObserver& operator[](size_t index) { return *eventObservers_[index]; }
     const ODEEventObserver& operator[](size_t index) const { return *eventObservers_[index]; }
 protected:

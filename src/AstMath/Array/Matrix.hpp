@@ -23,7 +23,8 @@
 #include "AstGlobal.h"
 #include "AstMath/MathOperator.hpp"
 #include "AstMath/Vector.hpp"
- 
+#include <string.h>
+
 AST_NAMESPACE_BEGIN
 
 /*!
@@ -37,6 +38,7 @@ class Matrix
 {
 public:
     Matrix();
+    Matrix(size_t row, size_t col);
     Matrix(const Matrix& other);
     Matrix(Matrix&& other);
     ~Matrix();
@@ -44,43 +46,63 @@ public:
     Matrix& operator=(Matrix&& other);
     void resize(size_t row, size_t col);
     void setZero();
-    size_t size() const{return m_row * m_col;}
-    size_t row() const{return m_row;}
-    size_t col() const{return m_col;}
-    _Scalar* data() const{return m_data;}
-    _Scalar& operator()(size_t row, size_t col){return m_data[row * m_col + col];}
-    _Scalar operator()(size_t row, size_t col) const{return m_data[row * m_col + col];}
+    size_t size() const{return row_ * col_;}
+    size_t row() const{return row_;}
+    size_t col() const{return col_;}
+    _Scalar* data() const{return data_;}
+    _Scalar& operator()(size_t row, size_t col){return data_[row * col_ + col];}
+    _Scalar operator()(size_t row, size_t col) const{return data_[row * col_ + col];}
 protected:
-    size_t m_row;
-    size_t m_col;
-    _Scalar* m_data;
+    size_t row_;
+    size_t col_;
+    _Scalar* data_;
 };
 
 typedef Matrix<double> MatrixXd;
 
 template <typename _Scalar>
 inline Matrix<_Scalar>::Matrix()
-    : m_row{0}
-    , m_col{0}
-    , m_data{nullptr}
+    : row_{0}
+    , col_{0}
+    , data_{nullptr}
 {}
+
+template <typename _Scalar>
+inline Matrix<_Scalar>::Matrix(size_t row, size_t col)
+    : row_{row}
+    , col_{col}
+    , data_{nullptr}
+{
+    data_ = (_Scalar*)malloc(row * col * sizeof(_Scalar));
+    setZero();
+}
 
 template <typename _Scalar>
 inline Matrix<_Scalar>::~Matrix()
 {
-    if(m_data)
-        free(m_data);
+    if(data_)
+        free(data_);
 }
 
 template <typename _Scalar>
 inline Matrix<_Scalar>::Matrix(const Matrix& other)
-    : m_row{other.m_row}
-    , m_col{other.m_col}
-    , m_data{nullptr}
+    : row_{other.row()}
+    , col_{other.col()}
+    , data_{nullptr}
 {
-    if (other.m_data) {
-        this->m_data = (_Scalar*)malloc(other.size() * sizeof(_Scalar));
-        memcpy(m_data, other.m_data, other.size() * sizeof(_Scalar));
+    if (other.data_) {
+        this->data_ = (_Scalar*)malloc(other.size() * sizeof(_Scalar));
+        if(this->data_)
+        {
+            memcpy(data_, other.data_, other.size() * sizeof(_Scalar));
+        }
+        else
+        {
+            // aError("failed to copy Matrix");
+            data_ = nullptr;
+            row_ = 0;
+            col_ = 0;
+        }
     }
 }
 
@@ -89,8 +111,8 @@ inline Matrix<_Scalar>& Matrix<_Scalar>::operator=(const Matrix& other)
 {
     if(this != &other){
         resize(other.row(), other.col());
-        if (other.m_data) {
-            memcpy(m_data, other.m_data, other.size() * sizeof(_Scalar));
+        if (other.data_) {
+            memcpy(data_, other.data_, other.size() * sizeof(_Scalar));
         }
     }
     return *this;
@@ -98,22 +120,22 @@ inline Matrix<_Scalar>& Matrix<_Scalar>::operator=(const Matrix& other)
 
 template <typename _Scalar>
 inline Matrix<_Scalar>::Matrix(Matrix&& other)
-    : m_row{other.m_row}
-    , m_col{other.m_col}
-    , m_data{other.m_data}
+    : row_{other.row()}
+    , col_{other.col()}
+    , data_{other.data()}
 {
-    other.m_row = 0;
-    other.m_col = 0;
-    other.m_data = nullptr;
+    other.row_ = 0;
+    other.col_ = 0;
+    other.data_ = nullptr;
 }
 
 template <typename _Scalar>
 inline Matrix<_Scalar>& Matrix<_Scalar>::operator=(Matrix&& other)
 {
     if(this != &other){
-        std::swap(m_row, other.m_row);
-        std::swap(m_col, other.m_col);
-        std::swap(m_data, other.m_data);
+        std::swap(row_, other.row_);
+        std::swap(col_, other.col_);
+        std::swap(data_, other.data_);
     }
     return *this;
 }
@@ -121,19 +143,19 @@ inline Matrix<_Scalar>& Matrix<_Scalar>::operator=(Matrix&& other)
 template <typename _Scalar>
 inline void Matrix<_Scalar>::resize(size_t row, size_t col)
 {
-    if(m_data)
-        free(m_data);
-    m_row = row;
-    m_col = col;
-    m_data = (_Scalar*)malloc(row * col * sizeof(_Scalar));
+    if(data_)
+        free(data_);
+    row_ = row;
+    col_ = col;
+    data_ = (_Scalar*)malloc(row * col * sizeof(_Scalar));
 }
 
 
 template <typename _Scalar>
 inline void Matrix<_Scalar>::setZero()
 {
-    if(m_data)
-        memset(m_data, 0, size() * sizeof(_Scalar));
+    if(data_)
+        memset(data_, 0, size() * sizeof(_Scalar));
 }
 
 

@@ -34,6 +34,9 @@ class AST_MOCK_API MockObject: public Object
 {
 public:
     AST_OBJECT(MockObject)
+    AST_PROPERT(x)
+    AST_PROPERT(duration)
+    AST_PROPERT(factor)
     MockObject() = default;
     ~MockObject() = default;
 PROPERTIES:

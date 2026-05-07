@@ -19,41 +19,77 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SequenceLoader.hpp"
+#include "AstLoader/ScriptingToolProfileLoader.hpp"
 #include "AstCore/Sequence.hpp"
 #include "AstScript/Value.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 #include "ValXMLLoader.hpp"
 #include "MissionCommandLoader.hpp"
+#include "AstLoader/SegmentLoader.hpp"
 
 AST_NAMESPACE_BEGIN
 
 errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence)
 {
-    if(dictRoot["Type"].toString() != "Sequence")
+    std::string type = dictRoot["Type"].toString();
+    if(type != "Sequence" && type != "TargeterSequence")
     {
-        aError("invalid type, expect 'Sequence'");
+        aError("invalid type, expect 'Sequence' or 'TargeterSequence'");
         return eErrorInvalidParam;
     }
-    auto& dictSegmentList = dictRoot["SegmentList"];
-    auto& items = dictSegmentList.items();
-    std::vector<HMissionCommand> commands;
-    commands.reserve(items.size());
-    for(auto& item: items)
+
+
+    // 加载重复次数
     {
-        auto& name = item.first;
-        const auto& dictSegment = *item.second;
-        HMissionCommand command;
-        errc_t rc = aLoadMissionCommand(dictSegment, command);
-        if(!rc && command != nullptr)
+        auto& repeatCount = dictRoot["RepeatCount"];
+        if(!repeatCount.isNull())
+            sequence.setRepeatCount(repeatCount);
+    }
+    
+    // 加载序列命令
+    {
+        auto& dictSegmentList = dictRoot["SegmentList"];
+        auto& items = dictSegmentList.items();
+        std::vector<HMissionCommand> commands;
+        commands.reserve(items.size());
+        for(auto& item: items)
         {
-            commands.push_back(command);
-        }else
+            auto& name = item.first;
+            const auto& dictSegment = *item.second;
+            HMissionCommand command;
+            errc_t rc = aLoadMissionCommand(dictSegment, command);
+            if(!rc && command != nullptr)
+            {
+                command->setName(name);
+                commands.push_back(command);
+            }else
+            {
+                aError("failed to load mission command '%s'", name.c_str());
+            }
+        }
+        sequence.setCommands(commands);
+    }
+    // 加载脚本工具配置
+    {
+        auto& dictScriptingTool = dictRoot["ScriptingTool"];
+        if(!dictScriptingTool.isNull())
         {
-            aError("failed to load mission command '%s'", name.c_str());
+            ScriptingToolProfile* tool = aNewObject<ScriptingToolProfile>(&sequence);
+            sequence.setScriptingTool(tool);
+            errc_t rc = aLoadScriptingToolProfile(dictScriptingTool, *tool);
+            if(rc)
+            {
+                aError("failed to load scripting tool profile");
+                return rc;
+            }
         }
     }
-    sequence.setCommands(commands);
+   
+    // 加载公共属性
+    aLoadSegment(dictRoot, sequence);
+
     return 0;
 }
 

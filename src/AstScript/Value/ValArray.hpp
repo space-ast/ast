@@ -35,6 +35,13 @@ class ValArray: public Value
 {
 public:
     // AST_EXPR(ValArray)
+    ValArray();
+
+    ~ValArray();
+
+    /// @brief 重新调整数组大小
+    /// @param size 数组元素数量
+    void resize(size_t size);
 
     /// @brief 获取数组列数
     /// @return size_t 数组列数
@@ -63,10 +70,45 @@ public:
     T& at(size_t index) { return data_[index]; }
     
 protected:
-    size_t dims_[NDIM]; ///< 数组维度
-    T*     data_;        ///< 数组数据指针
+    size_t dims_[NDIM];             ///< 数组维度
+    T*     data_{nullptr};          ///< 数组数据指针
 };
 
+
+template<typename T, size_t NDIM>
+ValArray<T, NDIM>::ValArray()
+{
+}
+
+
+template<typename T, size_t NDIM>
+ValArray<T, NDIM>::~ValArray()
+{
+    if(data_)
+        delete[] data_;
+}
+
+template<typename T, size_t NDIM>
+void ValArray<T, NDIM>::resize(size_t size)
+{
+    size_t old_size = this->size();
+    // 判断是否需要扩充数组大小
+    if(old_size >= size)
+    {
+        T* old_data = data_;
+        data_ = new T[size];
+        if(old_data)
+        {
+            size_t copy_size = old_size < size ? old_size : size;
+            for(size_t i = 0; i < copy_size; ++i)
+                data_[i] = old_data[i];
+            delete[] old_data;
+        }
+    }
+    dims_[0] = size;
+    for(size_t i = 1; i < NDIM; ++i)
+        dims_[i] = 1;
+}
 
 template <typename T, size_t NDIM>
 inline size_t ValArray<T, NDIM>::size() const

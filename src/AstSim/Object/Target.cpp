@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Target)
 
-static bool Target_ClassInited = (Target::ClassInit(&Target::staticType), true);
-
-void Target::ClassInit(Class* cls)
-{
-    cls->setName("Target");
-    cls->addToRegistry();
-    cls->setParent<Facility>();
-    cls->setConstructor<Target>();
-}
 
 AST_NAMESPACE_END

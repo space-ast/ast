@@ -38,7 +38,7 @@ Property *Struct::addProperty(StringView name, Property *property)
 {
     std::string strname = aAsciiStrToLower(name);
     if(property->name().empty()){
-        property->setName(strname);
+        property->setName(name);
     }
     propertyMap_[strname] = property;
     properties_.push_back(property);

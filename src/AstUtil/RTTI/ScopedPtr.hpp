@@ -54,6 +54,12 @@ struct ScopedPtrDeleter<std::FILE>
     }
 };
 
+/// @brief 作用域指针类
+/// @details 作用域指针类，用于管理指针的生命周期
+/// @tparam T 指针指向的对象类型
+/// @warning 作用域指针类的生命周期限制在一个作用域内，作用域结束指针析构
+/// @warning 作用域指针类不支持复制构造函数和赋值运算符
+/// @ingroup RTTI
 template<typename T>
 class ScopedPtr
 {
@@ -67,6 +73,18 @@ public:
     ScopedPtr(std::nullptr_t)
         :m_pointer{ nullptr }
     {
+    }
+    /// @brief 移动构造函数
+    ScopedPtr(ScopedPtr&& other)
+        :m_pointer{ other.m_pointer }
+    {
+        other.m_pointer = nullptr;
+    }
+    /// @brief 移动赋值运算符
+    ScopedPtr& operator=(ScopedPtr&& other)
+    {
+        std::swap(m_pointer, other.m_pointer);
+        return *this;
     }
     ScopedPtr& operator=(T* ptr)
     {

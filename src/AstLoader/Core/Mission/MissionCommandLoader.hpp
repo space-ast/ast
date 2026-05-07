@@ -25,6 +25,8 @@
 #include "ManeuverLoader.hpp"
 #include "PropagateLoader.hpp"
 #include "SequenceLoader.hpp"
+#include "TargeterSequenceLoader.hpp"
+#include "ReturnLoader.hpp"
 #include "AstUtil/SharedPtr.hpp"
 
 AST_NAMESPACE_BEGIN

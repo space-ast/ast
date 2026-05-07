@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Chain)
 
-static bool Chain_ClassInited = (Chain::ClassInit(&Chain::staticType), true);
-
-void Chain::ClassInit(Class* cls)
-{
-    cls->setName("Chain");
-    cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
-    cls->setConstructor<Chain>();
-}
 
 AST_NAMESPACE_END

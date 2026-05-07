@@ -23,16 +23,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(SpaceObject)
-
-static bool SpaceObject_ClassInited = (SpaceObject::ClassInit(&SpaceObject::staticType), true);
-
-void SpaceObject::ClassInit(Class* cls)
-{
-    cls->setName("SpaceObject");
-    cls->addToRegistry();
-    cls->setParent<Mover>();
-    cls->setConstructor<SpaceObject>();
-}
 
 AST_NAMESPACE_END

@@ -51,6 +51,9 @@ class ExprCatHorizontal;
 class ExprCatVertical;
 class ExprCall;
 class ExprMacroExpand;
+class ExprAttribute;
+class ExprCalculation;
+
 
 
 /// @brief 表达式访问器
@@ -89,7 +92,8 @@ public:
     virtual void visit(ExprCatVertical& expr) = 0;
     virtual void visit(ExprCall& expr) = 0;
     virtual void visit(ExprMacroExpand& expr) = 0;
-    
+    virtual void visit(ExprAttribute& expr) = 0;
+    virtual void visit(ExprCalculation& expr) = 0;
 };
 
 AST_NAMESPACE_END

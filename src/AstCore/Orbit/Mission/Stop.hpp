@@ -30,9 +30,11 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief 停止段，用于停止任务序列的执行
 class AST_CORE_API Stop : public MissionCommand
 {
 public:
+    AST_OBJECT(Stop)
     Stop() = default;
     ~Stop() = default;
 public:

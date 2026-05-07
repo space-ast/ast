@@ -21,6 +21,7 @@
 #include "JsonValue.hpp"
 #include "AstUtil/StringUtil.hpp"
 #include "AstUtil/ParseFormat.hpp"
+#include "AstUtil/JsonParser.hpp"
 #include <sstream>
 #include <iomanip>
 #include <cmath>
@@ -35,65 +36,85 @@ JsonValue& JsonValue::NullValue()
     return nullInstance;
 }
 
+
+JsonValue JsonValue::FromString(StringView json)
+{
+    JsonValue value;
+    errc_t rc = value.parseFromString(json);
+    if(rc)
+        aError("failed to parse json from string");
+    return value;
+}
+
+
+JsonValue JsonValue::FromFile(const StringView filePath)
+{
+    JsonValue value;
+    errc_t rc = value.parseFromFile(filePath);
+    if(rc)
+        aError("failed to parse json from file '%.*s'", filePath.size(), filePath.data());
+    return value;
+}
+
 // 默认构造函数
 JsonValue::JsonValue()
-    : type_(JsonValueType::Null)
+    : type_(EJsonValueType::eNull)
 {
     value_.boolean_ = false; // 初始化联合体
 }
 
 // 布尔值构造函数
 JsonValue::JsonValue(bool value)
-    : type_(JsonValueType::Boolean)
+    : type_(EJsonValueType::eBool)
 {
     value_.boolean_ = value;
 }
 
 // 整数构造函数
 JsonValue::JsonValue(int value)
-    : type_(JsonValueType::Number)
+    : type_(EJsonValueType::eNumber)
 {
     value_.number_ = static_cast<double>(value);
 }
 
 // 双精度浮点数构造函数
 JsonValue::JsonValue(double value)
-    : type_(JsonValueType::Number)
+    : type_(EJsonValueType::eNumber)
 {
     value_.number_ = value;
 }
 
 // 字符串构造函数（C字符串）
 JsonValue::JsonValue(const char* value)
-    : type_(JsonValueType::String)
+    : type_(EJsonValueType::eString)
 {
     value_.string_ = new std::string(value);
 }
 
 // 字符串构造函数
 JsonValue::JsonValue(const std::string& value)
-    : type_(JsonValueType::String)
+    : type_(EJsonValueType::eString)
 {
     value_.string_ = new std::string(value);
 }
 
 // 字符串视图构造函数
 JsonValue::JsonValue(StringView value)
-    : type_(JsonValueType::String)
+    : type_(EJsonValueType::eString)
 {
     value_.string_ = new std::string(value.data(), value.size());
 }
 
 // 数组构造函数
 JsonValue::JsonValue(const std::vector<JsonValue>& values)
-    : type_(JsonValueType::Array)
+    : type_(EJsonValueType::eArray)
 {
     value_.array_ = new std::vector<JsonValue>(values);
 }
 
 // 对象构造函数
 JsonValue::JsonValue(const std::map<std::string, JsonValue>& values)
-    : type_(JsonValueType::Object)
+    : type_(EJsonValueType::eObject)
 {
     value_.object_ = new std::map<std::string, JsonValue>(values);
 }
@@ -104,22 +125,22 @@ JsonValue::JsonValue(const JsonValue& other)
 {
     switch (type_)
     {
-    case JsonValueType::Null:
+    case EJsonValueType::eNull:
         value_.boolean_ = false;
         break;
-    case JsonValueType::Boolean:
+    case EJsonValueType::eBool:
         value_.boolean_ = other.value_.boolean_;
         break;
-    case JsonValueType::Number:
+    case EJsonValueType::eNumber:
         value_.number_ = other.value_.number_;
         break;
-    case JsonValueType::String:
+    case EJsonValueType::eString:
         value_.string_ = new std::string(*other.value_.string_);
         break;
-    case JsonValueType::Array:
+    case EJsonValueType::eArray:
         value_.array_ = new std::vector<JsonValue>(*other.value_.array_);
         break;
-    case JsonValueType::Object:
+    case EJsonValueType::eObject:
         value_.object_ = new std::map<std::string, JsonValue>(*other.value_.object_);
         break;
     }
@@ -131,7 +152,7 @@ JsonValue::JsonValue(JsonValue&& other) noexcept
 {
     value_ = other.value_;
     other.value_ = {};
-    other.type_ = JsonValueType::Null;
+    other.type_ = EJsonValueType::eNull;
 }
 
 // 析构函数
@@ -150,22 +171,22 @@ JsonValue& JsonValue::operator=(const JsonValue& other)
         
         switch (type_)
         {
-        case JsonValueType::Null:
+        case EJsonValueType::eNull:
             value_.boolean_ = false;
             break;
-        case JsonValueType::Boolean:
+        case EJsonValueType::eBool:
             value_.boolean_ = other.value_.boolean_;
             break;
-        case JsonValueType::Number:
+        case EJsonValueType::eNumber:
             value_.number_ = other.value_.number_;
             break;
-        case JsonValueType::String:
+        case EJsonValueType::eString:
             value_.string_ = new std::string(*other.value_.string_);
             break;
-        case JsonValueType::Array:
+        case EJsonValueType::eArray:
             value_.array_ = new std::vector<JsonValue>(*other.value_.array_);
             break;
-        case JsonValueType::Object:
+        case EJsonValueType::eObject:
             value_.object_ = new std::map<std::string, JsonValue>(*other.value_.object_);
             break;
         }
@@ -185,7 +206,7 @@ JsonValue& JsonValue::operator=(JsonValue&& other) noexcept
 }
 
 // 获取值类型
-JsonValueType JsonValue::type() const
+EJsonValueType JsonValue::type() const
 {
     return type_;
 }
@@ -193,37 +214,37 @@ JsonValueType JsonValue::type() const
 // 判断是否为 null 值
 bool JsonValue::isNull() const
 {
-    return type_ == JsonValueType::Null;
+    return type_ == EJsonValueType::eNull;
 }
 
 // 判断是否为布尔值
-bool JsonValue::isBoolean() const
+bool JsonValue::isBool() const
 {
-    return type_ == JsonValueType::Boolean;
+    return type_ == EJsonValueType::eBool;
 }
 
 // 判断是否为数值
 bool JsonValue::isNumber() const
 {
-    return type_ == JsonValueType::Number;
+    return type_ == EJsonValueType::eNumber;
 }
 
 // 判断是否为字符串
 bool JsonValue::isString() const
 {
-    return type_ == JsonValueType::String;
+    return type_ == EJsonValueType::eString;
 }
 
 // 判断是否为数组
 bool JsonValue::isArray() const
 {
-    return type_ == JsonValueType::Array;
+    return type_ == EJsonValueType::eArray;
 }
 
 // 判断是否为对象
 bool JsonValue::isObject() const
 {
-    return type_ == JsonValueType::Object;
+    return type_ == EJsonValueType::eObject;
 }
 
 // 转换为布尔值（安全版本）
@@ -231,13 +252,13 @@ bool JsonValue::toBool(bool defaultValue) const
 {
     switch (type_)
     {
-    case JsonValueType::Null:
+    case EJsonValueType::eNull:
         return defaultValue;
-    case JsonValueType::Boolean:
+    case EJsonValueType::eBool:
         return value_.boolean_;
-    case JsonValueType::Number:
+    case EJsonValueType::eNumber:
         return value_.number_ > 0.0;
-    case JsonValueType::String:
+    case EJsonValueType::eString:
     {
         bool value = false;
         errc_t ret = aParseBool(*value_.string_, value);
@@ -245,9 +266,9 @@ bool JsonValue::toBool(bool defaultValue) const
             return value;
         return defaultValue;
     }
-    case JsonValueType::Array:
+    case EJsonValueType::eArray:
         return !value_.array_->empty();
-    case JsonValueType::Object:
+    case EJsonValueType::eObject:
         return !value_.object_->empty();
     default:
         break;
@@ -260,13 +281,13 @@ int JsonValue::toInt(int defaultValue) const
 {
     switch (type_)
     {
-    case JsonValueType::Null:
+    case EJsonValueType::eNull:
         return defaultValue;
-    case JsonValueType::Boolean:
+    case EJsonValueType::eBool:
         return value_.boolean_ ? 1 : 0;
-    case JsonValueType::Number:
+    case EJsonValueType::eNumber:
         return static_cast<int>(value_.number_);
-    case JsonValueType::String:
+    case EJsonValueType::eString:
     {
         int value = 0;
         errc_t ret = aParseInt(*value_.string_, value);
@@ -274,8 +295,8 @@ int JsonValue::toInt(int defaultValue) const
             return value;
         return defaultValue;
     }
-    case JsonValueType::Array:
-    case JsonValueType::Object:
+    case EJsonValueType::eArray:
+    case EJsonValueType::eObject:
     default:
         break;
     }
@@ -287,13 +308,13 @@ double JsonValue::toDouble(double defaultValue) const
 {
     switch (type_)
     {
-    case JsonValueType::Null:
+    case EJsonValueType::eNull:
         return defaultValue;
-    case JsonValueType::Number:
+    case EJsonValueType::eNumber:
         return value_.number_;
-    case JsonValueType::Boolean:
+    case EJsonValueType::eBool:
         return value_.boolean_ ? 1.0 : 0.0;
-    case JsonValueType::String:
+    case EJsonValueType::eString:
     {
         double value = 0.0;
         errc_t ret = aParseDouble(*value_.string_, value);
@@ -301,8 +322,8 @@ double JsonValue::toDouble(double defaultValue) const
             return value;
         return defaultValue;
     }
-    case JsonValueType::Array:
-    case JsonValueType::Object:
+    case EJsonValueType::eArray:
+    case EJsonValueType::eObject:
     default:
         break;
     }
@@ -314,19 +335,19 @@ std::string JsonValue::toString(StringView defaultValue) const
 {
     switch (type_)
     {
-    case JsonValueType::Null:
+    case EJsonValueType::eNull:
         return "null";
-    case JsonValueType::Boolean:
+    case EJsonValueType::eBool:
         return value_.boolean_ ? "true" : "false";
-    case JsonValueType::Number:
+    case EJsonValueType::eNumber:
     {
         return aFormatDouble(value_.number_);
     }
-    case JsonValueType::String:
+    case EJsonValueType::eString:
         return *value_.string_;
-    case JsonValueType::Array:
+    case EJsonValueType::eArray:
         return "[array of " + aFormatInt((int)value_.array_->size()) + " elements]";
-    case JsonValueType::Object:
+    case EJsonValueType::eObject:
         return "[object with " + aFormatInt((int)value_.object_->size()) + " properties]";
     }
     return std::string(defaultValue);
@@ -335,17 +356,33 @@ std::string JsonValue::toString(StringView defaultValue) const
 // 安全获取数组引用
 const std::vector<JsonValue>& JsonValue::getArray(const std::vector<JsonValue>& defaultValue) const
 {
-    if (type_ == JsonValueType::Array)
+    if (type_ == EJsonValueType::eArray)
     {
         return *value_.array_;
     }
     return defaultValue;
 }
 
+
+// 获取数组或对象的元素数量
+size_t JsonValue::size() const
+{
+    if (type_ == EJsonValueType::eArray)
+    {
+        return value_.array_->size();
+    }
+    if (type_ == EJsonValueType::eObject)
+    {
+        return value_.object_->size();
+    }
+    return 0;
+}
+
+
 // 安全获取对象引用
 const std::map<std::string, JsonValue>& JsonValue::getObject(const std::map<std::string, JsonValue>& defaultValue) const
 {
-    if (type_ == JsonValueType::Object)
+    if (type_ == EJsonValueType::eObject)
     {
         return *value_.object_;
     }
@@ -380,11 +417,11 @@ JsonValue::operator std::string() const
 // 数组下标运算符
 JsonValue& JsonValue::operator[](size_t index)
 {
-    if(type_ == JsonValueType::Null)
+    if(type_ == EJsonValueType::eNull)
     {
         this->setArray({});
     }
-    if (type_ == JsonValueType::Array)
+    if (type_ == EJsonValueType::eArray)
     {
         if(index >= value_.array_->size())
             value_.array_->resize(index + 1);
@@ -393,20 +430,32 @@ JsonValue& JsonValue::operator[](size_t index)
     return NullValue();
 }
 
+
+JsonValue& JsonValue::operator[](int index)
+{
+    return this->operator[](size_t(index));
+}
+
 // 数组下标运算符（常量版本）
 const JsonValue& JsonValue::operator[](size_t index) const
 {
-    if (type_ == JsonValueType::Array && index < value_.array_->size())
+    if (type_ == EJsonValueType::eArray && index < value_.array_->size())
     {
         return (*value_.array_)[index];
     }
     return NullValue();
 }
 
+const JsonValue& JsonValue::operator[](int index) const
+{
+    return this->operator[](size_t(index));
+}
+
+
 // 对象下标运算符（std::string）
 JsonValue& JsonValue::operator[](const std::string& key)
 {
-    if(type_ == JsonValueType::Null)
+    if(type_ == EJsonValueType::eNull)
     {
         this->setObject({});
     }
@@ -420,7 +469,7 @@ JsonValue& JsonValue::operator[](const char* key)
 
 const JsonValue& JsonValue::operator[](const std::string& key) const
 {
-    if (type_ == JsonValueType::Object)
+    if (type_ == EJsonValueType::eObject)
     {
         return (*value_.object_)[key];
     }
@@ -438,15 +487,15 @@ const JsonValue& JsonValue::operator[](const char* key) const
 void JsonValue::setNull()
 {
     destroy();
-    type_ = JsonValueType::Null;
+    type_ = EJsonValueType::eNull;
     value_.boolean_ = false;
 }
 
 // 设置布尔值
-void JsonValue::setBoolean(bool value)
+void JsonValue::setBool(bool value)
 {
     destroy();
-    type_ = JsonValueType::Boolean;
+    type_ = EJsonValueType::eBool;
     value_.boolean_ = value;
 }
 
@@ -454,7 +503,7 @@ void JsonValue::setBoolean(bool value)
 void JsonValue::setInt(int value)
 {
     destroy();
-    type_ = JsonValueType::Number;
+    type_ = EJsonValueType::eNumber;
     value_.number_ = static_cast<double>(value);
 }
 
@@ -462,23 +511,15 @@ void JsonValue::setInt(int value)
 void JsonValue::setDouble(double value)
 {
     destroy();
-    type_ = JsonValueType::Number;
+    type_ = EJsonValueType::eNumber;
     value_.number_ = value;
 }
 
 // 设置字符串值
-void JsonValue::setString(const std::string& value)
+void JsonValue::setString(StringView value)
 {
     destroy();
-    type_ = JsonValueType::String;
-    value_.string_ = new std::string(value);
-}
-
-// 设置字符串值（C字符串）
-void JsonValue::setString(const char* value)
-{
-    destroy();
-    type_ = JsonValueType::String;
+    type_ = EJsonValueType::eString;
     value_.string_ = new std::string(value);
 }
 
@@ -486,7 +527,7 @@ void JsonValue::setString(const char* value)
 void JsonValue::setArray(const std::vector<JsonValue>& values)
 {
     destroy();
-    type_ = JsonValueType::Array;
+    type_ = EJsonValueType::eArray;
     value_.array_ = new std::vector<JsonValue>(values);
 }
 
@@ -494,7 +535,7 @@ void JsonValue::setArray(const std::vector<JsonValue>& values)
 void JsonValue::setObject(const std::map<std::string, JsonValue>& values)
 {
     destroy();
-    type_ = JsonValueType::Object;
+    type_ = EJsonValueType::eObject;
     value_.object_ = new std::map<std::string, JsonValue>(values);
 }
 
@@ -502,21 +543,34 @@ void JsonValue::setObject(const std::map<std::string, JsonValue>& values)
 void JsonValue::clear()
 {
     destroy();
-    type_ = JsonValueType::Null;
+    type_ = EJsonValueType::eNull;
     value_.boolean_ = false;
 }
 
 void JsonValue::insert(const std::string& name, JsonValue value)
 {
-    if(type_ == JsonValueType::Null)
+    if(type_ == EJsonValueType::eNull)
     {
         this->setObject({});
     }
-    if (type_ == JsonValueType::Object)
+    if (type_ == EJsonValueType::eObject)
     {
         value_.object_->insert({name, value});
     }
 }
+
+void JsonValue::append(JsonValue value)
+{
+    if(type_ == EJsonValueType::eNull)
+    {
+        this->setArray({});
+    }
+    if (type_ == EJsonValueType::eArray)
+    {
+        value_.array_->push_back(value);
+    }
+}
+
 
 // 转换为 JSON 字符串表示
 std::string JsonValue::toJsonString(int indent) const
@@ -530,19 +584,19 @@ void JsonValue::destroy()
 {
     switch (type_)
     {
-    case JsonValueType::String:
+    case EJsonValueType::eString:
         delete value_.string_;
         break;
-    case JsonValueType::Array:
+    case EJsonValueType::eArray:
         delete value_.array_;
         break;
-    case JsonValueType::Object:
+    case EJsonValueType::eObject:
         delete value_.object_;
         break;
     default:
         break;
     }
-    type_ = JsonValueType::Null;
+    type_ = EJsonValueType::eNull;
 }
 
 // 格式化字符串辅助函数
@@ -552,15 +606,15 @@ std::string JsonValue::formatString(int indent, int indentSize) const
     
     switch (type_)
     {
-    case JsonValueType::Null:
+    case EJsonValueType::eNull:
         oss << "null";
         break;
     
-    case JsonValueType::Boolean:
+    case EJsonValueType::eBool:
         oss << (value_.boolean_ ? "true" : "false");
         break;
     
-    case JsonValueType::Number:
+    case EJsonValueType::eNumber:
         {
             // 检查是否为整数
             double intPart;
@@ -585,7 +639,7 @@ std::string JsonValue::formatString(int indent, int indentSize) const
         }
         break;
     
-    case JsonValueType::String:
+    case EJsonValueType::eString:
         {
             oss << '"';
             for (char c : *value_.string_)
@@ -616,7 +670,7 @@ std::string JsonValue::formatString(int indent, int indentSize) const
         }
         break;
     
-    case JsonValueType::Array:
+    case EJsonValueType::eArray:
         {
             oss << '[';
             bool first = true;
@@ -641,7 +695,7 @@ std::string JsonValue::formatString(int indent, int indentSize) const
         }
         break;
     
-    case JsonValueType::Object:
+    case EJsonValueType::eObject:
         {
             oss << '{';
             bool first = true;
@@ -671,4 +725,19 @@ std::string JsonValue::formatString(int indent, int indentSize) const
     return oss.str();
 }
 
+
+errc_t JsonValue::parseFromString(StringView json)
+{
+    JsonParser parser;
+    return parser.parseFromString(json, *this);
+}
+
+errc_t JsonValue::parseFromFile(StringView filepath)
+{
+    JsonParser parser;
+    return parser.parseFromFile(filepath, *this);
+}
+
 AST_NAMESPACE_END
+
+

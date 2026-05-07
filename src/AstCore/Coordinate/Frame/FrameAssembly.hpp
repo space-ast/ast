@@ -42,6 +42,9 @@ using PFrameAssembly = FrameAssembly*;
 class AST_CORE_API FrameAssembly: public Frame
 {
 public:
+    AST_OBJECT(FrameAssembly)
+    AST_PROPERT(Origin)
+    AST_PROPERT(Axes)
     /// @brief 创建组装坐标系
     /// @param origin 原点
     /// @param axes 轴系
@@ -60,11 +63,14 @@ public:
     FrameAssembly(Point* origin, Axes* axes);
     ~FrameAssembly() = default;
 
-    Point* getOrigin() const final { return origin_.get(); }
-    Axes* getAxes() const final { return axes_.get(); }
     Frame* getParent() const final;
     errc_t getTransform(const TimePoint&tp, Transform& transform) const override;
     errc_t getTransform(const TimePoint&tp, KinematicTransform& transform) const override;
+PROPERTIES:
+    Point* getOrigin() const final { return origin_.get(); }
+    void setOrigin(Point* origin) { origin_ = origin; }
+    Axes* getAxes() const final { return axes_.get(); }
+    void setAxes(Axes* axes) { axes_ = axes; }
 protected:
     SharedPtr<Point> origin_;    ///< 原点
     SharedPtr<Axes>  axes_;      ///< 轴系统

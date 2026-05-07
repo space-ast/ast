@@ -25,9 +25,9 @@ int main()
     
     // 配置基本力模型 (仅使用JGM3地球重力场J2项)
     HPOPForceModel force_model;
-    force_model.gravity_.model_ = "JGM3";  // 使用JGM3重力场模型
-    force_model.gravity_.maxDegree_ = 2;    // 阶数
-    force_model.gravity_.maxOrder_ = 0;     // 次数
+    force_model.gravity().model_ = "JGM3";  // 使用JGM3重力场模型
+    force_model.gravity().maxDegree_ = 2;    // 阶数
+    force_model.gravity().maxOrder_ = 0;     // 次数
     
     // 设置力模型
     errc_t result = hpop.setForceModel(force_model);
@@ -44,8 +44,8 @@ int main()
     }
     
     std::cout << "HPOP初始化成功" << std::endl;
-    std::cout << "力模型配置: " << force_model.gravity_.model_ << " (阶数=" 
-              << force_model.gravity_.maxDegree_ << ", 次数=" << force_model.gravity_.maxOrder_ << ")" << std::endl;
+    std::cout << "力模型配置: " << force_model.gravity().model_ << " (阶数=" 
+              << force_model.gravity().maxDegree_ << ", 次数=" << force_model.gravity().maxOrder_ << ")" << std::endl;
     std::cout << std::endl;
     
     // 设置初始轨道状态 (近地轨道)

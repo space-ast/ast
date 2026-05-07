@@ -164,6 +164,12 @@ void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
     aTTToTDB(jdTDB, jdTDB);
 }
 
+TimePoint TimePoint::Default()
+{
+    return Epoch();
+}
+
+
 TimePoint TimePoint::CurrentTime()
 {
     return FromUTC(aCurrentDateTimeUTC());

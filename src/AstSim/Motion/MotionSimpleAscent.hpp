@@ -33,6 +33,9 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief 简单上升运动模型，用于模拟运载火箭的上升阶段运动
+/// @details
+/// @see MotionProfile
 class AST_SIM_API MotionSimpleAscent: public MotionProfile
 {
 public:

@@ -476,7 +476,7 @@ void UiStateKeplerian::refreshEpoch()
 {
     if (auto state = getStateKeplerian())
     {
-        TimePoint timePoint = state->getStateEpoch();
+        TimePoint timePoint = state->getStateEpoch_TimePoint();
         epochEdit_->setTimePoint(timePoint);
     }
 }

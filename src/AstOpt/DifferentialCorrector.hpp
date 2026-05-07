@@ -31,6 +31,7 @@ class DifferentialCorrector: public INLPSolver
 {
 public:
     using vector_t = std::vector<double>;
+    static DifferentialCorrector* New();
 
     ~DifferentialCorrector()  override;
     errc_t solve(NLPProblem& prob, std::vector<double>& xopt) override;

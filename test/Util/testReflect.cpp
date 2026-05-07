@@ -1,4 +1,4 @@
-﻿///
+///
 /// @file      testReflect.cpp
 /// @brief     ~
 /// @details   ~
@@ -20,7 +20,7 @@
 
 #include "AstUtil/ReflectAPI.hpp"
 #include "AstUtil/Property.hpp"
-#include "AstUtil/Struct.hpp"
+#include "AstUtil/Class.hpp"
 #include "AstTest/AstTestMacro.h"
 
 AST_USING_NAMESPACE
@@ -420,7 +420,7 @@ TEST(Reflect, PropertyStringConvert)
 // 测试Struct类的功能
 TEST(Reflect, Struct)
 {
-    Struct testStruct("TestStruct", "Test struct description");
+    Struct testStruct;
     
     // 创建属性
     // constexpr auto boolMemberPtr = ;

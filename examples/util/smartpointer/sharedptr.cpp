@@ -1,7 +1,7 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Object.hpp"
-
-class MyObject: public _AST Object
+#include "AstUtil/ObjectNamed.hpp"
+class MyObject: public _AST ObjectNamed
 {
 public:
     void doSomething(){/* todo: implement functionality */}

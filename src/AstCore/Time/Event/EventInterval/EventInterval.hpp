@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/TimeInterval.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -36,7 +37,7 @@ using PEventInterval = EventInterval*;
 using HEventInterval = SharedPtr<EventInterval>;
 
 /// @brief 事件时间段
-class AST_CORE_API EventInterval: public Object
+class AST_CORE_API EventInterval: public ObjectNamed
 {
 public:
     /// @brief 获取时间段

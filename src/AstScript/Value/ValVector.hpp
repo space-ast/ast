@@ -35,10 +35,11 @@ class ValVector: public ValArray<T, 1>
 {
 public:
     AST_OBJECT(ValVector)
-    static extern Class typeDescr;     /// 类型描述符
 protected:
     
 };
+
+// template<> class AST_SCRIPT_API ValVector<SharedPtr<Value>>;
 
 typedef ValVector<bool> ValVectorBool;
 typedef ValVector<int> ValVectorInt;

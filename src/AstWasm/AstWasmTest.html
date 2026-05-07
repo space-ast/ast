@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embind Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>AstWasm Example Test</h1>
+    
+    <button onclick="testAdd()">测试简单加法</button>
+    <button onclick="testSimpleChat()">测试简单聊天</button>
+    <button onclick="testChatWithTools()">测试聊天(带工具调用)</button>
+    <button onclick="testGetAllClassNames()">测试获取所有类名</button>
+    <button onclick="testNewObject()">测试创建新对象</button>
+    <button onclick="testSetAttrString()">测试设置对象属性(字符串)</button>
+    <button onclick="testGetAttrString()">测试获取对象属性(字符串)</button>
+    <button onclick="testObjectToJsonStr()">测试对象对象转换为JSON字符串</button>
+    <button onclick="testClassJsonSchemaStr()">测试获取类JSON Schema</button>
+    <button onclick="testObjectType()">测试获取对象类型</button>
+    <button onclick="testAllObjectInfoList()">测试获取所有对象信息</button>
+    <button onclick="testObjectInfo()">测试获取对象信息</button>
+
+    <div id="results"></div>
+
+    <script src="AstWasm.js"></script>
+    <script>
+        // 等待WASM加载完成
+        Module.onRuntimeInitialized = function() {
+            console.log('AstWasm module loaded successfully!');
+            addResult('AstWasm module loaded successfully!');
+        };
+
+        function addResult(message) {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'result';
+            resultDiv.textContent = message;
+            resultsDiv.prepend(resultDiv);
+        }
+
+        // 测试获取所有类名
+        function testGetAllClassNames() {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const classNames = runtimeProtocol.getAllClassNames();
+            console.log(classNames);
+            let result = [];
+            /*
+            c++ WASM 向量方法:
+            size()	返回向量中的元素个数。
+            get(index)	返回指定索引（从0开始）处的元素副本
+            set(index, value)	将指定索引处的元素更新为 value
+            push_back(value)	向向量末尾添加一个新元素。
+            resize(n, value)	将向量大小调整为 n，并用 value 填充新元素
+            delete()	必须调用，用于手动释放 C++ 对象的内存
+            */
+
+            // 使用 get(index) 获取元素（索引从 0 开始）
+            for (let i = 0; i < classNames.size(); i++) {
+                result.push(classNames.get(i));
+                console.log(`Element at index ${i}:`, classNames.get(i));
+            }
+            addResult(`getAllClassNames() = ${JSON.stringify(result)}`);
+            // 删除向量对象
+            classNames.delete();
+        }
+
+        // 测试新建对象
+        function testNewObject()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const objectid = runtimeProtocol.newObject("Satellite");
+            console.log(objectid);
+            addResult(`newObject() = ${objectid}`);
+        }
+
+        // 测试通过字符串设置属性
+        function testSetAttrString()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const objectid = runtimeProtocol.newObject("StateCartesian");
+            // 设置属性x为100 km
+            runtimeProtocol.setAttrString(objectid, "x", "100 km");
+            console.log(runtimeProtocol.getAttrString(objectid, "x"));
+            // 再次获取属性x的值
+            addResult(`setAttrString() = ${runtimeProtocol.getAttrString(objectid, "x")}`);
+        }
+
+        function testGetAttrString()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const objectid = runtimeProtocol.newObject("StateCartesian");
+            // 获取属性x的值
+            console.log(runtimeProtocol.getAttrString(objectid, "x"));
+            addResult(`getAttrString() = ${runtimeProtocol.getAttrString(objectid, "x")}`);
+            // 获取不存在的属性的值
+            console.log(runtimeProtocol.getAttrString(objectid, "non_existent"));
+            addResult(`getAttrString() = ${runtimeProtocol.getAttrString(objectid, "non_existent")}`);
+        }
+
+        function testObjectToJsonStr()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const objectid = runtimeProtocol.newObject("StateKeplerian");
+            const json = runtimeProtocol.objectToJsonStr(objectid);
+            console.log(json);
+            // 解析JSON字符串
+            const jsonObject = JSON.parse(json);
+            console.log(jsonObject);
+            // 检查解析结果是否符合预期
+            console.log(jsonObject.x);
+            addResult(`objectToJsonStr() = ${json}`);
+        }
+
+        function testClassJsonSchemaStr()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const json = runtimeProtocol.classJsonSchemaStr("StateCartesian");
+            console.log(json);
+            const jsonSchema = JSON.parse(json);
+            console.log(jsonSchema);
+            addResult(`classJsonSchemaStr() = ${json}`);
+
+        }
+
+        function testObjectType()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            const objectid = runtimeProtocol.newObject("StateKeplerian");
+            const type = runtimeProtocol.objectType(objectid);
+            console.log(type);
+            addResult(`objectType() = ${type}`);
+        }
+
+        function convertObjectInfo(objInfo)
+        {
+            let jsObject = {};
+            jsObject.id = objInfo.id;
+            jsObject.parent = objInfo.parent;
+            jsObject.type = objInfo.type;
+            jsObject.name = objInfo.name;
+            let children = []
+            for (let j = 0; j < objInfo.children.size(); j++) {
+                children.push(objInfo.children.get(j));
+            }
+            jsObject.children = children;
+            return jsObject;
+        }
+
+        function testAllObjectInfoList()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            infoList = runtimeProtocol.allObjectInfoList();
+            let result = [];
+            for (let i = 0; i < infoList.size(); i++) {
+                let obj = convertObjectInfo(infoList.get(i));
+                result.push(obj);
+                console.log(`Element at index ${i}:`, obj);
+            }
+            addResult(`allObjectInfoList() = ${JSON.stringify(result)}`);
+            infoList.delete()
+        }
+
+        function testObjectInfo()
+        {
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            let objectInfo = runtimeProtocol.objectInfo(0);
+            let jsObject = convertObjectInfo(objectInfo);
+            console.log(jsObject);
+            addResult(`objectInfo() = ${JSON.stringify(jsObject)}`);
+        }
+
+        function testAdd() {
+            const result = Module.add(1, 2);
+            console.log(result);
+            addResult(`add(1, 2) = ${result}`);
+        }
+
+
+        function getTools()
+        {
+            // 通过wasm调用获取ast提供的内部工具
+            let internalTools = JSON.parse(Module.aAgentToolsJsonStr());
+            console.log(internalTools);
+
+            // web端的扩展工具
+            const extendedTools = [
+                {
+                    type: "function",
+                    function: {
+                        name: "getAllClassNames",
+                        description: "获取所有可用的类名列表",
+                        parameters: {
+                            type: "object",
+                            properties: {},
+                            required: []
+                        }
+                    }
+                },
+                {
+                    type: "function",
+                    function: {
+                        name: "getObjectInfo",
+                        description: "获取指定对象的信息",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                objectId: {
+                                    type: "integer",
+                                    description: "对象ID"
+                                }
+                            },
+                            required: ["objectId"]
+                        }
+                    }
+                },
+                {
+                    type: "function",
+                    function: {
+                        name: "createObject",
+                        description: "创建一个新对象",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                className: {
+                                    type: "string",
+                                    description: "类名"
+                                }
+                            },
+                            required: ["className"]
+                        }
+                    }
+                },
+                {
+                    type: "function",
+                    function: {
+                        name: "getAttrString",
+                        description: "获取对象的属性值",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                objectId: {
+                                    type: "integer",
+                                    description: "对象ID"
+                                },
+                                attrName: {
+                                    type: "string",
+                                    description: "属性名称"
+                                }
+                            },
+                            required: ["objectId", "attrName"]
+                        }
+                    }
+                }
+            ];
+            
+            // 合并内部工具和扩展工具
+            const tools = [...internalTools, ...extendedTools];
+            return tools;
+        }
+
+        // OpenAI规范大模型聊天接口示例 - 支持工具调用
+        const chatMessages = [];
+        
+        
+
+        // 模拟工具执行
+        async function executeTool(toolCall) {
+            const { name, arguments: args } = toolCall.function;
+            const runtimeProtocol = Module.WasmRuntimeProtocol;
+            
+            try {
+                switch (name) {
+                    // 处理扩展工具，这里写成一个类更好
+                    case "getAllClassNames": {
+                        const classNames = runtimeProtocol.getAllClassNames();
+                        const result = [];
+                        for (let i = 0; i < classNames.size(); i++) {
+                            result.push(classNames.get(i));
+                        }
+                        classNames.delete();
+                        return JSON.stringify(result);
+                    }
+                    case "getObjectInfo": {
+                        const objectInfo = runtimeProtocol.objectInfo(args.objectId);
+                        const info = convertObjectInfo(objectInfo);
+                        return JSON.stringify(info);
+                    }
+                    case "createObject": {
+                        const objectId = runtimeProtocol.newObject(args.className);
+                        return JSON.stringify({ objectId });
+                    }
+                    case "getAttrString": {
+                        const value = runtimeProtocol.getAttrString(args.objectId, args.attrName);
+                        return JSON.stringify({ value });
+                    }
+                    default:
+                    {
+                        let content = Module.WasmRuntimeProtocol.handleToolCall(JSON.stringify(toolCall));
+                        if(content)
+                            return content;
+                        else
+                            // 尝试调用ast的内部工具
+                            return JSON.stringify({ error: "未知工具: " + name });
+                    }
+                }
+            } catch (error) {
+                return JSON.stringify({ error: error.message });
+            }
+        }
+
+        // OpenAI规范真实API调用
+        const API_BASE_URL = "https://aiapi.smsat.space";
+        
+        async function callChatCompletion(messages, tools = []) {
+            const body = {
+                model: "deepseek-v4-flash",
+                thinking:{
+                    type: "disabled"
+                },
+                stream: false,
+                messages: messages,
+                temperature: 0.2
+            };
+            
+            // 如果有工具定义，添加到请求中
+            if (tools.length > 0) {
+                body.tools = tools;
+                body.tool_choice = "auto";
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/chat/completions`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`API调用失败: ${response.status} - ${errorText}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error("API调用错误:", error);
+                throw error;
+            }
+        }
+
+        // 完整的聊天流程（支持工具调用）
+        async function testChatWithTools() {
+            addResult("=== 开始测试大模型聊天接口（支持工具调用）===");
+            
+            // 获取ast内部默认的系统提示
+            let systemPrompt = Module.aAgentSystemPrompt();
+            console.log(systemPrompt);
+            // 用户问题：询问可用的类列表
+            chatMessages.push({role:"system",content:systemPrompt});
+            const userMessage1 = "请帮我设计一个太阳同步轨道";
+            chatMessages.push({ role: "user", content: userMessage1 });
+            addResult(`用户: ${userMessage1}`);
+            
+            let tools = getTools();
+            // 第一次调用：获取工具调用指令
+            let response = await callChatCompletion(chatMessages, tools);
+            let assistantMessage = response.choices[0].message;
+            chatMessages.push(assistantMessage);
+            
+            // 检查是否需要工具调用
+            while (assistantMessage.tool_calls && assistantMessage.tool_calls.length > 0) {
+                
+                // 执行工具调用
+                for (const toolCall of assistantMessage.tool_calls) {
+                    const toolResult = await executeTool(toolCall);
+                    console.log(`工具[${toolCall.function.name}]执行结果: ${toolResult}`);
+                    
+                    // 将工具结果添加到消息列表
+                    chatMessages.push({
+                        role: "tool",
+                        content: toolResult,
+                        tool_call_id: toolCall.id
+                    });
+                }
+                
+                // 继续调用大模型
+                response = await callChatCompletion(chatMessages, tools);
+                assistantMessage = response.choices[0].message;
+                console.log("大模型消息：", assistantMessage)
+                chatMessages.push(assistantMessage);
+                addResult(`助手: ${assistantMessage.content}`);
+            }
+            
+            // addResult("=== 测试完成 ===");
+        }
+
+        // 测试简单对话
+        async function testSimpleChat() {
+            addResult("=== 开始测试简单聊天 ===");
+            
+            const userMessage = "你好，这是一个测试";
+            chatMessages.push({ role: "user", content: userMessage });
+            addResult(`用户: ${userMessage}`);
+            
+            const response = await callChatCompletion(chatMessages);
+            const assistantMessage = response.choices[0].message;
+            chatMessages.push(assistantMessage);
+            addResult(`助手: ${assistantMessage.content}`);
+            
+            addResult("=== 测试完成 ===");
+        }
+
+
+    </script>
+</body>
+</html>

@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 class AST_MATH_API RK8 : public ODEFixedStepIntegrator
 {
 public:
+    AST_OBJECT(RK8);
     errc_t initialize(ODE& ode) final;
 
     errc_t singleStep(ODE& ode, double* y, double t0, double step) final;

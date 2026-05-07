@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "Object.hpp"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -47,7 +48,7 @@ public:
     const std::string& getName() const override { return name_; }
 
     /// @brief 设置对象名称
-    void setName(StringView name) { name_ = std::string(name); }
+    void setName(StringView name) override { name_ = std::string(name); }
 private:
     std::string name_;      ///< 对象名称
 };

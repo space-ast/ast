@@ -21,17 +21,36 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup ForceModel
     @{
 */
 
+/// @brief 太阳位置
+enum class ESunPosition
+{
+    eTrue,
+    eApparentSunToTrueCB,
+    eApparent,
+};
+
+/// @brief 引力常数来源
+enum class EGMSource
+{
+    eBodyGravity,           ///< 来自天体重力场
+    eJplDE,                 ///< 来自JPL DE文件
+    eSpecifiedValue,        ///< 用户指定的引力常数
+};
+
+
 /// @brief 力模型
 /// @details 力模型用于表示动力学系统中的摄动力，例如重力、大气阻力、太阳光压、三体摄动等
-class AST_CORE_API ForceModel
+class AST_CORE_API ForceModel: public ObjectNamed
 {
 public:
     ForceModel() = default;

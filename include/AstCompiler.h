@@ -19,7 +19,6 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
 #pragma once
-#include <signal.h>         // for raise and SIGTRAP
 
 
 // 编译器检测宏
@@ -235,7 +234,13 @@
 
 // 处理 MSVC 编译器的 _MSVC_LANG 宏
 #if defined(_MSVC_LANG)
-#   define A_CPLUSPLUS _MSVC_LANG
+// 有些 MSVC 编译器的 c++14 标准实现不全，会导致编译问题，在这里将其视为与 c++11 兼容
+#   if _MSVC_LANG == 201402L  
+#       define A_CPLUSPLUS 201103L
+#       define _A_CXX14         // 用于标识标准实现不完全的 c++14
+#   else
+#       define A_CPLUSPLUS _MSVC_LANG
+#   endif
 #elif defined(_MSC_VER) && (_MSC_VER >= 1900)
 #   define A_CPLUSPLUS 201103L
 #elif defined(__cplusplus)
@@ -292,6 +297,7 @@
 #ifdef _WIN32
 #   define A_DEBUG_BREAK() __debugbreak()
 #else
+#   include <signal.h>         // for raise and SIGTRAP
 #   define A_DEBUG_BREAK() ::raise(SIGTRAP)
 #endif
 

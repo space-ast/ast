@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "AstUtil/ReflectAPI.hpp"
 #include "AstUtil/Class.hpp"
 #include "AstTest/AstTestMacro.h"
@@ -30,11 +31,11 @@ static Class* testObjectClass();
 
 
 // 测试Object类的基本功能
-class TestObject : public Object
+class TestObject : public ObjectNamed
 {
 public:
     TestObject()
-        : Object()
+        : ObjectNamed()
         , propBool_(true)
         , propInt_(42)
         , propDouble_(3.14)

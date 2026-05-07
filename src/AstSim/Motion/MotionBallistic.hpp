@@ -33,8 +33,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 弹道运动
-/// @details 弹道运动用于模拟弹道导弹运动，包括弹道的计算和更新。
+/// @brief 弹道运动模型，用于模拟弹道导弹运动
 class AST_SIM_API MotionBallistic: public MotionProfile
 {
 public:

@@ -18,12 +18,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ReflectAPI.hpp"
+#include "AstUtil/ReflectAPI.hpp"
 #include "PropertyBool.hpp"
 #include "PropertyInt.hpp"
 #include "PropertyDouble.hpp"
 #include "PropertyString.hpp"
 #include "PropertyQuantity.hpp"
+#include "PropertyObject.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -54,5 +55,12 @@ Property *_aNewPropertyQuantity(FPropertyGet getter, FPropertySet setter, Dimens
 {
     return new PropertyQuantity(getter, setter, dimension);
 }
+
+Property* _aNewPropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls)
+{
+    return new PropertyObject(getter, setter, cls);
+}
+
+
 
 AST_NAMESPACE_END

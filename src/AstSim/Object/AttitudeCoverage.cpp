@@ -22,16 +22,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(AttitudeCoverage)
-
-static bool AttitudeCoverage_ClassInited = (AttitudeCoverage::ClassInit(&AttitudeCoverage::staticType), true);
-
-void AttitudeCoverage::ClassInit(Class* cls)
-{
-    cls->setName("AttitudeCoverage");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<AttitudeCoverage>();
-}
 
 AST_NAMESPACE_END

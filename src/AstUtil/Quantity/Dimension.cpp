@@ -204,6 +204,17 @@ std::string aDimSymbol(EDimension dimension)
 }
 
 
+void Dimension::decompose(std::array<std::pair<Dimension, int>, 8>& basicDimensions) const
+{
+    const EDimension dimension = *this;
+    for (int i = 0; i < 8; i++)
+    {
+        int exponent = dim_get_exponent(dimension, i);
+        EDimension basicDim = dim_set_exponent(EDimension::eUnit, i, 1);
+        basicDimensions[i] = {basicDim, exponent};
+    }
+}
+
 
 AST_NAMESPACE_END
 

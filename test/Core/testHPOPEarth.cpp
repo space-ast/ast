@@ -46,7 +46,7 @@ TEST_F(HPOPTest, HPOPEquation)
 {
     HPOPEquation equation;
     HPOPForceModel forcemodel;
-    forcemodel.gravity_.model_ = "WGS84";
+    forcemodel.gravity().model_ = "WGS84";
     int ndim;
     errc_t err;
     err = equation.setForceModel(forcemodel);
@@ -55,7 +55,7 @@ TEST_F(HPOPTest, HPOPEquation)
     EXPECT_EQ(err, 0);
     EXPECT_EQ(ndim, 6);
 
-    forcemodel.useMoonGravity_ = true;
+    forcemodel.useMoonGravity(true);
     err = equation.setForceModel(forcemodel);
     equation.initialize();
     ndim = equation.getDimension();
@@ -66,10 +66,10 @@ TEST_F(HPOPTest, HPOPEquation)
 TEST_F(HPOPTest, TwoBody)
 {
     HPOPForceModel forcemodel;
-    forcemodel.useMoonGravity_ = false;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.gravity_.maxDegree_ = 0;
-    forcemodel.gravity_.maxOrder_ = 0;
+    forcemodel.useMoonGravity(false);
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -92,10 +92,10 @@ TEST_F(HPOPTest, TwoBody)
 TEST_F(HPOPTest, OnlyGravity_2_0)
 {
     HPOPForceModel forcemodel;
-    forcemodel.useMoonGravity_ = false;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.gravity_.maxDegree_ = 2;
-    forcemodel.gravity_.maxOrder_ = 0;
+    forcemodel.useMoonGravity(false);
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 2;
+    forcemodel.gravity().maxOrder_ = 0;
 
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
@@ -119,10 +119,10 @@ TEST_F(HPOPTest, OnlyGravity_2_0)
 TEST_F(HPOPTest, OnlyGravity_70_50)
 {
     HPOPForceModel forcemodel;
-    forcemodel.useMoonGravity_ = false;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.gravity_.maxDegree_ = 70;
-    forcemodel.gravity_.maxOrder_ = 50;
+    forcemodel.useMoonGravity(false);
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 70;
+    forcemodel.gravity().maxOrder_ = 50;
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -148,10 +148,10 @@ TEST_F(HPOPTest, OnlyGravity_20_20)
     //     GTEST_SKIP();
     // }
     HPOPForceModel forcemodel;
-    forcemodel.useMoonGravity_ = false;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.gravity_.maxDegree_ = 20;
-    forcemodel.gravity_.maxOrder_ = 20;
+    forcemodel.useMoonGravity(false);
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 20;
+    forcemodel.gravity().maxOrder_ = 20;
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -180,11 +180,11 @@ TEST_F(HPOPTest, OnlyGravity_20_20)
 TEST_F(HPOPTest, MoonThirdBody)
 {
     HPOPForceModel forcemodel;
-    forcemodel.useMoonGravity_ = true;
-    forcemodel.moonGravity_ = 4.90280030555540e12;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.gravity_.maxDegree_ = 0;
-    forcemodel.gravity_.maxOrder_ = 0;
+    forcemodel.useMoonGravity(true);
+    forcemodel.setMoonGravity(4.90280030555540e12);
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -209,11 +209,11 @@ TEST_F(HPOPTest, MoonThirdBody)
 TEST_F(HPOPTest, MoonFreeReturn)
 {
     HPOPForceModel forcemodel;
-    forcemodel.useMoonGravity_ = true;
-    forcemodel.moonGravity_ = 4.90280030555540e12;
-    forcemodel.gravity_.model_ = "JGM3";
-    forcemodel.gravity_.maxDegree_ = 0;
-    forcemodel.gravity_.maxOrder_ = 0;
+    forcemodel.useMoonGravity(true);
+    forcemodel.setMoonGravity(4.90280030555540e12);
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -240,11 +240,11 @@ TEST_F(HPOPTest, MoonReturn)
 {
     // aInitialize();
     HPOPForceModel forceModel;
-    forceModel.useMoonGravity_ = true;
-    forceModel.moonGravity_ = 4.902800305555400390625e12;
-    forceModel.gravity_.maxDegree_ = 0;
-    forceModel.gravity_.maxOrder_ = 0;
-    forceModel.gravity_.model_ = "JGM3";
+    forceModel.useMoonGravity(true);
+    forceModel.setMoonGravity(4.902800305555400390625e12);
+    forceModel.gravity().maxDegree_ = 0;
+    forceModel.gravity().maxOrder_ = 0;
+    forceModel.gravity().model_ = "JGM3";
     HPOP propagator;
     errc_t err = propagator.setForceModel(forceModel);
     EXPECT_EQ(err, 0);

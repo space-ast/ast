@@ -22,12 +22,7 @@
 #include "SerializationUtils.hpp"
 #include "AstUtil/Class.hpp"
 #include "AstUtil/Property.hpp"
-#include "AstUtil/PropertyBool.hpp"
-#include "AstUtil/PropertyInt.hpp"
-#include "AstUtil/PropertyDouble.hpp"
-#include "AstUtil/PropertyString.hpp"
-#include "AstUtil/PropertyQuantity.hpp"
-#include "AstUtil/PropertyVisitor.hpp"
+#include "AstUtil/PropertyAll.hpp"
 #include <sstream>
 
 AST_NAMESPACE_BEGIN

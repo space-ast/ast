@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/Point.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/TimeInterval.hpp"
 
 

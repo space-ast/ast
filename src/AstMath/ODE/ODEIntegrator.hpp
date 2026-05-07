@@ -25,6 +25,8 @@
 #include "AstMath/ODEStateObserverList.hpp"
 #include "AstMath/ODEInnerStateObserver.hpp"
 #include "AstMath/OrdinaryDifferentialEquation.hpp"
+#include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include <vector>
 #include <type_traits>
 
@@ -35,7 +37,7 @@ class ODEEventDetector;
 /// @brief ODE 积分器接口类
 /// @details 积分器是ODE求解的基础类，提供了积分ODE的通用接口。
 /// @ingroup ODE
-class AST_MATH_API IODEIntegrator
+class AST_MATH_API IODEIntegrator: public ObjectNamed
 {
 public:
     virtual ~IODEIntegrator() {};
@@ -137,6 +139,10 @@ public:
     /// @details 删除一个事件检测器
     /// @param detector 事件检测器对象
     void removeEventDetector(ODEEventDetector* detector);
+
+    /// @brief 清除所有事件检测器
+    /// @details 清除所有添加的事件检测器
+    void clearEventDetectors();
 
     /// @brief 添加状态观察者
     /// @details 添加一个状态观察者，用于观察ODE的状态

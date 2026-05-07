@@ -21,6 +21,7 @@
 #include "ODEEventObserver.hpp"
 #include "AstMath/NLE.hpp"
 #include "AstMath/ODEIntegrator.hpp"
+#include "AstMath/Bracket.hpp"
 #include "AstUtil/Logger.hpp"
 #include <cstdio>
 #include <cmath>
@@ -52,8 +53,8 @@ EODEAction ODEEventObserver::onStateUpdate(double *y, double &x, ODEIntegrator* 
         errc_t err = findEventTime(lastTime, x, eventTime, integrator);
         if(err != eNoError)
         {
-            // pass
-            // aError("failed to find event time, error = %d", err);
+            aError("failed to find event time, error = %d", err);
+            return EODEAction::eStop;
         }else{
             memcpy(y, integrator->stateTemp(), integrator->getODE()->getDimension() * sizeof(double));
             x = eventTime;
@@ -72,6 +73,7 @@ bool ODEEventObserver::isEventOccurred(double *y, double &x)
         this->lastTime_ = x;
         return false;
     }else{
+        #if 0
         auto direction = detector_->getDirection();
         double difference = detector_->getDifference(y, x);
         bool lastSign = std::signbit(lastDifference_);
@@ -90,6 +92,14 @@ bool ODEEventObserver::isEventOccurred(double *y, double &x)
         // 记录当前状态，用于下一次判断
         lastDifference_ = difference;
         lastTime_ = x;
+        #else
+        double difference = detector_->getDifference(y, x);
+        Bracket bracket(lastTime_, lastDifference_, x, difference);
+        bool occurred = detector_->containsEvent(bracket);
+        // 记录当前状态，用于下一次判断
+        lastTime_ = x;
+        lastDifference_ = difference;
+        #endif
         if(occurred) 
             this->repeatCount_ ++ ;
         // 处理事件的重复次数

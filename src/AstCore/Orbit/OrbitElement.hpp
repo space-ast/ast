@@ -77,6 +77,10 @@ public:
     double vx() const {return vel_.x();}
     double vy() const {return vel_.y();}
     double vz() const {return vel_.z();}
+
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
 };
 
 

@@ -45,6 +45,7 @@ public:
     errc_t accept(PropertyVisitor& visitor, const void* container) override;
     errc_t getValueString(const void* container, std::string& value) override;
     errc_t setValueString(void* container, StringView value) override;
+    EValueType getValueType() const override{return EValueType::eQuantity;}
 protected:
     Dimension dimension_{Dimension::Unit()};   ///< 数量值属性的量纲
 };

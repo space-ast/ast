@@ -24,6 +24,9 @@
 
 AST_NAMESPACE_BEGIN
 
+
+class Bracket;
+
 /// @brief ODE积分的事件检测器
 /// @details 
 /// 该类用于检测ODE积分过程中的事件，例如根查找、事件触发等。
@@ -55,8 +58,13 @@ public:
     /// @return 用于事件检测的开关函数值
     virtual double getValue(const double* y,double x) const = 0;
 
-    /// @brief 事件触发后的重复次数
-    /// @return 事件触发后的重复次数
+    /// @brief 判断括号区间内是否存在该事件
+    /// @param bracket 括号区间
+    /// @return 是否存在该事件
+    virtual bool containsEvent(const Bracket& bracket) const;
+
+    /// @brief 事件触发重复次数
+    /// @return 事件触发重复次数
     int getRepeatCount() const { return repeatCount_; }
     void setRepeatCount(int repeatCount) { repeatCount_ = repeatCount; }
 
@@ -77,7 +85,7 @@ public:
 
 
 private:
-    int         repeatCount_{1};                ///< 事件触发后的重复次数
+    int         repeatCount_{1};                ///< 事件触发重复次数
     EDirection  direction_{EDirection::eBoth};  ///< 事件检测开关函数的方向
     double      threshold_{1e-10};              ///< 事件检测开关函数的阈值
     double      goal_{0.0};                     ///< 事件检测的目标值

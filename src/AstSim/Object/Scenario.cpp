@@ -27,18 +27,7 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Scenario)
 
-static bool Scenario_ClassInited = (Scenario::ClassInit(&Scenario::staticType), true);
-
-void Scenario::ClassInit(Class* cls)
-{
-    cls->setName("Scenario");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<Scenario>();
-    
-}
 
 Scenario::Scenario()
 {

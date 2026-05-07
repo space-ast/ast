@@ -35,6 +35,8 @@ class AST_SIM_API Satellite: public Spacecraft
 {
 public:
     AST_OBJECT(Satellite)
+    static Satellite* New();
+    
     Satellite() = default;
     ~Satellite() override = default;
 };

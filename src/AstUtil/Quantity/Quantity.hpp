@@ -197,7 +197,7 @@ public:
 
     /// @brief 获取量纲
     /// @return 量纲
-    EDimension dimension() const { return unit_.dimension(); }
+    Dimension dimension() const { return unit_.dimension(); }
 
     /// @brief 获取国际单位表示的值
     /// @return 国际单位表示的值

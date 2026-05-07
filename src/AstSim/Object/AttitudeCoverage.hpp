@@ -29,7 +29,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 姿态覆盖对象
+/// @brief 姿态覆盖工具
 class AST_SIM_API AttitudeCoverage: public ObjectNamed
 {
 public:

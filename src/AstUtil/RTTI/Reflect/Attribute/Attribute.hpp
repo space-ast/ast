@@ -41,12 +41,21 @@ template<typename ObjectPtrType=WeakPtr<Object>, typename PropertyType=Property>
 class AttributeBasic
 {
 public:
-
+    AttributeBasic() = default;
+    
     AttributeBasic(ObjectPtrType object, PropertyType* property)
         : object_(object)
         , property_(property)
     {
     }
+    
+    bool isValid() const {return object_ && property_;}
+
+    EValueType getValueType() const {
+        if(!property_) return EValueType::eInvalid;
+        return property_->getValueType();
+    }
+
     errc_t getValueDouble(double& value) const
     {
         auto object = getObject();
@@ -95,6 +104,18 @@ public:
         if(!property_ || !object) return eErrorInvalidParam;
         return property_->setValueString(object, value);
     }
+    errc_t getValueObject(Object*& value) const
+    {
+        auto object = getObject();
+        if(!property_ || !object) return eErrorInvalidParam;
+        return property_->getValueObject(object, value);
+    }
+    errc_t setValueObject(Object* value)
+    {
+        auto object = getObject();
+        if(!property_ || !object) return eErrorInvalidParam;
+        return property_->setValueObject(object, value);
+    }
 public:
     double getValueDouble() const
     {
@@ -118,6 +139,12 @@ public:
     {
         std::string value;
         getValueString(value);
+        return value;
+    }
+    Object* getValueObject() const
+    {
+        Object* value = nullptr;
+        getValueObject(value);
         return value;
     }
 public:
@@ -179,7 +206,7 @@ inline void* AttributeBasic<ObjectPtrType, PropertyType>::getObject() const
     return object_;
 }
 
-typedef AttributeBasic<> Attribute;
+// typedef AttributeBasic<> Attribute;
 
 /*! @} */
 

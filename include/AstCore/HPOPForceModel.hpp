@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Propagator/HPOP/HPOPForceModel.hpp"
+#include "../../src/AstCore/ForceModel/HPOPForceModel.hpp"

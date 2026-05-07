@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Receiver)
 
-static bool Receiver_ClassInited = (Receiver::ClassInit(&Receiver::staticType), true);
-
-void Receiver::ClassInit(Class* cls)
-{
-    cls->setName("Receiver");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<Receiver>();
-}
 
 AST_NAMESPACE_END

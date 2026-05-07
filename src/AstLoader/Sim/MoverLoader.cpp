@@ -735,71 +735,77 @@ errc_t _aLoadVehiclePath(BKVParser& parser, Mover& mover)
                 data.smoothInterp_ = item.value().toBool();
             }
         }else if(token == BKVParser::eBlockBegin){
-            if(aEqualsIgnoreCase(item.value(), "TwoBody")){
-                if(errc_t rc = _aLoadTwoBody(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "J2Perturbation")){
-                if(errc_t rc = _aLoadJ2Perturbation(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "J4Perturbation")){
-                if(errc_t rc = _aLoadJ4Perturbation(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "SGP4")){
-                if(errc_t rc = _aLoadSGP4(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "HPOP"))
+            if(aEqualsIgnoreCase(item.value(), "PassDefn"))
             {
-                if(errc_t rc = _aLoadHPOP(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "SPICE")){
-                if(errc_t rc = _aLoadSPICE(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "Ballistic")){
-                if(errc_t rc = _aLoadBallistic(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "SimpleAscent")){
-                if(errc_t rc = _aLoadSimpleAscent(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "GreatArc")){
-                if(errc_t rc = _aLoadGreatArc(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "StkExternal"))
-            {
-                if(errc_t rc = _aLoadExternExternalEphemeris(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "Astrogator")){
-                if(errc_t rc = _aLoadAstrogator(parser, data, mover.getMotionProfileHandle())){
-                    return rc;
-                }
-            }
-            else if(aEqualsIgnoreCase(item.value(), "PassDefn")){
                 if(errc_t rc = _aLoadPassDefn(parser, mover)){
                     return rc;
                 }
             }
             else
             {
-                _aSkipUnknownBlock(parser, item.value());
+                ScopedPtr<MotionProfile> motionProfile;
+                if(aEqualsIgnoreCase(item.value(), "TwoBody")){
+                    if(errc_t rc = _aLoadTwoBody(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "J2Perturbation")){
+                    if(errc_t rc = _aLoadJ2Perturbation(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "J4Perturbation")){
+                    if(errc_t rc = _aLoadJ4Perturbation(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "SGP4")){
+                    if(errc_t rc = _aLoadSGP4(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "HPOP"))
+                {
+                    if(errc_t rc = _aLoadHPOP(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "SPICE")){
+                    if(errc_t rc = _aLoadSPICE(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "Ballistic")){
+                    if(errc_t rc = _aLoadBallistic(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "SimpleAscent")){
+                    if(errc_t rc = _aLoadSimpleAscent(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "GreatArc")){
+                    if(errc_t rc = _aLoadGreatArc(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "StkExternal"))
+                {
+                    if(errc_t rc = _aLoadExternExternalEphemeris(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else if(aEqualsIgnoreCase(item.value(), "Astrogator")){
+                    if(errc_t rc = _aLoadAstrogator(parser, data, motionProfile)){
+                        return rc;
+                    }
+                }
+                else
+                {
+                    _aSkipUnknownBlock(parser, item.value());
+                }
+                mover.setMotionProfile(motionProfile.release());
             }
         }else if(token == BKVParser::eBlockEnd){
             if(aEqualsIgnoreCase(item.value(), "VehiclePath")){

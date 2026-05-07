@@ -1,8 +1,9 @@
 #include "AstUtil/Object.hpp"
 #include "AstUtil/WeakPtr.hpp"
 #include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 
-class MyObject: public _AST Object
+class MyObject: public _AST ObjectNamed
 {
 public:
     void doSomething(){/* todo: implement functionality */}

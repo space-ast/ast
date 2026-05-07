@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -33,9 +34,11 @@ AST_NAMESPACE_BEGIN
 class Frame;
 class CelestialBody;
 
-class AST_CORE_API Point: public Object
+class AST_CORE_API Point: public ObjectNamed
 {
 public:
+    AST_OBJECT(Point)
+    
     Point() = default;
     ~Point() override = default;
 

@@ -35,6 +35,9 @@ AST_NAMESPACE_BEGIN
 class MotionJ4Analytical;
 using PMotionJ4Analytical = MotionJ4Analytical*;
 
+/// @brief J4解析轨道动力学模型
+/// @details
+/// @see MotionOrbitDynamics
 class AST_SIM_API MotionJ4Analytical final: public MotionOrbitDynamics
 {
 public:

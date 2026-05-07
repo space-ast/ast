@@ -231,6 +231,7 @@ errc_t aInitializeByDefault(DataContext* context)
         spkdir + "uranus.bsp",
     };
     err |= loadSPK(spkfiles);
+    context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
         aError("initialize failed: failed to load data.");
@@ -262,6 +263,7 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     err |= context->iauXYSPrecomputed()->load(config.iauXYSPrecomputedFile_.string());
     err |= context->solarSystem()->load(config.solarSystemDir_.string());
     err |= loadSPK(config.spkFiles_);
+    context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
         aError("initialize failed: failed to load data.");

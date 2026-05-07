@@ -54,14 +54,16 @@ AST_UTIL_CAPI errc_t aWideToAnsi(const wchar_t* wide, std::string& ansi);
 /// @param utf8 输入UTF-8编码的字符串
 /// @param wide 输出宽字符编码的字符串
 /// @return 错误码
-AST_UTIL_CAPI errc_t aUtf8ToWide(const char* utf8, std::wstring& wide);
-
+AST_UTIL_API errc_t aUtf8ToWide(const char* utf8, std::wstring& wide);
+AST_UTIL_API std::wstring aUtf8ToWide(StringView utf8);
 
 /// @brief 将宽字符编码的字符串转换为UTF-8编码
 /// @param wide 输入宽字符编码的字符串
 /// @param utf8 输出UTF-8编码的字符串
 /// @return 错误码
 AST_UTIL_CAPI errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8);
+
+
 
 
 /// @brief 将宽字符编码的字符串转换为C语言运行时LC_CTYPE对应的编码

@@ -32,6 +32,7 @@ class AST_UTIL_API PropertyDouble: public Property
 {
 public:
     using Property::Property;
+    using Property::getValue;
     using InputType = double;
     using OutputType = double;
 
@@ -43,6 +44,7 @@ public:
     errc_t setValueString(void* container, StringView value) override;
     errc_t getValueDouble(const void* container, double& value) override;
     errc_t setValueDouble(void* container, double value) override;
+    EValueType getValueType() const override{return EValueType::eDouble;}
     
     /// @brief 接受访问者
     /// @param visitor 访问者对象

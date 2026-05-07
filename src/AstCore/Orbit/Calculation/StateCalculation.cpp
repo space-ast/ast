@@ -22,13 +22,9 @@
 
 AST_NAMESPACE_BEGIN
 
-errc_t StateCalculation::calculate(const Object *obj, double &result)
+errc_t StateCalculation::calculateNoCheckType(const Object *obj, double &result)
 {
-    const State *state = dynamic_cast<const State*>(obj);
-    if (state == nullptr)
-    {
-        return eErrorInvalidParam;
-    }
+    const State *state = static_cast<const State*>(obj);
     return calculate(*state, result);
 }
 

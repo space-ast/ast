@@ -26,20 +26,18 @@
 
 AST_NAMESPACE_BEGIN
 
-HPOP::~HPOP()
+HPOP::HPOP() = default;
+
+HPOP::~HPOP() = default;
+
+errc_t HPOP::setForceModel(HPOPForceModel&& forcemodel)
 {
-    if (equation_)
-        delete equation_;
-    if (integrator_)
-        delete integrator_;
+    return equation()->setForceModel(std::move(forcemodel));
 }
 
 errc_t HPOP::setForceModel(const HPOPForceModel& forcemodel)
 {
-    if(!equation_){
-        equation_ = new HPOPEquation();
-    }
-    return equation_->setForceModel(forcemodel);
+    return equation()->setForceModel(forcemodel);
 }
 
 errc_t HPOP::setPropagationFrame(Frame *frame)
@@ -93,6 +91,22 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
     position = {y[0], y[1], y[2]};
     velocity = {y[3], y[4], y[5]};
     return err;
+}
+
+
+void HPOP::setIntegrator(ODEIntegrator *integrator)
+{
+    if(integrator)
+        integrator_ = integrator;
+}
+
+
+HPOPEquation* HPOP::equation()
+{
+    if(!equation_){
+        equation_ = new HPOPEquation();
+    }
+    return equation_;
 }
 
 AST_NAMESPACE_END

@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Planet)
 
-static bool Planet_ClassInited = (Planet::ClassInit(&Planet::staticType), true);
-
-void Planet::ClassInit(Class* cls)
-{
-    cls->setName("Planet");
-    cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
-    cls->setConstructor<Planet>();
-}
 
 AST_NAMESPACE_END

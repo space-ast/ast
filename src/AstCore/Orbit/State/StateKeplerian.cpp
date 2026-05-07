@@ -26,6 +26,7 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Class.hpp"
+#include "AstUtil/Literals.hpp"
 #include <climits>
 
 AST_NAMESPACE_BEGIN
@@ -77,8 +78,38 @@ HStateKeplerian StateKeplerian::MakeShared(const ModOrbElem &modOrbElem)
     return new StateKeplerian(modOrbElem);
 }
 
+static void initDefault(StateKeplerian &stateKeplerian)
+{
+    auto body = aGetEarth();
+    if(body)
+    {
+        auto frame = body->makeFrameInertial();
+        frame->setName("Inertial");
+        stateKeplerian.setStateEpoch(TimePoint::Default());
+        stateKeplerian.setFrame(frame);
+        stateKeplerian.setState(ModOrbElem{
+            body->getRadius() + 300_km,
+            0,
+            28.5_deg,
+            0,
+            0,
+            0
+        });
+    }
+}
+
+PStateKeplerian StateKeplerian::NewDefault()
+{
+    auto stateKeplerian = new StateKeplerian();
+    #if 0
+    initDefault(*stateKeplerian);
+    #endif
+    return stateKeplerian;
+}
+
 StateKeplerian::StateKeplerian()
 {
+    initDefault(*this);
 }
 
 StateKeplerian::StateKeplerian(const ModOrbElem &modOrbElem)
@@ -1078,7 +1109,7 @@ void StateKeplerian::holdLAN(const ModOrbElem &originalElem)
         aError("failed to get body");
         return;
     }
-    TimePoint stateEpoch = this->getStateEpoch();
+    TimePoint stateEpoch = this->getStateEpoch_TimePoint();
     TimePoint timeOfAscNodePassage = originalElem.getTimeOfAscNodePassage(stateEpoch, getGM());
     auto inertialAxes = frame_->getAxes();
     auto bodyFixedAxes = body->getAxesFixed();

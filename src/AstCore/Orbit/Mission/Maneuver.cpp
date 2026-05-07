@@ -19,11 +19,68 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Maneuver.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstCore/BurnImpulsive.hpp"
+#include "AstCore/AxesLinkTo.hpp"
+#include "AstCore/LocalOrbitFrame.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstMath/Rotation.hpp"
+#include "AstMath/KinematicRotation.hpp"
 
 AST_NAMESPACE_BEGIN
 
 errc_t Maneuver::execute()
 {
+    const auto inputState = this->getInputState();  AST_CHECK_NULLPTR(inputState);
+    auto outputState = this->getOutputState();      AST_CHECK_NULLPTR(outputState);
+    auto burn = this->burn();
+    if(burn == nullptr)
+    {
+        aWarning("burn is nullptr");
+    }
+    else if(auto impulsive = aobject_cast<BurnImpulsive*>(burn))
+    {
+        Vector3d impulse = impulsive->impulse();
+        Axes* thrustAxes = impulsive->axes();
+        if(thrustAxes == nullptr)
+            aWarning("thrustAxes is nullptr");
+        else
+        {
+            if(AxesLinkTo* axesLink = aobject_cast<AxesLinkTo*>(thrustAxes))
+            {
+                std::string name = axesLink->name();
+                
+                // aInfo("thrustAxes is '%s'", name.c_str());
+
+                if(name == "VNC(Earth)")
+                {
+                    CartState cartState;
+                    errc_t rc = inputState->getStateInBodyInertial(aGetEarth(), cartState);
+                    if(rc)
+                        aWarning("failed to get state in body inertial");
+                    Rotation rotation;
+                    aVNCToFrameTransform(cartState.pos(), cartState.vel(), rotation);
+                    // @todo: 这里只能用于地球预报器
+                    impulse = rotation.transformVector(impulse);   // 从VNC(Earth)转换到 Earth Inertial
+                    cartState.vel() += impulse;
+                    TimePoint tp;
+                    inputState->getStateEpoch(tp);
+                    outputState->setStateEpoch(tp);
+                    outputState->setState(cartState);
+                    return 0;
+                }
+            }
+            else
+            {
+                aWarning("unsupported thrustAxes type");
+            }
+        }
+    }
+    else
+    {
+        aWarning("unsupported burn type");
+    }
+    outputState->copyFrom(*inputState);
     return 0;
 }
 

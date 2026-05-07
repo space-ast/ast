@@ -23,6 +23,8 @@
 #include "AstGlobal.h"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/StringView.hpp"
+#include <map>
 
 AST_NAMESPACE_BEGIN
 
@@ -41,17 +43,27 @@ AST_NAMESPACE_BEGIN
 /// @return 无
 AST_UTIL_CAPI void aGetAllClassNames(std::vector<std::string>& names);
 
+/// @brief 获取所有已注册的类
+/// @details 返回所有已注册的类的指针
+/// @return 所有已注册的类的指针
+AST_UTIL_API const std::unordered_map<std::string, Class*>& aGetAllClasses();
+
 /// @brief 获取类的元数据
 /// @details 根据类名获取类的元数据
 /// @param name 类名
 /// @return 类的元数据指针
 AST_UTIL_CAPI Class* aGetClass(StringView name);
 
+/// @brief 检查类是否为虚类
+/// @param cls 类指针
+/// @return 是否为虚类
+AST_UTIL_CAPI bool aIsVirtualClass(StringView name);
+
 /// @brief 注册类
 /// @details 注册类的元数据，用于后续的反射操作
 /// @param cls 类指针
 /// @return 类的元数据指针
-AST_UTIL_CAPI void aRegisterClass(Class* cls);
+AST_UTIL_CAPI void aRegisterClass(Class* cls, StringView name=StringView());
 
 /// @brief 根据类名获取类的默认对象(CDO)
 /// @details CDO是类的默认构造函数创建的对象，用于存储类的默认属性值等信息，参考了Unreal Engine的设计
@@ -73,6 +85,19 @@ AST_UTIL_API Object* aGetClassDefaultObject(Class* cls);
 /// @return 对象指针
 AST_UTIL_CAPI Object* aNewObject(StringView name, Object* parentScope=nullptr);
 
+
+/// @brief 创建对象，返回裸指针
+/// @details 根据类名创建对象
+/// @param parentScope 父作用域指针
+/// @return 对象指针
+template<typename T>
+T* aNewObject(Object* parentScope=nullptr)
+{
+    T* obj = new T();
+    aSetParentScope(obj, parentScope);
+    return obj;
+}
+
 /// @brief 删除对象
 /// @details 用于释放对象裸指针对应的内存
 /// @warning 不要用于智能指针管理的对象，否则会导致未定义行为
@@ -86,6 +111,15 @@ AST_UTIL_CAPI void aDeleteObject(Object* obj);
 /// @return 对象智能指针
 AST_UTIL_API SharedPtr<Object> aMakeObject(StringView name, Object* parentScope=nullptr);
 
+
+
+/// @brief 解析对象
+/// @details 根据对象路径/名称/表达式解析对象
+/// @warning 要求value为对象路径（带有类型名称），或者cls不为空，否则只查找类型对象
+/// @param value 对象路径/名称/表达式
+/// @param cls 对象类型，默认 nullptr 表示不指定类型
+/// @return 解析后的对象指针
+AST_UTIL_API Object* aResolveObject(StringView value, Class* cls = nullptr);
 
 
 // -----------
@@ -111,6 +145,48 @@ AST_UTIL_CAPI uint32_t aGetObjectID(Object* obj);
 /// @return 对象的索引/对象ID
 AST_UTIL_CAPI uint32_t aAddObject(Object* object);
 
+
+/// @brief 移除对象
+/// @details 从对象管理器中移除对象，包括子对象
+/// @param object 对象指针
+/// @return 错误码
+AST_UTIL_CAPI errc_t aRemoveObject(Object* object);
+
+/// @brief 移除所有对象
+/// @details 从对象管理器中移除所有对象，包括子对象
+/// @return 无
+AST_UTIL_CAPI void aRemoveAllObjects();
+
+/// @brief 获取对象管理器中已添加的对象数量
+/// @details 获取对象管理器中已添加的对象数量
+/// @return 对象数量
+AST_UTIL_CAPI int aGetObjectCount();
+
+
+/// @brief 查找对象
+/// @details 根据类指针和对象名查找对象
+/// @param cls 类指针，如果为空则匹配所有类型
+/// @param name 对象名，如果为空则匹配所有名称
+/// @return 对象指针向量
+AST_UTIL_API std::vector<Object*> aFindObjects(Class* cls, StringView name=StringView());
+
+
+/// @brief 查找对象
+/// @details 根据类指针和对象名查找对象
+/// @param cls 类指针，如果为空则匹配所有类型
+/// @param name 对象名，如果为空则匹配所有名称
+/// @return 对象指针
+AST_UTIL_API Object* aFindObject(Class* cls, StringView name=StringView());
+
+template<typename T>
+T aFindObject(StringView name=StringView())
+{
+    // @todo: 这里逻辑和aobject_cast<T>的重复了，考虑怎么重构
+    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
+    static_assert(has_own_getType<ObjectType>::value, "aFindObject requires the type to has a AST_OBJECT macro");
+    return static_cast<T>(aFindObject(ObjectType::StaticType(), name));
+}
+
 /// @brief 设置对象的父作用域
 /// @details obj 对象指针
 /// @param parentScope 父作用域指针
@@ -123,6 +199,34 @@ AST_UTIL_CAPI errc_t aSetParentScope(Object* obj, Object* parentScope);
 /// @return 父作用域指针
 AST_UTIL_CAPI Object* aGetParentScope(Object* obj);
 
+
+/// @brief 获取对象的祖先作用域
+/// @details obj 对象指针
+/// @param cls 类指针，如果为空则匹配所有类型
+/// @return 祖先作用域指针
+AST_UTIL_CAPI Object* aGetAncestorScope(Object* obj, Class* cls);
+
+template<typename T>
+T aGetAncestorScope(Object* obj)
+{
+    // @todo: 这里逻辑和aobject_cast<T>的重复了，考虑怎么重构
+    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
+    static_assert(has_own_getType<ObjectType>::value, "aGetAncestorScope requires the type to has a AST_OBJECT macro");
+    return static_cast<T>(aGetAncestorScope(obj, ObjectType::StaticType()));
+}
+
+/// @brief 获取所有对象
+/// @details 获取所有已添加的对象
+/// @return 所有对象指针向量
+AST_UTIL_API std::vector<Object*> aGetAllObjects();
+
+
+/// @brief 打印所有对象
+/// @details 打印所有已添加的对象，包括对象名称、类型等信息
+/// @return 无
+AST_UTIL_API void aPrintAllObjects();
+
+
 /// @brief 查找对象的子对象
 /// @details 根据父对象、类指针和子对象名查找子对象
 /// @param parentScope 父对象指针
@@ -131,6 +235,15 @@ AST_UTIL_CAPI Object* aGetParentScope(Object* obj);
 /// @return 子对象指针
 AST_UTIL_API Object* aFindChild(Object* parentScope, Class* cls=nullptr, StringView name=StringView());
 
+
+template<typename T>
+T aFindChild(Object* parentScope, StringView name=StringView())
+{
+    // @todo: 这里逻辑和aobject_cast<T>的重复了，考虑怎么重构
+    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
+    static_assert(has_own_getType<ObjectType>::value, "aFindChild requires the type to has a AST_OBJECT macro");
+    return static_cast<T>(aFindChild(parentScope, ObjectType::StaticType(), name));
+}
 
 /// @brief 查找对象的子对象
 /// @details 根据父对象、类指针和子对象名查找子对象
@@ -151,10 +264,18 @@ AST_UTIL_API errc_t aFindChildren(Object* parentScope, Class* cls, StringView na
 AST_UTIL_API std::vector<Object*> aFindChildren(Object* parentScope, Class* cls=nullptr, StringView name=StringView());
 
 /// @brief 打印对象树的配置结构体
-struct PrintObjectTreeConfig {
+struct ObjectPrintConfig {
     bool printRefCount = false;  ///< 是否打印强引用计数
     bool printWeakRefCount = false;  ///< 是否打印弱引用计数
 };
+
+
+/// @brief 打印对象信息
+/// @details 打印对象的名称、类型、引用计数等信息
+/// @param obj 对象指针
+/// @param indent 缩进级别，默认为0
+/// @param config 配置结构体，默认为数
+AST_UTIL_API void aPrintObject(Object* obj, int indent=0, const ObjectPrintConfig& config = ObjectPrintConfig());
 
 
 /// @brief 打印对象树的结构
@@ -163,7 +284,7 @@ struct PrintObjectTreeConfig {
 /// @param indent 缩进级别，默认为0
 /// @param config 配置结构体，默认为不打印引用计数
 AST_UTIL_API void aPrintObjectTree(Object* root, int indent=0);
-AST_UTIL_API void aPrintObjectTree(Object* root, int indent, const PrintObjectTreeConfig& config = PrintObjectTreeConfig());
+AST_UTIL_API void aPrintObjectTree(Object* root, int indent, const ObjectPrintConfig& config = ObjectPrintConfig());
 
 /*! @} */
 

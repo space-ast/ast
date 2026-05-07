@@ -29,7 +29,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 姿态性能指标对象
+/// @brief 姿态覆盖性能指标
 class AST_SIM_API AttitudeFigureOfMerit: public FigureOfMerit
 {
 public:

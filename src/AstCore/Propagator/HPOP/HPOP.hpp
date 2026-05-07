@@ -22,6 +22,9 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Constants.h"
+#include "AstUtil/ScopedPtr.hpp"
+#include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include <string>
 #include <vector>
@@ -38,14 +41,17 @@ class HPOPEquation;
 class ODEIntegrator;
 class HPOPForceModel;
 
-/// @brief 高精度轨道预报接口类
-class AST_CORE_API HPOP
+/// @brief 高精度轨道预报器
+class AST_CORE_API HPOP: public ObjectNamed
 {
 public:
-    HPOP() = default;
+    AST_OBJECT(HPOP)
+
+    HPOP();
     ~HPOP();
 public:
     /// @brief 设置力模型
+    errc_t setForceModel(HPOPForceModel&& forcemodel);
     errc_t setForceModel(const HPOPForceModel& forcemodel);
 
     /// @brief 设置预报坐标系
@@ -69,8 +75,10 @@ public:
     /// @brief 初始化
     errc_t initialize();
 protected:
-    HPOPEquation* equation_{nullptr};               ///< 高精度轨道预报方程
-    mutable ODEIntegrator* integrator_{nullptr};    ///< 高精度轨道预报积分器
+    HPOPEquation* equation();
+protected:
+    ScopedPtr<HPOPEquation> equation_;              ///< 高精度轨道预报方程
+    mutable ScopedPtr<ODEIntegrator> integrator_;   ///< 高精度轨道预报积分器
 };
 
 

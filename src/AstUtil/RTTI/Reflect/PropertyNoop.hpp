@@ -46,6 +46,7 @@ public:
     errc_t setValueBool(void* container, bool value) override;
     errc_t getValueString(const void* container, std::string& value) override;
     errc_t setValueString(void* container, StringView value) override;
+    EValueType getValueType() const override{return EValueType::eInvalid;}
 };
 
 

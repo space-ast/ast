@@ -22,13 +22,9 @@
 
 AST_NAMESPACE_BEGIN
 
-errc_t SegmentCalculation::calculate(const Object *obj, double &result)
+errc_t SegmentCalculation::calculateNoCheckType(const Object *obj, double &result)
 {
-    const Segment* segment = dynamic_cast<const Segment*>(obj);
-    if (segment == nullptr)
-    {
-        return eErrorInvalidParam;
-    }
+    const Segment* segment = static_cast<const Segment*>(obj);
     return calculate(*segment, result);
 }
 

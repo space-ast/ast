@@ -48,7 +48,7 @@ public:
     /// @brief 获取期望的类型元信息
     /// @details Class* 类型元信息指针
     /// @return Class* 类型元信息指针
-    virtual Class* getExpectedType() const {return Object::getStaticType();};
+    virtual Class* getExpectedType() const {return Object::StaticType();};
 };
 
 

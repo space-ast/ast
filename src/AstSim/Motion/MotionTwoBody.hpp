@@ -36,6 +36,10 @@ AST_NAMESPACE_BEGIN
 class MotionTwoBody;
 using PMotionTwoBody = MotionTwoBody*;
 
+/// @brief 二体问题轨道动力学模型
+/// @details
+/// 该类封装了一个二体问题的轨道动力学模型，用于计算二体问题的轨道状态。
+/// @see MotionOrbitDynamics
 class AST_SIM_API MotionTwoBody final: public MotionOrbitDynamics
 {
 public:

@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiFilePath.hpp"
+#include "AstUtil/StringView.hpp"
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QFileDialog>
@@ -56,6 +57,11 @@ void UiFilePath::setPath(const QString& path)
     currentPath_ = path;
     lineEdit_->setText(path);
     lineEdit_->setNormal();
+}
+
+void UiFilePath::setPath(StringView path)
+{
+    setPath(QString::fromUtf8(path.data(), (int)path.size()));
 }
 
 QString UiFilePath::path() const

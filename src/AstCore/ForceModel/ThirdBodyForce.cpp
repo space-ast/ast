@@ -18,19 +18,58 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
 
 #include "AstGlobal.h"
+#include "ThirdBodyForce.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/*!
-    @addtogroup 
-    @{
-*/
 
+GravityForce& ThirdBodyForce::gravity()
+{
+    return gravity_;
+}
 
+PointMassForce& ThirdBodyForce::pointMass()
+{
+    return pointMass_;
+}
 
-/*! @} */
+BodyAttraction& ThirdBodyForce::bodyAttraction()
+{
+    if(attractionType_ == EBodyAttractionType::eGravity)
+        return gravity_;
+    else if(attractionType_ == EBodyAttractionType::ePointMass)
+        return pointMass_;
+    else
+        return pointMass_; // 默认返回点质量引力模型
+}
+
+const BodyAttraction &ThirdBodyForce::bodyAttraction() const
+{
+    return const_cast<ThirdBodyForce&>(*this).bodyAttraction();
+}
+
+EBodyAttractionType ThirdBodyForce::bodyAttractionType() const
+{
+    return attractionType_;
+}
+
+void ThirdBodyForce::setAttractionType(EBodyAttractionType type)
+{
+    attractionType_ = type;
+}
+
+CelestialBody* ThirdBodyForce::body() const
+{
+    return body_.get();
+}
+
+void ThirdBodyForce::setBody(CelestialBody* body)
+{
+    if(body)
+        body_ = body;
+}
+
 
 AST_NAMESPACE_END

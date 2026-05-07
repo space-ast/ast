@@ -19,12 +19,25 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "InitialState.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
+InitialState::InitialState()
+{
+    
+}
+
 errc_t InitialState::execute()
 {
-    return eErrorNotImplemented;
+    /*
+    auto finalState = getFinalState();
+    auto initialState = getInitialState();
+    if(finalState == nullptr || initialState == nullptr)
+        return eErrorNullPtr;
+    *finalState = *initialState;
+    */
+    return eNoError;
 }
 
 AST_NAMESPACE_END

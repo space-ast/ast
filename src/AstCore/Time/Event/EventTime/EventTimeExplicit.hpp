@@ -36,13 +36,15 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API EventTimeExplicit final: public EventTime
 {
 public:
+    AST_OBJECT(EventTimeExplicit)
+    AST_PROPERT(Time)
     static EventTimeExplicit* New(const TimePoint& time);
     static SharedPtr<EventTimeExplicit> MakeShared(const TimePoint& time);
 
     EventTimeExplicit() = default;
     explicit EventTimeExplicit(const TimePoint& time);
     ~EventTimeExplicit() override = default;
-
+PROPERTIES:
     errc_t getTime(TimePoint& time) const override;
     void setTime(const TimePoint& time);
 protected:

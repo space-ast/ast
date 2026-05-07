@@ -23,16 +23,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Missile)
 
-static bool Missile_ClassInited = (Missile::ClassInit(&Missile::staticType), true);
-
-void Missile::ClassInit(Class* cls)
-{
-    cls->setName("Missile");
-    cls->addToRegistry();
-    cls->setParent<Mover>();
-    cls->setConstructor<Missile>();
-}
 
 AST_NAMESPACE_END

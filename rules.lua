@@ -1,7 +1,6 @@
 rule("ast")
     on_load(function (target)
         if target:plat() == "wasm" then
-
             -- import("core.cache.localcache")
             -- local preloadfiles = localcache.get("rule.ast", "wasm.preloadfiles")
             -- if not preloadfiles then
@@ -14,10 +13,30 @@ rule("ast")
             --     localcache.save()
             -- end
             -- 添加wasm预加载文件
-            target:set("values", "wasm.preloadfiles", "data")
+            if is_mode("debug") then
+                target:add("ldflags", "-s ASSERTIONS=1")
+                target:add("cxflags", "-gsource-map")
+            end
+            target:set("values", "wasm.preloadfiles", "build/wasm/data")
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())
         if os.isdir(include_dir) then
             target:add("includedirs", include_dir)
+        end
+    end)
+
+    before_build(function (target)
+        if target:plat() == "wasm" then
+            if not os.exists("build/wasm/data") then
+                os.cp("data/*|Test|Dev|.git|Config|README.md|.gitignore|.gitattributes", "build/wasm/data/")
+            end
+        end
+    end)
+
+    before_clean(function (target)
+        if target:plat() == "wasm" then
+            if os.exists("build/wasm/data") then
+                os.rmdir("build/wasm/data")
+            end
         end
     end)

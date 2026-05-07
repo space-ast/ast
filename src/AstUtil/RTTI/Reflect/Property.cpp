@@ -19,7 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Property.hpp"
+#include "PropertyObject.hpp"
 #include "AstUtil/Logger.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
@@ -34,6 +36,84 @@ errc_t aFakeSet(void* container, const void* value)
     aError("setter is null");
     return eErrorNullInput;
 }
+
+double Property::getValueDouble(const void* container)
+{
+    double value = 0;
+    errc_t rc = this->getValueDouble(container, value);
+    if(rc)
+    {
+        aError("failed to get double value");
+    }
+    return value;
+}
+
+int Property::getValueInt(const void* container)
+{
+    int value = 0;
+    errc_t rc = this->getValueInt(container, value);
+    if(rc)
+    {
+        aError("failed to get int value");
+    }
+    return value;
+}
+
+bool Property::getValueBool(const void* container)
+{
+    bool value = false;
+    errc_t rc = this->getValueBool(container, value);
+    if(rc)
+    {
+        aError("failed to get bool value");
+    }
+    return value;
+}
+
+std::string Property::getValueString(const void* container)
+{
+    std::string value;
+    errc_t rc = this->getValueString(container, value);
+    if(rc)
+    {
+        aError("failed to get string value");
+    }
+    return value;
+}
+
+
+bool Property::isObject() const
+{
+    return dynamic_cast<const PropertyObject*>(this) != nullptr;
+}
+
+errc_t Property::setValueObject(void* container, Object* value)
+{
+    if(auto prop = dynamic_cast<PropertyObject*>(this))
+    {
+        return prop->setValue(container, value);
+    }
+    else
+    {
+        aError("property is not object type");
+    }
+    return eNoError;
+}
+
+errc_t Property::getValueObject(const void* container, Object*& value)
+{
+    if(auto prop = dynamic_cast<PropertyObject*>(this))
+    {
+        return prop->getValue(container, &value);
+    }
+    else
+    {
+        value = nullptr;
+        aError("property is not object type");
+    }
+    return eNoError;
+}
+
 
 
 AST_NAMESPACE_END

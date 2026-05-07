@@ -21,13 +21,16 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Struct.hpp"
+#include "AstUtil/Struct.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Object.hpp"
+#include <type_traits>
 
 AST_NAMESPACE_BEGIN
 
 class Object;
+
+
 
 /// @brief 类元信息
 /// @details 类元信息，包含类的名称、属性、方法等
@@ -36,13 +39,28 @@ class Object;
 class AST_UTIL_API Class: public Struct
 {
     typedef Object* (*FConstructor)(Object* parentScope);
+    typedef Object* (*FResolve)(StringView value);
 
 public:
+    AST_OBJECT(Class);
+
+    using Struct::Struct;
+
     /// @brief 构造函数
     /// @param parent 父类指针
     explicit Class(Class* parent = nullptr);
 
+    
     ~Class();
+
+    /// @brief 类型转换
+    /// @param obj 输入对象指针
+    /// @return Object* 转换后的对象指针
+    Object* cast(Object* obj) const;
+
+    /// @brief 检查类是否为虚类
+    /// @return 是否为虚类
+    bool isVirtual() const{return constructor_ == nullptr;}
 
     /// @brief 获取父类
     /// @return Class* 父类指针
@@ -53,7 +71,12 @@ public:
 
     /// @brief 创建新对象
     /// @return Object* 新对象指针
-    Object* NewObject(Object* parentScope) const;
+    Object* newObject(Object* parentScope) const;
+
+    /// @brief 解析字符串
+    /// @param value 字符串值
+    /// @return Object* 解析结果
+    Object* resolve(StringView value) const;
 
     /// @brief 获取默认对象
     /// @return Object* 默认对象指针
@@ -70,13 +93,17 @@ public:
     /// @param constructor 构造函数指针
     void setConstructor(FConstructor constructor){ constructor_ = constructor; }
 
+    /// @brief 设置解析函数
+    /// @param resolve 解析函数指针
+    void setResolve(FResolve resolve){ resolve_ = resolve; }
+
     /// @brief 设置父类
     /// @warning 内部使用，不建议外部调用，否则可能导致未定义行为
     /// @param T 父类类型
     template<typename T>
     void setParent()
     {
-        //setParent(T::getStaticType());
+        //setParent(T::StaticType());
         setParent(&T::staticType);
     }
 
@@ -84,16 +111,31 @@ public:
     /// @warning 内部使用，不建议外部调用，否则可能导致未定义行为
     /// @param T 构造函数类型
     template<typename T>
-    void setConstructor(){
-        setConstructor([](Object* parentScope) -> Object* { 
-            auto obj = new T(); 
-            obj->setParentScope(parentScope); 
-            return obj; 
+    typename std::enable_if<!std::is_abstract<T>::value>::type setConstructor() {
+        setConstructor([](Object* parentScope) -> Object* {
+            auto obj = new T();
+            obj->setParentScope(parentScope);
+            return obj;
         });
     }
+
+    template<typename T>
+    typename std::enable_if<std::is_abstract<T>::value>::type setConstructor() {
+        setConstructor(nullptr);
+    }
+
+    template<typename T>
+    void setResolve()
+    {
+        typedef T* (*FResolveClsSpec)(StringView value);
+        static_assert(std::is_same<decltype(&T::Resolve), FResolveClsSpec>::value, "T must have Resolve method with signature T* (StringView value)");
+        setResolve(reinterpret_cast<FResolve>(&T::Resolve));
+    }
+    
 protected:
     Class* parent_{nullptr};                       ///< 父类
     FConstructor constructor_{nullptr};            ///< 构造函数
+    FResolve resolve_{nullptr};                    ///< 解析函数
     SharedPtr<Object> defaultObject_{nullptr};     ///< 默认对象
 };
 

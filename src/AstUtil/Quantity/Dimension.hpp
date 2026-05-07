@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include <string>
+#include <array>
 
 AST_NAMESPACE_BEGIN
 
@@ -531,6 +532,10 @@ public:
         dimension_ = (EDimension)dim_set_exponent(dimension_, kIdxLuminous, n);
         return *this;
     }
+public:
+    /// @brief 分解量纲为基本量纲
+    /// @param basicDimensions 输出参数，存储分解后的基本量纲与相应指数
+    void decompose(std::array<std::pair<Dimension, int>, 8>& basicDimensions) const;
 protected:
     EDimension dimension_;
 };

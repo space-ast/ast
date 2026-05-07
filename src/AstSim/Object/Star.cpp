@@ -22,16 +22,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Star)
 
-static bool Star_ClassInited = (Star::ClassInit(&Star::staticType), true);
-
-void Star::ClassInit(Class* cls)
-{
-    cls->setName("Star");
-    cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
-    cls->setConstructor<Star>();
-}
 
 AST_NAMESPACE_END

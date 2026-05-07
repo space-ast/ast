@@ -22,16 +22,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Volumetric)
-
-static bool Volumetric_ClassInited = (Volumetric::ClassInit(&Volumetric::staticType), true);
-
-void Volumetric::ClassInit(Class* cls)
-{
-    cls->setName("Volumetric");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<Volumetric>();
-}
 
 AST_NAMESPACE_END

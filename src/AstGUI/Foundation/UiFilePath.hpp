@@ -42,6 +42,11 @@ public:
     /// @brief 设置文件路径
     /// @param path 文件路径
     void setPath(const QString& path);
+
+    /// @brief 设置文件路径
+    /// @param path 文件路径
+    void setPath(StringView path);
+
     
     /// @brief 获取文件路径
     /// @return 文件路径

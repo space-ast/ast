@@ -23,6 +23,7 @@
 #include "AstCore/BurnFinite.hpp"
 #include "AstCore/BurnImpulsive.hpp"
 #include "AstCore/BurnCollocation.hpp"
+#include "AstCore/Resolve.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstScript/Value.hpp"
 
@@ -56,11 +57,27 @@ errc_t aLoadBurnCollocation(const Value &value, BurnCollocation &burn)
 
 errc_t aLoadBurnImpulsive(const Value &value, BurnImpulsive &burn)
 {
-    const std::string type = value["Type"];
-    if(type != "Maneuver:Impulsive")
     {
-        aError("invalid type, expect 'Maneuver:Impulsive'");
-        return eErrorInvalidParam;
+        const std::string type = value["Type"];
+        if(type != "Maneuver:Impulsive")
+        {
+            aError("invalid type, expect 'Maneuver:Impulsive'");
+            return eErrorInvalidParam;
+        }
+    }
+    {
+        std::string thrustAxes = value["ThrustAxes"];
+        Axes* axes = aResolveAxes(thrustAxes);
+        burn.setAxes(axes);
+    }
+    {
+        auto& cartesian = value["Cartesian"];
+        if(!cartesian.isNull())
+        {
+            burn.setX(cartesian["X"]);
+            burn.setY(cartesian["Y"]);
+            burn.setZ(cartesian["Z"]);
+        }
     }
     return eNoError;
 }

@@ -43,7 +43,7 @@ public:
     ~Sensor() override = default;
 public:
     const std::string& getName() const override { return name_; }
-    void setName(StringView name) { name_ = std::string(name); }
+    void setName(StringView name) override { name_ = std::string(name); }
 
 public: // 从 Point 类继承的方法
     Frame* getFrame() const final;

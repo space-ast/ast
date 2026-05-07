@@ -22,16 +22,7 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Radar)
 
-static bool Radar_ClassInited = (Radar::ClassInit(&Radar::staticType), true);
 
-void Radar::ClassInit(Class* cls)
-{
-    cls->setName("Radar");
-    cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
-    cls->setConstructor<Radar>();
-}
 
 AST_NAMESPACE_END

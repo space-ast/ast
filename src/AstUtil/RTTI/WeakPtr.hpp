@@ -100,10 +100,10 @@ public:
     {
         return m_object;
     }
-    operator _Object*() const
-    {
-        return m_object;
-    }
+    // operator _Object*() const
+    // {
+    //     return get();
+    // }
     explicit operator bool() const
     {
         return !expired();

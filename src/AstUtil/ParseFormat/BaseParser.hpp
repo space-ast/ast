@@ -99,6 +99,13 @@ public: // 基础操作
     /// @return 实际读取的字节数。
     size_t read(void* buffer, size_t size, size_t pos) const;
 
+    /// @brief 读取文件内容
+    /// @details 从当前文件指针位置读取指定数量的字节到缓冲区。
+    /// @param buffer 用于存储读取内容的缓冲区。
+    /// @param size 要读取的字节数。
+    /// @return 实际读取的字节数。
+    size_t read(void* buffer, size_t size) const;
+
 public:
     /// @brief 获取当前行（包含行结束符）
     /// @details 获取当前行的内容，包含行结束符。

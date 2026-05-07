@@ -13,6 +13,7 @@ void StateKeplerian::ClassInit(Class* cls)
 {
 
     cls->setName("StateKeplerian");
+    cls->setDesc(u8R"(开普勒轨道根数状态)");
     cls->addToRegistry();
     cls->setParent<State>();
     cls->setConstructor<StateKeplerian>();

@@ -58,20 +58,22 @@ public:
 public:
     EStateType getStateType() const override { return EStateType::eCartesian; }
     errc_t getState(CartState& state) const override;
+    errc_t getState(ModOrbElem& orbElem) const override;
     errc_t setState(const CartState& state) override;
+    errc_t setState(const ModOrbElem& orbElem) override;
 PROPERTIES:
-    double x() const { return cartState_.x(); }
-    double y() const { return cartState_.y(); }
-    double z() const { return cartState_.z(); }
-    double vx() const { return cartState_.vx(); }
-    double vy() const { return cartState_.vy(); }
-    double vz() const { return cartState_.vz(); }
-    void setX(double x){ cartState_.x() = x; }
-    void setY(double y){ cartState_.y() = y; }
-    void setZ(double z){ cartState_.z() = z; }
-    void setVx(double vx){ cartState_.vx() = vx; }
-    void setVy(double vy){ cartState_.vy() = vy; }
-    void setVz(double vz){ cartState_.vz() = vz; }
+    length_d x() const { return cartState_.x(); }
+    length_d y() const { return cartState_.y(); }
+    length_d z() const { return cartState_.z(); }
+    speed_d vx() const { return cartState_.vx(); }
+    speed_d vy() const { return cartState_.vy(); }
+    speed_d vz() const { return cartState_.vz(); }
+    void setX(length_d x){ cartState_.x() = x; }
+    void setY(length_d y){ cartState_.y() = y; }
+    void setZ(length_d z){ cartState_.z() = z; }
+    void setVx(speed_d vx){ cartState_.vx() = vx; }
+    void setVy(speed_d vy){ cartState_.vy() = vy; }
+    void setVz(speed_d vz){ cartState_.vz() = vz; }
 protected:
     CartState cartState_{};
 };

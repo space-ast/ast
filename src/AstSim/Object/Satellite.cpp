@@ -23,16 +23,9 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Satellite)
-
-static bool Satellite_ClassInited = (Satellite::ClassInit(&Satellite::staticType), true);
-
-void Satellite::ClassInit(Class* cls)
+Satellite* Satellite::New()
 {
-    cls->setName("Satellite");
-    cls->addToRegistry();
-    cls->setParent<Spacecraft>();
-    cls->setConstructor<Satellite>();
+    return new Satellite();
 }
 
 AST_NAMESPACE_END

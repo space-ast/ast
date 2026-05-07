@@ -59,7 +59,8 @@ public:
 
     /// @brief 获取天体名称
     const std::string& getName() const override { return name_; }
-    void setName(StringView name) { name_ = std::string(name); }
+    const std::string& name() const { return name_; }
+    void setName(StringView name) override { name_ = std::string(name); }
     
     /// @brief 获取JPL SPICE ID
     int getJplSpiceId() const { return jplSpiceId_; }
@@ -137,7 +138,7 @@ public: // 从Point继承重写的函数
     errc_t getPos(const TimePoint& tp, Vector3d& pos) const final;
     errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const final;
 
-PROPERTIES: // 天体的形状、重力场、星历、姿态
+public: // 天体的形状、重力场、星历、姿态
 
     /// @brief 获取天体形状
     BodyShape* getShape() const { return shape_.get(); }
@@ -291,9 +292,9 @@ protected:
     int                         jplSpiceId_{-1};           ///< JPL SPICE ID
     int                         jplIndex_{-1};             ///< JPL DE Index
     GravityField                gravityField_;             ///< 重力场
-    ScopedPtr<BodyShape>        shape_;                    ///< 天体形状
-    ScopedPtr<BodyOrientation>  orientation_;              ///< 天体姿态
-    ScopedPtr<BodyEphemeris>    ephemeris_;                ///< 天体星历
+    SharedPtr<BodyShape>        shape_;                    ///< 天体形状
+    SharedPtr<BodyOrientation>  orientation_;              ///< 天体姿态
+    SharedPtr<BodyEphemeris>    ephemeris_;                ///< 天体星历
 
     SharedPtr<AxesBodyInertial> axesInertial_;             ///< 天体惯性轴
     SharedPtr<AxesBodyFixed>    axesFixed_;                ///< 天体固定轴

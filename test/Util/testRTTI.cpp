@@ -52,9 +52,12 @@ TEST_F(RTTITest, NewObject)
     aGetAllClassNames(classNames);
     for(auto className: classNames)
     {
-        printf("test for className: %s\n", className.c_str());
-        auto obj = aMakeObject(className);
-        EXPECT_TRUE(obj != nullptr);
+        bool isVirtual = aIsVirtualClass(className);
+        if(!isVirtual){
+            printf("test for className: %s\n", className.c_str());
+            auto obj = aMakeObject(className);
+            EXPECT_TRUE(obj != nullptr);
+        }
     }
 }
 
@@ -64,9 +67,12 @@ TEST_F(RTTITest, ClassDefaultObject)
     aGetAllClassNames(classNames);
     for(auto className: classNames)
     {
-        printf("test for className: %s\n", className.c_str());
-        auto obj = aGetClassDefaultObject(className);
-        EXPECT_TRUE(obj != nullptr);
+        bool isVirtual = aIsVirtualClass(className);
+        if(!isVirtual){
+            printf("test for className: %s\n", className.c_str());
+            auto obj = aGetClassDefaultObject(className);
+            EXPECT_TRUE(obj != nullptr);
+        }
     }
 }
 

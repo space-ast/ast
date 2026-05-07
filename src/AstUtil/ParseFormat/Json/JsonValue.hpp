@@ -30,14 +30,14 @@ AST_NAMESPACE_BEGIN
 
 /// @brief JSON 值类型枚举
 /// @ingroup ParseFormat
-enum class JsonValueType
+enum class EJsonValueType
 {
-    Null,      ///< null 值
-    Boolean,   ///< 布尔值
-    Number,    ///< 数值
-    String,    ///< 字符串
-    Array,     ///< 数组
-    Object     ///< 对象
+    eNull,      ///< null 值
+    eBool,      ///< 布尔值
+    eNumber,    ///< 数值
+    eString,    ///< 字符串
+    eArray,     ///< 数组
+    eObject     ///< 对象
 };
 
 /// @brief JSON 值类
@@ -46,6 +46,16 @@ enum class JsonValueType
 class AST_UTIL_API JsonValue
 {
 public:
+    /// @brief 从字符串构造 JSON 值
+    /// @param json JSON 字符串
+    /// @return JSON 值
+    static JsonValue FromString(StringView json);
+
+    /// @brief 从文件构造 JSON 值
+    /// @param filePath JSON 文件路径
+    /// @return JSON 值
+    static JsonValue FromFile(const StringView filePath);
+
     /// @brief 默认构造函数，创建 null 值
     JsonValue();
     
@@ -114,7 +124,7 @@ public:
     
     /// @brief 获取值类型
     /// @return JSON 值类型
-    JsonValueType type() const;
+    EJsonValueType type() const;
     
     /// @brief 判断是否为 null 值
     /// @return 如果是 null 值返回 true，否则返回 false
@@ -122,7 +132,7 @@ public:
     
     /// @brief 判断是否为布尔值
     /// @return 如果是布尔值返回 true，否则返回 false
-    bool isBoolean() const;
+    bool isBool() const;
     
     /// @brief 判断是否为数值
     /// @return 如果是数值返回 true，否则返回 false
@@ -170,6 +180,8 @@ public:
     /// @return 对象引用，如果类型不匹配返回默认值
     const std::map<std::string, JsonValue>& getObject(const std::map<std::string, JsonValue>& defaultValue = std::map<std::string, JsonValue>()) const;
     
+    /// @brief 获取数组或对象的元素数量
+    size_t size() const;
     
     /// @brief 转换为布尔值运算符
     /// @return 布尔值，null 值返回 false，数值非零返回 true，字符串非空返回 true
@@ -192,11 +204,14 @@ public:
     /// @param index 数组索引
     /// @return 对应索引的 JSON 值引用，如果类型不匹配或索引越界返回空值
     JsonValue& operator[](size_t index);
+    JsonValue& operator[](int index);
     
     /// @brief 数组下标运算符（常量版本）
     /// @param index 数组索引
     /// @return 对应索引的 JSON 值常量引用，如果类型不匹配或索引越界返回空值
     const JsonValue& operator[](size_t index) const;
+    const JsonValue& operator[](int index) const;
+
     
     /// @brief 对象下标运算符
     /// @param key 对象键
@@ -215,7 +230,7 @@ public:
     
     /// @brief 设置布尔值
     /// @param value 布尔值
-    void setBoolean(bool value);
+    void setBool(bool value);
     
     /// @brief 设置整数值
     /// @param value 整数值
@@ -227,19 +242,15 @@ public:
     
     /// @brief 设置字符串值
     /// @param value 字符串值
-    void setString(const std::string& value);
-    
-    /// @brief 设置字符串值
-    /// @param value 字符串值
-    void setString(const char* value);
+    void setString(StringView value);
     
     /// @brief 设置数组值
     /// @param values JSON 值数组
-    void setArray(const std::vector<JsonValue>& values);
+    void setArray(const std::vector<JsonValue>& values={});
     
     /// @brief 设置对象值
     /// @param values JSON 对象（键值对映射）
-    void setObject(const std::map<std::string, JsonValue>& values);
+    void setObject(const std::map<std::string, JsonValue>& values={});
     
     /// @brief 清空值
     void clear();
@@ -257,14 +268,36 @@ public:
     {
         return insert(name, JsonValue(value));
     }
+
+    /// @brief 插入键值对（模板重载）
+    /// @param index 数组索引
+    /// @param value 键值
+    void append(JsonValue value);
+
+    /// @brief 插入键值对（模板重载）
+    /// @param index 数组索引
+    /// @param value 键值
+    template<typename T>
+    void append(T value)
+    {
+        return append(JsonValue(value));
+    }
     
     /// @brief 转换为 JSON 字符串表示
     /// @return JSON 值的字符串表示
     std::string toJsonString(int indent = 0) const;
     
+    /// @brief 解析 JSON 字符串
+    /// @param json JSON 字符串
+    /// @return 解析结果
+    errc_t parseFromString(StringView json);
 
+    /// @brief 解析 JSON 文件
+    /// @param filepath JSON 文件路径
+    /// @return 解析结果
+    errc_t parseFromFile(StringView filepath);
 private:
-    JsonValueType type_;  ///< 值类型
+    EJsonValueType type_;  ///< 值类型
     
     union
     {
@@ -287,5 +320,15 @@ private:
     /// @return 格式化的字符串
     std::string formatString(int indent, int indentSize) const;
 };
+
+
+/// @brief 字符串字面量操作符（JSON 格式）
+/// @param str JSON 字符串
+/// @param len 字符串长度
+/// @return JSON 值
+inline JsonValue operator ""_json(const char* str, size_t len)
+{
+    return JsonValue::FromString(StringView(str, len));
+}
 
 AST_NAMESPACE_END

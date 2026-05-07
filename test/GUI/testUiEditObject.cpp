@@ -37,7 +37,7 @@ TEST(UiEditObject, Test)
         printf("test for className: %s\n", name.c_str());
         auto obj = aMakeObject(name);
         EXPECT_TRUE(obj);
-        EXPECT_EQ(obj->openEditDialog(), 0);
+        EXPECT_EQ(obj->showEditDialog(), 0);
     }
 
     aGetAllClassNames(names);
@@ -46,7 +46,7 @@ TEST(UiEditObject, Test)
         printf("test for className: %s\n", name.c_str());
         auto obj = aMakeObject(name);
         EXPECT_TRUE(obj);
-        EXPECT_EQ(obj->openEditDialog(), 0);
+        EXPECT_EQ(obj->showEditDialog(), 0);
     }
 }
 

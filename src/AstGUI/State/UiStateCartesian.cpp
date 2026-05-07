@@ -138,7 +138,7 @@ void UiStateCartesian::refreshUi()
         velZEdit_->setQuantity(Quantity(state->vz(), m / s));
         
         // 设置轨道历元
-        TimePoint timePoint = state->getStateEpoch();
+        TimePoint timePoint = state->getStateEpoch_TimePoint();
         epochEdit_->setTimePoint(timePoint);
 
         // 这里可以添加代码，设置坐标系等其他属性

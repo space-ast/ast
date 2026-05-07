@@ -28,6 +28,8 @@
 
 AST_NAMESPACE_BEGIN
 
+class Value;
+
 /// @brief 变量
 /// @details
 /// 变量是脚本语言中的基本元素，表示存储数据的命名位置
@@ -37,7 +39,11 @@ AST_NAMESPACE_BEGIN
 class AST_SCRIPT_API Variable: public Expr
 {
 public:
-    AST_EXPR(Variable)
+    AST_OBJECT(Variable)
+    AST_PROPERT(value)
+    AST_EXPR_EXTRA(Variable)
+
+    static Variable* New();
     
     Variable(StringView name, Expr* expr=nullptr, bool bind = false);
     Variable(Expr* expr=nullptr, bool bind = false);
@@ -56,6 +62,50 @@ public:
     /// @return 错误码
     errc_t setExpr(Expr* expr);
 
+    /// @brief 设置变量的表达式为双向绑定
+    /// @param expr 要设置的表达式
+    /// @return 错误码
+    errc_t setBindExpr(Expr* expr);
+
+    /// @brief 设置变量的表达式
+    /// @param value 要设置的值
+    /// @return 错误码
+    errc_t setExpr(Value* value);
+
+    /// @brief 设置变量的表达式
+    /// @param value 要设置的字符串
+    /// @return 错误码
+    errc_t setExpr(StringView value);
+
+    /// @brief 设置变量的表达式
+    /// @param value 要设置的字符串
+    /// @return 错误码
+    errc_t setExpr(const std::string& value);
+
+    /// @brief 设置变量的表达式
+    /// @param quantity 要设置的数量
+    /// @return 错误码
+    errc_t setExpr(const Quantity& quantity);
+
+    /// @brief 设置变量的表达式
+    /// @param value 要设置的浮点数
+    /// @return 错误码
+    errc_t setExpr(double value);
+
+    /// @brief 设置变量的表达式
+    /// @param value 要设置的整数
+    /// @return 错误码
+    errc_t setExpr(int value);
+
+    /// @brief 设置变量的表达式
+    /// @param value 要设置的布尔值
+    /// @return 错误码
+    errc_t setExpr(bool value);
+
+    // 通过模板捕获所有其他类型并删除，防止隐式转换为 `bool` 类型
+    template<typename T>
+    errc_t setExpr(T value) = delete;
+    
     /// @brief 绑定变量到表达式
     /// @param expr 要绑定的表达式
     /// @return 错误码
@@ -68,8 +118,12 @@ public:
     std::string getExpression(Object* context=nullptr) const override{return name_;}
 public:
     const std::string& name() const { return name_; }
+    const std::string& getName() const override { return name_; }
+    void setName(StringView name) override { name_ = std::string(name); }
     Expr* expr() const { return expr_.get(); }
-    
+PROPERTIES:
+    std::string value() const;
+    errc_t setValue(StringView value);
 protected:
     std::string name_;            ///< 变量的名称
     SharedPtr<Expr> expr_;        ///< 变量的值，或者绑定的表达式

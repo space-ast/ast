@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstCore/State.hpp"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,13 +32,34 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 空间飞行器状态量
-class SpacecraftState: public Object
+/// @brief 航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性
+/// @details 参考orekit的SpacecraftState类
+class AST_CORE_API SpacecraftState: public ObjectNamed
 {
 public:
+    AST_OBJECT(SpacecraftState)
+    AST_PROPERT(Mass)
+    AST_PROPERT(FuelMass)
+    AST_PROPERT(DryMass)
+    AST_PROPERT(Cd)
+    AST_PROPERT(Cr)
+    AST_PROPERT(DragArea)
+    AST_PROPERT(SRPArea)
+    AST_PROPERT(K1)
+    AST_PROPERT(K2)
+    AST_PROPERT(FuelDensity)
+    AST_PROPERT(RadPressureArea)
+    AST_PROPERT(RadPressureCoeff)
+    AST_PROPERT(TankPressure)
+    AST_PROPERT(TankTemperature)
+    AST_PROPERT(OrbitState)
+;
+ 
+    static SpacecraftState* NewDefault();
+    
     SpacecraftState() = default;
     ~SpacecraftState() = default;
-public:
+PROPERTIES:
     /// @brief 获取质量
     /// @return 质量
     double getMass() const{return fuelMass_ + dryMass_;}
@@ -86,12 +108,24 @@ public:
 
     /// @brief 获取轨道状态
     /// @return 轨道状态
-    const State* getOrbitState() const{return orbitState_;}
+    State* getOrbitState() const;
 
     /// @brief 设置轨道状态
     /// @param orbitState 轨道状态
     void setOrbitState(State* orbitState){orbitState_ = orbitState;}
-protected:
+public:
+    Frame* getFrame() const;
+    errc_t getState(ModOrbElem& orbElem) const;
+    errc_t getState(CartState& state) const;
+    errc_t getStateIn(Frame* frame, CartState& state) const;
+    errc_t getStateIn(Frame* frame, ModOrbElem& orbElem) const;
+    errc_t getStateInBodyInertial(Body* body, CartState& state) const;
+    errc_t setState(const ModOrbElem& orbElem);
+    errc_t setState(const CartState& state);
+    void setStateEpoch(const TimePoint& stateEpoch);
+    errc_t getStateEpoch(TimePoint& stateEpoch) const;
+    void copyFrom(const SpacecraftState& srcState);
+private:
     HState orbitState_;                 ///< 轨道状态
     double cd_{2.2};
     double cr_{1};                     

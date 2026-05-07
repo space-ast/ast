@@ -47,12 +47,12 @@ ValDict *Value::toValDict() const
     return nullptr;
 }
 
-static ValueMapType emptyMap;
+static NamedValueVector emptyMap;
 
-const ValueMapType& Value::items() const
+const NamedValueVector& Value::items() const
 {
     if(auto dict = toValDict())
-        return dict->getMap();
+        return dict->getMap().items();
     return emptyMap;
 }
 
@@ -97,16 +97,46 @@ const Value& Value::operator[](const char* name) const
 
 Value& Value::operator[](size_t index)
 {
+    // todo: 实现数组索引
     return NullValue();
 }
+
 const Value& Value::operator[](size_t index) const
 {
+    // todo: 实现数组索引
     return NullValue();
 }
+
 bool Value::isNull() const
 {
     return getType() == &ValNull::staticType;
 }
+
+bool Value::isBool() const
+{
+    return aValueIsBool(const_cast<Value*>(this));
+}
+
+bool Value::isInt() const
+{
+    return aValueIsInt(const_cast<Value*>(this));
+}
+
+bool Value::isDouble() const
+{
+    return aValueIsDouble(const_cast<Value*>(this));
+}
+
+bool Value::isQuantity() const
+{
+    return aValueIsQuantity(const_cast<Value*>(this));
+}
+
+bool Value::isString() const
+{
+    return aValueIsString(const_cast<Value*>(this));
+}
+
 std::string Value::toString() const
 {
     auto value = const_cast<Value*>(this);
@@ -123,6 +153,16 @@ std::string Value::toString() const
         return aFormatBool(static_cast<ValBool*>(value)->value());
     }
     return getExpression();
+}
+
+
+Quantity Value::toQuantity() const
+{
+    auto value = const_cast<Value*>(this);
+    if(aValueIsQuantity(value)){
+        return static_cast<ValQuantity*>(value)->quantity();
+    }
+    return Quantity(toDouble());
 }
 
 double Value::toDouble() const
@@ -204,6 +244,10 @@ bool Value::toBool() const
 Value::operator std::string() const
 {
     return toString();
+}
+Value::operator Quantity() const
+{
+    return toQuantity();
 }
 Value::operator double() const
 {

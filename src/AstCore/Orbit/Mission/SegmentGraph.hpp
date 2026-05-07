@@ -32,9 +32,12 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief 轨道段框图，用类似simulink的框图描述复杂、多航天的航天任务中的轨道任务段
 class AST_CORE_API SegmentGraph: public Segment
 {
 public:
+    AST_OBJECT(SegmentGraph)
+
     SegmentGraph() = default;
     ~SegmentGraph() override = default;
 public:

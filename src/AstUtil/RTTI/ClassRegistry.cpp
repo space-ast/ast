@@ -22,7 +22,7 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/StringUtil.hpp"
 #include "AstUtil/Class.hpp"
-
+#include "AstUtil/Logger.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -35,7 +35,7 @@ ClassRegistry *ClassRegistry::Instance()
 
 Class *ClassRegistry::getClass(StringView name) const
 {
-    std::string nameStr = aAsciiStrToLower(name);
+    std::string nameStr(name); // = aAsciiStrToLower(name);
     auto it = classMap_.find(nameStr);
     if(it != classMap_.end())
         return it->second;
@@ -47,23 +47,25 @@ void ClassRegistry::getAllClassNames(std::vector<std::string> &names) const
     names.clear();
     names.reserve(classMap_.size());
     for(auto &it : classMap_){
-        if(it.second)
-            names.push_back(it.second->name());
+        if(!it.first.empty())
+            names.push_back(it.first);
     }
 }
 
 void ClassRegistry::registerClass(Class *cls)
 {
-    if(!cls)
-        return;
-    registerClass(cls->name(), cls);
+    registerClass(cls, cls->name());
 }
 
-void ClassRegistry::registerClass(StringView name, Class *cls)
+void ClassRegistry::registerClass(Class *cls, StringView name)
 {
     if(!cls)
+    {
+        aWarning("failed to register class, cls is nullptr");
         return;
-    std::string nameStr = aAsciiStrToLower(name);
+    }
+    //std::string nameStr = aAsciiStrToLower(name);
+    std::string nameStr = std::string(name);
     classMap_[nameStr] = cls;
 }
 

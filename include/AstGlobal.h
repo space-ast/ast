@@ -247,6 +247,15 @@
 #define AST_LOADER_CAPI A_DECL_EXTERN_C AST_LOADER_API
 
 
+// ast项目AI模块导出声明
+#ifdef AST_BUILD_LIB_AI
+#    define AST_AI_API A_DECL_EXPORT
+#else
+#    define AST_AI_API A_DECL_IMPORT
+#endif
+#define AST_AI_CAPI A_DECL_EXTERN_C AST_AI_API
+
+
 
 #ifndef AST_PROJECT_NAME
 #   define AST_PROJECT_NAME "ast"
@@ -303,6 +312,7 @@ typedef int errc_t;           ///< 错误码类型(error code type)
 typedef double ImpreciseJD;  ///< 儒略日(注意单个double的数值精度不够)
 typedef double ImpreciseMJD; ///< 简约儒略日(注意单个double的数值精度不够)
 typedef uint32_t color_t;    ///< 颜色值
+typedef uint32_t ObjectId;   ///< 对象ID
 typedef double real_t;       ///< 实数类型
 typedef void* ptr_t;         ///< 指针类型
 
@@ -340,15 +350,28 @@ class Quaternion;            ///< 四元数
 class Euler;                 ///< 欧拉角
 
 class CartState;             ///< 直角坐标
+class ModOrbElem;            ///< 改进轨道根数
+class OrbElem;               ///< 经典轨道根数
+
+class State;
+class StateCartesian;
+class StateKeplerian;
+class SpacecraftState;
 
 class Object;                ///< 对象
 class Class;                 ///< 类
+class Property;              ///< 属性
 using Type = Class;          ///< 类型
 
 class TimePoint;            ///< 时间点
 class TimeInterval;         ///< 时间段
 class JulianDate;           ///< 儒略日
 class ModJulianDate;        ///< 简约儒略日
+
+class Rotation;              ///< 旋转
+class Transform;             ///< 变换
+class KinematicRotation;     ///< 动力学旋转
+class KinematicTransform;    ///< 动力学变换
 
 class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴
@@ -365,6 +388,7 @@ class Expr;                 ///< 表达式
 class Variable;             ///< 变量
 
 class BKVParser;            ///< BKV解析器
+class JsonValue;            ///< JSON值
 
 class Dimension;            ///< 量纲
 class Unit;                 ///< 单位

@@ -32,6 +32,7 @@ AST_NAMESPACE_BEGIN
 class AST_MATH_API RKF56 : public ODEVarStepIntegrator
 {
 public:
+    AST_OBJECT(RKF56);
     errc_t initialize(ODE& ode) final;
     
     errc_t singleStep(ODE& ode, double* y, double t0, double step) final;

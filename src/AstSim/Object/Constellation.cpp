@@ -22,16 +22,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Constellation)
-
-static bool Constellation_ClassInited = (Constellation::ClassInit(&Constellation::staticType), true);
-
-void Constellation::ClassInit(Class* cls)
-{
-    cls->setName("Constellation");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<Constellation>();
-}
 
 AST_NAMESPACE_END

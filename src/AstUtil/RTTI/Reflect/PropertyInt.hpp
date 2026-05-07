@@ -33,6 +33,7 @@ class AST_UTIL_API PropertyInt: public Property
 {
 public:
     using Property::Property;
+    using Property::getValue;
     using InputType = int;
     using OutputType = int;
     errc_t getValueBool(const void* container, bool& value) override;
@@ -43,7 +44,8 @@ public:
     errc_t setValueString(void* container, StringView value) override;
     errc_t getValueDouble(const void* container, double& value) override;
     errc_t setValueDouble(void* container, double value) override;
-    
+    EValueType getValueType() const override{return EValueType::eInt;}
+
     /// @brief 接受访问者
     /// @param visitor 访问者对象
     /// @param container 容器对象指针

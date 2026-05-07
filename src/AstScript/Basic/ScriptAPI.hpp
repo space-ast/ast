@@ -33,9 +33,13 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+#define AST_EXPR_EXTRA(CLASS) \
+    void accept(ExprVisitor& visitor) override{visitor.visit(*this);};
+
+
 #define AST_EXPR(CLASS) \
     AST_OBJECT(CLASS)\
-    void accept(ExprVisitor& visitor) override{visitor.visit(*this);};
+    AST_EXPR_EXTRA(CLASS)
 
 enum EOpBinType{
     eAdd,       ///< 加法

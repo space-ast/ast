@@ -20,6 +20,7 @@
 
 #include "AstUtil/ObjectManager.hpp"
 #include "AstUtil/RTTIAPI.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "AstTest/Test.h"
 
 AST_USING_NAMESPACE
@@ -35,14 +36,14 @@ TEST(ObjectManagerTest, MaxObjectCount)
     // 测试添加对象到最大数量
     for(uint32_t i = 0; i < maxCount; i++)
     {
-        Object *obj = new Object();
+        ObjectNamed *obj = new ObjectNamed();
         uint32_t id = aAddObject(obj);
         objectList[i] = obj;
         EXPECT_TRUE(id != INVALID_ID);
     }
     // 测试添加对象到最大数量后，再添加对象
     {
-        SharedPtr<Object> obj_sp = new Object();
+        SharedPtr<Object> obj_sp = new ObjectNamed();
         uint32_t id = aAddObject(obj_sp);
         EXPECT_TRUE(id == INVALID_ID);
     }
@@ -50,7 +51,7 @@ TEST(ObjectManagerTest, MaxObjectCount)
     {
         SharedPtr<Object> obj_sp = objectList[73];
         obj_sp = nullptr;
-        Object* obj = new Object();
+        Object* obj = new ObjectNamed();
         uint32_t id = aAddObject(obj);
         EXPECT_TRUE(id != INVALID_ID);
     }

@@ -22,7 +22,7 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Variable)
+// _AST_IMPL_OBJECT(Variable)
 _AST_IMPL_OBJECT(ValInt)
 _AST_IMPL_OBJECT(ValDouble)
 _AST_IMPL_OBJECT(ValBool)
@@ -46,6 +46,9 @@ _AST_IMPL_OBJECT(ExprCatHorizontal)
 _AST_IMPL_OBJECT(ExprCatVertical)
 _AST_IMPL_OBJECT(ExprCall)
 _AST_IMPL_OBJECT(ExprMacroExpand)
+_AST_IMPL_OBJECT(ExprAttribute)
+_AST_IMPL_OBJECT(ExprCalculation)
+_AST_IMPL_OBJECT(ValNamedVector)
 
 
 

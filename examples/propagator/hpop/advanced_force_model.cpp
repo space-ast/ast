@@ -28,15 +28,15 @@ int main()
     HPOPForceModel force_model;
     
     // 1. 配置地球重力场 (JGM3模型)
-    force_model.gravity_.model_ = "JGM3";  // 使用JGM3重力场模型
-    force_model.gravity_.maxDegree_ = 4;     // 阶数
-    force_model.gravity_.maxOrder_ = 0;     // 次数
+    force_model.gravity().model_ = "JGM3";  // 使用JGM3重力场模型
+    force_model.gravity().maxDegree_ = 4;     // 阶数
+    force_model.gravity().maxOrder_ = 0;     // 次数
     
     // 2. 配置大气阻力模型
-    force_model.useDrag_ = true;         // 启用大气阻力
+    force_model.useDrag(true);         // 启用大气阻力
     
     // 3. 配置第三体引力 (太阳和月球)
-    force_model.useMoonGravity_ = true;  // 启用月球引力
+    force_model.useMoonGravity(true);  // 启用月球引力
     
     // 设置力模型
     errc_t result = hpop.setForceModel(force_model);
@@ -54,10 +54,10 @@ int main()
     
     std::cout << "HPOP初始化成功" << std::endl;
     std::cout << "力模型配置:" << std::endl;
-    std::cout << "- 重力场: " << force_model.gravity_.model_ 
-              << " (阶数=" << force_model.gravity_.maxDegree_ << ", 次数=" << force_model.gravity_.maxOrder_ << ")" << std::endl;
-    std::cout << "- 大气阻力: " << (force_model.useDrag_ ? "启用" : "禁用") << std::endl;
-    std::cout << "- 月球引力: " << (force_model.useMoonGravity_ ? "启用" : "禁用") << std::endl;
+    std::cout << "- 重力场: " << force_model.gravity().model_ 
+              << " (阶数=" << force_model.gravity().maxDegree_ << ", 次数=" << force_model.gravity().maxOrder_ << ")" << std::endl;
+    std::cout << "- 大气阻力: " << (force_model.useDrag() ? "启用" : "禁用") << std::endl;
+    std::cout << "- 月球引力: " << (force_model.useMoonGravity() ? "启用" : "禁用") << std::endl;
     std::cout << std::endl;
     
     // 设置初始轨道状态 (低地球轨道)

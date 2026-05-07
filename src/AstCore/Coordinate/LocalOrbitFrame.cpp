@@ -21,6 +21,9 @@
 #include "LocalOrbitFrame.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstMath/Matrix.hpp"
+#include "AstMath/Rotation.hpp"
+#include "AstMath/KinematicRotation.hpp"
+#include "AstMath/KinematicTransform.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -102,11 +105,21 @@ errc_t aFrameToVNCMatrix(const Vector3d &posInFrame, const Vector3d &velInFrame,
     }
 }
 
+errc_t aFrameToVNCTransform(const Vector3d &posInFrame, const Vector3d &velInFrame, Rotation &rotation)
+{
+    return aFrameToVNCMatrix(posInFrame, velInFrame, rotation.getMatrix());
+}
+
 errc_t aVNCToFrameMatrix(const Vector3d &posInFrame, const Vector3d &velInFrame, Matrix3d &matrix)
 {
     errc_t rc = aFrameToVNCMatrix(posInFrame, velInFrame, matrix);
     matrix.transposeInPlace();
     return rc;
+}
+
+errc_t aVNCToFrameTransform(const Vector3d &posInFrame, const Vector3d &velInFrame, Rotation &rotation)
+{
+    return aVNCToFrameMatrix(posInFrame, velInFrame, rotation.getMatrix());
 }
 
 AST_NAMESPACE_END

@@ -33,6 +33,8 @@ AST_NAMESPACE_BEGIN
 class AST_MATH_API ODEFixedStepIntegrator : public ODEIntegrator
 {
 public:
+    AST_OBJECT(ODEFixedStepIntegrator);
+
     class Workspace;
     ODEFixedStepIntegrator();
     ~ODEFixedStepIntegrator();

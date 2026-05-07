@@ -125,6 +125,8 @@ namespace fs_simple
             return name.substr(pos);
         }
 
+        /// @brief 获取文件名的无扩展名部分
+        /// @return 提取路径中最后一个文件名的主干部分（即去掉扩展名后的文件名）
         path stem() const
         {
             auto name = filename().native();

@@ -94,7 +94,7 @@ public:
     Vector3d getSouth() const;
 
 public:
-    LatLonAlt latLonAlt_;  ///< 纬度、经度、高度坐标
+    LatLonAlt latLonAlt_{};  ///< 纬度、经度、高度坐标
 };
 
 inline Vector3d GeoCoordinate::getZenith() const

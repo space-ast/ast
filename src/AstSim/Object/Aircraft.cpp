@@ -23,16 +23,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Aircraft)
 
-static bool Aircraft_ClassInited = (Aircraft::ClassInit(&Aircraft::staticType), true);
-
-void Aircraft::ClassInit(Class* cls)
-{
-    cls->setName("Aircraft");
-    cls->addToRegistry();
-    cls->setParent<Mover>();
-    cls->setConstructor<Aircraft>();
-}
 
 AST_NAMESPACE_END

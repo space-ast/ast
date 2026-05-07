@@ -25,7 +25,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(MotionBallistic)
 
 MotionBallistic *MotionBallistic::New()
 {

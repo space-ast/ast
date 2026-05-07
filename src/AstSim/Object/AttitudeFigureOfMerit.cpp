@@ -20,17 +20,6 @@
 #include "AttitudeFigureOfMerit.hpp"
 
 AST_NAMESPACE_BEGIN
-_AST_IMPL_OBJECT(AttitudeFigureOfMerit)
-
-static bool AttitudeFigureOfMerit_ClassInited = (AttitudeFigureOfMerit::ClassInit(&AttitudeFigureOfMerit::staticType), true);
-
-void AttitudeFigureOfMerit::ClassInit(Class* cls)
-{
-    cls->setName("AttitudeFigureOfMerit");
-    cls->addToRegistry();
-    cls->setParent<FigureOfMerit>();
-    cls->setConstructor<AttitudeFigureOfMerit>();
-}
 
 
 AST_NAMESPACE_END

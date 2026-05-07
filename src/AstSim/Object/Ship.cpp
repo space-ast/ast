@@ -23,16 +23,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Ship)
 
-static bool Ship_ClassInited = (Ship::ClassInit(&Ship::staticType), true);
-
-void Ship::ClassInit(Class* cls)
-{
-    cls->setName("Ship");
-    cls->addToRegistry();
-    cls->setParent<Mover>();
-    cls->setConstructor<Ship>();
-}
 
 AST_NAMESPACE_END

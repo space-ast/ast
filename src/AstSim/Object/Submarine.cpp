@@ -23,16 +23,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Submarine)
 
-static bool Submarine_ClassInited = (Submarine::ClassInit(&Submarine::staticType), true);
-
-void Submarine::ClassInit(Class* cls)
-{
-    cls->setName("Submarine");
-    cls->addToRegistry();
-    cls->setParent<Mover>();
-    cls->setConstructor<Submarine>();
-}
 
 AST_NAMESPACE_END

@@ -13,6 +13,7 @@ void MotionTwoBody::ClassInit(Class* cls)
 {
 
     cls->setName("MotionTwoBody");
+    cls->setDesc(u8R"(二体问题轨道动力学模型)");
     cls->addToRegistry();
     cls->setParent<MotionOrbitDynamics>();
     cls->setConstructor<MotionTwoBody>();

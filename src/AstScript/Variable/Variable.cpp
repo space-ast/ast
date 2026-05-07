@@ -20,8 +20,18 @@
 
 #include "Variable.hpp"
 #include "AstScript/Value.hpp"
+#include "AstUtil/ParseFormat.hpp"
+#include "AstUtil/QuantityParser.hpp"
+#include "AstUtil/Quantity.hpp"
+#include "AstUtil/UnitManager.hpp"
 
 AST_NAMESPACE_BEGIN
+
+
+Variable* Variable::New()
+{
+    return new Variable();
+}
 
 
 Variable::Variable(StringView name, Expr *expr, bool bind)
@@ -62,11 +72,100 @@ errc_t Variable::setExpr(Expr *expr)
     return eNoError;
 }
 
+errc_t Variable::setBindExpr(Expr *expr)
+{
+    expr_ = expr;
+    bind_ = true;
+    return eNoError;
+}
+
+errc_t Variable::setExpr(Value* value)
+{
+    return setValue(const_cast<Value*>(value));
+}
+
+errc_t Variable::setExpr(StringView value)
+{
+    return setExpr(aNewValue(value));
+}
+
+errc_t Variable::setExpr(const std::string& value)
+{
+    return setExpr(aNewValue(value));
+}
+
+errc_t Variable::setExpr(const Quantity& quantity)
+{
+    return setExpr(aNewValue(quantity));
+}
+
+errc_t Variable::setExpr(double value)
+{
+    return setExpr(aNewValue(value));
+}
+
+errc_t Variable::setExpr(int value)
+{
+    return setExpr(aNewValue(value));
+}
+
+errc_t Variable::setExpr(bool value)
+{
+    return setExpr(aNewValue(value));
+}
+
 errc_t Variable::bind(Expr *expr)
 {
     expr_ = expr;
     bind_ = true;
     return eNoError;
+}
+
+std::string Variable::value() const
+{
+    SharedPtr<Value> value = eval();
+    if(value){
+        return value->toString();
+    }
+    return {};
+}
+
+errc_t Variable::setValue(StringView value)
+{
+    SharedPtr<Value> val = eval();
+    if(val)
+    {
+        if(val->isQuantity())
+        {
+            Quantity quantityNew;
+            aQuantityParse(value, quantityNew);
+            if(quantityNew.dimension() == EDimension::eUnit)
+            {
+                Quantity quantityOld = val->toQuantity();
+                if(quantityOld.dimension() != EDimension::eUnit)
+                {
+                    if(auto punit = aUnitGetSI(quantityOld.dimension()))
+                    {
+                        quantityNew.setUnit(*punit);
+                    }
+                }
+            }
+            return this->setValue(aNewValue(quantityNew));
+        }
+        else if(val->isDouble())
+        {
+            return this->setValue(aNewValue(aParseDouble(value)));
+        }
+        else if(val->isInt())
+        {
+            return this->setValue(aNewValue(aParseInt(value)));
+        }
+        else if(val->isBool())
+        {
+            return this->setValue(aNewValue(aParseBool(value)));
+        }
+    }
+    return setValue(aNewValue(value));
 }
 
 AST_NAMESPACE_END

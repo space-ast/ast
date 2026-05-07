@@ -21,6 +21,7 @@
 #include "Unit.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ParseFormat.hpp"
+#include "UnitParser.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -398,6 +399,15 @@ void aUnitFactorize(const Unit &unit, Unit &newUnit, double &scale)
 void aUnitFactorize(Unit &unit, double &scale)
 {
     aUnitFactorize(unit, unit, scale);
+}
+
+Unit::Unit(StringView name)
+{
+    errc_t err = aUnitParse(name, *this);
+    if(err != 0)
+    {
+        aError("failed to parse unit: %.*s", name.size(), name.data());
+    }
 }
 
 Unit Unit::Scale(double scale)

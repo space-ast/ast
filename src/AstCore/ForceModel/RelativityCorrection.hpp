@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "ForceModel.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,6 +30,12 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief 相对论修正模型
+class RelativityCorrection: public ForceModel
+{
+public:
+    
+};
 
 
 /*! @} */

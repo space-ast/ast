@@ -58,7 +58,7 @@ TEST_F(StateTest, ChangeFrameBasic)
         
         auto icrfFrame = earth->makeFrame(aAxesICRF());
         auto todFrame = earth->makeFrame(aAxesTOD());
-        rc = cartState->setState({6678137_m, 0.0, 0.0, 0.0, 6789.5_m/s, 3686.4_m/s});
+        rc = cartState->setState(CartState{6678137_m, 0.0, 0.0, 0.0, 6789.5_m/s, 3686.4_m/s});
         EXPECT_EQ(rc, 0);
         cartState->setStateEpoch(TimePoint::FromUTC(2026, 3, 15, 0, 0, 0));
         cartState->setFrame(icrfFrame);

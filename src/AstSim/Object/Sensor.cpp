@@ -23,17 +23,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Sensor)
-
-static bool Sensor_ClassInited = (Sensor::ClassInit(&Sensor::staticType), true);
-
-void Sensor::ClassInit(Class* cls)
-{
-    cls->setName("Sensor");
-    cls->addToRegistry();
-    cls->setParent<Point>();
-    cls->setConstructor<Sensor>();
-}
 
 Sensor::Sensor()
 {

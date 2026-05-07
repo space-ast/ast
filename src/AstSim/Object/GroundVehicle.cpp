@@ -23,16 +23,6 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(GroundVehicle)
 
-static bool GroundVehicle_ClassInited = (GroundVehicle::ClassInit(&GroundVehicle::staticType), true);
-
-void GroundVehicle::ClassInit(Class* cls)
-{
-    cls->setName("GroundVehicle");
-    cls->addToRegistry();
-    cls->setParent<Mover>();
-    cls->setConstructor<GroundVehicle>();
-}
 
 AST_NAMESPACE_END

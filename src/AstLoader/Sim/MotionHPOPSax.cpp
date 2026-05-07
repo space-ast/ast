@@ -26,7 +26,7 @@
 AST_NAMESPACE_BEGIN
 
 
-errc_t _aLoadSolarPressureModel(BKVParser& parser, double massAtEpoch, HPOPForceModel::SRP& srp)
+errc_t _aLoadSolarPressureModel(BKVParser& parser, double massAtEpoch, SolarRadiationPressure& srp)
 {
     BKVParser::EToken token;
     BKVItemView item;
@@ -34,10 +34,10 @@ errc_t _aLoadSolarPressureModel(BKVParser& parser, double massAtEpoch, HPOPForce
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "Coefficient")){
-                srp.coefficient_ = item.value().toDouble();
+                // srp.coefficient_ = item.value().toDouble();
             }
             else if(aEqualsIgnoreCase(item.key(), "Area")){
-                srp.areaMassRatio_ = item.value().toDouble() / massAtEpoch;
+                // srp.areaMassRatio_ = item.value().toDouble() / massAtEpoch;
             }
             else if(aEqualsIgnoreCase(item.key(), "ReflectionModel")){
                 // @todo 解析反射模型
@@ -58,6 +58,37 @@ errc_t _aLoadSolarPressureModel(BKVParser& parser, double massAtEpoch, HPOPForce
     return eNoError;
 }
 
+
+static EAtmDensityModel _aStringToAtmDensityModel(StringView value)
+{
+    if(aEqualsIgnoreCase(value, "JacchiaRoberts")){
+        return EAtmDensityModel::eJacchiaRoberts;
+    } else if(aEqualsIgnoreCase(value, "1976Standard")){
+        return EAtmDensityModel::e1976Standard;
+    } else if(aEqualsIgnoreCase(value, "HarrisPriester")){
+        return EAtmDensityModel::eHarrisPriester;
+    } else if(aEqualsIgnoreCase(value, "Jacchia70")){
+        return EAtmDensityModel::eJacchia70;
+    } else if(aEqualsIgnoreCase(value, "Jacchia71")){
+        return EAtmDensityModel::eJacchia71;
+    }else if(aEqualsIgnoreCase(value, "MSIS00")){
+        return EAtmDensityModel::eNRLMSISE2000;
+    } else if(aEqualsIgnoreCase(value, "MSIS90")){
+        return EAtmDensityModel::eMSISE1990;
+    } else if(aEqualsIgnoreCase(value, "MSIS86")){
+        return EAtmDensityModel::eMSIS1986;
+    } else if(aEqualsIgnoreCase(value, "Jacchia60")){
+        return EAtmDensityModel::eJacchia60;
+    } else if(aEqualsIgnoreCase(value, "CIRA72")){
+        return EAtmDensityModel::eCIRA72;
+    } else if(aEqualsIgnoreCase(value, "DTM2012")){
+        return EAtmDensityModel::eDTM2012;
+    }else {
+        return EAtmDensityModel::e1976Standard;
+    }
+    aWarning("unknown atm density model: '%.*s'", value.size(), value.data());
+    return EAtmDensityModel::eNone;
+}
 
 errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
 {
@@ -80,165 +111,151 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         cartState_.vz() = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "GravityFile")){
-        forceModel_.gravity_.model_ = value.toString();
+        forceModel_.gravity().model_ = value.toString();
     }
     else if(aEqualsIgnoreCase(key, "MaxDegree")){
-        forceModel_.gravity_.maxDegree_ = value.toInt();
+        forceModel_.gravity().maxDegree_ = value.toInt();
     }
     else if(aEqualsIgnoreCase(key, "MaxOrder")){
-        forceModel_.gravity_.maxOrder_ = value.toInt();
+        forceModel_.gravity().maxOrder_ = value.toInt();
     }
     else if(aEqualsIgnoreCase(key, "UseGravSecularVariations")){
-        forceModel_.gravity_.useGravSecularVariations_ = value.toBool();
+        forceModel_.gravity().useSecularVariations_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "SolidTideType")){
         if(aEqualsIgnoreCase(value, "PermanentOnly")){
-            forceModel_.gravity_.solidTideType_ = ESolidTideType::ePermanentOnly;
+            forceModel_.gravity().solidTideType_ = ESolidTideType::ePermanentOnly;
         } else if(aEqualsIgnoreCase(value, "Full")){
-            forceModel_.gravity_.solidTideType_ = ESolidTideType::eFull;
+            forceModel_.gravity().solidTideType_ = ESolidTideType::eFull;
         } else if(aEqualsIgnoreCase(value, "None")){
-            forceModel_.gravity_.solidTideType_ = ESolidTideType::eNone;
+            forceModel_.gravity().solidTideType_ = ESolidTideType::eNone;
         }else{
             // 
         }
     }
     else if(aEqualsIgnoreCase(key, "IncludeTimeDependSolidTides")){
-        forceModel_.gravity_.includeTimeDependSolidTides_ = value.toBool();
+        forceModel_.gravity().includeTimeDependentSolidTides_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "MinAmplitudeSolidTides")){
-        forceModel_.gravity_.minAmplitudeSolidTides_ = value.toDouble();
+        forceModel_.gravity().minAmplitudeSolidTides_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "TruncateSolidTides")){
-        forceModel_.gravity_.truncateSolidTides_ = value.toBool();
+        forceModel_.gravity().truncateSolidTides_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "UseOceanTides")){
-        forceModel_.gravity_.useSolidTides_ = value.toBool();
+        forceModel_.gravity().useOceanTides_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "MaxDegreeOceanTides")){
-        forceModel_.gravity_.maxDegreeOceanTides_ = value.toInt();
+        forceModel_.gravity().maxDegreeOceanTides_ = value.toInt();
     }
     else if(aEqualsIgnoreCase(key, "MaxOrderOceanTides")){
-        forceModel_.gravity_.maxOrderOceanTides_ = value.toInt();
+        forceModel_.gravity().maxOrderOceanTides_ = value.toInt();
     }
     else if(aEqualsIgnoreCase(key, "MinAmplitudeOceanTides")){
-        forceModel_.gravity_.minAmplitudeOceanTides_ = value.toDouble();
+        forceModel_.gravity().minAmplitudeOceanTides_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "MassAtEpoch")){
         massAtEpoch_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "UseDrag")){
-        forceModel_.useDrag_ = value.toBool();
+        forceModel_.useDrag(value.toBool());
     }
     else if(aEqualsIgnoreCase(key, "AtmDensityModel")){
-        if(aEqualsIgnoreCase(value, "JacchiaRoberts")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eJacchiaRoberts;
-        } else if(aEqualsIgnoreCase(value, "1976Standard")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::e1976Standard;
-        } else if(aEqualsIgnoreCase(value, "HarrisPriester")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eHarrisPriester;
-        } else if(aEqualsIgnoreCase(value, "Jacchia70")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eJacchia70;
-        } else if(aEqualsIgnoreCase(value, "Jacchia71")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eJacchia71;
-        }else if(aEqualsIgnoreCase(value, "MSIS00")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
-        } else if(aEqualsIgnoreCase(value, "MSIS90")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eMSISE1990;
-        } else if(aEqualsIgnoreCase(value, "MSIS86")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eMSIS1986;
-        } else if(aEqualsIgnoreCase(value, "Jacchia60")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eJacchia60;
-        } else if(aEqualsIgnoreCase(value, "CIRA72")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eCIRA72;
-        } else if(aEqualsIgnoreCase(value, "DTM2012")){
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::eDTM2012;
-        }else {
-            forceModel_.drag_.atmDensityModel_ = EAtmDensityModel::e1976Standard;
+        forceModel_.drag().atmDensityModel_ = _aStringToAtmDensityModel(value.toString());
+        if(forceModel_.drag().atmDensityModel_ == EAtmDensityModel::eNone){
+            aWarning("use default atm density model 'NRLMSISE2000'");
+            forceModel_.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
         }
     }
     else if(aEqualsIgnoreCase(key, "AtmBlendingRange")){
-        forceModel_.drag_.atmBlendingRange_ = value.toDouble();
+        forceModel_.drag().atmBlendingRange_ = value.toDouble();
+    }
+    else if(aEqualsIgnoreCase(key, "LowAltAtmDensityModel")){
+        forceModel_.drag().lowAltAtmDensityModel_ = _aStringToAtmDensityModel(value.toString());
     }
     else if(aEqualsIgnoreCase(key, "UseFluxApFile")){
-        forceModel_.drag_.useFluxApFile_ = value.toBool();
+        forceModel_.drag().useFluxApFile_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "FluxApFile")){
-        forceModel_.drag_.fluxApFile_ = value.toString();
+        forceModel_.drag().fluxApFile_ = value.toString();
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxSource")){
         if(aEqualsIgnoreCase(value, "Kp")){
-            forceModel_.drag_.geoMagneticFluxSource_ = EGeoMagneticFluxSource::eKp;
+            forceModel_.drag().geoMagFluxSource_ = EGeoMagFluxSource::eKp;
         } else if(aEqualsIgnoreCase(value, "Ap")){
-            forceModel_.drag_.geoMagneticFluxSource_ = EGeoMagneticFluxSource::eAp;
+            forceModel_.drag().geoMagFluxSource_ = EGeoMagFluxSource::eAp;
         }else{
             // @todo 处理其他磁通量源
         }
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxUpdateMethod")){
         if(aEqualsIgnoreCase(value, "Daily")){
-            forceModel_.drag_.geoMagneticFluxUpdateMethod_ = EGeoMagneticFluxUpdateMethod::eDaily;
+            forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::eDaily;
         }else{
             // @todo 处理其他更新方法
         }
         // @todo 处理其他更新方法
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxInterpSubSamplingRatio")){
-        forceModel_.drag_.geoMagneticFluxInterpSubSamplingRatio_ = value.toDouble();
+        forceModel_.drag().geoMagFluxInterpSubSamplingRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCoefficient")){
-        forceModel_.drag_.dragCoefficient_ = value.toDouble();
+        // forceModel_.drag().dragCoefficient_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "AreaMassRatio")){
-        forceModel_.drag_.areaMassRatio_ = value.toDouble();
+        // forceModel_.drag().areaMassRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCorrectionType")){
         // @todo 处理DragCorrectionType
     }
     else if(aEqualsIgnoreCase(key, "AverageF10.7")){
-        forceModel_.drag_.f10p7Average_ = value.toDouble();
+        forceModel_.drag().f10p7Average_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DailyF10.7")){
-        forceModel_.drag_.f10p7Daily_ = value.toDouble();
+        forceModel_.drag().f10p7Daily_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "Kp")){
-        forceModel_.drag_.kp_ = value.toDouble();
+        forceModel_.drag().kp_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "UseApproxAltForDrag")){
-        forceModel_.drag_.useApproxAltForDrag_ = value.toBool();
+        forceModel_.drag().useApproxAltForDrag_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "UseApparentSunForDrag")){
-        forceModel_.drag_.useApparentSunForDrag_ = value.toBool();
+        if(value.toBool())
+            forceModel_.drag().sunPosition_ = ESunPosition::eApparent;
+        else
+            forceModel_.drag().sunPosition_ = ESunPosition::eTrue;
     }
     else if(aEqualsIgnoreCase(key, "DensityType")){
         // @todo 处理DensityType
     }
     else if(aEqualsIgnoreCase(key, "UseSRP")){
-        forceModel_.useSRP_ = value.toBool();
+        forceModel_.useSRP(value.toBool());
     }
     else if(aEqualsIgnoreCase(key, "SolarPressureModel")){
         if(massAtEpoch_ <= 0.0) massAtEpoch_ = 1;
-        errc_t rc = _aLoadSolarPressureModel(parser_, massAtEpoch_, forceModel_.srp_);
+        errc_t rc = _aLoadSolarPressureModel(parser_, massAtEpoch_, forceModel_.srp());
         A_UNUSED(rc);
     }
     else if(aEqualsIgnoreCase(key, "SunPosition")){
         if(aEqualsIgnoreCase(value, "ApparentSunToTrueCB")){
-            forceModel_.srp_.sunPosition_ = ESunPosition::eApparentSunToTrueCB;
+            forceModel_.srp().sunPosition_ = ESunPosition::eApparentSunToTrueCB;
         } else if(aEqualsIgnoreCase(value, "Apparent")){
-            forceModel_.srp_.sunPosition_ = ESunPosition::eApparent;
+            forceModel_.srp().sunPosition_ = ESunPosition::eApparent;
         } else if(aEqualsIgnoreCase(value, "True")){
-            forceModel_.srp_.sunPosition_ = ESunPosition::eTrue;
+            forceModel_.srp().sunPosition_ = ESunPosition::eTrue;
         }
     }
     else if(aEqualsIgnoreCase(key, "DetectShadowBoundaries")){
-        forceModel_.srp_.detectShadowBoundaries_ = value.toBool();
+        forceModel_.srp().detectShadowBoundaries_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "ShadowModel")){
         if(aEqualsIgnoreCase(value, "DualCone")){
-            forceModel_.srp_.shadowModel_ = EShadowModel::eDualCone;
+            forceModel_.srp().shadowModel_ = EShadowModel::eDualCone;
         } else if(aEqualsIgnoreCase(value, "Cylindrical")){
-            forceModel_.srp_.shadowModel_ = EShadowModel::eCylindrical;
+            forceModel_.srp().shadowModel_ = EShadowModel::eCylindrical;
         } else if(aEqualsIgnoreCase(value, "None")){
-            forceModel_.srp_.shadowModel_ = EShadowModel::eNone;
+            forceModel_.srp().shadowModel_ = EShadowModel::eNone;
         }else{
             // @todo 处理其他阴影模型
         }
@@ -247,7 +264,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         // @todo 处理EclipsingBodies
     }
     else if(aEqualsIgnoreCase(key, "AtmAltForEclipse")){
-        forceModel_.srp_.atmAltForEclipse_ = value.toDouble();
+        forceModel_.srp().atmAltForEclipse_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "SRPModel")){
         // @todo 处理SRPModel
@@ -265,7 +282,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         // @todo 处理Include2ndOrderStateEstDeriv
     }
     else if(aEqualsIgnoreCase(key, "RadPressureCoefficient")){
-        forceModel_.srp_.coefficient_ = value.toDouble();
+        // forceModel_.srp_.coefficient_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "RadPressureArea")){
         // @todo 处理RadPressureArea
@@ -278,25 +295,29 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         if(values.size() == 0) return 0;
         // 处理三体引力
         auto body = aGetBody(values[0]);
+        ThirdBodyForce* thirdBodyForce{nullptr};
         if(body){
-            HPOPForceModel::ThirdBody thirdBody;
-            thirdBody.body_ = body;
-            forceModel_.thirdBodies_.push_back(thirdBody);
+            thirdBodyForce = forceModel_.addThirdBody(body);
         }else{
             return 0;
         }
-        if(values.size() == 1) return 0;
-        StringView gmSource = values[1];
-        if(aEqualsIgnoreCase(gmSource, "CbValue")){
-            forceModel_.thirdBodies_.back().gmSource_ = EGMSource::eCbValue;
-        } else if(aEqualsIgnoreCase(gmSource, "JplDE")){
-            forceModel_.thirdBodies_.back().gmSource_ = EGMSource::eJplDE;
-        } else if(aEqualsIgnoreCase(gmSource, "SpecifiedValue")){
-            forceModel_.thirdBodies_.back().gmSource_ = EGMSource::eSpecifiedValue;
-        }
-        if(values.size() == 2) return 0;
-        if(forceModel_.thirdBodies_.back().gmSource_ == EGMSource::eSpecifiedValue){
-            forceModel_.thirdBodies_.back().specifiedGM_ = aParseDouble(values[2]);
+        if(thirdBodyForce)
+        {
+            thirdBodyForce->setAttractionType(EBodyAttractionType::ePointMass);
+            if(values.size() == 1) return 0;
+            StringView gmSource = values[1];
+            auto& pointMass = thirdBodyForce->pointMass();
+            if(aEqualsIgnoreCase(gmSource, "CbValue")){
+                pointMass.gmSource_ = EGMSource::eBodyGravity;
+            } else if(aEqualsIgnoreCase(gmSource, "JplDE")){
+                pointMass.gmSource_ = EGMSource::eJplDE;
+            } else if(aEqualsIgnoreCase(gmSource, "SpecifiedValue")){
+                pointMass.gmSource_ = EGMSource::eSpecifiedValue;
+            }
+            if(values.size() == 2) return 0;
+            if(pointMass.gmSource_ == EGMSource::eSpecifiedValue){
+                pointMass.specifiedGM_ = aParseDouble(values[2]);
+            }
         }
     }
     else if(aEqualsIgnoreCase(key, "EphRefFrame")){

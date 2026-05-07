@@ -23,16 +23,4 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(LaunchVehicle)
-
-static bool LaunchVehicle_ClassInited = (LaunchVehicle::ClassInit(&LaunchVehicle::staticType), true);
-
-void LaunchVehicle::ClassInit(Class* cls)
-{
-    cls->setName("LaunchVehicle");
-    cls->addToRegistry();
-    cls->setParent<Spacecraft>();
-    cls->setConstructor<LaunchVehicle>();
-}
-
 AST_NAMESPACE_END

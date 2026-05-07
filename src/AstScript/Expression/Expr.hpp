@@ -41,6 +41,8 @@ public:
     using Object::Object;
     ~Expr() override = default;
 
+    void setName(StringView name) override{}
+
     /// @brief 接受表达式访问者
     /// @param visitor 表达式访问者对象
     virtual void accept(ExprVisitor& visitor) = 0;

@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "FieldOfViewVisitor.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -38,7 +39,7 @@ enum class EFOVType
 };
 
 /// @brief 视场基类
-class AST_CORE_API FieldOfView: public Object
+class AST_CORE_API FieldOfView: public ObjectNamed
 {
 public:
     /// @brief 构造函数

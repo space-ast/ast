@@ -30,6 +30,7 @@
 #include "AstCore/Break.hpp"
 #include "AstCore/Return.hpp"
 #include "AstCore/Stop.hpp"
+#include "AstCore/TargeterSequence.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -78,8 +79,13 @@ errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missio
     {
         SharedPtr<Return> ret = new Return();
         missionCommand = ret;
-        // return aLoadReturn(value, *ret);
-        return eNoError;
+        return aLoadReturn(value, *ret);
+    }
+    else if(type == "TargeterSequence")
+    {
+        SharedPtr<TargeterSequence> targeterSequence = new TargeterSequence();
+        missionCommand = targeterSequence;
+        return aLoadTargeterSequence(value, *targeterSequence);
     }
     else
     {

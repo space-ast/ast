@@ -33,25 +33,34 @@ class PropertyVisitor;
     @{
 */
 
-enum EValueType{
-    eDouble,        ///< double类型
-    eInt,           ///< int类型
+
+enum class EValueType
+{
     eBool,          ///< bool类型
+    eInt,           ///< int类型
+    eDouble,        ///< double类型
+    eQuantity,      ///< 数量值类型
     eString,        ///< std::string类型
+    eObject,        ///< 对象类型
+    eTimePoint,     ///< 时间点类型
+    eInvalid,       ///< 无效类型
 };
+
 
 /// @brief 模拟获取属性值的函数
 /// @param container 对象指针
 /// @param value 指向属性值的指针
 /// @return errc_t 错误码
-AST_UTIL_CAPI errc_t aFakeGet(const void* container, void* value);
+AST_UTIL_API errc_t aFakeGet(const void* container, void* value);
 
 
 /// @brief 模拟设置属性值的函数
 /// @param container 对象指针
 /// @param value 指向属性值的指针
 /// @return errc_t 错误码
-AST_UTIL_CAPI errc_t aFakeSet(void* container, const void* value);
+AST_UTIL_API errc_t aFakeSet(void* container, const void* value);
+
+
 
 /// @brief 反射属性类
 class AST_UTIL_API Property: public Field
@@ -129,6 +138,34 @@ public:
     /// @return errc_t 错误码
     virtual errc_t setValueString(void* container, StringView value) = 0;
 
+
+    /// @brief 获取属性值类型
+    /// @return EValueType 属性值类型
+    virtual EValueType getValueType() const = 0;
+public:
+    double getValueDouble(const void* container);
+    int getValueInt(const void* container);
+    bool getValueBool(const void* container);
+    std::string getValueString(const void* container);
+    
+    template<typename T>
+    T getValue(const void* container);
+public:
+    /// @brief 检查属性是否为对象类型
+    /// @return bool 是否为对象类型
+    bool isObject() const;
+
+    /// @brief 设置属性值（对象类型）
+    errc_t setValueObject(void* container, Object* value);
+
+    /// @brief 获取属性值（对象类型）
+    errc_t getValueObject(const void* container, Object*& value);
+
+public:
+    /// @brief 检查属性是否为只读属性
+    bool readOnly() const { return setter_ == nullptr && getter_ != nullptr; }
+    /// @brief 检查属性是否为只写属性
+    bool writeOnly() const { return setter_ != nullptr && getter_ == nullptr; }
 protected:
     /// @brief 获取属性值
     /// @param container 容器对象指针
@@ -153,6 +190,31 @@ protected:
     FPropertyGet getter_ {nullptr};                                 // 获取属性值的函数指针
     FPropertySet setter_ {nullptr};                                 // 设置属性值的函数指针
 };
+
+
+template<>
+inline double Property::getValue<double>(const void* container)
+{
+    return getValueDouble(container);
+}
+template<>
+inline int Property::getValue<int>(const void* container)
+{
+    return getValueInt(container);
+}
+template<>
+inline bool Property::getValue<bool>(const void* container)
+{
+    return getValueBool(container);
+}
+
+template<>
+inline std::string Property::getValue<std::string>(const void* container)
+{
+    return getValueString(container);
+}
+
+
 
 /*! @} */
 

@@ -277,8 +277,8 @@ TEST(Date, EdgeCases)
     EXPECT_EQ(date2.month(), 1);
     EXPECT_EQ(date2.day(), 1);
     
-    // 测试负年份（如果支持的话）
-    Date date3 = Date::FromYMD(-45, 1, 1);  // 凯撒大帝出生年份
+    // 测试负年份
+    Date date3 = Date::FromYMD(-45, 1, 1);  
     int jd = date3.toJDAtNoon();
     Date date4 = Date::FromJDAtNoon(jd);
     EXPECT_EQ(date4.year(), -45);

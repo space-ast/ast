@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#if (defined(AST_WITH_MATPLOT) || !defined(AST_NO_MATPLOT)) && defined(A_CXX14)
+#if (defined(AST_WITH_MATPLOT) || !defined(AST_NO_MATPLOT)) && defined(A_CXX14) || defined(_A_CXX14)
 #   define _AST_USE_MATPLOT
 #endif
 

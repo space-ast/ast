@@ -399,6 +399,9 @@ XMLParser::EToken XMLParser::getNext()
 
 errc_t XMLParser::appendBuffer(size_t size)
 {
+    // 这里需要先确保缓冲区有足够的空间，然后再进行错误检查
+    const size_t oldSize = buffer_.size();
+    buffer_.resize(oldSize + size);
     if(!isOpen())
     {
         return eErrorInvalidFile;
@@ -406,8 +409,6 @@ errc_t XMLParser::appendBuffer(size_t size)
     if (eof()) {
         return eErrorInvalidFile;
     }
-    const size_t oldSize = buffer_.size();
-    buffer_.resize(oldSize + size);
     size_t s = fread(buffer_.data() + oldSize, 1, size, getFile());
     if(s != size)
     {

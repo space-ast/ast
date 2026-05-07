@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "Value.hpp"
+#include "AstUtil/OrderedMap.hpp"
 #include <string>
 #include <map>
 
@@ -35,7 +36,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 字典值
 class AST_SCRIPT_API ValDict: public Value
 {
-    using MapType = std::map<std::string, SharedPtr<Value>>;
+    using MapType = OrderedMap<std::string, SharedPtr<Value>>;
 public:
     AST_EXPR(ValDict)
     static ValDict* New();

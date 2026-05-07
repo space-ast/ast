@@ -81,7 +81,7 @@ public:
     /// @param interval 场景时间间隔
     void setInterval(const TimeInterval& interval);
 public:
-    void setName(StringView name){name_ = std::string(name);}
+    void setName(StringView name) override {name_ = std::string(name);}
 
     const std::string& getName() const override{return name_;}
 

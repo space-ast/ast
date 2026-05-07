@@ -89,11 +89,25 @@ AST_CORE_CAPI errc_t aENUToFrameMatrix(const Vector3d& posInFrame, const Vector3
 AST_CORE_CAPI errc_t aFrameToVNCMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix);
 
 
+/// @brief     计算位置和速度向量所在坐标系到VNC坐标系的旋转变换
+/// @param     posInFrame 位置向量
+/// @param     velInFrame 速度向量
+/// @param     rotation 旋转变换
+AST_CORE_CAPI errc_t aFrameToVNCTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation);
+
+
 /// @brief     计算VNC坐标系到位置和速度向量所在坐标系的转换矩阵
 /// @param     posInFrame 位置向量
 /// @param     velInFrame 速度向量
 /// @param     matrix 转换矩阵
 AST_CORE_CAPI errc_t aVNCToFrameMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix);
+
+
+/// @brief     计算VNC坐标系到位置和速度向量所在坐标系的旋转变换
+/// @param     posInFrame 位置向量
+/// @param     velInFrame 速度向量
+/// @param     rotation 旋转变换
+AST_CORE_CAPI errc_t aVNCToFrameTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation);
 
 
 /*! @} */

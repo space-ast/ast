@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/Unit.hpp"
 #include <unordered_map>
+#include <map>
 #include <string>
 
 
@@ -39,6 +40,11 @@ class Unit;
 /// @param name 单位名称
 /// @return 单位
 AST_UTIL_API Unit* aUnitGet(StringView name);
+
+/// @brief 获取国际制单位
+/// @param dim 单位维度
+/// @return 国际制单位
+AST_UTIL_API Unit* aUnitGetSI(Dimension dim);
 
 
 /// @brief 添加单位
@@ -80,6 +86,11 @@ public:
     /// @return 单位
     Unit* getUnit(StringView name);
 
+    /// @brief 获取国际制单位
+    /// @param dim 单位维度
+    /// @return 国际制单位
+    Unit* getSiUnit(Dimension dim);
+
 protected:
 
     /// @brief 添加单位
@@ -88,8 +99,10 @@ protected:
     /// @return errc_t 错误码
     errc_t _addUnit(const std::string& name, const Unit& unit);
 
+    Unit* _getSiUnitCache(Dimension dim);
 protected:
     std::unordered_map<std::string, Unit*> units_;       ///< 单位映射表
+    std::map<Dimension, Unit*> siUnits_;                 ///< 国际制单位映射表
 };
 
 /*! @} */

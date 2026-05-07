@@ -22,16 +22,5 @@
 
 AST_NAMESPACE_BEGIN
 
-_AST_IMPL_OBJECT(Transmitter)
-
-static bool Transmitter_ClassInited = (Transmitter::ClassInit(&Transmitter::staticType), true);
-
-void Transmitter::ClassInit(Class* cls)
-{
-    cls->setName("Transmitter");
-    cls->addToRegistry();
-    cls->setParent<Object>();
-    cls->setConstructor<Transmitter>();
-}
 
 AST_NAMESPACE_END

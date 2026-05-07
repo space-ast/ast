@@ -10,6 +10,7 @@ add_deps(
     "AstSPICE", 
     "AstSim",
     "AstLoader",
+    "AstAI",
     "AstTest"
 )
 add_packages("gtest")
@@ -19,15 +20,20 @@ set_warnings("more")
 
 -- 单元测试代码
 if has_package("gtest") then
-    local test_files = os.files("**/test*.c*|Archive/**|GUI/**")
-    for _, file in ipairs(test_files) do
-        -- local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
+    local test_files1 = os.files("**/test*.cpp|Archive/**|GUI/**")
+    for _, file in ipairs(test_files1) do
         local basename = path.basename(file)
         target(basename)
             add_files(file)
             set_kind("binary")
             add_tests("unittest")
-            -- add_extrafiles("xmake.lua")
+    end
+    local test_files2 = os.files("**/test*.cxx")
+    for _, file in ipairs(test_files2) do
+        local basename = path.basename(file)
+        target(basename)
+            add_files(file)
+            set_kind("binary")
     end
 end
 

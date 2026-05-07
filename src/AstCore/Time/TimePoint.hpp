@@ -105,6 +105,15 @@ AST_CORE_CAPI errc_t aTimePointParse(StringView str, TimePoint& time);
 class TimePoint
 {
 public:
+    /// @brief 获取默认时间点
+    AST_CORE_API
+    static TimePoint Default();
+
+    /// @brief 获取历元时间点
+    /// @see RunTimeEpoch.cpp
+    AST_CORE_API
+    static TimePoint Epoch();
+
     /// @brief 获取当前时间点
     AST_CORE_API
     static TimePoint CurrentTime();
@@ -239,6 +248,14 @@ public:
     /// @return 新的时间点
     TimePoint operator-(double second) const{
         return {integerPart(), fractionalPart() - second};
+    }
+
+    /// @brief 时间点等于运算符
+    /// @param other 另一个时间点
+    /// @return 是否相等
+    bool operator == (const TimePoint& other) const
+    {
+        return this->durationFrom(other) == 0.0;
     }
 
     /// @brief 将时间点格式化为字符串

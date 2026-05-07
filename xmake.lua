@@ -28,7 +28,7 @@ add_includedirs("include")
 -- 添加编译规则
 -- 内置规则
 add_rules("mode.debug", "mode.release", "mode.coverage")    -- 调试模式、发布模式、代码覆盖率模式
-add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
+-- add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
 add_rules("c++.unity_build", {batchsize=20})                -- 开启unity build，提高编译效率
 add_rules("c.unity_build", {batchsize=0})                   -- 不启用C语言的unity build
 
@@ -42,6 +42,7 @@ if has_config("check_warnings") then
 end
 
 -- 设置编译策略
+set_policy("run.autobuild", true)                           -- 自动编译，当运行目标时自动编译
 set_policy("build.progress_style", "multirow")              -- 编译进度条显示为多行
 -- set_policy("package.precompiled", false)                 -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
 
@@ -108,6 +109,7 @@ add_requires("cspice", {optional = true})                                       
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析
 -- add_requires("jsoncpp", {optional = true})                                      -- 可选的jsoncpp库，用于JSON解析
+-- add_requires("curl", {optional = true})                                         -- 可选的curl库，用于HTTP请求
 -- add_requires("nodeeditor", {optional = true})                                   -- 可选的nodeeditor库，用于节点编辑器
 
 -- 使用llvm工具链编译（可选）
@@ -171,6 +173,7 @@ end
 --     add_defines("AST_NO_NLOHMANN_JSON")
 -- end
 
+
 -- 添加jsoncpp库依赖（可选）
 -- if has_package("jsoncpp") then
 --     add_packages("jsoncpp")
@@ -179,6 +182,13 @@ end
 --     add_defines("AST_NO_JSONCPP")
 -- end
 
+-- -- 添加curl库依赖（可选）
+-- if has_package("curl") then
+--     add_packages("curl")
+--     add_defines("AST_WITH_CURL")
+-- else
+--     add_defines("AST_NO_CURL")
+-- end
 
 -- 添加nodeeditor库依赖（可选）
 -- if has_package("nodeeditor") then

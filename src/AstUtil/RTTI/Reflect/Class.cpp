@@ -33,15 +33,29 @@ Class::~Class()
 {
 }
 
+Object* Class::cast(Object* obj) const
+{
+    if(obj && obj->isOfType(this))
+        return obj;
+    return nullptr;
+}
+
 void Class::addToRegistry() const
 {
     aRegisterClass(const_cast<Class*>(this));
 }
 
-Object *Class::NewObject(Object* parentScope) const
+Object *Class::newObject(Object* parentScope) const
 {
     if (constructor_)
         return constructor_(parentScope);
+    return nullptr;
+}
+
+Object *Class::resolve(StringView value) const
+{
+    if (resolve_)
+        return resolve_(value);
     return nullptr;
 }
 
@@ -49,7 +63,7 @@ Object *Class::getDefaultObject() const
 {
     if (defaultObject_)
         return defaultObject_.get();
-    const_cast<Class*>(this)->defaultObject_ = NewObject(nullptr);
+    const_cast<Class*>(this)->defaultObject_ = newObject(nullptr);
     return defaultObject_.get();
 }
 

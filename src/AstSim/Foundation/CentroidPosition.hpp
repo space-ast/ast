@@ -41,13 +41,15 @@ public:
     ~CentroidPosition() = default;
 
     void setBody(Body* body);
-    Body* getBody() const{return body_.get();}
+    Body* body() const{return body_.get();}
     const GeodeticPoint& getPosition() const{return position_;}
     void setPosition(const GeodeticPoint& position){position_ = position;}
     void setLatitude(double latitude) {position_.setLatitude(latitude);}
     void setLongitude(double longitude) {position_.setLongitude(longitude);}
     void setAltitude(double altitude) {position_.setAltitude(altitude);}
-
+    double latitude() const {return position_.latitude();}
+    double longitude() const {return position_.longitude();}
+    double altitude() const {return position_.altitude();}
 private:
     SharedPtr<Body>     body_;                ///< 天体名称
     GeodeticPoint       position_{};          ///< 质心位置点

@@ -48,5 +48,12 @@ void aGetEpoch(TimePoint &tp)
     tp = context->epoch();
 }
 
+TimePoint TimePoint::Epoch()
+{
+    TimePoint tp;
+    aGetEpoch(tp);
+    return tp;
+}
+
 AST_NAMESPACE_END
 

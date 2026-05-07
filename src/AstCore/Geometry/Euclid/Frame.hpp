@@ -60,6 +60,12 @@ class AST_CORE_API Frame: public ObjectNamed
 {
 public:
     AST_OBJECT(Frame)
+
+    /// @brief 解析坐标系
+    /// @param value 坐标系的名称/路径等
+    /// @return 坐标系
+    static Frame* Resolve(StringView value);
+
     Frame() = default;
     ~Frame() override= default;
 
