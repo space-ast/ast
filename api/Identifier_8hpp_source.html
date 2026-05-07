@@ -126,7 +126,7 @@ $(function(){initNavTree('Identifier_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1Identifier.html">Identifier</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Identifier.html">Identifier</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// 私有构造函数，只能通过IdentifierTable创建</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1Identifier.html">Identifier</a>(uint32_t len) : length_(len) {}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1Identifier.html">Identifier</a>(uint32_t len) : length_(len) {}</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// 获取数据指针</span></div>
