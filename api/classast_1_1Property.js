@@ -11,6 +11,7 @@ var classast_1_1Property =
     [ "getValueInt", "classast_1_1Property.html#ae6e0748eb2725d716370298eda6e58c4", null ],
     [ "getValueObject", "classast_1_1Property.html#aaff1f7d576525ea3bf958c4b584ef5d0", null ],
     [ "getValueString", "classast_1_1Property.html#af46d175945b71f0b3e2e2f398fba1012", null ],
+    [ "getValueType", "classast_1_1Property.html#aafc95c830fb524ad300ae6eda3d9224d", null ],
     [ "isObject", "classast_1_1Property.html#a70f9874b7fb1c4c2e1370716ed9fe267", null ],
     [ "readOnly", "classast_1_1Property.html#af33c54fdd0ebb91813326011aaa6caa9", null ],
     [ "setValue", "classast_1_1Property.html#a0bbebe195533824989c64be845ecc5f2", null ],

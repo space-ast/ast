@@ -207,6 +207,8 @@ $(function(){initNavTree('group__Script.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 宏定义</h2></td></tr>
+<tr class="memitem:ga17758db84383d5c9fdea559ce880e7c7" id="r_ga17758db84383d5c9fdea559ce880e7c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga17758db84383d5c9fdea559ce880e7c7">AST_EXPR_EXTRA</a>(CLASS)</td></tr>
+<tr class="separator:ga17758db84383d5c9fdea559ce880e7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga816115e43578fadb13bbdc5ec7106d87" id="r_ga816115e43578fadb13bbdc5ec7106d87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga816115e43578fadb13bbdc5ec7106d87">AST_EXPR</a>(CLASS)</td></tr>
 <tr class="separator:ga816115e43578fadb13bbdc5ec7106d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -457,7 +459,25 @@ template&lt;typename T &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">    AST_OBJECT(CLASS)\</div>
-<div class="line">    <span class="keywordtype">void</span> accept(ExprVisitor&amp; visitor)<span class="keyword"> override</span>{visitor.visit(*<span class="keyword">this</span>);};</div>
+<div class="line">    AST_EXPR_EXTRA(CLASS)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga17758db84383d5c9fdea559ce880e7c7" name="ga17758db84383d5c9fdea559ce880e7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga17758db84383d5c9fdea559ce880e7c7">&#9670;&#160;</a></span>AST_EXPR_EXTRA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AST_EXPR_EXTRA</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>CLASS</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordtype">void</span> accept(ExprVisitor&amp; visitor)<span class="keyword"> override</span>{visitor.visit(*<span class="keyword">this</span>);};</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -13,8 +13,5 @@ var group__Array =
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
     [ "ast::VectorN< _Scalar, N >", "classast_1_1VectorN.html", null ],
     [ "ast::VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
-    [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", [
-      [ "VectorX", "group__Array.html#ga11466cfe4b27489a3dd231d8dbb344bd", null ]
-    ] ],
-    [ "ast::VectorX::VectorX", "group__Array.html#ga11466cfe4b27489a3dd231d8dbb344bd", null ]
+    [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", null ]
 ];

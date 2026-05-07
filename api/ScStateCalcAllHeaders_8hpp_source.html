@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Orbit/Calculation/ScStateCalculation/ScStateCalcAllHeaders.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ScStateCalcAllHeaders_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ScStateCalcAllHeaders.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ScStateCalcAllHeaders_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEccentricity_8hpp.html">ScStateCalcEccentricity.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVx_8hpp.html">ScStateCalcVx.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVy_8hpp.html">ScStateCalcVy.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVz_8hpp.html">ScStateCalcVz.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcX_8hpp.html">ScStateCalcX.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcY_8hpp.html">ScStateCalcY.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcZ_8hpp.html">ScStateCalcZ.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEpoch_8hpp.html">ScStateCalcEpoch.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAltitude_8hpp.html">ScStateCalcAltitude.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLatitude_8hpp.html">ScStateCalcLatitude.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLongitude_8hpp.html">ScStateCalcLongitude.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSemiMajorAxis_8hpp.html">ScStateCalcSemiMajorAxis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInclination_8hpp.html">ScStateCalcInclination.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRAAN_8hpp.html">ScStateCalcRAAN.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcArgPeriapsis_8hpp.html">ScStateCalcArgPeriapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTrueAnomaly_8hpp.html">ScStateCalcTrueAnomaly.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMeanAnomaly_8hpp.html">ScStateCalcMeanAnomaly.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEccAnomaly_8hpp.html">ScStateCalcEccAnomaly.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAngularMomentum_8hpp.html">ScStateCalcAngularMomentum.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVelocity_8hpp.html">ScStateCalcVelocity.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadius_8hpp.html">ScStateCalcRadius.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcFlightPathAngle_8hpp.html">ScStateCalcFlightPathAngle.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAltitudeRate_8hpp.html">ScStateCalcAltitudeRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDeltaDec_8hpp.html">ScStateCalcDeltaDec.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDeltaRA_8hpp.html">ScStateCalcDeltaRA.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEquinoctialH_8hpp.html">ScStateCalcEquinoctialH.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEquinoctialK_8hpp.html">ScStateCalcEquinoctialK.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEquinoctialP_8hpp.html">ScStateCalcEquinoctialP.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEquinoctialQ_8hpp.html">ScStateCalcEquinoctialQ.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMu_8hpp.html">ScStateCalcMu.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAtmosDensity_8hpp.html">ScStateCalcAtmosDensity.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAtmosPressure_8hpp.html">ScStateCalcAtmosPressure.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAtmosTemperature_8hpp.html">ScStateCalcAtmosTemperature.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAppSolTime_8hpp.html">ScStateCalcAppSolTime.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcBetaAngle_8hpp.html">ScStateCalcBetaAngle.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEarthMeanLocTimeAN_8hpp.html">ScStateCalcEarthMeanLocTimeAN.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcEarthMeanSolTime_8hpp.html">ScStateCalcEarthMeanSolTime.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLocalAppSolLon_8hpp.html">ScStateCalcLocalAppSolLon.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLongPeriapsis_8hpp.html">ScStateCalcLongPeriapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOrbitStateValue_8hpp.html">ScStateCalcOrbitStateValue.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSignedEccentricity_8hpp.html">ScStateCalcSignedEccentricity.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTrueLong_8hpp.html">ScStateCalcTrueLong.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCrossTrack_8hpp.html">ScStateCalcCrossTrack.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCrossTrackRate_8hpp.html">ScStateCalcCrossTrackRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInTrack_8hpp.html">ScStateCalcInTrack.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInTrackRate_8hpp.html">ScStateCalcInTrackRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcNormal_8hpp.html">ScStateCalcNormal.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcNormalRate_8hpp.html">ScStateCalcNormalRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAzimuth_8hpp.html">ScStateCalcAzimuth.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAzimuthRate_8hpp.html">ScStateCalcAzimuthRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcElevation_8hpp.html">ScStateCalcElevation.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcElevationRate_8hpp.html">ScStateCalcElevationRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadial_8hpp.html">ScStateCalcRadial.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadialRate_8hpp.html">ScStateCalcRadialRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRange_8hpp.html">ScStateCalcRange.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRangeRate_8hpp.html">ScStateCalcRangeRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTangential_8hpp.html">ScStateCalcTangential.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTangentialRate_8hpp.html">ScStateCalcTangentialRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTimeDifference_8hpp.html">ScStateCalcTimeDifference.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcPower_8hpp.html">ScStateCalcPower.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDeltaV_8hpp.html">ScStateCalcDeltaV.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDeltaVSquared_8hpp.html">ScStateCalcDeltaVSquared.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMass_8hpp.html">ScStateCalcMass.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcPropellantMass_8hpp.html">ScStateCalcPropellantMass.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTemperature_8hpp.html">ScStateCalcTemperature.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcReentryDeceleration_8hpp.html">ScStateCalcReentryDeceleration.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelXVelX_8hpp.html">ScStateCalcSTMVelXVelX.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelXVelY_8hpp.html">ScStateCalcSTMVelXVelY.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelXVelZ_8hpp.html">ScStateCalcSTMVelXVelZ.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelYVelX_8hpp.html">ScStateCalcSTMVelYVelX.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelYVelY_8hpp.html">ScStateCalcSTMVelYVelY.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelYVelZ_8hpp.html">ScStateCalcSTMVelYVelZ.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelZVelX_8hpp.html">ScStateCalcSTMVelZVelX.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelZVelY_8hpp.html">ScStateCalcSTMVelZVelY.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSTMVelZVelZ_8hpp.html">ScStateCalcSTMVelZVelZ.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDelaunayG_8hpp.html">ScStateCalcDelaunayG.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDelaunayH_8hpp.html">ScStateCalcDelaunayH.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDelaunayL_8hpp.html">ScStateCalcDelaunayL.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSemiLatusRectum_8hpp.html">ScStateCalcSemiLatusRectum.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMeanLongitude_8hpp.html">ScStateCalcMeanLongitude.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcHeightAboveTerrain_8hpp.html">ScStateCalcHeightAboveTerrain.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLatitudeRate_8hpp.html">ScStateCalcLatitudeRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLongitudeRate_8hpp.html">ScStateCalcLongitudeRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAltitudeOfApoapsis_8hpp.html">ScStateCalcAltitudeOfApoapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcAltitudeOfPeriapsis_8hpp.html">ScStateCalcAltitudeOfPeriapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcArgLat_8hpp.html">ScStateCalcArgLat.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMeanMotion_8hpp.html">ScStateCalcMeanMotion.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLonOfAscNode_8hpp.html">ScStateCalcLonOfAscNode.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadiusOfApoapsis_8hpp.html">ScStateCalcRadiusOfApoapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadiusOfPeriapsis_8hpp.html">ScStateCalcRadiusOfPeriapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOrbitPeriod_8hpp.html">ScStateCalcOrbitPeriod.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTimePastAscNode_8hpp.html">ScStateCalcTimePastAscNode.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcTimePastPeriapsis_8hpp.html">ScStateCalcTimePastPeriapsis.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMeanEarthLon_8hpp.html">ScStateCalcMeanEarthLon.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRectifiedLongitude_8hpp.html">ScStateCalcRectifiedLongitude.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDec_8hpp.html">ScStateCalcDec.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMeanEclipticLon_8hpp.html">ScStateCalcMeanEclipticLon.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSolarPhaseAngle_8hpp.html">ScStateCalcSolarPhaseAngle.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRightAscension_8hpp.html">ScStateCalcRightAscension.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSpacecraftMass_8hpp.html">ScStateCalcSpacecraftMass.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcFuelMass_8hpp.html">ScStateCalcFuelMass.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcThrust_8hpp.html">ScStateCalcThrust.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCrossSectionalArea_8hpp.html">ScStateCalcCrossSectionalArea.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcReflectionCoefficient_8hpp.html">ScStateCalcReflectionCoefficient.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSolarPressure_8hpp.html">ScStateCalcSolarPressure.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMagneticFieldStrength_8hpp.html">ScStateCalcMagneticFieldStrength.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDragForce_8hpp.html">ScStateCalcDragForce.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSolarRadiationForce_8hpp.html">ScStateCalcSolarRadiationForce.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMagneticFieldForce_8hpp.html">ScStateCalcMagneticFieldForce.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachDistance_8hpp.html">ScStateCalcCloseApproachDistance.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachSpeed_8hpp.html">ScStateCalcCloseApproachSpeed.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachBearing_8hpp.html">ScStateCalcCloseApproachBearing.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachMag_8hpp.html">ScStateCalcCloseApproachMag.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachCosBearing_8hpp.html">ScStateCalcCloseApproachCosBearing.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachX_8hpp.html">ScStateCalcCloseApproachX.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachY_8hpp.html">ScStateCalcCloseApproachY.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCloseApproachTheta_8hpp.html">ScStateCalcCloseApproachTheta.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDamageFlux_8hpp.html">ScStateCalcDamageFlux.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMatlab_8hpp.html">ScStateCalcMatlab.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDeltaFromMaster_8hpp.html">ScStateCalcDeltaFromMaster.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDifference_8hpp.html">ScStateCalcDifference.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRelGroundTrackError_8hpp.html">ScStateCalcRelGroundTrackError.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRelAOLMaster_8hpp.html">ScStateCalcRelAOLMaster.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOrbitDelaunayG_8hpp.html">ScStateCalcOrbitDelaunayG.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOrbitDelaunayH_8hpp.html">ScStateCalcOrbitDelaunayH.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOrbitDelaunayL_8hpp.html">ScStateCalcOrbitDelaunayL.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOrbitSemiLatusRectum_8hpp.html">ScStateCalcOrbitSemiLatusRectum.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRepGrTrackErr_8hpp.html">ScStateCalcRepGrTrackErr.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcFPA_8hpp.html">ScStateCalcFPA.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDuration_8hpp.html">ScStateCalcDuration.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcGravCoeff_8hpp.html">ScStateCalcGravCoeff.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRefRad_8hpp.html">ScStateCalcRefRad.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLightSpeed_8hpp.html">ScStateCalcLightSpeed.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcBodyRelated_8hpp.html">ScStateCalcBodyRelated.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcFrameRelated_8hpp.html">ScStateCalcFrameRelated.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRARate_8hpp.html">ScStateCalcRARate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDecRate_8hpp.html">ScStateCalcDecRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRA_8hpp.html">ScStateCalcRA.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRMag_8hpp.html">ScStateCalcRMag.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVAz_8hpp.html">ScStateCalcVAz.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalc1PtAccess_8hpp.html">ScStateCalc1PtAccess.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcLongDriftRate_8hpp.html">ScStateCalcLongDriftRate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDensity_8hpp.html">ScStateCalcDensity.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInertDeltaVMag_8hpp.html">ScStateCalcInertDeltaVMag.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcMCSDeltaV_8hpp.html">ScStateCalcMCSDeltaV.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcBDotRCalc_8hpp.html">ScStateCalcBDotRCalc.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDamageMassFlux_8hpp.html">ScStateCalcDamageMassFlux.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcImpactFlux_8hpp.html">ScStateCalcImpactFlux.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSEETSAAFlux_8hpp.html">ScStateCalcSEETSAAFlux.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcScalar_8hpp.html">ScStateCalcScalar.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcJScript_8hpp.html">ScStateCalcJScript.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVBScript_8hpp.html">ScStateCalcVBScript.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDifferenceOtherSegment_8hpp.html">ScStateCalcDifferenceOtherSegment.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDiffAcrossSegmentOtherSat_8hpp.html">ScStateCalcDiffAcrossSegmentOtherSat.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcPosDiffMagOthSeg_8hpp.html">ScStateCalcPosDiffMagOthSeg.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcPosVelDiffMagOthSeg_8hpp.html">ScStateCalcPosVelDiffMagOthSeg.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSequenceDeltaV_8hpp.html">ScStateCalcSequenceDeltaV.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSequenceDeltaVSquared_8hpp.html">ScStateCalcSequenceDeltaVSquared.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcValueOtherSegment_8hpp.html">ScStateCalcValueOtherSegment.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcValueAtSegmentOtherSat_8hpp.html">ScStateCalcValueAtSegmentOtherSat.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVelDiffMagOthSeg_8hpp.html">ScStateCalcVelDiffMagOthSeg.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCd_8hpp.html">ScStateCalcCd.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCr_8hpp.html">ScStateCalcCr.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcDragArea_8hpp.html">ScStateCalcDragArea.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadPressureArea_8hpp.html">ScStateCalcRadPressureArea.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcRadPressureCoefficient_8hpp.html">ScStateCalcRadPressureCoefficient.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcSRPArea_8hpp.html">ScStateCalcSRPArea.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcCosineVFPA_8hpp.html">ScStateCalcCosineVFPA.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcC3Energy_8hpp.html">ScStateCalcC3Energy.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInAsympDec_8hpp.html">ScStateCalcInAsympDec.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInAsympRA_8hpp.html">ScStateCalcInAsympRA.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcInVAzP_8hpp.html">ScStateCalcInVAzP.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOutAsympDec_8hpp.html">ScStateCalcOutAsympDec.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOutAsympRA_8hpp.html">ScStateCalcOutAsympRA.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcOutVAzP_8hpp.html">ScStateCalcOutVAzP.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalcVMag_8hpp.html">ScStateCalcVMag.hpp</a>&quot;</span></div>
+<div class="ttc" id="aScStateCalc1PtAccess_8hpp_html"><div class="ttname"><a href="ScStateCalc1PtAccess_8hpp.html">ScStateCalc1PtAccess.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAltitudeOfApoapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcAltitudeOfApoapsis_8hpp.html">ScStateCalcAltitudeOfApoapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAltitudeOfPeriapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcAltitudeOfPeriapsis_8hpp.html">ScStateCalcAltitudeOfPeriapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAltitudeRate_8hpp_html"><div class="ttname"><a href="ScStateCalcAltitudeRate_8hpp.html">ScStateCalcAltitudeRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAltitude_8hpp_html"><div class="ttname"><a href="ScStateCalcAltitude_8hpp.html">ScStateCalcAltitude.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAngularMomentum_8hpp_html"><div class="ttname"><a href="ScStateCalcAngularMomentum_8hpp.html">ScStateCalcAngularMomentum.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAppSolTime_8hpp_html"><div class="ttname"><a href="ScStateCalcAppSolTime_8hpp.html">ScStateCalcAppSolTime.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcArgLat_8hpp_html"><div class="ttname"><a href="ScStateCalcArgLat_8hpp.html">ScStateCalcArgLat.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcArgPeriapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcArgPeriapsis_8hpp.html">ScStateCalcArgPeriapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAtmosDensity_8hpp_html"><div class="ttname"><a href="ScStateCalcAtmosDensity_8hpp.html">ScStateCalcAtmosDensity.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAtmosPressure_8hpp_html"><div class="ttname"><a href="ScStateCalcAtmosPressure_8hpp.html">ScStateCalcAtmosPressure.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAtmosTemperature_8hpp_html"><div class="ttname"><a href="ScStateCalcAtmosTemperature_8hpp.html">ScStateCalcAtmosTemperature.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAzimuthRate_8hpp_html"><div class="ttname"><a href="ScStateCalcAzimuthRate_8hpp.html">ScStateCalcAzimuthRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcAzimuth_8hpp_html"><div class="ttname"><a href="ScStateCalcAzimuth_8hpp.html">ScStateCalcAzimuth.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcBDotRCalc_8hpp_html"><div class="ttname"><a href="ScStateCalcBDotRCalc_8hpp.html">ScStateCalcBDotRCalc.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcBetaAngle_8hpp_html"><div class="ttname"><a href="ScStateCalcBetaAngle_8hpp.html">ScStateCalcBetaAngle.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcBodyRelated_8hpp_html"><div class="ttname"><a href="ScStateCalcBodyRelated_8hpp.html">ScStateCalcBodyRelated.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcC3Energy_8hpp_html"><div class="ttname"><a href="ScStateCalcC3Energy_8hpp.html">ScStateCalcC3Energy.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCd_8hpp_html"><div class="ttname"><a href="ScStateCalcCd_8hpp.html">ScStateCalcCd.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachBearing_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachBearing_8hpp.html">ScStateCalcCloseApproachBearing.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachCosBearing_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachCosBearing_8hpp.html">ScStateCalcCloseApproachCosBearing.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachDistance_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachDistance_8hpp.html">ScStateCalcCloseApproachDistance.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachMag_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachMag_8hpp.html">ScStateCalcCloseApproachMag.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachSpeed_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachSpeed_8hpp.html">ScStateCalcCloseApproachSpeed.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachTheta_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachTheta_8hpp.html">ScStateCalcCloseApproachTheta.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachX_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachX_8hpp.html">ScStateCalcCloseApproachX.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCloseApproachY_8hpp_html"><div class="ttname"><a href="ScStateCalcCloseApproachY_8hpp.html">ScStateCalcCloseApproachY.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCosineVFPA_8hpp_html"><div class="ttname"><a href="ScStateCalcCosineVFPA_8hpp.html">ScStateCalcCosineVFPA.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCr_8hpp_html"><div class="ttname"><a href="ScStateCalcCr_8hpp.html">ScStateCalcCr.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCrossSectionalArea_8hpp_html"><div class="ttname"><a href="ScStateCalcCrossSectionalArea_8hpp.html">ScStateCalcCrossSectionalArea.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCrossTrackRate_8hpp_html"><div class="ttname"><a href="ScStateCalcCrossTrackRate_8hpp.html">ScStateCalcCrossTrackRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcCrossTrack_8hpp_html"><div class="ttname"><a href="ScStateCalcCrossTrack_8hpp.html">ScStateCalcCrossTrack.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDamageFlux_8hpp_html"><div class="ttname"><a href="ScStateCalcDamageFlux_8hpp.html">ScStateCalcDamageFlux.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDamageMassFlux_8hpp_html"><div class="ttname"><a href="ScStateCalcDamageMassFlux_8hpp.html">ScStateCalcDamageMassFlux.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDecRate_8hpp_html"><div class="ttname"><a href="ScStateCalcDecRate_8hpp.html">ScStateCalcDecRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDec_8hpp_html"><div class="ttname"><a href="ScStateCalcDec_8hpp.html">ScStateCalcDec.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDelaunayG_8hpp_html"><div class="ttname"><a href="ScStateCalcDelaunayG_8hpp.html">ScStateCalcDelaunayG.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDelaunayH_8hpp_html"><div class="ttname"><a href="ScStateCalcDelaunayH_8hpp.html">ScStateCalcDelaunayH.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDelaunayL_8hpp_html"><div class="ttname"><a href="ScStateCalcDelaunayL_8hpp.html">ScStateCalcDelaunayL.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDeltaDec_8hpp_html"><div class="ttname"><a href="ScStateCalcDeltaDec_8hpp.html">ScStateCalcDeltaDec.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDeltaFromMaster_8hpp_html"><div class="ttname"><a href="ScStateCalcDeltaFromMaster_8hpp.html">ScStateCalcDeltaFromMaster.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDeltaRA_8hpp_html"><div class="ttname"><a href="ScStateCalcDeltaRA_8hpp.html">ScStateCalcDeltaRA.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDeltaVSquared_8hpp_html"><div class="ttname"><a href="ScStateCalcDeltaVSquared_8hpp.html">ScStateCalcDeltaVSquared.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDeltaV_8hpp_html"><div class="ttname"><a href="ScStateCalcDeltaV_8hpp.html">ScStateCalcDeltaV.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDensity_8hpp_html"><div class="ttname"><a href="ScStateCalcDensity_8hpp.html">ScStateCalcDensity.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDiffAcrossSegmentOtherSat_8hpp_html"><div class="ttname"><a href="ScStateCalcDiffAcrossSegmentOtherSat_8hpp.html">ScStateCalcDiffAcrossSegmentOtherSat.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDifferenceOtherSegment_8hpp_html"><div class="ttname"><a href="ScStateCalcDifferenceOtherSegment_8hpp.html">ScStateCalcDifferenceOtherSegment.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDifference_8hpp_html"><div class="ttname"><a href="ScStateCalcDifference_8hpp.html">ScStateCalcDifference.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDragArea_8hpp_html"><div class="ttname"><a href="ScStateCalcDragArea_8hpp.html">ScStateCalcDragArea.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDragForce_8hpp_html"><div class="ttname"><a href="ScStateCalcDragForce_8hpp.html">ScStateCalcDragForce.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcDuration_8hpp_html"><div class="ttname"><a href="ScStateCalcDuration_8hpp.html">ScStateCalcDuration.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEarthMeanLocTimeAN_8hpp_html"><div class="ttname"><a href="ScStateCalcEarthMeanLocTimeAN_8hpp.html">ScStateCalcEarthMeanLocTimeAN.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEarthMeanSolTime_8hpp_html"><div class="ttname"><a href="ScStateCalcEarthMeanSolTime_8hpp.html">ScStateCalcEarthMeanSolTime.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEccAnomaly_8hpp_html"><div class="ttname"><a href="ScStateCalcEccAnomaly_8hpp.html">ScStateCalcEccAnomaly.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEccentricity_8hpp_html"><div class="ttname"><a href="ScStateCalcEccentricity_8hpp.html">ScStateCalcEccentricity.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcElevationRate_8hpp_html"><div class="ttname"><a href="ScStateCalcElevationRate_8hpp.html">ScStateCalcElevationRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcElevation_8hpp_html"><div class="ttname"><a href="ScStateCalcElevation_8hpp.html">ScStateCalcElevation.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEpoch_8hpp_html"><div class="ttname"><a href="ScStateCalcEpoch_8hpp.html">ScStateCalcEpoch.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEquinoctialH_8hpp_html"><div class="ttname"><a href="ScStateCalcEquinoctialH_8hpp.html">ScStateCalcEquinoctialH.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEquinoctialK_8hpp_html"><div class="ttname"><a href="ScStateCalcEquinoctialK_8hpp.html">ScStateCalcEquinoctialK.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEquinoctialP_8hpp_html"><div class="ttname"><a href="ScStateCalcEquinoctialP_8hpp.html">ScStateCalcEquinoctialP.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcEquinoctialQ_8hpp_html"><div class="ttname"><a href="ScStateCalcEquinoctialQ_8hpp.html">ScStateCalcEquinoctialQ.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcFPA_8hpp_html"><div class="ttname"><a href="ScStateCalcFPA_8hpp.html">ScStateCalcFPA.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcFlightPathAngle_8hpp_html"><div class="ttname"><a href="ScStateCalcFlightPathAngle_8hpp.html">ScStateCalcFlightPathAngle.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcFrameRelated_8hpp_html"><div class="ttname"><a href="ScStateCalcFrameRelated_8hpp.html">ScStateCalcFrameRelated.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcFuelMass_8hpp_html"><div class="ttname"><a href="ScStateCalcFuelMass_8hpp.html">ScStateCalcFuelMass.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcGravCoeff_8hpp_html"><div class="ttname"><a href="ScStateCalcGravCoeff_8hpp.html">ScStateCalcGravCoeff.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcHeightAboveTerrain_8hpp_html"><div class="ttname"><a href="ScStateCalcHeightAboveTerrain_8hpp.html">ScStateCalcHeightAboveTerrain.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcImpactFlux_8hpp_html"><div class="ttname"><a href="ScStateCalcImpactFlux_8hpp.html">ScStateCalcImpactFlux.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInAsympDec_8hpp_html"><div class="ttname"><a href="ScStateCalcInAsympDec_8hpp.html">ScStateCalcInAsympDec.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInAsympRA_8hpp_html"><div class="ttname"><a href="ScStateCalcInAsympRA_8hpp.html">ScStateCalcInAsympRA.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInTrackRate_8hpp_html"><div class="ttname"><a href="ScStateCalcInTrackRate_8hpp.html">ScStateCalcInTrackRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInTrack_8hpp_html"><div class="ttname"><a href="ScStateCalcInTrack_8hpp.html">ScStateCalcInTrack.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInVAzP_8hpp_html"><div class="ttname"><a href="ScStateCalcInVAzP_8hpp.html">ScStateCalcInVAzP.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInclination_8hpp_html"><div class="ttname"><a href="ScStateCalcInclination_8hpp.html">ScStateCalcInclination.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcInertDeltaVMag_8hpp_html"><div class="ttname"><a href="ScStateCalcInertDeltaVMag_8hpp.html">ScStateCalcInertDeltaVMag.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcJScript_8hpp_html"><div class="ttname"><a href="ScStateCalcJScript_8hpp.html">ScStateCalcJScript.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLatitudeRate_8hpp_html"><div class="ttname"><a href="ScStateCalcLatitudeRate_8hpp.html">ScStateCalcLatitudeRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLatitude_8hpp_html"><div class="ttname"><a href="ScStateCalcLatitude_8hpp.html">ScStateCalcLatitude.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLightSpeed_8hpp_html"><div class="ttname"><a href="ScStateCalcLightSpeed_8hpp.html">ScStateCalcLightSpeed.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLocalAppSolLon_8hpp_html"><div class="ttname"><a href="ScStateCalcLocalAppSolLon_8hpp.html">ScStateCalcLocalAppSolLon.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLonOfAscNode_8hpp_html"><div class="ttname"><a href="ScStateCalcLonOfAscNode_8hpp.html">ScStateCalcLonOfAscNode.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLongDriftRate_8hpp_html"><div class="ttname"><a href="ScStateCalcLongDriftRate_8hpp.html">ScStateCalcLongDriftRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLongPeriapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcLongPeriapsis_8hpp.html">ScStateCalcLongPeriapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLongitudeRate_8hpp_html"><div class="ttname"><a href="ScStateCalcLongitudeRate_8hpp.html">ScStateCalcLongitudeRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcLongitude_8hpp_html"><div class="ttname"><a href="ScStateCalcLongitude_8hpp.html">ScStateCalcLongitude.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMCSDeltaV_8hpp_html"><div class="ttname"><a href="ScStateCalcMCSDeltaV_8hpp.html">ScStateCalcMCSDeltaV.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMagneticFieldForce_8hpp_html"><div class="ttname"><a href="ScStateCalcMagneticFieldForce_8hpp.html">ScStateCalcMagneticFieldForce.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMagneticFieldStrength_8hpp_html"><div class="ttname"><a href="ScStateCalcMagneticFieldStrength_8hpp.html">ScStateCalcMagneticFieldStrength.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMass_8hpp_html"><div class="ttname"><a href="ScStateCalcMass_8hpp.html">ScStateCalcMass.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMatlab_8hpp_html"><div class="ttname"><a href="ScStateCalcMatlab_8hpp.html">ScStateCalcMatlab.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMeanAnomaly_8hpp_html"><div class="ttname"><a href="ScStateCalcMeanAnomaly_8hpp.html">ScStateCalcMeanAnomaly.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMeanEarthLon_8hpp_html"><div class="ttname"><a href="ScStateCalcMeanEarthLon_8hpp.html">ScStateCalcMeanEarthLon.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMeanEclipticLon_8hpp_html"><div class="ttname"><a href="ScStateCalcMeanEclipticLon_8hpp.html">ScStateCalcMeanEclipticLon.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMeanLongitude_8hpp_html"><div class="ttname"><a href="ScStateCalcMeanLongitude_8hpp.html">ScStateCalcMeanLongitude.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMeanMotion_8hpp_html"><div class="ttname"><a href="ScStateCalcMeanMotion_8hpp.html">ScStateCalcMeanMotion.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcMu_8hpp_html"><div class="ttname"><a href="ScStateCalcMu_8hpp.html">ScStateCalcMu.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcNormalRate_8hpp_html"><div class="ttname"><a href="ScStateCalcNormalRate_8hpp.html">ScStateCalcNormalRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcNormal_8hpp_html"><div class="ttname"><a href="ScStateCalcNormal_8hpp.html">ScStateCalcNormal.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOrbitDelaunayG_8hpp_html"><div class="ttname"><a href="ScStateCalcOrbitDelaunayG_8hpp.html">ScStateCalcOrbitDelaunayG.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOrbitDelaunayH_8hpp_html"><div class="ttname"><a href="ScStateCalcOrbitDelaunayH_8hpp.html">ScStateCalcOrbitDelaunayH.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOrbitDelaunayL_8hpp_html"><div class="ttname"><a href="ScStateCalcOrbitDelaunayL_8hpp.html">ScStateCalcOrbitDelaunayL.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOrbitPeriod_8hpp_html"><div class="ttname"><a href="ScStateCalcOrbitPeriod_8hpp.html">ScStateCalcOrbitPeriod.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOrbitSemiLatusRectum_8hpp_html"><div class="ttname"><a href="ScStateCalcOrbitSemiLatusRectum_8hpp.html">ScStateCalcOrbitSemiLatusRectum.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOrbitStateValue_8hpp_html"><div class="ttname"><a href="ScStateCalcOrbitStateValue_8hpp.html">ScStateCalcOrbitStateValue.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOutAsympDec_8hpp_html"><div class="ttname"><a href="ScStateCalcOutAsympDec_8hpp.html">ScStateCalcOutAsympDec.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOutAsympRA_8hpp_html"><div class="ttname"><a href="ScStateCalcOutAsympRA_8hpp.html">ScStateCalcOutAsympRA.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcOutVAzP_8hpp_html"><div class="ttname"><a href="ScStateCalcOutVAzP_8hpp.html">ScStateCalcOutVAzP.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcPosDiffMagOthSeg_8hpp_html"><div class="ttname"><a href="ScStateCalcPosDiffMagOthSeg_8hpp.html">ScStateCalcPosDiffMagOthSeg.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcPosVelDiffMagOthSeg_8hpp_html"><div class="ttname"><a href="ScStateCalcPosVelDiffMagOthSeg_8hpp.html">ScStateCalcPosVelDiffMagOthSeg.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcPower_8hpp_html"><div class="ttname"><a href="ScStateCalcPower_8hpp.html">ScStateCalcPower.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcPropellantMass_8hpp_html"><div class="ttname"><a href="ScStateCalcPropellantMass_8hpp.html">ScStateCalcPropellantMass.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRAAN_8hpp_html"><div class="ttname"><a href="ScStateCalcRAAN_8hpp.html">ScStateCalcRAAN.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRARate_8hpp_html"><div class="ttname"><a href="ScStateCalcRARate_8hpp.html">ScStateCalcRARate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRA_8hpp_html"><div class="ttname"><a href="ScStateCalcRA_8hpp.html">ScStateCalcRA.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRMag_8hpp_html"><div class="ttname"><a href="ScStateCalcRMag_8hpp.html">ScStateCalcRMag.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadPressureArea_8hpp_html"><div class="ttname"><a href="ScStateCalcRadPressureArea_8hpp.html">ScStateCalcRadPressureArea.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadPressureCoefficient_8hpp_html"><div class="ttname"><a href="ScStateCalcRadPressureCoefficient_8hpp.html">ScStateCalcRadPressureCoefficient.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadialRate_8hpp_html"><div class="ttname"><a href="ScStateCalcRadialRate_8hpp.html">ScStateCalcRadialRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadial_8hpp_html"><div class="ttname"><a href="ScStateCalcRadial_8hpp.html">ScStateCalcRadial.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadiusOfApoapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcRadiusOfApoapsis_8hpp.html">ScStateCalcRadiusOfApoapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadiusOfPeriapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcRadiusOfPeriapsis_8hpp.html">ScStateCalcRadiusOfPeriapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRadius_8hpp_html"><div class="ttname"><a href="ScStateCalcRadius_8hpp.html">ScStateCalcRadius.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRangeRate_8hpp_html"><div class="ttname"><a href="ScStateCalcRangeRate_8hpp.html">ScStateCalcRangeRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRange_8hpp_html"><div class="ttname"><a href="ScStateCalcRange_8hpp.html">ScStateCalcRange.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRectifiedLongitude_8hpp_html"><div class="ttname"><a href="ScStateCalcRectifiedLongitude_8hpp.html">ScStateCalcRectifiedLongitude.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcReentryDeceleration_8hpp_html"><div class="ttname"><a href="ScStateCalcReentryDeceleration_8hpp.html">ScStateCalcReentryDeceleration.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRefRad_8hpp_html"><div class="ttname"><a href="ScStateCalcRefRad_8hpp.html">ScStateCalcRefRad.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcReflectionCoefficient_8hpp_html"><div class="ttname"><a href="ScStateCalcReflectionCoefficient_8hpp.html">ScStateCalcReflectionCoefficient.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRelAOLMaster_8hpp_html"><div class="ttname"><a href="ScStateCalcRelAOLMaster_8hpp.html">ScStateCalcRelAOLMaster.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRelGroundTrackError_8hpp_html"><div class="ttname"><a href="ScStateCalcRelGroundTrackError_8hpp.html">ScStateCalcRelGroundTrackError.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRepGrTrackErr_8hpp_html"><div class="ttname"><a href="ScStateCalcRepGrTrackErr_8hpp.html">ScStateCalcRepGrTrackErr.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcRightAscension_8hpp_html"><div class="ttname"><a href="ScStateCalcRightAscension_8hpp.html">ScStateCalcRightAscension.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSEETSAAFlux_8hpp_html"><div class="ttname"><a href="ScStateCalcSEETSAAFlux_8hpp.html">ScStateCalcSEETSAAFlux.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSRPArea_8hpp_html"><div class="ttname"><a href="ScStateCalcSRPArea_8hpp.html">ScStateCalcSRPArea.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelXVelX_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelXVelX_8hpp.html">ScStateCalcSTMVelXVelX.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelXVelY_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelXVelY_8hpp.html">ScStateCalcSTMVelXVelY.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelXVelZ_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelXVelZ_8hpp.html">ScStateCalcSTMVelXVelZ.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelYVelX_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelYVelX_8hpp.html">ScStateCalcSTMVelYVelX.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelYVelY_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelYVelY_8hpp.html">ScStateCalcSTMVelYVelY.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelYVelZ_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelYVelZ_8hpp.html">ScStateCalcSTMVelYVelZ.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelZVelX_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelZVelX_8hpp.html">ScStateCalcSTMVelZVelX.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelZVelY_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelZVelY_8hpp.html">ScStateCalcSTMVelZVelY.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSTMVelZVelZ_8hpp_html"><div class="ttname"><a href="ScStateCalcSTMVelZVelZ_8hpp.html">ScStateCalcSTMVelZVelZ.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcScalar_8hpp_html"><div class="ttname"><a href="ScStateCalcScalar_8hpp.html">ScStateCalcScalar.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSemiLatusRectum_8hpp_html"><div class="ttname"><a href="ScStateCalcSemiLatusRectum_8hpp.html">ScStateCalcSemiLatusRectum.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSemiMajorAxis_8hpp_html"><div class="ttname"><a href="ScStateCalcSemiMajorAxis_8hpp.html">ScStateCalcSemiMajorAxis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSequenceDeltaVSquared_8hpp_html"><div class="ttname"><a href="ScStateCalcSequenceDeltaVSquared_8hpp.html">ScStateCalcSequenceDeltaVSquared.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSequenceDeltaV_8hpp_html"><div class="ttname"><a href="ScStateCalcSequenceDeltaV_8hpp.html">ScStateCalcSequenceDeltaV.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSignedEccentricity_8hpp_html"><div class="ttname"><a href="ScStateCalcSignedEccentricity_8hpp.html">ScStateCalcSignedEccentricity.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSolarPhaseAngle_8hpp_html"><div class="ttname"><a href="ScStateCalcSolarPhaseAngle_8hpp.html">ScStateCalcSolarPhaseAngle.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSolarPressure_8hpp_html"><div class="ttname"><a href="ScStateCalcSolarPressure_8hpp.html">ScStateCalcSolarPressure.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSolarRadiationForce_8hpp_html"><div class="ttname"><a href="ScStateCalcSolarRadiationForce_8hpp.html">ScStateCalcSolarRadiationForce.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcSpacecraftMass_8hpp_html"><div class="ttname"><a href="ScStateCalcSpacecraftMass_8hpp.html">ScStateCalcSpacecraftMass.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTangentialRate_8hpp_html"><div class="ttname"><a href="ScStateCalcTangentialRate_8hpp.html">ScStateCalcTangentialRate.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTangential_8hpp_html"><div class="ttname"><a href="ScStateCalcTangential_8hpp.html">ScStateCalcTangential.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTemperature_8hpp_html"><div class="ttname"><a href="ScStateCalcTemperature_8hpp.html">ScStateCalcTemperature.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcThrust_8hpp_html"><div class="ttname"><a href="ScStateCalcThrust_8hpp.html">ScStateCalcThrust.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTimeDifference_8hpp_html"><div class="ttname"><a href="ScStateCalcTimeDifference_8hpp.html">ScStateCalcTimeDifference.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTimePastAscNode_8hpp_html"><div class="ttname"><a href="ScStateCalcTimePastAscNode_8hpp.html">ScStateCalcTimePastAscNode.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTimePastPeriapsis_8hpp_html"><div class="ttname"><a href="ScStateCalcTimePastPeriapsis_8hpp.html">ScStateCalcTimePastPeriapsis.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTrueAnomaly_8hpp_html"><div class="ttname"><a href="ScStateCalcTrueAnomaly_8hpp.html">ScStateCalcTrueAnomaly.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcTrueLong_8hpp_html"><div class="ttname"><a href="ScStateCalcTrueLong_8hpp.html">ScStateCalcTrueLong.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVAz_8hpp_html"><div class="ttname"><a href="ScStateCalcVAz_8hpp.html">ScStateCalcVAz.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVBScript_8hpp_html"><div class="ttname"><a href="ScStateCalcVBScript_8hpp.html">ScStateCalcVBScript.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVMag_8hpp_html"><div class="ttname"><a href="ScStateCalcVMag_8hpp.html">ScStateCalcVMag.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcValueAtSegmentOtherSat_8hpp_html"><div class="ttname"><a href="ScStateCalcValueAtSegmentOtherSat_8hpp.html">ScStateCalcValueAtSegmentOtherSat.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcValueOtherSegment_8hpp_html"><div class="ttname"><a href="ScStateCalcValueOtherSegment_8hpp.html">ScStateCalcValueOtherSegment.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVelDiffMagOthSeg_8hpp_html"><div class="ttname"><a href="ScStateCalcVelDiffMagOthSeg_8hpp.html">ScStateCalcVelDiffMagOthSeg.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVelocity_8hpp_html"><div class="ttname"><a href="ScStateCalcVelocity_8hpp.html">ScStateCalcVelocity.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVx_8hpp_html"><div class="ttname"><a href="ScStateCalcVx_8hpp.html">ScStateCalcVx.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVy_8hpp_html"><div class="ttname"><a href="ScStateCalcVy_8hpp.html">ScStateCalcVy.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcVz_8hpp_html"><div class="ttname"><a href="ScStateCalcVz_8hpp.html">ScStateCalcVz.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcX_8hpp_html"><div class="ttname"><a href="ScStateCalcX_8hpp.html">ScStateCalcX.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcY_8hpp_html"><div class="ttname"><a href="ScStateCalcY_8hpp.html">ScStateCalcY.hpp</a></div></div>
+<div class="ttc" id="aScStateCalcZ_8hpp_html"><div class="ttname"><a href="ScStateCalcZ_8hpp.html">ScStateCalcZ.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_fb8dea326293309ee9315e7aedad3578.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_c805074b54826f6193bd178f4be3ecef.html">Calculation</a></li><li class="navelem"><a class="el" href="dir_e9d3afb80887fe48a7f6aa3b1b2534e5.html">ScStateCalculation</a></li><li class="navelem"><a class="el" href="ScStateCalcAllHeaders_8hpp.html">ScStateCalcAllHeaders.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

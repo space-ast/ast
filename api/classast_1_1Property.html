@@ -117,16 +117,17 @@ $(function(){initNavTree('classast_1_1Property.html',''); initResizable(true); }
  <div class="center">
   <img src="classast_1_1Property.png" usemap="#ast::Property_map" alt=""/>
   <map id="ast::Property_map" name="ast::Property_map">
-<area href="classast_1_1Field.html" title="反射字段类" alt="ast::Field" shape="rect" coords="0,0,137,24"/>
-<area href="classast_1_1PropertyBool.html" title="反射属性类（bool类型）" alt="ast::PropertyBool" shape="rect" coords="147,112,284,136"/>
-<area href="classast_1_1PropertyDouble.html" title="双精度浮点数属性" alt="ast::PropertyDouble" shape="rect" coords="147,168,284,192"/>
-<area href="classast_1_1PropertyInt.html" title="反射属性类（int类型）" alt="ast::PropertyInt" shape="rect" coords="147,224,284,248"/>
-<area href="classast_1_1PropertyNoop.html" title="无操作属性类" alt="ast::PropertyNoop" shape="rect" coords="147,280,284,304"/>
-<area href="classast_1_1PropertyObject.html" title="反射属性类（对象类型）" alt="ast::PropertyObject" shape="rect" coords="147,336,284,360"/>
-<area href="classast_1_1PropertyPOD.html" title="反射属性类（POD类型: plain old data）" alt="ast::PropertyPOD" shape="rect" coords="147,392,284,416"/>
-<area href="classast_1_1PropertyString.html" title="字符串属性" alt="ast::PropertyString" shape="rect" coords="147,448,284,472"/>
-<area href="classast_1_1PropertyStruct.html" title="结构体属性" alt="ast::PropertyStruct" shape="rect" coords="147,504,284,528"/>
-<area href="classast_1_1PropertyTimePoint.html" title="时间点属性" alt="ast::PropertyTimePoint" shape="rect" coords="147,560,284,584"/>
+<area href="classast_1_1Field.html" title="反射字段类" alt="ast::Field" shape="rect" coords="0,0,160,24"/>
+<area href="classast_1_1PropertyBool.html" title="反射属性类（bool类型）" alt="ast::PropertyBool" shape="rect" coords="170,112,330,136"/>
+<area href="classast_1_1PropertyDouble.html" title="双精度浮点数属性" alt="ast::PropertyDouble" shape="rect" coords="170,168,330,192"/>
+<area href="classast_1_1PropertyInt.html" title="反射属性类（int类型）" alt="ast::PropertyInt" shape="rect" coords="170,224,330,248"/>
+<area href="classast_1_1PropertyNamedVector.html" title="命名向量属性" alt="ast::PropertyNamedVector" shape="rect" coords="170,280,330,304"/>
+<area href="classast_1_1PropertyNoop.html" title="无操作属性类" alt="ast::PropertyNoop" shape="rect" coords="170,336,330,360"/>
+<area href="classast_1_1PropertyObject.html" title="反射属性类（对象类型）" alt="ast::PropertyObject" shape="rect" coords="170,392,330,416"/>
+<area href="classast_1_1PropertyPOD.html" title="反射属性类（POD类型: plain old data）" alt="ast::PropertyPOD" shape="rect" coords="170,448,330,472"/>
+<area href="classast_1_1PropertyString.html" title="字符串属性" alt="ast::PropertyString" shape="rect" coords="170,504,330,528"/>
+<area href="classast_1_1PropertyStruct.html" title="结构体属性" alt="ast::PropertyStruct" shape="rect" coords="170,560,330,584"/>
+<area href="classast_1_1PropertyTimePoint.html" title="时间点属性" alt="ast::PropertyTimePoint" shape="rect" coords="170,616,330,640"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -163,6 +164,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:af46d175945b71f0b3e2e2f398fba1012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16979bf18900434391ef476e834fa068" id="r_a16979bf18900434391ef476e834fa068"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16979bf18900434391ef476e834fa068">setValueString</a> (void *container, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)=0</td></tr>
 <tr class="separator:a16979bf18900434391ef476e834fa068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc95c830fb524ad300ae6eda3d9224d" id="r_aafc95c830fb524ad300ae6eda3d9224d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a">EValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafc95c830fb524ad300ae6eda3d9224d">getValueType</a> () const =0</td></tr>
+<tr class="separator:aafc95c830fb524ad300ae6eda3d9224d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a354274eb0ce9dcfa7b83d6cf130d4c5f" id="r_a354274eb0ce9dcfa7b83d6cf130d4c5f"><td class="memItemLeft" align="right" valign="top"><a id="a354274eb0ce9dcfa7b83d6cf130d4c5f" name="a354274eb0ce9dcfa7b83d6cf130d4c5f"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getValueDouble</b> (const void *container)</td></tr>
 <tr class="separator:a354274eb0ce9dcfa7b83d6cf130d4c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -508,6 +511,36 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>desc_</b></td>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1PropertyBool.html#a65e9871670b5e04df6de76b18d0d75e7">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#a7d6362d92ccc68c5a986c6e5628fbe32">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#ad162f8865c9843d6e5cf251d489a9cce">ast::PropertyInt</a>, <a class="el" href="classast_1_1PropertyNoop.html#aaf1b02795950d7b334ae5a404aac7838">ast::PropertyNoop</a>, <a class="el" href="classast_1_1PropertyObject.html#abaf9e0e1791ab2890b407259a9f872ca">ast::PropertyObject</a>, <a class="el" href="classast_1_1PropertyQuantity.html#a400a4dc225836b6280adcf4533d754d9">ast::PropertyQuantity</a>, <a class="el" href="classast_1_1PropertyString.html#ac4fd1dcefb039c6864bb4d1b8bd1cd1a">ast::PropertyString</a> , 以及 <a class="el" href="classast_1_1PropertyTimePoint.html#aada9bcc5c15f450eb49877e1b82dd2d5">ast::PropertyTimePoint</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="aafc95c830fb524ad300ae6eda3d9224d" name="aafc95c830fb524ad300ae6eda3d9224d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc95c830fb524ad300ae6eda3d9224d">&#9670;&#160;</a></span>getValueType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a">EValueType</a> ast::Property::getValueType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取属性值类型 </p>
+<dl class="section return"><dt>返回</dt><dd>EValueType 属性值类型 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1PropertyBool.html#a1a39ba29e2455a5efda9b107b9e9d083">ast::PropertyBool</a>, <a class="el" href="classast_1_1PropertyDouble.html#aa81324c511a6bda4855b5081e520f582">ast::PropertyDouble</a>, <a class="el" href="classast_1_1PropertyInt.html#a6a59253ff6573a48a0d2990fa5080b02">ast::PropertyInt</a>, <a class="el" href="classast_1_1PropertyNoop.html#aab08faa0e0a73840e890ecd8fd72602d">ast::PropertyNoop</a>, <a class="el" href="classast_1_1PropertyObject.html#a9fb3a565adb227a586d6d6e111c057e3">ast::PropertyObject</a>, <a class="el" href="classast_1_1PropertyQuantity.html#aa19e3dabe8098fb59e73ef683a171d6c">ast::PropertyQuantity</a>, <a class="el" href="classast_1_1PropertyString.html#abe05e525dfa65e40f54f9c4873492734">ast::PropertyString</a> , 以及 <a class="el" href="classast_1_1PropertyTimePoint.html#a0156d068ea4addb3a437b95d370162dd">ast::PropertyTimePoint</a> 内被实现.</p>
 
 </div>
 </div>

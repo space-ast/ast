@@ -108,6 +108,7 @@ $(function(){initNavTree('Value_8hpp.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstScript/Expr.hpp&quot;</code><br />
 <code>#include &quot;AstScript/ScriptAPI.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/OrderedMap.hpp&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div>
 <p><a href="Value_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -124,9 +125,12 @@ $(function(){initNavTree('Value_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
-<tr class="memitem:adf8f720733cb0e6bf9b8ee2b2caa0b35" id="r_adf8f720733cb0e6bf9b8ee2b2caa0b35"><td class="memItemLeft" align="right" valign="top"><a id="adf8f720733cb0e6bf9b8ee2b2caa0b35" name="adf8f720733cb0e6bf9b8ee2b2caa0b35"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ValueMapType</b> = std::map&lt;std::string, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1Value.html">Value</a>&gt;&gt;</td></tr>
-<tr class="separator:adf8f720733cb0e6bf9b8ee2b2caa0b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc739fae0e3fdc57d61ccfc25584c2c" id="r_aebc739fae0e3fdc57d61ccfc25584c2c"><td class="memItemLeft" align="right" valign="top"><a id="aebc739fae0e3fdc57d61ccfc25584c2c" name="aebc739fae0e3fdc57d61ccfc25584c2c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ValueMapType</b> = <a class="el" href="classast_1_1OrderedMap.html">OrderedMap</a>&lt;std::string, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1Value.html">Value</a>&gt;&gt;</td></tr>
+<tr class="separator:aebc739fae0e3fdc57d61ccfc25584c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1410d8d2b3dac81efc54c6005915149d" id="r_a1410d8d2b3dac81efc54c6005915149d"><td class="memItemLeft" align="right" valign="top"><a id="a1410d8d2b3dac81efc54c6005915149d" name="a1410d8d2b3dac81efc54c6005915149d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::NamedValueVector</b> = std::vector&lt;std::pair&lt;std::string, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1Value.html">Value</a>&gt;&gt;&gt;</td></tr>
+<tr class="separator:a1410d8d2b3dac81efc54c6005915149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>

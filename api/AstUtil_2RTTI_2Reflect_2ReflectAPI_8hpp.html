@@ -142,6 +142,8 @@ $(function(){initNavTree('AstUtil_2RTTI_2Reflect_2ReflectAPI_8hpp.html',''); ini
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1detail_1_1PropertyBuilder_3_01T_00_01std_1_1string_00_01GetterErrorSetterTag_01_4.html">ast::detail::PropertyBuilder&lt; T, std::string, GetterErrorSetterTag &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1detail_1_1PropertyBuilderValueString.html">ast::detail::PropertyBuilderValueString&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -156,6 +158,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGet</b
 <tr class="memitem:ga159c7076d71e611938d8f153ef2abb42" id="r_ga159c7076d71e611938d8f153ef2abb42"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertySet</b> = errc_t (*)(void* obj, const void* value)</td></tr>
 <tr class="separator:ga159c7076d71e611938d8f153ef2abb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae43c4cd261c90ba57c73fb55538257d6" id="r_gae43c4cd261c90ba57c73fb55538257d6"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGetItemByString</b> = errc_t (*)(const void* obj, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> key, <a class="el" href="classast_1_1Object.html">Object</a>*&amp; value)</td></tr>
+<tr class="separator:gae43c4cd261c90ba57c73fb55538257d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32939cfe3d007811f2dc5aaa53947749" id="r_ga32939cfe3d007811f2dc5aaa53947749"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGetItemByIndex</b> = errc_t (*)(const void* obj, size_t key, <a class="el" href="classast_1_1Object.html">Object</a>*&amp; value)</td></tr>
+<tr class="separator:ga32939cfe3d007811f2dc5aaa53947749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>

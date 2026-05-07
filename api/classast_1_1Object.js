@@ -1,6 +1,8 @@
 var classast_1_1Object =
 [
-    [ "addDelayedLink", "classast_1_1Object.html#acbcaa214db3200de3a405c6fed8185a9", null ],
+    [ "Object", "classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578", null ],
+    [ "addDelayedLink", "classast_1_1Object.html#adf7b91848543c240be28885c981d2241", null ],
+    [ "addDelayedLinkIfFailed", "classast_1_1Object.html#a5ce58e227924271e34486ce9bfd8ce0a", null ],
     [ "attr", "classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170", null ],
     [ "decRef", "classast_1_1Object.html#aa4697ffa258dc386c82f6e496ee6f513", null ],
     [ "decRefNoDelete", "classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c", null ],
@@ -24,10 +26,12 @@ var classast_1_1Object =
     [ "incRef", "classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c", null ],
     [ "incWeakRef", "classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d", null ],
     [ "isDestructed", "classast_1_1Object.html#a6fd5f058fcc84490d373f3194a001397", null ],
+    [ "isOfType", "group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3", null ],
     [ "isOfType", "classast_1_1Object.html#a556816669dc1c7bdd0b609af9b51c765", null ],
     [ "isOfType", "classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197", null ],
+    [ "name", "classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f", null ],
     [ "refCount", "classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b", null ],
-    [ "resolveLinks", "classast_1_1Object.html#aa453ffb19abb19515a7c96df726f47d9", null ],
+    [ "resolveLinks", "classast_1_1Object.html#a2e876146a8f6465fecc865e755b41dbe", null ],
     [ "setAttrBool", "classast_1_1Object.html#a5072bda9b7931524868edbf014d4ff92", null ],
     [ "setAttrDouble", "classast_1_1Object.html#acac18023e736d3e498ab1cf2965b9abf", null ],
     [ "setAttrInt", "classast_1_1Object.html#aed0f50f23efc8b9b92411a70723a0ce6", null ],

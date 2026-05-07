@@ -100,6 +100,7 @@ $(function(){initNavTree('classast_1_1SpacecraftState.html',''); initResizable(t
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1SpacecraftState-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::SpacecraftState类 参考</div></div>
@@ -203,15 +204,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTankTemperature</b
 <tr class="separator:ae9f2abf6c3574720295e24f4df89e4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae10c45433aa99d2acac18fb0164b61" id="r_a8ae10c45433aa99d2acac18fb0164b61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ae10c45433aa99d2acac18fb0164b61">setOrbitState</a> (<a class="el" href="classast_1_1State.html">State</a> *orbitState)</td></tr>
 <tr class="separator:a8ae10c45433aa99d2acac18fb0164b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a508e8c049f447b4b0cda529608166461" id="r_a508e8c049f447b4b0cda529608166461"><td class="memItemLeft" align="right" valign="top"><a id="a508e8c049f447b4b0cda529608166461" name="a508e8c049f447b4b0cda529608166461"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFrame</b> () const</td></tr>
+<tr class="separator:a508e8c049f447b4b0cda529608166461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d860466865d772f1d38a5a3effca15" id="r_a76d860466865d772f1d38a5a3effca15"><td class="memItemLeft" align="right" valign="top"><a id="a76d860466865d772f1d38a5a3effca15" name="a76d860466865d772f1d38a5a3effca15"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> (<a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) const</td></tr>
+<tr class="separator:a76d860466865d772f1d38a5a3effca15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866331f7d198d1b79eed5b02debfa1a6" id="r_a866331f7d198d1b79eed5b02debfa1a6"><td class="memItemLeft" align="right" valign="top"><a id="a866331f7d198d1b79eed5b02debfa1a6" name="a866331f7d198d1b79eed5b02debfa1a6"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> (<a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state) const</td></tr>
+<tr class="separator:a866331f7d198d1b79eed5b02debfa1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5ff981d6d9e7e8df0acd1f68f15c911" id="r_ac5ff981d6d9e7e8df0acd1f68f15c911"><td class="memItemLeft" align="right" valign="top"><a id="ac5ff981d6d9e7e8df0acd1f68f15c911" name="ac5ff981d6d9e7e8df0acd1f68f15c911"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getStateIn</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state) const</td></tr>
+<tr class="separator:ac5ff981d6d9e7e8df0acd1f68f15c911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7366fb7d5f22d778eb42a9ac41cf8530" id="r_a7366fb7d5f22d778eb42a9ac41cf8530"><td class="memItemLeft" align="right" valign="top"><a id="a7366fb7d5f22d778eb42a9ac41cf8530" name="a7366fb7d5f22d778eb42a9ac41cf8530"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getStateIn</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) const</td></tr>
+<tr class="separator:a7366fb7d5f22d778eb42a9ac41cf8530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed09cb2e303e7d9c169ce47c98a74a4" id="r_a2ed09cb2e303e7d9c169ce47c98a74a4"><td class="memItemLeft" align="right" valign="top"><a id="a2ed09cb2e303e7d9c169ce47c98a74a4" name="a2ed09cb2e303e7d9c169ce47c98a74a4"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getStateInBodyInertial</b> (<a class="el" href="classast_1_1CelestialBody.html">Body</a> *body, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state) const</td></tr>
+<tr class="separator:a2ed09cb2e303e7d9c169ce47c98a74a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad858de74bec261c3e5fbbbe180ff35b3" id="r_ad858de74bec261c3e5fbbbe180ff35b3"><td class="memItemLeft" align="right" valign="top"><a id="ad858de74bec261c3e5fbbbe180ff35b3" name="ad858de74bec261c3e5fbbbe180ff35b3"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (const <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem)</td></tr>
+<tr class="separator:ad858de74bec261c3e5fbbbe180ff35b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac3a8f04dfa5e62ff848ec22b2a8a144" id="r_aac3a8f04dfa5e62ff848ec22b2a8a144"><td class="memItemLeft" align="right" valign="top"><a id="aac3a8f04dfa5e62ff848ec22b2a8a144" name="aac3a8f04dfa5e62ff848ec22b2a8a144"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (const <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state)</td></tr>
+<tr class="separator:aac3a8f04dfa5e62ff848ec22b2a8a144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b726b51a084b48ac3b17a3f1e147d63" id="r_a8b726b51a084b48ac3b17a3f1e147d63"><td class="memItemLeft" align="right" valign="top"><a id="a8b726b51a084b48ac3b17a3f1e147d63" name="a8b726b51a084b48ac3b17a3f1e147d63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStateEpoch</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;stateEpoch)</td></tr>
+<tr class="separator:a8b726b51a084b48ac3b17a3f1e147d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f0f48c16c616e42c35ebc50a22eece" id="r_a00f0f48c16c616e42c35ebc50a22eece"><td class="memItemLeft" align="right" valign="top"><a id="a00f0f48c16c616e42c35ebc50a22eece" name="a00f0f48c16c616e42c35ebc50a22eece"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getStateEpoch</b> (<a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;stateEpoch) const</td></tr>
+<tr class="separator:a00f0f48c16c616e42c35ebc50a22eece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33aaa0d82c15abd8ac8a19933b6ddc70" id="r_a33aaa0d82c15abd8ac8a19933b6ddc70"><td class="memItemLeft" align="right" valign="top"><a id="a33aaa0d82c15abd8ac8a19933b6ddc70" name="a33aaa0d82c15abd8ac8a19933b6ddc70"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;srcState)</td></tr>
+<tr class="separator:a33aaa0d82c15abd8ac8a19933b6ddc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
 <tr class="separator:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>)</td></tr>
 <tr class="separator:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed" id="r_afb1a89f4242cdf4ec00565ad72eff1b9"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#afb1a89f4242cdf4ec00565ad72eff1b9">getName</a> () const override</td></tr>
 <tr class="separator:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed" id="r_abd3548f088559bf32c2d2bc4df19dc80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) override</td></tr>
+<tr class="memitem:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed" id="r_abd3548f088559bf32c2d2bc4df19dc80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) override</td></tr>
 <tr class="separator:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Object" id="r_a3e2ce8041e46f520a6f50b2d661245b9"><td class="memItemLeft" align="right" valign="top">
@@ -220,8 +254,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTankTemperature</b
 <tr class="memitem:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Object" id="r_a62f159ae7909680956affebd590f1783"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (std::nullptr_t)</td></tr>
 <tr class="separator:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Object" id="r_abbd67af553bb0841192dfacd0f0e9578"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578">Object</a> (<a class="el" href="structast_1_1initial__strong__ref__t.html">initial_strong_ref_t</a>)</td></tr>
+<tr class="separator:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object" id="r_ad5992c59eef6fd156988573616d3e8d5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ad5992c59eef6fd156988573616d3e8d5">getType</a> () const</td></tr>
 <tr class="separator:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object" id="r_a446065f1684af869d91a610b6cf5a80f"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="separator:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0495a9547b1a91a95c0be865ee7f42 inherit pub_methods_classast_1_1Object" id="r_a0f0495a9547b1a91a95c0be865ee7f42"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0f0495a9547b1a91a95c0be865ee7f42">showEditDialog</a> ()</td></tr>
 <tr class="separator:a0f0495a9547b1a91a95c0be865ee7f42 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0192227e3d8184f7a6d75dec82993170 inherit pub_methods_classast_1_1Object" id="r_a0192227e3d8184f7a6d75dec82993170"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1AttributeBasic.html">Attribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170">attr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
@@ -258,6 +297,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTankTemperature</b
 <tr class="separator:af1661553d43c580bee61563c8c2c07d0 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad30c577e616caa73f91c3866cc540157 inherit pub_methods_classast_1_1Object" id="r_ad30c577e616caa73f91c3866cc540157"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">type</a> () const</td></tr>
 <tr class="separator:ad30c577e616caa73f91c3866cc540157 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2f8b1ae4d7d5e2be36e856188a9155 inherit pub_methods_classast_1_1Object" id="r_afc2f8b1ae4d7d5e2be36e856188a9155"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>typeName</b> () const</td></tr>
+<tr class="separator:afc2f8b1ae4d7d5e2be36e856188a9155 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3f855bf1ea116440b9f5ee84ed6cd7f inherit pub_methods_classast_1_1Object" id="r_ae3f855bf1ea116440b9f5ee84ed6cd7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ae3f855bf1ea116440b9f5ee84ed6cd7f">getProperty</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fieldName) const</td></tr>
 <tr class="separator:ae3f855bf1ea116440b9f5ee84ed6cd7f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae01884ecdd890335f205b0bb847c5ed5 inherit pub_methods_classast_1_1Object" id="r_ae01884ecdd890335f205b0bb847c5ed5"><td class="memItemLeft" align="right" valign="top">ObjectId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ae01884ecdd890335f205b0bb847c5ed5">getID</a> () const</td></tr>
@@ -270,6 +312,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTankTemperature</b
 <tr class="separator:a556816669dc1c7bdd0b609af9b51c765 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object" id="r_a3001b127c00fd68e312f7143ddb8a197"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197">isOfType</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName) const</td></tr>
 <tr class="separator:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object" id="r_ga1508a5d286ff71fbd38229332d704ab3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3">isOfType</a> () const</td></tr>
+<tr class="separator:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ca8d28b3a279e60ce673d69b5a545b inherit pub_methods_classast_1_1Object" id="r_a91ca8d28b3a279e60ce673d69b5a545b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b">refCount</a> () const</td></tr>
 <tr class="separator:a91ca8d28b3a279e60ce673d69b5a545b inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0413d6286436cde9376cee0cdaba541b inherit pub_methods_classast_1_1Object" id="r_a0413d6286436cde9376cee0cdaba541b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b">weakRefCount</a> () const</td></tr>
@@ -288,15 +333,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTankTemperature</b
 <tr class="separator:aa4697ffa258dc386c82f6e496ee6f513 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object" id="r_aecd84a95fab6db0c0efb7fb34863b11c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c">decRefNoDelete</a> ()</td></tr>
 <tr class="separator:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object" id="r_adf7b91848543c240be28885c981d2241"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#adf7b91848543c240be28885c981d2241">addDelayedLink</a> (Func &amp;&amp;link)</td></tr>
+<tr class="separator:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object" id="r_a5ce58e227924271e34486ce9bfd8ce0a"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a5ce58e227924271e34486ce9bfd8ce0a">addDelayedLinkIfFailed</a> (Func &amp;&amp;link)</td></tr>
+<tr class="separator:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e876146a8f6465fecc865e755b41dbe inherit pub_methods_classast_1_1Object" id="r_a2e876146a8f6465fecc865e755b41dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a2e876146a8f6465fecc865e755b41dbe">resolveLinks</a> ()</td></tr>
+<tr class="separator:a2e876146a8f6465fecc865e755b41dbe inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public 属性</h2></td></tr>
-<tr class="memitem:a8dded40aa9f4977ffe276397d501f109" id="r_a8dded40aa9f4977ffe276397d501f109"><td class="memItemLeft" align="right" valign="top"><a id="a8dded40aa9f4977ffe276397d501f109" name="a8dded40aa9f4977ffe276397d501f109"></a>
-AST_PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: double getMass() const{return fuelMass_ + dryMass_</td></tr>
-<tr class="separator:a8dded40aa9f4977ffe276397d501f109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-额外继承的成员函数</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a76018cb13b71e64ecada2812fd5440c2" id="r_a76018cb13b71e64ecada2812fd5440c2"><td class="memItemLeft" align="right" valign="top"><a id="a76018cb13b71e64ecada2812fd5440c2" name="a76018cb13b71e64ecada2812fd5440c2"></a>
+static <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>NewDefault</b> ()</td></tr>
+<tr class="separator:a76018cb13b71e64ecada2812fd5440c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a7a1569cc8cc1ab030e88e2c4f4ed98de inherit pub_static_methods_classast_1_1Object" id="r_a7a1569cc8cc1ab030e88e2c4f4ed98de"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a7a1569cc8cc1ab030e88e2c4f4ed98de">Resolve</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
 <tr class="separator:a7a1569cc8cc1ab030e88e2c4f4ed98de inherit pub_static_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -306,16 +356,20 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ClassInit</b> 
 <tr class="memitem:a1241519e198b472bfdc49a9278c72170 inherit pub_static_methods_classast_1_1Object" id="r_a1241519e198b472bfdc49a9278c72170"><td class="memItemLeft" align="right" valign="top">
 static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>StaticType</b> ()</td></tr>
 <tr class="separator:a1241519e198b472bfdc49a9278c72170 inherit pub_static_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a8dded40aa9f4977ffe276397d501f109" id="r_a8dded40aa9f4977ffe276397d501f109"><td class="memItemLeft" align="right" valign="top"><a id="a8dded40aa9f4977ffe276397d501f109" name="a8dded40aa9f4977ffe276397d501f109"></a>
+AST_PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: double getMass() const{return fuelMass_ + dryMass_</td></tr>
+<tr class="separator:a8dded40aa9f4977ffe276397d501f109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
 <tr class="inherit_header pub_static_attribs_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;静态 Public 属性 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object" id="r_a0d3a787620d7bd3b8b619bcbef67bb68"><td class="memItemLeft" align="right" valign="top">
 static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>staticType</b></td></tr>
 <tr class="separator:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
-<tr class="memitem:acbcaa214db3200de3a405c6fed8185a9 inherit pro_methods_classast_1_1Object" id="r_acbcaa214db3200de3a405c6fed8185a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:acbcaa214db3200de3a405c6fed8185a9 inherit pro_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#acbcaa214db3200de3a405c6fed8185a9">addDelayedLink</a> (T &amp;&amp;link)</td></tr>
-<tr class="separator:acbcaa214db3200de3a405c6fed8185a9 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa453ffb19abb19515a7c96df726f47d9 inherit pro_methods_classast_1_1Object" id="r_aa453ffb19abb19515a7c96df726f47d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aa453ffb19abb19515a7c96df726f47d9">resolveLinks</a> ()</td></tr>
-<tr class="separator:aa453ffb19abb19515a7c96df726f47d9 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26df1078be6121773b18dd5c5092432e inherit pro_methods_classast_1_1Object" id="r_a26df1078be6121773b18dd5c5092432e"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;obj)</td></tr>
 <tr class="separator:a26df1078be6121773b18dd5c5092432e inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -325,15 +379,13 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性 </p>
+<p>参考orekit的SpacecraftState类 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="ae9f2abf6c3574720295e24f4df89e4bd" name="ae9f2abf6c3574720295e24f4df89e4bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9f2abf6c3574720295e24f4df89e4bd">&#9670;&#160;</a></span>getOrbitState()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classast_1_1State.html">State</a> * ast::SpacecraftState::getOrbitState </td>
@@ -342,11 +394,6 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>获取轨道状态 </p>
@@ -422,6 +469,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Orbit/Spacecraft/<a class="el" href="SpacecraftState_8hpp_source.html">SpacecraftState.hpp</a></li>
+<li>src/AstCore/Orbit/Spacecraft/<a class="el" href="SpacecraftState_8cpp.html">SpacecraftState.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

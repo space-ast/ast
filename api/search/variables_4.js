@@ -12,7 +12,7 @@ var searchData=
   ['deg_9',['deg',['../Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e',1,'ast::units']]],
   ['degree_5f_10',['degree_',['../classast_1_1GravityCalculator.html#a1e643a734d78d52fb3b50945ac6f67b5',1,'ast::GravityCalculator']]],
   ['deps_11',['deps',['../structast_1_1EOP_1_1Entry.html#a20d7dc6d9435bad6985d1d144b6427f2',1,'ast::EOP::Entry']]],
-  ['desc_5f_12',['desc_',['../classast_1_1Field.html#ac9892e80ad6ea95308f2ebf4783ecf4e',1,'ast::Field']]],
+  ['desc_5f_12',['desc_',['../classast_1_1Field.html#ac9892e80ad6ea95308f2ebf4783ecf4e',1,'ast::Field::desc_'],['../classast_1_1Struct.html#ad67265424718f74c198e36a669049f59',1,'ast::Struct::desc_']]],
   ['descriptors_13',['descriptors',['../structast_1_1DAF__SPKSummaryRecords.html#a5b4c7bca9ee562968ea70b164fef28dc',1,'ast::DAF_SPKSummaryRecords']]],
   ['detailedterrainhorizon_5f_14',['detailedTerrainHorizon_',['../classast_1_1FieldOfView.html#a901f4b069bb0ae3c2d405450a5432b7b',1,'ast::FieldOfView']]],
   ['detectshadowboundaries_5f_15',['detectShadowBoundaries_',['../classast_1_1SolarRadiationPressure.html#a77909811c966c50c0563e04d47b2fdf4',1,'ast::SolarRadiationPressure']]],

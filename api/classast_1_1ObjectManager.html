@@ -126,6 +126,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ae769a2f8459fc69de26a315877cd9f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a915744dcf7daaf93f4612976507951b8" id="r_a915744dcf7daaf93f4612976507951b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a915744dcf7daaf93f4612976507951b8">getParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:a915744dcf7daaf93f4612976507951b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74c45ed13ba735b82706aa1799b03c70" id="r_a74c45ed13ba735b82706aa1799b03c70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74c45ed13ba735b82706aa1799b03c70">getAncestorScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
+<tr class="separator:a74c45ed13ba735b82706aa1799b03c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab323221297ed4fb560aa50545e371392" id="r_ab323221297ed4fb560aa50545e371392"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab323221297ed4fb560aa50545e371392">getNodeCount</a> () const</td></tr>
 <tr class="separator:ab323221297ed4fb560aa50545e371392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa02917a20538ee26a443e5efeb71781f" id="r_aa02917a20538ee26a443e5efeb71781f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02917a20538ee26a443e5efeb71781f">getMaxObjectCount</a> () const</td></tr>
@@ -290,6 +292,36 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b></td></tr>
 
 <p>获取所有对象 </p>
 <dl class="section return"><dt>返回</dt><dd>所有对象指针向量 </dd></dl>
+
+</div>
+</div>
+<a id="a74c45ed13ba735b82706aa1799b03c70" name="a74c45ed13ba735b82706aa1799b03c70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c45ed13ba735b82706aa1799b03c70">&#9670;&#160;</a></span>getAncestorScope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Object.html">Object</a> * ast::ObjectManager::getAncestorScope </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取对象的祖先作用域 </p>
+<p>obj 对象指针 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>祖先作用域指针 </dd></dl>
 
 </div>
 </div>

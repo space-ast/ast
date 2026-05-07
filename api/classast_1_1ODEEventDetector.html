@@ -133,6 +133,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a4fdcfcc8d60f2514d6116efbf1ab058f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01131d2a910b846a4a506b60c13d7410" id="r_a01131d2a910b846a4a506b60c13d7410"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01131d2a910b846a4a506b60c13d7410">getValue</a> (const double *y, double x) const =0</td></tr>
 <tr class="separator:a01131d2a910b846a4a506b60c13d7410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5acc50fcaf6c0cc7744cc718ba168bc" id="r_ac5acc50fcaf6c0cc7744cc718ba168bc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5acc50fcaf6c0cc7744cc718ba168bc">containsEvent</a> (const <a class="el" href="classast_1_1Bracket.html">Bracket</a> &amp;bracket) const</td></tr>
+<tr class="separator:ac5acc50fcaf6c0cc7744cc718ba168bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd85219122cf5d8d1d2f755dc27c9794" id="r_abd85219122cf5d8d1d2f755dc27c9794"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd85219122cf5d8d1d2f755dc27c9794">getRepeatCount</a> () const</td></tr>
 <tr class="separator:abd85219122cf5d8d1d2f755dc27c9794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0e5be6a9b4c68ce9d1225056aff151e" id="r_aa0e5be6a9b4c68ce9d1225056aff151e"><td class="memItemLeft" align="right" valign="top"><a id="aa0e5be6a9b4c68ce9d1225056aff151e" name="aa0e5be6a9b4c68ce9d1225056aff151e"></a>
@@ -183,6 +185,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGoal</b> (double g
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
+<a id="ac5acc50fcaf6c0cc7744cc718ba168bc" name="ac5acc50fcaf6c0cc7744cc718ba168bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5acc50fcaf6c0cc7744cc718ba168bc">&#9670;&#160;</a></span>containsEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::ODEEventDetector::containsEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Bracket.html">Bracket</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bracket</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断括号区间内是否存在该事件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bracket</td><td>括号区间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否存在该事件 </dd></dl>
+
+</div>
+</div>
 <a id="a4fdcfcc8d60f2514d6116efbf1ab058f" name="a4fdcfcc8d60f2514d6116efbf1ab058f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fdcfcc8d60f2514d6116efbf1ab058f">&#9670;&#160;</a></span>getDifference()</h2>
 
@@ -301,8 +337,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGoal</b> (double g
 </table>
 </div><div class="memdoc">
 
-<p>事件触发后的重复次数 </p>
-<dl class="section return"><dt>返回</dt><dd>事件触发后的重复次数 </dd></dl>
+<p>事件触发重复次数 </p>
+<dl class="section return"><dt>返回</dt><dd>事件触发重复次数 </dd></dl>
 
 </div>
 </div>
@@ -377,6 +413,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGoal</b> (double g
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstMath/ODE/<a class="el" href="ODEEventDetector_8hpp_source.html">ODEEventDetector.hpp</a></li>
+<li>src/AstMath/ODE/<a class="el" href="ODEEventDetector_8cpp.html">ODEEventDetector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -3,6 +3,7 @@ var dir_943b8559cfec6ca4c5bcb49ee46412f0 =
     [ "Basic", "dir_6225495754e83a102e924636ca410534.html", "dir_6225495754e83a102e924636ca410534" ],
     [ "Debugger", "dir_bcc7907fb636469997f3b4d57dfa3019.html", "dir_bcc7907fb636469997f3b4d57dfa3019" ],
     [ "Expression", "dir_713015e7dcdafeee2444d0519ace66c8.html", "dir_713015e7dcdafeee2444d0519ace66c8" ],
+    [ "Foreign", "dir_ec0f894df079da601163d0e435f2480a.html", "dir_ec0f894df079da601163d0e435f2480a" ],
     [ "Function", "dir_2a969930e1083724931c9d79b0ad2b52.html", "dir_2a969930e1083724931c9d79b0ad2b52" ],
     [ "Interpreter", "dir_71985df19590ad31a175886a7620fbe9.html", "dir_71985df19590ad31a175886a7620fbe9" ],
     [ "Macro", "dir_05bbeb6cdde6aee3e8dbcae60260af6c.html", "dir_05bbeb6cdde6aee3e8dbcae60260af6c" ],

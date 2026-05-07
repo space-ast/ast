@@ -34,6 +34,7 @@ var group__ODE =
         [ "eBoth", "classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656ba46b77ceffde8a50a4d804bca3741c5f8", null ],
         [ "eIncrease", "classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656baa596a53563a72fde1a9a6fd1a9ba8af8", null ]
       ] ],
+      [ "containsEvent", "classast_1_1ODEEventDetector.html#ac5acc50fcaf6c0cc7744cc718ba168bc", null ],
       [ "getDifference", "classast_1_1ODEEventDetector.html#a4fdcfcc8d60f2514d6116efbf1ab058f", null ],
       [ "getDirection", "classast_1_1ODEEventDetector.html#a1f41ff2a059a4952edb2d26f58b57179", null ],
       [ "getGoal", "classast_1_1ODEEventDetector.html#ab0a3a2806c2306c5af64084c2329a7cd", null ],
@@ -73,6 +74,7 @@ var group__ODE =
       [ "addEventDetector", "classast_1_1ODEIntegrator.html#a4da8602cc2555b747a38ec04f35cc340", null ],
       [ "addStateObserver", "classast_1_1ODEIntegrator.html#a76e2241263234469fb05f690488dc513", null ],
       [ "addStateObserver", "classast_1_1ODEIntegrator.html#abef67d9cce067b12e355543b5ac80af9", null ],
+      [ "clearEventDetectors", "classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04", null ],
       [ "getODE", "classast_1_1ODEIntegrator.html#acb65449f9e34544859243e08b5b7e72d", null ],
       [ "initialize", "classast_1_1ODEIntegrator.html#a153a13cb83f14b0981b0d220f64e561c", null ],
       [ "integrate", "classast_1_1ODEIntegrator.html#a23df14bc3f593622cbc78d41f8419a07", null ],

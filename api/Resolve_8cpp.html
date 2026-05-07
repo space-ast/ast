@@ -111,6 +111,8 @@ $(function(){initNavTree('Resolve_8cpp.html',''); initResizable(true); });
 <code>#include &quot;AstCore/BuiltinFrame.hpp&quot;</code><br />
 <code>#include &quot;AstCore/FrameAssembly.hpp&quot;</code><br />
 <code>#include &quot;AstCore/EventTimeExplicit.hpp&quot;</code><br />
+<code>#include &quot;AstCore/BuiltinAxes.hpp&quot;</code><br />
+<code>#include &quot;AstCore/AxesLinkTo.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -121,10 +123,20 @@ $(function(){initNavTree('Resolve_8cpp.html',''); initResizable(true); });
 函数</h2></td></tr>
 <tr class="memitem:ab5b2a3ed3b861d8097375453514a754e" id="r_ab5b2a3ed3b861d8097375453514a754e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab5b2a3ed3b861d8097375453514a754e">ast::aObject_GetFrame</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> frameName)</td></tr>
 <tr class="separator:ab5b2a3ed3b861d8097375453514a754e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a053d98725f59d9e18b22cbf5d85fc879" id="r_a053d98725f59d9e18b22cbf5d85fc879"><td class="memItemLeft" align="right" valign="top"><a id="a053d98725f59d9e18b22cbf5d85fc879" name="a053d98725f59d9e18b22cbf5d85fc879"></a>
+<a class="el" href="classast_1_1Point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aObject_GetPoint</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> pointName)</td></tr>
+<tr class="separator:a053d98725f59d9e18b22cbf5d85fc879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd8bba426b116ac47d4f73464a4e908" id="r_a0cd8bba426b116ac47d4f73464a4e908"><td class="memItemLeft" align="right" valign="top"><a id="a0cd8bba426b116ac47d4f73464a4e908" name="a0cd8bba426b116ac47d4f73464a4e908"></a>
+<a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aObject_GetAxes</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> axesName)</td></tr>
+<tr class="separator:a0cd8bba426b116ac47d4f73464a4e908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7aa7c9486109b1d453c71ce12a13ae1b" id="r_a7aa7c9486109b1d453c71ce12a13ae1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">Body</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a7aa7c9486109b1d453c71ce12a13ae1b">ast::aResolveBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
 <tr class="separator:a7aa7c9486109b1d453c71ce12a13ae1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff39b959ca7752837773d21c48183af1" id="r_aff39b959ca7752837773d21c48183af1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aff39b959ca7752837773d21c48183af1">ast::aResolveFrame</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
 <tr class="separator:aff39b959ca7752837773d21c48183af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d1d6b04e91c5753adbb3e79f3e0bfb0" id="r_a7d1d6b04e91c5753adbb3e79f3e0bfb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0">ast::aResolveAxes</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:a7d1d6b04e91c5753adbb3e79f3e0bfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d7c916606754e1dc51c9a0ac158fec" id="r_ac1d7c916606754e1dc51c9a0ac158fec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac1d7c916606754e1dc51c9a0ac158fec">ast::aResolvePoint</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:ac1d7c916606754e1dc51c9a0ac158fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

@@ -13,7 +13,7 @@ var group__String =
     [ "ast::aStrSplit", "group__String.html#gaf81d23a13b876b4b5683a6c6b7a09c93", null ],
     [ "ast::aStrSplit", "group__String.html#ga81a7b348c2d38df07a01f644e30cb7a2", null ],
     [ "ast::aUTF8ToCRT", "group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8", null ],
-    [ "ast::aUtf8ToWide", "group__String.html#ga352ccc1e3481487dce54533d2615f634", null ],
+    [ "ast::aUtf8ToWide", "group__String.html#ga1d8d99844ba8cd0d871d5d0079c4732b", null ],
     [ "ast::aWideToAnsi", "group__String.html#ga40d79277119322d1fb84debba51a5767", null ],
     [ "ast::aWideToCRT", "group__String.html#gade923a9e656922dfc6d2057be1848fee", null ],
     [ "ast::aWideToUtf8", "group__String.html#gaa69d330049fa1dbef77203c98b2f938c", null ],

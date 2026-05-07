@@ -4,6 +4,7 @@ var classast_1_1ODEIntegrator =
     [ "addEventDetector", "classast_1_1ODEIntegrator.html#a4da8602cc2555b747a38ec04f35cc340", null ],
     [ "addStateObserver", "classast_1_1ODEIntegrator.html#a76e2241263234469fb05f690488dc513", null ],
     [ "addStateObserver", "classast_1_1ODEIntegrator.html#abef67d9cce067b12e355543b5ac80af9", null ],
+    [ "clearEventDetectors", "classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04", null ],
     [ "getODE", "classast_1_1ODEIntegrator.html#acb65449f9e34544859243e08b5b7e72d", null ],
     [ "initialize", "classast_1_1ODEIntegrator.html#a153a13cb83f14b0981b0d220f64e561c", null ],
     [ "integrate", "classast_1_1ODEIntegrator.html#a23df14bc3f593622cbc78d41f8419a07", null ],

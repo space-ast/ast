@@ -9,7 +9,7 @@ var searchData=
   ['second_5f_6',['second_',['../classast_1_1Time.html#a22cecce12e0d43b36797b1b691fb7721',1,'ast::Time']]],
   ['semimajoraxis_5f_7',['semimajorAxis_',['../classast_1_1SimpleOrbitDesigner.html#a6e57d80dcb3500400d1d9444c7c6a7fa',1,'ast::SimpleOrbitDesigner']]],
   ['shadowmodel_5f_8',['shadowModel_',['../classast_1_1SolarRadiationPressure.html#ae6e3c1d878756f6b8e8b47613e6ca0e8',1,'ast::SolarRadiationPressure']]],
-  ['shape_5f_9',['shape_',['../classast_1_1CelestialBody.html#a951e555d1ca3ca24ab7205f48d738682',1,'ast::CelestialBody']]],
+  ['shape_5f_9',['shape_',['../classast_1_1CelestialBody.html#a10877d649f6c584321d901fdc38e26d8',1,'ast::CelestialBody']]],
   ['shapetype_5f_10',['shapeType_',['../classast_1_1StateKeplerian.html#a666a7f30b5225199af10ea2d96af3095',1,'ast::StateKeplerian']]],
   ['signalptr_5f_11',['signalPtr_',['../classast_1_1DataPort.html#a1ed5b008306ae3eadadb82e22de2e2cb',1,'ast::DataPort']]],
   ['sincoeff_5f_12',['sinCoeff_',['../classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d',1,'ast::GravityField']]],

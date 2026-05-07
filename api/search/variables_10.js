@@ -24,6 +24,8 @@ var searchData=
   ['printweakrefcount_21',['printWeakRefCount',['../structast_1_1ObjectPrintConfig.html#a78c249248d7de674b115073411094a1b',1,'ast::ObjectPrintConfig']]],
   ['propagationaxes_5f_22',['propagationAxes_',['../classast_1_1BlockGravity.html#a2571399a390546fa721f27323c2b2e3d',1,'ast::BlockGravity']]],
   ['propagationframe_5f_23',['propagationFrame_',['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#a9368630ab7dfb4c9c82cceeccc66a4a1',1,'ast::MotionOrbitDynamics::PropagationParams::propagationFrame_'],['../classast_1_1MotionOrbitDynamics.html#aca91e26e808514cbae9bbe3e8eb6bf79',1,'ast::MotionOrbitDynamics::propagationFrame_']]],
-  ['propframe_5f_24',['propFrame_',['../classast_1_1HPOPEquation.html#a765b6c98f7fe701226715b4e6550e220',1,'ast::HPOPEquation']]],
-  ['pstnul_25',['pstnul',['../structast_1_1DAF__FileRecord.html#ad311bd512ed672bee5193b0e30fef442',1,'ast::DAF_FileRecord']]]
+  ['properties_5f_24',['properties_',['../classast_1_1Struct.html#a3d7a6ce52a19de2b50275f2fa7f7b3f9',1,'ast::Struct']]],
+  ['propertymap_5f_25',['propertyMap_',['../classast_1_1Struct.html#a62cdd6cda64494ea46ebd985e9b4169d',1,'ast::Struct']]],
+  ['propframe_5f_26',['propFrame_',['../classast_1_1HPOPEquation.html#a765b6c98f7fe701226715b4e6550e220',1,'ast::HPOPEquation']]],
+  ['pstnul_27',['pstnul',['../structast_1_1DAF__FileRecord.html#ad311bd512ed672bee5193b0e30fef442',1,'ast::DAF_FileRecord']]]
 ];

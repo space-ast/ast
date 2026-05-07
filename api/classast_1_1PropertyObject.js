@@ -6,6 +6,7 @@ var classast_1_1PropertyObject =
     [ "getValueDouble", "classast_1_1PropertyObject.html#ad224b358a8a8c3fab96e56c8018c5f4f", null ],
     [ "getValueInt", "classast_1_1PropertyObject.html#a259298682fde2a49f2b247b287a9e58e", null ],
     [ "getValueString", "classast_1_1PropertyObject.html#abaf9e0e1791ab2890b407259a9f872ca", null ],
+    [ "getValueType", "classast_1_1PropertyObject.html#a9fb3a565adb227a586d6d6e111c057e3", null ],
     [ "setValue", "classast_1_1PropertyObject.html#a07f93e5a2a3ddf313cc0b09ac27c46bc", null ],
     [ "setValueBool", "classast_1_1PropertyObject.html#a591643b0f417a817d73c67fd430a6d58", null ],
     [ "setValueDouble", "classast_1_1PropertyObject.html#af4f3b9f625ff5090201ec1c0872b1c6e", null ],

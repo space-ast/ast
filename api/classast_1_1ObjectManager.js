@@ -4,6 +4,7 @@ var classast_1_1ObjectManager =
     [ "findObject", "classast_1_1ObjectManager.html#a04b9eec147e40651aac05197373c22f5", null ],
     [ "findObjects", "classast_1_1ObjectManager.html#a06561ebb55881244999719c546321f19", null ],
     [ "getAllObjects", "classast_1_1ObjectManager.html#a1429a050edb79e8115aa8681021b4f25", null ],
+    [ "getAncestorScope", "classast_1_1ObjectManager.html#a74c45ed13ba735b82706aa1799b03c70", null ],
     [ "getMaxObjectCount", "classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f", null ],
     [ "getNodeCount", "classast_1_1ObjectManager.html#ab323221297ed4fb560aa50545e371392", null ],
     [ "getObject", "classast_1_1ObjectManager.html#a0ee7766213b53591741da4f65e0aa660", null ],

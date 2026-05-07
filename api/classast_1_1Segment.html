@@ -115,14 +115,16 @@ $(function(){initNavTree('classast_1_1Segment.html',''); initResizable(true); })
  <div class="center">
   <img src="classast_1_1Segment.png" usemap="#ast::Segment_map" alt=""/>
   <map id="ast::Segment_map" name="ast::Segment_map">
-<area href="classast_1_1MissionCommand.html" title="任务命令（虚基类），用于定义任务序列中的任务命令，例如初始状态、轨道机动、轨道预报等" alt="ast::MissionCommand" shape="rect" coords="284,112,416,136"/>
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="284,56,416,80"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="284,0,416,24"/>
-<area href="classast_1_1InitialState.html" title="初始轨道段，用于建模任务序列(MissionCommand)中的初始状态任务" alt="ast::InitialState" shape="rect" coords="0,224,132,248"/>
-<area href="classast_1_1Maneuver.html" title="机动轨道段，用于建模任务序列(MissionCommand)中的机动任务" alt="ast::Maneuver" shape="rect" coords="142,224,274,248"/>
-<area href="classast_1_1Propagate.html" title="预报段，用于建模任务序列(MissionCommand)中的轨道预报" alt="ast::Propagate" shape="rect" coords="284,224,416,248"/>
-<area href="classast_1_1SegmentGraph.html" title="轨道段框图，用类似simulink的框图描述复杂、多航天的航天任务中的轨道任务段" alt="ast::SegmentGraph" shape="rect" coords="426,224,558,248"/>
-<area href="classast_1_1Sequence.html" title="任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行" alt="ast::Sequence" shape="rect" coords="568,224,700,248"/>
+<area href="classast_1_1MissionCommand.html" title="任务命令（虚基类），用于定义任务序列中的任务命令，例如初始状态、轨道机动、轨道预报等" alt="ast::MissionCommand" shape="rect" coords="296,168,434,192"/>
+<area href="classast_1_1Command.html" alt="ast::Command" shape="rect" coords="296,112,434,136"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="296,56,434,80"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="296,0,434,24"/>
+<area href="classast_1_1InitialState.html" title="初始轨道段，用于建模任务序列(MissionCommand)中的初始状态任务" alt="ast::InitialState" shape="rect" coords="0,280,138,304"/>
+<area href="classast_1_1Maneuver.html" title="机动轨道段，用于建模任务序列(MissionCommand)中的机动任务" alt="ast::Maneuver" shape="rect" coords="148,280,286,304"/>
+<area href="classast_1_1Propagate.html" title="预报段，用于建模任务序列(MissionCommand)中的轨道预报" alt="ast::Propagate" shape="rect" coords="296,280,434,304"/>
+<area href="classast_1_1SegmentGraph.html" title="轨道段框图，用类似simulink的框图描述复杂、多航天的航天任务中的轨道任务段" alt="ast::SegmentGraph" shape="rect" coords="444,280,582,304"/>
+<area href="classast_1_1Sequence.html" title="任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行" alt="ast::Sequence" shape="rect" coords="592,280,730,304"/>
+<area href="classast_1_1TargeterSequence.html" title="目标序列段，用于建模并求解轨迹规划问题，可以定义多个控制变量、约束条件、目标函数等，调用求解器求解满足约束和最优的轨迹" alt="ast::TargeterSequence" shape="rect" coords="592,336,730,360"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -130,20 +132,21 @@ $(function(){initNavTree('classast_1_1Segment.html',''); initResizable(true); })
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a081cf5c764b36a5f2f2eb994fc3f68a7" id="r_a081cf5c764b36a5f2f2eb994fc3f68a7"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a081cf5c764b36a5f2f2eb994fc3f68a7">execute</a> () override=0</td></tr>
 <tr class="separator:a081cf5c764b36a5f2f2eb994fc3f68a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb1c8d75b461947d33715b8ed056fc0f" id="r_aeb1c8d75b461947d33715b8ed056fc0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb1c8d75b461947d33715b8ed056fc0f">setInitialState</a> (<a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *initialState)</td></tr>
-<tr class="separator:aeb1c8d75b461947d33715b8ed056fc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ead22e52ad65b1400603c18967681e0" id="r_a2ead22e52ad65b1400603c18967681e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ead22e52ad65b1400603c18967681e0">getFinalState</a> () const</td></tr>
-<tr class="separator:a2ead22e52ad65b1400603c18967681e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bbc05c6edd20f24889463e39709968c" id="r_a8bbc05c6edd20f24889463e39709968c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bbc05c6edd20f24889463e39709968c">getInputState</a> () const</td></tr>
+<tr class="separator:a8bbc05c6edd20f24889463e39709968c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb7e3384e9019fe34241e75ee4cc19f" id="r_a4bb7e3384e9019fe34241e75ee4cc19f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bb7e3384e9019fe34241e75ee4cc19f">getOutputState</a> () const</td></tr>
+<tr class="separator:a4bb7e3384e9019fe34241e75ee4cc19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1MissionCommand"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1MissionCommand')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1MissionCommand.html">ast::MissionCommand</a></td></tr>
+<tr class="inherit_header pub_methods_classast_1_1Command"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Command')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Command.html">ast::Command</a></td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
 <tr class="separator:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>)</td></tr>
 <tr class="separator:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed" id="r_afb1a89f4242cdf4ec00565ad72eff1b9"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#afb1a89f4242cdf4ec00565ad72eff1b9">getName</a> () const override</td></tr>
 <tr class="separator:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed" id="r_abd3548f088559bf32c2d2bc4df19dc80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) override</td></tr>
+<tr class="memitem:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed" id="r_abd3548f088559bf32c2d2bc4df19dc80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) override</td></tr>
 <tr class="separator:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Object" id="r_a3e2ce8041e46f520a6f50b2d661245b9"><td class="memItemLeft" align="right" valign="top">
@@ -152,8 +155,13 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Object" id="r_a62f159ae7909680956affebd590f1783"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (std::nullptr_t)</td></tr>
 <tr class="separator:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Object" id="r_abbd67af553bb0841192dfacd0f0e9578"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578">Object</a> (<a class="el" href="structast_1_1initial__strong__ref__t.html">initial_strong_ref_t</a>)</td></tr>
+<tr class="separator:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object" id="r_ad5992c59eef6fd156988573616d3e8d5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ad5992c59eef6fd156988573616d3e8d5">getType</a> () const</td></tr>
 <tr class="separator:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object" id="r_a446065f1684af869d91a610b6cf5a80f"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="separator:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0495a9547b1a91a95c0be865ee7f42 inherit pub_methods_classast_1_1Object" id="r_a0f0495a9547b1a91a95c0be865ee7f42"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0f0495a9547b1a91a95c0be865ee7f42">showEditDialog</a> ()</td></tr>
 <tr class="separator:a0f0495a9547b1a91a95c0be865ee7f42 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0192227e3d8184f7a6d75dec82993170 inherit pub_methods_classast_1_1Object" id="r_a0192227e3d8184f7a6d75dec82993170"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1AttributeBasic.html">Attribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170">attr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
@@ -190,6 +198,9 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:af1661553d43c580bee61563c8c2c07d0 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad30c577e616caa73f91c3866cc540157 inherit pub_methods_classast_1_1Object" id="r_ad30c577e616caa73f91c3866cc540157"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">type</a> () const</td></tr>
 <tr class="separator:ad30c577e616caa73f91c3866cc540157 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2f8b1ae4d7d5e2be36e856188a9155 inherit pub_methods_classast_1_1Object" id="r_afc2f8b1ae4d7d5e2be36e856188a9155"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>typeName</b> () const</td></tr>
+<tr class="separator:afc2f8b1ae4d7d5e2be36e856188a9155 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3f855bf1ea116440b9f5ee84ed6cd7f inherit pub_methods_classast_1_1Object" id="r_ae3f855bf1ea116440b9f5ee84ed6cd7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ae3f855bf1ea116440b9f5ee84ed6cd7f">getProperty</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fieldName) const</td></tr>
 <tr class="separator:ae3f855bf1ea116440b9f5ee84ed6cd7f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae01884ecdd890335f205b0bb847c5ed5 inherit pub_methods_classast_1_1Object" id="r_ae01884ecdd890335f205b0bb847c5ed5"><td class="memItemLeft" align="right" valign="top">ObjectId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ae01884ecdd890335f205b0bb847c5ed5">getID</a> () const</td></tr>
@@ -202,6 +213,9 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a556816669dc1c7bdd0b609af9b51c765 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object" id="r_a3001b127c00fd68e312f7143ddb8a197"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197">isOfType</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName) const</td></tr>
 <tr class="separator:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object" id="r_ga1508a5d286ff71fbd38229332d704ab3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3">isOfType</a> () const</td></tr>
+<tr class="separator:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ca8d28b3a279e60ce673d69b5a545b inherit pub_methods_classast_1_1Object" id="r_a91ca8d28b3a279e60ce673d69b5a545b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b">refCount</a> () const</td></tr>
 <tr class="separator:a91ca8d28b3a279e60ce673d69b5a545b inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0413d6286436cde9376cee0cdaba541b inherit pub_methods_classast_1_1Object" id="r_a0413d6286436cde9376cee0cdaba541b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b">weakRefCount</a> () const</td></tr>
@@ -220,11 +234,19 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:aa4697ffa258dc386c82f6e496ee6f513 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object" id="r_aecd84a95fab6db0c0efb7fb34863b11c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c">decRefNoDelete</a> ()</td></tr>
 <tr class="separator:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object" id="r_adf7b91848543c240be28885c981d2241"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#adf7b91848543c240be28885c981d2241">addDelayedLink</a> (Func &amp;&amp;link)</td></tr>
+<tr class="separator:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object" id="r_a5ce58e227924271e34486ce9bfd8ce0a"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a5ce58e227924271e34486ce9bfd8ce0a">addDelayedLinkIfFailed</a> (Func &amp;&amp;link)</td></tr>
+<tr class="separator:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e876146a8f6465fecc865e755b41dbe inherit pub_methods_classast_1_1Object" id="r_a2e876146a8f6465fecc865e755b41dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a2e876146a8f6465fecc865e755b41dbe">resolveLinks</a> ()</td></tr>
+<tr class="separator:a2e876146a8f6465fecc865e755b41dbe inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a4dc068a115871817177444f86bfd2d8c" id="r_a4dc068a115871817177444f86bfd2d8c"><td class="memItemLeft" align="right" valign="top"><a id="a4dc068a115871817177444f86bfd2d8c" name="a4dc068a115871817177444f86bfd2d8c"></a>
-AST_PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* getInitialState() const{return initialState_.get()</td></tr>
+AST_PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: void setInputState(<a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* inputState){inputState_ = inputState</td></tr>
 <tr class="separator:a4dc068a115871817177444f86bfd2d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -250,11 +272,6 @@ static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td cla
 static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>staticType</b></td></tr>
 <tr class="separator:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
-<tr class="memitem:acbcaa214db3200de3a405c6fed8185a9 inherit pro_methods_classast_1_1Object" id="r_acbcaa214db3200de3a405c6fed8185a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:acbcaa214db3200de3a405c6fed8185a9 inherit pro_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#acbcaa214db3200de3a405c6fed8185a9">addDelayedLink</a> (T &amp;&amp;link)</td></tr>
-<tr class="separator:acbcaa214db3200de3a405c6fed8185a9 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa453ffb19abb19515a7c96df726f47d9 inherit pro_methods_classast_1_1Object" id="r_aa453ffb19abb19515a7c96df726f47d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aa453ffb19abb19515a7c96df726f47d9">resolveLinks</a> ()</td></tr>
-<tr class="separator:aa453ffb19abb19515a7c96df726f47d9 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26df1078be6121773b18dd5c5092432e inherit pro_methods_classast_1_1Object" id="r_a26df1078be6121773b18dd5c5092432e"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;obj)</td></tr>
 <tr class="separator:a26df1078be6121773b18dd5c5092432e inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -292,14 +309,14 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <p>执行任务 </p>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>实现了 <a class="el" href="classast_1_1MissionCommand.html#a1c9d211c7b7e9b4bc829d8ee7b37d7f0">ast::MissionCommand</a>.</p>
+<p>实现了 <a class="el" href="classast_1_1MissionCommand.html#aa96a5129b1fa20cc2552489a6abb215b">ast::MissionCommand</a>.</p>
 
-<p>在 <a class="el" href="classast_1_1InitialState.html#ac4e54146833a3c40d342a5bb88c29ba7">ast::InitialState</a>, <a class="el" href="classast_1_1Maneuver.html#ac662587b3a49cd14618598794bb1342c">ast::Maneuver</a>, <a class="el" href="classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438">ast::Propagate</a>, <a class="el" href="classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c">ast::SegmentGraph</a> , 以及 <a class="el" href="classast_1_1Sequence.html#ab69d692eaeb6c7ba5ff868a4d90574ab">ast::Sequence</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1InitialState.html#ac4e54146833a3c40d342a5bb88c29ba7">ast::InitialState</a>, <a class="el" href="classast_1_1Maneuver.html#ac662587b3a49cd14618598794bb1342c">ast::Maneuver</a>, <a class="el" href="classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438">ast::Propagate</a>, <a class="el" href="classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c">ast::SegmentGraph</a>, <a class="el" href="classast_1_1Sequence.html#ab69d692eaeb6c7ba5ff868a4d90574ab">ast::Sequence</a> , 以及 <a class="el" href="classast_1_1TargeterSequence.html#a5c389c2b5c1fedd09ee596fd889b08c2">ast::TargeterSequence</a> 内被实现.</p>
 
 </div>
 </div>
-<a id="a2ead22e52ad65b1400603c18967681e0" name="a2ead22e52ad65b1400603c18967681e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ead22e52ad65b1400603c18967681e0">&#9670;&#160;</a></span>getFinalState()</h2>
+<a id="a8bbc05c6edd20f24889463e39709968c" name="a8bbc05c6edd20f24889463e39709968c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bbc05c6edd20f24889463e39709968c">&#9670;&#160;</a></span>getInputState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,7 +325,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> * ast::Segment::getFinalState </td>
+          <td class="memname"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> * ast::Segment::getInputState </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -321,13 +338,13 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 </div><div class="memdoc">
 
-<p>获取最终状态 </p>
-<dl class="section return"><dt>返回</dt><dd>最终状态 </dd></dl>
+<p>获取输入状态 </p>
+<dl class="section return"><dt>返回</dt><dd>输入状态 </dd></dl>
 
 </div>
 </div>
-<a id="aeb1c8d75b461947d33715b8ed056fc0f" name="aeb1c8d75b461947d33715b8ed056fc0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb1c8d75b461947d33715b8ed056fc0f">&#9670;&#160;</a></span>setInitialState()</h2>
+<a id="a4bb7e3384e9019fe34241e75ee4cc19f" name="a4bb7e3384e9019fe34241e75ee4cc19f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb7e3384e9019fe34241e75ee4cc19f">&#9670;&#160;</a></span>getOutputState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,10 +353,10 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ast::Segment::setInitialState </td>
+          <td class="memname"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> * ast::Segment::getOutputState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> *</td>          <td class="paramname"><span class="paramname"><em>initialState</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -349,13 +366,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 </div><div class="memdoc">
 
-<p>设置初始状态 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">initialState</td><td>初始状态 </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>获取输出状态 </p>
+<dl class="section return"><dt>返回</dt><dd>输出状态 </dd></dl>
 
 </div>
 </div>

@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Foreign/ScriptExecutor/ScriptExecutor.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ScriptExecutor_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ScriptExecutor.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ScriptExecutor_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87">   35</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87">EScriptLanguage</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87a396fd0c3b77fbe85c1bd262ef45153d4">ePython</a>,            </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87a34db16b18558ab7103753cafada72e1b">eMATLAB</a>,            </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87aa81a32b15461526fca1aa935abee2306">eJavaScript</a>,        </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87a2dadb7d85555dc6f96dfb8dc3c6316f5">eJScript</a>,           </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87aa225fd17a87faba37fe9f402137a08f9">eVBScript</a>,          </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87ac30c056e7e82b3ddfd70fd5b4dec3e3d">eJulia</a>,             </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87afea8a6fda8fd038422ed1475914b8079">eLua</a>,               </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_enumvalue" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87ab12456a0a4c8cf90dc07d4f958a0b0e2">eAstScript</a>,         </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_SCRIPT_API std::string toString(EScriptLanguage type);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">class </span>ScriptExecutor;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">class </span>Variable;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_SCRIPT_CAPI ScriptExecutor* aNewScriptExecutor(EScriptLanguage type);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html">   68</a></span><span class="keyword">class </span>AST_SCRIPT_API <a class="code hl_class" href="classast_1_1ScriptExecutor.html">ScriptExecutor</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>{</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#a9b7c9b4fcf602ce32fd751929ce5e4a7">   73</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classast_1_1ScriptExecutor.html#a9b7c9b4fcf602ce32fd751929ce5e4a7">~ScriptExecutor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#a5047e36a4c622f266cda08ebb746d76e">   78</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1ScriptExecutor.html#a5047e36a4c622f266cda08ebb746d76e">initialize</a>() = 0;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#af45e53623f66f5a08a185983f6d3c236">   82</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ScriptExecutor.html#af45e53623f66f5a08a185983f6d3c236">finalize</a>() = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#a968836375dc0a5ac5deb1c4873bbb1a4">   88</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1ScriptExecutor.html#a968836375dc0a5ac5deb1c4873bbb1a4">execute</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> script, std::string* errorOut=<span class="keyword">nullptr</span>) = 0;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#a37a91253022aac4ac49902a6a3eef7aa">   94</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classast_1_1ScriptExecutor.html#a37a91253022aac4ac49902a6a3eef7aa">getLastError</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#a6c83b7ac9ddc3a7b0d6fb03470d15154">  100</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1ScriptExecutor.html#a6c83b7ac9ddc3a7b0d6fb03470d15154">setVariable</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> value) = 0;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">virtual</span> errc_t setVariable(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">double</span> value) = 0;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">virtual</span> errc_t setVariable(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">int</span> value) = 0;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">virtual</span> errc_t setVariable(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">bool</span> value) = 0;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    errc_t setVariable(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* var);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classast_1_1ScriptExecutor.html#aeea400bfd4031cc0f03720ad2da88621">  110</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1ScriptExecutor.html#aeea400bfd4031cc0f03720ad2da88621">getVariable</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, std::string&amp; value) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">virtual</span> errc_t getVariable(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">double</span>&amp; value) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">virtual</span> errc_t getVariable(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">int</span>&amp; value) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> errc_t getVariable(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name, <span class="keywordtype">bool</span>&amp; value) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    errc_t getVariable(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* var);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html"><div class="ttname"><a href="classast_1_1ScriptExecutor.html">ast::ScriptExecutor</a></div><div class="ttdoc">脚本执行器，用于执行外部脚本</div><div class="ttdef"><b>定义</b> ScriptExecutor.hpp:69</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_a37a91253022aac4ac49902a6a3eef7aa"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#a37a91253022aac4ac49902a6a3eef7aa">ast::ScriptExecutor::getLastError</a></div><div class="ttdeci">virtual std::string getLastError() const =0</div><div class="ttdoc">获取最近一次执行脚本时的错误信息</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_a5047e36a4c622f266cda08ebb746d76e"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#a5047e36a4c622f266cda08ebb746d76e">ast::ScriptExecutor::initialize</a></div><div class="ttdeci">virtual errc_t initialize()=0</div><div class="ttdoc">初始化脚本执行器</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_a6c83b7ac9ddc3a7b0d6fb03470d15154"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#a6c83b7ac9ddc3a7b0d6fb03470d15154">ast::ScriptExecutor::setVariable</a></div><div class="ttdeci">virtual errc_t setVariable(StringView name, StringView value)=0</div><div class="ttdoc">设置脚本执行器的变量</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_a968836375dc0a5ac5deb1c4873bbb1a4"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#a968836375dc0a5ac5deb1c4873bbb1a4">ast::ScriptExecutor::execute</a></div><div class="ttdeci">virtual errc_t execute(StringView script, std::string *errorOut=nullptr)=0</div><div class="ttdoc">执行脚本</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_a9b7c9b4fcf602ce32fd751929ce5e4a7"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#a9b7c9b4fcf602ce32fd751929ce5e4a7">ast::ScriptExecutor::~ScriptExecutor</a></div><div class="ttdeci">virtual ~ScriptExecutor()=default</div><div class="ttdoc">析构函数</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_aeea400bfd4031cc0f03720ad2da88621"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#aeea400bfd4031cc0f03720ad2da88621">ast::ScriptExecutor::getVariable</a></div><div class="ttdeci">virtual errc_t getVariable(StringView name, std::string &amp;value) const =0</div><div class="ttdoc">获取脚本执行器的字符串变量值</div></div>
+<div class="ttc" id="aclassast_1_1ScriptExecutor_html_af45e53623f66f5a08a185983f6d3c236"><div class="ttname"><a href="classast_1_1ScriptExecutor.html#af45e53623f66f5a08a185983f6d3c236">ast::ScriptExecutor::finalize</a></div><div class="ttdeci">virtual void finalize()=0</div><div class="ttdoc">结束脚本执行器</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1Variable_html"><div class="ttname"><a href="classast_1_1Variable.html">ast::Variable</a></div><div class="ttdoc">变量</div><div class="ttdef"><b>定义</b> Variable.hpp:40</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87">ast::EScriptLanguage</a></div><div class="ttdeci">EScriptLanguage</div><div class="ttdoc">脚本类型</div><div class="ttdef"><b>定义</b> ScriptExecutor.hpp:36</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87a2dadb7d85555dc6f96dfb8dc3c6316f5"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87a2dadb7d85555dc6f96dfb8dc3c6316f5">ast::EScriptLanguage::eJScript</a></div><div class="ttdeci">@ eJScript</div><div class="ttdoc">JScript 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87a34db16b18558ab7103753cafada72e1b"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87a34db16b18558ab7103753cafada72e1b">ast::EScriptLanguage::eMATLAB</a></div><div class="ttdeci">@ eMATLAB</div><div class="ttdoc">MATLAB 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87a396fd0c3b77fbe85c1bd262ef45153d4"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87a396fd0c3b77fbe85c1bd262ef45153d4">ast::EScriptLanguage::ePython</a></div><div class="ttdeci">@ ePython</div><div class="ttdoc">Python 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87aa225fd17a87faba37fe9f402137a08f9"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87aa225fd17a87faba37fe9f402137a08f9">ast::EScriptLanguage::eVBScript</a></div><div class="ttdeci">@ eVBScript</div><div class="ttdoc">VBScript 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87aa81a32b15461526fca1aa935abee2306"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87aa81a32b15461526fca1aa935abee2306">ast::EScriptLanguage::eJavaScript</a></div><div class="ttdeci">@ eJavaScript</div><div class="ttdoc">JavaScript 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87ab12456a0a4c8cf90dc07d4f958a0b0e2"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87ab12456a0a4c8cf90dc07d4f958a0b0e2">ast::EScriptLanguage::eAstScript</a></div><div class="ttdeci">@ eAstScript</div><div class="ttdoc">AstScript 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87ac30c056e7e82b3ddfd70fd5b4dec3e3d"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87ac30c056e7e82b3ddfd70fd5b4dec3e3d">ast::EScriptLanguage::eJulia</a></div><div class="ttdeci">@ eJulia</div><div class="ttdoc">Julia 脚本</div></div>
+<div class="ttc" id="anamespaceast_html_aedeaa12b4f41b37c84e1d36771ed5a87afea8a6fda8fd038422ed1475914b8079"><div class="ttname"><a href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87afea8a6fda8fd038422ed1475914b8079">ast::EScriptLanguage::eLua</a></div><div class="ttdeci">@ eLua</div><div class="ttdoc">Lua 脚本</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_943b8559cfec6ca4c5bcb49ee46412f0.html">AstScript</a></li><li class="navelem"><a class="el" href="dir_ec0f894df079da601163d0e435f2480a.html">Foreign</a></li><li class="navelem"><a class="el" href="dir_1ef032a830fc03ba9f5975e8c3b05f0d.html">ScriptExecutor</a></li><li class="navelem"><a class="el" href="ScriptExecutor_8hpp.html">ScriptExecutor.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

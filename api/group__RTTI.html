@@ -103,7 +103,8 @@ $(function(){initNavTree('group__RTTI.html',''); initResizable(true); });
 <a href="#define-members">宏定义</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
 <a href="#enum-members">枚举</a> &#124;
-<a href="#func-members">函数</a>  </div>
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">运行时类型信息<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a></div></div></div>
 </div><!--header-->
 <div class="contents">
@@ -119,6 +120,8 @@ $(function(){initNavTree('group__RTTI.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1WeakPtr.html">ast::WeakPtr&lt; _Object &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttributeBasic.html">ast::AttributeBasic&lt; ObjectPtrType, PropertyType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1initial__strong__ref__t.html">ast::initial_strong_ref_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,16 +192,29 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGet</b
 <tr class="memitem:ga159c7076d71e611938d8f153ef2abb42" id="r_ga159c7076d71e611938d8f153ef2abb42"><td class="memItemLeft" align="right" valign="top"><a id="ga159c7076d71e611938d8f153ef2abb42" name="ga159c7076d71e611938d8f153ef2abb42"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertySet</b> = errc_t (*)(void* obj, const void* value)</td></tr>
 <tr class="separator:ga159c7076d71e611938d8f153ef2abb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae43c4cd261c90ba57c73fb55538257d6" id="r_gae43c4cd261c90ba57c73fb55538257d6"><td class="memItemLeft" align="right" valign="top"><a id="gae43c4cd261c90ba57c73fb55538257d6" name="gae43c4cd261c90ba57c73fb55538257d6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGetItemByString</b> = errc_t (*)(const void* obj, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> key, <a class="el" href="classast_1_1Object.html">Object</a>*&amp; value)</td></tr>
+<tr class="separator:gae43c4cd261c90ba57c73fb55538257d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32939cfe3d007811f2dc5aaa53947749" id="r_ga32939cfe3d007811f2dc5aaa53947749"><td class="memItemLeft" align="right" valign="top"><a id="ga32939cfe3d007811f2dc5aaa53947749" name="ga32939cfe3d007811f2dc5aaa53947749"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGetItemByIndex</b> = errc_t (*)(const void* obj, size_t key, <a class="el" href="classast_1_1Object.html">Object</a>*&amp; value)</td></tr>
+<tr class="separator:ga32939cfe3d007811f2dc5aaa53947749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
 <tr class="memitem:gacf47765b3debdc569a49073eaa3fd1d1" id="r_gacf47765b3debdc569a49073eaa3fd1d1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">ast::INVALID_ID</a> = -1
  }</td></tr>
 <tr class="separator:gacf47765b3debdc569a49073eaa3fd1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab1de86ab568b3c12ac0a28cb2d5dda9a" id="r_gab1de86ab568b3c12ac0a28cb2d5dda9a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab1de86ab568b3c12ac0a28cb2d5dda9a">ast::EValueType</a> { <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14">ast::eDouble</a>
-, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242">ast::eInt</a>
-, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aa005483d8e82f7e1a1c8fb4217956699b">ast::eBool</a>
-, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aa35382ccaf85aca20434f772622969e3e">ast::eString</a>
+<tr class="memitem:gab1de86ab568b3c12ac0a28cb2d5dda9a" id="r_gab1de86ab568b3c12ac0a28cb2d5dda9a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab1de86ab568b3c12ac0a28cb2d5dda9a">ast::EValueType</a> { <br />
+&#160;&#160;<a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8">ast::EValueType::eBool</a>
+, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aab811883d0eea431e27438596857a9e86">ast::EValueType::eInt</a>
+, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aafb0a96d3d1a0e6fab85b4b99b193d204">ast::EValueType::eDouble</a>
+, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aad2f1eabcafa1a5160f7027e6e9bb2f1c">ast::EValueType::eQuantity</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aafd94ed04f3a7c67da610ca46950edc26">ast::EValueType::eString</a>
+, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aac92038caaf313844f673a690ac5c88bf">ast::EValueType::eObject</a>
+, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aad3caac67a3efcaa57ceeaec627dafc31">ast::EValueType::eTimePoint</a>
+, <a class="el" href="#ggab1de86ab568b3c12ac0a28cb2d5dda9aac755153be5e641cf4748e990da4eaf3b">ast::EValueType::eInvalid</a>
+<br />
  }</td></tr>
 <tr class="separator:gab1de86ab568b3c12ac0a28cb2d5dda9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -208,10 +224,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertySet</b
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aobject_cast</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga708c0d060e7266fe3d57b9bc92d99ab4" id="r_ga708c0d060e7266fe3d57b9bc92d99ab4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga708c0d060e7266fe3d57b9bc92d99ab4">ast::aFakeGet</a> (const void *container, void *value)</td></tr>
-<tr class="separator:ga708c0d060e7266fe3d57b9bc92d99ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga893ef21004e2b6d3cd44dbf165a1d212" id="r_ga893ef21004e2b6d3cd44dbf165a1d212"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga893ef21004e2b6d3cd44dbf165a1d212">ast::aFakeSet</a> (void *container, const void *value)</td></tr>
-<tr class="separator:ga893ef21004e2b6d3cd44dbf165a1d212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d2c8cbe53b3e4dfa3240b8ec25817b1" id="r_ga7d2c8cbe53b3e4dfa3240b8ec25817b1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7d2c8cbe53b3e4dfa3240b8ec25817b1">ast::aFakeGet</a> (const void *container, void *value)</td></tr>
+<tr class="separator:ga7d2c8cbe53b3e4dfa3240b8ec25817b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58cef4e647490e40951edd669c57c0b7" id="r_ga58cef4e647490e40951edd669c57c0b7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga58cef4e647490e40951edd669c57c0b7">ast::aFakeSet</a> (void *container, const void *value)</td></tr>
+<tr class="separator:ga58cef4e647490e40951edd669c57c0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga46d312fe1fc24d7644ee6162136fb0c7" id="r_ga46d312fe1fc24d7644ee6162136fb0c7"><td class="memItemLeft" align="right" valign="top"><a id="ga46d312fe1fc24d7644ee6162136fb0c7" name="ga46d312fe1fc24d7644ee6162136fb0c7"></a>
 template&lt;&gt; </td></tr>
 <tr class="memitem:ga46d312fe1fc24d7644ee6162136fb0c7"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::Property::getValue&lt; std::string &gt;</b> (const void *container)</td></tr>
@@ -387,16 +403,30 @@ template&lt;typename T , const std::string &amp;(T::*)() const Getter, void(T::*
 <tr class="separator:gac33efb1c884546251845c8df9847db9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2036a876a69db6bab8841ea14f0c8960" id="r_ga2036a876a69db6bab8841ea14f0c8960"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2036a876a69db6bab8841ea14f0c8960">ast::aFindObject</a> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
 <tr class="separator:ga2036a876a69db6bab8841ea14f0c8960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7331a35dabe85639e685d425679f8bf" id="r_gaf7331a35dabe85639e685d425679f8bf"><td class="memTemplParams" colspan="2"><a id="gaf7331a35dabe85639e685d425679f8bf" name="gaf7331a35dabe85639e685d425679f8bf"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaf7331a35dabe85639e685d425679f8bf"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aFindObject</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:gaf7331a35dabe85639e685d425679f8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7ed60d1a7c0c2d4cbbd535e0b4f2b051" id="r_ga7ed60d1a7c0c2d4cbbd535e0b4f2b051"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7ed60d1a7c0c2d4cbbd535e0b4f2b051">ast::aSetParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1Object.html">Object</a> *parentScope)</td></tr>
 <tr class="separator:ga7ed60d1a7c0c2d4cbbd535e0b4f2b051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25a796d58add8beaf21d2c9a61b0434d" id="r_ga25a796d58add8beaf21d2c9a61b0434d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga25a796d58add8beaf21d2c9a61b0434d">ast::aGetParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:ga25a796d58add8beaf21d2c9a61b0434d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68dc2a2051c2d314e38e3225a5ac065c" id="r_ga68dc2a2051c2d314e38e3225a5ac065c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga68dc2a2051c2d314e38e3225a5ac065c">ast::aGetAncestorScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
+<tr class="separator:ga68dc2a2051c2d314e38e3225a5ac065c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41191fced80addb4dc34be34d186cde7" id="r_ga41191fced80addb4dc34be34d186cde7"><td class="memTemplParams" colspan="2"><a id="ga41191fced80addb4dc34be34d186cde7" name="ga41191fced80addb4dc34be34d186cde7"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga41191fced80addb4dc34be34d186cde7"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aGetAncestorScope</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:ga41191fced80addb4dc34be34d186cde7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadbeabbca6cd720cad4ac96fa68af7fca" id="r_gadbeabbca6cd720cad4ac96fa68af7fca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadbeabbca6cd720cad4ac96fa68af7fca">ast::aGetAllObjects</a> ()</td></tr>
 <tr class="separator:gadbeabbca6cd720cad4ac96fa68af7fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad7583999ccabee6938cc9504c4f8dd59" id="r_gad7583999ccabee6938cc9504c4f8dd59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad7583999ccabee6938cc9504c4f8dd59">ast::aPrintAllObjects</a> ()</td></tr>
 <tr class="separator:gad7583999ccabee6938cc9504c4f8dd59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1a58411c2aa026059e31156794deebf7" id="r_ga1a58411c2aa026059e31156794deebf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1a58411c2aa026059e31156794deebf7">ast::aFindChild</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls=nullptr, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
 <tr class="separator:ga1a58411c2aa026059e31156794deebf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42c9cac83c9afcf737da945b04f52956" id="r_ga42c9cac83c9afcf737da945b04f52956"><td class="memTemplParams" colspan="2"><a id="ga42c9cac83c9afcf737da945b04f52956" name="ga42c9cac83c9afcf737da945b04f52956"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga42c9cac83c9afcf737da945b04f52956"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aFindChild</b> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:ga42c9cac83c9afcf737da945b04f52956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9bec0271f82d527b70f6a29ebfe3abf3" id="r_ga9bec0271f82d527b70f6a29ebfe3abf3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9bec0271f82d527b70f6a29ebfe3abf3">ast::aFindChildren</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt; &amp;children)</td></tr>
 <tr class="separator:ga9bec0271f82d527b70f6a29ebfe3abf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae963543de147f10b506abb6aace79589" id="r_gae963543de147f10b506abb6aace79589"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae963543de147f10b506abb6aace79589">ast::aFindChildren</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1Class.html">Class</a> *cls=nullptr, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
@@ -408,10 +438,19 @@ template&lt;typename T , const std::string &amp;(T::*)() const Getter, void(T::*
 <tr class="memitem:gadee187f4847e0b6a6e9f40707bcde71c" id="r_gadee187f4847e0b6a6e9f40707bcde71c"><td class="memItemLeft" align="right" valign="top"><a id="gadee187f4847e0b6a6e9f40707bcde71c" name="gadee187f4847e0b6a6e9f40707bcde71c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aPrintObjectTree</b> (<a class="el" href="classast_1_1Object.html">Object</a> *root, int indent, const <a class="el" href="structast_1_1ObjectPrintConfig.html">ObjectPrintConfig</a> &amp;config)</td></tr>
 <tr class="separator:gadee187f4847e0b6a6e9f40707bcde71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3" id="r_ga1508a5d286ff71fbd38229332d704ab3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga1508a5d286ff71fbd38229332d704ab3">ast::Object::isOfType</a> () const</td></tr>
+<tr class="separator:ga1508a5d286ff71fbd38229332d704ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c423131f4a0cee68767763d8970bccc" id="r_ga6c423131f4a0cee68767763d8970bccc"><td class="memItemLeft" align="right" valign="top"><a id="ga6c423131f4a0cee68767763d8970bccc" name="ga6c423131f4a0cee68767763d8970bccc"></a>
 template&lt;&gt; </td></tr>
 <tr class="memitem:ga6c423131f4a0cee68767763d8970bccc"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::Property::getValue</b> (const void *container)</td></tr>
 <tr class="separator:ga6c423131f4a0cee68767763d8970bccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:gab8eabf88f57939fed5cd91bc72d44e62" id="r_gab8eabf88f57939fed5cd91bc72d44e62"><td class="memItemLeft" align="right" valign="top"><a id="gab8eabf88f57939fed5cd91bc72d44e62" name="gab8eabf88f57939fed5cd91bc72d44e62"></a>
+constexpr <a class="el" href="structast_1_1initial__strong__ref__t.html">initial_strong_ref_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::initial_strong_ref</b> {}</td></tr>
+<tr class="separator:gab8eabf88f57939fed5cd91bc72d44e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">宏定义说明</h2>
 <a id="gaee87285b5b93d27bb93d178bb84edf19" name="gaee87285b5b93d27bb93d178bb84edf19"></a>
@@ -539,20 +578,36 @@ template&lt;&gt; </td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#gab1de86ab568b3c12ac0a28cb2d5dda9a">ast::EValueType</a></td>
+          <td class="memname">enum class <a class="el" href="#gab1de86ab568b3c12ac0a28cb2d5dda9a">ast::EValueType</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14"></a>eDouble&#160;</td><td class="fielddoc"><p>double类型 </p>
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8"></a>eBool&#160;</td><td class="fielddoc"><p>bool类型 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242"></a>eInt&#160;</td><td class="fielddoc"><p>int类型 </p>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aab811883d0eea431e27438596857a9e86" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aab811883d0eea431e27438596857a9e86"></a>eInt&#160;</td><td class="fielddoc"><p>int类型 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aa005483d8e82f7e1a1c8fb4217956699b" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aa005483d8e82f7e1a1c8fb4217956699b"></a>eBool&#160;</td><td class="fielddoc"><p>bool类型 </p>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aafb0a96d3d1a0e6fab85b4b99b193d204" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aafb0a96d3d1a0e6fab85b4b99b193d204"></a>eDouble&#160;</td><td class="fielddoc"><p>double类型 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aa35382ccaf85aca20434f772622969e3e" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aa35382ccaf85aca20434f772622969e3e"></a>eString&#160;</td><td class="fielddoc"><p>std::string类型 </p>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aad2f1eabcafa1a5160f7027e6e9bb2f1c" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aad2f1eabcafa1a5160f7027e6e9bb2f1c"></a>eQuantity&#160;</td><td class="fielddoc"><p>数量值类型 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aafd94ed04f3a7c67da610ca46950edc26" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aafd94ed04f3a7c67da610ca46950edc26"></a>eString&#160;</td><td class="fielddoc"><p>std::string类型 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aac92038caaf313844f673a690ac5c88bf" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aac92038caaf313844f673a690ac5c88bf"></a>eObject&#160;</td><td class="fielddoc"><p>对象类型 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aad3caac67a3efcaa57ceeaec627dafc31" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aad3caac67a3efcaa57ceeaec627dafc31"></a>eTimePoint&#160;</td><td class="fielddoc"><p>时间点类型 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab1de86ab568b3c12ac0a28cb2d5dda9aac755153be5e641cf4748e990da4eaf3b" name="ggab1de86ab568b3c12ac0a28cb2d5dda9aac755153be5e641cf4748e990da4eaf3b"></a>eInvalid&#160;</td><td class="fielddoc"><p>无效类型 </p>
 </td></tr>
 </table>
 
@@ -611,14 +666,14 @@ template&lt;&gt; </td></tr>
 
 </div>
 </div>
-<a id="ga708c0d060e7266fe3d57b9bc92d99ab4" name="ga708c0d060e7266fe3d57b9bc92d99ab4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga708c0d060e7266fe3d57b9bc92d99ab4">&#9670;&#160;</a></span>aFakeGet()</h2>
+<a id="ga7d2c8cbe53b3e4dfa3240b8ec25817b1" name="ga7d2c8cbe53b3e4dfa3240b8ec25817b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7d2c8cbe53b3e4dfa3240b8ec25817b1">&#9670;&#160;</a></span>aFakeGet()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_UTIL_CAPI errc_t ast::aFakeGet </td>
+          <td class="memname">AST_UTIL_API errc_t ast::aFakeGet </td>
           <td>(</td>
           <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
         </tr>
@@ -642,14 +697,14 @@ template&lt;&gt; </td></tr>
 
 </div>
 </div>
-<a id="ga893ef21004e2b6d3cd44dbf165a1d212" name="ga893ef21004e2b6d3cd44dbf165a1d212"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga893ef21004e2b6d3cd44dbf165a1d212">&#9670;&#160;</a></span>aFakeSet()</h2>
+<a id="ga58cef4e647490e40951edd669c57c0b7" name="ga58cef4e647490e40951edd669c57c0b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58cef4e647490e40951edd669c57c0b7">&#9670;&#160;</a></span>aFakeSet()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_UTIL_CAPI errc_t ast::aFakeSet </td>
+          <td class="memname">AST_UTIL_API errc_t ast::aFakeSet </td>
           <td>(</td>
           <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>container</em></span>, </td>
         </tr>
@@ -909,6 +964,36 @@ template&lt;&gt; </td></tr>
 
 <p>获取所有对象 </p>
 <p>获取所有已添加的对象 </p><dl class="section return"><dt>返回</dt><dd>所有对象指针向量 </dd></dl>
+
+</div>
+</div>
+<a id="ga68dc2a2051c2d314e38e3225a5ac065c" name="ga68dc2a2051c2d314e38e3225a5ac065c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga68dc2a2051c2d314e38e3225a5ac065c">&#9670;&#160;</a></span>aGetAncestorScope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI <a class="el" href="classast_1_1Object.html">Object</a> * ast::aGetAncestorScope </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取对象的祖先作用域 </p>
+<p>obj 对象指针 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>祖先作用域指针 </dd></dl>
 
 </div>
 </div>
@@ -1376,7 +1461,8 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>解析对象 </p>
-<p>根据对象路径/名称/表达式解析对象 </p><dl class="params"><dt>参数</dt><dd>
+<p>根据对象路径/名称/表达式解析对象 </p><dl class="section warning"><dt>警告</dt><dd>要求value为对象路径（带有类型名称），或者cls不为空，否则只查找类型对象 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td>对象路径/名称/表达式 </td></tr>
     <tr><td class="paramname">cls</td><td>对象类型，默认 nullptr 表示不指定类型 </td></tr>
@@ -1414,6 +1500,33 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga1508a5d286ff71fbd38229332d704ab3" name="ga1508a5d286ff71fbd38229332d704ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1508a5d286ff71fbd38229332d704ab3">&#9670;&#160;</a></span>isOfType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Object::isOfType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断对象是否为指定类型的实例 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td>类型参数 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

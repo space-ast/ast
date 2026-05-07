@@ -2,8 +2,12 @@ var dir_713015e7dcdafeee2444d0519ace66c8 =
 [
     [ "Expr.cpp", "Expr_8cpp.html", null ],
     [ "Expr.hpp", "Expr_8hpp.html", null ],
+    [ "ExprAttribute.cpp", "ExprAttribute_8cpp.html", null ],
+    [ "ExprAttribute.hpp", "ExprAttribute_8hpp.html", "ExprAttribute_8hpp" ],
     [ "ExprBlock.cpp", "ExprBlock_8cpp.html", null ],
     [ "ExprBlock.hpp", "ExprBlock_8hpp.html", null ],
+    [ "ExprCalculation.cpp", "ExprCalculation_8cpp.html", null ],
+    [ "ExprCalculation.hpp", "ExprCalculation_8hpp.html", "ExprCalculation_8hpp" ],
     [ "ExprCall.hpp", "ExprCall_8hpp_source.html", null ],
     [ "ExprCatHorizontal.cpp", "ExprCatHorizontal_8cpp.html", null ],
     [ "ExprCatHorizontal.hpp", "ExprCatHorizontal_8hpp_source.html", null ],

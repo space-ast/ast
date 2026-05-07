@@ -10,6 +10,7 @@ var RTTIAPI_8cpp =
     [ "aGetAllClasses", "RTTIAPI_8cpp.html#ga76749acdd5cb1aed03db35103468b87d", null ],
     [ "aGetAllClassNames", "RTTIAPI_8cpp.html#gad5657a636622fe1200c3978ec4325a0a", null ],
     [ "aGetAllObjects", "RTTIAPI_8cpp.html#gadbeabbca6cd720cad4ac96fa68af7fca", null ],
+    [ "aGetAncestorScope", "RTTIAPI_8cpp.html#ga68dc2a2051c2d314e38e3225a5ac065c", null ],
     [ "aGetClass", "RTTIAPI_8cpp.html#ga4ab0aeafea06cb726b9b242379d361df", null ],
     [ "aGetClassDefaultObject", "RTTIAPI_8cpp.html#ga846b248935590d9072cdb05af6534f8b", null ],
     [ "aGetClassDefaultObject", "RTTIAPI_8cpp.html#gad68114b7c166e8d927cb2fb97e6a07a9", null ],

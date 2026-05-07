@@ -8,6 +8,7 @@ var group__RTTI =
       [ "getValueDouble", "classast_1_1PropertyTimePoint.html#aba6dcfbc25c5608cf45b6288c5397c78", null ],
       [ "getValueInt", "classast_1_1PropertyTimePoint.html#ab7a025a4c5201dede794a75050cadc2a", null ],
       [ "getValueString", "classast_1_1PropertyTimePoint.html#aada9bcc5c15f450eb49877e1b82dd2d5", null ],
+      [ "getValueType", "classast_1_1PropertyTimePoint.html#a0156d068ea4addb3a437b95d370162dd", null ],
       [ "setValue", "classast_1_1PropertyTimePoint.html#af0611d8c3562b5728289478af79d49f4", null ],
       [ "setValueBool", "classast_1_1PropertyTimePoint.html#ab79e4b56e7006fa8bc8ad3a005831005", null ],
       [ "setValueDouble", "classast_1_1PropertyTimePoint.html#a8d6138a8cb6339c7669d9d5923639ab3", null ],
@@ -17,8 +18,11 @@ var group__RTTI =
     [ "ast::ClonePtr< T >", "classast_1_1ClonePtr.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
+    [ "ast::initial_strong_ref_t", "structast_1_1initial__strong__ref__t.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
-      [ "addDelayedLink", "classast_1_1Object.html#acbcaa214db3200de3a405c6fed8185a9", null ],
+      [ "Object", "classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578", null ],
+      [ "addDelayedLink", "classast_1_1Object.html#adf7b91848543c240be28885c981d2241", null ],
+      [ "addDelayedLinkIfFailed", "classast_1_1Object.html#a5ce58e227924271e34486ce9bfd8ce0a", null ],
       [ "attr", "classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170", null ],
       [ "decRef", "classast_1_1Object.html#aa4697ffa258dc386c82f6e496ee6f513", null ],
       [ "decRefNoDelete", "classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c", null ],
@@ -42,10 +46,12 @@ var group__RTTI =
       [ "incRef", "classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c", null ],
       [ "incWeakRef", "classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d", null ],
       [ "isDestructed", "classast_1_1Object.html#a6fd5f058fcc84490d373f3194a001397", null ],
+      [ "isOfType", "group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3", null ],
       [ "isOfType", "classast_1_1Object.html#a556816669dc1c7bdd0b609af9b51c765", null ],
       [ "isOfType", "classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197", null ],
+      [ "name", "classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f", null ],
       [ "refCount", "classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b", null ],
-      [ "resolveLinks", "classast_1_1Object.html#aa453ffb19abb19515a7c96df726f47d9", null ],
+      [ "resolveLinks", "classast_1_1Object.html#a2e876146a8f6465fecc865e755b41dbe", null ],
       [ "setAttrBool", "classast_1_1Object.html#a5072bda9b7931524868edbf014d4ff92", null ],
       [ "setAttrDouble", "classast_1_1Object.html#acac18023e736d3e498ab1cf2965b9abf", null ],
       [ "setAttrInt", "classast_1_1Object.html#aed0f50f23efc8b9b92411a70723a0ce6", null ],
@@ -60,8 +66,12 @@ var group__RTTI =
     [ "ast::has_own_getType< T, typename >", "structast_1_1has__own__getType.html", null ],
     [ "ast::has_own_getType< T, typename std::enable_if< std::is_same< decltype(&T::getType), Class *(T::*)() const >::value >::type >", "structast_1_1has__own__getType_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__same_3_01d17c83469192b2b1de224a2b9856c0340.html", null ],
     [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
-      [ "calculate", "classast_1_1ObjectCalculation.html#ac72ad09cca86ba0514a7d1caaa35e4fc", null ],
-      [ "getExpectedType", "classast_1_1ObjectCalculation.html#ad107791b02e43d08c38898cb607b0f19", null ]
+      [ "calculate", "classast_1_1ObjectCalculation.html#aad9da9349a080520fd443b6d640d26d9", null ],
+      [ "calculateNoCheckType", "classast_1_1ObjectCalculation.html#afb6093c59135e401b5f811d6ff938093", null ],
+      [ "getExpectedType", "classast_1_1ObjectCalculation.html#ad107791b02e43d08c38898cb607b0f19", null ],
+      [ "isExpectedType", "classast_1_1ObjectCalculation.html#ae42c0f7276fa085fa8fe2991ffaf1465", null ],
+      [ "ObjectNamed", "classast_1_1ObjectCalculation.html#a8f3686db877d835e7261614d560086d3", null ],
+      [ "ObjectNamed", "classast_1_1ObjectCalculation.html#ad4baf0cd548ba50a3a7446899ff4a188", null ]
     ] ],
     [ "ast::Class", "classast_1_1Class.html", [
       [ "Class", "classast_1_1Class.html#a2c5dca1364c3582b2c26ba40502c5356", null ],
@@ -102,6 +112,7 @@ var group__RTTI =
       [ "getValueInt", "classast_1_1Property.html#ae6e0748eb2725d716370298eda6e58c4", null ],
       [ "getValueObject", "classast_1_1Property.html#aaff1f7d576525ea3bf958c4b584ef5d0", null ],
       [ "getValueString", "classast_1_1Property.html#af46d175945b71f0b3e2e2f398fba1012", null ],
+      [ "getValueType", "classast_1_1Property.html#aafc95c830fb524ad300ae6eda3d9224d", null ],
       [ "isObject", "classast_1_1Property.html#a70f9874b7fb1c4c2e1370716ed9fe267", null ],
       [ "readOnly", "classast_1_1Property.html#af33c54fdd0ebb91813326011aaa6caa9", null ],
       [ "setValue", "classast_1_1Property.html#a0bbebe195533824989c64be845ecc5f2", null ],
@@ -120,6 +131,7 @@ var group__RTTI =
       [ "getValueDouble", "classast_1_1PropertyBool.html#a2ba9b546a2d114df4bfba2332765680d", null ],
       [ "getValueInt", "classast_1_1PropertyBool.html#a9ae9975fc9d6f976899d4933dceed2e3", null ],
       [ "getValueString", "classast_1_1PropertyBool.html#a65e9871670b5e04df6de76b18d0d75e7", null ],
+      [ "getValueType", "classast_1_1PropertyBool.html#a1a39ba29e2455a5efda9b107b9e9d083", null ],
       [ "setValue", "classast_1_1PropertyBool.html#a9a880596a86fa0c4d7af04a57d97e797", null ],
       [ "setValueBool", "classast_1_1PropertyBool.html#aab01b85b40f500ccf39f31afd49f3fa8", null ],
       [ "setValueDouble", "classast_1_1PropertyBool.html#ac82e4ce0f0d71d363a0dfe96dde1fccd", null ],
@@ -134,6 +146,7 @@ var group__RTTI =
       [ "getValueDouble", "classast_1_1PropertyDouble.html#a41d7f405855bfa70e040833b1e039a32", null ],
       [ "getValueInt", "classast_1_1PropertyDouble.html#a40b7ca19f897fad0a72a3dc8689d491b", null ],
       [ "getValueString", "classast_1_1PropertyDouble.html#a7d6362d92ccc68c5a986c6e5628fbe32", null ],
+      [ "getValueType", "classast_1_1PropertyDouble.html#aa81324c511a6bda4855b5081e520f582", null ],
       [ "setValue", "classast_1_1PropertyDouble.html#aae12987b3f9a7c50156ff67a3270e2c2", null ],
       [ "setValueBool", "classast_1_1PropertyDouble.html#a257b4543879b40ae6ca4c3f840277d08", null ],
       [ "setValueDouble", "classast_1_1PropertyDouble.html#a030860dadc6003a0a3aca0b1ef0d3ed2", null ],
@@ -148,6 +161,7 @@ var group__RTTI =
       [ "getValueDouble", "classast_1_1PropertyInt.html#a2f6d6c66f67cf538b1da469b72da57c8", null ],
       [ "getValueInt", "classast_1_1PropertyInt.html#adb12807cd24ea925ecd5b64ebadebb54", null ],
       [ "getValueString", "classast_1_1PropertyInt.html#ad162f8865c9843d6e5cf251d489a9cce", null ],
+      [ "getValueType", "classast_1_1PropertyInt.html#a6a59253ff6573a48a0d2990fa5080b02", null ],
       [ "setValue", "classast_1_1PropertyInt.html#a9fdd542e9e70a3d9431555dad4537668", null ],
       [ "setValueBool", "classast_1_1PropertyInt.html#a748fc320fe0593bbd8c24b3c35a9041f", null ],
       [ "setValueDouble", "classast_1_1PropertyInt.html#aa7fbf0b48467a01869ad493e4e7ad6e2", null ],
@@ -161,6 +175,7 @@ var group__RTTI =
       [ "getValueDouble", "classast_1_1PropertyObject.html#ad224b358a8a8c3fab96e56c8018c5f4f", null ],
       [ "getValueInt", "classast_1_1PropertyObject.html#a259298682fde2a49f2b247b287a9e58e", null ],
       [ "getValueString", "classast_1_1PropertyObject.html#abaf9e0e1791ab2890b407259a9f872ca", null ],
+      [ "getValueType", "classast_1_1PropertyObject.html#a9fb3a565adb227a586d6d6e111c057e3", null ],
       [ "setValue", "classast_1_1PropertyObject.html#a07f93e5a2a3ddf313cc0b09ac27c46bc", null ],
       [ "setValueBool", "classast_1_1PropertyObject.html#a591643b0f417a817d73c67fd430a6d58", null ],
       [ "setValueDouble", "classast_1_1PropertyObject.html#af4f3b9f625ff5090201ec1c0872b1c6e", null ],
@@ -173,6 +188,7 @@ var group__RTTI =
     [ "ast::PropertyQuantity", "classast_1_1PropertyQuantity.html", [
       [ "accept", "classast_1_1PropertyQuantity.html#ab56a0c7875b4592d0671f88605f8853a", null ],
       [ "getValueString", "classast_1_1PropertyQuantity.html#a400a4dc225836b6280adcf4533d754d9", null ],
+      [ "getValueType", "classast_1_1PropertyQuantity.html#aa19e3dabe8098fb59e73ef683a171d6c", null ],
       [ "setValueString", "classast_1_1PropertyQuantity.html#a72ec535b73c719d085c19a4c5abe240f", null ],
       [ "dimension_", "classast_1_1PropertyQuantity.html#a2a08668fd3fdc96e9940bbad1f6a8730", null ]
     ] ],
@@ -184,6 +200,7 @@ var group__RTTI =
       [ "getValueDouble", "classast_1_1PropertyString.html#a6d1b3c3a4f796fd0538f7998a28dc374", null ],
       [ "getValueInt", "classast_1_1PropertyString.html#a64839b2e71513501ccd256a15a62bfa3", null ],
       [ "getValueString", "classast_1_1PropertyString.html#ac4fd1dcefb039c6864bb4d1b8bd1cd1a", null ],
+      [ "getValueType", "classast_1_1PropertyString.html#abe05e525dfa65e40f54f9c4873492734", null ],
       [ "setValue", "classast_1_1PropertyString.html#a79c880cc9b0fbc37ec65cfbf440b8b53", null ],
       [ "setValueBool", "classast_1_1PropertyString.html#ad4a7377ed3669df99fa8a62cb45f130d", null ],
       [ "setValueDouble", "classast_1_1PropertyString.html#a035c99f83c1233b7cd0fae13aab9f37a", null ],
@@ -200,9 +217,18 @@ var group__RTTI =
     [ "ast::property_trait< TimePoint >", "structast_1_1property__trait_3_01TimePoint_01_4.html", null ],
     [ "ast::Struct", "classast_1_1Struct.html", [
       [ "addProperty", "classast_1_1Struct.html#a572384310c4a51b0ac7cb9534b159694", null ],
+      [ "addProperty", "classast_1_1Struct.html#a593a6eb8d070426c66beb76b481cdf66", null ],
+      [ "desc", "classast_1_1Struct.html#a84aee6d989706a5b9aaccdc5f61dd24c", null ],
       [ "getModuleName", "classast_1_1Struct.html#a43ffc65ca28c19e09758f6e7d1560a62", null ],
+      [ "getName", "classast_1_1Struct.html#af369bb22bec6476edfbd1c48a061c3da", null ],
       [ "getProperties", "classast_1_1Struct.html#a704028bbbf138179fa28b4abd78ec385", null ],
-      [ "getProperty", "classast_1_1Struct.html#a7bbe79a1e47872f1e674bfd0ff53ddbf", null ]
+      [ "getProperty", "classast_1_1Struct.html#a7bbe79a1e47872f1e674bfd0ff53ddbf", null ],
+      [ "setDesc", "classast_1_1Struct.html#ad6926ee266c12c5641627bc4212c0fbc", null ],
+      [ "setName", "classast_1_1Struct.html#a86e5bad7a2f725b7389cf3b386801be5", null ],
+      [ "desc_", "classast_1_1Struct.html#ad67265424718f74c198e36a669049f59", null ],
+      [ "name_", "classast_1_1Struct.html#a4e75a7a280decc98de0e050e89048ade", null ],
+      [ "properties_", "classast_1_1Struct.html#a3d7a6ce52a19de2b50275f2fa7f7b3f9", null ],
+      [ "propertyMap_", "classast_1_1Struct.html#a62cdd6cda64494ea46ebd985e9b4169d", null ]
     ] ],
     [ "ast::ObjectPrintConfig", "structast_1_1ObjectPrintConfig.html", [
       [ "printRefCount", "structast_1_1ObjectPrintConfig.html#add5d9c56d4043b0907c82b79e6eb3f6d", null ],
@@ -218,15 +244,19 @@ var group__RTTI =
       [ "ast::INVALID_ID", "group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2", null ]
     ] ],
     [ "ast::EValueType", "group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a", [
-      [ "ast::eDouble", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa84e2b5c1c6a74461c4e674cd7ba6ba14", null ],
-      [ "ast::eInt", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aad3d9845e310f5aaaf419e69673363242", null ],
-      [ "ast::eBool", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa005483d8e82f7e1a1c8fb4217956699b", null ],
-      [ "ast::eString", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aa35382ccaf85aca20434f772622969e3e", null ]
+      [ "ast::EValueType::eBool", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8", null ],
+      [ "ast::EValueType::eInt", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aab811883d0eea431e27438596857a9e86", null ],
+      [ "ast::EValueType::eDouble", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aafb0a96d3d1a0e6fab85b4b99b193d204", null ],
+      [ "ast::EValueType::eQuantity", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aad2f1eabcafa1a5160f7027e6e9bb2f1c", null ],
+      [ "ast::EValueType::eString", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aafd94ed04f3a7c67da610ca46950edc26", null ],
+      [ "ast::EValueType::eObject", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aac92038caaf313844f673a690ac5c88bf", null ],
+      [ "ast::EValueType::eTimePoint", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aad3caac67a3efcaa57ceeaec627dafc31", null ],
+      [ "ast::EValueType::eInvalid", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aac755153be5e641cf4748e990da4eaf3b", null ]
     ] ],
     [ "ast::aAddObject", "group__RTTI.html#ga33abde566a2b1d0d9477262b58394145", null ],
     [ "ast::aDeleteObject", "group__RTTI.html#gac773a55dc25b4065657e0d2ab5ce3b21", null ],
-    [ "ast::aFakeGet", "group__RTTI.html#ga708c0d060e7266fe3d57b9bc92d99ab4", null ],
-    [ "ast::aFakeSet", "group__RTTI.html#ga893ef21004e2b6d3cd44dbf165a1d212", null ],
+    [ "ast::aFakeGet", "group__RTTI.html#ga7d2c8cbe53b3e4dfa3240b8ec25817b1", null ],
+    [ "ast::aFakeSet", "group__RTTI.html#ga58cef4e647490e40951edd669c57c0b7", null ],
     [ "ast::aFindChild", "group__RTTI.html#ga1a58411c2aa026059e31156794deebf7", null ],
     [ "ast::aFindChildren", "group__RTTI.html#ga9bec0271f82d527b70f6a29ebfe3abf3", null ],
     [ "ast::aFindChildren", "group__RTTI.html#gae963543de147f10b506abb6aace79589", null ],
@@ -235,6 +265,7 @@ var group__RTTI =
     [ "ast::aGetAllClasses", "group__RTTI.html#ga76749acdd5cb1aed03db35103468b87d", null ],
     [ "ast::aGetAllClassNames", "group__RTTI.html#gad5657a636622fe1200c3978ec4325a0a", null ],
     [ "ast::aGetAllObjects", "group__RTTI.html#gadbeabbca6cd720cad4ac96fa68af7fca", null ],
+    [ "ast::aGetAncestorScope", "group__RTTI.html#ga68dc2a2051c2d314e38e3225a5ac065c", null ],
     [ "ast::aGetClass", "group__RTTI.html#ga4ab0aeafea06cb726b9b242379d361df", null ],
     [ "ast::aGetClassDefaultObject", "group__RTTI.html#ga846b248935590d9072cdb05af6534f8b", null ],
     [ "ast::aGetClassDefaultObject", "group__RTTI.html#gad68114b7c166e8d927cb2fb97e6a07a9", null ],
@@ -253,5 +284,7 @@ var group__RTTI =
     [ "ast::aRemoveAllObjects", "group__RTTI.html#gaed7926abc41c0fc2db1d03c9147a59fe", null ],
     [ "ast::aRemoveObject", "group__RTTI.html#ga334bcde83ae54454d0f62b3c53819bd0", null ],
     [ "ast::aResolveObject", "group__RTTI.html#ga01f212ce5ae211ac8c18065e71ae18c0", null ],
-    [ "ast::aSetParentScope", "group__RTTI.html#ga7ed60d1a7c0c2d4cbbd535e0b4f2b051", null ]
+    [ "ast::aSetParentScope", "group__RTTI.html#ga7ed60d1a7c0c2d4cbbd535e0b4f2b051", null ],
+    [ "ast::Object::isOfType", "group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3", null ],
+    [ "ast::initial_strong_ref", "group__RTTI.html#gab8eabf88f57939fed5cd91bc72d44e62", null ]
 ];

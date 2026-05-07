@@ -119,42 +119,45 @@ $(function(){initNavTree('Encode_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="group__String.html#ga40d79277119322d1fb84debba51a5767">   50</a></span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#ga40d79277119322d1fb84debba51a5767">aWideToAnsi</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* wide, std::string&amp; ansi);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#ga352ccc1e3481487dce54533d2615f634">aUtf8ToWide</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* utf8, std::wstring&amp; wide);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_UTIL_API errc_t <a class="code hl_function" href="group__String.html#ga1d8d99844ba8cd0d871d5d0079c4732b">aUtf8ToWide</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* utf8, std::wstring&amp; wide);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_UTIL_API std::wstring <a class="code hl_function" href="group__String.html#ga1d8d99844ba8cd0d871d5d0079c4732b">aUtf8ToWide</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> utf8);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#gaa69d330049fa1dbef77203c98b2f938c">aWideToUtf8</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* wide, std::string&amp; utf8);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#gade923a9e656922dfc6d2057be1848fee">aWideToCRT</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* wide, std::string&amp; crt);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#ga7a393fd60e66dd4d4fa767568e4c2f50">aCRTToWide</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* crt, std::wstring&amp; wide);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac">aCRTIsUTF8</a>();</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8">aUTF8ToCRT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* utf8, std::string&amp; crt);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#gade923a9e656922dfc6d2057be1848fee">aWideToCRT</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* wide, std::string&amp; crt);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#ga7a393fd60e66dd4d4fa767568e4c2f50">aCRTToWide</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* crt, std::wstring&amp; wide);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac">aCRTIsUTF8</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8">aUTF8ToCRT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* utf8, std::string&amp; crt);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>AST_UTIL_CAPI _locale_t aUTF8Locale();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_UTIL_CAPI _locale_t aAnsiLocale();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>AST_UTIL_CAPI _locale_t aUTF8Locale();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>AST_UTIL_CAPI _locale_t aAnsiLocale();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>AST_NAMESPACE_END</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="ttc" id="agroup__String_html_ga352ccc1e3481487dce54533d2615f634"><div class="ttname"><a href="group__String.html#ga352ccc1e3481487dce54533d2615f634">ast::aUtf8ToWide</a></div><div class="ttdeci">errc_t aUtf8ToWide(const char *utf8, std::wstring &amp;wide)</div><div class="ttdoc">将UTF-8编码的字符串转换为宽字符编码</div><div class="ttdef"><b>定义</b> Encode.cpp:179</div></div>
-<div class="ttc" id="agroup__String_html_ga3f19f6dfcf855f14a41c5aadac0d53ac"><div class="ttname"><a href="group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac">ast::aCRTIsUTF8</a></div><div class="ttdeci">bool aCRTIsUTF8()</div><div class="ttdoc">检查C语言运行时LC_CTYPE对应的编码是否为UTF-8编码</div><div class="ttdef"><b>定义</b> Encode.cpp:287</div></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="agroup__String_html_ga1d8d99844ba8cd0d871d5d0079c4732b"><div class="ttname"><a href="group__String.html#ga1d8d99844ba8cd0d871d5d0079c4732b">ast::aUtf8ToWide</a></div><div class="ttdeci">errc_t aUtf8ToWide(const char *utf8, std::wstring &amp;wide)</div><div class="ttdoc">将UTF-8编码的字符串转换为宽字符编码</div><div class="ttdef"><b>定义</b> Encode.cpp:192</div></div>
+<div class="ttc" id="agroup__String_html_ga3f19f6dfcf855f14a41c5aadac0d53ac"><div class="ttname"><a href="group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac">ast::aCRTIsUTF8</a></div><div class="ttdeci">bool aCRTIsUTF8()</div><div class="ttdoc">检查C语言运行时LC_CTYPE对应的编码是否为UTF-8编码</div><div class="ttdef"><b>定义</b> Encode.cpp:300</div></div>
 <div class="ttc" id="agroup__String_html_ga40d79277119322d1fb84debba51a5767"><div class="ttname"><a href="group__String.html#ga40d79277119322d1fb84debba51a5767">ast::aWideToAnsi</a></div><div class="ttdeci">AST_UTIL_CAPI errc_t aWideToAnsi(const wchar_t *wide, std::string &amp;ansi)</div><div class="ttdoc">将宽字符编码的字符串转换为ANSI编码</div></div>
-<div class="ttc" id="agroup__String_html_ga7a393fd60e66dd4d4fa767568e4c2f50"><div class="ttname"><a href="group__String.html#ga7a393fd60e66dd4d4fa767568e4c2f50">ast::aCRTToWide</a></div><div class="ttdeci">errc_t aCRTToWide(const char *crt, std::wstring &amp;wide)</div><div class="ttdoc">将C语言运行时LC_CTYPE对应的编码的字符串转换为宽字符编码</div><div class="ttdef"><b>定义</b> Encode.cpp:255</div></div>
-<div class="ttc" id="agroup__String_html_gaa69d330049fa1dbef77203c98b2f938c"><div class="ttname"><a href="group__String.html#gaa69d330049fa1dbef77203c98b2f938c">ast::aWideToUtf8</a></div><div class="ttdeci">errc_t aWideToUtf8(const wchar_t *wide, std::string &amp;utf8)</div><div class="ttdoc">将宽字符编码的字符串转换为UTF-8编码</div><div class="ttdef"><b>定义</b> Encode.cpp:198</div></div>
-<div class="ttc" id="agroup__String_html_gade923a9e656922dfc6d2057be1848fee"><div class="ttname"><a href="group__String.html#gade923a9e656922dfc6d2057be1848fee">ast::aWideToCRT</a></div><div class="ttdeci">errc_t aWideToCRT(const wchar_t *wide, std::string &amp;crt)</div><div class="ttdoc">将宽字符编码的字符串转换为C语言运行时LC_CTYPE对应的编码</div><div class="ttdef"><b>定义</b> Encode.cpp:222</div></div>
-<div class="ttc" id="agroup__String_html_gae615837fdd5d1428ce0e44c75eac5dd8"><div class="ttname"><a href="group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8">ast::aUTF8ToCRT</a></div><div class="ttdeci">errc_t aUTF8ToCRT(const char *utf8, std::string &amp;crt)</div><div class="ttdoc">将UTF-8编码的字符串转换为C语言运行时LC_CTYPE对应的编码</div><div class="ttdef"><b>定义</b> Encode.cpp:310</div></div>
+<div class="ttc" id="agroup__String_html_ga7a393fd60e66dd4d4fa767568e4c2f50"><div class="ttname"><a href="group__String.html#ga7a393fd60e66dd4d4fa767568e4c2f50">ast::aCRTToWide</a></div><div class="ttdeci">errc_t aCRTToWide(const char *crt, std::wstring &amp;wide)</div><div class="ttdoc">将C语言运行时LC_CTYPE对应的编码的字符串转换为宽字符编码</div><div class="ttdef"><b>定义</b> Encode.cpp:268</div></div>
+<div class="ttc" id="agroup__String_html_gaa69d330049fa1dbef77203c98b2f938c"><div class="ttname"><a href="group__String.html#gaa69d330049fa1dbef77203c98b2f938c">ast::aWideToUtf8</a></div><div class="ttdeci">errc_t aWideToUtf8(const wchar_t *wide, std::string &amp;utf8)</div><div class="ttdoc">将宽字符编码的字符串转换为UTF-8编码</div><div class="ttdef"><b>定义</b> Encode.cpp:211</div></div>
+<div class="ttc" id="agroup__String_html_gade923a9e656922dfc6d2057be1848fee"><div class="ttname"><a href="group__String.html#gade923a9e656922dfc6d2057be1848fee">ast::aWideToCRT</a></div><div class="ttdeci">errc_t aWideToCRT(const wchar_t *wide, std::string &amp;crt)</div><div class="ttdoc">将宽字符编码的字符串转换为C语言运行时LC_CTYPE对应的编码</div><div class="ttdef"><b>定义</b> Encode.cpp:235</div></div>
+<div class="ttc" id="agroup__String_html_gae615837fdd5d1428ce0e44c75eac5dd8"><div class="ttname"><a href="group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8">ast::aUTF8ToCRT</a></div><div class="ttdeci">errc_t aUTF8ToCRT(const char *utf8, std::string &amp;crt)</div><div class="ttdoc">将UTF-8编码的字符串转换为C语言运行时LC_CTYPE对应的编码</div><div class="ttdef"><b>定义</b> Encode.cpp:323</div></div>
 <div class="ttc" id="agroup__String_html_gaf2fc97e4c61a4d07cf3301c4487027b2"><div class="ttname"><a href="group__String.html#gaf2fc97e4c61a4d07cf3301c4487027b2">ast::aAnsiToWide</a></div><div class="ttdeci">AST_UTIL_CAPI errc_t aAnsiToWide(const char *ansi, std::wstring &amp;wide)</div><div class="ttdoc">将ANSI编码的字符串转换为宽字符编码</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

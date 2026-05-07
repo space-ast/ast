@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::DifferentialCorrectorProfile类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1DifferentialCorrectorProfile.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1DifferentialCorrectorProfile-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::DifferentialCorrectorProfile类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="DifferentialCorrectorProfile_8hpp_source.html">DifferentialCorrectorProfile.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::DifferentialCorrectorProfile 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1DifferentialCorrectorProfile.png" usemap="#ast::DifferentialCorrectorProfile_map" alt=""/>
+  <map id="ast::DifferentialCorrectorProfile_map" name="ast::DifferentialCorrectorProfile_map">
+<area href="classast_1_1TargeterProfile.html" title="目标器配置文件基类" alt="ast::TargeterProfile" shape="rect" coords="0,168,188,192"/>
+<area href="classast_1_1Command.html" alt="ast::Command" shape="rect" coords="0,112,188,136"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,56,188,80"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,0,188,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a97b8aa9a7ea122aa05e1b95ed9579be6" id="r_a97b8aa9a7ea122aa05e1b95ed9579be6"><td class="memItemLeft" align="right" valign="top"><a id="a97b8aa9a7ea122aa05e1b95ed9579be6" name="a97b8aa9a7ea122aa05e1b95ed9579be6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ControlVector</b> = std::vector&lt;<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1ShooterControl.html">ShooterControl</a>&gt;&gt;</td></tr>
+<tr class="separator:a97b8aa9a7ea122aa05e1b95ed9579be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd98380f902e295a414e21882e266f8" id="r_a5dd98380f902e295a414e21882e266f8"><td class="memItemLeft" align="right" valign="top"><a id="a5dd98380f902e295a414e21882e266f8" name="a5dd98380f902e295a414e21882e266f8"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ResultVector</b> = std::vector&lt;<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1ShooterResult.html">ShooterResult</a>&gt;&gt;</td></tr>
+<tr class="separator:a5dd98380f902e295a414e21882e266f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8296fbfcc4ffbf8a2cc3ebf4dc2a3937" id="r_a8296fbfcc4ffbf8a2cc3ebf4dc2a3937"><td class="memItemLeft" align="right" valign="top"><a id="a8296fbfcc4ffbf8a2cc3ebf4dc2a3937" name="a8296fbfcc4ffbf8a2cc3ebf4dc2a3937"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TargeterGraphVector</b> = std::vector&lt;<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1TargeterGraph.html">TargeterGraph</a>&gt;&gt;</td></tr>
+<tr class="separator:a8296fbfcc4ffbf8a2cc3ebf4dc2a3937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a1b2b1a5e2b63291a84daebccda5f88f9" id="r_a1b2b1a5e2b63291a84daebccda5f88f9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b2b1a5e2b63291a84daebccda5f88f9">execute</a> () override</td></tr>
+<tr class="separator:a1b2b1a5e2b63291a84daebccda5f88f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a528323532e995c4eafc0f82204a4f" id="r_a59a528323532e995c4eafc0f82204a4f"><td class="memItemLeft" align="right" valign="top"><a id="a59a528323532e995c4eafc0f82204a4f" name="a59a528323532e995c4eafc0f82204a4f"></a>
+<a class="el" href="namespaceast.html#aa8c459f7459dd0c0fa71b049082d38a9">ERootFindingAlgorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rootFindingAlgorithm</b> () const</td></tr>
+<tr class="separator:a59a528323532e995c4eafc0f82204a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d558035d0a3f2e436cbcc92c8755c6" id="r_ae4d558035d0a3f2e436cbcc92c8755c6"><td class="memItemLeft" align="right" valign="top"><a id="ae4d558035d0a3f2e436cbcc92c8755c6" name="ae4d558035d0a3f2e436cbcc92c8755c6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRootFindingAlgorithm</b> (<a class="el" href="namespaceast.html#aa8c459f7459dd0c0fa71b049082d38a9">ERootFindingAlgorithm</a> algorithm)</td></tr>
+<tr class="separator:ae4d558035d0a3f2e436cbcc92c8755c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d03be2b0aed364d7c82607cef9f6dd6" id="r_a6d03be2b0aed364d7c82607cef9f6dd6"><td class="memItemLeft" align="right" valign="top"><a id="a6d03be2b0aed364d7c82607cef9f6dd6" name="a6d03be2b0aed364d7c82607cef9f6dd6"></a>
+<a class="el" href="namespaceast.html#a506f55f4c4e8b79920188af9804ad018">EFiniteDifferenceMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><b>finiteDifferenceMethod</b> () const</td></tr>
+<tr class="separator:a6d03be2b0aed364d7c82607cef9f6dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeae5bf13818f72cc2652f3aff8ca31ae" id="r_aeae5bf13818f72cc2652f3aff8ca31ae"><td class="memItemLeft" align="right" valign="top"><a id="aeae5bf13818f72cc2652f3aff8ca31ae" name="aeae5bf13818f72cc2652f3aff8ca31ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFiniteDifferenceMethod</b> (<a class="el" href="namespaceast.html#a506f55f4c4e8b79920188af9804ad018">EFiniteDifferenceMethod</a> method)</td></tr>
+<tr class="separator:aeae5bf13818f72cc2652f3aff8ca31ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb84478090a11e3dfcea4b4d2868c6de" id="r_afb84478090a11e3dfcea4b4d2868c6de"><td class="memItemLeft" align="right" valign="top"><a id="afb84478090a11e3dfcea4b4d2868c6de" name="afb84478090a11e3dfcea4b4d2868c6de"></a>
+<a class="el" href="namespaceast.html#afdad28878a123864652dd130092859d5">EConvergenceCriteria</a>&#160;</td><td class="memItemRight" valign="bottom"><b>convergenceCriteria</b> () const</td></tr>
+<tr class="separator:afb84478090a11e3dfcea4b4d2868c6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a0177e5d6401bdc748fa0032dab26b" id="r_aa0a0177e5d6401bdc748fa0032dab26b"><td class="memItemLeft" align="right" valign="top"><a id="aa0a0177e5d6401bdc748fa0032dab26b" name="aa0a0177e5d6401bdc748fa0032dab26b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setConvergenceCriteria</b> (<a class="el" href="namespaceast.html#afdad28878a123864652dd130092859d5">EConvergenceCriteria</a> criteria)</td></tr>
+<tr class="separator:aa0a0177e5d6401bdc748fa0032dab26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c0a506db0af9911f86c2a6432d541f" id="r_ae5c0a506db0af9911f86c2a6432d541f"><td class="memItemLeft" align="right" valign="top"><a id="ae5c0a506db0af9911f86c2a6432d541f" name="ae5c0a506db0af9911f86c2a6432d541f"></a>
+<a class="el" href="namespaceast.html#a1261433b1247ff9055c2224bb7797ffb">EScaleControls</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scaleControls</b> () const</td></tr>
+<tr class="separator:ae5c0a506db0af9911f86c2a6432d541f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd73f10b50bef8b3cf24725ddd74f074" id="r_acd73f10b50bef8b3cf24725ddd74f074"><td class="memItemLeft" align="right" valign="top"><a id="acd73f10b50bef8b3cf24725ddd74f074" name="acd73f10b50bef8b3cf24725ddd74f074"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setScaleControls</b> (<a class="el" href="namespaceast.html#a1261433b1247ff9055c2224bb7797ffb">EScaleControls</a> controls)</td></tr>
+<tr class="separator:acd73f10b50bef8b3cf24725ddd74f074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73163060cda8bb2e95aab03a5230275f" id="r_a73163060cda8bb2e95aab03a5230275f"><td class="memItemLeft" align="right" valign="top"><a id="a73163060cda8bb2e95aab03a5230275f" name="a73163060cda8bb2e95aab03a5230275f"></a>
+<a class="el" href="namespaceast.html#ae2415faaf719057edcdbd62848274598">EScaleGoals</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scaleGoals</b> () const</td></tr>
+<tr class="separator:a73163060cda8bb2e95aab03a5230275f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e265faaa39050e23d87036f2a3d78e" id="r_ac1e265faaa39050e23d87036f2a3d78e"><td class="memItemLeft" align="right" valign="top"><a id="ac1e265faaa39050e23d87036f2a3d78e" name="ac1e265faaa39050e23d87036f2a3d78e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setScaleGoals</b> (<a class="el" href="namespaceast.html#ae2415faaf719057edcdbd62848274598">EScaleGoals</a> goals)</td></tr>
+<tr class="separator:ac1e265faaa39050e23d87036f2a3d78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01cff5ea0c671cc99cf0ed518e5b3dc0" id="r_a01cff5ea0c671cc99cf0ed518e5b3dc0"><td class="memItemLeft" align="right" valign="top"><a id="a01cff5ea0c671cc99cf0ed518e5b3dc0" name="a01cff5ea0c671cc99cf0ed518e5b3dc0"></a>
+const ControlVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>controls</b> () const</td></tr>
+<tr class="separator:a01cff5ea0c671cc99cf0ed518e5b3dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24369c77e5fe98ec2b8e62c907e80c71" id="r_a24369c77e5fe98ec2b8e62c907e80c71"><td class="memItemLeft" align="right" valign="top"><a id="a24369c77e5fe98ec2b8e62c907e80c71" name="a24369c77e5fe98ec2b8e62c907e80c71"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setControls</b> (const ControlVector &amp;controls)</td></tr>
+<tr class="separator:a24369c77e5fe98ec2b8e62c907e80c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2633a314eeee2c07d0492ac55d9c8585" id="r_a2633a314eeee2c07d0492ac55d9c8585"><td class="memItemLeft" align="right" valign="top"><a id="a2633a314eeee2c07d0492ac55d9c8585" name="a2633a314eeee2c07d0492ac55d9c8585"></a>
+const ResultVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>results</b> () const</td></tr>
+<tr class="separator:a2633a314eeee2c07d0492ac55d9c8585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3083f9c171cafd331a6254f6013c8d16" id="r_a3083f9c171cafd331a6254f6013c8d16"><td class="memItemLeft" align="right" valign="top"><a id="a3083f9c171cafd331a6254f6013c8d16" name="a3083f9c171cafd331a6254f6013c8d16"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setResults</b> (const ResultVector &amp;results)</td></tr>
+<tr class="separator:a3083f9c171cafd331a6254f6013c8d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3bc50b342294014d13db874064d73ef" id="r_ad3bc50b342294014d13db874064d73ef"><td class="memItemLeft" align="right" valign="top"><a id="ad3bc50b342294014d13db874064d73ef" name="ad3bc50b342294014d13db874064d73ef"></a>
+<a class="el" href="classast_1_1ShooterResult.html">ShooterResult</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getResult</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) const</td></tr>
+<tr class="separator:ad3bc50b342294014d13db874064d73ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd78a0a9c798cf9933b1fcd1aa0a39c5" id="r_afd78a0a9c798cf9933b1fcd1aa0a39c5"><td class="memItemLeft" align="right" valign="top"><a id="afd78a0a9c798cf9933b1fcd1aa0a39c5" name="afd78a0a9c798cf9933b1fcd1aa0a39c5"></a>
+<a class="el" href="classast_1_1ShooterControl.html">ShooterControl</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getControl</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) const</td></tr>
+<tr class="separator:afd78a0a9c798cf9933b1fcd1aa0a39c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1TargeterProfile"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1TargeterProfile')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1TargeterProfile.html">ast::TargeterProfile</a></td></tr>
+<tr class="inherit_header pub_methods_classast_1_1Command"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Command')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Command.html">ast::Command</a></td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
+<tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
+<tr class="separator:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>)</td></tr>
+<tr class="separator:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed" id="r_afb1a89f4242cdf4ec00565ad72eff1b9"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#afb1a89f4242cdf4ec00565ad72eff1b9">getName</a> () const override</td></tr>
+<tr class="separator:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed" id="r_abd3548f088559bf32c2d2bc4df19dc80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) override</td></tr>
+<tr class="separator:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+<tr class="memitem:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Object" id="r_a3e2ce8041e46f520a6f50b2d661245b9"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope)</td></tr>
+<tr class="separator:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Object" id="r_a62f159ae7909680956affebd590f1783"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (std::nullptr_t)</td></tr>
+<tr class="separator:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Object" id="r_abbd67af553bb0841192dfacd0f0e9578"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578">Object</a> (<a class="el" href="structast_1_1initial__strong__ref__t.html">initial_strong_ref_t</a>)</td></tr>
+<tr class="separator:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object" id="r_ad5992c59eef6fd156988573616d3e8d5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ad5992c59eef6fd156988573616d3e8d5">getType</a> () const</td></tr>
+<tr class="separator:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object" id="r_a446065f1684af869d91a610b6cf5a80f"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="separator:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0495a9547b1a91a95c0be865ee7f42 inherit pub_methods_classast_1_1Object" id="r_a0f0495a9547b1a91a95c0be865ee7f42"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0f0495a9547b1a91a95c0be865ee7f42">showEditDialog</a> ()</td></tr>
+<tr class="separator:a0f0495a9547b1a91a95c0be865ee7f42 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0192227e3d8184f7a6d75dec82993170 inherit pub_methods_classast_1_1Object" id="r_a0192227e3d8184f7a6d75dec82993170"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1AttributeBasic.html">Attribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170">attr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
+<tr class="separator:a0192227e3d8184f7a6d75dec82993170 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a798f984235c3fa36ea82198b109f5ea3 inherit pub_methods_classast_1_1Object" id="r_a798f984235c3fa36ea82198b109f5ea3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a798f984235c3fa36ea82198b109f5ea3">getAttrBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, bool &amp;value) const</td></tr>
+<tr class="separator:a798f984235c3fa36ea82198b109f5ea3 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a176eed2230b79d84c0c35d15f2e16c8a inherit pub_methods_classast_1_1Object" id="r_a176eed2230b79d84c0c35d15f2e16c8a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a176eed2230b79d84c0c35d15f2e16c8a">getAttrInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, int &amp;value) const</td></tr>
+<tr class="separator:a176eed2230b79d84c0c35d15f2e16c8a inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452d3705b455a2e9a1a5f44c45428a10 inherit pub_methods_classast_1_1Object" id="r_a452d3705b455a2e9a1a5f44c45428a10"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a452d3705b455a2e9a1a5f44c45428a10">getAttrDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, double &amp;value) const</td></tr>
+<tr class="separator:a452d3705b455a2e9a1a5f44c45428a10 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0453c247fc031a539e31e325e7d33347 inherit pub_methods_classast_1_1Object" id="r_a0453c247fc031a539e31e325e7d33347"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0453c247fc031a539e31e325e7d33347">getAttrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, std::string &amp;value) const</td></tr>
+<tr class="separator:a0453c247fc031a539e31e325e7d33347 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ab7b48603e843876a48bc26343b4cd inherit pub_methods_classast_1_1Object" id="r_a43ab7b48603e843876a48bc26343b4cd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a43ab7b48603e843876a48bc26343b4cd">getAttrObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, <a class="el" href="classast_1_1Object.html">Object</a> *&amp;value) const</td></tr>
+<tr class="separator:a43ab7b48603e843876a48bc26343b4cd inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf605796ba25d785d4d63055fdf14836 inherit pub_methods_classast_1_1Object" id="r_abf605796ba25d785d4d63055fdf14836"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#abf605796ba25d785d4d63055fdf14836">getAttrDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path) const</td></tr>
+<tr class="separator:abf605796ba25d785d4d63055fdf14836 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1820e5f8b26c89f6261d1752e1cb35 inherit pub_methods_classast_1_1Object" id="r_a6c1820e5f8b26c89f6261d1752e1cb35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a6c1820e5f8b26c89f6261d1752e1cb35">getAttrInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path) const</td></tr>
+<tr class="separator:a6c1820e5f8b26c89f6261d1752e1cb35 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83991aa13c3c8eaf8d878c3e37ac4281 inherit pub_methods_classast_1_1Object" id="r_a83991aa13c3c8eaf8d878c3e37ac4281"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a83991aa13c3c8eaf8d878c3e37ac4281">getAttrBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path) const</td></tr>
+<tr class="separator:a83991aa13c3c8eaf8d878c3e37ac4281 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa457c9e1855e145d566b078711bfc7f2 inherit pub_methods_classast_1_1Object" id="r_aa457c9e1855e145d566b078711bfc7f2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aa457c9e1855e145d566b078711bfc7f2">getAttrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path) const</td></tr>
+<tr class="separator:aa457c9e1855e145d566b078711bfc7f2 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe322245a41763d2533391c39533a453 inherit pub_methods_classast_1_1Object" id="r_abe322245a41763d2533391c39533a453"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#abe322245a41763d2533391c39533a453">getAttrObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path) const</td></tr>
+<tr class="separator:abe322245a41763d2533391c39533a453 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5072bda9b7931524868edbf014d4ff92 inherit pub_methods_classast_1_1Object" id="r_a5072bda9b7931524868edbf014d4ff92"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a5072bda9b7931524868edbf014d4ff92">setAttrBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, bool value)</td></tr>
+<tr class="separator:a5072bda9b7931524868edbf014d4ff92 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed0f50f23efc8b9b92411a70723a0ce6 inherit pub_methods_classast_1_1Object" id="r_aed0f50f23efc8b9b92411a70723a0ce6"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aed0f50f23efc8b9b92411a70723a0ce6">setAttrInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, int value)</td></tr>
+<tr class="separator:aed0f50f23efc8b9b92411a70723a0ce6 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac18023e736d3e498ab1cf2965b9abf inherit pub_methods_classast_1_1Object" id="r_acac18023e736d3e498ab1cf2965b9abf"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#acac18023e736d3e498ab1cf2965b9abf">setAttrDouble</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, double value)</td></tr>
+<tr class="separator:acac18023e736d3e498ab1cf2965b9abf inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb71491623a8c5669eada6ac83965ea inherit pub_methods_classast_1_1Object" id="r_a8bb71491623a8c5669eada6ac83965ea"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a8bb71491623a8c5669eada6ac83965ea">setAttrString</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
+<tr class="separator:a8bb71491623a8c5669eada6ac83965ea inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1661553d43c580bee61563c8c2c07d0 inherit pub_methods_classast_1_1Object" id="r_af1661553d43c580bee61563c8c2c07d0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#af1661553d43c580bee61563c8c2c07d0">setAttrObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, <a class="el" href="classast_1_1Object.html">Object</a> *value)</td></tr>
+<tr class="separator:af1661553d43c580bee61563c8c2c07d0 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30c577e616caa73f91c3866cc540157 inherit pub_methods_classast_1_1Object" id="r_ad30c577e616caa73f91c3866cc540157"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">type</a> () const</td></tr>
+<tr class="separator:ad30c577e616caa73f91c3866cc540157 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2f8b1ae4d7d5e2be36e856188a9155 inherit pub_methods_classast_1_1Object" id="r_afc2f8b1ae4d7d5e2be36e856188a9155"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>typeName</b> () const</td></tr>
+<tr class="separator:afc2f8b1ae4d7d5e2be36e856188a9155 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3f855bf1ea116440b9f5ee84ed6cd7f inherit pub_methods_classast_1_1Object" id="r_ae3f855bf1ea116440b9f5ee84ed6cd7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ae3f855bf1ea116440b9f5ee84ed6cd7f">getProperty</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fieldName) const</td></tr>
+<tr class="separator:ae3f855bf1ea116440b9f5ee84ed6cd7f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01884ecdd890335f205b0bb847c5ed5 inherit pub_methods_classast_1_1Object" id="r_ae01884ecdd890335f205b0bb847c5ed5"><td class="memItemLeft" align="right" valign="top">ObjectId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ae01884ecdd890335f205b0bb847c5ed5">getID</a> () const</td></tr>
+<tr class="separator:ae01884ecdd890335f205b0bb847c5ed5 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1dc2f5c87a654f28c43a1d038928cc3 inherit pub_methods_classast_1_1Object" id="r_aa1dc2f5c87a654f28c43a1d038928cc3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aa1dc2f5c87a654f28c43a1d038928cc3">setParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope)</td></tr>
+<tr class="separator:aa1dc2f5c87a654f28c43a1d038928cc3 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d02bedcd1d0659d69b9fb9127fbf9a inherit pub_methods_classast_1_1Object" id="r_af0d02bedcd1d0659d69b9fb9127fbf9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#af0d02bedcd1d0659d69b9fb9127fbf9a">getParentScope</a> () const</td></tr>
+<tr class="separator:af0d02bedcd1d0659d69b9fb9127fbf9a inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a556816669dc1c7bdd0b609af9b51c765 inherit pub_methods_classast_1_1Object" id="r_a556816669dc1c7bdd0b609af9b51c765"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a556816669dc1c7bdd0b609af9b51c765">isOfType</a> (const <a class="el" href="classast_1_1Class.html">Class</a> *<a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">type</a>) const</td></tr>
+<tr class="separator:a556816669dc1c7bdd0b609af9b51c765 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object" id="r_a3001b127c00fd68e312f7143ddb8a197"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197">isOfType</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName) const</td></tr>
+<tr class="separator:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object" id="r_ga1508a5d286ff71fbd38229332d704ab3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3">isOfType</a> () const</td></tr>
+<tr class="separator:ga1508a5d286ff71fbd38229332d704ab3 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91ca8d28b3a279e60ce673d69b5a545b inherit pub_methods_classast_1_1Object" id="r_a91ca8d28b3a279e60ce673d69b5a545b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b">refCount</a> () const</td></tr>
+<tr class="separator:a91ca8d28b3a279e60ce673d69b5a545b inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0413d6286436cde9376cee0cdaba541b inherit pub_methods_classast_1_1Object" id="r_a0413d6286436cde9376cee0cdaba541b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b">weakRefCount</a> () const</td></tr>
+<tr class="separator:a0413d6286436cde9376cee0cdaba541b inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd5f058fcc84490d373f3194a001397 inherit pub_methods_classast_1_1Object" id="r_a6fd5f058fcc84490d373f3194a001397"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a6fd5f058fcc84490d373f3194a001397">isDestructed</a> () const</td></tr>
+<tr class="separator:a6fd5f058fcc84490d373f3194a001397 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7badb24d788afd6fa3e0bc4ef91569e inherit pub_methods_classast_1_1Object" id="r_ac7badb24d788afd6fa3e0bc4ef91569e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#ac7badb24d788afd6fa3e0bc4ef91569e">destruct</a> ()</td></tr>
+<tr class="separator:ac7badb24d788afd6fa3e0bc4ef91569e inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a318851ef5849dfb6c7555ba0b47c533d inherit pub_methods_classast_1_1Object" id="r_a318851ef5849dfb6c7555ba0b47c533d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d">incWeakRef</a> ()</td></tr>
+<tr class="separator:a318851ef5849dfb6c7555ba0b47c533d inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a892866e72d85db8cc1431fb0dff1d871 inherit pub_methods_classast_1_1Object" id="r_a892866e72d85db8cc1431fb0dff1d871"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a892866e72d85db8cc1431fb0dff1d871">decWeakRef</a> ()</td></tr>
+<tr class="separator:a892866e72d85db8cc1431fb0dff1d871 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200ecf89b239336aae46e9b2e6045f7c inherit pub_methods_classast_1_1Object" id="r_a200ecf89b239336aae46e9b2e6045f7c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c">incRef</a> ()</td></tr>
+<tr class="separator:a200ecf89b239336aae46e9b2e6045f7c inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4697ffa258dc386c82f6e496ee6f513 inherit pub_methods_classast_1_1Object" id="r_aa4697ffa258dc386c82f6e496ee6f513"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aa4697ffa258dc386c82f6e496ee6f513">decRef</a> ()</td></tr>
+<tr class="separator:aa4697ffa258dc386c82f6e496ee6f513 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object" id="r_aecd84a95fab6db0c0efb7fb34863b11c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c">decRefNoDelete</a> ()</td></tr>
+<tr class="separator:aecd84a95fab6db0c0efb7fb34863b11c inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object" id="r_adf7b91848543c240be28885c981d2241"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#adf7b91848543c240be28885c981d2241">addDelayedLink</a> (Func &amp;&amp;link)</td></tr>
+<tr class="separator:adf7b91848543c240be28885c981d2241 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object" id="r_a5ce58e227924271e34486ce9bfd8ce0a"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a5ce58e227924271e34486ce9bfd8ce0a">addDelayedLinkIfFailed</a> (Func &amp;&amp;link)</td></tr>
+<tr class="separator:a5ce58e227924271e34486ce9bfd8ce0a inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e876146a8f6465fecc865e755b41dbe inherit pub_methods_classast_1_1Object" id="r_a2e876146a8f6465fecc865e755b41dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a2e876146a8f6465fecc865e755b41dbe">resolveLinks</a> ()</td></tr>
+<tr class="separator:a2e876146a8f6465fecc865e755b41dbe inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:aa915817cc70978bb36ce7db28e45a9dc" id="r_aa915817cc70978bb36ce7db28e45a9dc"><td class="memItemLeft" align="right" valign="top"><a id="aa915817cc70978bb36ce7db28e45a9dc" name="aa915817cc70978bb36ce7db28e45a9dc"></a>
+static <a class="el" href="classast_1_1DifferentialCorrectorProfile.html">DifferentialCorrectorProfile</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>New</b> ()</td></tr>
+<tr class="separator:aa915817cc70978bb36ce7db28e45a9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+<tr class="memitem:a7a1569cc8cc1ab030e88e2c4f4ed98de inherit pub_static_methods_classast_1_1Object" id="r_a7a1569cc8cc1ab030e88e2c4f4ed98de"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a7a1569cc8cc1ab030e88e2c4f4ed98de">Resolve</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
+<tr class="separator:a7a1569cc8cc1ab030e88e2c4f4ed98de inherit pub_static_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089f59aad6443af84bddb2f573110460 inherit pub_static_methods_classast_1_1Object" id="r_a089f59aad6443af84bddb2f573110460"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>ClassInit</b> (<a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
+<tr class="separator:a089f59aad6443af84bddb2f573110460 inherit pub_static_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1241519e198b472bfdc49a9278c72170 inherit pub_static_methods_classast_1_1Object" id="r_a1241519e198b472bfdc49a9278c72170"><td class="memItemLeft" align="right" valign="top">
+static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>StaticType</b> ()</td></tr>
+<tr class="separator:a1241519e198b472bfdc49a9278c72170 inherit pub_static_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a8d3ef63da516d74ad6283962a8424fc2" id="r_a8d3ef63da516d74ad6283962a8424fc2"><td class="memItemLeft" align="right" valign="top"><a id="a8d3ef63da516d74ad6283962a8424fc2" name="a8d3ef63da516d74ad6283962a8424fc2"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>executeRelatedCommand</b> () const</td></tr>
+<tr class="separator:a8d3ef63da516d74ad6283962a8424fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22cc9d5a42bc1e4b86fdee310016af07" id="r_a22cc9d5a42bc1e4b86fdee310016af07"><td class="memItemLeft" align="right" valign="top"><a id="a22cc9d5a42bc1e4b86fdee310016af07" name="a22cc9d5a42bc1e4b86fdee310016af07"></a>
+<a class="el" href="classast_1_1Sequence.html">Sequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getRelatedSequence</b> () const</td></tr>
+<tr class="separator:a22cc9d5a42bc1e4b86fdee310016af07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4233d9d20d90361313485cbc1172761" id="r_af4233d9d20d90361313485cbc1172761"><td class="memItemLeft" align="right" valign="top"><a id="af4233d9d20d90361313485cbc1172761" name="af4233d9d20d90361313485cbc1172761"></a>
+<a class="el" href="classast_1_1Command.html">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getRelatedCommand</b> () const</td></tr>
+<tr class="separator:af4233d9d20d90361313485cbc1172761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a1203335f7a33646bd2458a45d623e0" id="r_a0a1203335f7a33646bd2458a45d623e0"><td class="memItemLeft" align="right" valign="top"><a id="a0a1203335f7a33646bd2458a45d623e0" name="a0a1203335f7a33646bd2458a45d623e0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setUseHomotopy</b> (bool useHomotopy)</td></tr>
+<tr class="separator:a0a1203335f7a33646bd2458a45d623e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a918bfc74a09aea533b2f85294a8860b4" id="r_a918bfc74a09aea533b2f85294a8860b4"><td class="memItemLeft" align="right" valign="top"><a id="a918bfc74a09aea533b2f85294a8860b4" name="a918bfc74a09aea533b2f85294a8860b4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>numHomotopySteps</b> () const</td></tr>
+<tr class="separator:a918bfc74a09aea533b2f85294a8860b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ffe346e573a5539f6a8ba7f6c8f1ce" id="r_a76ffe346e573a5539f6a8ba7f6c8f1ce"><td class="memItemLeft" align="right" valign="top"><a id="a76ffe346e573a5539f6a8ba7f6c8f1ce" name="a76ffe346e573a5539f6a8ba7f6c8f1ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNumHomotopySteps</b> (int numHomotopySteps)</td></tr>
+<tr class="separator:a76ffe346e573a5539f6a8ba7f6c8f1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9152633554ef4e3797fd412d3b70d0a" id="r_af9152633554ef4e3797fd412d3b70d0a"><td class="memItemLeft" align="right" valign="top"><a id="af9152633554ef4e3797fd412d3b70d0a" name="af9152633554ef4e3797fd412d3b70d0a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>useLineSearch</b> () const</td></tr>
+<tr class="separator:af9152633554ef4e3797fd412d3b70d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7975e72abef3e96adf9294fb034b3236" id="r_a7975e72abef3e96adf9294fb034b3236"><td class="memItemLeft" align="right" valign="top"><a id="a7975e72abef3e96adf9294fb034b3236" name="a7975e72abef3e96adf9294fb034b3236"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setUseLineSearch</b> (bool useLineSearch)</td></tr>
+<tr class="separator:a7975e72abef3e96adf9294fb034b3236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08fea6806279b4a67102de95e2d92ba" id="r_ad08fea6806279b4a67102de95e2d92ba"><td class="memItemLeft" align="right" valign="top"><a id="ad08fea6806279b4a67102de95e2d92ba" name="ad08fea6806279b4a67102de95e2d92ba"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lineSearchTolerance</b> () const</td></tr>
+<tr class="separator:ad08fea6806279b4a67102de95e2d92ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a76a2a849f415450bd0718554fc1090" id="r_a0a76a2a849f415450bd0718554fc1090"><td class="memItemLeft" align="right" valign="top"><a id="a0a76a2a849f415450bd0718554fc1090" name="a0a76a2a849f415450bd0718554fc1090"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLineSearchTolerance</b> (double tolerance)</td></tr>
+<tr class="separator:a0a76a2a849f415450bd0718554fc1090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba69a1474e785f1c327a25e88fbcd6b" id="r_a0ba69a1474e785f1c327a25e88fbcd6b"><td class="memItemLeft" align="right" valign="top"><a id="a0ba69a1474e785f1c327a25e88fbcd6b" name="a0ba69a1474e785f1c327a25e88fbcd6b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lineSearchMaxNumCalls</b> () const</td></tr>
+<tr class="separator:a0ba69a1474e785f1c327a25e88fbcd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa08d87f289e591454fdffa5b5391fc4c" id="r_aa08d87f289e591454fdffa5b5391fc4c"><td class="memItemLeft" align="right" valign="top"><a id="aa08d87f289e591454fdffa5b5391fc4c" name="aa08d87f289e591454fdffa5b5391fc4c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLineSearchMaxNumCalls</b> (int maxNumCalls)</td></tr>
+<tr class="separator:aa08d87f289e591454fdffa5b5391fc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38267788be281ca141d2cf405c91ec0c" id="r_a38267788be281ca141d2cf405c91ec0c"><td class="memItemLeft" align="right" valign="top"><a id="a38267788be281ca141d2cf405c91ec0c" name="a38267788be281ca141d2cf405c91ec0c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lineSearchLowerBound</b> () const</td></tr>
+<tr class="separator:a38267788be281ca141d2cf405c91ec0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b83e5927c723c1d9fd82e2ebede7c9c" id="r_a3b83e5927c723c1d9fd82e2ebede7c9c"><td class="memItemLeft" align="right" valign="top"><a id="a3b83e5927c723c1d9fd82e2ebede7c9c" name="a3b83e5927c723c1d9fd82e2ebede7c9c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLineSearchLowerBound</b> (double lowerBound)</td></tr>
+<tr class="separator:a3b83e5927c723c1d9fd82e2ebede7c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8adabfd807da73dbd10f64a3a416210a" id="r_a8adabfd807da73dbd10f64a3a416210a"><td class="memItemLeft" align="right" valign="top"><a id="a8adabfd807da73dbd10f64a3a416210a" name="a8adabfd807da73dbd10f64a3a416210a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lineSearchUpperBound</b> () const</td></tr>
+<tr class="separator:a8adabfd807da73dbd10f64a3a416210a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff8a685aa6b5fe250f18613fceadfb2" id="r_adff8a685aa6b5fe250f18613fceadfb2"><td class="memItemLeft" align="right" valign="top"><a id="adff8a685aa6b5fe250f18613fceadfb2" name="adff8a685aa6b5fe250f18613fceadfb2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLineSearchUpperBound</b> (double upperBound)</td></tr>
+<tr class="separator:adff8a685aa6b5fe250f18613fceadfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbae1aa10ae7809f017d4154064f12e" id="r_aabbae1aa10ae7809f017d4154064f12e"><td class="memItemLeft" align="right" valign="top"><a id="aabbae1aa10ae7809f017d4154064f12e" name="aabbae1aa10ae7809f017d4154064f12e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>maxIterations</b> () const</td></tr>
+<tr class="separator:aabbae1aa10ae7809f017d4154064f12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab900910e138bb8d485d67d53c5a6ad4b" id="r_ab900910e138bb8d485d67d53c5a6ad4b"><td class="memItemLeft" align="right" valign="top"><a id="ab900910e138bb8d485d67d53c5a6ad4b" name="ab900910e138bb8d485d67d53c5a6ad4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxIterations</b> (int maxIterations)</td></tr>
+<tr class="separator:ab900910e138bb8d485d67d53c5a6ad4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+<tr class="memitem:a26df1078be6121773b18dd5c5092432e inherit pro_methods_classast_1_1Object" id="r_a26df1078be6121773b18dd5c5092432e"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;obj)</td></tr>
+<tr class="separator:a26df1078be6121773b18dd5c5092432e inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object" id="r_ae68f77d7295e98d721fd27590cfba289"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1Object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
+<tr class="separator:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a3fb0f365d08130f8ddbd91fb55f7bbb1" id="r_a3fb0f365d08130f8ddbd91fb55f7bbb1"><td class="memItemLeft" align="right" valign="top"><a id="a3fb0f365d08130f8ddbd91fb55f7bbb1" name="a3fb0f365d08130f8ddbd91fb55f7bbb1"></a>
+AST_PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: bool useHomotopy() const{return useHomotopy_</td></tr>
+<tr class="separator:a3fb0f365d08130f8ddbd91fb55f7bbb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_static_attribs_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;静态 Public 属性 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+<tr class="memitem:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object" id="r_a0d3a787620d7bd3b8b619bcbef67bb68"><td class="memItemLeft" align="right" valign="top">
+static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>staticType</b></td></tr>
+<tr class="separator:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>微分修正器配置，用于求解非线性方程，可以用于修正轨道参数以满足约束条件要求 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a1b2b1a5e2b63291a84daebccda5f88f9" name="a1b2b1a5e2b63291a84daebccda5f88f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b2b1a5e2b63291a84daebccda5f88f9">&#9670;&#160;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::DifferentialCorrectorProfile::execute </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行目标器配置 </p>
+
+<p>实现了 <a class="el" href="classast_1_1TargeterProfile.html#a97fd8a213181b6558d695751cc511347">ast::TargeterProfile</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Orbit/Mission/Profile/<a class="el" href="DifferentialCorrectorProfile_8hpp_source.html">DifferentialCorrectorProfile.hpp</a></li>
+<li>src/AstCore/Orbit/Mission/Profile/<a class="el" href="DifferentialCorrectorProfile_8cpp.html">DifferentialCorrectorProfile.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1DifferentialCorrectorProfile.html">DifferentialCorrectorProfile</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

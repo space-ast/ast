@@ -75,6 +75,7 @@ var menudata={children:[
 {text:"u",url:"namespacemembers_func_u.html#index_u"}]},
 {text:"变量",url:"namespacemembers_vars.html",children:[
 {text:"a",url:"namespacemembers_vars.html#index_a"},
+{text:"i",url:"namespacemembers_vars.html#index_i"},
 {text:"k",url:"namespacemembers_vars.html#index_k"},
 {text:"t",url:"namespacemembers_vars.html#index_t"},
 {text:"u",url:"namespacemembers_vars.html#index_u"}]},
