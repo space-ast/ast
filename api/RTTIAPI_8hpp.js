@@ -7,7 +7,7 @@ var RTTIAPI_8hpp =
     [ "aFindChildren", "RTTIAPI_8hpp.html#gae963543de147f10b506abb6aace79589", null ],
     [ "aFindObject", "RTTIAPI_8hpp.html#ga2036a876a69db6bab8841ea14f0c8960", null ],
     [ "aFindObjects", "RTTIAPI_8hpp.html#gac33efb1c884546251845c8df9847db9d", null ],
-    [ "aGetAllClasses", "RTTIAPI_8hpp.html#gabd9a86a0039ba06d52462d3f6d45dc91", null ],
+    [ "aGetAllClasses", "RTTIAPI_8hpp.html#ga76749acdd5cb1aed03db35103468b87d", null ],
     [ "aGetAllClassNames", "RTTIAPI_8hpp.html#gad5657a636622fe1200c3978ec4325a0a", null ],
     [ "aGetAllObjects", "RTTIAPI_8hpp.html#gadbeabbca6cd720cad4ac96fa68af7fca", null ],
     [ "aGetClass", "RTTIAPI_8hpp.html#ga4ab0aeafea06cb726b9b242379d361df", null ],
@@ -26,6 +26,7 @@ var RTTIAPI_8hpp =
     [ "aPrintObjectTree", "RTTIAPI_8hpp.html#gaf82b69919faf9d958f4ad3ebff8b3882", null ],
     [ "aRegisterClass", "RTTIAPI_8hpp.html#ga5b08c2dddb5dad66120531160f86092c", null ],
     [ "aRemoveAllObjects", "RTTIAPI_8hpp.html#gaed7926abc41c0fc2db1d03c9147a59fe", null ],
+    [ "aRemoveObject", "RTTIAPI_8hpp.html#ga334bcde83ae54454d0f62b3c53819bd0", null ],
     [ "aResolveObject", "RTTIAPI_8hpp.html#ga01f212ce5ae211ac8c18065e71ae18c0", null ],
     [ "aSetParentScope", "RTTIAPI_8hpp.html#ga7ed60d1a7c0c2d4cbbd535e0b4f2b051", null ]
 ];

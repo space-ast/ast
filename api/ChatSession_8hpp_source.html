@@ -128,30 +128,31 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">   60</a></span>    <a class="code hl_class" href="classast_1_1ChatMessages.html">ChatMessages</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">messages</a>(){<span class="keywordflow">return</span> messages_;}</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">   64</a></span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">tools</a>(){<span class="keywordflow">return</span> tools_;}</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::string makeChatCompletion(<span class="keywordtype">int</span> maxInteractions=20);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> handleToolCalls(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCalls, <span class="keywordtype">int</span> maxInteractions = 20);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::string handleToolCall(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCall);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1OpenAI.html">OpenAI</a>&amp; client();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::string makeChatCompletion(<span class="keywordtype">int</span> maxInteractions=20);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> handleToolCalls(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCalls, <span class="keywordtype">int</span> maxInteractions = 20);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_class" href="classast_1_1OpenAI.html">OpenAI</a>&amp; client();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="classast_1_1OpenAI.html">OpenAI</a>* client_{<span class="keyword">nullptr</span>};               </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    OpenAI internalClient_;                 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    ChatMessages messages_;                 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    ChatTools tools_;                       </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string handleToolCall(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCall);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_class" href="classast_1_1OpenAI.html">OpenAI</a>* client_{<span class="keyword">nullptr</span>};               </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    OpenAI internalClient_;                 </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    ChatMessages messages_;                 </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    ChatTools tools_;                       </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1ChatMessages_html"><div class="ttname"><a href="classast_1_1ChatMessages.html">ast::ChatMessages</a></div><div class="ttdoc">聊天消息集合</div><div class="ttdef"><b>定义</b> ChatMessages.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1ChatSession_html"><div class="ttname"><a href="classast_1_1ChatSession.html">ast::ChatSession</a></div><div class="ttdoc">聊天会话</div><div class="ttdef"><b>定义</b> ChatSession.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1ChatSession_html_a2c1f6b0a5dd5bab64070316bb0ef51e4"><div class="ttname"><a href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">ast::ChatSession::tools</a></div><div class="ttdeci">ChatTools &amp; tools()</div><div class="ttdoc">获取工具集合</div><div class="ttdef"><b>定义</b> ChatSession.hpp:64</div></div>
 <div class="ttc" id="aclassast_1_1ChatSession_html_ae9974e5336509f991ef1cb29eada082d"><div class="ttname"><a href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">ast::ChatSession::messages</a></div><div class="ttdeci">ChatMessages &amp; messages()</div><div class="ttdoc">获取消息历史</div><div class="ttdef"><b>定义</b> ChatSession.hpp:60</div></div>
 <div class="ttc" id="aclassast_1_1ChatTools_html"><div class="ttname"><a href="classast_1_1ChatTools.html">ast::ChatTools</a></div><div class="ttdoc">AI工具集合</div><div class="ttdef"><b>定义</b> ChatTools.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
-<div class="ttc" id="aclassast_1_1OpenAI_html"><div class="ttname"><a href="classast_1_1OpenAI.html">ast::OpenAI</a></div><div class="ttdoc">OpenAI客户端</div><div class="ttdef"><b>定义</b> OpenAI.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1OpenAI_html"><div class="ttname"><a href="classast_1_1OpenAI.html">ast::OpenAI</a></div><div class="ttdoc">OpenAI客户端</div><div class="ttdef"><b>定义</b> OpenAI.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

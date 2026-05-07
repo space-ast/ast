@@ -15,6 +15,8 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "ObjectNamed.hpp", "ObjectNamed_8hpp_source.html", null ],
     [ "ObjectNode.cpp", "ObjectNode_8cpp.html", null ],
     [ "ObjectNode.hpp", "ObjectNode_8hpp.html", "ObjectNode_8hpp" ],
+    [ "ObjectProtocol.cpp", "ObjectProtocol_8cpp.html", null ],
+    [ "ObjectProtocol.hpp", "ObjectProtocol_8hpp.html", "ObjectProtocol_8hpp" ],
     [ "ObjectResolver.hpp", "ObjectResolver_8hpp.html", "ObjectResolver_8hpp" ],
     [ "Referenced.cpp", "Referenced_8cpp.html", null ],
     [ "Referenced.hpp", "Referenced_8hpp.html", null ],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"PropertyObject_8cpp.html":[4,0,0,15,7,0,17],
+"PropertyObject_8hpp.html":[4,0,0,15,7,0,18],
+"PropertyObject_8hpp_source.html":[4,0,0,15,7,0,18],
 "PropertyPOD_8cpp.html":[4,0,0,15,7,0,19],
 "PropertyPOD_8hpp.html":[4,0,0,15,7,0,20],
 "PropertyPOD_8hpp_source.html":[4,0,0,15,7,0,20],
@@ -49,9 +52,9 @@ var NAVTREEINDEX7 =
 "RKV8_8cpp.html":[4,0,0,6,5,0,12],
 "RKV8_8hpp.html":[4,0,0,6,5,0,13],
 "RKV8_8hpp_source.html":[4,0,0,6,5,0,13],
-"RTTIAPI_8cpp.html":[4,0,0,15,7,18],
-"RTTIAPI_8hpp.html":[4,0,0,15,7,19],
-"RTTIAPI_8hpp_source.html":[4,0,0,15,7,19],
+"RTTIAPI_8cpp.html":[4,0,0,15,7,20],
+"RTTIAPI_8hpp.html":[4,0,0,15,7,21],
+"RTTIAPI_8hpp_source.html":[4,0,0,15,7,21],
 "RadarLoader_8cpp.html":[4,0,0,5,2,44],
 "RadarLoader_8cpp.html#a012a5cd048251cf7da1a6acb86163bed":[4,0,0,5,2,44,7],
 "RadarLoader_8cpp.html#a1316ed15747bc96b697828a7fd0e2c7b":[4,0,0,5,2,44,3],
@@ -75,9 +78,9 @@ var NAVTREEINDEX7 =
 "Receiver_8cpp.html":[4,0,0,12,3,44],
 "Receiver_8hpp.html":[4,0,0,12,3,45],
 "Receiver_8hpp_source.html":[4,0,0,12,3,45],
-"Referenced_8cpp.html":[4,0,0,15,7,16],
-"Referenced_8hpp.html":[4,0,0,15,7,17],
-"Referenced_8hpp_source.html":[4,0,0,15,7,17],
+"Referenced_8cpp.html":[4,0,0,15,7,18],
+"Referenced_8hpp.html":[4,0,0,15,7,19],
+"Referenced_8hpp_source.html":[4,0,0,15,7,19],
 "RelativityCorrection_8cpp.html":[4,0,0,2,4,12],
 "RelativityCorrection_8hpp.html":[4,0,0,2,4,13],
 "RelativityCorrection_8hpp_source.html":[4,0,0,2,4,13],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "SerdeAPI_8hpp.html":[4,0,0,15,8,11],
 "SerdeAPI_8hpp_source.html":[4,0,0,15,8,11],
 "Serde_8hpp_source.html":[4,0,0,15,8,9],
-"SerializationUtils_8cpp.html":[4,0,0,15,8,12],
-"SerializationUtils_8hpp.html":[4,0,0,15,8,13],
-"SerializationUtils_8hpp_source.html":[4,0,0,15,8,13],
-"SerializerFactory_8cpp.html":[4,0,0,15,8,15]
+"SerializationUtils_8cpp.html":[4,0,0,15,8,12]
 };

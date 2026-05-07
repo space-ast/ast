@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstWasm/WasmRuntimeProtocol.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('WasmRuntimeProtocol_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">WasmRuntimeProtocol.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstAI/AgentInit.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define _WASM_OBJ_CALL static</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structast_1_1WasmObjectInfo.html">   41</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1WasmObjectInfo.html">WasmObjectInfo</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4">   43</a></span>    ObjectId <a class="code hl_variable" href="structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4">id</a>;                        </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21">   44</a></span>    std::optional&lt;ObjectId&gt; <a class="code hl_variable" href="structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21">parent</a>;     </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9">   45</a></span>    std::string <a class="code hl_variable" href="structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9">type</a>;                   </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structast_1_1WasmObjectInfo.html#a70f82e170ca44543ca20a77ec51d99d4">   46</a></span>    std::string <a class="code hl_variable" href="structast_1_1WasmObjectInfo.html#a70f82e170ca44543ca20a77ec51d99d4">name</a>;                   </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a">   47</a></span>    std::vector&lt;ObjectId&gt; <a class="code hl_variable" href="structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a">children</a>;     </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structast_1_1WasmClassInfo.html">   51</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1WasmClassInfo.html">WasmClassInfo</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structast_1_1WasmClassInfo.html#a2adc5d959b9a87f70f9bcb0a94622c82">   53</a></span>    std::string <a class="code hl_variable" href="structast_1_1WasmClassInfo.html#a2adc5d959b9a87f70f9bcb0a94622c82">name</a>;                   </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structast_1_1WasmClassInfo.html#ab50d7ebb765b8460efbfd0767cc056b4">   54</a></span>    std::string <a class="code hl_variable" href="structast_1_1WasmClassInfo.html#ab50d7ebb765b8460efbfd0767cc056b4">parent</a>;                 </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1WasmRuntimeProtocol.html">   59</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1WasmRuntimeProtocol.html">WasmRuntimeProtocol</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    _WASM_OBJ_CALL errc_t setAttrString(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; value);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    _WASM_OBJ_CALL errc_t setAttrDouble(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    _WASM_OBJ_CALL errc_t setAttrInt(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    _WASM_OBJ_CALL errc_t setAttrBool(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">bool</span> value);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    _WASM_OBJ_CALL errc_t setAttrObject(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, ObjectId value);    </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    _WASM_OBJ_CALL std::optional&lt;std::string&gt; getAttrString(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    _WASM_OBJ_CALL std::optional&lt;double&gt; getAttrDouble(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    _WASM_OBJ_CALL std::optional&lt;int&gt; getAttrInt(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    _WASM_OBJ_CALL std::optional&lt;bool&gt; getAttrBool(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    _WASM_OBJ_CALL std::optional&lt;ObjectId&gt; getAttrObject(ObjectId <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    _WASM_OBJ_CALL std::optional&lt;std::string&gt; objectType(ObjectId <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    _WASM_OBJ_CALL std::optional&lt;WasmObjectInfo&gt; objectInfo(ObjectId <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    _WASM_OBJ_CALL std::vector&lt;ObjectId&gt; allObjects();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    _WASM_OBJ_CALL std::vector&lt;WasmObjectInfo&gt; allObjectInfoList();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    _WASM_OBJ_CALL std::optional&lt;ObjectId&gt; newObject(<span class="keyword">const</span> std::string&amp; typeName, std::optional&lt;ObjectId&gt; parentId = std::nullopt);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    _WASM_OBJ_CALL errc_t removeObject(ObjectId <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    _WASM_OBJ_CALL std::optional&lt;std::string&gt; objectToJsonStr(ObjectId <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    _WASM_OBJ_CALL std::optional&lt;std::string&gt; classJsonSchemaStr(<span class="keyword">const</span> std::string&amp; typeName);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    _WASM_OBJ_CALL std::vector&lt;std::string&gt; getAllClassNames();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    _WASM_OBJ_CALL std::string handleToolCall(<span class="keyword">const</span> std::string&amp; toolCallJsonStr);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>};</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="ttc" id="aclassast_1_1WasmRuntimeProtocol_html"><div class="ttname"><a href="classast_1_1WasmRuntimeProtocol.html">ast::WasmRuntimeProtocol</a></div><div class="ttdoc">WASM模块运行时协议，与对象管理相关的接口集合</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:60</div></div>
+<div class="ttc" id="astructast_1_1WasmClassInfo_html"><div class="ttname"><a href="structast_1_1WasmClassInfo.html">ast::WasmClassInfo</a></div><div class="ttdoc">WASM模块类信息</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:52</div></div>
+<div class="ttc" id="astructast_1_1WasmClassInfo_html_a2adc5d959b9a87f70f9bcb0a94622c82"><div class="ttname"><a href="structast_1_1WasmClassInfo.html#a2adc5d959b9a87f70f9bcb0a94622c82">ast::WasmClassInfo::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">类名</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:53</div></div>
+<div class="ttc" id="astructast_1_1WasmClassInfo_html_ab50d7ebb765b8460efbfd0767cc056b4"><div class="ttname"><a href="structast_1_1WasmClassInfo.html#ab50d7ebb765b8460efbfd0767cc056b4">ast::WasmClassInfo::parent</a></div><div class="ttdeci">std::string parent</div><div class="ttdoc">父类名</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:54</div></div>
+<div class="ttc" id="astructast_1_1WasmObjectInfo_html"><div class="ttname"><a href="structast_1_1WasmObjectInfo.html">ast::WasmObjectInfo</a></div><div class="ttdoc">WASM模块对象信息</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:42</div></div>
+<div class="ttc" id="astructast_1_1WasmObjectInfo_html_a23a1817bb7d274a598fe35d075f5586a"><div class="ttname"><a href="structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a">ast::WasmObjectInfo::children</a></div><div class="ttdeci">std::vector&lt; ObjectId &gt; children</div><div class="ttdoc">子对象ID列表</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:47</div></div>
+<div class="ttc" id="astructast_1_1WasmObjectInfo_html_a48b85ddd84b58b52ce4d21f90054ab21"><div class="ttname"><a href="structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21">ast::WasmObjectInfo::parent</a></div><div class="ttdeci">std::optional&lt; ObjectId &gt; parent</div><div class="ttdoc">父对象ID</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:44</div></div>
+<div class="ttc" id="astructast_1_1WasmObjectInfo_html_a70f82e170ca44543ca20a77ec51d99d4"><div class="ttname"><a href="structast_1_1WasmObjectInfo.html#a70f82e170ca44543ca20a77ec51d99d4">ast::WasmObjectInfo::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">名称</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:46</div></div>
+<div class="ttc" id="astructast_1_1WasmObjectInfo_html_aeaa7e63803e294e64456149fed9ef8d4"><div class="ttname"><a href="structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4">ast::WasmObjectInfo::id</a></div><div class="ttdeci">ObjectId id</div><div class="ttdoc">对象ID</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:43</div></div>
+<div class="ttc" id="astructast_1_1WasmObjectInfo_html_af2e4892a058fb8a884de130d3a5ed7b9"><div class="ttname"><a href="structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9">ast::WasmObjectInfo::type</a></div><div class="ttdeci">std::string type</div><div class="ttdoc">类型</div><div class="ttdef"><b>定义</b> WasmRuntimeProtocol.hpp:45</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_cab5b88c7b5db6f0c7b52f34ac02c292.html">AstWasm</a></li><li class="navelem"><b>WasmRuntimeProtocol.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

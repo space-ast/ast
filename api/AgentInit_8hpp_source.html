@@ -127,14 +127,30 @@ $(function(){initNavTree('AgentInit_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespaceast.html#a8f58f5194b9d2e4583a14e70038a01c9">   54</a></span><span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a8f58f5194b9d2e4583a14e70038a01c9">aAgentSystemPrompt</a>();</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespaceast.html#ab653ef82a9a1be7cf97bd4f50a20a112">   58</a></span>AST_AI_API <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; <a class="code hl_function" href="namespaceast.html#ab653ef82a9a1be7cf97bd4f50a20a112">aAgentTools</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="namespaceast.html#ae9c5c80e053daa6f1b9df3d629a1a8f5">   61</a></span>AST_AI_API <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#ae9c5c80e053daa6f1b9df3d629a1a8f5">aAgentToolsJson</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="namespaceast.html#a6537fdc90b79f48646e5407b7cff680b">   64</a></span>AST_AI_API std::string <a class="code hl_function" href="namespaceast.html#a6537fdc90b79f48646e5407b7cff680b">aAgentToolsJsonStr</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespaceast.html#a57eee49acc7072a877a28c8a30f6439f">   67</a></span>AST_AI_API std::string <a class="code hl_function" href="namespaceast.html#a57eee49acc7072a877a28c8a30f6439f">aAgentToolsHandleToolCall</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCall);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespaceast.html#aff3e646815e0c24018b70c13a5fe2a79">   70</a></span>AST_AI_API std::string <a class="code hl_function" href="namespaceast.html#a57eee49acc7072a877a28c8a30f6439f">aAgentToolsHandleToolCall</a>(<span class="keyword">const</span> std::string&amp; toolCallStr);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>AST_NAMESPACE_END</div>
 </div>
 <div class="ttc" id="aclassast_1_1ChatSession_html"><div class="ttname"><a href="classast_1_1ChatSession.html">ast::ChatSession</a></div><div class="ttdoc">聊天会话</div><div class="ttdef"><b>定义</b> ChatSession.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1ChatTools_html"><div class="ttname"><a href="classast_1_1ChatTools.html">ast::ChatTools</a></div><div class="ttdoc">AI工具集合</div><div class="ttdef"><b>定义</b> ChatTools.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
 <div class="ttc" id="anamespaceast_html_a28a227d97e921418385d66a165456816"><div class="ttname"><a href="namespaceast.html#a28a227d97e921418385d66a165456816">ast::aInitAgentSession</a></div><div class="ttdeci">void aInitAgentSession(ChatSession &amp;session)</div><div class="ttdoc">初始化智能体会话</div></div>
+<div class="ttc" id="anamespaceast_html_a57eee49acc7072a877a28c8a30f6439f"><div class="ttname"><a href="namespaceast.html#a57eee49acc7072a877a28c8a30f6439f">ast::aAgentToolsHandleToolCall</a></div><div class="ttdeci">AST_AI_API std::string aAgentToolsHandleToolCall(const JsonValue &amp;toolCall)</div><div class="ttdoc">使用智能体工具集合处理单次工具调用</div></div>
 <div class="ttc" id="anamespaceast_html_a5c5f9f1ab5d0f9e97193ad1f98ef688e"><div class="ttname"><a href="namespaceast.html#a5c5f9f1ab5d0f9e97193ad1f98ef688e">ast::aInitAgentTools</a></div><div class="ttdeci">void aInitAgentTools(ChatTools &amp;tools)</div><div class="ttdoc">初始化智能体工具集合</div></div>
+<div class="ttc" id="anamespaceast_html_a6537fdc90b79f48646e5407b7cff680b"><div class="ttname"><a href="namespaceast.html#a6537fdc90b79f48646e5407b7cff680b">ast::aAgentToolsJsonStr</a></div><div class="ttdeci">AST_AI_API std::string aAgentToolsJsonStr()</div><div class="ttdoc">获取默认的智能体工具集合的JSON字符串表示</div></div>
 <div class="ttc" id="anamespaceast_html_a8f58f5194b9d2e4583a14e70038a01c9"><div class="ttname"><a href="namespaceast.html#a8f58f5194b9d2e4583a14e70038a01c9">ast::aAgentSystemPrompt</a></div><div class="ttdeci">const char * aAgentSystemPrompt()</div><div class="ttdoc">获取智能体系统提示</div></div>
+<div class="ttc" id="anamespaceast_html_ab653ef82a9a1be7cf97bd4f50a20a112"><div class="ttname"><a href="namespaceast.html#ab653ef82a9a1be7cf97bd4f50a20a112">ast::aAgentTools</a></div><div class="ttdeci">AST_AI_API ChatTools &amp; aAgentTools()</div><div class="ttdoc">获取默认的智能体工具集合</div></div>
+<div class="ttc" id="anamespaceast_html_ae9c5c80e053daa6f1b9df3d629a1a8f5"><div class="ttname"><a href="namespaceast.html#ae9c5c80e053daa6f1b9df3d629a1a8f5">ast::aAgentToolsJson</a></div><div class="ttdeci">AST_AI_API JsonValue aAgentToolsJson()</div><div class="ttdoc">获取默认的智能体工具集合的JSON表示</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

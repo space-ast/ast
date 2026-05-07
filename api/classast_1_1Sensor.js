@@ -6,5 +6,5 @@ var classast_1_1Sensor =
     [ "getPos", "classast_1_1Sensor.html#a75924c914238f78fd6bb233a4caa8d8d", null ],
     [ "getPosVel", "classast_1_1Sensor.html#a2276254a201e395f1c90b91c48514fb3", null ],
     [ "setFieldOfView", "classast_1_1Sensor.html#af86b8e1e6290f9abd7da0a63f9e4d7a3", null ],
-    [ "setName", "classast_1_1Sensor.html#a620cd6794823c46339ac4187207e8ab7", null ]
+    [ "setName", "classast_1_1Sensor.html#adeb064e20aac8e1e09eabfbdaf997f56", null ]
 ];

@@ -91,8 +91,11 @@ var NAVTREEINDEX6 =
 "ObjectNode_8cpp.html":[4,0,0,15,7,13],
 "ObjectNode_8hpp.html":[4,0,0,15,7,14],
 "ObjectNode_8hpp_source.html":[4,0,0,15,7,14],
-"ObjectResolver_8hpp.html":[4,0,0,15,7,15],
-"ObjectResolver_8hpp_source.html":[4,0,0,15,7,15],
+"ObjectProtocol_8cpp.html":[4,0,0,15,7,15],
+"ObjectProtocol_8hpp.html":[4,0,0,15,7,16],
+"ObjectProtocol_8hpp_source.html":[4,0,0,15,7,16],
+"ObjectResolver_8hpp.html":[4,0,0,15,7,17],
+"ObjectResolver_8hpp_source.html":[4,0,0,15,7,17],
 "Object_8cpp.html":[4,0,0,15,7,4],
 "OpAssignPredefined_8cpp.html":[4,0,0,11,6,0,2],
 "OpAssignPredefined_8hpp.html":[4,0,0,11,6,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "PropertyInt_8hpp_source.html":[4,0,0,15,7,0,14],
 "PropertyNoop_8cpp.html":[4,0,0,15,7,0,15],
 "PropertyNoop_8hpp.html":[4,0,0,15,7,0,16],
-"PropertyNoop_8hpp_source.html":[4,0,0,15,7,0,16],
-"PropertyObject_8cpp.html":[4,0,0,15,7,0,17],
-"PropertyObject_8hpp.html":[4,0,0,15,7,0,18],
-"PropertyObject_8hpp_source.html":[4,0,0,15,7,0,18]
+"PropertyNoop_8hpp_source.html":[4,0,0,15,7,0,16]
 };

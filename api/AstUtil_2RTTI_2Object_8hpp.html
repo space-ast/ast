@@ -103,7 +103,8 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 <a href="#namespaces">命名空间</a> &#124;
 <a href="#define-members">宏定义</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">Object.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
@@ -124,6 +125,10 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1has__own__getType.html">ast::has_own_getType&lt; T, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1has__own__getType_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__same_3_01d17c83469192b2b1de224a2b9856c0340.html">ast::has_own_getType&lt; T, typename std::enable_if&lt; std::is_same&lt; decltype(&amp;T::getType), Class *(T::*)() const &gt;::value &gt;::type &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -146,15 +151,22 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
-<tr class="memitem:ga88e4bba7c5cfdc0b3a3c60e565e0d580" id="r_ga88e4bba7c5cfdc0b3a3c60e565e0d580"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:gaf51a8ea0b3a4154e0ec4ee7926ba7b5f" id="r_gaf51a8ea0b3a4154e0ec4ee7926ba7b5f"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a>&lt; <a class="el" href="classast_1_1WeakPtr.html">WeakPtr</a>&lt; <a class="el" href="classast_1_1Object.html">Object</a> &gt;, <a class="el" href="classast_1_1Property.html">Property</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Attribute</b></td></tr>
-<tr class="separator:ga88e4bba7c5cfdc0b3a3c60e565e0d580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gaf51a8ea0b3a4154e0ec4ee7926ba7b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
 <tr class="memitem:gacf47765b3debdc569a49073eaa3fd1d1" id="r_gacf47765b3debdc569a49073eaa3fd1d1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2">ast::INVALID_ID</a> = -1
  }</td></tr>
 <tr class="separator:gacf47765b3debdc569a49073eaa3fd1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c" id="r_ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplParams" colspan="2">
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aobject_cast</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

@@ -12,7 +12,7 @@ var classast_1_1Mover =
     [ "setAttitudeProfile", "classast_1_1Mover.html#a6d04ad461e03056d2a9596e4affe5170", null ],
     [ "setEphemeris", "classast_1_1Mover.html#ab5c8b93c164e1ccceddcd59ea536eb44", null ],
     [ "setMotionProfile", "classast_1_1Mover.html#a567016239c7a6e5d9730148b9952d95f", null ],
-    [ "setName", "classast_1_1Mover.html#acf33ad3fc567c885cbf3d6f3694aff8b", null ],
+    [ "setName", "classast_1_1Mover.html#a3c1dd938e7280d0013848b34a5f3c274", null ],
     [ "attitudeProfile_", "classast_1_1Mover.html#a2fc2c54f2c140366d0c37ecfa0f8f0a0", null ],
     [ "ephemeris_", "classast_1_1Mover.html#a3650bdd73d05299a34a1203b59719b25", null ],
     [ "motionProfile_", "classast_1_1Mover.html#a7318f5ee07291d6731e44aeeafaae637", null ],

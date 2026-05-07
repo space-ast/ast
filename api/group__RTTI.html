@@ -122,6 +122,10 @@ $(function(){initNavTree('group__RTTI.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1has__own__getType.html">ast::has_own_getType&lt; T, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1has__own__getType_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__same_3_01d17c83469192b2b1de224a2b9856c0340.html">ast::has_own_getType&lt; T, typename std::enable_if&lt; std::is_same&lt; decltype(&amp;T::getType), Class *(T::*)() const &gt;::value &gt;::type &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectCalculation.html">ast::ObjectCalculation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Class.html">ast::Class</a></td></tr>
@@ -176,9 +180,9 @@ $(function(){initNavTree('group__RTTI.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 类型定义</h2></td></tr>
-<tr class="memitem:ga88e4bba7c5cfdc0b3a3c60e565e0d580" id="r_ga88e4bba7c5cfdc0b3a3c60e565e0d580"><td class="memItemLeft" align="right" valign="top"><a id="ga88e4bba7c5cfdc0b3a3c60e565e0d580" name="ga88e4bba7c5cfdc0b3a3c60e565e0d580"></a>
+<tr class="memitem:gaf51a8ea0b3a4154e0ec4ee7926ba7b5f" id="r_gaf51a8ea0b3a4154e0ec4ee7926ba7b5f"><td class="memItemLeft" align="right" valign="top"><a id="gaf51a8ea0b3a4154e0ec4ee7926ba7b5f" name="gaf51a8ea0b3a4154e0ec4ee7926ba7b5f"></a>
 typedef <a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a>&lt; <a class="el" href="classast_1_1WeakPtr.html">WeakPtr</a>&lt; <a class="el" href="classast_1_1Object.html">Object</a> &gt;, <a class="el" href="classast_1_1Property.html">Property</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Attribute</b></td></tr>
-<tr class="separator:ga88e4bba7c5cfdc0b3a3c60e565e0d580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gaf51a8ea0b3a4154e0ec4ee7926ba7b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2a9eeaa0f4e58aa1e27ff9a63441f7ee" id="r_ga2a9eeaa0f4e58aa1e27ff9a63441f7ee"><td class="memItemLeft" align="right" valign="top"><a id="ga2a9eeaa0f4e58aa1e27ff9a63441f7ee" name="ga2a9eeaa0f4e58aa1e27ff9a63441f7ee"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGet</b> = errc_t (*)(const void* obj, void* value)</td></tr>
 <tr class="separator:ga2a9eeaa0f4e58aa1e27ff9a63441f7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +204,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertySet</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c" id="r_ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplParams" colspan="2"><a id="ga1f003eeb39a52b854d4dc0579aa9c69c" name="ga1f003eeb39a52b854d4dc0579aa9c69c"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aobject_cast</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
+<tr class="separator:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga708c0d060e7266fe3d57b9bc92d99ab4" id="r_ga708c0d060e7266fe3d57b9bc92d99ab4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga708c0d060e7266fe3d57b9bc92d99ab4">ast::aFakeGet</a> (const void *container, void *value)</td></tr>
 <tr class="separator:ga708c0d060e7266fe3d57b9bc92d99ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga893ef21004e2b6d3cd44dbf165a1d212" id="r_ga893ef21004e2b6d3cd44dbf165a1d212"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga893ef21004e2b6d3cd44dbf165a1d212">ast::aFakeSet</a> (void *container, const void *value)</td></tr>
@@ -340,8 +348,8 @@ template&lt;typename T , const std::string &amp;(T::*)() const Getter, void(T::*
 <tr class="separator:gab1f1da4e88219f2a7797a180f28a869f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad5657a636622fe1200c3978ec4325a0a" id="r_gad5657a636622fe1200c3978ec4325a0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad5657a636622fe1200c3978ec4325a0a">ast::aGetAllClassNames</a> (std::vector&lt; std::string &gt; &amp;names)</td></tr>
 <tr class="separator:gad5657a636622fe1200c3978ec4325a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd9a86a0039ba06d52462d3f6d45dc91" id="r_gabd9a86a0039ba06d52462d3f6d45dc91"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Class.html">Class</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabd9a86a0039ba06d52462d3f6d45dc91">ast::aGetAllClasses</a> ()</td></tr>
-<tr class="separator:gabd9a86a0039ba06d52462d3f6d45dc91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76749acdd5cb1aed03db35103468b87d" id="r_ga76749acdd5cb1aed03db35103468b87d"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Class.html">Class</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga76749acdd5cb1aed03db35103468b87d">ast::aGetAllClasses</a> ()</td></tr>
+<tr class="separator:ga76749acdd5cb1aed03db35103468b87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ab0aeafea06cb726b9b242379d361df" id="r_ga4ab0aeafea06cb726b9b242379d361df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4ab0aeafea06cb726b9b242379d361df">ast::aGetClass</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
 <tr class="separator:ga4ab0aeafea06cb726b9b242379d361df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga13d47d0a6e51a7991658ed936c3ba14a" id="r_ga13d47d0a6e51a7991658ed936c3ba14a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga13d47d0a6e51a7991658ed936c3ba14a">ast::aIsVirtualClass</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
@@ -369,6 +377,8 @@ template&lt;typename T , const std::string &amp;(T::*)() const Getter, void(T::*
 <tr class="separator:gaaf1c525b5e6a41dcf1f853523b8500c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga33abde566a2b1d0d9477262b58394145" id="r_ga33abde566a2b1d0d9477262b58394145"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga33abde566a2b1d0d9477262b58394145">ast::aAddObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
 <tr class="separator:ga33abde566a2b1d0d9477262b58394145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga334bcde83ae54454d0f62b3c53819bd0" id="r_ga334bcde83ae54454d0f62b3c53819bd0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga334bcde83ae54454d0f62b3c53819bd0">ast::aRemoveObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:ga334bcde83ae54454d0f62b3c53819bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaed7926abc41c0fc2db1d03c9147a59fe" id="r_gaed7926abc41c0fc2db1d03c9147a59fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaed7926abc41c0fc2db1d03c9147a59fe">ast::aRemoveAllObjects</a> ()</td></tr>
 <tr class="separator:gaed7926abc41c0fc2db1d03c9147a59fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4c81e439ab093e0978db0aa3db3c142f" id="r_ga4c81e439ab093e0978db0aa3db3c142f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4c81e439ab093e0978db0aa3db3c142f">ast::aGetObjectCount</a> ()</td></tr>
@@ -842,14 +852,14 @@ template&lt;&gt; </td></tr>
 
 </div>
 </div>
-<a id="gabd9a86a0039ba06d52462d3f6d45dc91" name="gabd9a86a0039ba06d52462d3f6d45dc91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabd9a86a0039ba06d52462d3f6d45dc91">&#9670;&#160;</a></span>aGetAllClasses()</h2>
+<a id="ga76749acdd5cb1aed03db35103468b87d" name="ga76749acdd5cb1aed03db35103468b87d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga76749acdd5cb1aed03db35103468b87d">&#9670;&#160;</a></span>aGetAllClasses()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_UTIL_CAPI const std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Class.html">Class</a> * &gt; &amp; ast::aGetAllClasses </td>
+          <td class="memname">AST_UTIL_API const std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Class.html">Class</a> * &gt; &amp; ast::aGetAllClasses </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -1317,6 +1327,32 @@ template&lt;typename T &gt; </div>
 
 <p>移除所有对象 </p>
 <p>从对象管理器中移除所有对象，包括子对象 </p><dl class="section return"><dt>返回</dt><dd>无 </dd></dl>
+
+</div>
+</div>
+<a id="ga334bcde83ae54454d0f62b3c53819bd0" name="ga334bcde83ae54454d0f62b3c53819bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga334bcde83ae54454d0f62b3c53819bd0">&#9670;&#160;</a></span>aRemoveObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI errc_t ast::aRemoveObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>移除对象 </p>
+<p>从对象管理器中移除对象，包括子对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>对象指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>

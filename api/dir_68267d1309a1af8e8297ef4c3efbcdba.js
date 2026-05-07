@@ -16,5 +16,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "AstSPICE", "dir_c28a40f339b370bd30d45f651e4adfe9.html", "dir_c28a40f339b370bd30d45f651e4adfe9" ],
     [ "AstTest", "dir_3d510ba8b0868dc0f4c18bbd5b6af976.html", "dir_3d510ba8b0868dc0f4c18bbd5b6af976" ],
     [ "AstUtil", "dir_720108c7244deada8dab13596962e93b.html", "dir_720108c7244deada8dab13596962e93b" ],
+    [ "AstWasm", "dir_cab5b88c7b5db6f0c7b52f34ac02c292.html", "dir_cab5b88c7b5db6f0c7b52f34ac02c292" ],
     [ "AstWeather", "dir_d6e4ac8b78fda5c9099770e0f8f0c340.html", "dir_d6e4ac8b78fda5c9099770e0f8f0c340" ]
 ];
