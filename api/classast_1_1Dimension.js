@@ -2,6 +2,7 @@ var classast_1_1Dimension =
 [
     [ "Dimension", "classast_1_1Dimension.html#a05b3ceca8d7ee96f583cbe1a95c72d35", null ],
     [ "Dimension", "classast_1_1Dimension.html#aca9f23658294c053ffcc25cc1812ab72", null ],
+    [ "decompose", "classast_1_1Dimension.html#a68757ae36f39ceccdbef679d6d56b518", null ],
     [ "getAmount", "classast_1_1Dimension.html#aa6ac148c647b51db6a38d367b128eb5c", null ],
     [ "getAngle", "classast_1_1Dimension.html#a996ce7c6aeac24387203c07f642ef377", null ],
     [ "getCurrent", "classast_1_1Dimension.html#a22bef00e9972df4f7235cc983efd0704", null ],

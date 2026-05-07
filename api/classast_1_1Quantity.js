@@ -3,7 +3,7 @@ var classast_1_1Quantity =
     [ "Quantity", "classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4", null ],
     [ "Quantity", "classast_1_1Quantity.html#aa4ba87f976a1bdca3c068e91cafc7284", null ],
     [ "changeUnit", "group__Quantity.html#gaa38b0ddfa45747ce0c2b35f1822be4ba", null ],
-    [ "dimension", "classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393", null ],
+    [ "dimension", "classast_1_1Quantity.html#ae00bb0f24f989e8e4d519d5a252fc150", null ],
     [ "getMagnitude", "classast_1_1Quantity.html#adad848de198d445c66b4f15aaf2d576b", null ],
     [ "getUnit", "classast_1_1Quantity.html#a848fd346c4efab2b57e962b9a06fb7d1", null ],
     [ "getValueInUnit", "classast_1_1Quantity.html#a492123f949ff7f42bb70176028383bb3", null ],

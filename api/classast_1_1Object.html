@@ -105,7 +105,7 @@ $(function(){initNavTree('classast_1_1Object.html',''); initResizable(true); });
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#friends">友元</a> &#124;
 <a href="classast_1_1Object-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::Object类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__RTTI.html">运行时类型信息</a></div></div></div>
+  <div class="headertitle"><div class="title">ast::Object类 参考<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__RTTI.html">运行时类型信息</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -118,29 +118,68 @@ $(function(){initNavTree('classast_1_1Object.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1Object.png" usemap="#ast::Object_map" alt=""/>
   <map id="ast::Object_map" name="ast::Object_map">
-<area href="classast_1_1Axes.html" title="轴系类" alt="ast::Axes" shape="rect" coords="148,56,286,80"/>
-<area href="classast_1_1BodyOrientation.html" title="天体姿态/指向" alt="ast::BodyOrientation" shape="rect" coords="148,112,286,136"/>
-<area href="classast_1_1BodyShape.html" title="天体形状基类" alt="ast::BodyShape" shape="rect" coords="148,168,286,192"/>
-<area href="classast_1_1Burn.html" title="发动机点火" alt="ast::Burn" shape="rect" coords="148,224,286,248"/>
-<area href="classast_1_1EventDetector.html" title="事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类" alt="ast::EventDetector" shape="rect" coords="148,280,286,304"/>
-<area href="classast_1_1EventInterval.html" title="事件时间段" alt="ast::EventInterval" shape="rect" coords="148,336,286,360"/>
-<area href="classast_1_1EventTime.html" title="事件时间" alt="ast::EventTime" shape="rect" coords="148,392,286,416"/>
-<area href="classast_1_1Expr.html" title="表达式基类" alt="ast::Expr" shape="rect" coords="148,448,286,472"/>
-<area href="classast_1_1FieldOfView.html" title="视场基类" alt="ast::FieldOfView" shape="rect" coords="148,504,286,528"/>
-<area href="classast_1_1ForceModel.html" title="力模型" alt="ast::ForceModel" shape="rect" coords="148,560,286,584"/>
-<area href="classast_1_1HPOP.html" title="高精度轨道预报接口类" alt="ast::HPOP" shape="rect" coords="148,616,286,640"/>
-<area href="classast_1_1HPOPForceModel.html" title="高精度轨道预报力模型" alt="ast::HPOPForceModel" shape="rect" coords="148,672,286,696"/>
-<area href="classast_1_1IODEIntegrator.html" title="ODE 积分器接口类" alt="ast::IODEIntegrator" shape="rect" coords="148,728,286,752"/>
-<area href="classast_1_1MissionCommand.html" title="任务命令" alt="ast::MissionCommand" shape="rect" coords="148,784,286,808"/>
-<area href="classast_1_1MockObject.html" alt="ast::MockObject" shape="rect" coords="148,840,286,864"/>
-<area href="classast_1_1MotionProfile.html" title="运动定义接口" alt="ast::MotionProfile" shape="rect" coords="148,896,286,920"/>
-<area href="classast_1_1ObjectCalculation.html" title="对象计算基类" alt="ast::ObjectCalculation" shape="rect" coords="148,952,286,976"/>
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="148,1008,286,1032"/>
-<area href="classast_1_1Point.html" alt="ast::Point" shape="rect" coords="148,1064,286,1088"/>
-<area href="classast_1_1Scenario.html" title="场景类" alt="ast::Scenario" shape="rect" coords="148,1120,286,1144"/>
-<area href="classast_1_1SolarSystem.html" title="太阳系" alt="ast::SolarSystem" shape="rect" coords="148,1176,286,1200"/>
-<area href="classast_1_1SpacecraftState.html" title="空间飞行器状态量" alt="ast::SpacecraftState" shape="rect" coords="148,1232,286,1256"/>
-<area href="classast_1_1State.html" title="航天器状态" alt="ast::State" shape="rect" coords="148,1288,286,1312"/>
+<area href="classast_1_1BodyShape.html" title="天体形状基类" alt="ast::BodyShape" shape="rect" coords="0,56,212,80"/>
+<area href="classast_1_1EventDetector.html" title="事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类" alt="ast::EventDetector" shape="rect" coords="444,56,656,80"/>
+<area href="classast_1_1Expr.html" title="表达式基类" alt="ast::Expr" shape="rect" coords="888,56,1100,80"/>
+<area href="classast_1_1MockObject.html" alt="ast::MockObject" shape="rect" coords="1110,56,1322,80"/>
+<area href="classast_1_1ObjectCalculation.html" title="对象计算基类" alt="ast::ObjectCalculation" shape="rect" coords="1332,56,1544,80"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="1776,56,1988,80"/>
+<area href="classast_1_1Scenario.html" title="场景类" alt="ast::Scenario" shape="rect" coords="1998,56,2210,80"/>
+<area href="classast_1_1EllipsoidShape.html" title="椭球体形状" alt="ast::EllipsoidShape" shape="rect" coords="222,112,434,136"/>
+<area href="classast_1_1SphereShape.html" title="球体形状" alt="ast::SphereShape" shape="rect" coords="222,168,434,192"/>
+<area href="classast_1_1SpheroidShape.html" title="旋转椭球体形状" alt="ast::SpheroidShape" shape="rect" coords="222,224,434,248"/>
+<area href="classast_1_1EventDetectorGeneric.html" title="泛型事件检测器" alt="ast::EventDetectorGeneric&lt; Func &gt;" shape="rect" coords="666,112,878,136"/>
+<area href="classast_1_1StopCondition.html" title="停止条件检测基类 参考GMAT的StopCondition类" alt="ast::StopCondition" shape="rect" coords="666,168,878,192"/>
+<area href="classast_1_1ExprCall.html" title="函数调用表达式" alt="ast::ExprCall" shape="rect" coords="1110,112,1322,136"/>
+<area href="classast_1_1ExprCondition.html" title="条件表达式 (三元运算符 ? :)" alt="ast::ExprCondition" shape="rect" coords="1110,168,1322,192"/>
+<area href="classast_1_1ExprContainer.html" title="表达式容器类" alt="ast::ExprContainer" shape="rect" coords="1110,224,1322,248"/>
+<area href="classast_1_1ExprIf.html" title="if条件语句表达式" alt="ast::ExprIf" shape="rect" coords="1110,280,1322,304"/>
+<area href="classast_1_1ExprLoop.html" title="循环表达式基类" alt="ast::ExprLoop" shape="rect" coords="1110,336,1322,360"/>
+<area href="classast_1_1ExprMacroExpand.html" title="宏展开表达式" alt="ast::ExprMacroExpand" shape="rect" coords="1110,392,1322,416"/>
+<area href="classast_1_1ExprMatch.html" title="匹配表达式" alt="ast::ExprMatch" shape="rect" coords="1110,448,1322,472"/>
+<area href="classast_1_1ExprRange.html" title="范围表达式" alt="ast::ExprRange" shape="rect" coords="1110,504,1322,528"/>
+<area href="classast_1_1Op.html" title="运算符表达式" alt="ast::Op" shape="rect" coords="1110,560,1322,584"/>
+<area href="classast_1_1Symbol.html" title="符号表达式" alt="ast::Symbol" shape="rect" coords="1110,616,1322,640"/>
+<area href="classast_1_1Value.html" title="值对象基类" alt="ast::Value" shape="rect" coords="1110,672,1322,696"/>
+<area href="classast_1_1Variable.html" title="变量" alt="ast::Variable" shape="rect" coords="1110,728,1322,752"/>
+<area href="classast_1_1ScStateCalculation.html" alt="ast::ScStateCalculation" shape="rect" coords="1554,112,1766,136"/>
+<area href="classast_1_1SegmentCalculation.html" alt="ast::SegmentCalculation" shape="rect" coords="1554,168,1766,192"/>
+<area href="classast_1_1StateCalculation.html" alt="ast::StateCalculation" shape="rect" coords="1554,224,1766,248"/>
+<area href="classast_1_1AdvCAT.html" title="高级接近分析工具" alt="ast::AdvCAT" shape="rect" coords="1998,112,2210,136"/>
+<area href="classast_1_1Antenna.html" title="天线对象" alt="ast::Antenna" shape="rect" coords="1998,168,2210,192"/>
+<area href="classast_1_1AreaTarget.html" title="区域目标对象" alt="ast::AreaTarget" shape="rect" coords="1998,224,2210,248"/>
+<area href="classast_1_1AttitudeCoverage.html" title="姿态覆盖工具" alt="ast::AttitudeCoverage" shape="rect" coords="1998,280,2210,304"/>
+<area href="classast_1_1AttitudeProfile.html" title="姿态定义接口" alt="ast::AttitudeProfile" shape="rect" coords="1998,336,2210,360"/>
+<area href="classast_1_1Axes.html" title="轴系类" alt="ast::Axes" shape="rect" coords="1998,392,2210,416"/>
+<area href="classast_1_1BodyOrientation.html" title="天体姿态/指向" alt="ast::BodyOrientation" shape="rect" coords="1998,448,2210,472"/>
+<area href="classast_1_1Burn.html" title="发动机点火" alt="ast::Burn" shape="rect" coords="1998,504,2210,528"/>
+<area href="classast_1_1Chain.html" title="链对象" alt="ast::Chain" shape="rect" coords="1998,560,2210,584"/>
+<area href="classast_1_1CommSystem.html" title="通信系统对象" alt="ast::CommSystem" shape="rect" coords="1998,616,2210,640"/>
+<area href="classast_1_1Constellation.html" title="星座对象" alt="ast::Constellation" shape="rect" coords="1998,672,2210,696"/>
+<area href="classast_1_1CoverageDefinition.html" title="覆盖定义对象" alt="ast::CoverageDefinition" shape="rect" coords="1998,728,2210,752"/>
+<area href="classast_1_1EventInterval.html" title="事件时间段" alt="ast::EventInterval" shape="rect" coords="1998,784,2210,808"/>
+<area href="classast_1_1EventTime.html" title="事件时间" alt="ast::EventTime" shape="rect" coords="1998,840,2210,864"/>
+<area href="classast_1_1FieldOfView.html" title="视场基类" alt="ast::FieldOfView" shape="rect" coords="1998,896,2210,920"/>
+<area href="classast_1_1FigureOfMerit.html" title="性能指标对象" alt="ast::FigureOfMerit" shape="rect" coords="1998,952,2210,976"/>
+<area href="classast_1_1ForceModel.html" title="力模型" alt="ast::ForceModel" shape="rect" coords="1998,1008,2210,1032"/>
+<area href="classast_1_1Frame.html" title="坐标系类" alt="ast::Frame" shape="rect" coords="1998,1064,2210,1088"/>
+<area href="classast_1_1HPOP.html" title="高精度轨道预报接口类" alt="ast::HPOP" shape="rect" coords="1998,1120,2210,1144"/>
+<area href="classast_1_1HPOPForceModel.html" title="高精度轨道预报力模型" alt="ast::HPOPForceModel" shape="rect" coords="1998,1176,2210,1200"/>
+<area href="classast_1_1IODEIntegrator.html" title="ODE 积分器接口类" alt="ast::IODEIntegrator" shape="rect" coords="1998,1232,2210,1256"/>
+<area href="classast_1_1LineTarget.html" title="线目标对象" alt="ast::LineTarget" shape="rect" coords="1998,1288,2210,1312"/>
+<area href="classast_1_1MTO.html" title="多目标对象" alt="ast::MTO" shape="rect" coords="1998,1344,2210,1368"/>
+<area href="classast_1_1MissionCommand.html" title="任务命令（虚基类），用于定义任务序列中的任务命令，例如初始状态、轨道机动、轨道预报等" alt="ast::MissionCommand" shape="rect" coords="1998,1400,2210,1424"/>
+<area href="classast_1_1MotionProfile.html" title="运动定义接口" alt="ast::MotionProfile" shape="rect" coords="1998,1456,2210,1480"/>
+<area href="classast_1_1Planet.html" title="行星对象" alt="ast::Planet" shape="rect" coords="1998,1512,2210,1536"/>
+<area href="classast_1_1Point.html" alt="ast::Point" shape="rect" coords="1998,1568,2210,1592"/>
+<area href="classast_1_1Radar.html" title="雷达对象" alt="ast::Radar" shape="rect" coords="1998,1624,2210,1648"/>
+<area href="classast_1_1Receiver.html" title="接收器对象" alt="ast::Receiver" shape="rect" coords="1998,1680,2210,1704"/>
+<area href="classast_1_1SolarSystem.html" title="太阳系" alt="ast::SolarSystem" shape="rect" coords="1998,1736,2210,1760"/>
+<area href="classast_1_1SpacecraftState.html" title="航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性" alt="ast::SpacecraftState" shape="rect" coords="1998,1792,2210,1816"/>
+<area href="classast_1_1Star.html" title="恒星对象" alt="ast::Star" shape="rect" coords="1998,1848,2210,1872"/>
+<area href="classast_1_1State.html" title="航天器状态" alt="ast::State" shape="rect" coords="1998,1904,2210,1928"/>
+<area href="classast_1_1Transmitter.html" title="发射机对象" alt="ast::Transmitter" shape="rect" coords="1998,1960,2210,1984"/>
+<area href="classast_1_1Volumetric.html" title="体积对象" alt="ast::Volumetric" shape="rect" coords="1998,2016,2210,2040"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -156,8 +195,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ad5992c59eef6fd156988573616d3e8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af67a932f9e931527a18ce0c714ba11d0" id="r_af67a932f9e931527a18ce0c714ba11d0"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af67a932f9e931527a18ce0c714ba11d0">getName</a> () const</td></tr>
 <tr class="separator:af67a932f9e931527a18ce0c714ba11d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267659228339fcfd14616d55b87d2abd" id="r_a267659228339fcfd14616d55b87d2abd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a267659228339fcfd14616d55b87d2abd">openEditDialog</a> ()</td></tr>
-<tr class="separator:a267659228339fcfd14616d55b87d2abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2a2818368480221962859732cb167a" id="r_acc2a2818368480221962859732cb167a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc2a2818368480221962859732cb167a">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)=0</td></tr>
+<tr class="separator:acc2a2818368480221962859732cb167a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0495a9547b1a91a95c0be865ee7f42" id="r_a0f0495a9547b1a91a95c0be865ee7f42"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f0495a9547b1a91a95c0be865ee7f42">showEditDialog</a> ()</td></tr>
+<tr class="separator:a0f0495a9547b1a91a95c0be865ee7f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0192227e3d8184f7a6d75dec82993170" id="r_a0192227e3d8184f7a6d75dec82993170"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1AttributeBasic.html">Attribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0192227e3d8184f7a6d75dec82993170">attr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
 <tr class="separator:a0192227e3d8184f7a6d75dec82993170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a798f984235c3fa36ea82198b109f5ea3" id="r_a798f984235c3fa36ea82198b109f5ea3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a798f984235c3fa36ea82198b109f5ea3">getAttrBool</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, bool &amp;value) const</td></tr>
@@ -194,6 +235,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:aa1dc2f5c87a654f28c43a1d038928cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0d02bedcd1d0659d69b9fb9127fbf9a" id="r_af0d02bedcd1d0659d69b9fb9127fbf9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0d02bedcd1d0659d69b9fb9127fbf9a">getParentScope</a> () const</td></tr>
 <tr class="separator:af0d02bedcd1d0659d69b9fb9127fbf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1ef29a41e564e4e8e4be702d6f440e" id="r_a4a1ef29a41e564e4e8e4be702d6f440e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a1ef29a41e564e4e8e4be702d6f440e">isOfType</a> (<a class="el" href="classast_1_1Class.html">Class</a> *<a class="el" href="#ad30c577e616caa73f91c3866cc540157">type</a>) const</td></tr>
+<tr class="separator:a4a1ef29a41e564e4e8e4be702d6f440e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3001b127c00fd68e312f7143ddb8a197" id="r_a3001b127c00fd68e312f7143ddb8a197"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3001b127c00fd68e312f7143ddb8a197">isOfType</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName) const</td></tr>
+<tr class="separator:a3001b127c00fd68e312f7143ddb8a197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ca8d28b3a279e60ce673d69b5a545b" id="r_a91ca8d28b3a279e60ce673d69b5a545b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91ca8d28b3a279e60ce673d69b5a545b">refCount</a> () const</td></tr>
 <tr class="separator:a91ca8d28b3a279e60ce673d69b5a545b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0413d6286436cde9376cee0cdaba541b" id="r_a0413d6286436cde9376cee0cdaba541b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0413d6286436cde9376cee0cdaba541b">weakRefCount</a> () const</td></tr>
@@ -215,9 +260,14 @@ Public 成员函数</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a2bf080a2c5d703063fcf8676a1b0d485" id="r_a2bf080a2c5d703063fcf8676a1b0d485"><td class="memItemLeft" align="right" valign="top"><a id="a2bf080a2c5d703063fcf8676a1b0d485" name="a2bf080a2c5d703063fcf8676a1b0d485"></a>
-static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getStaticType</b> ()</td></tr>
-<tr class="separator:a2bf080a2c5d703063fcf8676a1b0d485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a1569cc8cc1ab030e88e2c4f4ed98de" id="r_a7a1569cc8cc1ab030e88e2c4f4ed98de"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a1569cc8cc1ab030e88e2c4f4ed98de">Resolve</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
+<tr class="separator:a7a1569cc8cc1ab030e88e2c4f4ed98de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089f59aad6443af84bddb2f573110460" id="r_a089f59aad6443af84bddb2f573110460"><td class="memItemLeft" align="right" valign="top"><a id="a089f59aad6443af84bddb2f573110460" name="a089f59aad6443af84bddb2f573110460"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>ClassInit</b> (<a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
+<tr class="separator:a089f59aad6443af84bddb2f573110460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1241519e198b472bfdc49a9278c72170" id="r_a1241519e198b472bfdc49a9278c72170"><td class="memItemLeft" align="right" valign="top"><a id="a1241519e198b472bfdc49a9278c72170" name="a1241519e198b472bfdc49a9278c72170"></a>
+static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>StaticType</b> ()</td></tr>
+<tr class="separator:a1241519e198b472bfdc49a9278c72170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静态 Public 属性</h2></td></tr>
@@ -711,7 +761,7 @@ template&lt;typename T &gt; </div>
 <p>获取对象的名称 </p>
 <dl class="section return"><dt>返回</dt><dd>const char* 对象名称 </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1CelestialBody.html#aaf8e86ad6783f5af889fb098b73419f7">ast::CelestialBody</a>, <a class="el" href="classast_1_1Facility.html#a594449ec45fdd69b2808593cea1ee571">ast::Facility</a>, <a class="el" href="classast_1_1Mover.html#af526a5e3e9b81e19cffbc546da988b25">ast::Mover</a>, <a class="el" href="classast_1_1ObjectNamed.html#afb1a89f4242cdf4ec00565ad72eff1b9">ast::ObjectNamed</a>, <a class="el" href="classast_1_1Scenario.html#a474f54cc0d76278131c3202c558c681c">ast::Scenario</a> , 以及 <a class="el" href="classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead">ast::Sensor</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1CelestialBody.html#aaf8e86ad6783f5af889fb098b73419f7">ast::CelestialBody</a>, <a class="el" href="classast_1_1Facility.html#a594449ec45fdd69b2808593cea1ee571">ast::Facility</a>, <a class="el" href="classast_1_1Mover.html#af526a5e3e9b81e19cffbc546da988b25">ast::Mover</a>, <a class="el" href="classast_1_1ObjectNamed.html#afb1a89f4242cdf4ec00565ad72eff1b9">ast::ObjectNamed</a>, <a class="el" href="classast_1_1Scenario.html#a474f54cc0d76278131c3202c558c681c">ast::Scenario</a>, <a class="el" href="classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead">ast::Sensor</a> , 以及 <a class="el" href="classast_1_1Variable.html#a9cd1cb9775f359f4479e3186f4a0636b">ast::Variable</a> 重载.</p>
 
 </div>
 </div>
@@ -873,23 +923,56 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a267659228339fcfd14616d55b87d2abd" name="a267659228339fcfd14616d55b87d2abd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a267659228339fcfd14616d55b87d2abd">&#9670;&#160;</a></span>openEditDialog()</h2>
+<a id="a4a1ef29a41e564e4e8e4be702d6f440e" name="a4a1ef29a41e564e4e8e4be702d6f440e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a1ef29a41e564e4e8e4be702d6f440e">&#9670;&#160;</a></span>isOfType() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">errc_t ast::Object::openEditDialog </td>
+          <td class="memname">bool ast::Object::isOfType </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>打开编辑对话框，用于编辑对象的属性 </p>
-<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+<p>判断对象是否为指定类型的实例 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>类型元信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>bool 是否为指定类型的实例 </dd></dl>
+
+</div>
+</div>
+<a id="a3001b127c00fd68e312f7143ddb8a197" name="a3001b127c00fd68e312f7143ddb8a197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3001b127c00fd68e312f7143ddb8a197">&#9670;&#160;</a></span>isOfType() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Object::isOfType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>typeName</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断对象是否为指定类型的实例 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeName</td><td>类型名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>bool 是否为指定类型的实例 <br  />
+ </dd></dl>
 
 </div>
 </div>
@@ -918,6 +1001,41 @@ template&lt;typename T &gt; </div>
 
 <p>获取强引用计数 </p>
 <dl class="section return"><dt>返回</dt><dd>uint32_t 强引用计数 </dd></dl>
+
+</div>
+</div>
+<a id="a7a1569cc8cc1ab030e88e2c4f4ed98de" name="a7a1569cc8cc1ab030e88e2c4f4ed98de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a1569cc8cc1ab030e88e2c4f4ed98de">&#9670;&#160;</a></span>Resolve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Object.html">Object</a> * ast::Object::Resolve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>字符串值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Object* 解析结果 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000053">待办事项</a></b></dt><dd>实现解析对象的逻辑 </dd></dl>
 
 </div>
 </div>
@@ -1071,6 +1189,41 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="acc2a2818368480221962859732cb167a" name="acc2a2818368480221962859732cb167a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2a2818368480221962859732cb167a">&#9670;&#160;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::Object::setName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置对象的名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>对象名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1CelestialBody.html#afd4b2904a5aa84ff1cf0cebe01468bd4">ast::CelestialBody</a>, <a class="el" href="classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b">ast::Expr</a>, <a class="el" href="classast_1_1Facility.html#ae0384ac54c1dce5e8a1953dadd0fba9b">ast::Facility</a>, <a class="el" href="classast_1_1Mover.html#acf33ad3fc567c885cbf3d6f3694aff8b">ast::Mover</a>, <a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">ast::ObjectNamed</a>, <a class="el" href="classast_1_1Scenario.html#a66d0d184124ca3a7e3d9d6e7de8e9159">ast::Scenario</a>, <a class="el" href="classast_1_1Sensor.html#a620cd6794823c46339ac4187207e8ab7">ast::Sensor</a> , 以及 <a class="el" href="classast_1_1Variable.html#af74131f887fac6e910593a58e9c0c68c">ast::Variable</a> 内被实现.</p>
+
+</div>
+</div>
 <a id="aa1dc2f5c87a654f28c43a1d038928cc3" name="aa1dc2f5c87a654f28c43a1d038928cc3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1dc2f5c87a654f28c43a1d038928cc3">&#9670;&#160;</a></span>setParentScope()</h2>
 
@@ -1093,6 +1246,26 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a0f0495a9547b1a91a95c0be865ee7f42" name="a0f0495a9547b1a91a95c0be865ee7f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0495a9547b1a91a95c0be865ee7f42">&#9670;&#160;</a></span>showEditDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Object::showEditDialog </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>显示编辑对话框，用于编辑对象的属性 </p>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
@@ -1156,6 +1329,7 @@ template&lt;typename T &gt; </div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/RTTI/<a class="el" href="AstUtil_2RTTI_2Object_8hpp_source.html">Object.hpp</a></li>
 <li>src/AstUtil/RTTI/<a class="el" href="Object_8cpp.html">Object.cpp</a></li>
+<li>src/AstUtil/RTTI/<b>Object.rtti.cxx</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstAI/Chat/ChatMessage.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ChatMessage_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ChatMessage.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ChatMessage_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/JsonValue.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>JsonValue;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">   39</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a> {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a4c9ad4c6ae61cdb6969dd73173e44c3a">eUser</a>,      </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719aa830e49e553614a2c56a8d11a22efc15">eAssistant</a>, </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_enumvalue" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a604ac456ba1f7f82ff1202ae7bb87efa">eSystem</a>,    </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumvalue" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719accde8f25a3f7985ec3f4c57f528c61d8">eTool</a>       </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>AST_AI_API std::string toString(EChatRole role);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html">   51</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#adca35ca268c5d0cf92d59a8bbad549db">   55</a></span>    <a class="code hl_function" href="classast_1_1ChatMessage.html#adca35ca268c5d0cf92d59a8bbad549db">ChatMessage</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a1bd970b3c636a2f1ea2fc69409116529">   60</a></span>    <a class="code hl_function" href="classast_1_1ChatMessage.html#a1bd970b3c636a2f1ea2fc69409116529">ChatMessage</a>(<a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a> role, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        : role_(role), content_(content) </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {}</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#abf6e2d829dbd4074f5d20f2f96d50e96">   65</a></span>    <a class="code hl_function" href="classast_1_1ChatMessage.html#abf6e2d829dbd4074f5d20f2f96d50e96">~ChatMessage</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67">   70</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> <a class="code hl_function" href="classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67">System</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a>(EChatRole::eSystem, content);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001">   78</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> <a class="code hl_function" href="classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001">User</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a>(EChatRole::eUser, content);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a205208c0ce598dd61c9a0edbcf8cdef0">   86</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> <a class="code hl_function" href="classast_1_1ChatMessage.html#a205208c0ce598dd61c9a0edbcf8cdef0">Assistant</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a>(EChatRole::eAssistant, content);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> Assistant(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCalls)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> msg(EChatRole::eAssistant, content);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        msg.setToolCalls(toolCalls);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> msg;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a15e066dd2f41850b9df1233f91079d1e">  104</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> <a class="code hl_function" href="classast_1_1ChatMessage.html#a15e066dd2f41850b9df1233f91079d1e">Tool</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> toolCallId)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a> msg(EChatRole::eTool, content);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        msg.<a class="code hl_function" href="classast_1_1ChatMessage.html#a0599b8a338d3cc2e9ec8ca6164a46f63">setToolCallId</a>(toolCallId);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> msg;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    AST_AI_API</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> toJson() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a239d843fdd6c9aff8756c077cb5490af">  117</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatMessage.html#a239d843fdd6c9aff8756c077cb5490af">setRole</a>(<a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a> role) { role_ = role; }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a595648aee63890a1a35e8e81d43e6d91">  119</a></span>    <a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a> <a class="code hl_function" href="classast_1_1ChatMessage.html#a595648aee63890a1a35e8e81d43e6d91">role</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> role_; }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#abdeac155c67b2d8f7b646b94c6d01ee6">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatMessage.html#abdeac155c67b2d8f7b646b94c6d01ee6">setName</a>(<span class="keyword">const</span> std::string&amp; name) { name_ = name; }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a3a13e97d3e317146294b6356205c03e4">  124</a></span>    std::string <a class="code hl_function" href="classast_1_1ChatMessage.html#a3a13e97d3e317146294b6356205c03e4">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#ad7ce02151cc232232ab3b767f3b54867">  127</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatMessage.html#ad7ce02151cc232232ab3b767f3b54867">setContent</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content) { content_ = std::string(content); }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a926688d2bf740edcb8b64110236ead80">  129</a></span>    std::string <a class="code hl_function" href="classast_1_1ChatMessage.html#a926688d2bf740edcb8b64110236ead80">content</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> content_; }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#accbe27f8015ae7007bb3a91b55e58e5b">  132</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatMessage.html#accbe27f8015ae7007bb3a91b55e58e5b">setReasoningContent</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> reasoningContent) { reasoningContent_ = std::string(reasoningContent); }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a578848964bb0bb66fcb1f93720541e54">  134</a></span>    std::string <a class="code hl_function" href="classast_1_1ChatMessage.html#a578848964bb0bb66fcb1f93720541e54">reasoningContent</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> reasoningContent_; }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a0599b8a338d3cc2e9ec8ca6164a46f63">  137</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatMessage.html#a0599b8a338d3cc2e9ec8ca6164a46f63">setToolCallId</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> toolCallId) { toolCallId_ = std::string(toolCallId); }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a944639d9d5e93fd2ade7c79fbf2a1a5f">  140</a></span>    std::string <a class="code hl_function" href="classast_1_1ChatMessage.html#a944639d9d5e93fd2ade7c79fbf2a1a5f">toolCallId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> toolCallId_; }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a3e29df34c45cd4f3ad1e6f5f2315dca5">  144</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatMessage.html#a3e29df34c45cd4f3ad1e6f5f2315dca5">setToolCalls</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCalls) { toolCalls_ = toolCalls; }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a4b6f6a74cde999d5d7fd5088397fac1e">  147</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; <a class="code hl_function" href="classast_1_1ChatMessage.html#a4b6f6a74cde999d5d7fd5088397fac1e">toolCalls</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> toolCalls_; }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a>        role_{EChatRole::eUser};           </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    std::string      name_;                             </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::string      content_;                          </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    std::string      reasoningContent_;                 </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::string      toolCallId_;                       </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    JsonValue        toolCalls_;                        </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>};</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html"><div class="ttname"><a href="classast_1_1ChatMessage.html">ast::ChatMessage</a></div><div class="ttdoc">聊天消息</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a04f593494de4e59b374c6e979fe20001"><div class="ttname"><a href="classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001">ast::ChatMessage::User</a></div><div class="ttdeci">static ChatMessage User(StringView content)</div><div class="ttdoc">创建用户消息</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:78</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a0599b8a338d3cc2e9ec8ca6164a46f63"><div class="ttname"><a href="classast_1_1ChatMessage.html#a0599b8a338d3cc2e9ec8ca6164a46f63">ast::ChatMessage::setToolCallId</a></div><div class="ttdeci">void setToolCallId(StringView toolCallId)</div><div class="ttdoc">设置工具调用ID</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:137</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a15e066dd2f41850b9df1233f91079d1e"><div class="ttname"><a href="classast_1_1ChatMessage.html#a15e066dd2f41850b9df1233f91079d1e">ast::ChatMessage::Tool</a></div><div class="ttdeci">static ChatMessage Tool(StringView content, StringView toolCallId)</div><div class="ttdoc">创建工具消息</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:104</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a1bd970b3c636a2f1ea2fc69409116529"><div class="ttname"><a href="classast_1_1ChatMessage.html#a1bd970b3c636a2f1ea2fc69409116529">ast::ChatMessage::ChatMessage</a></div><div class="ttdeci">ChatMessage(EChatRole role, StringView content)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a205208c0ce598dd61c9a0edbcf8cdef0"><div class="ttname"><a href="classast_1_1ChatMessage.html#a205208c0ce598dd61c9a0edbcf8cdef0">ast::ChatMessage::Assistant</a></div><div class="ttdeci">static ChatMessage Assistant(StringView content)</div><div class="ttdoc">创建助手消息</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:86</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a239d843fdd6c9aff8756c077cb5490af"><div class="ttname"><a href="classast_1_1ChatMessage.html#a239d843fdd6c9aff8756c077cb5490af">ast::ChatMessage::setRole</a></div><div class="ttdeci">void setRole(EChatRole role)</div><div class="ttdoc">设置消息角色</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:117</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a3a13e97d3e317146294b6356205c03e4"><div class="ttname"><a href="classast_1_1ChatMessage.html#a3a13e97d3e317146294b6356205c03e4">ast::ChatMessage::name</a></div><div class="ttdeci">std::string name() const</div><div class="ttdoc">获取角色名称</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:124</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a3e29df34c45cd4f3ad1e6f5f2315dca5"><div class="ttname"><a href="classast_1_1ChatMessage.html#a3e29df34c45cd4f3ad1e6f5f2315dca5">ast::ChatMessage::setToolCalls</a></div><div class="ttdeci">void setToolCalls(const JsonValue &amp;toolCalls)</div><div class="ttdoc">设置工具调用列表</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:144</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a4b6f6a74cde999d5d7fd5088397fac1e"><div class="ttname"><a href="classast_1_1ChatMessage.html#a4b6f6a74cde999d5d7fd5088397fac1e">ast::ChatMessage::toolCalls</a></div><div class="ttdeci">const JsonValue &amp; toolCalls() const</div><div class="ttdoc">获取工具调用列表</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:147</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a578848964bb0bb66fcb1f93720541e54"><div class="ttname"><a href="classast_1_1ChatMessage.html#a578848964bb0bb66fcb1f93720541e54">ast::ChatMessage::reasoningContent</a></div><div class="ttdeci">std::string reasoningContent() const</div><div class="ttdoc">获取推理内容</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:134</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a595648aee63890a1a35e8e81d43e6d91"><div class="ttname"><a href="classast_1_1ChatMessage.html#a595648aee63890a1a35e8e81d43e6d91">ast::ChatMessage::role</a></div><div class="ttdeci">EChatRole role() const</div><div class="ttdoc">获取消息角色</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:119</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a725bd49164c256d671c17953b475cc67"><div class="ttname"><a href="classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67">ast::ChatMessage::System</a></div><div class="ttdeci">static ChatMessage System(StringView content)</div><div class="ttdoc">创建系统提示消息</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:70</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a926688d2bf740edcb8b64110236ead80"><div class="ttname"><a href="classast_1_1ChatMessage.html#a926688d2bf740edcb8b64110236ead80">ast::ChatMessage::content</a></div><div class="ttdeci">std::string content() const</div><div class="ttdoc">获取消息内容</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:129</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_a944639d9d5e93fd2ade7c79fbf2a1a5f"><div class="ttname"><a href="classast_1_1ChatMessage.html#a944639d9d5e93fd2ade7c79fbf2a1a5f">ast::ChatMessage::toolCallId</a></div><div class="ttdeci">std::string toolCallId() const</div><div class="ttdoc">获取工具调用ID</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:140</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_abdeac155c67b2d8f7b646b94c6d01ee6"><div class="ttname"><a href="classast_1_1ChatMessage.html#abdeac155c67b2d8f7b646b94c6d01ee6">ast::ChatMessage::setName</a></div><div class="ttdeci">void setName(const std::string &amp;name)</div><div class="ttdoc">设置角色名称</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:122</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_abf6e2d829dbd4074f5d20f2f96d50e96"><div class="ttname"><a href="classast_1_1ChatMessage.html#abf6e2d829dbd4074f5d20f2f96d50e96">ast::ChatMessage::~ChatMessage</a></div><div class="ttdeci">~ChatMessage()=default</div><div class="ttdoc">析构函数</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_accbe27f8015ae7007bb3a91b55e58e5b"><div class="ttname"><a href="classast_1_1ChatMessage.html#accbe27f8015ae7007bb3a91b55e58e5b">ast::ChatMessage::setReasoningContent</a></div><div class="ttdeci">void setReasoningContent(StringView reasoningContent)</div><div class="ttdoc">设置推理内容</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:132</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_ad7ce02151cc232232ab3b767f3b54867"><div class="ttname"><a href="classast_1_1ChatMessage.html#ad7ce02151cc232232ab3b767f3b54867">ast::ChatMessage::setContent</a></div><div class="ttdeci">void setContent(StringView content)</div><div class="ttdoc">设置消息内容</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:127</div></div>
+<div class="ttc" id="aclassast_1_1ChatMessage_html_adca35ca268c5d0cf92d59a8bbad549db"><div class="ttname"><a href="classast_1_1ChatMessage.html#adca35ca268c5d0cf92d59a8bbad549db">ast::ChatMessage::ChatMessage</a></div><div class="ttdeci">ChatMessage()=default</div><div class="ttdoc">构造函数</div></div>
+<div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="anamespaceast_html_a2c358eed2d5ca4589f81fb6e73691719"><div class="ttname"><a href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">ast::EChatRole</a></div><div class="ttdeci">EChatRole</div><div class="ttdoc">消息角色</div><div class="ttdef"><b>定义</b> ChatMessage.hpp:39</div></div>
+<div class="ttc" id="anamespaceast_html_a2c358eed2d5ca4589f81fb6e73691719a4c9ad4c6ae61cdb6969dd73173e44c3a"><div class="ttname"><a href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a4c9ad4c6ae61cdb6969dd73173e44c3a">ast::EChatRole::eUser</a></div><div class="ttdeci">@ eUser</div><div class="ttdoc">用户</div></div>
+<div class="ttc" id="anamespaceast_html_a2c358eed2d5ca4589f81fb6e73691719a604ac456ba1f7f82ff1202ae7bb87efa"><div class="ttname"><a href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a604ac456ba1f7f82ff1202ae7bb87efa">ast::EChatRole::eSystem</a></div><div class="ttdeci">@ eSystem</div><div class="ttdoc">系统</div></div>
+<div class="ttc" id="anamespaceast_html_a2c358eed2d5ca4589f81fb6e73691719aa830e49e553614a2c56a8d11a22efc15"><div class="ttname"><a href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719aa830e49e553614a2c56a8d11a22efc15">ast::EChatRole::eAssistant</a></div><div class="ttdeci">@ eAssistant</div><div class="ttdoc">助手</div></div>
+<div class="ttc" id="anamespaceast_html_a2c358eed2d5ca4589f81fb6e73691719accde8f25a3f7985ec3f4c57f528c61d8"><div class="ttname"><a href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719accde8f25a3f7985ec3f4c57f528c61d8">ast::EChatRole::eTool</a></div><div class="ttdeci">@ eTool</div><div class="ttdoc">工具</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ea6136a52e1cd5f6e6b20d5ee7560754.html">AstAI</a></li><li class="navelem"><a class="el" href="dir_99fbedef7022a5da78e5c186a8338777.html">Chat</a></li><li class="navelem"><a class="el" href="ChatMessage_8hpp.html">ChatMessage.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

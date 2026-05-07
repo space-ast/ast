@@ -18,10 +18,13 @@ var searchData=
   ['linetargetloader_2ecpp_15',['LineTargetLoader.cpp',['../LineTargetLoader_8cpp.html',1,'']]],
   ['linetargetloader_2ehpp_16',['LineTargetLoader.hpp',['../LineTargetLoader_8hpp.html',1,'']]],
   ['literals_2ehpp_17',['Literals.hpp',['../Literals_8hpp.html',1,'']]],
-  ['localeguard_2ehpp_18',['LocaleGuard.hpp',['../LocaleGuard_8hpp.html',1,'']]],
-  ['localorbitframe_2ecpp_19',['LocalOrbitFrame.cpp',['../LocalOrbitFrame_8cpp.html',1,'']]],
-  ['localorbitframe_2ehpp_20',['LocalOrbitFrame.hpp',['../LocalOrbitFrame_8hpp.html',1,'']]],
-  ['logger_2ecpp_21',['Logger.cpp',['../Logger_8cpp.html',1,'']]],
-  ['logger_2ehpp_22',['Logger.hpp',['../Logger_8hpp.html',1,'']]],
-  ['lowermatrix_2ehpp_23',['LowerMatrix.hpp',['../LowerMatrix_8hpp.html',1,'']]]
+  ['llmclient_2ecpp_18',['LLMClient.cpp',['../LLMClient_8cpp.html',1,'']]],
+  ['llmclient_2ehpp_19',['LLMClient.hpp',['../LLMClient_8hpp.html',1,'']]],
+  ['llmconfig_2ehpp_20',['LLMConfig.hpp',['../LLMConfig_8hpp.html',1,'']]],
+  ['localeguard_2ehpp_21',['LocaleGuard.hpp',['../LocaleGuard_8hpp.html',1,'']]],
+  ['localorbitframe_2ecpp_22',['LocalOrbitFrame.cpp',['../LocalOrbitFrame_8cpp.html',1,'']]],
+  ['localorbitframe_2ehpp_23',['LocalOrbitFrame.hpp',['../LocalOrbitFrame_8hpp.html',1,'']]],
+  ['logger_2ecpp_24',['Logger.cpp',['../Logger_8cpp.html',1,'']]],
+  ['logger_2ehpp_25',['Logger.hpp',['../Logger_8hpp.html',1,'']]],
+  ['lowermatrix_2ehpp_26',['LowerMatrix.hpp',['../LowerMatrix_8hpp.html',1,'']]]
 ];

@@ -9,6 +9,7 @@ var classast_1_1TimePoint =
     [ "operator+", "classast_1_1TimePoint.html#a6cea9ade35ef061d16beeab1e0b48708", null ],
     [ "operator-", "classast_1_1TimePoint.html#af5ff4430264ef41942db80d0fd8fcdd2", null ],
     [ "operator-", "classast_1_1TimePoint.html#a684d79309f622b675da2a9695bbe0108", null ],
+    [ "operator==", "classast_1_1TimePoint.html#a9867a4fea41c664ad6e67fcb547201d3", null ],
     [ "shiftedBySecond", "classast_1_1TimePoint.html#a27c238cc13dc80d5497ffa4f07cd4414", null ],
     [ "shiftedBySecondInTDB", "classast_1_1TimePoint.html#ab835bcc2d27d002dde4a4789a2f0e94f", null ],
     [ "toEpochSecond", "classast_1_1TimePoint.html#a89bcd0423df7b50045590e4d33a47746", null ],

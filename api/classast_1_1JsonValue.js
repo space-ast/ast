@@ -45,6 +45,7 @@ var classast_1_1JsonValue =
     [ "setNull", "classast_1_1JsonValue.html#a822fc8eaa955b771eb69fd15bef28d9c", null ],
     [ "setObject", "classast_1_1JsonValue.html#af99d659582d4f01e2965fb1c92a68b57", null ],
     [ "setString", "classast_1_1JsonValue.html#a115fd2b87a98b5c96ee04c20e2dc45a4", null ],
+    [ "size", "classast_1_1JsonValue.html#a614e1f23aedb32ece32bee19ebdfe789", null ],
     [ "toBool", "classast_1_1JsonValue.html#ae6f7132319522341cf12edea69286fbb", null ],
     [ "toDouble", "classast_1_1JsonValue.html#acb2ec5636eff98a95729c1a56589a06f", null ],
     [ "toInt", "classast_1_1JsonValue.html#add0ce163d4191bc30467c3bb134d070a", null ],

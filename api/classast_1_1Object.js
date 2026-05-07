@@ -22,14 +22,17 @@ var classast_1_1Object =
     [ "incRef", "classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c", null ],
     [ "incWeakRef", "classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d", null ],
     [ "isDestructed", "classast_1_1Object.html#a6fd5f058fcc84490d373f3194a001397", null ],
-    [ "openEditDialog", "classast_1_1Object.html#a267659228339fcfd14616d55b87d2abd", null ],
+    [ "isOfType", "classast_1_1Object.html#a4a1ef29a41e564e4e8e4be702d6f440e", null ],
+    [ "isOfType", "classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197", null ],
     [ "refCount", "classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b", null ],
     [ "resolveLinks", "classast_1_1Object.html#aa453ffb19abb19515a7c96df726f47d9", null ],
     [ "setAttrBool", "classast_1_1Object.html#a5072bda9b7931524868edbf014d4ff92", null ],
     [ "setAttrDouble", "classast_1_1Object.html#acac18023e736d3e498ab1cf2965b9abf", null ],
     [ "setAttrInt", "classast_1_1Object.html#aed0f50f23efc8b9b92411a70723a0ce6", null ],
     [ "setAttrString", "classast_1_1Object.html#a8bb71491623a8c5669eada6ac83965ea", null ],
+    [ "setName", "classast_1_1Object.html#acc2a2818368480221962859732cb167a", null ],
     [ "setParentScope", "classast_1_1Object.html#aa1dc2f5c87a654f28c43a1d038928cc3", null ],
+    [ "showEditDialog", "classast_1_1Object.html#a0f0495a9547b1a91a95c0be865ee7f42", null ],
     [ "type", "classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157", null ],
     [ "weakRefCount", "classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b", null ]
 ];

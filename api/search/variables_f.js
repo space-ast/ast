@@ -6,9 +6,8 @@ var searchData=
   ['om_5f_3',['om_',['../classast_1_1FundamentalArguments.html#aacb48ea0617a4e76a5ef198cde6f1935',1,'ast::FundamentalArguments']]],
   ['op_5f_4',['op_',['../classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f',1,'ast::OpBin::op_'],['../classast_1_1OpUnary.html#a1d4fdd8d9853792fa82ed936f4d7d582',1,'ast::OpUnary::op_']]],
   ['orbitepoch_5f_5',['orbitEpoch_',['../classast_1_1BaseOrbitDesigner.html#ab82f58afe9a01ffe9b46e1cf55d685bb',1,'ast::BaseOrbitDesigner']]],
-  ['orbitstate_5f_6',['orbitState_',['../classast_1_1SpacecraftState.html#a31f0896d001f73355e4f48e2827bc65d',1,'ast::SpacecraftState']]],
-  ['order_5f_7',['order_',['../classast_1_1GravityCalculator.html#a9212a7c9197e81fecdb52595c0cba4d5',1,'ast::GravityCalculator']]],
-  ['orientation_5f_8',['orientation_',['../classast_1_1CelestialBody.html#a44182741b2ae49b7c5ce5bfcde6275b0',1,'ast::CelestialBody']]],
-  ['orientationtype_5f_9',['orientationType_',['../classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3',1,'ast::StateKeplerian']]],
-  ['origin_5f_10',['origin_',['../classast_1_1FrameAssembly.html#a153f06ae7eb2d61d664281e07050fa17',1,'ast::FrameAssembly::origin_'],['../classast_1_1FrameWithEpoch.html#a9a32767beac508031b47d6e53c027575',1,'ast::FrameWithEpoch::origin_']]]
+  ['order_5f_6',['order_',['../classast_1_1GravityCalculator.html#a9212a7c9197e81fecdb52595c0cba4d5',1,'ast::GravityCalculator']]],
+  ['orientation_5f_7',['orientation_',['../classast_1_1CelestialBody.html#a44182741b2ae49b7c5ce5bfcde6275b0',1,'ast::CelestialBody']]],
+  ['orientationtype_5f_8',['orientationType_',['../classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3',1,'ast::StateKeplerian']]],
+  ['origin_5f_9',['origin_',['../classast_1_1FrameAssembly.html#a153f06ae7eb2d61d664281e07050fa17',1,'ast::FrameAssembly::origin_'],['../classast_1_1FrameWithEpoch.html#a9a32767beac508031b47d6e53c027575',1,'ast::FrameWithEpoch::origin_']]]
 ];

@@ -6,7 +6,8 @@ var searchData=
   ['useapproxaltfordrag_5f_3',['useApproxAltForDrag_',['../classast_1_1DragForce.html#a3e694226958b182ace22383b0710a201',1,'ast::DragForce']]],
   ['useepoch_5f_4',['useEpoch_',['../classast_1_1FrameWithEpoch.html#a2c92b8da68e4390903172fda42c3f5b0',1,'ast::FrameWithEpoch']]],
   ['usefluxapfile_5f_5',['useFluxApFile_',['../classast_1_1DragForce.html#a7f2c20323ab5a02b359222ef6eb6169a',1,'ast::DragForce']]],
-  ['useoceantides_5f_6',['useOceanTides_',['../classast_1_1GravityForce.html#a793c064ca4d6dc77a0bfc9658d2760a2',1,'ast::GravityForce']]],
-  ['usesecularvariations_5f_7',['useSecularVariations_',['../classast_1_1GravityForce.html#a0156f872a48f03ab0d72785a7e0cb144',1,'ast::GravityForce']]],
-  ['ut1_5futc_8',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]]
+  ['usemaxstep_5f_6',['useMaxStep_',['../classast_1_1ODEVarStepIntegrator.html#a983c1d21674546e6014aab6d017a3b35',1,'ast::ODEVarStepIntegrator']]],
+  ['useoceantides_5f_7',['useOceanTides_',['../classast_1_1GravityForce.html#a793c064ca4d6dc77a0bfc9658d2760a2',1,'ast::GravityForce']]],
+  ['usesecularvariations_5f_8',['useSecularVariations_',['../classast_1_1GravityForce.html#a0156f872a48f03ab0d72785a7e0cb144',1,'ast::GravityForce']]],
+  ['ut1_5futc_9',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]]
 ];

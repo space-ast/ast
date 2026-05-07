@@ -118,6 +118,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a0ee7766213b53591741da4f65e0aa660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9544d7835f57f773976bf91a3bd0d0a8" id="r_a9544d7835f57f773976bf91a3bd0d0a8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9544d7835f57f773976bf91a3bd0d0a8">addObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
 <tr class="separator:a9544d7835f57f773976bf91a3bd0d0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba3141a3bb5de340725ab466030c1d3" id="r_adba3141a3bb5de340725ab466030c1d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adba3141a3bb5de340725ab466030c1d3">removeAllObjects</a> ()</td></tr>
+<tr class="separator:adba3141a3bb5de340725ab466030c1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae769a2f8459fc69de26a315877cd9f8f" id="r_ae769a2f8459fc69de26a315877cd9f8f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae769a2f8459fc69de26a315877cd9f8f">setParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj, <a class="el" href="classast_1_1Object.html">Object</a> *parentScope)</td></tr>
 <tr class="separator:ae769a2f8459fc69de26a315877cd9f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a915744dcf7daaf93f4612976507951b8" id="r_a915744dcf7daaf93f4612976507951b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a915744dcf7daaf93f4612976507951b8">getParentScope</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
@@ -130,6 +132,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a63cfb9957ea2d9c55724801e282348ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96fdb8d4b60e0d6c74266a1dd233b911" id="r_a96fdb8d4b60e0d6c74266a1dd233b911"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96fdb8d4b60e0d6c74266a1dd233b911">getObjectCount</a> () const</td></tr>
 <tr class="separator:a96fdb8d4b60e0d6c74266a1dd233b911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06561ebb55881244999719c546321f19" id="r_a06561ebb55881244999719c546321f19"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06561ebb55881244999719c546321f19">findObjects</a> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:a06561ebb55881244999719c546321f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b9eec147e40651aac05197373c22f5" id="r_a04b9eec147e40651aac05197373c22f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04b9eec147e40651aac05197373c22f5">findObject</a> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:a04b9eec147e40651aac05197373c22f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad359bc103c89830e8265885d95606ed" id="r_aad359bc103c89830e8265885d95606ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ObjectNode.html">ObjectNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad359bc103c89830e8265885d95606ed">getObjectNode</a> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:aad359bc103c89830e8265885d95606ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1429a050edb79e8115aa8681021b4f25" id="r_a1429a050edb79e8115aa8681021b4f25"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1429a050edb79e8115aa8681021b4f25">getAllObjects</a> ()</td></tr>
@@ -200,6 +206,68 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>对象的索引/对象ID </dd></dl>
+
+</div>
+</div>
+<a id="a04b9eec147e40651aac05197373c22f5" name="a04b9eec147e40651aac05197373c22f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b9eec147e40651aac05197373c22f5">&#9670;&#160;</a></span>findObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Object.html">Object</a> * ast::ObjectManager::findObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>查找对象 </p>
+<p>根据类指针和对象名查找对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+    <tr><td class="paramname">name</td><td>对象名，如果为空则匹配所有名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象指针 </dd></dl>
+
+</div>
+</div>
+<a id="a06561ebb55881244999719c546321f19" name="a06561ebb55881244999719c546321f19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06561ebb55881244999719c546321f19">&#9670;&#160;</a></span>findObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classast_1_1Object.html">Object</a> * &gt; ast::ObjectManager::findObjects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Class.html">Class</a> *</td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>查找对象 </p>
+<p>根据类指针和对象名查找对象 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cls</td><td>类指针，如果为空则匹配所有类型 </td></tr>
+    <tr><td class="paramname">name</td><td>对象名，如果为空则匹配所有名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象指针向量 </dd></dl>
 
 </div>
 </div>
@@ -370,6 +438,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b></td></tr>
 
 <p>获取对象的父作用域 </p>
 <p>obj 对象指针 </p><dl class="section return"><dt>返回</dt><dd>父作用域指针 </dd></dl>
+
+</div>
+</div>
+<a id="adba3141a3bb5de340725ab466030c1d3" name="adba3141a3bb5de340725ab466030c1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba3141a3bb5de340725ab466030c1d3">&#9670;&#160;</a></span>removeAllObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ObjectManager::removeAllObjects </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>移除所有对象 </p>
+<p>从对象管理器中移除所有对象，包括子对象 </p>
 
 </div>
 </div>

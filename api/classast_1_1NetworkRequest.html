@@ -129,6 +129,13 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>bo
 <tr class="memitem:a25cd5a16232f7872574980365809f04d" id="r_a25cd5a16232f7872574980365809f04d"><td class="memItemLeft" align="right" valign="top"><a id="a25cd5a16232f7872574980365809f04d" name="a25cd5a16232f7872574980365809f04d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (const std::string &amp;<a class="el" href="#acb90655c4a6913324f1e4310ddedce25">body</a>)</td></tr>
 <tr class="separator:a25cd5a16232f7872574980365809f04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6619020ea8e10fcf5e87f037c007d63e" id="r_a6619020ea8e10fcf5e87f037c007d63e"><td class="memItemLeft" align="right" valign="top"><a id="a6619020ea8e10fcf5e87f037c007d63e" name="a6619020ea8e10fcf5e87f037c007d63e"></a>
+AST_UTIL_API void&#160;</td><td class="memItemRight" valign="bottom"><b>setJson</b> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;json)</td></tr>
+<tr class="separator:a6619020ea8e10fcf5e87f037c007d63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c9c46ef3f4ce2b60887056791804f3" id="r_a05c9c46ef3f4ce2b60887056791804f3"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05c9c46ef3f4ce2b60887056791804f3">toJson</a> (<a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;json) const</td></tr>
+<tr class="separator:a05c9c46ef3f4ce2b60887056791804f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d815c39c30dc3b741e79392aa35025" id="r_af5d815c39c30dc3b741e79392aa35025"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API <a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5d815c39c30dc3b741e79392aa35025">toJson</a> () const</td></tr>
+<tr class="separator:af5d815c39c30dc3b741e79392aa35025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf6095f104f8f736cae35968d57a96d8" id="r_acf6095f104f8f736cae35968d57a96d8"><td class="memItemLeft" align="right" valign="top"><a id="acf6095f104f8f736cae35968d57a96d8" name="acf6095f104f8f736cae35968d57a96d8"></a>
 const std::map&lt; std::string, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>headers</b> () const</td></tr>
 <tr class="separator:acf6095f104f8f736cae35968d57a96d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,7 +148,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addHeader</b> (const 
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>网络请求</p>
-<p>网络请求，包含方法、URL、体和头 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000043">待办事项</a></b></dt><dd>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制 </dd></dl>
+<p>网络请求，包含方法、URL、体和头 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000045">待办事项</a></b></dt><dd>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a8c52917e5a1c0efdd2127b5d51f1de32" name="a8c52917e5a1c0efdd2127b5d51f1de32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c52917e5a1c0efdd2127b5d51f1de32">&#9670;&#160;</a></span>setMethod()</h2>
@@ -159,6 +166,42 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addHeader</b> (const 
 </div><div class="memdoc">
 <p>设置网络请求方法</p>
 <p>从字符串视图设置网络请求方法，支持 GET、POST、PUT、DELETE 等方法。 </p>
+
+</div>
+</div>
+<a id="af5d815c39c30dc3b741e79392aa35025" name="af5d815c39c30dc3b741e79392aa35025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d815c39c30dc3b741e79392aa35025">&#9670;&#160;</a></span>toJson() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> ast::NetworkRequest::toJson </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>获取网络请求体为 JSON 格式 </p><dl class="section warning"><dt>警告</dt><dd>内部会进行一次 JSON 解析操作 </dd></dl>
+
+</div>
+</div>
+<a id="a05c9c46ef3f4ce2b60887056791804f3" name="a05c9c46ef3f4ce2b60887056791804f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c9c46ef3f4ce2b60887056791804f3">&#9670;&#160;</a></span>toJson() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::NetworkRequest::toJson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>json</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>获取网络请求体为 JSON 格式 </p><dl class="section warning"><dt>警告</dt><dd>内部会进行一次 JSON 解析操作 </dd></dl>
 
 </div>
 </div>

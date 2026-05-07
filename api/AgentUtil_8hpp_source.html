@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstAI/Agent/AgentUtil.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('AgentUtil_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AgentUtil.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>JsonValue;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespaceast.html#acba8014e3facb821566f9fcfd87f9e19">   39</a></span>AST_AI_API <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#acba8014e3facb821566f9fcfd87f9e19">aObjectToBriefJson</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* obj);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespaceast.html#a9736acce25503803b3b19bf63915d544">   45</a></span>AST_AI_API <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#a9736acce25503803b3b19bf63915d544">aObjectToJson</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, <span class="keywordtype">int</span> maxDepth = 20);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//--------------</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">// 智能体工具函数</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//--------------</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">typedef</span> std::string (*FCallTool)(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceast.html#a0fddd6ae466e2de53a7d4072c818bc91">   56</a></span><a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#a0fddd6ae466e2de53a7d4072c818bc91">aFindClassesParamSchema</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="namespaceast.html#a1fae0f9ae82ce04c119f2dd62ba560a8">   61</a></span>std::string <a class="code hl_function" href="namespaceast.html#a1fae0f9ae82ce04c119f2dd62ba560a8">aFindClasses</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespaceast.html#a076c1180173f5e3fecd0a36d56fd5c0c">   65</a></span><a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#a076c1180173f5e3fecd0a36d56fd5c0c">aCreateObjectParamSchema</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespaceast.html#a69c53a63db002e978303fba03b7c2a2d">   70</a></span>std::string <a class="code hl_function" href="namespaceast.html#a69c53a63db002e978303fba03b7c2a2d">aCreateObject</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespaceast.html#ab1f774386ff16580c3d768a71435fd85">   74</a></span><a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#ab1f774386ff16580c3d768a71435fd85">aFindObjectsParamSchema</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="namespaceast.html#a83e939d6c6db4adb9a6161c48eb7f1d4">   79</a></span>std::string <a class="code hl_function" href="namespaceast.html#a83e939d6c6db4adb9a6161c48eb7f1d4">aFindObjects</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespaceast.html#a94f02acb5885fac2bb90318c90759c0b">   83</a></span><a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#a94f02acb5885fac2bb90318c90759c0b">aGetObjectAttributesParamSchema</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespaceast.html#a48585e76524e0b3c88124fb494196bcc">   88</a></span>std::string <a class="code hl_function" href="namespaceast.html#a48585e76524e0b3c88124fb494196bcc">aGetObjectAttributes</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="namespaceast.html#a4355cae9d3f40bb667729526774b4e3a">   92</a></span><a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#a4355cae9d3f40bb667729526774b4e3a">aSetObjectAttributeParamSchema</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="namespaceast.html#ae9739d7794afcfa31e653619d6e0c312">   97</a></span>std::string <a class="code hl_function" href="namespaceast.html#ae9739d7794afcfa31e653619d6e0c312">aSetObjectAttribute</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespaceast.html#ae687c10a1570702d63761c25fc54a705">  102</a></span><a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> <a class="code hl_function" href="namespaceast.html#ae687c10a1570702d63761c25fc54a705">aShowEditDialogParamSchema</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="namespaceast.html#a0b0a46d8951ce47dfa300ac5ebb4445b">  107</a></span>std::string <a class="code hl_function" href="namespaceast.html#a0b0a46d8951ce47dfa300ac5ebb4445b">aShowEditDialog</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; arguments);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:84</div></div>
+<div class="ttc" id="anamespaceast_html_a076c1180173f5e3fecd0a36d56fd5c0c"><div class="ttname"><a href="namespaceast.html#a076c1180173f5e3fecd0a36d56fd5c0c">ast::aCreateObjectParamSchema</a></div><div class="ttdeci">JsonValue aCreateObjectParamSchema()</div><div class="ttdoc">创建对象的参数结构定义</div></div>
+<div class="ttc" id="anamespaceast_html_a0b0a46d8951ce47dfa300ac5ebb4445b"><div class="ttname"><a href="namespaceast.html#a0b0a46d8951ce47dfa300ac5ebb4445b">ast::aShowEditDialog</a></div><div class="ttdeci">std::string aShowEditDialog(const JsonValue &amp;arguments)</div><div class="ttdoc">显示编辑对话框</div></div>
+<div class="ttc" id="anamespaceast_html_a0fddd6ae466e2de53a7d4072c818bc91"><div class="ttname"><a href="namespaceast.html#a0fddd6ae466e2de53a7d4072c818bc91">ast::aFindClassesParamSchema</a></div><div class="ttdeci">JsonValue aFindClassesParamSchema()</div><div class="ttdoc">查找类的参数结构定义</div></div>
+<div class="ttc" id="anamespaceast_html_a1fae0f9ae82ce04c119f2dd62ba560a8"><div class="ttname"><a href="namespaceast.html#a1fae0f9ae82ce04c119f2dd62ba560a8">ast::aFindClasses</a></div><div class="ttdeci">std::string aFindClasses(const JsonValue &amp;arguments)</div><div class="ttdoc">查找类</div></div>
+<div class="ttc" id="anamespaceast_html_a4355cae9d3f40bb667729526774b4e3a"><div class="ttname"><a href="namespaceast.html#a4355cae9d3f40bb667729526774b4e3a">ast::aSetObjectAttributeParamSchema</a></div><div class="ttdeci">JsonValue aSetObjectAttributeParamSchema()</div><div class="ttdoc">设置对象属性的参数结构定义</div></div>
+<div class="ttc" id="anamespaceast_html_a48585e76524e0b3c88124fb494196bcc"><div class="ttname"><a href="namespaceast.html#a48585e76524e0b3c88124fb494196bcc">ast::aGetObjectAttributes</a></div><div class="ttdeci">std::string aGetObjectAttributes(const JsonValue &amp;arguments)</div><div class="ttdoc">获取对象属性</div></div>
+<div class="ttc" id="anamespaceast_html_a69c53a63db002e978303fba03b7c2a2d"><div class="ttname"><a href="namespaceast.html#a69c53a63db002e978303fba03b7c2a2d">ast::aCreateObject</a></div><div class="ttdeci">std::string aCreateObject(const JsonValue &amp;arguments)</div><div class="ttdoc">创建对象</div></div>
+<div class="ttc" id="anamespaceast_html_a83e939d6c6db4adb9a6161c48eb7f1d4"><div class="ttname"><a href="namespaceast.html#a83e939d6c6db4adb9a6161c48eb7f1d4">ast::aFindObjects</a></div><div class="ttdeci">std::string aFindObjects(const JsonValue &amp;arguments)</div><div class="ttdoc">查找对象</div></div>
+<div class="ttc" id="anamespaceast_html_a94f02acb5885fac2bb90318c90759c0b"><div class="ttname"><a href="namespaceast.html#a94f02acb5885fac2bb90318c90759c0b">ast::aGetObjectAttributesParamSchema</a></div><div class="ttdeci">JsonValue aGetObjectAttributesParamSchema()</div><div class="ttdoc">获取对象属性的参数结构定义</div></div>
+<div class="ttc" id="anamespaceast_html_a9736acce25503803b3b19bf63915d544"><div class="ttname"><a href="namespaceast.html#a9736acce25503803b3b19bf63915d544">ast::aObjectToJson</a></div><div class="ttdeci">AST_AI_API JsonValue aObjectToJson(Object *object, int maxDepth=20)</div><div class="ttdoc">将对象转换为JSON值</div></div>
+<div class="ttc" id="anamespaceast_html_ab1f774386ff16580c3d768a71435fd85"><div class="ttname"><a href="namespaceast.html#ab1f774386ff16580c3d768a71435fd85">ast::aFindObjectsParamSchema</a></div><div class="ttdeci">JsonValue aFindObjectsParamSchema()</div><div class="ttdoc">查找对象的参数结构定义</div></div>
+<div class="ttc" id="anamespaceast_html_acba8014e3facb821566f9fcfd87f9e19"><div class="ttname"><a href="namespaceast.html#acba8014e3facb821566f9fcfd87f9e19">ast::aObjectToBriefJson</a></div><div class="ttdeci">AST_AI_API JsonValue aObjectToBriefJson(Object *obj)</div><div class="ttdoc">将对象转换为简化的JSON格式</div></div>
+<div class="ttc" id="anamespaceast_html_ae687c10a1570702d63761c25fc54a705"><div class="ttname"><a href="namespaceast.html#ae687c10a1570702d63761c25fc54a705">ast::aShowEditDialogParamSchema</a></div><div class="ttdeci">JsonValue aShowEditDialogParamSchema()</div><div class="ttdoc">显示编辑对话框的参数结构定义</div></div>
+<div class="ttc" id="anamespaceast_html_ae9739d7794afcfa31e653619d6e0c312"><div class="ttname"><a href="namespaceast.html#ae9739d7794afcfa31e653619d6e0c312">ast::aSetObjectAttribute</a></div><div class="ttdeci">std::string aSetObjectAttribute(const JsonValue &amp;arguments)</div><div class="ttdoc">设置对象属性</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ea6136a52e1cd5f6e6b20d5ee7560754.html">AstAI</a></li><li class="navelem"><a class="el" href="dir_36aa4ec4b57b39a9f556d68621d2264e.html">Agent</a></li><li class="navelem"><b>AgentUtil.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -118,6 +118,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:aeebbf675f09ffdf4840b29a9b61d303e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49f770ecfef3f24cbd41b08acaa6f9a" id="r_ac49f770ecfef3f24cbd41b08acaa6f9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac49f770ecfef3f24cbd41b08acaa6f9a">getUnit</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
 <tr class="separator:ac49f770ecfef3f24cbd41b08acaa6f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71fdcaf5b6186e37d5afa72481eacf9b" id="r_a71fdcaf5b6186e37d5afa72481eacf9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71fdcaf5b6186e37d5afa72481eacf9b">getSiUnit</a> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
+<tr class="separator:a71fdcaf5b6186e37d5afa72481eacf9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -128,12 +130,18 @@ Public 成员函数</h2></td></tr>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a1ce92755719456df9f9e725347d70890" id="r_a1ce92755719456df9f9e725347d70890"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ce92755719456df9f9e725347d70890">_addUnit</a> (const std::string &amp;name, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
 <tr class="separator:a1ce92755719456df9f9e725347d70890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c15b49f03f25e5229e097a3bb4f42d2" id="r_a8c15b49f03f25e5229e097a3bb4f42d2"><td class="memItemLeft" align="right" valign="top"><a id="a8c15b49f03f25e5229e097a3bb4f42d2" name="a8c15b49f03f25e5229e097a3bb4f42d2"></a>
+<a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_getSiUnitCache</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
+<tr class="separator:a8c15b49f03f25e5229e097a3bb4f42d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:ad7b7dc07985e82bdb506f7955e392775" id="r_ad7b7dc07985e82bdb506f7955e392775"><td class="memItemLeft" align="right" valign="top"><a id="ad7b7dc07985e82bdb506f7955e392775" name="ad7b7dc07985e82bdb506f7955e392775"></a>
 std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Unit.html">Unit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>units_</b></td></tr>
 <tr class="separator:ad7b7dc07985e82bdb506f7955e392775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab97fdf55e70688435897a18837723779" id="r_ab97fdf55e70688435897a18837723779"><td class="memItemLeft" align="right" valign="top"><a id="ab97fdf55e70688435897a18837723779" name="ab97fdf55e70688435897a18837723779"></a>
+std::map&lt; <a class="el" href="classast_1_1Dimension.html">Dimension</a>, <a class="el" href="classast_1_1Unit.html">Unit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>siUnits_</b></td></tr>
+<tr class="separator:ab97fdf55e70688435897a18837723779"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>单位管理器 </p>
@@ -229,6 +237,32 @@ std::unordered_map&lt; std::string, <a class="el" href="classast_1_1Unit.html">U
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a71fdcaf5b6186e37d5afa72481eacf9b" name="a71fdcaf5b6186e37d5afa72481eacf9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71fdcaf5b6186e37d5afa72481eacf9b">&#9670;&#160;</a></span>getSiUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> * ast::UnitManager::getSiUnit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Dimension.html">Dimension</a></td>          <td class="paramname"><span class="paramname"><em>dim</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取国际制单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dim</td><td>单位维度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>国际制单位 </dd></dl>
 
 </div>
 </div>

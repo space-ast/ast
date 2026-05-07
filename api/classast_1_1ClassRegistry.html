@@ -99,9 +99,9 @@ $(function(){initNavTree('classast_1_1ClassRegistry.html',''); initResizable(tru
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
-<a href="#pro-types">Protected 类型</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1ClassRegistry-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::ClassRegistry类 参考</div></div>
@@ -110,6 +110,12 @@ $(function(){initNavTree('classast_1_1ClassRegistry.html',''); initResizable(tru
 
 <p><code>#include &lt;<a class="el" href="ClassRegistry_8hpp_source.html">ClassRegistry.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a39bba8badfb551c40019e4ada2e9c1e0" id="r_a39bba8badfb551c40019e4ada2e9c1e0"><td class="memItemLeft" align="right" valign="top"><a id="a39bba8badfb551c40019e4ada2e9c1e0" name="a39bba8badfb551c40019e4ada2e9c1e0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ClassMap</b> = std::unordered_map&lt;std::string, <a class="el" href="classast_1_1Class.html">Class</a>*&gt;</td></tr>
+<tr class="separator:a39bba8badfb551c40019e4ada2e9c1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a3e6af722b8459e770e968cb5ce5d0a11" id="r_a3e6af722b8459e770e968cb5ce5d0a11"><td class="memItemLeft" align="right" valign="top"><a id="a3e6af722b8459e770e968cb5ce5d0a11" name="a3e6af722b8459e770e968cb5ce5d0a11"></a>
@@ -118,24 +124,21 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a610307a117beb6254f9565326893f628" id="r_a610307a117beb6254f9565326893f628"><td class="memItemLeft" align="right" valign="top"><a id="a610307a117beb6254f9565326893f628" name="a610307a117beb6254f9565326893f628"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>getAllClassNames</b> (std::vector&lt; std::string &gt; &amp;names) const</td></tr>
 <tr class="separator:a610307a117beb6254f9565326893f628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fcb69108ed2957cacd73f136bf4cc18" id="r_a4fcb69108ed2957cacd73f136bf4cc18"><td class="memItemLeft" align="right" valign="top"><a id="a4fcb69108ed2957cacd73f136bf4cc18" name="a4fcb69108ed2957cacd73f136bf4cc18"></a>
+const ClassMap &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getAllClasses</b> () const</td></tr>
+<tr class="separator:a4fcb69108ed2957cacd73f136bf4cc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f45e18f5469c7d8a9aac6059fcd6626" id="r_a3f45e18f5469c7d8a9aac6059fcd6626"><td class="memItemLeft" align="right" valign="top"><a id="a3f45e18f5469c7d8a9aac6059fcd6626" name="a3f45e18f5469c7d8a9aac6059fcd6626"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>registerClass</b> (<a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
 <tr class="separator:a3f45e18f5469c7d8a9aac6059fcd6626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f24ac46c617cb8d20acc87f4b360f45" id="r_a5f24ac46c617cb8d20acc87f4b360f45"><td class="memItemLeft" align="right" valign="top"><a id="a5f24ac46c617cb8d20acc87f4b360f45" name="a5f24ac46c617cb8d20acc87f4b360f45"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerClass</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
-<tr class="separator:a5f24ac46c617cb8d20acc87f4b360f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab17934d8f7b119b6d2e27cdd83b6937" id="r_aab17934d8f7b119b6d2e27cdd83b6937"><td class="memItemLeft" align="right" valign="top"><a id="aab17934d8f7b119b6d2e27cdd83b6937" name="aab17934d8f7b119b6d2e27cdd83b6937"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>registerClass</b> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:aab17934d8f7b119b6d2e27cdd83b6937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a6c57f9f82edebb89cb84fd8b742aa2c9" id="r_a6c57f9f82edebb89cb84fd8b742aa2c9"><td class="memItemLeft" align="right" valign="top"><a id="a6c57f9f82edebb89cb84fd8b742aa2c9" name="a6c57f9f82edebb89cb84fd8b742aa2c9"></a>
 static <a class="el" href="classast_1_1ClassRegistry.html">ClassRegistry</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> ()</td></tr>
 <tr class="separator:a6c57f9f82edebb89cb84fd8b742aa2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
-Protected 类型</h2></td></tr>
-<tr class="memitem:a39bba8badfb551c40019e4ada2e9c1e0" id="r_a39bba8badfb551c40019e4ada2e9c1e0"><td class="memItemLeft" align="right" valign="top"><a id="a39bba8badfb551c40019e4ada2e9c1e0" name="a39bba8badfb551c40019e4ada2e9c1e0"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ClassMap</b> = std::unordered_map&lt;std::string, <a class="el" href="classast_1_1Class.html">Class</a>*&gt;</td></tr>
-<tr class="separator:a39bba8badfb551c40019e4ada2e9c1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>

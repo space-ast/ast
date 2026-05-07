@@ -2,6 +2,7 @@ var classast_1_1PropertyInt =
 [
     [ "accept", "classast_1_1PropertyInt.html#acafb53cc1c4fc8791e3616e9f8753d3e", null ],
     [ "getValue", "classast_1_1PropertyInt.html#a668beadebc763535df486e4fa50892c3", null ],
+    [ "getValue", "classast_1_1PropertyInt.html#a916edd1cd7f36c5255ed80d3061aa6ed", null ],
     [ "getValueBool", "classast_1_1PropertyInt.html#a99e811653513f73c6fa4fc6ddefa11cb", null ],
     [ "getValueDouble", "classast_1_1PropertyInt.html#a2f6d6c66f67cf538b1da469b72da57c8", null ],
     [ "getValueInt", "classast_1_1PropertyInt.html#adb12807cd24ea925ecd5b64ebadebb54", null ],

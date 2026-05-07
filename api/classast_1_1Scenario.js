@@ -9,6 +9,7 @@ var classast_1_1Scenario =
     [ "setEpoch", "classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d", null ],
     [ "setInterval", "classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4", null ],
     [ "setInterval", "classast_1_1Scenario.html#ae96bedabe669da52615e76ee03810246", null ],
+    [ "setName", "classast_1_1Scenario.html#a66d0d184124ca3a7e3d9d6e7de8e9159", null ],
     [ "eopFileName_", "classast_1_1Scenario.html#a167c80cee1e8e493a32c3823624d3e8e", null ],
     [ "epoch_", "classast_1_1Scenario.html#a252f8aab2056d07e13bc9e2b9e5ba24e", null ],
     [ "inheritEOPSource_", "classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2", null ],

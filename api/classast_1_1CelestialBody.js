@@ -59,6 +59,7 @@ var classast_1_1CelestialBody =
     [ "makeFrameTOE", "classast_1_1CelestialBody.html#a82a634abbda5bab8fdb3d6fd4864a93d", null ],
     [ "makeFrameTOE", "classast_1_1CelestialBody.html#a85f0090b4702bb649fe090eb10e59c36", null ],
     [ "setGravityModel", "classast_1_1CelestialBody.html#acd1771311b5ced7a41d2d611f56863a9", null ],
+    [ "setName", "classast_1_1CelestialBody.html#afd4b2904a5aa84ff1cf0cebe01468bd4", null ],
     [ "axesFixed_", "classast_1_1CelestialBody.html#a3a3257e3f2c62fd3ca75f6cdb5d812ff", null ],
     [ "axesInertial_", "classast_1_1CelestialBody.html#aa18f0b89f7fa2b1a50d417a589f42522", null ],
     [ "axesMOD_", "classast_1_1CelestialBody.html#a11879995b1f42dbcdff2f0c966b4ebd2", null ],

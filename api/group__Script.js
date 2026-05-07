@@ -7,6 +7,7 @@ var group__Script =
       [ "eval", "classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5", null ],
       [ "exec", "classast_1_1Expr.html#a79f28079bdd2f51261961eb52c246096", null ],
       [ "getExpression", "classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a", null ],
+      [ "setName", "classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b", null ],
       [ "setValue", "classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0", null ]
     ] ],
     [ "ast::ExprBlock", "classast_1_1ExprBlock.html", [
@@ -301,7 +302,9 @@ var group__Script =
       [ "bind", "classast_1_1Variable.html#a78721e1b03e536165d5fedf8df1e0d26", null ],
       [ "eval", "classast_1_1Variable.html#afac6cb1f63d69e3b16d3a6574663b75f", null ],
       [ "getExpression", "classast_1_1Variable.html#ae475c52c0cc50180629330be52727999", null ],
+      [ "getName", "classast_1_1Variable.html#a9cd1cb9775f359f4479e3186f4a0636b", null ],
       [ "setExpr", "classast_1_1Variable.html#ad3e9b69243180fadec9aed01d19b49ec", null ],
+      [ "setName", "classast_1_1Variable.html#af74131f887fac6e910593a58e9c0c68c", null ],
       [ "setValue", "classast_1_1Variable.html#a75cd5ce77e7e48a8290ab16b307220ab", null ],
       [ "bind_", "classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6", null ],
       [ "expr_", "classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4", null ],

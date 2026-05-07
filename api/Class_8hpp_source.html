@@ -114,66 +114,94 @@ $(function(){initNavTree('Class_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span>Object;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1Class.html">   36</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1Class.html">Class</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Struct.html">Struct</a></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Object.html">Object</a>* (*FConstructor)(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentScope);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Class.html">Class</a>(<a class="code hl_class" href="classast_1_1Class.html">Class</a>* parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1Class.html">~Class</a>();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8">   49</a></span>    <a class="code hl_class" href="classast_1_1Class.html">Class</a>* <a class="code hl_function" href="classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8">getParent</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> parent_; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1Class.html">   39</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1Class.html">Class</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Struct.html">Struct</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Object.html">Object</a>* (*FConstructor)(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentScope);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="classast_1_1Object.html">Object</a>* (*FResolve)(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> value);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1Class.html">Class</a>(<a class="code hl_class" href="classast_1_1Class.html">Class</a>* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classast_1_1Class.html">~Class</a>();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> addToRegistry() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* NewObject(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentScope) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* getDefaultObject() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a7887839611398ba4eedd813b9c848002">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#a7887839611398ba4eedd813b9c848002">setParent</a>(<a class="code hl_class" href="classast_1_1Class.html">Class</a>* parent){ parent_ = parent; }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672">setConstructor</a>(FConstructor constructor){ constructor_ = constructor; }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144">setParent</a>()</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="comment">//setParent(T::getStaticType());</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        setParent(&amp;T::staticType);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
-</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a22afde6ce1a133566f56d960b95833e8">   87</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#a22afde6ce1a133566f56d960b95833e8">setConstructor</a>(){</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        setConstructor([](<a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentScope) -&gt; <a class="code hl_class" href="classast_1_1Object.html">Object</a>* { </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">auto</span> obj = <span class="keyword">new</span> T(); </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            obj-&gt;setParentScope(parentScope); </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">return</span> obj; </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        });</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
-</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#aab8a7ee295668f8949f980ca72c7482f">   95</a></span>    <a class="code hl_class" href="classast_1_1Class.html">Class</a>* parent_{<span class="keyword">nullptr</span>};                       </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a46ecef03de9c1200a1e8d1a4225a1de6">   96</a></span>    FConstructor constructor_{<span class="keyword">nullptr</span>};            </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a11aca8e75971e84eb0dba30877094620">   97</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Object&gt;</a> defaultObject_{<span class="keyword">nullptr</span>};     </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#ac0e6308a1e4b07142f98c125dbcbe39f">   53</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1Class.html#ac0e6308a1e4b07142f98c125dbcbe39f">isVirtual</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> constructor_ == <span class="keyword">nullptr</span>;}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8">   57</a></span>    <a class="code hl_class" href="classast_1_1Class.html">Class</a>* <a class="code hl_function" href="classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8">getParent</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> parent_; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> addToRegistry() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* newObject(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentScope) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* resolve(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> value) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* getDefaultObject() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a7887839611398ba4eedd813b9c848002">   79</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#a7887839611398ba4eedd813b9c848002">setParent</a>(<a class="code hl_class" href="classast_1_1Class.html">Class</a>* parent){ parent_ = parent; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672">setConstructor</a>(FConstructor constructor){ constructor_ = constructor; }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#afaab0360ed1054b01f315d79379e9268">   88</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#afaab0360ed1054b01f315d79379e9268">setResolve</a>(FResolve resolve){ resolve_ = resolve; }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144">   94</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144">setParent</a>()</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">//setParent(T::StaticType());</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        setParent(&amp;T::staticType);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
 </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a52ff111feaae1fda4e3af690b2985133">  104</a></span>    <span class="keyword">typename</span> std::enable_if&lt;!std::is_abstract&lt;T&gt;::value&gt;::type <a class="code hl_function" href="classast_1_1Class.html#a52ff111feaae1fda4e3af690b2985133">setConstructor</a>() {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        setConstructor([](<a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentScope) -&gt; <a class="code hl_class" href="classast_1_1Object.html">Object</a>* {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keyword">auto</span> obj = <span class="keyword">new</span> T();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            obj-&gt;setParentScope(parentScope);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">return</span> obj;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        });</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">typename</span> std::enable_if&lt;std::is_abstract&lt;T&gt;::value&gt;::type setConstructor() {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        setConstructor(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> setResolve()</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keyword">typedef</span> T* (*FResolveClsSpec)(StringView value);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keyword">static_assert</span>(std::is_same&lt;<span class="keyword">decltype</span>(&amp;T::Resolve), FResolveClsSpec&gt;::value, <span class="stringliteral">&quot;T must have Resolve method with signature T* (StringView value)&quot;</span>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        setResolve(<span class="keyword">reinterpret_cast&lt;</span>FResolve<span class="keyword">&gt;</span>(&amp;T::Resolve));</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#aab8a7ee295668f8949f980ca72c7482f">  126</a></span>    <a class="code hl_class" href="classast_1_1Class.html">Class</a>* parent_{<span class="keyword">nullptr</span>};                       </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a46ecef03de9c1200a1e8d1a4225a1de6">  127</a></span>    FConstructor constructor_{<span class="keyword">nullptr</span>};            </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#ac33daba8178cc37dc4fd31645e4883c0">  128</a></span>    FResolve resolve_{<span class="keyword">nullptr</span>};                    </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classast_1_1Class.html#a11aca8e75971e84eb0dba30877094620">  129</a></span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Object&gt;</a> defaultObject_{<span class="keyword">nullptr</span>};     </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>};</div>
+</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aStruct_8hpp_html"><div class="ttname"><a href="Struct_8hpp.html">Struct.hpp</a></div><div class="ttdoc">~</div></div>
-<div class="ttc" id="aclassast_1_1Class_html"><div class="ttname"><a href="classast_1_1Class.html">ast::Class</a></div><div class="ttdoc">类元信息</div><div class="ttdef"><b>定义</b> Class.hpp:37</div></div>
-<div class="ttc" id="aclassast_1_1Class_html_a22afde6ce1a133566f56d960b95833e8"><div class="ttname"><a href="classast_1_1Class.html#a22afde6ce1a133566f56d960b95833e8">ast::Class::setConstructor</a></div><div class="ttdeci">void setConstructor()</div><div class="ttdoc">设置构造函数</div><div class="ttdef"><b>定义</b> Class.hpp:87</div></div>
-<div class="ttc" id="aclassast_1_1Class_html_a276024d991282a8c3dd99c0b97f63df8"><div class="ttname"><a href="classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8">ast::Class::getParent</a></div><div class="ttdeci">Class * getParent() const</div><div class="ttdoc">获取父类</div><div class="ttdef"><b>定义</b> Class.hpp:49</div></div>
-<div class="ttc" id="aclassast_1_1Class_html_a7887839611398ba4eedd813b9c848002"><div class="ttname"><a href="classast_1_1Class.html#a7887839611398ba4eedd813b9c848002">ast::Class::setParent</a></div><div class="ttdeci">void setParent(Class *parent)</div><div class="ttdoc">设置父类</div><div class="ttdef"><b>定义</b> Class.hpp:66</div></div>
-<div class="ttc" id="aclassast_1_1Class_html_ab686a3a67a08c59663f271cbcb56e144"><div class="ttname"><a href="classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144">ast::Class::setParent</a></div><div class="ttdeci">void setParent()</div><div class="ttdoc">设置父类</div><div class="ttdef"><b>定义</b> Class.hpp:77</div></div>
-<div class="ttc" id="aclassast_1_1Class_html_ac8924b03c261b1252e68229d1135f672"><div class="ttname"><a href="classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672">ast::Class::setConstructor</a></div><div class="ttdeci">void setConstructor(FConstructor constructor)</div><div class="ttdoc">设置构造函数</div><div class="ttdef"><b>定义</b> Class.hpp:71</div></div>
+<div class="ttc" id="aclassast_1_1Class_html"><div class="ttname"><a href="classast_1_1Class.html">ast::Class</a></div><div class="ttdoc">类元信息</div><div class="ttdef"><b>定义</b> Class.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_a276024d991282a8c3dd99c0b97f63df8"><div class="ttname"><a href="classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8">ast::Class::getParent</a></div><div class="ttdeci">Class * getParent() const</div><div class="ttdoc">获取父类</div><div class="ttdef"><b>定义</b> Class.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_a52ff111feaae1fda4e3af690b2985133"><div class="ttname"><a href="classast_1_1Class.html#a52ff111feaae1fda4e3af690b2985133">ast::Class::setConstructor</a></div><div class="ttdeci">std::enable_if&lt;!std::is_abstract&lt; T &gt;::value &gt;::type setConstructor()</div><div class="ttdoc">设置构造函数</div><div class="ttdef"><b>定义</b> Class.hpp:104</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_a7887839611398ba4eedd813b9c848002"><div class="ttname"><a href="classast_1_1Class.html#a7887839611398ba4eedd813b9c848002">ast::Class::setParent</a></div><div class="ttdeci">void setParent(Class *parent)</div><div class="ttdoc">设置父类</div><div class="ttdef"><b>定义</b> Class.hpp:79</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_ab686a3a67a08c59663f271cbcb56e144"><div class="ttname"><a href="classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144">ast::Class::setParent</a></div><div class="ttdeci">void setParent()</div><div class="ttdoc">设置父类</div><div class="ttdef"><b>定义</b> Class.hpp:94</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_ac0e6308a1e4b07142f98c125dbcbe39f"><div class="ttname"><a href="classast_1_1Class.html#ac0e6308a1e4b07142f98c125dbcbe39f">ast::Class::isVirtual</a></div><div class="ttdeci">bool isVirtual() const</div><div class="ttdoc">检查类是否为虚类</div><div class="ttdef"><b>定义</b> Class.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_ac8924b03c261b1252e68229d1135f672"><div class="ttname"><a href="classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672">ast::Class::setConstructor</a></div><div class="ttdeci">void setConstructor(FConstructor constructor)</div><div class="ttdoc">设置构造函数</div><div class="ttdef"><b>定义</b> Class.hpp:84</div></div>
+<div class="ttc" id="aclassast_1_1Class_html_afaab0360ed1054b01f315d79379e9268"><div class="ttname"><a href="classast_1_1Class.html#afaab0360ed1054b01f315d79379e9268">ast::Class::setResolve</a></div><div class="ttdeci">void setResolve(FResolve resolve)</div><div class="ttdoc">设置解析函数</div><div class="ttdef"><b>定义</b> Class.hpp:88</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:84</div></div>
 <div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1Struct_html"><div class="ttname"><a href="classast_1_1Struct.html">ast::Struct</a></div><div class="ttdoc">结构体类</div><div class="ttdef"><b>定义</b> Struct.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

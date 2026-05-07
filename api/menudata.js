@@ -80,8 +80,7 @@ var menudata={children:[
 {text:"u",url:"namespacemembers_vars.html#index_u"}]},
 {text:"类型定义",url:"namespacemembers_type.html"},
 {text:"枚举",url:"namespacemembers_enum.html",children:[
-{text:"e",url:"namespacemembers_enum.html#index_e"},
-{text:"m",url:"namespacemembers_enum.html#index_m"}]},
+{text:"e",url:"namespacemembers_enum.html#index_e"}]},
 {text:"枚举值",url:"namespacemembers_eval.html",children:[
 {text:"e",url:"namespacemembers_eval.html#index_e"},
 {text:"i",url:"namespacemembers_eval_i.html#index_i"},

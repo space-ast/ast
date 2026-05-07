@@ -2,10 +2,6 @@ var hierarchy =
 [
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
-    [ "ast::AITool", "structast_1_1AITool.html", null ],
-    [ "ast::AIToolCall", "structast_1_1AIToolCall.html", null ],
-    [ "ast::AIToolParameter", "structast_1_1AIToolParameter.html", null ],
-    [ "ast::AIToolResponse", "structast_1_1AIToolResponse.html", null ],
     [ "alist", "structalist.html", null ],
     [ "allocator_type", null, [
       [ "ast::CorVector< T >::CorVectorAllocator", "structast_1_1CorVector_1_1CorVectorAllocator.html", null ]
@@ -21,7 +17,6 @@ var hierarchy =
     ] ],
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
-    [ "ast::AttitudeProfile", "classast_1_1AttitudeProfile.html", null ],
     [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "AVector3d", "structAVector3d.html", null ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
@@ -70,8 +65,14 @@ var hierarchy =
     [ "ast::CallStack", "classast_1_1CallStack.html", null ],
     [ "ast::CartState", "classast_1_1CartState.html", null ],
     [ "ast::CentroidPosition", "classast_1_1CentroidPosition.html", null ],
-    [ "ast::ChatMessage", "structast_1_1ChatMessage.html", null ],
-    [ "ast::ChatSession", "classast_1_1ChatSession.html", null ],
+    [ "ast::ChatMessage", "classast_1_1ChatMessage.html", null ],
+    [ "ast::ChatSession", "classast_1_1ChatSession.html", [
+      [ "ast::AgentSession", "classast_1_1AgentSession.html", null ]
+    ] ],
+    [ "ast::ChatTool", "classast_1_1ChatTool.html", [
+      [ "ast::ChatToolGeneric< Func >", "classast_1_1ChatToolGeneric.html", null ]
+    ] ],
+    [ "ast::ChatTools", "classast_1_1ChatTools.html", null ],
     [ "cilist", "structcilist.html", null ],
     [ "ast::ClassRegistry", "classast_1_1ClassRegistry.html", null ],
     [ "cllist", "structcllist.html", null ],
@@ -269,6 +270,11 @@ var hierarchy =
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],
+    [ "ast::LLMClient", "classast_1_1LLMClient.html", [
+      [ "ast::Anthropic", "classast_1_1Anthropic.html", null ],
+      [ "ast::OpenAI", "classast_1_1OpenAI.html", null ]
+    ] ],
+    [ "ast::LLMConfig", "classast_1_1LLMConfig.html", null ],
     [ "ast::LocaleGuard", "classast_1_1LocaleGuard.html", null ],
     [ "ast::LoggerStream", "classast_1_1LoggerStream.html", null ],
     [ "ast::LongDuration", "classast_1_1LongDuration.html", null ],
@@ -284,6 +290,9 @@ var hierarchy =
     [ "ast::detail::MemberPtrTag", "structast_1_1detail_1_1MemberPtrTag.html", null ],
     [ "ast::MessageLogContext", "classast_1_1MessageLogContext.html", null ],
     [ "ast::MessageLogger", "classast_1_1MessageLogger.html", null ],
+    [ "MessageVector", null, [
+      [ "ast::ChatMessages", "classast_1_1ChatMessages.html", null ]
+    ] ],
     [ "metsel_1_", "structmetsel__1__.html", null ],
     [ "ast::MissionCommandVisitor", "classast_1_1MissionCommandVisitor.html", null ],
     [ "ast::MissionModerator", "classast_1_1MissionModerator.html", null ],
@@ -318,47 +327,14 @@ var hierarchy =
     [ "ast::NutationSeries", "classast_1_1NutationSeries.html", null ],
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
-      [ "ast::Axes", "classast_1_1Axes.html", [
-        [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
-          [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
-          [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
-          [ "ast::AxesBodyMOD", "classast_1_1AxesBodyMOD.html", null ],
-          [ "ast::AxesBodyTOD", "classast_1_1AxesBodyTOD.html", null ]
-        ] ],
-        [ "ast::AxesFrozen", "classast_1_1AxesFrozen.html", null ],
-        [ "ast::AxesFrozenAtEventTime", "classast_1_1AxesFrozenAtEventTime.html", null ],
-        [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
-        [ "ast::AxesRoot", "classast_1_1AxesRoot.html", null ]
-      ] ],
-      [ "ast::BodyOrientation", "classast_1_1BodyOrientation.html", [
-        [ "ast::EarthOrientation", "classast_1_1EarthOrientation.html", null ],
-        [ "ast::MoonOrientation", "classast_1_1MoonOrientation.html", null ],
-        [ "ast::NoopOrientation", "classast_1_1NoopOrientation.html", null ],
-        [ "ast::RotationalData", "classast_1_1RotationalData.html", null ]
-      ] ],
       [ "ast::BodyShape", "classast_1_1BodyShape.html", [
         [ "ast::EllipsoidShape", "classast_1_1EllipsoidShape.html", null ],
         [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
         [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
       ] ],
-      [ "ast::Burn", "classast_1_1Burn.html", [
-        [ "ast::BurnCollocation", "classast_1_1BurnCollocation.html", null ],
-        [ "ast::BurnFinite", "classast_1_1BurnFinite.html", null ],
-        [ "ast::BurnImpulsive", "classast_1_1BurnImpulsive.html", null ]
-      ] ],
       [ "ast::EventDetector", "classast_1_1EventDetector.html", [
         [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
         [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
-      ] ],
-      [ "ast::EventInterval", "classast_1_1EventInterval.html", [
-        [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
-        [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
-        [ "ast::EventIntervalLinkTo", "classast_1_1EventIntervalLinkTo.html", null ]
-      ] ],
-      [ "ast::EventTime", "classast_1_1EventTime.html", [
-        [ "ast::EventTimeExplicit", "classast_1_1EventTimeExplicit.html", null ],
-        [ "ast::EventTimeFallback", "classast_1_1EventTimeFallback.html", null ],
-        [ "ast::EventTimeLinkTo", "classast_1_1EventTimeLinkTo.html", null ]
       ] ],
       [ "ast::Expr", "classast_1_1Expr.html", [
         [ "ast::ExprCall", "classast_1_1ExprCall.html", null ],
@@ -409,71 +385,7 @@ var hierarchy =
         ] ],
         [ "ast::Variable", "classast_1_1Variable.html", null ]
       ] ],
-      [ "ast::FieldOfView", "classast_1_1FieldOfView.html", [
-        [ "ast::FOVConical", "classast_1_1FOVConical.html", null ],
-        [ "ast::FOVCustom", "classast_1_1FOVCustom.html", null ],
-        [ "ast::FOVHalfPower", "classast_1_1FOVHalfPower.html", null ],
-        [ "ast::FOVRectangular", "classast_1_1FOVRectangular.html", null ],
-        [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
-        [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
-      ] ],
-      [ "ast::ForceModel", "classast_1_1ForceModel.html", [
-        [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
-          [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
-          [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ]
-        ] ],
-        [ "ast::DragForce", "classast_1_1DragForce.html", null ],
-        [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
-        [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
-        [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
-      ] ],
-      [ "ast::HPOP", "classast_1_1HPOP.html", null ],
-      [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
-      [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
-        [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
-          [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [
-            [ "ast::ODEVarStepIntegrator", "classast_1_1ODEVarStepIntegrator.html", [
-              [ "ast::RKCK", "classast_1_1RKCK.html", null ],
-              [ "ast::RKF45", "classast_1_1RKF45.html", null ],
-              [ "ast::RKF56", "classast_1_1RKF56.html", null ],
-              [ "ast::RKF78", "classast_1_1RKF78.html", null ]
-            ] ],
-            [ "ast::RK4", "classast_1_1RK4.html", null ],
-            [ "ast::RK8", "classast_1_1RK8.html", null ],
-            [ "ast::RKV8", "classast_1_1RKV8.html", null ]
-          ] ]
-        ] ]
-      ] ],
-      [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
-        [ "ast::End", "classast_1_1End.html", null ],
-        [ "ast::Return", "classast_1_1Return.html", null ],
-        [ "ast::Segment", "classast_1_1Segment.html", [
-          [ "ast::InitialState", "classast_1_1InitialState.html", null ],
-          [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
-          [ "ast::Propagate", "classast_1_1Propagate.html", null ],
-          [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
-          [ "ast::Sequence", "classast_1_1Sequence.html", null ]
-        ] ],
-        [ "ast::Stop", "classast_1_1Stop.html", null ]
-      ] ],
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
-      [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
-        [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
-        [ "ast::MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", null ],
-        [ "ast::MotionGreatArc", "classast_1_1MotionGreatArc.html", null ],
-        [ "ast::MotionMissionCommand", "classast_1_1MotionMissionCommand.html", null ],
-        [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
-        [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [
-          [ "ast::MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", [
-            [ "ast::MotionHPOP", "classast_1_1MotionHPOP.html", null ],
-            [ "ast::MotionJ2Analytical", "classast_1_1MotionJ2Analytical.html", null ],
-            [ "ast::MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", null ],
-            [ "ast::MotionTwoBody", "classast_1_1MotionTwoBody.html", null ]
-          ] ],
-          [ "ast::MotionSGP4", "classast_1_1MotionSGP4.html", null ],
-          [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
-        ] ]
-      ] ],
       [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
         [ "ast::ScStateCalculation", "classast_1_1ScStateCalculation.html", null ],
         [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", null ],
@@ -484,12 +396,64 @@ var hierarchy =
         [ "ast::Antenna", "classast_1_1Antenna.html", null ],
         [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
         [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
+        [ "ast::AttitudeProfile", "classast_1_1AttitudeProfile.html", null ],
+        [ "ast::Axes", "classast_1_1Axes.html", [
+          [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
+            [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
+            [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
+            [ "ast::AxesBodyMOD", "classast_1_1AxesBodyMOD.html", null ],
+            [ "ast::AxesBodyTOD", "classast_1_1AxesBodyTOD.html", null ]
+          ] ],
+          [ "ast::AxesFrozen", "classast_1_1AxesFrozen.html", null ],
+          [ "ast::AxesFrozenAtEventTime", "classast_1_1AxesFrozenAtEventTime.html", null ],
+          [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
+          [ "ast::AxesRoot", "classast_1_1AxesRoot.html", null ]
+        ] ],
+        [ "ast::BodyOrientation", "classast_1_1BodyOrientation.html", [
+          [ "ast::EarthOrientation", "classast_1_1EarthOrientation.html", null ],
+          [ "ast::MoonOrientation", "classast_1_1MoonOrientation.html", null ],
+          [ "ast::NoopOrientation", "classast_1_1NoopOrientation.html", null ],
+          [ "ast::RotationalData", "classast_1_1RotationalData.html", null ]
+        ] ],
+        [ "ast::Burn", "classast_1_1Burn.html", [
+          [ "ast::BurnCollocation", "classast_1_1BurnCollocation.html", null ],
+          [ "ast::BurnFinite", "classast_1_1BurnFinite.html", null ],
+          [ "ast::BurnImpulsive", "classast_1_1BurnImpulsive.html", null ]
+        ] ],
         [ "ast::Chain", "classast_1_1Chain.html", null ],
         [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
         [ "ast::Constellation", "classast_1_1Constellation.html", null ],
         [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
+        [ "ast::EventInterval", "classast_1_1EventInterval.html", [
+          [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
+          [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
+          [ "ast::EventIntervalLinkTo", "classast_1_1EventIntervalLinkTo.html", null ]
+        ] ],
+        [ "ast::EventTime", "classast_1_1EventTime.html", [
+          [ "ast::EventTimeExplicit", "classast_1_1EventTimeExplicit.html", null ],
+          [ "ast::EventTimeFallback", "classast_1_1EventTimeFallback.html", null ],
+          [ "ast::EventTimeLinkTo", "classast_1_1EventTimeLinkTo.html", null ]
+        ] ],
+        [ "ast::FieldOfView", "classast_1_1FieldOfView.html", [
+          [ "ast::FOVConical", "classast_1_1FOVConical.html", null ],
+          [ "ast::FOVCustom", "classast_1_1FOVCustom.html", null ],
+          [ "ast::FOVHalfPower", "classast_1_1FOVHalfPower.html", null ],
+          [ "ast::FOVRectangular", "classast_1_1FOVRectangular.html", null ],
+          [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
+          [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
+        ] ],
         [ "ast::FigureOfMerit", "classast_1_1FigureOfMerit.html", [
           [ "ast::AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ]
+        ] ],
+        [ "ast::ForceModel", "classast_1_1ForceModel.html", [
+          [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
+            [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
+            [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ]
+          ] ],
+          [ "ast::DragForce", "classast_1_1DragForce.html", null ],
+          [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
+          [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
+          [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
         ] ],
         [ "ast::Frame", "classast_1_1Frame.html", [
           [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
@@ -497,61 +461,108 @@ var hierarchy =
           [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
           [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
         ] ],
+        [ "ast::HPOP", "classast_1_1HPOP.html", null ],
+        [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
+        [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
+          [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
+            [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [
+              [ "ast::ODEVarStepIntegrator", "classast_1_1ODEVarStepIntegrator.html", [
+                [ "ast::RKCK", "classast_1_1RKCK.html", null ],
+                [ "ast::RKF45", "classast_1_1RKF45.html", null ],
+                [ "ast::RKF56", "classast_1_1RKF56.html", null ],
+                [ "ast::RKF78", "classast_1_1RKF78.html", null ]
+              ] ],
+              [ "ast::RK4", "classast_1_1RK4.html", null ],
+              [ "ast::RK8", "classast_1_1RK8.html", null ],
+              [ "ast::RKV8", "classast_1_1RKV8.html", null ]
+            ] ]
+          ] ]
+        ] ],
         [ "ast::LineTarget", "classast_1_1LineTarget.html", null ],
         [ "ast::MTO", "classast_1_1MTO.html", null ],
+        [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
+          [ "ast::End", "classast_1_1End.html", null ],
+          [ "ast::Return", "classast_1_1Return.html", null ],
+          [ "ast::Segment", "classast_1_1Segment.html", [
+            [ "ast::InitialState", "classast_1_1InitialState.html", null ],
+            [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
+            [ "ast::Propagate", "classast_1_1Propagate.html", null ],
+            [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
+            [ "ast::Sequence", "classast_1_1Sequence.html", null ]
+          ] ],
+          [ "ast::Stop", "classast_1_1Stop.html", null ]
+        ] ],
+        [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
+          [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
+          [ "ast::MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", null ],
+          [ "ast::MotionGreatArc", "classast_1_1MotionGreatArc.html", null ],
+          [ "ast::MotionMissionCommand", "classast_1_1MotionMissionCommand.html", null ],
+          [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
+          [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [
+            [ "ast::MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", [
+              [ "ast::MotionHPOP", "classast_1_1MotionHPOP.html", null ],
+              [ "ast::MotionJ2Analytical", "classast_1_1MotionJ2Analytical.html", null ],
+              [ "ast::MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", null ],
+              [ "ast::MotionTwoBody", "classast_1_1MotionTwoBody.html", null ]
+            ] ],
+            [ "ast::MotionSGP4", "classast_1_1MotionSGP4.html", null ],
+            [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
+          ] ]
+        ] ],
         [ "ast::Planet", "classast_1_1Planet.html", null ],
+        [ "ast::Point", "classast_1_1Point.html", [
+          [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
+          [ "ast::Ephemeris", "classast_1_1Ephemeris.html", [
+            [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
+              [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
+              [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
+              [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
+            ] ],
+            [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
+            [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
+            [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
+          ] ],
+          [ "ast::Facility", "classast_1_1Facility.html", [
+            [ "ast::Place", "classast_1_1Place.html", null ],
+            [ "ast::Target", "classast_1_1Target.html", null ]
+          ] ],
+          [ "ast::Mover", "classast_1_1Mover.html", [
+            [ "ast::Aircraft", "classast_1_1Aircraft.html", null ],
+            [ "ast::GroundVehicle", "classast_1_1GroundVehicle.html", null ],
+            [ "ast::Missile", "classast_1_1Missile.html", null ],
+            [ "ast::Ship", "classast_1_1Ship.html", null ],
+            [ "ast::SpaceObject", "classast_1_1SpaceObject.html", [
+              [ "ast::Asteroid", "classast_1_1Asteroid.html", null ],
+              [ "ast::Spacecraft", "classast_1_1Spacecraft.html", [
+                [ "ast::LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
+                [ "ast::Satellite", "classast_1_1Satellite.html", null ]
+              ] ]
+            ] ],
+            [ "ast::Submarine", "classast_1_1Submarine.html", null ]
+          ] ],
+          [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
+          [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
+          [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
+          [ "ast::Sensor", "classast_1_1Sensor.html", null ]
+        ] ],
         [ "ast::Radar", "classast_1_1Radar.html", null ],
         [ "ast::Receiver", "classast_1_1Receiver.html", null ],
+        [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
+        [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
         [ "ast::Star", "classast_1_1Star.html", null ],
+        [ "ast::State", "classast_1_1State.html", [
+          [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
+          [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
+        ] ],
         [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
         [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
       ] ],
-      [ "ast::Point", "classast_1_1Point.html", [
-        [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
-        [ "ast::Ephemeris", "classast_1_1Ephemeris.html", [
-          [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
-            [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
-            [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
-            [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
-          ] ],
-          [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
-          [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
-          [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
-        ] ],
-        [ "ast::Facility", "classast_1_1Facility.html", [
-          [ "ast::Place", "classast_1_1Place.html", null ],
-          [ "ast::Target", "classast_1_1Target.html", null ]
-        ] ],
-        [ "ast::Mover", "classast_1_1Mover.html", [
-          [ "ast::Aircraft", "classast_1_1Aircraft.html", null ],
-          [ "ast::GroundVehicle", "classast_1_1GroundVehicle.html", null ],
-          [ "ast::Missile", "classast_1_1Missile.html", null ],
-          [ "ast::Ship", "classast_1_1Ship.html", null ],
-          [ "ast::SpaceObject", "classast_1_1SpaceObject.html", [
-            [ "ast::Asteroid", "classast_1_1Asteroid.html", null ],
-            [ "ast::Spacecraft", "classast_1_1Spacecraft.html", [
-              [ "ast::LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
-              [ "ast::Satellite", "classast_1_1Satellite.html", null ]
-            ] ]
-          ] ],
-          [ "ast::Submarine", "classast_1_1Submarine.html", null ]
-        ] ],
-        [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
-        [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
-        [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
-        [ "ast::Sensor", "classast_1_1Sensor.html", null ]
-      ] ],
-      [ "ast::Scenario", "classast_1_1Scenario.html", null ],
-      [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
-      [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
-      [ "ast::State", "classast_1_1State.html", [
-        [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
-        [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
-      ] ]
+      [ "ast::Scenario", "classast_1_1Scenario.html", null ]
     ] ],
     [ "ast::ObjectEditRegistry", "classast_1_1ObjectEditRegistry.html", null ],
     [ "ast::ObjectManager", "classast_1_1ObjectManager.html", null ],
     [ "ast::ObjectNode", "classast_1_1ObjectNode.html", null ],
+    [ "ast::ObjectPrintConfig", "structast_1_1ObjectPrintConfig.html", null ],
     [ "ast::ObjectResolver", "classast_1_1ObjectResolver.html", null ],
     [ "ast::ODEEventDetector", "classast_1_1ODEEventDetector.html", [
       [ "ast::ODEEventDetectorGeneric< Func >", "classast_1_1ODEEventDetectorGeneric.html", null ]
@@ -571,7 +582,6 @@ var hierarchy =
     [ "olist", "structolist.html", null ],
     [ "ast::OpBinRegistry::OpBinKeyHash", "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html", null ],
     [ "ast::OpBinRegistry", "classast_1_1OpBinRegistry.html", null ],
-    [ "ast::OpenAIClient", "classast_1_1OpenAIClient.html", null ],
     [ "ast::OpUnaryRegister::OpUnaryKeyHash", "structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html", null ],
     [ "ast::OpUnaryRegister", "classast_1_1OpUnaryRegister.html", null ],
     [ "ast::OrbElem", "classast_1_1OrbElem.html", null ],
@@ -586,7 +596,6 @@ var hierarchy =
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", null ],
     [ "ast::PoleMotionSXY", "structast_1_1PoleMotionSXY.html", null ],
     [ "ast::Polynomial", "classast_1_1Polynomial.html", null ],
-    [ "ast::PrintObjectTreeConfig", "structast_1_1PrintObjectTreeConfig.html", null ],
     [ "ast::MotionOrbitDynamics::PropagationParams", "structast_1_1MotionOrbitDynamics_1_1PropagationParams.html", null ],
     [ "ast::Propagator", "classast_1_1Propagator.html", [
       [ "ast::TwoBody", "classast_1_1TwoBody.html", null ]
@@ -655,7 +664,6 @@ var hierarchy =
     [ "ast::ScopedPtr< T >", "classast_1_1ScopedPtr.html", [
       [ "ast::ClonePtr< T >", "classast_1_1ClonePtr.html", null ]
     ] ],
-    [ "ast::ScopedPtr< ast::AttitudeProfile >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::BodyAttraction >", "classast_1_1ScopedPtr.html", [
       [ "ast::ClonePtr< ast::BodyAttraction >", "classast_1_1ClonePtr.html", null ]
     ] ],
@@ -664,7 +672,6 @@ var hierarchy =
     [ "ast::ScopedPtr< ast::BodyShape >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::Ephemeris >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::HPOPEquation >", "classast_1_1ScopedPtr.html", null ],
-    [ "ast::ScopedPtr< ast::MotionProfile >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::ODEIntegrator >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename >", "structast_1_1ScopedPtrDeleter.html", null ],
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
@@ -781,8 +788,10 @@ var hierarchy =
     [ "ast::VehiclePathData", "structast_1_1VehiclePathData.html", null ],
     [ "ast::WayPoint", "classast_1_1WayPoint.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::AttitudeProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::HPOP >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::MotionProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Point >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],

@@ -106,23 +106,36 @@ $(function(){initNavTree('classast_1_1ChatSession.html',''); initResizable(true)
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ChatSession_8hpp_source.html">ChatSession.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::ChatSession 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1ChatSession.png" usemap="#ast::ChatSession_map" alt=""/>
+  <map id="ast::ChatSession_map" name="ast::ChatSession_map">
+<area href="classast_1_1AgentSession.html" title="智能体会话" alt="ast::AgentSession" shape="rect" coords="0,56,111,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a170d5b346d7c90a9007dd898ec1be0bf" id="r_a170d5b346d7c90a9007dd898ec1be0bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a170d5b346d7c90a9007dd898ec1be0bf">ChatSession</a> (const std::string &amp;api_key, const std::string &amp;model, const std::string &amp;base_url=&quot;https://api.openai.com/v1&quot;)</td></tr>
-<tr class="separator:a170d5b346d7c90a9007dd898ec1be0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9678b49a86b1c52b580bddebdbae71b6" id="r_a9678b49a86b1c52b580bddebdbae71b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9678b49a86b1c52b580bddebdbae71b6">addTool</a> (const <a class="el" href="structast_1_1AITool.html">AITool</a> &amp;tool, <a class="el" href="group__Chat.html#gaf93c0b2a0b28a02d5a54ef85be5160b8">ToolExecutor</a> executor)</td></tr>
-<tr class="separator:a9678b49a86b1c52b580bddebdbae71b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6310187ef00ca480e187964e27cee051" id="r_a6310187ef00ca480e187964e27cee051"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6310187ef00ca480e187964e27cee051">sendMessage</a> (const std::string &amp;message)</td></tr>
-<tr class="separator:a6310187ef00ca480e187964e27cee051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2d9ea1532630fcb2c664ec95ae1ed2b" id="r_ad2d9ea1532630fcb2c664ec95ae1ed2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2d9ea1532630fcb2c664ec95ae1ed2b">setSystemPrompt</a> (const std::string &amp;system_prompt)</td></tr>
-<tr class="separator:ad2d9ea1532630fcb2c664ec95ae1ed2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9140a65ec777a94c3f97749bc8e43c8b" id="r_a9140a65ec777a94c3f97749bc8e43c8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9140a65ec777a94c3f97749bc8e43c8b">ChatSession</a> ()</td></tr>
+<tr class="separator:a9140a65ec777a94c3f97749bc8e43c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3982f95956203205cc2ac908f943a566" id="r_a3982f95956203205cc2ac908f943a566"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3982f95956203205cc2ac908f943a566">sendMessage</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> message)</td></tr>
+<tr class="separator:a3982f95956203205cc2ac908f943a566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b6ed002b40b0fd7c0ef4e309d357e71" id="r_a6b6ed002b40b0fd7c0ef4e309d357e71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b6ed002b40b0fd7c0ef4e309d357e71">setSystemPrompt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> systemPrompt)</td></tr>
+<tr class="separator:a6b6ed002b40b0fd7c0ef4e309d357e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9974e5336509f991ef1cb29eada082d" id="r_ae9974e5336509f991ef1cb29eada082d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9974e5336509f991ef1cb29eada082d">messages</a> ()</td></tr>
+<tr class="separator:ae9974e5336509f991ef1cb29eada082d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c1f6b0a5dd5bab64070316bb0ef51e4" id="r_a2c1f6b0a5dd5bab64070316bb0ef51e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ChatTools.html">ChatTools</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c1f6b0a5dd5bab64070316bb0ef51e4">tools</a> ()</td></tr>
+<tr class="separator:a2c1f6b0a5dd5bab64070316bb0ef51e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>聊天会话 </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="a170d5b346d7c90a9007dd898ec1be0bf" name="a170d5b346d7c90a9007dd898ec1be0bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a170d5b346d7c90a9007dd898ec1be0bf">&#9670;&#160;</a></span>ChatSession()</h2>
+<a id="a9140a65ec777a94c3f97749bc8e43c8b" name="a9140a65ec777a94c3f97749bc8e43c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9140a65ec777a94c3f97749bc8e43c8b">&#9670;&#160;</a></span>ChatSession()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,17 +143,8 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname">ast::ChatSession::ChatSession </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>api_key</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>model</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>base_url</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;https://api.openai.com/v1&quot;</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -158,38 +162,36 @@ Public 成员函数</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a9678b49a86b1c52b580bddebdbae71b6" name="a9678b49a86b1c52b580bddebdbae71b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9678b49a86b1c52b580bddebdbae71b6">&#9670;&#160;</a></span>addTool()</h2>
+<a id="ae9974e5336509f991ef1cb29eada082d" name="ae9974e5336509f991ef1cb29eada082d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9974e5336509f991ef1cb29eada082d">&#9670;&#160;</a></span>messages()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ast::ChatSession::addTool </td>
+          <td class="memname"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp; ast::ChatSession::messages </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structast_1_1AITool.html">AITool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tool</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__Chat.html#gaf93c0b2a0b28a02d5a54ef85be5160b8">ToolExecutor</a></td>          <td class="paramname"><span class="paramname"><em>executor</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>添加工具 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tool</td><td>工具定义 </td></tr>
-    <tr><td class="paramname">executor</td><td>工具执行函数 </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>获取消息历史 </p>
+<dl class="section return"><dt>返回</dt><dd>消息历史 </dd></dl>
 
 </div>
 </div>
-<a id="a6310187ef00ca480e187964e27cee051" name="a6310187ef00ca480e187964e27cee051"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6310187ef00ca480e187964e27cee051">&#9670;&#160;</a></span>sendMessage()</h2>
+<a id="a3982f95956203205cc2ac908f943a566" name="a3982f95956203205cc2ac908f943a566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3982f95956203205cc2ac908f943a566">&#9670;&#160;</a></span>sendMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +199,7 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname">std::string ast::ChatSession::sendMessage </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -214,8 +216,8 @@ Public 成员函数</h2></td></tr>
 
 </div>
 </div>
-<a id="ad2d9ea1532630fcb2c664ec95ae1ed2b" name="ad2d9ea1532630fcb2c664ec95ae1ed2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2d9ea1532630fcb2c664ec95ae1ed2b">&#9670;&#160;</a></span>setSystemPrompt()</h2>
+<a id="a6b6ed002b40b0fd7c0ef4e309d357e71" name="a6b6ed002b40b0fd7c0ef4e309d357e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6ed002b40b0fd7c0ef4e309d357e71">&#9670;&#160;</a></span>setSystemPrompt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +225,7 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname">void ast::ChatSession::setSystemPrompt </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>system_prompt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>systemPrompt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -232,15 +234,44 @@ Public 成员函数</h2></td></tr>
 <p>设置系统提示 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">system_prompt</td><td>系统提示 </td></tr>
+    <tr><td class="paramname">systemPrompt</td><td>系统提示 </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
+<a id="a2c1f6b0a5dd5bab64070316bb0ef51e4" name="a2c1f6b0a5dd5bab64070316bb0ef51e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1f6b0a5dd5bab64070316bb0ef51e4">&#9670;&#160;</a></span>tools()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1ChatTools.html">ChatTools</a> &amp; ast::ChatSession::tools </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取工具集合 </p>
+<dl class="section return"><dt>返回</dt><dd>工具集合 </dd></dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstAI/<a class="el" href="ChatSession_8hpp_source.html">ChatSession.hpp</a></li>
+<li>src/AstAI/Chat/<a class="el" href="ChatSession_8hpp_source.html">ChatSession.hpp</a></li>
+<li>src/AstAI/Chat/<a class="el" href="ChatSession_8cpp.html">ChatSession.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

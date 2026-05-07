@@ -4,7 +4,7 @@ var group__Quantity =
       [ "Quantity", "classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4", null ],
       [ "Quantity", "classast_1_1Quantity.html#aa4ba87f976a1bdca3c068e91cafc7284", null ],
       [ "changeUnit", "group__Quantity.html#gaa38b0ddfa45747ce0c2b35f1822be4ba", null ],
-      [ "dimension", "classast_1_1Quantity.html#abbe7b095750a45049367f4b42e144393", null ],
+      [ "dimension", "classast_1_1Quantity.html#ae00bb0f24f989e8e4d519d5a252fc150", null ],
       [ "getMagnitude", "classast_1_1Quantity.html#adad848de198d445c66b4f15aaf2d576b", null ],
       [ "getUnit", "classast_1_1Quantity.html#a848fd346c4efab2b57e962b9a06fb7d1", null ],
       [ "getValueInUnit", "classast_1_1Quantity.html#a492123f949ff7f42bb70176028383bb3", null ],
@@ -103,7 +103,9 @@ var group__Quantity =
       [ "_addUnit", "classast_1_1UnitManager.html#a1ce92755719456df9f9e725347d70890", null ],
       [ "addUnit", "classast_1_1UnitManager.html#a953ac42385218a507b37331d0d83ec2c", null ],
       [ "addUnit", "classast_1_1UnitManager.html#aeebbf675f09ffdf4840b29a9b61d303e", null ],
+      [ "getSiUnit", "classast_1_1UnitManager.html#a71fdcaf5b6186e37d5afa72481eacf9b", null ],
       [ "getUnit", "classast_1_1UnitManager.html#ac49f770ecfef3f24cbd41b08acaa6f9a", null ],
+      [ "siUnits_", "classast_1_1UnitManager.html#ab97fdf55e70688435897a18837723779", null ],
       [ "units_", "classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775", null ]
     ] ],
     [ "ast::aQuantityAdd", "group__Quantity.html#ga0efc7b9b7b4ec4c0eb1f5198a3aefc27", null ],
@@ -132,6 +134,7 @@ var group__Quantity =
     [ "ast::aUnitParse", "group__Quantity.html#ga922efaad6ca265e3e0ad9e597e453371", null ],
     [ "ast::aUnitPower", "group__Quantity.html#ga68bc55be726ee1de1ea63da4bdda201c", null ],
     [ "ast::aUnitPower", "group__Quantity.html#gada24ea182ac2af5f7547b4d644255994", null ],
+    [ "ast::aUnitSIGet", "group__Quantity.html#gab5c83487ce5aa9488f9e69942856bfd9", null ],
     [ "ast::Quantity::changeUnit", "group__Quantity.html#gaa38b0ddfa45747ce0c2b35f1822be4ba", null ],
     [ "ast::operator*", "group__Quantity.html#ga96636c1cefa7a8d2fcfe7b8c42cad802", null ]
 ];

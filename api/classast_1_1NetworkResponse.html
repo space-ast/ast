@@ -121,6 +121,14 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>bo
 <tr class="memitem:a7dcc31ed96779ab52814c9290dab5b47" id="r_a7dcc31ed96779ab52814c9290dab5b47"><td class="memItemLeft" align="right" valign="top"><a id="a7dcc31ed96779ab52814c9290dab5b47" name="a7dcc31ed96779ab52814c9290dab5b47"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (const std::string &amp;<a class="el" href="#a45cd8db6429add5b763ecc2aedb852f3">body</a>)</td></tr>
 <tr class="separator:a7dcc31ed96779ab52814c9290dab5b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88368afb8cf2070b9cc3f441cdb72e4" id="r_ac88368afb8cf2070b9cc3f441cdb72e4"><td class="memItemLeft" align="right" valign="top"><a id="ac88368afb8cf2070b9cc3f441cdb72e4" name="ac88368afb8cf2070b9cc3f441cdb72e4"></a>
+AST_UTIL_API void&#160;</td><td class="memItemRight" valign="bottom"><b>setJson</b> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;json)</td></tr>
+<tr class="separator:ac88368afb8cf2070b9cc3f441cdb72e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b97df85d0357b5daa8057f2458ada8a" id="r_a2b97df85d0357b5daa8057f2458ada8a"><td class="memItemLeft" align="right" valign="top"><a id="a2b97df85d0357b5daa8057f2458ada8a" name="a2b97df85d0357b5daa8057f2458ada8a"></a>
+AST_UTIL_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>toJson</b> (<a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;json) const</td></tr>
+<tr class="separator:a2b97df85d0357b5daa8057f2458ada8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5238bf33ead7d6ccbbdfc0517da33b6" id="r_ad5238bf33ead7d6ccbbdfc0517da33b6"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API <a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5238bf33ead7d6ccbbdfc0517da33b6">toJson</a> () const</td></tr>
+<tr class="separator:ad5238bf33ead7d6ccbbdfc0517da33b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa39078c2f594579ce43e5ff1fa3f82cb" id="r_aa39078c2f594579ce43e5ff1fa3f82cb"><td class="memItemLeft" align="right" valign="top"><a id="aa39078c2f594579ce43e5ff1fa3f82cb" name="aa39078c2f594579ce43e5ff1fa3f82cb"></a>
 const std::map&lt; std::string, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>headers</b> () const</td></tr>
 <tr class="separator:aa39078c2f594579ce43e5ff1fa3f82cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,8 +142,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addHeader</b> (const 
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>网络响应</p>
 <p>网络响应，包含状态码、体和头。 </p>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ad5238bf33ead7d6ccbbdfc0517da33b6" name="ad5238bf33ead7d6ccbbdfc0517da33b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5238bf33ead7d6ccbbdfc0517da33b6">&#9670;&#160;</a></span>toJson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> ast::NetworkResponse::toJson </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>获取网络响应体为 JSON 格式 </p><dl class="section warning"><dt>警告</dt><dd>内部会进行一次 JSON 解析操作 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/Network/<a class="el" href="NetworkResponse_8hpp_source.html">NetworkResponse.hpp</a></li>
+<li>src/AstUtil/Network/<a class="el" href="NetworkResponse_8cpp.html">NetworkResponse.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

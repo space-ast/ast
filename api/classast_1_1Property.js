@@ -10,6 +10,7 @@ var classast_1_1Property =
     [ "getValueDouble", "classast_1_1Property.html#a323bc414ad5fd857e691a6b3044387d2", null ],
     [ "getValueInt", "classast_1_1Property.html#ae6e0748eb2725d716370298eda6e58c4", null ],
     [ "getValueString", "classast_1_1Property.html#af46d175945b71f0b3e2e2f398fba1012", null ],
+    [ "isObject", "classast_1_1Property.html#a70f9874b7fb1c4c2e1370716ed9fe267", null ],
     [ "setValue", "classast_1_1Property.html#a0bbebe195533824989c64be845ecc5f2", null ],
     [ "setValueBool", "classast_1_1Property.html#ac83370bd58357a75a87cf1e88ea45abc", null ],
     [ "setValueDouble", "classast_1_1Property.html#ae2f3da3c118191489315310acf8bd4e3", null ],

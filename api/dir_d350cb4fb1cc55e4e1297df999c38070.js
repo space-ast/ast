@@ -1,5 +1,6 @@
 var dir_d350cb4fb1cc55e4e1297df999c38070 =
 [
+    [ "XML.hpp", "XML_8hpp.html", null ],
     [ "XMLDocument.cpp", "XMLDocument_8cpp.html", null ],
     [ "XMLDocument.hpp", "XMLDocument_8hpp.html", "XMLDocument_8hpp" ],
     [ "XMLDomSax.cpp", "XMLDomSax_8cpp.html", null ],

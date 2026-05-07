@@ -109,29 +109,31 @@ $(function(){initNavTree('Resolve_8hpp_source.html',''); initResizable(true); })
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>Frame* <a class="code hl_function" href="namespaceast.html#aeb86996b8d5dbc791896395d2d95e2ae">aObject_GetFrame</a>(Object* obj, StringView frameName);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_CORE_API Frame* <a class="code hl_function" href="namespaceast.html#ab5b2a3ed3b861d8097375453514a754e">aObject_GetFrame</a>(Object* obj, StringView frameName);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>Object* <a class="code hl_function" href="namespaceast.html#a76cc3ce0955e726d1934e3eb176ad5d7">aResolveObject</a>(StringView path);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>Body* <a class="code hl_function" href="namespaceast.html#a4940e6a98826b2a59f16d2601b54eeb3">aResolveBody</a>(StringView name);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>Frame* <a class="code hl_function" href="namespaceast.html#a324c0ea559ea5268130ad61ca8499852">aResolveFrame</a>(StringView name);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespaceast.html#abeb8d087c27330b729ce5cd32da7c081">   65</a></span><a class="code hl_class" href="classast_1_1Axes.html">Axes</a>* <a class="code hl_function" href="namespaceast.html#abeb8d087c27330b729ce5cd32da7c081">aResolveAxes</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1Axes_html"><div class="ttname"><a href="classast_1_1Axes.html">ast::Axes</a></div><div class="ttdoc">轴系类</div><div class="ttdef"><b>定义</b> Axes.hpp:69</div></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#if 0 </span><span class="comment">// 移动到 AstUtil 工程</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>AST_CORE_API Object* <a class="code hl_function" href="group__RTTI.html#ga01f212ce5ae211ac8c18065e71ae18c0">aResolveObject</a>(StringView value, Class* type=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_CORE_API Body* <a class="code hl_function" href="namespaceast.html#a7aa7c9486109b1d453c71ce12a13ae1b">aResolveBody</a>(StringView name);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_CORE_API Frame* <a class="code hl_function" href="namespaceast.html#aff39b959ca7752837773d21c48183af1">aResolveFrame</a>(StringView name);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespaceast.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0">   68</a></span>AST_CORE_API <a class="code hl_class" href="classast_1_1Axes.html">Axes</a>* <a class="code hl_function" href="namespaceast.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0">aResolveAxes</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Axes_html"><div class="ttname"><a href="classast_1_1Axes.html">ast::Axes</a></div><div class="ttdoc">轴系类</div><div class="ttdef"><b>定义</b> Axes.hpp:70</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="anamespaceast_html_a324c0ea559ea5268130ad61ca8499852"><div class="ttname"><a href="namespaceast.html#a324c0ea559ea5268130ad61ca8499852">ast::aResolveFrame</a></div><div class="ttdeci">Frame * aResolveFrame(StringView name)</div><div class="ttdoc">解析坐标系</div><div class="ttdef"><b>定义</b> Resolve.cpp:77</div></div>
-<div class="ttc" id="anamespaceast_html_a4940e6a98826b2a59f16d2601b54eeb3"><div class="ttname"><a href="namespaceast.html#a4940e6a98826b2a59f16d2601b54eeb3">ast::aResolveBody</a></div><div class="ttdeci">Body * aResolveBody(StringView name)</div><div class="ttdoc">解析天体</div><div class="ttdef"><b>定义</b> Resolve.cpp:63</div></div>
-<div class="ttc" id="anamespaceast_html_a76cc3ce0955e726d1934e3eb176ad5d7"><div class="ttname"><a href="namespaceast.html#a76cc3ce0955e726d1934e3eb176ad5d7">ast::aResolveObject</a></div><div class="ttdeci">Object * aResolveObject(StringView path)</div><div class="ttdoc">解析对象</div><div class="ttdef"><b>定义</b> Resolve.cpp:90</div></div>
-<div class="ttc" id="anamespaceast_html_abeb8d087c27330b729ce5cd32da7c081"><div class="ttname"><a href="namespaceast.html#abeb8d087c27330b729ce5cd32da7c081">ast::aResolveAxes</a></div><div class="ttdeci">Axes * aResolveAxes(StringView name)</div><div class="ttdoc">解析坐标轴</div></div>
-<div class="ttc" id="anamespaceast_html_aeb86996b8d5dbc791896395d2d95e2ae"><div class="ttname"><a href="namespaceast.html#aeb86996b8d5dbc791896395d2d95e2ae">ast::aObject_GetFrame</a></div><div class="ttdeci">Frame * aObject_GetFrame(Object *obj, StringView frameName)</div><div class="ttdoc">获取对象的坐标系</div><div class="ttdef"><b>定义</b> Resolve.cpp:30</div></div>
+<div class="ttc" id="agroup__RTTI_html_ga01f212ce5ae211ac8c18065e71ae18c0"><div class="ttname"><a href="group__RTTI.html#ga01f212ce5ae211ac8c18065e71ae18c0">ast::aResolveObject</a></div><div class="ttdeci">Object * aResolveObject(StringView value, Class *cls)</div><div class="ttdoc">解析对象</div><div class="ttdef"><b>定义</b> RTTIAPI.cpp:93</div></div>
+<div class="ttc" id="anamespaceast_html_a7aa7c9486109b1d453c71ce12a13ae1b"><div class="ttname"><a href="namespaceast.html#a7aa7c9486109b1d453c71ce12a13ae1b">ast::aResolveBody</a></div><div class="ttdeci">Body * aResolveBody(StringView name)</div><div class="ttdoc">解析天体</div><div class="ttdef"><b>定义</b> Resolve.cpp:70</div></div>
+<div class="ttc" id="anamespaceast_html_a7d1d6b04e91c5753adbb3e79f3e0bfb0"><div class="ttname"><a href="namespaceast.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0">ast::aResolveAxes</a></div><div class="ttdeci">AST_CORE_API Axes * aResolveAxes(StringView name)</div><div class="ttdoc">解析坐标轴</div></div>
+<div class="ttc" id="anamespaceast_html_ab5b2a3ed3b861d8097375453514a754e"><div class="ttname"><a href="namespaceast.html#ab5b2a3ed3b861d8097375453514a754e">ast::aObject_GetFrame</a></div><div class="ttdeci">Frame * aObject_GetFrame(Object *obj, StringView frameName)</div><div class="ttdoc">获取对象的坐标系</div><div class="ttdef"><b>定义</b> Resolve.cpp:31</div></div>
+<div class="ttc" id="anamespaceast_html_aff39b959ca7752837773d21c48183af1"><div class="ttname"><a href="namespaceast.html#aff39b959ca7752837773d21c48183af1">ast::aResolveFrame</a></div><div class="ttdeci">Frame * aResolveFrame(StringView name)</div><div class="ttdoc">解析坐标系</div><div class="ttdef"><b>定义</b> Resolve.cpp:84</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
