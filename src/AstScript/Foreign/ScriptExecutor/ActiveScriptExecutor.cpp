@@ -131,7 +131,6 @@ public:
     {
         EXCEPINFO ei = {};
         pscripterror->GetExceptionInfo(&ei);
-        std::wcerr.imbue(std::locale(""));
         if (ei.bstrSource)
         {
             lastError_ = fromBSTR(ei.bstrSource);
