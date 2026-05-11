@@ -63,8 +63,7 @@ var group__RTTI =
       [ "type", "classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157", null ],
       [ "weakRefCount", "classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b", null ]
     ] ],
-    [ "ast::has_own_getType< T, typename >", "structast_1_1has__own__getType.html", null ],
-    [ "ast::has_own_getType< T, typename std::enable_if< std::is_same< decltype(&T::getType), Class *(T::*)() const >::value >::type >", "structast_1_1has__own__getType_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__same_3_01d17c83469192b2b1de224a2b9856c0340.html", null ],
+    [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
       [ "calculate", "classast_1_1ObjectCalculation.html#aad9da9349a080520fd443b6d640d26d9", null ],
       [ "calculateNoCheckType", "classast_1_1ObjectCalculation.html#afb6093c59135e401b5f811d6ff938093", null ],

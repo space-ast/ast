@@ -144,7 +144,7 @@ $(function(){initNavTree('ExprCalculation_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::string <a class="code hl_function" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">getExpression</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    errc_t calculate(<span class="keywordtype">double</span>&amp; val);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    errc_t calculate(<span class="keywordtype">double</span>&amp; val) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* object()<span class="keyword"> const </span>{<span class="keywordflow">return</span> object_.get();}</div>

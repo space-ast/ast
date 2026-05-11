@@ -114,9 +114,6 @@ var hierarchy =
     [ "ast::EquinElem", "classast_1_1EquinElem.html", null ],
     [ "ast::Euler", "classast_1_1Euler.html", null ],
     [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", null ],
-    [ "std::false_type", null, [
-      [ "ast::has_own_getType< T, typename >", "structast_1_1has__own__getType.html", null ]
-    ] ],
     [ "ast::Field", "classast_1_1Field.html", [
       [ "ast::Property", "classast_1_1Property.html", [
         [ "ast::PropertyBool", "classast_1_1PropertyBool.html", null ],
@@ -192,6 +189,7 @@ var hierarchy =
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "ast::GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", null ]
     ] ],
+    [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
@@ -1028,9 +1026,6 @@ var hierarchy =
     [ "ast::TLE", "classast_1_1TLE.html", null ],
     [ "ast::Transform", "classast_1_1Transform.html", [
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
-    ] ],
-    [ "std::true_type", null, [
-      [ "ast::has_own_getType< T, typename std::enable_if< std::is_same< decltype(&T::getType), Class *(T::*)() const >::value >::type >", "structast_1_1has__own__getType_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__same_3_01d17c83469192b2b1de224a2b9856c0340.html", null ]
     ] ],
     [ "ast::TwoLineElement", "classast_1_1TwoLineElement.html", null ],
     [ "ast::UnaryVectorFunc", "classast_1_1UnaryVectorFunc.html", [

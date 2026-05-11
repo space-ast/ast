@@ -144,67 +144,63 @@ $(function(){initNavTree('HPOPForceModel_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1HPOPForceModel.html#a9d8c5831d19b8b4b8ae7573e7c5d2155">   68</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1HPOPForceModel.html#a9d8c5831d19b8b4b8ae7573e7c5d2155">setCentralBody</a>(<a class="code hl_class" href="classast_1_1CelestialBody.html">Body</a>* body){centralBody_ = body;}</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa">   71</a></span>    <a class="code hl_class" href="classast_1_1DragForce.html">DragForce</a>&amp; <a class="code hl_function" href="classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa">drag</a>(){<span class="keywordflow">return</span> drag_;}</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1HPOPForceModel.html#a3368044ab3cd221d7afa1c8a9e7f9eac">   74</a></span>    <a class="code hl_class" href="classast_1_1SolarRadiationPressure.html">SolarRadiationPressure</a>&amp; <a class="code hl_function" href="classast_1_1HPOPForceModel.html#a3368044ab3cd221d7afa1c8a9e7f9eac">srp</a>(){<span class="keywordflow">return</span> srp_;}</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1GravityForce.html">GravityForce</a>&amp; gravity();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_class" href="classast_1_1PointMassForce.html">PointMassForce</a>&amp; pointMass();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_class" href="classast_1_1BodyAttraction.html">BodyAttraction</a>&amp; bodyAttraction();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1BodyAttraction.html">BodyAttraction</a>&amp; bodyAttraction() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_enumeration" href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">EBodyAttractionType</a> bodyAttractionType() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>* addThirdBody(<a class="code hl_class" href="classast_1_1CelestialBody.html">Body</a>* body);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>* addThirdBody(<a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>&amp; force);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>* getThirdBody(<a class="code hl_class" href="classast_1_1CelestialBody.html">Body</a>* body);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>* getThirdBody(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> bodyName);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classast_1_1HPOPForceModel.html#a650cc2411ab29f2f456808306fea8325">  110</a></span>    <span class="keyword">const</span> ThirdBodyList&amp; <a class="code hl_function" href="classast_1_1HPOPForceModel.html#a650cc2411ab29f2f456808306fea8325">getThirdBodies</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> thirdBodies_;}</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span>                        useDrag_{<span class="keyword">false</span>};                    </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">bool</span>                        useSRP_{<span class="keyword">false</span>};                     </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span>                        useRelativityCorrection_{<span class="keyword">false</span>};    </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    SharedPtr&lt;Body&gt;             centralBody_;                       </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    DragForce                   drag_;                              </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    SolarRadiationPressure      srp_;                               </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    ThirdBodyList               thirdBodies_;                       </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    ClonePtr&lt;BodyAttraction&gt;    bodyAttraction_;                    </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordtype">bool</span> useMoonGravity_{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">double</span> moonGravity_{<a class="code hl_variable" href="group__Util.html#ga41255ef38b8253b08c439397df25521f">kMoonGrav</a>};</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">bool</span> useMoonGravity()<span class="keyword"> const</span>{<span class="keywordflow">return</span> useMoonGravity_;}</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">void</span> useMoonGravity(<span class="keywordtype">bool</span> useMoonGravity){useMoonGravity_ = useMoonGravity;}</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">double</span> moonGravity()<span class="keyword"> const</span>{<span class="keywordflow">return</span> moonGravity_;}</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> setMoonGravity(<span class="keywordtype">double</span> moonGravity){moonGravity_ = moonGravity;}</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1DragForce.html">DragForce</a>&amp; drag()<span class="keyword"> const </span>{<span class="keywordflow">return</span> drag_;}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1HPOPForceModel.html#a3368044ab3cd221d7afa1c8a9e7f9eac">   75</a></span>    <a class="code hl_class" href="classast_1_1SolarRadiationPressure.html">SolarRadiationPressure</a>&amp; <a class="code hl_function" href="classast_1_1HPOPForceModel.html#a3368044ab3cd221d7afa1c8a9e7f9eac">srp</a>(){<span class="keywordflow">return</span> srp_;}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SolarRadiationPressure.html">SolarRadiationPressure</a>&amp; srp()<span class="keyword"> const </span>{<span class="keywordflow">return</span> srp_;}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    GravityForce&amp; gravity();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    PointMassForce&amp; pointMass();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    BodyAttraction&amp; bodyAttraction();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">const</span> BodyAttraction&amp; bodyAttraction() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    EBodyAttractionType bodyAttractionType() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    ThirdBodyForce* addThirdBody(Body* body);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    ThirdBodyForce* addThirdBody(ThirdBodyForce&amp; force);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    ThirdBodyForce* getThirdBody(Body* body);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    ThirdBodyForce* getThirdBody(StringView bodyName);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classast_1_1HPOPForceModel.html#a650cc2411ab29f2f456808306fea8325">  112</a></span>    <span class="keyword">const</span> ThirdBodyList&amp; <a class="code hl_function" href="classast_1_1HPOPForceModel.html#a650cc2411ab29f2f456808306fea8325">getThirdBodies</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> thirdBodies_;}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span>                        useDrag_{<span class="keyword">false</span>};                    </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">bool</span>                        useSRP_{<span class="keyword">false</span>};                     </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">bool</span>                        useRelativityCorrection_{<span class="keyword">false</span>};    </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    SharedPtr&lt;Body&gt;             centralBody_;                       </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    DragForce                   drag_;                              </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    SolarRadiationPressure      srp_;                               </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    ThirdBodyList               thirdBodies_;                       </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    ClonePtr&lt;BodyAttraction&gt;    bodyAttraction_;                    </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">bool</span> useMoonGravity_{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">double</span> moonGravity_{<a class="code hl_variable" href="group__Util.html#ga41255ef38b8253b08c439397df25521f">kMoonGrav</a>};</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">bool</span> useMoonGravity()<span class="keyword"> const</span>{<span class="keywordflow">return</span> useMoonGravity_;}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> useMoonGravity(<span class="keywordtype">bool</span> useMoonGravity){useMoonGravity_ = useMoonGravity;}</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">double</span> moonGravity()<span class="keyword"> const</span>{<span class="keywordflow">return</span> moonGravity_;}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">void</span> setMoonGravity(<span class="keywordtype">double</span> moonGravity){moonGravity_ = moonGravity;}</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>};</div>
 </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1BodyAttraction_html"><div class="ttname"><a href="classast_1_1BodyAttraction.html">ast::BodyAttraction</a></div><div class="ttdoc">天体引力模型</div><div class="ttdef"><b>定义</b> BodyAttraction.hpp:48</div></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:52</div></div>
 <div class="ttc" id="aclassast_1_1DragForce_html"><div class="ttname"><a href="classast_1_1DragForce.html">ast::DragForce</a></div><div class="ttdoc">大气阻力模型</div><div class="ttdef"><b>定义</b> DragForce.hpp:69</div></div>
-<div class="ttc" id="aclassast_1_1GravityForce_html"><div class="ttname"><a href="classast_1_1GravityForce.html">ast::GravityForce</a></div><div class="ttdef"><b>定义</b> GravityForce.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html"><div class="ttname"><a href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></div><div class="ttdoc">高精度轨道预报力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:49</div></div>
-<div class="ttc" id="aclassast_1_1HPOPForceModel_html_a3368044ab3cd221d7afa1c8a9e7f9eac"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#a3368044ab3cd221d7afa1c8a9e7f9eac">ast::HPOPForceModel::srp</a></div><div class="ttdeci">SolarRadiationPressure &amp; srp()</div><div class="ttdoc">获取太阳辐射压模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:74</div></div>
-<div class="ttc" id="aclassast_1_1HPOPForceModel_html_a650cc2411ab29f2f456808306fea8325"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#a650cc2411ab29f2f456808306fea8325">ast::HPOPForceModel::getThirdBodies</a></div><div class="ttdeci">const ThirdBodyList &amp; getThirdBodies() const</div><div class="ttdoc">获取三体引力模型列表</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:110</div></div>
+<div class="ttc" id="aclassast_1_1HPOPForceModel_html_a3368044ab3cd221d7afa1c8a9e7f9eac"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#a3368044ab3cd221d7afa1c8a9e7f9eac">ast::HPOPForceModel::srp</a></div><div class="ttdeci">SolarRadiationPressure &amp; srp()</div><div class="ttdoc">获取太阳辐射压模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1HPOPForceModel_html_a650cc2411ab29f2f456808306fea8325"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#a650cc2411ab29f2f456808306fea8325">ast::HPOPForceModel::getThirdBodies</a></div><div class="ttdeci">const ThirdBodyList &amp; getThirdBodies() const</div><div class="ttdoc">获取三体引力模型列表</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:112</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html_a9d8c5831d19b8b4b8ae7573e7c5d2155"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#a9d8c5831d19b8b4b8ae7573e7c5d2155">ast::HPOPForceModel::setCentralBody</a></div><div class="ttdeci">void setCentralBody(Body *body)</div><div class="ttdoc">设置中心天体</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:68</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html_ac1d20ea61a8929b7aef24b2704e56f14"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#ac1d20ea61a8929b7aef24b2704e56f14">ast::HPOPForceModel::centralBody</a></div><div class="ttdeci">Body * centralBody() const</div><div class="ttdoc">获取中心天体</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:66</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html_acc9dc09f7a4db49bd2749f55f901a9aa"><div class="ttname"><a href="classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa">ast::HPOPForceModel::drag</a></div><div class="ttdeci">DragForce &amp; drag()</div><div class="ttdoc">获取阻力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:71</div></div>
 <div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>
-<div class="ttc" id="aclassast_1_1PointMassForce_html"><div class="ttname"><a href="classast_1_1PointMassForce.html">ast::PointMassForce</a></div><div class="ttdoc">点质量引力模型/</div><div class="ttdef"><b>定义</b> PointMassForce.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1SolarRadiationPressure_html"><div class="ttname"><a href="classast_1_1SolarRadiationPressure.html">ast::SolarRadiationPressure</a></div><div class="ttdoc">太阳辐射压力</div><div class="ttdef"><b>定义</b> SolarRadiationPressure.hpp:47</div></div>
-<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="aclassast_1_1ThirdBodyForce_html"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html">ast::ThirdBodyForce</a></div><div class="ttdoc">三体引力模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:48</div></div>
 <div class="ttc" id="agroup__Util_html_ga41255ef38b8253b08c439397df25521f"><div class="ttname"><a href="group__Util.html#ga41255ef38b8253b08c439397df25521f">ast::kMoonGrav</a></div><div class="ttdeci">constexpr double kMoonGrav</div><div class="ttdoc">月球引力常数 [m^3/s^2]. （GLGM2）</div><div class="ttdef"><b>定义</b> Constants.h:89</div></div>
-<div class="ttc" id="anamespaceast_html_a43d71d83017c19bf8ce6e3b2ca7961e8"><div class="ttname"><a href="namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8">ast::EBodyAttractionType</a></div><div class="ttdeci">EBodyAttractionType</div><div class="ttdoc">天体引力模型类型</div><div class="ttdef"><b>定义</b> BodyAttraction.hpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

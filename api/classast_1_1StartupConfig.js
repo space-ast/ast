@@ -2,7 +2,9 @@ var classast_1_1StartupConfig =
 [
     [ "addConfig", "classast_1_1StartupConfig.html#a2e6e4215c8dc9109fdb40548c3d03154", null ],
     [ "addConfigRaw", "classast_1_1StartupConfig.html#ac47e8054babf36afaa14d4bc91c9df14", null ],
+    [ "dirpath", "classast_1_1StartupConfig.html#a350152e9287cc3d9d21a46f1eeeca4da", null ],
     [ "empty", "classast_1_1StartupConfig.html#a40223bafee8bd119ba799f8e778dfa97", null ],
+    [ "filepath", "classast_1_1StartupConfig.html#ab6210e3a25b4289b6051256a510aa749", null ],
     [ "getConfig", "classast_1_1StartupConfig.html#a54d88492cc738d87afba52d685159ba7", null ],
     [ "getConfig", "classast_1_1StartupConfig.html#af2745f4606806da5ddf786c70160ed41", null ],
     [ "getStringVector", "classast_1_1StartupConfig.html#a60c56a131dc47f388062bbb299c1ca5b", null ],
