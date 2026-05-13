@@ -7,6 +7,7 @@ var topics =
     [ "Spice", "group__Spice.html", "group__Spice" ],
     [ "工具模块", "group__Util.html", "group__Util" ],
     [ "空间天气模型", "group__Weather.html", "group__Weather" ],
+    [ "AstCOM", "group__AstCOM.html", "group__AstCOM" ],
     [ "GUI", "group__GUI.html", "group__GUI" ],
     [ "Serde", "group__Serde.html", "group__Serde" ]
 ];

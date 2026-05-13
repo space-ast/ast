@@ -16,6 +16,6 @@ var group__String =
     [ "ast::aUtf8ToWide", "group__String.html#ga1d8d99844ba8cd0d871d5d0079c4732b", null ],
     [ "ast::aWideToAnsi", "group__String.html#ga40d79277119322d1fb84debba51a5767", null ],
     [ "ast::aWideToCRT", "group__String.html#gade923a9e656922dfc6d2057be1848fee", null ],
-    [ "ast::aWideToUtf8", "group__String.html#gaa69d330049fa1dbef77203c98b2f938c", null ],
+    [ "ast::aWideToUtf8", "group__String.html#ga0ce21ee7c26f4dad9deb2e598f10e84c", null ],
     [ "ast::MaxSplits", "group__String.html#ga23b571e554986d779a8a24063270b42b", null ]
 ];

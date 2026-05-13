@@ -22,6 +22,7 @@ var classast_1_1Object =
     [ "getName", "classast_1_1Object.html#af67a932f9e931527a18ce0c714ba11d0", null ],
     [ "getParentScope", "classast_1_1Object.html#af0d02bedcd1d0659d69b9fb9127fbf9a", null ],
     [ "getProperty", "classast_1_1Object.html#ae3f855bf1ea116440b9f5ee84ed6cd7f", null ],
+    [ "getRepresentation", "classast_1_1Object.html#aa74b57ccf8714c96db2380b65a921181", null ],
     [ "getType", "classast_1_1Object.html#ad5992c59eef6fd156988573616d3e8d5", null ],
     [ "incRef", "classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c", null ],
     [ "incWeakRef", "classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d", null ],

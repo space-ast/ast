@@ -66,7 +66,33 @@ var hierarchy =
     ] ],
     [ "ast::CallStack", "classast_1_1CallStack.html", null ],
     [ "ast::CartState", "classast_1_1CartState.html", null ],
+    [ "CAtlDllModuleT", null, [
+      [ "ast::CAstCOMModule", "classast_1_1CAstCOMModule.html", null ]
+    ] ],
+    [ "CComCoClass", null, [
+      [ "ast::CExecCmdResult", "classast_1_1CExecCmdResult.html", null ],
+      [ "ast::CLinkToObject", "classast_1_1CLinkToObject.html", null ],
+      [ "ast::CObject", "classast_1_1CObject.html", null ],
+      [ "ast::CObjectRoot", "classast_1_1CObjectRoot.html", null ],
+      [ "ast::CSaVO", "classast_1_1CSaVO.html", null ],
+      [ "ast::CSatellite", "classast_1_1CSatellite.html", null ],
+      [ "ast::CScenario", "classast_1_1CScenario.html", null ],
+      [ "ast::CVeVOSystemsCollection", "classast_1_1CVeVOSystemsCollection.html", null ],
+      [ "ast::CVeVOSystemsElement", "classast_1_1CVeVOSystemsElement.html", null ]
+    ] ],
+    [ "CComObjectRootEx", null, [
+      [ "ast::CExecCmdResult", "classast_1_1CExecCmdResult.html", null ],
+      [ "ast::CLinkToObject", "classast_1_1CLinkToObject.html", null ],
+      [ "ast::CObject", "classast_1_1CObject.html", null ],
+      [ "ast::CObjectRoot", "classast_1_1CObjectRoot.html", null ],
+      [ "ast::CSaVO", "classast_1_1CSaVO.html", null ],
+      [ "ast::CSatellite", "classast_1_1CSatellite.html", null ],
+      [ "ast::CScenario", "classast_1_1CScenario.html", null ],
+      [ "ast::CVeVOSystemsCollection", "classast_1_1CVeVOSystemsCollection.html", null ],
+      [ "ast::CVeVOSystemsElement", "classast_1_1CVeVOSystemsElement.html", null ]
+    ] ],
     [ "ast::CentroidPosition", "classast_1_1CentroidPosition.html", null ],
+    [ "AstCOMLib::CExecCmdResult", "classAstCOMLib_1_1CExecCmdResult.html", null ],
     [ "ast::ChatMessage", "classast_1_1ChatMessage.html", null ],
     [ "ast::ChatSession", "classast_1_1ChatSession.html", [
       [ "ast::AgentSession", "classast_1_1AgentSession.html", null ]
@@ -77,12 +103,21 @@ var hierarchy =
     [ "ast::ChatTools", "classast_1_1ChatTools.html", null ],
     [ "cilist", "structcilist.html", null ],
     [ "ast::ClassRegistry", "classast_1_1ClassRegistry.html", null ],
+    [ "AstCOMLib::CLinkToObject", "classAstCOMLib_1_1CLinkToObject.html", null ],
     [ "cllist", "structcllist.html", null ],
     [ "ast::CNRLMSISE00", "classast_1_1CNRLMSISE00.html", null ],
+    [ "AstCOMLib::CObject", "classAstCOMLib_1_1CObject.html", null ],
+    [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
+    [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", null ],
+    [ "AstCOMLib::CSatellite", "classAstCOMLib_1_1CSatellite.html", null ],
+    [ "AstCOMLib::CSaVO", "classAstCOMLib_1_1CSaVO.html", null ],
+    [ "AstCOMLib::CScenario", "classAstCOMLib_1_1CScenario.html", null ],
+    [ "AstCOMLib::CVeVOSystemsCollection", "classAstCOMLib_1_1CVeVOSystemsCollection.html", null ],
+    [ "AstCOMLib::CVeVOSystemsElement", "classAstCOMLib_1_1CVeVOSystemsElement.html", null ],
     [ "ast::DAF_CommentArea", "structast_1_1DAF__CommentArea.html", null ],
     [ "ast::DAF_ElementRecords", "structast_1_1DAF__ElementRecords.html", null ],
     [ "ast::DAF_FileRecord", "structast_1_1DAF__FileRecord.html", null ],
@@ -191,11 +226,62 @@ var hierarchy =
     ] ],
     [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
+    [ "std::hash< ast::WeakPtr< _Object > >", "structstd_1_1hash_3_01ast_1_1WeakPtr_3_01__Object_01_4_01_4.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
     [ "icilist", "structicilist.html", null ],
     [ "ast::Identifier", "classast_1_1Identifier.html", null ],
     [ "ast::IdentifierTable", "classast_1_1IdentifierTable.html", null ],
+    [ "IDispatch", null, [
+      [ "IExecCmdResult", "interfaceIExecCmdResult.html", null ],
+      [ "ILinkToObject", "interfaceILinkToObject.html", null ],
+      [ "IObject", "interfaceIObject.html", [
+        [ "ISatellite", "interfaceISatellite.html", null ],
+        [ "IScenario", "interfaceIScenario.html", null ]
+      ] ],
+      [ "IObjectRoot", "interfaceIObjectRoot.html", null ],
+      [ "ISaVO", "interfaceISaVO.html", null ],
+      [ "IVeVOSystemsCollection", "interfaceIVeVOSystemsCollection.html", null ],
+      [ "IVeVOSystemsElement", "interfaceIVeVOSystemsElement.html", null ]
+    ] ],
+    [ "IDispatchImpl", null, [
+      [ "ast::ILinkToObjectImpl< ILinkToObject, &IID_ILinkToObject >", "classast_1_1ILinkToObjectImpl.html", [
+        [ "ast::CLinkToObject", "classast_1_1CLinkToObject.html", null ]
+      ] ],
+      [ "ast::IObjectImpl< IObject, &IID_IObject >", "classast_1_1IObjectImpl.html", [
+        [ "ast::CObject", "classast_1_1CObject.html", null ]
+      ] ],
+      [ "ast::IObjectImpl< ISatellite, piid >", "classast_1_1IObjectImpl.html", [
+        [ "ast::ISatelliteImpl< ISatellite, &IID_ISatellite >", "classast_1_1ISatelliteImpl.html", [
+          [ "ast::CSatellite", "classast_1_1CSatellite.html", null ]
+        ] ]
+      ] ],
+      [ "ast::IObjectImpl< IScenario, piid >", "classast_1_1IObjectImpl.html", [
+        [ "ast::IScenarioImpl< IScenario, &IID_IScenario >", "classast_1_1IScenarioImpl.html", [
+          [ "ast::CScenario", "classast_1_1CScenario.html", null ]
+        ] ]
+      ] ],
+      [ "ast::IObjectImpl< T, &__uuidof(T) >", "classast_1_1IObjectImpl.html", [
+        [ "ast::ISatelliteImpl< T, piid >", "classast_1_1ISatelliteImpl.html", null ],
+        [ "ast::IScenarioImpl< T, piid >", "classast_1_1IScenarioImpl.html", null ]
+      ] ],
+      [ "ast::ISaVOImpl< ISaVO, &IID_ISaVO >", "classast_1_1ISaVOImpl.html", [
+        [ "ast::CSaVO", "classast_1_1CSaVO.html", null ]
+      ] ],
+      [ "ast::IVeVOSystemsCollectionImpl< IVeVOSystemsCollection, &IID_IVeVOSystemsCollection >", "classast_1_1IVeVOSystemsCollectionImpl.html", [
+        [ "ast::CVeVOSystemsCollection", "classast_1_1CVeVOSystemsCollection.html", null ]
+      ] ],
+      [ "ast::IVeVOSystemsElementImpl< IVeVOSystemsElement, &IID_IVeVOSystemsElement >", "classast_1_1IVeVOSystemsElementImpl.html", [
+        [ "ast::CVeVOSystemsElement", "classast_1_1CVeVOSystemsElement.html", null ]
+      ] ],
+      [ "ast::CExecCmdResult", "classast_1_1CExecCmdResult.html", null ],
+      [ "ast::CObjectRoot", "classast_1_1CObjectRoot.html", null ],
+      [ "ast::ILinkToObjectImpl< T, piid >", "classast_1_1ILinkToObjectImpl.html", null ],
+      [ "ast::IObjectImpl< T, piid >", "classast_1_1IObjectImpl.html", null ],
+      [ "ast::ISaVOImpl< T, piid >", "classast_1_1ISaVOImpl.html", null ],
+      [ "ast::IVeVOSystemsCollectionImpl< T, piid >", "classast_1_1IVeVOSystemsCollectionImpl.html", null ],
+      [ "ast::IVeVOSystemsElementImpl< T, piid >", "classast_1_1IVeVOSystemsElementImpl.html", null ]
+    ] ],
     [ "ast::ActiveScriptExecutor::Impl", "classast_1_1ActiveScriptExecutor_1_1Impl.html", null ],
     [ "ast::NetworkImplWinHTTP::Impl", "classast_1_1NetworkImplWinHTTP_1_1Impl.html", null ],
     [ "ast::NetworkImplWinINet::Impl", "classast_1_1NetworkImplWinINet_1_1Impl.html", null ],
@@ -745,6 +831,7 @@ var hierarchy =
           [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", null ],
           [ "ast::StateCalculation", "classast_1_1StateCalculation.html", null ]
         ] ],
+        [ "ast::ObjectLinkTo", "classast_1_1ObjectLinkTo.html", null ],
         [ "ast::Planet", "classast_1_1Planet.html", null ],
         [ "ast::Point", "classast_1_1Point.html", [
           [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
@@ -866,6 +953,9 @@ var hierarchy =
     [ "ast::detail::PropertyBuilder< T, ValueType, MemberPtrTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01MemberPtrTag_01_4.html", null ],
     [ "ast::detail::PropertyBuilderValueString< T >", "structast_1_1detail_1_1PropertyBuilderValueString.html", null ],
     [ "ast::PropertyVisitor", "classast_1_1PropertyVisitor.html", null ],
+    [ "QDialog", null, [
+      [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
+    ] ],
     [ "QLineEdit", null, [
       [ "ast::UiTimePoint", "classast_1_1UiTimePoint.html", null ],
       [ "ast::UiValueEdit", "classast_1_1UiValueEdit.html", [
@@ -1070,6 +1160,7 @@ var hierarchy =
     [ "ast::WeakPtr< ast::Segment >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpacecraftState >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::SpaceObject >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],

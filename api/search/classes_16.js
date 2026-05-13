@@ -21,7 +21,8 @@ var searchData=
   ['weakptr_3c_20ast_3a_3asegment_20_3e_18',['WeakPtr&lt; ast::Segment &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
   ['weakptr_3c_20ast_3a_3asolarsystem_20_3e_19',['WeakPtr&lt; ast::SolarSystem &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
   ['weakptr_3c_20ast_3a_3aspacecraftstate_20_3e_20',['WeakPtr&lt; ast::SpacecraftState &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
-  ['weakptr_3c_20object_20_3e_21',['WeakPtr&lt; Object &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
-  ['workingdirectory_22',['WorkingDirectory',['../classast_1_1WorkingDirectory.html',1,'ast']]],
-  ['workspace_23',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]]
+  ['weakptr_3c_20ast_3a_3aspaceobject_20_3e_21',['WeakPtr&lt; ast::SpaceObject &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
+  ['weakptr_3c_20object_20_3e_22',['WeakPtr&lt; Object &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
+  ['workingdirectory_23',['WorkingDirectory',['../classast_1_1WorkingDirectory.html',1,'ast']]],
+  ['workspace_24',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]]
 ];

@@ -10,6 +10,8 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "ObjectCalculation.hpp", "ObjectCalculation_8hpp.html", null ],
     [ "ObjectLinker.cpp", "ObjectLinker_8cpp.html", "ObjectLinker_8cpp" ],
     [ "ObjectLinker.hpp", "ObjectLinker_8hpp.html", "ObjectLinker_8hpp" ],
+    [ "ObjectLinkTo.cpp", "ObjectLinkTo_8cpp.html", null ],
+    [ "ObjectLinkTo.hpp", "ObjectLinkTo_8hpp.html", "ObjectLinkTo_8hpp" ],
     [ "ObjectManager.cpp", "ObjectManager_8cpp.html", null ],
     [ "ObjectManager.hpp", "ObjectManager_8hpp.html", "ObjectManager_8hpp" ],
     [ "ObjectNamed.cpp", "ObjectNamed_8cpp.html", null ],
@@ -26,5 +28,5 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "ScopedPtr.hpp", "AstUtil_2RTTI_2ScopedPtr_8hpp.html", "AstUtil_2RTTI_2ScopedPtr_8hpp" ],
     [ "SharedPtr.hpp", "AstUtil_2RTTI_2SharedPtr_8hpp.html", null ],
     [ "Type.hpp", "Type_8hpp.html", null ],
-    [ "WeakPtr.hpp", "AstUtil_2RTTI_2WeakPtr_8hpp.html", null ]
+    [ "WeakPtr.hpp", "AstUtil_2RTTI_2WeakPtr_8hpp.html", "AstUtil_2RTTI_2WeakPtr_8hpp" ]
 ];

@@ -5,5 +5,7 @@ var dir_9c9106fcc7ff0f590973c837d2bf1f53 =
     [ "Motion", "dir_0d88fe3c379cdebdd567bb4304149f2c.html", "dir_0d88fe3c379cdebdd567bb4304149f2c" ],
     [ "Object", "dir_128c6f41eb6cfa5c0de7e053913da9fb.html", "dir_128c6f41eb6cfa5c0de7e053913da9fb" ],
     [ "Visitor", "dir_788b8ed590fd781fe433308262763958.html", "dir_788b8ed590fd781fe433308262763958" ],
-    [ "AstSim.hpp", "AstSim_8hpp_source.html", null ]
+    [ "AstSim.hpp", "AstSim_8hpp_source.html", null ],
+    [ "SimAPI.cpp", "SimAPI_8cpp.html", "SimAPI_8cpp" ],
+    [ "SimAPI.hpp", "SimAPI_8hpp.html", "SimAPI_8hpp" ]
 ];
