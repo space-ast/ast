@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"MissionCommandLoader_8cpp.html#aaa29c9f543f5fc78b8f0d99236fc9232":[4,0,0,8,0,2,7,1],
 "MissionCommandLoader_8hpp.html":[4,0,0,8,0,2,8],
 "MissionCommandLoader_8hpp.html#aa0fc06314edb6a77d363cff11d78fb70":[4,0,0,8,0,2,8,0],
 "MissionCommandLoader_8hpp.html#aaa29c9f543f5fc78b8f0d99236fc9232":[4,0,0,8,0,2,8,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "ObjectEditRegistry_8cpp.html#a5ee505f80941487945b0ff8c1b668f46":[4,0,0,7,4,2,0],
 "ObjectEditRegistry_8cpp.html#ad085c071a789a488cd5e583b8124b34c":[4,0,0,7,4,2,1],
 "ObjectEditRegistry_8hpp.html":[4,0,0,7,4,3],
-"ObjectEditRegistry_8hpp.html#a5ee505f80941487945b0ff8c1b668f46":[4,0,0,7,4,3,1],
-"ObjectEditRegistry_8hpp.html#ad085c071a789a488cd5e583b8124b34c":[4,0,0,7,4,3,2]
+"ObjectEditRegistry_8hpp.html#a5ee505f80941487945b0ff8c1b668f46":[4,0,0,7,4,3,1]
 };

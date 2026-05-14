@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"DetectorLighting_8hpp_source.html":[4,0,0,5,7,0,25],
 "DetectorMeanAnomaly_8cpp.html":[4,0,0,5,7,0,26],
 "DetectorMeanAnomaly_8hpp.html":[4,0,0,5,7,0,27],
 "DetectorMeanAnomaly_8hpp_source.html":[4,0,0,5,7,0,27],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "FacilityLoader_8cpp.html#a9a36fb81662c6180cd0c07f93d87b4cb":[4,0,0,8,2,21,0],
 "FacilityLoader_8cpp.html#ac5a5f8581a4952c8b2677aaa8a513dcd":[4,0,0,8,2,21,3],
 "FacilityLoader_8cpp.html#aea1b4b3d38a09a096183067cc38bebb6":[4,0,0,8,2,21,7],
-"FacilityLoader_8cpp.html#aed72e3b19435ef02e9903175b032ebcf":[4,0,0,8,2,21,4],
-"FacilityLoader_8cpp.html#af2dc386aff6ab7fca14b0a0c8d0f1153":[4,0,0,8,2,21,1]
+"FacilityLoader_8cpp.html#aed72e3b19435ef02e9903175b032ebcf":[4,0,0,8,2,21,4]
 };

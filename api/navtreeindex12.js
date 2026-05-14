@@ -1,5 +1,9 @@
 var NAVTREEINDEX12 =
 {
+"StarLoader_8cpp.html#a70b3a331e1d5c4a16559b72833fc1024":[4,0,0,8,2,52,0],
+"StarLoader_8hpp.html":[4,0,0,8,2,53],
+"StarLoader_8hpp.html#a70b3a331e1d5c4a16559b72833fc1024":[4,0,0,8,2,53,0],
+"StarLoader_8hpp_source.html":[4,0,0,8,2,53],
 "Star_8cpp.html":[4,0,0,15,3,58],
 "Star_8hpp.html":[4,0,0,15,3,59],
 "Star_8hpp_source.html":[4,0,0,15,3,59],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "UiAttrState_8hpp_source.html":[4,0,0,7,1,3],
 "UiAttribute_8cpp.html":[4,0,0,7,1,0],
 "UiAttribute_8hpp.html":[4,0,0,7,1,1],
-"UiAttribute_8hpp_source.html":[4,0,0,7,1,1],
-"UiBodyEphemerisDE_8cpp.html":[4,0,0,7,7,0,0],
-"UiBodyEphemerisDE_8hpp.html":[4,0,0,7,7,0,1],
-"UiBodyEphemerisDE_8hpp_source.html":[4,0,0,7,7,0,1],
-"UiBodyEphemerisSPK_8cpp.html":[4,0,0,7,7,0,2]
+"UiAttribute_8hpp_source.html":[4,0,0,7,1,1]
 };

@@ -21,7 +21,8 @@ var searchData=
   ['equation_5f_18',['equation_',['../classast_1_1HPOP.html#abd48480d84f1f001f512825671ed7028',1,'ast::HPOP']]],
   ['errctrpowthhigh_5f_19',['errCtrPowthHigh_',['../classast_1_1ODEVarStepIntegrator.html#a06d9249225e051e7b7a6bd3e56054bbd',1,'ast::ODEVarStepIntegrator']]],
   ['errctrpowthlow_5f_20',['errCtrPowthLow_',['../classast_1_1ODEVarStepIntegrator.html#a54cbe8c566cf8190a5662e116b2469c5',1,'ast::ODEVarStepIntegrator']]],
-  ['errstring_5f_21',['errString_',['../classast_1_1Interpreter.html#a5d7a5b673c762bf5dc91fd1b79005167',1,'ast::Interpreter']]],
-  ['eventdetectorlist_5f_22',['eventDetectorList_',['../classast_1_1ODEIntegrator.html#ad03353fdea45aa002356a2659684e7e7',1,'ast::ODEIntegrator']]],
-  ['expr_5f_23',['expr_',['../classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532',1,'ast::OpUnary::expr_'],['../classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4',1,'ast::Variable::expr_']]]
+  ['error_5f_21',['error_',['../classast_1_1ScriptResult.html#ac6033b3843200d9a5b90c5483069fbe7',1,'ast::ScriptResult']]],
+  ['errstring_5f_22',['errString_',['../classast_1_1Interpreter.html#a5d7a5b673c762bf5dc91fd1b79005167',1,'ast::Interpreter']]],
+  ['eventdetectorlist_5f_23',['eventDetectorList_',['../classast_1_1ODEIntegrator.html#ad03353fdea45aa002356a2659684e7e7',1,'ast::ODEIntegrator']]],
+  ['expr_5f_24',['expr_',['../classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532',1,'ast::OpUnary::expr_'],['../classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4',1,'ast::Variable::expr_']]]
 ];

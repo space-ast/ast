@@ -1070,6 +1070,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScriptingToolProfile.html">ScriptingToolProfile</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScriptResult.html">ScriptResult</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScStateCalc1PtAccess.html">ScStateCalc1PtAccess</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScStateCalcAbsoluteValue.html">ScStateCalcAbsoluteValue</a></td></tr>
@@ -1377,6 +1379,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScStateCalcRMag.html">ScStateCalcRMag</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScStateCalcScalar.html">ScStateCalcScalar</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScStateCalcScript.html">ScStateCalcScript</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html">ScStateCalcSEETMagFieldFieldLineSepAngle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1897,6 +1901,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>HFrame</b> = <a clas
 <tr class="memitem:ga2dc6e719459f9795d6954e1ce6b2b572" id="r_ga2dc6e719459f9795d6954e1ce6b2b572"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><b>PFrame</b> = <a class="el" href="classast_1_1Frame.html">Frame</a>*</td></tr>
 <tr class="separator:ga2dc6e719459f9795d6954e1ce6b2b572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaaff797a6a221367f82022c8ec0093d" id="r_acaaff797a6a221367f82022c8ec0093d"><td class="memItemLeft" align="right" valign="top"><a id="acaaff797a6a221367f82022c8ec0093d" name="acaaff797a6a221367f82022c8ec0093d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>HScStateCalculation</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1ScStateCalculation.html">ScStateCalculation</a>&gt;</td></tr>
+<tr class="separator:acaaff797a6a221367f82022c8ec0093d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5166f51dccb591b49cc23b8276034c50" id="r_a5166f51dccb591b49cc23b8276034c50"><td class="memItemLeft" align="right" valign="top"><a id="a5166f51dccb591b49cc23b8276034c50" name="a5166f51dccb591b49cc23b8276034c50"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>PEphemeris</b> = <a class="el" href="classast_1_1Ephemeris.html">Ephemeris</a>*</td></tr>
 <tr class="separator:a5166f51dccb591b49cc23b8276034c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2998,6 +3005,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aCommandInitMover</b>
 <tr class="memitem:ac34269e5688a869075de8f13b91bdc19" id="r_ac34269e5688a869075de8f13b91bdc19"><td class="memItemLeft" align="right" valign="top"><a id="ac34269e5688a869075de8f13b91bdc19" name="ac34269e5688a869075de8f13b91bdc19"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>aCommandInitBasic</b> (<a class="el" href="classast_1_1CommandDispatcher.html">CommandDispatcher</a> &amp;dispatcher)</td></tr>
 <tr class="separator:ac34269e5688a869075de8f13b91bdc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb88200e691e251dde882083f2c01143" id="r_abb88200e691e251dde882083f2c01143"><td class="memItemLeft" align="right" valign="top"><a id="abb88200e691e251dde882083f2c01143" name="abb88200e691e251dde882083f2c01143"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>aCommandInitAstrogatorComp</b> (<a class="el" href="classast_1_1CommandDispatcher.html">CommandDispatcher</a> &amp;dispatcher)</td></tr>
+<tr class="separator:abb88200e691e251dde882083f2c01143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a075f5638c40a4ce9169b380c86064f7d" id="r_a075f5638c40a4ce9169b380c86064f7d"><td class="memItemLeft" align="right" valign="top"><a id="a075f5638c40a4ce9169b380c86064f7d" name="a075f5638c40a4ce9169b380c86064f7d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>aCommandDispatcherInit</b> (<a class="el" href="classast_1_1CommandDispatcher.html">CommandDispatcher</a> &amp;dispatcher)</td></tr>
 <tr class="separator:a075f5638c40a4ce9169b380c86064f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>

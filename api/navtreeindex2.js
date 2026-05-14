@@ -133,6 +133,7 @@ var NAVTREEINDEX2 =
 "CommandAPI_8hpp_source.html":[4,0,0,3,1],
 "CommandDispatcher_8hpp_source.html":[4,0,0,3,2],
 "CommandInit_8cpp.html":[4,0,0,3,3],
+"CommandInit_8cpp.html#abb88200e691e251dde882083f2c01143":[4,0,0,3,3,0],
 "CommandInit_8hpp.html":[4,0,0,3,4],
 "CommandInit_8hpp_source.html":[4,0,0,3,4],
 "CommandRouting_8cpp.html":[4,0,0,3,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "DetectorFrameRelated_8hpp.html":[4,0,0,5,7,0,23],
 "DetectorFrameRelated_8hpp_source.html":[4,0,0,5,7,0,23],
 "DetectorLighting_8cpp.html":[4,0,0,5,7,0,24],
-"DetectorLighting_8hpp.html":[4,0,0,5,7,0,25],
-"DetectorLighting_8hpp_source.html":[4,0,0,5,7,0,25]
+"DetectorLighting_8hpp.html":[4,0,0,5,7,0,25]
 };

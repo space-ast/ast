@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"ObjectEditRegistry_8hpp.html#ad085c071a789a488cd5e583b8124b34c":[4,0,0,7,4,3,2],
 "ObjectEditRegistry_8hpp_source.html":[4,0,0,7,4,3],
 "ObjectImpl_8hpp.html":[4,0,0,4,12],
 "ObjectImpl_8hpp_source.html":[4,0,0,4,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "RKF56_8hpp_source.html":[4,0,0,9,5,0,9],
 "RKF78_8cpp.html":[4,0,0,9,5,0,10],
 "RKF78_8hpp.html":[4,0,0,9,5,0,11],
-"RKF78_8hpp_source.html":[4,0,0,9,5,0,11],
-"RKV8_8cpp.html":[4,0,0,9,5,0,12]
+"RKF78_8hpp_source.html":[4,0,0,9,5,0,11]
 };

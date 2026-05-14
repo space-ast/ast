@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Orbit/Calculation/ScStateCalculation/ScStateCalcDifference.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Orbit/Calculation/ScStateCalculation/Others/ScStateCalcDifference.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,7 +106,7 @@ $(function(){initNavTree('ScStateCalcDifference_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="ScStateCalculation_8hpp.html">ScStateCalculation.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/ScStateCalculation.hpp&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstCore/Segment.hpp&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
@@ -144,12 +144,11 @@ $(function(){initNavTree('ScStateCalcDifference_8hpp_source.html',''); initResiz
 </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aScStateCalculation_8hpp_html"><div class="ttname"><a href="ScStateCalculation_8hpp.html">ScStateCalculation.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1ScStateCalcDifference_html"><div class="ttname"><a href="classast_1_1ScStateCalcDifference.html">ast::ScStateCalcDifference</a></div><div class="ttdef"><b>定义</b> ScStateCalcDifference.hpp:36</div></div>
 <div class="ttc" id="aclassast_1_1ScStateCalcDifference_html_a2a1a1cb55701d96a0fa4a5d3f11b0567"><div class="ttname"><a href="classast_1_1ScStateCalcDifference.html#a2a1a1cb55701d96a0fa4a5d3f11b0567">ast::ScStateCalcDifference::calculation</a></div><div class="ttdeci">ScStateCalculation * calculation() const</div><div class="ttdoc">获取计算对象</div><div class="ttdef"><b>定义</b> ScStateCalcDifference.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1ScStateCalcDifference_html_a8bc1fcd0e6dcf65d5e47bd5462b63940"><div class="ttname"><a href="classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940">ast::ScStateCalcDifference::setDifferenceOrderToUse</a></div><div class="ttdeci">void setDifferenceOrderToUse(EDifferenceOrderToUse order)</div><div class="ttdoc">设置差值顺序</div><div class="ttdef"><b>定义</b> ScStateCalcDifference.hpp:52</div></div>
 <div class="ttc" id="aclassast_1_1ScStateCalcDifference_html_affdef9a61c4cbfe493b09ef42a50ee54"><div class="ttname"><a href="classast_1_1ScStateCalcDifference.html#affdef9a61c4cbfe493b09ef42a50ee54">ast::ScStateCalcDifference::differenceOrderToUse</a></div><div class="ttdeci">EDifferenceOrderToUse differenceOrderToUse() const</div><div class="ttdoc">获取差值顺序</div><div class="ttdef"><b>定义</b> ScStateCalcDifference.hpp:49</div></div>
-<div class="ttc" id="aclassast_1_1ScStateCalculation_html"><div class="ttname"><a href="classast_1_1ScStateCalculation.html">ast::ScStateCalculation</a></div><div class="ttdef"><b>定义</b> ScStateCalculation.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1ScStateCalculation_html"><div class="ttname"><a href="classast_1_1ScStateCalculation.html">ast::ScStateCalculation</a></div><div class="ttdef"><b>定义</b> ScStateCalculation.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Segment_html"><div class="ttname"><a href="classast_1_1Segment.html">ast::Segment</a></div><div class="ttdoc">轨道段（虚基类），用于描述任务序列中的轨道段，例如初始状态段、轨道机动段、轨道预报段等</div><div class="ttdef"><b>定义</b> Segment.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1SpacecraftState_html"><div class="ttname"><a href="classast_1_1SpacecraftState.html">ast::SpacecraftState</a></div><div class="ttdoc">航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性</div><div class="ttdef"><b>定义</b> SpacecraftState.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1WeakPtr_html"><div class="ttname"><a href="classast_1_1WeakPtr.html">ast::WeakPtr</a></div><div class="ttdoc">弱引用指针</div><div class="ttdef"><b>定义</b> WeakPtr.hpp:35</div></div>
@@ -158,7 +157,7 @@ $(function(){initNavTree('ScStateCalcDifference_8hpp_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_fb8dea326293309ee9315e7aedad3578.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_c805074b54826f6193bd178f4be3ecef.html">Calculation</a></li><li class="navelem"><a class="el" href="dir_e9d3afb80887fe48a7f6aa3b1b2534e5.html">ScStateCalculation</a></li><li class="navelem"><a class="el" href="ScStateCalcDifference_8hpp.html">ScStateCalcDifference.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_fb8dea326293309ee9315e7aedad3578.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_c805074b54826f6193bd178f4be3ecef.html">Calculation</a></li><li class="navelem"><a class="el" href="dir_e9d3afb80887fe48a7f6aa3b1b2534e5.html">ScStateCalculation</a></li><li class="navelem"><a class="el" href="dir_21ca20f94ae482e65c1f5f3361d968f6.html">Others</a></li><li class="navelem"><a class="el" href="ScStateCalcDifference_8hpp.html">ScStateCalcDifference.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
