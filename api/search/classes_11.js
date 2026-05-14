@@ -16,5 +16,6 @@ var searchData=
   ['rkv8_13',['RKV8',['../classast_1_1RKV8.html',1,'ast']]],
   ['rotation_14',['Rotation',['../classast_1_1Rotation.html',1,'ast']]],
   ['rotationaldata_15',['RotationalData',['../classast_1_1RotationalData.html',1,'ast']]],
-  ['rotationelement_16',['RotationElement',['../classast_1_1RotationElement.html',1,'ast']]]
+  ['rotationelement_16',['RotationElement',['../classast_1_1RotationElement.html',1,'ast']]],
+  ['routinghandleresult_17',['RoutingHandleResult',['../classast_1_1RoutingHandleResult.html',1,'ast']]]
 ];

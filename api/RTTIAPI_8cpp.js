@@ -19,7 +19,7 @@ var RTTIAPI_8cpp =
     [ "aGetParentScope", "RTTIAPI_8cpp.html#ga25a796d58add8beaf21d2c9a61b0434d", null ],
     [ "aIsVirtualClass", "RTTIAPI_8cpp.html#ga13d47d0a6e51a7991658ed936c3ba14a", null ],
     [ "aMakeObject", "RTTIAPI_8cpp.html#ga0e7b21139f9b78f32be3e1920dc0cdf7", null ],
-    [ "aNewObject", "RTTIAPI_8cpp.html#ga949a9d47b45a81d30148cb09b83ab35b", null ],
+    [ "aNewObject", "RTTIAPI_8cpp.html#ga4c39c0026a76aab3550cafe694a09f9a", null ],
     [ "aPrintAllObjects", "RTTIAPI_8cpp.html#gad7583999ccabee6938cc9504c4f8dd59", null ],
     [ "aPrintObject", "RTTIAPI_8cpp.html#ga3232cbb472dbc90fbf0b1b7cee6d5104", null ],
     [ "aPrintObjectTree", "RTTIAPI_8cpp.html#gaf82b69919faf9d958f4ad3ebff8b3882", null ],

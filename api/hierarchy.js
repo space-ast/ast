@@ -15,6 +15,7 @@ var hierarchy =
       [ "ast::IArchive", "classast_1_1IArchive.html", null ],
       [ "ast::OArchive", "classast_1_1OArchive.html", null ]
     ] ],
+    [ "ast::detail::arg_pair< Pos, T >", "structast_1_1detail_1_1arg__pair.html", null ],
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
@@ -110,6 +111,12 @@ var hierarchy =
     [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
+    [ "ast::CommandDispatcher", "classast_1_1CommandDispatcher.html", null ],
+    [ "ast::CommandHandler", "classast_1_1CommandHandler.html", [
+      [ "ast::TaggedRule< F, Tuple >", "classast_1_1TaggedRule.html", null ]
+    ] ],
+    [ "ast::CommandTrie", "classast_1_1CommandTrie.html", null ],
+    [ "ast::CommandTrieNodeWrap< Tag, N >", "classast_1_1CommandTrieNodeWrap.html", null ],
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", null ],
@@ -131,6 +138,8 @@ var hierarchy =
     [ "ast::DaySecDuration", "classast_1_1DaySecDuration.html", null ],
     [ "ast::debin_header", "structast_1_1debin__header.html", null ],
     [ "ast::Debugger", "classast_1_1Debugger.html", null ],
+    [ "ast::detail::decode_impl< Tag, Pos, Count >", "structast_1_1detail_1_1decode__impl.html", null ],
+    [ "ast::detail::decode_impl< Tag, Pos, 0 >", "structast_1_1detail_1_1decode__impl_3_01Tag_00_01Pos_00_010_01_4.html", null ],
     [ "ast::DelaunayElem", "classast_1_1DelaunayElem.html", null ],
     [ "ast::strings_internal::DelimiterConcept", "structast_1_1strings__internal_1_1DelimiterConcept.html", null ],
     [ "ast::Dimension", "classast_1_1Dimension.html", null ],
@@ -370,6 +379,7 @@ var hierarchy =
     [ "lower6_1_", "structlower6__1__.html", null ],
     [ "ast::LowerMatrix< _Scalar >", "classast_1_1LowerMatrix.html", null ],
     [ "ast::LowerMatrix< double >", "classast_1_1LowerMatrix.html", null ],
+    [ "ast::detail::make_arg_pair< Tag, Pos >", "structast_1_1detail_1_1make__arg__pair.html", null ],
     [ "ast::Matrix< _Scalar >", "classast_1_1Matrix.html", null ],
     [ "ast::MatrixMN< _Scalar, Row, Col >", "classast_1_1MatrixMN.html", null ],
     [ "ast::MatrixMN< _Scalar, 3, 3 >", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html", null ],
@@ -408,6 +418,7 @@ var hierarchy =
     [ "ast::NLPProblem", "classast_1_1NLPProblem.html", null ],
     [ "ast::NLPVector", "structast_1_1NLPVector.html", null ],
     [ "ast::NLPVectorBounds", "structast_1_1NLPVectorBounds.html", null ],
+    [ "ast::CommandTrie::Node", "classast_1_1CommandTrie_1_1Node.html", null ],
     [ "ast::NoopStream", "classast_1_1NoopStream.html", null ],
     [ "nrlmsise_flags", "structnrlmsise__flags.html", null ],
     [ "nrlmsise_input", "structnrlmsise__input.html", null ],
@@ -1001,6 +1012,7 @@ var hierarchy =
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],
     [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
+    [ "ast::RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
     [ "ast::Scanner", "classast_1_1Scanner.html", [
       [ "ast::FileScanner", "classast_1_1FileScanner.html", null ],
       [ "ast::StreamScanner", "classast_1_1StreamScanner.html", null ],
@@ -1118,6 +1130,12 @@ var hierarchy =
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
     ] ],
     [ "ast::TwoLineElement", "classast_1_1TwoLineElement.html", null ],
+    [ "ast::detail::type_from_tag< TypeCode >", "structast_1_1detail_1_1type__from__tag.html", null ],
+    [ "ast::detail::type_from_tag< type_bool >", "structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html", null ],
+    [ "ast::detail::type_from_tag< type_double >", "structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html", null ],
+    [ "ast::detail::type_from_tag< type_int >", "structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html", null ],
+    [ "ast::detail::type_from_tag< type_object >", "structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html", null ],
+    [ "ast::detail::type_from_tag< type_string >", "structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html", null ],
     [ "ast::UnaryVectorFunc", "classast_1_1UnaryVectorFunc.html", [
       [ "ast::Interpolator", "classast_1_1Interpolator.html", null ],
       [ "ast::UnaryScalarFunc", "classast_1_1UnaryScalarFunc.html", [
@@ -1133,6 +1151,8 @@ var hierarchy =
     [ "Vardesc", "structVardesc.html", null ],
     [ "ast::VariableList", "classast_1_1VariableList.html", null ],
     [ "std::vector", null, [
+      [ "ast::CommandParams", "classast_1_1CommandParams.html", null ],
+      [ "ast::CommandResult", "classast_1_1CommandResult.html", null ],
       [ "ast::XMLSax::AttributeList", "classast_1_1XMLSax_1_1AttributeList.html", null ]
     ] ],
     [ "ast::VectorN< _Scalar, N >", "classast_1_1VectorN.html", null ],

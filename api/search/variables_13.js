@@ -46,7 +46,7 @@ var searchData=
   ['string_5f_43',['string_',['../classast_1_1JsonValue.html#a80845994c6455f6fb2ac941f3c1391a7',1,'ast::JsonValue']]],
   ['subsatellitepoint_5f_44',['subsatellitePoint_',['../classast_1_1StationaryOrbitDesigner.html#aaaae8ed54c4beeed20f9dc5c44f0e8c2',1,'ast::StationaryOrbitDesigner']]],
   ['subunits_5f_45',['subUnits_',['../classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd',1,'ast::Unit::UnitRep']]],
-  ['summaries_46',['summaries',['../structast_1_1DAF__SummaryRecords.html#aad1831fb0f44c60f21c4543d192f4850',1,'ast::DAF_SummaryRecords']]],
+  ['summaries_46',['summaries',['../structast_1_1DAF__SummaryRecords.html#a787560fcc57921347e0302ed5fa0ce2a',1,'ast::DAF_SummaryRecords']]],
   ['sun_5f_47',['sun_',['../classast_1_1SolarSystem.html#ae0679a4c0eedb7641a108d8d9769d2d2',1,'ast::SolarSystem']]],
   ['sunposition_5f_48',['sunPosition_',['../classast_1_1DragForce.html#a2554f5ed2e943c0943948bc3abb9bf71',1,'ast::DragForce::sunPosition_'],['../classast_1_1SolarRadiationPressure.html#a8d4afddf226572309ed10e267561c35c',1,'ast::SolarRadiationPressure::sunPosition_']]],
   ['switch_5fmethod_5f_49',['switch_method_',['../classast_1_1TwoLineElement.html#a126a680c2a68abbfb886e023b8aaf257',1,'ast::TwoLineElement']]],

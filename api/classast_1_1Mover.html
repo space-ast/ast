@@ -142,6 +142,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ae084c716d3b402fc56e940e8fca91cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acea5658b64f70ddbcc9911d383b07d6c" id="r_acea5658b64f70ddbcc9911d383b07d6c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acea5658b64f70ddbcc9911d383b07d6c">generateEphemeris</a> ()</td></tr>
 <tr class="separator:acea5658b64f70ddbcc9911d383b07d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3db1eb30c1beed5ca9f39751a6dd541" id="r_af3db1eb30c1beed5ca9f39751a6dd541"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">Body</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3db1eb30c1beed5ca9f39751a6dd541">getBody</a> () const</td></tr>
+<tr class="separator:af3db1eb30c1beed5ca9f39751a6dd541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ad465560a941dbf562b30818774edcd" id="r_a9ad465560a941dbf562b30818774edcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ad465560a941dbf562b30818774edcd">getFrame</a> () const final</td></tr>
 <tr class="separator:a9ad465560a941dbf562b30818774edcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9686a0438cfdfa55f999bcc7057ae09" id="r_ab9686a0438cfdfa55f999bcc7057ae09"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9686a0438cfdfa55f999bcc7057ae09">getPos</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos) const final</td></tr>
@@ -366,6 +368,26 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 <p>获取姿态定义 </p>
 <dl class="section return"><dt>返回</dt><dd>姿态定义指针 </dd></dl>
+
+</div>
+</div>
+<a id="af3db1eb30c1beed5ca9f39751a6dd541" name="af3db1eb30c1beed5ca9f39751a6dd541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3db1eb30c1beed5ca9f39751a6dd541">&#9670;&#160;</a></span>getBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1CelestialBody.html">Body</a> * ast::Mover::getBody </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>尝试获取对象的中心天体 </p>
+<dl class="section note"><dt>注解</dt><dd>该函数目前效率不高，建议在只必要时使用，不要频繁调用 </dd></dl>
 
 </div>
 </div>

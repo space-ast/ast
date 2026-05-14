@@ -2,9 +2,13 @@ var annotated_dup =
 [
     [ "ast", "namespaceast.html", [
       [ "detail", null, [
+        [ "arg_pair", "structast_1_1detail_1_1arg__pair.html", null ],
+        [ "decode_impl", "structast_1_1detail_1_1decode__impl.html", null ],
+        [ "decode_impl< Tag, Pos, 0 >", "structast_1_1detail_1_1decode__impl_3_01Tag_00_01Pos_00_010_01_4.html", null ],
         [ "GetterErrorSetterTag", "structast_1_1detail_1_1GetterErrorSetterTag.html", null ],
         [ "GetterOnlyTag", "structast_1_1detail_1_1GetterOnlyTag.html", null ],
         [ "GetterVoidSetterTag", "structast_1_1detail_1_1GetterVoidSetterTag.html", null ],
+        [ "make_arg_pair", "structast_1_1detail_1_1make__arg__pair.html", null ],
         [ "MemberPtrTag", "structast_1_1detail_1_1MemberPtrTag.html", null ],
         [ "PropertyBuilder", "structast_1_1detail_1_1PropertyBuilder.html", null ],
         [ "PropertyBuilder< T, std::string, GetterErrorSetterTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01std_1_1string_00_01GetterErrorSetterTag_01_4.html", null ],
@@ -13,7 +17,13 @@ var annotated_dup =
         [ "PropertyBuilder< T, ValueType, GetterOnlyTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01GetterOnlyTag_01_4.html", null ],
         [ "PropertyBuilder< T, ValueType, GetterVoidSetterTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01GetterVoidSetterTag_01_4.html", null ],
         [ "PropertyBuilder< T, ValueType, MemberPtrTag >", "structast_1_1detail_1_1PropertyBuilder_3_01T_00_01ValueType_00_01MemberPtrTag_01_4.html", null ],
-        [ "PropertyBuilderValueString", "structast_1_1detail_1_1PropertyBuilderValueString.html", null ]
+        [ "PropertyBuilderValueString", "structast_1_1detail_1_1PropertyBuilderValueString.html", null ],
+        [ "type_from_tag", "structast_1_1detail_1_1type__from__tag.html", null ],
+        [ "type_from_tag< type_bool >", "structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html", null ],
+        [ "type_from_tag< type_double >", "structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html", null ],
+        [ "type_from_tag< type_int >", "structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html", null ],
+        [ "type_from_tag< type_object >", "structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html", null ],
+        [ "type_from_tag< type_string >", "structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html", null ]
       ] ],
       [ "fs_simple", "namespaceast_1_1fs__simple.html", [
         [ "directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
@@ -164,6 +174,12 @@ var annotated_dup =
       [ "CObjectRoot", "classast_1_1CObjectRoot.html", "classast_1_1CObjectRoot" ],
       [ "Color", "classast_1_1Color.html", null ],
       [ "Command", "classast_1_1Command.html", "classast_1_1Command" ],
+      [ "CommandDispatcher", "classast_1_1CommandDispatcher.html", null ],
+      [ "CommandHandler", "classast_1_1CommandHandler.html", "classast_1_1CommandHandler" ],
+      [ "CommandParams", "classast_1_1CommandParams.html", null ],
+      [ "CommandResult", "classast_1_1CommandResult.html", null ],
+      [ "CommandTrie", "classast_1_1CommandTrie.html", "classast_1_1CommandTrie" ],
+      [ "CommandTrieNodeWrap", "classast_1_1CommandTrieNodeWrap.html", null ],
       [ "CommSystem", "classast_1_1CommSystem.html", null ],
       [ "ComObjectManager", "classast_1_1ComObjectManager.html", null ],
       [ "Constellation", "classast_1_1Constellation.html", null ],
@@ -501,6 +517,7 @@ var annotated_dup =
       [ "Rotation", "classast_1_1Rotation.html", "classast_1_1Rotation" ],
       [ "RotationalData", "classast_1_1RotationalData.html", "classast_1_1RotationalData" ],
       [ "RotationElement", "classast_1_1RotationElement.html", "classast_1_1RotationElement" ],
+      [ "RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
       [ "Satellite", "classast_1_1Satellite.html", null ],
       [ "Scanner", "classast_1_1Scanner.html", "classast_1_1Scanner" ],
       [ "Scenario", "classast_1_1Scenario.html", "classast_1_1Scenario" ],
@@ -790,6 +807,7 @@ var annotated_dup =
       [ "Symbol", "classast_1_1Symbol.html", "classast_1_1Symbol" ],
       [ "SymbolScope", "classast_1_1SymbolScope.html", "classast_1_1SymbolScope" ],
       [ "SymbolTable", "classast_1_1SymbolTable.html", null ],
+      [ "TaggedRule", "classast_1_1TaggedRule.html", "classast_1_1TaggedRule" ],
       [ "TAIScale", "classast_1_1TAIScale.html", null ],
       [ "Target", "classast_1_1Target.html", null ],
       [ "TargeterGraph", "classast_1_1TargeterGraph.html", null ],

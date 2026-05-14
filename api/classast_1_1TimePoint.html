@@ -157,8 +157,15 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>daysFrom</b> (const
 <tr class="separator:a6cea9ade35ef061d16beeab1e0b48708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a684d79309f622b675da2a9695bbe0108" id="r_a684d79309f622b675da2a9695bbe0108"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a684d79309f622b675da2a9695bbe0108">operator-</a> (double second) const</td></tr>
 <tr class="separator:a684d79309f622b675da2a9695bbe0108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9867a4fea41c664ad6e67fcb547201d3" id="r_a9867a4fea41c664ad6e67fcb547201d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9867a4fea41c664ad6e67fcb547201d3">operator==</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;other) const</td></tr>
+<tr class="memitem:a9867a4fea41c664ad6e67fcb547201d3" id="r_a9867a4fea41c664ad6e67fcb547201d3"><td class="memItemLeft" align="right" valign="top"><a id="a9867a4fea41c664ad6e67fcb547201d3" name="a9867a4fea41c664ad6e67fcb547201d3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;other) const</td></tr>
 <tr class="separator:a9867a4fea41c664ad6e67fcb547201d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe00c096bd30dd978467f6748dd4f224" id="r_afe00c096bd30dd978467f6748dd4f224"><td class="memItemLeft" align="right" valign="top"><a id="afe00c096bd30dd978467f6748dd4f224" name="afe00c096bd30dd978467f6748dd4f224"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;other) const</td></tr>
+<tr class="separator:afe00c096bd30dd978467f6748dd4f224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa1a001051c09227dc546cbefd459f2" id="r_acaa1a001051c09227dc546cbefd459f2"><td class="memItemLeft" align="right" valign="top"><a id="acaa1a001051c09227dc546cbefd459f2" name="acaa1a001051c09227dc546cbefd459f2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;other) const</td></tr>
+<tr class="separator:acaa1a001051c09227dc546cbefd459f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcd52a7e2f0e8c0627ccf3918d2c2011" id="r_afcd52a7e2f0e8c0627ccf3918d2c2011"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcd52a7e2f0e8c0627ccf3918d2c2011">toString</a> (int precision=kTimePointDefaultFormatPrecision) const</td></tr>
 <tr class="separator:afcd52a7e2f0e8c0627ccf3918d2c2011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27c238cc13dc80d5497ffa4f07cd4414" id="r_a27c238cc13dc80d5497ffa4f07cd4414"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27c238cc13dc80d5497ffa4f07cd4414">shiftedBySecond</a> (double second) const</td></tr>
@@ -354,40 +361,6 @@ static <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>新的时间点 </dd></dl>
-
-</div>
-</div>
-<a id="a9867a4fea41c664ad6e67fcb547201d3" name="a9867a4fea41c664ad6e67fcb547201d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9867a4fea41c664ad6e67fcb547201d3">&#9670;&#160;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ast::TimePoint::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>时间点等于运算符 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>另一个时间点 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>是否相等 </dd></dl>
 
 </div>
 </div>

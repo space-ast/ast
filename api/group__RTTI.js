@@ -241,7 +241,7 @@ var group__RTTI =
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::FPropertyGet", "group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee", null ],
     [ "ast::FPropertySet", "group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42", [
-      [ "ast::INVALID_ID", "group__RTTI.html#ggacf47765b3debdc569a49073eaa3fd1d1abb2ccfb13bbc2fc2827f77f2a3556ea2", null ]
+      [ "ast::INVALID_ID", "group__RTTI.html#ggab2bdc7defc2233ca846f6ae74bea3224abb2ccfb13bbc2fc2827f77f2a3556ea2", null ]
     ] ],
     [ "ast::EValueType", "group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a", [
       [ "ast::EValueType::eBool", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8", null ],
@@ -276,7 +276,7 @@ var group__RTTI =
     [ "ast::aIsVirtualClass", "group__RTTI.html#ga13d47d0a6e51a7991658ed936c3ba14a", null ],
     [ "ast::aMakeObject", "group__RTTI.html#ga0e7b21139f9b78f32be3e1920dc0cdf7", null ],
     [ "ast::aNewObject", "group__RTTI.html#gadc002263f7cd7c9a750a10073a1df929", null ],
-    [ "ast::aNewObject", "group__RTTI.html#ga949a9d47b45a81d30148cb09b83ab35b", null ],
+    [ "ast::aNewObject", "group__RTTI.html#ga4c39c0026a76aab3550cafe694a09f9a", null ],
     [ "ast::aPrintAllObjects", "group__RTTI.html#gad7583999ccabee6938cc9504c4f8dd59", null ],
     [ "ast::aPrintObject", "group__RTTI.html#ga3232cbb472dbc90fbf0b1b7cee6d5104", null ],
     [ "ast::aPrintObjectTree", "group__RTTI.html#gaf82b69919faf9d958f4ad3ebff8b3882", null ],

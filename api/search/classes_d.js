@@ -17,12 +17,13 @@ var searchData=
   ['nlpproblem_14',['NLPProblem',['../classast_1_1NLPProblem.html',1,'ast']]],
   ['nlpvector_15',['NLPVector',['../structast_1_1NLPVector.html',1,'ast']]],
   ['nlpvectorbounds_16',['NLPVectorBounds',['../structast_1_1NLPVectorBounds.html',1,'ast']]],
-  ['nooporientation_17',['NoopOrientation',['../classast_1_1NoopOrientation.html',1,'ast']]],
-  ['noopstream_18',['NoopStream',['../classast_1_1NoopStream.html',1,'ast']]],
-  ['nrlmsise_5fflags_19',['nrlmsise_flags',['../structnrlmsise__flags.html',1,'']]],
-  ['nrlmsise_5finput_20',['nrlmsise_input',['../structnrlmsise__input.html',1,'']]],
-  ['nrlmsise_5foutput_21',['nrlmsise_output',['../structnrlmsise__output.html',1,'']]],
-  ['nutationcache_22',['NutationCache',['../structast_1_1NutationCache.html',1,'ast']]],
-  ['nutationseries_23',['NutationSeries',['../classast_1_1NutationSeries.html',1,'ast']]],
-  ['nutationterm_24',['NutationTerm',['../classast_1_1NutationTerm.html',1,'ast']]]
+  ['node_17',['Node',['../classast_1_1CommandTrie_1_1Node.html',1,'ast::CommandTrie']]],
+  ['nooporientation_18',['NoopOrientation',['../classast_1_1NoopOrientation.html',1,'ast']]],
+  ['noopstream_19',['NoopStream',['../classast_1_1NoopStream.html',1,'ast']]],
+  ['nrlmsise_5fflags_20',['nrlmsise_flags',['../structnrlmsise__flags.html',1,'']]],
+  ['nrlmsise_5finput_21',['nrlmsise_input',['../structnrlmsise__input.html',1,'']]],
+  ['nrlmsise_5foutput_22',['nrlmsise_output',['../structnrlmsise__output.html',1,'']]],
+  ['nutationcache_23',['NutationCache',['../structast_1_1NutationCache.html',1,'ast']]],
+  ['nutationseries_24',['NutationSeries',['../classast_1_1NutationSeries.html',1,'ast']]],
+  ['nutationterm_25',['NutationTerm',['../classast_1_1NutationTerm.html',1,'ast']]]
 ];
