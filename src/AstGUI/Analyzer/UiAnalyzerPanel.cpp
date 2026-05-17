@@ -1,0 +1,251 @@
+///
+/// @file      UiAnalyzerPanel.cpp
+/// @brief     AstAnalyzer 主分析面板实现
+/// @details   ~
+/// @author    axel
+/// @date      2026-05-17
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
+///
+/// SpaceAST项目（https://github.com/space-ast/ast）
+/// 本软件基于 Apache 2.0 开源许可证分发。
+
+#include "UiAnalyzerPanel.hpp"
+#include "UiVariableList.hpp"
+#include "UiResponseList.hpp"
+#include "UiPropertyEditor.hpp"
+#include "UiResultView.hpp"
+#include "AstAnalyzer/TraverseSearchAnalyzer.hpp"
+#include "AstAnalyzer/AnalyzerVariable.hpp"
+#include "AstAnalyzer/AnalyzerConstraint.hpp"
+#include "AstCore/Command.hpp"
+#include "AstUtil/RTTIAPI.hpp"
+
+#include <QSplitter>
+#include <QVBoxLayout>
+#include <QMessageBox>
+#include <QElapsedTimer>
+
+AST_NAMESPACE_BEGIN
+
+UiAnalyzerPanel::UiAnalyzerPanel(QWidget* parent)
+    : QDockWidget(tr("Analyzer"), parent)
+{
+    setObjectName("UiAnalyzerPanel");
+    setMinimumWidth(300);
+    setupUi();
+    setupConnections();
+}
+
+UiAnalyzerPanel::~UiAnalyzerPanel() = default;
+
+void UiAnalyzerPanel::setupUi()
+{
+    auto* centralWidget = new QWidget(this);
+    auto* rootLayout = new QVBoxLayout(centralWidget);
+    rootLayout->setContentsMargins(4, 4, 4, 4);
+
+    // ---- 工具栏 ----
+    setupToolBar();
+
+    // ---- 主分割器 (水平: 左侧列表+右侧属性) ----
+    mainSplitter_ = new QSplitter(Qt::Horizontal, this);
+
+    // 左侧垂直分割器: 变量列表 + 响应列表
+    leftSplitter_ = new QSplitter(Qt::Vertical, this);
+
+    variableList_ = new UiVariableList(this);
+    leftSplitter_->addWidget(variableList_);
+
+    responseList_ = new UiResponseList(this);
+    leftSplitter_->addWidget(responseList_);
+
+    leftSplitter_->setStretchFactor(0, 1);
+    leftSplitter_->setStretchFactor(1, 1);
+
+    mainSplitter_->addWidget(leftSplitter_);
+
+    // 右侧属性编辑器
+    propertyEditor_ = new UiPropertyEditor(this);
+    mainSplitter_->addWidget(propertyEditor_);
+
+    mainSplitter_->setStretchFactor(0, 2);
+    mainSplitter_->setStretchFactor(1, 3);
+
+    rootLayout->addWidget(mainSplitter_);
+
+    // 结果表格
+    resultView_ = new UiResultView(this);
+    rootLayout->addWidget(resultView_);
+
+    setWidget(centralWidget);
+}
+
+void UiAnalyzerPanel::setupToolBar()
+{
+    toolBar_ = new QToolBar(tr("Analysis"), this);
+
+    runAction_ = toolBar_->addAction(tr("▶ Run"));
+    runAction_->setToolTip(tr("Start parameter sweep analysis"));
+
+    stopAction_ = toolBar_->addAction(tr("■ Stop"));
+    stopAction_->setToolTip(tr("Stop running analysis"));
+    stopAction_->setEnabled(false);
+
+    setTitleBarWidget(toolBar_);
+}
+
+void UiAnalyzerPanel::setupConnections()
+{
+    connect(runAction_, &QAction::triggered,
+            this, &UiAnalyzerPanel::onRunClicked);
+    connect(stopAction_, &QAction::triggered,
+            this, &UiAnalyzerPanel::onStopClicked);
+
+    connect(variableList_, &UiVariableList::variableSelected,
+            this, &UiAnalyzerPanel::onVariableSelected);
+    connect(variableList_, &UiVariableList::addVariableRequested,
+            this, &UiAnalyzerPanel::onAddVariable);
+
+    connect(responseList_, &UiResponseList::responseSelected,
+            this, &UiAnalyzerPanel::onResponseSelected);
+    connect(responseList_, &UiResponseList::addResponseRequested,
+            this, &UiAnalyzerPanel::onAddResponse);
+
+    connect(this, &UiAnalyzerPanel::runCompleted,
+            this, &UiAnalyzerPanel::onRunResult);
+    connect(this, &UiAnalyzerPanel::progressChanged,
+            this, &UiAnalyzerPanel::onProgress);
+}
+
+// ============================================================================
+// 公共接口
+// ============================================================================
+
+void UiAnalyzerPanel::setSimulationCommand(Command* command)
+{
+    if (!analyzer_)
+    {
+        analyzer_ = aNewObject<TraverseSearchAnalyzer>();
+    }
+    // TODO: analyzer_->setSimulationCommand(command);
+}
+
+TraverseSearchAnalyzer* UiAnalyzerPanel::analyzer() const
+{
+    return analyzer_;
+}
+
+// ============================================================================
+// 槽函数
+// ============================================================================
+
+void UiAnalyzerPanel::onRunClicked()
+{
+    if (!analyzer_)
+    {
+        QMessageBox::warning(this, tr("Analyzer"),
+                             tr("No analyzer configured. Please add variables and responses first."));
+        return;
+    }
+
+    // 应用当前属性编辑
+    propertyEditor_->applyCurrent();
+
+    if (running_)
+        return;
+
+    running_ = true;
+    runAction_->setEnabled(false);
+    stopAction_->setEnabled(true);
+    emit analysisStarted();
+
+    resultView_->clearResults();
+
+    // 收集列名
+    QStringList varNames, respNames;
+    // TODO: get from analyzer
+    resultView_->initColumns(varNames, respNames);
+
+    // 分析在后台执行
+    QElapsedTimer timer;
+    timer.start();
+
+    // TODO: 调用 analyzer_->execute() 并在循环中发送信号
+    // 当前占位实现：
+    // int total = analyzer_->totalRuns();
+    // for (int i = 0; i < total; ++i) {
+    //     if (!running_) break;
+    //     analyzer_->executeStep(i);
+    //     emit progressChanged(i + 1, total);
+    //     emit runCompleted(i + 1, varValues, respValues);
+    // }
+    // resultView_->setElapsedTime(timer.elapsed() / 1000.0);
+
+    running_ = false;
+    runAction_->setEnabled(true);
+    stopAction_->setEnabled(false);
+    emit analysisFinished();
+}
+
+void UiAnalyzerPanel::onStopClicked()
+{
+    running_ = false;
+}
+
+void UiAnalyzerPanel::onAddVariable()
+{
+    if (!analyzer_)
+        analyzer_ = aNewObject<TraverseSearchAnalyzer>();
+
+    auto* variable = aNewObject<AnalyzerVariable>();
+    variable->setName("Variable");
+    // TODO: analyzer_->addVariable(variable);
+
+    // TODO: 刷新变量列表
+    emit variableList_->variableSelected(variable);
+    propertyEditor_->editVariable(variable);
+}
+
+void UiAnalyzerPanel::onAddResponse()
+{
+    if (!analyzer_)
+        analyzer_ = aNewObject<TraverseSearchAnalyzer>();
+
+    auto* response = aNewObject<AnalyzerConstraint>();
+    response->setName("Response");
+    // TODO: analyzer_->addConstraint(response);
+
+    // TODO: 刷新响应列表
+    emit responseList_->responseSelected(response);
+    propertyEditor_->editResponse(response);
+}
+
+void UiAnalyzerPanel::onVariableSelected(AnalyzerVariable* variable)
+{
+    if (variable)
+        propertyEditor_->editVariable(variable);
+    else
+        propertyEditor_->clear();
+}
+
+void UiAnalyzerPanel::onResponseSelected(AnalyzerConstraint* response)
+{
+    if (response)
+        propertyEditor_->editResponse(response);
+    else
+        propertyEditor_->clear();
+}
+
+void UiAnalyzerPanel::onRunResult(int runIndex,
+                                   const std::vector<double>& varValues,
+                                   const std::vector<double>& respValues)
+{
+    resultView_->appendRow(runIndex, varValues, respValues);
+}
+
+void UiAnalyzerPanel::onProgress(int current, int total)
+{
+    resultView_->setProgress(current, total);
+}
+
+AST_NAMESPACE_END
