@@ -6,7 +6,7 @@ var searchData=
   ['bind_3',['bind',['../classast_1_1Variable.html#a78721e1b03e536165d5fedf8df1e0d26',1,'ast::Variable']]],
   ['bisect_4',['bisect',['../group__NLE.html#gae7b87132fc03898f8392005c491953ee',1,'ast']]],
   ['bkvitem_5',['BKVItem',['../classast_1_1BKVItem.html#a8fef94947d4d4550e5ae413c3fdda67c',1,'ast::BKVItem']]],
-  ['bodc2n_6',['bodc2n',['../classast_1_1SpiceApi.html#a09a9cab2cbcb31dfc31a0ae956a8ae49',1,'ast::SpiceApi']]],
+  ['bodc2n_6',['bodc2n',['../classast_1_1SpiceAPI.html#a90899642c78d7a984187a952bbce5a6c',1,'ast::SpiceAPI']]],
   ['body_7',['body',['../classast_1_1ThirdBodyForce.html#a03909272d0a0be0e51bcd721826c6e36',1,'ast::ThirdBodyForce::body()'],['../classast_1_1NetworkRequest.html#acb90655c4a6913324f1e4310ddedce25',1,'ast::NetworkRequest::body()'],['../classast_1_1NetworkResponse.html#a45cd8db6429add5b763ecc2aedb852f3',1,'ast::NetworkResponse::body()']]],
   ['bodyattraction_8',['bodyAttraction',['../classast_1_1HPOPForceModel.html#a57c5aed5f921158e03a8e7e2a9a2e278',1,'ast::HPOPForceModel::bodyAttraction()'],['../classast_1_1HPOPForceModel.html#a2d507a0f5e18e01b817d0dc14be5c1c8',1,'ast::HPOPForceModel::bodyAttraction() const'],['../classast_1_1ThirdBodyForce.html#ac2dac5f43da076e1ba454724762ee788',1,'ast::ThirdBodyForce::bodyAttraction()'],['../classast_1_1ThirdBodyForce.html#ab5ed1d3aa3f81726b0b1d6261dce9342',1,'ast::ThirdBodyForce::bodyAttraction() const']]],
   ['bodyattractiontype_9',['bodyAttractionType',['../classast_1_1HPOPForceModel.html#ac1b20df62fcfdedb0f3b51373932747b',1,'ast::HPOPForceModel::bodyAttractionType()'],['../classast_1_1ThirdBodyForce.html#a1cd9f88cf641f8433900ab554eb19646',1,'ast::ThirdBodyForce::bodyAttractionType()']]],

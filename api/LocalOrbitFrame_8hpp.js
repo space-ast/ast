@@ -1,7 +1,5 @@
 var LocalOrbitFrame_8hpp =
 [
-    [ "aENUToFrameMatrix", "LocalOrbitFrame_8hpp.html#gaecf57cfbcc8544da60122e4a13be4253", null ],
-    [ "aFrameToENUMatrix", "LocalOrbitFrame_8hpp.html#ga43124d9b08b01305f353564b3492ba3c", null ],
     [ "aFrameToLVLHMatrix", "LocalOrbitFrame_8hpp.html#gafd85ac2ebe99c85d4a8695ac8d844c5e", null ],
     [ "aFrameToVNCMatrix", "LocalOrbitFrame_8hpp.html#ga791e5c9fb3bd6c4e80bf449be65e5f7e", null ],
     [ "aFrameToVNCTransform", "LocalOrbitFrame_8hpp.html#ga7cef100113125d9fcf0666fc30e29509", null ],

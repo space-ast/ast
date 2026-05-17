@@ -121,7 +121,7 @@ $(function(){initNavTree('Parser_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> currentLexeme() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1Parser.html#a0334cd1edd397cc248c4a5066fa035f6">   43</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1Parser.html#a0334cd1edd397cc248c4a5066fa035f6">getLine</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// size_t getLine() const;</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> advance();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
@@ -131,7 +131,7 @@ $(function(){initNavTree('Parser_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* parseExpression();</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1Parser.html#a43465ed09cd9236d43fd7c29c78aadaf">   58</a></span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* <a class="code hl_function" href="classast_1_1Parser.html#a43465ed09cd9236d43fd7c29c78aadaf">parseStatements</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// Expr* parseStatements();</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* parseAssignExpr();</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
@@ -153,7 +153,7 @@ $(function(){initNavTree('Parser_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* parseRangeExpr();</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classast_1_1Parser.html#a9461626bff94ebaecd758be539dc6577">   91</a></span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* <a class="code hl_function" href="classast_1_1Parser.html#a9461626bff94ebaecd758be539dc6577">parseRangeExprFrom</a>(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* startExpr);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// Expr* parseRangeExprFrom(Expr* startExpr);</span></div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* parseShiftExpr();</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    </div>
@@ -194,9 +194,6 @@ $(function(){initNavTree('Parser_8hpp_source.html',''); initResizable(true); });
 <div class="ttc" id="aclassast_1_1Lexer_html"><div class="ttname"><a href="classast_1_1Lexer.html">ast::Lexer</a></div><div class="ttdoc">词法分析器</div><div class="ttdef"><b>定义</b> Lexer.hpp:34</div></div>
 <div class="ttc" id="aclassast_1_1Lexer_html_ab1519087cd861bd99b3eac612c96a567"><div class="ttname"><a href="classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567">ast::Lexer::ETokenType</a></div><div class="ttdeci">ETokenType</div><div class="ttdoc">令牌类型枚举</div><div class="ttdef"><b>定义</b> Lexer.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1Parser_html"><div class="ttname"><a href="classast_1_1Parser.html">ast::Parser</a></div><div class="ttdoc">脚本语法解析器</div><div class="ttdef"><b>定义</b> Parser.hpp:32</div></div>
-<div class="ttc" id="aclassast_1_1Parser_html_a0334cd1edd397cc248c4a5066fa035f6"><div class="ttname"><a href="classast_1_1Parser.html#a0334cd1edd397cc248c4a5066fa035f6">ast::Parser::getLine</a></div><div class="ttdeci">size_t getLine() const</div><div class="ttdoc">获取当前行号</div></div>
-<div class="ttc" id="aclassast_1_1Parser_html_a43465ed09cd9236d43fd7c29c78aadaf"><div class="ttname"><a href="classast_1_1Parser.html#a43465ed09cd9236d43fd7c29c78aadaf">ast::Parser::parseStatements</a></div><div class="ttdeci">Expr * parseStatements()</div><div class="ttdoc">解析语句序列（多个表达式，用分号或换行分隔）</div></div>
-<div class="ttc" id="aclassast_1_1Parser_html_a9461626bff94ebaecd758be539dc6577"><div class="ttname"><a href="classast_1_1Parser.html#a9461626bff94ebaecd758be539dc6577">ast::Parser::parseRangeExprFrom</a></div><div class="ttdeci">Expr * parseRangeExprFrom(Expr *startExpr)</div><div class="ttdoc">从给定的起始表达式解析范围表达式</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

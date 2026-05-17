@@ -1,5 +1,5 @@
 var OrbitDesign_8cpp =
 [
-    [ "aSunSynchronousInclination", "OrbitDesign_8cpp.html#gacc89cefe96db673b4b967cf7ed98cd20", null ],
-    [ "aSunSynchronousSemiMajorAxis", "OrbitDesign_8cpp.html#gafff1c732ded04209671dceace307edc0", null ]
+    [ "aSunSynchronousInclination", "OrbitDesign_8cpp.html#ga636649d0a9cfcbf711c1d152c290dcfc", null ],
+    [ "aSunSynchronousSemiMajorAxis", "OrbitDesign_8cpp.html#ga1b8d884f822ae2d04391dd803f944925", null ]
 ];

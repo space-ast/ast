@@ -208,8 +208,6 @@ var dir_21ca20f94ae482e65c1f5f3361d968f6 =
     [ "ScStateCalcThrust.hpp", "ScStateCalcThrust_8hpp.html", "ScStateCalcThrust_8hpp" ],
     [ "ScStateCalcTimeDifference.cpp", "ScStateCalcTimeDifference_8cpp.html", null ],
     [ "ScStateCalcTimeDifference.hpp", "ScStateCalcTimeDifference_8hpp.html", "ScStateCalcTimeDifference_8hpp" ],
-    [ "ScStateCalculation.cpp", "ScStateCalculation_8cpp.html", null ],
-    [ "ScStateCalculation.hpp", "ScStateCalculation_8hpp.html", "ScStateCalculation_8hpp" ],
     [ "ScStateCalcUserValue.cpp", "ScStateCalcUserValue_8cpp.html", null ],
     [ "ScStateCalcUserValue.hpp", "ScStateCalcUserValue_8hpp.html", "ScStateCalcUserValue_8hpp" ],
     [ "ScStateCalcValueAtSegmentOtherSat.cpp", "ScStateCalcValueAtSegmentOtherSat_8cpp.html", null ],

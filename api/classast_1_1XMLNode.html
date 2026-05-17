@@ -129,14 +129,12 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a0faa958f7e0672e6adbf4826e9c7a576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d8c378f4953444b99053fd811706a06" id="r_a2d8c378f4953444b99053fd811706a06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d8c378f4953444b99053fd811706a06">setText</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> text)</td></tr>
 <tr class="separator:a2d8c378f4953444b99053fd811706a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e3241876a9796b6d16b5f135fc3ee8d" id="r_a8e3241876a9796b6d16b5f135fc3ee8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e3241876a9796b6d16b5f135fc3ee8d">addChild</a> (HXMLNode child)</td></tr>
-<tr class="separator:a8e3241876a9796b6d16b5f135fc3ee8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0db4416989a02d840d06a045a97ea6" id="r_a2a0db4416989a02d840d06a045a97ea6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a0db4416989a02d840d06a045a97ea6">addChild</a> (HXMLNode &amp;&amp;child)</td></tr>
+<tr class="separator:a2a0db4416989a02d840d06a045a97ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9fc67b8ee9ca930582976cddab70383" id="r_af9fc67b8ee9ca930582976cddab70383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9fc67b8ee9ca930582976cddab70383">addText</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> text)</td></tr>
 <tr class="separator:af9fc67b8ee9ca930582976cddab70383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae106825a73601482a4892841e922f6b1" id="r_ae106825a73601482a4892841e922f6b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae106825a73601482a4892841e922f6b1">addComment</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> text)</td></tr>
 <tr class="separator:ae106825a73601482a4892841e922f6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54c79e09dfdf6dc66c17363ea1af8142" id="r_a54c79e09dfdf6dc66c17363ea1af8142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1XMLNode.html">XMLNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54c79e09dfdf6dc66c17363ea1af8142">getChild</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, size_t startIndex=0) const</td></tr>
-<tr class="separator:a54c79e09dfdf6dc66c17363ea1af8142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c087e5df491ef19612ff19576ada697" id="r_a6c087e5df491ef19612ff19576ada697"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; HXMLNode &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c087e5df491ef19612ff19576ada697">getChildren</a> () const</td></tr>
 <tr class="separator:a6c087e5df491ef19612ff19576ada697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad034a17794369a8e01ecd2e0a3fb3bbd" id="r_ad034a17794369a8e01ecd2e0a3fb3bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad034a17794369a8e01ecd2e0a3fb3bbd">addAttribute</a> (const std::string &amp;name, const <a class="el" href="classast_1_1GenericValue.html">GenericValue</a> &amp;value)</td></tr>
@@ -185,8 +183,8 @@ Public 成员函数</h2></td></tr>
 
 </div>
 </div>
-<a id="a8e3241876a9796b6d16b5f135fc3ee8d" name="a8e3241876a9796b6d16b5f135fc3ee8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e3241876a9796b6d16b5f135fc3ee8d">&#9670;&#160;</a></span>addChild()</h2>
+<a id="a2a0db4416989a02d840d06a045a97ea6" name="a2a0db4416989a02d840d06a045a97ea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0db4416989a02d840d06a045a97ea6">&#9670;&#160;</a></span>addChild()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +192,7 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname">void ast::XMLNode::addChild </td>
           <td>(</td>
-          <td class="paramtype">HXMLNode</td>          <td class="paramname"><span class="paramname"><em>child</em></span></td><td>)</td>
+          <td class="paramtype">HXMLNode &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>child</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -374,37 +372,6 @@ Public 成员函数</h2></td></tr>
 
 </div>
 </div>
-<a id="a54c79e09dfdf6dc66c17363ea1af8142" name="a54c79e09dfdf6dc66c17363ea1af8142"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54c79e09dfdf6dc66c17363ea1af8142">&#9670;&#160;</a></span>getChild()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1XMLNode.html">XMLNode</a> * ast::XMLNode::getChild </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>startIndex</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取子节点 </p>
-<p>从 startIndex 开始查找子节点，返回第一个匹配的子节点。 如果未找到匹配的子节点，返回 nullptr。 </p><dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>子节点名称 </td></tr>
-    <tr><td class="paramname">startIndex</td><td>子节点索引 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>子节点 </dd></dl>
-
-</div>
-</div>
 <a id="a6c087e5df491ef19612ff19576ada697" name="a6c087e5df491ef19612ff19576ada697"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c087e5df491ef19612ff19576ada697">&#9670;&#160;</a></span>getChildren()</h2>
 
@@ -428,8 +395,16 @@ Public 成员函数</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>获取子节点列表 </p>
-<dl class="section return"><dt>返回</dt><dd>子节点列表 </dd></dl>
+<p>获取子节点 </p>
+<p>从 startIndex 开始查找子节点，返回第一个匹配的子节点。 如果未找到匹配的子节点，返回 nullptr。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>子节点名称 </td></tr>
+    <tr><td class="paramname">startIndex</td><td>子节点索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>子节点</dd></dl>
+<p>获取子节点列表 </p><dl class="section return"><dt>返回</dt><dd>子节点列表 </dd></dl>
 
 </div>
 </div>

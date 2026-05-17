@@ -7,7 +7,7 @@ var searchData=
   ['unit_5fmultiply_4',['unit_multiply',['../namespaceast.html#aa5ff8b62295a7e770ee4a6f4d8763f2b',1,'ast']]],
   ['unit_5fpower_5',['unit_power',['../namespaceast.html#a49d13854b5b3a8bf42c2b26669f74e9a',1,'ast']]],
   ['unit_5fsetname_6',['unit_setname',['../namespaceast.html#a67c45427ea5818e47ec662b5e76f9ba6',1,'ast']]],
-  ['unload_7',['unload',['../classast_1_1EOP.html#ad22f08d4b6dd5af598de1f9986225d85',1,'ast::EOP::unload()'],['../classast_1_1SpiceApi.html#af4ac244d75f452e0cfc5fbe1b85d51e6',1,'ast::SpiceApi::unload()']]],
+  ['unload_7',['unload',['../classast_1_1EOP.html#ad22f08d4b6dd5af598de1f9986225d85',1,'ast::EOP::unload()'],['../classast_1_1SpiceAPI.html#a624af589af418c88f74350867335a51d',1,'ast::SpiceAPI::unload()'],['../classast_1_1PythonAPI.html#a63ff9f392f8dcd9e0d658a72cf0454ad',1,'ast::PythonAPI::unload()']]],
   ['unnormalize_8',['unnormalize',['../classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598',1,'ast::GravityField']]],
   ['unnormalized_9',['unnormalized',['../classast_1_1GravityField.html#ace10e8e9a61a6fea914b1130db459297',1,'ast::GravityField']]],
   ['update_10',['update',['../classast_1_1AstGfxAPI.html#afd49c639f629c3b985309f0bd2d62963',1,'ast::AstGfxAPI::update()'],['../classast_1_1GfxCelestialBody.html#a4a13e86d282d1805f2e66f1982400fc5',1,'ast::GfxCelestialBody::update()'],['../classast_1_1GfxSolarSystem.html#a657b97b3ca30eb37db1d3a1affe2c8e7',1,'ast::GfxSolarSystem::update()']]],

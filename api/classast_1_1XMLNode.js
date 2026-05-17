@@ -1,7 +1,7 @@
 var classast_1_1XMLNode =
 [
     [ "addAttribute", "classast_1_1XMLNode.html#ad034a17794369a8e01ecd2e0a3fb3bbd", null ],
-    [ "addChild", "classast_1_1XMLNode.html#a8e3241876a9796b6d16b5f135fc3ee8d", null ],
+    [ "addChild", "classast_1_1XMLNode.html#a2a0db4416989a02d840d06a045a97ea6", null ],
     [ "addComment", "classast_1_1XMLNode.html#ae106825a73601482a4892841e922f6b1", null ],
     [ "addText", "classast_1_1XMLNode.html#af9fc67b8ee9ca930582976cddab70383", null ],
     [ "clear", "classast_1_1XMLNode.html#a8bafe3fd4d73cd61d0547e6770214c30", null ],
@@ -9,7 +9,6 @@ var classast_1_1XMLNode =
     [ "clearChildren", "classast_1_1XMLNode.html#a7ee32ef1356a4fbdb60529ed2e90d8f3", null ],
     [ "getAttribute", "classast_1_1XMLNode.html#a34dd209f80462f956ac1620413135521", null ],
     [ "getAttributes", "classast_1_1XMLNode.html#a741317e142032d5aedbbedeb21b8f154", null ],
-    [ "getChild", "classast_1_1XMLNode.html#a54c79e09dfdf6dc66c17363ea1af8142", null ],
     [ "getChildren", "classast_1_1XMLNode.html#a6c087e5df491ef19612ff19576ada697", null ],
     [ "getKind", "classast_1_1XMLNode.html#aa295710d528550afcf59ba07a1b8a938", null ],
     [ "getName", "classast_1_1XMLNode.html#ac7f69ec3c69c7f0965aded15d89f20d3", null ],

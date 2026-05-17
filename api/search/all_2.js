@@ -133,7 +133,7 @@ var searchData=
   ['blockunaryminus_130',['BlockUnaryMinus',['../classast_1_1BlockUnaryMinus.html',1,'ast']]],
   ['blockunaryminus_2ecpp_131',['BlockUnaryMinus.cpp',['../BlockUnaryMinus_8cpp.html',1,'']]],
   ['blockunaryminus_2ehpp_132',['BlockUnaryMinus.hpp',['../BlockUnaryMinus_8hpp.html',1,'']]],
-  ['bodc2n_133',['bodc2n',['../classast_1_1SpiceApi.html#a09a9cab2cbcb31dfc31a0ae956a8ae49',1,'ast::SpiceApi']]],
+  ['bodc2n_133',['bodc2n',['../classast_1_1SpiceAPI.html#a90899642c78d7a984187a952bbce5a6c',1,'ast::SpiceAPI']]],
   ['bodies_5f_134',['bodies_',['../classast_1_1SolarSystem.html#ab431f0285e308b74be6b52e4763d0926',1,'ast::SolarSystem']]],
   ['body_135',['body',['../classast_1_1ThirdBodyForce.html#a03909272d0a0be0e51bcd721826c6e36',1,'ast::ThirdBodyForce::body()'],['../classast_1_1NetworkRequest.html#acb90655c4a6913324f1e4310ddedce25',1,'ast::NetworkRequest::body()'],['../classast_1_1NetworkResponse.html#a45cd8db6429add5b763ecc2aedb852f3',1,'ast::NetworkResponse::body()']]],
   ['body_5f_136',['body_',['../classast_1_1AxesBodyRelated.html#aa8fb4d373ecb9259ef507dce6910d0e2',1,'ast::AxesBodyRelated::body_'],['../classast_1_1ExprWhile.html#a76bc403fe01be7104edef7ba48ea9d57',1,'ast::ExprWhile::body_'],['../classast_1_1ExprForRange.html#ae284dbe229037f1e9fe679dbdb9a8f0f',1,'ast::ExprForRange::body_']]],

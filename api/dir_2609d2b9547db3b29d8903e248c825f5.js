@@ -1,6 +1,7 @@
 var dir_2609d2b9547db3b29d8903e248c825f5 =
 [
     [ "resource", "dir_0c84beaa1f2586c08bb29a4cfd4ae3ce.html", "dir_0c84beaa1f2586c08bb29a4cfd4ae3ce" ],
+    [ "AstCOM.hpp", "AstCOM_8hpp_source.html", null ],
     [ "AstCOM.idl", "AstCOM_8idl_source.html", null ],
     [ "COMAPI.cpp", "COMAPI_8cpp.html", "COMAPI_8cpp" ],
     [ "COMAPI.hpp", "COMAPI_8hpp.html", "COMAPI_8hpp" ],

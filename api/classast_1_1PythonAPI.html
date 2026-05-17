@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::PythonAPI类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1PythonAPI.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1PythonAPI-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::PythonAPI类 参考<div class="ingroups"><a class="el" href="group__Script.html">脚本模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PythonAPI_8hpp_source.html">PythonAPI.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a200bc435fd5e84033fd43c3967c110f5" id="r_a200bc435fd5e84033fd43c3967c110f5"><td class="memItemLeft" align="right" valign="top"><a id="a200bc435fd5e84033fd43c3967c110f5" name="a200bc435fd5e84033fd43c3967c110f5"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<b>iPy_Initialize</b> = 0
+, <b>iPy_FinalizeEx</b>
+, <b>iPy_IsInitialized</b>
+, <b>iPyRun_SimpleString</b>
+, <br />
+&#160;&#160;<b>iPyImport_ImportModule</b>
+, <b>iPyObject_GetAttrString</b>
+, <b>iPyObject_CallObject</b>
+, <b>iPy_DecRef</b>
+, <br />
+&#160;&#160;<b>iPy_IncRef</b>
+, <b>iPyErr_Print</b>
+, <b>iPyErr_Occurred</b>
+, <b>iPyUnicode_AsUTF8</b>
+, <br />
+&#160;&#160;<b>iPyRun_String</b>
+, <b>iPyLong_AsLong</b>
+, <b>iPyFloat_AsDouble</b>
+, <b>iPyLong_FromLong</b>
+, <br />
+&#160;&#160;<b>iPyFloat_FromDouble</b>
+, <b>iPyUnicode_FromString</b>
+, <b>iPyObject_SetAttrString</b>
+, <b>iPyObject_IsInstance</b>
+, <br />
+&#160;&#160;<b>iPyErr_Fetch</b>
+, <b>iPyObject_Str</b>
+, <b>iPyFloat_Type</b>
+, <b>iPyLong_Type</b>
+, <br />
+&#160;&#160;<b>iPyBool_Type</b>
+, <b>iPyUnicode_Type</b>
+, <b>iPyBool_FromLong</b>
+, <b>iPyDict_New</b>
+, <br />
+&#160;&#160;<b>iPyDict_SetItemString</b>
+, <b>iPyDict_GetItemString</b>
+, <b>iPyGILState_Ensure</b>
+, <b>iPyGILState_Release</b>
+, <br />
+&#160;&#160;<b>numfunctions</b>
+<br />
+ }</td></tr>
+<tr class="separator:a200bc435fd5e84033fd43c3967c110f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c9f84c4db503a693435e8a0996df32" id="r_a05c9f84c4db503a693435e8a0996df32"><td class="memItemLeft" align="right" valign="top"><a id="a05c9f84c4db503a693435e8a0996df32" name="a05c9f84c4db503a693435e8a0996df32"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Py_eval_input</b> = 258
+, <b>Py_file_input</b> = 257
+, <b>Py_single_input</b> = 256
+ }</td></tr>
+<tr class="separator:a05c9f84c4db503a693435e8a0996df32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c44f384d09cf74df80626de877ef95a" id="r_a5c44f384d09cf74df80626de877ef95a"><td class="memItemLeft" align="right" valign="top"><a id="a5c44f384d09cf74df80626de877ef95a" name="a5c44f384d09cf74df80626de877ef95a"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>funcarray</b> = std::array&lt;void*, numfunctions&gt;</td></tr>
+<tr class="separator:a5c44f384d09cf74df80626de877ef95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a58882c70109e6d3303d9bf4f56b8eadb" id="r_a58882c70109e6d3303d9bf4f56b8eadb"><td class="memItemLeft" align="right" valign="top"><a id="a58882c70109e6d3303d9bf4f56b8eadb" name="a58882c70109e6d3303d9bf4f56b8eadb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PythonAPI</b> (bool shouldLoadDynamicLib)</td></tr>
+<tr class="separator:a58882c70109e6d3303d9bf4f56b8eadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5a4eea71bd88738ad8567318972cee" id="r_a5e5a4eea71bd88738ad8567318972cee"><td class="memItemLeft" align="right" valign="top"><a id="a5e5a4eea71bd88738ad8567318972cee" name="a5e5a4eea71bd88738ad8567318972cee"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> libpath)</td></tr>
+<tr class="separator:a5e5a4eea71bd88738ad8567318972cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b20b1a04a53fd2cc87795aefbbfeb8c" id="r_a1b20b1a04a53fd2cc87795aefbbfeb8c"><td class="memItemLeft" align="right" valign="top"><a id="a1b20b1a04a53fd2cc87795aefbbfeb8c" name="a1b20b1a04a53fd2cc87795aefbbfeb8c"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>tryload</b> (const std::vector&lt; std::string &gt; &amp;libpaths)</td></tr>
+<tr class="separator:a1b20b1a04a53fd2cc87795aefbbfeb8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ff9f392f8dcd9e0d658a72cf0454ad" id="r_a63ff9f392f8dcd9e0d658a72cf0454ad"><td class="memItemLeft" align="right" valign="top"><a id="a63ff9f392f8dcd9e0d658a72cf0454ad" name="a63ff9f392f8dcd9e0d658a72cf0454ad"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>unload</b> ()</td></tr>
+<tr class="separator:a63ff9f392f8dcd9e0d658a72cf0454ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545d04fe5086d257e517b91cf4814b51" id="r_a545d04fe5086d257e517b91cf4814b51"><td class="memItemLeft" align="right" valign="top"><a id="a545d04fe5086d257e517b91cf4814b51" name="a545d04fe5086d257e517b91cf4814b51"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLoaded</b> () const</td></tr>
+<tr class="separator:a545d04fe5086d257e517b91cf4814b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4438d14fcc98dcb23fe25cd99a705c" id="r_abb4438d14fcc98dcb23fe25cd99a705c"><td class="memItemLeft" align="right" valign="top"><a id="abb4438d14fcc98dcb23fe25cd99a705c" name="abb4438d14fcc98dcb23fe25cd99a705c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Py_Initialize</b> ()</td></tr>
+<tr class="separator:abb4438d14fcc98dcb23fe25cd99a705c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4d75917a869726fe7825b04885b4c7" id="r_abc4d75917a869726fe7825b04885b4c7"><td class="memItemLeft" align="right" valign="top"><a id="abc4d75917a869726fe7825b04885b4c7" name="abc4d75917a869726fe7825b04885b4c7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Py_FinalizeEx</b> ()</td></tr>
+<tr class="separator:abc4d75917a869726fe7825b04885b4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d717d03f49cfd88bbcc15779026b84" id="r_a41d717d03f49cfd88bbcc15779026b84"><td class="memItemLeft" align="right" valign="top"><a id="a41d717d03f49cfd88bbcc15779026b84" name="a41d717d03f49cfd88bbcc15779026b84"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Py_IsInitialized</b> ()</td></tr>
+<tr class="separator:a41d717d03f49cfd88bbcc15779026b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a149ddf4ebe7be4e7ff354614c34c52f9" id="r_a149ddf4ebe7be4e7ff354614c34c52f9"><td class="memItemLeft" align="right" valign="top"><a id="a149ddf4ebe7be4e7ff354614c34c52f9" name="a149ddf4ebe7be4e7ff354614c34c52f9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PyRun_SimpleString</b> (const char *command)</td></tr>
+<tr class="separator:a149ddf4ebe7be4e7ff354614c34c52f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ba01afa3fd7e2d31d0fea600021428" id="r_ae7ba01afa3fd7e2d31d0fea600021428"><td class="memItemLeft" align="right" valign="top"><a id="ae7ba01afa3fd7e2d31d0fea600021428" name="ae7ba01afa3fd7e2d31d0fea600021428"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyImport_ImportModule</b> (const char *name)</td></tr>
+<tr class="separator:ae7ba01afa3fd7e2d31d0fea600021428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18691a6c9dd865a58b83e76ed16f004" id="r_ad18691a6c9dd865a58b83e76ed16f004"><td class="memItemLeft" align="right" valign="top"><a id="ad18691a6c9dd865a58b83e76ed16f004" name="ad18691a6c9dd865a58b83e76ed16f004"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyObject_GetAttrString</b> (PyObject *o, const char *attr_name)</td></tr>
+<tr class="separator:ad18691a6c9dd865a58b83e76ed16f004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bac6579759571a00f63b1d7812b5e3" id="r_a31bac6579759571a00f63b1d7812b5e3"><td class="memItemLeft" align="right" valign="top"><a id="a31bac6579759571a00f63b1d7812b5e3" name="a31bac6579759571a00f63b1d7812b5e3"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyObject_CallObject</b> (PyObject *callable, PyObject *args)</td></tr>
+<tr class="separator:a31bac6579759571a00f63b1d7812b5e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b1c49c5f4c2305e3f5fbde77a8a7ed" id="r_ab8b1c49c5f4c2305e3f5fbde77a8a7ed"><td class="memItemLeft" align="right" valign="top"><a id="ab8b1c49c5f4c2305e3f5fbde77a8a7ed" name="ab8b1c49c5f4c2305e3f5fbde77a8a7ed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Py_DecRef</b> (PyObject *o)</td></tr>
+<tr class="separator:ab8b1c49c5f4c2305e3f5fbde77a8a7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b509f72c377ca2375b4759aa51eca72" id="r_a1b509f72c377ca2375b4759aa51eca72"><td class="memItemLeft" align="right" valign="top"><a id="a1b509f72c377ca2375b4759aa51eca72" name="a1b509f72c377ca2375b4759aa51eca72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Py_IncRef</b> (PyObject *o)</td></tr>
+<tr class="separator:a1b509f72c377ca2375b4759aa51eca72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b185bf3518a3f91901fb49f1001d994" id="r_a8b185bf3518a3f91901fb49f1001d994"><td class="memItemLeft" align="right" valign="top"><a id="a8b185bf3518a3f91901fb49f1001d994" name="a8b185bf3518a3f91901fb49f1001d994"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PyErr_Print</b> ()</td></tr>
+<tr class="separator:a8b185bf3518a3f91901fb49f1001d994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1fd72f4eeb19cd7857847783a344c20" id="r_aa1fd72f4eeb19cd7857847783a344c20"><td class="memItemLeft" align="right" valign="top"><a id="aa1fd72f4eeb19cd7857847783a344c20" name="aa1fd72f4eeb19cd7857847783a344c20"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyErr_Occurred</b> ()</td></tr>
+<tr class="separator:aa1fd72f4eeb19cd7857847783a344c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3f70f0d69e87070938a686e4957cb3" id="r_a9b3f70f0d69e87070938a686e4957cb3"><td class="memItemLeft" align="right" valign="top"><a id="a9b3f70f0d69e87070938a686e4957cb3" name="a9b3f70f0d69e87070938a686e4957cb3"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>PyUnicode_AsUTF8</b> (PyObject *unicode)</td></tr>
+<tr class="separator:a9b3f70f0d69e87070938a686e4957cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c89ea330c7cd838588e1f12b0a3d8e2" id="r_a1c89ea330c7cd838588e1f12b0a3d8e2"><td class="memItemLeft" align="right" valign="top"><a id="a1c89ea330c7cd838588e1f12b0a3d8e2" name="a1c89ea330c7cd838588e1f12b0a3d8e2"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyRun_String</b> (const char *str, int start, PyObject *globals, PyObject *locals)</td></tr>
+<tr class="separator:a1c89ea330c7cd838588e1f12b0a3d8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb8c7fb9a7a4b79efead8837fcec41bb" id="r_abb8c7fb9a7a4b79efead8837fcec41bb"><td class="memItemLeft" align="right" valign="top"><a id="abb8c7fb9a7a4b79efead8837fcec41bb" name="abb8c7fb9a7a4b79efead8837fcec41bb"></a>
+long&#160;</td><td class="memItemRight" valign="bottom"><b>PyLong_AsLong</b> (PyObject *o)</td></tr>
+<tr class="separator:abb8c7fb9a7a4b79efead8837fcec41bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aa51a737a19b0cdcf908225a786fd53" id="r_a8aa51a737a19b0cdcf908225a786fd53"><td class="memItemLeft" align="right" valign="top"><a id="a8aa51a737a19b0cdcf908225a786fd53" name="a8aa51a737a19b0cdcf908225a786fd53"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>PyFloat_AsDouble</b> (PyObject *o)</td></tr>
+<tr class="separator:a8aa51a737a19b0cdcf908225a786fd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b609835d14e469162719c0c4ced2e3" id="r_a95b609835d14e469162719c0c4ced2e3"><td class="memItemLeft" align="right" valign="top"><a id="a95b609835d14e469162719c0c4ced2e3" name="a95b609835d14e469162719c0c4ced2e3"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyLong_FromLong</b> (long v)</td></tr>
+<tr class="separator:a95b609835d14e469162719c0c4ced2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d1694f91de735fa6ad08bb1d93d3173" id="r_a7d1694f91de735fa6ad08bb1d93d3173"><td class="memItemLeft" align="right" valign="top"><a id="a7d1694f91de735fa6ad08bb1d93d3173" name="a7d1694f91de735fa6ad08bb1d93d3173"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyFloat_FromDouble</b> (double v)</td></tr>
+<tr class="separator:a7d1694f91de735fa6ad08bb1d93d3173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec7df71d748987ac3ec00d6498939aeb" id="r_aec7df71d748987ac3ec00d6498939aeb"><td class="memItemLeft" align="right" valign="top"><a id="aec7df71d748987ac3ec00d6498939aeb" name="aec7df71d748987ac3ec00d6498939aeb"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyUnicode_FromString</b> (const char *u)</td></tr>
+<tr class="separator:aec7df71d748987ac3ec00d6498939aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67fa540e26c8243806ae5a1af876c8ab" id="r_a67fa540e26c8243806ae5a1af876c8ab"><td class="memItemLeft" align="right" valign="top"><a id="a67fa540e26c8243806ae5a1af876c8ab" name="a67fa540e26c8243806ae5a1af876c8ab"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyBool_FromLong</b> (long v)</td></tr>
+<tr class="separator:a67fa540e26c8243806ae5a1af876c8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8edea0a3020345d06c85962fba747194" id="r_a8edea0a3020345d06c85962fba747194"><td class="memItemLeft" align="right" valign="top"><a id="a8edea0a3020345d06c85962fba747194" name="a8edea0a3020345d06c85962fba747194"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyDict_New</b> ()</td></tr>
+<tr class="separator:a8edea0a3020345d06c85962fba747194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfa26205c06aa3341b5f0706a80119c" id="r_afcfa26205c06aa3341b5f0706a80119c"><td class="memItemLeft" align="right" valign="top"><a id="afcfa26205c06aa3341b5f0706a80119c" name="afcfa26205c06aa3341b5f0706a80119c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PyDict_SetItemString</b> (PyObject *dict, const char *key, PyObject *val)</td></tr>
+<tr class="separator:afcfa26205c06aa3341b5f0706a80119c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa814366d848da6592127883ca707c37a" id="r_aa814366d848da6592127883ca707c37a"><td class="memItemLeft" align="right" valign="top"><a id="aa814366d848da6592127883ca707c37a" name="aa814366d848da6592127883ca707c37a"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyDict_GetItemString</b> (PyObject *dict, const char *key)</td></tr>
+<tr class="separator:aa814366d848da6592127883ca707c37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e87f05a368999309b04e2d8e26e7b52" id="r_a0e87f05a368999309b04e2d8e26e7b52"><td class="memItemLeft" align="right" valign="top"><a id="a0e87f05a368999309b04e2d8e26e7b52" name="a0e87f05a368999309b04e2d8e26e7b52"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PyObject_SetAttrString</b> (PyObject *o, const char *attr_name, PyObject *v)</td></tr>
+<tr class="separator:a0e87f05a368999309b04e2d8e26e7b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac395f2ed3cd7c6fd4af0309e13b93cd4" id="r_ac395f2ed3cd7c6fd4af0309e13b93cd4"><td class="memItemLeft" align="right" valign="top"><a id="ac395f2ed3cd7c6fd4af0309e13b93cd4" name="ac395f2ed3cd7c6fd4af0309e13b93cd4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PyObject_IsInstance</b> (PyObject *obj, PyObject *cls)</td></tr>
+<tr class="separator:ac395f2ed3cd7c6fd4af0309e13b93cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcf47a259d2a1a1ea3e65d19229fb732" id="r_afcf47a259d2a1a1ea3e65d19229fb732"><td class="memItemLeft" align="right" valign="top"><a id="afcf47a259d2a1a1ea3e65d19229fb732" name="afcf47a259d2a1a1ea3e65d19229fb732"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PyErr_Fetch</b> (PyObject **ptype, PyObject **pvalue, PyObject **ptraceback)</td></tr>
+<tr class="separator:afcf47a259d2a1a1ea3e65d19229fb732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77602c57eca989363581b1f4ecf2bd6c" id="r_a77602c57eca989363581b1f4ecf2bd6c"><td class="memItemLeft" align="right" valign="top"><a id="a77602c57eca989363581b1f4ecf2bd6c" name="a77602c57eca989363581b1f4ecf2bd6c"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyObject_Str</b> (PyObject *o)</td></tr>
+<tr class="separator:a77602c57eca989363581b1f4ecf2bd6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79ee0192b6491aff6cb3152f891dda7e" id="r_a79ee0192b6491aff6cb3152f891dda7e"><td class="memItemLeft" align="right" valign="top"><a id="a79ee0192b6491aff6cb3152f891dda7e" name="a79ee0192b6491aff6cb3152f891dda7e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PyGILState_Ensure</b> ()</td></tr>
+<tr class="separator:a79ee0192b6491aff6cb3152f891dda7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab165ffae5004d2bda5c52209d655366c" id="r_ab165ffae5004d2bda5c52209d655366c"><td class="memItemLeft" align="right" valign="top"><a id="ab165ffae5004d2bda5c52209d655366c" name="ab165ffae5004d2bda5c52209d655366c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PyGILState_Release</b> (int gstate)</td></tr>
+<tr class="separator:ab165ffae5004d2bda5c52209d655366c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be6a5a5f0320eb0eec660b530c8f36f" id="r_a9be6a5a5f0320eb0eec660b530c8f36f"><td class="memItemLeft" align="right" valign="top"><a id="a9be6a5a5f0320eb0eec660b530c8f36f" name="a9be6a5a5f0320eb0eec660b530c8f36f"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyFloat_Type</b> () const</td></tr>
+<tr class="separator:a9be6a5a5f0320eb0eec660b530c8f36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8874000ef22aad1a57ff0cca5c045927" id="r_a8874000ef22aad1a57ff0cca5c045927"><td class="memItemLeft" align="right" valign="top"><a id="a8874000ef22aad1a57ff0cca5c045927" name="a8874000ef22aad1a57ff0cca5c045927"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyLong_Type</b> () const</td></tr>
+<tr class="separator:a8874000ef22aad1a57ff0cca5c045927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd6d3202dc4db7e6afc445a03a26f18" id="r_abcd6d3202dc4db7e6afc445a03a26f18"><td class="memItemLeft" align="right" valign="top"><a id="abcd6d3202dc4db7e6afc445a03a26f18" name="abcd6d3202dc4db7e6afc445a03a26f18"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyBool_Type</b> () const</td></tr>
+<tr class="separator:abcd6d3202dc4db7e6afc445a03a26f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f19a4f72eddadc528f1f0870832e621" id="r_a7f19a4f72eddadc528f1f0870832e621"><td class="memItemLeft" align="right" valign="top"><a id="a7f19a4f72eddadc528f1f0870832e621" name="a7f19a4f72eddadc528f1f0870832e621"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>PyUnicode_Type</b> () const</td></tr>
+<tr class="separator:a7f19a4f72eddadc528f1f0870832e621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a833fbc55b885f697ca5c257bdff3bbbb" id="r_a833fbc55b885f697ca5c257bdff3bbbb"><td class="memItemLeft" align="right" valign="top"><a id="a833fbc55b885f697ca5c257bdff3bbbb" name="a833fbc55b885f697ca5c257bdff3bbbb"></a>
+static <a class="el" href="classast_1_1PythonAPI.html">PythonAPI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> ()</td></tr>
+<tr class="separator:a833fbc55b885f697ca5c257bdff3bbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a43488bb147009f33e71ae9559a5f05e3" id="r_a43488bb147009f33e71ae9559a5f05e3"><td class="memItemLeft" align="right" valign="top"><a id="a43488bb147009f33e71ae9559a5f05e3" name="a43488bb147009f33e71ae9559a5f05e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>checkerror</b> ()</td></tr>
+<tr class="separator:a43488bb147009f33e71ae9559a5f05e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28ec64671f92fe7b6eaaf5e4183d692" id="r_ab28ec64671f92fe7b6eaaf5e4183d692"><td class="memItemLeft" align="right" valign="top"><a id="ab28ec64671f92fe7b6eaaf5e4183d692" name="ab28ec64671f92fe7b6eaaf5e4183d692"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1PythonAPI.html">PythonAPI</a>)</td></tr>
+<tr class="separator:ab28ec64671f92fe7b6eaaf5e4183d692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a079fcc9848f3efa0aa2f92f8012ee130" id="r_a079fcc9848f3efa0aa2f92f8012ee130"><td class="memItemLeft" align="right" valign="top"><a id="a079fcc9848f3efa0aa2f92f8012ee130" name="a079fcc9848f3efa0aa2f92f8012ee130"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>library_</b> {nullptr}</td></tr>
+<tr class="separator:a079fcc9848f3efa0aa2f92f8012ee130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70ea5bc3b58398115a803295180bd6c" id="r_ae70ea5bc3b58398115a803295180bd6c"><td class="memItemLeft" align="right" valign="top"><a id="ae70ea5bc3b58398115a803295180bd6c" name="ae70ea5bc3b58398115a803295180bd6c"></a>
+funcarray&#160;</td><td class="memItemRight" valign="bottom"><b>functions_</b> {}</td></tr>
+<tr class="separator:ae70ea5bc3b58398115a803295180bd6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9b05d4c1d0b49274109c37170d25926" id="r_ab9b05d4c1d0b49274109c37170d25926"><td class="memItemLeft" align="right" valign="top"><a id="ab9b05d4c1d0b49274109c37170d25926" name="ab9b05d4c1d0b49274109c37170d25926"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td></tr>
+<tr class="separator:ab9b05d4c1d0b49274109c37170d25926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Python API — 与 Python C API 接口一致的动态加载包装 </p>
+<p>通过动态加载 Python 共享库的方式提供 Python C API 的核心函数。 公开方法名和签名与 Python C API 严格一致，但底层为运行时动态解析。 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstScript/Foreign/<a class="el" href="PythonAPI_8hpp_source.html">PythonAPI.hpp</a></li>
+<li>src/AstScript/Foreign/<a class="el" href="PythonAPI_8cpp.html">PythonAPI.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1PythonAPI.html">PythonAPI</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

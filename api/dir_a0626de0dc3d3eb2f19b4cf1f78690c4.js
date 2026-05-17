@@ -12,6 +12,6 @@ var dir_a0626de0dc3d3eb2f19b4cf1f78690c4 =
     [ "LeapSecond.hpp", "LeapSecond_8hpp.html", "LeapSecond_8hpp" ],
     [ "SpaceWeather.cpp", "SpaceWeather_8cpp.html", "SpaceWeather_8cpp" ],
     [ "SpaceWeather.hpp", "SpaceWeather_8hpp.html", "SpaceWeather_8hpp" ],
-    [ "SpiceApi.cpp", "SpiceApi_8cpp.html", null ],
-    [ "SpiceApi.hpp", "SpiceApi_8hpp.html", null ]
+    [ "SpiceAPI.cpp", "SpiceAPI_8cpp.html", null ],
+    [ "SpiceAPI.hpp", "SpiceAPI_8hpp.html", null ]
 ];

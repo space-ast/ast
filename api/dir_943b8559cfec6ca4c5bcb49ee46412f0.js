@@ -11,5 +11,6 @@ var dir_943b8559cfec6ca4c5bcb49ee46412f0 =
     [ "Parser", "dir_528872db2faed4b9924621a078b07ea5.html", "dir_528872db2faed4b9924621a078b07ea5" ],
     [ "Value", "dir_ffb17bd88152b7b44cfa97dfb12b9528.html", "dir_ffb17bd88152b7b44cfa97dfb12b9528" ],
     [ "Variable", "dir_b5c146691799d069a3c77b21c330d438.html", "dir_b5c146691799d069a3c77b21c330d438" ],
-    [ "AstScript.hpp", "AstScript_8hpp.html", null ]
+    [ "AstScript.hpp", "AstScript_8hpp_source.html", null ],
+    [ "AstScriptGlobal.h", "AstScriptGlobal_8h.html", null ]
 ];

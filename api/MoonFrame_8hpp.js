@@ -4,8 +4,6 @@ var MoonFrame_8hpp =
     [ "aEarthICRFToMoonICRF", "MoonFrame_8hpp.html#gaa22bbdf00716493b7f480917a8ffaa1c", null ],
     [ "aICRFToMoonMeanEarthTransform", "MoonFrame_8hpp.html#ga64a47ca85b6f7462333b5ea26cd1a83c", null ],
     [ "aICRFToMoonMeanEarthTransform_DE", "MoonFrame_8hpp.html#gad85ae3b98cf89f6da30d48c1dead63ef", null ],
-    [ "aICRFToMoonMeanEarthTransform_IAU", "MoonFrame_8hpp.html#gab4d62d63f3fcaf310c74413a015a9376", null ],
-    [ "aICRFToMoonPrincipalAxesTransform", "MoonFrame_8hpp.html#ga1752874591532332cdec759a1b960761", null ],
     [ "aICRFToMoonPrincipalAxesTransform", "MoonFrame_8hpp.html#ga5649d62c4fbf03490485578745115047", null ],
     [ "aMoonPA403ToMeanEarthTransform", "MoonFrame_8hpp.html#gad81fe2d454105845c8d8e8d95ffa815c", null ],
     [ "aMoonPA418ToMeanEarthTransform", "MoonFrame_8hpp.html#ga5f51855b91a4c8377f6a38b2cf3ca113", null ],

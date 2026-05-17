@@ -24,7 +24,6 @@ var classast_1_1JplDe =
     [ "getLibration", "classast_1_1JplDe.html#af96bc1f933442d1850412439135d0e51", null ],
     [ "getNutation", "classast_1_1JplDe.html#a6de1a789341b98d20c2aca8e7c8fef79", null ],
     [ "getPosICRF", "classast_1_1JplDe.html#a52c8ad80c39239da62e88402b5e021c6", null ],
-    [ "getPosICRF_TT", "classast_1_1JplDe.html#aa2307f8772164888dde55d3334c0e3fb", null ],
     [ "getPosVelICRF", "classast_1_1JplDe.html#a5f24a3f16d883a2784fdb2ddfe0409a1", null ],
     [ "isOpen", "classast_1_1JplDe.html#a5091d44c89924335deb184e72715723d", null ],
     [ "open", "classast_1_1JplDe.html#a727b248bd76d1b029b7bf9041cb8fc14", null ]

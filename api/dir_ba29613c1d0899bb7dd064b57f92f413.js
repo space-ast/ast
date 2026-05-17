@@ -12,5 +12,6 @@ var dir_ba29613c1d0899bb7dd064b57f92f413 =
     [ "SolarSystem", "dir_5e18b0e3c7e597f0270d6c7f05b2b910.html", "dir_5e18b0e3c7e597f0270d6c7f05b2b910" ],
     [ "Time", "dir_8990e1a6c4161f7830d486c5caed33ad.html", "dir_8990e1a6c4161f7830d486c5caed33ad" ],
     [ "Trait", "dir_76a76233475b346df5b4c5542b32c04a.html", "dir_76a76233475b346df5b4c5542b32c04a" ],
-    [ "AstCore.hpp", "AstCore_8hpp.html", null ]
+    [ "AstCore.hpp", "AstCore_8hpp_source.html", null ],
+    [ "AstCoreGlobal.h", "AstCoreGlobal_8h.html", null ]
 ];

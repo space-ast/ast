@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::SpiceAPI类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1SpiceAPI.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1SpiceAPI-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::SpiceAPI类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Data.html">数据读取</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="SpiceAPI_8hpp_source.html">SpiceAPI.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a132b6750cd186d052328d18730084769" id="r_a132b6750cd186d052328d18730084769"><td class="memItemLeft" align="right" valign="top"><a id="a132b6750cd186d052328d18730084769" name="a132b6750cd186d052328d18730084769"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<b>ifurnsh</b> = 0
+, <b>ispkgeo</b>
+, <b>ispklef</b>
+, <b>ispkuef</b>
+, <br />
+&#160;&#160;<b>iktotal</b>
+, <b>ibodc2n</b>
+, <b>ierract</b>
+, <b>ifailed</b>
+, <br />
+&#160;&#160;<b>ireset</b>
+, <b>ikclear</b>
+, <b>numfunctions</b>
+<br />
+ }</td></tr>
+<tr class="separator:a132b6750cd186d052328d18730084769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb151715bcbf75f786afe47d8ecf7b8e" id="r_abb151715bcbf75f786afe47d8ecf7b8e"><td class="memItemLeft" align="right" valign="top"><a id="abb151715bcbf75f786afe47d8ecf7b8e" name="abb151715bcbf75f786afe47d8ecf7b8e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>funcarray</b> = std::array&lt;void*, numfunctions&gt;</td></tr>
+<tr class="separator:abb151715bcbf75f786afe47d8ecf7b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a01e2f277bc757e4a1a3c2c9ea3ad9703" id="r_a01e2f277bc757e4a1a3c2c9ea3ad9703"><td class="memItemLeft" align="right" valign="top"><a id="a01e2f277bc757e4a1a3c2c9ea3ad9703" name="a01e2f277bc757e4a1a3c2c9ea3ad9703"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SpiceAPI</b> ()=default</td></tr>
+<tr class="separator:a01e2f277bc757e4a1a3c2c9ea3ad9703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84a6ada1d4f195ce68830843518abb5" id="r_ab84a6ada1d4f195ce68830843518abb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab84a6ada1d4f195ce68830843518abb5">SpiceAPI</a> (bool shouldLoadDynamicLib)</td></tr>
+<tr class="separator:ab84a6ada1d4f195ce68830843518abb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0408a3a3444be4b86aff5f43bf72845" id="r_ae0408a3a3444be4b86aff5f43bf72845"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0408a3a3444be4b86aff5f43bf72845">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> libpath)</td></tr>
+<tr class="separator:ae0408a3a3444be4b86aff5f43bf72845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3c55166e2fa8b79b3091c1f1cd8b2f" id="r_afa3c55166e2fa8b79b3091c1f1cd8b2f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3c55166e2fa8b79b3091c1f1cd8b2f">tryload</a> (const std::vector&lt; std::string &gt; &amp;libpaths)</td></tr>
+<tr class="separator:afa3c55166e2fa8b79b3091c1f1cd8b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a624af589af418c88f74350867335a51d" id="r_a624af589af418c88f74350867335a51d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a624af589af418c88f74350867335a51d">unload</a> ()</td></tr>
+<tr class="separator:a624af589af418c88f74350867335a51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07c808d950e6e4438bea95bc6c63cbb" id="r_aa07c808d950e6e4438bea95bc6c63cbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa07c808d950e6e4438bea95bc6c63cbb">isLoaded</a> () const</td></tr>
+<tr class="separator:aa07c808d950e6e4438bea95bc6c63cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fbf751cd2c4df0e793752c08723d15c" id="r_a4fbf751cd2c4df0e793752c08723d15c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fbf751cd2c4df0e793752c08723d15c">furnsh</a> (const char *file)</td></tr>
+<tr class="separator:a4fbf751cd2c4df0e793752c08723d15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac3292abf67364990a1de46f79df05d0" id="r_aac3292abf67364990a1de46f79df05d0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac3292abf67364990a1de46f79df05d0">spkgeo</a> (int targ, double et, const char *ref, int obs, double state[6], double *lt)</td></tr>
+<tr class="separator:aac3292abf67364990a1de46f79df05d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb24796022f7868f160b7d8db92f82c" id="r_a4bb24796022f7868f160b7d8db92f82c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bb24796022f7868f160b7d8db92f82c">spklef</a> (const char *filename, int *handle)</td></tr>
+<tr class="separator:a4bb24796022f7868f160b7d8db92f82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae40dfe27cd12b56c29ef6356518992" id="r_abae40dfe27cd12b56c29ef6356518992"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abae40dfe27cd12b56c29ef6356518992">spkuef</a> (int handle)</td></tr>
+<tr class="separator:abae40dfe27cd12b56c29ef6356518992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e6bf0d9111fb23b465c472b3750f84b" id="r_a5e6bf0d9111fb23b465c472b3750f84b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e6bf0d9111fb23b465c472b3750f84b">ktotal</a> (const char *kind, int *count)</td></tr>
+<tr class="separator:a5e6bf0d9111fb23b465c472b3750f84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbc98ce2d77fc581a40c24b9f7486f93" id="r_acbc98ce2d77fc581a40c24b9f7486f93"><td class="memItemLeft" align="right" valign="top"><a id="acbc98ce2d77fc581a40c24b9f7486f93" name="acbc98ce2d77fc581a40c24b9f7486f93"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ktotal</b> (const char *kind)</td></tr>
+<tr class="separator:acbc98ce2d77fc581a40c24b9f7486f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90899642c78d7a984187a952bbce5a6c" id="r_a90899642c78d7a984187a952bbce5a6c"><td class="memItemLeft" align="right" valign="top"><a id="a90899642c78d7a984187a952bbce5a6c" name="a90899642c78d7a984187a952bbce5a6c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>bodc2n</b> (int code, int namlen, char *name, bool *found)</td></tr>
+<tr class="separator:a90899642c78d7a984187a952bbce5a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af24f670a0adccb002633594fda2383de" id="r_af24f670a0adccb002633594fda2383de"><td class="memItemLeft" align="right" valign="top"><a id="af24f670a0adccb002633594fda2383de" name="af24f670a0adccb002633594fda2383de"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>bodc2n</b> (int code, std::string &amp;name)</td></tr>
+<tr class="separator:af24f670a0adccb002633594fda2383de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20493f9faec77a36d19f83a02a9929d" id="r_ac20493f9faec77a36d19f83a02a9929d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac20493f9faec77a36d19f83a02a9929d">failed</a> ()</td></tr>
+<tr class="separator:ac20493f9faec77a36d19f83a02a9929d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6421ec4591b64071a4ad321874eb8b31" id="r_a6421ec4591b64071a4ad321874eb8b31"><td class="memItemLeft" align="right" valign="top"><a id="a6421ec4591b64071a4ad321874eb8b31" name="a6421ec4591b64071a4ad321874eb8b31"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="separator:a6421ec4591b64071a4ad321874eb8b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49146dd788dbfd8e7d6cfd9fb1b3b015" id="r_a49146dd788dbfd8e7d6cfd9fb1b3b015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49146dd788dbfd8e7d6cfd9fb1b3b015">erract</a> (const char *operation, int lenout, char *action)</td></tr>
+<tr class="separator:a49146dd788dbfd8e7d6cfd9fb1b3b015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0feeb3bfba7ea0c51c9869ae4fc4766c" id="r_a0feeb3bfba7ea0c51c9869ae4fc4766c"><td class="memItemLeft" align="right" valign="top"><a id="a0feeb3bfba7ea0c51c9869ae4fc4766c" name="a0feeb3bfba7ea0c51c9869ae4fc4766c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>kclear</b> ()</td></tr>
+<tr class="separator:a0feeb3bfba7ea0c51c9869ae4fc4766c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a50548d77a66d57af19bd782da1152629" id="r_a50548d77a66d57af19bd782da1152629"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1SpiceAPI.html">SpiceAPI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50548d77a66d57af19bd782da1152629">Instance</a> ()</td></tr>
+<tr class="separator:a50548d77a66d57af19bd782da1152629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:affa41e813fbf996099c5b9a931f18d11" id="r_affa41e813fbf996099c5b9a931f18d11"><td class="memItemLeft" align="right" valign="top"><a id="affa41e813fbf996099c5b9a931f18d11" name="affa41e813fbf996099c5b9a931f18d11"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>checkerror</b> ()</td></tr>
+<tr class="separator:affa41e813fbf996099c5b9a931f18d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eb1ed9fedb4b0028b876602801fcdc8" id="r_a4eb1ed9fedb4b0028b876602801fcdc8"><td class="memItemLeft" align="right" valign="top"><a id="a4eb1ed9fedb4b0028b876602801fcdc8" name="a4eb1ed9fedb4b0028b876602801fcdc8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1SpiceAPI.html">SpiceAPI</a>)</td></tr>
+<tr class="separator:a4eb1ed9fedb4b0028b876602801fcdc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a6f6daee941e0451c57c655137a4ac93e" id="r_a6f6daee941e0451c57c655137a4ac93e"><td class="memItemLeft" align="right" valign="top"><a id="a6f6daee941e0451c57c655137a4ac93e" name="a6f6daee941e0451c57c655137a4ac93e"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>library_</b> {nullptr}</td></tr>
+<tr class="separator:a6f6daee941e0451c57c655137a4ac93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17d689a4173399c74cc862c5f473916a" id="r_a17d689a4173399c74cc862c5f473916a"><td class="memItemLeft" align="right" valign="top"><a id="a17d689a4173399c74cc862c5f473916a" name="a17d689a4173399c74cc862c5f473916a"></a>
+std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spk_handles_</b></td></tr>
+<tr class="separator:a17d689a4173399c74cc862c5f473916a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e3098813bd3f086e1e5498d19fd854" id="r_a29e3098813bd3f086e1e5498d19fd854"><td class="memItemLeft" align="right" valign="top"><a id="a29e3098813bd3f086e1e5498d19fd854" name="a29e3098813bd3f086e1e5498d19fd854"></a>
+funcarray&#160;</td><td class="memItemRight" valign="bottom"><b>functions_</b> {}</td></tr>
+<tr class="separator:a29e3098813bd3f086e1e5498d19fd854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473b494575fc4bbdc8a5d124a954807c" id="r_a473b494575fc4bbdc8a5d124a954807c"><td class="memItemLeft" align="right" valign="top"><a id="a473b494575fc4bbdc8a5d124a954807c" name="a473b494575fc4bbdc8a5d124a954807c"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td></tr>
+<tr class="separator:a473b494575fc4bbdc8a5d124a954807c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Spice API </p>
+<p>处理CSPICE库的动态加载、卸载、函数调用等 这里只对CSPICE库进行简单的包装：</p><ul>
+<li>在保证接口不变的情况下，确保线程安全</li>
+<li>针对文件加载增加了引用计数机制</li>
+<li>处理了文件路径的编码问题 <dl class="section warning"><dt>警告</dt><dd>注意CSPICE库的默认长度单位是**千米** </dd></dl>
+</li>
+</ul>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="ab84a6ada1d4f195ce68830843518abb5" name="ab84a6ada1d4f195ce68830843518abb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84a6ada1d4f195ce68830843518abb5">&#9670;&#160;</a></span>SpiceAPI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::SpiceAPI::SpiceAPI </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>shouldLoadDynamicLib</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shouldLoadDynamicLib</td><td>是否自动加载动态库 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a49146dd788dbfd8e7d6cfd9fb1b3b015" name="a49146dd788dbfd8e7d6cfd9fb1b3b015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49146dd788dbfd8e7d6cfd9fb1b3b015">&#9670;&#160;</a></span>erract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::SpiceAPI::erract </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>lenout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>action</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>错误处理函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>错误处理操作 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac20493f9faec77a36d19f83a02a9929d" name="ac20493f9faec77a36d19f83a02a9929d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20493f9faec77a36d19f83a02a9929d">&#9670;&#160;</a></span>failed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::SpiceAPI::failed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查是否发生错误 </p>
+<dl class="section return"><dt>返回</dt><dd>是否发生错误 </dd></dl>
+
+</div>
+</div>
+<a id="a4fbf751cd2c4df0e793752c08723d15c" name="a4fbf751cd2c4df0e793752c08723d15c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fbf751cd2c4df0e793752c08723d15c">&#9670;&#160;</a></span>furnsh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::furnsh </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载spice内核文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>内核文件路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a50548d77a66d57af19bd782da1152629" name="a50548d77a66d57af19bd782da1152629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50548d77a66d57af19bd782da1152629">&#9670;&#160;</a></span>Instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1SpiceAPI.html">SpiceAPI</a> * ast::SpiceAPI::Instance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取单例实例 </p>
+<dl class="section return"><dt>返回</dt><dd>单例实例指针 </dd></dl>
+
+</div>
+</div>
+<a id="aa07c808d950e6e4438bea95bc6c63cbb" name="aa07c808d950e6e4438bea95bc6c63cbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa07c808d950e6e4438bea95bc6c63cbb">&#9670;&#160;</a></span>isLoaded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::SpiceAPI::isLoaded </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查是否加载了库 </p>
+<dl class="section return"><dt>返回</dt><dd>是否加载了库 </dd></dl>
+
+</div>
+</div>
+<a id="a5e6bf0d9111fb23b465c472b3750f84b" name="a5e6bf0d9111fb23b465c472b3750f84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e6bf0d9111fb23b465c472b3750f84b">&#9670;&#160;</a></span>ktotal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::ktotal </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>kind</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取已加载的内核数量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kind</td><td>内核类型 </td></tr>
+    <tr><td class="paramname">count</td><td>内核数量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ae0408a3a3444be4b86aff5f43bf72845" name="ae0408a3a3444be4b86aff5f43bf72845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0408a3a3444be4b86aff5f43bf72845">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>libpath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">libpath</td><td>库路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="aac3292abf67364990a1de46f79df05d0" name="aac3292abf67364990a1de46f79df05d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac3292abf67364990a1de46f79df05d0">&#9670;&#160;</a></span>spkgeo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::spkgeo </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>targ</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>et</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>obs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>state</em></span>[6], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算spice位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targ</td><td>目标体ID </td></tr>
+    <tr><td class="paramname">et</td><td>时间，相对于J2000.0 TDB的秒数，并以TDB为时间递进尺度 </td></tr>
+    <tr><td class="paramname">ref</td><td>参考系 </td></tr>
+    <tr><td class="paramname">obs</td><td>观察者ID </td></tr>
+    <tr><td class="paramname">state</td><td>状态向量 </td></tr>
+    <tr><td class="paramname">lt</td><td>光行时 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a4bb24796022f7868f160b7d8db92f82c" name="a4bb24796022f7868f160b7d8db92f82c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb24796022f7868f160b7d8db92f82c">&#9670;&#160;</a></span>spklef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::spklef </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载SPK内核文件 </p>
+<p>在CSPICE的接口基础上增加了引用计数机制 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>内核文件路径 </td></tr>
+    <tr><td class="paramname">handle</td><td>内核句柄 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="abae40dfe27cd12b56c29ef6356518992" name="abae40dfe27cd12b56c29ef6356518992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae40dfe27cd12b56c29ef6356518992">&#9670;&#160;</a></span>spkuef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::spkuef </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>鞋子SPK内核文件 </p>
+<p>在CSPICE的接口基础上增加了引用计数机制 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>内核句柄 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="afa3c55166e2fa8b79b3091c1f1cd8b2f" name="afa3c55166e2fa8b79b3091c1f1cd8b2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3c55166e2fa8b79b3091c1f1cd8b2f">&#9670;&#160;</a></span>tryload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::tryload </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>libpaths</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>尝试加载库 </p>
+<p>尝试加载库，指定多个可能的库路径，直到成功加载为止。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">libpaths</td><td>库路径列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a624af589af418c88f74350867335a51d" name="a624af589af418c88f74350867335a51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a624af589af418c88f74350867335a51d">&#9670;&#160;</a></span>unload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::unload </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>卸载库 </p>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Data/<a class="el" href="SpiceAPI_8hpp_source.html">SpiceAPI.hpp</a></li>
+<li>src/AstCore/Data/<a class="el" href="SpiceAPI_8cpp.html">SpiceAPI.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1SpiceAPI.html">SpiceAPI</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstScript/Foreign/PythonAPI.cpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('PythonAPI_8cpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">PythonAPI.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="PythonAPI_8hpp_source.html">PythonAPI.hpp</a>&quot;</code><br />
+<code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/LibraryLoader.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ab80133714028ffa48990666084f9a9cf" id="r_ab80133714028ffa48990666084f9a9cf"><td class="memItemLeft" align="right" valign="top"><a id="ab80133714028ffa48990666084f9a9cf" name="ab80133714028ffa48990666084f9a9cf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PYTHONAPI_LOCK</b>&#160;&#160;&#160;std::lock_guard&lt;std::mutex&gt; lk(mutex_)</td></tr>
+<tr class="separator:ab80133714028ffa48990666084f9a9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb522bf8cff3178501661c764d610ec" id="r_a5bb522bf8cff3178501661c764d610ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bb522bf8cff3178501661c764d610ec">PYTHONAPI_GET</a>(fn,  idx)</td></tr>
+<tr class="separator:a5bb522bf8cff3178501661c764d610ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c35ae820bb8adef50930601c33ea2dc" id="r_a6c35ae820bb8adef50930601c33ea2dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c35ae820bb8adef50930601c33ea2dc">PYTHONAPI_GET_RET</a>(fn,  idx,  ret)</td></tr>
+<tr class="separator:a6c35ae820bb8adef50930601c33ea2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aeb3f50c32fadaa0116c9bdeda3f3245b" id="r_aeb3f50c32fadaa0116c9bdeda3f3245b"><td class="memItemLeft" align="right" valign="top"><a id="aeb3f50c32fadaa0116c9bdeda3f3245b" name="aeb3f50c32fadaa0116c9bdeda3f3245b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::Py_Initialize</b> (void)</td></tr>
+<tr class="separator:aeb3f50c32fadaa0116c9bdeda3f3245b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91881e417253388c03bd999daaf108d7" id="r_a91881e417253388c03bd999daaf108d7"><td class="memItemLeft" align="right" valign="top"><a id="a91881e417253388c03bd999daaf108d7" name="a91881e417253388c03bd999daaf108d7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::Py_FinalizeEx</b> (void)</td></tr>
+<tr class="separator:a91881e417253388c03bd999daaf108d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a759a36da61af87286b7637ac56655182" id="r_a759a36da61af87286b7637ac56655182"><td class="memItemLeft" align="right" valign="top"><a id="a759a36da61af87286b7637ac56655182" name="a759a36da61af87286b7637ac56655182"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::Py_IsInitialized</b> (void)</td></tr>
+<tr class="separator:a759a36da61af87286b7637ac56655182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2960c3c2728ef97d12d9b891de56296c" id="r_a2960c3c2728ef97d12d9b891de56296c"><td class="memItemLeft" align="right" valign="top"><a id="a2960c3c2728ef97d12d9b891de56296c" name="a2960c3c2728ef97d12d9b891de56296c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyRun_SimpleString</b> (const char *command)</td></tr>
+<tr class="separator:a2960c3c2728ef97d12d9b891de56296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a877b9a11b59f7ff5d6fbdf332289d033" id="r_a877b9a11b59f7ff5d6fbdf332289d033"><td class="memItemLeft" align="right" valign="top"><a id="a877b9a11b59f7ff5d6fbdf332289d033" name="a877b9a11b59f7ff5d6fbdf332289d033"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyImport_ImportModule</b> (const char *name)</td></tr>
+<tr class="separator:a877b9a11b59f7ff5d6fbdf332289d033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2205ef846e26f37c13e29cf003fcd2dd" id="r_a2205ef846e26f37c13e29cf003fcd2dd"><td class="memItemLeft" align="right" valign="top"><a id="a2205ef846e26f37c13e29cf003fcd2dd" name="a2205ef846e26f37c13e29cf003fcd2dd"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyObject_GetAttrString</b> (PyObject *o, const char *attr_name)</td></tr>
+<tr class="separator:a2205ef846e26f37c13e29cf003fcd2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8013c06942fa41f97eb5ff68427af662" id="r_a8013c06942fa41f97eb5ff68427af662"><td class="memItemLeft" align="right" valign="top"><a id="a8013c06942fa41f97eb5ff68427af662" name="a8013c06942fa41f97eb5ff68427af662"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyObject_CallObject</b> (PyObject *callable, PyObject *args)</td></tr>
+<tr class="separator:a8013c06942fa41f97eb5ff68427af662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9be4f888dbdbcd5ea7ca0c6290c31e6" id="r_ab9be4f888dbdbcd5ea7ca0c6290c31e6"><td class="memItemLeft" align="right" valign="top"><a id="ab9be4f888dbdbcd5ea7ca0c6290c31e6" name="ab9be4f888dbdbcd5ea7ca0c6290c31e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::Py_DecRef</b> (PyObject *o)</td></tr>
+<tr class="separator:ab9be4f888dbdbcd5ea7ca0c6290c31e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a55188eb1be4882e731faf11c241619" id="r_a3a55188eb1be4882e731faf11c241619"><td class="memItemLeft" align="right" valign="top"><a id="a3a55188eb1be4882e731faf11c241619" name="a3a55188eb1be4882e731faf11c241619"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::Py_IncRef</b> (PyObject *o)</td></tr>
+<tr class="separator:a3a55188eb1be4882e731faf11c241619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a366a72863eb0d17e4fba4c1522d72bbd" id="r_a366a72863eb0d17e4fba4c1522d72bbd"><td class="memItemLeft" align="right" valign="top"><a id="a366a72863eb0d17e4fba4c1522d72bbd" name="a366a72863eb0d17e4fba4c1522d72bbd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyErr_Print</b> (void)</td></tr>
+<tr class="separator:a366a72863eb0d17e4fba4c1522d72bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21188b914ab64e46031e549fc2dfe31e" id="r_a21188b914ab64e46031e549fc2dfe31e"><td class="memItemLeft" align="right" valign="top"><a id="a21188b914ab64e46031e549fc2dfe31e" name="a21188b914ab64e46031e549fc2dfe31e"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyErr_Occurred</b> (void)</td></tr>
+<tr class="separator:a21188b914ab64e46031e549fc2dfe31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b24f6cd3b28369483560c30e8afdb0c" id="r_a7b24f6cd3b28369483560c30e8afdb0c"><td class="memItemLeft" align="right" valign="top"><a id="a7b24f6cd3b28369483560c30e8afdb0c" name="a7b24f6cd3b28369483560c30e8afdb0c"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyUnicode_AsUTF8</b> (PyObject *unicode)</td></tr>
+<tr class="separator:a7b24f6cd3b28369483560c30e8afdb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5b49c318dd792bee94ec5628e49d67b" id="r_aa5b49c318dd792bee94ec5628e49d67b"><td class="memItemLeft" align="right" valign="top"><a id="aa5b49c318dd792bee94ec5628e49d67b" name="aa5b49c318dd792bee94ec5628e49d67b"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyRun_String</b> (const char *str, int start, PyObject *globals, PyObject *locals)</td></tr>
+<tr class="separator:aa5b49c318dd792bee94ec5628e49d67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8158cd5c391a0bcf23c28707215319cd" id="r_a8158cd5c391a0bcf23c28707215319cd"><td class="memItemLeft" align="right" valign="top"><a id="a8158cd5c391a0bcf23c28707215319cd" name="a8158cd5c391a0bcf23c28707215319cd"></a>
+long&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyLong_AsLong</b> (PyObject *o)</td></tr>
+<tr class="separator:a8158cd5c391a0bcf23c28707215319cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8ab8bb10f08235dc58c756bb551773" id="r_aff8ab8bb10f08235dc58c756bb551773"><td class="memItemLeft" align="right" valign="top"><a id="aff8ab8bb10f08235dc58c756bb551773" name="aff8ab8bb10f08235dc58c756bb551773"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyFloat_AsDouble</b> (PyObject *o)</td></tr>
+<tr class="separator:aff8ab8bb10f08235dc58c756bb551773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43725ddb46e00bd16d831c1b62aac5a7" id="r_a43725ddb46e00bd16d831c1b62aac5a7"><td class="memItemLeft" align="right" valign="top"><a id="a43725ddb46e00bd16d831c1b62aac5a7" name="a43725ddb46e00bd16d831c1b62aac5a7"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyLong_FromLong</b> (long v)</td></tr>
+<tr class="separator:a43725ddb46e00bd16d831c1b62aac5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31f9168d29a41daf73d73c5e3469d4b" id="r_ad31f9168d29a41daf73d73c5e3469d4b"><td class="memItemLeft" align="right" valign="top"><a id="ad31f9168d29a41daf73d73c5e3469d4b" name="ad31f9168d29a41daf73d73c5e3469d4b"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyFloat_FromDouble</b> (double v)</td></tr>
+<tr class="separator:ad31f9168d29a41daf73d73c5e3469d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a872dfa0c7df4abc7c07ca39953fb2f58" id="r_a872dfa0c7df4abc7c07ca39953fb2f58"><td class="memItemLeft" align="right" valign="top"><a id="a872dfa0c7df4abc7c07ca39953fb2f58" name="a872dfa0c7df4abc7c07ca39953fb2f58"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyUnicode_FromString</b> (const char *u)</td></tr>
+<tr class="separator:a872dfa0c7df4abc7c07ca39953fb2f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80867e7c50de7117a1b77841f9af554" id="r_ae80867e7c50de7117a1b77841f9af554"><td class="memItemLeft" align="right" valign="top"><a id="ae80867e7c50de7117a1b77841f9af554" name="ae80867e7c50de7117a1b77841f9af554"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyBool_FromLong</b> (long v)</td></tr>
+<tr class="separator:ae80867e7c50de7117a1b77841f9af554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac76170dace5a2f55b8bfaedab68f7158" id="r_ac76170dace5a2f55b8bfaedab68f7158"><td class="memItemLeft" align="right" valign="top"><a id="ac76170dace5a2f55b8bfaedab68f7158" name="ac76170dace5a2f55b8bfaedab68f7158"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyDict_New</b> (void)</td></tr>
+<tr class="separator:ac76170dace5a2f55b8bfaedab68f7158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9108c86d1e75c2e66fb47c0368935a" id="r_aae9108c86d1e75c2e66fb47c0368935a"><td class="memItemLeft" align="right" valign="top"><a id="aae9108c86d1e75c2e66fb47c0368935a" name="aae9108c86d1e75c2e66fb47c0368935a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyDict_SetItemString</b> (PyObject *dict, const char *key, PyObject *val)</td></tr>
+<tr class="separator:aae9108c86d1e75c2e66fb47c0368935a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81b736031101a3522b2732e8954d376" id="r_ae81b736031101a3522b2732e8954d376"><td class="memItemLeft" align="right" valign="top"><a id="ae81b736031101a3522b2732e8954d376" name="ae81b736031101a3522b2732e8954d376"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyDict_GetItemString</b> (PyObject *dict, const char *key)</td></tr>
+<tr class="separator:ae81b736031101a3522b2732e8954d376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69d61e490eacd0853deb4a70263ff4a" id="r_ac69d61e490eacd0853deb4a70263ff4a"><td class="memItemLeft" align="right" valign="top"><a id="ac69d61e490eacd0853deb4a70263ff4a" name="ac69d61e490eacd0853deb4a70263ff4a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyGILState_Ensure</b> (void)</td></tr>
+<tr class="separator:ac69d61e490eacd0853deb4a70263ff4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8f1f28c42707766363ee41040cd855" id="r_acc8f1f28c42707766363ee41040cd855"><td class="memItemLeft" align="right" valign="top"><a id="acc8f1f28c42707766363ee41040cd855" name="acc8f1f28c42707766363ee41040cd855"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyGILState_Release</b> (int gstate)</td></tr>
+<tr class="separator:acc8f1f28c42707766363ee41040cd855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc3f32026ea479f81213ab00f868af54" id="r_acc3f32026ea479f81213ab00f868af54"><td class="memItemLeft" align="right" valign="top"><a id="acc3f32026ea479f81213ab00f868af54" name="acc3f32026ea479f81213ab00f868af54"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyObject_SetAttrString</b> (PyObject *o, const char *attr_name, PyObject *v)</td></tr>
+<tr class="separator:acc3f32026ea479f81213ab00f868af54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c38635e1fb4d8ae129892fc8b570787" id="r_a0c38635e1fb4d8ae129892fc8b570787"><td class="memItemLeft" align="right" valign="top"><a id="a0c38635e1fb4d8ae129892fc8b570787" name="a0c38635e1fb4d8ae129892fc8b570787"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyObject_IsInstance</b> (PyObject *obj, PyObject *cls)</td></tr>
+<tr class="separator:a0c38635e1fb4d8ae129892fc8b570787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55ce6a10f867892764861004f50180d" id="r_af55ce6a10f867892764861004f50180d"><td class="memItemLeft" align="right" valign="top"><a id="af55ce6a10f867892764861004f50180d" name="af55ce6a10f867892764861004f50180d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyErr_Fetch</b> (PyObject **ptype, PyObject **pvalue, PyObject **ptraceback)</td></tr>
+<tr class="separator:af55ce6a10f867892764861004f50180d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dcfa29ea13ded129ef81f55b0b9e190" id="r_a9dcfa29ea13ded129ef81f55b0b9e190"><td class="memItemLeft" align="right" valign="top"><a id="a9dcfa29ea13ded129ef81f55b0b9e190" name="a9dcfa29ea13ded129ef81f55b0b9e190"></a>
+PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonproto::PyObject_Str</b> (PyObject *o)</td></tr>
+<tr class="separator:a9dcfa29ea13ded129ef81f55b0b9e190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Python C API 动态加载封装实现 </p>
+<p>参考 SpiceAPI 模式，动态加载 Python 共享库 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2026-05-16 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
+<p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a5bb522bf8cff3178501661c764d610ec" name="a5bb522bf8cff3178501661c764d610ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bb522bf8cff3178501661c764d610ec">&#9670;&#160;</a></span>PYTHONAPI_GET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PYTHONAPI_GET</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>fn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">auto</span> fn = <span class="keyword">reinterpret_cast&lt;</span>decltype(&amp;pythonproto::idx)<span class="keyword">&gt;</span>(functions_[i##idx]); \</div>
+<div class="line">    if(!fn){ aError(<span class="stringliteral">&quot;PythonAPI: library not loaded&quot;</span>); <span class="keywordflow">return</span>; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6c35ae820bb8adef50930601c33ea2dc" name="a6c35ae820bb8adef50930601c33ea2dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c35ae820bb8adef50930601c33ea2dc">&#9670;&#160;</a></span>PYTHONAPI_GET_RET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PYTHONAPI_GET_RET</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>fn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ret</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">auto</span> fn = <span class="keyword">reinterpret_cast&lt;</span>decltype(&amp;pythonproto::idx)<span class="keyword">&gt;</span>(functions_[i##idx]); \</div>
+<div class="line">    if(!fn){ aError(<span class="stringliteral">&quot;PythonAPI: library not loaded&quot;</span>); <span class="keywordflow">return</span> ret; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_943b8559cfec6ca4c5bcb49ee46412f0.html">AstScript</a></li><li class="navelem"><a class="el" href="dir_ec0f894df079da601163d0e435f2480a.html">Foreign</a></li><li class="navelem"><a class="el" href="PythonAPI_8cpp.html">PythonAPI.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

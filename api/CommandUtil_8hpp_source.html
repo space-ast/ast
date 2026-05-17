@@ -120,6 +120,8 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#ifndef SWIG</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">namespace </span>detail{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> find_closing(<span class="keyword">const</span> <span class="keywordtype">char</span>* s, <span class="keywordtype">int</span> p) {</div>
@@ -362,8 +364,9 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>} <span class="comment">// namespace detail</span></div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aCommandAPI_8hpp_html"><div class="ttname"><a href="CommandAPI_8hpp.html">CommandAPI.hpp</a></div></div>
 <div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:435</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:86</div></div>

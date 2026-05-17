@@ -11,5 +11,6 @@ var dir_720108c7244deada8dab13596962e93b =
     [ "Serde", "dir_7050b1ff41cd5be055b62375943f1843.html", "dir_7050b1ff41cd5be055b62375943f1843" ],
     [ "String", "dir_13ac9e70f9049d516b8f1ea23eb3d46d.html", "dir_13ac9e70f9049d516b8f1ea23eb3d46d" ],
     [ "Util", "dir_1d596027c2fe9b93d9e6a4ea9df9dfd2.html", "dir_1d596027c2fe9b93d9e6a4ea9df9dfd2" ],
-    [ "AstUtil.hpp", "AstUtil_8hpp.html", null ]
+    [ "AstUtil.hpp", "AstUtil_8hpp_source.html", null ],
+    [ "AstUtilGlobal.h", "AstUtilGlobal_8h.html", null ]
 ];

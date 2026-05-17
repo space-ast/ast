@@ -186,12 +186,12 @@ var group__Util =
       [ "ast::eYellowGreen", "group__Util.html#ggac1947c945d205687379e80f42bba8dfda7ddeb132b7ea3fcbb52c7e42b2c4e35f", null ]
     ] ],
     [ "ast::ELogLevel", "group__Util.html#ga5bbb8d8bdd9f8766a334821bfbf1d01f", [
-      [ "ast::eDebug", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fac1c89d4996177b6b86e6eaeb9ea43b45", null ],
-      [ "ast::eInfo", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fae05afd90e3d4a4339763487b493085ef", null ],
-      [ "ast::eWarning", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fadee4fd68f292d7d68f148d43612c989a", null ],
-      [ "ast::eError", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01faee23632159b4dddc165db054827430a0", null ],
-      [ "ast::eCritical", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fa3919b9ffbc861e0d7779a850909a2e7e", null ],
-      [ "ast::eFatal", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fac68644ff593d5f4165afebbd80b5c7d0", null ]
+      [ "ast::ELogLevel::eDebug", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fa54aa5966939e3ea8616b09cc2f635312", null ],
+      [ "ast::ELogLevel::eInfo", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fa63751a38ef3979cde8e8fd54844fd5e2", null ],
+      [ "ast::ELogLevel::eWarning", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fa16ef90ced71f6e8c01f2f69f429708b8", null ],
+      [ "ast::ELogLevel::eError", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01fa946db550abb284f3a919132343c4d984", null ],
+      [ "ast::ELogLevel::eCritical", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01faf38218e99af914676ea5032c50fe4fb6", null ],
+      [ "ast::ELogLevel::eFatal", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01faa6eae972352ca2db629694a3d732bdf8", null ]
     ] ],
     [ "ast::aColorToRGB", "group__Util.html#ga1504ced890d1ddf9c776dad4def524e9", null ],
     [ "ast::aColorToRGBA", "group__Util.html#ga924b82626c144275a12826e154af64c4", null ],
@@ -216,7 +216,7 @@ var group__Util =
     [ "ast::atan2d", "group__Util.html#gaddc9ca4ebc4ce64ac86c0411f920a092", null ],
     [ "ast::atand", "group__Util.html#ga438e82b6bc2e1b76563bf6e6caec0df9", null ],
     [ "ast::cosd", "group__Util.html#ga224d796ee35c6b4d310a73ca0103c76a", null ],
-    [ "ast::cprintf", "group__Util.html#ga1c2b8c25e70849b06c5463ab1de5539b", null ],
+    [ "ast::cprintf", "group__Util.html#gaeaf6b3efed5b6578ba71d2261eef998f", null ],
     [ "ast::deg2rad", "group__Util.html#ga2829ae46176d2ae6b387706feba62fdb", null ],
     [ "ast::Polynomial::eval", "group__Util.html#gaad67fee67dde91d39aea8e0b9ebacbee", null ],
     [ "ast::rad2deg", "group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd", null ],

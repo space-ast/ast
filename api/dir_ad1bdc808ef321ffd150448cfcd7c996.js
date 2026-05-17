@@ -8,5 +8,6 @@ var dir_ad1bdc808ef321ffd150448cfcd7c996 =
     [ "ODE", "dir_5bc54a56cbae6602baa6cf88996dc0a3.html", "dir_5bc54a56cbae6602baa6cf88996dc0a3" ],
     [ "Transform", "dir_bab1528425b983a6e5adf2b6c9a58186.html", "dir_bab1528425b983a6e5adf2b6c9a58186" ],
     [ "Util", "dir_7a55822c7ef3c20c49cea16c446bc4bd.html", "dir_7a55822c7ef3c20c49cea16c446bc4bd" ],
-    [ "AstMath.hpp", "AstMath_8hpp.html", null ]
+    [ "AstMath.hpp", "AstMath_8hpp_source.html", null ],
+    [ "AstMathGlobal.h", "AstMathGlobal_8h.html", null ]
 ];

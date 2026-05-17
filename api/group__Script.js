@@ -93,6 +93,12 @@ var group__Script =
       [ "eval", "classast_1_1ExprVector.html#a588f28c3d2bc600f74dc2fde9e5ea326", null ],
       [ "getExpression", "classast_1_1ExprVector.html#a78a8638704fd8882d63341c611e59a58", null ]
     ] ],
+    [ "ast::PythonAPI", "classast_1_1PythonAPI.html", [
+      [ "isLoaded", "classast_1_1PythonAPI.html#a545d04fe5086d257e517b91cf4814b51", null ],
+      [ "load", "classast_1_1PythonAPI.html#a5e5a4eea71bd88738ad8567318972cee", null ],
+      [ "tryload", "classast_1_1PythonAPI.html#a1b20b1a04a53fd2cc87795aefbbfeb8c", null ],
+      [ "unload", "classast_1_1PythonAPI.html#a63ff9f392f8dcd9e0d658a72cf0454ad", null ]
+    ] ],
     [ "ast::Function", "classast_1_1Function.html", null ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
     [ "ast::CallStack", "classast_1_1CallStack.html", null ],
@@ -219,7 +225,6 @@ var group__Script =
       [ "check", "classast_1_1Parser.html#a7eb04cba4f018a85cbaeb6b8ba7a5a8b", null ],
       [ "currentLexeme", "classast_1_1Parser.html#aeca390ef2b07e1e5fe0169687034dfc0", null ],
       [ "currentTokenType", "classast_1_1Parser.html#ad9d0cc741db76c6803aed27fe49cebb2", null ],
-      [ "getLine", "classast_1_1Parser.html#a0334cd1edd397cc248c4a5066fa035f6", null ],
       [ "match", "classast_1_1Parser.html#a44fef303ad78d081b03399e8c524a1b9", null ],
       [ "parseAdditiveExpr", "classast_1_1Parser.html#a84d94e312cde8d88fa8786cc34261e67", null ],
       [ "parseAssignExpr", "classast_1_1Parser.html#ad0525d728c6948442fc8285914f67dd8", null ],
@@ -239,10 +244,8 @@ var group__Script =
       [ "parseMultiplicativeExpr", "classast_1_1Parser.html#aee5f91fb6a492f7e1af6a82751a92cce", null ],
       [ "parsePrimaryExpr", "classast_1_1Parser.html#a63df3f5b186f7631df0c1463fa66cd47", null ],
       [ "parseRangeExpr", "classast_1_1Parser.html#a62d0f86ee820658d52486b31e4d94216", null ],
-      [ "parseRangeExprFrom", "classast_1_1Parser.html#a9461626bff94ebaecd758be539dc6577", null ],
       [ "parseRelationalExpr", "classast_1_1Parser.html#afb5ab9485b104c88e2fd7fc610eb4e25", null ],
       [ "parseShiftExpr", "classast_1_1Parser.html#aa67b297c2adf0ae5ac91111743e0c1f1", null ],
-      [ "parseStatements", "classast_1_1Parser.html#a43465ed09cd9236d43fd7c29c78aadaf", null ],
       [ "parseStatementSequence", "classast_1_1Parser.html#a51b1b1320ff9f4de1fde3657469722bf", null ],
       [ "parseUnaryExpr", "classast_1_1Parser.html#a5be1ff3ccbe7782e233f545240efb878", null ],
       [ "parseWhileLoop", "classast_1_1Parser.html#ae8790003bc3c161664b55f6e253f705c", null ]

@@ -115,6 +115,7 @@ $(function(){initNavTree('classast_1_1ScriptExecutor.html',''); initResizable(tr
   <img src="classast_1_1ScriptExecutor.png" usemap="#ast::ScriptExecutor_map" alt=""/>
   <map id="ast::ScriptExecutor_map" name="ast::ScriptExecutor_map">
 <area href="classast_1_1ActiveScriptExecutor.html" title="微软Active系列脚本执行器" alt="ast::ActiveScriptExecutor" shape="rect" coords="81,56,234,80"/>
+<area href="classast_1_1PythonExecutor.html" title="Python 脚本执行器" alt="ast::PythonExecutor" shape="rect" coords="244,56,397,80"/>
 <area href="classast_1_1JScriptExecutor.html" alt="ast::JScriptExecutor" shape="rect" coords="0,112,153,136"/>
 <area href="classast_1_1VBScriptExecutor.html" alt="ast::VBScriptExecutor" shape="rect" coords="163,112,316,136"/>
   </map>
@@ -236,7 +237,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 </dl>
 <dl class="section return"><dt>返回</dt><dd>求值结果 </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1ActiveScriptExecutor.html#ae2da7eef76e3cbfaf8fb1bbd4de34280">ast::ActiveScriptExecutor</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1ActiveScriptExecutor.html#ae2da7eef76e3cbfaf8fb1bbd4de34280">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#a1f1e62e992a3c4d02df9a06723e27669">ast::PythonExecutor</a> 重载.</p>
 
 </div>
 </div>
@@ -278,7 +279,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 <dl class="section note"><dt>注解</dt><dd>执行语句是否有返回值取决于脚本语言的设计，例如python执行语句没有返回值，而JavaScript、C、Ruby执行语句有返回值 </dd></dl>
 <dl class="section return"><dt>返回</dt><dd>执行结果 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#a4793a68c3ad56ad32fb36062135bed2a">ast::ActiveScriptExecutor</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#a4793a68c3ad56ad32fb36062135bed2a">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#a0199e6f34dcddb478415a4665ecf974b">ast::PythonExecutor</a> 内被实现.</p>
 
 </div>
 </div>
@@ -339,7 +340,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 <p>结束脚本执行器 </p>
 <p>结束脚本执行器，释放所有资源 </p>
 
-<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#a60c7c6b7d806104c0589900828b96ac6">ast::ActiveScriptExecutor</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#a60c7c6b7d806104c0589900828b96ac6">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#a1faf6e9f73a06c7f276acb56696e3e1c">ast::PythonExecutor</a> 内被实现.</p>
 
 </div>
 </div>
@@ -370,7 +371,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 <dl class="section warning"><dt>警告</dt><dd>注意只能在execute函数执行失败后调用 不要通过调用该函数来判断脚本是否执行成功 </dd></dl>
 <dl class="section return"><dt>返回</dt><dd>最近一次执行脚本时的错误信息 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#af3cf13c8aa98b6f47904a749230914f0">ast::ActiveScriptExecutor</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#af3cf13c8aa98b6f47904a749230914f0">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#a00ebe1238e2b652980d7f74cf1654c8f">ast::PythonExecutor</a> 内被实现.</p>
 
 </div>
 </div>
@@ -411,7 +412,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 </dl>
 <dl class="section return"><dt>返回</dt><dd>获取结果 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#a3356bcca66a7f572cb674fdc16e3e644">ast::ActiveScriptExecutor</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#a3356bcca66a7f572cb674fdc16e3e644">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#a7be4c009786210d3d694ead6e46ea76b">ast::PythonExecutor</a> 内被实现.</p>
 
 </div>
 </div>
@@ -441,7 +442,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 <p>初始化脚本执行器 </p>
 <p>初始化脚本执行器，准备执行脚本 </p><dl class="section return"><dt>返回</dt><dd>初始化结果 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#ab29f6d23e68a0b336efb85084171b27e">ast::ActiveScriptExecutor</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#ab29f6d23e68a0b336efb85084171b27e">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#aba9ca1c3ab3d277cf30aa881ee7846dc">ast::PythonExecutor</a> 内被实现.</p>
 
 </div>
 </div>
@@ -482,7 +483,7 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getVariable</b> (<a
 </dl>
 <dl class="section return"><dt>返回</dt><dd>设置结果 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#aa108edfa0c45559844cb3b5778d2fccf">ast::ActiveScriptExecutor</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ActiveScriptExecutor.html#aa108edfa0c45559844cb3b5778d2fccf">ast::ActiveScriptExecutor</a> , 以及 <a class="el" href="classast_1_1PythonExecutor.html#ae6c1b28e8a47d19a55fb04953d16c744">ast::PythonExecutor</a> 内被实现.</p>
 
 </div>
 </div>

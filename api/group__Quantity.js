@@ -81,11 +81,7 @@ var group__Quantity =
       [ "pow", "classast_1_1Unit.html#a40e068f48d9b5e29685ea01d71639650", null ],
       [ "pow", "classast_1_1Unit.html#a3dc635b74bcdbf6ea00eb074a40b30ae", null ],
       [ "scale", "classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d", null ],
-      [ "toSI", "classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc", null ],
-      [ "unit_divide", "classast_1_1Unit.html#a6c9966d0453a14df52220822add4e9f8", null ],
-      [ "unit_multiply", "classast_1_1Unit.html#ab4c8c48d5b8a6c3a14601eef2c13cc01", null ],
-      [ "unit_power", "classast_1_1Unit.html#a13a45efbc1f1bdd9c2ec6e38473da96e", null ],
-      [ "unit_setname", "classast_1_1Unit.html#a324e97635b9183a22886dc4ef9d2439b", null ]
+      [ "toSI", "classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc", null ]
     ] ],
     [ "ast::UnitConverter", "classast_1_1UnitConverter.html", [
       [ "convert", "classast_1_1UnitConverter.html#a5ec8a38119541ac15de6db9a8d52163a", null ],
