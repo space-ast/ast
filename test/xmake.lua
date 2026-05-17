@@ -15,7 +15,7 @@ add_deps(
     "AstTest"
 )
 
-if is_plat("windows") then
+if is_plat("windows") and has_config("with_com") then
     add_deps("AstCOM")
 end
 
