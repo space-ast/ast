@@ -117,10 +117,14 @@ public:
 
 signals:
     void quantityChanged(const Quantity& quantity);
+protected:
+    void changeEvent(QEvent* event) override;
+
 private slots:
     void showUnitMenu();
 private:
     void updateQuantity();
+    void updateArrowIcon();
     Quantity currentQuantity_;
     QAction* actionSwitchUnit_{nullptr};
     bool dimensionLocked_{true};

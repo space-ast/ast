@@ -43,9 +43,14 @@ class Unit;
 AST_UTIL_API Unit* aUnitGet(StringView name);
 
 /// @brief 获取国际制单位
-/// @param dim 单位维度
+/// @param dim 量纲
 /// @return 国际制单位
 AST_UTIL_API Unit* aUnitGetSI(Dimension dim);
+
+/// @brief 获取默认单位
+/// @param dim 量纲
+/// @return 默认单位
+AST_UTIL_API Unit* aUnitGetDefault(Dimension dim);
 
 
 /// @brief 添加单位
@@ -63,7 +68,7 @@ AST_UTIL_API errc_t aUnitAdd(StringView name, const Unit& unit);
 /// @brief 获取指定量纲下的所有单位
 /// @param dim 量纲
 /// @return 单位列表
-AST_UTIL_API std::vector<Unit> aUnitGetByDimension(Dimension dim);
+AST_UTIL_API std::vector<Unit> aUnitsGetByDimension(Dimension dim);
 
 
 /// @brief 单位管理器

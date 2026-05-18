@@ -249,6 +249,22 @@ Unit* aUnitGetSI(Dimension dim)
     return UnitManager::Instance().getSiUnit(dim);
 }
 
+Unit* aUnitGetDefault(Dimension dim)
+{
+    // 角度单位默认使用度
+    if(dim == Dimension::Angle())
+    {
+        if(auto* unit = aUnitGet("deg"))
+            return unit;
+    }
+    else if(dim == Dimension::AngularVelocity())
+    {
+        if(auto* unit = aUnitGet("deg/sec"))
+            return unit;
+    }
+    return aUnitGetSI(dim);
+}
+
 errc_t aUnitAdd(const Unit& unit)
 {
     return UnitManager::Instance().addUnit(unit);
@@ -259,7 +275,7 @@ errc_t aUnitAdd(StringView name, const Unit &unit)
     return UnitManager::Instance().addUnit(name, unit);
 }
 
-std::vector<Unit> aUnitGetByDimension(Dimension dim)
+std::vector<Unit> aUnitsGetByDimension(Dimension dim)
 {
     return UnitManager::Instance().getUnitsByDimension(dim);
 }

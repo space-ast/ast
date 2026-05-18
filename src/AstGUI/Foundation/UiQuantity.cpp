@@ -1,7 +1,7 @@
 ///
 /// @file      UiQuantity.cpp
-/// @brief     
-/// @details   
+/// @brief
+/// @details
 /// @author    axel
 /// @date      2026-03-26
 /// @copyright 版权所有 (C) 2026-present, ast项目.
@@ -10,9 +10,9 @@
 /// 本项目基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
@@ -23,6 +23,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/UnitManager.hpp"
 #include <QApplication>
+#include <QEvent>
 #include <QMenu>
 #include <QPainter>
 #include <QPolygon>
@@ -30,27 +31,35 @@
 
 AST_NAMESPACE_BEGIN
 
-static QIcon cachedArrowIcon()
+QIcon makeArrowIcon()
 {
-    static QIcon icon = []() {
-        const int size = 12;
-        QPixmap pix(size * 2, size * 2);
-        pix.setDevicePixelRatio(2);
-        pix.fill(Qt::transparent);
-        QPainter p(&pix);
-        p.setRenderHint(QPainter::Antialiasing);
-        p.setBrush(QApplication::palette().color(QPalette::Text));
-        p.setPen(Qt::NoPen);
-        QPolygonF tri;
-        const double m = size * 0.25;
-        tri << QPointF(m,       size * 0.35)
-            << QPointF(size / 2.0, size - m)
-            << QPointF(size - m, size * 0.35);
-        p.drawPolygon(tri);
-        p.end();
-        return QIcon(pix);
-    }();
+    const int size = 12;
+    QPixmap pix(size * 2, size * 2);
+    pix.setDevicePixelRatio(2);
+    pix.fill(Qt::transparent);
+    QPainter p(&pix);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.setBrush(QApplication::palette().color(QPalette::Text));
+    p.setPen(Qt::NoPen);
+    QPolygonF tri;
+    const double m = size * 0.25;
+    tri << QPointF(m,       size * 0.35)
+        << QPointF(size / 2.0, size - m)
+        << QPointF(size - m, size * 0.35);
+    p.drawPolygon(tri);
+    p.end();
+    return QIcon(pix);
+}
+
+QIcon cachedArrowIcon()
+{
+    static QIcon icon = makeArrowIcon();
     return icon;
+}
+
+void UiQuantity::updateArrowIcon()
+{
+    actionSwitchUnit_->setIcon(makeArrowIcon());
 }
 
 UiQuantity::UiQuantity(QWidget* parent)
@@ -131,9 +140,11 @@ void UiQuantity::setDimension(Dimension dim)
     if(this->dimension() == dim){
         return;
     }
-    if (Unit* siUnit = aUnitGetSI(dim))
+    if (Unit* siUnit = aUnitGetDefault(dim))
     {
-        currentQuantity_.changeUnit(*siUnit);
+        double valueSI = currentQuantity_.getValueSI();
+        double mag = siUnit->fromSI(valueSI);
+        this->setQuantity(Quantity(mag, *siUnit));
     }
     else
     {
@@ -145,7 +156,7 @@ void UiQuantity::showUnitMenu()
 {
     updateQuantity();
 
-    std::vector<Unit> units = aUnitGetByDimension(currentQuantity_.dimension());
+    std::vector<Unit> units = aUnitsGetByDimension(currentQuantity_.dimension());
 
     QMenu menu(this);
     if (units.empty())
@@ -163,7 +174,7 @@ void UiQuantity::showUnitMenu()
                 name = QStringLiteral("<空>");
             QAction* action = menu.addAction(name);
             action->setData(static_cast<qulonglong>(i));
-            if (u.getScale() == currentQuantity_.unit().getScale())
+            if (qFuzzyCompare(u.getScale(), currentQuantity_.unit().getScale()))
             {
                 action->setCheckable(true);
                 action->setChecked(true);
@@ -199,5 +210,13 @@ void UiQuantity::updateQuantity()
     }
 }
 
+void UiQuantity::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::PaletteChange)
+    {
+        updateArrowIcon();
+    }
+    UiValueEdit::changeEvent(event);
+}
 
 AST_NAMESPACE_END
