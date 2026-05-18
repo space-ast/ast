@@ -16,16 +16,16 @@ UiGravityForce::UiGravityForce(Object* object, QWidget *parent)
 }
 
 UiGravityForce::UiGravityForce(QWidget *parent)
-    : UiObject(parent)
+    : UiGravityForce(nullptr, parent)
 {
-    setObjectName("UiGravityForce");
-    setupUi();
+
 }
 
 void UiGravityForce::setupUi()
 {
     // 主布局
     mainLayout_ = new QVBoxLayout(this);
+    mainLayout_->setContentsMargins(0, 0, 0, 0);
     
     // 中心天体重力场配置
     centralBodyGravityGroup_ = new QGroupBox("中心天体重力场", this);

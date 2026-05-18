@@ -54,7 +54,6 @@ UiMissionPanel::~UiMissionPanel() = default;
 void UiMissionPanel::setupUi()
 {
     auto* rootLayout = new QVBoxLayout(this);
-    rootLayout->setContentsMargins(0, 0, 0, 0);
 
     // 工具栏区域 — toolBar_ 由 setupToolBar 创建
     // (此处仅占位，setupToolBar 在构造函数中先于 setupConnections 调用)

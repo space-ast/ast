@@ -43,6 +43,7 @@ UiManeuver::~UiManeuver() = default;
 void UiManeuver::setupUi()
 {
     auto* layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     auto* typeLayout = new QHBoxLayout();
     typeLayout->addWidget(new QLabel(tr("发动机类型"), this));

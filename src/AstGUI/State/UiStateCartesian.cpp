@@ -19,6 +19,9 @@
 
 #include "UiStateCartesian.hpp"
 #include "AstCore/StateCartesian.hpp"
+#include "AstCore/State.hpp"
+#include "AstCore/Frame.hpp"
+#include "AstGUI/UiSelectFrame.hpp"
 #include "AstUtil/Unit.hpp"
 #include "AstUtil/Quantity.hpp"
 #include <QVBoxLayout>
@@ -27,6 +30,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QComboBox>
+#include <QPushButton>
 
 
 AST_NAMESPACE_BEGIN
@@ -57,8 +61,13 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QLabel* frameLabel = new QLabel(tr("坐标系"), this);
     frameCombo_ = new QComboBox(this);
     frameCombo_->addItem(tr("ICRF"));
+    frameCombo_->setEditable(false);
+    frameSelectBtn_ = new QPushButton(tr("..."), this);
+    frameSelectBtn_->setFixedWidth(30);
+    frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
     frameLayout->addWidget(frameLabel);
     frameLayout->addWidget(frameCombo_);
+    frameLayout->addWidget(frameSelectBtn_);
     mainLayout->addLayout(frameLayout);
     
     // 位置X
@@ -124,6 +133,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     connect(velYEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
     connect(velZEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
     connect(epochEdit_, &UiTimePoint::timePointChanged, this, &UiStateCartesian::apply);
+    connect(frameSelectBtn_, &QPushButton::clicked, this, &UiStateCartesian::onSelectFrame);
 }
 
 void UiStateCartesian::refreshUi()
@@ -167,7 +177,23 @@ void UiStateCartesian::applyTo(StateCartesian *state)
     // 获取轨道历元
     TimePoint timePoint = epochEdit_->getTimePoint();
     state->setStateEpoch(timePoint);
-    // 这里可以添加代码，获取坐标系等其他属性
+}
+
+void UiStateCartesian::onSelectFrame()
+{
+    auto* state = getStateCartesian();
+    if (!state)
+        return;
+
+    auto* frame = aUiSelectFrame();
+    if (frame)
+    {
+        state->changeFrame(frame);
+        frameCombo_->setItemText(0,
+            QString::fromUtf8(frame->getRepresentation().c_str()));
+        frameCombo_->setCurrentIndex(0);
+        apply();
+    }
 }
 
 void UiStateCartesian::setStateCartesian(StateCartesian* state)

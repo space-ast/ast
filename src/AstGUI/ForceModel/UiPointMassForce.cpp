@@ -16,16 +16,16 @@ UiPointMassForce::UiPointMassForce(Object* object, QWidget *parent)
 }
 
 UiPointMassForce::UiPointMassForce(QWidget *parent)
-    : UiObject(parent)
+    : UiPointMassForce(nullptr, parent)
 {
-    setObjectName("UiPointMassForce");
-    setupUi();
+
 }
 
 void UiPointMassForce::setupUi()
 {
     // 主布局
     mainLayout_ = new QVBoxLayout(this);
+    mainLayout_->setContentsMargins(0, 0, 0, 0);
     
     // 引力常数来源
     gmSourceLayout_ = new QHBoxLayout();

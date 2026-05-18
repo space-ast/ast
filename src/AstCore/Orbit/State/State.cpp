@@ -116,14 +116,13 @@ errc_t State::changeFrame(Frame *frame)
 {
     if(frame_ == frame)
         return eNoError;
-    CartState state{};
-    this->getState(state);
     KinematicTransform transform;
     TimePoint epoch{};
-    errc_t rc = getStateEpoch(epoch);
-    if(rc) return rc;
-    rc = aFrameTransform(this->frame_, frame, epoch, transform);
-    if(rc) return rc;
+    errc_t rc = getStateEpoch(epoch);   AST_CHECK_ERRCODE(rc, "failed to get state epoch");
+    rc = aFrameTransform(this->frame_, frame, epoch, transform); AST_CHECK_ERRCODE(rc, "failed to transform frame transform");
+    
+    CartState state{};
+    this->getState(state);
     state = transform.transformPositionVelocity(state);
     this->setState(state);
     this->setFrame(frame);

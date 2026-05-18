@@ -51,6 +51,7 @@ UiPropagate::~UiPropagate() = default;
 void UiPropagate::setupUi()
 {
     auto* rootLayout = new QVBoxLayout(this);
+    rootLayout->setContentsMargins(0, 0, 0, 0);
 
     // ---- 预报器选择 ----
     auto* propGroup = new QGroupBox(tr("轨道预报器"), this);

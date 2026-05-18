@@ -2,6 +2,7 @@
 #include "AstCore/ThirdBodyForce.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include <QGroupBox>
+#include <QDebug>
 
 AST_NAMESPACE_BEGIN
 
@@ -67,19 +68,6 @@ void UiThirdBodyForce::setupUi()
     // 移除这两个容器布局的默认内边距
     gravityFieldLayout_->setContentsMargins(0, 0, 0, 0);
     pointMassLayout_->setContentsMargins(0, 0, 0, 0);
-
-    // 移除引力场配置的默认内边距
-    auto gravityLayout = gravityForceWidget_->layout();
-    if (gravityLayout) {
-        gravityLayout->setContentsMargins(0, 0, 0, 0);
-    }
-
-    // 移除点质量配置的默认内边距
-    auto pointMassLayout = pointMassForceWidget_->layout();
-    if (pointMassLayout) {
-        pointMassLayout->setContentsMargins(0, 0, 0, 0);
-    }
-
     
     // 连接信号槽
     connect(modeCombo_, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &UiThirdBodyForce::onModeChanged);

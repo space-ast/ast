@@ -48,6 +48,7 @@ UiSequence::~UiSequence() = default;
 void UiSequence::setupUi()
 {
     auto* layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     auto* repeatLayout = new QHBoxLayout();
     repeatLayout->addWidget(new QLabel(tr("重复次数"), this));
@@ -106,6 +107,7 @@ UiTargeterSequence::~UiTargeterSequence() = default;
 void UiTargeterSequence::setupUi()
 {
     auto* layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     auto* repeatLayout = new QHBoxLayout();
     repeatLayout->addWidget(new QLabel(tr("重复次数"), this));
