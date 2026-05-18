@@ -101,6 +101,7 @@ var group__Quantity =
       [ "addUnit", "classast_1_1UnitManager.html#aeebbf675f09ffdf4840b29a9b61d303e", null ],
       [ "getSiUnit", "classast_1_1UnitManager.html#a71fdcaf5b6186e37d5afa72481eacf9b", null ],
       [ "getUnit", "classast_1_1UnitManager.html#ac49f770ecfef3f24cbd41b08acaa6f9a", null ],
+      [ "getUnitsByDimension", "classast_1_1UnitManager.html#ab4c2057b85213ef902c6248470f471b3", null ],
       [ "siUnits_", "classast_1_1UnitManager.html#ab97fdf55e70688435897a18837723779", null ],
       [ "units_", "classast_1_1UnitManager.html#ad7b7dc07985e82bdb506f7955e392775", null ]
     ] ],
@@ -122,6 +123,7 @@ var group__Quantity =
     [ "ast::aUnitFactorize", "group__Quantity.html#ga9cf23f3f06f4b41455bc2fb6b017fae3", null ],
     [ "ast::aUnitFactorize", "group__Quantity.html#ga6148ef81cf9031c8e641630103210d6f", null ],
     [ "ast::aUnitGet", "group__Quantity.html#ga757ee64f8329c06333963e2792bdef53", null ],
+    [ "ast::aUnitGetDefault", "group__Quantity.html#ga4109cbe4dfaca1de18f23c5c35e93c20", null ],
     [ "ast::aUnitGetSI", "group__Quantity.html#gada00e367f87a60b86052ce3442529a64", null ],
     [ "ast::aUnitInvert", "group__Quantity.html#ga92dff1d7369798cc998c4293c9ee9c37", null ],
     [ "ast::aUnitInvert", "group__Quantity.html#ga6b680c377ab16387e1f784fb65195ca7", null ],
@@ -131,6 +133,7 @@ var group__Quantity =
     [ "ast::aUnitParse", "group__Quantity.html#ga922efaad6ca265e3e0ad9e597e453371", null ],
     [ "ast::aUnitPower", "group__Quantity.html#ga68bc55be726ee1de1ea63da4bdda201c", null ],
     [ "ast::aUnitPower", "group__Quantity.html#gada24ea182ac2af5f7547b4d644255994", null ],
+    [ "ast::aUnitsGetByDimension", "group__Quantity.html#ga2576d704a908b0589a6974073c6d8c9a", null ],
     [ "ast::Quantity::changeUnit", "group__Quantity.html#gaa38b0ddfa45747ce0c2b35f1822be4ba", null ],
     [ "ast::operator*", "group__Quantity.html#ga96636c1cefa7a8d2fcfe7b8c42cad802", null ]
 ];

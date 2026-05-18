@@ -1,16 +1,19 @@
 var classast_1_1UiQuantity =
 [
     [ "changeUnit", "classast_1_1UiQuantity.html#a2136077e991881affe099d594344c820", null ],
+    [ "dimension", "classast_1_1UiQuantity.html#a02fa65f2780e7e7252c0cd7341f70b86", null ],
     [ "getMagnitude", "classast_1_1UiQuantity.html#a481122ae0e746a799ff54b2b116ebceb", null ],
     [ "getQuantity", "classast_1_1UiQuantity.html#a84922526c90a8c9b5ac3bda8e34dc2d1", null ],
     [ "getUnit", "classast_1_1UiQuantity.html#aa2916aa7279c9a41d545d5236204be47", null ],
     [ "getValueInUnit", "classast_1_1UiQuantity.html#a3f74845a3a7c8339c9fc8102485bb557", null ],
     [ "getValueSI", "classast_1_1UiQuantity.html#a16a124c3f22e8303b3396a0e296efe85", null ],
+    [ "isDimensionLocked", "classast_1_1UiQuantity.html#a01ed0e73d4bb3bdc9b6714e9def8c68e", null ],
+    [ "setDimension", "classast_1_1UiQuantity.html#abcabb45cc3310b917135947ce95e1cc8", null ],
+    [ "setDimensionLocked", "classast_1_1UiQuantity.html#a3a93abd0d0859035e6330af53aab967c", null ],
     [ "setMagnitude", "classast_1_1UiQuantity.html#a3b250de1ee70aee863b8de5cda4e953b", null ],
     [ "setQuantity", "classast_1_1UiQuantity.html#a164a50e10cc48a9840e0ee3282aa1d4a", null ],
     [ "setUnit", "classast_1_1UiQuantity.html#acda7477cac5832188e65eba57728c641", null ],
     [ "setValue", "classast_1_1UiQuantity.html#a4c5d82867b8c44f5113558d218a8c839", null ],
-    [ "setValueInUnit", "classast_1_1UiQuantity.html#a0dabaa4ce22168ac6021e4a750b7f136", null ],
     [ "setValueSI", "classast_1_1UiQuantity.html#a030405447a04eccc960585cb76ab322e", null ],
     [ "setValueUnit", "classast_1_1UiQuantity.html#aedaec01af15bb3eb1c77a49276c67988", null ],
     [ "value", "classast_1_1UiQuantity.html#a32a39bdf006f4f8216f8683e34d6e3a7", null ]

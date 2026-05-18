@@ -120,6 +120,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ac49f770ecfef3f24cbd41b08acaa6f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71fdcaf5b6186e37d5afa72481eacf9b" id="r_a71fdcaf5b6186e37d5afa72481eacf9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71fdcaf5b6186e37d5afa72481eacf9b">getSiUnit</a> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
 <tr class="separator:a71fdcaf5b6186e37d5afa72481eacf9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4c2057b85213ef902c6248470f471b3" id="r_ab4c2057b85213ef902c6248470f471b3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Unit.html">Unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4c2057b85213ef902c6248470f471b3">getUnitsByDimension</a> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim) const</td></tr>
+<tr class="separator:ab4c2057b85213ef902c6248470f471b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -289,6 +291,32 @@ std::map&lt; <a class="el" href="classast_1_1Dimension.html">Dimension</a>, <a c
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>单位 </dd></dl>
+
+</div>
+</div>
+<a id="ab4c2057b85213ef902c6248470f471b3" name="ab4c2057b85213ef902c6248470f471b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4c2057b85213ef902c6248470f471b3">&#9670;&#160;</a></span>getUnitsByDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classast_1_1Unit.html">Unit</a> &gt; ast::UnitManager::getUnitsByDimension </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Dimension.html">Dimension</a></td>          <td class="paramname"><span class="paramname"><em>dim</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取指定量纲下的所有单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dim</td><td>量纲 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>单位列表（已按 scale+dimension 去重，同名单位保留名称最短者） </dd></dl>
 
 </div>
 </div>

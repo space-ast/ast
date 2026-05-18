@@ -143,7 +143,7 @@ var searchData=
   ['dim_5fproduct_140',['dim_product',['../namespaceast.html#a0d4b4bb523a789e6b63bb92057d72b4a',1,'ast']]],
   ['dim_5fset_5fexponent_141',['dim_set_exponent',['../namespaceast.html#a0d25748c4c13cedd010bd2742ee3b56c',1,'ast']]],
   ['dimension_142',['Dimension',['../classast_1_1Dimension.html',1,'ast::Dimension'],['../classast_1_1Dimension.html#a05b3ceca8d7ee96f583cbe1a95c72d35',1,'ast::Dimension::Dimension() noexcept'],['../classast_1_1Dimension.html#aca9f23658294c053ffcc25cc1812ab72',1,'ast::Dimension::Dimension(EDimension dimension) noexcept']]],
-  ['dimension_143',['dimension',['../classast_1_1Quantity.html#ae00bb0f24f989e8e4d519d5a252fc150',1,'ast::Quantity::dimension()'],['../classast_1_1Unit.html#a737479417a4c6db862752355e6334984',1,'ast::Unit::dimension()']]],
+  ['dimension_143',['dimension',['../classast_1_1UiQuantity.html#a02fa65f2780e7e7252c0cd7341f70b86',1,'ast::UiQuantity::dimension()'],['../classast_1_1Quantity.html#ae00bb0f24f989e8e4d519d5a252fc150',1,'ast::Quantity::dimension()'],['../classast_1_1Unit.html#a737479417a4c6db862752355e6334984',1,'ast::Unit::dimension()']]],
   ['dimension_2ecpp_144',['Dimension.cpp',['../Dimension_8cpp.html',1,'']]],
   ['dimension_2ehpp_145',['Dimension.hpp',['../Dimension_8hpp.html',1,'']]],
   ['dimension_5f_146',['dimension_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4e0505f4f6e0ceb4eb49ba510f61b69c',1,'ast::ODEFixedStepIntegrator::Workspace::dimension_'],['../classast_1_1Unit_1_1UnitRep.html#a270fa398df6868375f5db125920b05ac',1,'ast::Unit::UnitRep::dimension_'],['../classast_1_1PropertyQuantity.html#a2a08668fd3fdc96e9940bbad1f6a8730',1,'ast::PropertyQuantity::dimension_']]],

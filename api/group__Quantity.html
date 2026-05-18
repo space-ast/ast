@@ -185,10 +185,14 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="separator:ga757ee64f8329c06333963e2792bdef53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gada00e367f87a60b86052ce3442529a64" id="r_gada00e367f87a60b86052ce3442529a64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gada00e367f87a60b86052ce3442529a64">ast::aUnitGetSI</a> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
 <tr class="separator:gada00e367f87a60b86052ce3442529a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4109cbe4dfaca1de18f23c5c35e93c20" id="r_ga4109cbe4dfaca1de18f23c5c35e93c20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4109cbe4dfaca1de18f23c5c35e93c20">ast::aUnitGetDefault</a> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
+<tr class="separator:ga4109cbe4dfaca1de18f23c5c35e93c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf9d3f44ba6f8eba32462e3d6394ae643" id="r_gaf9d3f44ba6f8eba32462e3d6394ae643"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf9d3f44ba6f8eba32462e3d6394ae643">ast::aUnitAdd</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
 <tr class="separator:gaf9d3f44ba6f8eba32462e3d6394ae643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaab545bcfaf191d9380e6459d463152a7" id="r_gaab545bcfaf191d9380e6459d463152a7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaab545bcfaf191d9380e6459d463152a7">ast::aUnitAdd</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
 <tr class="separator:gaab545bcfaf191d9380e6459d463152a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2576d704a908b0589a6974073c6d8c9a" id="r_ga2576d704a908b0589a6974073c6d8c9a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classast_1_1Unit.html">Unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2576d704a908b0589a6974073c6d8c9a">ast::aUnitsGetByDimension</a> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
+<tr class="separator:ga2576d704a908b0589a6974073c6d8c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga922efaad6ca265e3e0ad9e597e453371" id="r_ga922efaad6ca265e3e0ad9e597e453371"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga922efaad6ca265e3e0ad9e597e453371">ast::aUnitParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit)</td></tr>
 <tr class="separator:ga922efaad6ca265e3e0ad9e597e453371"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga486f3eaffaaa752eeb95ea274c895690" id="r_ga486f3eaffaaa752eeb95ea274c895690"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga486f3eaffaaa752eeb95ea274c895690">ast::aUnitParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
@@ -677,6 +681,32 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 
 </div>
 </div>
+<a id="ga4109cbe4dfaca1de18f23c5c35e93c20" name="ga4109cbe4dfaca1de18f23c5c35e93c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4109cbe4dfaca1de18f23c5c35e93c20">&#9670;&#160;</a></span>aUnitGetDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="classast_1_1Unit.html">Unit</a> * ast::aUnitGetDefault </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Dimension.html">Dimension</a></td>          <td class="paramname"><span class="paramname"><em>dim</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取默认单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dim</td><td>量纲 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>默认单位 </dd></dl>
+
+</div>
+</div>
 <a id="gada00e367f87a60b86052ce3442529a64" name="gada00e367f87a60b86052ce3442529a64"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gada00e367f87a60b86052ce3442529a64">&#9670;&#160;</a></span>aUnitGetSI()</h2>
 
@@ -695,7 +725,7 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 <p>获取国际制单位 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dim</td><td>单位维度 </td></tr>
+    <tr><td class="paramname">dim</td><td>量纲 </td></tr>
   </table>
   </dd>
 </dl>
@@ -757,6 +787,32 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga2576d704a908b0589a6974073c6d8c9a" name="ga2576d704a908b0589a6974073c6d8c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2576d704a908b0589a6974073c6d8c9a">&#9670;&#160;</a></span>aUnitsGetByDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::vector&lt; <a class="el" href="classast_1_1Unit.html">Unit</a> &gt; ast::aUnitsGetByDimension </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Dimension.html">Dimension</a></td>          <td class="paramname"><span class="paramname"><em>dim</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取指定量纲下的所有单位 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dim</td><td>量纲 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>单位列表 </dd></dl>
 
 </div>
 </div>
