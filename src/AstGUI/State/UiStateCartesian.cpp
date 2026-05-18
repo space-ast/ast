@@ -59,14 +59,14 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     // 坐标系
     QHBoxLayout* frameLayout = new QHBoxLayout();
     QLabel* frameLabel = new QLabel(tr("坐标系"), this);
-    frameCombo_ = new QComboBox(this);
-    frameCombo_->addItem(tr("ICRF"));
-    frameCombo_->setEditable(false);
+    frameEdit_ = new QLineEdit(this);
+    frameEdit_->setReadOnly(true);
+    frameEdit_->setText(tr("ICRF"));
     frameSelectBtn_ = new QPushButton(tr("..."), this);
     frameSelectBtn_->setFixedWidth(30);
     frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
     frameLayout->addWidget(frameLabel);
-    frameLayout->addWidget(frameCombo_);
+    frameLayout->addWidget(frameEdit_);
     frameLayout->addWidget(frameSelectBtn_);
     mainLayout->addLayout(frameLayout);
     
@@ -126,13 +126,49 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     
     setLayout(mainLayout);
 
-    connect(posXEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
-    connect(posYEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
-    connect(posZEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
-    connect(velXEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
-    connect(velYEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
-    connect(velZEdit_, &UiQuantity::quantityChanged, this, &UiStateCartesian::apply);
-    connect(epochEdit_, &UiTimePoint::timePointChanged, this, &UiStateCartesian::apply);
+    // 每个控件变更时即时写入对应字段
+    connect(posXEdit_, &UiQuantity::quantityChanged, this, [this]() {
+        if (auto* state = getStateCartesian()) {
+            state->setX(posXEdit_->getValueSI());
+            emit stateCartesianChanged(state);
+        }
+    });
+    connect(posYEdit_, &UiQuantity::quantityChanged, this, [this]() {
+        if (auto* state = getStateCartesian()) {
+            state->setY(posYEdit_->getValueSI());
+            emit stateCartesianChanged(state);
+        }
+    });
+    connect(posZEdit_, &UiQuantity::quantityChanged, this, [this]() {
+        if (auto* state = getStateCartesian()) {
+            state->setZ(posZEdit_->getValueSI());
+            emit stateCartesianChanged(state);
+        }
+    });
+    connect(velXEdit_, &UiQuantity::quantityChanged, this, [this]() {
+        if (auto* state = getStateCartesian()) {
+            state->setVx(velXEdit_->getValueSI());
+            emit stateCartesianChanged(state);
+        }
+    });
+    connect(velYEdit_, &UiQuantity::quantityChanged, this, [this]() {
+        if (auto* state = getStateCartesian()) {
+            state->setVy(velYEdit_->getValueSI());
+            emit stateCartesianChanged(state);
+        }
+    });
+    connect(velZEdit_, &UiQuantity::quantityChanged, this, [this]() {
+        if (auto* state = getStateCartesian()) {
+            state->setVz(velZEdit_->getValueSI());
+            emit stateCartesianChanged(state);
+        }
+    });
+    connect(epochEdit_, &UiTimePoint::timePointChanged, this, [this](const TimePoint& tp) {
+        if (auto* state = getStateCartesian()) {
+            state->setStateEpoch(tp);
+            emit stateCartesianChanged(state);
+        }
+    });
     connect(frameSelectBtn_, &QPushButton::clicked, this, &UiStateCartesian::onSelectFrame);
 }
 
@@ -146,12 +182,14 @@ void UiStateCartesian::refreshUi()
         velXEdit_->setQuantity(Quantity(state->vx(), m / s));
         velYEdit_->setQuantity(Quantity(state->vy(), m / s));
         velZEdit_->setQuantity(Quantity(state->vz(), m / s));
-        
+
         // 设置轨道历元
         TimePoint timePoint = state->getStateEpoch_TimePoint();
         epochEdit_->setTimePoint(timePoint);
 
-        // 这里可以添加代码，设置坐标系等其他属性
+        // 更新坐标系显示
+        if (auto* frame = state->getFrame())
+            frameEdit_->setText(QString::fromUtf8(frame->getRepresentation().c_str()));
     }
 }
 
@@ -189,10 +227,9 @@ void UiStateCartesian::onSelectFrame()
     if (frame)
     {
         state->changeFrame(frame);
-        frameCombo_->setItemText(0,
-            QString::fromUtf8(frame->getRepresentation().c_str()));
-        frameCombo_->setCurrentIndex(0);
-        apply();
+        frameEdit_->setText(QString::fromUtf8(frame->getRepresentation().c_str()));
+        this->refreshUi();
+        emit stateCartesianChanged(state);
     }
 }
 

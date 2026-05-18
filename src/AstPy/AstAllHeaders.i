@@ -126,7 +126,6 @@
 %include "../AstScript/Foreign/Julia.hpp"
 %include "../AstScript/Foreign/Lua.hpp"
 %include "../AstScript/Foreign/Matlab.hpp"
-%include "../AstScript/Foreign/Python.hpp"
 %include "../AstScript/Foreign/PythonAPI.hpp"
 %include "../AstScript/Foreign/ScriptExecutor/JuliaExecutor.hpp"
 %include "../AstScript/Foreign/ScriptExecutor/LuaExecutor.hpp"

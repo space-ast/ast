@@ -1,7 +1,7 @@
 ///
 /// @file      UiInitialState.cpp
 /// @brief     InitialState 段编辑器实现
-/// @details   ~
+/// @details   组装轨道参数、航天器参数、燃料储罐三个标签页
 /// @author    axel
 /// @date      2026-05-17
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -25,10 +25,13 @@
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/StateKeplerian.hpp"
 #include "AstGUI/UiStateEditor.hpp"
+#include "AstGUI/UiSpacecraftParams.hpp"
+#include "AstGUI/UiFuelTank.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QTabWidget>
 
 AST_NAMESPACE_BEGIN
 
@@ -51,17 +54,41 @@ void UiInitialState::setupUi()
     auto* layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
 
+    // 标签页
+    tabWidget_ = new QTabWidget(this);
+
+    // 标签页1: 轨道参数
+    auto* elementsTab = new QWidget();
+    setupElementsTab(elementsTab);
+    tabWidget_->addTab(elementsTab, tr("轨道参数"));
+
+    // 标签页2: 航天器参数
+    scParamsEditor_ = new UiSpacecraftParams();
+    tabWidget_->addTab(scParamsEditor_, tr("航天器参数"));
+
+    // 标签页3: 燃料储罐
+    fuelTankEditor_ = new UiFuelTank();
+    tabWidget_->addTab(fuelTankEditor_, tr("燃料储罐"));
+
+    layout->addWidget(tabWidget_);
+}
+
+void UiInitialState::setupElementsTab(QWidget* tab)
+{
+    auto* layout = new QVBoxLayout(tab);
+    layout->setContentsMargins(6, 6, 6, 6);
+
     // 状态类型选择
     auto* typeLayout = new QHBoxLayout();
-    typeLayout->addWidget(new QLabel(tr("状态类型"), this));
-    stateTypeCombo_ = new QComboBox(this);
-    stateTypeCombo_->addItem(tr("笛卡尔 (Cartesian)"), 0);
-    stateTypeCombo_->addItem(tr("开普勒 (Keplerian)"), 1);
+    typeLayout->addWidget(new QLabel(tr("状态类型"), tab));
+    stateTypeCombo_ = new QComboBox(tab);
+    stateTypeCombo_->addItem(tr("笛卡尔 (Cartesian)"), static_cast<int>(EStateType::eCartesian));
+    stateTypeCombo_->addItem(tr("开普勒 (Keplerian)"), static_cast<int>(EStateType::eKeplerian));
     typeLayout->addWidget(stateTypeCombo_);
     layout->addLayout(typeLayout);
 
     // UiStateEditor（RTTI 分发）
-    stateEditor_ = new UiStateEditor(this);
+    stateEditor_ = new UiStateEditor(tab);
     layout->addWidget(stateEditor_);
 
     connect(stateTypeCombo_, QOverload<int>::of(&QComboBox::currentIndexChanged),
@@ -80,12 +107,7 @@ void UiInitialState::setInitialState(InitialState* initState)
         return;
 
     setObject(initState);
-
-    auto* scState = initState->getInitialState();
-    if (!scState)
-        scState = SpacecraftState::NewDefault();
-
-    rebuildFromSpacecraftState(scState);
+    rebuildFromSpacecraftState(initState->getInitialState());
 }
 
 InitialState* UiInitialState::getInitialState() const
@@ -102,19 +124,24 @@ void UiInitialState::rebuildFromSpacecraftState(SpacecraftState* scState)
     if (!scState)
         return;
 
+    // ---------- 轨道状态 ----------
     auto* orbitState = scState->getOrbitState();
-    if (!orbitState)
-        return;
+    if (orbitState)
+    {
+        // 同步 combo
+        stateTypeCombo_->blockSignals(true);
+        if (orbitState->getStateType() == EStateType::eCartesian)
+            stateTypeCombo_->setCurrentIndex(0);
+        else
+            stateTypeCombo_->setCurrentIndex(1);
+        stateTypeCombo_->blockSignals(false);
 
-    // 同步 combo
-    stateTypeCombo_->blockSignals(true);
-    if (orbitState->getStateType() == EStateType::eCartesian)
-        stateTypeCombo_->setCurrentIndex(0);
-    else
-        stateTypeCombo_->setCurrentIndex(1);
-    stateTypeCombo_->blockSignals(false);
+        stateEditor_->setState(orbitState);
+    }
 
-    stateEditor_->setState(orbitState);
+    // ---------- 航天器参数 & 燃料储罐 ----------
+    scParamsEditor_->setSpacecraftState(scState);
+    fuelTankEditor_->setSpacecraftState(scState);
 }
 
 // ============================================================================
@@ -131,31 +158,12 @@ void UiInitialState::onStateTypeChanged(int index)
     if (!scState)
         return;
 
-    auto* oldState = scState->getOrbitState();
-    EStateType curType = oldState ? oldState->getStateType() : EStateType::eUnknown;
-    EStateType newType = (index == 0) ? EStateType::eCartesian : EStateType::eKeplerian;
-
-    if (curType == newType)
+    EStateType stateType = static_cast<EStateType>(index);
+    if (stateType == scState->getStateType())
         return;
 
-    // 从旧状态取值转换
-    CartState cart;
-    ModOrbElem orbElem;
-    bool hasCart = (oldState && oldState->getState(cart) == eNoError);
-    bool hasOrb  = (oldState && oldState->getState(orbElem) == eNoError);
-
-    State* newState = nullptr;
-    if (newType == EStateType::eCartesian)
-        newState = hasCart ? (State*)StateCartesian::New(cart) : (State*)StateCartesian::New();
-    else
-        newState = hasOrb ? (State*)StateKeplerian::New(orbElem) : (State*)StateKeplerian::NewDefault();
-
-    // 复制 Frame
-    if (oldState && oldState->getFrame())
-        newState->setFrame(oldState->getFrame());
-
-    scState->setOrbitState(newState);
-    stateEditor_->setState(newState);
+    scState->setStateType(stateType);
+    stateEditor_->setState(scState->getOrbitState());
 }
 
 void UiInitialState::onStateChanged(State* /*state*/)

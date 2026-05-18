@@ -27,6 +27,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QComboBox>
 #include <QPushButton>
 
@@ -90,7 +91,7 @@ private:
     // 轨道历元
     UiTimePoint* epochEdit_{nullptr};
     // 坐标系
-    QComboBox* frameCombo_{nullptr};
+    QLineEdit*   frameEdit_{nullptr};
     QPushButton* frameSelectBtn_{nullptr};
     // 轨道大小
     QHBoxLayout* sizeLayout_{nullptr};

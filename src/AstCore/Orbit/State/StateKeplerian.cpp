@@ -95,6 +95,10 @@ static void initDefault(StateKeplerian &stateKeplerian)
             0,
             0
         });
+        if(!frame->getParentScope())
+        {
+            frame->setParentScope(&stateKeplerian);
+        }
     }
 }
 

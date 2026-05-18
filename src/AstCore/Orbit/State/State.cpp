@@ -80,6 +80,46 @@ PState State::New(State &state, EStateType type)
     return nullptr;
 }
 
+State::State(const State& state)
+    : gm_{state.gm_}
+{
+    auto frame = state.frame_;
+    auto epoch = state.stateEpoch_;
+    if(frame)
+    {
+        auto parentScope = frame->getParentScope();
+        if(parentScope == &state || parentScope == nullptr)
+        {
+            auto origin = frame->getOrigin();
+            auto axes = frame->getAxes();
+            auto newframe = FrameAssembly::New(origin, axes);
+            frame_ = newframe;
+            newframe->setName(frame->getName());
+            newframe->setParentScope(this);
+        }
+        else
+        {
+            frame_ = frame;
+        }
+    }
+    if(epoch)
+    {
+        auto parentScope = epoch->getParentScope();
+        if(parentScope == &state || parentScope == nullptr)
+        {
+            TimePoint tp;
+            epoch->getTime(tp);
+            this->setStateEpoch(tp);
+        }
+        else
+        {
+            stateEpoch_ = epoch;
+        }
+    }
+
+}
+
+
 void State::setFrame(Frame *frame)
 {
     frame_ = frame;
@@ -139,6 +179,7 @@ void State::setStateEpoch(EventTime *stateEpoch)
 void State::setStateEpoch(const TimePoint &stateEpoch)
 {
     stateEpoch_ = EventTimeExplicit::New(stateEpoch);
+    stateEpoch_->setParentScope(this);
 }
 
 errc_t State::getStateEpoch(TimePoint &stateEpoch) const

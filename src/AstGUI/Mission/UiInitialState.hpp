@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstGUI/UiObject.hpp"
 #include <QComboBox>
+#include <QTabWidget>
 
 AST_NAMESPACE_BEGIN
 
@@ -30,6 +31,8 @@ class InitialState;
 class SpacecraftState;
 class State;
 class UiStateEditor;
+class UiSpacecraftParams;
+class UiFuelTank;
 
 /// @brief InitialState 段编辑器
 class AST_GUI_API UiInitialState : public UiObject
@@ -49,10 +52,14 @@ private slots:
 
 private:
     void setupUi();
+    void setupElementsTab(QWidget* tab);
     void rebuildFromSpacecraftState(SpacecraftState* scState);
 
-    QComboBox*      stateTypeCombo_ = nullptr;
-    UiStateEditor*  stateEditor_ = nullptr;
+    QTabWidget*         tabWidget_ = nullptr;
+    QComboBox*          stateTypeCombo_ = nullptr;
+    UiStateEditor*      stateEditor_ = nullptr;
+    UiSpacecraftParams* scParamsEditor_ = nullptr;
+    UiFuelTank*         fuelTankEditor_ = nullptr;
 };
 
 AST_NAMESPACE_END

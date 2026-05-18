@@ -24,7 +24,7 @@
 #include "AstGUI/UiState.hpp"
 #include "AstGUI/UiQuantity.hpp"
 #include "AstGUI/UiTimePoint.hpp"
-#include <QComboBox>
+#include <QLineEdit>
 
 class QPushButton;
 
@@ -61,7 +61,7 @@ signals:
 private:
     // 左侧控件
     UiTimePoint* epochEdit_{nullptr};
-    QComboBox* frameCombo_{nullptr};
+    QLineEdit*   frameEdit_{nullptr};
     QPushButton* frameSelectBtn_{nullptr};
 
     // 右侧控件
