@@ -21,12 +21,46 @@
 #include "UiQuantity.hpp"
 #include "AstUtil/QuantityParser.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/UnitManager.hpp"
+#include <QApplication>
+#include <QMenu>
+#include <QPainter>
+#include <QPolygon>
+#include <QPixmap>
 
 AST_NAMESPACE_BEGIN
+
+static QIcon cachedArrowIcon()
+{
+    static QIcon icon = []() {
+        const int size = 12;
+        QPixmap pix(size * 2, size * 2);
+        pix.setDevicePixelRatio(2);
+        pix.fill(Qt::transparent);
+        QPainter p(&pix);
+        p.setRenderHint(QPainter::Antialiasing);
+        p.setBrush(QApplication::palette().color(QPalette::Text));
+        p.setPen(Qt::NoPen);
+        QPolygonF tri;
+        const double m = size * 0.25;
+        tri << QPointF(m,       size * 0.35)
+            << QPointF(size / 2.0, size - m)
+            << QPointF(size - m, size * 0.35);
+        p.drawPolygon(tri);
+        p.end();
+        return QIcon(pix);
+    }();
+    return icon;
+}
 
 UiQuantity::UiQuantity(QWidget* parent)
     : UiValueEdit(parent)
 {
+    actionSwitchUnit_ = new QAction(cachedArrowIcon(), QString(), this);
+    actionSwitchUnit_->setToolTip(tr("切换单位"));
+    addAction(actionSwitchUnit_, QLineEdit::TrailingPosition);
+    connect(actionSwitchUnit_, &QAction::triggered, this, &UiQuantity::showUnitMenu);
+
     connect(this, &QLineEdit::editingFinished, this, &UiQuantity::updateQuantity);
 }
 
@@ -86,28 +120,80 @@ double UiQuantity::getValueInUnit(const Unit& unit) const
     return currentQuantity_.getValueInUnit(unit);
 }
 
-void UiQuantity::setValueInUnit(double value, const Unit& unit)
-{
-    currentQuantity_.setValueInUnit(value, unit);
-    this->setQuantity(currentQuantity_);
-}
-
 void UiQuantity::setValueUnit(double value, const Unit& unit)
 {
     currentQuantity_.setValueUnit(value, unit);
     this->setQuantity(currentQuantity_);
 }
 
+void UiQuantity::setDimension(Dimension dim)
+{
+    if(this->dimension() == dim){
+        return;
+    }
+    if (Unit* siUnit = aUnitGetSI(dim))
+    {
+        currentQuantity_.changeUnit(*siUnit);
+    }
+    else
+    {
+        aError("dimension %s has no SI unit", dim.symbol().c_str());
+    }
+}
+
+void UiQuantity::showUnitMenu()
+{
+    updateQuantity();
+
+    std::vector<Unit> units = aUnitGetByDimension(currentQuantity_.dimension());
+
+    QMenu menu(this);
+    if (units.empty())
+    {
+        QAction* emptyAction = menu.addAction(tr("(无可用单位)"));
+        emptyAction->setEnabled(false);
+    }
+    else
+    {
+        for (size_t i = 0; i < units.size(); ++i)
+        {
+            const Unit& u = units[i];
+            QString name = QString::fromStdString(u.name());
+            if (name.isEmpty())
+                name = QStringLiteral("<空>");
+            QAction* action = menu.addAction(name);
+            action->setData(static_cast<qulonglong>(i));
+            if (u.getScale() == currentQuantity_.unit().getScale())
+            {
+                action->setCheckable(true);
+                action->setChecked(true);
+            }
+        }
+    }
+
+    QPoint pos = mapToGlobal(QPoint(width() - menu.sizeHint().width(), height()));
+    QAction* selected = menu.exec(pos);
+
+    if (selected && selected->isEnabled() && !units.empty())
+    {
+        size_t idx = selected->data().toULongLong();
+        changeUnit(units[idx]);
+    }
+}
+
 void UiQuantity::updateQuantity()
 {
     QString text = this->text();
-    errc_t rc = aQuantityParse(text.toUtf8().data(), currentQuantity_);
+    Quantity newQuantity;
+    errc_t rc = aQuantityParse(text.toUtf8().data(), newQuantity);
     if(rc){
-        // 显示错误提示
         aError("failed to parse quantity: %s", text.toUtf8().data());
-        setError(tr("quantity format error, please input correct quantity format"));
+        setError(tr("数量值格式错误或者单位不支持"));
+    }else if(dimensionLocked_ && this->dimension() != newQuantity.dimension()){
+        setError(tr("量纲不匹配，期望的量纲为 %1")
+            .arg(QString::fromStdString(this->dimension().symbol())));
     }else{
-        // 解析成功，恢复正常状态
+        currentQuantity_ = newQuantity;
         setNormal();
         emit quantityChanged(currentQuantity_);
     }

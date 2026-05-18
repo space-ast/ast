@@ -65,7 +65,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QHBoxLayout* posXLayout = new QHBoxLayout();
     QLabel* posXLabel = new QLabel(tr("位置X"), this);
     posXEdit_ = new UiQuantity(this);
-    posXEdit_->setQuantity(Quantity(6678137, m));
+    posXEdit_->setDimension(Dimension::Length());
     posXLayout->addWidget(posXLabel);
     posXLayout->addWidget(posXEdit_);
     mainLayout->addLayout(posXLayout);
@@ -74,7 +74,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QHBoxLayout* posYLayout = new QHBoxLayout();
     QLabel* posYLabel = new QLabel(tr("位置Y"), this);
     posYEdit_ = new UiQuantity(this);
-    posYEdit_->setQuantity(Quantity(0, m));
+    posYEdit_->setDimension(Dimension::Length());
     posYLayout->addWidget(posYLabel);
     posYLayout->addWidget(posYEdit_);
     mainLayout->addLayout(posYLayout);
@@ -83,7 +83,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QHBoxLayout* posZLayout = new QHBoxLayout();
     QLabel* posZLabel = new QLabel(tr("位置Z"), this);
     posZEdit_ = new UiQuantity(this);
-    posZEdit_->setQuantity(Quantity(0, m));
+    posZEdit_->setDimension(Dimension::Length());
     posZLayout->addWidget(posZLabel);
     posZLayout->addWidget(posZEdit_);
     mainLayout->addLayout(posZLayout);
@@ -92,7 +92,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QHBoxLayout* velXLayout = new QHBoxLayout();
     QLabel* velXLabel = new QLabel(tr("速度X"), this);
     velXEdit_ = new UiQuantity(this);
-    velXEdit_->setQuantity(Quantity(0, m / s));
+    velXEdit_->setDimension(Dimension::Speed());
     velXLayout->addWidget(velXLabel);
     velXLayout->addWidget(velXEdit_);
     mainLayout->addLayout(velXLayout);
@@ -101,7 +101,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QHBoxLayout* velYLayout = new QHBoxLayout();
     QLabel* velYLabel = new QLabel(tr("速度Y"), this);
     velYEdit_ = new UiQuantity(this);
-    velYEdit_->setQuantity(Quantity(6789.530297717651592, m / s));
+    velYEdit_->setDimension(Dimension::Speed());
     velYLayout->addWidget(velYLabel);
     velYLayout->addWidget(velYEdit_);
     mainLayout->addLayout(velYLayout);
@@ -110,7 +110,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     QHBoxLayout* velZLayout = new QHBoxLayout();
     QLabel* velZLabel = new QLabel(tr("速度Z"), this);
     velZEdit_ = new UiQuantity(this);
-    velZEdit_->setQuantity(Quantity(3686.414173013651634, m / s));
+    velZEdit_->setDimension(Dimension::Speed());
     velZLayout->addWidget(velZLabel);
     velZLayout->addWidget(velZEdit_);
     mainLayout->addLayout(velZLayout);
@@ -130,12 +130,12 @@ void UiStateCartesian::refreshUi()
 {
     if(auto state = getStateCartesian()){
         // 设置位置和速度值
-        posXEdit_->setQuantity(Quantity(state->x(), m));
-        posYEdit_->setQuantity(Quantity(state->y(), m));
-        posZEdit_->setQuantity(Quantity(state->z(), m));
-        velXEdit_->setQuantity(Quantity(state->vx(), m / s));
-        velYEdit_->setQuantity(Quantity(state->vy(), m / s));
-        velZEdit_->setQuantity(Quantity(state->vz(), m / s));
+        posXEdit_->setValueSI(state->x());
+        posYEdit_->setValueSI(state->y());
+        posZEdit_->setValueSI(state->z());
+        velXEdit_->setValueSI(state->vx());
+        velYEdit_->setValueSI(state->vy());
+        velZEdit_->setValueSI(state->vz());
         
         // 设置轨道历元
         TimePoint timePoint = state->getStateEpoch_TimePoint();

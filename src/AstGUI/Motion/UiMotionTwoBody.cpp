@@ -68,7 +68,7 @@ UiMotionTwoBody::UiMotionTwoBody(QWidget *parent)
     stepSizeLayout_ = new QHBoxLayout();
     stepSizeLabel_ = new QLabel(tr("仿真步长"), this);
     stepSizeEdit_ = new UiQuantity(this);
-    stepSizeEdit_->setQuantity(Quantity(60, s));
+    stepSizeEdit_->setDimension(Dimension::Time());
     stepSizeLayout_->addWidget(stepSizeLabel_);
     stepSizeLayout_->addWidget(stepSizeEdit_);
     leftLayout_->addLayout(stepSizeLayout_);

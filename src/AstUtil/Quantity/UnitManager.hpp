@@ -25,6 +25,7 @@
 #include <unordered_map>
 #include <map>
 #include <string>
+#include <vector>
 
 
 AST_NAMESPACE_BEGIN
@@ -59,6 +60,11 @@ AST_UTIL_API errc_t aUnitAdd(const Unit& unit);
 /// @return errc_t 错误码
 AST_UTIL_API errc_t aUnitAdd(StringView name, const Unit& unit);
 
+/// @brief 获取指定量纲下的所有单位
+/// @param dim 量纲
+/// @return 单位列表
+AST_UTIL_API std::vector<Unit> aUnitGetByDimension(Dimension dim);
+
 
 /// @brief 单位管理器
 class AST_UTIL_API UnitManager
@@ -90,6 +96,11 @@ public:
     /// @param dim 单位维度
     /// @return 国际制单位
     Unit* getSiUnit(Dimension dim);
+
+    /// @brief 获取指定量纲下的所有单位
+    /// @param dim 量纲
+    /// @return 单位列表（已按 scale+dimension 去重，同名单位保留名称最短者）
+    std::vector<Unit> getUnitsByDimension(Dimension dim) const;
 
 protected:
 

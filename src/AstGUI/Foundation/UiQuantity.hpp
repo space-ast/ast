@@ -22,8 +22,6 @@
 
 #include "AstGlobal.h"
 #include <QWidget>
-#include <QHBoxLayout>
-#include <QComboBox>
 #include <QMetaType>
 #include "UiValueEdit.hpp"
 #include "AstUtil/Quantity.hpp"
@@ -45,7 +43,7 @@ class AST_GUI_API UiQuantity: public UiValueEdit
 
 public:
     explicit UiQuantity(QWidget* parent = nullptr);
-    
+
     /// @brief 设置数量值
     /// @param quantity 数量值
     void setQuantity(const Quantity& quantity);
@@ -54,11 +52,11 @@ public:
     /// @return 数量值
     Quantity getQuantity() const;
 
-    /// @brief 获取数值大小
+    /// @brief 获取数值大小(当前单位下的数值)
     /// @return 数值大小
     double getMagnitude() const;
 
-    /// @brief 设置数值大小
+    /// @brief 设置数值大小(当前单位下的数值)
     /// @param value 数值大小
     void setMagnitude(double value);
 
@@ -100,22 +98,32 @@ public:
     /// @return 指定单位下的值
     double getValueInUnit(const Unit& unit) const;    
 
-    /// @brief 设置指定单位下的值
-    /// @details 只会改变数量值的数值大小，不会改变数量值的单位
-    /// @param value 指定单位下的值
-    /// @param unit 指定单位
-    void setValueInUnit(double value, const Unit& unit);
-
     /// @brief 设置数值大小和单位
     /// @param value 数值大小
     /// @param unit 单位
     void setValueUnit(double value, const Unit& unit);
+
+    /// @brief 获取当前的量纲
+    Dimension dimension() const{return currentQuantity_.dimension();}
+
+    /// @brief 设置量（设置对应的SI单位）
+    void setDimension(Dimension dim);
+
+    /// @brief 量纲锁定，默认锁定，任意量纲字段需调用 setDimensionLocked(false)
+    void setDimensionLocked(bool locked) { dimensionLocked_ = locked; }
+
+    /// @brief 量纲是否锁定
+    bool isDimensionLocked() const { return dimensionLocked_; }
+
 signals:
     void quantityChanged(const Quantity& quantity);
+private slots:
+    void showUnitMenu();
 private:
     void updateQuantity();
-private:
     Quantity currentQuantity_;
+    QAction* actionSwitchUnit_{nullptr};
+    bool dimensionLocked_{true};
 };
 
 /*! @} */

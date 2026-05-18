@@ -70,7 +70,7 @@ void UiDragForce::setupUi()
     areaMassLayout_ = new QHBoxLayout();
     areaMassLabel_ = new QLabel("面积/质量比:", this);
     areaMassEdit_ = new UiQuantity(this);
-    areaMassEdit_->setValueInUnit(0.02, Unit("m^2/kg"));
+    areaMassEdit_->setDimension(Dimension::Area() / Dimension::Mass());
     areaMassLayout_->addWidget(areaMassLabel_);
     areaMassLayout_->addWidget(areaMassEdit_);
     modelLayout_->addLayout(areaMassLayout_, 1, 1);
@@ -96,7 +96,7 @@ void UiDragForce::setupUi()
     blendingRangeLayout_ = new QHBoxLayout();
     blendingRangeLabel_ = new QLabel("混合过渡范围:", this);
     blendingRangeEdit_ = new UiQuantity(this);
-    blendingRangeEdit_->setValueInUnit(30.0, Unit("km"));
+    blendingRangeEdit_->setDimension(Dimension::Length());
     blendingRangeLayout_->addWidget(blendingRangeLabel_);
     blendingRangeLayout_->addWidget(blendingRangeEdit_);
     atmDensityLayout_->addLayout(blendingRangeLayout_, 2, 0, 1, 2);
