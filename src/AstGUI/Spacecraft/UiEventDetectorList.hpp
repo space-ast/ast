@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
 
 class Propagate;
 class EventDetector;
+class UiEventDetectorEditor;
 
 /// @brief 事件检测器列表管理组件
 class AST_GUI_API UiEventDetectorList : public UiObject
@@ -59,6 +60,7 @@ private:
     QString typeDisplayName(EventDetector* det) const;
 
     QTableWidget* table_ = nullptr;
+    UiEventDetectorEditor* editor_ = nullptr;
     QPushButton*  addBtn_ = nullptr;
     QPushButton*  removeBtn_ = nullptr;
 };

@@ -131,7 +131,7 @@ int main(int argc, char* argv[])
     // 主窗口
     QMainWindow mainWindow;
     mainWindow.setWindowTitle("Mission Panel Test — Astrogator MCS Editor");
-    mainWindow.resize(1000, 650);
+    mainWindow.resize(1400, 960);
 
     // 创建编辑面板
     auto* missionPanel = new UiMissionPanel(&mainWindow);

@@ -22,6 +22,7 @@
 AST_NAMESPACE_BEGIN
 
 class ODEVarStepIntegrator;
+class UiDouble;
 
 class AST_GUI_API UiODEVarStepIntegrator: public UiObject
 {
@@ -41,15 +42,10 @@ signals:
     void odeVarStepIntegratorChanged(ODEVarStepIntegrator* integrator);
 protected:
     void setupUi();
-private slots:
-    void onFixedStepChanged(bool checked);
 private:
     // 布局
     QVBoxLayout* mainLayout_{nullptr};
-    QHBoxLayout* integratorLayout_{nullptr};
-    QLabel* integratorLabel_{nullptr};
-    QComboBox* integratorCombo_{nullptr};
-    
+
     // 初始步长
     QHBoxLayout* initialStepLayout_{nullptr};
     QLabel* initialStepLabel_{nullptr};
@@ -59,10 +55,7 @@ private:
     // 步长控制
     QGroupBox* stepSizeGroup_{nullptr};
     QVBoxLayout* stepSizeLayout_{nullptr};
-    QHBoxLayout* fixedStepLayout_{nullptr};
-    QCheckBox* fixedStepCheck_{nullptr};
-    QLabel* fixedStepLabel_{nullptr};
-    
+
     QHBoxLayout* maxStepLayout_{nullptr};
     QCheckBox* maxStepCheck_{nullptr};
     QLabel* maxStepLabel_{nullptr};
@@ -82,11 +75,11 @@ private:
     
     QHBoxLayout* maxAbsErrorLayout_{nullptr};
     QLabel* maxAbsErrorLabel_{nullptr};
-    QDoubleSpinBox* maxAbsErrorEdit_{nullptr};
-    
+    UiDouble* maxAbsErrorEdit_{nullptr};
+
     QHBoxLayout* maxRelErrorLayout_{nullptr};
     QLabel* maxRelErrorLabel_{nullptr};
-    QDoubleSpinBox* maxRelErrorEdit_{nullptr};
+    UiDouble* maxRelErrorEdit_{nullptr};
     
     QHBoxLayout* maxIterationsLayout_{nullptr};
     QLabel* maxIterationsLabel_{nullptr};

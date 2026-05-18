@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
 
     window.setCentralWidget(central);
     window.setWindowTitle(QStringLiteral("UiEventDetectorList — 交互测试"));
-    window.resize(500, 450);
+    window.resize(1000, 800);
     window.show();
 
     return app.exec();

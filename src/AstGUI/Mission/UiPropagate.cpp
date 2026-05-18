@@ -21,6 +21,10 @@
 #include "UiPropagate.hpp"
 #include "AstCore/Propagate.hpp"
 #include "AstCore/HPOP.hpp"
+#include "AstCore/HPOPForceModel.hpp"
+#include "AstGUI/UiEventDetectorList.hpp"
+#include "AstGUI/UiHPOPForceModel.hpp"
+#include "AstGUI/UiODEIntegratorEditor.hpp"
 #include "AstUtil/Unit.hpp"
 #include "AstUtil/Quantity.hpp"
 #include <QVBoxLayout>
@@ -28,7 +32,9 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QGroupBox>
-#include <QListWidget>
+#include <QPushButton>
+#include <QDialog>
+#include <QDialogButtonBox>
 
 AST_NAMESPACE_BEGIN
 
@@ -53,52 +59,48 @@ void UiPropagate::setupUi()
     auto* rootLayout = new QVBoxLayout(this);
     rootLayout->setContentsMargins(0, 0, 0, 0);
 
-    // ---- 预报器选择 ----
+    // ---- 轨道预报器 ----
     auto* propGroup = new QGroupBox(tr("轨道预报器"), this);
     auto* propLayout = new QGridLayout(propGroup);
 
-    propLayout->addWidget(new QLabel(tr("类型"), this), 0, 0);
-    propagatorTypeCombo_ = new QComboBox(this);
-    propagatorTypeCombo_->addItem(tr("HPOP (高精度轨道预报)"), 0);
-    propLayout->addWidget(propagatorTypeCombo_, 0, 1);
+    forceModelBtn_ = new QPushButton(tr("力模型配置..."), this);
+    integratorBtn_ = new QPushButton(tr("积分器配置..."), this);
 
-    rootLayout->addWidget(propGroup);
+    auto* btnRow = new QHBoxLayout();
+    btnRow->addWidget(forceModelBtn_);
+    btnRow->addWidget(integratorBtn_);
+    btnRow->addStretch();
+    propLayout->addLayout(btnRow, 0, 0, 1, 2);
 
-    // ---- 时间设置 ----
-    auto* timeGroup = new QGroupBox(tr("预报时间"), this);
-    auto* timeLayout = new QGridLayout(timeGroup);
-
-    timeLayout->addWidget(new QLabel(tr("最小预报时间"), this), 0, 0);
-    minTimeEdit_ = new UiQuantity(this);
-    minTimeEdit_->setQuantity(Quantity(0, s));
-    timeLayout->addWidget(minTimeEdit_, 0, 1);
-
-    timeLayout->addWidget(new QLabel(tr("最大预报时间"), this), 1, 0);
+    useMaxTimeCheck_ = new QCheckBox(this);
+    useMaxTimeCheck_->setChecked(true);
     maxTimeEdit_ = new UiQuantity(this);
     maxTimeEdit_->setQuantity(Quantity(86400, s));
-    timeLayout->addWidget(maxTimeEdit_, 1, 1);
 
-    useMaxTimeCheck_ = new QCheckBox(tr("启用最大预报时间"), this);
-    useMaxTimeCheck_->setChecked(true);
-    timeLayout->addWidget(useMaxTimeCheck_, 2, 0, 1, 2);
+    auto* timeRow = new QHBoxLayout();
+    timeRow->setSpacing(4);
+    timeRow->addWidget(useMaxTimeCheck_);
+    timeRow->addWidget(new QLabel(tr("最大预报时间"), this));
+    timeRow->addWidget(maxTimeEdit_);
+    propLayout->addLayout(timeRow, 1, 0, 1, 2);
 
-    rootLayout->addWidget(timeGroup);
+    rootLayout->addWidget(propGroup);
 
     // ---- 事件检测器 ----
     auto* eventGroup = new QGroupBox(tr("停止条件 / 事件检测器"), this);
     auto* eventLayout = new QVBoxLayout(eventGroup);
+    eventLayout->setContentsMargins(0, 0, 0, 0);
 
-    eventDetectorList_ = new QListWidget(this);
-    eventDetectorList_->setMaximumHeight(120);
+    eventDetectorList_ = new UiEventDetectorList(this);
     eventLayout->addWidget(eventDetectorList_);
 
     rootLayout->addWidget(eventGroup);
 
-    rootLayout->addStretch();
-
     // ---- 连接 ----
-    connect(minTimeEdit_, &UiQuantity::quantityChanged,
-            this, &UiPropagate::onMinTimeChanged);
+    connect(forceModelBtn_, &QPushButton::clicked,
+            this, &UiPropagate::onConfigureForceModel);
+    connect(integratorBtn_, &QPushButton::clicked,
+            this, &UiPropagate::onConfigureIntegrator);
     connect(maxTimeEdit_, &UiQuantity::quantityChanged,
             this, &UiPropagate::onMaxTimeChanged);
     connect(useMaxTimeCheck_, &QCheckBox::toggled,
@@ -114,6 +116,7 @@ void UiPropagate::setPropagate(Propagate* prop)
     if (!prop)
         return;
     setObject(prop);
+    eventDetectorList_->setPropagate(prop);
     refreshFromPropagate();
 }
 
@@ -127,10 +130,6 @@ void UiPropagate::refreshFromPropagate()
     auto* prop = getPropagate();
     if (!prop)
         return;
-
-    minTimeEdit_->blockSignals(true);
-    minTimeEdit_->setQuantity(Quantity(prop->minPropTime(), s));
-    minTimeEdit_->blockSignals(false);
 
     maxTimeEdit_->blockSignals(true);
     maxTimeEdit_->setQuantity(Quantity(prop->maxPropTime(), s));
@@ -147,12 +146,6 @@ void UiPropagate::refreshFromPropagate()
 // 槽 — 即时写入
 // ============================================================================
 
-void UiPropagate::onMinTimeChanged()
-{
-    if (auto* prop = getPropagate())
-        prop->setMinPropTime(minTimeEdit_->getValueSI());
-}
-
 void UiPropagate::onMaxTimeChanged()
 {
     if (auto* prop = getPropagate())
@@ -164,6 +157,66 @@ void UiPropagate::onMaxTimeEnabledChanged(bool checked)
     if (auto* prop = getPropagate())
         prop->setUseMaxPropTime(checked);
     maxTimeEdit_->setEnabled(checked);
+}
+
+void UiPropagate::onConfigureForceModel()
+{
+    auto* prop = getPropagate();
+    if (!prop)
+        return;
+
+    auto* hpop = prop->propagator();
+    if (!hpop)
+        return;
+
+    QDialog dlg(this);
+    dlg.setWindowTitle(tr("力模型配置"));
+    auto* dlgLayout = new QVBoxLayout(&dlg);
+
+    auto* editor = new UiHPOPForceModel(&dlg);
+    editor->setHPOPForceModel(&hpop->forceModel());
+    dlgLayout->addWidget(editor);
+
+    auto* btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
+    dlgLayout->addWidget(btnBox);
+
+    connect(btnBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
+    connect(btnBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+
+    if (dlg.exec() == QDialog::Accepted)
+        editor->apply();
+}
+
+void UiPropagate::onConfigureIntegrator()
+{
+    auto* prop = getPropagate();
+    if (!prop)
+        return;
+
+    auto* hpop = prop->propagator();
+    if (!hpop)
+        return;
+
+    auto* integrator = hpop->getIntegrator();
+    if (!integrator)
+        return;
+
+    QDialog dlg(this);
+    dlg.setWindowTitle(tr("积分器配置"));
+    auto* dlgLayout = new QVBoxLayout(&dlg);
+
+    auto* editor = new UiODEIntegratorEditor(&dlg);
+    editor->setIntegrator(integrator);
+    dlgLayout->addWidget(editor);
+
+    auto* btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
+    dlgLayout->addWidget(btnBox);
+
+    connect(btnBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
+    connect(btnBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+
+    if (dlg.exec() == QDialog::Accepted)
+        editor->apply();
 }
 
 AST_NAMESPACE_END

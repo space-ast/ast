@@ -22,6 +22,7 @@
 #include "AstCore/EventDetector.hpp"
 #include "AstCore/DetectorAllHeaders.hpp"
 #include "AstUtil/RTTIAPI.hpp"
+#include "AstGUI/UiEventDetectorEditor.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QTableWidget>
@@ -118,16 +119,18 @@ void UiEventDetectorList::setupUi()
     QStringList headers;
     headers << tr("激活") << tr("名称") << tr("类型");
     table_->setHorizontalHeaderLabels(headers);
+    table_->setColumnWidth(kColActive, 70);
+    table_->setColumnWidth(kColName, 240);
+    table_->setColumnWidth(kColType, 120);
+    table_->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
     table_->horizontalHeader()->setStretchLastSection(true);
-    table_->setColumnWidth(kColActive, 44);
-    table_->setColumnWidth(kColName, 120);
     table_->verticalHeader()->setVisible(false);
 
     layout->addWidget(table_);
 
     // 按钮栏
     auto* btnLayout = new QHBoxLayout();
-    btnLayout->addStretch();
+    btnLayout->setContentsMargins(0, 4, 0, 0);
 
     addBtn_ = new QPushButton(tr("+ 添加"), this);
     auto* addMenu = new QMenu(this);
@@ -140,7 +143,12 @@ void UiEventDetectorList::setupUi()
     removeBtn_->setEnabled(false);
     btnLayout->addWidget(removeBtn_);
 
+    btnLayout->addStretch();
     layout->addLayout(btnLayout);
+
+    // 编辑器
+    editor_ = new UiEventDetectorEditor(this);
+    layout->addWidget(editor_);
 
     // 连接
     connect(addMenu, &QMenu::triggered, this, [this](QAction* action) {
@@ -148,7 +156,27 @@ void UiEventDetectorList::setupUi()
     });
     connect(removeBtn_, &QPushButton::clicked, this, &UiEventDetectorList::onRemoveDetector);
     connect(table_, &QTableWidget::itemSelectionChanged, this, [this]() {
-        removeBtn_->setEnabled(table_->currentRow() >= 0);
+        int row = table_->currentRow();
+        removeBtn_->setEnabled(row >= 0);
+
+        if (row >= 0)
+        {
+            auto* prop = getPropagate();
+            if (prop)
+            {
+                const auto& detectors = prop->eventDetectors();
+                if (row < (int)detectors.size())
+                {
+                    auto* det = detectors[row].get();
+                    editor_->setDetector(det);
+                    emit detectorSelected(det);
+                }
+            }
+        }
+        else
+        {
+            editor_->clear();
+        }
     });
     connect(table_, &QTableWidget::cellChanged, this, &UiEventDetectorList::onNameChanged);
 }
@@ -270,11 +298,15 @@ void UiEventDetectorList::refreshList()
         if (!det)
             continue;
 
-        // 激活列 — QCheckBox
+        // 激活列 — QCheckBox（居中）
         auto* cb = new QCheckBox();
         cb->setChecked(det->active());
-        table_->setCellWidget(i, kColActive, cb);
-        // 用 lambda 连接，需要捕获 row
+        auto* cbContainer = new QWidget();
+        auto* cbLayout = new QHBoxLayout(cbContainer);
+        cbLayout->setContentsMargins(0, 0, 0, 0);
+        cbLayout->setAlignment(Qt::AlignCenter);
+        cbLayout->addWidget(cb);
+        table_->setCellWidget(i, kColActive, cbContainer);
         connect(cb, &QCheckBox::toggled, this, [this, i](bool checked) {
             onActiveToggled(i, checked);
         });

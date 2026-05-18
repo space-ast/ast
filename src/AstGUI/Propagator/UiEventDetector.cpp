@@ -23,8 +23,7 @@
 #include "AstGUI/UiInteger.hpp"
 #include "AstUtil/Unit.hpp"
 #include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QCheckBox>
+#include <QGridLayout>
 #include <QComboBox>
 #include <QLabel>
 
@@ -52,58 +51,39 @@ void UiEventDetector::setupUi()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(8);
 
-    // 激活
-    activeCheck_ = new QCheckBox(tr("激活"), this);
-    activeCheck_->setChecked(true);
-    layout->addWidget(activeCheck_);
+    // 参数网格 — 两行两列
+    auto* grid = new QGridLayout();
+    grid->setHorizontalSpacing(8);
+    grid->setVerticalSpacing(4);
 
-    // 重复次数
-    auto* repeatLayout = new QHBoxLayout();
-    repeatLayout->addWidget(new QLabel(tr("重复次数"), this));
     repeatCountEdit_ = new UiInteger(this);
     repeatCountEdit_->setValue(1);
-    repeatCountEdit_->setFixedWidth(180);
-    repeatLayout->addWidget(repeatCountEdit_);
-    layout->addLayout(repeatLayout);
 
-    // 方向
-    auto* dirLayout = new QHBoxLayout();
-    dirLayout->addWidget(new QLabel(tr("方向"), this));
     directionCombo_ = new QComboBox(this);
-    directionCombo_->addItem(tr("双向"), static_cast<int>(EventDetector::EDirection::eBoth));
+    directionCombo_->addItem(tr("任意"), static_cast<int>(EventDetector::EDirection::eBoth));
     directionCombo_->addItem(tr("递增"), static_cast<int>(EventDetector::EDirection::eIncrease));
     directionCombo_->addItem(tr("递减"), static_cast<int>(EventDetector::EDirection::eDecrease));
-    directionCombo_->setFixedWidth(180);
-    dirLayout->addWidget(directionCombo_);
-    layout->addLayout(dirLayout);
 
-    // 阈值
-    auto* thresholdLayout = new QHBoxLayout();
-    thresholdLayout->addWidget(new QLabel(tr("阈值"), this));
     thresholdEdit_ = new UiQuantity(this);
     thresholdEdit_->setQuantity(Quantity(1e-10));
-    thresholdEdit_->setFixedWidth(180);
-    thresholdLayout->addWidget(thresholdEdit_);
-    layout->addLayout(thresholdLayout);
 
-    // 目标值
-    auto* goalLayout = new QHBoxLayout();
-    goalLayout->addWidget(new QLabel(tr("目标值"), this));
     goalEdit_ = new UiQuantity(this);
     goalEdit_->setQuantity(Quantity(0.0));
-    goalEdit_->setFixedWidth(180);
-    goalLayout->addWidget(goalEdit_);
-    layout->addLayout(goalLayout);
+
+    grid->addWidget(new QLabel(tr("触发值"), this), 0, 0);
+    grid->addWidget(goalEdit_, 0, 1);
+    grid->addWidget(new QLabel(tr("触发方向"), this), 0, 2);
+    grid->addWidget(directionCombo_, 0, 3);
+    grid->addWidget(new QLabel(tr("重复次数"), this), 1, 0);
+    grid->addWidget(repeatCountEdit_, 1, 1);
+    grid->addWidget(new QLabel(tr("收敛阈值"), this), 1, 2);
+    grid->addWidget(thresholdEdit_, 1, 3);
+
+    layout->addLayout(grid);
 
     layout->addStretch();
 
     // 连接 — 即时写入
-    connect(activeCheck_, &QCheckBox::toggled, this, [this](bool checked) {
-        if (auto* det = getEventDetector()) {
-            det->setActive(checked);
-            emit detectorChanged(det);
-        }
-    });
     connect(repeatCountEdit_, &UiInteger::valueChanged, this, [this](int val) {
         if (auto* det = getEventDetector()) {
             det->setRepeatCount(val);
@@ -147,10 +127,6 @@ void UiEventDetector::refreshFromDetector(EventDetector* det)
 {
     if (!det)
         return;
-
-    activeCheck_->blockSignals(true);
-    activeCheck_->setChecked(det->active());
-    activeCheck_->blockSignals(false);
 
     repeatCountEdit_->blockSignals(true);
     repeatCountEdit_->setValue(det->repeatCount());

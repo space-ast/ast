@@ -39,7 +39,7 @@ class AST_CORE_API Propagate: public Segment
 {
 public:
     AST_OBJECT(Propagate)
-    Propagate() = default;
+    Propagate();
     ~Propagate() = default;
 public:
     errc_t execute() override;

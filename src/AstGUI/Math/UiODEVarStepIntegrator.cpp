@@ -1,5 +1,6 @@
 #include "UiODEVarStepIntegrator.hpp"
 #include "AstMath/ODEVarStepIntegrator.hpp"
+#include "AstGUI/UiDouble.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGroupBox>
@@ -34,17 +35,6 @@ void UiODEVarStepIntegrator::setupUi()
     // 主布局
     mainLayout_ = new QVBoxLayout(this);
     
-    // 积分器选择
-    integratorLayout_ = new QHBoxLayout();
-    integratorLabel_ = new QLabel("数值积分器:", this);
-    integratorCombo_ = new QComboBox(this);
-    integratorCombo_->addItem("RK4th5th");
-    integratorCombo_->addItem("RK5th6th");
-    integratorCombo_->addItem("RK6th7th");
-    integratorLayout_->addWidget(integratorLabel_);
-    integratorLayout_->addWidget(integratorCombo_);
-    mainLayout_->addLayout(integratorLayout_);
-    
     // 初始步长
     initialStepLayout_ = new QHBoxLayout();
     initialStepLabel_ = new QLabel("初始步长:", this);
@@ -61,12 +51,6 @@ void UiODEVarStepIntegrator::setupUi()
     // 步长控制
     stepSizeGroup_ = new QGroupBox("步长控制", this);
     stepSizeLayout_ = new QVBoxLayout(stepSizeGroup_);
-    
-    // 固定步长
-    fixedStepLayout_ = new QHBoxLayout();
-    fixedStepCheck_ = new QCheckBox("使用固定步长", this);
-    fixedStepLayout_->addWidget(fixedStepCheck_);
-    stepSizeLayout_->addLayout(fixedStepLayout_);
     
     // 最大步长
     maxStepLayout_ = new QHBoxLayout();
@@ -115,23 +99,17 @@ void UiODEVarStepIntegrator::setupUi()
     // 最大绝对误差
     maxAbsErrorLayout_ = new QHBoxLayout();
     maxAbsErrorLabel_ = new QLabel("最大绝对误差:", this);
-    maxAbsErrorEdit_ = new QDoubleSpinBox(this);
-    maxAbsErrorEdit_->setRange(1e-16, 1e-1);
+    maxAbsErrorEdit_ = new UiDouble(this);
     maxAbsErrorEdit_->setValue(1e-10);
-    maxAbsErrorEdit_->setDecimals(16);
-    maxAbsErrorEdit_->setMinimumWidth(150);
     maxAbsErrorLayout_->addWidget(maxAbsErrorLabel_);
     maxAbsErrorLayout_->addWidget(maxAbsErrorEdit_);
     mainLayout_->addLayout(maxAbsErrorLayout_);
-    
+
     // 最大相对误差
     maxRelErrorLayout_ = new QHBoxLayout();
     maxRelErrorLabel_ = new QLabel("最大相对误差:", this);
-    maxRelErrorEdit_ = new QDoubleSpinBox(this);
-    maxRelErrorEdit_->setRange(1e-16, 1e-1);
+    maxRelErrorEdit_ = new UiDouble(this);
     maxRelErrorEdit_->setValue(1e-13);
-    maxRelErrorEdit_->setDecimals(16);
-    maxRelErrorEdit_->setMinimumWidth(150);
     maxRelErrorLayout_->addWidget(maxRelErrorLabel_);
     maxRelErrorLayout_->addWidget(maxRelErrorEdit_);
     mainLayout_->addLayout(maxRelErrorLayout_);
@@ -152,6 +130,7 @@ void UiODEVarStepIntegrator::setupUi()
     highSafetyEdit_ = new QDoubleSpinBox(this);
     highSafetyEdit_->setRange(0.1, 2.0);
     highSafetyEdit_->setValue(0.9);
+    highSafetyEdit_->setSingleStep(0.1);
     highSafetyEdit_->setDecimals(2);
     highSafetyLayout_->addWidget(highSafetyLabel_);
     highSafetyLayout_->addWidget(highSafetyEdit_);
@@ -163,14 +142,16 @@ void UiODEVarStepIntegrator::setupUi()
     lowSafetyEdit_ = new QDoubleSpinBox(this);
     lowSafetyEdit_->setRange(0.1, 2.0);
     lowSafetyEdit_->setValue(0.9);
+    lowSafetyEdit_->setSingleStep(0.1);
     lowSafetyEdit_->setDecimals(2);
     lowSafetyLayout_->addWidget(lowSafetyLabel_);
     lowSafetyLayout_->addWidget(lowSafetyEdit_);
     mainLayout_->addLayout(lowSafetyLayout_);
     
     // 连接信号槽
-    connect(fixedStepCheck_, &QCheckBox::toggled, this, &UiODEVarStepIntegrator::onFixedStepChanged);
-    
+    connect(maxStepCheck_, &QCheckBox::toggled, maxStepEdit_, &QWidget::setEnabled);
+    connect(minStepCheck_, &QCheckBox::toggled, minStepEdit_, &QWidget::setEnabled);
+
     // 初始化
     refreshUi();
 }
@@ -192,32 +173,26 @@ void UiODEVarStepIntegrator::refreshUi()
 {
     auto integrator = getODEVarStepIntegrator();
     if (!integrator) return;
-    
-    // 刷新积分器选择
-    // @todo: 根据实际的积分器类型设置
-    
-    // 刷新初始步长
-    // initialStepEdit_->setValue(integrator->initialStep());
-    
-    // 刷新步长控制
-    // fixedStepCheck_->setChecked(integrator->useFixedStep());
-    // maxStepCheck_->setChecked(integrator->useMaxStep());
-    // maxStepEdit_->setValue(integrator->maxStep());
-    // minStepCheck_->setChecked(integrator->useMinStep());
-    // minStepEdit_->setValue(integrator->minStep());
-    
-    // 刷新误差控制
-    // errorControlCombo_->setCurrentIndex(static_cast<int>(integrator->errorControl()));
-    // maxAbsErrorEdit_->setValue(integrator->maxAbsError());
-    // maxRelErrorEdit_->setValue(integrator->maxRelError());
-    // maxIterationsEdit_->setValue(integrator->maxIterations());
-    
-    // 刷新安全系数
-    // highSafetyEdit_->setValue(integrator->highSafetyCoefficient());
-    // lowSafetyEdit_->setValue(integrator->lowSafetyCoefficient());
-    
-    // 更新UI状态
-    onFixedStepChanged(fixedStepCheck_->isChecked());
+
+    initialStepEdit_->setValue(integrator->getStepSize());
+
+    maxStepCheck_->setChecked(integrator->getUseMaxStep());
+    maxStepEdit_->setValue(integrator->getMaxStepSize());
+    maxStepEdit_->setEnabled(integrator->getUseMaxStep());
+
+    minStepCheck_->setChecked(integrator->getUseMinStep());
+    minStepEdit_->setValue(integrator->getMinStepSize());
+    minStepEdit_->setEnabled(integrator->getUseMinStep());
+
+    maxAbsErrorEdit_->setValue(integrator->maxAbsErr_);
+
+    maxRelErrorEdit_->setValue(integrator->maxRelErr_);
+
+    maxIterationsEdit_->setValue(integrator->getMaxIterations());
+
+    highSafetyEdit_->setValue(integrator->getSafetyCoeffHigh());
+
+    lowSafetyEdit_->setValue(integrator->getSafetyCoeffLow());
 }
 
 void UiODEVarStepIntegrator::apply()
@@ -231,39 +206,19 @@ void UiODEVarStepIntegrator::apply()
 
 void UiODEVarStepIntegrator::applyTo(ODEVarStepIntegrator* integrator)
 {
-    if (integrator) {
-        // 应用积分器选择
-        // @todo: 根据选择的积分器类型设置
-        
-        // 应用初始步长
-        // integrator->setInitialStep(initialStepEdit_->value());
-        
-        // 应用步长控制
-        // integrator->setUseFixedStep(fixedStepCheck_->isChecked());
-        // integrator->setUseMaxStep(maxStepCheck_->isChecked());
-        // integrator->setMaxStep(maxStepEdit_->value());
-        // integrator->setUseMinStep(minStepCheck_->isChecked());
-        // integrator->setMinStep(minStepEdit_->value());
-        
-        // 应用误差控制
-        // integrator->setErrorControl(static_cast<ErrorControlType>(errorControlCombo_->currentIndex()));
-        // integrator->setMaxAbsError(maxAbsErrorEdit_->value());
-        // integrator->setMaxRelError(maxRelErrorEdit_->value());
-        // integrator->setMaxIterations(maxIterationsEdit_->value());
-        
-        // 应用安全系数
-        // integrator->setHighSafetyCoefficient(highSafetyEdit_->value());
-        // integrator->setLowSafetyCoefficient(lowSafetyEdit_->value());
-    }
-}
+    if (!integrator)
+        return;
 
-void UiODEVarStepIntegrator::onFixedStepChanged(bool checked)
-{
-    // 当使用固定步长时，禁用最大步长和最小步长
-    maxStepCheck_->setEnabled(!checked);
-    maxStepEdit_->setEnabled(!checked && maxStepCheck_->isChecked());
-    minStepCheck_->setEnabled(!checked);
-    minStepEdit_->setEnabled(!checked && minStepCheck_->isChecked());
+    integrator->setInitialStepSize(initialStepEdit_->value());
+    integrator->setUseMaxStep(maxStepCheck_->isChecked());
+    integrator->setMaxStepSize(maxStepEdit_->value());
+    integrator->setUseMinStep(minStepCheck_->isChecked());
+    integrator->setMinStepSize(minStepEdit_->value());
+    integrator->setMaxAbsErr(maxAbsErrorEdit_->value());
+    integrator->setMaxRelErr(maxRelErrorEdit_->value());
+    integrator->setMaxIterations(maxIterationsEdit_->value());
+    integrator->setSafetyCoeffHigh(highSafetyEdit_->value());
+    integrator->setSafetyCoeffLow(lowSafetyEdit_->value());
 }
 
 AST_NAMESPACE_END

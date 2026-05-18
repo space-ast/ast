@@ -24,14 +24,14 @@
 #include "AstGUI/UiObject.hpp"
 #include "AstGUI/UiQuantity.hpp"
 #include <QCheckBox>
-#include <QComboBox>
 
-class QListWidget;
+class QPushButton;
 
 AST_NAMESPACE_BEGIN
 
 class Propagate;
 class HPOP;
+class UiEventDetectorList;
 
 /// @brief Propagate 段编辑器
 class AST_GUI_API UiPropagate : public UiObject
@@ -46,19 +46,20 @@ public:
     Propagate* getPropagate() const;
 
 private slots:
-    void onMinTimeChanged();
     void onMaxTimeChanged();
     void onMaxTimeEnabledChanged(bool checked);
+    void onConfigureForceModel();
+    void onConfigureIntegrator();
 
 private:
     void setupUi();
     void refreshFromPropagate();
 
-    QComboBox*   propagatorTypeCombo_ = nullptr;
-    UiQuantity*  minTimeEdit_ = nullptr;
     UiQuantity*  maxTimeEdit_ = nullptr;
     QCheckBox*   useMaxTimeCheck_ = nullptr;
-    QListWidget* eventDetectorList_ = nullptr;
+    QPushButton* forceModelBtn_ = nullptr;
+    QPushButton* integratorBtn_ = nullptr;
+    UiEventDetectorList* eventDetectorList_ = nullptr;
 };
 
 AST_NAMESPACE_END

@@ -24,7 +24,6 @@
 #include "AstGUI/UiObject.hpp"
 #include <QWidget>
 
-class QCheckBox;
 class QComboBox;
 
 AST_NAMESPACE_BEGIN
@@ -53,7 +52,6 @@ private:
     void setupUi();
     void refreshFromDetector(EventDetector* det);
 
-    QCheckBox*  activeCheck_ = nullptr;
     UiInteger*  repeatCountEdit_ = nullptr;
     QComboBox*  directionCombo_ = nullptr;
     UiQuantity* thresholdEdit_ = nullptr;

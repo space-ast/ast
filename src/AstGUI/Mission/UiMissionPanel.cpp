@@ -62,15 +62,14 @@ void UiMissionPanel::setupUi()
     mainSplitter_ = new QSplitter(Qt::Horizontal, this);
 
     missionTree_ = new UiMissionTree(this);
-    missionTree_->setMinimumWidth(200);
+    missionTree_->setMinimumWidth(320);
     mainSplitter_->addWidget(missionTree_);
 
     segmentEditor_ = new UiSegmentEditor(this);
-    segmentEditor_->setMinimumWidth(300);
+    segmentEditor_->setMinimumWidth(420);
     mainSplitter_->addWidget(segmentEditor_);
 
-    mainSplitter_->setStretchFactor(0, 1);
-    mainSplitter_->setStretchFactor(1, 2);
+    mainSplitter_->setSizes({360, 800});
 
     rootLayout->addWidget(mainSplitter_);
 
