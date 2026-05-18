@@ -24,7 +24,9 @@
 #include "AstUtil/RTTIAPI.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QListWidget>
+#include <QTableWidget>
+#include <QHeaderView>
+#include <QCheckBox>
 #include <QMenu>
 #include <QPushButton>
 
@@ -58,6 +60,33 @@ const DetectorTypeInfo kDetectorTypes[] = {
     {"DetectorAlwaysTripped",    "始终触发"},
 };
 
+static EventDetector* createDetector(const std::string& name)
+{
+    if (name == "DetectorApoapsis")           return aNewObject<DetectorApoapsis>();
+    if (name == "DetectorPeriapsis")          return aNewObject<DetectorPeriapsis>();
+    if (name == "DetectorAltitude")           return aNewObject<DetectorAltitude>();
+    if (name == "DetectorDuration")           return aNewObject<DetectorDuration>();
+    if (name == "DetectorEpoch")              return aNewObject<DetectorEpoch>();
+    if (name == "DetectorTrueAnomaly")        return aNewObject<DetectorTrueAnomaly>();
+    if (name == "DetectorMeanAnomaly")        return aNewObject<DetectorMeanAnomaly>();
+    if (name == "DetectorAscendingNode")      return aNewObject<DetectorAscendingNode>();
+    if (name == "DetectorDescendingNode")     return aNewObject<DetectorDescendingNode>();
+    if (name == "DetectorCartesian")          return aNewObject<DetectorCartesian>();
+    if (name == "DetectorDeltaV")             return aNewObject<DetectorDeltaV>();
+    if (name == "DetectorRMagnitude")         return aNewObject<DetectorRMagnitude>();
+    if (name == "DetectorXYPlaneCross")       return aNewObject<DetectorXYPlaneCross>();
+    if (name == "DetectorYZPlaneCross")       return aNewObject<DetectorYZPlaneCross>();
+    if (name == "DetectorZXPlaneCross")       return aNewObject<DetectorZXPlaneCross>();
+    if (name == "DetectorUserSelect")         return aNewObject<DetectorUserSelect>();
+    if (name == "DetectorLighting")           return aNewObject<DetectorLighting>();
+    if (name == "DetectorAlwaysTripped")      return aNewObject<DetectorAlwaysTripped>();
+    return nullptr;
+}
+
+static const int kColActive = 0;
+static const int kColName  = 1;
+static const int kColType  = 2;
+
 } // namespace
 
 UiEventDetectorList::UiEventDetectorList(Object* object, QWidget* parent)
@@ -79,11 +108,22 @@ void UiEventDetectorList::setupUi()
     auto* layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
 
-    // 列表
-    listWidget_ = new QListWidget(this);
-    listWidget_->setMaximumHeight(140);
-    listWidget_->setAlternatingRowColors(true);
-    layout->addWidget(listWidget_);
+    // 表格
+    table_ = new QTableWidget(0, 3, this);
+    table_->setAlternatingRowColors(true);
+    table_->setSelectionBehavior(QAbstractItemView::SelectRows);
+    table_->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    // 表头
+    QStringList headers;
+    headers << tr("激活") << tr("名称") << tr("类型");
+    table_->setHorizontalHeaderLabels(headers);
+    table_->horizontalHeader()->setStretchLastSection(true);
+    table_->setColumnWidth(kColActive, 44);
+    table_->setColumnWidth(kColName, 120);
+    table_->verticalHeader()->setVisible(false);
+
+    layout->addWidget(table_);
 
     // 按钮栏
     auto* btnLayout = new QHBoxLayout();
@@ -107,9 +147,10 @@ void UiEventDetectorList::setupUi()
         onAddDetector(action->data().toString());
     });
     connect(removeBtn_, &QPushButton::clicked, this, &UiEventDetectorList::onRemoveDetector);
-    connect(listWidget_, &QListWidget::itemSelectionChanged, this, [this]() {
-        removeBtn_->setEnabled(listWidget_->currentItem() != nullptr);
+    connect(table_, &QTableWidget::itemSelectionChanged, this, [this]() {
+        removeBtn_->setEnabled(table_->currentRow() >= 0);
     });
+    connect(table_, &QTableWidget::cellChanged, this, &UiEventDetectorList::onNameChanged);
 }
 
 // ============================================================================
@@ -139,35 +180,13 @@ void UiEventDetectorList::onAddDetector(const QString& className)
     if (!prop)
         return;
 
-    // 通过 RTTI 类型名创建实例
-    EventDetector* det = nullptr;
-    std::string name = className.toUtf8().constData();
-
-    if (name == "DetectorApoapsis")           det = aNewObject<DetectorApoapsis>();
-    else if (name == "DetectorPeriapsis")      det = aNewObject<DetectorPeriapsis>();
-    else if (name == "DetectorAltitude")       det = aNewObject<DetectorAltitude>();
-    else if (name == "DetectorDuration")       det = aNewObject<DetectorDuration>();
-    else if (name == "DetectorEpoch")          det = aNewObject<DetectorEpoch>();
-    else if (name == "DetectorTrueAnomaly")    det = aNewObject<DetectorTrueAnomaly>();
-    else if (name == "DetectorMeanAnomaly")    det = aNewObject<DetectorMeanAnomaly>();
-    else if (name == "DetectorAscendingNode")  det = aNewObject<DetectorAscendingNode>();
-    else if (name == "DetectorDescendingNode") det = aNewObject<DetectorDescendingNode>();
-    else if (name == "DetectorCartesian")      det = aNewObject<DetectorCartesian>();
-    else if (name == "DetectorDeltaV")         det = aNewObject<DetectorDeltaV>();
-    else if (name == "DetectorRMagnitude")     det = aNewObject<DetectorRMagnitude>();
-    else if (name == "DetectorXYPlaneCross")   det = aNewObject<DetectorXYPlaneCross>();
-    else if (name == "DetectorYZPlaneCross")   det = aNewObject<DetectorYZPlaneCross>();
-    else if (name == "DetectorZXPlaneCross")   det = aNewObject<DetectorZXPlaneCross>();
-    else if (name == "DetectorUserSelect")     det = aNewObject<DetectorUserSelect>();
-    else if (name == "DetectorLighting")       det = aNewObject<DetectorLighting>();
-    else if (name == "DetectorAlwaysTripped")  det = aNewObject<DetectorAlwaysTripped>();
-
+    std::string clsName = className.toUtf8().constData();
+    auto* det = createDetector(clsName);
     if (!det)
         return;
 
-    det->setName(name);
+    det->setName(clsName);
 
-    // 即时写入 Propagate
     auto detectors = prop->eventDetectors();
     detectors.push_back(SharedPtr<EventDetector>(det));
     prop->setEventDetectors(detectors);
@@ -181,7 +200,7 @@ void UiEventDetectorList::onRemoveDetector()
     if (!prop)
         return;
 
-    int row = listWidget_->currentRow();
+    int row = table_->currentRow();
     if (row < 0)
         return;
 
@@ -195,6 +214,35 @@ void UiEventDetectorList::onRemoveDetector()
     refreshList();
 }
 
+void UiEventDetectorList::onActiveToggled(int row, bool checked)
+{
+    auto* prop = getPropagate();
+    if (!prop)
+        return;
+
+    const auto& detectors = prop->eventDetectors();
+    if (row < (int)detectors.size() && detectors[row])
+        detectors[row]->setActive(checked);
+}
+
+void UiEventDetectorList::onNameChanged(int row, int col)
+{
+    if (col != kColName)
+        return;
+
+    auto* prop = getPropagate();
+    if (!prop)
+        return;
+
+    const auto& detectors = prop->eventDetectors();
+    if (row < (int)detectors.size() && detectors[row])
+    {
+        auto* item = table_->item(row, col);
+        if (item)
+            detectors[row]->setName(item->text().toUtf8().constData());
+    }
+}
+
 // ============================================================================
 // 内部
 // ============================================================================
@@ -202,25 +250,53 @@ void UiEventDetectorList::onRemoveDetector()
 void UiEventDetectorList::refreshList()
 {
     auto* prop = getPropagate();
-    listWidget_->clear();
+
+    // 断开 cellChanged 避免 refresh 时触发写入
+    table_->blockSignals(true);
+    table_->setRowCount(0);
 
     if (!prop)
-        return;
-
-    for (const auto& det : prop->eventDetectors())
     {
+        table_->blockSignals(false);
+        return;
+    }
+
+    const auto& detectors = prop->eventDetectors();
+    table_->setRowCount((int)detectors.size());
+
+    for (int i = 0; i < (int)detectors.size(); ++i)
+    {
+        auto* det = detectors[i].get();
         if (!det)
             continue;
-        listWidget_->addItem(detectorDisplayName(det.get()));
+
+        // 激活列 — QCheckBox
+        auto* cb = new QCheckBox();
+        cb->setChecked(det->active());
+        table_->setCellWidget(i, kColActive, cb);
+        // 用 lambda 连接，需要捕获 row
+        connect(cb, &QCheckBox::toggled, this, [this, i](bool checked) {
+            onActiveToggled(i, checked);
+        });
+
+        // 名称列
+        auto* nameItem = new QTableWidgetItem(QString::fromStdString(det->getName()));
+        table_->setItem(i, kColName, nameItem);
+
+        // 类型列（只读）
+        auto* typeItem = new QTableWidgetItem(typeDisplayName(det));
+        typeItem->setFlags(typeItem->flags() & ~Qt::ItemIsEditable);
+        table_->setItem(i, kColType, typeItem);
     }
+
+    table_->blockSignals(false);
 }
 
-QString UiEventDetectorList::detectorDisplayName(EventDetector* det) const
+QString UiEventDetectorList::typeDisplayName(EventDetector* det) const
 {
     if (!det)
         return {};
 
-    // 取 RTTI 类型名，匹配中文名
     std::string typeName = det->getType()->name();
     for (const auto& info : kDetectorTypes)
     {

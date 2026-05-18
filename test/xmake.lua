@@ -16,6 +16,7 @@ add_deps(
 )
 
 if is_plat("windows") and has_config("with_com") then
+    add_defines("AST_WITH_COM")
     add_deps("AstCOM")
 end
 

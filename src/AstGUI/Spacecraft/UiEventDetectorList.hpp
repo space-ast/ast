@@ -1,7 +1,7 @@
 ///
 /// @file      UiEventDetectorList.hpp
 /// @brief     事件检测器列表管理组件
-/// @details   显示、添加、删除事件检测器，即时同步到 Propagate
+/// @details   表格显示激活/名称/类型，支持添加删除，即时同步到 Propagate
 /// @author    axel
 /// @date      2026-05-18
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -24,7 +24,7 @@
 #include "AstGUI/UiObject.hpp"
 #include <QWidget>
 
-class QListWidget;
+class QTableWidget;
 class QPushButton;
 
 AST_NAMESPACE_BEGIN
@@ -44,17 +44,21 @@ public:
     void setPropagate(Propagate* prop);
     Propagate* getPropagate() const;
 
+signals:
+    void detectorSelected(EventDetector* det);
+
 private slots:
     void onAddDetector(const QString& className);
     void onRemoveDetector();
+    void onActiveToggled(int row, bool checked);
+    void onNameChanged(int row, int col);
 
 private:
     void setupUi();
     void refreshList();
-    void syncToPropagate();
-    QString detectorDisplayName(EventDetector* det) const;
+    QString typeDisplayName(EventDetector* det) const;
 
-    QListWidget*  listWidget_ = nullptr;
+    QTableWidget* table_ = nullptr;
     QPushButton*  addBtn_ = nullptr;
     QPushButton*  removeBtn_ = nullptr;
 };

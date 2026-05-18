@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 #include "AstTest/Test.hpp"
 
-#if defined _WIN32 && !defined A_GCC
+#if defined _WIN32 && !defined A_GCC && defined AST_WITH_COM
 #include "AstScript/ScriptExecutor.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstCOM/COMAPI.hpp"

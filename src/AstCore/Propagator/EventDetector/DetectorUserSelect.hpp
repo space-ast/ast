@@ -42,7 +42,7 @@ public:
     ~DetectorUserSelect() = default;
 
     double getValue(const SpacecraftState& state, double t) const override;
-    bool isAngle() const override; 
+    Dimension getDimension() const override; 
 PROPERTIES:
     ScStateCalculation* calculation() const{return calculation_.get();}
     void setCalculation(ScStateCalculation* calculation){calculation_ = calculation;}
