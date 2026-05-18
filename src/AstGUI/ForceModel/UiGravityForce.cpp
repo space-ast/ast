@@ -82,7 +82,7 @@ void UiGravityForce::setupUi()
     minAmplitudeLayout_ = new QHBoxLayout();
     minAmplitudeLabel_ = new QLabel("最小振幅:", this);
     minAmplitudeEdit_ = new UiQuantity(this);
-    minAmplitudeEdit_->setValueInUnit(0.0, Unit("m"));
+    minAmplitudeEdit_->setDimension(Dimension::Length());
     minAmplitudeLayout_->addWidget(minAmplitudeLabel_);
     minAmplitudeLayout_->addWidget(minAmplitudeEdit_);
     solidTidesLayout_->addLayout(minAmplitudeLayout_, 2, 0, 1, 2);
@@ -120,7 +120,7 @@ void UiGravityForce::setupUi()
     minAmplitudeOceanLayout_ = new QHBoxLayout();
     minAmplitudeOceanLabel_ = new QLabel("最小振幅:", this);
     minAmplitudeOceanEdit_ = new UiQuantity(this);
-    minAmplitudeOceanEdit_->setValueInUnit(0.0, Unit("m"));
+    minAmplitudeOceanEdit_->setDimension(Dimension::Length());
     minAmplitudeOceanLayout_->addWidget(minAmplitudeOceanLabel_);
     minAmplitudeOceanLayout_->addWidget(minAmplitudeOceanEdit_);
     oceanTidesLayout_->addLayout(minAmplitudeOceanLayout_, 2, 0, 1, 2);

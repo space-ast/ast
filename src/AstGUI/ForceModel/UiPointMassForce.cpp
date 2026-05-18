@@ -39,7 +39,7 @@ void UiPointMassForce::setupUi()
     specifiedGMLayout_ = new QHBoxLayout();
     specifiedGMLabel_ = new QLabel("指定引力常数:", this);
     specifiedGMEdit_ = new UiQuantity(this);
-    specifiedGMEdit_->setValueInUnit(0, Unit("m^3/s^2"));
+    specifiedGMEdit_->setDimension(Dimension::Volume() / Dimension::Time().pow(2));
     specifiedGMLayout_->addWidget(specifiedGMLabel_);
     specifiedGMLayout_->addWidget(specifiedGMEdit_);
     mainLayout_->addLayout(specifiedGMLayout_);
