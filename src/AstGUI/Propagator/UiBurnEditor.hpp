@@ -1,18 +1,18 @@
 ///
-/// @file      UiManeuver.hpp
-/// @brief     Maneuver 段编辑器
-/// @details   发动机选择、姿态设置
+/// @file      UiBurnEditor.hpp
+/// @brief     发动机点火编辑器 — RTTI 类型分发
+/// @details   根据 Burn 子类类型自动切换脉冲/有限推力编辑页面
 /// @author    axel
-/// @date      2026-05-17
+/// @date      2026-05-18
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
@@ -21,30 +21,36 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstGUI/UiObject.hpp"
+#include <QWidget>
+
+class QStackedWidget;
 
 AST_NAMESPACE_BEGIN
 
-class Maneuver;
 class Burn;
-class UiBurnEditor;
+class BurnImpulsive;
+class UiBurnImpulsive;
 
-/// @brief Maneuver 段编辑器
-class AST_GUI_API UiManeuver : public UiObject
+/// @brief 发动机点火编辑器 — RTTI 类型分发
+class AST_GUI_API UiBurnEditor : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UiManeuver(Object* object, QWidget* parent = nullptr);
-    explicit UiManeuver(QWidget* parent = nullptr);
-    ~UiManeuver() override;
+    explicit UiBurnEditor(QWidget* parent = nullptr);
+    ~UiBurnEditor() override;
 
-    void setManeuver(Maneuver* maneuver);
-    Maneuver* getManeuver() const;
+    void setBurn(Burn* burn);
+    void clear();
+
+signals:
+    void burnChanged(Burn* burn);
 
 private:
     void setupUi();
 
-    UiBurnEditor* burnEditor_ = nullptr;
+    QStackedWidget* stack_ = nullptr;
+    UiBurnImpulsive* impulsivePage_ = nullptr;
+    int              impulsiveIdx_ = -1;
 };
 
 AST_NAMESPACE_END

@@ -21,8 +21,9 @@
 #include "UiManeuver.hpp"
 #include "AstCore/Maneuver.hpp"
 #include "AstCore/Burn.hpp"
+#include "AstCore/BurnImpulsive.hpp"
+#include "AstGUI/UiBurnEditor.hpp"
 #include <QVBoxLayout>
-#include <QLabel>
 
 AST_NAMESPACE_BEGIN
 
@@ -45,22 +46,8 @@ void UiManeuver::setupUi()
     auto* layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
 
-    auto* typeLayout = new QHBoxLayout();
-    typeLayout->addWidget(new QLabel(tr("发动机类型"), this));
-    burnTypeCombo_ = new QComboBox(this);
-    burnTypeCombo_->addItem(tr("脉冲 (Impulsive)"), 0);
-    burnTypeCombo_->addItem(tr("有限推力 (Finite)"), 1);
-    typeLayout->addWidget(burnTypeCombo_);
-    layout->addLayout(typeLayout);
-
-    burnInfoLabel_ = new QLabel(tr("选择发动机类型后可配置具体参数"), this);
-    burnInfoLabel_->setWordWrap(true);
-    layout->addWidget(burnInfoLabel_);
-
-    layout->addStretch();
-
-    connect(burnTypeCombo_, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &UiManeuver::refreshBurnInfo);
+    burnEditor_ = new UiBurnEditor(this);
+    layout->addWidget(burnEditor_);
 }
 
 void UiManeuver::setManeuver(Maneuver* maneuver)
@@ -68,27 +55,20 @@ void UiManeuver::setManeuver(Maneuver* maneuver)
     if (!maneuver)
         return;
     setObject(maneuver);
-    refreshBurnInfo();
+
+    Burn* burn = maneuver->burn();
+    if (!burn)
+    {
+        burn = new BurnImpulsive();
+        burn->setName("ImpulsiveBurn");
+        maneuver->setBurn(burn);
+    }
+    burnEditor_->setBurn(burn);
 }
 
 Maneuver* UiManeuver::getManeuver() const
 {
     return aobject_cast<Maneuver*>(getObject());
-}
-
-void UiManeuver::refreshBurnInfo()
-{
-    auto* m = getManeuver();
-    if (!m)
-        return;
-
-    Burn* burn = m->burn();
-    int idx = burnTypeCombo_->currentIndex();
-
-    if (idx == 0)
-        burnInfoLabel_->setText(tr("脉冲机动：瞬时速度增量，忽略推进时间。"));
-    else
-        burnInfoLabel_->setText(tr("有限推力机动：持续推力，考虑推进器参数。"));
 }
 
 AST_NAMESPACE_END
