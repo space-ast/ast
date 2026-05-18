@@ -52,7 +52,7 @@ void UiSolarRadiationPressure::setupUi()
     areaMassLayout_ = new QHBoxLayout();
     areaMassLabel_ = new QLabel("面积/质量:", this);
     areaMassEdit_ = new UiQuantity(this);
-    areaMassEdit_->setValueInUnit(0.02, Unit("m^2/kg"));
+    areaMassEdit_->setDimension(Dimension::Area() / Dimension::Mass());
     areaMassLayout_->addWidget(areaMassLabel_);
     areaMassLayout_->addWidget(areaMassEdit_);
     modelLayout_->addLayout(areaMassLayout_, 1, 1);
@@ -83,7 +83,7 @@ void UiSolarRadiationPressure::setupUi()
     atmAltLayout_ = new QHBoxLayout();
     atmAltLabel_ = new QLabel("中心天体大气高度:", this);
     atmAltEdit_ = new UiQuantity(this);
-    atmAltEdit_->setValueInUnit(0.0, Unit("km"));
+    atmAltEdit_->setDimension(Dimension::Length());
     atmAltLayout_->addWidget(atmAltLabel_);
     atmAltLayout_->addWidget(atmAltEdit_);
     shadowLayout_->addLayout(atmAltLayout_, 3, 0, 1, 2);
