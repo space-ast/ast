@@ -26,7 +26,15 @@
 
 AST_NAMESPACE_BEGIN
 
-errc_t aGuiInit()
+bool aEnableHighDpiScaling()
+{
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    return true;
+}
+
+static bool s_enableHighDpiScaling = aEnableHighDpiScaling();
+
+errc_t aGUIInit()
 {
     errc_t rc = 0;
     int argc = 0;

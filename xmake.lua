@@ -28,7 +28,7 @@ add_includedirs("include")
 -- 添加编译规则
 -- 内置规则
 add_rules(
-    "mode.debug", "mode.release", -- "mode.releasedbg", 
+    "mode.debug", "mode.release", "mode.releasedbg", 
     "mode.coverage"
 )                                                           -- 调试模式、发布模式、代码覆盖率模式
 -- add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
@@ -111,6 +111,8 @@ add_requires("eigen", {optional = true, configs = {headeronly = true}})         
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
 add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
+add_requires("qwt", {optional = true, 
+    configs = {shared = true, debug = is_mode("debug")}})                       -- 可选的Qwtplot库，用于Qt绘图，共享库版本
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
