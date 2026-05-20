@@ -26,13 +26,14 @@
 
 AST_NAMESPACE_BEGIN
 
-bool aEnableHighDpiScaling()
+bool aInitAppAttributes()
 {
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
     return true;
 }
 
-static bool s_enableHighDpiScaling = aEnableHighDpiScaling();
+static bool s_initAppAttributes = aInitAppAttributes();
 
 errc_t aGUIInit()
 {

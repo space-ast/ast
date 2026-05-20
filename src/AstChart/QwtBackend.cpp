@@ -33,11 +33,16 @@
 #include <qwt_text.h>
 #include <qwt_plot_layout.h>
 #include <qwt_scale_widget.h>
+#include <qwt3d_surfaceplot.h>
+
+#include <matplot/axes_objects/surface.h>
 
 #include <QApplication>
 #include <QEventLoop>
 #include <QColor>
 #include <QFont>
+#include <QLayout>
+#include <QMainWindow>
 
 #include <map>
 #include <string>
@@ -58,6 +63,7 @@ struct QwtBackend::Impl {
 QwtBackend::QwtBackend() : impl_(new Impl()) {
     if (!qApp) {
         QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // 启用高DPI缩放
+        QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
         static int argc = 0;
         static char* argv[] = {nullptr};
         new QApplication(argc, argv);
@@ -66,7 +72,7 @@ QwtBackend::QwtBackend() : impl_(new Impl()) {
 
 QwtBackend::~QwtBackend() {
     for (auto& kv : impl_->figures) {
-        delete kv.second;
+        delete kv.second;  // 未被 QMainWindow 接管的 figure 手动清理
     }
     impl_->figures.clear();
 }
@@ -130,14 +136,24 @@ bool QwtBackend::should_close() { return false; }
 bool QwtBackend::supports_fonts() { return true; }
 
 void QwtBackend::show(matplot::figure_type* f) {
-    f->draw();
     auto* fig = get_or_create_figure(f);
-    fig->setAttribute(Qt::WA_DeleteOnClose);
-    fig->setVisible(true);
-    fig->raise();
+
+    // 包在 QMainWindow 中，QOpenGLWidget (surface) 需要 QMainWindow 祖先
+    QMainWindow* mw = new QMainWindow();
+    fig->setParent(mw);
+    mw->setCentralWidget(fig);
+    mw->resize(fig->size());
+    mw->move(fig->pos());
+
+    render_figure(f, fig);              // 创建所有子部件
+
+    mw->show();
+    mw->raise();
+    mw->setWindowTitle(fig->windowTitle());
+    mw->setAttribute(Qt::WA_DeleteOnClose);
 
     QEventLoop loop;
-    QObject::connect(fig, &QObject::destroyed, &loop, &QEventLoop::quit);
+    QObject::connect(mw, &QObject::destroyed, &loop, &QEventLoop::quit);
     loop.exec();
     impl_->figures.erase(f);
 }
@@ -174,9 +190,7 @@ QwtFigure* QwtBackend::get_or_create_figure(matplot::figure_type* f) {
         return it->second;
     }
     auto* fig = new QwtFigure();
-    fig->setFaceColor(QColor(240, 240, 240));
     fig->resize(static_cast<int>(impl_->width_), static_cast<int>(impl_->height_));
-    fig->move(static_cast<int>(impl_->pos_x_), static_cast<int>(impl_->pos_y_));
     if (!impl_->window_title_.empty()) {
         fig->setWindowTitle(QString::fromStdString(impl_->window_title_));
     }
@@ -197,91 +211,126 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
     QFont figureFont(QString::fromStdString(f->font()), static_cast<int>(f->font_size()));
 
     for (auto& axes : f->children()) {
-        auto* plot = new QwtPlot();
-
-        auto xlim = axes->xlim();
-        auto ylim = axes->ylim();
-        plot->setAxisScale(QwtPlot::xBottom, xlim[0], xlim[1]);
-        plot->setAxisScale(QwtPlot::yLeft, ylim[0], ylim[1]);
-
-        // 坐标轴轴背景颜色
-        plot->setCanvasBackground(QBrush(toQColor(axes->color())));
-
-        // 坐标轴字体
-        auto axesFontFamily = QString::fromStdString(axes->font());
-        int axesFontSize = static_cast<int>(axes->font_size());
-        if (!axesFontFamily.isEmpty() && axesFontSize > 0) {
-            QFont axesFont(axesFontFamily, axesFontSize);
-            plot->setAxisFont(QwtPlot::xBottom, axesFont);
-            plot->setAxisFont(QwtPlot::yLeft, axesFont);
-        } else {
-            plot->setAxisFont(QwtPlot::xBottom, figureFont);
-            plot->setAxisFont(QwtPlot::yLeft, figureFont);
-        }
-
-        // 坐标轴标题
-        if (axes->title_visible() && !axes->title().empty()) {
-            QwtText titleText(QString::fromStdString(axes->title()));
-            titleText.setColor(toQColor(axes->title_color()));
-            auto titleFontFamily = QString::fromStdString(axes->font());
-            int titleFontSize = static_cast<int>(axes->font_size() * axes->title_font_size_multiplier());
-            if (!titleFontFamily.isEmpty() && titleFontSize > 0) {
-                titleText.setFont(QFont(titleFontFamily, titleFontSize));
-            }
-            plot->setTitle(titleText);
-        }
-
-        // 坐标轴标签
-        auto& xLabel = axes->x_axis().label();
-        if (!xLabel.empty() && axes->x_axis().visible()) {
-            QwtText xLabelText(QString::fromStdString(xLabel));
-            xLabelText.setColor(toQColor(axes->x_axis().color()));
-            plot->setAxisTitle(QwtPlot::xBottom, xLabelText);
-        }
-        auto& yLabel = axes->y_axis().label();
-        if (!yLabel.empty() && axes->y_axis().visible()) {
-            QwtText yLabelText(QString::fromStdString(yLabel));
-            yLabelText.setColor(toQColor(axes->y_axis().color()));
-            plot->setAxisTitle(QwtPlot::yLeft, yLabelText);
-        }
-
-        // 坐标轴可见性
-        plot->setAxisVisible(QwtPlot::xBottom, axes->x_axis().visible());
-        plot->setAxisVisible(QwtPlot::yLeft, axes->y_axis().visible());
-
-        // 网格
-        if (axes->grid()) {
-            QwtPlotGrid* grid = new QwtPlotGrid();
-            grid->enableXMin(true);
-            grid->enableYMin(true);
-            grid->setPen(QPen(QColor(200, 200, 200), 0.5, Qt::DotLine));
-            grid->attach(plot);
-        }
-
-        // 计算轴装饰占用的像素，补偿归一化坐标使 canvas 精确定位
-        QFont axisFont = plot->axisFont(QwtPlot::xBottom);
-        double leftDeco = 0, rightDeco = 0, bottomDeco = 0, topDeco = 0;
-        if (axes->y_axis().visible() && plot->axisScaleDraw(QwtPlot::yLeft)) {
-            leftDeco = plot->axisScaleDraw(QwtPlot::yLeft)->extent(axisFont);
-        }
-        if (axes->x_axis().visible() && plot->axisScaleDraw(QwtPlot::xBottom)) {
-            bottomDeco = plot->axisScaleDraw(QwtPlot::xBottom)->extent(axisFont);
-        }
-
         auto pos = axes->position();
-        double figW = static_cast<double>(impl_->width_);
-        double figH = static_cast<double>(impl_->height_);
         float qwtTop = 1.0f - pos[1] - pos[3];
-        fig->addAxes(plot,
-            pos[0] - leftDeco / figW,
-            qwtTop - topDeco / figH,
-            pos[2] + (leftDeco + rightDeco) / figW,
-            pos[3] + (topDeco + bottomDeco) / figH
-        );
 
-        QwtPlotVisitor visitor(plot);
+        // 检测是否包含 surface（3D 绘图）
+        bool hasSurface = false;
         for (auto& obj : axes->children()) {
-            obj->accept(visitor);
+            if (dynamic_cast<matplot::surface*>(obj.get())) {
+                hasSurface = true;
+                break;
+            }
+        }
+
+        if (hasSurface) {
+            // [重要]: 必须让 QMainWindow 显示，否则 OpenGLWidget 无法创建 GL 上下文
+            if (auto mw = qobject_cast<QMainWindow*>(fig->window())) {
+                mw->show();
+            }
+            if(!f->custom_color())
+            {
+                fig->setFaceColor(Qt::white);
+            }
+            auto* surface3d = new Qwt3D::SurfacePlot(fig);
+            surface3d->setRotation(axes->elevation(), 0, -axes->azimuth());  // 视角
+            surface3d->setTitle(QString::fromStdString(axes->title()));
+            // surface3d->setBackgroundColor(Qwt3D::RGBA(axes->color()[1], axes->color()[2], axes->color()[3], 1 - axes->color()[0]));
+            // QOpenGLWidget 需要非零尺寸才能创建 GL 上下文
+            // surface3d->resize(static_cast<int>(impl_->width_ * pos[2]),
+            //                   static_cast<int>(impl_->height_ * pos[3]));
+            fig->addWidget(surface3d, pos[0], qwtTop, pos[2], pos[3]);
+            // fig->addWidget(surface3d, 0., 0., 1., 1.);
+            surface3d->show();
+            QwtPlotVisitor visitor(surface3d);
+            for (auto& obj : axes->children()) {
+                obj->accept(visitor);
+            }
+
+        } else {
+            auto* plot = new QwtPlot(fig);
+
+            auto xlim = axes->xlim();
+            auto ylim = axes->ylim();
+            plot->setAxisScale(QwtPlot::xBottom, xlim[0], xlim[1]);
+            plot->setAxisScale(QwtPlot::yLeft, ylim[0], ylim[1]);
+
+            // 坐标轴轴背景颜色
+            plot->setCanvasBackground(QBrush(toQColor(axes->color())));
+
+            // 坐标轴字体
+            auto axesFontFamily = QString::fromStdString(axes->font());
+            int axesFontSize = static_cast<int>(axes->font_size());
+            if (!axesFontFamily.isEmpty() && axesFontSize > 0) {
+                QFont axesFont(axesFontFamily, axesFontSize);
+                plot->setAxisFont(QwtPlot::xBottom, axesFont);
+                plot->setAxisFont(QwtPlot::yLeft, axesFont);
+            } else {
+                plot->setAxisFont(QwtPlot::xBottom, figureFont);
+                plot->setAxisFont(QwtPlot::yLeft, figureFont);
+            }
+
+            // 坐标轴标题
+            if (axes->title_visible() && !axes->title().empty()) {
+                QwtText titleText(QString::fromStdString(axes->title()));
+                titleText.setColor(toQColor(axes->title_color()));
+                auto titleFontFamily = QString::fromStdString(axes->font());
+                int titleFontSize = static_cast<int>(axes->font_size() * axes->title_font_size_multiplier());
+                if (!titleFontFamily.isEmpty() && titleFontSize > 0) {
+                    titleText.setFont(QFont(titleFontFamily, titleFontSize));
+                }
+                plot->setTitle(titleText);
+            }
+
+            // 坐标轴标签
+            auto& xLabel = axes->x_axis().label();
+            if (!xLabel.empty() && axes->x_axis().visible()) {
+                QwtText xLabelText(QString::fromStdString(xLabel));
+                xLabelText.setColor(toQColor(axes->x_axis().color()));
+                plot->setAxisTitle(QwtPlot::xBottom, xLabelText);
+            }
+            auto& yLabel = axes->y_axis().label();
+            if (!yLabel.empty() && axes->y_axis().visible()) {
+                QwtText yLabelText(QString::fromStdString(yLabel));
+                yLabelText.setColor(toQColor(axes->y_axis().color()));
+                plot->setAxisTitle(QwtPlot::yLeft, yLabelText);
+            }
+
+            // 坐标轴可见性
+            plot->setAxisVisible(QwtPlot::xBottom, axes->x_axis().visible());
+            plot->setAxisVisible(QwtPlot::yLeft, axes->y_axis().visible());
+
+            // 网格
+            if (axes->grid()) {
+                QwtPlotGrid* grid = new QwtPlotGrid();
+                grid->enableXMin(true);
+                grid->enableYMin(true);
+                grid->setPen(QPen(QColor(200, 200, 200), 0.5, Qt::DotLine));
+                grid->attach(plot);
+            }
+
+            // 计算轴装饰占用的像素，补偿归一化坐标使 canvas 精确定位
+            QFont axisFont = plot->axisFont(QwtPlot::xBottom);
+            double leftDeco = 0, rightDeco = 0, bottomDeco = 0, topDeco = 0;
+            if (axes->y_axis().visible() && plot->axisScaleDraw(QwtPlot::yLeft)) {
+                leftDeco = plot->axisScaleDraw(QwtPlot::yLeft)->extent(axisFont);
+            }
+            if (axes->x_axis().visible() && plot->axisScaleDraw(QwtPlot::xBottom)) {
+                bottomDeco = plot->axisScaleDraw(QwtPlot::xBottom)->extent(axisFont);
+            }
+            double figW = static_cast<double>(impl_->width_);
+            double figH = static_cast<double>(impl_->height_);
+            fig->addAxes(plot,
+                pos[0] - leftDeco / figW,
+                qwtTop - topDeco / figH,
+                pos[2] + (leftDeco + rightDeco) / figW,
+                pos[3] + (topDeco + bottomDeco) / figH
+            );
+
+            QwtPlotVisitor visitor(plot);
+            for (auto& obj : axes->children()) {
+                obj->accept(visitor);
+            }
         }
     }
 }

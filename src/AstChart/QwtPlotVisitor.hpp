@@ -26,6 +26,7 @@
 #include <QColor>
 
 class QwtPlot;
+namespace Qwt3D { class SurfacePlot; }
 
 AST_NAMESPACE_BEGIN
 
@@ -40,15 +41,18 @@ inline QColor toQColor(const std::array<float, 4>& c) {
 class QwtPlotVisitor : public matplot::visitor {
 public:
     explicit QwtPlotVisitor(QwtPlot* plot);
+    explicit QwtPlotVisitor(Qwt3D::SurfacePlot* surface);
     ~QwtPlotVisitor() override;
 
     void visit(matplot::line& l) override;
     void visit(matplot::histogram& h) override;
     void visit(matplot::function_line& fl) override;
     void visit(matplot::stair& s) override;
+    void visit(matplot::surface& s) override;
 
 private:
-    QwtPlot* plot_;
+    QwtPlot* plot_{nullptr};
+    Qwt3D::SurfacePlot* surface_{nullptr};
 };
 
 AST_NAMESPACE_END

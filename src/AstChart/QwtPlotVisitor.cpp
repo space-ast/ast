@@ -24,6 +24,7 @@
 #include <matplot/axes_objects/histogram.h>
 #include <matplot/axes_objects/line.h>
 #include <matplot/axes_objects/stair.h>
+#include <matplot/axes_objects/surface.h>
 #include <matplot/core/line_spec.h>
 
 #include <qwt_plot.h>
@@ -34,6 +35,10 @@
 
 #include <QPen>
 #include <QColor>
+
+#include <qwt3d_surfaceplot.h>
+
+#include <algorithm>
 
 AST_NAMESPACE_BEGIN
 
@@ -84,6 +89,7 @@ static QwtSymbol::Style toSymbolStyle(enum matplot::line_spec::marker_style s) {
 }
 
 QwtPlotVisitor::QwtPlotVisitor(QwtPlot* plot) : plot_(plot) {}
+QwtPlotVisitor::QwtPlotVisitor(Qwt3D::SurfacePlot* surface) : surface_(surface) {}
 QwtPlotVisitor::~QwtPlotVisitor() = default;
 
 void QwtPlotVisitor::visit(matplot::line& l) {
@@ -214,6 +220,60 @@ void QwtPlotVisitor::visit(matplot::stair& s) {
     }
 
     curve->attach(plot_);
+}
+
+void QwtPlotVisitor::visit(matplot::surface& s) {
+    if (!surface_) return;
+
+    auto& X = s.X_data();
+    auto& Y = s.Y_data();
+    auto& Z = s.Z_data();
+    if (Z.empty() || Z[0].empty()) return;
+
+    // matplot Z_data is row-major Z[row][col]
+    // Qwt3D loadFromData expects column-major data[col][row] — transpose
+    int nRows = static_cast<int>(Z.size());
+    int nCols = static_cast<int>(Z[0].size());
+    bool hasXY = !X.empty() && !X[0].empty() && !Y.empty() && !Y[0].empty();
+
+    std::vector<Qwt3D::Triple*> triples(nCols);
+    std::vector<std::vector<Qwt3D::Triple>> tripleData(nCols);
+    for (int c = 0; c < nCols; ++c) {
+        tripleData[c].resize(nRows);
+        for (int r = 0; r < nRows; ++r) {
+            double xv = hasXY ? X[r][c] : static_cast<double>(c);
+            double yv = hasXY ? Y[r][c] : static_cast<double>(r);
+            tripleData[c][r] = Qwt3D::Triple(xv, yv, Z[r][c]);
+        }
+        triples[c] = tripleData[c].data();
+    }
+
+    surface_->loadFromData(triples.data(), nCols, nRows);
+    surface_->setFloorStyle(Qwt3D::NOFLOOR);
+    Qwt3D::PLOTSTYLE plotStyle;
+    if(s.palette_map_at_surface())
+    {
+        plotStyle = Qwt3D::FILLEDMESH;  // 曲面 + 网格
+    } else if (s.hidden_3d()) {
+        plotStyle = Qwt3D::HIDDENLINE;  // 网格 + 考虑遮挡关系（隐藏被遮挡的线）
+    } else {
+        plotStyle = Qwt3D::WIREFRAME;   // 网格 + 不考虑遮挡关系（透视所有线）
+    }
+    surface_->setPlotStyle(plotStyle);
+
+    // 均衡三个坐标轴长度：以平均范围为基准，缩放因子折中
+    auto hull = surface_->hull();
+    double xR = hull.maxVertex.x - hull.minVertex.x;
+    double yR = hull.maxVertex.y - hull.minVertex.y;
+    double zR = hull.maxVertex.z - hull.minVertex.z;
+    // 保证对角线能完整显示在视图中
+    double R = sqrt((xR * xR + yR * yR + zR * zR)/3);
+    if (xR > 0 && yR > 0 && zR > 0) {
+        surface_->setScale(R / xR, R / yR, R / zR);
+    }
+    surface_->setTitle(QString::fromStdString(s.display_name()));
+    surface_->updateData();
+    surface_->update();
 }
 
 AST_NAMESPACE_END
