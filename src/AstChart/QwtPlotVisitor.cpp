@@ -26,6 +26,7 @@
 #include <matplot/axes_objects/stair.h>
 #include <matplot/axes_objects/surface.h>
 #include <matplot/core/line_spec.h>
+#include <matplot/core/axes_type.h>
 
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>
@@ -37,10 +38,48 @@
 #include <QColor>
 
 #include <qwt3d_surfaceplot.h>
+#include <qwt3d_color.h>
 
 #include <algorithm>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
+
+// 按 C_data 值 + colormap 着色，仿 StandardColor 模式
+class CDataColor : public Qwt3D::Color {
+public:
+    CDataColor(const std::vector<std::vector<double>>& C,
+               double xMin, double xMax, double yMin, double yMax,
+               double cMin, double cMax, Qwt3D::ColorVector cv)
+        : C_(C), xMin_(xMin), xMax_(xMax), yMin_(yMin), yMax_(yMax),
+          cMin_(cMin), cMax_(cMax), cv_(std::move(cv)),
+          nCols_(static_cast<int>(C[0].size())), nRows_(static_cast<int>(C.size()))
+    {}
+
+    Qwt3D::RGBA operator()(double x, double y, double) const override {
+        double dx = nCols_ > 1 ? (xMax_ - xMin_) / (nCols_ - 1) : 1.0;
+        double dy = nRows_ > 1 ? (yMax_ - yMin_) / (nRows_ - 1) : 1.0;
+        int col = std::max(0, std::min(nCols_ - 1,
+            static_cast<int>(std::round((x - xMin_) / dx))));
+        int row = std::max(0, std::min(nRows_ - 1,
+            static_cast<int>(std::round((y - yMin_) / dy))));
+        // 用 C 值代替 Z 值映射 colormap，和 StandardColor 一致
+        double cVal = C_[static_cast<size_t>(row)][static_cast<size_t>(col)];
+        double cRng = (cMax_ > cMin_) ? (cMax_ - cMin_) : 1.0;
+        int idx = static_cast<int>((cv_.size() - 1) * (cVal - cMin_) / cRng);
+        idx = std::max(0, std::min(static_cast<int>(cv_.size()) - 1, idx));
+        return cv_[static_cast<size_t>(idx)];
+    }
+    Qwt3D::ColorVector& createVector(Qwt3D::ColorVector& vec) override {
+        vec = cv_;
+        return vec;
+    }
+private:
+    const std::vector<std::vector<double>>& C_;
+    double xMin_, xMax_, yMin_, yMax_, cMin_, cMax_;
+    Qwt3D::ColorVector cv_;
+    int nCols_, nRows_;
+};
 
 static Qt::PenStyle toPenStyle(enum matplot::line_spec::line_style s) {
     switch (s) {
@@ -134,6 +173,10 @@ void QwtPlotVisitor::visit(matplot::line& l) {
         curve->setSymbol(symbol);
     }
 
+    curve->setLegendAttribute(QwtPlotCurve::LegendShowLine, true);
+    curve->setLegendAttribute(QwtPlotCurve::LegendShowSymbol, true);
+    // setLegendIconSize要放在setLegendAttribute后面和setSymbol后面，避免legend大小被重置
+    curve->setLegendIconSize(QSize(40, 8));
     curve->attach(plot_);
 }
 
@@ -249,6 +292,46 @@ void QwtPlotVisitor::visit(matplot::surface& s) {
     }
 
     surface_->loadFromData(triples.data(), nCols, nRows);
+
+    // 读取 axes 的 colormap，转换为 Qwt3D 颜色表
+    auto& cmap = s.parent()->colormap();
+    Qwt3D::ColorVector cv(cmap.size());
+    for (size_t i = 0; i < cmap.size(); ++i) {
+        auto& row = cmap[i];
+        if (row.size() >= 4)  // ARGB: {a, r, g, b}
+            cv[i] = Qwt3D::RGBA(row[1], row[2], row[3], 1.0 - row[0]);
+        else                  // RGB: {r, g, b}
+            cv[i] = Qwt3D::RGBA(row[0], row[1], row[2], 1.0);
+    }
+    const auto hull = surface_->hull();
+
+    auto& C = s.C_data();
+    if (!C.empty() && static_cast<int>(C.size()) == nRows
+                   && static_cast<int>(C[0].size()) == nCols) {
+        double cMin = C[0][0], cMax = C[0][0];
+        for (auto& row : C)
+            for (double v : row)
+                cMin = std::min(cMin, v), cMax = std::max(cMax, v);
+        surface_->setDataColor(new CDataColor(C,
+            hull.minVertex.x, hull.maxVertex.x,
+            hull.minVertex.y, hull.maxVertex.y,
+            cMin, cMax, cv));
+        surface_->legend()->setLimits(cMin, cMax);
+        surface_->showColorLegend(true);
+    } else {
+        // 无 C_data：用 colormap 替换默认 StandardColor
+        auto* sc = new Qwt3D::StandardColor(surface_, static_cast<unsigned>(cv.size()));
+        sc->setColorVector(cv);
+        surface_->setDataColor(sc);
+        // 设置颜色范围
+        {
+            const auto hull = surface_->hull();
+            double zMin = hull.minVertex.z, zMax = hull.maxVertex.z;
+            if(zMin < zMax)
+                surface_->legend()->setLimits(zMin, zMax);
+        }
+    }
+
     surface_->setFloorStyle(Qwt3D::NOFLOOR);
     Qwt3D::PLOTSTYLE plotStyle;
     if(s.palette_map_at_surface())
@@ -262,7 +345,6 @@ void QwtPlotVisitor::visit(matplot::surface& s) {
     surface_->setPlotStyle(plotStyle);
 
     // 均衡三个坐标轴长度：以平均范围为基准，缩放因子折中
-    auto hull = surface_->hull();
     double xR = hull.maxVertex.x - hull.minVertex.x;
     double yR = hull.maxVertex.y - hull.minVertex.y;
     double zR = hull.maxVertex.z - hull.minVertex.z;
@@ -270,6 +352,17 @@ void QwtPlotVisitor::visit(matplot::surface& s) {
     double R = sqrt((xR * xR + yR * yR + zR * zR)/3);
     if (xR > 0 && yR > 0 && zR > 0) {
         surface_->setScale(R / xR, R / yR, R / zR);
+    }
+    // 设置光照参数（不知道为什么效果不明显）
+    if(s.palette_map_at_surface() && s.lighting())
+    {
+        unsigned int light = 0;
+        surface_->enableLighting(true);
+        surface_->illuminate(light);
+        if(s.primary() > 0)
+            surface_->setLightComponent(GL_DIFFUSE, s.primary(), light);
+        if(s.specular() > 0)
+            surface_->setLightComponent(GL_SPECULAR, s.specular(), light);
     }
     surface_->setTitle(QString::fromStdString(s.display_name()));
     surface_->updateData();

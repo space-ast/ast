@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include <QPen>
+#include <QBrush>
 #include "QwtBackend.hpp"
 #include "QwtPlotVisitor.hpp"
 
@@ -33,6 +34,8 @@
 #include <qwt_text.h>
 #include <qwt_plot_layout.h>
 #include <qwt_scale_widget.h>
+#include <qwt_legend.h>
+#include <qwt_plot_legenditem.h>
 #include <qwt3d_surfaceplot.h>
 
 #include <matplot/axes_objects/surface.h>
@@ -246,7 +249,11 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
             for (auto& obj : axes->children()) {
                 obj->accept(visitor);
             }
-
+            // 显示颜色图例(colorbar)
+            if(axes->cb_axis().visible())
+            {
+                surface3d->showColorLegend(true);
+            }
         } else {
             auto* plot = new QwtPlot(fig);
 
@@ -326,11 +333,55 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
                 pos[2] + (leftDeco + rightDeco) / figW,
                 pos[3] + (topDeco + bottomDeco) / figH
             );
-
-            QwtPlotVisitor visitor(plot);
-            for (auto& obj : axes->children()) {
-                obj->accept(visitor);
+            auto legend = axes->legend();
+            bool showLegend = legend && legend->visible();
+            // 显示图例
+            if(showLegend)
+            {
+                QwtPlotLegendItem* plotLegend = new QwtPlotLegendItem();
+                plotLegend->setMaxColumns(1);
+                QPen borderPen(Qt::black);
+                borderPen.setWidth(0.5);
+                plotLegend->setBorderPen(borderPen);
+                plotLegend->setBackgroundBrush(QBrush(Qt::white));
+                auto& items = plot->itemList();
+                auto& children = axes->children();
+                int lastItemSize = items.size();
+                auto& strings = legend->strings();
+                QwtPlotVisitor visitor(plot);
+                for (int i = 0; i < children.size(); i++) {
+                    auto& child = children[i];
+                    child->accept(visitor);
+                    if(items.size() > lastItemSize)
+                    {
+                        auto item = items.back();
+                        if(!child->display_name().empty())
+                        {
+                            item->setTitle(QString::fromUtf8(child->display_name().c_str()));
+                        }
+                        else if(i < strings.size() && !strings[i].empty())
+                        {
+                            item->setTitle(QString::fromUtf8(strings[i].c_str()));
+                        }
+                        else
+                        {
+                            // 如果数据项没有显示名称，或者图例字符串为空，表示主动隐藏该数据项的图例
+                            item->setItemAttribute(QwtPlotItem::Legend, false);
+                        }
+                        lastItemSize = items.size();
+                    }
+                }
+                // 注意：图例必须在所有数据项之后添加，否则会导致图例显示错误
+                plotLegend->attach(plot);
             }
+            else{
+                plot->insertLegend(nullptr);
+                QwtPlotVisitor visitor(plot);
+                for (auto& obj : axes->children()) {
+                    obj->accept(visitor);
+                }
+            }
+            
         }
     }
 }
