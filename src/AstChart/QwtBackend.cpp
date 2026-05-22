@@ -22,6 +22,7 @@
 #include <QBrush>
 #include "QwtBackend.hpp"
 #include "QwtPlotVisitor.hpp"
+#include "ColoredSurfacePlot.hpp"
 
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
@@ -235,7 +236,7 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
             {
                 fig->setFaceColor(Qt::white);
             }
-            auto* surface3d = new Qwt3D::SurfacePlot(fig);
+            auto* surface3d = new ColoredSurfacePlot(fig);
             surface3d->setRotation(axes->elevation(), 0, -axes->azimuth());  // 视角
             surface3d->setTitle(QString::fromStdString(axes->title()));
             // surface3d->setBackgroundColor(Qwt3D::RGBA(axes->color()[1], axes->color()[2], axes->color()[3], 1 - axes->color()[0]));

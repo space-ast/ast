@@ -14,7 +14,8 @@ target("AstCOM")
     if is_plat("windows") then
         add_syslinks("oleaut32", "ole32", "uuid")
     else
-        set_enabled(false)
+        -- set_enabled(false)
+        set_kind("phony")
     end
     -- on_load(function(target) 
     --     local msvc = target:toolchain("msvc") or target:toolchain("clang-cl") or target:toolchain("clang")

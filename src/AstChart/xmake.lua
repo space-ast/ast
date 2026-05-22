@@ -14,6 +14,7 @@ target("AstChart")
     if has_package("matplotplusplus") and has_package("qwt") then
         add_packages("matplotplusplus", "qwt")
     else
-        set_enabled(false)
+        -- set_enabled(false)
+        set_kind("phony")
     end
 

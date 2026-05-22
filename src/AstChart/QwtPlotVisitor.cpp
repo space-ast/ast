@@ -19,6 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "QwtPlotVisitor.hpp"
+#include "ColoredSurfacePlot.hpp"
+#include "ColoredSurfaceEnrichment.hpp"
 
 #include <matplot/axes_objects/function_line.h>
 #include <matplot/axes_objects/histogram.h>
@@ -128,7 +130,7 @@ static QwtSymbol::Style toSymbolStyle(enum matplot::line_spec::marker_style s) {
 }
 
 QwtPlotVisitor::QwtPlotVisitor(QwtPlot* plot) : plot_(plot) {}
-QwtPlotVisitor::QwtPlotVisitor(Qwt3D::SurfacePlot* surface) : surface_(surface) {}
+QwtPlotVisitor::QwtPlotVisitor(ColoredSurfacePlot* surface) : surface_(surface) {}
 QwtPlotVisitor::~QwtPlotVisitor() = default;
 
 void QwtPlotVisitor::visit(matplot::line& l) {
@@ -331,18 +333,28 @@ void QwtPlotVisitor::visit(matplot::surface& s) {
                 surface_->legend()->setLimits(zMin, zMax);
         }
     }
+    // 设置网格线宽
+    // surface_->setMeshLineWidth(s.line_width());
 
     surface_->setFloorStyle(Qwt3D::NOFLOOR);
-    Qwt3D::PLOTSTYLE plotStyle;
+    // 设置坐标轴的显示样式
+    surface_->setCoordinateStyle(Qwt3D::FRAME);
     if(s.palette_map_at_surface())
     {
-        plotStyle = Qwt3D::FILLEDMESH;  // 曲面 + 网格
-    } else if (s.hidden_3d()) {
-        plotStyle = Qwt3D::HIDDENLINE;  // 网格 + 考虑遮挡关系（隐藏被遮挡的线）
-    } else {
-        plotStyle = Qwt3D::WIREFRAME;   // 网格 + 不考虑遮挡关系（透视所有线）
+        surface_->setMeshLineWidth(1);
+        surface_->setPlotStyle(Qwt3D::FILLEDMESH); // 曲面 + 网格
+    } else{
+        surface_->setMeshLineWidth(2);
+        Qwt3D::PLOTSTYLE plotStyle;
+        if (s.hidden_3d()) {
+            plotStyle = Qwt3D::HIDDENLINE;  // 网格 + 考虑遮挡关系（隐藏被遮挡的线）
+        } else {
+            plotStyle = Qwt3D::WIREFRAME;   // 网格 + 不考虑遮挡关系（透视所有线）
+        }
+        // 设置自定义网格线样式
+        surface_->setPlotStyle(ColoredSurfaceEnrichment(plotStyle));
+        // surface_->setPlotStyle(plotStyle);
     }
-    surface_->setPlotStyle(plotStyle);
 
     // 均衡三个坐标轴长度：以平均范围为基准，缩放因子折中
     double xR = hull.maxVertex.x - hull.minVertex.x;
@@ -368,5 +380,6 @@ void QwtPlotVisitor::visit(matplot::surface& s) {
     surface_->updateData();
     surface_->update();
 }
+
 
 AST_NAMESPACE_END

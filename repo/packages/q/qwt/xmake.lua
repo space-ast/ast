@@ -20,6 +20,7 @@ package("qwt")
         table.insert(configs, "-DQWT_CONFIG_BUILD_EXAMPLE=" .. "OFF")
         table.insert(configs, "-DQWT_CONFIG_BUILD_PLAYGROUND=" .. "OFF")
         table.insert(configs, "-DQWT_CONFIG_BUILD_STATIC_EXAMPLE=" .. "OFF")
+        table.insert(configs, "-DCMAKE_C_FLAGS=$CMAKE_C_FLAGS -DGL2PSDLL_EXPORTS -DGL2PSDLL")
         import("package.tools.cmake").install(package, configs)
     end)
 
