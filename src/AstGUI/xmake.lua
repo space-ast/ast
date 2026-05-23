@@ -11,7 +11,7 @@
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
     end)
     set_default(false)
-    if not has_package("qt5widgets") then
+    if not has_package("qt5widgets") and not is_plat("wasm") then
         set_enabled(false)
     end
     -- set_warnings("more")

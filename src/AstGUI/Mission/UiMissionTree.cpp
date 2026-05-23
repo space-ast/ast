@@ -162,6 +162,11 @@ void UiMissionTree::contextMenuEvent(QContextMenuEvent* event)
     QAction* addManeuver   = menu.addAction(tr("Add Maneuver"));
     QAction* addSequence   = menu.addAction(tr("Add Sequence"));
     QAction* addTargetSeq  = menu.addAction(tr("Add Targeter Sequence"));
+    A_UNUSED(addInitState);
+    A_UNUSED(addPropagate);
+    A_UNUSED(addManeuver);
+    A_UNUSED(addSequence);
+    A_UNUSED(addTargetSeq);
     menu.addSeparator();
     QAction* delAction = menu.addAction(tr("Delete"));
     delAction->setEnabled(item && item->ptr() != nullptr);

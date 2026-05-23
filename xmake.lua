@@ -98,6 +98,16 @@ end
 -- 添加自定义第三方库描述文件仓库
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 
+-- 设置与Qt版本对应的emscripten工具链
+if is_plat("wasm") then
+    if os.getenv("QT6") then
+        add_requires("emscripten 3.1.25")   -- 对应 qt 6.5.2
+    else
+        add_requires("emscripten 1.39.8")   -- 对应 qt 5.15.x  -- 见 https://wiki.qt.io/Qt_for_WebAssembly#Install_the_Emscripten_SDK
+    end
+    set_toolchains("emcc@emscripten")
+end
+
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
 add_requires("swig >4.2", {optional = true})                                    -- 可选的SWIG库，用于生成Python绑定代码

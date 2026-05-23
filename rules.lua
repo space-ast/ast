@@ -12,11 +12,11 @@ rule("ast")
             --     localcache.set("rule.ast", "wasm.preloadfiles", preloadfiles)
             --     localcache.save()
             -- end
-            -- 添加wasm预加载文件
-            if is_mode("debug") then
+            if is_mode("debug") or is_mode("releasedbg") then
                 target:add("ldflags", "-s ASSERTIONS=1")
                 target:add("cxflags", "-gsource-map")
             end
+            -- 添加wasm预加载文件
             target:set("values", "wasm.preloadfiles", "build/wasm/data")
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())

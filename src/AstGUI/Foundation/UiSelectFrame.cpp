@@ -98,7 +98,7 @@ void UiSelectFrame::populateBodies()
         if (!filterBody(body))
             continue;
         auto* item = new QListWidgetItem(QString::fromStdString(body->getName()));
-        item->setData(Qt::UserRole, reinterpret_cast<uintptr_t>(body));
+        item->setData(Qt::UserRole, reinterpret_cast<qulonglong>(body));
         bodyList_->addItem(item);
     }
 
@@ -117,7 +117,7 @@ void UiSelectFrame::populateBodies()
             if (!body || !filterBody(body))
                 continue;
             auto* item = new QListWidgetItem(QString::fromStdString(body->getName()));
-            item->setData(Qt::UserRole, reinterpret_cast<uintptr_t>(body));
+            item->setData(Qt::UserRole, reinterpret_cast<qulonglong>(body));
             bodyList_->addItem(item);
         }
     }
@@ -179,7 +179,7 @@ void UiSelectFrame::populateFrames(CelestialBody* body)
     {
         auto* frame = static_cast<Frame*>(obj);
         auto* item = new QListWidgetItem(QString::fromStdString(frame->getName()));
-        item->setData(Qt::UserRole, reinterpret_cast<uintptr_t>(frame));
+        item->setData(Qt::UserRole, reinterpret_cast<qulonglong>(frame));
         frameList_->addItem(item);
     }
 
