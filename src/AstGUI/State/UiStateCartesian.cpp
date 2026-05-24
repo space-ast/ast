@@ -24,7 +24,6 @@
 #include "AstGUI/UiSelectFrame.hpp"
 #include "AstUtil/Unit.hpp"
 #include "AstUtil/Quantity.hpp"
-#include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
@@ -46,18 +45,19 @@ UiStateCartesian::UiStateCartesian(Object *object, QWidget *parent)
 UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
 {
     // 创建主布局
-    QVBoxLayout* mainLayout = new QVBoxLayout(this);
-    
+    QGridLayout* mainLayout = new QGridLayout(this);
+    mainLayout->setColumnStretch(1, 1);
+
+    int row = 0;
+
     // 轨道历元
-    QHBoxLayout* epochLayout = new QHBoxLayout();
     QLabel* epochLabel = new QLabel(tr("轨道历元"), this);
     epochEdit_ = new UiTimePoint(this);
-    epochLayout->addWidget(epochLabel);
-    epochLayout->addWidget(epochEdit_);
-    mainLayout->addLayout(epochLayout);
-    
+    mainLayout->addWidget(epochLabel, row, 0);
+    mainLayout->addWidget(epochEdit_, row, 1);
+    row++;
+
     // 坐标系
-    QHBoxLayout* frameLayout = new QHBoxLayout();
     QLabel* frameLabel = new QLabel(tr("坐标系"), this);
     frameEdit_ = new QLineEdit(this);
     frameEdit_->setReadOnly(true);
@@ -65,65 +65,66 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     frameSelectBtn_ = new QPushButton(tr("..."), this);
     frameSelectBtn_->setFixedWidth(30);
     frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
-    frameLayout->addWidget(frameLabel);
-    frameLayout->addWidget(frameEdit_);
-    frameLayout->addWidget(frameSelectBtn_);
-    mainLayout->addLayout(frameLayout);
-    
+    auto* frameWidget = new QWidget(this);
+    frameWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    auto* frameBar = new QHBoxLayout(frameWidget);
+    frameBar->setContentsMargins(0, 0, 0, 0);
+    frameBar->addWidget(frameEdit_);
+    frameBar->addWidget(frameSelectBtn_);
+    mainLayout->addWidget(frameLabel, row, 0);
+    mainLayout->addWidget(frameWidget, row, 1);
+    row++;
+
     // 位置X
-    QHBoxLayout* posXLayout = new QHBoxLayout();
     QLabel* posXLabel = new QLabel(tr("位置X"), this);
     posXEdit_ = new UiQuantity(this);
     posXEdit_->setDimension(Dimension::Length());
-    posXLayout->addWidget(posXLabel);
-    posXLayout->addWidget(posXEdit_);
-    mainLayout->addLayout(posXLayout);
-    
+    mainLayout->addWidget(posXLabel, row, 0);
+    mainLayout->addWidget(posXEdit_, row, 1);
+    row++;
+
     // 位置Y
-    QHBoxLayout* posYLayout = new QHBoxLayout();
     QLabel* posYLabel = new QLabel(tr("位置Y"), this);
     posYEdit_ = new UiQuantity(this);
     posYEdit_->setDimension(Dimension::Length());
-    posYLayout->addWidget(posYLabel);
-    posYLayout->addWidget(posYEdit_);
-    mainLayout->addLayout(posYLayout);
-    
+    mainLayout->addWidget(posYLabel, row, 0);
+    mainLayout->addWidget(posYEdit_, row, 1);
+    row++;
+
     // 位置Z
-    QHBoxLayout* posZLayout = new QHBoxLayout();
     QLabel* posZLabel = new QLabel(tr("位置Z"), this);
     posZEdit_ = new UiQuantity(this);
     posZEdit_->setDimension(Dimension::Length());
-    posZLayout->addWidget(posZLabel);
-    posZLayout->addWidget(posZEdit_);
-    mainLayout->addLayout(posZLayout);
-    
+    mainLayout->addWidget(posZLabel, row, 0);
+    mainLayout->addWidget(posZEdit_, row, 1);
+    row++;
+
     // 速度X
-    QHBoxLayout* velXLayout = new QHBoxLayout();
     QLabel* velXLabel = new QLabel(tr("速度X"), this);
     velXEdit_ = new UiQuantity(this);
     velXEdit_->setDimension(Dimension::Speed());
-    velXLayout->addWidget(velXLabel);
-    velXLayout->addWidget(velXEdit_);
-    mainLayout->addLayout(velXLayout);
-    
+    mainLayout->addWidget(velXLabel, row, 0);
+    mainLayout->addWidget(velXEdit_, row, 1);
+    row++;
+
     // 速度Y
-    QHBoxLayout* velYLayout = new QHBoxLayout();
     QLabel* velYLabel = new QLabel(tr("速度Y"), this);
     velYEdit_ = new UiQuantity(this);
     velYEdit_->setDimension(Dimension::Speed());
-    velYLayout->addWidget(velYLabel);
-    velYLayout->addWidget(velYEdit_);
-    mainLayout->addLayout(velYLayout);
-    
+    mainLayout->addWidget(velYLabel, row, 0);
+    mainLayout->addWidget(velYEdit_, row, 1);
+    row++;
+
     // 速度Z
-    QHBoxLayout* velZLayout = new QHBoxLayout();
     QLabel* velZLabel = new QLabel(tr("速度Z"), this);
     velZEdit_ = new UiQuantity(this);
     velZEdit_->setDimension(Dimension::Speed());
-    velZLayout->addWidget(velZLabel);
-    velZLayout->addWidget(velZEdit_);
-    mainLayout->addLayout(velZLayout);
-    
+    mainLayout->addWidget(velZLabel, row, 0);
+    mainLayout->addWidget(velZEdit_, row, 1);
+    row++;
+
+    mainLayout->setRowStretch(row, 1);
+
     setLayout(mainLayout);
 
     // 每个控件变更时即时写入对应字段

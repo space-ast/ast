@@ -66,6 +66,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     frameSelectBtn_->setFixedWidth(30);
     frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
     auto* frameWidget = new QWidget(this);
+    frameWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     auto* frameBar = new QHBoxLayout(frameWidget);
     frameBar->setContentsMargins(0, 0, 0, 0);
     frameBar->addWidget(frameEdit_);
@@ -155,7 +156,9 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     mainLayout->addWidget(positionTypeCombo_, row, 1);
     mainLayout->addWidget(positionEdit_, row, 2);
     row++;
-    
+
+    mainLayout->setRowStretch(row, 1);
+
     setLayout(mainLayout);
 
     // 连接信号槽
