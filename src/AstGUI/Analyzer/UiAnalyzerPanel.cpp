@@ -10,7 +10,7 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiAnalyzerPanel.hpp"
-#include "UiVariableList.hpp"
+#include "UiAnalyzerVariableList.hpp"
 #include "UiResponseList.hpp"
 #include "UiPropertyEditor.hpp"
 #include "UiResultView.hpp"
@@ -53,7 +53,7 @@ void UiAnalyzerPanel::setupUi()
     // 左侧垂直分割器: 变量列表 + 响应列表
     leftSplitter_ = new QSplitter(Qt::Vertical, this);
 
-    variableList_ = new UiVariableList(this);
+    variableList_ = new UiAnalyzerVariableList(this);
     leftSplitter_->addWidget(variableList_);
 
     responseList_ = new UiResponseList(this);
@@ -101,9 +101,9 @@ void UiAnalyzerPanel::setupConnections()
     connect(stopAction_, &QAction::triggered,
             this, &UiAnalyzerPanel::onStopClicked);
 
-    connect(variableList_, &UiVariableList::variableSelected,
+    connect(variableList_, &UiAnalyzerVariableList::variableSelected,
             this, &UiAnalyzerPanel::onVariableSelected);
-    connect(variableList_, &UiVariableList::addVariableRequested,
+    connect(variableList_, &UiAnalyzerVariableList::addVariableRequested,
             this, &UiAnalyzerPanel::onAddVariable);
 
     connect(responseList_, &UiResponseList::responseSelected,

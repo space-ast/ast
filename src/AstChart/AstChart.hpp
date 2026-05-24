@@ -1,0 +1,5 @@
+// AstChart 工程聚合头文件
+#include "AstChart/ColoredSurfaceEnrichment.hpp"
+#include "AstChart/ColoredSurfacePlot.hpp"
+#include "AstChart/QwtBackend.hpp"
+#include "AstChart/QwtPlotVisitor.hpp"

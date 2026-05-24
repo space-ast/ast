@@ -1,1 +1,1 @@
-#include "../../src/AstGUI/Analyzer/UiVariableList.hpp"
+#include "../../src/AstGUI/Mission/UiVariableList.hpp"

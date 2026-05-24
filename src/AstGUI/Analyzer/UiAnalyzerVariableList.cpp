@@ -1,5 +1,5 @@
 ///
-/// @file      UiVariableList.cpp
+/// @file      UiAnalyzerVariableList.cpp
 /// @brief     变量列表面板实现
 /// @details   ~
 /// @author    axel
@@ -9,18 +9,18 @@
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
-#include "UiVariableList.hpp"
+#include "UiAnalyzerVariableList.hpp"
 #include "AstAnalyzer/AnalyzerVariable.hpp"
 
 AST_NAMESPACE_BEGIN
 
-UiVariableList::UiVariableList(QWidget* parent)
+UiAnalyzerVariableList::UiAnalyzerVariableList(QWidget* parent)
     : QWidget(parent)
 {
     setupUi();
 }
 
-void UiVariableList::setupUi()
+void UiAnalyzerVariableList::setupUi()
 {
     layout_ = new QVBoxLayout(this);
     layout_->setContentsMargins(0, 0, 0, 0);
@@ -33,12 +33,12 @@ void UiVariableList::setupUi()
     layout_->addWidget(addButton_);
 
     connect(listWidget_, &QListWidget::currentItemChanged,
-            this, &UiVariableList::onSelectionChanged);
+            this, &UiAnalyzerVariableList::onSelectionChanged);
     connect(addButton_, &QPushButton::clicked,
-            this, &UiVariableList::addVariableRequested);
+            this, &UiAnalyzerVariableList::addVariableRequested);
 }
 
-void UiVariableList::setVariables(const std::vector<SharedPtr<AnalyzerVariable>>& variables)
+void UiAnalyzerVariableList::setVariables(const std::vector<SharedPtr<AnalyzerVariable>>& variables)
 {
     variables_ = variables;
     listWidget_->clear();
@@ -54,7 +54,7 @@ void UiVariableList::setVariables(const std::vector<SharedPtr<AnalyzerVariable>>
     }
 }
 
-AnalyzerVariable* UiVariableList::selectedVariable() const
+AnalyzerVariable* UiAnalyzerVariableList::selectedVariable() const
 {
     auto item = listWidget_->currentItem();
     if (!item) return nullptr;
@@ -67,7 +67,7 @@ AnalyzerVariable* UiVariableList::selectedVariable() const
     return nullptr;
 }
 
-void UiVariableList::onSelectionChanged()
+void UiAnalyzerVariableList::onSelectionChanged()
 {
     emit variableSelected(selectedVariable());
 }

@@ -1,9 +1,9 @@
 ///
 /// @file      UiVariableList.hpp
-/// @brief     变量列表面板，管理扫参变量列表
-/// @details   ~
+/// @brief     脚本变量列表编辑控件
+/// @details   用于编辑 VariableList 中的 Variable 对象
 /// @author    axel
-/// @date      2026-05-17
+/// @date      2026-05-24
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,47 +21,55 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstAnalyzer/AnalyzerVariable.hpp"
+#include "AstCore/VariableList.hpp"
 #include <QWidget>
 #include <QListWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <vector>
+#include <QHBoxLayout>
 
 class QListWidgetItem;
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 变量列表面板，显示所有扫参变量，支持添加和选中编辑
+/// @brief 变量列表编辑控件，管理脚本变量的增删改
 class AST_GUI_API UiVariableList : public QWidget
 {
     Q_OBJECT
 public:
     explicit UiVariableList(QWidget* parent = nullptr);
 
-    /// @brief 用变量列表刷新显示
-    void setVariables(const std::vector<SharedPtr<AnalyzerVariable>>& variables);
+    /// @brief 设置要编辑的变量列表（裸指针，不持有所有权）
+    void setVariableList(VariableList* variableList);
+
+    /// @brief 刷新列表显示
+    void refreshUi();
 
     /// @brief 获取当前选中的变量
-    AnalyzerVariable* selectedVariable() const;
+    Variable* selectedVariable() const;
 
 signals:
     /// @brief 选中变量变化
-    void variableSelected(AnalyzerVariable* variable);
+    void variableSelected(Variable* variable);
 
-    /// @brief 请求添加新变量
-    void addVariableRequested();
+    /// @brief 变量列表已修改（增/删/编辑）
+    void variableListChanged();
 
 private slots:
     void onSelectionChanged();
+    void onAddVariable();
+    void onRemoveVariable();
+    void onItemDoubleClicked(QListWidgetItem* item);
 
 private:
     void setupUi();
 
-    QVBoxLayout*  layout_;
+    QVBoxLayout*  mainLayout_;
     QListWidget*  listWidget_;
+    QHBoxLayout*  buttonLayout_;
     QPushButton*  addButton_;
-    std::vector<SharedPtr<AnalyzerVariable>> variables_;
+    QPushButton*  removeButton_;
+    VariableList* variableList_ = nullptr;
 };
 
 AST_NAMESPACE_END

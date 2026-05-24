@@ -59,6 +59,12 @@ public:
     /// @brief 设置表达式的值
     virtual errc_t setValue(Value* val) {return eErrorReadonly;};
 
+    /// @brief 设置表达式的双精度值
+    virtual errc_t setValueDouble(double val);
+
+    /// @brief 获取表达式的双精度值
+    virtual errc_t getValueDouble(double& val) const;
+
     /// @brief 获取表达式的字符串表示
     /// @param context 可选的上下文对象，用于解析变量等
     /// @return std::string 表达式的字符串表示

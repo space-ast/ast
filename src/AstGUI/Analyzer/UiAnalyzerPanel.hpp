@@ -31,7 +31,7 @@ class QSplitter;
 
 AST_NAMESPACE_BEGIN
 
-class UiVariableList;
+class UiAnalyzerVariableList;
 class UiResponseList;
 class UiPropertyEditor;
 class UiResultView;
@@ -80,7 +80,7 @@ private:
     QSplitter*         leftSplitter_;
     QSplitter*         mainSplitter_;
 
-    UiVariableList*    variableList_;
+    UiAnalyzerVariableList*    variableList_;
     UiResponseList*    responseList_;
     UiPropertyEditor*  propertyEditor_;
     UiResultView*      resultView_;
