@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiMissionTree.hpp"
+#include "MissionIcons.hpp"
 #include "AstCore/Sequence.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/Maneuver.hpp"
@@ -157,11 +158,11 @@ void UiMissionTree::contextMenuEvent(QContextMenuEvent* event)
 
     QMenu menu(this);
 
-    QAction* addInitState  = menu.addAction(tr("Add Initial State"));
-    QAction* addPropagate  = menu.addAction(tr("Add Propagate"));
-    QAction* addManeuver   = menu.addAction(tr("Add Maneuver"));
-    QAction* addSequence   = menu.addAction(tr("Add Sequence"));
-    QAction* addTargetSeq  = menu.addAction(tr("Add Targeter Sequence"));
+    QAction* addInitState  = menu.addAction(missionIcon("InitialState"),       tr("Add Initial State"));
+    QAction* addPropagate  = menu.addAction(missionIcon("Propagate"),          tr("Add Propagate"));
+    QAction* addManeuver   = menu.addAction(missionIcon("Maneuver"),           tr("Add Maneuver"));
+    QAction* addSequence   = menu.addAction(missionIcon("Sequence"),           tr("Add Sequence"));
+    QAction* addTargetSeq  = menu.addAction(missionIcon("TargeterSequence"),   tr("Add Targeter Sequence"));
     A_UNUSED(addInitState);
     A_UNUSED(addPropagate);
     A_UNUSED(addManeuver);
@@ -269,24 +270,24 @@ void UiMissionTree::updateItemDisplay(QTreeWidgetItem* item, MissionCommand* cmd
         return;
 
     QString name = QString::fromStdString(cmd->getName());
+    item->setText(0, name);
 
-    QString prefix;
+    QString iconName;
     if (cmd->isOfType(TargeterSequence::StaticType()))
-        prefix = QStringLiteral("[T] ");
+        iconName = QStringLiteral("TargeterSequence");
     else if (cmd->isOfType(Sequence::StaticType()))
-        prefix = QStringLiteral("[S] ");
+        iconName = QStringLiteral("Sequence");
     else if (cmd->isOfType(InitialState::StaticType()))
-        prefix = QStringLiteral("[I] ");
+        iconName = QStringLiteral("InitialState");
     else if (cmd->isOfType(Maneuver::StaticType()))
-        prefix = QStringLiteral("[M] ");
+        iconName = QStringLiteral("Maneuver");
     else if (cmd->isOfType(Propagate::StaticType()))
-        prefix = QStringLiteral("[P] ");
+        iconName = QStringLiteral("Propagate");
     else if (cmd->isOfType(Segment::StaticType()))
-        prefix = QStringLiteral("[Seg] ");
-    else
-        prefix = QStringLiteral("[?] ");
+        iconName = QStringLiteral("Segment");
 
-    item->setText(0, prefix + name);
+    if (!iconName.isEmpty())
+        item->setIcon(0, missionIcon(iconName));
 }
 
 AST_NAMESPACE_END

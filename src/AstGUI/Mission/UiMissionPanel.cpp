@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiMissionPanel.hpp"
+#include "MissionIcons.hpp"
 #include "UiMissionTree.hpp"
 #include "UiSegmentEditor.hpp"
 #include "AstCore/MissionModerator.hpp"
@@ -95,11 +96,11 @@ void UiMissionPanel::setupToolBar()
 
     // 添加段菜单
     addMenu_ = new QMenu(tr("添加段"), this);
-    addMenu_->addAction(tr("初始状态 (InitialState)"),  this, &UiMissionPanel::onAddInitialState);
-    addMenu_->addAction(tr("轨道预报 (Propagate)"),    this, &UiMissionPanel::onAddPropagate);
-    addMenu_->addAction(tr("机动 (Maneuver)"),         this, &UiMissionPanel::onAddManeuver);
-    addMenu_->addAction(tr("序列 (Sequence)"),         this, &UiMissionPanel::onAddSequence);
-    addMenu_->addAction(tr("打靶序列 (TargeterSeq)"),  this, &UiMissionPanel::onAddTargeterSequence);
+    addMenu_->addAction(missionIcon("InitialState"),       tr("初始状态 (InitialState)"),  this, &UiMissionPanel::onAddInitialState);
+    addMenu_->addAction(missionIcon("Propagate"),          tr("轨道预报 (Propagate)"),    this, &UiMissionPanel::onAddPropagate);
+    addMenu_->addAction(missionIcon("Maneuver"),           tr("机动 (Maneuver)"),         this, &UiMissionPanel::onAddManeuver);
+    addMenu_->addAction(missionIcon("Sequence"),           tr("序列 (Sequence)"),         this, &UiMissionPanel::onAddSequence);
+    addMenu_->addAction(missionIcon("TargeterSequence"),   tr("打靶序列 (TargeterSeq)"),  this, &UiMissionPanel::onAddTargeterSequence);
 
     auto* addButton = new QAction(tr("+ 添加"), this);
     addButton->setMenu(addMenu_);

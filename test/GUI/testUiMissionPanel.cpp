@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstGlobal.h"
-#include "AstGUI/Mission/UiMissionPanel.hpp"
+#include "AstGUI/UiMissionPanel.hpp"
 #include "AstCore/MissionModerator.hpp"
 #include "AstCore/Sequence.hpp"
 #include "AstCore/InitialState.hpp"
