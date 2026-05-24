@@ -1,18 +1,17 @@
 ///
-/// @file      MoonLandAnalysis.hpp
-/// @brief     
-/// @details   
+/// @file      UiObjectTree.hpp
+/// @brief     通用对象树控件，显示 ObjectManager 中所有对象的层级关系
 /// @author    axel
-/// @date      2026-05-14
+/// @date      2026-05-24
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
@@ -21,24 +20,28 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/Command.hpp"
-#include "AstCore/TimePoint.hpp"
+#include <QTreeWidget>
 
-AST_USING_NAMESPACE
+AST_NAMESPACE_BEGIN
 
-class MoonLandCommand : public Command
+class Object;
+
+class AST_GUI_API UiObjectTree : public QTreeWidget
 {
-public:
-    errc_t execute() override;
+    Q_OBJECT
 
-protected:
-    TimePoint prlTime_{};        ///< 近月制动的时间点
-    TimePoint landTime_{};       ///< 着陆时间点
-    double lloHeight_{0.0};      ///< 着陆前环月轨道高度
-    double landSiteLon_{0.0};    ///< 着陆点的经度
-    double landSiteLat_{0.0};    ///< 着陆点的纬度
+public:
+    explicit UiObjectTree(QWidget* parent = nullptr);
+    ~UiObjectTree() override = default;
+
+    void refresh();
+    Object* selectedObject() const;
+
+signals:
+    void objectSelected(Object* object);
+
+private:
+    QTreeWidgetItem* buildItem(Object* obj);
 };
 
-
-
-
+AST_NAMESPACE_END
