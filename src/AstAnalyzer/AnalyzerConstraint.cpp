@@ -19,9 +19,15 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AnalyzerConstraint.hpp"
+#include "AstScript/Expr.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+errc_t AnalyzerConstraint::getValue(double& value) const
+{
+    if (!expr_)
+        return eErrorNullPtr;
+    return expr_->getValueDouble(value);
+}
 
 AST_NAMESPACE_END

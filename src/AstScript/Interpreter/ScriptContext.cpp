@@ -20,6 +20,7 @@
 
 #include "ScriptContext.hpp"
 #include "AstScript/Symbol.hpp"
+#include "AstScript/Variable.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/IO.hpp"
 #include "Interpreter.hpp"  
@@ -97,6 +98,32 @@ SymbolScope *aScript_CurrentSymbolScope()
         return interpreter->currentScope();
     }
     return nullptr;
+}
+
+void aScript_AddSymbol(Variable* var)
+{
+    if(A_UNLIKELY(!var))
+    {
+        aError("var is null");
+        return;
+    }
+    auto symbolScope = aScript_CurrentSymbolScope();
+    if(A_UNLIKELY(!symbolScope))
+    {
+        aError("symbol scope is null");
+    }
+    symbolScope->addSymbol(var->name(), var);
+}
+
+
+void aScript_AddSymbol(StringView name, Expr* expr)
+{
+    if(A_UNLIKELY(!expr))
+    {
+        aError("expr is null");
+        return;
+    }
+    aScript_AddSymbol(name, expr);
 }
 
 Expr *aScript_FindSymbol(StringView name)
