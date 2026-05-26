@@ -1,7 +1,7 @@
 ///
 /// @file      UiVariableList.hpp
 /// @brief     脚本变量列表编辑控件
-/// @details   用于编辑 VariableList 中的 Variable 对象
+/// @details   用于编辑 VariableList 中的 Variable 对象，以表格形式展示
 /// @author    axel
 /// @date      2026-05-24
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -23,16 +23,14 @@
 #include "AstGlobal.h"
 #include "AstCore/VariableList.hpp"
 #include <QWidget>
-#include <QListWidget>
+#include <QTableWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-class QListWidgetItem;
-
 AST_NAMESPACE_BEGIN
 
-/// @brief 变量列表编辑控件，管理脚本变量的增删改
+/// @brief 变量列表编辑控件，以表格形式管理脚本变量的增删改
 class AST_GUI_API UiVariableList : public QWidget
 {
     Q_OBJECT
@@ -42,7 +40,7 @@ public:
     /// @brief 设置要编辑的变量列表（裸指针，不持有所有权）
     void setVariableList(VariableList* variableList);
 
-    /// @brief 刷新列表显示
+    /// @brief 刷新表格显示
     void refreshUi();
 
     /// @brief 获取当前选中的变量
@@ -59,17 +57,17 @@ private slots:
     void onSelectionChanged();
     void onAddVariable();
     void onRemoveVariable();
-    void onItemDoubleClicked(QListWidgetItem* item);
+    void onCellDoubleClicked(int row, int column);
 
 private:
     void setupUi();
 
-    QVBoxLayout*  mainLayout_;
-    QListWidget*  listWidget_;
-    QHBoxLayout*  buttonLayout_;
-    QPushButton*  addButton_;
-    QPushButton*  removeButton_;
-    VariableList* variableList_ = nullptr;
+    QVBoxLayout*   mainLayout_;
+    QTableWidget*  tableWidget_;
+    QHBoxLayout*   buttonLayout_;
+    QPushButton*   addButton_;
+    QPushButton*   removeButton_;
+    VariableList*  variableList_ = nullptr;
 };
 
 AST_NAMESPACE_END

@@ -24,6 +24,10 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstCore/SpacecraftState.hpp"
+#include "AstSim/Scenario.hpp"
+#include "AstSim/Satellite.hpp"
+#include "AstSim/Facility.hpp"
+#include "AstSim/Sensor.hpp"
 #include "AstUtil/ObjectManager.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include <QApplication>
@@ -42,7 +46,7 @@ int main(int argc, char* argv[])
     printf("testUiObjectTree.cpp\n");
     QApplication app(argc, argv);
 
-    // 创建对象并注册到 ObjectManager
+    // 创建原有通用对象树并注册到 ObjectManager
     auto* rootObj = StateCartesian::New();
     rootObj->setName("RootCartesian");
     rootObj->setX(1000);
@@ -77,6 +81,71 @@ int main(int argc, char* argv[])
     grandchild->setVz(300);
     ObjectManager::CurrentInstance().addObject(grandchild);
     ObjectManager::CurrentInstance().setParentScope(grandchild, child1);
+
+    // 创建场景对象树并注册到 ObjectManager
+    auto* scenario = new Scenario();
+    scenario->setName("Scenario3");
+    ObjectManager::CurrentInstance().addObject(scenario);
+
+    auto* geo90w = Satellite::New();
+    geo90w->setName("GEO_90W");
+    ObjectManager::CurrentInstance().addObject(geo90w);
+    ObjectManager::CurrentInstance().setParentScope(geo90w, scenario);
+
+    auto* chase = Satellite::New();
+    chase->setName("Chase");
+    ObjectManager::CurrentInstance().addObject(chase);
+    ObjectManager::CurrentInstance().setParentScope(chase, scenario);
+
+    auto* geo105w = Satellite::New();
+    geo105w->setName("GEO_105W");
+    ObjectManager::CurrentInstance().addObject(geo105w);
+    ObjectManager::CurrentInstance().setParentScope(geo105w, scenario);
+
+    auto* target = Satellite::New();
+    target->setName("Target");
+    ObjectManager::CurrentInstance().addObject(target);
+    ObjectManager::CurrentInstance().setParentScope(target, scenario);
+
+    auto* sunSync = Satellite::New();
+    sunSync->setName("SunSync_400km");
+    ObjectManager::CurrentInstance().addObject(sunSync);
+    ObjectManager::CurrentInstance().setParentScope(sunSync, scenario);
+
+    auto* facility = new Facility();
+    facility->setName("VBar");
+    facility->setLatitude(39.9);
+    facility->setLongitude(116.4);
+    facility->setAltitude(0.05);
+    ObjectManager::CurrentInstance().addObject(facility);
+    ObjectManager::CurrentInstance().setParentScope(facility, scenario);
+
+    auto* sensor = new Sensor();
+    sensor->setName("EOIR_Sensor");
+    ObjectManager::CurrentInstance().addObject(sensor);
+    ObjectManager::CurrentInstance().setParentScope(sensor, geo90w);
+
+    auto* groundSensor = new Sensor();
+    groundSensor->setName("VBar_Antenna");
+    ObjectManager::CurrentInstance().addObject(groundSensor);
+    ObjectManager::CurrentInstance().setParentScope(groundSensor, facility);
+
+    auto* access = new Facility();
+    access->setName("Access");
+    ObjectManager::CurrentInstance().addObject(access);
+    ObjectManager::CurrentInstance().setParentScope(access, scenario);
+
+    auto* deckAccess = new Facility();
+    deckAccess->setName("DeckAccess");
+    ObjectManager::CurrentInstance().addObject(deckAccess);
+    ObjectManager::CurrentInstance().setParentScope(deckAccess, scenario);
+
+    auto* satState = StateKeplerian::New();
+    satState->setName("OrbitState");
+    satState->setSMA(42164);
+    satState->setEcc(0.0001);
+    ObjectManager::CurrentInstance().addObject(satState);
+    ObjectManager::CurrentInstance().setParentScope(satState, geo90w);
 
     // 主窗口
     QMainWindow window;
@@ -119,7 +188,7 @@ int main(int argc, char* argv[])
     objectTree->refresh();
 
     // 连接信号
-    QObject::connect(objectTree, &UiObjectTree::objectSelected, [infoLabel](Object* obj) {
+    QObject::connect(objectTree, &UiObjectTree::objectSelected, infoLabel, [infoLabel](Object* obj) {
         if (obj)
         {
             QString text = QString("名称: %1\n类型: %2\nID: %3")
@@ -137,7 +206,7 @@ int main(int argc, char* argv[])
         }
     });
 
-    QObject::connect(refreshBtn, &QPushButton::clicked, [objectTree]() {
+    QObject::connect(refreshBtn, &QPushButton::clicked, objectTree, [objectTree]() {
         objectTree->refresh();
         qDebug() << "Tree refreshed.";
     });

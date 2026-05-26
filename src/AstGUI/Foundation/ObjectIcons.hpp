@@ -42,6 +42,12 @@ inline QIcon objectIcon(const Object* obj)
 
     auto name = QString::fromStdString(obj->typeName());
 
+    if (name.contains(QStringLiteral("Satellite")))
+        return loadIcon(QStringLiteral("Satellite"));
+    if (name.contains(QStringLiteral("Facility")))
+        return loadIcon(QStringLiteral("Facility"));
+    if (name.contains(QStringLiteral("Sensor")))
+        return loadIcon(QStringLiteral("Sensor"));
     if (name.contains(QStringLiteral("State")))
         return loadIcon(QStringLiteral("OrbitState"));
     if (name.contains(QStringLiteral("Spacecraft")))

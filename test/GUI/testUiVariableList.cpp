@@ -21,6 +21,11 @@
 #include "AstGUI/UiVariableList.hpp"
 #include "AstCore/VariableList.hpp"
 #include "AstScript/Variable.hpp"
+#include "AstCore/RunTime.hpp"
+#include "AstCore/StateCartesian.hpp"
+#include "AstCore/StateKeplerian.hpp"
+#include "AstUtil/ObjectManager.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -36,6 +41,28 @@ AST_USING_NAMESPACE
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
+    aInitialize();
+
+    // ---- 创建对象并注册到 ObjectManager（供浏览属性/计算量时使用） ----
+    auto* satCart = StateCartesian::New();
+    satCart->setName("SatCart");
+    satCart->setX(7000);
+    satCart->setY(0);
+    satCart->setZ(0);
+    satCart->setVx(0);
+    satCart->setVy(7.5);
+    satCart->setVz(1.0);
+    ObjectManager::CurrentInstance().addObject(satCart);
+
+    auto* satKepl = StateKeplerian::New();
+    satKepl->setName("SatKepl");
+    satKepl->setSMA(7000);
+    satKepl->setEcc(0.01);
+    satKepl->setInc(98.0);
+    satKepl->setRAAN(120.0);
+    satKepl->setArgPeri(45.0);
+    satKepl->setTrueAnomaly(0.0);
+    ObjectManager::CurrentInstance().addObject(satKepl);
 
     // ---- 创建 VariableList 并预填充测试数据 ----
     auto variableList = std::make_shared<VariableList>();
@@ -43,16 +70,19 @@ int main(int argc, char* argv[])
     auto* var1 = Variable::New();
     var1->setName("x");
     var1->setExpr(1.0);
+    var1->setDesc("initial x position");
     variableList->append(var1);
 
     auto* var2 = Variable::New();
     var2->setName("y");
     var2->setExpr(std::string("x + 2"));
+    var2->setDesc("derived y value");
     variableList->append(var2);
 
     auto* var3 = Variable::New();
     var3->setName("mu");
     var3->setExpr(398600.4418);
+    var3->setDesc("gravitational parameter");
     variableList->append(var3);
 
     // ---- 主窗口 ----
@@ -101,9 +131,10 @@ int main(int argc, char* argv[])
     QObject::connect(uiVarList, &UiVariableList::variableSelected, [infoText](Variable* var) {
         if (var)
         {
-            QString msg = QStringLiteral("Selected: %1 = %2")
+            QString msg = QStringLiteral("Selected: %1 = %2  [%3]")
                 .arg(QString::fromStdString(var->name()))
-                .arg(QString::fromStdString(var->getExpression()));
+                .arg(QString::fromStdString(var->getExpression()))
+                .arg(QString::fromStdString(var->desc()));
             infoText->append(msg);
         }
         else
@@ -122,10 +153,11 @@ int main(int argc, char* argv[])
         for (size_t i = 0; i < variableList->size(); ++i)
         {
             auto* v = variableList->at(i);
-            QString msg = QStringLiteral("  [%1] %2 = %3")
+            QString msg = QStringLiteral("  [%1] %2 = %3  (%4)")
                 .arg(i)
                 .arg(QString::fromStdString(v->name()))
-                .arg(QString::fromStdString(v->getExpression()));
+                .arg(QString::fromStdString(v->getExpression()))
+                .arg(QString::fromStdString(v->desc()));
             infoText->append(msg);
         }
         infoText->append("---");
@@ -137,6 +169,7 @@ int main(int argc, char* argv[])
         auto* var = Variable::New();
         var->setName("var_" + std::to_string(codeVarCount));
         var->setExpr(codeVarCount * 10.0);
+        var->setDesc("code-generated variable #" + std::to_string(codeVarCount));
         variableList->append(var);
         uiVarList->refreshUi();
         qDebug() << "Added variable by code:" << QString::fromStdString(var->name());
@@ -150,7 +183,7 @@ int main(int argc, char* argv[])
 
     window.setCentralWidget(central);
     window.setWindowTitle("UiVariableList Test");
-    window.resize(700, 400);
+    window.resize(800, 420);
     window.show();
 
     return app.exec();

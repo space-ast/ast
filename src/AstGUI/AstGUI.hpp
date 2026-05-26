@@ -21,6 +21,7 @@
 #include "AstGUI/UiEventDetectorEditor.hpp"
 #include "AstGUI/UiEventDetectorList.hpp"
 #include "AstGUI/UiEventInterval.hpp"
+#include "AstGUI/UiExpressionBrowser.hpp"
 #include "AstGUI/UiEventTime.hpp"
 #include "AstGUI/UiFilePath.hpp"
 #include "AstGUI/UiFuelTank.hpp"

@@ -31,6 +31,7 @@
 #include "AstCore/TargeterSequence.hpp"
 #include "AstUtil/Class.hpp"
 #include <QLabel>
+#include <QVBoxLayout>
 
 AST_NAMESPACE_BEGIN
 

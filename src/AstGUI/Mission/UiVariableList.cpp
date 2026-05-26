@@ -10,12 +10,44 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiVariableList.hpp"
+#include "UiExpressionBrowser.hpp"
 #include "AstScript/Variable.hpp"
 
-#include <QInputDialog>
+#include <QHeaderView>
 #include <QMessageBox>
+#include <QDialog>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QDialogButtonBox>
 
 AST_NAMESPACE_BEGIN
+
+enum { COL_NAME = 0, COL_EXPR = 1, COL_DESC = 2 };
+
+namespace {
+
+/// @brief 在 form 中添加带浏览按钮的表达式输入行，返回 QLineEdit*
+QLineEdit* addExpressionRow(QFormLayout* form, QDialog* parent, const QString& initialText)
+{
+    auto* row = new QHBoxLayout;
+    auto* edit = new QLineEdit(initialText, parent);
+    auto* browseBtn = new QPushButton("...", parent);
+    browseBtn->setToolTip(QObject::tr("Browse object attributes and calculations"));
+    browseBtn->setFixedWidth(30);
+    row->addWidget(edit);
+    row->addWidget(browseBtn);
+    form->addRow(QObject::tr("表达式"), row);
+
+    QObject::connect(browseBtn, &QPushButton::clicked, [edit, parent]() {
+        QString expr = UiExpressionBrowser::getExpression(parent);
+        if (!expr.isEmpty())
+            edit->setText(expr);
+    });
+
+    return edit;
+}
+
+} // anonymous namespace
 
 UiVariableList::UiVariableList(QWidget* parent)
     : QWidget(parent)
@@ -28,9 +60,16 @@ void UiVariableList::setupUi()
     mainLayout_ = new QVBoxLayout(this);
     mainLayout_->setContentsMargins(0, 0, 0, 0);
 
-    listWidget_ = new QListWidget(this);
-    listWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
-    mainLayout_->addWidget(listWidget_);
+    tableWidget_ = new QTableWidget(0, 3, this);
+    tableWidget_->setHorizontalHeaderLabels({tr("名称"), tr("表达式"), tr("描述")});
+    tableWidget_->setSelectionBehavior(QAbstractItemView::SelectRows);
+    tableWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
+    tableWidget_->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableWidget_->horizontalHeader()->setStretchLastSection(true);
+    tableWidget_->verticalHeader()->setVisible(false);
+    tableWidget_->setColumnWidth(COL_NAME, 120);
+    tableWidget_->setColumnWidth(COL_EXPR, 150);
+    mainLayout_->addWidget(tableWidget_);
 
     buttonLayout_ = new QHBoxLayout;
     buttonLayout_->setContentsMargins(0, 0, 0, 0);
@@ -46,10 +85,10 @@ void UiVariableList::setupUi()
     buttonLayout_->addWidget(removeButton_);
     mainLayout_->addLayout(buttonLayout_);
 
-    connect(listWidget_, &QListWidget::currentItemChanged,
+    connect(tableWidget_, &QTableWidget::itemSelectionChanged,
             this, &UiVariableList::onSelectionChanged);
-    connect(listWidget_, &QListWidget::itemDoubleClicked,
-            this, &UiVariableList::onItemDoubleClicked);
+    connect(tableWidget_, &QTableWidget::cellDoubleClicked,
+            this, &UiVariableList::onCellDoubleClicked);
     connect(addButton_, &QPushButton::clicked,
             this, &UiVariableList::onAddVariable);
     connect(removeButton_, &QPushButton::clicked,
@@ -64,26 +103,32 @@ void UiVariableList::setVariableList(VariableList* variableList)
 
 void UiVariableList::refreshUi()
 {
-    listWidget_->clear();
+    tableWidget_->setRowCount(0);
     if (!variableList_) return;
 
-    for (size_t i = 0; i < variableList_->size(); ++i)
+    size_t n = variableList_->size();
+    tableWidget_->setRowCount(static_cast<int>(n));
+    for (size_t i = 0; i < n; ++i)
     {
         Variable* var = variableList_->at(i);
-        QString text = QString::fromStdString(var->name())
-            + QStringLiteral(" = ")
-            + QString::fromStdString(var->getExpression());
-        QListWidgetItem* item = new QListWidgetItem(text, listWidget_);
-        item->setData(Qt::UserRole, static_cast<qlonglong>(i));
+        if (!var) continue;
+        auto* nameItem = new QTableWidgetItem(QString::fromStdString(var->name()));
+        nameItem->setData(Qt::UserRole, static_cast<qlonglong>(i));
+        tableWidget_->setItem(static_cast<int>(i), COL_NAME, nameItem);
+        tableWidget_->setItem(static_cast<int>(i), COL_EXPR,
+            new QTableWidgetItem(QString::fromStdString(var->getInnerExpression())));
+
+        tableWidget_->setItem(static_cast<int>(i), COL_DESC,
+            new QTableWidgetItem(QString::fromStdString(var->desc())));
     }
 }
 
 Variable* UiVariableList::selectedVariable() const
 {
-    auto* item = listWidget_->currentItem();
-    if (!item || !variableList_) return nullptr;
+    auto items = tableWidget_->selectedItems();
+    if (items.isEmpty() || !variableList_) return nullptr;
 
-    size_t index = static_cast<size_t>(item->data(Qt::UserRole).toLongLong());
+    size_t index = static_cast<size_t>(items.first()->data(Qt::UserRole).toLongLong());
     if (index < variableList_->size())
         return variableList_->at(index);
     return nullptr;
@@ -98,46 +143,51 @@ void UiVariableList::onSelectionChanged()
 
 void UiVariableList::onAddVariable()
 {
-    bool ok = false;
-    QString name = QInputDialog::getText(
-        this, tr("New Variable"), tr("Variable name:"),
-        QLineEdit::Normal, tr("var"), &ok);
+    QDialog dlg(this);
+    dlg.setWindowTitle(tr("New Variable"));
 
-    if (!ok || name.trimmed().isEmpty()) return;
+    auto* form = new QFormLayout(&dlg);
+    auto* nameEdit = new QLineEdit(tr("var"), &dlg);
+    form->addRow(tr("名称"), nameEdit);
 
-    QString expr = QInputDialog::getText(
-        this, tr("New Variable"), tr("Expression:"),
-        QLineEdit::Normal, tr("0"), &ok);
+    auto* exprEdit = addExpressionRow(form, &dlg, tr("0"));
 
-    if (!ok) return;
+    auto* descEdit = new QLineEdit(&dlg);
+    form->addRow(tr("描述"), descEdit);
+
+    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
+    connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
+    connect(buttons, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+    form->addRow(buttons);
+
+    if (dlg.exec() != QDialog::Accepted) return;
+
+    QString name = nameEdit->text().trimmed();
+    if (name.isEmpty()) return;
 
     auto* var = Variable::New();
-    var->setName(name.trimmed().toStdString());
-    var->setExpr(expr.trimmed().toStdString());
+    var->setName(name.toStdString());
+    var->setExpr(exprEdit->text().trimmed().toStdString());
+    var->setDesc(descEdit->text().trimmed().toStdString());
 
     if (!variableList_)
     {
-        // 如果没有设置外部列表，则无法添加
         delete var;
         return;
     }
 
     variableList_->append(var);
     refreshUi();
-
-    // 选中新添加的变量
-    int newIndex = static_cast<int>(variableList_->size()) - 1;
-    listWidget_->setCurrentRow(newIndex);
-
+    tableWidget_->selectRow(static_cast<int>(variableList_->size()) - 1);
     emit variableListChanged();
 }
 
 void UiVariableList::onRemoveVariable()
 {
-    auto* item = listWidget_->currentItem();
-    if (!item || !variableList_) return;
+    auto items = tableWidget_->selectedItems();
+    if (items.isEmpty() || !variableList_) return;
 
-    size_t index = static_cast<size_t>(item->data(Qt::UserRole).toLongLong());
+    size_t index = static_cast<size_t>(items.first()->data(Qt::UserRole).toLongLong());
     if (index >= variableList_->size()) return;
 
     Variable* var = variableList_->at(index);
@@ -153,30 +203,39 @@ void UiVariableList::onRemoveVariable()
     emit variableListChanged();
 }
 
-void UiVariableList::onItemDoubleClicked(QListWidgetItem* item)
+void UiVariableList::onCellDoubleClicked(int row, int /*column*/)
 {
-    if (!item || !variableList_) return;
+    if (!variableList_ || row < 0 || static_cast<size_t>(row) >= variableList_->size())
+        return;
 
-    size_t index = static_cast<size_t>(item->data(Qt::UserRole).toLongLong());
-    if (index >= variableList_->size()) return;
+    Variable* var = variableList_->at(static_cast<size_t>(row));
 
-    Variable* var = variableList_->at(index);
+    QDialog dlg(this);
+    dlg.setWindowTitle(tr("Edit Variable"));
 
-    bool ok = false;
-    QString name = QInputDialog::getText(
-        this, tr("Edit Variable"), tr("Variable name:"),
-        QLineEdit::Normal, QString::fromStdString(var->name()), &ok);
+    auto* form = new QFormLayout(&dlg);
+    auto* nameEdit = new QLineEdit(QString::fromStdString(var->name()), &dlg);
+    form->addRow(tr("名称"), nameEdit);
 
-    if (!ok || name.trimmed().isEmpty()) return;
+    auto* exprEdit = addExpressionRow(form, &dlg,
+        QString::fromStdString(var->getInnerExpression()));
 
-    QString expr = QInputDialog::getText(
-        this, tr("Edit Variable"), tr("Expression:"),
-        QLineEdit::Normal, QString::fromStdString(var->getExpression()), &ok);
+    auto* descEdit = new QLineEdit(QString::fromStdString(var->desc()), &dlg);
+    form->addRow(tr("描述"), descEdit);
 
-    if (!ok) return;
+    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
+    connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
+    connect(buttons, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+    form->addRow(buttons);
 
-    var->setName(name.trimmed().toStdString());
-    var->setExpr(expr.trimmed().toStdString());
+    if (dlg.exec() != QDialog::Accepted) return;
+
+    QString name = nameEdit->text().trimmed();
+    if (name.isEmpty()) return;
+
+    var->setName(name.toStdString());
+    var->setExpr(exprEdit->text().trimmed().toStdString());
+    var->setDesc(descEdit->text().trimmed().toStdString());
 
     refreshUi();
     emit variableListChanged();
