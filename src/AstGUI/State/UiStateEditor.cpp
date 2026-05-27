@@ -47,7 +47,7 @@ void UiStateEditor::setupUi()
     // 占位页面
     auto* placeholder = new QWidget(this);
     auto* phLayout = new QVBoxLayout(placeholder);
-    auto* hint = new QLabel(tr("无状态数据"), placeholder);
+    auto* hint = new QLabel(tr(u8"无状态数据"), placeholder);
     hint->setAlignment(Qt::AlignCenter);
     phLayout->addWidget(hint);
     stack_ = new QStackedWidget(this);

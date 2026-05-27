@@ -65,7 +65,7 @@ void UiObjectTree::refresh()
         auto* item = new ObjectTreeItem();
         item->object = obj;
         auto name = obj->getName();
-        item->setText(0, QString::fromStdString(name.empty() ? "<无名称>" : name));
+        item->setText(0, QString::fromStdString(name.empty() ? u8"<无名称>" : name));
         item->setToolTip(0, QString::fromStdString(obj->typeName()));
         item->setIcon(0, objectIcon(obj));
         itemMap[obj] = item;

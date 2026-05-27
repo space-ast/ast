@@ -114,7 +114,7 @@ void UiExpressionBrowser::setupUi()
     propertyLayout->addWidget(propertySelectButton_);
     expressionLayout->addWidget(propertyGroup, 1);
 
-    auto* calculationGroup = new QGroupBox(tr("Object Calculation(对象计算量)"), expressionPanel);
+    auto* calculationGroup = new QGroupBox(tr(u8"Object Calculation(对象计算量)"), expressionPanel);
     auto* calculationLayout = new QHBoxLayout(calculationGroup);
     calculationTree_ = new QTreeWidget(calculationGroup);
     calculationTree_->setHeaderHidden(true);

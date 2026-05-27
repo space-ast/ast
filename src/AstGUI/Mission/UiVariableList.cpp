@@ -36,7 +36,7 @@ QLineEdit* addExpressionRow(QFormLayout* form, QDialog* parent, const QString& i
     browseBtn->setFixedWidth(30);
     row->addWidget(edit);
     row->addWidget(browseBtn);
-    form->addRow(QObject::tr("表达式"), row);
+    form->addRow(QObject::tr(u8"表达式"), row);
 
     QObject::connect(browseBtn, &QPushButton::clicked, [edit, parent]() {
         QString expr = UiExpressionBrowser::getExpression(parent);
@@ -61,7 +61,7 @@ void UiVariableList::setupUi()
     mainLayout_->setContentsMargins(0, 0, 0, 0);
 
     tableWidget_ = new QTableWidget(0, 3, this);
-    tableWidget_->setHorizontalHeaderLabels({tr("名称"), tr("表达式"), tr("描述")});
+    tableWidget_->setHorizontalHeaderLabels({tr(u8"名称"), tr(u8"表达式"), tr(u8"描述")});
     tableWidget_->setSelectionBehavior(QAbstractItemView::SelectRows);
     tableWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
     tableWidget_->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -148,12 +148,12 @@ void UiVariableList::onAddVariable()
 
     auto* form = new QFormLayout(&dlg);
     auto* nameEdit = new QLineEdit(tr("var"), &dlg);
-    form->addRow(tr("名称"), nameEdit);
+    form->addRow(tr(u8"名称"), nameEdit);
 
     auto* exprEdit = addExpressionRow(form, &dlg, tr("0"));
 
     auto* descEdit = new QLineEdit(&dlg);
-    form->addRow(tr("描述"), descEdit);
+    form->addRow(tr(u8"描述"), descEdit);
 
     auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
     connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
@@ -215,13 +215,13 @@ void UiVariableList::onCellDoubleClicked(int row, int /*column*/)
 
     auto* form = new QFormLayout(&dlg);
     auto* nameEdit = new QLineEdit(QString::fromStdString(var->name()), &dlg);
-    form->addRow(tr("名称"), nameEdit);
+    form->addRow(tr(u8"名称"), nameEdit);
 
     auto* exprEdit = addExpressionRow(form, &dlg,
         QString::fromStdString(var->getInnerExpression()));
 
     auto* descEdit = new QLineEdit(QString::fromStdString(var->desc()), &dlg);
-    form->addRow(tr("描述"), descEdit);
+    form->addRow(tr(u8"描述"), descEdit);
 
     auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
     connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);

@@ -51,20 +51,20 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     int row = 0;
 
     // 轨道历元
-    QLabel* epochLabel = new QLabel(tr("轨道历元"), this);
+    QLabel* epochLabel = new QLabel(tr(u8"轨道历元"), this);
     epochEdit_ = new UiTimePoint(this);
     mainLayout->addWidget(epochLabel, row, 0);
     mainLayout->addWidget(epochEdit_, row, 1);
     row++;
 
     // 坐标系
-    QLabel* frameLabel = new QLabel(tr("坐标系"), this);
+    QLabel* frameLabel = new QLabel(tr(u8"坐标系"), this);
     frameEdit_ = new QLineEdit(this);
     frameEdit_->setReadOnly(true);
     frameEdit_->setText(tr("ICRF"));
     frameSelectBtn_ = new QPushButton(tr("..."), this);
     frameSelectBtn_->setFixedWidth(30);
-    frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
+    frameSelectBtn_->setToolTip(tr(u8"选择坐标系 (天体 + 类型)"));
     auto* frameWidget = new QWidget(this);
     frameWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     auto* frameBar = new QHBoxLayout(frameWidget);
@@ -76,7 +76,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     row++;
 
     // 位置X
-    QLabel* posXLabel = new QLabel(tr("位置X"), this);
+    QLabel* posXLabel = new QLabel(tr(u8"位置X"), this);
     posXEdit_ = new UiQuantity(this);
     posXEdit_->setDimension(Dimension::Length());
     mainLayout->addWidget(posXLabel, row, 0);
@@ -84,7 +84,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     row++;
 
     // 位置Y
-    QLabel* posYLabel = new QLabel(tr("位置Y"), this);
+    QLabel* posYLabel = new QLabel(tr(u8"位置Y"), this);
     posYEdit_ = new UiQuantity(this);
     posYEdit_->setDimension(Dimension::Length());
     mainLayout->addWidget(posYLabel, row, 0);
@@ -92,7 +92,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     row++;
 
     // 位置Z
-    QLabel* posZLabel = new QLabel(tr("位置Z"), this);
+    QLabel* posZLabel = new QLabel(tr(u8"位置Z"), this);
     posZEdit_ = new UiQuantity(this);
     posZEdit_->setDimension(Dimension::Length());
     mainLayout->addWidget(posZLabel, row, 0);
@@ -100,7 +100,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     row++;
 
     // 速度X
-    QLabel* velXLabel = new QLabel(tr("速度X"), this);
+    QLabel* velXLabel = new QLabel(tr(u8"速度X"), this);
     velXEdit_ = new UiQuantity(this);
     velXEdit_->setDimension(Dimension::Speed());
     mainLayout->addWidget(velXLabel, row, 0);
@@ -108,7 +108,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     row++;
 
     // 速度Y
-    QLabel* velYLabel = new QLabel(tr("速度Y"), this);
+    QLabel* velYLabel = new QLabel(tr(u8"速度Y"), this);
     velYEdit_ = new UiQuantity(this);
     velYEdit_->setDimension(Dimension::Speed());
     mainLayout->addWidget(velYLabel, row, 0);
@@ -116,7 +116,7 @@ UiStateCartesian::UiStateCartesian(QWidget *parent) : UiState(parent)
     row++;
 
     // 速度Z
-    QLabel* velZLabel = new QLabel(tr("速度Z"), this);
+    QLabel* velZLabel = new QLabel(tr(u8"速度Z"), this);
     velZEdit_ = new UiQuantity(this);
     velZEdit_->setDimension(Dimension::Speed());
     mainLayout->addWidget(velZLabel, row, 0);

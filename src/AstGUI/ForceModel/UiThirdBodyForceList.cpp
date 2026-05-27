@@ -40,15 +40,15 @@ void UiThirdBodyForceList::setupUi()
     
     // 按钮布局
     buttonLayout_ = new QVBoxLayout();
-    addButton_ = new QPushButton("添加", this);
-    removeButton_ = new QPushButton("移除", this);
+    addButton_ = new QPushButton(tr(u8"添加"), this);
+    removeButton_ = new QPushButton(tr(u8"移除"), this);
     buttonLayout_->addWidget(addButton_);
     buttonLayout_->addWidget(removeButton_);
     buttonLayout_->addStretch();
     topLayout_->addLayout(buttonLayout_);
     
     // 详情组
-    detailGroup_ = new QGroupBox("三体详情", this);
+    detailGroup_ = new QGroupBox(tr(u8"三体详情"), this);
     detailLayout_ = new QVBoxLayout(detailGroup_);
     thirdBodyWidget_ = new UiThirdBodyForce(detailGroup_);
     detailLayout_->addWidget(thirdBodyWidget_);
@@ -126,7 +126,7 @@ void UiThirdBodyForceList::onAddThirdBody()
             refreshUi();
         }
     } else {
-        QMessageBox::information(this, "提示", "暂不支持添加新天体，请在代码中手动添加");
+        QMessageBox::information(this, tr(u8"提示"), tr(u8"暂不支持添加新天体，请在代码中手动添加"));
     }
 }
 

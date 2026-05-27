@@ -60,11 +60,11 @@ void UiPropagate::setupUi()
     rootLayout->setContentsMargins(0, 0, 0, 0);
 
     // ---- 轨道预报器 ----
-    auto* propGroup = new QGroupBox(tr("轨道预报器"), this);
+    auto* propGroup = new QGroupBox(tr(u8"轨道预报器"), this);
     auto* propLayout = new QGridLayout(propGroup);
 
-    forceModelBtn_ = new QPushButton(tr("力模型配置..."), this);
-    integratorBtn_ = new QPushButton(tr("积分器配置..."), this);
+    forceModelBtn_ = new QPushButton(tr(u8"力模型配置..."), this);
+    integratorBtn_ = new QPushButton(tr(u8"积分器配置..."), this);
 
     auto* btnRow = new QHBoxLayout();
     btnRow->addWidget(forceModelBtn_);
@@ -80,14 +80,14 @@ void UiPropagate::setupUi()
     auto* timeRow = new QHBoxLayout();
     timeRow->setSpacing(4);
     timeRow->addWidget(useMaxTimeCheck_);
-    timeRow->addWidget(new QLabel(tr("最大预报时间"), this));
+    timeRow->addWidget(new QLabel(tr(u8"最大预报时间"), this));
     timeRow->addWidget(maxTimeEdit_);
     propLayout->addLayout(timeRow, 1, 0, 1, 2);
 
     rootLayout->addWidget(propGroup);
 
     // ---- 事件检测器 ----
-    auto* eventGroup = new QGroupBox(tr("停止条件 / 事件检测器"), this);
+    auto* eventGroup = new QGroupBox(tr(u8"停止条件 / 事件检测器"), this);
     auto* eventLayout = new QVBoxLayout(eventGroup);
     eventLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -170,7 +170,7 @@ void UiPropagate::onConfigureForceModel()
         return;
 
     QDialog dlg(this);
-    dlg.setWindowTitle(tr("力模型配置"));
+    dlg.setWindowTitle(tr(u8"力模型配置"));
     auto* dlgLayout = new QVBoxLayout(&dlg);
 
     auto* editor = new UiHPOPForceModel(&dlg);
@@ -202,7 +202,7 @@ void UiPropagate::onConfigureIntegrator()
         return;
 
     QDialog dlg(this);
-    dlg.setWindowTitle(tr("积分器配置"));
+    dlg.setWindowTitle(tr(u8"积分器配置"));
     auto* dlgLayout = new QVBoxLayout(&dlg);
 
     auto* editor = new UiODEIntegratorEditor(&dlg);

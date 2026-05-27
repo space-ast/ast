@@ -47,7 +47,7 @@ void UiODEIntegratorEditor::setupUi()
     // 占位页面 (index 0)
     auto* placeholder = new QWidget(this);
     auto* phLayout = new QVBoxLayout(placeholder);
-    auto* hint = new QLabel(tr("选择积分器以编辑参数"), placeholder);
+    auto* hint = new QLabel(tr(u8"选择积分器以编辑参数"), placeholder);
     hint->setAlignment(Qt::AlignCenter);
     hint->setWordWrap(true);
     phLayout->addWidget(hint);
@@ -59,7 +59,7 @@ void UiODEIntegratorEditor::setupUi()
     fixedLayout->setContentsMargins(0, 0, 0, 0);
 
     auto* fixedRow = new QHBoxLayout();
-    fixedRow->addWidget(new QLabel(tr("步长"), this));
+    fixedRow->addWidget(new QLabel(tr(u8"步长"), this));
     fixedStepEdit_ = new QDoubleSpinBox(this);
     fixedStepEdit_->setRange(1e-6, 86400);
     fixedStepEdit_->setValue(60);

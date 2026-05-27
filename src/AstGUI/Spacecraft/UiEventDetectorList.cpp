@@ -41,24 +41,24 @@ struct DetectorTypeInfo {
 };
 
 const DetectorTypeInfo kDetectorTypes[] = {
-    {"DetectorApoapsis",         "远地点"},
-    {"DetectorPeriapsis",        "近地点"},
-    {"DetectorAltitude",         "高度"},
-    {"DetectorDuration",         "时长"},
-    {"DetectorEpoch",            "历元"},
-    {"DetectorTrueAnomaly",      "真近点角"},
-    {"DetectorMeanAnomaly",      "平近点角"},
-    {"DetectorAscendingNode",    "升交点"},
-    {"DetectorDescendingNode",   "降交点"},
-    {"DetectorCartesian",        "笛卡尔坐标"},
-    {"DetectorDeltaV",           "速度增量 (ΔV)"},
-    {"DetectorRMagnitude",       "地心距"},
-    {"DetectorXYPlaneCross",     "XY 平面穿越"},
-    {"DetectorYZPlaneCross",     "YZ 平面穿越"},
-    {"DetectorZXPlaneCross",     "ZX 平面穿越"},
-    {"DetectorUserSelect",       "用户自定义"},
-    {"DetectorLighting",         "光照条件"},
-    {"DetectorAlwaysTripped",    "始终触发"},
+    {"DetectorApoapsis",         u8"远地点"},
+    {"DetectorPeriapsis",        u8"近地点"},
+    {"DetectorAltitude",         u8"高度"},
+    {"DetectorDuration",         u8"时长"},
+    {"DetectorEpoch",            u8"历元"},
+    {"DetectorTrueAnomaly",      u8"真近点角"},
+    {"DetectorMeanAnomaly",      u8"平近点角"},
+    {"DetectorAscendingNode",    u8"升交点"},
+    {"DetectorDescendingNode",   u8"降交点"},
+    {"DetectorCartesian",        u8"笛卡尔坐标"},
+    {"DetectorDeltaV",           u8"速度增量 (ΔV)"},
+    {"DetectorRMagnitude",       u8"地心距"},
+    {"DetectorXYPlaneCross",     u8"XY 平面穿越"},
+    {"DetectorYZPlaneCross",     u8"YZ 平面穿越"},
+    {"DetectorZXPlaneCross",     u8"ZX 平面穿越"},
+    {"DetectorUserSelect",       u8"用户自定义"},
+    {"DetectorLighting",         u8"光照条件"},
+    {"DetectorAlwaysTripped",    u8"始终触发"},
 };
 
 static EventDetector* createDetector(const std::string& name)
@@ -117,7 +117,7 @@ void UiEventDetectorList::setupUi()
 
     // 表头
     QStringList headers;
-    headers << tr("激活") << tr("名称") << tr("类型");
+    headers << tr(u8"激活") << tr(u8"名称") << tr(u8"类型");
     table_->setHorizontalHeaderLabels(headers);
     table_->setColumnWidth(kColActive, 70);
     table_->setColumnWidth(kColName, 240);
@@ -132,14 +132,14 @@ void UiEventDetectorList::setupUi()
     auto* btnLayout = new QHBoxLayout();
     btnLayout->setContentsMargins(0, 4, 0, 0);
 
-    addBtn_ = new QPushButton(tr("+ 添加"), this);
+    addBtn_ = new QPushButton(tr(u8"+ 添加"), this);
     auto* addMenu = new QMenu(this);
     for (const auto& info : kDetectorTypes)
         addMenu->addAction(QString::fromUtf8(info.displayName))->setData(QString::fromUtf8(info.className));
     addBtn_->setMenu(addMenu);
     btnLayout->addWidget(addBtn_);
 
-    removeBtn_ = new QPushButton(tr("- 删除"), this);
+    removeBtn_ = new QPushButton(tr(u8"- 删除"), this);
     removeBtn_->setEnabled(false);
     btnLayout->addWidget(removeBtn_);
 

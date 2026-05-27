@@ -38,7 +38,7 @@ void UiEventDetectorEditor::setupUi()
     // 占位页面
     auto* placeholder = new QWidget(this);
     auto* placeholderLayout = new QVBoxLayout(placeholder);
-    auto* hint = new QLabel(tr("选择事件检测器以编辑属性"), placeholder);
+    auto* hint = new QLabel(tr(u8"选择事件检测器以编辑属性"), placeholder);
     hint->setAlignment(Qt::AlignCenter);
     hint->setWordWrap(true);
     placeholderLayout->addWidget(hint);

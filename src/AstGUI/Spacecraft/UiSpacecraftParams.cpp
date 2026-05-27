@@ -52,7 +52,7 @@ void UiSpacecraftParams::setupUi()
 
     // ---------- 干质量 ----------
     auto* massLayout = new QHBoxLayout();
-    massLayout->addWidget(new QLabel(tr("干重"), this));
+    massLayout->addWidget(new QLabel(tr(u8"干重"), this));
     dryMassEdit_ = new UiQuantity(this);
     dryMassEdit_->setQuantity(Quantity(500, units::kg));
     dryMassEdit_->setFixedWidth(180);
@@ -60,12 +60,12 @@ void UiSpacecraftParams::setupUi()
     layout->addLayout(massLayout);
 
     // ---------- 阻力 ----------
-    auto* dragGroup = new QGroupBox(tr("阻力"), this);
+    auto* dragGroup = new QGroupBox(tr(u8"阻力"), this);
     auto* dragLayout = new QVBoxLayout(dragGroup);
 
     // Cd
     auto* cdLayout = new QHBoxLayout();
-    cdLayout->addWidget(new QLabel(tr("阻力系数 (Cd)"), this));
+    cdLayout->addWidget(new QLabel(tr(u8"阻力系数 (Cd)"), this));
     cdEdit_ = new UiQuantity(this);
     cdEdit_->setQuantity(Quantity(2.2));
     cdEdit_->setFixedWidth(180);
@@ -74,7 +74,7 @@ void UiSpacecraftParams::setupUi()
 
     // Drag Area
     auto* dragAreaLayout = new QHBoxLayout();
-    dragAreaLayout->addWidget(new QLabel(tr("阻力面积"), this));
+    dragAreaLayout->addWidget(new QLabel(tr(u8"阻力面积"), this));
     dragAreaEdit_ = new UiQuantity(this);
     dragAreaEdit_->setQuantity(Quantity(20, units::m * units::m));
     dragAreaEdit_->setFixedWidth(180);
@@ -84,12 +84,12 @@ void UiSpacecraftParams::setupUi()
     layout->addWidget(dragGroup);
 
     // ---------- 太阳光压 ----------
-    auto* srpGroup = new QGroupBox(tr("太阳光压"), this);
+    auto* srpGroup = new QGroupBox(tr(u8"太阳光压"), this);
     auto* srpLayout = new QVBoxLayout(srpGroup);
 
     // Cr
     auto* crLayout = new QHBoxLayout();
-    crLayout->addWidget(new QLabel(tr("太阳光压系数 (Cr)"), this));
+    crLayout->addWidget(new QLabel(tr(u8"太阳光压系数 (Cr)"), this));
     crEdit_ = new UiQuantity(this);
     crEdit_->setQuantity(Quantity(1.0));
     crEdit_->setFixedWidth(180);
@@ -98,7 +98,7 @@ void UiSpacecraftParams::setupUi()
 
     // SRP Area
     auto* srpAreaLayout = new QHBoxLayout();
-    srpAreaLayout->addWidget(new QLabel(tr("太阳光压面积"), this));
+    srpAreaLayout->addWidget(new QLabel(tr(u8"太阳光压面积"), this));
     srpAreaEdit_ = new UiQuantity(this);
     srpAreaEdit_->setQuantity(Quantity(20, units::m * units::m));
     srpAreaEdit_->setFixedWidth(180);
@@ -108,12 +108,12 @@ void UiSpacecraftParams::setupUi()
     layout->addWidget(srpGroup);
 
     // ---------- 反照/热辐射压 ----------
-    auto* radGroup = new QGroupBox(tr("反照/热辐射压"), this);
+    auto* radGroup = new QGroupBox(tr(u8"反照/热辐射压"), this);
     auto* radLayout = new QVBoxLayout(radGroup);
 
     // Ck
     auto* ckLayout = new QHBoxLayout();
-    ckLayout->addWidget(new QLabel(tr("反照/热辐射压系数 (Ck)"), this));
+    ckLayout->addWidget(new QLabel(tr(u8"反照/热辐射压系数 (Ck)"), this));
     ckEdit_ = new UiQuantity(this);
     ckEdit_->setQuantity(Quantity(1.0));
     ckEdit_->setFixedWidth(180);
@@ -122,7 +122,7 @@ void UiSpacecraftParams::setupUi()
 
     // Rad Area
     auto* radAreaLayout = new QHBoxLayout();
-    radAreaLayout->addWidget(new QLabel(tr("反照/热辐射压面积"), this));
+    radAreaLayout->addWidget(new QLabel(tr(u8"反照/热辐射压面积"), this));
     radPressureAreaEdit_ = new UiQuantity(this);
     radPressureAreaEdit_->setQuantity(Quantity(20, units::m * units::m));
     radPressureAreaEdit_->setFixedWidth(180);

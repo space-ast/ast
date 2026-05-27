@@ -42,7 +42,7 @@ UiBodyEphemerisSPK::UiBodyEphemerisSPK(QWidget *parent) : UiObject(parent)
     
     // SPICE索引
     QHBoxLayout* spiceIndexLayout = new QHBoxLayout();
-    QLabel* spiceIndexLabel = new QLabel(tr("SPICE索引"), this);
+    QLabel* spiceIndexLabel = new QLabel(tr(u8"SPICE索引"), this);
     spiceIndexEdit_ = new UiInteger(this);
     spiceIndexEdit_->setValue(0);
     spiceIndexLayout->addWidget(spiceIndexLabel);
@@ -51,9 +51,9 @@ UiBodyEphemerisSPK::UiBodyEphemerisSPK(QWidget *parent) : UiObject(parent)
     
     // SPK文件路径输入
     QHBoxLayout* spkFileLayout = new QHBoxLayout();
-    QLabel* spkFileLabel = new QLabel(tr("SPK文件"), this);
+    QLabel* spkFileLabel = new QLabel(tr(u8"SPK文件"), this);
     filePathEdit_ = new UiFilePath(this);
-    filePathEdit_->setFilter(tr("SPK文件 (*.bsp);;所有文件 (*.*)"));
+    filePathEdit_->setFilter(tr(u8"SPK文件 (*.bsp);;所有文件 (*.*)"));
     spkFileLayout->addWidget(spkFileLabel);
     spkFileLayout->addWidget(filePathEdit_);
     mainLayout->addLayout(spkFileLayout);
@@ -124,8 +124,8 @@ void UiBodyEphemerisSPK::onFilePathChanged(const QString& path)
                 // 显示加载失败提示
                 QMessageBox::warning(
                     this,
-                    tr("加载失败"),
-                    tr("SPK文件加载失败，请检查文件是否存在且格式正确。"),
+                    tr(u8"加载失败"),
+                    tr(u8"SPK文件加载失败，请检查文件是否存在且格式正确。"),
                     QMessageBox::Ok
                 );
             }

@@ -58,7 +58,7 @@ void UiBurnImpulsive::setupUi()
 
     // 推力轴
     auto* axesRow = new QHBoxLayout();
-    axesRow->addWidget(new QLabel(tr("推力轴"), this));
+    axesRow->addWidget(new QLabel(tr(u8"推力轴"), this));
     thrustAxesCombo_ = new QComboBox(this);
     for (const auto* opt : kThrustAxesOptions)
         thrustAxesCombo_->addItem(QString::fromLatin1(opt));

@@ -66,7 +66,7 @@ UiQuantity::UiQuantity(QWidget* parent)
     : UiValueEdit(parent)
 {
     actionSwitchUnit_ = new QAction(cachedArrowIcon(), QString(), this);
-    actionSwitchUnit_->setToolTip(tr("切换单位"));
+    actionSwitchUnit_->setToolTip(tr(u8"切换单位"));
     addAction(actionSwitchUnit_, QLineEdit::TrailingPosition);
     connect(actionSwitchUnit_, &QAction::triggered, this, &UiQuantity::showUnitMenu);
 
@@ -161,7 +161,7 @@ void UiQuantity::showUnitMenu()
     QMenu menu(this);
     if (units.empty())
     {
-        QAction* emptyAction = menu.addAction(tr("(无可用单位)"));
+        QAction* emptyAction = menu.addAction(tr(u8"(无可用单位)"));
         emptyAction->setEnabled(false);
     }
     else
@@ -199,9 +199,9 @@ void UiQuantity::updateQuantity()
     errc_t rc = aQuantityParse(text.toUtf8().data(), newQuantity);
     if(rc){
         aError("failed to parse quantity: %s", text.toUtf8().data());
-        setError(tr("数量值格式错误或者单位不支持"));
+        setError(tr(u8"数量值格式错误或者单位不支持"));
     }else if(dimensionLocked_ && this->dimension() != newQuantity.dimension()){
-        setError(tr("量纲不匹配，期望的量纲为 %1")
+        setError(tr(u8"量纲不匹配，期望的量纲为 %1")
             .arg(QString::fromStdString(this->dimension().symbol())));
     }else{
         currentQuantity_ = newQuantity;

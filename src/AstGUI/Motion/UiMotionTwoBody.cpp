@@ -58,7 +58,7 @@ UiMotionTwoBody::UiMotionTwoBody(QWidget *parent)
     
     // 时间区间
     timeIntervalLayout_ = new QHBoxLayout();
-    timeIntervalLabel_ = new QLabel(tr("时间区间"), this);
+    timeIntervalLabel_ = new QLabel(tr(u8"时间区间"), this);
     timeIntervalEdit_ = new UiTimeInterval(this);
     timeIntervalLayout_->addWidget(timeIntervalLabel_);
     timeIntervalLayout_->addWidget(timeIntervalEdit_);
@@ -66,7 +66,7 @@ UiMotionTwoBody::UiMotionTwoBody(QWidget *parent)
     
     // 仿真步长
     stepSizeLayout_ = new QHBoxLayout();
-    stepSizeLabel_ = new QLabel(tr("仿真步长"), this);
+    stepSizeLabel_ = new QLabel(tr(u8"仿真步长"), this);
     stepSizeEdit_ = new UiQuantity(this);
     stepSizeEdit_->setDimension(Dimension::Time());
     stepSizeLayout_->addWidget(stepSizeLabel_);
@@ -75,7 +75,7 @@ UiMotionTwoBody::UiMotionTwoBody(QWidget *parent)
     
     // 预报系
     propagationFrameLayout_ = new QHBoxLayout();
-    propagationFrameLabel_ = new QLabel(tr("预报系"), this);
+    propagationFrameLabel_ = new QLabel(tr(u8"预报系"), this);
     propagationFrameCombo_ = new QComboBox(this);
     propagationFrameCombo_->addItem(tr("ICRF"));
     propagationFrameLayout_->addWidget(propagationFrameLabel_);
@@ -84,10 +84,10 @@ UiMotionTwoBody::UiMotionTwoBody(QWidget *parent)
     
     // 坐标类型
     stateTypeLayout_ = new QHBoxLayout();
-    stateTypeLabel_ = new QLabel(tr("坐标类型"), this);
+    stateTypeLabel_ = new QLabel(tr(u8"坐标类型"), this);
     stateTypeCombo_ = new QComboBox(this);
-    stateTypeCombo_->addItem(tr("直角坐标"), static_cast<int>(EStateType::eCartesian));
-    stateTypeCombo_->addItem(tr("开普勒根数"), static_cast<int>(EStateType::eKeplerian));
+    stateTypeCombo_->addItem(tr(u8"直角坐标"), static_cast<int>(EStateType::eCartesian));
+    stateTypeCombo_->addItem(tr(u8"开普勒根数"), static_cast<int>(EStateType::eKeplerian));
 
     stateTypeLayout_->addWidget(stateTypeLabel_);
     stateTypeLayout_->addWidget(stateTypeCombo_);
