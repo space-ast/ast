@@ -37,7 +37,7 @@ UiFilePath::UiFilePath(QWidget* parent)
     lineEdit_ = new UiValueEdit(this);
     
     // 创建浏览按钮
-    QPushButton* browseButton = new QPushButton(tr(u8"浏览"), this);
+    QPushButton* browseButton = new QPushButton(tr("浏览"), this);
     browseButton->setFixedWidth(60);
     
     // 将输入框和按钮添加到布局
@@ -83,9 +83,9 @@ void UiFilePath::onBrowse()
 {
     QString fileName = QFileDialog::getOpenFileName(
         this,
-        tr(u8"选择文件"),
+        tr("选择文件"),
         currentPath_,
-        filter_.isEmpty() ? tr(u8"所有文件 (*.*)") : filter_
+        filter_.isEmpty() ? tr("所有文件 (*.*)") : filter_
     );
     
     if (!fileName.isEmpty())

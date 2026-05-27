@@ -91,15 +91,15 @@ void UiResultView::setProgress(int current, int total)
 {
     progressBar_->setRange(0, total);
     progressBar_->setValue(current);
-    progressLabel_->setText(tr("Run %1 / %2").arg(current).arg(total));
+    progressLabel_->setText(tr("运行 %1 / %2").arg(current).arg(total));
 }
 
 void UiResultView::setElapsedTime(double seconds)
 {
     if (seconds < 60.0)
-        timeLabel_->setText(tr("Elapsed: %1 s").arg(seconds, 0, 'f', 1));
+        timeLabel_->setText(tr("运行时间: %1 s").arg(seconds, 0, 'f', 1));
     else
-        timeLabel_->setText(tr("Elapsed: %1 min").arg(seconds / 60.0, 0, 'f', 1));
+        timeLabel_->setText(tr("运行时间: %1 min").arg(seconds / 60.0, 0, 'f', 1));
 }
 
 AST_NAMESPACE_END

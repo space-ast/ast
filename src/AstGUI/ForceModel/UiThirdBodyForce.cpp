@@ -31,12 +31,12 @@ void UiThirdBodyForce::setupUi()
     
     // 基本信息
     thirdBodyLayout_ = new QHBoxLayout();
-    thirdBodyLabel_ = new QLabel(tr(u8"三体:"), this);
+    thirdBodyLabel_ = new QLabel(tr("三体:"), this);
     thirdBodyCombo_ = new QComboBox(this);
-    modeLabel_ = new QLabel(tr(u8"模式:"), this);
+    modeLabel_ = new QLabel(tr("模式:"), this);
     modeCombo_ = new QComboBox(this);
-    modeCombo_->addItem(tr(u8"引力场"));
-    modeCombo_->addItem(tr(u8"点质量"));
+    modeCombo_->addItem(tr("引力场"));
+    modeCombo_->addItem(tr("点质量"));
     thirdBodyLayout_->addWidget(thirdBodyLabel_);
     thirdBodyLayout_->addWidget(thirdBodyCombo_);
     thirdBodyLayout_->addWidget(modeLabel_);
@@ -45,7 +45,7 @@ void UiThirdBodyForce::setupUi()
     
     // 星历来源
     ephemerisLayout_ = new QHBoxLayout();
-    ephemerisLabel_ = new QLabel(tr(u8"星历来源:"), this);
+    ephemerisLabel_ = new QLabel(tr("星历来源:"), this);
     ephemerisCombo_ = new QComboBox(this);
     ephemerisLayout_->addWidget(ephemerisLabel_);
     ephemerisLayout_->addWidget(ephemerisCombo_);
@@ -175,9 +175,9 @@ void UiThirdBodyForce::applyTo(ThirdBodyForce* thirdBody)
 void UiThirdBodyForce::refreshEphemerisSource()
 {
     ephemerisCombo_->clear();
-    ephemerisCombo_->addItem(tr(u8"SPICE 天体中心"));
+    ephemerisCombo_->addItem(tr("SPICE 天体中心"));
     ephemerisCombo_->addItem("JPL DE");
-    ephemerisCombo_->addItem(tr(u8"天体"));
+    ephemerisCombo_->addItem(tr("天体"));
 }
 
 void UiThirdBodyForce::refreshAttractionType()

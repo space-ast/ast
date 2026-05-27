@@ -158,18 +158,18 @@ void UiMissionTree::contextMenuEvent(QContextMenuEvent* event)
 
     QMenu menu(this);
 
-    QAction* addInitState  = menu.addAction(missionIcon("InitialState"),       tr("Add Initial State"));
-    QAction* addPropagate  = menu.addAction(missionIcon("Propagate"),          tr("Add Propagate"));
-    QAction* addManeuver   = menu.addAction(missionIcon("Maneuver"),           tr("Add Maneuver"));
-    QAction* addSequence   = menu.addAction(missionIcon("Sequence"),           tr("Add Sequence"));
-    QAction* addTargetSeq  = menu.addAction(missionIcon("TargeterSequence"),   tr("Add Targeter Sequence"));
+    QAction* addInitState  = menu.addAction(missionIcon("InitialState"),       tr("添加初始状态"));
+    QAction* addPropagate  = menu.addAction(missionIcon("Propagate"),          tr("添加预报段"));
+    QAction* addManeuver   = menu.addAction(missionIcon("Maneuver"),           tr("添加机动段"));
+    QAction* addSequence   = menu.addAction(missionIcon("Sequence"),           tr("添加序列段"));
+    QAction* addTargetSeq  = menu.addAction(missionIcon("TargeterSequence"),   tr("添加瞄准序列段"));
     A_UNUSED(addInitState);
     A_UNUSED(addPropagate);
     A_UNUSED(addManeuver);
     A_UNUSED(addSequence);
     A_UNUSED(addTargetSeq);
     menu.addSeparator();
-    QAction* delAction = menu.addAction(tr("Delete"));
+    QAction* delAction = menu.addAction(tr("删除"));
     delAction->setEnabled(item && item->ptr() != nullptr);
 
     // 根 Sequence 不可删除

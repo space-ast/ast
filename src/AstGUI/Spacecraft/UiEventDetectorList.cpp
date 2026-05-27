@@ -117,7 +117,7 @@ void UiEventDetectorList::setupUi()
 
     // 表头
     QStringList headers;
-    headers << tr(u8"激活") << tr(u8"名称") << tr(u8"类型");
+    headers << tr("激活") << tr("名称") << tr("类型");
     table_->setHorizontalHeaderLabels(headers);
     table_->setColumnWidth(kColActive, 70);
     table_->setColumnWidth(kColName, 240);
@@ -132,14 +132,14 @@ void UiEventDetectorList::setupUi()
     auto* btnLayout = new QHBoxLayout();
     btnLayout->setContentsMargins(0, 4, 0, 0);
 
-    addBtn_ = new QPushButton(tr(u8"+ 添加"), this);
+    addBtn_ = new QPushButton(tr("+ 添加"), this);
     auto* addMenu = new QMenu(this);
     for (const auto& info : kDetectorTypes)
         addMenu->addAction(QString::fromUtf8(info.displayName))->setData(QString::fromUtf8(info.className));
     addBtn_->setMenu(addMenu);
     btnLayout->addWidget(addBtn_);
 
-    removeBtn_ = new QPushButton(tr(u8"- 删除"), this);
+    removeBtn_ = new QPushButton(tr("- 删除"), this);
     removeBtn_->setEnabled(false);
     btnLayout->addWidget(removeBtn_);
 

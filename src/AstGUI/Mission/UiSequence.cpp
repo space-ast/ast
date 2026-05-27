@@ -51,7 +51,7 @@ void UiSequence::setupUi()
     layout->setContentsMargins(0, 0, 0, 0);
 
     auto* repeatLayout = new QHBoxLayout();
-    repeatLayout->addWidget(new QLabel(tr(u8"重复次数"), this));
+    repeatLayout->addWidget(new QLabel(tr("重复次数"), this));
     repeatCountSpin_ = new QSpinBox(this);
     repeatCountSpin_->setRange(1, 9999);
     repeatCountSpin_->setValue(1);
@@ -110,7 +110,7 @@ void UiTargeterSequence::setupUi()
     layout->setContentsMargins(0, 0, 0, 0);
 
     auto* repeatLayout = new QHBoxLayout();
-    repeatLayout->addWidget(new QLabel(tr(u8"重复次数"), this));
+    repeatLayout->addWidget(new QLabel(tr("重复次数"), this));
     repeatCountSpin_ = new QSpinBox(this);
     repeatCountSpin_->setRange(1, 9999);
     repeatCountSpin_->setValue(1);
@@ -118,7 +118,7 @@ void UiTargeterSequence::setupUi()
     layout->addLayout(repeatLayout);
 
     auto* iterLayout = new QHBoxLayout();
-    iterLayout->addWidget(new QLabel(tr(u8"最大迭代次数"), this));
+    iterLayout->addWidget(new QLabel(tr("最大迭代次数"), this));
     maxIterSpin_ = new QSpinBox(this);
     maxIterSpin_->setRange(1, 9999);
     maxIterSpin_->setValue(50);

@@ -29,7 +29,7 @@ void UiPointMassForce::setupUi()
     
     // 引力常数来源
     gmSourceLayout_ = new QHBoxLayout();
-    gmSourceLabel_ = new QLabel(tr(u8"引力常数来源:"), this);
+    gmSourceLabel_ = new QLabel(tr("引力常数来源:"), this);
     gmSourceCombo_ = new QComboBox(this);
     gmSourceLayout_->addWidget(gmSourceLabel_);
     gmSourceLayout_->addWidget(gmSourceCombo_);
@@ -37,7 +37,7 @@ void UiPointMassForce::setupUi()
     
     // 指定引力常数
     specifiedGMLayout_ = new QHBoxLayout();
-    specifiedGMLabel_ = new QLabel(tr(u8"指定引力常数:"), this);
+    specifiedGMLabel_ = new QLabel(tr("指定引力常数:"), this);
     specifiedGMEdit_ = new UiQuantity(this);
     specifiedGMEdit_->setDimension(Dimension::Volume() / Dimension::Time().pow(2));
     specifiedGMLayout_->addWidget(specifiedGMLabel_);
@@ -104,9 +104,9 @@ void UiPointMassForce::applyTo(PointMassForce* pointMass)
 void UiPointMassForce::refreshGMSource()
 {
     gmSourceCombo_->clear();
-    gmSourceCombo_->addItem(tr(u8"来自天体重力场"));
-    gmSourceCombo_->addItem(tr(u8"来自JPL DE文件"));
-    gmSourceCombo_->addItem(tr(u8"用户指定的引力常数"));
+    gmSourceCombo_->addItem(tr("来自天体重力场"));
+    gmSourceCombo_->addItem(tr("来自JPL DE文件"));
+    gmSourceCombo_->addItem(tr("用户指定的引力常数"));
 }
 
 void UiPointMassForce::onGMSourceChanged(int index)

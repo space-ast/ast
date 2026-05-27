@@ -60,9 +60,9 @@ void UiEventDetector::setupUi()
     repeatCountEdit_->setValue(1);
 
     directionCombo_ = new QComboBox(this);
-    directionCombo_->addItem(tr(u8"任意"), static_cast<int>(EventDetector::EDirection::eBoth));
-    directionCombo_->addItem(tr(u8"递增"), static_cast<int>(EventDetector::EDirection::eIncrease));
-    directionCombo_->addItem(tr(u8"递减"), static_cast<int>(EventDetector::EDirection::eDecrease));
+    directionCombo_->addItem(tr("任意"), static_cast<int>(EventDetector::EDirection::eBoth));
+    directionCombo_->addItem(tr("递增"), static_cast<int>(EventDetector::EDirection::eIncrease));
+    directionCombo_->addItem(tr("递减"), static_cast<int>(EventDetector::EDirection::eDecrease));
 
     thresholdEdit_ = new UiQuantity(this);
     thresholdEdit_->setQuantity(Quantity(1e-10));
@@ -70,13 +70,13 @@ void UiEventDetector::setupUi()
     goalEdit_ = new UiQuantity(this);
     goalEdit_->setQuantity(Quantity(0.0));
 
-    grid->addWidget(new QLabel(tr(u8"触发值"), this), 0, 0);
+    grid->addWidget(new QLabel(tr("触发值"), this), 0, 0);
     grid->addWidget(goalEdit_, 0, 1);
-    grid->addWidget(new QLabel(tr(u8"触发方向"), this), 0, 2);
+    grid->addWidget(new QLabel(tr("触发方向"), this), 0, 2);
     grid->addWidget(directionCombo_, 0, 3);
-    grid->addWidget(new QLabel(tr(u8"重复次数"), this), 1, 0);
+    grid->addWidget(new QLabel(tr("重复次数"), this), 1, 0);
     grid->addWidget(repeatCountEdit_, 1, 1);
-    grid->addWidget(new QLabel(tr(u8"收敛阈值"), this), 1, 2);
+    grid->addWidget(new QLabel(tr("收敛阈值"), this), 1, 2);
     grid->addWidget(thresholdEdit_, 1, 3);
 
     layout->addLayout(grid);

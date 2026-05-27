@@ -28,7 +28,7 @@
 AST_NAMESPACE_BEGIN
 
 UiAnalyzerPanel::UiAnalyzerPanel(QWidget* parent)
-    : QDockWidget(tr("Analyzer"), parent)
+    : QDockWidget(tr("分析器"), parent)
 {
     setObjectName("UiAnalyzerPanel");
     setMinimumWidth(300);
@@ -82,13 +82,13 @@ void UiAnalyzerPanel::setupUi()
 
 void UiAnalyzerPanel::setupToolBar()
 {
-    toolBar_ = new QToolBar(tr("Analysis"), this);
+    toolBar_ = new QToolBar(tr("分析器工具栏"), this);
 
-    runAction_ = toolBar_->addAction(tr("▶ Run"));
-    runAction_->setToolTip(tr("Start parameter sweep analysis"));
+    runAction_ = toolBar_->addAction(tr("▶ 运行"));
+    runAction_->setToolTip(tr("开始参数扫描分析"));
 
-    stopAction_ = toolBar_->addAction(tr("■ Stop"));
-    stopAction_->setToolTip(tr("Stop running analysis"));
+    stopAction_ = toolBar_->addAction(tr("■ 停止"));
+    stopAction_->setToolTip(tr("停止运行分析"));
     stopAction_->setEnabled(false);
 
     setTitleBarWidget(toolBar_);
@@ -143,8 +143,8 @@ void UiAnalyzerPanel::onRunClicked()
 {
     if (!analyzer_)
     {
-        QMessageBox::warning(this, tr("Analyzer"),
-                             tr("No analyzer configured. Please add variables and responses first."));
+        QMessageBox::warning(this, tr("分析器"),
+                             tr("未配置分析器，请先添加变量和响应。"));
         return;
     }
 

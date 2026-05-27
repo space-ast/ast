@@ -50,7 +50,7 @@ void UiFuelTank::setupUi()
 
     // Tank Pressure
     auto* pressureLayout = new QHBoxLayout();
-    pressureLayout->addWidget(new QLabel(tr(u8"储罐压力"), this));
+    pressureLayout->addWidget(new QLabel(tr("储罐压力"), this));
     tankPressureEdit_ = new UiQuantity(this);
     tankPressureEdit_->setQuantity(Quantity(5000, units::Pa));
     tankPressureEdit_->setFixedWidth(180);
@@ -59,7 +59,7 @@ void UiFuelTank::setupUi()
 
     // Tank Temperature
     auto* tempLayout = new QHBoxLayout();
-    tempLayout->addWidget(new QLabel(tr(u8"储罐温度"), this));
+    tempLayout->addWidget(new QLabel(tr("储罐温度"), this));
     tankTemperatureEdit_ = new UiQuantity(this);
     tankTemperatureEdit_->setQuantity(Quantity(293.15, units::K));
     tankTemperatureEdit_->setFixedWidth(180);
@@ -68,7 +68,7 @@ void UiFuelTank::setupUi()
 
     // Fuel Density
     auto* densityLayout = new QHBoxLayout();
-    densityLayout->addWidget(new QLabel(tr(u8"燃料密度"), this));
+    densityLayout->addWidget(new QLabel(tr("燃料密度"), this));
     fuelDensityEdit_ = new UiQuantity(this);
     fuelDensityEdit_->setQuantity(Quantity(1000, units::kg / (units::m * units::m * units::m)));
     fuelDensityEdit_->setFixedWidth(180);
@@ -77,7 +77,7 @@ void UiFuelTank::setupUi()
 
     // Fuel Mass
     auto* fuelMassLayout = new QHBoxLayout();
-    fuelMassLayout->addWidget(new QLabel(tr(u8"燃料质量"), this));
+    fuelMassLayout->addWidget(new QLabel(tr("燃料质量"), this));
     fuelMassEdit_ = new UiQuantity(this);
     fuelMassEdit_->setQuantity(Quantity(500, units::kg));
     fuelMassEdit_->setFixedWidth(180);

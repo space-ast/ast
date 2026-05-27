@@ -120,6 +120,11 @@
 #   define aText(x) (u8 ## x)
 #endif
 
+#if defined(AST_BUILD_LIB) && defined(_MSC_VER)
+// 编译时指定代码内的字符串使用utf-8编码
+#   pragma execution_character_set("utf-8")
+#endif
+
 
 // ast项目脚本模块导出声明
 #ifdef AST_BUILD_LIB_SCRIPT

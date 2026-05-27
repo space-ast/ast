@@ -65,8 +65,8 @@ QString UiExpressionBrowser::getExpression(QWidget* parent)
 {
     if (ObjectManager::CurrentInstance().getAllObjects().empty())
     {
-        QMessageBox::information(parent, QObject::tr("Browse Expression"),
-                                 QObject::tr("No objects available."));
+        QMessageBox::information(parent, QObject::tr("选择表达式"),
+                                 QObject::tr("暂无对象"));
         return {};
     }
 
@@ -78,7 +78,7 @@ QString UiExpressionBrowser::getExpression(QWidget* parent)
 
 void UiExpressionBrowser::setupUi()
 {
-    setWindowTitle(tr("Select Expression"));
+    setWindowTitle(tr("选择表达式"));
     resize(850, 720);
 
     auto* rootLayout = new QVBoxLayout(this);
@@ -89,7 +89,7 @@ void UiExpressionBrowser::setupUi()
     auto* objectPanel = new QWidget(splitter);
     auto* objectLayout = new QVBoxLayout(objectPanel);
     objectLayout->setContentsMargins(0, 0, 0, 0);
-    objectLayout->addWidget(new QLabel(tr("Objects"), objectPanel));
+    objectLayout->addWidget(new QLabel(tr("对象"), objectPanel));
     objectTree_ = new UiObjectTree(objectPanel);
     objectTree_->setMinimumWidth(230);
     objectLayout->addWidget(objectTree_);
@@ -99,32 +99,32 @@ void UiExpressionBrowser::setupUi()
     auto* expressionLayout = new QVBoxLayout(expressionPanel);
     expressionLayout->setContentsMargins(0, 0, 0, 0);
 
-    auto* propertyGroup = new QGroupBox(tr("Property Variables"), expressionPanel);
+    auto* propertyGroup = new QGroupBox(tr("对象属性"), expressionPanel);
     auto* propertyLayout = new QHBoxLayout(propertyGroup);
     propertyTree_ = new QTreeWidget(propertyGroup);
     propertyTree_->setHeaderHidden(true);
     propertyTree_->setSelectionMode(QAbstractItemView::SingleSelection);
     propertyTree_->setEditTriggers(QAbstractItemView::NoEditTriggers);
     propertyTree_->header()->setStretchLastSection(true);
-    propertySelectButton_ = new QPushButton(tr("→"), propertyGroup);
+    propertySelectButton_ = new QPushButton(("→"), propertyGroup);
     propertySelectButton_->setEnabled(false);
     propertySelectButton_->setFixedWidth(34);
-    propertySelectButton_->setToolTip(tr("Select property expression"));
+    propertySelectButton_->setToolTip(tr("选择对象属性"));
     propertyLayout->addWidget(propertyTree_);
     propertyLayout->addWidget(propertySelectButton_);
     expressionLayout->addWidget(propertyGroup, 1);
 
-    auto* calculationGroup = new QGroupBox(tr(u8"Object Calculation(对象计算量)"), expressionPanel);
+    auto* calculationGroup = new QGroupBox(tr("对象计算量"), expressionPanel);
     auto* calculationLayout = new QHBoxLayout(calculationGroup);
     calculationTree_ = new QTreeWidget(calculationGroup);
     calculationTree_->setHeaderHidden(true);
     calculationTree_->setSelectionMode(QAbstractItemView::SingleSelection);
     calculationTree_->setEditTriggers(QAbstractItemView::NoEditTriggers);
     calculationTree_->header()->setStretchLastSection(true);
-    calculationSelectButton_ = new QPushButton(tr("→"), calculationGroup);
+    calculationSelectButton_ = new QPushButton(("→"), calculationGroup);
     calculationSelectButton_->setEnabled(false);
     calculationSelectButton_->setFixedWidth(34);
-    calculationSelectButton_->setToolTip(tr("Select object calculation expression"));
+    calculationSelectButton_->setToolTip(tr("选择对象计算量"));
     calculationLayout->addWidget(calculationTree_);
     calculationLayout->addWidget(calculationSelectButton_);
     expressionLayout->addWidget(calculationGroup, 1);

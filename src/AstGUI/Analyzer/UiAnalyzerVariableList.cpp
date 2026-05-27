@@ -29,7 +29,7 @@ void UiAnalyzerVariableList::setupUi()
     listWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
     layout_->addWidget(listWidget_);
 
-    addButton_ = new QPushButton(tr("+ Add Variable"), this);
+    addButton_ = new QPushButton(tr("+ 添加变量"), this);
     layout_->addWidget(addButton_);
 
     connect(listWidget_, &QListWidget::currentItemChanged,

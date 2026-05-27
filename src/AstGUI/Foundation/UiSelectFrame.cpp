@@ -54,7 +54,7 @@ void UiSelectFrame::setupUi()
 
     // 左侧：天体列表
     auto* leftLayout = new QVBoxLayout();
-    leftLayout->addWidget(new QLabel(tr(u8"天体"), this));
+    leftLayout->addWidget(new QLabel(tr("天体"), this));
     bodyList_ = new QListWidget(this);
     bodyList_->setMinimumWidth(130);
     leftLayout->addWidget(bodyList_);
@@ -62,7 +62,7 @@ void UiSelectFrame::setupUi()
 
     // 右侧：坐标系列表
     auto* rightLayout = new QVBoxLayout();
-    rightLayout->addWidget(new QLabel(tr(u8"坐标系"), this));
+    rightLayout->addWidget(new QLabel(tr("坐标系"), this));
     frameList_ = new QListWidget(this);
     frameList_->setMinimumWidth(180);
     rightLayout->addWidget(frameList_);
@@ -281,7 +281,7 @@ void UiSelectFrame::resolveAndEmit()
 Frame* aUiSelectFrame()
 {
     QDialog dlg;
-    dlg.setWindowTitle(QObject::tr(u8"选择坐标系"));
+    dlg.setWindowTitle(QObject::tr("选择坐标系"));
     auto* layout = new QVBoxLayout(&dlg);
 
     auto* frameSelect = new UiSelectFrame(&dlg);

@@ -51,20 +51,20 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     int row = 0;
     
     // 轨道历元
-    QLabel* epochLabel = new QLabel(tr(u8"轨道历元"), this);
+    QLabel* epochLabel = new QLabel(tr("轨道历元"), this);
     epochEdit_ = new UiTimePoint(this);
     mainLayout->addWidget(epochLabel, row, 0);
     mainLayout->addWidget(epochEdit_, row, 2);
     row++;
     
     // 坐标系
-    QLabel* frameLabel = new QLabel(tr(u8"坐标系"), this);
+    QLabel* frameLabel = new QLabel(tr("坐标系"), this);
     frameEdit_ = new QLineEdit(this);
     frameEdit_->setReadOnly(true);
-    frameEdit_->setText(tr("ICRF"));
-    frameSelectBtn_ = new QPushButton(tr("..."), this);
+    frameEdit_->setText(("ICRF"));
+    frameSelectBtn_ = new QPushButton(("..."), this);
     frameSelectBtn_->setFixedWidth(30);
-    frameSelectBtn_->setToolTip(tr(u8"选择坐标系 (天体 + 类型)"));
+    frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
     auto* frameWidget = new QWidget(this);
     frameWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     auto* frameBar = new QHBoxLayout(frameWidget);
@@ -76,15 +76,15 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     row++;
     
     // 轨道大小
-    sizeLabel_ = new QLabel(tr(u8"轨道大小"), this);
+    sizeLabel_ = new QLabel(tr("轨道大小"), this);
     sizeTypeCombo_ = new QComboBox(this);
-    sizeTypeCombo_->addItem(tr(u8"半长轴"), static_cast<int>(ESizeType::eSMA));
-    sizeTypeCombo_->addItem(tr(u8"远地点高度"), static_cast<int>(ESizeType::eApoAlt));
-    sizeTypeCombo_->addItem(tr(u8"远地点半径"), static_cast<int>(ESizeType::eApoRad));
-    sizeTypeCombo_->addItem(tr(u8"近地点高度"), static_cast<int>(ESizeType::ePeriAlt));
-    sizeTypeCombo_->addItem(tr(u8"近地点半径"), static_cast<int>(ESizeType::ePeriRad));
-    sizeTypeCombo_->addItem(tr(u8"周期"), static_cast<int>(ESizeType::ePeriod));
-    sizeTypeCombo_->addItem(tr(u8"平均角速度"), static_cast<int>(ESizeType::eMeanMotion));
+    sizeTypeCombo_->addItem(tr("半长轴"), static_cast<int>(ESizeType::eSMA));
+    sizeTypeCombo_->addItem(tr("远地点高度"), static_cast<int>(ESizeType::eApoAlt));
+    sizeTypeCombo_->addItem(tr("远地点半径"), static_cast<int>(ESizeType::eApoRad));
+    sizeTypeCombo_->addItem(tr("近地点高度"), static_cast<int>(ESizeType::ePeriAlt));
+    sizeTypeCombo_->addItem(tr("近地点半径"), static_cast<int>(ESizeType::ePeriRad));
+    sizeTypeCombo_->addItem(tr("周期"), static_cast<int>(ESizeType::ePeriod));
+    sizeTypeCombo_->addItem(tr("平均角速度"), static_cast<int>(ESizeType::eMeanMotion));
 
     sizeEdit_ = new UiQuantity(this);
     sizeEdit_->setDimension(Dimension::Length());
@@ -94,13 +94,13 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     row++;
     
     // 轨道形状
-    shapeLabel_ = new QLabel(tr(u8"轨道形状"), this);
+    shapeLabel_ = new QLabel(tr("轨道形状"), this);
     shapeTypeCombo_ = new QComboBox(this);
-    shapeTypeCombo_->addItem(tr(u8"偏心率"), static_cast<int>(EShapeType::eEcc));
-    shapeTypeCombo_->addItem(tr(u8"远地点高度"), static_cast<int>(EShapeType::eApoAlt));
-    shapeTypeCombo_->addItem(tr(u8"远地点半径"), static_cast<int>(EShapeType::eApoRad));
-    shapeTypeCombo_->addItem(tr(u8"近地点高度"), static_cast<int>(EShapeType::ePeriAlt));
-    shapeTypeCombo_->addItem(tr(u8"近地点半径"), static_cast<int>(EShapeType::ePeriRad));
+    shapeTypeCombo_->addItem(tr("偏心率"), static_cast<int>(EShapeType::eEcc));
+    shapeTypeCombo_->addItem(tr("远地点高度"), static_cast<int>(EShapeType::eApoAlt));
+    shapeTypeCombo_->addItem(tr("远地点半径"), static_cast<int>(EShapeType::eApoRad));
+    shapeTypeCombo_->addItem(tr("近地点高度"), static_cast<int>(EShapeType::ePeriAlt));
+    shapeTypeCombo_->addItem(tr("近地点半径"), static_cast<int>(EShapeType::ePeriRad));
 
     shapeEdit_ = new UiQuantity(this);
     shapeEdit_->setDimension(Dimension::Unit());
@@ -110,7 +110,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     row++;
     
     // 倾角
-    incLabel_ = new QLabel(tr(u8"倾角"), this);
+    incLabel_ = new QLabel(tr("倾角"), this);
     incEdit_ = new UiQuantity(this);
     incEdit_->setDimension(Dimension::Angle());
     mainLayout->addWidget(incLabel_, row, 0);
@@ -118,10 +118,10 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     row++;
     
     // 轨道面方向
-    orientationLabel_ = new QLabel(tr(u8"轨道面方向"), this);
+    orientationLabel_ = new QLabel(tr("轨道面方向"), this);
     orientationTypeCombo_ = new QComboBox(this);
-    orientationTypeCombo_->addItem(tr(u8"升交点赤经"), static_cast<int>(EOrientationType::eRAAN));
-    orientationTypeCombo_->addItem(tr(u8"升交点经度"), static_cast<int>(EOrientationType::eLAN));
+    orientationTypeCombo_->addItem(tr("升交点赤经"), static_cast<int>(EOrientationType::eRAAN));
+    orientationTypeCombo_->addItem(tr("升交点经度"), static_cast<int>(EOrientationType::eLAN));
     
     orientationEdit_ = new UiQuantity(this);
     orientationEdit_->setDimension(Dimension::Angle());
@@ -131,7 +131,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     row++;
     
     // 近地点幅角
-    argPeriLabel_ = new QLabel(tr(u8"近地点幅角"), this);
+    argPeriLabel_ = new QLabel(tr("近地点幅角"), this);
     argPeriEdit_ = new UiQuantity(this);
     argPeriEdit_->setDimension(Dimension::Angle());
     mainLayout->addWidget(argPeriLabel_, row, 0);
@@ -139,16 +139,16 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     row++;
     
     // 轨道位置
-    positionLabel_ = new QLabel(tr(u8"轨道位置"), this);
+    positionLabel_ = new QLabel(tr("轨道位置"), this);
     positionTypeCombo_ = new QComboBox(this);
-    positionTypeCombo_->addItem(tr(u8"真近点角"), static_cast<int>(EPositionType::eTrueAnomaly));
-    positionTypeCombo_->addItem(tr(u8"平近点角"), static_cast<int>(EPositionType::eMeanAnomaly));
-    positionTypeCombo_->addItem(tr(u8"偏近点角"), static_cast<int>(EPositionType::eEccAnomaly));
-    positionTypeCombo_->addItem(tr(u8"纬度幅角"), static_cast<int>(EPositionType::eArgLat));
-    positionTypeCombo_->addItem(tr(u8"过近地点后时间"), static_cast<int>(EPositionType::eTimePastPeri));
-    positionTypeCombo_->addItem(tr(u8"过升交点后时间"), static_cast<int>(EPositionType::eTimePastAscNode));
-    // positionTypeCombo_->addItem(tr(u8"过近地点时刻"), static_cast<int>(EPositionType::eTimeOfPeriPassage));
-    // positionTypeCombo_->addItem(tr(u8"过升交点时刻"), static_cast<int>(EPositionType::eTimeOfAscNodePassage));
+    positionTypeCombo_->addItem(tr("真近点角"), static_cast<int>(EPositionType::eTrueAnomaly));
+    positionTypeCombo_->addItem(tr("平近点角"), static_cast<int>(EPositionType::eMeanAnomaly));
+    positionTypeCombo_->addItem(tr("偏近点角"), static_cast<int>(EPositionType::eEccAnomaly));
+    positionTypeCombo_->addItem(tr("纬度幅角"), static_cast<int>(EPositionType::eArgLat));
+    positionTypeCombo_->addItem(tr("过近地点后时间"), static_cast<int>(EPositionType::eTimePastPeri));
+    positionTypeCombo_->addItem(tr("过升交点后时间"), static_cast<int>(EPositionType::eTimePastAscNode));
+    // positionTypeCombo_->addItem(tr("过近地点时刻"), static_cast<int>(EPositionType::eTimeOfPeriPassage));
+    // positionTypeCombo_->addItem(tr("过升交点时刻"), static_cast<int>(EPositionType::eTimeOfAscNodePassage));
 
     positionEdit_ = new UiQuantity(this);
     positionEdit_->setDimension(Dimension::Angle());

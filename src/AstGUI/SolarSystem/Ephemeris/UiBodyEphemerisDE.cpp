@@ -40,7 +40,7 @@ UiBodyEphemerisDE::UiBodyEphemerisDE(QWidget *parent) : UiObject(parent)
     
     // JPL索引
     QHBoxLayout* jplIndexLayout = new QHBoxLayout();
-    QLabel* jplIndexLabel = new QLabel(tr(u8"JPL索引"), this);
+    QLabel* jplIndexLabel = new QLabel(tr("JPL索引"), this);
     jplIndexEdit_ = new UiInteger(this);
     jplIndexEdit_->setValue(0);
     jplIndexLayout->addWidget(jplIndexLabel);

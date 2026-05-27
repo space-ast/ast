@@ -60,15 +60,15 @@ void UiInitialState::setupUi()
     // 标签页1: 轨道参数
     auto* elementsTab = new QWidget();
     setupElementsTab(elementsTab);
-    tabWidget_->addTab(elementsTab, tr(u8"轨道参数"));
+    tabWidget_->addTab(elementsTab, tr("轨道参数"));
 
     // 标签页2: 航天器参数
     scParamsEditor_ = new UiSpacecraftParams();
-    tabWidget_->addTab(scParamsEditor_, tr(u8"航天器参数"));
+    tabWidget_->addTab(scParamsEditor_, tr("航天器参数"));
 
     // 标签页3: 燃料储罐
     fuelTankEditor_ = new UiFuelTank();
-    tabWidget_->addTab(fuelTankEditor_, tr(u8"燃料储罐"));
+    tabWidget_->addTab(fuelTankEditor_, tr("燃料储罐"));
 
     layout->addWidget(tabWidget_);
 }
@@ -80,10 +80,10 @@ void UiInitialState::setupElementsTab(QWidget* tab)
 
     // 状态类型选择
     auto* typeLayout = new QHBoxLayout();
-    typeLayout->addWidget(new QLabel(tr(u8"状态类型"), tab));
+    typeLayout->addWidget(new QLabel(tr("状态类型"), tab));
     stateTypeCombo_ = new QComboBox(tab);
-    stateTypeCombo_->addItem(tr(u8"笛卡尔 (Cartesian)"), static_cast<int>(EStateType::eCartesian));
-    stateTypeCombo_->addItem(tr(u8"开普勒 (Keplerian)"), static_cast<int>(EStateType::eKeplerian));
+    stateTypeCombo_->addItem(tr("笛卡尔 (Cartesian)"), static_cast<int>(EStateType::eCartesian));
+    stateTypeCombo_->addItem(tr("开普勒 (Keplerian)"), static_cast<int>(EStateType::eKeplerian));
     typeLayout->addWidget(stateTypeCombo_);
     layout->addLayout(typeLayout);
 

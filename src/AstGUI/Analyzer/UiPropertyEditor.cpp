@@ -30,26 +30,26 @@ void UiVariableEditor::setupUi()
     layout_ = new QFormLayout(this);
 
     nameEdit_ = new QLineEdit(this);
-    layout_->addRow(tr("Name:"), nameEdit_);
+    layout_->addRow(tr("名称"), nameEdit_);
 
     startValueSpin_ = new QDoubleSpinBox(this);
     startValueSpin_->setRange(-1e12, 1e12);
     startValueSpin_->setDecimals(6);
-    layout_->addRow(tr("Start:"), startValueSpin_);
+    layout_->addRow(tr("初始值"), startValueSpin_);
 
     endValueSpin_ = new QDoubleSpinBox(this);
     endValueSpin_->setRange(-1e12, 1e12);
     endValueSpin_->setDecimals(6);
-    layout_->addRow(tr("End:"), endValueSpin_);
+    layout_->addRow(tr("结束值"), endValueSpin_);
 
     stepSizeSpin_ = new QDoubleSpinBox(this);
     stepSizeSpin_->setRange(-1e12, 1e12);
     stepSizeSpin_->setDecimals(6);
-    layout_->addRow(tr("Step:"), stepSizeSpin_);
+    layout_->addRow(tr("步长"), stepSizeSpin_);
 
     exprEdit_ = new QLineEdit(this);
     exprEdit_->setPlaceholderText("e.g. state.sma");
-    layout_->addRow(tr("Expression:"), exprEdit_);
+    layout_->addRow(tr("表达式"), exprEdit_);
 }
 
 void UiVariableEditor::loadVariable(AnalyzerVariable* variable)
@@ -90,11 +90,11 @@ void UiResponseEditor::setupUi()
     layout_ = new QFormLayout(this);
 
     nameEdit_ = new QLineEdit(this);
-    layout_->addRow(tr("Name:"), nameEdit_);
+    layout_->addRow(tr("名称"), nameEdit_);
 
     exprEdit_ = new QLineEdit(this);
     exprEdit_->setPlaceholderText("e.g. state.altitude");
-    layout_->addRow(tr("Expression:"), exprEdit_);
+    layout_->addRow(tr("表达式"), exprEdit_);
 }
 
 void UiResponseEditor::loadResponse(AnalyzerConstraint* response)

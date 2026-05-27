@@ -132,20 +132,20 @@ QWidget* UiMainWindow::setupRibbon()
         return btn;
     };
 
-    addTb(QStyle::SP_MediaSkipBackward,  tr(u8"跳到起点"));
-    addTb(QStyle::SP_MediaSeekBackward,  tr(u8"后退"));
-    addTb(QStyle::SP_MediaPlay,           tr(u8"播放"));
-    addTb(QStyle::SP_MediaSeekForward,   tr(u8"前进"));
-    addTb(QStyle::SP_MediaSkipForward,   tr(u8"跳到终点"));
+    addTb(QStyle::SP_MediaSkipBackward,  tr("跳到起点"));
+    addTb(QStyle::SP_MediaSeekBackward,  tr("后退"));
+    addTb(QStyle::SP_MediaPlay,           tr("播放"));
+    addTb(QStyle::SP_MediaSeekForward,   tr("前进"));
+    addTb(QStyle::SP_MediaSkipForward,   tr("跳到终点"));
 
     timeLayout->addSpacing(12);
 
-    auto* epochLabel = new QLabel(tr(u8"当前历元: 2026-01-01 00:00:00.000 UTCG"), timeBar);
+    auto* epochLabel = new QLabel(tr("当前历元: 2026-01-01 00:00:00.000 UTCG"), timeBar);
     timeLayout->addWidget(epochLabel);
 
     timeLayout->addStretch();
 
-    auto* stepLabel = new QLabel(tr(u8"步长: 60 s"), timeBar);
+    auto* stepLabel = new QLabel(tr("步长: 60 s"), timeBar);
     timeLayout->addWidget(stepLabel);
 
     ribbonLayout->addWidget(timeBar);
@@ -188,33 +188,33 @@ QWidget* UiMainWindow::createRibbonPage(int index)
     switch (index)
     {
     case 0: // 开始
-        layout->addWidget(createRibbonButton(tr(u8"新建"),   QStringLiteral("Object"),     page));
-        layout->addWidget(createRibbonButton(tr(u8"打开"),   QString(),                    page));
-        layout->addWidget(createRibbonButton(tr(u8"保存"),   QString(),                    page));
+        layout->addWidget(createRibbonButton(tr("新建"),   QStringLiteral("Object"),     page));
+        layout->addWidget(createRibbonButton(tr("打开"),   QString(),                    page));
+        layout->addWidget(createRibbonButton(tr("保存"),   QString(),                    page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr(u8"场景"),   QStringLiteral("Object"),     page));
-        layout->addWidget(createRibbonButton(tr(u8"卫星"),   QStringLiteral("Satellite"),  page));
-        layout->addWidget(createRibbonButton(tr(u8"设施"),   QStringLiteral("Facility"),   page));
-        layout->addWidget(createRibbonButton(tr(u8"传感器"), QStringLiteral("Sensor"),     page));
+        layout->addWidget(createRibbonButton(tr("场景"),   QStringLiteral("Object"),     page));
+        layout->addWidget(createRibbonButton(tr("卫星"),   QStringLiteral("Satellite"),  page));
+        layout->addWidget(createRibbonButton(tr("设施"),   QStringLiteral("Facility"),   page));
+        layout->addWidget(createRibbonButton(tr("传感器"), QStringLiteral("Sensor"),     page));
         break;
 
     case 1: // 编辑
-        layout->addWidget(createRibbonButton(tr(u8"撤销"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"重做"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("撤销"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("重做"), QString(), page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr(u8"剪切"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"复制"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"粘贴"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("剪切"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("复制"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("粘贴"), QString(), page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr(u8"删除"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("删除"), QString(), page));
         break;
 
     case 2: // 视图
-        layout->addWidget(createRibbonButton(tr(u8"三维视图"), QStringLiteral("Body"), page));
-        layout->addWidget(createRibbonButton(tr(u8"二维视图"), QStringLiteral("Plane"), page));
+        layout->addWidget(createRibbonButton(tr("三维视图"), QStringLiteral("Body"), page));
+        layout->addWidget(createRibbonButton(tr("二维视图"), QStringLiteral("Plane"), page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr(u8"缩放"),     QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"适应窗口"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("缩放"),     QString(), page));
+        layout->addWidget(createRibbonButton(tr("适应窗口"), QString(), page));
 
         // 主题切换
         {
@@ -246,33 +246,33 @@ QWidget* UiMainWindow::createRibbonPage(int index)
         break;
 
     case 3: // 插入
-        layout->addWidget(createRibbonButton(tr(u8"航天器"), QStringLiteral("Spacecraft"),    page));
-        layout->addWidget(createRibbonButton(tr(u8"轨道"),   QStringLiteral("OrbitState"),     page));
-        layout->addWidget(createRibbonButton(tr(u8"机动"),   QStringLiteral("Maneuver"),       page));
-        layout->addWidget(createRibbonButton(tr(u8"序列"),   QStringLiteral("Sequence"),        page));
+        layout->addWidget(createRibbonButton(tr("航天器"), QStringLiteral("Spacecraft"),    page));
+        layout->addWidget(createRibbonButton(tr("轨道"),   QStringLiteral("OrbitState"),     page));
+        layout->addWidget(createRibbonButton(tr("机动"),   QStringLiteral("Maneuver"),       page));
+        layout->addWidget(createRibbonButton(tr("序列"),   QStringLiteral("Sequence"),        page));
         break;
 
     case 4: // 输出
-        layout->addWidget(createRibbonButton(tr(u8"报告"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"图表"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"导出"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("报告"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("图表"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("导出"), QString(), page));
         break;
 
     case 5: // 工具
-        layout->addWidget(createRibbonButton(tr(u8"传播"), QStringLiteral("Propagate"), page));
-        layout->addWidget(createRibbonButton(tr(u8"分析"), QString(),                  page));
-        layout->addWidget(createRibbonButton(tr(u8"设置"), QString(),                  page));
+        layout->addWidget(createRibbonButton(tr("传播"), QStringLiteral("Propagate"), page));
+        layout->addWidget(createRibbonButton(tr("分析"), QString(),                  page));
+        layout->addWidget(createRibbonButton(tr("设置"), QString(),                  page));
         break;
 
     case 6: // 集成
-        layout->addWidget(createRibbonButton(tr(u8"脚本"),     QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"外部工具"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"数据导入"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("脚本"),     QString(), page));
+        layout->addWidget(createRibbonButton(tr("外部工具"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("数据导入"), QString(), page));
         break;
 
     case 7: // 关于
-        layout->addWidget(createRibbonButton(tr(u8"帮助"), QString(), page));
-        layout->addWidget(createRibbonButton(tr(u8"关于"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("帮助"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("关于"), QString(), page));
         break;
     }
 
@@ -291,7 +291,7 @@ void UiMainWindow::setupCentralCanvas()
     canvasFrame_->setFrameShape(QFrame::NoFrame);
 
     auto* layout = new QHBoxLayout(canvasFrame_);
-    auto* hint = new QLabel(tr(u8"3D / 2D 场景视图"), canvasFrame_);
+    auto* hint = new QLabel(tr("3D / 2D 场景视图"), canvasFrame_);
     hint->setAlignment(Qt::AlignCenter);
     hint->setStyleSheet(QStringLiteral("color: #c0c0c0; font-size: 18px;"));
     layout->addWidget(hint);
@@ -305,7 +305,7 @@ void UiMainWindow::setupCentralCanvas()
 
 void UiMainWindow::setupObjectDock()
 {
-    objectDock_ = new QDockWidget(tr(u8"对象"), this);
+    objectDock_ = new QDockWidget(tr("对象"), this);
     objectDock_->setObjectName(QStringLiteral("ObjectDock"));
     objectDock_->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     objectDock_->setMinimumWidth(220);
@@ -330,10 +330,10 @@ void UiMainWindow::setupObjectDock()
         toolRowLayout->addWidget(btn);
     };
 
-    addDockBtn(QStyle::SP_BrowserReload, tr(u8"刷新"));
-    addDockBtn(QStyle::SP_FileIcon,      tr(u8"新建"));
-    addDockBtn(QStyle::SP_TrashIcon,     tr(u8"删除"));
-    addDockBtn(QStyle::SP_FileDialogDetailedView, tr(u8"属性"));
+    addDockBtn(QStyle::SP_BrowserReload, tr("刷新"));
+    addDockBtn(QStyle::SP_FileIcon,      tr("新建"));
+    addDockBtn(QStyle::SP_TrashIcon,     tr("删除"));
+    addDockBtn(QStyle::SP_FileDialogDetailedView, tr("属性"));
 
     toolRowLayout->addStretch();
     dockLayout->addWidget(toolRow);
@@ -343,11 +343,11 @@ void UiMainWindow::setupObjectDock()
 
     objectTree_ = new UiObjectTree(tabWidget);
     objectTree_->refresh();
-    tabWidget->addTab(objectTree_, tr(u8"对象视图"));
+    tabWidget->addTab(objectTree_, tr("对象视图"));
 
     groupTree_ = new QTreeWidget(tabWidget);
     groupTree_->setHeaderHidden(true);
-    tabWidget->addTab(groupTree_, tr(u8"分组视图"));
+    tabWidget->addTab(groupTree_, tr("分组视图"));
 
     dockLayout->addWidget(tabWidget);
     objectDock_->setWidget(dockContent);
@@ -360,7 +360,7 @@ void UiMainWindow::setupObjectDock()
 
 void UiMainWindow::setupTimeDock()
 {
-    timeDock_ = new QDockWidget(tr(u8"时间视图"), this);
+    timeDock_ = new QDockWidget(tr("时间视图"), this);
     timeDock_->setObjectName(QStringLiteral("TimeDock"));
     timeDock_->setAllowedAreas(Qt::BottomDockWidgetArea | Qt::TopDockWidgetArea);
     timeDock_->setMinimumHeight(100);
@@ -374,17 +374,17 @@ void UiMainWindow::setupTimeDock()
     auto* labelLayout = new QHBoxLayout(labelRow);
     labelLayout->setContentsMargins(0, 0, 0, 0);
 
-    startEpochLabel_ = new QLabel(tr(u8"开始历元: 2026-01-01 00:00:00.000 UTCG"), labelRow);
+    startEpochLabel_ = new QLabel(tr("开始历元: 2026-01-01 00:00:00.000 UTCG"), labelRow);
     labelLayout->addWidget(startEpochLabel_);
 
     labelLayout->addStretch();
 
-    currentEpochLabel_ = new QLabel(tr(u8"当前历元: 2026-01-01 00:00:00.000 UTCG"), labelRow);
+    currentEpochLabel_ = new QLabel(tr("当前历元: 2026-01-01 00:00:00.000 UTCG"), labelRow);
     labelLayout->addWidget(currentEpochLabel_);
 
     labelLayout->addStretch();
 
-    endEpochLabel_ = new QLabel(tr(u8"结束历元: 2026-01-02 00:00:00.000 UTCG"), labelRow);
+    endEpochLabel_ = new QLabel(tr("结束历元: 2026-01-02 00:00:00.000 UTCG"), labelRow);
     labelLayout->addWidget(endEpochLabel_);
 
     dockLayout->addWidget(labelRow);
@@ -424,12 +424,12 @@ void UiMainWindow::setupStatusBar()
 {
     statusBar()->setObjectName(QStringLiteral("MainStatusBar"));
 
-    statusReadyLabel_  = new QLabel(tr(u8"就绪"), this);
-    statusSceneLabel_  = new QLabel(tr(u8"场景: 未加载"), this);
-    statusObjectLabel_ = new QLabel(tr(u8"对象: 0"), this);
-    statusCoordLabel_  = new QLabel(tr(u8"坐标系: J2000"), this);
-    statusUnitLabel_   = new QLabel(tr(u8"单位: km/s"), this);
-    statusTimeLabel_   = new QLabel(tr(u8"时间: UTCG"), this);
+    statusReadyLabel_  = new QLabel(tr("就绪"), this);
+    statusSceneLabel_  = new QLabel(tr("场景: 未加载"), this);
+    statusObjectLabel_ = new QLabel(tr("对象: 0"), this);
+    statusCoordLabel_  = new QLabel(tr("坐标系: J2000"), this);
+    statusUnitLabel_   = new QLabel(tr("单位: km/s"), this);
+    statusTimeLabel_   = new QLabel(tr("时间: UTCG"), this);
 
     statusBar()->addWidget(statusReadyLabel_);
     statusBar()->addWidget(statusSceneLabel_);

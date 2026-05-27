@@ -2,6 +2,7 @@
     add_rules("qt.shared")
     add_files("**.cpp")
     add_files("**.hpp")
+    add_files("**.ts")
     -- add_files("**.ui")
     add_headerfiles("**.hpp", {prefixdir="AstGUI"})
     add_deps("AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader")

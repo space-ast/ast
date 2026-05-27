@@ -29,7 +29,7 @@ void UiResponseList::setupUi()
     listWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
     layout_->addWidget(listWidget_);
 
-    addButton_ = new QPushButton(tr("+ Add Response"), this);
+    addButton_ = new QPushButton(tr("+ 添加响应"), this);
     layout_->addWidget(addButton_);
 
     connect(listWidget_, &QListWidget::currentItemChanged,

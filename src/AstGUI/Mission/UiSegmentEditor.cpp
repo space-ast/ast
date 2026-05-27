@@ -69,7 +69,7 @@ void UiSegmentEditor::setupUi()
     // 初始占位页面
     auto* placeholder = new QWidget(this);
     auto* placeholderLayout = new QVBoxLayout(placeholder);
-    auto* hint = new QLabel(tr(u8"在任务树中选择一个段以编辑其属性"), placeholder);
+    auto* hint = new QLabel(tr("在任务树中选择一个段以编辑其属性"), placeholder);
     hint->setAlignment(Qt::AlignCenter);
     hint->setWordWrap(true);
     placeholderLayout->addWidget(hint);

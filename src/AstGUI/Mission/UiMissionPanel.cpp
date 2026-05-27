@@ -78,44 +78,44 @@ void UiMissionPanel::setupUi()
     outputView_ = new QPlainTextEdit(this);
     outputView_->setReadOnly(true);
     outputView_->setMaximumHeight(120);
-    outputView_->setPlaceholderText(tr(u8"输出信息..."));
+    outputView_->setPlaceholderText(tr("输出信息..."));
     rootLayout->addWidget(outputView_);
 }
 
 void UiMissionPanel::setupToolBar()
 {
-    toolBar_ = new QToolBar(tr("Mission"), this);
+    toolBar_ = new QToolBar(tr("任务序列"),  this);
 
-    openAction_ = toolBar_->addAction(tr(u8"打开"));
-    openAction_->setToolTip(tr(u8"打开 .MCSSegment 文件"));
+    openAction_ = toolBar_->addAction(tr("打开"));
+    openAction_->setToolTip(tr("打开 .MCSSegment 文件"));
 
-    saveAction_ = toolBar_->addAction(tr(u8"保存"));
-    saveAction_->setToolTip(tr(u8"保存任务序列"));
+    saveAction_ = toolBar_->addAction(tr("保存"));
+    saveAction_->setToolTip(tr("保存任务序列"));
 
     toolBar_->addSeparator();
 
     // 添加段菜单
-    addMenu_ = new QMenu(tr(u8"添加段"), this);
-    addMenu_->addAction(missionIcon("InitialState"),       tr(u8"初始状态 (InitialState)"),  this, &UiMissionPanel::onAddInitialState);
-    addMenu_->addAction(missionIcon("Propagate"),          tr(u8"轨道预报 (Propagate)"),    this, &UiMissionPanel::onAddPropagate);
-    addMenu_->addAction(missionIcon("Maneuver"),           tr(u8"机动 (Maneuver)"),         this, &UiMissionPanel::onAddManeuver);
-    addMenu_->addAction(missionIcon("Sequence"),           tr(u8"序列 (Sequence)"),         this, &UiMissionPanel::onAddSequence);
-    addMenu_->addAction(missionIcon("TargeterSequence"),   tr(u8"打靶序列 (TargeterSeq)"),  this, &UiMissionPanel::onAddTargeterSequence);
+    addMenu_ = new QMenu(tr("添加段"), this);
+    addMenu_->addAction(missionIcon("InitialState"),       tr("初始状态 (InitialState)"),  this, &UiMissionPanel::onAddInitialState);
+    addMenu_->addAction(missionIcon("Propagate"),          tr("轨道预报 (Propagate)"),    this, &UiMissionPanel::onAddPropagate);
+    addMenu_->addAction(missionIcon("Maneuver"),           tr("机动 (Maneuver)"),         this, &UiMissionPanel::onAddManeuver);
+    addMenu_->addAction(missionIcon("Sequence"),           tr("序列 (Sequence)"),         this, &UiMissionPanel::onAddSequence);
+    addMenu_->addAction(missionIcon("TargeterSequence"),   tr("打靶序列 (TargeterSeq)"),  this, &UiMissionPanel::onAddTargeterSequence);
 
-    auto* addButton = new QAction(tr(u8"+ 添加"), this);
+    auto* addButton = new QAction(tr("+ 添加"), this);
     addButton->setMenu(addMenu_);
     toolBar_->addAction(addButton);
 
-    deleteAction_ = toolBar_->addAction(tr(u8"删除"));
-    deleteAction_->setToolTip(tr(u8"删除选中的段"));
+    deleteAction_ = toolBar_->addAction(tr("删除"));
+    deleteAction_->setToolTip(tr("删除选中的段"));
 
     toolBar_->addSeparator();
 
-    runAction_ = toolBar_->addAction(tr(u8"▶ 运行"));
-    runAction_->setToolTip(tr(u8"执行任务序列"));
+    runAction_ = toolBar_->addAction(tr("▶ 运行"));
+    runAction_->setToolTip(tr("执行任务序列"));
 
-    stopAction_ = toolBar_->addAction(tr(u8"■ 停止"));
-    stopAction_->setToolTip(tr(u8"停止执行"));
+    stopAction_ = toolBar_->addAction(tr("■ 停止"));
+    stopAction_->setToolTip(tr("停止执行"));
     stopAction_->setEnabled(false);
 
     // 将 toolbar 放到布局顶部
@@ -132,7 +132,7 @@ void UiMissionPanel::setupConnections()
 
     // 树结构变化
     connect(missionTree_, &UiMissionTree::treeModified,
-            this, [this]() { appendOutput(tr(u8"任务序列已更新")); });
+            this, [this]() { appendOutput(tr("任务序列已更新")); });
 
     // 工具栏动作
     connect(deleteAction_, &QAction::triggered,
@@ -156,7 +156,7 @@ void UiMissionPanel::setModerator(MissionModerator* moderator)
     moderator_ = moderator;
     missionTree_->setModerator(moderator);
     if (moderator)
-        appendOutput(tr(u8"已加载任务序列"));
+        appendOutput(tr("已加载任务序列"));
 }
 
 MissionModerator* UiMissionPanel::moderator() const
@@ -192,7 +192,7 @@ void UiMissionPanel::onAddInitialState()
 {
     if (!moderator_)
     {
-        QMessageBox::warning(this, tr(u8"提示"), tr(u8"请先创建或加载任务序列。"));
+        QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
     }
 
@@ -211,14 +211,14 @@ void UiMissionPanel::onAddInitialState()
     // 刷新树
     missionTree_->setModerator(moderator_);
 
-    appendOutput(tr(u8"添加: 初始状态段"));
+    appendOutput(tr("添加: 初始状态段"));
 }
 
 void UiMissionPanel::onAddPropagate()
 {
     if (!moderator_)
     {
-        QMessageBox::warning(this, tr(u8"提示"), tr(u8"请先创建或加载任务序列。"));
+        QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
     }
 
@@ -234,14 +234,14 @@ void UiMissionPanel::onAddPropagate()
     rootSeq.setCommands(std::move(cmds));
 
     missionTree_->setModerator(moderator_);
-    appendOutput(tr(u8"添加: 轨道预报段"));
+    appendOutput(tr("添加: 轨道预报段"));
 }
 
 void UiMissionPanel::onAddManeuver()
 {
     if (!moderator_)
     {
-        QMessageBox::warning(this, tr(u8"提示"), tr(u8"请先创建或加载任务序列。"));
+        QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
     }
 
@@ -257,14 +257,14 @@ void UiMissionPanel::onAddManeuver()
     rootSeq.setCommands(std::move(cmds));
 
     missionTree_->setModerator(moderator_);
-    appendOutput(tr(u8"添加: 机动段"));
+    appendOutput(tr("添加: 机动段"));
 }
 
 void UiMissionPanel::onAddSequence()
 {
     if (!moderator_)
     {
-        QMessageBox::warning(this, tr(u8"提示"), tr(u8"请先创建或加载任务序列。"));
+        QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
     }
 
@@ -280,14 +280,14 @@ void UiMissionPanel::onAddSequence()
     rootSeq.setCommands(std::move(cmds));
 
     missionTree_->setModerator(moderator_);
-    appendOutput(tr(u8"添加: 子序列段"));
+    appendOutput(tr("添加: 子序列段"));
 }
 
 void UiMissionPanel::onAddTargeterSequence()
 {
     if (!moderator_)
     {
-        QMessageBox::warning(this, tr(u8"提示"), tr(u8"请先创建或加载任务序列。"));
+        QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
     }
 
@@ -303,7 +303,7 @@ void UiMissionPanel::onAddTargeterSequence()
     rootSeq.setCommands(std::move(cmds));
 
     missionTree_->setModerator(moderator_);
-    appendOutput(tr(u8"添加: 打靶序列段"));
+    appendOutput(tr("添加: 打靶序列段"));
 }
 
 void UiMissionPanel::onDeleteSegment()
@@ -319,9 +319,9 @@ void UiMissionPanel::onOpenFile()
 {
     QString filePath = QFileDialog::getOpenFileName(
         this,
-        tr(u8"打开任务序列文件"),
+        tr("打开任务序列文件"),
         QString(),
-        tr(u8"MCSSegment 文件 (*.MCSSegment);;所有文件 (*.*)"));
+        tr("MCSSegment 文件 (*.MCSSegment);;所有文件 (*.*)"));
     if (filePath.isEmpty())
         return;
 
@@ -331,8 +331,8 @@ void UiMissionPanel::onOpenFile()
 
     if (rc != eNoError)
     {
-        QMessageBox::warning(this, tr(u8"加载失败"),
-                             tr(u8"无法加载文件: %1\n错误码: %2")
+        QMessageBox::warning(this, tr("加载失败"),
+                             tr("无法加载文件: %1\n错误码: %2")
                              .arg(filePath).arg(rc));
         return;
     }
@@ -340,8 +340,8 @@ void UiMissionPanel::onOpenFile()
     auto* loadedSeq = aobject_cast<Sequence*>(loadedCmd.get());
     if (!loadedSeq)
     {
-        QMessageBox::warning(this, tr(u8"加载失败"),
-                             tr(u8"文件不包含有效的任务序列段。"));
+        QMessageBox::warning(this, tr("加载失败"),
+                             tr("文件不包含有效的任务序列段。"));
         return;
     }
 
@@ -360,7 +360,7 @@ void UiMissionPanel::onOpenFile()
     // 刷新树
     missionTree_->setModerator(moderator_);
 
-    appendOutput(tr(u8"已加载: %1 (%2 个命令)")
+    appendOutput(tr("已加载: %1 (%2 个命令)")
                  .arg(filePath)
                  .arg(loadedSeq->getCommands().size()));
 }
@@ -369,20 +369,20 @@ void UiMissionPanel::onSaveFile()
 {
     if (!moderator_)
     {
-        QMessageBox::warning(this, tr(u8"提示"), tr(u8"没有内容可保存。"));
+        QMessageBox::warning(this, tr("提示"), tr("没有内容可保存。"));
         return;
     }
 
     QString filePath = QFileDialog::getSaveFileName(
         this,
-        tr(u8"保存任务序列文件"),
+        tr("保存任务序列文件"),
         QString(),
-        tr(u8"MCSSegment 文件 (*.MCSSegment);;所有文件 (*.*)"));
+        tr("MCSSegment 文件 (*.MCSSegment);;所有文件 (*.*)"));
     if (filePath.isEmpty())
         return;
 
     // TODO: 调用序列化保存 — 当前 AstLoader 尚无导出保存接口
-    appendOutput(tr(u8"保存功能尚未实现: %1").arg(filePath));
+    appendOutput(tr("保存功能尚未实现: %1").arg(filePath));
 }
 
 // ============================================================================
@@ -393,7 +393,7 @@ void UiMissionPanel::onRun()
 {
     runAction_->setEnabled(false);
     stopAction_->setEnabled(true);
-    appendOutput(tr(u8"开始执行任务序列..."));
+    appendOutput(tr("开始执行任务序列..."));
 
     emit runRequested();
 }
@@ -402,7 +402,7 @@ void UiMissionPanel::onStop()
 {
     runAction_->setEnabled(true);
     stopAction_->setEnabled(false);
-    appendOutput(tr(u8"任务序列已停止"));
+    appendOutput(tr("任务序列已停止"));
 
     emit stopped();
 }

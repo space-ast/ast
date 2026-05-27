@@ -48,13 +48,13 @@ void UiDragForce::setupUi()
     mainLayout_ = new QVBoxLayout(this);
     
     // 模型配置
-    modelGroup_ = new QGroupBox(tr(u8"模型"), this);
+    modelGroup_ = new QGroupBox(tr("模型"), this);
     modelLayout_ = new QGridLayout(modelGroup_);
     
     typeLayout_ = new QHBoxLayout();
-    typeLabel_ = new QLabel(tr(u8"类型:"), this);
+    typeLabel_ = new QLabel(tr("类型:"), this);
     typeCombo_ = new QComboBox(this);
-    typeCombo_->addItem(tr(u8"球形"));
+    typeCombo_->addItem(tr("球形"));
     typeLayout_->addWidget(typeLabel_);
     typeLayout_->addWidget(typeCombo_);
     modelLayout_->addLayout(typeLayout_, 0, 0, 1, 2);
@@ -68,7 +68,7 @@ void UiDragForce::setupUi()
     modelLayout_->addLayout(cdLayout_, 1, 0);
     
     areaMassLayout_ = new QHBoxLayout();
-    areaMassLabel_ = new QLabel(tr(u8"面积/质量比:"), this);
+    areaMassLabel_ = new QLabel(tr("面积/质量比:"), this);
     areaMassEdit_ = new UiQuantity(this);
     areaMassEdit_->setDimension(Dimension::Area() / Dimension::Mass());
     areaMassLayout_->addWidget(areaMassLabel_);
@@ -76,25 +76,25 @@ void UiDragForce::setupUi()
     modelLayout_->addLayout(areaMassLayout_, 1, 1);
     
     // 大气密度模型
-    atmDensityGroup_ = new QGroupBox(tr(u8"大气密度模型"), this);
+    atmDensityGroup_ = new QGroupBox(tr("大气密度模型"), this);
     atmDensityLayout_ = new QGridLayout(atmDensityGroup_);
     
     mainAtmLayout_ = new QHBoxLayout();
-    mainAtmLabel_ = new QLabel(tr(u8"主模型:"), this);
+    mainAtmLabel_ = new QLabel(tr("主模型:"), this);
     mainAtmCombo_ = new QComboBox(this);
     mainAtmLayout_->addWidget(mainAtmLabel_);
     mainAtmLayout_->addWidget(mainAtmCombo_);
     atmDensityLayout_->addLayout(mainAtmLayout_, 0, 0, 1, 2);
     
     lowAltAtmLayout_ = new QHBoxLayout();
-    lowAltAtmLabel_ = new QLabel(tr(u8"低高度模型:"), this);
+    lowAltAtmLabel_ = new QLabel(tr("低高度模型:"), this);
     lowAltAtmCombo_ = new QComboBox(this);
     lowAltAtmLayout_->addWidget(lowAltAtmLabel_);
     lowAltAtmLayout_->addWidget(lowAltAtmCombo_);
     atmDensityLayout_->addLayout(lowAltAtmLayout_, 1, 0, 1, 2);
     
     blendingRangeLayout_ = new QHBoxLayout();
-    blendingRangeLabel_ = new QLabel(tr(u8"混合过渡范围:"), this);
+    blendingRangeLabel_ = new QLabel(tr("混合过渡范围:"), this);
     blendingRangeEdit_ = new UiQuantity(this);
     blendingRangeEdit_->setDimension(Dimension::Length());
     blendingRangeLayout_->addWidget(blendingRangeLabel_);
@@ -102,21 +102,21 @@ void UiDragForce::setupUi()
     atmDensityLayout_->addLayout(blendingRangeLayout_, 2, 0, 1, 2);
     
     // 太阳通量/地磁指数
-    solarGeoMagGroup_ = new QGroupBox(tr(u8"太阳通量/地磁指数"), this);
+    solarGeoMagGroup_ = new QGroupBox(tr("太阳通量/地磁指数"), this);
     solarGeoMagLayout_ = new QGridLayout(solarGeoMagGroup_);
     
     fluxSourceLayout_ = new QHBoxLayout();
-    fluxSourceLabel_ = new QLabel(tr(u8"数据来源:"), this);
+    fluxSourceLabel_ = new QLabel(tr("数据来源:"), this);
     fluxSourceCombo_ = new QComboBox(this);
-    fluxSourceCombo_->addItem(tr(u8"手动输入"));
-    fluxSourceCombo_->addItem(tr(u8"文件输入"));
+    fluxSourceCombo_->addItem(tr("手动输入"));
+    fluxSourceCombo_->addItem(tr("文件输入"));
     fluxSourceLayout_->addWidget(fluxSourceLabel_);
     fluxSourceLayout_->addWidget(fluxSourceCombo_);
     solarGeoMagLayout_->addLayout(fluxSourceLayout_, 0, 0, 1, 2);
     
     // 手动输入参数
     f10p7DailyLayout_ = new QHBoxLayout();
-    f10p7DailyLabel_ = new QLabel(tr(u8"F10.7日值:"), this);
+    f10p7DailyLabel_ = new QLabel(tr("F10.7日值:"), this);
     f10p7DailyEdit_ = new UiDouble(this);
     f10p7DailyEdit_->setValue(150.0);
     f10p7DailyLayout_->addWidget(f10p7DailyLabel_);
@@ -124,7 +124,7 @@ void UiDragForce::setupUi()
     solarGeoMagLayout_->addLayout(f10p7DailyLayout_, 1, 0);
     
     f10p7AverageLayout_ = new QHBoxLayout();
-    f10p7AverageLabel_ = new QLabel(tr(u8"F10.7平均值:"), this);
+    f10p7AverageLabel_ = new QLabel(tr("F10.7平均值:"), this);
     f10p7AverageEdit_ = new UiDouble(this);
     f10p7AverageEdit_->setValue(150.0);
     f10p7AverageLayout_->addWidget(f10p7AverageLabel_);
@@ -132,7 +132,7 @@ void UiDragForce::setupUi()
     solarGeoMagLayout_->addLayout(f10p7AverageLayout_, 1, 1);
     
     kpLayout_ = new QHBoxLayout();
-    kpLabel_ = new QLabel(tr(u8"地磁指数(Kp):"), this);
+    kpLabel_ = new QLabel(tr("地磁指数(Kp):"), this);
     kpEdit_ = new UiDouble(this);
     kpEdit_->setValue(3.0);
     kpLayout_->addWidget(kpLabel_);
@@ -141,7 +141,7 @@ void UiDragForce::setupUi()
     
     // 文件输入参数
     fluxApFileLayout_ = new QHBoxLayout();
-    fluxApFileLabel_ = new QLabel(tr(u8"空间天气文件:"), this);
+    fluxApFileLabel_ = new QLabel(tr("空间天气文件:"), this);
     fluxApFileEdit_ = new UiFilePath(this);
     // fluxApFileEdit_->setFileMode(UiFilePath::FileMode::OpenFile);
     fluxApFileEdit_->setFilter("Text files (*.txt);;All files (*.*)");
@@ -150,31 +150,31 @@ void UiDragForce::setupUi()
     solarGeoMagLayout_->addLayout(fluxApFileLayout_, 3, 0, 1, 2);
     
     geoMagFluxUpdateRateLayout_ = new QHBoxLayout();
-    geoMagFluxUpdateRateLabel_ = new QLabel(tr(u8"更新频率:"), this);
+    geoMagFluxUpdateRateLabel_ = new QLabel(tr("更新频率:"), this);
     geoMagFluxUpdateRateCombo_ = new QComboBox(this);
     geoMagFluxUpdateRateLayout_->addWidget(geoMagFluxUpdateRateLabel_);
     geoMagFluxUpdateRateLayout_->addWidget(geoMagFluxUpdateRateCombo_);
     solarGeoMagLayout_->addLayout(geoMagFluxUpdateRateLayout_, 4, 0);
     
     geoMagFluxSourceLayout_ = new QHBoxLayout();
-    geoMagFluxSourceLabel_ = new QLabel(tr(u8"地磁指数类型:"), this);
+    geoMagFluxSourceLabel_ = new QLabel(tr("地磁指数类型:"), this);
     geoMagFluxSourceCombo_ = new QComboBox(this);
     geoMagFluxSourceLayout_->addWidget(geoMagFluxSourceLabel_);
     geoMagFluxSourceLayout_->addWidget(geoMagFluxSourceCombo_);
     solarGeoMagLayout_->addLayout(geoMagFluxSourceLayout_, 4, 1);
     
     // 计算选项
-    calcOptionsGroup_ = new QGroupBox(tr(u8"计算选项"), this);
+    calcOptionsGroup_ = new QGroupBox(tr("计算选项"), this);
     calcOptionsLayout_ = new QVBoxLayout(calcOptionsGroup_);
     
     useApproxAltLayout_ = new QHBoxLayout();
-    useApproxAltCheck_ = new QCheckBox(tr(u8"使用近似高度"), this);
+    useApproxAltCheck_ = new QCheckBox(tr("使用近似高度"), this);
     useApproxAltCheck_->setChecked(true);
     useApproxAltLayout_->addWidget(useApproxAltCheck_);
     calcOptionsLayout_->addLayout(useApproxAltLayout_);
     
     sunPositionLayout_ = new QHBoxLayout();
-    sunPositionLabel_ = new QLabel(tr(u8"太阳位置计算方法:"), this);
+    sunPositionLabel_ = new QLabel(tr("太阳位置计算方法:"), this);
     sunPositionCombo_ = new QComboBox(this);
     sunPositionLayout_->addWidget(sunPositionLabel_);
     sunPositionLayout_->addWidget(sunPositionCombo_);
@@ -325,18 +325,18 @@ void UiDragForce::refreshGeoMagFluxSource()
 void UiDragForce::refreshGeoMagFluxUpdateRate()
 {
     geoMagFluxUpdateRateCombo_->clear();
-    geoMagFluxUpdateRateCombo_->addItem(tr(u8"每日"));
-    geoMagFluxUpdateRateCombo_->addItem(tr(u8"每3小时"));
-    geoMagFluxUpdateRateCombo_->addItem(tr(u8"每3小时插值"));
-    geoMagFluxUpdateRateCombo_->addItem(tr(u8"每3小时三次样条"));
+    geoMagFluxUpdateRateCombo_->addItem(tr("每日"));
+    geoMagFluxUpdateRateCombo_->addItem(tr("每3小时"));
+    geoMagFluxUpdateRateCombo_->addItem(tr("每3小时插值"));
+    geoMagFluxUpdateRateCombo_->addItem(tr("每3小时三次样条"));
 }
 
 void UiDragForce::refreshSunPosition()
 {
     sunPositionCombo_->clear();
-    sunPositionCombo_->addItem(tr(u8"真实太阳位置"));
-    sunPositionCombo_->addItem(tr(u8"视太阳到真实中心天体"));
-    sunPositionCombo_->addItem(tr(u8"视太阳位置"));
+    sunPositionCombo_->addItem(tr("真实太阳位置"));
+    sunPositionCombo_->addItem(tr("视太阳到真实中心天体"));
+    sunPositionCombo_->addItem(tr("视太阳位置"));
 }
 
 void UiDragForce::onFluxApFileChanged(bool checked)

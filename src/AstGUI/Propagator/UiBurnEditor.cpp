@@ -45,7 +45,7 @@ void UiBurnEditor::setupUi()
     // 占位页面 (index 0)
     auto* placeholder = new QWidget(this);
     auto* phLayout = new QVBoxLayout(placeholder);
-    auto* hint = new QLabel(tr(u8"选择发动机类型以编辑参数"), placeholder);
+    auto* hint = new QLabel(tr("选择发动机类型以编辑参数"), placeholder);
     hint->setAlignment(Qt::AlignCenter);
     hint->setWordWrap(true);
     phLayout->addWidget(hint);

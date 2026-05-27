@@ -32,11 +32,11 @@ QLineEdit* addExpressionRow(QFormLayout* form, QDialog* parent, const QString& i
     auto* row = new QHBoxLayout;
     auto* edit = new QLineEdit(initialText, parent);
     auto* browseBtn = new QPushButton("...", parent);
-    browseBtn->setToolTip(QObject::tr("Browse object attributes and calculations"));
+    browseBtn->setToolTip(QObject::tr("浏览对象属性和计算量"));
     browseBtn->setFixedWidth(30);
     row->addWidget(edit);
     row->addWidget(browseBtn);
-    form->addRow(QObject::tr(u8"表达式"), row);
+    form->addRow(QObject::tr("表达式"), row);
 
     QObject::connect(browseBtn, &QPushButton::clicked, [edit, parent]() {
         QString expr = UiExpressionBrowser::getExpression(parent);
@@ -61,7 +61,7 @@ void UiVariableList::setupUi()
     mainLayout_->setContentsMargins(0, 0, 0, 0);
 
     tableWidget_ = new QTableWidget(0, 3, this);
-    tableWidget_->setHorizontalHeaderLabels({tr(u8"名称"), tr(u8"表达式"), tr(u8"描述")});
+    tableWidget_->setHorizontalHeaderLabels({tr("名称"), tr("表达式"), tr("描述")});
     tableWidget_->setSelectionBehavior(QAbstractItemView::SelectRows);
     tableWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
     tableWidget_->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -74,10 +74,10 @@ void UiVariableList::setupUi()
     buttonLayout_ = new QHBoxLayout;
     buttonLayout_->setContentsMargins(0, 0, 0, 0);
 
-    addButton_ = new QPushButton(tr("+"), this);
-    addButton_->setToolTip(tr("Add a new variable"));
-    removeButton_ = new QPushButton(tr("-"), this);
-    removeButton_->setToolTip(tr("Remove selected variable"));
+    addButton_ = new QPushButton(("+"), this);
+    addButton_->setToolTip(tr("添加新变量"));
+    removeButton_ = new QPushButton(("-"), this);
+    removeButton_->setToolTip(tr("删除选中变量"));
     removeButton_->setEnabled(false);
 
     buttonLayout_->addStretch();
@@ -144,16 +144,16 @@ void UiVariableList::onSelectionChanged()
 void UiVariableList::onAddVariable()
 {
     QDialog dlg(this);
-    dlg.setWindowTitle(tr("New Variable"));
+    dlg.setWindowTitle(tr("新建变量"));
 
     auto* form = new QFormLayout(&dlg);
-    auto* nameEdit = new QLineEdit(tr("var"), &dlg);
-    form->addRow(tr(u8"名称"), nameEdit);
+    auto* nameEdit = new QLineEdit(("var"), &dlg);
+    form->addRow(tr("名称"), nameEdit);
 
-    auto* exprEdit = addExpressionRow(form, &dlg, tr("0"));
+    auto* exprEdit = addExpressionRow(form, &dlg, ("0"));
 
     auto* descEdit = new QLineEdit(&dlg);
-    form->addRow(tr(u8"描述"), descEdit);
+    form->addRow(tr("描述"), descEdit);
 
     auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
     connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
@@ -192,8 +192,8 @@ void UiVariableList::onRemoveVariable()
 
     Variable* var = variableList_->at(index);
     int ret = QMessageBox::question(
-        this, tr("Remove Variable"),
-        tr("Remove variable \"%1\"?").arg(QString::fromStdString(var->name())),
+        this, tr("删除变量"),
+        tr("确认删除变量 \"%1\" 吗？").arg(QString::fromStdString(var->name())),
         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
     if (ret != QMessageBox::Yes) return;
@@ -211,17 +211,17 @@ void UiVariableList::onCellDoubleClicked(int row, int /*column*/)
     Variable* var = variableList_->at(static_cast<size_t>(row));
 
     QDialog dlg(this);
-    dlg.setWindowTitle(tr("Edit Variable"));
+    dlg.setWindowTitle(tr("编辑变量"));
 
     auto* form = new QFormLayout(&dlg);
     auto* nameEdit = new QLineEdit(QString::fromStdString(var->name()), &dlg);
-    form->addRow(tr(u8"名称"), nameEdit);
+    form->addRow(tr("名称"), nameEdit);
 
     auto* exprEdit = addExpressionRow(form, &dlg,
         QString::fromStdString(var->getInnerExpression()));
 
     auto* descEdit = new QLineEdit(QString::fromStdString(var->desc()), &dlg);
-    form->addRow(tr(u8"描述"), descEdit);
+    form->addRow(tr("描述"), descEdit);
 
     auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
     connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
