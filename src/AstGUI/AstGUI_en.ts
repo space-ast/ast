@@ -601,22 +601,6 @@
         <translation>Save</translation>
     </message>
     <message>
-        <source>场景</source>
-        <translation>Scenario</translation>
-    </message>
-    <message>
-        <source>卫星</source>
-        <translation>Satellite</translation>
-    </message>
-    <message>
-        <source>设施</source>
-        <translation>Facility</translation>
-    </message>
-    <message>
-        <source>传感器</source>
-        <translation>Sensor</translation>
-    </message>
-    <message>
         <source>撤销</source>
         <translation>Undo</translation>
     </message>
@@ -673,14 +657,6 @@
         <translation>Sequence</translation>
     </message>
     <message>
-        <source>报告</source>
-        <translation>Report</translation>
-    </message>
-    <message>
-        <source>图表</source>
-        <translation>Chart</translation>
-    </message>
-    <message>
         <source>导出</source>
         <translation>Export</translation>
     </message>
@@ -701,14 +677,6 @@
         <translation>Script</translation>
     </message>
     <message>
-        <source>外部工具</source>
-        <translation>External Tools</translation>
-    </message>
-    <message>
-        <source>数据导入</source>
-        <translation>Data Import</translation>
-    </message>
-    <message>
         <source>帮助</source>
         <translation>Help</translation>
     </message>
@@ -717,24 +685,12 @@
         <translation>About</translation>
     </message>
     <message>
-        <source>对象</source>
-        <translation>Objects</translation>
-    </message>
-    <message>
         <source>刷新</source>
         <translation>Refresh</translation>
     </message>
     <message>
         <source>属性</source>
         <translation>Properties</translation>
-    </message>
-    <message>
-        <source>对象视图</source>
-        <translation>Object View</translation>
-    </message>
-    <message>
-        <source>分组视图</source>
-        <translation>Group View</translation>
     </message>
     <message>
         <source>时间视图</source>
@@ -786,6 +742,74 @@
     </message>
     <message>
         <source>已选择：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>新建模型</source>
+        <translation>New Model</translation>
+    </message>
+    <message>
+        <source>导入</source>
+        <translation>Import</translation>
+    </message>
+    <message>
+        <source>库浏览器</source>
+        <translation>Library Browser</translation>
+    </message>
+    <message>
+        <source>图标</source>
+        <translation>Icon</translation>
+    </message>
+    <message>
+        <source>图形</source>
+        <translation>Graphics</translation>
+    </message>
+    <message>
+        <source>文本</source>
+        <translation>Text</translation>
+    </message>
+    <message>
+        <source>检查</source>
+        <translation>Check</translation>
+    </message>
+    <message>
+        <source>翻译</source>
+        <translation>Translate</translation>
+    </message>
+    <message>
+        <source>仿真</source>
+        <translation>Simulate</translation>
+    </message>
+    <message>
+        <source>开始</source>
+        <translation>Start</translation>
+    </message>
+    <message>
+        <source>暂停</source>
+        <translation>Pause</translation>
+    </message>
+    <message>
+        <source>停止</source>
+        <translation>Stop</translation>
+    </message>
+    <message>
+        <source>仿真设置</source>
+        <translation>Simulation Settings</translation>
+    </message>
+    <message>
+        <source>生成代码</source>
+        <translation>Generate Code</translation>
+    </message>
+    <message>
+        <source>构建</source>
+        <translation>Build</translation>
+    </message>
+    <message>
+        <source>用户模型</source>
+        <translation>User Models</translation>
+    </message>
+    <message>
+        <source>航天仿真</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1358,51 +1382,51 @@ Error code: %2</translation>
 <context>
     <name>UiStartPage</name>
     <message>
-        <source>航天任务分析与仿真平台</source>
-        <translation type="unfinished"></translation>
+        <source>启动时显示此页面</source>
+        <translation>Show this page on startup</translation>
+    </message>
+    <message>
+        <source>新建</source>
+        <translation>New</translation>
+    </message>
+    <message>
+        <source>示例</source>
+        <translation>Examples</translation>
+    </message>
+    <message>
+        <source>学习</source>
+        <translation>Learn</translation>
+    </message>
+    <message>
+        <source>任务示例</source>
+        <translation>Mission Examples</translation>
+    </message>
+    <message>
+        <source>学习资源</source>
+        <translation>Learning Resources</translation>
+    </message>
+    <message>
+        <source>起始页</source>
+        <translation>Start Page</translation>
+    </message>
+    <message>
+        <source>打开示例...</source>
+        <translation>Open Example...</translation>
+    </message>
+    <message>
+        <source>最近</source>
+        <translation>Recent</translation>
     </message>
     <message>
         <source>新建任务</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>打开任务</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开示例</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>最近项目</source>
+        <source>打开任务...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>社区 / 学习</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>启动时显示此页面</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>新建</source>
-        <translation type="unfinished">New</translation>
-    </message>
-    <message>
-        <source>示例</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>学习</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>任务示例</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>学习资源</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

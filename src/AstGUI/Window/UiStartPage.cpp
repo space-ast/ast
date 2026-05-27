@@ -75,25 +75,25 @@ QWidget* UiStartPage::createSidebar()
 {
     auto* sidebar = new QFrame(this);
     sidebar->setObjectName(QStringLiteral("StartPageSidebar"));
-    sidebar->setFixedWidth(240);
+    sidebar->setFixedWidth(205);
 
     auto* layout = new QVBoxLayout(sidebar);
-    layout->setContentsMargins(22, 18, 14, 12);
-    layout->setSpacing(8);
+    layout->setContentsMargins(18, 12, 12, 10);
+    layout->setSpacing(7);
 
     auto* logo = new QLabel(QStringLiteral("SpaceAST"), sidebar);
     logo->setObjectName(QStringLiteral("StartPageLogo"));
     layout->addWidget(logo);
 
-    auto* subtitle = new QLabel(tr("航天任务分析与仿真平台"), sidebar);
+    auto* subtitle = new QLabel(tr("起始页"), sidebar);
     subtitle->setObjectName(QStringLiteral("StartPageSubtitle"));
     layout->addWidget(subtitle);
 
-    layout->addSpacing(18);
+    layout->addSpacing(12);
 
     auto* newButton = createSidebarButton(tr("新建任务"), QStringLiteral("Object"), QStyle::SP_FileIcon);
-    auto* openButton = createSidebarButton(tr("打开任务"), QString(), QStyle::SP_DialogOpenButton);
-    auto* exampleButton = createSidebarButton(tr("打开示例"), QStringLiteral("Sequence"), QStyle::SP_DirOpenIcon);
+    auto* openButton = createSidebarButton(tr("打开任务..."), QString(), QStyle::SP_DialogOpenButton);
+    auto* exampleButton = createSidebarButton(tr("打开示例..."), QStringLiteral("Sequence"), QStyle::SP_DirOpenIcon);
     layout->addWidget(newButton);
     layout->addWidget(openButton);
     layout->addWidget(exampleButton);
@@ -112,8 +112,8 @@ QWidget* UiStartPage::createSidebar()
         layout->addWidget(label);
     };
 
-    addTitle(tr("最近项目"));
-    const char* recentItems[] = {"LEO_Orbit.ast", "LunarTransfer.ast", "CoverageDemo.ast"};
+    addTitle(tr("最近"));
+    const char* recentItems[] = {"LEO_Orbit.ast", "LunarTransfer.ast", "CoverageDemo.ast", "Instance_model.sat"};
     for (const char* item : recentItems)
     {
         auto* button = createSidebarButton(QString::fromLatin1(item), QStringLiteral("OrbitState"), QStyle::SP_FileIcon);
@@ -127,7 +127,7 @@ QWidget* UiStartPage::createSidebar()
     layout->addSpacing(12);
     addTitle(tr("社区 / 学习"));
 
-    const char* links[] = {u8"文档中心", u8"示例库", u8"课程学习", u8"反馈建议"};
+    const char* links[] = {u8"文档中心", u8"示例", u8"反馈建议"};
     for (const char* link : links)
     {
         auto* button = createSidebarButton(utf8(link), QString(), QStyle::SP_DialogHelpButton);
@@ -154,7 +154,7 @@ QWidget* UiStartPage::createMainArea()
     main->setObjectName(QStringLiteral("StartPageMainArea"));
 
     auto* layout = new QVBoxLayout(main);
-    layout->setContentsMargins(18, 14, 18, 18);
+    layout->setContentsMargins(26, 10, 26, 18);
     layout->setSpacing(0);
 
     auto* tabs = new QTabWidget(main);
@@ -273,10 +273,10 @@ QWidget* UiStartPage::createSection(const QString& title, const QVector<QWidget*
     auto* gridWidget = new QWidget(section);
     auto* grid = new QGridLayout(gridWidget);
     grid->setContentsMargins(0, 0, 0, 0);
-    grid->setHorizontalSpacing(14);
+    grid->setHorizontalSpacing(12);
     grid->setVerticalSpacing(14);
 
-    const int columns = 4;
+    const int columns = 5;
     for (int i = 0; i < cards.size(); ++i)
         grid->addWidget(cards.at(i), i / columns, i % columns);
     for (int column = 0; column < columns; ++column)
@@ -292,8 +292,8 @@ QWidget* UiStartPage::createCard(const QString& id, const QString& iconName, QSt
     auto* button = new QToolButton();
     button->setObjectName(QStringLiteral("StartPageCard"));
     button->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    button->setIconSize(QSize(42, 42));
-    button->setMinimumSize(170, 116);
+    button->setIconSize(QSize(40, 40));
+    button->setMinimumSize(150, 92);
     button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     button->setText(title + QStringLiteral("\n") + description);
     button->setToolTip(description);

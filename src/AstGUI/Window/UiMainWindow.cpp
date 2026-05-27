@@ -53,8 +53,8 @@ AST_NAMESPACE_BEGIN
 UiMainWindow::UiMainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    setWindowTitle(QStringLiteral("SpaceAST"));
-    resize(1280, 800);
+    setWindowTitle(tr("航天仿真"));
+    resize(1290, 768);
     setupUi();
     applyTheme(QStringLiteral("default"));
 }
@@ -89,7 +89,7 @@ void UiMainWindow::setupUi()
 // ============================================================================
 
 static const char* kRibbonTabs[] = {
-    u8"开始", u8"编辑", u8"视图", u8"插入", u8"输出", u8"工具",  u8"集成", u8"关于"
+    u8"文件", u8"主页", u8"建模", u8"编辑", u8"调试", u8"代码生成", u8"工具", u8"视图", u8"帮助"
 };
 
 QWidget* UiMainWindow::setupRibbon()
@@ -190,36 +190,69 @@ QWidget* UiMainWindow::createRibbonPage(int index)
 
     switch (index)
     {
-    case 0: // 开始
-        layout->addWidget(createRibbonButton(tr("新建"),   QStringLiteral("Object"),     QStyle::SP_FileIcon,            page));
-        layout->addWidget(createRibbonButton(tr("打开"),   QString(),                    QStyle::SP_DialogOpenButton,    page));
-        layout->addWidget(createRibbonButton(tr("保存"),   QString(),                    QStyle::SP_DialogSaveButton,    page));
-        addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("场景"),   QStringLiteral("Object"),     QStyle::SP_ComputerIcon,        page));
-        layout->addWidget(createRibbonButton(tr("卫星"),   QStringLiteral("Satellite"),  QStyle::SP_ComputerIcon,        page));
-        layout->addWidget(createRibbonButton(tr("设施"),   QStringLiteral("Facility"),   QStyle::SP_ComputerIcon,        page));
-        layout->addWidget(createRibbonButton(tr("传感器"), QStringLiteral("Sensor"),     QStyle::SP_ComputerIcon,        page));
+    case 0:
+        layout->addWidget(createRibbonButton(tr("新建模型"), QStringLiteral("Object"), QStyle::SP_FileIcon, page));
+        layout->addWidget(createRibbonButton(tr("打开"), QString(), QStyle::SP_DialogOpenButton, page));
+        layout->addWidget(createRibbonButton(tr("保存"), QString(), QStyle::SP_DialogSaveButton, page));
+        layout->addWidget(createRibbonButton(tr("导入"), QString(), QStyle::SP_DialogOpenButton, page));
         break;
 
-    case 1: // 编辑
-        layout->addWidget(createRibbonButton(tr("撤销"), QString(), QStyle::SP_ArrowBack,        page));
-        layout->addWidget(createRibbonButton(tr("重做"), QString(), QStyle::SP_ArrowForward,     page));
+    case 1:
+        layout->addWidget(createRibbonButton(tr("库浏览器"), QStringLiteral("Object"), QStyle::SP_DirIcon, page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("剪切"), QString(), QStyle::SP_CommandLink,      page));
-        layout->addWidget(createRibbonButton(tr("复制"), QString(), QStyle::SP_CommandLink,      page));
-        layout->addWidget(createRibbonButton(tr("粘贴"), QString(), QStyle::SP_CommandLink,      page));
+        layout->addWidget(createRibbonButton(tr("图标"), QStringLiteral("Object"), QStyle::SP_FileIcon, page));
+        layout->addWidget(createRibbonButton(tr("图形"), QStringLiteral("Plane"), QStyle::SP_ComputerIcon, page));
+        layout->addWidget(createRibbonButton(tr("文本"), QString(), QStyle::SP_FileDialogDetailedView, page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("删除"), QString(), QStyle::SP_TrashIcon,        page));
+        layout->addWidget(createRibbonButton(tr("检查"), QString(), QStyle::SP_DialogApplyButton, page));
+        layout->addWidget(createRibbonButton(tr("翻译"), QString(), QStyle::SP_BrowserReload, page));
+        layout->addWidget(createRibbonButton(tr("仿真"), QStringLiteral("Propagate"), QStyle::SP_MediaPlay, page));
         break;
 
-    case 2: // 视图
-        layout->addWidget(createRibbonButton(tr("三维视图"), QStringLiteral("Body"),  QStyle::SP_ComputerIcon,  page));
-        layout->addWidget(createRibbonButton(tr("二维视图"), QStringLiteral("Plane"), QStyle::SP_ComputerIcon,  page));
+    case 2:
+        layout->addWidget(createRibbonButton(tr("航天器"), QStringLiteral("Spacecraft"), QStyle::SP_ComputerIcon, page));
+        layout->addWidget(createRibbonButton(tr("轨道"), QStringLiteral("OrbitState"), QStyle::SP_ComputerIcon, page));
+        layout->addWidget(createRibbonButton(tr("机动"), QStringLiteral("Maneuver"), QStyle::SP_ComputerIcon, page));
+        layout->addWidget(createRibbonButton(tr("序列"), QStringLiteral("Sequence"), QStyle::SP_ComputerIcon, page));
+        break;
+
+    case 3:
+        layout->addWidget(createRibbonButton(tr("撤销"), QString(), QStyle::SP_ArrowBack, page));
+        layout->addWidget(createRibbonButton(tr("重做"), QString(), QStyle::SP_ArrowForward, page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("缩放"),     QString(), QStyle::SP_FileDialogContentsView,  page));
+        layout->addWidget(createRibbonButton(tr("剪切"), QString(), QStyle::SP_CommandLink, page));
+        layout->addWidget(createRibbonButton(tr("复制"), QString(), QStyle::SP_CommandLink, page));
+        layout->addWidget(createRibbonButton(tr("粘贴"), QString(), QStyle::SP_CommandLink, page));
+        addRibbonSeparator(layout);
+        layout->addWidget(createRibbonButton(tr("删除"), QString(), QStyle::SP_TrashIcon, page));
+        break;
+
+    case 4:
+        layout->addWidget(createRibbonButton(tr("开始"), QStringLiteral("Propagate"), QStyle::SP_MediaPlay, page));
+        layout->addWidget(createRibbonButton(tr("暂停"), QString(), QStyle::SP_MediaPause, page));
+        layout->addWidget(createRibbonButton(tr("停止"), QString(), QStyle::SP_MediaStop, page));
+        layout->addWidget(createRibbonButton(tr("仿真设置"), QString(), QStyle::SP_FileDialogDetailedView, page));
+        break;
+
+    case 5:
+        layout->addWidget(createRibbonButton(tr("生成代码"), QString(), QStyle::SP_CommandLink, page));
+        layout->addWidget(createRibbonButton(tr("构建"), QString(), QStyle::SP_FileDialogDetailedView, page));
+        layout->addWidget(createRibbonButton(tr("导出"), QString(), QStyle::SP_DialogSaveButton, page));
+        break;
+
+    case 6:
+        layout->addWidget(createRibbonButton(tr("传播"), QStringLiteral("Propagate"), QStyle::SP_ComputerIcon, page));
+        layout->addWidget(createRibbonButton(tr("分析"), QString(), QStyle::SP_FileDialogContentsView, page));
+        layout->addWidget(createRibbonButton(tr("脚本"), QString(), QStyle::SP_CommandLink, page));
+        layout->addWidget(createRibbonButton(tr("设置"), QString(), QStyle::SP_FileDialogDetailedView, page));
+        break;
+
+    case 7:
+        layout->addWidget(createRibbonButton(tr("三维视图"), QStringLiteral("Body"), QStyle::SP_ComputerIcon, page));
+        layout->addWidget(createRibbonButton(tr("二维视图"), QStringLiteral("Plane"), QStyle::SP_ComputerIcon, page));
+        addRibbonSeparator(layout);
+        layout->addWidget(createRibbonButton(tr("缩放"), QString(), QStyle::SP_FileDialogContentsView, page));
         layout->addWidget(createRibbonButton(tr("适应窗口"), QString(), QStyle::SP_FileDialogDetailedView, page));
-
-        // 主题切换
         {
             addRibbonSeparator(layout);
 
@@ -231,7 +264,7 @@ QWidget* UiMainWindow::createRibbonPage(int index)
 
             for (const auto& file : themeFiles)
             {
-                QString name = file.chopped(4); // remove ".qss"
+                QString name = file.chopped(4);
                 auto* btn = createRibbonButton(name, QString(), QStyle::SP_FileDialogDetailedView, page);
                 btn->setCheckable(true);
                 themeGroup->addButton(btn);
@@ -248,33 +281,8 @@ QWidget* UiMainWindow::createRibbonPage(int index)
         }
         break;
 
-    case 3: // 插入
-        layout->addWidget(createRibbonButton(tr("航天器"), QStringLiteral("Spacecraft"),  QStyle::SP_ComputerIcon,  page));
-        layout->addWidget(createRibbonButton(tr("轨道"),   QStringLiteral("OrbitState"),   QStyle::SP_ComputerIcon,  page));
-        layout->addWidget(createRibbonButton(tr("机动"),   QStringLiteral("Maneuver"),     QStyle::SP_ComputerIcon,  page));
-        layout->addWidget(createRibbonButton(tr("序列"),   QStringLiteral("Sequence"),     QStyle::SP_ComputerIcon,  page));
-        break;
-
-    case 4: // 输出
-        layout->addWidget(createRibbonButton(tr("报告"), QString(), QStyle::SP_FileDialogDetailedView, page));
-        layout->addWidget(createRibbonButton(tr("图表"), QString(), QStyle::SP_ComputerIcon,           page));
-        layout->addWidget(createRibbonButton(tr("导出"), QString(), QStyle::SP_DialogSaveButton,       page));
-        break;
-
-    case 5: // 工具
-        layout->addWidget(createRibbonButton(tr("传播"), QStringLiteral("Propagate"), QStyle::SP_ComputerIcon,            page));
-        layout->addWidget(createRibbonButton(tr("分析"), QString(),                  QStyle::SP_FileDialogContentsView,  page));
-        layout->addWidget(createRibbonButton(tr("设置"), QString(),                  QStyle::SP_FileDialogDetailedView, page));
-        break;
-
-    case 6: // 集成
-        layout->addWidget(createRibbonButton(tr("脚本"),     QString(), QStyle::SP_CommandLink,      page));
-        layout->addWidget(createRibbonButton(tr("外部工具"), QString(), QStyle::SP_ComputerIcon,     page));
-        layout->addWidget(createRibbonButton(tr("数据导入"), QString(), QStyle::SP_DialogOpenButton,  page));
-        break;
-
-    case 7: // 关于
-        layout->addWidget(createRibbonButton(tr("帮助"), QString(), QStyle::SP_DialogHelpButton,      page));
+    case 8:
+        layout->addWidget(createRibbonButton(tr("帮助"), QString(), QStyle::SP_DialogHelpButton, page));
         layout->addWidget(createRibbonButton(tr("关于"), QString(), QStyle::SP_MessageBoxInformation, page));
         break;
     }
@@ -322,10 +330,10 @@ void UiMainWindow::setupCentralCanvas()
 
 void UiMainWindow::setupObjectDock()
 {
-    objectDock_ = new QDockWidget(tr("对象"), this);
+    objectDock_ = new QDockWidget(tr("库浏览器"), this);
     objectDock_->setObjectName(QStringLiteral("ObjectDock"));
     objectDock_->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    objectDock_->setMinimumWidth(220);
+    objectDock_->setMinimumWidth(190);
 
     auto* dockContent = new QWidget(objectDock_);
     auto* dockLayout = new QVBoxLayout(dockContent);
@@ -360,11 +368,11 @@ void UiMainWindow::setupObjectDock()
 
     objectTree_ = new UiObjectTree(tabWidget);
     objectTree_->refresh();
-    tabWidget->addTab(objectTree_, tr("对象视图"));
+    tabWidget->addTab(objectTree_, tr("库浏览器"));
 
     groupTree_ = new QTreeWidget(tabWidget);
     groupTree_->setHeaderHidden(true);
-    tabWidget->addTab(groupTree_, tr("分组视图"));
+    tabWidget->addTab(groupTree_, tr("用户模型"));
 
     dockLayout->addWidget(tabWidget);
     objectDock_->setWidget(dockContent);
