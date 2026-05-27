@@ -41,6 +41,7 @@
 #include <QToolButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+#include <QDebug>
 
 AST_NAMESPACE_BEGIN
 
@@ -153,7 +154,8 @@ QWidget* UiMainWindow::setupRibbon()
     return ribbonWidget;
 }
 
-QToolButton* UiMainWindow::createRibbonButton(const QString& text, const QString& iconName, QWidget* parent)
+QToolButton* UiMainWindow::createRibbonButton(const QString& text, const QString& iconName,
+                                               QStyle::StandardPixmap stdIcon, QWidget* parent)
 {
     auto* btn = new QToolButton(parent);
     btn->setText(text);
@@ -161,12 +163,12 @@ QToolButton* UiMainWindow::createRibbonButton(const QString& text, const QString
     btn->setIconSize(QSize(24, 24));
     btn->setMinimumWidth(56);
 
+    QIcon icon;
     if (!iconName.isEmpty())
-    {
-        QIcon icon = loadIcon(iconName);
-        if (!icon.isNull())
-            btn->setIcon(icon);
-    }
+        icon = loadIcon(iconName);
+    if (icon.isNull())
+        icon = style()->standardIcon(stdIcon);
+    btn->setIcon(icon);
     return btn;
 }
 
@@ -188,33 +190,33 @@ QWidget* UiMainWindow::createRibbonPage(int index)
     switch (index)
     {
     case 0: // 开始
-        layout->addWidget(createRibbonButton(tr("新建"),   QStringLiteral("Object"),     page));
-        layout->addWidget(createRibbonButton(tr("打开"),   QString(),                    page));
-        layout->addWidget(createRibbonButton(tr("保存"),   QString(),                    page));
+        layout->addWidget(createRibbonButton(tr("新建"),   QStringLiteral("Object"),     QStyle::SP_FileIcon,            page));
+        layout->addWidget(createRibbonButton(tr("打开"),   QString(),                    QStyle::SP_DialogOpenButton,    page));
+        layout->addWidget(createRibbonButton(tr("保存"),   QString(),                    QStyle::SP_DialogSaveButton,    page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("场景"),   QStringLiteral("Object"),     page));
-        layout->addWidget(createRibbonButton(tr("卫星"),   QStringLiteral("Satellite"),  page));
-        layout->addWidget(createRibbonButton(tr("设施"),   QStringLiteral("Facility"),   page));
-        layout->addWidget(createRibbonButton(tr("传感器"), QStringLiteral("Sensor"),     page));
+        layout->addWidget(createRibbonButton(tr("场景"),   QStringLiteral("Object"),     QStyle::SP_ComputerIcon,        page));
+        layout->addWidget(createRibbonButton(tr("卫星"),   QStringLiteral("Satellite"),  QStyle::SP_ComputerIcon,        page));
+        layout->addWidget(createRibbonButton(tr("设施"),   QStringLiteral("Facility"),   QStyle::SP_ComputerIcon,        page));
+        layout->addWidget(createRibbonButton(tr("传感器"), QStringLiteral("Sensor"),     QStyle::SP_ComputerIcon,        page));
         break;
 
     case 1: // 编辑
-        layout->addWidget(createRibbonButton(tr("撤销"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("重做"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("撤销"), QString(), QStyle::SP_ArrowBack,        page));
+        layout->addWidget(createRibbonButton(tr("重做"), QString(), QStyle::SP_ArrowForward,     page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("剪切"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("复制"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("粘贴"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("剪切"), QString(), QStyle::SP_CommandLink,      page));
+        layout->addWidget(createRibbonButton(tr("复制"), QString(), QStyle::SP_CommandLink,      page));
+        layout->addWidget(createRibbonButton(tr("粘贴"), QString(), QStyle::SP_CommandLink,      page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("删除"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("删除"), QString(), QStyle::SP_TrashIcon,        page));
         break;
 
     case 2: // 视图
-        layout->addWidget(createRibbonButton(tr("三维视图"), QStringLiteral("Body"), page));
-        layout->addWidget(createRibbonButton(tr("二维视图"), QStringLiteral("Plane"), page));
+        layout->addWidget(createRibbonButton(tr("三维视图"), QStringLiteral("Body"),  QStyle::SP_ComputerIcon,  page));
+        layout->addWidget(createRibbonButton(tr("二维视图"), QStringLiteral("Plane"), QStyle::SP_ComputerIcon,  page));
         addRibbonSeparator(layout);
-        layout->addWidget(createRibbonButton(tr("缩放"),     QString(), page));
-        layout->addWidget(createRibbonButton(tr("适应窗口"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("缩放"),     QString(), QStyle::SP_FileDialogContentsView,  page));
+        layout->addWidget(createRibbonButton(tr("适应窗口"), QString(), QStyle::SP_FileDialogDetailedView, page));
 
         // 主题切换
         {
@@ -229,7 +231,7 @@ QWidget* UiMainWindow::createRibbonPage(int index)
             for (const auto& file : themeFiles)
             {
                 QString name = file.chopped(4); // remove ".qss"
-                auto* btn = createRibbonButton(name, QString(), page);
+                auto* btn = createRibbonButton(name, QString(), QStyle::SP_FileDialogDetailedView, page);
                 btn->setCheckable(true);
                 themeGroup->addButton(btn);
 
@@ -246,33 +248,33 @@ QWidget* UiMainWindow::createRibbonPage(int index)
         break;
 
     case 3: // 插入
-        layout->addWidget(createRibbonButton(tr("航天器"), QStringLiteral("Spacecraft"),    page));
-        layout->addWidget(createRibbonButton(tr("轨道"),   QStringLiteral("OrbitState"),     page));
-        layout->addWidget(createRibbonButton(tr("机动"),   QStringLiteral("Maneuver"),       page));
-        layout->addWidget(createRibbonButton(tr("序列"),   QStringLiteral("Sequence"),        page));
+        layout->addWidget(createRibbonButton(tr("航天器"), QStringLiteral("Spacecraft"),  QStyle::SP_ComputerIcon,  page));
+        layout->addWidget(createRibbonButton(tr("轨道"),   QStringLiteral("OrbitState"),   QStyle::SP_ComputerIcon,  page));
+        layout->addWidget(createRibbonButton(tr("机动"),   QStringLiteral("Maneuver"),     QStyle::SP_ComputerIcon,  page));
+        layout->addWidget(createRibbonButton(tr("序列"),   QStringLiteral("Sequence"),     QStyle::SP_ComputerIcon,  page));
         break;
 
     case 4: // 输出
-        layout->addWidget(createRibbonButton(tr("报告"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("图表"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("导出"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("报告"), QString(), QStyle::SP_FileDialogDetailedView, page));
+        layout->addWidget(createRibbonButton(tr("图表"), QString(), QStyle::SP_ComputerIcon,           page));
+        layout->addWidget(createRibbonButton(tr("导出"), QString(), QStyle::SP_DialogSaveButton,       page));
         break;
 
     case 5: // 工具
-        layout->addWidget(createRibbonButton(tr("传播"), QStringLiteral("Propagate"), page));
-        layout->addWidget(createRibbonButton(tr("分析"), QString(),                  page));
-        layout->addWidget(createRibbonButton(tr("设置"), QString(),                  page));
+        layout->addWidget(createRibbonButton(tr("传播"), QStringLiteral("Propagate"), QStyle::SP_ComputerIcon,            page));
+        layout->addWidget(createRibbonButton(tr("分析"), QString(),                  QStyle::SP_FileDialogContentsView,  page));
+        layout->addWidget(createRibbonButton(tr("设置"), QString(),                  QStyle::SP_FileDialogDetailedView, page));
         break;
 
     case 6: // 集成
-        layout->addWidget(createRibbonButton(tr("脚本"),     QString(), page));
-        layout->addWidget(createRibbonButton(tr("外部工具"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("数据导入"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("脚本"),     QString(), QStyle::SP_CommandLink,      page));
+        layout->addWidget(createRibbonButton(tr("外部工具"), QString(), QStyle::SP_ComputerIcon,     page));
+        layout->addWidget(createRibbonButton(tr("数据导入"), QString(), QStyle::SP_DialogOpenButton,  page));
         break;
 
     case 7: // 关于
-        layout->addWidget(createRibbonButton(tr("帮助"), QString(), page));
-        layout->addWidget(createRibbonButton(tr("关于"), QString(), page));
+        layout->addWidget(createRibbonButton(tr("帮助"), QString(), QStyle::SP_DialogHelpButton,      page));
+        layout->addWidget(createRibbonButton(tr("关于"), QString(), QStyle::SP_MessageBoxInformation, page));
         break;
     }
 

@@ -23,6 +23,8 @@
 #include "AstUtil/GUI.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include <QApplication>
+#include <QStyleFactory>
+#include <QDebug>
 
 AST_NAMESPACE_BEGIN
 
@@ -49,6 +51,9 @@ errc_t aQAppInit(int argc, char *argv[])
 {
     if (aCanDisplayGUI()) {
         QApplication* app = new QApplication(argc, argv);
+        // app->setStyle(QStyleFactory::create("Fusion"));
+        // qDebug() << QStyleFactory::keys();
+        // qDebug() << QApplication::style()->metaObject()->className();
         (void)app;
     }else{
         QCoreApplication* app = new QCoreApplication(argc, argv);

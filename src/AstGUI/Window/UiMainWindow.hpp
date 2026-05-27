@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include <QMainWindow>
+#include <QStyle>
 
 class QTabBar;
 class QStackedWidget;
@@ -51,7 +52,8 @@ private:
 
     QWidget* setupRibbon();
     QWidget* createRibbonPage(int index);
-    QToolButton* createRibbonButton(const QString& text, const QString& iconName, QWidget* parent);
+    QToolButton* createRibbonButton(const QString& text, const QString& iconName,
+                                     QStyle::StandardPixmap stdIcon, QWidget* parent);
 
     void setupCentralCanvas();
     void setupObjectDock();

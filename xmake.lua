@@ -54,6 +54,7 @@ if is_plat("linux") then
     add_rpathdirs("$ORIGIN")                                -- 添加运行时库搜索路径，指向可执行文件所在目录
 elseif is_plat("windows") then
     if is_mode("debug") then
+        set_values("windows.subsystem", "console")
         -- 为了让AI生成的代码能正常编译
         add_includedirs("src")
     end
