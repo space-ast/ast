@@ -717,10 +717,6 @@
         <translation>About</translation>
     </message>
     <message>
-        <source>3D / 2D 场景视图</source>
-        <translation>3D / 2D Scene View</translation>
-    </message>
-    <message>
         <source>对象</source>
         <translation>Objects</translation>
     </message>
@@ -775,6 +771,22 @@
     <message>
         <source>时间: UTCG</source>
         <translation>Time: UTCG</translation>
+    </message>
+    <message>
+        <source>新建任务功能尚未连接</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开任务功能尚未连接</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开示例：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>已选择：</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1341,6 +1353,57 @@ Error code: %2</translation>
     <message>
         <source>GPS 太阳光压</source>
         <translation>GPS Solar Radiation Pressure</translation>
+    </message>
+</context>
+<context>
+    <name>UiStartPage</name>
+    <message>
+        <source>航天任务分析与仿真平台</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>新建任务</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开任务</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开示例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>最近项目</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>社区 / 学习</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>启动时显示此页面</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>新建</source>
+        <translation type="unfinished">New</translation>
+    </message>
+    <message>
+        <source>示例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>学习</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>任务示例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>学习资源</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -21,6 +21,7 @@
 #include "UiMainWindow.hpp"
 #include "AstGUI/ObjectIcons.hpp"
 #include "AstGUI/UiObjectTree.hpp"
+#include "AstGUI/UiStartPage.hpp"
 
 #include <QApplication>
 #include <QButtonGroup>
@@ -293,10 +294,24 @@ void UiMainWindow::setupCentralCanvas()
     canvasFrame_->setFrameShape(QFrame::NoFrame);
 
     auto* layout = new QHBoxLayout(canvasFrame_);
-    auto* hint = new QLabel(tr("3D / 2D 场景视图"), canvasFrame_);
-    hint->setAlignment(Qt::AlignCenter);
-    hint->setStyleSheet(QStringLiteral("color: #c0c0c0; font-size: 18px;"));
-    layout->addWidget(hint);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(0);
+
+    auto* startPage = new UiStartPage(canvasFrame_);
+    layout->addWidget(startPage);
+
+    connect(startPage, &UiStartPage::newTaskRequested, this, [this]() {
+        statusBar()->showMessage(tr("新建任务功能尚未连接"), 3000);
+    });
+    connect(startPage, &UiStartPage::openTaskRequested, this, [this]() {
+        statusBar()->showMessage(tr("打开任务功能尚未连接"), 3000);
+    });
+    connect(startPage, &UiStartPage::exampleRequested, this, [this](const QString& name) {
+        statusBar()->showMessage(tr("打开示例：") + name, 3000);
+    });
+    connect(startPage, &UiStartPage::cardActivated, this, [this](const QString& id) {
+        statusBar()->showMessage(tr("已选择：") + id, 3000);
+    });
 
     setCentralWidget(canvasFrame_);
 }

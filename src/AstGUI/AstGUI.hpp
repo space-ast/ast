@@ -59,6 +59,7 @@
 #include "AstGUI/UiStateCartesian.hpp"
 #include "AstGUI/UiStateEditor.hpp"
 #include "AstGUI/UiStateKeplerian.hpp"
+#include "AstGUI/UiStartPage.hpp"
 #include "AstGUI/UiThirdBodyForce.hpp"
 #include "AstGUI/UiThirdBodyForceList.hpp"
 #include "AstGUI/UiTimeInterval.hpp"
