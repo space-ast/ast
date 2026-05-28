@@ -71,6 +71,8 @@ UiObjectTreeItem* UiObjectTreeItem::clone() const
 void UiObjectTreeItem::configure(Object* obj, const QString& emptyNameText)
 {
     object_ = obj;
+    if (!obj)
+        return;
     auto name = obj->getName();
     setText(0, name.empty() ? emptyNameText : QString::fromStdString(name));
     setToolTip(0, QString::fromStdString(obj->typeName()));

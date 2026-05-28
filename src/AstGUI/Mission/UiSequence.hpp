@@ -67,7 +67,6 @@ private:
     void setupUi();
 
     QSpinBox* repeatCountSpin_ = nullptr;
-    QSpinBox* maxIterSpin_ = nullptr;
 };
 
 AST_NAMESPACE_END

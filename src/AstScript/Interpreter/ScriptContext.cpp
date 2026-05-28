@@ -107,12 +107,7 @@ void aScript_AddSymbol(Variable* var)
         aError("var is null");
         return;
     }
-    auto symbolScope = aScript_CurrentSymbolScope();
-    if(A_UNLIKELY(!symbolScope))
-    {
-        aError("symbol scope is null");
-    }
-    symbolScope->addSymbol(var->name(), var);
+    aScript_AddSymbol(var->name(), var);
 }
 
 
@@ -123,7 +118,13 @@ void aScript_AddSymbol(StringView name, Expr* expr)
         aError("expr is null");
         return;
     }
-    aScript_AddSymbol(name, expr);
+    auto symbolScope = aScript_CurrentSymbolScope();
+    if(A_UNLIKELY(!symbolScope))
+    {
+        aError("symbol scope is null");
+        return;
+    }
+    symbolScope->addSymbol(name, expr);
 }
 
 Expr *aScript_FindSymbol(StringView name)

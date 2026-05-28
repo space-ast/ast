@@ -32,13 +32,6 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// 网格面渲染模式 — 与着色网格线搭配
-enum class MeshFaceMode : unsigned char {
-    None,       ///< 不渲染面（WIREFRAME）
-    Occlusion,  ///< 背景色面，仅用于遮挡（HIDDENLINE）
-    Colored     ///< 按 dataColor 着色的面（FILLEDMESH）
-};
-
 
 
 /// Qwt3D Enrichment 子类 — 在 drawBegin() 中渲染遮挡面 + 逐顶点着色的网格线

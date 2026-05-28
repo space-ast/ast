@@ -55,6 +55,8 @@ UiObjectTree::~UiObjectTree()
 
 void UiObjectTree::setRootItem(UiObjectTreeItem* item)
 {
+    if (rootItem_ && rootItem_ != item)
+        delete rootItem_;
     rootItem_ = item;
 }
 

@@ -117,14 +117,6 @@ void UiTargeterSequence::setupUi()
     repeatLayout->addWidget(repeatCountSpin_);
     layout->addLayout(repeatLayout);
 
-    auto* iterLayout = new QHBoxLayout();
-    iterLayout->addWidget(new QLabel(tr("最大迭代次数"), this));
-    maxIterSpin_ = new QSpinBox(this);
-    maxIterSpin_->setRange(1, 9999);
-    maxIterSpin_->setValue(50);
-    iterLayout->addWidget(maxIterSpin_);
-    layout->addLayout(iterLayout);
-
     layout->addStretch();
 
     connect(repeatCountSpin_, QOverload<int>::of(&QSpinBox::valueChanged),
