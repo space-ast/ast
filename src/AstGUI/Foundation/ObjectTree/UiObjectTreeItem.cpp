@@ -18,18 +18,18 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiObjectTreeItem.hpp"
-#include "ObjectIcons.hpp"
+#include "AstGUI/ObjectIcons.hpp"
 #include "AstUtil/ObjectManager.hpp"
 #include "AstUtil/ObjectNode.hpp"
 
 AST_NAMESPACE_BEGIN
 
-UiObjectTreeItem::UiObjectTreeItem() 
-    : QTreeWidgetItem(QTreeWidgetItem::UserType) 
+UiObjectTreeItem::UiObjectTreeItem()
+    : QTreeWidgetItem(QTreeWidgetItem::UserType)
 {}
 
-UiObjectTreeItem::UiObjectTreeItem(Object* obj) 
-    : UiObjectTreeItem() 
+UiObjectTreeItem::UiObjectTreeItem(Object* obj)
+    : UiObjectTreeItem()
 {
     object_ = obj;
     configure(obj, QObject::tr("<无名称>"));
@@ -37,24 +37,35 @@ UiObjectTreeItem::UiObjectTreeItem(Object* obj)
 
 void UiObjectTreeItem::buildChildren()
 {
-    auto* obj = object_.get();
-    if (!obj)
-        return;
-
-    auto* node = ObjectManager::CurrentInstance().getObjectNode(obj);
-    if (!node)
-        return;
-
-    for (auto* childNode : node->getChildren())
+    for (auto* childItem : createChildItems())
     {
-        auto* childObj = childNode->getObject();
-        if (!childObj)
-            continue;
-
-        auto* childItem = new UiObjectTreeItem(childObj);
         addChild(childItem);
         childItem->buildChildren();
     }
+}
+
+QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems() const
+{
+    auto* obj = object_.get();
+    if (!obj)
+        return {};
+
+    auto* node = ObjectManager::CurrentInstance().getObjectNode(obj);
+    if (!node)
+        return {};
+    
+    QList<UiObjectTreeItem*> items;
+    for (auto* childNode : node->getChildren())
+    {
+        if (auto* childObj = childNode->getObject())
+            items.append(new UiObjectTreeItem(childObj));
+    }
+    return items;
+}
+
+UiObjectTreeItem* UiObjectTreeItem::clone() const
+{
+    return new UiObjectTreeItem(*this);
 }
 
 void UiObjectTreeItem::configure(Object* obj, const QString& emptyNameText)

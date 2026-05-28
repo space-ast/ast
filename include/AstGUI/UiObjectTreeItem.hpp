@@ -1,1 +1,1 @@
-#include "../../src/AstGUI/Foundation/UiObjectTreeItem.hpp"
+#include "../../src/AstGUI/Foundation/ObjectTree/UiObjectTreeItem.hpp"

@@ -43,20 +43,24 @@ UiObjectTree::UiObjectTree(QWidget* parent)
     this->setStyle(QStyleFactory::create("windows"));
 }
 
-UiObjectTree::UiObjectTree(Object* root, QWidget* parent)
-    : UiObjectTree(parent)
+
+UiObjectTree::~UiObjectTree()
 {
-    rootObject_ = root;
+    if (rootItem_)
+    {
+        delete rootItem_;
+        rootItem_ = nullptr;
+    }
 }
 
-void UiObjectTree::setRootObject(Object* root)
+void UiObjectTree::setRootItem(UiObjectTreeItem* item)
 {
-    rootObject_ = root;
+    rootItem_ = item;
 }
 
-Object* UiObjectTree::rootObject() const
+UiObjectTreeItem* UiObjectTree::rootItem() const
 {
-    return rootObject_.get();
+    return rootItem_;
 }
 
 void UiObjectTree::setRootVisible(bool visible)
@@ -74,70 +78,35 @@ void UiObjectTree::refresh()
 {
     clear();
 
-    auto& mgr = ObjectManager::CurrentInstance();
-
-    if (rootObject_)
+    if (rootItem_)
     {
-        auto* rootNode = mgr.getObjectNode(rootObject_.get());
-        if (!rootNode)
-            return;
-
         if (rootVisible_)
         {
-            auto* rootItem = static_cast<UiObjectTreeItem*>(buildItem(rootObject_.get()));
-            invisibleRootItem()->addChild(rootItem);
-            rootItem->buildChildren();
+            auto* item = rootItem_->clone();
+            invisibleRootItem()->addChild(item);
+            item->buildChildren();
         }
         else
         {
-            for (auto* childNode : rootNode->getChildren())
+            for (auto* child : rootItem_->createChildItems())
             {
-                if (auto* childObj = childNode->getObject())
-                {
-                    auto* item = static_cast<UiObjectTreeItem*>(buildItem(childObj));
-                    invisibleRootItem()->addChild(item);
-                    item->buildChildren();
-                }
+                invisibleRootItem()->addChild(child);
+                child->buildChildren();
             }
         }
     }
     else
     {
-        auto allObjects = mgr.getAllObjects();
-
-        std::unordered_map<Object*, UiObjectTreeItem*> itemMap;
-
-        for (auto* obj : allObjects)
-        {
-            if (!obj)
-                continue;
-            auto* item = static_cast<UiObjectTreeItem*>(buildItem(obj));
-            itemMap[obj] = item;
-        }
+        auto& mgr = ObjectManager::CurrentInstance();
+        auto allObjects = mgr.getRootObjects();
 
         for (auto* obj : allObjects)
         {
             if (!obj)
                 continue;
-            auto* node = mgr.getObjectNode(obj);
-            if (!node)
-                continue;
-
-            auto* parentNode = node->getParentNode();
-            if (parentNode)
-            {
-                auto* parentObj = parentNode->getObject();
-                if (parentObj)
-                {
-                    auto it = itemMap.find(parentObj);
-                    if (it != itemMap.end())
-                    {
-                        it->second->addChild(itemMap[obj]);
-                        continue;
-                    }
-                }
-            }
-            invisibleRootItem()->addChild(itemMap[obj]);
+            auto* item = new UiObjectTreeItem(obj);
+            invisibleRootItem()->addChild(item);
+            item->buildChildren();
         }
     }
 
@@ -148,13 +117,6 @@ Object* UiObjectTree::selectedObject() const
 {
     auto* item = static_cast<UiObjectTreeItem*>(currentItem());
     return item ? item->object() : nullptr;
-}
-
-QTreeWidgetItem* UiObjectTree::buildItem(Object* obj)
-{
-    auto* item = new UiObjectTreeItem();
-    item->configure(obj, tr("<无名称>"));
-    return item;
 }
 
 AST_NAMESPACE_END

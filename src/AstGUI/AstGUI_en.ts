@@ -1099,13 +1099,6 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
-    <name>UiObjectTree</name>
-    <message>
-        <source>&lt;无名称&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>UiPointMassForce</name>
     <message>
         <source>引力常数来源:</source>

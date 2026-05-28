@@ -223,9 +223,24 @@ std::vector<Object*> ObjectManager::getAllObjects()
     std::vector<Object*> objects;
     for(auto objNode : objects_)
     {
-        if(!objNode->expired())
+        auto object = objNode->getObject();
+        if(object)
         {
-            objects.push_back(objNode->object_.get());
+            objects.push_back(object);
+        }
+    }
+    return objects;
+}
+
+std::vector<Object*> ObjectManager::getRootObjects()
+{
+    std::vector<Object*> objects;
+    for(auto objNode : objects_)
+    {
+        auto object = objNode->getObject();
+        if(object && !objNode->parentNode_)
+        {
+            objects.push_back(object);
         }
     }
     return objects;

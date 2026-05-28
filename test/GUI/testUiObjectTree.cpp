@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstGUI/UiObjectTree.hpp"
+#include "AstGUI/UiObjectTreeItem.hpp"
 #include "AstCore/StateKeplerian.hpp"
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/CelestialBody.hpp"
@@ -216,7 +217,8 @@ int main(int argc, char* argv[])
     treeLayout->addWidget(separator);
 
     auto* subTreeLabel = new QLabel(u8"子树（以 Scenario3 为根）", treePanel);
-    auto* subtreeTree = new UiObjectTree(scenario, treePanel);
+    auto* subtreeTree = new UiObjectTree(treePanel);
+    subtreeTree->setRootItem(new UiObjectTreeItem(scenario));
     subtreeTree->setRootVisible(true);
     auto* subtreeRefreshBtn = new QPushButton(u8"刷新子树", treePanel);
     treeLayout->addWidget(subTreeLabel);
@@ -301,25 +303,25 @@ int main(int argc, char* argv[])
     });
 
     QObject::connect(rootScenarioBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, scenario]() {
-        subtreeTree->setRootObject(scenario);
+        subtreeTree->setRootItem(new UiObjectTreeItem(scenario));
         subTreeLabel->setText(u8"子树（以 Scenario3 为根）");
         subtreeTree->refresh();
     });
 
     QObject::connect(rootGeoBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, geo90w]() {
-        subtreeTree->setRootObject(geo90w);
+        subtreeTree->setRootItem(new UiObjectTreeItem(geo90w));
         subTreeLabel->setText(u8"子树（以 GEO_90W 为根）");
         subtreeTree->refresh();
     });
 
     QObject::connect(rootChildBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, child1]() {
-        subtreeTree->setRootObject(child1);
+        subtreeTree->setRootItem(new UiObjectTreeItem(child1));
         subTreeLabel->setText(u8"子树（以 ChildKeplerian-A 为根）");
         subtreeTree->refresh();
     });
 
     QObject::connect(rootNoneBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel]() {
-        subtreeTree->setRootObject(nullptr);
+        subtreeTree->setRootItem(nullptr);
         subTreeLabel->setText(u8"子树（显示全部）");
         subtreeTree->refresh();
     });
@@ -331,19 +333,19 @@ int main(int argc, char* argv[])
     });
 
     QObject::connect(rootMissionBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, mission]() {
-        subtreeTree->setRootObject(mission);
+        subtreeTree->setRootItem(new UiObjectTreeItem(mission));
         subTreeLabel->setText(u8"子树（以 TLI_Mission 为根）");
         subtreeTree->refresh();
     });
 
     QObject::connect(rootTargeterBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, tliTargeter]() {
-        subtreeTree->setRootObject(tliTargeter);
+        subtreeTree->setRootItem(new UiObjectTreeItem(tliTargeter));
         subTreeLabel->setText(u8"子树（以 TLI_Targeter 为根）");
         subtreeTree->refresh();
     });
 
     QObject::connect(rootLunarPhaseBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, lunarPhase]() {
-        subtreeTree->setRootObject(lunarPhase);
+        subtreeTree->setRootItem(new UiObjectTreeItem(lunarPhase));
         subTreeLabel->setText(u8"子树（以 LunarPhase 为根）");
         subtreeTree->refresh();
     });

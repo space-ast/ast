@@ -22,6 +22,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
 #include <QTreeWidget>
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -40,6 +41,11 @@ public:
 
     /// 获取关联的对象
     Object* object() const { return object_.get(); }
+
+    UiObjectTreeItem* clone() const override;
+
+    /// 创建子节点列表，子类可重写以实现自定义的层级关系和 item 类型
+    virtual QList<UiObjectTreeItem*> createChildItems() const;
 
 private:
     WeakPtr<Object> object_ = nullptr;
