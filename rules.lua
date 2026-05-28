@@ -23,6 +23,10 @@ rule("ast")
         if os.isdir(include_dir) then
             target:add("includedirs", include_dir)
         end
+        if target:plat() == "windows" and target:kind() == "binary" then
+            -- 添加图标资源文件
+            target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
+        end
     end)
 
     before_build(function (target)

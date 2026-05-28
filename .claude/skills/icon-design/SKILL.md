@@ -86,8 +86,7 @@ arg-model: prompt
 
 ### 新增图标后
 1. 将 SVG 放入 `data/icons/`
-2. 运行 `xmake cpdata` 拷贝到构建输出目录
-3. 控件通过 `loadIcon("图标名")` 或 `missionIcon("图标名")` 加载
+2. 控件通过 `loadIcon("图标名")` 或 `missionIcon("图标名")` 加载
 
 ### 图标加载工具
 

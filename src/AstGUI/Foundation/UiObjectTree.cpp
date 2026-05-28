@@ -18,19 +18,12 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiObjectTree.hpp"
-#include "ObjectIcons.hpp"
+#include "UiObjectTreeItem.hpp"
 #include "AstUtil/ObjectManager.hpp"
-#include "AstUtil/ObjectNode.hpp"
+#include <QStyleFactory>
 #include <unordered_map>
 
 AST_NAMESPACE_BEGIN
-
-class ObjectTreeItem : public QTreeWidgetItem
-{
-public:
-    Object* object = nullptr;
-    explicit ObjectTreeItem() : QTreeWidgetItem(QTreeWidgetItem::UserType) {}
-};
 
 UiObjectTree::UiObjectTree(QWidget* parent)
     : QTreeWidget(parent)
@@ -42,60 +35,110 @@ UiObjectTree::UiObjectTree(QWidget* parent)
             this, [this](QTreeWidgetItem* current, QTreeWidgetItem*)
     {
         auto* obj = current
-            ? static_cast<ObjectTreeItem*>(current)->object
+            ? static_cast<UiObjectTreeItem*>(current)->object()
             : nullptr;
         emit objectSelected(obj);
     });
+    // 显示节点间连线虚线和伸缩 +- 号
+    this->setStyle(QStyleFactory::create("windows"));
 }
 
+UiObjectTree::UiObjectTree(Object* root, QWidget* parent)
+    : UiObjectTree(parent)
+{
+    rootObject_ = root;
+}
+
+void UiObjectTree::setRootObject(Object* root)
+{
+    rootObject_ = root;
+}
+
+Object* UiObjectTree::rootObject() const
+{
+    return rootObject_.get();
+}
+
+void UiObjectTree::setRootVisible(bool visible)
+{
+    rootVisible_ = visible;
+}
+
+bool UiObjectTree::isRootVisible() const
+{
+    return rootVisible_;
+}
+
+/// 有根节点时从该节点出发递归构建子树，否则展示 ObjectManager 中全部对象
 void UiObjectTree::refresh()
 {
     clear();
 
     auto& mgr = ObjectManager::CurrentInstance();
-    auto allObjects = mgr.getAllObjects();
 
-    std::unordered_map<Object*, ObjectTreeItem*> itemMap;
-
-    // 第一遍：为每个对象创建树节点
-    for (auto* obj : allObjects)
+    if (rootObject_)
     {
-        if (!obj)
-            continue;
-        auto* item = new ObjectTreeItem();
-        item->object = obj;
-        auto name = obj->getName();
-        item->setText(0, QString::fromStdString(name.empty() ? u8"<无名称>" : name));
-        item->setToolTip(0, QString::fromStdString(obj->typeName()));
-        item->setIcon(0, objectIcon(obj));
-        itemMap[obj] = item;
-    }
+        auto* rootNode = mgr.getObjectNode(rootObject_.get());
+        if (!rootNode)
+            return;
 
-    // 第二遍：建立父子挂载关系
-    for (auto* obj : allObjects)
-    {
-        if (!obj)
-            continue;
-        auto* node = mgr.getObjectNode(obj);
-        if (!node)
-            continue;
-
-        auto* parentNode = node->getParentNode();
-        if (parentNode)
+        if (rootVisible_)
         {
-            auto* parentObj = parentNode->getObject();
-            if (parentObj)
+            auto* rootItem = static_cast<UiObjectTreeItem*>(buildItem(rootObject_.get()));
+            invisibleRootItem()->addChild(rootItem);
+            rootItem->buildChildren();
+        }
+        else
+        {
+            for (auto* childNode : rootNode->getChildren())
             {
-                auto it = itemMap.find(parentObj);
-                if (it != itemMap.end())
+                if (auto* childObj = childNode->getObject())
                 {
-                    it->second->addChild(itemMap[obj]);
-                    continue;
+                    auto* item = static_cast<UiObjectTreeItem*>(buildItem(childObj));
+                    invisibleRootItem()->addChild(item);
+                    item->buildChildren();
                 }
             }
         }
-        // 无父节点或父对象已失效，挂到根下
-        invisibleRootItem()->addChild(itemMap[obj]);
+    }
+    else
+    {
+        auto allObjects = mgr.getAllObjects();
+
+        std::unordered_map<Object*, UiObjectTreeItem*> itemMap;
+
+        for (auto* obj : allObjects)
+        {
+            if (!obj)
+                continue;
+            auto* item = static_cast<UiObjectTreeItem*>(buildItem(obj));
+            itemMap[obj] = item;
+        }
+
+        for (auto* obj : allObjects)
+        {
+            if (!obj)
+                continue;
+            auto* node = mgr.getObjectNode(obj);
+            if (!node)
+                continue;
+
+            auto* parentNode = node->getParentNode();
+            if (parentNode)
+            {
+                auto* parentObj = parentNode->getObject();
+                if (parentObj)
+                {
+                    auto it = itemMap.find(parentObj);
+                    if (it != itemMap.end())
+                    {
+                        it->second->addChild(itemMap[obj]);
+                        continue;
+                    }
+                }
+            }
+            invisibleRootItem()->addChild(itemMap[obj]);
+        }
     }
 
     expandAll();
@@ -103,8 +146,15 @@ void UiObjectTree::refresh()
 
 Object* UiObjectTree::selectedObject() const
 {
-    auto* item = static_cast<ObjectTreeItem*>(currentItem());
-    return item ? item->object : nullptr;
+    auto* item = static_cast<UiObjectTreeItem*>(currentItem());
+    return item ? item->object() : nullptr;
+}
+
+QTreeWidgetItem* UiObjectTree::buildItem(Object* obj)
+{
+    auto* item = new UiObjectTreeItem();
+    item->configure(obj, tr("<无名称>"));
+    return item;
 }
 
 AST_NAMESPACE_END

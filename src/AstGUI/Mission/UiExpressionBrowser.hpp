@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Object.hpp"
 #include <QDialog>
 #include <QString>
 
@@ -30,7 +31,6 @@ class QPushButton;
 
 AST_NAMESPACE_BEGIN
 
-class Object;
 class UiObjectTree;
 
 class AST_GUI_API UiExpressionBrowser : public QDialog
@@ -62,7 +62,7 @@ private:
     QTreeWidget* calculationTree_ = nullptr;
     QPushButton* propertySelectButton_ = nullptr;
     QPushButton* calculationSelectButton_ = nullptr;
-    Object* currentObject_ = nullptr;
+    WeakPtr<Object> currentObject_ = nullptr;
     QString selectedExpression_;
 };
 

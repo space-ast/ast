@@ -20,28 +20,52 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Object.hpp"
 #include <QTreeWidget>
 
 AST_NAMESPACE_BEGIN
 
-class Object;
-
+/// @brief 通用对象树控件，支持显示全部对象或以指定节点为根的子树
 class AST_GUI_API UiObjectTree : public QTreeWidget
 {
     Q_OBJECT
 
 public:
+    /// @brief 构造全部对象树（显示 ObjectManager 中所有对象）
     explicit UiObjectTree(QWidget* parent = nullptr);
+
+    /// @brief 构造以指定对象为根的子树
+    explicit UiObjectTree(Object* root, QWidget* parent = nullptr);
+
     ~UiObjectTree() override = default;
 
+    /// @brief 重建对象树，根据当前根节点设置确定显示范围
     void refresh();
+
+    /// @brief 获取树中当前选中的对象，无选中时返回 nullptr
     Object* selectedObject() const;
 
+    /// @brief 设置根节点，设为 nullptr 则恢复显示全部对象
+    void setRootObject(Object* root);
+
+    /// @brief 获取当前根节点，未设置时返回 nullptr
+    Object* rootObject() const;
+
+    /// @brief 设置根节点自身是否在树中可见，默认为 true
+    void setRootVisible(bool visible);
+
+    /// @brief 查询根节点是否可见
+    bool isRootVisible() const;
+
 signals:
+    /// @brief 当用户在树中选中对象时发出，参数仅在槽函数执行期间有效
     void objectSelected(Object* object);
 
 private:
     QTreeWidgetItem* buildItem(Object* obj);
+
+    WeakPtr<Object> rootObject_ = nullptr;
+    bool rootVisible_ = true;
 };
 
 AST_NAMESPACE_END

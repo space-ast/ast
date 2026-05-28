@@ -240,8 +240,8 @@ task("cpdata")
     }
     on_run(function ()
         local srcpath = path.join(os.projectdir(), "data")
-        local modes = {"release", "debug", "coverage"}
-        local plats = {os.host(), "mingw"}
+        local modes = {"release", "debug"}
+        local plats = {os.host()} -- , "mingw"}
         for _, plat in ipairs(plats) do
             local arch = os.arch()
             if plat == "mingw" then

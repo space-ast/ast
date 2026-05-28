@@ -23,6 +23,10 @@
         <source>浏览对象属性和计算量</source>
         <translation>Browse object attributes and calculations</translation>
     </message>
+    <message>
+        <source>&lt;无名称&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiAnalyzerPanel</name>
@@ -1092,6 +1096,13 @@ Error code: %2</translation>
     <message>
         <source>低安全系数:</source>
         <translation>Low Safety Factor:</translation>
+    </message>
+</context>
+<context>
+    <name>UiObjectTree</name>
+    <message>
+        <source>&lt;无名称&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

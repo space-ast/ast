@@ -47,8 +47,16 @@ public:
     ~Sequence() = default;
 public:
     errc_t execute() override;
+
+    /// @brief 设置子命令序列
     void setCommands(const std::vector<HMissionCommand>& commands);
+
+    /// @brief 设置子命令序列
     void setCommands(std::vector<HMissionCommand>&& commands);
+
+    /// @brief 添加子命令
+    void addCommand(MissionCommand* command);
+
     const std::vector<HMissionCommand>& getCommands() const{return commands_;}
 
     ScriptingToolProfile* scriptingTool() const{return scriptingTool_.get();}

@@ -29,12 +29,19 @@
 #include "AstSim/Facility.hpp"
 #include "AstSim/Sensor.hpp"
 #include "AstUtil/ObjectManager.hpp"
+#include "AstCore/Propagate.hpp"
+#include "AstCore/Maneuver.hpp"
+#include "AstCore/Sequence.hpp"
+#include "AstCore/TargeterSequence.hpp"
+#include "AstCore/InitialState.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QCheckBox>
+#include <QFrame>
 #include <QLabel>
 #include <QDebug>
 
@@ -147,51 +154,125 @@ int main(int argc, char* argv[])
     ObjectManager::CurrentInstance().addObject(satState);
     ObjectManager::CurrentInstance().setParentScope(satState, geo90w);
 
+    // 创建嵌套 Mission 对象树（通过 Sequence::addCommand 构建父子关系）
+    auto* mission = new Sequence();
+    mission->setName(u8"TLI_Mission");
+    ObjectManager::CurrentInstance().addObject(mission);
+
+    auto* initialState = new InitialState();
+    initialState->setName(u8"LEO_Initial");
+    mission->addCommand(initialState);
+
+    auto* tliTargeter = new TargeterSequence();
+    tliTargeter->setName(u8"TLI_Targeter");
+    mission->addCommand(tliTargeter);
+
+    auto* tliBurn = new Maneuver();
+    tliBurn->setName(u8"TLI_Burn");
+    tliTargeter->addCommand(tliBurn);
+
+    auto* coastToMoon = new Propagate();
+    coastToMoon->setName(u8"Coast_To_Moon");
+    tliTargeter->addCommand(coastToMoon);
+
+    auto* loiBurn = new Maneuver();
+    loiBurn->setName(u8"LOI_Burn");
+    tliTargeter->addCommand(loiBurn);
+
+    auto* lunarPhase = new Sequence();
+    lunarPhase->setName(u8"LunarPhase");
+    mission->addCommand(lunarPhase);
+
+    auto* lunarOrbit = new Propagate();
+    lunarOrbit->setName(u8"Lunar_Orbit");
+    lunarPhase->addCommand(lunarOrbit);
+
+    auto* returnBurn = new Maneuver();
+    returnBurn->setName(u8"Return_Burn");
+    lunarPhase->addCommand(returnBurn);
+
     // 主窗口
     QMainWindow window;
     window.setWindowTitle("UiObjectTree Test");
-    window.resize(800, 500);
+    window.resize(1000, 700);
 
     auto* centralWidget = new QWidget(&window);
     auto* mainLayout = new QHBoxLayout(centralWidget);
 
-    // 左侧：对象树
+    // 左侧：全部对象树 + 子树面板
     auto* treePanel = new QWidget(centralWidget);
     auto* treeLayout = new QVBoxLayout(treePanel);
     treeLayout->setContentsMargins(0, 0, 0, 0);
 
-    auto* treeLabel = new QLabel("对象树 (ObjectManager)", treePanel);
+    auto* fullTreeLabel = new QLabel("全部对象树", treePanel);
     auto* objectTree = new UiObjectTree(treePanel);
-    auto* refreshBtn = new QPushButton("刷新", treePanel);
-
-    treeLayout->addWidget(treeLabel);
+    auto* refreshBtn = new QPushButton("刷新全部", treePanel);
+    treeLayout->addWidget(fullTreeLabel);
     treeLayout->addWidget(objectTree);
     treeLayout->addWidget(refreshBtn);
+
+    auto* separator = new QFrame(treePanel);
+    separator->setFrameShape(QFrame::HLine);
+    treeLayout->addWidget(separator);
+
+    auto* subTreeLabel = new QLabel(u8"子树（以 Scenario3 为根）", treePanel);
+    auto* subtreeTree = new UiObjectTree(scenario, treePanel);
+    subtreeTree->setRootVisible(true);
+    auto* subtreeRefreshBtn = new QPushButton(u8"刷新子树", treePanel);
+    treeLayout->addWidget(subTreeLabel);
+    treeLayout->addWidget(subtreeTree);
+
+    auto* ctrlRow1 = new QHBoxLayout();
+    auto* rootScenarioBtn = new QPushButton(u8"根=Scenario3", treePanel);
+    auto* rootGeoBtn = new QPushButton(u8"根=GEO_90W", treePanel);
+    auto* rootChildBtn = new QPushButton(u8"根=ChildKeplerian-A", treePanel);
+    ctrlRow1->addWidget(rootScenarioBtn);
+    ctrlRow1->addWidget(rootGeoBtn);
+    ctrlRow1->addWidget(rootChildBtn);
+    treeLayout->addLayout(ctrlRow1);
+
+    auto* ctrlRow2 = new QHBoxLayout();
+    auto* rootNoneBtn = new QPushButton(u8"显示全部", treePanel);
+    auto* rootVisibleCheck = new QCheckBox(u8"显示根节点", treePanel);
+    rootVisibleCheck->setChecked(true);
+    ctrlRow2->addWidget(rootNoneBtn);
+    ctrlRow2->addWidget(rootVisibleCheck);
+    ctrlRow2->addStretch();
+    treeLayout->addLayout(ctrlRow2);
+
+    auto* ctrlRow3 = new QHBoxLayout();
+    auto* rootMissionBtn = new QPushButton(u8"根=TLI_Mission", treePanel);
+    auto* rootTargeterBtn = new QPushButton(u8"根=TLI_Targeter", treePanel);
+    auto* rootLunarPhaseBtn = new QPushButton(u8"根=LunarPhase", treePanel);
+    ctrlRow3->addWidget(rootMissionBtn);
+    ctrlRow3->addWidget(rootTargeterBtn);
+    ctrlRow3->addWidget(rootLunarPhaseBtn);
+    treeLayout->addLayout(ctrlRow3);
+    treeLayout->addWidget(subtreeRefreshBtn);
 
     // 右侧：选中对象信息
     auto* infoPanel = new QWidget(centralWidget);
     auto* infoLayout = new QVBoxLayout(infoPanel);
 
-    auto* infoTitle = new QLabel("选中对象信息", infoPanel);
-    auto* infoLabel = new QLabel("(未选择)", infoPanel);
+    auto* infoTitle = new QLabel(u8"选中对象信息", infoPanel);
+    auto* infoLabel = new QLabel(u8"(未选择)", infoPanel);
     infoLabel->setWordWrap(true);
     infoLayout->addWidget(infoTitle);
     infoLayout->addWidget(infoLabel);
     infoLayout->addStretch(1);
 
-    mainLayout->addWidget(treePanel, 1);
-    mainLayout->addWidget(infoPanel, 2);
+    mainLayout->addWidget(treePanel, 2);
+    mainLayout->addWidget(infoPanel, 3);
 
     window.setCentralWidget(centralWidget);
 
-    // 初始加载
     objectTree->refresh();
+    subtreeTree->refresh();
 
-    // 连接信号
-    QObject::connect(objectTree, &UiObjectTree::objectSelected, infoLabel, [infoLabel](Object* obj) {
+    auto showObjectInfo = [infoLabel](Object* obj) {
         if (obj)
         {
-            QString text = QString("名称: %1\n类型: %2\nID: %3")
+            QString text = QString(u8"名称: %1\n类型: %2\nID: %3")
                 .arg(QString::fromStdString(obj->getName()))
                 .arg(QString::fromStdString(obj->typeName()))
                 .arg(obj->getID());
@@ -202,13 +283,69 @@ int main(int argc, char* argv[])
         }
         else
         {
-            infoLabel->setText("(未选择)");
+            infoLabel->setText(u8"(未选择)");
         }
-    });
+    };
+
+    QObject::connect(objectTree, &UiObjectTree::objectSelected, infoLabel, showObjectInfo);
+    QObject::connect(subtreeTree, &UiObjectTree::objectSelected, infoLabel, showObjectInfo);
 
     QObject::connect(refreshBtn, &QPushButton::clicked, objectTree, [objectTree]() {
         objectTree->refresh();
-        qDebug() << "Tree refreshed.";
+        qDebug() << "Full tree refreshed.";
+    });
+
+    QObject::connect(subtreeRefreshBtn, &QPushButton::clicked, subtreeTree, [subtreeTree]() {
+        subtreeTree->refresh();
+        qDebug() << "Subtree refreshed.";
+    });
+
+    QObject::connect(rootScenarioBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, scenario]() {
+        subtreeTree->setRootObject(scenario);
+        subTreeLabel->setText(u8"子树（以 Scenario3 为根）");
+        subtreeTree->refresh();
+    });
+
+    QObject::connect(rootGeoBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, geo90w]() {
+        subtreeTree->setRootObject(geo90w);
+        subTreeLabel->setText(u8"子树（以 GEO_90W 为根）");
+        subtreeTree->refresh();
+    });
+
+    QObject::connect(rootChildBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, child1]() {
+        subtreeTree->setRootObject(child1);
+        subTreeLabel->setText(u8"子树（以 ChildKeplerian-A 为根）");
+        subtreeTree->refresh();
+    });
+
+    QObject::connect(rootNoneBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel]() {
+        subtreeTree->setRootObject(nullptr);
+        subTreeLabel->setText(u8"子树（显示全部）");
+        subtreeTree->refresh();
+    });
+
+    QObject::connect(rootVisibleCheck, &QCheckBox::toggled, subtreeTree, [subtreeTree](bool checked) {
+        subtreeTree->setRootVisible(checked);
+        subtreeTree->refresh();
+        qDebug() << "Root visible:" << checked;
+    });
+
+    QObject::connect(rootMissionBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, mission]() {
+        subtreeTree->setRootObject(mission);
+        subTreeLabel->setText(u8"子树（以 TLI_Mission 为根）");
+        subtreeTree->refresh();
+    });
+
+    QObject::connect(rootTargeterBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, tliTargeter]() {
+        subtreeTree->setRootObject(tliTargeter);
+        subTreeLabel->setText(u8"子树（以 TLI_Targeter 为根）");
+        subtreeTree->refresh();
+    });
+
+    QObject::connect(rootLunarPhaseBtn, &QPushButton::clicked, subtreeTree, [subtreeTree, subTreeLabel, lunarPhase]() {
+        subtreeTree->setRootObject(lunarPhase);
+        subTreeLabel->setText(u8"子树（以 LunarPhase 为根）");
+        subtreeTree->refresh();
     });
 
     window.show();

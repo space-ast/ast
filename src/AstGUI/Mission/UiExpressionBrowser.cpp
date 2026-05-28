@@ -192,7 +192,7 @@ void UiExpressionBrowser::refreshPropertyTree()
     propertyTree_->clear();
     propertySelectButton_->setEnabled(false);
 
-    auto prefix = objectExpressionPrefix(currentObject_);
+    auto prefix = objectExpressionPrefix(currentObject_.get());
     if (prefix.isEmpty())
         return;
 
@@ -219,7 +219,7 @@ void UiExpressionBrowser::refreshCalculationTree()
     calculationTree_->clear();
     calculationSelectButton_->setEnabled(false);
 
-    auto prefix = objectExpressionPrefix(currentObject_);
+    auto prefix = objectExpressionPrefix(currentObject_.get());
     if (prefix.isEmpty())
         return;
 
@@ -227,7 +227,7 @@ void UiExpressionBrowser::refreshCalculationTree()
     for (auto* object : allObjects)
     {
         auto* calc = dynamic_cast<ObjectCalculation*>(object);
-        if (!calc || !calc->isExpectedType(currentObject_))
+        if (!calc || !calc->isExpectedType(currentObject_.get()))
             continue;
 
         auto name = QString::fromStdString(calc->getName());
