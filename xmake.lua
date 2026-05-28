@@ -280,6 +280,7 @@ task("genheader")
         os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_redirect_header.py"))
         os.exec("python " .. path.join(os.scriptdir(), "scripts/generate_aggregate_headers.py"))
         os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_swig_interface.py"))
+        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_ast_forward.py"))
     end)
 task_end()
 

@@ -18,10 +18,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstGlobal.h"
-#include "AstGUI/UiMotionTwoBody.hpp"
-#include "AstSim/MotionTwoBody.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/CelestialBody.hpp"
+#include "ast/UiMotionTwoBody.hpp"
+#include "ast/MotionTwoBody.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/CelestialBody.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QVBoxLayout>

@@ -17,13 +17,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstGUI/Spacecraft/UiEventDetectorList.hpp"
-#include "AstCore/Propagate.hpp"
-#include "AstCore/HPOP.hpp"
-#include "AstCore/EventDetector.hpp"
-#include "AstCore/DetectorPeriapsis.hpp"
-#include "AstCore/DetectorDuration.hpp"
-#include "AstUtil/RTTIAPI.hpp"
+#include "ast/UiEventDetectorList.hpp"
+#include "ast/Propagate.hpp"
+#include "ast/HPOP.hpp"
+#include "ast/EventDetector.hpp"
+#include "ast/DetectorPeriapsis.hpp"
+#include "ast/DetectorDuration.hpp"
+#include "ast/RTTIAPI.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QVBoxLayout>

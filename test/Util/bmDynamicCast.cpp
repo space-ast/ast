@@ -18,10 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstSim/MotionTwoBody.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstUtil/RTTIAPI.hpp"
+#include "ast/MotionTwoBody.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/RTTIAPI.hpp"
 #include <benchmark/benchmark.h>
 
 AST_USING_NAMESPACE

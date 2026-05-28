@@ -19,11 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstTest/AstTestMacro.h"
-#include "AstCore/SunSynchronousOrbitDesigner.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstUtil/Literals.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/SunSynchronousOrbitDesigner.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Literals.hpp"
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

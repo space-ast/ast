@@ -18,8 +18,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
  
-#include "AstTest/AstTestMacro.h" 
-#include "AstUtil/Logger.hpp"
+#include "ast/AstTestMacro.h" 
+#include "ast/Logger.hpp"
 
 
 

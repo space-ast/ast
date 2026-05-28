@@ -1,5 +1,5 @@
-#include "AstPlot/AstPlot.hpp"
-#include "AstChart/QwtBackend.hpp"
+#include "ast/AstPlot.hpp"
+#include "ast/QwtBackend.hpp"
 
 AST_USING_NAMESPACE
 

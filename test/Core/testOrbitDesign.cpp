@@ -18,12 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/OrbitDesigner.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/OrbitDesigner.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Test.hpp"
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

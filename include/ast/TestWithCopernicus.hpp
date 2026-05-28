@@ -1,0 +1,1 @@
+#include "AstTest/TestWithCopernicus.hpp"

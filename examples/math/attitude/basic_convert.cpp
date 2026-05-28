@@ -1,6 +1,6 @@
-#include "AstCore/AttitudeConvert.hpp"
-#include "AstCore/Euler.hpp"
-#include "AstCore/Quaternion.hpp"
+#include "ast/AttitudeConvert.hpp"
+#include "ast/Euler.hpp"
+#include "ast/Quaternion.hpp"
 #include <iostream>
 
 

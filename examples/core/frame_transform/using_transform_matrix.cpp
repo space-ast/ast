@@ -1,9 +1,9 @@
-#include "AstCore/FrameTransform.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstMath/Matrix.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstCore/RunTime.hpp"
+#include "ast/FrameTransform.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Matrix.hpp"
+#include "ast/Literals.hpp"
+#include "ast/RunTime.hpp"
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

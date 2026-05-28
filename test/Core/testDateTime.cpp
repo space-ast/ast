@@ -18,9 +18,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/DateTime.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/DateTime.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/AstTestMacro.h"
 #include <cstdio>
 #include <time.h>
 #include <cstring>

@@ -18,12 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstScript/ScriptAPI.hpp"
-#include "AstScript/Parser.hpp"
-#include "AstScript/Lexer.hpp"
-#include "AstScript/Scanner.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/StringView.hpp"
+#include "ast/ScriptAPI.hpp"
+#include "ast/Parser.hpp"
+#include "ast/Lexer.hpp"
+#include "ast/Scanner.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/StringView.hpp"
 
 AST_USING_NAMESPACE
 

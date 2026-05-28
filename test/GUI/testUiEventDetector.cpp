@@ -17,13 +17,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstGUI/UiEventDetectorEditor.hpp"
-#include "AstGUI/UiEventDetector.hpp"
-#include "AstCore/EventDetector.hpp"
-#include "AstCore/DetectorDuration.hpp"
-#include "AstCore/DetectorPeriapsis.hpp"
-#include "AstCore/DetectorUserSelect.hpp"
-#include "AstUtil/RTTIAPI.hpp"
+#include "ast/UiEventDetectorEditor.hpp"
+#include "ast/UiEventDetector.hpp"
+#include "ast/EventDetector.hpp"
+#include "ast/DetectorDuration.hpp"
+#include "ast/DetectorPeriapsis.hpp"
+#include "ast/DetectorUserSelect.hpp"
+#include "ast/RTTIAPI.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QVBoxLayout>

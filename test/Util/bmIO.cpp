@@ -18,7 +18,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/IO.hpp"
+#include "ast/IO.hpp"
 #include <benchmark/benchmark.h>
 
 AST_USING_NAMESPACE

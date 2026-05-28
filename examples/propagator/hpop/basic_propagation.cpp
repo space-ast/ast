@@ -1,10 +1,10 @@
-#include "AstCore/HPOP.hpp"
-#include "AstCore/HPOPForceModel.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Constants.h"
+#include "ast/HPOP.hpp"
+#include "ast/HPOPForceModel.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Constants.h"
 #include <iostream>
 #include <iomanip>
 

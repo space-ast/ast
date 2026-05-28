@@ -17,9 +17,9 @@
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 
-#include "AstUtil/PosixExt.hpp"
-#include "AstUtil/FileSystem.hpp"
-#include "AstTest/Test.h"
+#include "ast/PosixExt.hpp"
+#include "ast/FileSystem.hpp"
+#include "ast/Test.h"
 #include <cstdio>
 
 AST_USING_NAMESPACE

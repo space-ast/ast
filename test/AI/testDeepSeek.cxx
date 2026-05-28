@@ -18,14 +18,14 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/Network.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstUtil/Posix.hpp"
-#include "AstUtil/Json.hpp"
-#include "AstAI/DeepSeek.hpp"
-#include "AstAI/ChatSession.hpp"
-#include "AstSim/Satellite.hpp"
-#include "AstTest/Test.h"
+#include "ast/Network.hpp"
+#include "ast/IO.hpp"
+#include "ast/Posix.hpp"
+#include "ast/Json.hpp"
+#include "ast/DeepSeek.hpp"
+#include "ast/ChatSession.hpp"
+#include "ast/Satellite.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

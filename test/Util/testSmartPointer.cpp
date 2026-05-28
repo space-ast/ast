@@ -18,14 +18,14 @@
 /// 使用本软件所产生的风险，需由您自行承担。
  
 
-#include "AstCore/Object.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/HPOPForceModel.hpp"
-#include "AstCore/ScopedPtr.hpp"
-#include "AstCore/SharedPtr.hpp"
-#include "AstCore/WeakPtr.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/Object.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/HPOPForceModel.hpp"
+#include "ast/ScopedPtr.hpp"
+#include "ast/SharedPtr.hpp"
+#include "ast/WeakPtr.hpp"
+#include "ast/IO.hpp"
+#include "ast/AstTestMacro.h"
 #include <memory>
 
 AST_USING_NAMESPACE

@@ -1,6 +1,6 @@
-#include "AstUtil/SharedPtr.hpp"
-#include "AstUtil/Object.hpp"
-#include "AstUtil/ObjectNamed.hpp"
+#include "ast/SharedPtr.hpp"
+#include "ast/Object.hpp"
+#include "ast/ObjectNamed.hpp"
 class MyObject: public _AST ObjectNamed
 {
 public:

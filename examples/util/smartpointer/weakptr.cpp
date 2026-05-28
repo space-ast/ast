@@ -1,7 +1,7 @@
-#include "AstUtil/Object.hpp"
-#include "AstUtil/WeakPtr.hpp"
-#include "AstUtil/SharedPtr.hpp"
-#include "AstUtil/ObjectNamed.hpp"
+#include "ast/Object.hpp"
+#include "ast/WeakPtr.hpp"
+#include "ast/SharedPtr.hpp"
+#include "ast/ObjectNamed.hpp"
 
 class MyObject: public _AST ObjectNamed
 {

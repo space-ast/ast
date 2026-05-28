@@ -1,0 +1,1 @@
+#include "AstMath/AttitudeConvertInline.hpp"

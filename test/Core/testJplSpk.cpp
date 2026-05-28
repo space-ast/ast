@@ -18,12 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/JplSpk.hpp"
-#include "AstCore/SpiceAPI.hpp"
-#include "AstCore/TimeInterval.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstTest/Test.h"
+#include "ast/JplSpk.hpp"
+#include "ast/SpiceAPI.hpp"
+#include "ast/TimeInterval.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE

@@ -17,11 +17,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/OrbitParam.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/Constants.h"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Math.hpp"
+#include "ast/OrbitParam.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/Constants.h"
+#include "ast/Literals.hpp"
+#include "ast/Math.hpp"
 #include <cstdio>
 
 AST_USING_NAMESPACE
