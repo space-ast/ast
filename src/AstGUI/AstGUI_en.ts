@@ -1589,10 +1589,6 @@ Error code: %2</translation>
         <source>重复次数</source>
         <translation>Repeat Count</translation>
     </message>
-    <message>
-        <source>最大迭代次数</source>
-        <translation>Max Iterations</translation>
-    </message>
 </context>
 <context>
     <name>UiThirdBodyForce</name>

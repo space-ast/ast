@@ -31,7 +31,7 @@ class AST_GUI_API UiObjectTreeItem : public QTreeWidgetItem
 public:
     UiObjectTreeItem();
 
-    UiObjectTreeItem(Object* obj);
+    explicit UiObjectTreeItem(Object* obj);
 
     /// 递归构建子节点
     void buildChildren();

@@ -39,7 +39,7 @@ AST_NAMESPACE_BEGIN
 class ColoredSurfaceEnrichment : public Qwt3D::VertexEnrichment {
 public:
     ColoredSurfaceEnrichment() = default;
-    ColoredSurfaceEnrichment(Qwt3D::PLOTSTYLE plotStyle) 
+    explicit ColoredSurfaceEnrichment(Qwt3D::PLOTSTYLE plotStyle)
         : plotStyle_(plotStyle) {}
     ColoredSurfaceEnrichment* clone() const override { return new ColoredSurfaceEnrichment(*this); }
     void drawBegin() override;

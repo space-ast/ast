@@ -150,10 +150,7 @@ void UiSelectFrame::ensureFramesInitialized(CelestialBody* body)
         {"Fixed",    &CelestialBody::makeFrameFixed},
     };
 
-    // 持有强引用，防止 Frame 在查询间隙被回收
-    static std::unordered_map<CelestialBody*, std::vector<HFrame>> s_holder;
 
-    auto& holder = s_holder[body];
     for (auto& entry : kFactories)
     {
         HFrame hf = (body->*entry.factory)();
@@ -161,7 +158,6 @@ void UiSelectFrame::ensureFramesInitialized(CelestialBody* body)
             continue;
         hf->setName(entry.name);
         hf->setParentScope(body);
-        holder.push_back(std::move(hf));
     }
 }
 

@@ -154,6 +154,8 @@ errc_t State::setFrameByName(StringView frameName)
 
 errc_t State::changeFrame(Frame *frame)
 {
+    if (!frame || !this->frame_)
+        return eErrorNullPtr;
     if(frame_ == frame)
         return eNoError;
     KinematicTransform transform;
