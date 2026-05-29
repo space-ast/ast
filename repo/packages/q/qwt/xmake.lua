@@ -3,9 +3,12 @@ package("qwt")
     set_description("a protocol-friendly LGPL-compliant plotting widget.")
     set_license("LGPL-2.1")
 
-    add_urls("https://gitee.com/czyt1988/QWT.git", "https://github.com/czyt1988/QWT.git")
+    -- add_urls("https://gitee.com/czyt1988/QWT.git", "https://github.com/czyt1988/QWT.git")
+    -- add_urls("https://github.com/space-ast/qwt.git")
+    -- add_versions("v7.2.2-dev", "master")
+    -- add_versions("v7.2.1", "v7.2.1")
 
-    add_versions("v7.2.1", "v7.2.1")
+    set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/QWT"))
 
 
     add_deps("cmake")
