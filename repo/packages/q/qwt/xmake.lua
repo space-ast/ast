@@ -24,7 +24,13 @@ package("qwt")
         table.insert(configs, "-DQWT_CONFIG_BUILD_PLAYGROUND=" .. "OFF")
         table.insert(configs, "-DQWT_CONFIG_BUILD_STATIC_EXAMPLE=" .. "OFF")
         table.insert(configs, "-DCMAKE_C_FLAGS=$CMAKE_C_FLAGS -DGL2PSDLL_EXPORTS -DGL2PSDLL")
-        import("package.tools.cmake").install(package, configs)
+        -- 修复qwt在msvc debug模式编译时pdb文件的并行写入问题
+        local cxflags
+        if package:debug() and package:is_plat("windows") then
+            print("add /FS flag for debug build")
+            cxflags = "/FS"
+        end
+        import("package.tools.cmake").install(package, configs, {cxflags = cxflags})
     end)
 
     on_test(function (package)

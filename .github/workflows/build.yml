@@ -48,15 +48,21 @@ jobs:
         with:
           packages: libgl1-mesa-dev libglu1-mesa-dev
           version: 2
-
+          
+      - name: 配置debug版本
+        run: |
+          xmake f -cvy --with_test=y -m debug
+          
       - name: 编译debug版本
         run: |
-          xmake f -cy --with_test=y -m debug
           xmake
+
+      - name: 配置release版本
+        run: |
+          xmake f -cvy --with_test=y -m release
 
       - name: 编译release版本
         run: |
-          xmake f -cy --with_test=y -m release
           xmake
 
       - name: 打包项目
