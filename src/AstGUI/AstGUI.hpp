@@ -51,6 +51,7 @@
 #include "AstGUI/UiResponseList.hpp"
 #include "AstGUI/UiResultView.hpp"
 #include "AstGUI/UiSegmentEditor.hpp"
+#include "AstGUI/UiSegmentTreeItem.hpp"
 #include "AstGUI/UiSelectFrame.hpp"
 #include "AstGUI/UiSequence.hpp"
 #include "AstGUI/UiSequenceTreeItem.hpp"
