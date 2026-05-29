@@ -37,9 +37,13 @@ UiObjectTreeItem::UiObjectTreeItem(Object* obj)
 
 void UiObjectTreeItem::buildChildren()
 {
+    // 清除已有的子节点
+    while (childCount() > 0)
+        delete takeChild(0);
     for (auto* childItem : createChildItems())
     {
         addChild(childItem);
+        // 递归构建子节点
         childItem->buildChildren();
     }
 }

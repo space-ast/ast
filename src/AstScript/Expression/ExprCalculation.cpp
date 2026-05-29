@@ -55,14 +55,14 @@ errc_t ExprCalculation::setValue(Value* val)
 
 errc_t ExprCalculation::setValueDouble(double val) 
 {
-    return calculate(val);
+    aError("readonly");
+    return eErrorReadonly;
 }
 
 
-errc_t ExprCalculation::getValueDouble(double& val) const 
+errc_t ExprCalculation::getValueDouble(double& val) const
 {
-    aWarning("not implemented");
-    return eErrorReadonly;
+    return calculate(val);
 }
 
 

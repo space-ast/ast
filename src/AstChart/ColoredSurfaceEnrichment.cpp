@@ -36,6 +36,7 @@ void setDeviceLineWidth(GLfloat val)
         val = 0;
 
     GLint ret = gl2psLineWidth(val);
+    (void)ret;
 
     GLfloat lw[ 2 ];
     glGetFloatv(GL_LINE_WIDTH_RANGE, lw);

@@ -185,7 +185,7 @@ void UiMissionTree::contextMenuEvent(QContextMenuEvent* event)
     if (chosen == delAction && delAction->isEnabled())
     {
         delete item;
-        syncSequenceOrder(invisibleRootItem());
+        syncAllSequences(invisibleRootItem());
         emit treeModified();
     }
 }

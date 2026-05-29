@@ -82,6 +82,14 @@ void UiObjectTree::refresh()
 
     if (rootItem_)
     {
+        // 若 rootItem_ 当前在树中，先从树中移出避免被 clear() 销毁
+        if (rootItem_->treeWidget())
+        {
+            auto* p = rootItem_->parent() ? rootItem_->parent() : invisibleRootItem();
+            int idx = p->indexOfChild(rootItem_);
+            if (idx >= 0)
+                p->takeChild(idx);
+        }
         if (rootVisible_)
         {
             auto* item = rootItem_->clone();

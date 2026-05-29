@@ -46,7 +46,11 @@ UiMissionPanel::UiMissionPanel(QWidget* parent)
     setupConnections();
 }
 
-UiMissionPanel::~UiMissionPanel() = default;
+UiMissionPanel::~UiMissionPanel()
+{
+    if (ownsModerator_)
+        delete moderator_;
+}
 
 // ============================================================================
 // 界面搭建
@@ -153,7 +157,10 @@ void UiMissionPanel::setupConnections()
 
 void UiMissionPanel::setModerator(MissionModerator* moderator)
 {
+    if (ownsModerator_ && moderator_)
+        delete moderator_;
     moderator_ = moderator;
+    ownsModerator_ = false;
     missionTree_->setModerator(moderator);
     if (moderator)
         appendOutput(tr("已加载任务序列"));
@@ -349,6 +356,7 @@ void UiMissionPanel::onOpenFile()
     if (!moderator_)
     {
         moderator_ = new MissionModerator();
+        ownsModerator_ = true;
     }
 
     // 将加载的数据拷贝到 moderator 的根序列

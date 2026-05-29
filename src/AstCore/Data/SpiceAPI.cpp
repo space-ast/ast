@@ -182,8 +182,12 @@ errc_t SpiceAPI::tryload(const std::vector<std::string>& libpaths)
 errc_t SpiceAPI::unload()
 {
     if(library_)
-        return aFreeLibrary(library_);
-    functions_ = funcarray{};
+    {
+        errc_t rc = aFreeLibrary(library_);
+        library_ = nullptr;
+        functions_ = funcarray{};
+        return rc;
+    }
     return eNoError;
 }
 
@@ -349,7 +353,7 @@ errc_t SpiceAPI::checkerror()
     {
         // 这里必须重置一下，否则后续调用会一直报错...
         reset();
-        return -1;
+        return eError;
     }
     return eNoError;
 }

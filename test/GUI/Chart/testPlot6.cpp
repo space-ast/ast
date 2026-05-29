@@ -12,7 +12,7 @@ int main() {
     std::set<double> x2(x.begin(), x.end());
 
     std::vector<double> y =
-        transform(x, [](auto x) { return tan(sin(x)) - sin(tan(x)); });
+        transform(x, [](double x) { return tan(sin(x)) - sin(tan(x)); });
     plot(x2, y, "--gs")
         ->line_width(2)
         .marker_size(10)

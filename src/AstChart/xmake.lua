@@ -11,8 +11,8 @@ target("AstChart")
     on_config(function (target)
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
     end)
-    if has_package("matplotplusplus") and has_package("qwt") then
-        add_packages("matplotplusplus", "qwt")
+    if has_package("matplotplusplus") and has_package("qwt") and has_package("opengl") then
+        add_packages("matplotplusplus", "qwt", "opengl")
     else
         -- set_enabled(false)
         set_kind("phony")
