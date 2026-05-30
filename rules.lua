@@ -16,8 +16,12 @@ rule("ast")
                 target:add("ldflags", "-s ASSERTIONS=1")
                 target:add("cxflags", "-gsource-map")
             end
+            target:add("ldflags", "-s ALLOW_MEMORY_GROWTH=1")
+            target:add("shflags", "-s ALLOW_MEMORY_GROWTH=1")
+            target:add("ldflags", "-s INITIAL_MEMORY=33554432")  -- This option was formerly calledTOTAL_MEMORY
+            target:add("ldflags", "-s TOTAL_MEMORY=33554432")
             -- 添加wasm预加载文件
-            target:set("values", "wasm.preloadfiles", "build/wasm/data")
+            target:set("values", "wasm.preloadfiles", "build/wasm/data@data")
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())
         if os.isdir(include_dir) then
@@ -26,6 +30,14 @@ rule("ast")
         if target:plat() == "windows" and target:kind() == "binary" then
             -- 添加图标资源文件
             target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
+        end
+    end)
+    
+    after_config(function (target)
+        if target:plat() == "wasm" then
+            if os.exists("build/wasm/data") then
+                os.rmdir("build/wasm/data")
+            end
         end
     end)
 
@@ -37,10 +49,4 @@ rule("ast")
         end
     end)
 
-    before_clean(function (target)
-        if target:plat() == "wasm" then
-            if os.exists("build/wasm/data") then
-                os.rmdir("build/wasm/data")
-            end
-        end
-    end)
+
