@@ -31,7 +31,7 @@ int main()
     
     // 获取冻结轴系的属性
     printf("\n冻结轴系属性:\n");
-    printf("  冻结时间: %.3f JD\n", freezeTime.J2000TT());
+    printf("  冻结时间: %s\n", freezeTime.toString().c_str());
     printf("  冻结轴系指针: %p\n", (void*)frozenAxes->getAxes());
     printf("  参考轴系指针: %p\n", (void*)frozenAxes->getReferenceAxes());
     
