@@ -42,7 +42,7 @@ public:
     AST_OBJECT(TargeterProfile)
 
     /// @brief 执行目标器配置
-    virtual errc_t execute() = 0;
+    virtual errc_t execute() override = 0;
     
     TargeterProfile() = default;
     ~TargeterProfile() override = default;

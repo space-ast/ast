@@ -77,7 +77,7 @@ UiMotionTwoBody::UiMotionTwoBody(QWidget *parent)
     propagationFrameLayout_ = new QHBoxLayout();
     propagationFrameLabel_ = new QLabel(tr("预报系"), this);
     propagationFrameCombo_ = new QComboBox(this);
-    propagationFrameCombo_->addItem(tr("ICRF"));
+    propagationFrameCombo_->addItem(("ICRF"));
     propagationFrameLayout_->addWidget(propagationFrameLabel_);
     propagationFrameLayout_->addWidget(propagationFrameCombo_);
     leftLayout_->addLayout(propagationFrameLayout_);

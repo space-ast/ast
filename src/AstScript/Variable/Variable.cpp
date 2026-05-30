@@ -168,5 +168,14 @@ errc_t Variable::setValue(StringView value)
     return setValue(aNewValue(value));
 }
 
+
+std::string Variable::getInnerExpression() const
+{
+    if(expr_.get() == nullptr) {
+        return {};
+    }
+    return expr_->getExpression();
+}
+
 AST_NAMESPACE_END
 

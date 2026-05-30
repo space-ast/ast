@@ -118,16 +118,23 @@ public:
     /// @param context 上下文对象
     /// @return 变量的表达式字符串
     std::string getExpression(Object* context=nullptr) const override{return name_;}
+
+    /// @brief 获取变量的内部表达式
+    /// @return 变量的内部表达式字符串
+    std::string getInnerExpression() const;
 public:
     const std::string& name() const { return name_; }
     const std::string& getName() const override { return name_; }
     void setName(StringView name) override { name_ = std::string(name); }
+    const std::string& desc() const { return desc_; }
+    void setDesc(StringView desc) { desc_ = std::string(desc); }
     Expr* expr() const { return expr_.get(); }
 PROPERTIES:
     std::string value() const;
     errc_t setValue(StringView value);
 protected:
     std::string name_;            ///< 变量的名称
+    std::string desc_;            ///< 变量的描述
     SharedPtr<Expr> expr_;        ///< 变量的值，或者绑定的表达式
     bool bind_;                   ///< 是否与表达式双向绑定
 };

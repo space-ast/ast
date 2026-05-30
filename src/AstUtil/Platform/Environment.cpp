@@ -92,7 +92,7 @@ bool aTerminalSupportColor()
     }
     return false;
 
-    #elif defined __wasm__
+    #elif defined(A_WASM)
     // WebAssembly 平台不支持颜色
     return false;
     #else

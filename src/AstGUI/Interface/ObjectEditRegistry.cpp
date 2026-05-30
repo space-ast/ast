@@ -54,7 +54,7 @@ ObjectEditRegistry::ObjectEditRegistry(bool shouldRegistEditWidget)
 {
     if(shouldRegistEditWidget)
     {
-        aGuiInit();
+        aGUIInit();
         registerEditWidget(StateCartesian::StaticType(), [](Object *object) -> QWidget* { return new UiStateCartesian(object); });
         registerEditWidget(StateKeplerian::StaticType(), [](Object *object) -> QWidget* { return new UiStateKeplerian(object); });
         registerEditWidget(MotionTwoBody::StaticType(), [](Object *object) -> QWidget* { return new UiMotionTwoBody(object); });

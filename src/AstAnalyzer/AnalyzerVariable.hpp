@@ -47,11 +47,18 @@ public:
 
     Expr* expr() const { return expr_.get(); }
     void setExpr(Expr* expr) { expr_ = expr; }
+
+    errc_t getValue(double& value) const;
+    errc_t setValue(double value);
+
+    std::vector<double>& values() { return values_; }
+    const std::vector<double>& values() const { return values_; }
 private:
-    double startValue_{0.0};    ///< 变量的起始值
-    double endValue_{0.0};      ///< 变量的结束值
-    double stepSize_{0.0};      ///< 分析步长
-    SharedPtr<Expr> expr_;      ///< 遍历表达式
+    double startValue_{0.0};        ///< 变量的起始值
+    double endValue_{0.0};          ///< 变量的结束值
+    double stepSize_{0.0};          ///< 分析步长
+    SharedPtr<Expr> expr_;          ///< 遍历表达式
+    std::vector<double> values_;    ///< 值列表
 };
 
 

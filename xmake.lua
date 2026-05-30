@@ -28,7 +28,7 @@ add_includedirs("include")
 -- 添加编译规则
 -- 内置规则
 add_rules(
-    "mode.debug", "mode.release", -- "mode.releasedbg", 
+    "mode.debug", "mode.release", "mode.releasedbg", 
     "mode.coverage"
 )                                                           -- 调试模式、发布模式、代码覆盖率模式
 -- add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
@@ -47,13 +47,14 @@ end
 -- 设置编译策略
 set_policy("run.autobuild", true)                           -- 自动编译，当运行目标时自动编译
 set_policy("build.progress_style", "multirow")              -- 编译进度条显示为多行
--- set_policy("package.precompiled", false)                 -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
+set_policy("package.precompiled", false)                    -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译(osg使用预编译库流水线会报错)
 
 -- linux平台添加rpath
 if is_plat("linux") then
     add_rpathdirs("$ORIGIN")                                -- 添加运行时库搜索路径，指向可执行文件所在目录
 elseif is_plat("windows") then
     if is_mode("debug") then
+        set_values("windows.subsystem", "console")
         -- 为了让AI生成的代码能正常编译
         add_includedirs("src")
     end
@@ -98,6 +99,16 @@ end
 -- 添加自定义第三方库描述文件仓库
 add_repositories("ast-repo repo", {rootdir = os.scriptdir()})
 
+-- 设置与Qt版本对应的emscripten工具链
+if is_plat("wasm") then
+    if os.getenv("QT6") then
+        add_requires("emscripten 3.1.25")   -- 对应 qt 6.5.2
+    else
+        add_requires("emscripten 1.39.8")   -- 对应 qt 5.15.x  -- 见 https://wiki.qt.io/Qt_for_WebAssembly#Install_the_Emscripten_SDK
+    end
+    set_toolchains("emcc@emscripten")
+end
+
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
 add_requires("swig >4.2", {optional = true})                                    -- 可选的SWIG库，用于生成Python绑定代码
@@ -111,6 +122,8 @@ add_requires("eigen", {optional = true, configs = {headeronly = true}})         
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
 add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
+add_requires("qwt", {optional = true, 
+    configs = {shared = true, debug = is_mode("debug")}})                       -- 可选的Qwtplot库，用于Qt绘图，共享库版本
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
@@ -214,63 +227,13 @@ includes("src")
 includes("projects")
 includes("examples")
 
+-- 添加插件
+add_plugindirs("scripts")
+
 -- 导入测试配置
 if has_config("with_test") then
     includes("test")
 end
-
--- 自定义任务：复制数据目录到构建目录
-task("cpdata")
-    set_menu{
-        usage = "xmake cpdata",
-        description = "Copy data directory to build directory"
-    }
-    on_run(function ()
-        local srcpath = path.join(os.projectdir(), "data")
-        local modes = {"release", "debug", "coverage"}
-        local plats = {os.host(), "mingw"}
-        for _, plat in ipairs(plats) do
-            local arch = os.arch()
-            if plat == "mingw" then
-                arch = "x86_64"
-            end
-            for _, mode in ipairs(modes) do
-                local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", plat, arch, mode))
-                if not os.exists(dstpath) then
-                    os.mkdir(dstpath)
-                end
-                os.cp(srcpath, dstpath)
-                print("dstpath:", dstpath)
-            end
-        end
-    end)
-task_end()
-
-
-task("gitpush")
-    set_menu{
-        usage = "xmake gitpush",
-        description = "Push git repository"
-    }
-    on_run(function ()
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/git_push_retry.py"))
-    end)
-task_end()
-
-
-task("genheader")
-    set_menu{
-        usage = "xmake genheader",
-        description = "Generate header file"
-    }
-    on_run(function ()
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_redirect_header.py"))
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/generate_aggregate_headers.py"))
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_swig_interface.py"))
-    end)
-task_end()
-
-
 
 -- 导入打包配置
 includes("@builtin/xpack")

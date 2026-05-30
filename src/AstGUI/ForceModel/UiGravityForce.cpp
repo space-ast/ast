@@ -16,23 +16,23 @@ UiGravityForce::UiGravityForce(Object* object, QWidget *parent)
 }
 
 UiGravityForce::UiGravityForce(QWidget *parent)
-    : UiObject(parent)
+    : UiGravityForce(nullptr, parent)
 {
-    setObjectName("UiGravityForce");
-    setupUi();
+
 }
 
 void UiGravityForce::setupUi()
 {
     // 主布局
     mainLayout_ = new QVBoxLayout(this);
+    mainLayout_->setContentsMargins(0, 0, 0, 0);
     
     // 中心天体重力场配置
-    centralBodyGravityGroup_ = new QGroupBox("中心天体重力场", this);
+    centralBodyGravityGroup_ = new QGroupBox(tr("中心天体重力场"), this);
     centralBodyGravityLayout_ = new QGridLayout(centralBodyGravityGroup_);
     
     modelLayout_ = new QHBoxLayout();
-    modelLabel_ = new QLabel("模型:", this);
+    modelLabel_ = new QLabel(tr("模型:"), this);
     modelCombo_ = new QComboBox(this);
     modelFileEdit_ = new UiFilePath(this);
     // modelFileEdit_->setFileMode(UiFilePath::FileMode::OpenFile);
@@ -43,7 +43,7 @@ void UiGravityForce::setupUi()
     centralBodyGravityLayout_->addLayout(modelLayout_, 0, 0, 1, 2);
     
     degreeLayout_ = new QHBoxLayout();
-    degreeLabel_ = new QLabel("阶数:", this);
+    degreeLabel_ = new QLabel(tr("阶数:"), this);
     degreeEdit_ = new UiInteger(this);
     degreeEdit_->setValue(2);
     degreeLayout_->addWidget(degreeLabel_);
@@ -51,7 +51,7 @@ void UiGravityForce::setupUi()
     centralBodyGravityLayout_->addLayout(degreeLayout_, 1, 0);
     
     orderLayout_ = new QHBoxLayout();
-    orderLabel_ = new QLabel("次数:", this);
+    orderLabel_ = new QLabel(tr("次数:"), this);
     orderEdit_ = new UiInteger(this);
     orderEdit_->setValue(0);
     orderLayout_->addWidget(orderLabel_);
@@ -59,28 +59,28 @@ void UiGravityForce::setupUi()
     centralBodyGravityLayout_->addLayout(orderLayout_, 1, 1);
     
     secularVariationsLayout_ = new QHBoxLayout();
-    secularVariationsCheck_ = new QCheckBox("包含引力场长期变化", this);
+    secularVariationsCheck_ = new QCheckBox(tr("包含引力场长期变化"), this);
     secularVariationsLayout_->addWidget(secularVariationsCheck_);
     centralBodyGravityLayout_->addLayout(secularVariationsLayout_, 2, 0, 1, 2);
     
     // 固体潮汐配置
-    solidTidesGroup_ = new QGroupBox("固体潮汐", this);
+    solidTidesGroup_ = new QGroupBox(tr("固体潮汐"), this);
     solidTidesLayout_ = new QGridLayout(solidTidesGroup_);
     
     solidTideTypeLayout_ = new QHBoxLayout();
-    solidTideTypeLabel_ = new QLabel("类型:", this);
+    solidTideTypeLabel_ = new QLabel(tr("类型:"), this);
     solidTideTypeCombo_ = new QComboBox(this);
     solidTideTypeLayout_->addWidget(solidTideTypeLabel_);
     solidTideTypeLayout_->addWidget(solidTideTypeCombo_);
     solidTidesLayout_->addLayout(solidTideTypeLayout_, 0, 0, 1, 2);
     
     timeDependentLayout_ = new QHBoxLayout();
-    timeDependentCheck_ = new QCheckBox("包含时间依赖项", this);
+    timeDependentCheck_ = new QCheckBox(tr("包含时间依赖项"), this);
     timeDependentLayout_->addWidget(timeDependentCheck_);
     solidTidesLayout_->addLayout(timeDependentLayout_, 1, 0, 1, 2);
     
     minAmplitudeLayout_ = new QHBoxLayout();
-    minAmplitudeLabel_ = new QLabel("最小振幅:", this);
+    minAmplitudeLabel_ = new QLabel(tr("最小振幅:"), this);
     minAmplitudeEdit_ = new UiQuantity(this);
     minAmplitudeEdit_->setDimension(Dimension::Length());
     minAmplitudeLayout_->addWidget(minAmplitudeLabel_);
@@ -88,21 +88,21 @@ void UiGravityForce::setupUi()
     solidTidesLayout_->addLayout(minAmplitudeLayout_, 2, 0, 1, 2);
     
     truncateLayout_ = new QHBoxLayout();
-    truncateCheck_ = new QCheckBox("截断到引力场大小", this);
+    truncateCheck_ = new QCheckBox(tr("截断到引力场大小"), this);
     truncateLayout_->addWidget(truncateCheck_);
     solidTidesLayout_->addLayout(truncateLayout_, 3, 0, 1, 2);
     
     // 海洋潮汐配置
-    oceanTidesGroup_ = new QGroupBox("海洋潮汐", this);
+    oceanTidesGroup_ = new QGroupBox(tr("海洋潮汐"), this);
     oceanTidesLayout_ = new QGridLayout(oceanTidesGroup_);
     
     useOceanTidesLayout_ = new QHBoxLayout();
-    useOceanTidesCheck_ = new QCheckBox("使用海洋潮汐", this);
+    useOceanTidesCheck_ = new QCheckBox(tr("使用海洋潮汐"), this);
     useOceanTidesLayout_->addWidget(useOceanTidesCheck_);
     oceanTidesLayout_->addLayout(useOceanTidesLayout_, 0, 0, 1, 2);
     
     degreeOceanLayout_ = new QHBoxLayout();
-    degreeOceanLabel_ = new QLabel("阶数:", this);
+    degreeOceanLabel_ = new QLabel(tr("阶数:"), this);
     degreeOceanEdit_ = new UiInteger(this);
     degreeOceanEdit_->setValue(2);
     degreeOceanLayout_->addWidget(degreeOceanLabel_);
@@ -110,7 +110,7 @@ void UiGravityForce::setupUi()
     oceanTidesLayout_->addLayout(degreeOceanLayout_, 1, 0);
     
     orderOceanLayout_ = new QHBoxLayout();
-    orderOceanLabel_ = new QLabel("次数:", this);
+    orderOceanLabel_ = new QLabel(tr("次数:"), this);
     orderOceanEdit_ = new UiInteger(this);
     orderOceanEdit_->setValue(0);
     orderOceanLayout_->addWidget(orderOceanLabel_);
@@ -118,7 +118,7 @@ void UiGravityForce::setupUi()
     oceanTidesLayout_->addLayout(orderOceanLayout_, 1, 1);
     
     minAmplitudeOceanLayout_ = new QHBoxLayout();
-    minAmplitudeOceanLabel_ = new QLabel("最小振幅:", this);
+    minAmplitudeOceanLabel_ = new QLabel(tr("最小振幅:"), this);
     minAmplitudeOceanEdit_ = new UiQuantity(this);
     minAmplitudeOceanEdit_->setDimension(Dimension::Length());
     minAmplitudeOceanLayout_->addWidget(minAmplitudeOceanLabel_);
@@ -213,15 +213,15 @@ void UiGravityForce::refreshModel()
     modelCombo_->clear();
     modelCombo_->addItem("WGS84");
     modelCombo_->addItem("EGM2008");
-    modelCombo_->addItem("自定义文件");
+    modelCombo_->addItem(tr("自定义文件"));
 }
 
 void UiGravityForce::refreshSolidTideType()
 {
     solidTideTypeCombo_->clear();
-    solidTideTypeCombo_->addItem("无");
-    solidTideTypeCombo_->addItem("仅永久潮汐");
-    solidTideTypeCombo_->addItem("完整潮汐");
+    solidTideTypeCombo_->addItem(tr("无"));
+    solidTideTypeCombo_->addItem(tr("仅永久潮汐"));
+    solidTideTypeCombo_->addItem(tr("完整潮汐"));
 }
 
 AST_NAMESPACE_END

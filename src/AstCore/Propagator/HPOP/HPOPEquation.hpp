@@ -60,6 +60,10 @@ public:
     errc_t setForceModel(HPOPForceModel&& forceModel);
     errc_t setForceModel(const HPOPForceModel& forceModel);
 
+    /// @brief 获取HPOP力模型
+    HPOPForceModel& forceModel() { return forceModel_; }
+    const HPOPForceModel& forceModel() const { return forceModel_; }
+
     /// @brief 设置预报坐标系
     errc_t setPropagationFrame(Frame* frame);
 

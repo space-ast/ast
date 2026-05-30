@@ -78,12 +78,12 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     QHBoxLayout* gravityLayout = new QHBoxLayout(gravityGroup);
     
     gravityModelCombo_ = new QComboBox(this);
-    gravityModelCombo_->addItem(tr("Point Mass"));
-    gravityModelCombo_->addItem(tr("ZonalsToJ2"));
-    gravityModelCombo_->addItem(tr("ZonalsToJ4"));
+    gravityModelCombo_->addItem(tr("点质量"));
+    gravityModelCombo_->addItem(tr("J2带谐项"));
+    gravityModelCombo_->addItem(tr("J4带谐项"));
     gravityLayout->addWidget(gravityModelCombo_);
     
-    gravityModelDetailsBtn_ = new QPushButton(tr("Details..."), this);
+    gravityModelDetailsBtn_ = new QPushButton(tr("详情..."), this);
     gravityLayout->addWidget(gravityModelDetailsBtn_);
     gravityLayout->addStretch();
     
@@ -96,8 +96,8 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     // 形状类型
     shapeLayout->addWidget(new QLabel(tr("类型"), this), 0, 0);
     shapeCombo_ = new QComboBox(this);
-    shapeCombo_->addItem(tr("Sphere"));
-    shapeCombo_->addItem(tr("Triaxial Ellipsoid"));
+    shapeCombo_->addItem(tr("球体"));
+    shapeCombo_->addItem(tr("椭球"));
     shapeLayout->addWidget(shapeCombo_, 0, 1);
     
     // 半长轴
@@ -125,10 +125,10 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     QHBoxLayout* orientationLayout = new QHBoxLayout(orientationGroup);
     
     orientationCombo_ = new QComboBox(this);
-    orientationCombo_->addItem(tr("Rotation Coefficients File"));
+    orientationCombo_->addItem(tr("旋转系数文件"));
     orientationLayout->addWidget(orientationCombo_);
     
-    orientationDetailsBtn_ = new QPushButton(tr("Details..."), this);
+    orientationDetailsBtn_ = new QPushButton(tr("详情..."), this);
     orientationLayout->addWidget(orientationDetailsBtn_);
     orientationLayout->addStretch();
     
@@ -141,11 +141,11 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     // 星历类型
     ephemerisLayout->addWidget(new QLabel(tr("类型"), this), 0, 0);
     ephemerisCombo_ = new QComboBox(this);
-    ephemerisCombo_->addItem(tr("JPL SPICE"));
+    ephemerisCombo_->addItem(("JPL SPICE"));
     ephemerisLayout->addWidget(ephemerisCombo_, 0, 1);
     
     // SPICE ID
-    ephemerisLayout->addWidget(new QLabel(tr("SPICE ID"), this), 1, 0);
+    ephemerisLayout->addWidget(new QLabel(tr("SPICE 编号"), this), 1, 0);
     spiceIdLabel_ = new QLabel(this);
     ephemerisLayout->addWidget(spiceIdLabel_, 1, 1);
     

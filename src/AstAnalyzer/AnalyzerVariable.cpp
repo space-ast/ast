@@ -22,6 +22,18 @@
 
 AST_NAMESPACE_BEGIN
 
+errc_t AnalyzerVariable::getValue(double& value) const
+{
+    if (!expr_)
+        return eErrorNullPtr;
+    return expr_->getValueDouble(value);
+}
 
+errc_t AnalyzerVariable::setValue(double value)
+{
+    if (!expr_)
+        return eErrorNullPtr;
+    return expr_->setValueDouble(value);
+}
 
 AST_NAMESPACE_END

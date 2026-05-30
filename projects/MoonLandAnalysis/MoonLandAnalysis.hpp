@@ -32,8 +32,8 @@ public:
     errc_t execute() override;
 
 protected:
-    TimePoint prlTime_{};     ///< 近月制动的时间点
-    TimePoint landTime_{};    ///< 着陆时间点
+    TimePoint prlTime_{};        ///< 近月制动的时间点
+    TimePoint landTime_{};       ///< 着陆时间点
     double lloHeight_{0.0};      ///< 着陆前环月轨道高度
     double landSiteLon_{0.0};    ///< 着陆点的经度
     double landSiteLat_{0.0};    ///< 着陆点的纬度

@@ -24,6 +24,18 @@
 AST_NAMESPACE_BEGIN
 
 
+Interpreter* aNewInterpreter()
+{
+    return new Interpreter();
+}
+
+
+void aDelInterpreter(Interpreter* interpreter)
+{
+    delete interpreter;
+}
+
+
 Interpreter::~Interpreter()
 {
     aScript_RemoveInterpreter(this);
@@ -32,8 +44,7 @@ Interpreter::~Interpreter()
 void Interpreter::interpret(StringView code)
 {
     InterpreterContext _(this);     ///< 解释器上下文守卫
-    
-    
+    SharedPtr<Value> value = aEval(code);
 }
 
 AST_NAMESPACE_END

@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/TimePoint.hpp"
+#include "UiValueEdit.hpp"
 #include <QLineEdit>
 
 AST_NAMESPACE_BEGIN
@@ -31,7 +32,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class AST_GUI_API UiTimePoint : public QLineEdit
+class AST_GUI_API UiTimePoint : public UiValueEdit
 {
     Q_OBJECT
 public:

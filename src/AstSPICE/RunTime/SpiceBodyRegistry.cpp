@@ -31,7 +31,15 @@ SpiceBodyRegistry &SpiceBodyRegistry::Instance()
     return instance;
 }
 
+SpiceBodyRegistry::SpiceBodyRegistry()
+    : solarSystem_(new SolarSystem())
+{
+    
+}
+
+
 SpiceBodyRegistry::SpiceBodyRegistry(bool whetherInit)
+    : SpiceBodyRegistry()
 {
     if (whetherInit)
     {
@@ -39,21 +47,24 @@ SpiceBodyRegistry::SpiceBodyRegistry(bool whetherInit)
     }
 }
 
+SpiceBodyRegistry::~SpiceBodyRegistry() = default;
 
 PBody SpiceBodyRegistry::findBody(StringView name) const
 {
-    return solarSystem_.getBody(name);
+    return solarSystem_->getBody(name);
 }
+
+
 
 PBody SpiceBodyRegistry::findBody(int id) const
 {
-    return solarSystem_.getBodyBySpiceId(id);
+    return solarSystem_->getBodyBySpiceId(id);
 }
 
 
 errc_t SpiceBodyRegistry::init()
 {
-    return solarSystem_.loadDefault();
+    return solarSystem_->loadDefault();
 }
 
 AST_NAMESPACE_END

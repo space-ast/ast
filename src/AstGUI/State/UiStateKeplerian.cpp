@@ -19,12 +19,16 @@
 
 #include "UiStateKeplerian.hpp"
 #include "AstCore/StateKeplerian.hpp"
+#include "AstCore/State.hpp"
+#include "AstCore/Frame.hpp"
+#include "AstGUI/UiSelectFrame.hpp"
 #include "AstUtil/Unit.hpp"
 #include "AstUtil/Quantity.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QComboBox>
+#include <QPushButton>
 
 AST_NAMESPACE_BEGIN
 
@@ -55,10 +59,20 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     
     // 坐标系
     QLabel* frameLabel = new QLabel(tr("坐标系"), this);
-    frameCombo_ = new QComboBox(this);
-    frameCombo_->addItem(tr("ICRF"));
+    frameEdit_ = new QLineEdit(this);
+    frameEdit_->setReadOnly(true);
+    frameEdit_->setText(("ICRF"));
+    frameSelectBtn_ = new QPushButton(("..."), this);
+    frameSelectBtn_->setFixedWidth(30);
+    frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
+    auto* frameWidget = new QWidget(this);
+    frameWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    auto* frameBar = new QHBoxLayout(frameWidget);
+    frameBar->setContentsMargins(0, 0, 0, 0);
+    frameBar->addWidget(frameEdit_);
+    frameBar->addWidget(frameSelectBtn_);
     mainLayout->addWidget(frameLabel, row, 0);
-    mainLayout->addWidget(frameCombo_, row, 2);
+    mainLayout->addWidget(frameWidget, row, 2);
     row++;
     
     // 轨道大小
@@ -142,7 +156,9 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     mainLayout->addWidget(positionTypeCombo_, row, 1);
     mainLayout->addWidget(positionEdit_, row, 2);
     row++;
-    
+
+    mainLayout->setRowStretch(row, 1);
+
     setLayout(mainLayout);
 
     // 连接信号槽
@@ -157,7 +173,21 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     connect(argPeriEdit_, &UiQuantity::quantityChanged, this, &UiStateKeplerian::onArgPeriChanged);
     connect(positionEdit_, &UiQuantity::quantityChanged, this, &UiStateKeplerian::onPositionParamChanged);
     connect(positionTypeCombo_, &QComboBox::currentTextChanged, this, &UiStateKeplerian::onPositionTypeChanged);
-    connect(frameCombo_, &QComboBox::currentTextChanged, this, &UiStateKeplerian::onFrameChanged);
+    connect(frameSelectBtn_, &QPushButton::clicked, this, &UiStateKeplerian::onSelectFrame);
+}
+
+void UiStateKeplerian::onSelectFrame()
+{
+    auto* state = getStateKeplerian();
+    if (!state)
+        return;
+
+    auto* frame = aUiSelectFrame();
+    if (frame)
+    {
+        state->changeFrame(frame);
+        this->refreshUi();
+    }
 }
 
 void UiStateKeplerian::refreshUi()
@@ -490,8 +520,11 @@ void UiStateKeplerian::refreshEpoch()
 
 void UiStateKeplerian::refreshFrame()
 {
-    // 坐标系暂时只支持ICRF
-    frameCombo_->setCurrentIndex(0);
+    if (auto* state = getStateKeplerian())
+    {
+        if (auto* frame = state->getFrame())
+            frameEdit_->setText(QString::fromUtf8(frame->getRepresentation().c_str()));
+    }
 }
 
 void UiStateKeplerian::refreshInc()

@@ -21,6 +21,7 @@
 #include "DetectorEpoch.hpp"
 
 AST_NAMESPACE_BEGIN
+double DetectorEpoch::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
 
 

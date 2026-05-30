@@ -22,6 +22,9 @@
 
 AST_NAMESPACE_BEGIN
 
-
+errc_t TraverseSearchAnalyzer::execute()
+{
+    return eNoError;
+}
 
 AST_NAMESPACE_END

@@ -53,6 +53,19 @@ errc_t ExprCalculation::setValue(Value* val)
     return eErrorReadonly;
 }
 
+errc_t ExprCalculation::setValueDouble(double val) 
+{
+    aError("readonly");
+    return eErrorReadonly;
+}
+
+
+errc_t ExprCalculation::getValueDouble(double& val) const
+{
+    return calculate(val);
+}
+
+
 std::string ExprCalculation::getExpression(Object * context) const
 {
     aWarning("not implemented");

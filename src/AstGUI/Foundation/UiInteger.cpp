@@ -59,7 +59,7 @@ void UiInteger::updateValue()
     else
     {
         // 显示错误提示
-        setError(tr("integer format error, please input correct integer"));
+        setError(tr("请输入正确的整数值"));
     }
 }
 

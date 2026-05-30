@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstScript/Expr.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -34,8 +35,14 @@ class AST_ANALYZER_API AnalyzerConstraint : public ObjectNamed
 {
 public:
     AST_OBJECT(AnalyzerConstraint)
-private:
+
+    errc_t getValue(double& value) const;
     
+    Expr* expr() const { return expr_.get(); }
+    void setExpr(Expr* expr) { expr_ = expr; }
+
+private:
+    SharedPtr<Expr> expr_;          ///< 结果表达式
 };
 
 /*! @} */

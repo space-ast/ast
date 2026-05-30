@@ -108,12 +108,25 @@ void Sequence::linkCommands()
 void Sequence::setCommands(const std::vector<HMissionCommand>& commands)
 {
     commands_ = commands;
+    for(auto& command : commands_)
+        command->setParentScope(this);
     linkCommands();
 }
 
 void Sequence::setCommands(std::vector<HMissionCommand>&& commands)
 {
     commands_ = std::move(commands);
+    for(auto& command : commands_)
+        command->setParentScope(this);
+    linkCommands();
+}
+
+void Sequence::addCommand(MissionCommand* command)
+{
+    if (!command)
+        return;
+    command->setParentScope(this);
+    commands_.push_back(HMissionCommand(command));
     linkCommands();
 }
 

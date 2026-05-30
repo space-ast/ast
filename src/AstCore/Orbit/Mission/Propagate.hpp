@@ -39,7 +39,7 @@ class AST_CORE_API Propagate: public Segment
 {
 public:
     AST_OBJECT(Propagate)
-    Propagate() = default;
+    Propagate();
     ~Propagate() = default;
 public:
     errc_t execute() override;
@@ -47,6 +47,7 @@ public:
     HPOP* propagator() const { return propagator_.get(); }
     void setPropagator(HPOP* propagator) { propagator_ = propagator; }
     EventDetector* getEventDetector(StringView name) const;
+    const std::vector<SharedPtr<EventDetector>>& eventDetectors() const { return eventDetectors_; }
     void setEventDetectors(const std::vector<SharedPtr<EventDetector>>& eventDetectors) { eventDetectors_ = eventDetectors; }
 PROPERTIES:
     double minPropTime() const { return minPropTime_; }
