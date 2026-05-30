@@ -18,11 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/J2Analytical.hpp"
-#include "AstCore/J4Analytical.hpp"
-#include "AstCore/OrbitElement.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/J2Analytical.hpp"
+#include "ast/J4Analytical.hpp"
+#include "ast/OrbitElement.hpp"
+#include "ast/Literals.hpp"
+#include "ast/AstTestMacro.h"
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

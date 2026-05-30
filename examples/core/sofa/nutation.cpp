@@ -1,5 +1,5 @@
-#include "AstCore/SOFA.hpp"
-#include "AstCore/TimePoint.hpp"
+#include "ast/SOFA.hpp"
+#include "ast/TimePoint.hpp"
 
 AST_USING_NAMESPACE
 

@@ -18,19 +18,19 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstLoader/MissionCommandLoader.hpp"
-#include "AstCore/Segment.hpp"
-#include "AstCore/Sequence.hpp"
-#include "AstCore/OrbitElement.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/EOP.hpp"
-#include "AstSim/Scenario.hpp"
-#include "AstSim/Satellite.hpp"
-#include "AstUtil/ObjectLinker.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/RTTIAPI.hpp"
-#include "AstMath/MathOperator.hpp"
-#include "AstTest/Test.h"
+#include "ast/MissionCommandLoader.hpp"
+#include "ast/Segment.hpp"
+#include "ast/Sequence.hpp"
+#include "ast/OrbitElement.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/EOP.hpp"
+#include "ast/Scenario.hpp"
+#include "ast/Satellite.hpp"
+#include "ast/ObjectLinker.hpp"
+#include "ast/Literals.hpp"
+#include "ast/RTTIAPI.hpp"
+#include "ast/MathOperator.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE

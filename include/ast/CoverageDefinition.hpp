@@ -1,0 +1,1 @@
+#include "AstSim/CoverageDefinition.hpp"

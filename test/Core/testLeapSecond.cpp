@@ -19,12 +19,12 @@
  
  
 
-#include "AstCore/LeapSecond.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstCore/DateTime.hpp"
-#include "AstCore/JulianDate.hpp"
-#include "AstUtil/FileSystem.hpp"
-#include "AstCore/RunTime.hpp"
+#include "ast/LeapSecond.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/DateTime.hpp"
+#include "ast/JulianDate.hpp"
+#include "ast/FileSystem.hpp"
+#include "ast/RunTime.hpp"
 #include <fstream>
 
 AST_USING_NAMESPACE

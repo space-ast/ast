@@ -19,14 +19,14 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/HPOP.hpp"
-#include "AstCore/HPOPEquation.hpp"
-#include "AstCore/EOP.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstTest/Test.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstUtil/Environment.hpp"
-#include "AstUtil/Literals.hpp"
+#include "ast/HPOP.hpp"
+#include "ast/HPOPEquation.hpp"
+#include "ast/EOP.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Test.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Environment.hpp"
+#include "ast/Literals.hpp"
 
 
 AST_USING_NAMESPACE

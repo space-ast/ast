@@ -18,15 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/SolarSystem.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/BuiltinAxes.hpp"
-#include "AstCore/FrameTransform.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/JplDe.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/SolarSystem.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/BuiltinAxes.hpp"
+#include "ast/FrameTransform.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/JplDe.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Test.hpp"
 
 
 AST_USING_NAMESPACE

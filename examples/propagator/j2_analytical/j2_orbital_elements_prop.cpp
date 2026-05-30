@@ -1,9 +1,9 @@
-#include "AstCore/J2Analytical.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/OrbitElement.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Constants.h"
+#include "ast/J2Analytical.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/OrbitElement.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Constants.h"
 #include <iostream>
 #include <iomanip>
 #include <cmath>

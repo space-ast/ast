@@ -17,9 +17,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
  
-#include "AstUtil/Literals.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/Constants.h" // 包含常量定义用于测试
+#include "ast/Literals.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/Constants.h" // 包含常量定义用于测试
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

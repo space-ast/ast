@@ -6,7 +6,7 @@
 /// @date      2026-04-15
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 
-#include "AstTest/Test.h"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

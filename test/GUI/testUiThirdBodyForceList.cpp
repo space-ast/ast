@@ -1,5 +1,5 @@
-#include "AstGUI/UiThirdBodyForceList.hpp"
-#include "AstCore/HPOPForceModel.hpp"
+#include "ast/UiThirdBodyForceList.hpp"
+#include "ast/HPOPForceModel.hpp"
 #include <QApplication>
 
 

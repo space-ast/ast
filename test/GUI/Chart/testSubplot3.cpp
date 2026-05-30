@@ -3,7 +3,7 @@
 #include <set>
 #include <thread>
 #include <vector>
-#include "AstChart/QwtBackend.hpp"
+#include "ast/QwtBackend.hpp"
 
 int main() {
     using namespace matplot;

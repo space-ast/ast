@@ -17,13 +17,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstGUI/UiSegmentEditor.hpp"
-#include "AstCore/InitialState.hpp"
-#include "AstCore/Propagate.hpp"
-#include "AstCore/Maneuver.hpp"
-#include "AstCore/Sequence.hpp"
-#include "AstCore/TargeterSequence.hpp"
-#include "AstUtil/RTTIAPI.hpp"
+#include "ast/UiSegmentEditor.hpp"
+#include "ast/InitialState.hpp"
+#include "ast/Propagate.hpp"
+#include "ast/Maneuver.hpp"
+#include "ast/Sequence.hpp"
+#include "ast/TargeterSequence.hpp"
+#include "ast/RTTIAPI.hpp"
 #include <QApplication>
 #include <cstdio>
 

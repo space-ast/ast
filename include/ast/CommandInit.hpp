@@ -1,0 +1,1 @@
+#include "AstCmd/CommandInit.hpp"

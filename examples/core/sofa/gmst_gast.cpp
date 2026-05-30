@@ -1,6 +1,6 @@
-#include "AstCore/SOFA.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/RunTime.hpp"
+#include "ast/SOFA.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/RunTime.hpp"
 
 AST_USING_NAMESPACE
 

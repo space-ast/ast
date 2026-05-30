@@ -1,6 +1,6 @@
 #include "AstGlobal.h"
-#include "AstCore/HPOPForceModel.hpp"
-#include "AstGUI/UiHPOPForceModel.hpp"
+#include "ast/HPOPForceModel.hpp"
+#include "ast/UiHPOPForceModel.hpp"
 #include <QApplication>
 
 

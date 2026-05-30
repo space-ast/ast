@@ -19,16 +19,16 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstGlobal.h"
-#include "AstGUI/UiMissionPanel.hpp"
-#include "AstCore/MissionModerator.hpp"
-#include "AstCore/Sequence.hpp"
-#include "AstCore/InitialState.hpp"
-#include "AstCore/Propagate.hpp"
-#include "AstCore/Maneuver.hpp"
-#include "AstCore/TargeterSequence.hpp"
-#include "AstCore/SpacecraftState.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstUtil/RTTIAPI.hpp"
+#include "ast/UiMissionPanel.hpp"
+#include "ast/MissionModerator.hpp"
+#include "ast/Sequence.hpp"
+#include "ast/InitialState.hpp"
+#include "ast/Propagate.hpp"
+#include "ast/Maneuver.hpp"
+#include "ast/TargeterSequence.hpp"
+#include "ast/SpacecraftState.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/RTTIAPI.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QCommandLineParser>

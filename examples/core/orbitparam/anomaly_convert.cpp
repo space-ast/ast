@@ -1,5 +1,5 @@
-#include "AstCore/OrbitParam.hpp"
-#include "AstUtil/Constants.h"
+#include "ast/OrbitParam.hpp"
+#include "ast/Constants.h"
 
 int main() {
     AST_USING_NAMESPACE

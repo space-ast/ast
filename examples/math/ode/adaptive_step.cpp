@@ -1,4 +1,4 @@
-#include "AstMath/ODE.hpp"
+#include "ast/ODE.hpp"
 #include "AstGlobal.h"
 #include <iostream>
 #include <cmath>

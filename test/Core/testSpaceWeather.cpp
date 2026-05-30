@@ -19,9 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/SpaceWeather.hpp"
-#include "AstCore/Date.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/SpaceWeather.hpp"
+#include "ast/Date.hpp"
+#include "ast/Test.hpp"
 
 
 AST_USING_NAMESPACE

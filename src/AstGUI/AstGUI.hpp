@@ -54,7 +54,6 @@
 #include "AstGUI/UiSegmentTreeItem.hpp"
 #include "AstGUI/UiSelectFrame.hpp"
 #include "AstGUI/UiSequence.hpp"
-#include "AstGUI/UiSequenceTreeItem.hpp"
 #include "AstGUI/UiSolarRadiationPressure.hpp"
 #include "AstGUI/UiSolarSystem.hpp"
 #include "AstGUI/UiSpacecraftParams.hpp"

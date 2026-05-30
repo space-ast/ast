@@ -18,11 +18,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/JulianDate.hpp"
-#include "AstCore/Date.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/Constants.h"
-#include "AstCore/ModJulianDate.hpp"
+#include "ast/JulianDate.hpp"
+#include "ast/Date.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/Constants.h"
+#include "ast/ModJulianDate.hpp"
 #include <cstdio>
 
 

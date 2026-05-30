@@ -1,6 +1,6 @@
 #include <cmath>
 #include <matplot/matplot.h>
-#include "AstChart/QwtBackend.hpp"
+#include "ast/QwtBackend.hpp"
 
 int main() {
     AST_USING_NAMESPACE
