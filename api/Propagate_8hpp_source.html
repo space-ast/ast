@@ -119,7 +119,7 @@ $(function(){initNavTree('Propagate_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1Propagate.html">Propagate</a>)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Propagate.html">Propagate</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Propagate.html">Propagate</a>();</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Propagate.html">~Propagate</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    errc_t <a class="code hl_function" href="classast_1_1Segment.html#a081cf5c764b36a5f2f2eb994fc3f68a7">execute</a>() <span class="keyword">override</span>;</div>
@@ -127,40 +127,41 @@ $(function(){initNavTree('Propagate_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>* propagator()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> propagator_.get(); }</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> setPropagator(<a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>* propagator) { propagator_ = propagator; }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* getEventDetector(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> setEventDetectors(<span class="keyword">const</span> std::vector&lt;<a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;EventDetector&gt;</a>&gt;&amp; eventDetectors) { eventDetectors_ = eventDetectors; }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>PROPERTIES:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">double</span> minPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> minPropTime_; }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> setMinPropTime(<span class="keywordtype">double</span> minPropTime) { minPropTime_ = minPropTime; }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">double</span> maxPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxPropTime_; }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setMaxPropTime(<span class="keywordtype">double</span> maxPropTime) { maxPropTime_ = maxPropTime; }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">bool</span> useMaxPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> useMaxPropTime_; }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> setUseMaxPropTime(<span class="keywordtype">bool</span> useMaxPropTime) { useMaxPropTime_ = useMaxPropTime; }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> useMaxPropTimeWarn()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> useMaxPropTimeWarn_; }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> setUseMaxPropTimeWarn(<span class="keywordtype">bool</span> useMaxPropTimeWarn) { useMaxPropTimeWarn_ = useMaxPropTimeWarn; }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">bool</span> overrideMaxPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> overrideMaxPropTime_; }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> setOverrideMaxPropTime(<span class="keywordtype">bool</span> overrideMaxPropTime) { overrideMaxPropTime_ = overrideMaxPropTime; }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;HPOP&gt;</a> propagator_;                                    </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    std::vector&lt;SharedPtr&lt;EventDetector&gt;&gt; eventDetectors_;        </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">double</span> minPropTime_{0};                                       </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">double</span> maxPropTime_{8640000};                                 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> useMaxPropTime_{<span class="keyword">true</span>};                                   </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span> useMaxPropTimeWarn_{<span class="keyword">true</span>};                               </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">bool</span> overrideMaxPropTime_{<span class="keyword">true</span>};                              </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> std::vector&lt;SharedPtr&lt;EventDetector&gt;&gt;&amp; eventDetectors()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> eventDetectors_; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> setEventDetectors(<span class="keyword">const</span> std::vector&lt;<a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;EventDetector&gt;</a>&gt;&amp; eventDetectors) { eventDetectors_ = eventDetectors; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>PROPERTIES:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span> minPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> minPropTime_; }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setMinPropTime(<span class="keywordtype">double</span> minPropTime) { minPropTime_ = minPropTime; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">double</span> maxPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxPropTime_; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> setMaxPropTime(<span class="keywordtype">double</span> maxPropTime) { maxPropTime_ = maxPropTime; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> useMaxPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> useMaxPropTime_; }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> setUseMaxPropTime(<span class="keywordtype">bool</span> useMaxPropTime) { useMaxPropTime_ = useMaxPropTime; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> useMaxPropTimeWarn()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> useMaxPropTimeWarn_; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> setUseMaxPropTimeWarn(<span class="keywordtype">bool</span> useMaxPropTimeWarn) { useMaxPropTimeWarn_ = useMaxPropTimeWarn; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> overrideMaxPropTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> overrideMaxPropTime_; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> setOverrideMaxPropTime(<span class="keywordtype">bool</span> overrideMaxPropTime) { overrideMaxPropTime_ = overrideMaxPropTime; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;HPOP&gt;</a> propagator_;                                    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::vector&lt;SharedPtr&lt;EventDetector&gt;&gt; eventDetectors_;        </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">double</span> minPropTime_{0};                                       </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">double</span> maxPropTime_{8640000};                                 </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span> useMaxPropTime_{<span class="keyword">true</span>};                                   </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">bool</span> useMaxPropTimeWarn_{<span class="keyword">true</span>};                               </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">bool</span> overrideMaxPropTime_{<span class="keyword">true</span>};                              </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aMissionCommand_8hpp_html"><div class="ttname"><a href="MissionCommand_8hpp.html">MissionCommand.hpp</a></div></div>
 <div class="ttc" id="aSegment_8hpp_html"><div class="ttname"><a href="Segment_8hpp.html">Segment.hpp</a></div></div>
-<div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1HPOP_html"><div class="ttname"><a href="classast_1_1HPOP.html">ast::HPOP</a></div><div class="ttdoc">高精度轨道预报器</div><div class="ttdef"><b>定义</b> HPOP.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1Propagate_html"><div class="ttname"><a href="classast_1_1Propagate.html">ast::Propagate</a></div><div class="ttdoc">预报段，用于建模任务序列(MissionCommand)中的轨道预报</div><div class="ttdef"><b>定义</b> Propagate.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Segment_html"><div class="ttname"><a href="classast_1_1Segment.html">ast::Segment</a></div><div class="ttdoc">轨道段（虚基类），用于描述任务序列中的轨道段，例如初始状态段、轨道机动段、轨道预报段等</div><div class="ttdef"><b>定义</b> Segment.hpp:44</div></div>

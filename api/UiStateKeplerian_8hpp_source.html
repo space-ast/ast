@@ -112,99 +112,107 @@ $(function(){initNavTree('UiStateKeplerian_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;QHBoxLayout&gt;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;QComboBox&gt;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;QComboBox&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>StateKeplerian;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1UiStateKeplerian.html">   41</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">UiStateKeplerian</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1UiState.html">UiState</a></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    Q_OBJECT</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">UiStateKeplerian</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">UiStateKeplerian</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">~UiStateKeplerian</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classast_1_1StateKeplerian.html">StateKeplerian</a>* getStateKeplerian() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> setStateKeplerian(<a class="code hl_class" href="classast_1_1StateKeplerian.html">StateKeplerian</a>* state);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> refreshUi();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// void apply();</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// void applyTo(StateKeplerian* state);</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> onSizeTypeChanged();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> onSizeParamChanged();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> onShapeTypeChanged();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> onShapeParamChanged();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> onOrientationTypeChanged();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> onOrientationParamChanged();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> onPositionTypeChanged();</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> onPositionParamChanged();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> onEpochChanged();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> onFrameChanged();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> onIncChanged();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> onArgPeriChanged();</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> refreshSizeType();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> refreshSizeParam();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> refreshShapeType();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> refreshShapeParam();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> refreshOrientationType();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> refreshOrientationParam();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> refreshPositionType();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> refreshPositionParam();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> refreshEpoch();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> refreshFrame();</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> refreshInc();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> refreshArgPeri();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>signals:</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> stateKeplerianChanged(<a class="code hl_class" href="classast_1_1StateKeplerian.html">StateKeplerian</a>* state);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// 轨道历元</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classast_1_1UiTimePoint.html">UiTimePoint</a>* epochEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// 坐标系</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    QComboBox* frameCombo_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// 轨道大小</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    QHBoxLayout* sizeLayout_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    QLabel* sizeLabel_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    QComboBox* sizeTypeCombo_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* sizeEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">// 轨道形状</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    QHBoxLayout* shapeLayout_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    QLabel* shapeLabel_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    QComboBox* shapeTypeCombo_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* shapeEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// 倾角</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    QHBoxLayout* incLayout_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    QLabel* incLabel_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* incEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// 轨道面方向</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    QHBoxLayout* orientationLayout_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    QLabel* orientationLabel_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    QComboBox* orientationTypeCombo_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* orientationEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">// 近地点幅角</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    QHBoxLayout* argPeriLayout_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    QLabel* argPeriLabel_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* argPeriEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">// 轨道位置</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    QHBoxLayout* positionLayout_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    QLabel* positionLabel_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    QComboBox* positionTypeCombo_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* positionEdit_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>};</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>StateKeplerian;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">class </span>Frame;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1UiStateKeplerian.html">   44</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">UiStateKeplerian</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1UiState.html">UiState</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    Q_OBJECT</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">UiStateKeplerian</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">UiStateKeplerian</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1UiStateKeplerian.html">~UiStateKeplerian</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1StateKeplerian.html">StateKeplerian</a>* getStateKeplerian() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> setStateKeplerian(<a class="code hl_class" href="classast_1_1StateKeplerian.html">StateKeplerian</a>* state);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> refreshUi();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// void apply();</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// void applyTo(StateKeplerian* state);</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> onSelectFrame();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> onSizeTypeChanged();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> onSizeParamChanged();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> onShapeTypeChanged();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> onShapeParamChanged();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> onOrientationTypeChanged();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> onOrientationParamChanged();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> onPositionTypeChanged();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> onPositionParamChanged();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> onEpochChanged();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> onFrameChanged();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> onIncChanged();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> onArgPeriChanged();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> refreshSizeType();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> refreshSizeParam();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> refreshShapeType();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> refreshShapeParam();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> refreshOrientationType();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> refreshOrientationParam();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> refreshPositionType();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> refreshPositionParam();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> refreshEpoch();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> refreshFrame();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> refreshInc();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> refreshArgPeri();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>signals:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> stateKeplerianChanged(<a class="code hl_class" href="classast_1_1StateKeplerian.html">StateKeplerian</a>* state);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// 轨道历元</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="classast_1_1UiTimePoint.html">UiTimePoint</a>* epochEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">// 坐标系</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    QLineEdit*   frameEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    QPushButton* frameSelectBtn_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// 轨道大小</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    QHBoxLayout* sizeLayout_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    QLabel* sizeLabel_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    QComboBox* sizeTypeCombo_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* sizeEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// 轨道形状</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    QHBoxLayout* shapeLayout_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    QLabel* shapeLabel_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    QComboBox* shapeTypeCombo_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* shapeEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">// 倾角</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    QHBoxLayout* incLayout_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    QLabel* incLabel_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* incEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// 轨道面方向</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    QHBoxLayout* orientationLayout_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    QLabel* orientationLabel_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    QComboBox* orientationTypeCombo_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* orientationEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">// 近地点幅角</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    QHBoxLayout* argPeriLayout_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    QLabel* argPeriLabel_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* argPeriEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// 轨道位置</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    QHBoxLayout* positionLayout_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    QLabel* positionLabel_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    QComboBox* positionTypeCombo_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>* positionEdit_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aUiState_8hpp_html"><div class="ttname"><a href="UiState_8hpp.html">UiState.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:86</div></div>
 <div class="ttc" id="aclassast_1_1StateKeplerian_html"><div class="ttname"><a href="classast_1_1StateKeplerian.html">ast::StateKeplerian</a></div><div class="ttdoc">开普勒轨道根数状态</div><div class="ttdef"><b>定义</b> StateKeplerian.hpp:86</div></div>
 <div class="ttc" id="aclassast_1_1UiQuantity_html"><div class="ttname"><a href="classast_1_1UiQuantity.html">ast::UiQuantity</a></div><div class="ttdoc">数量输入框</div><div class="ttdef"><b>定义</b> UiQuantity.hpp:41</div></div>
-<div class="ttc" id="aclassast_1_1UiStateKeplerian_html"><div class="ttname"><a href="classast_1_1UiStateKeplerian.html">ast::UiStateKeplerian</a></div><div class="ttdef"><b>定义</b> UiStateKeplerian.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1UiStateKeplerian_html"><div class="ttname"><a href="classast_1_1UiStateKeplerian.html">ast::UiStateKeplerian</a></div><div class="ttdef"><b>定义</b> UiStateKeplerian.hpp:45</div></div>
 <div class="ttc" id="aclassast_1_1UiState_html"><div class="ttname"><a href="classast_1_1UiState.html">ast::UiState</a></div><div class="ttdef"><b>定义</b> UiState.hpp:36</div></div>
-<div class="ttc" id="aclassast_1_1UiTimePoint_html"><div class="ttname"><a href="classast_1_1UiTimePoint.html">ast::UiTimePoint</a></div><div class="ttdef"><b>定义</b> UiTimePoint.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1UiTimePoint_html"><div class="ttname"><a href="classast_1_1UiTimePoint.html">ast::UiTimePoint</a></div><div class="ttdef"><b>定义</b> UiTimePoint.hpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -307,9 +307,9 @@ typedef <a class="el" href="classast_1_1Value.html">Value</a> *(*&#160;</td><td 
 <br />
  }</td></tr>
 <tr class="separator:ga737f9c579e31cebe46bb5406d9a08cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga82f2843bc989eecb3ee2ca749615c015" id="r_ga82f2843bc989eecb3ee2ca749615c015"><td class="memItemLeft" align="right" valign="top"><a id="ga82f2843bc989eecb3ee2ca749615c015" name="ga82f2843bc989eecb3ee2ca749615c015"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>eIterBegin</b> =0
+<tr class="memitem:gafe447c1cbde23a26a07a8a50032d367d" id="r_gafe447c1cbde23a26a07a8a50032d367d"><td class="memItemLeft" align="right" valign="top"><a id="gafe447c1cbde23a26a07a8a50032d367d" name="gafe447c1cbde23a26a07a8a50032d367d"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>eIterBegin</b> =0
  }</td></tr>
-<tr class="separator:ga82f2843bc989eecb3ee2ca749615c015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gafe447c1cbde23a26a07a8a50032d367d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
@@ -430,6 +430,10 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:ga2ff1be0c374413769c8adbb10e3b6e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac4c6b004a109f627b959f47d57944bfc" id="r_gac4c6b004a109f627b959f47d57944bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac4c6b004a109f627b959f47d57944bfc">ast::aScript_CurrentSymbolScope</a> ()</td></tr>
 <tr class="separator:gac4c6b004a109f627b959f47d57944bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e52881f920c3789e197b31f473917cf" id="r_ga6e52881f920c3789e197b31f473917cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6e52881f920c3789e197b31f473917cf">ast::aScript_AddSymbol</a> (<a class="el" href="classast_1_1Variable.html">Variable</a> *var)</td></tr>
+<tr class="separator:ga6e52881f920c3789e197b31f473917cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf97e809367d856bce0bb4299ea7d00ea" id="r_gaf97e809367d856bce0bb4299ea7d00ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf97e809367d856bce0bb4299ea7d00ea">ast::aScript_AddSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="separator:gaf97e809367d856bce0bb4299ea7d00ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa42d9355cb74e3670e8229e77a065561" id="r_gaa42d9355cb74e3670e8229e77a065561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa42d9355cb74e3670e8229e77a065561">ast::aScript_FindSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
 <tr class="separator:gaa42d9355cb74e3670e8229e77a065561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeca360554194ed3305b1023543c0e2ec" id="r_gaeca360554194ed3305b1023543c0e2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeca360554194ed3305b1023543c0e2ec">ast::aScript_FindSymbol</a> (const <a class="el" href="classast_1_1Symbol.html">Symbol</a> *symbol)</td></tr>
@@ -1298,6 +1302,63 @@ template&lt;typename T &gt; </td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>解析得到的表达式对象 </dd></dl>
+
+</div>
+</div>
+<a id="gaf97e809367d856bce0bb4299ea7d00ea" name="gaf97e809367d856bce0bb4299ea7d00ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf97e809367d856bce0bb4299ea7d00ea">&#9670;&#160;</a></span>aScript_AddSymbol() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SCRIPT_API void ast::aScript_AddSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Expr.html">Expr</a> *</td>          <td class="paramname"><span class="paramname"><em>expr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加符号 </p>
+<p><br  />
+ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>符号名 </td></tr>
+    <tr><td class="paramname">expr</td><td>表达式指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6e52881f920c3789e197b31f473917cf" name="ga6e52881f920c3789e197b31f473917cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6e52881f920c3789e197b31f473917cf">&#9670;&#160;</a></span>aScript_AddSymbol() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SCRIPT_API void ast::aScript_AddSymbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Variable.html">Variable</a> *</td>          <td class="paramname"><span class="paramname"><em>var</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加符号 </p>
+<p><br  />
+ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">var</td><td>变量指针 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

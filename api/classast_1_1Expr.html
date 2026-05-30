@@ -144,6 +144,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a79f28079bdd2f51261961eb52c246096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85450ce6cabc0714e99c9690900f7fd0" id="r_a85450ce6cabc0714e99c9690900f7fd0"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85450ce6cabc0714e99c9690900f7fd0">setValue</a> (<a class="el" href="classast_1_1Value.html">Value</a> *val)</td></tr>
 <tr class="separator:a85450ce6cabc0714e99c9690900f7fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3348b92819eed530c27c3b1b89725a30" id="r_a3348b92819eed530c27c3b1b89725a30"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3348b92819eed530c27c3b1b89725a30">setValueDouble</a> (double val)</td></tr>
+<tr class="separator:a3348b92819eed530c27c3b1b89725a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b561fecb35ac85ae15267fe3b6db182" id="r_a6b561fecb35ac85ae15267fe3b6db182"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b561fecb35ac85ae15267fe3b6db182">getValueDouble</a> (double &amp;val) const</td></tr>
+<tr class="separator:a6b561fecb35ac85ae15267fe3b6db182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc5ee070c08edb6a5bb1faa55858083a" id="r_abc5ee070c08edb6a5bb1faa55858083a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc5ee070c08edb6a5bb1faa55858083a">getExpression</a> (<a class="el" href="classast_1_1Object.html">Object</a> *context=nullptr) const =0</td></tr>
 <tr class="separator:abc5ee070c08edb6a5bb1faa55858083a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a921512461677e101f481c240a963f6f8" id="r_a921512461677e101f481c240a963f6f8"><td class="memItemLeft" align="right" valign="top"><a id="a921512461677e101f481c240a963f6f8" name="a921512461677e101f481c240a963f6f8"></a>
@@ -417,6 +421,35 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a6b561fecb35ac85ae15267fe3b6db182" name="a6b561fecb35ac85ae15267fe3b6db182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b561fecb35ac85ae15267fe3b6db182">&#9670;&#160;</a></span>getValueDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Expr::getValueDouble </td>
+          <td>(</td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取表达式的双精度值 </p>
+
+<p>被 <a class="el" href="classast_1_1ExprAttribute.html#adeed83b38ffc53636b5c3e8ae1ef8280">ast::ExprAttribute</a> , 以及 <a class="el" href="classast_1_1ExprCalculation.html#aea77a4cc2d11e907a0e055b6fe754cf9">ast::ExprCalculation</a> 重载.</p>
+
+</div>
+</div>
 <a id="abbd67af553bb0841192dfacd0f0e9578" name="abbd67af553bb0841192dfacd0f0e9578"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbd67af553bb0841192dfacd0f0e9578">&#9670;&#160;</a></span>Object()</h2>
 
@@ -516,8 +549,38 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a3348b92819eed530c27c3b1b89725a30" name="a3348b92819eed530c27c3b1b89725a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3348b92819eed530c27c3b1b89725a30">&#9670;&#160;</a></span>setValueDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Expr::setValueDouble </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置表达式的双精度值 </p>
+
+<p>被 <a class="el" href="classast_1_1ExprAttribute.html#a96b58e263fd9a1c3c474cffea43a1c31">ast::ExprAttribute</a> , 以及 <a class="el" href="classast_1_1ExprCalculation.html#acea5d523bba35640caf80d2f68fd8b5f">ast::ExprCalculation</a> 重载.</p>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstScript/Expression/<a class="el" href="Expr_8hpp_source.html">Expr.hpp</a></li>
+<li>src/AstScript/Expression/<a class="el" href="Expr_8cpp.html">Expr.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

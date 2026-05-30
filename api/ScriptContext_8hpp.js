@@ -1,5 +1,7 @@
 var ScriptContext_8hpp =
 [
+    [ "aScript_AddSymbol", "ScriptContext_8hpp.html#gaf97e809367d856bce0bb4299ea7d00ea", null ],
+    [ "aScript_AddSymbol", "ScriptContext_8hpp.html#ga6e52881f920c3789e197b31f473917cf", null ],
     [ "aScript_CurrentSymbolScope", "ScriptContext_8hpp.html#gac4c6b004a109f627b959f47d57944bfc", null ],
     [ "aScript_FindSymbol", "ScriptContext_8hpp.html#gaeca360554194ed3305b1023543c0e2ec", null ],
     [ "aScript_FindSymbol", "ScriptContext_8hpp.html#gaa42d9355cb74e3670e8229e77a065561", null ],

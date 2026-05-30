@@ -11,6 +11,7 @@ var classast_1_1ObjectManager =
     [ "getObjectCount", "classast_1_1ObjectManager.html#a96fdb8d4b60e0d6c74266a1dd233b911", null ],
     [ "getObjectNode", "classast_1_1ObjectManager.html#aad359bc103c89830e8265885d95606ed", null ],
     [ "getParentScope", "classast_1_1ObjectManager.html#a915744dcf7daaf93f4612976507951b8", null ],
+    [ "getRootObjects", "classast_1_1ObjectManager.html#a3037fb43bb02c2fbfdbe976fef9d730a", null ],
     [ "removeAllObjects", "classast_1_1ObjectManager.html#adba3141a3bb5de340725ab466030c1d3", null ],
     [ "removeObject", "classast_1_1ObjectManager.html#a7966957e7c025ef9361d4f2f5e82fee6", null ],
     [ "setMaxObjectCount", "classast_1_1ObjectManager.html#a63cfb9957ea2d9c55724801e282348ad", null ],

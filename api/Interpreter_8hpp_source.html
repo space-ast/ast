@@ -141,35 +141,41 @@ $(function(){initNavTree('Interpreter_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
 </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="foldopen" id="foldopen00085" data-start="{" data-end="};">
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1InterpreterContext.html">   85</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a> {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a>(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>&amp; interpreter)</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        : <a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a>(&amp;interpreter)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a>(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter)</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        : interpreter_(interpreter)</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_function" href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">aScript_SetInterpreter</a>(interpreter);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classast_1_1InterpreterContext.html">~InterpreterContext</a>()</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_function" href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">aScript_RemoveInterpreter</a>(interpreter_);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter_;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>};</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>AST_SCRIPT_CAPI <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* <a class="code hl_function" href="namespaceast.html#aa5252e9828e4815c2e3129237accc7c3">aNewInterpreter</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>AST_SCRIPT_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a6559d1cbce02f1b37fa1c5f0689083d2">aDelInterpreter</a>(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="};">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1InterpreterContext.html">   95</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a> {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a>(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>&amp; interpreter)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        : <a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a>(&amp;interpreter)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1InterpreterContext.html">InterpreterContext</a>(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        : interpreter_(interpreter)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <a class="code hl_function" href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">aScript_SetInterpreter</a>(interpreter);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="classast_1_1InterpreterContext.html">~InterpreterContext</a>()</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_function" href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">aScript_RemoveInterpreter</a>(interpreter_);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter_;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>};</div>
 </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aCallStack_8hpp_html"><div class="ttname"><a href="CallStack_8hpp.html">CallStack.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aScriptContext_8hpp_html"><div class="ttname"><a href="ScriptContext_8hpp.html">ScriptContext.hpp</a></div></div>
 <div class="ttc" id="aSymbolScope_8hpp_html"><div class="ttname"><a href="SymbolScope_8hpp.html">SymbolScope.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aSymbolTable_8hpp_html"><div class="ttname"><a href="SymbolTable_8hpp.html">SymbolTable.hpp</a></div><div class="ttdoc">~</div></div>
-<div class="ttc" id="aclassast_1_1InterpreterContext_html"><div class="ttname"><a href="classast_1_1InterpreterContext.html">ast::InterpreterContext</a></div><div class="ttdoc">解释器上下文守卫</div><div class="ttdef"><b>定义</b> Interpreter.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1InterpreterContext_html"><div class="ttname"><a href="classast_1_1InterpreterContext.html">ast::InterpreterContext</a></div><div class="ttdoc">解释器上下文守卫</div><div class="ttdef"><b>定义</b> Interpreter.hpp:95</div></div>
 <div class="ttc" id="aclassast_1_1Interpreter_html"><div class="ttname"><a href="classast_1_1Interpreter.html">ast::Interpreter</a></div><div class="ttdoc">解释器</div><div class="ttdef"><b>定义</b> Interpreter.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1Interpreter_html_a0772639e1ca5d4dfca4c39ffd38bbb2b"><div class="ttname"><a href="classast_1_1Interpreter.html#a0772639e1ca5d4dfca4c39ffd38bbb2b">ast::Interpreter::currentScope</a></div><div class="ttdeci">SymbolScope * currentScope()</div><div class="ttdoc">获取当前作用域</div><div class="ttdef"><b>定义</b> Interpreter.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1Interpreter_html_a145d9bc69a2f6b41de63774075cb0d15"><div class="ttname"><a href="classast_1_1Interpreter.html#a145d9bc69a2f6b41de63774075cb0d15">ast::Interpreter::clearErrString</a></div><div class="ttdeci">void clearErrString()</div><div class="ttdoc">清除错误字符串</div><div class="ttdef"><b>定义</b> Interpreter.hpp:74</div></div>
@@ -179,8 +185,10 @@ $(function(){initNavTree('Interpreter_8hpp_source.html',''); initResizable(true)
 <div class="ttc" id="aclassast_1_1Interpreter_html_aa106735b22fc35d4d07fee94caa42989"><div class="ttname"><a href="classast_1_1Interpreter.html#aa106735b22fc35d4d07fee94caa42989">ast::Interpreter::symbolScope_</a></div><div class="ttdeci">SymbolScope symbolScope_</div><div class="ttdoc">当前作用域</div><div class="ttdef"><b>定义</b> Interpreter.hpp:77</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1SymbolScope_html"><div class="ttname"><a href="classast_1_1SymbolScope.html">ast::SymbolScope</a></div><div class="ttdoc">符号作用域</div><div class="ttdef"><b>定义</b> SymbolScope.hpp:38</div></div>
-<div class="ttc" id="agroup__Script_html_ga2ff1be0c374413769c8adbb10e3b6e09"><div class="ttname"><a href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">ast::aScript_RemoveInterpreter</a></div><div class="ttdeci">void aScript_RemoveInterpreter(Interpreter *interpreter)</div><div class="ttdoc">移除解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:82</div></div>
-<div class="ttc" id="agroup__Script_html_gad99b2bd0b7bcb7874b5440846ab02dae"><div class="ttname"><a href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a></div><div class="ttdeci">void aScript_SetInterpreter(Interpreter *interpreter)</div><div class="ttdoc">设置解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:77</div></div>
+<div class="ttc" id="agroup__Script_html_ga2ff1be0c374413769c8adbb10e3b6e09"><div class="ttname"><a href="group__Script.html#ga2ff1be0c374413769c8adbb10e3b6e09">ast::aScript_RemoveInterpreter</a></div><div class="ttdeci">void aScript_RemoveInterpreter(Interpreter *interpreter)</div><div class="ttdoc">移除解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:83</div></div>
+<div class="ttc" id="agroup__Script_html_gad99b2bd0b7bcb7874b5440846ab02dae"><div class="ttname"><a href="group__Script.html#gad99b2bd0b7bcb7874b5440846ab02dae">ast::aScript_SetInterpreter</a></div><div class="ttdeci">void aScript_SetInterpreter(Interpreter *interpreter)</div><div class="ttdoc">设置解释器指针</div><div class="ttdef"><b>定义</b> ScriptContext.cpp:78</div></div>
+<div class="ttc" id="anamespaceast_html_a6559d1cbce02f1b37fa1c5f0689083d2"><div class="ttname"><a href="namespaceast.html#a6559d1cbce02f1b37fa1c5f0689083d2">ast::aDelInterpreter</a></div><div class="ttdeci">void aDelInterpreter(Interpreter *interpreter)</div><div class="ttdoc">删除解释器，释放其占用的资源。</div><div class="ttdef"><b>定义</b> Interpreter.cpp:33</div></div>
+<div class="ttc" id="anamespaceast_html_aa5252e9828e4815c2e3129237accc7c3"><div class="ttname"><a href="namespaceast.html#aa5252e9828e4815c2e3129237accc7c3">ast::aNewInterpreter</a></div><div class="ttdeci">Interpreter * aNewInterpreter()</div><div class="ttdoc">创建新的解释器，用于解释执行脚本中的代码。</div><div class="ttdef"><b>定义</b> Interpreter.cpp:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

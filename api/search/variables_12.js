@@ -16,9 +16,10 @@ var searchData=
   ['rightascenofnode_5f_13',['rightAscenOfNode_',['../classast_1_1TwoLineElement.html#a8658471c714b9a92d61ce9df8dcc1eae',1,'ast::TwoLineElement']]],
   ['rightascensionofascendingnode_5f_14',['rightAscensionOfAscendingNode_',['../classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412',1,'ast::SimpleOrbitDesigner']]],
   ['righttype_5f_15',['rightType_',['../classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05',1,'ast::OpBin']]],
-  ['rotation_5f_16',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
-  ['rotationepoch_5f_17',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
-  ['rowcol_5f_18',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
-  ['rp_5f_19',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
-  ['rsize_20',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
+  ['rootptr_16',['rootPtr',['../classast_1_1MissionTreeItem.html#a1534e772eb564844df450291339938d3',1,'ast::MissionTreeItem']]],
+  ['rotation_5f_17',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
+  ['rotationepoch_5f_18',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
+  ['rowcol_5f_19',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
+  ['rp_5f_20',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
+  ['rsize_21',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
 ];

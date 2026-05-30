@@ -198,10 +198,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 <tr class="separator:ga52c02b09388ac56566408d15c1e1ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
 <tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0e988e64c58fbe5bfa847b6ae04d8dba" id="r_ga0e988e64c58fbe5bfa847b6ae04d8dba"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0e988e64c58fbe5bfa847b6ae04d8dba">ast::aUiEditObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
-<tr class="separator:ga0e988e64c58fbe5bfa847b6ae04d8dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9d38a8540eaa686e730caab9e588e35f" id="r_ga9d38a8540eaa686e730caab9e588e35f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9d38a8540eaa686e730caab9e588e35f">ast::aUiSelectObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName)</td></tr>
-<tr class="separator:ga9d38a8540eaa686e730caab9e588e35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa062ca82f5c38489e81d16c97325977b" id="r_gaa062ca82f5c38489e81d16c97325977b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa062ca82f5c38489e81d16c97325977b">ast::aEditObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:gaa062ca82f5c38489e81d16c97325977b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b64bc142a888da84a5d78f6cdcfab8e" id="r_ga0b64bc142a888da84a5d78f6cdcfab8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0b64bc142a888da84a5d78f6cdcfab8e">ast::aSelectObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName)</td></tr>
+<tr class="separator:ga0b64bc142a888da84a5d78f6cdcfab8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
 <a id="gae5cf4de7adb0a012861b982458f81526" name="gae5cf4de7adb0a012861b982458f81526"></a>
@@ -268,6 +268,32 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>当前行号，从1开始计数 </dd></dl>
+
+</div>
+</div>
+<a id="gaa062ca82f5c38489e81d16c97325977b" name="gaa062ca82f5c38489e81d16c97325977b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa062ca82f5c38489e81d16c97325977b">&#9670;&#160;</a></span>aEditObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI errc_t ast::aEditObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>编辑对象 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>要编辑的对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
 </div>
@@ -727,6 +753,32 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 
 </div>
 </div>
+<a id="ga0b64bc142a888da84a5d78f6cdcfab8e" name="ga0b64bc142a888da84a5d78f6cdcfab8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b64bc142a888da84a5d78f6cdcfab8e">&#9670;&#160;</a></span>aSelectObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI <a class="el" href="classast_1_1Object.html">Object</a> * ast::aSelectObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>typeName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>选择对象 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">typeName</td><td>对象类型名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Object* 选择的对象指针 </dd></dl>
+
+</div>
+</div>
 <a id="gaa4fb579361721abb83e54183b0521c32" name="gaa4fb579361721abb83e54183b0521c32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa4fb579361721abb83e54183b0521c32">&#9670;&#160;</a></span>aStdErrIsFile()</h2>
 
@@ -864,58 +916,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 
 <p>检查终端是否支持颜色 </p>
 <dl class="section return"><dt>返回</dt><dd>如果终端支持颜色，返回true；否则返回false </dd></dl>
-
-</div>
-</div>
-<a id="ga0e988e64c58fbe5bfa847b6ae04d8dba" name="ga0e988e64c58fbe5bfa847b6ae04d8dba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0e988e64c58fbe5bfa847b6ae04d8dba">&#9670;&#160;</a></span>aUiEditObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">AST_UTIL_CAPI errc_t ast::aUiEditObject </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>编辑对象 </p>
-<p>~ </p><dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">object</td><td>要编辑的对象 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
-
-</div>
-</div>
-<a id="ga9d38a8540eaa686e730caab9e588e35f" name="ga9d38a8540eaa686e730caab9e588e35f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9d38a8540eaa686e730caab9e588e35f">&#9670;&#160;</a></span>aUiSelectObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">AST_UTIL_CAPI <a class="el" href="classast_1_1Object.html">Object</a> * ast::aUiSelectObject </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>typeName</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>选择对象 </p>
-<p>~ </p><dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">typeName</td><td>对象类型名 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>Object* 选择的对象指针 </dd></dl>
 
 </div>
 </div>

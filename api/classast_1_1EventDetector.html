@@ -118,14 +118,27 @@ $(function(){initNavTree('classast_1_1EventDetector.html',''); initResizable(tru
   <map id="ast::EventDetector_map" name="ast::EventDetector_map">
 <area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,56,212,80"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,0,212,24"/>
-<area href="classast_1_1DetectorBodyRelated.html" alt="ast::DetectorBodyRelated" shape="rect" coords="222,168,434,192"/>
-<area href="classast_1_1DetectorDuration.html" alt="ast::DetectorDuration" shape="rect" coords="222,224,434,248"/>
-<area href="classast_1_1DetectorFrameRelated.html" alt="ast::DetectorFrameRelated" shape="rect" coords="222,280,434,304"/>
-<area href="classast_1_1DetectorLighting.html" alt="ast::DetectorLighting" shape="rect" coords="222,336,434,360"/>
-<area href="classast_1_1DetectorPointRelated.html" alt="ast::DetectorPointRelated" shape="rect" coords="222,392,434,416"/>
-<area href="classast_1_1DetectorUserSelect.html" alt="ast::DetectorUserSelect" shape="rect" coords="222,448,434,472"/>
-<area href="classast_1_1EventDetectorGeneric.html" title="泛型事件检测器" alt="ast::EventDetectorGeneric&lt; Func &gt;" shape="rect" coords="222,504,434,528"/>
-<area href="classast_1_1StopCondition.html" title="停止条件检测基类 参考GMAT的StopCondition类" alt="ast::StopCondition" shape="rect" coords="222,560,434,584"/>
+<area href="classast_1_1DetectorAccess.html" alt="ast::DetectorAccess" shape="rect" coords="222,168,434,192"/>
+<area href="classast_1_1DetectorAltitude.html" alt="ast::DetectorAltitude" shape="rect" coords="222,224,434,248"/>
+<area href="classast_1_1DetectorAlwaysTripped.html" alt="ast::DetectorAlwaysTripped" shape="rect" coords="222,280,434,304"/>
+<area href="classast_1_1DetectorAscendingNode.html" alt="ast::DetectorAscendingNode" shape="rect" coords="222,336,434,360"/>
+<area href="classast_1_1DetectorBodyRelated.html" alt="ast::DetectorBodyRelated" shape="rect" coords="222,392,434,416"/>
+<area href="classast_1_1DetectorCartesian.html" alt="ast::DetectorCartesian" shape="rect" coords="222,448,434,472"/>
+<area href="classast_1_1DetectorDeltaV.html" alt="ast::DetectorDeltaV" shape="rect" coords="222,504,434,528"/>
+<area href="classast_1_1DetectorDescendingNode.html" alt="ast::DetectorDescendingNode" shape="rect" coords="222,560,434,584"/>
+<area href="classast_1_1DetectorDuration.html" alt="ast::DetectorDuration" shape="rect" coords="222,616,434,640"/>
+<area href="classast_1_1DetectorEpoch.html" alt="ast::DetectorEpoch" shape="rect" coords="222,672,434,696"/>
+<area href="classast_1_1DetectorFrameRelated.html" alt="ast::DetectorFrameRelated" shape="rect" coords="222,728,434,752"/>
+<area href="classast_1_1DetectorLighting.html" alt="ast::DetectorLighting" shape="rect" coords="222,784,434,808"/>
+<area href="classast_1_1DetectorMeanAnomaly.html" alt="ast::DetectorMeanAnomaly" shape="rect" coords="222,840,434,864"/>
+<area href="classast_1_1DetectorPointRelated.html" alt="ast::DetectorPointRelated" shape="rect" coords="222,896,434,920"/>
+<area href="classast_1_1DetectorTrueAnomaly.html" alt="ast::DetectorTrueAnomaly" shape="rect" coords="222,952,434,976"/>
+<area href="classast_1_1DetectorUserSelect.html" alt="ast::DetectorUserSelect" shape="rect" coords="222,1008,434,1032"/>
+<area href="classast_1_1DetectorXYPlaneCross.html" alt="ast::DetectorXYPlaneCross" shape="rect" coords="222,1064,434,1088"/>
+<area href="classast_1_1DetectorYZPlaneCross.html" alt="ast::DetectorYZPlaneCross" shape="rect" coords="222,1120,434,1144"/>
+<area href="classast_1_1DetectorZXPlaneCross.html" alt="ast::DetectorZXPlaneCross" shape="rect" coords="222,1176,434,1200"/>
+<area href="classast_1_1EventDetectorGeneric.html" title="泛型事件检测器" alt="ast::EventDetectorGeneric&lt; Func &gt;" shape="rect" coords="222,1232,434,1256"/>
+<area href="classast_1_1StopCondition.html" title="停止条件检测基类 参考GMAT的StopCondition类" alt="ast::StopCondition" shape="rect" coords="222,1288,434,1312"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -141,8 +154,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:aef7de50faf0c059fb2f83789e719bb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fb0d5745861c1934f0e0df52f5a5ec4" id="r_a1fb0d5745861c1934f0e0df52f5a5ec4"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fb0d5745861c1934f0e0df52f5a5ec4">getValue</a> (const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;state, double t) const =0</td></tr>
 <tr class="separator:a1fb0d5745861c1934f0e0df52f5a5ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa70d2b6b783318a1f72023933d7cb8c4" id="r_aa70d2b6b783318a1f72023933d7cb8c4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa70d2b6b783318a1f72023933d7cb8c4">isAngle</a> () const</td></tr>
-<tr class="separator:aa70d2b6b783318a1f72023933d7cb8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a80c100ee93f203300fd6c6c538e43d" id="r_a4a80c100ee93f203300fd6c6c538e43d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Dimension.html">Dimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a80c100ee93f203300fd6c6c538e43d">getDimension</a> () const</td></tr>
+<tr class="separator:a4a80c100ee93f203300fd6c6c538e43d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281b62793ed301061e760066093792b4" id="r_a281b62793ed301061e760066093792b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a281b62793ed301061e760066093792b4">isAngle</a> () const</td></tr>
+<tr class="separator:a281b62793ed301061e760066093792b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a216414de99f2655e62234d6ad2660431" id="r_a216414de99f2655e62234d6ad2660431"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a216414de99f2655e62234d6ad2660431">newODEEventDetector</a> () const</td></tr>
 <tr class="separator:a216414de99f2655e62234d6ad2660431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dec77b147f33b862b0ecc0dad2b88f8" id="r_a0dec77b147f33b862b0ecc0dad2b88f8"><td class="memItemLeft" align="right" valign="top"><a id="a0dec77b147f33b862b0ecc0dad2b88f8" name="a0dec77b147f33b862b0ecc0dad2b88f8"></a>
@@ -350,6 +365,36 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a4a80c100ee93f203300fd6c6c538e43d" name="a4a80c100ee93f203300fd6c6c538e43d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a80c100ee93f203300fd6c6c538e43d">&#9670;&#160;</a></span>getDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classast_1_1Dimension.html">Dimension</a> ast::EventDetector::getDimension </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取事件检测开关函数的量纲 </p>
+<dl class="section return"><dt>返回</dt><dd>事件检测开关函数的量纲 </dd></dl>
+
+<p>被 <a class="el" href="classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524">ast::DetectorUserSelect</a> 重载.</p>
+
+</div>
+</div>
 <a id="a1fb0d5745861c1934f0e0df52f5a5ec4" name="a1fb0d5745861c1934f0e0df52f5a5ec4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fb0d5745861c1934f0e0df52f5a5ec4">&#9670;&#160;</a></span>getValue()</h2>
 
@@ -387,12 +432,12 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>事件检测开关函数的值 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d">ast::DetectorApoapsis</a>, <a class="el" href="classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49">ast::DetectorDuration</a>, <a class="el" href="classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1">ast::DetectorLighting</a>, <a class="el" href="classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e">ast::DetectorPeriapsis</a>, <a class="el" href="classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4">ast::DetectorRMagnitude</a>, <a class="el" href="classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122">ast::DetectorUserSelect</a> , 以及 <a class="el" href="classast_1_1EventDetectorGeneric.html#a9da155b942ef56f5fab6d405bf143489">ast::EventDetectorGeneric&lt; Func &gt;</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1DetectorAccess.html#a2fee844fefe50d0d792acf8713d7b0d2">ast::DetectorAccess</a>, <a class="el" href="classast_1_1DetectorAltitude.html#ab7713d186a20810d93cd34e626a57e38">ast::DetectorAltitude</a>, <a class="el" href="classast_1_1DetectorAlwaysTripped.html#ad2831eff59e8e18b731338f03aad4bfa">ast::DetectorAlwaysTripped</a>, <a class="el" href="classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d">ast::DetectorApoapsis</a>, <a class="el" href="classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f">ast::DetectorAscendingNode</a>, <a class="el" href="classast_1_1DetectorCartesian.html#afe1da42284c467cd67e344a25a1fb7d5">ast::DetectorCartesian</a>, <a class="el" href="classast_1_1DetectorDeltaV.html#a9178fb748a82c3037d942d6051778287">ast::DetectorDeltaV</a>, <a class="el" href="classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c">ast::DetectorDescendingNode</a>, <a class="el" href="classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49">ast::DetectorDuration</a>, <a class="el" href="classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa">ast::DetectorEpoch</a>, <a class="el" href="classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1">ast::DetectorLighting</a>, <a class="el" href="classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda">ast::DetectorMeanAnomaly</a>, <a class="el" href="classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e">ast::DetectorPeriapsis</a>, <a class="el" href="classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4">ast::DetectorRMagnitude</a>, <a class="el" href="classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9">ast::DetectorTrueAnomaly</a>, <a class="el" href="classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122">ast::DetectorUserSelect</a>, <a class="el" href="classast_1_1DetectorXYPlaneCross.html#adb6ba9dba8bb1ae973dd3d934d6f648d">ast::DetectorXYPlaneCross</a>, <a class="el" href="classast_1_1DetectorYZPlaneCross.html#a943f5e2cd55350e7eda6230ceee67565">ast::DetectorYZPlaneCross</a>, <a class="el" href="classast_1_1DetectorZXPlaneCross.html#a6591d05186d25982f8728a0406350cd8">ast::DetectorZXPlaneCross</a> , 以及 <a class="el" href="classast_1_1EventDetectorGeneric.html#a9da155b942ef56f5fab6d405bf143489">ast::EventDetectorGeneric&lt; Func &gt;</a> 内被实现.</p>
 
 </div>
 </div>
-<a id="aa70d2b6b783318a1f72023933d7cb8c4" name="aa70d2b6b783318a1f72023933d7cb8c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa70d2b6b783318a1f72023933d7cb8c4">&#9670;&#160;</a></span>isAngle()</h2>
+<a id="a281b62793ed301061e760066093792b4" name="a281b62793ed301061e760066093792b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281b62793ed301061e760066093792b4">&#9670;&#160;</a></span>isAngle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,7 +446,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool ast::EventDetector::isAngle </td>
+          <td class="memname">bool ast::EventDetector::isAngle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -409,15 +454,13 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>是否为角度事件检测器 </p>
 <dl class="section return"><dt>返回</dt><dd>是否为角度事件检测器 </dd></dl>
-
-<p>被 <a class="el" href="classast_1_1DetectorUserSelect.html#ab581e01d656dce46d8a63d98ae713994">ast::DetectorUserSelect</a> 重载.</p>
 
 </div>
 </div>

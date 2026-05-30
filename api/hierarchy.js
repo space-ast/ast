@@ -21,6 +21,9 @@ var hierarchy =
     [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "ast::AttributeBasic< WeakPtr< Object >, Property >", "classast_1_1AttributeBasic.html", null ],
     [ "AVector3d", "structAVector3d.html", null ],
+    [ "matplot::backend::backend_interface", null, [
+      [ "ast::QwtBackend", "classast_1_1QwtBackend.html", null ]
+    ] ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
     [ "ast::BaseParser", "classast_1_1BaseParser.html", [
       [ "ast::BKVParser", "classast_1_1BKVParser.html", null ],
@@ -111,6 +114,9 @@ var hierarchy =
     [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
+    [ "Qwt3D::Color", null, [
+      [ "ast::CDataColor", "classast_1_1CDataColor.html", null ]
+    ] ],
     [ "ast::CommandDispatcher", "classast_1_1CommandDispatcher.html", null ],
     [ "ast::CommandHandler", "classast_1_1CommandHandler.html", [
       [ "ast::TaggedRule< F, Tuple >", "classast_1_1TaggedRule.html", null ]
@@ -294,6 +300,7 @@ var hierarchy =
     [ "ast::ActiveScriptExecutor::Impl", "classast_1_1ActiveScriptExecutor_1_1Impl.html", null ],
     [ "ast::NetworkImplWinHTTP::Impl", "classast_1_1NetworkImplWinHTTP_1_1Impl.html", null ],
     [ "ast::NetworkImplWinINet::Impl", "classast_1_1NetworkImplWinINet_1_1Impl.html", null ],
+    [ "ast::QwtBackend::Impl", "structast_1_1QwtBackend_1_1Impl.html", null ],
     [ "ast::fs_simple::directory_iterator::impl", "structast_1_1fs__simple_1_1directory__iterator_1_1impl.html", null ],
     [ "ast::ImplFor< I, T >", "classast_1_1ImplFor.html", null ],
     [ "ast::InitalizeConfig", "structast_1_1InitalizeConfig.html", null ],
@@ -541,22 +548,36 @@ var hierarchy =
           [ "ast::TargeterProfile", "classast_1_1TargeterProfile.html", [
             [ "ast::DifferentialCorrectorProfile", "classast_1_1DifferentialCorrectorProfile.html", null ],
             [ "ast::ScriptingToolProfile", "classast_1_1ScriptingToolProfile.html", null ]
-          ] ]
+          ] ],
+          [ "ast::TraverseSearchAnalyzer", "classast_1_1TraverseSearchAnalyzer.html", null ]
         ] ],
         [ "ast::Constellation", "classast_1_1Constellation.html", null ],
         [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
         [ "ast::EventDetector", "classast_1_1EventDetector.html", [
+          [ "ast::DetectorAccess", "classast_1_1DetectorAccess.html", null ],
+          [ "ast::DetectorAltitude", "classast_1_1DetectorAltitude.html", null ],
+          [ "ast::DetectorAlwaysTripped", "classast_1_1DetectorAlwaysTripped.html", null ],
+          [ "ast::DetectorAscendingNode", "classast_1_1DetectorAscendingNode.html", null ],
           [ "ast::DetectorBodyRelated", "classast_1_1DetectorBodyRelated.html", [
             [ "ast::DetectorApoapsis", "classast_1_1DetectorApoapsis.html", null ],
             [ "ast::DetectorPeriapsis", "classast_1_1DetectorPeriapsis.html", null ]
           ] ],
+          [ "ast::DetectorCartesian", "classast_1_1DetectorCartesian.html", null ],
+          [ "ast::DetectorDeltaV", "classast_1_1DetectorDeltaV.html", null ],
+          [ "ast::DetectorDescendingNode", "classast_1_1DetectorDescendingNode.html", null ],
           [ "ast::DetectorDuration", "classast_1_1DetectorDuration.html", null ],
+          [ "ast::DetectorEpoch", "classast_1_1DetectorEpoch.html", null ],
           [ "ast::DetectorFrameRelated", "classast_1_1DetectorFrameRelated.html", null ],
           [ "ast::DetectorLighting", "classast_1_1DetectorLighting.html", null ],
+          [ "ast::DetectorMeanAnomaly", "classast_1_1DetectorMeanAnomaly.html", null ],
           [ "ast::DetectorPointRelated", "classast_1_1DetectorPointRelated.html", [
             [ "ast::DetectorRMagnitude", "classast_1_1DetectorRMagnitude.html", null ]
           ] ],
+          [ "ast::DetectorTrueAnomaly", "classast_1_1DetectorTrueAnomaly.html", null ],
           [ "ast::DetectorUserSelect", "classast_1_1DetectorUserSelect.html", null ],
+          [ "ast::DetectorXYPlaneCross", "classast_1_1DetectorXYPlaneCross.html", null ],
+          [ "ast::DetectorYZPlaneCross", "classast_1_1DetectorYZPlaneCross.html", null ],
+          [ "ast::DetectorZXPlaneCross", "classast_1_1DetectorZXPlaneCross.html", null ],
           [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
           [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
         ] ],
@@ -901,7 +922,6 @@ var hierarchy =
         [ "ast::TargeterGraphControlOptions", "classast_1_1TargeterGraphControlOptions.html", null ],
         [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
         [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
-        [ "ast::TraverseSearchAnalyzer", "classast_1_1TraverseSearchAnalyzer.html", null ],
         [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
       ] ],
       [ "ast::Scenario", "classast_1_1Scenario.html", null ],
@@ -971,14 +991,18 @@ var hierarchy =
     [ "ast::PropertyVisitor", "classast_1_1PropertyVisitor.html", null ],
     [ "ast::PythonAPI", "classast_1_1PythonAPI.html", null ],
     [ "QDialog", null, [
+      [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
       [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
     ] ],
+    [ "QDockWidget", null, [
+      [ "ast::UiAnalyzerPanel", "classast_1_1UiAnalyzerPanel.html", null ]
+    ] ],
     [ "QLineEdit", null, [
-      [ "ast::UiTimePoint", "classast_1_1UiTimePoint.html", null ],
       [ "ast::UiValueEdit", "classast_1_1UiValueEdit.html", [
         [ "ast::UiDouble", "classast_1_1UiDouble.html", null ],
         [ "ast::UiInteger", "classast_1_1UiInteger.html", null ],
-        [ "ast::UiQuantity", "classast_1_1UiQuantity.html", null ]
+        [ "ast::UiQuantity", "classast_1_1UiQuantity.html", null ],
+        [ "ast::UiTimePoint", "classast_1_1UiTimePoint.html", null ]
       ] ]
     ] ],
     [ "QMainWindow", null, [
@@ -987,31 +1011,68 @@ var hierarchy =
     [ "QObject", null, [
       [ "ast::CloseEventDetecter", "classast_1_1CloseEventDetecter.html", null ]
     ] ],
+    [ "QStackedWidget", null, [
+      [ "ast::UiEventDetectorEditor", "classast_1_1UiEventDetectorEditor.html", null ],
+      [ "ast::UiSegmentEditor", "classast_1_1UiSegmentEditor.html", null ]
+    ] ],
+    [ "QTreeWidget", null, [
+      [ "ast::UiMissionTree", "classast_1_1UiMissionTree.html", null ],
+      [ "ast::UiObjectTree", "classast_1_1UiObjectTree.html", null ]
+    ] ],
+    [ "QTreeWidgetItem", null, [
+      [ "ast::MissionTreeItem", "classast_1_1MissionTreeItem.html", null ],
+      [ "ast::UiObjectTreeItem", "classast_1_1UiObjectTreeItem.html", [
+        [ "ast::UiSegmentTreeItem", "classast_1_1UiSegmentTreeItem.html", null ]
+      ] ]
+    ] ],
     [ "ast::Quantity", "classast_1_1Quantity.html", null ],
     [ "ast::Quaternion", "classast_1_1Quaternion.html", null ],
     [ "QWidget", null, [
+      [ "ast::UiAnalyzerVariableList", "classast_1_1UiAnalyzerVariableList.html", null ],
+      [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
+      [ "ast::UiMissionPanel", "classast_1_1UiMissionPanel.html", null ],
+      [ "ast::UiODEIntegratorEditor", "classast_1_1UiODEIntegratorEditor.html", null ],
       [ "ast::UiObject", "classast_1_1UiObject.html", [
         [ "ast::UiBodyEphemerisDE", "classast_1_1UiBodyEphemerisDE.html", null ],
         [ "ast::UiBodyEphemerisSPK", "classast_1_1UiBodyEphemerisSPK.html", null ],
+        [ "ast::UiBurnImpulsive", "classast_1_1UiBurnImpulsive.html", null ],
         [ "ast::UiCelestialBody", "classast_1_1UiCelestialBody.html", null ],
         [ "ast::UiDragForce", "classast_1_1UiDragForce.html", null ],
+        [ "ast::UiEventDetector", "classast_1_1UiEventDetector.html", null ],
+        [ "ast::UiEventDetectorList", "classast_1_1UiEventDetectorList.html", null ],
+        [ "ast::UiFuelTank", "classast_1_1UiFuelTank.html", null ],
         [ "ast::UiGravityForce", "classast_1_1UiGravityForce.html", null ],
         [ "ast::UiHPOPForceModel", "classast_1_1UiHPOPForceModel.html", null ],
+        [ "ast::UiInitialState", "classast_1_1UiInitialState.html", null ],
+        [ "ast::UiManeuver", "classast_1_1UiManeuver.html", null ],
         [ "ast::UiMotionProfile", "classast_1_1UiMotionProfile.html", [
           [ "ast::UiMotionTwoBody", "classast_1_1UiMotionTwoBody.html", null ]
         ] ],
         [ "ast::UiODEVarStepIntegrator", "classast_1_1UiODEVarStepIntegrator.html", null ],
         [ "ast::UiPointMassForce", "classast_1_1UiPointMassForce.html", null ],
+        [ "ast::UiPropagate", "classast_1_1UiPropagate.html", null ],
+        [ "ast::UiSequence", "classast_1_1UiSequence.html", null ],
         [ "ast::UiSolarRadiationPressure", "classast_1_1UiSolarRadiationPressure.html", null ],
+        [ "ast::UiSpacecraftParams", "classast_1_1UiSpacecraftParams.html", null ],
         [ "ast::UiState", "classast_1_1UiState.html", [
           [ "ast::UiStateCartesian", "classast_1_1UiStateCartesian.html", null ],
           [ "ast::UiStateKeplerian", "classast_1_1UiStateKeplerian.html", null ]
         ] ],
+        [ "ast::UiTargeterSequence", "classast_1_1UiTargeterSequence.html", null ],
         [ "ast::UiThirdBodyForce", "classast_1_1UiThirdBodyForce.html", null ],
         [ "ast::UiThirdBodyForceList", "classast_1_1UiThirdBodyForceList.html", null ]
       ] ],
+      [ "ast::UiPropertyEditor", "classast_1_1UiPropertyEditor.html", null ],
+      [ "ast::UiResponseEditor", "classast_1_1UiResponseEditor.html", null ],
+      [ "ast::UiResponseList", "classast_1_1UiResponseList.html", null ],
+      [ "ast::UiResultView", "classast_1_1UiResultView.html", null ],
+      [ "ast::UiSelectFrame", "classast_1_1UiSelectFrame.html", null ],
+      [ "ast::UiStartPage", "classast_1_1UiStartPage.html", null ],
+      [ "ast::UiStateEditor", "classast_1_1UiStateEditor.html", null ],
       [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", null ],
+      [ "ast::UiVariableEditor", "classast_1_1UiVariableEditor.html", null ],
+      [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],
       [ "ast::UiWidget", "classast_1_1UiWidget.html", null ]
     ] ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
@@ -1084,6 +1145,7 @@ var hierarchy =
     [ "ast::SharedPtr< Axes >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Frame >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< MissionCommand >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< State >", "classast_1_1SharedPtr.html", null ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
     [ "ast::SimEngine", "classast_1_1SimEngine.html", null ],
@@ -1124,6 +1186,9 @@ var hierarchy =
     [ "ast::StartupConfig", "classast_1_1StartupConfig.html", null ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::StringViewBasic< char >", "classast_1_1StringViewBasic.html", null ],
+    [ "Qwt3D::SurfacePlot", null, [
+      [ "ast::ColoredSurfacePlot", "classast_1_1ColoredSurfacePlot.html", null ]
+    ] ],
     [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ],
     [ "ast::SymbolTable", "classast_1_1SymbolTable.html", null ],
     [ "std::system_error", null, [
@@ -1169,6 +1234,12 @@ var hierarchy =
     [ "ast::VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
     [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", null ],
     [ "ast::VehiclePathData", "structast_1_1VehiclePathData.html", null ],
+    [ "Qwt3D::VertexEnrichment", null, [
+      [ "ast::ColoredSurfaceEnrichment", "classast_1_1ColoredSurfaceEnrichment.html", null ]
+    ] ],
+    [ "matplot::visitor", null, [
+      [ "ast::QwtPlotVisitor", "classast_1_1QwtPlotVisitor.html", null ]
+    ] ],
     [ "ast::WasmClassInfo", "structast_1_1WasmClassInfo.html", null ],
     [ "ast::WasmObjectInfo", "structast_1_1WasmObjectInfo.html", null ],
     [ "ast::WasmRuntimeProtocol", "classast_1_1WasmRuntimeProtocol.html", null ],

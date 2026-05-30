@@ -128,6 +128,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a09755893a3430773e9ec1598e29fff15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9945a6764e00a7a6dc697328d23bc31a" id="r_a9945a6764e00a7a6dc697328d23bc31a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9945a6764e00a7a6dc697328d23bc31a">setValue</a> (<a class="el" href="classast_1_1Value.html">Value</a> *val) override</td></tr>
 <tr class="separator:a9945a6764e00a7a6dc697328d23bc31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea5d523bba35640caf80d2f68fd8b5f" id="r_acea5d523bba35640caf80d2f68fd8b5f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acea5d523bba35640caf80d2f68fd8b5f">setValueDouble</a> (double val) override</td></tr>
+<tr class="separator:acea5d523bba35640caf80d2f68fd8b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea77a4cc2d11e907a0e055b6fe754cf9" id="r_aea77a4cc2d11e907a0e055b6fe754cf9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea77a4cc2d11e907a0e055b6fe754cf9">getValueDouble</a> (double &amp;val) const override</td></tr>
+<tr class="separator:aea77a4cc2d11e907a0e055b6fe754cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad26a47fd640802b7f259d17611ded84f" id="r_ad26a47fd640802b7f259d17611ded84f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad26a47fd640802b7f259d17611ded84f">getExpression</a> (<a class="el" href="classast_1_1Object.html">Object</a> *context=nullptr) const override</td></tr>
 <tr class="separator:ad26a47fd640802b7f259d17611ded84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad3b5c62ac8124e54d3777183ff8c79d" id="r_aad3b5c62ac8124e54d3777183ff8c79d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3b5c62ac8124e54d3777183ff8c79d">calculate</a> (double &amp;val) const</td></tr>
@@ -385,6 +389,35 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="aea77a4cc2d11e907a0e055b6fe754cf9" name="aea77a4cc2d11e907a0e055b6fe754cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea77a4cc2d11e907a0e055b6fe754cf9">&#9670;&#160;</a></span>getValueDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::ExprCalculation::getValueDouble </td>
+          <td>(</td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取表达式的双精度值 </p>
+
+<p>重载 <a class="el" href="classast_1_1Expr.html#a6b561fecb35ac85ae15267fe3b6db182">ast::Expr</a> .</p>
+
+</div>
+</div>
 <a id="aff877312c1d5d63a90a3b926b2490721" name="aff877312c1d5d63a90a3b926b2490721"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aff877312c1d5d63a90a3b926b2490721">&#9670;&#160;</a></span>New()</h2>
 
@@ -450,6 +483,35 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <p>设置表达式的值 </p>
 
 <p>重载 <a class="el" href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">ast::Expr</a> .</p>
+
+</div>
+</div>
+<a id="acea5d523bba35640caf80d2f68fd8b5f" name="acea5d523bba35640caf80d2f68fd8b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea5d523bba35640caf80d2f68fd8b5f">&#9670;&#160;</a></span>setValueDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::ExprCalculation::setValueDouble </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置表达式的双精度值 </p>
+
+<p>重载 <a class="el" href="classast_1_1Expr.html#a3348b92819eed530c27c3b1b89725a30">ast::Expr</a> .</p>
 
 </div>
 </div>

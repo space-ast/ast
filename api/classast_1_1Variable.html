@@ -160,6 +160,8 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:a78721e1b03e536165d5fedf8df1e0d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae475c52c0cc50180629330be52727999" id="r_ae475c52c0cc50180629330be52727999"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae475c52c0cc50180629330be52727999">getExpression</a> (<a class="el" href="classast_1_1Object.html">Object</a> *context=nullptr) const override</td></tr>
 <tr class="separator:ae475c52c0cc50180629330be52727999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8400b3f1497384dc6331010d219fcb37" id="r_a8400b3f1497384dc6331010d219fcb37"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8400b3f1497384dc6331010d219fcb37">getInnerExpression</a> () const</td></tr>
+<tr class="separator:a8400b3f1497384dc6331010d219fcb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90ff3aea7ba303ae0fcb528d21236a8d" id="r_a90ff3aea7ba303ae0fcb528d21236a8d"><td class="memItemLeft" align="right" valign="top"><a id="a90ff3aea7ba303ae0fcb528d21236a8d" name="a90ff3aea7ba303ae0fcb528d21236a8d"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
 <tr class="separator:a90ff3aea7ba303ae0fcb528d21236a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +169,12 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>na
 <tr class="separator:a9cd1cb9775f359f4479e3186f4a0636b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af74131f887fac6e910593a58e9c0c68c" id="r_af74131f887fac6e910593a58e9c0c68c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af74131f887fac6e910593a58e9c0c68c">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) override</td></tr>
 <tr class="separator:af74131f887fac6e910593a58e9c0c68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2353d97a8640f78027587732f3516ee" id="r_ac2353d97a8640f78027587732f3516ee"><td class="memItemLeft" align="right" valign="top"><a id="ac2353d97a8640f78027587732f3516ee" name="ac2353d97a8640f78027587732f3516ee"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>desc</b> () const</td></tr>
+<tr class="separator:ac2353d97a8640f78027587732f3516ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993d77446e11ea9b9a6984cbb0562607" id="r_a993d77446e11ea9b9a6984cbb0562607"><td class="memItemLeft" align="right" valign="top"><a id="a993d77446e11ea9b9a6984cbb0562607" name="a993d77446e11ea9b9a6984cbb0562607"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDesc</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> desc)</td></tr>
+<tr class="separator:a993d77446e11ea9b9a6984cbb0562607"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084f41726452745389cf73986d8994b8" id="r_a084f41726452745389cf73986d8994b8"><td class="memItemLeft" align="right" valign="top"><a id="a084f41726452745389cf73986d8994b8" name="a084f41726452745389cf73986d8994b8"></a>
 <a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>expr</b> () const</td></tr>
 <tr class="separator:a084f41726452745389cf73986d8994b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,6 +186,10 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setValue</b> (<a cl
 <tr class="separator:a7ef002de0ea5ff35b9837426a94d11a2 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79f28079bdd2f51261961eb52c246096 inherit pub_methods_classast_1_1Expr" id="r_a79f28079bdd2f51261961eb52c246096"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a79f28079bdd2f51261961eb52c246096">exec</a> () const</td></tr>
 <tr class="separator:a79f28079bdd2f51261961eb52c246096 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3348b92819eed530c27c3b1b89725a30 inherit pub_methods_classast_1_1Expr" id="r_a3348b92819eed530c27c3b1b89725a30"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a3348b92819eed530c27c3b1b89725a30">setValueDouble</a> (double val)</td></tr>
+<tr class="separator:a3348b92819eed530c27c3b1b89725a30 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b561fecb35ac85ae15267fe3b6db182 inherit pub_methods_classast_1_1Expr" id="r_a6b561fecb35ac85ae15267fe3b6db182"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a6b561fecb35ac85ae15267fe3b6db182">getValueDouble</a> (double &amp;val) const</td></tr>
+<tr class="separator:a6b561fecb35ac85ae15267fe3b6db182 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a921512461677e101f481c240a963f6f8 inherit pub_methods_classast_1_1Expr" id="r_a921512461677e101f481c240a963f6f8"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> ()</td></tr>
 <tr class="separator:a921512461677e101f481c240a963f6f8 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,6 +327,9 @@ Protected 属性</h2></td></tr>
 <tr class="memitem:af714280a090507605c2b4fa9a07375d5" id="r_af714280a090507605c2b4fa9a07375d5"><td class="memItemLeft" align="right" valign="top"><a id="af714280a090507605c2b4fa9a07375d5" name="af714280a090507605c2b4fa9a07375d5"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
 <tr class="separator:af714280a090507605c2b4fa9a07375d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34441040a42bb7a98dee0f13cec32ab9" id="r_a34441040a42bb7a98dee0f13cec32ab9"><td class="memItemLeft" align="right" valign="top"><a id="a34441040a42bb7a98dee0f13cec32ab9" name="a34441040a42bb7a98dee0f13cec32ab9"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>desc_</b></td></tr>
+<tr class="separator:a34441040a42bb7a98dee0f13cec32ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad38524b5e49afa4669800bcfa1365db4" id="r_ad38524b5e49afa4669800bcfa1365db4"><td class="memItemLeft" align="right" valign="top"><a id="ad38524b5e49afa4669800bcfa1365db4" name="ad38524b5e49afa4669800bcfa1365db4"></a>
 <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Expr.html">Expr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>expr_</b></td></tr>
 <tr class="separator:ad38524b5e49afa4669800bcfa1365db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -429,6 +444,26 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <dl class="section return"><dt>返回</dt><dd>变量的表达式字符串 </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">ast::Expr</a>.</p>
+
+</div>
+</div>
+<a id="a8400b3f1497384dc6331010d219fcb37" name="a8400b3f1497384dc6331010d219fcb37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8400b3f1497384dc6331010d219fcb37">&#9670;&#160;</a></span>getInnerExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::Variable::getInnerExpression </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取变量的内部表达式 </p>
+<dl class="section return"><dt>返回</dt><dd>变量的内部表达式字符串 </dd></dl>
 
 </div>
 </div>

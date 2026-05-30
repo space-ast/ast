@@ -10,8 +10,6 @@ var dir_ec0f894df079da601163d0e435f2480a =
     [ "Lua.cpp", "Lua_8cpp.html", null ],
     [ "Lua.hpp", "Lua_8hpp.html", null ],
     [ "Matlab.hpp", "Matlab_8hpp.html", null ],
-    [ "Python.cpp", "Python_8cpp.html", null ],
-    [ "Python.hpp", "Python_8hpp.html", null ],
     [ "PythonAPI.cpp", "PythonAPI_8cpp.html", null ],
     [ "PythonAPI.hpp", "PythonAPI_8hpp.html", null ],
     [ "VBScript.cpp", "VBScript_8cpp.html", null ],

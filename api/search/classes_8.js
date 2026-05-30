@@ -10,7 +10,7 @@ var searchData=
   ['ilinktoobject_7',['ILinkToObject',['../interfaceILinkToObject.html',1,'']]],
   ['ilinktoobjectimpl_8',['ILinkToObjectImpl',['../classast_1_1ILinkToObjectImpl.html',1,'ast']]],
   ['ilinktoobjectimpl_3c_20ilinktoobject_2c_20_26iid_5filinktoobject_20_3e_9',['ILinkToObjectImpl&lt; ILinkToObject, &amp;IID_ILinkToObject &gt;',['../classast_1_1ILinkToObjectImpl.html',1,'ast']]],
-  ['impl_10',['Impl',['../classast_1_1ActiveScriptExecutor_1_1Impl.html',1,'ast::ActiveScriptExecutor::Impl'],['../classast_1_1NetworkImplWinHTTP_1_1Impl.html',1,'ast::NetworkImplWinHTTP::Impl'],['../classast_1_1NetworkImplWinINet_1_1Impl.html',1,'ast::NetworkImplWinINet::Impl']]],
+  ['impl_10',['Impl',['../classast_1_1ActiveScriptExecutor_1_1Impl.html',1,'ast::ActiveScriptExecutor::Impl'],['../classast_1_1NetworkImplWinHTTP_1_1Impl.html',1,'ast::NetworkImplWinHTTP::Impl'],['../classast_1_1NetworkImplWinINet_1_1Impl.html',1,'ast::NetworkImplWinINet::Impl'],['../structast_1_1QwtBackend_1_1Impl.html',1,'ast::QwtBackend::Impl']]],
   ['impl_11',['impl',['../structast_1_1fs__simple_1_1directory__iterator_1_1impl.html',1,'ast::fs_simple::directory_iterator']]],
   ['implfor_12',['ImplFor',['../classast_1_1ImplFor.html',1,'ast']]],
   ['implfor_3c_20iposvelprv_2c_20t_20_3e_13',['ImplFor&lt; IPosVelPrv, T &gt;',['../classast_1_1ImplFor_3_01IPosVelPrv_00_01T_01_4.html',1,'ast']]],

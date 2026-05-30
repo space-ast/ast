@@ -2,6 +2,7 @@ var classast_1_1HPOPEquation =
 [
     [ "addBlock", "classast_1_1HPOPEquation.html#a99d97e96c5df622ab2a2e389fb1bd761", null ],
     [ "evaluate", "classast_1_1HPOPEquation.html#ad8e55b9036d041f549364a841a2d1e97", null ],
+    [ "forceModel", "classast_1_1HPOPEquation.html#a3781b50840cde28f0f2d5133cc099b37", null ],
     [ "getDimension", "classast_1_1HPOPEquation.html#a19111441810fd464cd417971458af223", null ],
     [ "getPropagationFrame", "classast_1_1HPOPEquation.html#ae1e2847670ece5a486304476405abb07", null ],
     [ "initBlocks", "classast_1_1HPOPEquation.html#ac445477abc7129a3a7bca74683ce540b", null ],

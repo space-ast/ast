@@ -107,6 +107,7 @@ $(function(){initNavTree('ScriptContext_8cpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ScriptContext_8hpp_source.html">ScriptContext.hpp</a>&quot;</code><br />
 <code>#include &quot;AstScript/Symbol.hpp&quot;</code><br />
+<code>#include &quot;AstScript/Variable.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/IO.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="Interpreter_8hpp_source.html">Interpreter.hpp</a>&quot;</code><br />
@@ -127,6 +128,10 @@ $(function(){initNavTree('ScriptContext_8cpp.html',''); initResizable(true); });
 <tr class="separator:ga2ff1be0c374413769c8adbb10e3b6e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac4c6b004a109f627b959f47d57944bfc" id="r_gac4c6b004a109f627b959f47d57944bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gac4c6b004a109f627b959f47d57944bfc">ast::aScript_CurrentSymbolScope</a> ()</td></tr>
 <tr class="separator:gac4c6b004a109f627b959f47d57944bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e52881f920c3789e197b31f473917cf" id="r_ga6e52881f920c3789e197b31f473917cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#ga6e52881f920c3789e197b31f473917cf">ast::aScript_AddSymbol</a> (<a class="el" href="classast_1_1Variable.html">Variable</a> *var)</td></tr>
+<tr class="separator:ga6e52881f920c3789e197b31f473917cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf97e809367d856bce0bb4299ea7d00ea" id="r_gaf97e809367d856bce0bb4299ea7d00ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaf97e809367d856bce0bb4299ea7d00ea">ast::aScript_AddSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="separator:gaf97e809367d856bce0bb4299ea7d00ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa42d9355cb74e3670e8229e77a065561" id="r_gaa42d9355cb74e3670e8229e77a065561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaa42d9355cb74e3670e8229e77a065561">ast::aScript_FindSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
 <tr class="separator:gaa42d9355cb74e3670e8229e77a065561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeca360554194ed3305b1023543c0e2ec" id="r_gaeca360554194ed3305b1023543c0e2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaeca360554194ed3305b1023543c0e2ec">ast::aScript_FindSymbol</a> (const <a class="el" href="classast_1_1Symbol.html">Symbol</a> *symbol)</td></tr>

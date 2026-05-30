@@ -13,6 +13,7 @@ var group__Platform =
     ] ],
     [ "ast::aCanDisplayGUI", "group__Platform.html#ga612f98b50735562fce328f4ad172a8de", null ],
     [ "ast::aCurrentLineNumber", "group__Platform.html#ga19bcda407eb5e7e67ab74ccc0f8f5a23", null ],
+    [ "ast::aEditObject", "group__Platform.html#gaa062ca82f5c38489e81d16c97325977b", null ],
     [ "ast::aExeDir", "group__Platform.html#ga524821ccab59a9b4bc923f26dd3d3660", null ],
     [ "ast::aExePath", "group__Platform.html#ga39dda408be669b8f5c88e097b0c73ca3", null ],
     [ "ast::aFreeLibrary", "group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e", null ],
@@ -32,13 +33,12 @@ var group__Platform =
     [ "ast::aLoadLibrary", "group__Platform.html#ga4ae35e43fab9b520dd904d744ba64ed4", null ],
     [ "ast::aProjectName", "group__Platform.html#ga8f258fac09fba31d98abf7cd3bc27faa", null ],
     [ "ast::aResolveProcAddress", "group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005", null ],
+    [ "ast::aSelectObject", "group__Platform.html#ga0b64bc142a888da84a5d78f6cdcfab8e", null ],
     [ "ast::aStdErrIsFile", "group__Platform.html#gaa4fb579361721abb83e54183b0521c32", null ],
     [ "ast::aStdErrIsTerminal", "group__Platform.html#ga7c187e91aa0366fdba00f57b685d20bf", null ],
     [ "ast::aStdInIsFile", "group__Platform.html#gaddfe9918c8b6de4bc127c1e11993aa7f", null ],
     [ "ast::aStdInIsTerminal", "group__Platform.html#ga402c35c20112c81a16c5410823e030ca", null ],
     [ "ast::aStdOutIsFile", "group__Platform.html#ga038a62d786234b02f668f9460bbd86f6", null ],
     [ "ast::aStdOutIsTerminal", "group__Platform.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5", null ],
-    [ "ast::aTerminalSupportColor", "group__Platform.html#gaf933b51a61fdbc6724497ceae15bcb17", null ],
-    [ "ast::aUiEditObject", "group__Platform.html#ga0e988e64c58fbe5bfa847b6ae04d8dba", null ],
-    [ "ast::aUiSelectObject", "group__Platform.html#ga9d38a8540eaa686e730caab9e588e35f", null ]
+    [ "ast::aTerminalSupportColor", "group__Platform.html#gaf933b51a61fdbc6724497ceae15bcb17", null ]
 ];
