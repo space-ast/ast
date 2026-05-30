@@ -139,7 +139,10 @@ SpiceAPI* SpiceAPI::Instance()
         singletonDestroyed = false;
         atexit([]() {
             if(!singletonDestroyed)
+            {
+                singletonDestroyed = true;
                 reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+            }
         });
     }
     return reinterpret_cast<SpiceAPI*>(&buf);
