@@ -55,7 +55,8 @@ def clean_header(incroot):
 
 if __name__ == "__main__":
     try:
-        rootdir = os.path.dirname(__file__)
+        scriptpath = os.path.realpath(__file__)
+        rootdir = os.path.dirname(scriptpath)
         rootdir = os.path.dirname(rootdir)
         print("rootdir", rootdir) 
         os.chdir(rootdir)

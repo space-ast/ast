@@ -40,7 +40,7 @@ public:
     static ObjectManager& CurrentInstance();
     
     ObjectManager() = default;
-    ~ObjectManager() = default;
+    ~ObjectManager();
 public:
     /// @brief 根据索引获取对象
     /// @param index 对象索引/对象ID

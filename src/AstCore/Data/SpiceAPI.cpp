@@ -19,6 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SpiceAPI.hpp"
+#include <cstdlib>              // for atexit
+#include <type_traits>          // for aligned_storage
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstCore/RunTimeConfig.hpp"
@@ -111,10 +113,39 @@ bool funcarray_isfull(const SpiceAPI::funcarray& funcs)
     return true;
 }
 
+namespace{
+std::aligned_storage<sizeof(SpiceAPI), alignof(SpiceAPI)>::type buf;  // 单例存储区
+bool singletonDestroyed = false;                                       // 单例是否已销毁
+struct SingletonGuard {
+    SingletonGuard(){
+        new(&buf) SpiceAPI(true);
+        singletonDestroyed = false;
+    }
+    ~SingletonGuard() {
+        singletonDestroyed = true;
+        reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+    }
+};
+}
+
 SpiceAPI* SpiceAPI::Instance()
 {
-    static SpiceAPI instance_{true};
-    return &instance_;
+    static SingletonGuard guard;
+
+    // 采用凤凰单例模式安全承接调用，避免 use-after-destroy。
+    if (A_UNLIKELY(singletonDestroyed))
+    {
+        new(&buf) SpiceAPI(false);
+        singletonDestroyed = false;
+        atexit([]() {
+            if(!singletonDestroyed)
+            {
+                singletonDestroyed = true;
+                reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+            }
+        });
+    }
+    return reinterpret_cast<SpiceAPI*>(&buf);
 }
 
 SpiceAPI::SpiceAPI(bool shouldLoadDynamicLib)
@@ -182,8 +213,12 @@ errc_t SpiceAPI::tryload(const std::vector<std::string>& libpaths)
 errc_t SpiceAPI::unload()
 {
     if(library_)
-        return aFreeLibrary(library_);
-    functions_ = funcarray{};
+    {
+        errc_t rc = aFreeLibrary(library_);
+        library_ = nullptr;
+        functions_ = funcarray{};
+        return rc;
+    }
     return eNoError;
 }
 
@@ -349,7 +384,7 @@ errc_t SpiceAPI::checkerror()
     {
         // 这里必须重置一下，否则后续调用会一直报错...
         reset();
-        return -1;
+        return eError;
     }
     return eNoError;
 }

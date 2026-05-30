@@ -90,6 +90,7 @@ private:
 
     // 数据
     MissionModerator* moderator_ = nullptr;
+    bool ownsModerator_ = false;
 };
 
 AST_NAMESPACE_END

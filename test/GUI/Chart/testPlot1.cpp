@@ -30,12 +30,12 @@ int main()
     using plt::pi;
     using plt::on;
     std::vector<double> x = plt::linspace(0, 2 * pi);
-    std::vector<double> y = plt::transform(x, [](auto x) { return sin(x); });
+    std::vector<double> y = plt::transform(x, [](double x) { return sin(x); });
 
     plt::plot(x, y, "-o");
     plt::hold(on);
-    plt::plot(x, plt::transform(y, [](auto y) { return -y; }), "--xr");
-    plt::plot(x, plt::transform(x, [](auto x) { return x / pi - 1.; }), "-:gs");
+    plt::plot(x, plt::transform(y, [](double y) { return -y; }), "--xr");
+    plt::plot(x, plt::transform(x, [](double x) { return x / pi - 1.; }), "-:gs");
     plt::plot({1.0, 0.7, 0.4, 0.0, -0.4, -0.7, -1}, "k");
 
     plt::show();

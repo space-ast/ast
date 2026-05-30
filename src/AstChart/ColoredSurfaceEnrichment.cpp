@@ -36,6 +36,7 @@ void setDeviceLineWidth(GLfloat val)
         val = 0;
 
     GLint ret = gl2psLineWidth(val);
+    (void)ret;
 
     GLfloat lw[ 2 ];
     glGetFloatv(GL_LINE_WIDTH_RANGE, lw);
@@ -96,6 +97,7 @@ void ColoredSurfaceEnrichment::drawFaces() {
     const auto* surface = this->surface();
     auto* color = surface->dataColor();
     int step = surface->resolution();
+    if (step <= 0) step = 1;
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_QUADS);
 
@@ -138,6 +140,7 @@ void ColoredSurfaceEnrichment::drawColoredMeshLines() {
     const auto* surface = this->surface();
     auto* color = surface->dataColor();
     int step = surface->resolution();
+    if (step <= 0) step = 1;
 
     auto grid = grid_;
     auto setColoredVertex = [grid, color](int col, int row) {

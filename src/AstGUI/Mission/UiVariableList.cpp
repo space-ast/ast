@@ -125,10 +125,10 @@ void UiVariableList::refreshUi()
 
 Variable* UiVariableList::selectedVariable() const
 {
-    auto items = tableWidget_->selectedItems();
-    if (items.isEmpty() || !variableList_) return nullptr;
+    int row = tableWidget_->currentRow();
+    if (row < 0 || !variableList_) return nullptr;
 
-    size_t index = static_cast<size_t>(items.first()->data(Qt::UserRole).toLongLong());
+    size_t index = static_cast<size_t>(row);
     if (index < variableList_->size())
         return variableList_->at(index);
     return nullptr;
@@ -184,10 +184,10 @@ void UiVariableList::onAddVariable()
 
 void UiVariableList::onRemoveVariable()
 {
-    auto items = tableWidget_->selectedItems();
-    if (items.isEmpty() || !variableList_) return;
+    int row = tableWidget_->currentRow();
+    if (row < 0 || !variableList_) return;
 
-    size_t index = static_cast<size_t>(items.first()->data(Qt::UserRole).toLongLong());
+    size_t index = static_cast<size_t>(row);
     if (index >= variableList_->size()) return;
 
     Variable* var = variableList_->at(index);

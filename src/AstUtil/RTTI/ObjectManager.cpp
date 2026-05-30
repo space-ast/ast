@@ -19,14 +19,50 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ObjectManager.hpp"
+#include <cstdlib>
+#include <type_traits>
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
+namespace {
+std::aligned_storage<sizeof(ObjectManager), alignof(ObjectManager)>::type buf;  // 单例存储区
+bool singletonDestroyed = false;                                                // 单例是否已销毁
+struct SingletonGuard {
+    SingletonGuard() {
+        new(&buf) ObjectManager;
+        singletonDestroyed = false;
+    }
+    ~SingletonGuard() {
+        singletonDestroyed = true;
+        reinterpret_cast<ObjectManager*>(&buf)->~ObjectManager();
+    }
+};
+}
+
 ObjectManager &ObjectManager::CurrentInstance()
 {
-    static ObjectManager instance;
-    return instance;
+    static SingletonGuard guard;
+
+    // 采用凤凰单例模式安全承接调用，避免 use-after-destroy。
+    if (A_UNLIKELY(singletonDestroyed))
+    {
+        new(&buf) ObjectManager;
+        singletonDestroyed = false;
+        atexit([]() {
+            if(!singletonDestroyed)
+            {
+                singletonDestroyed = true;
+                reinterpret_cast<ObjectManager*>(&buf)->~ObjectManager();
+            }
+        });
+    }
+    return *reinterpret_cast<ObjectManager*>(&buf);
+}
+
+ObjectManager::~ObjectManager()
+{
+    removeAllObjects();
 }
 
 Object* ObjectManager::getObject(uint32_t index)

@@ -47,7 +47,7 @@ end
 -- 设置编译策略
 set_policy("run.autobuild", true)                           -- 自动编译，当运行目标时自动编译
 set_policy("build.progress_style", "multirow")              -- 编译进度条显示为多行
--- set_policy("package.precompiled", false)                 -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译
+set_policy("package.precompiled", false)                    -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译(osg使用预编译库流水线会报错)
 
 -- linux平台添加rpath
 if is_plat("linux") then
@@ -227,64 +227,13 @@ includes("src")
 includes("projects")
 includes("examples")
 
+-- 添加插件
+add_plugindirs("scripts")
+
 -- 导入测试配置
 if has_config("with_test") then
     includes("test")
 end
-
--- 自定义任务：复制数据目录到构建目录
-task("cpdata")
-    set_menu{
-        usage = "xmake cpdata",
-        description = "Copy data directory to build directory"
-    }
-    on_run(function ()
-        local srcpath = path.join(os.projectdir(), "data")
-        local modes = {"release", "debug"}
-        local plats = {os.host()} -- , "mingw"}
-        for _, plat in ipairs(plats) do
-            local arch = os.arch()
-            if plat == "mingw" then
-                arch = "x86_64"
-            end
-            for _, mode in ipairs(modes) do
-                local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", plat, arch, mode))
-                if not os.exists(dstpath) then
-                    os.mkdir(dstpath)
-                end
-                os.cp(srcpath, dstpath)
-                print("dstpath:", dstpath)
-            end
-        end
-    end)
-task_end()
-
-
-task("gitpush")
-    set_menu{
-        usage = "xmake gitpush",
-        description = "Push git repository"
-    }
-    on_run(function ()
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/git_push_retry.py"))
-    end)
-task_end()
-
-
-task("genheader")
-    set_menu{
-        usage = "xmake genheader",
-        description = "Generate header file"
-    }
-    on_run(function ()
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_redirect_header.py"))
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/generate_aggregate_headers.py"))
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_swig_interface.py"))
-        os.exec("python " .. path.join(os.scriptdir(), "scripts/gen_ast_forward.py"))
-    end)
-task_end()
-
-
 
 -- 导入打包配置
 includes("@builtin/xpack")

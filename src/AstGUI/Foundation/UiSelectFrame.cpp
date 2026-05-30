@@ -150,10 +150,7 @@ void UiSelectFrame::ensureFramesInitialized(CelestialBody* body)
         {"Fixed",    &CelestialBody::makeFrameFixed},
     };
 
-    // 持有强引用，防止 Frame 在查询间隙被回收
-    static std::unordered_map<CelestialBody*, std::vector<HFrame>> s_holder;
 
-    auto& holder = s_holder[body];
     for (auto& entry : kFactories)
     {
         HFrame hf = (body->*entry.factory)();
@@ -161,7 +158,6 @@ void UiSelectFrame::ensureFramesInitialized(CelestialBody* body)
             continue;
         hf->setName(entry.name);
         hf->setParentScope(body);
-        holder.push_back(std::move(hf));
     }
 }
 
@@ -196,7 +192,7 @@ Frame* UiSelectFrame::getSelectedFrame()
     auto* item = frameList_->currentItem();
     if (!item)
         return nullptr;
-    return reinterpret_cast<Frame*>(item->data(Qt::UserRole).value<uintptr_t>());
+    return reinterpret_cast<Frame*>(item->data(Qt::UserRole).value<qulonglong>());
 }
 
 void UiSelectFrame::setSelectedFrame(Frame* frame)
@@ -211,7 +207,7 @@ void UiSelectFrame::setSelectedFrame(Frame* frame)
     for (int i = 0; i < frameList_->count(); ++i)
     {
         auto* item = frameList_->item(i);
-        auto* f = reinterpret_cast<Frame*>(item->data(Qt::UserRole).value<uintptr_t>());
+        auto* f = reinterpret_cast<Frame*>(item->data(Qt::UserRole).value<qulonglong>());
         if (f == frame)
         {
             frameList_->setCurrentRow(i);
@@ -226,7 +222,7 @@ CelestialBody* UiSelectFrame::getSelectedBody() const
     if (!item)
         return nullptr;
     return reinterpret_cast<CelestialBody*>(
-        item->data(Qt::UserRole).value<uintptr_t>());
+        item->data(Qt::UserRole).value<qulonglong>());
 }
 
 void UiSelectFrame::setBody(CelestialBody* body)
@@ -238,7 +234,7 @@ void UiSelectFrame::setBody(CelestialBody* body)
     {
         auto* item = bodyList_->item(i);
         auto* b = reinterpret_cast<CelestialBody*>(
-            item->data(Qt::UserRole).value<uintptr_t>());
+            item->data(Qt::UserRole).value<qulonglong>());
         if (b == body)
         {
             bodyList_->blockSignals(true);

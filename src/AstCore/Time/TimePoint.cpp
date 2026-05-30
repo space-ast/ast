@@ -93,7 +93,7 @@ void aTimePointToTT(const TimePoint& time, DateTime& dttmTT)
 void aTimePointToTDB(const TimePoint& time, DateTime& dttmTDB)
 {
     JulianDate jdTDB{};
-    aTimePointToUT1(time, jdTDB);
+    aTimePointToTDB(time, jdTDB);
     aJDToDateTime(jdTDB, dttmTDB);
     dttmTDB.normalize();  // 在这里确保TDB时间是标准化的
 }

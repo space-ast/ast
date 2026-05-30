@@ -166,12 +166,12 @@ void UiAnalyzerPanel::onRunClicked()
     // TODO: get from analyzer
     resultView_->initColumns(varNames, respNames);
 
-    // 分析在后台执行
     QElapsedTimer timer;
     timer.start();
 
-    // TODO: 调用 analyzer_->execute() 并在循环中发送信号
-    // 当前占位实现：
+    // TODO: 分析计算必须放在后台线程（QThread/QtConcurrent）中执行，
+    // 否则会阻塞 GUI 事件循环，导致界面冻结且"停止"按钮无法响应。
+    // 循环中应定期检查 running_ 标志以支持取消。
     // int total = analyzer_->totalRuns();
     // for (int i = 0; i < total; ++i) {
     //     if (!running_) break;

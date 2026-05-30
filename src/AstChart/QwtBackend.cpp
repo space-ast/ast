@@ -350,7 +350,7 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
                 int lastItemSize = items.size();
                 auto& strings = legend->strings();
                 QwtPlotVisitor visitor(plot);
-                for (int i = 0; i < children.size(); i++) {
+                for (size_t i = 0; i < children.size(); i++) {
                     auto& child = children[i];
                     child->accept(visitor);
                     if(items.size() > lastItemSize)
