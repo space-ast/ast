@@ -1,5 +1,4 @@
 #include "ast/J2Analytical.hpp"
-#include "ast/J2Analytical.hpp"
 #include "ast/TimePoint.hpp"
 #include "ast/Vector.hpp"
 #include "ast/Literals.hpp"
