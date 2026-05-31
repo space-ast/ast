@@ -317,31 +317,32 @@ protected:
 /// @see spicelib/zzidmap.for
 enum ESpiceId
 {
-    eSolarSystemBarycenter  = 0,
-    eMercuryBarycenter      = 1,
-    eVenusBarycenter        = 2,
-    eEarthBarycenter        = 3,
-    eMarsBarycenter         = 4,
-    eJupiterBarycenter      = 5,
-    eSaturnBarycenter       = 6,
-    eUranusBarycenter       = 7,
-    eNeptuneBarycenter      = 8,
-    ePlutoBarycenter        = 9,
-    eSun                    = 10,
+    eSolarSystemBarycenter  = 0,    ///< 太阳系质心
+    eMercuryBarycenter      = 1,    ///< 水星系质心
+    eVenusBarycenter        = 2,    ///< 金星系质心
+    eEarthBarycenter        = 3,    ///< 地月系质心
+    eMarsBarycenter         = 4,    ///< 火星系质心
+    eJupiterBarycenter      = 5,    ///< 木星系质心
+    eSaturnBarycenter       = 6,    ///< 土星系质心
+    eUranusBarycenter       = 7,    ///< 天王星系质心
+    eNeptuneBarycenter      = 8,    ///< 海王星系质心
+    ePlutoBarycenter        = 9,    ///< 冥王星系质心
 
-    eMercury                = 199,
+    eSun                    = 10,   ///< 太阳
 
-    eVenus                  = 299,
+    eMercury                = 199,  ///< 水星
 
-    eEarth                  = 399,
-    eMoon                   = 301,
+    eVenus                  = 299,  ///< 金星
 
-    eMars                   = 499,
+    eEarth                  = 399,  ///< 地球
+    eMoon                   = 301,  ///< 月球
+
+    eMars                   = 499,  ///< 火星
     ePhobos                 = 401,
     eDeimos                 = 402,
 
 
-    eJupiter                = 599,
+    eJupiter                = 599,  ///< 木星
     eIo                     = 501,
     eEuropa                 = 502,
     eGanymede               = 503,
@@ -359,7 +360,7 @@ enum ESpiceId
     eAdrastea               = 515,
     eMetis                  = 516,
 
-    eSaturn                 = 699,
+    eSaturn                 = 699,  ///< 土星
     eMimas                  = 601,
     eEnceladus              = 602,
     eTethys                 = 603,
@@ -386,7 +387,7 @@ enum ESpiceId
     eAegaeon                = 653,
 
 
-    eUranus                 = 799,
+    eUranus                 = 799,  ///< 天王星
     eAriel                  = 701,
     eUmbriel                = 702,
     eTitania                = 703,
@@ -404,7 +405,7 @@ enum ESpiceId
     ePuck                   = 715,
 
 
-    eNeptune                = 899,
+    eNeptune                = 899,  ///< 海王星
     eTriton                 = 801,
     eNereid                 = 802,
     eNaiad                  = 803,
@@ -414,7 +415,7 @@ enum ESpiceId
     eLarissa                = 807,
     eProteus                = 808,
 
-    ePluto                  = 999,
+    ePluto                  = 999,  ///< 冥王星
     eCharon                 = 901,
 };
 

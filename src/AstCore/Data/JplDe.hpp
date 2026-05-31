@@ -83,8 +83,8 @@ public:
     /// @param  time        - 时间点
     /// @param  target      - 目标天体
     /// @param  referenceBody- 参考天体
-    /// @param  pos         - 位置向量
-    /// @param  vel         - 速度向量
+    /// @param  pos         - 位置向量[m]
+    /// @param  vel         - 速度向量[m/s]
     /// @retval             - 错误码
     errc_t getPosVelICRF(
         const TimePoint& time,
@@ -108,7 +108,7 @@ public:
     /// @param  time        - 时间点
     /// @param  target      - 目标天体
     /// @param  referenceBody- 参考天体
-    /// @param  pos         - 位置向量
+    /// @param  pos         - 位置向量[m]
     /// @retval             - 错误码
     errc_t getPosICRF(
         const TimePoint& time,
@@ -120,8 +120,8 @@ public:
 
     /// @brief  获取对应时间点的章动角
     /// @param  time        - 时间点
-    /// @param  nutLong     - 章动经度(rad)
-    /// @param  nutObl      - 章动倾角(rad)
+    /// @param  nutLong     - 黄经章动[rad]
+    /// @param  nutObl      - 倾角章动[rad]
     /// @retval             - 错误码
     errc_t	getNutation(
         const TimePoint& time,
@@ -130,11 +130,11 @@ public:
     );
 
     
-    /// @brief  获取对应时间点的月面天平动相关角度
+    /// @brief  获取对应时间点的月球天平动相关角度
     /// @param  time        - 时间点
     /// @param  ang         - 从ICRF到月球惯性主轴坐标系的转角(rad)
     ///                     - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
-    /// @param  angRate     - 转动角速率(rad/s)
+    /// @param  angRate     - 转动角速率[rad/s]
     /// @retval             - 错误码
     errc_t		getLibration(
         const TimePoint& time,
@@ -142,7 +142,7 @@ public:
         Vector3d& angRate
     );
     
-    /// @brief  获取对应时间点的月面天平动角相关角度
+    /// @brief  获取对应时间点的月球天平动角相关角度
     /// @param  time        - 时间点
     /// @param  ang         - 从ICRF到月球惯性主轴坐标系的转角(rad)
     ///                     - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
@@ -152,7 +152,7 @@ public:
         Vector3d& ang
     );
 
-    /// @brief  获取对应时间点的月面天平动相关角度（Euler）
+    /// @brief  获取对应时间点的月球天平动相关角度（Euler）
     /// @param  time        - 时间点
     /// @param  ang         - 从ICRF到月球惯性主轴坐标系的转角(rad)
     ///                     - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
