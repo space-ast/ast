@@ -1,5 +1,6 @@
 var NAVTREEINDEX15 =
 {
+"classast_1_1AttitudeCoverage.html":[2,0,0,23],
 "classast_1_1AttitudeCoverage.html":[3,0,0,23],
 "classast_1_1AttitudeFigureOfMerit.html":[2,0,0,24],
 "classast_1_1AttitudeFigureOfMerit.html":[3,0,0,24],
@@ -248,6 +249,5 @@ var NAVTREEINDEX15 =
 "classast_1_1BlockGravity.html":[2,0,0,59],
 "classast_1_1BlockGravity.html":[3,0,0,59],
 "classast_1_1BlockGravity.html#a2571399a390546fa721f27323c2b2e3d":[2,0,0,59,5],
-"classast_1_1BlockGravity.html#a2571399a390546fa721f27323c2b2e3d":[3,0,0,59,5],
-"classast_1_1BlockGravity.html#a39a893dc50bb3ea09a8fabb9e9177a33":[2,0,0,59,2]
+"classast_1_1BlockGravity.html#a2571399a390546fa721f27323c2b2e3d":[3,0,0,59,5]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX19 =
 {
+"classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[2,0,0,178,0],
 "classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[3,0,0,178,0],
 "classast_1_1DetectorUserSelect.html":[2,0,0,179],
 "classast_1_1DetectorUserSelect.html":[3,0,0,179],
@@ -248,6 +249,5 @@ var NAVTREEINDEX19 =
 "classast_1_1EventIntervalFallback.html":[2,0,0,202],
 "classast_1_1EventIntervalFallback.html":[3,0,0,202],
 "classast_1_1EventIntervalFallback.html#a4ff524bf24a80463de75472541c75ecc":[2,0,0,202,0],
-"classast_1_1EventIntervalFallback.html#a4ff524bf24a80463de75472541c75ecc":[3,0,0,202,0],
-"classast_1_1EventIntervalFallback.html#a92b6746ef8d3023b6222366038c6412e":[2,0,0,202,2]
+"classast_1_1EventIntervalFallback.html#a4ff524bf24a80463de75472541c75ecc":[3,0,0,202,0]
 };

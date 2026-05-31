@@ -1,5 +1,6 @@
 var NAVTREEINDEX31 =
 {
+"classast_1_1RKF45.html#ad3926ec8f8498a22974bf97a68d44fd0":[0,2,4,3,1],
 "classast_1_1RKF56.html":[0,2,4,4],
 "classast_1_1RKF56.html#a038a7e4b4b50dd28442b01b8ef34b53c":[0,2,4,4,0],
 "classast_1_1RKF56.html#ac9526d33f3e6363f35a29bd3da2a560e":[0,2,4,4,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX31 =
 "classast_1_1ScStateCalcEccAnomaly.html":[2,0,0,561],
 "classast_1_1ScStateCalcEccAnomaly.html":[3,0,0,561],
 "classast_1_1ScStateCalcEccentricity.html":[2,0,0,562],
-"classast_1_1ScStateCalcEccentricity.html":[3,0,0,562],
-"classast_1_1ScStateCalcElevation.html":[2,0,0,563]
+"classast_1_1ScStateCalcEccentricity.html":[3,0,0,562]
 };

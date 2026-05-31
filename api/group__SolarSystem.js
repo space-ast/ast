@@ -206,5 +206,27 @@ var group__SolarSystem =
     [ "ast::HCelestialBody", "group__SolarSystem.html#ga3b2fe87cceca735335ef7ade4e48add5", null ],
     [ "ast::PBody", "group__SolarSystem.html#gac670e719678a85c5d087d62383061f8f", null ],
     [ "ast::PCelestialBody", "group__SolarSystem.html#ga37239c4cb3486ba286d79abaf2070c74", null ],
-    [ "ast::ESpiceId", "group__SolarSystem.html#ga8222cfd87a81c1bb00e762d67be68f1c", null ]
+    [ "ast::ESpiceId", "group__SolarSystem.html#ga8222cfd87a81c1bb00e762d67be68f1c", [
+      [ "ast::eSolarSystemBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca9e531996d499e7a8d75167d73dc15d6b", null ],
+      [ "ast::eMercuryBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1cab2f187de490efbfa0aab79672e74abe3", null ],
+      [ "ast::eVenusBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca228e8b15145b7ac270431d70e463e2b9", null ],
+      [ "ast::eEarthBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca3c563f2447b50390fb8588a9d4923200", null ],
+      [ "ast::eMarsBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca78ec60cd4f3c77ce7abd86b8833044be", null ],
+      [ "ast::eJupiterBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca5128c772609a220567de5865ad160dc3", null ],
+      [ "ast::eSaturnBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca3d37d8f5f9d6abce5c02e789d3bd1177", null ],
+      [ "ast::eUranusBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1cac82288d21fdbdc19c9d48c4ff516ade9", null ],
+      [ "ast::eNeptuneBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1caa634c81403bb46a3c74e3618e595e6f7", null ],
+      [ "ast::ePlutoBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca1d0188f11be2fdde071cdc88554262b7", null ],
+      [ "ast::eSun", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca8fed868da3bcc5180f339061562e942b", null ],
+      [ "ast::eMercury", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca3c168771893566d7e45b1845233bf33c", null ],
+      [ "ast::eVenus", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca08673afa8927d11a0d5d7727f286272f", null ],
+      [ "ast::eEarth", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca77edd670c2b9593042c7208a889c5df8", null ],
+      [ "ast::eMoon", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca26a56ceeeb8a369a3012be013971ef21", null ],
+      [ "ast::eMars", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca91a2a8ae34c39626153210dac693dd10", null ],
+      [ "ast::eJupiter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca07c70d17383573a0b629778a0fcea11d", null ],
+      [ "ast::eSaturn", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca5fe647f81f54050b3e380ef6daf2965d", null ],
+      [ "ast::eUranus", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca33ed480577f0941d6f06edc02db252f3", null ],
+      [ "ast::eNeptune", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca41bf4942660be6baa64cda6737e211fe", null ],
+      [ "ast::ePluto", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca9e3a839ed230390bb5b416d7771f14ab", null ]
+    ] ]
 ];

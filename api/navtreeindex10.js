@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcManeuverSpecificImpulse_8hpp_source.html":[4,0,0,7,6,1,0,15,89],
 "ScStateCalcManeuverTotalMassFlowRate_8cpp.html":[4,0,0,7,6,1,0,15,90],
 "ScStateCalcManeuverTotalMassFlowRate_8hpp.html":[4,0,0,7,6,1,0,15,91],
 "ScStateCalcManeuverTotalMassFlowRate_8hpp_source.html":[4,0,0,7,6,1,0,15,91],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcTrueAnomaly_8hpp_source.html":[4,0,0,7,6,1,0,10,33],
 "ScStateCalcTrueLong_8cpp.html":[4,0,0,7,6,1,0,10,34],
 "ScStateCalcTrueLong_8hpp.html":[4,0,0,7,6,1,0,10,35],
-"ScStateCalcTrueLong_8hpp_source.html":[4,0,0,7,6,1,0,10,35],
-"ScStateCalcUserValue_8cpp.html":[4,0,0,7,6,1,0,15,208]
+"ScStateCalcTrueLong_8hpp_source.html":[4,0,0,7,6,1,0,10,35]
 };

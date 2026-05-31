@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1J2J4Analytical.html#a3d9d2fd015fc957a1a7da9eb72c0575d":[0,1,5,2,11],
 "classast_1_1J2J4Analytical.html#a4d0e24ab9e7f382724d1af6083d81e21":[0,1,5,2,12],
 "classast_1_1J2J4Analytical.html#a4e8313d3d0d7ae34b013bf3cb6f8b08b":[0,1,5,2,2],
 "classast_1_1J2J4Analytical.html#a608441a95b4ef286b9cdbcd0734b853a":[0,1,5,2,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1KinematicRotation.html#a710d49d2e5b51f6433181ecd97a7187a":[2,0,0,318,19],
 "classast_1_1KinematicRotation.html#a710d49d2e5b51f6433181ecd97a7187a":[3,0,0,318,19],
 "classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[2,0,0,318,6],
-"classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[3,0,0,318,6],
-"classast_1_1KinematicRotation.html#a7a7cf3a0ee52f90857a27348663ae289":[2,0,0,318,0]
+"classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[3,0,0,318,6]
 };

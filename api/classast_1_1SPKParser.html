@@ -285,7 +285,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Record</b> = std::ar
 <p>从SPK文件中查找给定目标在给定时间的SPK段描述符。 如果目标在给定时间没有对应的段，返回nullptr。 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>目标的NAIF ID代码 </td></tr>
-    <tr><td class="paramname">et</td><td>相对于J2000 TDB的历元（秒） </td></tr>
+    <tr><td class="paramname">et</td><td>相对于J2000 TDB历元的秒数 </td></tr>
   </table>
   </dd>
 </dl>
@@ -321,7 +321,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Record</b> = std::ar
 <p>获取目标在指定时刻的原始位置（相对于其星历参考系） </p>
 <p>直接从SPK内核文件中读取数据，返回目标在给定时刻相对于该段定义的参考系的位置。 不执行任何坐标转换 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">et</td><td>相对于J2000 TDB的历元（秒） </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">et</td><td>相对于J2000 TDB历元的秒数 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">target</td><td>目标的NAIF ID代码 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pos</td><td>位置向量 (x, y, z)，单位米(m) </td></tr>
   </table>
@@ -406,7 +406,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Record</b> = std::ar
 <p>获取目标在指定时刻的原始位置和速度（相对于其星历参考系） </p>
 <p>直接从SPK内核文件中读取数据，返回目标在给定时刻相对于该段定义的参考系的位置和速度。 不执行任何坐标转换 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">et</td><td>相对于J2000 TDB的历元（秒） </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">et</td><td>相对于J2000 TDB历元的秒数 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">target</td><td>目标的NAIF ID代码 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pos</td><td>位置向量 (x, y, z)，单位米(m) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">vel</td><td>速度向量 (vx, vy, vz)，单位米/秒(m/s) </td></tr>

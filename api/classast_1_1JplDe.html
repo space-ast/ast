@@ -350,7 +350,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
       </table>
 </div><div class="memdoc">
 
-<p>获取对应时间点的月面天平动相关角度（Euler） </p>
+<p>获取对应时间点的月球天平动相关角度（Euler） </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
@@ -389,7 +389,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
       </table>
 </div><div class="memdoc">
 
-<p>获取对应时间点的月面天平动角相关角度 </p>
+<p>获取对应时间点的月球天平动角相关角度 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
@@ -433,7 +433,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
       </table>
 </div><div class="memdoc">
 
-<p>获取对应时间点的月面天平动相关角度 </p>
+<p>获取对应时间点的月球天平动相关角度 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
@@ -441,7 +441,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
 <li>[omega,i,u],[进动角,章动角,自转角],按照313顺序旋转 </li>
 </ul>
 </td></tr>
-    <tr><td class="paramname">angRate</td><td>- 转动角速率(rad/s) </td></tr>
+    <tr><td class="paramname">angRate</td><td>- 转动角速率[rad/s] </td></tr>
   </table>
   </dd>
 </dl>
@@ -482,8 +482,8 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
-    <tr><td class="paramname">nutLong</td><td>- 章动经度(rad) </td></tr>
-    <tr><td class="paramname">nutObl</td><td>- 章动倾角(rad) </td></tr>
+    <tr><td class="paramname">nutLong</td><td>- 黄经章动[rad] </td></tr>
+    <tr><td class="paramname">nutObl</td><td>- 倾角章动[rad] </td></tr>
   </table>
   </dd>
 </dl>
@@ -531,7 +531,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
     <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
     <tr><td class="paramname">target</td><td>- 目标天体 </td></tr>
     <tr><td class="paramname">referenceBody-</td><td>参考天体 </td></tr>
-    <tr><td class="paramname">pos</td><td>- 位置向量 </td></tr>
+    <tr><td class="paramname">pos</td><td>- 位置向量[m] </td></tr>
   </table>
   </dd>
 </dl>
@@ -584,8 +584,8 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m_DataBlockMute
     <tr><td class="paramname">time</td><td>- 时间点 </td></tr>
     <tr><td class="paramname">target</td><td>- 目标天体 </td></tr>
     <tr><td class="paramname">referenceBody-</td><td>参考天体 </td></tr>
-    <tr><td class="paramname">pos</td><td>- 位置向量 </td></tr>
-    <tr><td class="paramname">vel</td><td>- 速度向量 </td></tr>
+    <tr><td class="paramname">pos</td><td>- 位置向量[m] </td></tr>
+    <tr><td class="paramname">vel</td><td>- 速度向量[m/s] </td></tr>
   </table>
   </dd>
 </dl>

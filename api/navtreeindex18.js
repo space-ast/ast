@@ -1,5 +1,6 @@
 var NAVTREEINDEX18 =
 {
+"classast_1_1ComObjectManager.html":[2,0,0,134],
 "classast_1_1ComObjectManager.html":[3,0,0,134],
 "classast_1_1CommSystem.html":[2,0,0,133],
 "classast_1_1CommSystem.html":[3,0,0,133],
@@ -248,6 +249,5 @@ var NAVTREEINDEX18 =
 "classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,177,0],
 "classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,177,0],
 "classast_1_1DetectorTrueAnomaly.html":[2,0,0,178],
-"classast_1_1DetectorTrueAnomaly.html":[3,0,0,178],
-"classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[2,0,0,178,0]
+"classast_1_1DetectorTrueAnomaly.html":[3,0,0,178]
 };
