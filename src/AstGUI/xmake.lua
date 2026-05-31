@@ -1,5 +1,5 @@
 ﻿target("AstGUI")
-    add_rules("qt.shared")
+    add_rules("ast.qt.shared")
     add_files("**.cpp")
     add_files("**.hpp")
     add_files("**.ts")
@@ -7,11 +7,7 @@
     -- add_files("**.ui")
     add_headerfiles("**.hpp", {prefixdir="AstGUI"})
     add_deps("AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader")
-    add_frameworks("QtWidgets", "QtGui", "QtCore")
     add_defines("AST_BUILD_LIB_GUI")
-    on_config(function (target)
-        target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
-    end)
     set_default(false)
     if not has_package("qt5widgets") and not is_plat("wasm") then
         set_enabled(false)
