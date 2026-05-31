@@ -18,14 +18,14 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/DAFParser.hpp"
-#include "AstUtil/SPKParser.hpp"
-#include "AstUtil/Environment.hpp"
-#include "AstCore/JplDe.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstCore/SpiceApi.hpp"
+#include "ast/DAFParser.hpp"
+#include "ast/SPKParser.hpp"
+#include "ast/Environment.hpp"
+#include "ast/JplDe.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/Vector.hpp"
+#include "ast/SpiceAPI.hpp"
 #include <benchmark/benchmark.h>
 
 
@@ -67,7 +67,7 @@ BENCHMARK(bmEphemerisSPKParser);
 void bmEphemerisSpice(benchmark::State& state)
 {
     if(aIsCI()) return;
-    SpiceApi api(true);
+    SpiceAPI api(true);
     api.furnsh("data/Test/kernels/spk/de430.bsp");
     double et = 0;
     double lt;

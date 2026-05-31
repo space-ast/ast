@@ -33,6 +33,25 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+using FPropertyGet = errc_t (*)(const void* obj, void* value);      ///< 获取属性值
+using FPropertySet = errc_t (*)(void* obj, const void* value);      ///< 设置属性值
+using FPropertyGetItemByString = errc_t (*)(const void* obj, StringView key, Object*& value);
+using FPropertyGetItemByIndex  = errc_t (*)(const void* obj, size_t key, Object*& value);
+
+
+
+// ----------------------------------------------------------------------------
+// 底层工厂函数
+// ----------------------------------------------------------------------------
+AST_UTIL_CAPI Property* _aNewPropertyBool(FPropertyGet getter, FPropertySet setter);
+AST_UTIL_CAPI Property* _aNewPropertyInt(FPropertyGet getter, FPropertySet setter);
+AST_UTIL_CAPI Property* _aNewPropertyDouble(FPropertyGet getter, FPropertySet setter);
+AST_UTIL_CAPI Property* _aNewPropertyString(FPropertyGet getter, FPropertySet setter);
+AST_UTIL_CAPI Property* _aNewPropertyQuantity(FPropertyGet getter, FPropertySet setter, Dimension dimension);
+AST_UTIL_CAPI Property* _aNewPropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls);
+
+
+
 // ============================================================================
 // 基础类型特征与函数指针
 // ============================================================================
@@ -58,20 +77,7 @@ struct property_trait<TimePoint>
     using input_type  = TimePoint;
 };
 
-using FPropertyGet = errc_t (*)(const void* obj, void* value);      ///< 获取属性值
-using FPropertySet = errc_t (*)(void* obj, const void* value);      ///< 设置属性值
-using FPropertyGetItemByString = errc_t (*)(const void* obj, StringView key, Object*& value);
-using FPropertyGetItemByIndex  = errc_t (*)(const void* obj, size_t key, Object*& value);
-
-// ----------------------------------------------------------------------------
-// 底层工厂函数
-// ----------------------------------------------------------------------------
-AST_UTIL_CAPI Property* _aNewPropertyBool(FPropertyGet getter, FPropertySet setter);
-AST_UTIL_CAPI Property* _aNewPropertyInt(FPropertyGet getter, FPropertySet setter);
-AST_UTIL_CAPI Property* _aNewPropertyDouble(FPropertyGet getter, FPropertySet setter);
-AST_UTIL_CAPI Property* _aNewPropertyString(FPropertyGet getter, FPropertySet setter);
-AST_UTIL_CAPI Property* _aNewPropertyQuantity(FPropertyGet getter, FPropertySet setter, Dimension dimension);
-AST_UTIL_CAPI Property* _aNewPropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls);
+#ifndef SWIG
 
 // ----------------------------------------------------------------------------
 // 类型到工厂函数的分发
@@ -573,6 +579,8 @@ template<typename T, double (T::*Getter)() const, errc_t (T::*Setter)(double)>
 A_ALWAYS_INLINE Property* aNewPropertyQuantity(Dimension dim) {
     return aNewPropertyQuantityWithError<T, Getter, Setter>(dim);
 }
+
+#endif
 
 /*! @} */
 

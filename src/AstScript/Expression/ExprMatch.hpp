@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     匹配表达式
 /// @ingroup Script
-class ExprMatch: public Expr
+class AST_SCRIPT_API ExprMatch: public Expr
 {
 public:
     ExprMatch() = default;

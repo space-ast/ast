@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief  太阳系质心
-class PointSSBarycenter: public Point
+class AST_CORE_API PointSSBarycenter: public Point
 {
 public:
     PointSSBarycenter() = default;

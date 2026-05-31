@@ -29,7 +29,7 @@ class IValuePrv
 {
 public:
     virtual ~IValuePrv(){}
-    virtual errc_t getValue(const AbsTime& time, double& value) const = 0;
+    virtual errc_t getValue(const TimePoint& tp, double& value) const = 0;
     virtual Type* type() const = 0;
 
 };
@@ -49,13 +49,13 @@ public:
     {
         return T::staticType();
     }
-    errc_t getPosIn(System* system, const AbsTime& time, Vector3d& pos) const override
+    errc_t getPosIn(Frame* frame, const TimePoint& tp, Vector3d& pos) const override
     {
-        return get()->getPosIn(system, time, pos);
+        return get()->getPosIn(frame, tp, pos);
     }
-    errc_t getPosVelIn(System* system, const AbsTime& time, Vector3d& pos, Vector3d& vel) const override
+    errc_t getPosVelIn(Frame* frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const override
     {
-        return get()->getPosVelIn(system, time, pos);
+        return get()->getPosVelIn(frame, tp, pos, vel);
     }
     T* get() const
     {

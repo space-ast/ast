@@ -23,10 +23,21 @@
 #include "AstUtil/GUI.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include <QApplication>
+#include <QStyleFactory>
+#include <QDebug>
 
 AST_NAMESPACE_BEGIN
 
-errc_t aGuiInit()
+bool aInitAppAttributes()
+{
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
+    return true;
+}
+
+static bool s_initAppAttributes = aInitAppAttributes();
+
+errc_t aGUIInit()
 {
     errc_t rc = 0;
     int argc = 0;
@@ -40,6 +51,9 @@ errc_t aQAppInit(int argc, char *argv[])
 {
     if (aCanDisplayGUI()) {
         QApplication* app = new QApplication(argc, argv);
+        // app->setStyle(QStyleFactory::create("Fusion"));
+        // qDebug() << QStyleFactory::keys();
+        // qDebug() << QApplication::style()->metaObject()->className();
         (void)app;
     }else{
         QCoreApplication* app = new QCoreApplication(argc, argv);

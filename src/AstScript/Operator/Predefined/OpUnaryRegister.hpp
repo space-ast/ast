@@ -27,6 +27,7 @@
 
 AST_NAMESPACE_BEGIN
 
+#ifndef SWIG
 class OpUnaryRegister
 {
 public:
@@ -64,5 +65,6 @@ public:
 protected:
     OpUnaryMap map_;
 };
+#endif
 
 AST_NAMESPACE_END

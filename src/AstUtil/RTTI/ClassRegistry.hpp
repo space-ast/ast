@@ -34,6 +34,8 @@ AST_NAMESPACE_BEGIN
 
 class Class;
 
+#ifndef SWIG
+
 /// @brief 类注册器
 /// @details 用于注册和查找类的元数据
 class ClassRegistry
@@ -53,6 +55,8 @@ public:
 protected:
     ClassMap classMap_;
 };
+
+#endif
 
 /*! @} */
 

@@ -21,6 +21,7 @@
 #include "DetectorAlwaysTripped.hpp"
 
 AST_NAMESPACE_BEGIN
+double DetectorAlwaysTripped::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
 
 

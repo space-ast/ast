@@ -18,15 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstMath/Rotation.hpp"
-#include "AstMath/KinematicRotation.hpp"
-#include "AstMath/Transform.hpp"
-#include "AstMath/KinematicTransform.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/EarthFrame.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstTest/Test.h"
+#include "ast/Rotation.hpp"
+#include "ast/KinematicRotation.hpp"
+#include "ast/Transform.hpp"
+#include "ast/KinematicTransform.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/EarthFrame.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

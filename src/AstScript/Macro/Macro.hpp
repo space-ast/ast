@@ -32,7 +32,7 @@ AST_NAMESPACE_BEGIN
 /// 宏是一种特殊的值对象
 /// 宏的特点是“可以被调用，且会将输入的表达式转换为另一个表达式”
 /// @ingroup Script
-class Macro: public Value
+class AST_SCRIPT_API Macro: public Value
 {
 public:
     AST_EXPR(Macro)

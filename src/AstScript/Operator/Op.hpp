@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 运算符表达式
 /// @ingroup Script
-class Op: public Expr
+class AST_SCRIPT_API Op: public Expr
 {
 public:
     errc_t setValue(Value* val) override{return eErrorReadonly;}

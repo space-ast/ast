@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "AstCore/GeoCoordinate.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/Math.hpp"
+#include "ast/GeoCoordinate.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/Math.hpp"
 #include <cmath>
 
 using namespace ast;

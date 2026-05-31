@@ -26,7 +26,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/FundamentalArguments.hpp"
 #include "AstCore/GlobalContext.hpp"
-#include "AstCore/SpiceApi.hpp"
+#include "AstCore/SpiceAPI.hpp"
 #include "AstCore/TimeSystem.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/JplSpk.hpp"
@@ -191,7 +191,7 @@ static errc_t loadSPK(const std::vector<std::string>& spkFiles)
     errc_t rc = 0;
     for(const auto& filepath : spkFiles)
     {
-        rc |= SpiceApi::Instance()->furnsh(filepath.c_str());
+        rc |= SpiceAPI::Instance()->furnsh(filepath.c_str());
     }
     return rc;
 }

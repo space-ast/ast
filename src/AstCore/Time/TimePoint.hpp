@@ -50,7 +50,7 @@ class UTCScale;
 
 class TimePoint;
 
-constexpr static double kTimePointDefaultFormatPrecision = 6;
+constexpr static int kTimePointDefaultFormatPrecision = 6;
 
 
 // --------------------

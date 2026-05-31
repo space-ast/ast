@@ -5,6 +5,7 @@
 #include <memory>
 #include <sstream>
 #include <stdexcept>
+#include <exception>
 #include <type_traits>
 #include <cstring>
 #include <tuple>
@@ -15,13 +16,15 @@ constexpr int find_closing(const char* s, int p) {
     return s[p] == '>' ? p : find_closing(s, p + 1);
 }
 
+constexpr bool is_type_impl(const char* s, int p, const char* type, int i) {
+    return type[i] == '\0'
+               ? (s[p + i] == '>' || s[p + i] == ':')
+               : (s[p + i] == type[i] && is_type_impl(s, p, type, i + 1));
+}
+
+/// @brief 检查命令参数是否为指定类型（C++11 兼容）
 constexpr bool is_type(const char* s, int p, const char* type) {
-    int i = 0;
-    while (type[i] != '\0') {
-        if (s[p + i] != type[i]) return false;
-        ++i;
-    }
-    return s[p + i] == '>';
+    return is_type_impl(s, p, type, 0);
 }
 
 constexpr int count_args(const char* s, int p = 0) {
@@ -38,7 +41,7 @@ constexpr int get_parameter_tag(const char* s, int p = 0) {
                is_type(s, p+1, "float")  ? get_parameter_tag(s, find_closing(s, p)+1) * 5 + 2 :
                is_type(s, p+1, "string") ? get_parameter_tag(s, find_closing(s, p)+1) * 5 + 3 :
                is_type(s, p+1, "quoted") ? get_parameter_tag(s, find_closing(s, p)+1) * 5 + 4 :
-               throw "invalid parameter type"
+               throw std::logic_error("invalid parameter type")
            ) :
            get_parameter_tag(s, p + 1);
 }

@@ -28,7 +28,7 @@
 AST_NAMESPACE_BEGIN
 
 
-class ODEEventObserver: public ODEStateObserver
+class AST_MATH_API ODEEventObserver: public ODEStateObserver
 {
 public:
     ODEEventObserver() = default;

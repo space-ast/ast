@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "AstUtil/Environment.hpp"
-#include "AstTest/TestConfig.hpp"
-#include "AstCore/CelestialBody.hpp"
+#include "ast/Environment.hpp"
+#include "ast/TestConfig.hpp"
+#include "ast/CelestialBody.hpp"
 
 #ifndef AST_NO_CSPICE
 #include "SpiceUsr.h"

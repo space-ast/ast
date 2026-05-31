@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 时间点属性
 /// @details 时间点属性，包含属性的名称、描述等信息
-class PropertyTimePoint : public Property
+class AST_CORE_API PropertyTimePoint : public Property
 {
 public:
     using InputType  = TimePoint;

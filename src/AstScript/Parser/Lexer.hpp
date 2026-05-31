@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 词法分析器
 /// @ingroup Script
-class Lexer
+class AST_SCRIPT_API Lexer
 {
 public:
     /// @brief 令牌类型枚举

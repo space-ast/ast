@@ -1,9 +1,9 @@
-#include "AstCore/Axes.hpp"
-#include "AstCore/AxesICRF.hpp"
-#include "AstCore/AxesRoot.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/Rotation.hpp"
-#include "AstMath/Matrix.hpp"
+#include "ast/Axes.hpp"
+#include "ast/AxesICRF.hpp"
+#include "ast/AxesRoot.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/Rotation.hpp"
+#include "ast/Matrix.hpp"
 
 AST_USING_NAMESPACE
 

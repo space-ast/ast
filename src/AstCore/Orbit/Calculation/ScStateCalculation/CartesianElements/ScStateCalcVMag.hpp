@@ -20,9 +20,9 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "ScStateCalculation.hpp"
-#include "ScStateCalcPointRelated.hpp"
-#include "ScStateCalcFrameRelated.hpp"
+#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcPointRelated.hpp"
+#include "AstCore/ScStateCalcFrameRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 

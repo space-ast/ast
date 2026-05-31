@@ -80,6 +80,46 @@ PState State::New(State &state, EStateType type)
     return nullptr;
 }
 
+State::State(const State& state)
+    : gm_{state.gm_}
+{
+    auto frame = state.frame_;
+    auto epoch = state.stateEpoch_;
+    if(frame)
+    {
+        auto parentScope = frame->getParentScope();
+        if(parentScope == &state || parentScope == nullptr)
+        {
+            auto origin = frame->getOrigin();
+            auto axes = frame->getAxes();
+            auto newframe = FrameAssembly::New(origin, axes);
+            frame_ = newframe;
+            newframe->setName(frame->getName());
+            newframe->setParentScope(this);
+        }
+        else
+        {
+            frame_ = frame;
+        }
+    }
+    if(epoch)
+    {
+        auto parentScope = epoch->getParentScope();
+        if(parentScope == &state || parentScope == nullptr)
+        {
+            TimePoint tp;
+            epoch->getTime(tp);
+            this->setStateEpoch(tp);
+        }
+        else
+        {
+            stateEpoch_ = epoch;
+        }
+    }
+
+}
+
+
 void State::setFrame(Frame *frame)
 {
     frame_ = frame;
@@ -114,16 +154,17 @@ errc_t State::setFrameByName(StringView frameName)
 
 errc_t State::changeFrame(Frame *frame)
 {
+    if (!frame || !this->frame_)
+        return eErrorNullPtr;
     if(frame_ == frame)
         return eNoError;
-    CartState state{};
-    this->getState(state);
     KinematicTransform transform;
     TimePoint epoch{};
-    errc_t rc = getStateEpoch(epoch);
-    if(rc) return rc;
-    rc = aFrameTransform(this->frame_, frame, epoch, transform);
-    if(rc) return rc;
+    errc_t rc = getStateEpoch(epoch);   AST_CHECK_ERRCODE(rc, "failed to get state epoch");
+    rc = aFrameTransform(this->frame_, frame, epoch, transform); AST_CHECK_ERRCODE(rc, "failed to transform frame transform");
+    
+    CartState state{};
+    this->getState(state);
     state = transform.transformPositionVelocity(state);
     this->setState(state);
     this->setFrame(frame);
@@ -140,6 +181,7 @@ void State::setStateEpoch(EventTime *stateEpoch)
 void State::setStateEpoch(const TimePoint &stateEpoch)
 {
     stateEpoch_ = EventTimeExplicit::New(stateEpoch);
+    stateEpoch_->setParentScope(this);
 }
 
 errc_t State::getStateEpoch(TimePoint &stateEpoch) const

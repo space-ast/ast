@@ -34,7 +34,7 @@ class BKVBlock : public BKVNode
 {
 public:
     BKVBlock() : BKVNode(eBlock) {}
-public:
+private:
     std::string name_;      // 块名
     std::vector<std::unique_ptr<BKVNode>> children_;
 };

@@ -81,5 +81,15 @@ std::string ExprAttribute::getExpression(Object *context) const
     return {};
 }
 
+errc_t ExprAttribute::setValueDouble(double val)
+{
+    return attribute_.setValueDouble(val);
+}
+
+errc_t ExprAttribute::getValueDouble(double& val) const
+{
+    return attribute_.getValueDouble(val);
+}
+
 AST_NAMESPACE_END
 

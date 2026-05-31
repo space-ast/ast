@@ -18,15 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/RTTIAPI.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/StateKeplerian.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/FrameAssembly.hpp"
-#include "AstSim/Satellite.hpp"
-#include "AstTest/Test.h"
+#include "ast/RTTIAPI.hpp"
+#include "ast/IO.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/StateKeplerian.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/FrameAssembly.hpp"
+#include "ast/Satellite.hpp"
+#include "ast/Test.h"
 #include <vector>
 #include <string>
 

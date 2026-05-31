@@ -1,0 +1,13 @@
+// AstOpt 工程聚合头文件
+#include "AstOpt/DifferentialCorrector.hpp"
+#include "AstOpt/INLPProblem.hpp"
+#include "AstOpt/NLEMinpackSolver.hpp"
+#include "AstOpt/NLESolver.hpp"
+#include "AstOpt/NLPIpoptSolver.hpp"
+#include "AstOpt/NLPProblem.hpp"
+#include "AstOpt/NLPProblemWrap.hpp"
+#include "AstOpt/NLPSnoptSolver.hpp"
+#include "AstOpt/NLPSolver.hpp"
+#include "AstOpt/SnoptAPI.hpp"
+#include "AstOpt/f2c.h"
+#include "AstOpt/snopt_ast.h"

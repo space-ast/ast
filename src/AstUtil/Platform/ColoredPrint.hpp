@@ -35,7 +35,7 @@ AST_NAMESPACE_BEGIN
 /// @param color 颜色
 /// @param format 格式化字符串
 /// @param ... 可变参数
-void cprintf(Color color, const char* format, ...);
+AST_UTIL_CAPI void cprintf(Color color, const char* format, ...);
 
 
 /*! @} */

@@ -57,8 +57,8 @@ class DataContext
 public:
 
 	/// @brief 太阳系数据
-	const SolarSystem* solarSystem() const{return &m_solarSystem;}
-    SolarSystem* solarSystem() {return &m_solarSystem;}
+	const SolarSystem* solarSystem() const{return m_solarSystem;}
+    SolarSystem* solarSystem() {return m_solarSystem;}
 
 	/// @brief 地球指向数据
 	const EOP* eop() const{return &m_eop;}
@@ -98,7 +98,7 @@ public:
 	/// @brief 是否初始化
 	bool isInitialized() const {return !m_dataDir.empty();}
 protected:
-	SolarSystem  			m_solarSystem;						///< 太阳系数据
+	SharedPtr<SolarSystem>  m_solarSystem{new SolarSystem()};	///< 太阳系数据
 	EOP		    			m_eop;								///< 地球指向数据
 	LeapSecond  			m_leapSecond;						///< 闰秒数据
 	SpaceWeather            m_spaceWeather;						///< 空间天气数据

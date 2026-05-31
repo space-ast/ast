@@ -184,7 +184,7 @@ std::string aWideToUtf8(const wchar_t* wide)
 
 #else
 
-#if defined(__wasm__)
+#if defined(A_WASM)
 errc_t aUtf8ToWide(const char* utf8, std::wstring& wide) {
     aError("utf8ToWide not supported on wasm");
     return -1;

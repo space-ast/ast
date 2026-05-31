@@ -64,6 +64,9 @@ CelestialBody::CelestialBody(StringView name, SolarSystem *solarSystem)
     : solarSystem_(solarSystem)
     , name_{name}
 {
+    if (solarSystem)
+        setParentScope(solarSystem);
+
     orientation_  = new NoopOrientation();
     ephemeris_    = new BodyEphemerisDE(this);
     axesFixed_    = AxesBodyFixed::New(this);

@@ -18,15 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstScript/ScriptAPI.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/StringView.hpp"
-#include "AstScript/ValInt.hpp"
-#include "AstScript/ValBool.hpp"
-#include "AstScript/ValDouble.hpp"
-#include "AstScript/ValString.hpp"
-#include "AstScript/Symbol.hpp"
-#include "AstScript/Variable.hpp"
+#include "ast/ScriptAPI.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/StringView.hpp"
+#include "ast/ValInt.hpp"
+#include "ast/ValBool.hpp"
+#include "ast/ValDouble.hpp"
+#include "ast/ValString.hpp"
+#include "ast/Symbol.hpp"
+#include "ast/Variable.hpp"
 
 AST_USING_NAMESPACE
 

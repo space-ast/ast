@@ -1,4 +1,3 @@
-add_requires("replxx", {optional = true})
 
 target("ascript")
     set_kind("binary")

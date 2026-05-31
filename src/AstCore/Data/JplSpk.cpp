@@ -22,7 +22,7 @@
 #include "AstCore/TimeSystem.hpp"
 #include "AstCore/TimeInterval.hpp"
 #include "AstCore/Interval.hpp"
-#include "AstCore/SpiceApi.hpp"
+#include "AstCore/SpiceAPI.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/RunTimeSpice.hpp"
 #include "AstUtil/Logger.hpp"
@@ -55,7 +55,7 @@ errc_t JplSpk::open(StringView filepath)
 {
     close();
     spkfile_ = std::string(filepath);
-    return SpiceApi::Instance()->spklef(spkfile_.c_str(), &handle_);
+    return SpiceAPI::Instance()->spklef(spkfile_.c_str(), &handle_);
 }
 
 errc_t JplSpk::close()
@@ -66,7 +66,7 @@ errc_t JplSpk::close()
         handle_ = 0;
         spkfile_.clear();
         isIntervalCached_ = false;
-        return SpiceApi::Instance()->spkuef(handle);
+        return SpiceAPI::Instance()->spkuef(handle);
     }
     return eNoError;
 }
@@ -80,7 +80,7 @@ errc_t JplSpk::getPosICRF(
     double et = aTimePointToSpiceEt(tp);
     CartState state{};
     double lt;
-    errc_t rc = SpiceApi::Instance()->spkgeo(target, et, "J2000", referenceBody, state.data(), &lt);
+    errc_t rc = SpiceAPI::Instance()->spkgeo(target, et, "J2000", referenceBody, state.data(), &lt);
     pos = state.pos() * 1e3;
     return rc;
 }
@@ -95,7 +95,7 @@ errc_t JplSpk::getPosVelICRF(
     double et = aTimePointToSpiceEt(tp);
     CartState state{};
     double lt;
-    errc_t rc = SpiceApi::Instance()->spkgeo(target, et, "J2000", referenceBody, state.data(), &lt);
+    errc_t rc = SpiceAPI::Instance()->spkgeo(target, et, "J2000", referenceBody, state.data(), &lt);
     pos = state.pos() * 1e3;
     vel = state.vel() * 1e3;
     return rc;
@@ -185,7 +185,7 @@ errc_t aSpiceGetBodyNames(StringView filepath, std::vector<std::string>& names)
 std::string JplSpk::getBodyName(int id)
 {
     std::string name;
-    errc_t rc = SpiceApi::Instance()->bodc2n(id, name);
+    errc_t rc = SpiceAPI::Instance()->bodc2n(id, name);
     if(rc == eNoError){
         return name;
     }

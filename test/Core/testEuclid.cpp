@@ -16,22 +16,22 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/Axes.hpp"
-#include "AstCore/Frame.hpp"
-#include "AstCore/Point.hpp"
-#include "AstCore/AxesRoot.hpp"
-#include "AstCore/AxesICRF.hpp"
-#include "AstCore/AxesTransform.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/EarthFrame.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstMath/Transform.hpp"
-#include "AstMath/KinematicTransform.hpp"
-#include "AstMath/Rotation.hpp"
-#include "AstMath/KinematicRotation.hpp"
-#include "AstMath/Matrix.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/Axes.hpp"
+#include "ast/Frame.hpp"
+#include "ast/Point.hpp"
+#include "ast/AxesRoot.hpp"
+#include "ast/AxesICRF.hpp"
+#include "ast/AxesTransform.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/EarthFrame.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Transform.hpp"
+#include "ast/KinematicTransform.hpp"
+#include "ast/Rotation.hpp"
+#include "ast/KinematicRotation.hpp"
+#include "ast/Matrix.hpp"
+#include "ast/Vector.hpp"
+#include "ast/AstTestMacro.h"
 
 AST_USING_NAMESPACE
 

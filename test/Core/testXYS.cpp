@@ -18,15 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/IAUXYS.hpp"
-#include "AstCore/IAUXYSPrecomputed.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/JulianDate.hpp"
-#include "AstMath/MathOperator.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Environment.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/IAUXYS.hpp"
+#include "ast/IAUXYSPrecomputed.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/JulianDate.hpp"
+#include "ast/MathOperator.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Environment.hpp"
+#include "ast/Test.hpp"
 
 AST_USING_NAMESPACE
 

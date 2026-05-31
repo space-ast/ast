@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 二元运算符表达式
 /// @ingroup Script
-class OpBin: public Op
+class AST_SCRIPT_API OpBin: public Op
 {
 public:
     AST_EXPR(OpBin)

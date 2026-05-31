@@ -17,12 +17,12 @@
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
-#include "AstTest/Test.hpp"
+#include "ast/Test.hpp"
 
-#if defined _WIN32 && !defined A_GCC
-#include "AstScript/ScriptExecutor.hpp"
-#include "AstUtil/ScopedPtr.hpp"
-#include "AstCOM/COMAPI.hpp"
+#if defined _WIN32 && !defined A_GCC && defined AST_WITH_COM
+#include "ast/ScriptExecutor.hpp"
+#include "ast/ScopedPtr.hpp"
+#include "ast/COMAPI.hpp"
 #include <comdef.h>
 #include <comutil.h>
 

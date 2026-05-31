@@ -51,9 +51,9 @@ SnoptCAPI* aSnopt_Load(const char* sharedLibPath)
         // 尝试加载库
         s_snoptLibHandle = aLoadLibrary(sharedLibPath);
         if (s_snoptLibHandle) {
-            s_snoptAPI.snopta = decltype(&snopta_)(aGetProcAddress(s_snoptLibHandle, A_STR(snopta_)));
-            s_snoptAPI.snmema = decltype(&snmema_)(aGetProcAddress(s_snoptLibHandle, A_STR(snmema_)));
-            s_snoptAPI.snjac = decltype(&snjac_)(aGetProcAddress(s_snoptLibHandle, A_STR(snjac_)));
+            s_snoptAPI.snopta = decltype(&snoptproto::snopta_)(aGetProcAddress(s_snoptLibHandle, A_STR(snopta_)));
+            s_snoptAPI.snmema = decltype(&snoptproto::snmema_)(aGetProcAddress(s_snoptLibHandle, A_STR(snmema_)));
+            s_snoptAPI.snjac = decltype(&snoptproto::snjac_)(aGetProcAddress(s_snoptLibHandle, A_STR(snjac_)));
 
             for (auto func : s_snoptAPI) {
                 if (func == nullptr) {

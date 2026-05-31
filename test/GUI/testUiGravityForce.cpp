@@ -1,6 +1,6 @@
 #include "AstGlobal.h"
-#include "AstCore/GravityForce.hpp"
-#include "AstGUI/UiGravityForce.hpp"
+#include "ast/GravityForce.hpp"
+#include "ast/UiGravityForce.hpp"
 #include <QApplication>
 
 AST_USING_NAMESPACE

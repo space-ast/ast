@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 根坐标系
-class FrameRoot final: public Frame
+class AST_CORE_API FrameRoot final: public Frame
 {
 public:
     FrameRoot() = default;

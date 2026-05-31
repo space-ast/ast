@@ -1,6 +1,6 @@
 #include "AstGlobal.h"
-#include "AstCore/ThirdBodyForce.hpp"
-#include "AstGUI/UiThirdBodyForce.hpp"
+#include "ast/ThirdBodyForce.hpp"
+#include "ast/UiThirdBodyForce.hpp"
 #include <QApplication>
 
 AST_USING_NAMESPACE

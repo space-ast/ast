@@ -28,9 +28,9 @@ AST_NAMESPACE_BEGIN
 
 struct SnoptCAPI
 {
-	decltype(&snopta_) snopta;
-	decltype(&snjac_) snjac;
-	decltype(&snmema_) snmema;
+	decltype(&snoptproto::snopta_) snopta;
+	decltype(&snoptproto::snjac_) snjac;
+	decltype(&snoptproto::snmema_) snmema;
 	A_DEF_POD_ITERABLE(void*)
 };
 

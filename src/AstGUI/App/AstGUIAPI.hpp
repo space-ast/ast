@@ -29,7 +29,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 初始化Gui
 /// @return errc_t
-AST_GUI_CAPI errc_t aGuiInit();
+AST_GUI_CAPI errc_t aGUIInit();
 
 
 /// @brief 初始化Qt应用程序

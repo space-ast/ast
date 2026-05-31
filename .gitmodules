@@ -18,4 +18,6 @@
 	path = thirdparty/cspice-linux
 	url = https://github.com/space-ast/cspice
 	branch = linux
-
+[submodule "thirdparty/QWT"]
+	path = thirdparty/QWT
+	url = https://github.com/space-ast/qwt

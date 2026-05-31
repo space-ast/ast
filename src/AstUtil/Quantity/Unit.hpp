@@ -138,10 +138,12 @@ AST_UTIL_API void aUnitFactorize(Unit& unit, double& scale);
 class Unit
 {
 public:
+    #ifdef AST_BUILD_LIB_UTIL
     friend Unit unit_multiply(const Unit& unit1, const Unit& unit2);
     friend Unit unit_divide(const Unit& unit1, const Unit& unit2);
     friend Unit unit_power(const Unit& unit, int exponent);
     friend void unit_setname(Unit& unit, StringView name);
+    #endif
 
     class UnitRep;                                                      ///< 单位表示
     using UnitRepHandle = std::shared_ptr<UnitRep>;                     ///< 单位表示句柄

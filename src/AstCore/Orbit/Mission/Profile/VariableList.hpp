@@ -46,13 +46,19 @@ public:
     ~VariableList() = default;
     void clear() { variables_.clear(); }
     void append(Variable* var) { variables_.push_back(var); }
+    void erase(size_t index) { variables_.erase(variables_.begin() + index); }
     size_t size() const { return variables_.size(); }
+
+    Variable* at(size_t index) { return variables_.at(index).get(); }
+    Variable* at(size_t index) const { return variables_.at(index).get(); }
+    Variable* operator[](size_t index) { return variables_[index].get(); }
+    Variable* operator[](size_t index) const { return variables_[index].get(); }
 
     iterator begin() { return variables_.begin(); }
     iterator end() { return variables_.end(); }
     const_iterator begin() const { return variables_.begin(); }
     const_iterator end() const { return variables_.end(); }
-    
+
 private:
     ListType variables_;        ///< 变量列表
 };

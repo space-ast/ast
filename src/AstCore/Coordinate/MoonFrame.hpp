@@ -79,10 +79,10 @@ AST_CORE_API errc_t aICRFToMoonPrincipalAxesTransform(
 /// @param tp 时间点
 /// @param rotation 旋转矩阵
 /// @return errc_t 错误码
-AST_CORE_API errc_t aICRFToMoonPrincipalAxesTransform(
-    const TimePoint& tp, 
-    KinematicRotation& rotation
-);
+// AST_CORE_API errc_t aICRFToMoonPrincipalAxesTransform(
+//     const TimePoint& tp, 
+//     KinematicRotation& rotation
+// );
 
 
 /// @brief 计算月球主轴系(PA)到月球MeanEarth系的转换
@@ -141,10 +141,10 @@ AST_CORE_CAPI errc_t aICRFToMoonMeanEarthTransform_DE(
 /// @param tp 
 /// @param rotation 
 /// @return 
-AST_CORE_CAPI errc_t aICRFToMoonMeanEarthTransform_IAU(
-    const TimePoint& tp, 
-    Rotation&        rotation
-);
+// AST_CORE_CAPI errc_t aICRFToMoonMeanEarthTransform_IAU(
+//     const TimePoint& tp, 
+//     Rotation&        rotation
+// );
 
 /// @brief 计算月球ICRF坐标系到月球MeanEarth系的转换(默认为DE实现)
 /// @param tp 时间点

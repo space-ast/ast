@@ -176,7 +176,8 @@ public:
     /// @retval             - 轴系指针
     /// @note               - 如果轴系不存在，则返回nullptr
     Axes* getAxes(StringView name) const;
-    
+
+#ifndef SWIG // 还没解决好swig封装智能指针的问题，暂时屏蔽
 public:
     /// @brief 创建新的历元轴系
     /// @param  sourceAxes  - 源轴系
@@ -253,6 +254,7 @@ public:
 
     /// @brief 创建新的天体ICRF坐标系
     HFrame makeFrameICRF() const;
+#endif
 protected:
 
     Axes* getEpochAxesReference() const;

@@ -230,6 +230,12 @@ errc_t DifferentialCorrectorProfile::execute()
             }
             
             double perturbation = activeControls[j]->perturbation();
+            if(perturbation <=0 )
+            {
+                perturbation = fabs(origValue) * 0.01;
+                aWarning("control '%.*s' perturbation is <= 0, using %.6e",
+                         activeControls[j]->name().size(), activeControls[j]->name().data(), perturbation);
+            }
             double scale = activeControls[j]->scale();
             if (scale <= 0)
             {
@@ -253,9 +259,10 @@ errc_t DifferentialCorrectorProfile::execute()
             
             // 恢复控制变量原值并执行命令，确保回到基准状态
             auto restoreControl = [&]() -> errc_t {
-                if (errc_t e = activeControls[j]->setValue(origValue))
-                    return e;
-                return executeRelatedCommand();
+                return activeControls[j]->setValue(origValue);
+                // if (errc_t e = activeControls[j]->setValue(origValue))
+                //     return e;
+                // return executeRelatedCommand();
             };
             
             switch (finiteDifferenceMethod_)

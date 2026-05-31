@@ -40,7 +40,7 @@ public:
     static ObjectManager& CurrentInstance();
     
     ObjectManager() = default;
-    ~ObjectManager() = default;
+    ~ObjectManager();
 public:
     /// @brief 根据索引获取对象
     /// @param index 对象索引/对象ID
@@ -125,6 +125,10 @@ public:
     /// @brief 获取所有对象
     /// @return 所有对象指针向量
     std::vector<Object*> getAllObjects();
+
+    /// @brief 获取所有根对象
+    /// @return 所有根对象指针向量
+    std::vector<Object*> getRootObjects();
 protected:
     friend class Object;
     errc_t removeNode(uint32_t index);

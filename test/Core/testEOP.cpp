@@ -18,13 +18,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/EOP.hpp"
-#include "AstTest/Test.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstUtil/StringView.hpp"
-#include "AstCore/JulianDate.hpp"
-#include "AstTest/TestConfig.hpp"
-#include "AstUtil/Environment.hpp"
+#include "ast/EOP.hpp"
+#include "ast/Test.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/StringView.hpp"
+#include "ast/JulianDate.hpp"
+#include "ast/TestConfig.hpp"
+#include "ast/Environment.hpp"
 
 AST_USING_NAMESPACE
 

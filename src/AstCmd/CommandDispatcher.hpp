@@ -50,7 +50,7 @@ private:
 };
 
 
-
+#ifndef SWIG
 
 template <typename F, typename Tuple>
 class TaggedRule : public CommandHandler 
@@ -77,18 +77,8 @@ private:
             return detail::fill_result(result, 
                 handler_(detail::convert_token<typename Args::type>(params[Args::pos])...));
         }
-        catch(const std::vector<std::string>& e)
-        {
-            result = e;
-            return eErrorInvalidParam;
-        }
-        catch(const char* e)
-        {
-            result.push_back(e);
-            return eErrorInvalidParam;
-        }
-        catch(const std::string& e) {
-            result.push_back(e);
+        catch(std::exception& e) {
+            result.push_back(e.what());
             return eErrorInvalidParam;
         }
         catch (...) {
@@ -128,7 +118,7 @@ private:
     CommandTrie::Node& node_;
 };
 
-
+#endif
 
 #define _AST_REGISTER_COMMAND(dispatcher, cmd_template, handler) \
     { \

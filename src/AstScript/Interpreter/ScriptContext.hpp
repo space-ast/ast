@@ -61,6 +61,19 @@ AST_SCRIPT_CAPI void aScript_RemoveInterpreter(Interpreter* interpreter);
 AST_SCRIPT_CAPI SymbolScope* aScript_CurrentSymbolScope();
 
 
+/// @brief     添加符号
+/// @details   
+/// @param     var 变量指针
+AST_SCRIPT_API void aScript_AddSymbol(Variable* var);
+
+
+/// @brief     添加符号
+/// @details   
+/// @param     name 符号名
+/// @param     expr 表达式指针
+AST_SCRIPT_API void aScript_AddSymbol(StringView name, Expr* expr);
+
+
 /// @brief     查找符号
 /// @details   
 /// @param     name 符号名

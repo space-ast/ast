@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "ScStateCalcBodyRelated.hpp"
+#include "AstCore/ScStateCalcBodyRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 

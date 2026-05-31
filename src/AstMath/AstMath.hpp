@@ -1,41 +1,56 @@
-///
-/// @file      AstMath.hpp
-/// @brief     
-/// @details   
-/// @author    axel
-/// @date      2026-02-10
-/// @copyright 版权所有 (C) 2026-present, ast项目.
-///
-/// ast项目（https://github.com/space-ast/ast）
-/// 本项目基于 Apache 2.0 开源许可证分发。
-/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
-/// 许可证全文请见：
-/// 
-///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
-/// 重要须知：
-/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
-/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
-/// 使用本软件所产生的风险，需由您自行承担。
-
-#pragma once
-
-#include "AstGlobal.h"
-
-AST_NAMESPACE_BEGIN
-
-/*!
-    @defgroup Math 数学模块
-    @brief 提供数学计算相关功能
-    @details
-    本模块提供了数学计算功能，包括：
-    - NLE 非线性方程求解
-    - ODE 常微分方程求解
-    - Interpolator 插值
-    - Attitude 姿态计算
-    - 矢量矩阵运算
-    
-    @see @ref src/AstMath
-*/
-
-AST_NAMESPACE_END
+// AstMath 工程聚合头文件
+#include "AstMath/AngleAxis.hpp"
+#include "AstMath/AstMathGlobal.h"
+#include "AstMath/Attitude.hpp"
+#include "AstMath/AttitudeConvert.hpp"
+#include "AstMath/AttitudeConvertInline.hpp"
+#include "AstMath/AttitudeConvertProto.hpp"
+#include "AstMath/BisectionSolver.hpp"
+#include "AstMath/Bracket.hpp"
+#include "AstMath/BrentSolver.hpp"
+#include "AstMath/Euler.hpp"
+#include "AstMath/Function.hpp"
+#include "AstMath/Interpolator.hpp"
+#include "AstMath/KinematicRotation.hpp"
+#include "AstMath/KinematicTransform.hpp"
+#include "AstMath/LagrangeInterpolator.hpp"
+#include "AstMath/LowerMatrix.hpp"
+#include "AstMath/MathOperator.hpp"
+#include "AstMath/Matrix.hpp"
+#include "AstMath/NLE.hpp"
+#include "AstMath/ODE.hpp"
+#include "AstMath/ODEEventDetector.hpp"
+#include "AstMath/ODEEventDetectorList.hpp"
+#include "AstMath/ODEEventObserver.hpp"
+#include "AstMath/ODEFixedStepIntegrator.hpp"
+#include "AstMath/ODEInnerStateObserver.hpp"
+#include "AstMath/ODEIntegrator.hpp"
+#include "AstMath/ODEStateObserver.hpp"
+#include "AstMath/ODEStateObserverList.hpp"
+#include "AstMath/ODEStateVectorCollector.hpp"
+#include "AstMath/ODEVarStepIntegrator.hpp"
+#include "AstMath/ODEWorkspace.hpp"
+#include "AstMath/OrdinaryDifferentialEquation.hpp"
+#include "AstMath/Quaternion.hpp"
+#include "AstMath/RK4.hpp"
+#include "AstMath/RK8.hpp"
+#include "AstMath/RKCK.hpp"
+#include "AstMath/RKF45.hpp"
+#include "AstMath/RKF56.hpp"
+#include "AstMath/RKF78.hpp"
+#include "AstMath/RKV8.hpp"
+#include "AstMath/RidderSolver.hpp"
+#include "AstMath/Rotation.hpp"
+#include "AstMath/ScalarFunc.hpp"
+#include "AstMath/SecantSolver.hpp"
+#include "AstMath/SolverStats.h"
+#include "AstMath/Sparse.hpp"
+#include "AstMath/Transform.hpp"
+#include "AstMath/UnaryScalarFunc.hpp"
+#include "AstMath/UnarySolver.hpp"
+#include "AstMath/UnaryVectorFunc.hpp"
+#include "AstMath/Util.hpp"
+#include "AstMath/Vector.hpp"
+#include "AstMath/VectorFunc.hpp"
+#include "AstMath/Zeros.hpp"
+#include "AstMath/zeros.h"

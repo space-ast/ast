@@ -20,8 +20,8 @@
  
 
 
-#include "AstTest/AstTestMacro.h"
-#include "AstOpt/SnoptAPI.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/SnoptAPI.hpp"
 
 AST_USING_NAMESPACE
 

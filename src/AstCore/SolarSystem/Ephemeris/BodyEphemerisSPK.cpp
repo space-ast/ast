@@ -22,7 +22,7 @@
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/TimeSystem.hpp"
 #include "AstCore/RunTime.hpp"
-#include "SpiceApi.hpp"
+#include "SpiceAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 

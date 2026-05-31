@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 /// @details
 /// 赋值运算符表达式用于表示赋值操作，将右侧表达式的值赋值给左侧表达式。
 /// @ingroup Script
-class OpAssign: public Op
+class AST_SCRIPT_API OpAssign: public Op
 {
 public:
     AST_EXPR(OpAssign)

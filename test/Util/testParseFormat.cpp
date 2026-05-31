@@ -19,8 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstUtil/ParseFormat.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/ParseFormat.hpp"
+#include "ast/AstTestMacro.h"
 #include <string>
 
 AST_USING_NAMESPACE

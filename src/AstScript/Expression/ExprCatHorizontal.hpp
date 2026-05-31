@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 /// 每个表达式之间用空格分隔
 /// 向量元素可以是任意表达式，例如 `[1 + 2  a * b  c]`
 /// @ingroup Script
-class ExprCatHorizontal: public ExprContainer
+class AST_SCRIPT_API ExprCatHorizontal: public ExprContainer
 {
 public:
     AST_EXPR(ExprCatHorizontal)

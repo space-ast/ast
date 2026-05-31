@@ -30,7 +30,8 @@
 #include "AstCore/StateKeplerian.hpp"
 #include "AstCore/Resolve.hpp"
 #include "AstCore/CelestialBody.hpp"
-
+#include <stdexcept>
+#include <exception>
 
 AST_NAMESPACE_BEGIN
 
@@ -72,19 +73,19 @@ void aCommandInitMover(CommandDispatcher& dispatcher)
         {
             Mover* mover = aobject_cast<Mover*>(obj);
             if(!mover)
-                throw "failed to find object as Mover";
+                throw std::runtime_error("failed to find object as Mover");
             Body* body = mover->getBody();
             if(!body)
                 body = aGetEarth();
             SharedPtr<MotionOrbitDynamics> motion = aNewPropagator(propagator);
             if(!motion)
-                throw std::string("unsupported propagator: ") + std::string(propagator);
+                throw std::runtime_error(std::string("unsupported propagator: ") + std::string(propagator));
             motion->setInterval(TimeInterval::Parse(start, stop));
             motion->setStepSize(stepSize);
             SharedPtr<StateCartesian> state = aNewObject<StateCartesian>();
             Frame* frame = aResolveFrame(body, coordSys);
             if(!frame)
-                throw std::string("failed to find frame: ") + std::string(coordSys);
+                throw std::runtime_error(std::string("unsupported frame: ") + std::string(coordSys));
             state->setFrame(frame);
             state->setStateEpoch(TimePoint::Parse(epoch));
             state->setX(x);
@@ -112,20 +113,20 @@ void aCommandInitMover(CommandDispatcher& dispatcher)
         {
             Mover* mover = aobject_cast<Mover*>(obj);
             if(!mover)
-                throw "failed to find object as Mover";
+                throw std::runtime_error("failed to find object as Mover");
             Body* body = mover->getBody();
             if(!body)
                 body = aGetEarth();
 
             SharedPtr<MotionOrbitDynamics> motion = aNewPropagator(propagator);
             if(!motion)
-                throw std::string("unsupported propagator: ") + std::string(propagator);
+                throw std::runtime_error(std::string("unsupported propagator: ") + std::string(propagator));
             motion->setInterval(TimeInterval::Parse(start, stop));
             motion->setStepSize(stepSize);
             SharedPtr<StateKeplerian> state = aNewObject<StateKeplerian>();
             Frame* frame = aResolveFrame(body, coordSys);
             if(!frame)
-                throw std::string("failed to find frame: ") + std::string(coordSys);
+                throw std::runtime_error(std::string("unsupported frame: ") + std::string(coordSys));
             state->setFrame(frame);
             state->setStateEpoch(TimePoint::Parse(epoch));
             state->setSMA(a);
@@ -150,8 +151,8 @@ void aCommandInitBasic(CommandDispatcher& dispatcher)
     )
     ([](StringView scenario, StringView filePath) {
             ast_printf("Test1: Scenario = '%.*s', FilePath = '%.*s'\n", 
-                scenario.size(), scenario.data(), 
-                filePath.size(), filePath.data());
+                (int)scenario.size(), scenario.data(), 
+                (int)filePath.size(), filePath.data());
             return 0;
         }
     );
@@ -161,8 +162,8 @@ void aCommandInitBasic(CommandDispatcher& dispatcher)
     )
     ([](StringView appPath, StringView unit) {
         ast_printf("Test2: Application = '%.*s', Unit = '%.*s'\n", 
-            appPath.size(), appPath.data(), 
-            unit.size(), unit.data());
+            (int)appPath.size(), appPath.data(), 
+            (int)unit.size(), unit.data());
         return 0;
     });
 
@@ -171,8 +172,8 @@ void aCommandInitBasic(CommandDispatcher& dispatcher)
     )
     ([](StringView objectPath, StringView style) {
         ast_printf("Test3: Object = '%.*s', Style = '%.*s'\n", 
-            objectPath.size(), objectPath.data(), 
-            style.size(), style.data());
+            (int)objectPath.size(), objectPath.data(), 
+            (int)style.size(), style.data());
         return 0;
     });
 
@@ -199,16 +200,16 @@ void aCommandInitBasic(CommandDispatcher& dispatcher)
                 obj->setName(newObjectName);
                 return 0;
             }
-            throw std::string("failed to create object: ") + std::string(classPath);
+            throw std::runtime_error(std::string("failed to create object: ") + std::string(classPath));
         }
         StringView className = classPath.substr(pos + 1);
         StringView parentObjectPath = classPath.substr(0, pos);
         Object* parentObject = aResolveObject(parentObjectPath);
         if(!parentObject)
-            throw std::string("failed to find parent object: ") + std::string(parentObjectPath);
+            throw std::runtime_error(std::string("failed to find parent object: ") + std::string(parentObjectPath));
         Object* newObject = aNewObject(className, parentObject);
         if(!newObject)
-            throw std::string("failed to create object: ") + std::string(className);
+            throw std::runtime_error(std::string("failed to create object: ") + std::string(className));
         newObject->setName(newObjectName);
         aAddObject(newObject);
         return 0;
@@ -223,9 +224,9 @@ void aCommandInitAstrogatorComp(CommandDispatcher& dispatcher)
     )
     ([](Object* obj, StringView attribute) {
         if(!obj)
-            throw "failed to find object";
+            throw std::runtime_error("failed to find object");
         if(!attribute.empty())
-            throw "failed to find attribute";
+            throw std::runtime_error("failed to find attribute");
         return 0;
     }
     );

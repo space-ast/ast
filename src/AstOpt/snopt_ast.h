@@ -6,7 +6,7 @@
 #define SNOPT
 
 #ifdef __cplusplus
-extern "C" {
+namespace snoptproto{
 #endif
 
   typedef long int integer;

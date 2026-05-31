@@ -1,5 +1,5 @@
 #include "AstGlobal.h"
-#include "AstGUI/UiODEVarStepIntegrator.hpp"
+#include "ast/UiODEVarStepIntegrator.hpp"
 #include <QApplication>
 
 AST_USING_NAMESPACE

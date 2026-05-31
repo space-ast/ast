@@ -117,19 +117,6 @@ public:
         Vector3d& pos
     );
     
-    /// @brief  获取对应时间点的目标天体在参考天体下的位置
-    /// @details 位置向量的参考系是参考天体为中心的ICRF系
-    /// @param  jdTT        - 儒略日(动力学时间)
-    /// @param  target      - 目标天体
-    /// @param  referenceBody- 参考天体
-    /// @param  pos         - 位置向量[m]
-    /// @retval             - 错误码
-    errc_t getPosICRF_TT(
-        const JulianDate jdTT,
-        EDataCode target,
-        EDataCode referenceBody,
-        Vector3d& pos
-    );
 
     /// @brief  获取对应时间点的章动角
     /// @param  time        - 时间点

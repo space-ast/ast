@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     函数调用表达式
 /// @ingroup Script
-class ExprCall: public Expr
+class AST_SCRIPT_API ExprCall: public Expr
 {
 public:
     AST_EXPR(ExprCall)

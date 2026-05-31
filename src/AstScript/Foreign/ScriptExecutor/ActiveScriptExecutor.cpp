@@ -34,11 +34,15 @@ ActiveScriptExecutor::ActiveScriptExecutor(const wchar_t* progId){}
 ActiveScriptExecutor::~ActiveScriptExecutor() = default;
 errc_t ActiveScriptExecutor::initialize() {return -1;};
 void ActiveScriptExecutor::finalize() {}
-errc_t ActiveScriptExecutor::execute(StringView script, std::string* errorOut) {
-    if (errorOut) 
-        *errorOut = ActiveScriptExecutor::getLastError();
+errc_t ActiveScriptExecutor::execute(StringView script, ScriptResult* resultOut) {
+    if (resultOut) 
+        resultOut->error_ = ActiveScriptExecutor::getLastError();
     return -1;
 };
+errc_t ActiveScriptExecutor::evaluate(StringView expression, ScriptResult* resultOut) 
+{
+    return ActiveScriptExecutor::execute(expression, resultOut);
+}
 std::string ActiveScriptExecutor::getLastError() const {return "ScriptExecutor is not supported on this platform";}
 errc_t ActiveScriptExecutor::setVariable(StringView name, StringView value) {return -1;};
 errc_t ActiveScriptExecutor::setVariable(StringView name, double value) {return -1;};
@@ -56,7 +60,7 @@ AST_NAMESPACE_END
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstCOM/COMAPI.hpp"
-#include "ActiveScriptGlobalFunctions.hpp"
+#include "ActiveScriptGlobalFunctions.inl"
 #include <comdef.h>
 #include <unordered_map>
 #include <Windows.h>

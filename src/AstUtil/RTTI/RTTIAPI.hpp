@@ -143,7 +143,7 @@ AST_UTIL_CAPI Object* aGetObject(uint32_t id);
 /// @brief 获取对象的索引/对象ID
 /// @details obj 对象指针
 /// @return 对象的索引/对象ID
-AST_UTIL_CAPI uint32_t aGetObjectID(Object* obj);
+// AST_UTIL_CAPI uint32_t aGetObjectID(Object* obj);
 
 /// @brief 添加对象到对象管理器
 /// @details 
@@ -292,7 +292,7 @@ AST_UTIL_API void aPrintObject(Object* obj, int indent=0, const ObjectPrintConfi
 /// @param indent 缩进级别，默认为0
 /// @param config 配置结构体，默认为不打印引用计数
 AST_UTIL_API void aPrintObjectTree(Object* root, int indent=0);
-AST_UTIL_API void aPrintObjectTree(Object* root, int indent, const ObjectPrintConfig& config = ObjectPrintConfig());
+AST_UTIL_API void aPrintObjectTree(Object* root, int indent, const ObjectPrintConfig& config);
 
 /*! @} */
 

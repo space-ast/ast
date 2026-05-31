@@ -32,11 +32,11 @@ class BKVParser;
 
 /// @brief 归一化重力场
 /// @param gf 待归一化的重力场
-void aGravityFieldNormalize(GravityField& gf);
+AST_CORE_CAPI void aGravityFieldNormalize(GravityField& gf);
 
 /// @brief 反归一化重力场
 /// @param gf 待反归一化的重力场
-void aGravityFieldUnnormalize(GravityField& gf);
+AST_CORE_CAPI void aGravityFieldUnnormalize(GravityField& gf);
 
 /// @brief 重力场头信息
 /// @details 包含重力场的基本信息，如最大阶数、最大次数、中心天体名称等。
@@ -138,6 +138,8 @@ public:
     /// @brief 获取Jn项
     double getJn(int n) const;
 
+#ifndef SWIG // 还没解决好swig封装StringView的问题，暂时屏蔽
+
     /// @brief 从文件加载重力场
     /// @param model 重力场模型文件路径，或者模型名称
     /// @param dirpath 可选参数，重力场模型文件所在目录路径，默认从当前程序执行目录和地球目录中查找
@@ -152,6 +154,8 @@ public:
     /// @return 加载状态
     errc_t load(StringView model, int maxLoadDegree, int maxLoadOrder, StringView dirpath=StringView{});
     
+#endif
+
     /// @brief 归一化重力场
     void normalize();
 

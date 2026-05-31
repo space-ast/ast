@@ -38,7 +38,7 @@ using HAxesBodyInertial = SharedPtr<AxesBodyInertial>;
 
 
 /// @brief  天体惯性轴系
-class AxesBodyInertial : public AxesBodyRelated
+class AST_CORE_API AxesBodyInertial : public AxesBodyRelated
 {
 public:
     static PAxesBodyInertial New(CelestialBody* body);

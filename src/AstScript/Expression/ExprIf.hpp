@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 /// @brief     if条件语句表达式
 /// @details   支持if-elseif-else条件结构
 /// @ingroup Script
-class ExprIf: public Expr
+class AST_SCRIPT_API ExprIf: public Expr
 {
 public:
     AST_EXPR(ExprIf)

@@ -21,8 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Network.hpp"
-#include "AstTest/Test.h"
+#include "ast/Network.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

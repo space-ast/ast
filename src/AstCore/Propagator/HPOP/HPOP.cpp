@@ -40,6 +40,11 @@ errc_t HPOP::setForceModel(const HPOPForceModel& forcemodel)
     return equation()->setForceModel(forcemodel);
 }
 
+HPOPForceModel& HPOP::forceModel()
+{
+    return equation()->forceModel();
+}
+
 errc_t HPOP::setPropagationFrame(Frame *frame)
 {
     return equation_->setPropagationFrame(frame);

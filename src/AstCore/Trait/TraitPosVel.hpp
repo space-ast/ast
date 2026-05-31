@@ -25,7 +25,6 @@
  
 AST_NAMESPACE_BEGIN
 
-class Type;
  
 
 /// @brief 提供位置速度
@@ -35,8 +34,8 @@ public:
     virtual ~IPosVelPrv()
     {};
     virtual Type* type() const = 0;
-    virtual errc_t getPosIn(System* system, const AbsTime& time, Vector3d& pos) const = 0;
-    virtual errc_t getPosVelIn(System* system, const AbsTime& time, Vector3d& pos, Vector3d& vel) const = 0;
+    virtual errc_t getPosIn(Frame* frame, const TimePoint& tp, Vector3d& pos) const = 0;
+    virtual errc_t getPosVelIn(Frame* frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const = 0;
 };
 
 
@@ -56,9 +55,9 @@ public:
     {
         return T::staticType(); 
     }
-    errc_t getValue(const AbsTime& time, double& value) const override
+    errc_t getValue(const TimePoint& tp, double& value) const override
     {
-        return get()->getValue(time, value);
+        return get()->getValue(tp, value);
     }
     
     T* get() const{return (T*) data_; }

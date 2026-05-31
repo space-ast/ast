@@ -1,4 +1,5 @@
 build/
+artifacts/
 #.vscode
 .xmake
 .vs

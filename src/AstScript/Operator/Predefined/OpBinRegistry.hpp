@@ -27,7 +27,7 @@
 
 AST_NAMESPACE_BEGIN
 
-
+#ifndef SWIG
 class OpBinRegistry
 {
 public:
@@ -66,5 +66,7 @@ public:
 protected:
     OpBinMap map_;
 };
+
+#endif
 
 AST_NAMESPACE_END

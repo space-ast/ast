@@ -202,10 +202,12 @@ void XMLNode::clear()
 }
 
 
-void XMLNode::addChild(HXMLNode child)
+
+void XMLNode::addChild(HXMLNode&& child)
 {
     children_.push_back(std::move(child));
 }
+
 
 void XMLNode::addText(StringView text)
 {

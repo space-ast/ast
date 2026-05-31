@@ -68,14 +68,6 @@ errc_t PropertyObject::getValueString(const void* container, std::string& value)
     errc_t rc = getValue(container, &object);
     if(rc != 0)
         return rc;
-    if(object->isOfType(A_STR(Frame)))
-    {
-        auto parent = object->getParentScope();
-        if(parent)
-            value = parent->getName() + " ";
-        value += object->getName();
-        return 0;
-    }
     value = object->getRepresentation();
     if(value.empty())
     {

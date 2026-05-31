@@ -47,6 +47,7 @@ public:
 
 };
 
+#ifndef SWIG
 
 /// @brief 泛型ODE状态量观察者助手类
 class ODEStateObserverGenericHelper
@@ -115,5 +116,7 @@ private:
         return EODEAction::eContinue;
     }
 };
+
+#endif
 
 AST_NAMESPACE_END

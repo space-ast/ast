@@ -21,7 +21,6 @@
 #pragma once
 #include "AstGlobal.h"
 
-AST_NAMESPACE_BEGIN
 A_CLINKAGE_BEGIN
 
 /*!
@@ -919,7 +918,7 @@ void mxvg(
 // putcml
 
 // pxform
-errc_t pxform(
+int pxform(
     const char   * from,
     const char   * to,
     double         et,
@@ -1112,7 +1111,7 @@ void rav2xf(
 
 // spkpds
 
-errc_t spkpos(
+int spkpos(
     const char   * targ,
     double         et,
     const char   * ref,
@@ -1126,7 +1125,7 @@ errc_t spkpos(
 
 // spksfs
 
-errc_t spkssb(
+int spkssb(
     int           targ,
     double        et,
     const char   * ref,
@@ -1225,7 +1224,7 @@ errc_t spkssb(
 
 // timout
 
-errc_t tipbod(
+int tipbod(
     const char      * ref,
     int               body,
     double            et,
@@ -1284,7 +1283,7 @@ errc_t tipbod(
 
 // unorm
 
-errc_t utc2et(
+int utc2et(
     const char * utcstr,
     double     * et
 );
@@ -1418,4 +1417,3 @@ errc_t utc2et(
 /*! @} */
 
 A_CLINKAGE_END
-AST_NAMESPACE_END

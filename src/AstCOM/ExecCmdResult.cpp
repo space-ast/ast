@@ -65,6 +65,9 @@ HRESULT __stdcall CExecCmdResult::Range(long StartIndex, long EndIndex, SAFEARRA
     size_t start = static_cast<size_t>(StartIndex);
     size_t end = static_cast<size_t>(EndIndex);
     
+    if (results_.empty())
+        return E_INVALIDARG;
+
     if (end >= results_.size())
         end = results_.size() - 1;
     

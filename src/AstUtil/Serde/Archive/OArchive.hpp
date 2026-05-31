@@ -34,7 +34,7 @@ AST_NAMESPACE_BEGIN
 class AST_UTIL_API OArchive: public Archive
 {
 public:
-    using OArchive::OArchive;
+    using Archive::Archive;
     template<typename T>
     OArchive& operator<<(T& val)
     {

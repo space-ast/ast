@@ -21,6 +21,7 @@
 #include "DetectorAccess.hpp"
 
 AST_NAMESPACE_BEGIN
+double DetectorAccess::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
 
 

@@ -78,6 +78,16 @@ protected:
     std::string errString_;        ///< 错误字符串
 };
 
+
+/// @brief 创建新的解释器，用于解释执行脚本中的代码。
+/// @return 解释器指针
+AST_SCRIPT_CAPI Interpreter* aNewInterpreter();
+
+/// @brief 删除解释器，释放其占用的资源。
+/// @param interpreter 解释器指针
+AST_SCRIPT_API void aDelInterpreter(Interpreter* interpreter);
+
+
 /// @brief 解释器上下文守卫
 /// @details
 /// 解释器上下文守卫用于在解释器执行代码时，自动设置和移除当前解释器。

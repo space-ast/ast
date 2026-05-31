@@ -72,6 +72,11 @@ public:
         eWritable = 0x02,   ///< 可写属性
     };
 public:
+    Property()
+        : Field()
+        , getter_(&aFakeGet)
+        , setter_(&aFakeSet)
+    {}
     Property(StringView name, StringView desc, FPropertyGet getter, FPropertySet setter)
         : Field(name, desc)
         , getter_(getter?getter:&aFakeGet)
@@ -82,7 +87,6 @@ public:
         , getter_(getter?getter:&aFakeGet)
         , setter_(setter?setter:&aFakeSet)
     {}
-    Property() = default;
     ~Property() = default;
     
     /// @brief 接受访问者

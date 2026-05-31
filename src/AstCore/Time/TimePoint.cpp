@@ -82,6 +82,39 @@ void aTimePointToUTC(const TimePoint &time, DateTime &dttmUTC)
     dttmUTC.normalizeUTC();  // 在这里确保UTC时间是标准化的
 }
 
+void aTimePointToTT(const TimePoint& time, DateTime& dttmTT)
+{
+    JulianDate jdTT{};
+    aTimePointToTT(time, jdTT);
+    aJDToDateTime(jdTT, dttmTT);
+    dttmTT.normalize();  // 在这里确保TT时间是标准化的
+}
+
+void aTimePointToTDB(const TimePoint& time, DateTime& dttmTDB)
+{
+    JulianDate jdTDB{};
+    aTimePointToTDB(time, jdTDB);
+    aJDToDateTime(jdTDB, dttmTDB);
+    dttmTDB.normalize();  // 在这里确保TDB时间是标准化的
+}
+
+void aTimePointToTAI(const TimePoint& time, DateTime& dttmTAI)
+{
+    JulianDate jdTAI{};
+    aTimePointToTAI(time, jdTAI);
+    aJDToDateTime(jdTAI, dttmTAI);
+    dttmTAI.normalize();  // 在这里确保TAI时间是标准化的
+}
+
+void aTimePointToUT1(const TimePoint& time, DateTime& dttmUT1)
+{
+    JulianDate jdUT1{};
+    aTimePointToUT1(time, jdUT1);
+    aJDToDateTime(jdUT1, dttmUT1);
+    // dttmUT1.normalizeUTC();  
+}
+
+
 errc_t aTimePointFormat(const TimePoint &time, std::string &str, int precision)
 {
     DateTime utc{};
@@ -91,10 +124,7 @@ errc_t aTimePointFormat(const TimePoint &time, std::string &str, int precision)
     return err;
 }
 
-void processTimeSystemm(StringView& str, StringView &timeSystem)
-{
-    
-}
+
 
 void processQuote(StringView& str)
 {

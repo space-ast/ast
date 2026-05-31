@@ -30,12 +30,14 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-errc_t aFakeGetByString(const void* container, StringView key, Object*& value);
-errc_t aFakeGetByIndex(const void* container, size_t key, Object*& value);
+#ifndef SWIG
+
+AST_UTIL_API errc_t aFakeGetByString(const void* container, StringView key, Object*& value);
+AST_UTIL_API errc_t aFakeGetByIndex(const void* container, size_t key, Object*& value);
 
 
 /// @brief 命名向量属性
-class PropertyNamedVector: public Property
+class AST_UTIL_API PropertyNamedVector: public Property
 {
 public:
     /// @brief 构造函数
@@ -63,6 +65,7 @@ protected:
     FPropertyGetItemByIndex  getterByIndex_;    ///< 获取属性值的函数指针，用于根据属性索引获取属性值
 };
 
+#endif
 
 /*! @} */
 

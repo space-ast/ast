@@ -20,7 +20,7 @@
 
 #ifndef _WIN32
 // 非 Windows 平台：提供所有接口的空实现，避免链接错误
-#include "NetworkImplWinINet.hpp"
+#include "NetworkImplWinINet.hxx"
 
 AST_NAMESPACE_BEGIN
 
@@ -58,7 +58,7 @@ AST_NAMESPACE_END
 
 #else  // ============ Windows 实现 ============
 
-#include "NetworkImplWinINet.hpp"
+#include "NetworkImplWinINet.hxx"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Encode.hpp"      // for aWideToUtf8
 #include "AstUtil/StringUtil.hpp"

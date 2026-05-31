@@ -59,7 +59,7 @@ void UiDouble::updateValue()
     else
     {
         // 显示错误提示
-        setError(tr("double format error, please input correct double"));
+        setError(tr("请输入正确的浮点数"));
     }
 }
 

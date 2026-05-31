@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "ScStateCalculation.hpp"
+#include "AstCore/ScStateCalculation.hpp"
 #include "AstCore/Segment.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -51,7 +51,7 @@ public:
     /// @brief 设置差值顺序
     void setDifferenceOrderToUse(EDifferenceOrderToUse order){differenceOrderToUse_ = order;}
 
-    bool isAngle() const override;
+    Dimension getDimension() const override;
 protected:
     Segment* getSegment();
 private:

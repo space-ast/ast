@@ -24,10 +24,16 @@
 #include "AstCore/SpacecraftState.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstMath/ODEIntegrator.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
 // #define AST_DEBUG_PROPAGATE
+
+Propagate::Propagate()
+{
+    propagator_ = aNewObject<HPOP>(this);
+}
 
 errc_t Propagate::execute()
 {

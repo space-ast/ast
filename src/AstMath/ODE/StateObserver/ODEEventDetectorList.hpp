@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 class ODEEventObserver;
 
-class ODEEventDetectorList: public ODEStateObserver
+class AST_MATH_API ODEEventDetectorList: public ODEStateObserver
 {
 public:
     ~ODEEventDetectorList() override;

@@ -93,7 +93,7 @@ public:
 
     /// @brief 添加子节点
     /// @param child 子节点
-    void addChild(HXMLNode child);
+    void addChild(HXMLNode&& child);
 
     /// @brief 添加文本节点
     /// @param text 文本内容
@@ -109,7 +109,7 @@ public:
     /// @param name 子节点名称
     /// @param startIndex 子节点索引
     /// @return 子节点
-    XMLNode* getChild(StringView name, size_t startIndex = 0) const;
+    // XMLNode* getChild(StringView name, size_t startIndex = 0) const;
 
     /// @brief 获取子节点列表
     /// @return 子节点列表

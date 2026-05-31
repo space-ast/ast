@@ -38,10 +38,10 @@ class Object;
 /// @ingroup RTTI
 class AST_UTIL_API Class: public Struct
 {
+public:
     typedef Object* (*FConstructor)(Object* parentScope);
     typedef Object* (*FResolve)(StringView value);
 
-public:
     AST_OBJECT(Class);
 
     using Struct::Struct;

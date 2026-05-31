@@ -39,6 +39,7 @@ public:
     using InputType = Object;
     using OutputType = Object*;
 public:
+    PropertyObject() = default;
     PropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls);
 
     errc_t getValueBool(const void* container, bool& value) override;

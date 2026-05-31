@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstMath/ODEEventDetector.hpp"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstUtil/Dimension.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -58,9 +59,13 @@ public:
     /// @return 事件检测开关函数的值
     virtual double getValue(const SpacecraftState& state, double t) const = 0;
 
+    /// @brief 获取事件检测开关函数的量纲
+    /// @return 事件检测开关函数的量纲
+    virtual Dimension getDimension() const {return EDimension::eUnit;}
+
     /// @brief 是否为角度事件检测器
     /// @return 是否为角度事件检测器
-    virtual bool isAngle() const {return false;}
+    bool isAngle() const {return getDimension() == EDimension::eAngle;}
 public:
     
     /// @brief 创建ODE事件检测器实例

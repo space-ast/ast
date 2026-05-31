@@ -1,6 +1,6 @@
 #include "AstGlobal.h"
-#include "AstCore/DragForce.hpp"
-#include "AstGUI/UiDragForce.hpp"
+#include "ast/DragForce.hpp"
+#include "ast/UiDragForce.hpp"
 #include <QApplication>
 
 AST_USING_NAMESPACE

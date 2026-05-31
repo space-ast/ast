@@ -33,7 +33,7 @@ struct args_t {
 
 /// @brief 获取命令行参数
 /// @return args_t 命令行参数结构体
-AST_UTIL_API args_t aArgsGet();
+// AST_UTIL_API args_t aArgsGet();
 
 
 AST_NAMESPACE_END

@@ -32,7 +32,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 地球旋转类
-class EarthOrientation final: public BodyOrientation
+class AST_CORE_API EarthOrientation final: public BodyOrientation
 {
 public:
     EarthOrientation() = default;

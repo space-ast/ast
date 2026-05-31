@@ -41,7 +41,7 @@ AST_NAMESPACE_BEGIN
 */
 
 
-
+#ifndef SWIG
 
 namespace detail{
 
@@ -204,7 +204,7 @@ template <>
 inline bool convert_token<bool>(StringView s) {
     bool value;
     if (aParseBool(s, value))
-        throw std::string("invalid bool value: ") + std::string(s);
+        throw std::runtime_error(std::string("invalid bool value: ") + std::string(s));
     return value;
 }
 
@@ -212,7 +212,7 @@ template <>
 inline int convert_token<int>(StringView s) {
     int value;
     if (aParseInt(s, value))
-        throw std::string("invalid int value: ") + std::string(s);
+        throw std::runtime_error(std::string("invalid int value: ") + std::string(s));
     return value;
 }
 
@@ -221,7 +221,7 @@ template <>
 inline double convert_token<double>(StringView s) {
     double value;
     if (aParseDouble(s, value))
-        throw std::string("invalid double value: ") + std::string(s);
+        throw std::runtime_error(std::string("invalid double value: ") + std::string(s));
     return value;
 }
 
@@ -281,6 +281,7 @@ fill_result(CommandResult& /*result*/, T ret) {
 
 } // namespace detail
 
+#endif
 
 /*! @} */
 

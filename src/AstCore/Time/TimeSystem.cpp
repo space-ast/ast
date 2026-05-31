@@ -93,6 +93,12 @@ void aTTToUTC(const JulianDate &jdTT, JulianDate &jdUTC)
     aTAIToUTC(jdUTC, jdUTC);
 }
 
+void aUTCToUT1(const DateTime& dttmUTC, DateTime& dttmUT1)
+{
+    double ut1_minus_utc = aUT1MinusUTC_UTC(JulianDate::FromDateTime(dttmUTC));
+    dttmUT1 = dttmUTC + ut1_minus_utc;
+}
+
 void aTTToUTC(const DateTime& dttmTT, DateTime& dttmUTC)
 {
     aTTToTAI(dttmTT, dttmUTC);

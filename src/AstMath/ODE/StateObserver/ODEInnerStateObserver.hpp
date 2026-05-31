@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 
 class ODEIntegrator;
 
-class ODEInnerStateObserver : public ODEStateObserver
+class AST_MATH_API ODEInnerStateObserver : public ODEStateObserver
 {
 public:
     explicit ODEInnerStateObserver(ODEIntegrator* integrator) 

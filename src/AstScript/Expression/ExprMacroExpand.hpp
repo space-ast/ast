@@ -31,7 +31,7 @@ class Macro;
 
 /// @brief     宏展开表达式
 /// @ingroup Script
-class ExprMacroExpand: public Expr
+class AST_SCRIPT_API ExprMacroExpand: public Expr
 {
 public:
     AST_EXPR(ExprMacroExpand)

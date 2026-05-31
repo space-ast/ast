@@ -32,10 +32,10 @@ AST_NAMESPACE_BEGIN
 */
 
 // 判断 HTTP 方法是否允许携带请求体
-bool aMethodAllowsBody(const std::string& method);
+AST_UTIL_API bool aMethodAllowsBody(const std::string& method);
 
 // 简单验证端口字符串并转换为整数，非法则返回默认端口
-int aParsePort(const std::string& portStr, int defaultPort);
+AST_UTIL_API int aParsePort(const std::string& portStr, int defaultPort);
 
 
 /// 网络抽象接口

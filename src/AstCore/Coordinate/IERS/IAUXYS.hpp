@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief IERS 2003/2010 岁差章动模型XYS系数
 /// 参考 IAU 2000决议中的新岁差-章动模型
-class IAUXYS
+class AST_CORE_API IAUXYS
 {
 public:
     IAUXYS() = default;

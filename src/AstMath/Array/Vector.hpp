@@ -75,6 +75,15 @@ public:
     typedef VectorN<_Scalar, 3> Self;
     typedef _Scalar Scalar;
     enum {Dimension = 3};
+    #if defined(SWIG)
+    VectorN()
+        :x_(0), y_(0), z_(0){}
+    VectorN(double x, double y, double z)
+        :x_(x), y_(y), z_(z){}
+    #endif
+    #ifdef AST_BUILD_LIB_PY
+    void __setitem__(size_t idx, _Scalar v){data()[idx] = v;}
+    #endif
     
     static Self Zero(){return Self{0,0,0}; }
     static Self UnitX() {return Self{1,0,0}; }

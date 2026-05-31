@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 一元运算符表达式
 /// @ingroup Script
-class OpUnary: public Op
+class AST_SCRIPT_API OpUnary: public Op
 {
 public:
     AST_EXPR(OpUnary)

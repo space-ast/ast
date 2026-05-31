@@ -4,6 +4,7 @@
     add_files("**.cxx")
     add_headerfiles("**.hpp", {prefixdir="AstUtil"})
     add_headerfiles("**.h", {prefixdir="AstUtil"})
+    add_headerfiles("../../include/ast/*", {prefixdir="ast"})
     add_headerfiles("../../include/AstGlobal.h")
     add_headerfiles("../../include/AstCompiler.h")
     add_defines("AST_BUILD_LIB_UTIL")

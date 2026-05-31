@@ -120,6 +120,11 @@
 #   define aText(x) (u8 ## x)
 #endif
 
+#if defined(AST_BUILD_LIB) && defined(_MSC_VER)
+// 编译时指定代码内的字符串使用utf-8编码
+#   pragma execution_character_set("utf-8")
+#endif
+
 
 // ast项目脚本模块导出声明
 #ifdef AST_BUILD_LIB_SCRIPT
@@ -194,6 +199,14 @@
 #    define AST_GUI_API A_DECL_IMPORT
 #endif
 #define AST_GUI_CAPI A_DECL_EXTERN_C AST_GUI_API
+
+// ast项目Chart模块导出声明
+#ifdef AST_BUILD_LIB_CHART
+#    define AST_CHART_API A_DECL_EXPORT
+#else
+#    define AST_CHART_API A_DECL_IMPORT
+#endif
+#define AST_CHART_CAPI A_DECL_EXTERN_C AST_CHART_API
 
 // ast项目可视化模块导出声明
 #ifdef AST_BUILD_LIB_GFX
@@ -274,6 +287,14 @@
 #define AST_CMD_CAPI A_DECL_EXTERN_C AST_CMD_API
 
 
+// ast项目分析模块导出声明
+#ifdef AST_BUILD_LIB_ANALYZER
+#    define AST_ANALYZER_API A_DECL_EXPORT
+#else
+#    define AST_ANALYZER_API A_DECL_IMPORT
+#endif
+#define AST_ANALYZER_CAPI A_DECL_EXTERN_C AST_ANALYZER_API
+
 #ifndef AST_PROJECT_NAME
 #   define AST_PROJECT_NAME "ast"
 #endif
@@ -286,6 +307,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 错误码
 typedef enum EError
 {
+    eError = -1,            ///< 通用错误
 	eNoError = 0,           ///< 没有错误
     eErrorNullPtr = 1,      ///< 空指针错误
     eErrorNullInput,        ///< 输入参数是空指针

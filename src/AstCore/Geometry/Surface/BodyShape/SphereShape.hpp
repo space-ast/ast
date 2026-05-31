@@ -30,7 +30,7 @@ class SphereShape : public BodyShape
 {
 public:
   
-properties:
+PROPERTIES:
     length_d radius_; ///< 半径长度
 };
 

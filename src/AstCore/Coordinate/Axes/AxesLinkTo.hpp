@@ -22,6 +22,8 @@
 
 #include "AstGlobal.h"
 #include "AstCore/Axes.hpp"
+#include "AstUtil/Object.hpp"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 

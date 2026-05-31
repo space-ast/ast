@@ -1,0 +1,1 @@
+#include "AstWasm/WasmBind.hpp"

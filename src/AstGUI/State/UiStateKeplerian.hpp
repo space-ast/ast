@@ -27,16 +27,19 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QComboBox>
+#include <QPushButton>
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
 class StateKeplerian;
+class Frame;
 
 class AST_GUI_API UiStateKeplerian : public UiState
 {
@@ -51,6 +54,10 @@ public:
     void refreshUi();
     // void apply();
     // void applyTo(StateKeplerian* state);
+
+private slots:
+    void onSelectFrame();
+
 protected:
     void onSizeTypeChanged();
     void onSizeParamChanged();
@@ -84,7 +91,8 @@ private:
     // 轨道历元
     UiTimePoint* epochEdit_{nullptr};
     // 坐标系
-    QComboBox* frameCombo_{nullptr};
+    QLineEdit*   frameEdit_{nullptr};
+    QPushButton* frameSelectBtn_{nullptr};
     // 轨道大小
     QHBoxLayout* sizeLayout_{nullptr};
     QLabel* sizeLabel_{nullptr};

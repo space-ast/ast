@@ -32,7 +32,7 @@ errc_t ShooterControl::setValue(double value) const
 {
     if(auto expr = expr_.lock())
     {
-        return expr->setValue(aNewValueDouble(value));
+        return expr->setValueDouble(value);
     }
     return eErrorNullPtr;
 }
@@ -41,12 +41,7 @@ errc_t ShooterControl::getValue(double& value) const
 {
     if(auto expr = expr_.lock())
     {
-        SharedPtr<Value> val = expr->eval();
-        if(val)
-        {
-            value = val->toDouble();
-            return eNoError;
-        }
+        return expr->getValueDouble(value);
     }
     return eErrorNullPtr;
 }

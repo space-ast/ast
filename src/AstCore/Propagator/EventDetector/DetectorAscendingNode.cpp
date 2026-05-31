@@ -21,6 +21,7 @@
 #include "DetectorAscendingNode.hpp"
 
 AST_NAMESPACE_BEGIN
+double DetectorAscendingNode::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
 
 

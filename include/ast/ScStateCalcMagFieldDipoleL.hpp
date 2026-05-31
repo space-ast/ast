@@ -1,0 +1,1 @@
+#include "AstCore/ScStateCalcMagFieldDipoleL.hpp"

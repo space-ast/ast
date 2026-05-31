@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "NetworkImplCurlCmd.hpp"
+#include "NetworkImplCurlCmd.hxx"
 #include "AstUtil/NetworkRequest.hpp"
 #include "AstUtil/NetworkResponse.hpp"
 #include <cstdio>

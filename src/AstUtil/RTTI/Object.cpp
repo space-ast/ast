@@ -60,7 +60,7 @@ const std::string empty;
 
 std::string Object::getRepresentation() const
 {
-    return empty;
+    return getName();
 }
 
 
@@ -71,7 +71,7 @@ const std::string &Object::getName() const
 
 errc_t Object::showEditDialog()
 {
-    return aUiEditObject(this);
+    return aEditObject(this);
 }
 
 Attribute Object::attr(StringView path)

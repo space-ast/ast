@@ -19,19 +19,19 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstUtil/SerdeAPI.hpp"
-#include "AstUtil/CppSerializer.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstUtil/BuilderAPI.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstTest/Test.h"
-#include "AstTest/TestSerialize.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/StateKeplerian.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/BodyEphemerisDE.hpp"
-#include "AstCore/BodyEphemerisSPK.hpp"
+#include "ast/SerdeAPI.hpp"
+#include "ast/CppSerializer.hpp"
+#include "ast/IO.hpp"
+#include "ast/BuilderAPI.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Test.h"
+#include "ast/TestSerialize.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/StateKeplerian.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/BodyEphemerisDE.hpp"
+#include "ast/BodyEphemerisSPK.hpp"
 
 AST_USING_NAMESPACE
 

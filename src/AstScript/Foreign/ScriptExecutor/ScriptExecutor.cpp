@@ -23,6 +23,7 @@
 #include "ScriptExecutor.hpp"
 #include "VBScriptExecutor.hpp"
 #include "JScriptExecutor.hpp"
+#include "PythonExecutor.hpp"
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -166,6 +167,8 @@ ScriptExecutor* aNewScriptExecutor(EScriptLanguage type)
     case EScriptLanguage::eJScript:
         return new JScriptExecutor();
 #endif
+    case EScriptLanguage::ePython:
+        return new PythonExecutor();
     default:
     {
         aError("unsupported script executor for language: '%s'", toString(type).c_str());

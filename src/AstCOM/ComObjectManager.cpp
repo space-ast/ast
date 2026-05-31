@@ -43,7 +43,7 @@ IObject* ComObjectManager::getComObject(Object* object)
     std::string typeName = object->typeName();
 
     #define _CREATE_OBJECT(TYPE) \
-    else if(typeName == #TYPE) \
+    else if(object->isOfType(TYPE::StaticType())) \
     {\
         CComObject<C##TYPE>* pResult = nullptr; \
         HRESULT hr = CComObject<C##TYPE>::CreateInstance(&pResult); \

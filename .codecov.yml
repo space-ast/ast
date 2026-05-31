@@ -23,7 +23,7 @@ ignore:
   - "projects"    # 上层项目/示例项目
   - "examples"    # 示例代码
   - "docs"        # 文档
-  - "src/AstGui"  
+  - "src/AstGUI"    
   - "src/AstGfx"
   - "src/AstMock"
   - "src/AstOpt"

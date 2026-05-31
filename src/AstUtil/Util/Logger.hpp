@@ -36,7 +36,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 日志等级
-enum ELogLevel
+enum class ELogLevel
 {
     eDebug,     ///< 调试信息
     eInfo,      ///< 一般信息  
@@ -185,42 +185,42 @@ public:
     template<typename ...Args>
     inline void debug(const char* msg, Args&& ...args) const
     {
-        aLogMessage(eDebug, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eDebug, m_context, msg, std::forward<Args>(args)...);
     };
     template<typename ...Args>
     inline void noDebug(const char*, Args&& ...args) const{}
     template<typename ...Args>
     void info(const char* msg, Args&& ...args) const
     {
-        aLogMessage(eInfo, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eInfo, m_context, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void warning(const char* msg, Args&& ...args) const
     {
-        aLogMessage(eWarning, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eWarning, m_context, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void error(const char* msg, Args&& ...args) const
     {
-        aLogMessage(eError, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eError, m_context, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void critical(const char* msg, Args&& ...args) const
     {
-        aLogMessage(eCritical, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eCritical, m_context, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void fatal(const char* msg, Args&& ...args) const
     {
-        aLogMessage(eFatal, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eFatal, m_context, msg, std::forward<Args>(args)...);
     }
-    inline LoggerStream debug() const{return LoggerStream(eDebug, m_context); }
+    inline LoggerStream debug() const{return LoggerStream(ELogLevel::eDebug, m_context); }
     inline NoopStream   noDebug() const{ return NoopStream(); }
-    inline LoggerStream info() const{return LoggerStream(eInfo, m_context); }
-    inline LoggerStream warning() const{return LoggerStream(eWarning, m_context);}
-    inline LoggerStream error() const{return LoggerStream(eError, m_context);}
-    inline LoggerStream critical() const{return LoggerStream(eCritical, m_context); };
-    inline LoggerStream fatal() const{return LoggerStream(eFatal, m_context); };
+    inline LoggerStream info() const{return LoggerStream(ELogLevel::eInfo, m_context); }
+    inline LoggerStream warning() const{return LoggerStream(ELogLevel::eWarning, m_context);}
+    inline LoggerStream error() const{return LoggerStream(ELogLevel::eError, m_context);}
+    inline LoggerStream critical() const{return LoggerStream(ELogLevel::eCritical, m_context); };
+    inline LoggerStream fatal() const{return LoggerStream(ELogLevel::eFatal, m_context); };
 private:
     MessageLogContext m_context;
 };

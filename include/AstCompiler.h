@@ -48,6 +48,28 @@
 #   define A_MSVC _MSC_VER
 #endif
 
+// 平台检测宏
+
+// 判断是否是windows
+#if defined(_WIN32)
+#   define A_WINDOWS
+#endif
+
+// 判断是否是linux
+#if defined(__linux__) || defined(__linux)
+#   define A_LINUX
+#endif
+
+// 判断是否是macosx
+#if defined(__MACOSX__) || defined(__APPLE__)
+#   define A_APPLE
+#endif
+
+// 判断是否是wasm
+#if defined(__wasm__)
+#   define A_WASM
+#endif
+
 // 内置函数检测
 #if defined(__has_builtin)
 #   define A_HAS_BUILTIN(builtin) __has_builtin(builtin)
@@ -105,6 +127,9 @@
 #ifdef _WIN32
 #   define A_DECL_EXPORT __declspec(dllexport)
 #   define A_DECL_IMPORT __declspec(dllimport)
+#elif defined(SWIG) // swig 封装时，将其定义为空宏
+#   define A_DECL_EXPORT
+#   define A_DECL_IMPORT
 #else
 #   define A_DECL_EXPORT __attribute__((visibility("default")))
 #   define A_DECL_IMPORT __attribute__((visibility("default")))

@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ReflectAPI.hpp"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,6 +38,8 @@ AST_NAMESPACE_BEGIN
 /// @return Property* 属性指针
 AST_CORE_CAPI Property* _aNewPropertyTimePoint(FPropertyGet getter, FPropertySet setter);
 
+
+#ifndef SWIG
 
 /// @brief 创建一个时间点属性
 /// @warning 本函数为内部函数，不建议直接调用。
@@ -221,6 +224,7 @@ A_ALWAYS_INLINE Property* aNewPropertyTimePoint()
     );
 }
 
+#endif
 
 /*! @} */
 

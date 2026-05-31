@@ -18,17 +18,17 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstLoader/MissionCommandLoader.hpp"
-#include "AstCore/MissionCommand.hpp"
-#include "AstCore/InitialState.hpp"
-#include "AstCore/SpacecraftState.hpp"
-#include "AstCore/Segment.hpp"
-#include "AstCore/HPOP.hpp"
-#include "AstLoader/ValXMLLoader.hpp"
-#include "AstLoader/PropagatorLoader.hpp"
-#include "AstScript/ValDict.hpp"
-#include "AstUtil/ObjectLinker.hpp"
-#include "AstTest/Test.h"
+#include "ast/MissionCommandLoader.hpp"
+#include "ast/MissionCommand.hpp"
+#include "ast/InitialState.hpp"
+#include "ast/SpacecraftState.hpp"
+#include "ast/Segment.hpp"
+#include "ast/HPOP.hpp"
+#include "ast/ValXMLLoader.hpp"
+#include "ast/PropagatorLoader.hpp"
+#include "ast/ValDict.hpp"
+#include "ast/ObjectLinker.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE;

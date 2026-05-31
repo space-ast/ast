@@ -53,3 +53,5 @@
 #include "AstScript/OpUnaryPredefined.hpp"
 #include "AstScript/IteratePredefined.hpp"
 #include "AstScript/Types.hpp"
+#include "AstScript/Macro.hpp"
+#include "AstScript/Function.hpp"

@@ -18,11 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstScript/JScriptExecutor.hpp"
-#include "AstScript/VBScriptExecutor.hpp"
-#include "AstUtil/ScopedPtr.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstTest/Test.h"
+#include "ast/JScriptExecutor.hpp"
+#include "ast/VBScriptExecutor.hpp"
+#include "ast/ScopedPtr.hpp"
+#include "ast/IO.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE

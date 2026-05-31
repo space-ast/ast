@@ -19,8 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstWeather/Magnetosphere.hpp"
-#include "AstTest/Test.h"
+#include "ast/Magnetosphere.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

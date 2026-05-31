@@ -40,7 +40,7 @@ public:
     StringView currentLexeme() const;
     
     /// @brief 获取当前行号
-    size_t getLine() const;
+    // size_t getLine() const;
     
     /// @brief 前进到下一个令牌
     void advance();
@@ -55,7 +55,7 @@ public:
     Expr* parseExpression();
     
     /// @brief 解析语句序列（多个表达式，用分号或换行分隔）
-    Expr* parseStatements();
+    // Expr* parseStatements();
     
     /// @brief 解析赋值表达式
     Expr* parseAssignExpr();
@@ -88,7 +88,7 @@ public:
     Expr* parseRangeExpr();
     
     /// @brief 从给定的起始表达式解析范围表达式
-    Expr* parseRangeExprFrom(Expr* startExpr);
+    // Expr* parseRangeExprFrom(Expr* startExpr);
     
     /// @brief 解析位移表达式
     Expr* parseShiftExpr();

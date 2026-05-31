@@ -21,7 +21,6 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstScript/ScriptParser.hpp"
 #include "AstScript/ExprVisitor.hpp"
 #include "AstUtil/StringView.hpp"
 
@@ -383,6 +382,8 @@ AST_SCRIPT_CAPI Value* aIterateNext(Value* container, int& index);
 
 // ALIAS
 
+#ifndef SWIG
+
 A_ALWAYS_INLINE Value* aNewValue(int value)
 {
     return aNewValueInt(value);
@@ -418,9 +419,12 @@ A_ALWAYS_INLINE Value* aNewValue(const char* value)
     return aNewValueString(value);
 }
 
+
 // 通过模板捕获所有其他类型并删除，防止隐式转换为 `bool` 类型
 template<typename T>
 Value* aNewValue(T) = delete;
+
+#endif
 
 /*! @} */
 

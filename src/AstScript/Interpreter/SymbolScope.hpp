@@ -35,7 +35,7 @@ AST_NAMESPACE_BEGIN
 /// @details   
 /// 符号作用域用于存储符号(@ref Symbol )与变量(@ref Variable)、函数(@ref Function)等的映射关系。
 /// @ingroup Script
-class SymbolScope{
+class AST_SCRIPT_API SymbolScope{
 public:
     using SymbolMap = std::unordered_map<std::string, SharedPtr<Expr>>;
     using SymbolPair = std::pair<std::string, SharedPtr<Expr>>;

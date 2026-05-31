@@ -1,0 +1,1 @@
+#include "AstWeather/Magnetosphere.hpp"

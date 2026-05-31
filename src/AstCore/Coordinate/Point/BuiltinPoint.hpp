@@ -46,6 +46,7 @@ AST_NAMESPACE_BEGIN
   这进一步会导致依赖这些函数所返回的坐标点实例的`aFrameXXX`系列函数的计算结果无法保持一致
 */
 
+#ifndef SWIG
 _AST_DECL_POINT(Mercury)
 _AST_DECL_POINT(Venus)
 _AST_DECL_POINT(Earth)
@@ -58,6 +59,8 @@ _AST_DECL_POINT(Pluto)
 _AST_DECL_POINT(Moon)
 _AST_DECL_POINT(Sun)
 _AST_DECL_POINT(EMBarycenter)
+
+#endif
 
 /*! @} */
 

@@ -30,7 +30,7 @@ AST_NAMESPACE_BEGIN
 /// 每个表达式占一行，或在表达式后添加分号。
 /// 向量元素可以是任意表达式，例如 [1 + 2; a * b; c]。
 /// @ingroup Script
-class ExprCatVertical: public ExprContainer
+class AST_SCRIPT_API ExprCatVertical: public ExprContainer
 {
 public:
     AST_EXPR(ExprCatVertical)

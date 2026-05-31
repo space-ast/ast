@@ -10,13 +10,12 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [windows-2022, windows-2025, ubuntu-latest]
+        os: [windows-2022, ubuntu-24.04]  # ubuntu-22.04
         arch: [x64, arm64]
 
     runs-on: ${{ matrix.os }}
-
     concurrency:
-        group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.os }}-${{ matrix.arch }}-Windows
+        group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.os }}-${{ matrix.arch }}-build
         cancel-in-progress: true
     steps:
       - uses: actions/checkout@v2
@@ -35,7 +34,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: ${{ matrix.os }}-${{ matrix.arch }}-v6
+          key: ${{ matrix.os }}-${{ matrix.arch }}-build-v1
 
       - name: 设置xmake相关目录
         run: |
@@ -49,25 +48,55 @@ jobs:
         with:
           packages: libgl1-mesa-dev libglu1-mesa-dev
           version: 2
-
+          
+      - name: 配置debug版本
+        run: |
+          xmake f -cvy --with_test=y -m debug
+          
       - name: 编译debug版本
         run: |
-          xmake f -cy --with_test=y -m debug
           xmake
+
+      - name: 配置release版本
+        run: |
+          xmake f -cvy --with_test=y -m release
 
       - name: 编译release版本
         run: |
-          xmake f -cy --with_test=y -m release
           xmake
 
       - name: 打包项目
         run: |
           xmake f -cy --with_test=y -m release
-          xmake pack -f zip
-          
+          xmake pack -f zip -o artifacts/ --basename=SpaceAST
+      
+      - name: 获取上一个tag
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@master
+
       - name: 上传产物
         uses: actions/upload-artifact@v4
         with:
-          name: SpaceAST-${{ matrix.os }}-${{ matrix.arch }}
-          path: build/xpack/
+          name: SpaceAST-${{ matrix.os }}-${{ matrix.arch }}.zip
+          path: artifacts/SpaceAST.zip
            
+      - name: 发布产物
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: artifacts/SpaceAST.zip
+          asset_name: SpaceAST-${{ steps.previoustag.outputs.tag }}-${{ matrix.os }}-${{ matrix.arch }}.zip
+          asset_content_type: application/zip
+
+      - name: 更新dev版本的发布产物
+        if: github.ref == 'refs/heads/master'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: artifacts/SpaceAST.zip
+          asset_name: SpaceAST-dev-${{ matrix.os }}-${{ matrix.arch }}.zip
+          tag: ${{ steps.previoustag.outputs.tag }}
+          overwrite: true

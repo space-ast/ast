@@ -1,4 +1,4 @@
-#include "AstCore/MathOperator.hpp"
+#include "ast/MathOperator.hpp"
 #include <vector>
 
 int main()

@@ -29,7 +29,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     条件表达式 (三元运算符 ? :)
 /// @ingroup Script
-class ExprCondition: public Expr
+class AST_SCRIPT_API ExprCondition: public Expr
 {
 public:
     AST_EXPR(ExprCondition)

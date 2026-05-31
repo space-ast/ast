@@ -1,4 +1,4 @@
-#include "AstCore/Quaternion.hpp"
+#include "ast/Quaternion.hpp"
 #include <iostream>
 
 int main() {

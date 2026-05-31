@@ -26,7 +26,7 @@
 
 AST_NAMESPACE_BEGIN
 
-class ODEStateObserverList: public ODEStateObserver
+class AST_MATH_API ODEStateObserverList: public ODEStateObserver
 {
 public:
     ODEStateObserverList() = default;

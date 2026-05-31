@@ -7,6 +7,7 @@ package("cspice")
         set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/cspice"))
     end
     on_install(function (package)
+        package:addenv("PATH", "bin")
         local configs = {}
         if package:config("shared") then
             configs.kind = "shared"

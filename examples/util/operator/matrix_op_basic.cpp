@@ -1,5 +1,5 @@
-#include "AstMath/MathOperator.hpp"
-#include "AstMath/Matrix.hpp"
+#include "ast/MathOperator.hpp"
+#include "ast/Matrix.hpp"
 #include <vector>
 
 int main()

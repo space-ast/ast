@@ -1,5 +1,5 @@
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Constants.h"
+#include "ast/Literals.hpp"
+#include "ast/Constants.h"
 
 int main(){
     AST_USING_NAMESPACE;

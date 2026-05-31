@@ -126,6 +126,7 @@ int FreeRreturnTargetFunction::operator()(const double* variable, double* constr
         aLog("--------------------------\n");
         HPOP propagator;
         propagator.setForceModel(forceModel);
+        propagator.setPropagationFrame(aGetEarth()->makeFrameInertial());
         auto integrator = propagator.getIntegrator();
         TimePoint startTime = currentTime;
         // 近月点停止条件
@@ -167,6 +168,7 @@ int FreeRreturnTargetFunction::operator()(const double* variable, double* constr
     {
         HPOP propagator;
         propagator.setForceModel(forceModel);
+        propagator.setPropagationFrame(aGetEarth()->makeFrameInertial());
         auto integrator = propagator.getIntegrator();
         TimePoint startTime = currentTime;
         // 近地点停止条件

@@ -18,11 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstScript/ScriptAPI.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/StringView.hpp"
-#include "AstUtil/Quantity.hpp"
-#include "AstUtil/IO.hpp"
+#include "ast/ScriptAPI.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/StringView.hpp"
+#include "ast/Quantity.hpp"
+#include "ast/IO.hpp"
 
 AST_USING_NAMESPACE
 using namespace _AST units;

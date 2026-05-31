@@ -32,13 +32,13 @@ class Value;
 /// @param op 运算类型
 /// @param type 运算数类型
 /// @return 运算函数指针（void* 类型）
-void* opunary_get_funcptr(EOpUnaryType op, Class* type);
+AST_SCRIPT_API void* opunary_get_funcptr(EOpUnaryType op, Class* type);
 
 /// @brief 注册一元运算函数指针
 /// @param op 运算类型
 /// @param type 运算数类型
 /// @param func 运算函数指针（void* 类型）
-void opunary_register_funcptr(EOpUnaryType op, Class* type, void* func);
+AST_SCRIPT_API void opunary_register_funcptr(EOpUnaryType op, Class* type, void* func);
 
 
 
@@ -46,14 +46,14 @@ void opunary_register_funcptr(EOpUnaryType op, Class* type, void* func);
 /// @param op 运算类型
 /// @param type 运算数类型
 /// @return 运算函数指针
-OpUnaryFunc opunary_get_func(EOpUnaryType op, Class* type);
+AST_SCRIPT_API OpUnaryFunc opunary_get_func(EOpUnaryType op, Class* type);
 
 
 /// @brief 注册一元运算函数
 /// @param op 运算类型
 /// @param type 运算数类型
 /// @param func 运算函数指针
-void opunary_register_func(EOpUnaryType op, Class* type, OpUnaryFunc func);
+AST_SCRIPT_API void opunary_register_func(EOpUnaryType op, Class* type, OpUnaryFunc func);
 
 
 
@@ -61,7 +61,7 @@ void opunary_register_func(EOpUnaryType op, Class* type, OpUnaryFunc func);
 /// @param op 运算类型
 /// @param value 运算数
 /// @return 运算结果
-Value* opunary(EOpUnaryType op, Value* value);
+AST_SCRIPT_API Value* opunary(EOpUnaryType op, Value* value);
 
 
 AST_NAMESPACE_END

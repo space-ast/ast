@@ -21,8 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCmd/CommandDispatcher.hpp"
-#include "AstTest/Test.h"
+#include "ast/CommandDispatcher.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE
@@ -59,6 +59,14 @@ TEST(CmdSplitTest, Basic)
     {
         auto result = split(R"(  "  "  b c )");
         EXPECT_EQ(result, StringViewVector({"  ", "b", "c"}));
+    }
+    {
+        auto result = split(R"(  a"b c" )");
+        EXPECT_EQ(result, StringViewVector({"a", "b c"}));
+    }
+    {
+        auto result = split(R"(a"b c"d)");
+        EXPECT_EQ(result, StringViewVector({"a", "b c", "d"}));
     }
 }
 

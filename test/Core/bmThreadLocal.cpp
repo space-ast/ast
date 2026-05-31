@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include <benchmark/benchmark.h>
-#include "AstCore/RunTime.hpp"
+#include "ast/RunTime.hpp"
 
 AST_USING_NAMESPACE
 

@@ -442,7 +442,7 @@ private:
     static no test(...);
 
 public:
-    static const bool value = (sizeof(test<T>(0)) == sizeof(yes));
+    static constexpr bool value = (sizeof(test<T>(0)) == sizeof(yes));
 };
 
 
@@ -473,5 +473,3 @@ AST_DECL_TYPE_ALIAS(Object)
 #include "AstUtil/Attribute.hpp"
 #include "AstUtil/Class.hpp"
 #include "AstUtil/WeakPtr.hpp"
-
-

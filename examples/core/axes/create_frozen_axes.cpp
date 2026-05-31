@@ -1,8 +1,8 @@
-#include "AstCore/BuiltinAxes.hpp"
-#include "AstCore/AxesFrozen.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/Rotation.hpp"
-#include "AstMath/Matrix.hpp"
+#include "ast/BuiltinAxes.hpp"
+#include "ast/AxesFrozen.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/Rotation.hpp"
+#include "ast/Matrix.hpp"
 #include <stdio.h>
 
 AST_USING_NAMESPACE
@@ -31,7 +31,7 @@ int main()
     
     // 获取冻结轴系的属性
     printf("\n冻结轴系属性:\n");
-    printf("  冻结时间: %.3f JD\n", freezeTime.J2000TT());
+    printf("  冻结时间: %s\n", freezeTime.toString().c_str());
     printf("  冻结轴系指针: %p\n", (void*)frozenAxes->getAxes());
     printf("  参考轴系指针: %p\n", (void*)frozenAxes->getReferenceAxes());
     

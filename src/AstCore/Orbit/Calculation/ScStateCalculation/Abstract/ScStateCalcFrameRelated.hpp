@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/Frame.hpp"
-#include "ScStateCalculation.hpp"
+#include "AstCore/ScStateCalculation.hpp"
 
 AST_NAMESPACE_BEGIN
 

@@ -29,7 +29,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     循环表达式基类
 /// @ingroup Script
-class ExprLoop: public Expr
+class AST_SCRIPT_API ExprLoop: public Expr
 {
 public:
     using Expr::Expr;
@@ -40,7 +40,7 @@ public:
 /// @brief     while 循环表达式
 /// @details   Julia语法: while condition; body end
 /// @ingroup Script
-class ExprWhile: public ExprLoop
+class AST_SCRIPT_API ExprWhile: public ExprLoop
 {
 public:
     AST_EXPR(ExprWhile)
@@ -77,7 +77,7 @@ protected:
 /// @brief     for 循环表达式（范围风格）
 /// @details   Julia语法: for variable in range; body end
 /// @ingroup Script
-class ExprForRange: public ExprLoop
+class AST_SCRIPT_API ExprForRange: public ExprLoop
 {
 public:
     AST_EXPR(ExprForRange)

@@ -1,34 +1,76 @@
-///
-/// @file      AstScript.hpp
-/// @brief     
-/// @details   
-/// @author    axel
-/// @date      2026-02-10
-/// @copyright 版权所有 (C) 2026-present, ast项目.
-///
-/// ast项目（https://github.com/space-ast/ast）
-/// 本项目基于 Apache 2.0 开源许可证分发。
-/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
-/// 许可证全文请见：
-/// 
-///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
-/// 重要须知：
-/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
-/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
-/// 使用本软件所产生的风险，需由您自行承担。
-
-#pragma once
-
-#include "AstGlobal.h"
-
-AST_NAMESPACE_BEGIN
-
-/*!
-    @defgroup Script 脚本模块
-    @brief 提供脚本解释器相关功能，包含表达式、值、变量、符号等。
-    @see @ref src/AstScript
-*/
-
-
-AST_NAMESPACE_END
+// AstScript 工程聚合头文件
+#include "AstScript/ActiveScriptExecutor.hpp"
+#include "AstScript/AllHeaders.hpp"
+#include "AstScript/AstScriptGlobal.h"
+#include "AstScript/BackTrace.hpp"
+#include "AstScript/Breakpoint.hpp"
+#include "AstScript/CallStack.hpp"
+#include "AstScript/Debugger.hpp"
+#include "AstScript/Expr.hpp"
+#include "AstScript/ExprAttribute.hpp"
+#include "AstScript/ExprBlock.hpp"
+#include "AstScript/ExprCalculation.hpp"
+#include "AstScript/ExprCall.hpp"
+#include "AstScript/ExprCatHorizontal.hpp"
+#include "AstScript/ExprCatVertical.hpp"
+#include "AstScript/ExprCondition.hpp"
+#include "AstScript/ExprContainer.hpp"
+#include "AstScript/ExprIf.hpp"
+#include "AstScript/ExprLoop.hpp"
+#include "AstScript/ExprMacroExpand.hpp"
+#include "AstScript/ExprMatch.hpp"
+#include "AstScript/ExprRange.hpp"
+#include "AstScript/ExprVector.hpp"
+#include "AstScript/ExprVisitor.hpp"
+#include "AstScript/ForeignScript.hpp"
+#include "AstScript/Function.hpp"
+#include "AstScript/Interpreter.hpp"
+#include "AstScript/IteratePredefined.hpp"
+#include "AstScript/JScript.hpp"
+#include "AstScript/JScriptExecutor.hpp"
+#include "AstScript/Julia.hpp"
+#include "AstScript/JuliaExecutor.hpp"
+#include "AstScript/Lexer.hpp"
+#include "AstScript/Lua.hpp"
+#include "AstScript/LuaExecutor.hpp"
+#include "AstScript/Macro.hpp"
+#include "AstScript/Matlab.hpp"
+#include "AstScript/MatlabExecutor.hpp"
+#include "AstScript/Op.hpp"
+#include "AstScript/OpAssign.hpp"
+#include "AstScript/OpAssignPredefined.hpp"
+#include "AstScript/OpBin.hpp"
+#include "AstScript/OpBinPredefined.hpp"
+#include "AstScript/OpBinRegistry.hpp"
+#include "AstScript/OpUnary.hpp"
+#include "AstScript/OpUnaryPredefined.hpp"
+#include "AstScript/OpUnaryRegister.hpp"
+#include "AstScript/Parser.hpp"
+#include "AstScript/PythonAPI.hpp"
+#include "AstScript/PythonExecutor.hpp"
+#include "AstScript/PythonScriptExecutor.hpp"
+#include "AstScript/Scanner.hpp"
+#include "AstScript/ScriptAPI.hpp"
+#include "AstScript/ScriptContext.hpp"
+#include "AstScript/ScriptExecutor.hpp"
+#include "AstScript/StackFrame.hpp"
+#include "AstScript/Symbol.hpp"
+#include "AstScript/SymbolScope.hpp"
+#include "AstScript/SymbolTable.hpp"
+#include "AstScript/Types.hpp"
+#include "AstScript/VBScript.hpp"
+#include "AstScript/VBScriptExecutor.hpp"
+#include "AstScript/ValArray.hpp"
+#include "AstScript/ValBool.hpp"
+#include "AstScript/ValDict.hpp"
+#include "AstScript/ValDouble.hpp"
+#include "AstScript/ValInt.hpp"
+#include "AstScript/ValNamedVector.hpp"
+#include "AstScript/ValNull.hpp"
+#include "AstScript/ValQuantity.hpp"
+#include "AstScript/ValRange.hpp"
+#include "AstScript/ValScalar.hpp"
+#include "AstScript/ValString.hpp"
+#include "AstScript/ValVector.hpp"
+#include "AstScript/Value.hpp"
+#include "AstScript/Variable.hpp"
