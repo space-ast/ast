@@ -21,8 +21,7 @@
 
 #include "BuiltinAxesRegistry.hpp"
 #include "AstUtil/StringView.hpp"
-#include "AstCore/AxesTransform.hpp"
-
+#include "AstCore/Coordinate.hpp"
 
 AST_NAMESPACE_BEGIN
 
