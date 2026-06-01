@@ -1,5 +1,5 @@
 ///
-/// @file      EllipsoidShape.cpp
+/// @file      NoopShape.cpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -18,20 +18,19 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "EllipsoidShape.hpp"
+#include "NoopShape.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
-void EllipsoidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
+void NoopShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
-
+    aWarning("noop shape: empty class for placeholder");
 }
 
-void EllipsoidShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
+void NoopShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
 {
-    
+    aWarning("noop shape: empty class for placeholder");
 }
-
 
 AST_NAMESPACE_END
-

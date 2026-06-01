@@ -1,5 +1,5 @@
 ///
-/// @file      EllipsoidShape.cpp
+/// @file      testBodyShape.cpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -18,20 +18,27 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "EllipsoidShape.hpp"
+#include "ast/SphereShape.hpp"
+#include "ast/SpheroidShape.hpp"
+#include "ast/EllipsoidShape.hpp"
+#include "ast/Test.hpp"
 
-AST_NAMESPACE_BEGIN
+AST_USING_NAMESPACE
 
-void EllipsoidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
+TEST(BodyShapeTest, SphereShape)
 {
 
 }
 
-void EllipsoidShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
+TEST(BodyShapeTest, SpheroidShape)
+{
+
+}
+
+TEST(BodyShapeTest, EllipsoidShape)
 {
     
 }
 
-
-AST_NAMESPACE_END
+GTEST_MAIN()
 

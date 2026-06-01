@@ -1,13 +1,13 @@
 ///
-/// @file      EllipsoidShape.hpp
-/// @brief     ~
-/// @details   ~
+/// @file      NoopShape.hpp
+/// @brief     
+/// @details   
 /// @author    axel
-/// @date      2025-12-12
-/// @copyright 版权所有 (C) 2025-present, ast项目.
+/// @date      2026-06-01
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
-/// ast项目（https://github.com/space-ast/ast）
-/// 本项目基于 Apache 2.0 开源许可证分发。
+/// SpaceAST项目（https://github.com/space-ast/ast）
+/// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
 /// 
@@ -25,18 +25,22 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 椭球体形状
-class EllipsoidShape final : public BodyShape
+/*!
+    @addtogroup 
+    @{
+*/
+
+
+/// @brief 无操作形状，用于默认占位
+class NoopShape final : public BodyShape
 {
 public:
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
-
-PROPERTIES:
-    length_d majorAxis_;  ///< 长轴长度
-    length_d middleAxis_; ///< 中轴长度
-    length_d minorAxis_;  ///< 短轴长度
 };
+
+
+/*! @} */
 
 AST_NAMESPACE_END

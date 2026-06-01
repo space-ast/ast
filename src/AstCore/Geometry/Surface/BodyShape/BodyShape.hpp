@@ -29,7 +29,15 @@ AST_NAMESPACE_BEGIN
 class BodyShape : public Object
 {
 public:
+    /// @brief 将笛卡尔坐标转换为大地坐标
+    /// @param cartesian 笛卡尔坐标（天体固连系）
+    /// @param detic 大地坐标
+    virtual void transform(const Vector3d& cartesian, GeodeticPoint& detic) const = 0;
 
+    /// @brief 将大地坐标转换为笛卡尔坐标
+    /// @param detic 大地坐标
+    /// @param cartesian 笛卡尔坐标（天体固连系）
+    virtual void transform(const GeodeticPoint& detic, Vector3d& cartesian) const = 0;
 };
 
 
