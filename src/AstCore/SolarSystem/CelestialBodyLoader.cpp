@@ -26,7 +26,9 @@
 #include "AstCore/RotationalData.hpp"
 #include "AstCore/BodyEphemerisDE.hpp"
 #include "AstCore/BodyEphemerisSPK.hpp"
-
+#include "AstCore/SphereShape.hpp"
+#include "AstCore/SpheroidShape.hpp"
+#include "AstCore/EllipsoidShape.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -98,6 +100,15 @@ errc_t CelestialBody::loadGravityModel(StringView model)
 
 errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
 {
+    struct{
+        std::string shapeName_;
+        std::string shape_;
+        double radius_;
+        double majorAxis_;
+        double middleAxis_;
+        double minorAxis_;
+    } data{};
+
     BKVParser::EToken token;
     BKVItemView item;
     do{
@@ -121,20 +132,20 @@ errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
             }else if(aEqualsIgnoreCase(item.key(), "SystemGM")){
                 systemGM_ = item.value().toDouble();
             }else if(aEqualsIgnoreCase(item.key(), "ShapeName")){
-                // todo
+                data.shapeName_ = item.value().toString();
             }else if(aEqualsIgnoreCase(item.key(), "Shape")){
-                // todo
+                data.shape_ = item.value().toString();
             }else if(aEqualsIgnoreCase(item.key(), "Radius")){
-                // todo
-                radius_ = item.value().toDouble();
+                this->radius_ = item.value().toDouble();
+                data.radius_ = this->radius_;
             }
             else if(aEqualsIgnoreCase(item.key(), "MajorAxis")){
-                // todo
-                radius_ = item.value().toDouble();
+                this->radius_ = item.value().toDouble();
+                data.majorAxis_ = this->radius_;
             }else if(aEqualsIgnoreCase(item.key(), "MiddleAxis")){
-                // todo
+                data.middleAxis_ = item.value().toDouble();
             }else if(aEqualsIgnoreCase(item.key(), "MinorAxis")){
-                // todo
+                data.minorAxis_ = item.value().toDouble();
             }else if(aEqualsIgnoreCase(item.key(), "MaxAltitude")){
                 // todo
             }else if(aEqualsIgnoreCase(item.key(), "RefDistance")){
@@ -151,7 +162,31 @@ errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
         }else if(token == BKVParser::eBlockBegin){
 
         }else if(token == BKVParser::eBlockEnd){
-            if(aEqualsIgnoreCase(item.value(), "AstroDefinition")){
+            if(aEqualsIgnoreCase(item.value(), "AstroDefinition"))
+            {
+                SharedPtr<BodyShape> shape;
+                if(data.shape_ == "OblateSpheroid")
+                {
+                    shape = SpheroidShape::NewFromMajorMinorAxis(data.majorAxis_, data.minorAxis_);
+                }
+                else if(data.shape_ == "TriaxialEllipsoid")
+                {
+                    shape = new EllipsoidShape(data.majorAxis_, data.middleAxis_, data.minorAxis_);
+                }
+                else if(data.shape_ == "Sphere")
+                {
+                    shape = new SphereShape(data.radius_);
+                }
+                else{
+                    aWarning("unsupported shape type: %s", data.shape_.c_str());
+                }
+
+                if(shape)
+                {
+                    shape->setName(data.shapeName_);
+                    shape->setParentScope(this);
+                    this->shape_ = shape;
+                }
                 break;
             }
         }

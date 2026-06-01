@@ -22,6 +22,11 @@
 
 AST_NAMESPACE_BEGIN
 
+SphereShape::SphereShape(double radius)
+    : radius_(radius)
+{
+}
+
 void SphereShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
 

@@ -22,6 +22,29 @@
 
 AST_NAMESPACE_BEGIN
 
+static double aAxisToFlatFactor(double majorAxis, double minorAxis)
+{
+    return (majorAxis - minorAxis) / majorAxis;
+}
+
+SpheroidShape* SpheroidShape::NewFromMajorAxisFlatFactor(double majorAxis, double flatFactor)
+{
+    return new SpheroidShape(majorAxis, flatFactor);
+}
+
+SpheroidShape* SpheroidShape::NewFromMajorMinorAxis(double majorAxis, double minorAxis)
+{
+    return new SpheroidShape(majorAxis, aAxisToFlatFactor(majorAxis, minorAxis));
+}
+
+SpheroidShape::SpheroidShape(double majorAxis, double flatFactor)
+    : majorAxis_(majorAxis)
+    , flatfactor_(flatFactor)
+{
+
+}
+
+
 void SpheroidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
 

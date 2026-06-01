@@ -30,6 +30,11 @@ AST_NAMESPACE_BEGIN
 class SpheroidShape final : public BodyShape
 {
 public:
+    static SpheroidShape* NewFromMajorAxisFlatFactor(double majorAxis, double flatFactor);
+    static SpheroidShape* NewFromMajorMinorAxis(double majorAxis, double minorAxis);
+    
+    SpheroidShape(double majorAxis, double flatFactor);
+
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;

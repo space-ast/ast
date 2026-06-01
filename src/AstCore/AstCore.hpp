@@ -189,6 +189,7 @@
 #include "AstCore/MoonFrame.hpp"
 #include "AstCore/MoonOrientation.hpp"
 #include "AstCore/NoopOrientation.hpp"
+#include "AstCore/NoopShape.hpp"
 #include "AstCore/NutationSeries.hpp"
 #include "AstCore/NutationTerm.hpp"
 #include "AstCore/Object.hpp"

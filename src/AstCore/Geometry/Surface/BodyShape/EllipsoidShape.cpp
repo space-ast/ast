@@ -22,6 +22,15 @@
 
 AST_NAMESPACE_BEGIN
 
+EllipsoidShape::EllipsoidShape(double majorAxis, double middleAxis, double minorAxis)
+    : majorAxis_(majorAxis)
+    , middleAxis_(middleAxis)
+    , minorAxis_(minorAxis)
+{
+
+}
+
+
 void EllipsoidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
 

@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
 class EllipsoidShape final : public BodyShape
 {
 public:
+    EllipsoidShape(double majorAxis, double middleAxis, double minorAxis);
+
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;

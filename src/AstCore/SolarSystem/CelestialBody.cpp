@@ -20,6 +20,7 @@
 
 #include "CelestialBody.hpp"
 #include "SolarSystem.hpp"
+#include "AstCore/NoopShape.hpp"
 #include "AstCore/NoopOrientation.hpp"
 #include "AstCore/BodyEphemerisDE.hpp"
 #include "AstCore/BodyEphemerisSPK.hpp"
@@ -64,6 +65,7 @@ CelestialBody::CelestialBody(StringView name, SolarSystem *solarSystem)
     if (solarSystem)
         setParentScope(solarSystem);
 
+    shape_        = new NoopShape();
     orientation_  = new NoopOrientation();
     ephemeris_    = new BodyEphemerisDE(this);
     axesFixed_    = AxesBodyFixed::New(this);

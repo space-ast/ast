@@ -22,11 +22,12 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief 天体形状基类
-class BodyShape : public Object
+class BodyShape : public ObjectNamed
 {
 public:
     /// @brief 将笛卡尔坐标转换为大地坐标

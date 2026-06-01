@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
 class SphereShape final: public BodyShape
 {
 public:
+    SphereShape(double radius);
+
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
