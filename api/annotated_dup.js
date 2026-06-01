@@ -847,7 +847,6 @@ var annotated_dup =
       [ "TimePoint", "classast_1_1TimePoint.html", "classast_1_1TimePoint" ],
       [ "TimeScale", "classast_1_1TimeScale.html", null ],
       [ "TLE", "classast_1_1TLE.html", "classast_1_1TLE" ],
-      [ "TrackingCoordinates", "classast_1_1TrackingCoordinates.html", "classast_1_1TrackingCoordinates" ],
       [ "TraitObject", "classast_1_1TraitObject.html", null ],
       [ "Transform", "classast_1_1Transform.html", "classast_1_1Transform" ],
       [ "Transmitter", "classast_1_1Transmitter.html", null ],

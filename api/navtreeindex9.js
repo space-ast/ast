@@ -1,16 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"ScStateCalcAzimuthRate_8hpp.html":[4,0,0,7,6,1,0,15,5],
-"ScStateCalcAzimuthRate_8hpp_source.html":[4,0,0,7,6,1,0,15,5],
-"ScStateCalcAzimuth_8cpp.html":[4,0,0,7,6,1,0,15,2],
-"ScStateCalcAzimuth_8hpp.html":[4,0,0,7,6,1,0,15,3],
-"ScStateCalcAzimuth_8hpp_source.html":[4,0,0,7,6,1,0,15,3],
-"ScStateCalcBDotRCalc_8cpp.html":[4,0,0,7,6,1,0,14,0],
-"ScStateCalcBDotRCalc_8hpp.html":[4,0,0,7,6,1,0,14,1],
-"ScStateCalcBDotRCalc_8hpp_source.html":[4,0,0,7,6,1,0,14,1],
-"ScStateCalcBDotTCalc_8cpp.html":[4,0,0,7,6,1,0,14,2],
-"ScStateCalcBDotTCalc_8hpp.html":[4,0,0,7,6,1,0,14,3],
-"ScStateCalcBDotTCalc_8hpp_source.html":[4,0,0,7,6,1,0,14,3],
 "ScStateCalcBMagCalc_8cpp.html":[4,0,0,7,6,1,0,14,6],
 "ScStateCalcBMagCalc_8hpp.html":[4,0,0,7,6,1,0,14,7],
 "ScStateCalcBMagCalc_8hpp_source.html":[4,0,0,7,6,1,0,14,7],
@@ -249,5 +238,16 @@ var NAVTREEINDEX9 =
 "ScStateCalcMCSDeltaVSquared_8hpp_source.html":[4,0,0,7,6,1,0,15,99],
 "ScStateCalcMCSDeltaV_8cpp.html":[4,0,0,7,6,1,0,15,96],
 "ScStateCalcMCSDeltaV_8hpp.html":[4,0,0,7,6,1,0,15,97],
-"ScStateCalcMCSDeltaV_8hpp_source.html":[4,0,0,7,6,1,0,15,97]
+"ScStateCalcMCSDeltaV_8hpp_source.html":[4,0,0,7,6,1,0,15,97],
+"ScStateCalcMagFieldDipoleL_8cpp.html":[4,0,0,7,6,1,0,15,82],
+"ScStateCalcMagFieldDipoleL_8hpp.html":[4,0,0,7,6,1,0,15,83],
+"ScStateCalcMagFieldDipoleL_8hpp_source.html":[4,0,0,7,6,1,0,15,83],
+"ScStateCalcMagneticFieldForce_8cpp.html":[4,0,0,7,6,1,0,15,84],
+"ScStateCalcMagneticFieldForce_8hpp.html":[4,0,0,7,6,1,0,15,85],
+"ScStateCalcMagneticFieldForce_8hpp_source.html":[4,0,0,7,6,1,0,15,85],
+"ScStateCalcMagneticFieldStrength_8cpp.html":[4,0,0,7,6,1,0,15,86],
+"ScStateCalcMagneticFieldStrength_8hpp.html":[4,0,0,7,6,1,0,15,87],
+"ScStateCalcMagneticFieldStrength_8hpp_source.html":[4,0,0,7,6,1,0,15,87],
+"ScStateCalcManeuverSpecificImpulse_8cpp.html":[4,0,0,7,6,1,0,15,88],
+"ScStateCalcManeuverSpecificImpulse_8hpp.html":[4,0,0,7,6,1,0,15,89]
 };
