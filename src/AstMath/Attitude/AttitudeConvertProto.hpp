@@ -87,6 +87,10 @@ AST_MATH_CAPI errc_t aEulerToMatrix(const Euler&euler, int seq, Matrix3d& mtx);
 AST_MATH_CAPI errc_t _aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx);
 
 
+AST_MATH_CAPI void aEuler32ToMatrix(const array2d& euler, Matrix3d& mtx);
+AST_MATH_CAPI void aEuler31ToMatrix(const array2d& euler, Matrix3d& mtx);
+
+
 AST_MATH_CAPI void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler);
 AST_MATH_CAPI void aMatrixToEuler132(const Matrix3d& mtx, Euler& euler);
 AST_MATH_CAPI void aMatrixToEuler213(const Matrix3d& mtx, Euler& euler);

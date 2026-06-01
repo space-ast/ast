@@ -508,4 +508,73 @@ TEST(AttitudeConvertTest, SpecificEulerSequences)
 }
 
 
+TEST(AttitudeConvertTest, aEuler32)
+{
+    {
+        Matrix3d mtx1;
+        Matrix3d mtx2;
+        aEuler32ToMatrix({ 0.2, 0.1 }, mtx1);
+        aEuler321ToMatrix({ 0.2, 0.1, 0}, mtx2);
+        for (size_t i = 0; i < mtx1.size(); i++)
+        {
+            EXPECT_NEAR(mtx1(i), mtx2(i), 1e-14);
+        }
+    }
+    {
+        Matrix3d mtx1;
+        Matrix3d mtx2;
+        aEuler32ToMatrix({ 0.21, 0.43 }, mtx1);
+        aEuler232ToMatrix({ 0, 0.21, 0.43}, mtx2);
+        for (size_t i = 0; i < mtx1.size(); i++)
+        {
+            EXPECT_NEAR(mtx1(i), mtx2(i), 1e-14);
+        }
+    }
+    {
+        Matrix3d mtx1;
+        Matrix3d mtx2;
+        aEuler32ToMatrix({ 0.42, 0.25 }, mtx1);
+        aEuler312ToMatrix({ 0.42, 0, 0.25}, mtx2);
+        for (size_t i = 0; i < mtx1.size(); i++)
+        {
+            EXPECT_NEAR(mtx1(i), mtx2(i), 1e-14);
+        }
+    }
+}
+
+TEST(AttitudeConvertTest, aEuler31)
+{
+    {
+        Matrix3d mtx1;
+        Matrix3d mtx2;
+        aEuler31ToMatrix({ 0.3, 0.7 }, mtx1);
+        aEuler312ToMatrix({ 0.3, 0.7, 0 }, mtx2);
+        for (size_t i = 0; i < mtx1.size(); i++)
+        {
+            EXPECT_NEAR(mtx1(i), mtx2(i), 1e-14);
+        }
+    }
+    {
+        Matrix3d mtx1;
+        Matrix3d mtx2;
+        aEuler31ToMatrix({ 0.15, 0.55 }, mtx1);
+        aEuler131ToMatrix({ 0, 0.15, 0.55 }, mtx2);
+        for (size_t i = 0; i < mtx1.size(); i++)
+        {
+            EXPECT_NEAR(mtx1(i), mtx2(i), 1e-14);
+        }
+    }
+    {
+        Matrix3d mtx1;
+        Matrix3d mtx2;
+        aEuler31ToMatrix({ 0.42, 0.88 }, mtx1);
+        aEuler321ToMatrix({ 0.42, 0, 0.88 }, mtx2);
+        for (size_t i = 0; i < mtx1.size(); i++)
+        {
+            EXPECT_NEAR(mtx1(i), mtx2(i), 1e-14);
+        }
+    }
+}
+
+
 GTEST_MAIN()

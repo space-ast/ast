@@ -45,7 +45,9 @@ AST_CORE_CAPI void aENUToAER(const Vector3d& enu, AER& aer);
 AST_CORE_CAPI void aAERToENU(const AER& aer, Vector3d& enu);
 
 
+// --------------------------------
 // MATLAB Mapping Toolbox 同名函数
+// ---------------------------------
 
 
 A_ALWAYS_INLINE AER ned2aer(const Vector3d& ned)

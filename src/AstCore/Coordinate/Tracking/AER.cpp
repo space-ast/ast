@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AER.hpp"
-#include "AstUtil/Constants.hpp"
+#include "AstUtil/Math.hpp"
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
@@ -36,7 +36,7 @@ void aNEDToAER(const Vector3d& ned, AER& aer)
     if (r > 0.0)
     {
         aer.azimuth_ = std::atan2(e, n);
-        aer.elevation_ = std::asin(-d / r);
+        aer.elevation_ = std::asin(-d / r);  // |d| <= |r| 一定成立
     }
     else
     {
@@ -48,10 +48,9 @@ void aNEDToAER(const Vector3d& ned, AER& aer)
 
 void aAERToNED(const AER& aer, Vector3d& ned)
 {
-    double cosEl = std::cos(aer.elevation_);
-    double sinEl = std::sin(aer.elevation_);
-    double cosAz = std::cos(aer.azimuth_);
-    double sinAz = std::sin(aer.azimuth_);
+    double sinEl, cosEl, sinAz, cosAz;
+    sincos(aer.elevation_, &sinEl, &cosEl);
+    sincos(aer.azimuth_,   &sinAz, &cosAz);
 
     ned.x() = aer.range_ * cosEl * cosAz;
     ned.y() = aer.range_ * cosEl * sinAz;
@@ -71,7 +70,7 @@ void aENUToAER(const Vector3d& enu, AER& aer)
     if (r > 0.0)
     {
         aer.azimuth_ = std::atan2(e, n);
-        aer.elevation_ = std::asin(u / r);
+        aer.elevation_ = std::asin(u / r);  // |u| <= |r| 一定成立
     }
     else
     {
@@ -83,10 +82,9 @@ void aENUToAER(const Vector3d& enu, AER& aer)
 
 void aAERToENU(const AER& aer, Vector3d& enu)
 {
-    double cosEl = std::cos(aer.elevation_);
-    double sinEl = std::sin(aer.elevation_);
-    double cosAz = std::cos(aer.azimuth_);
-    double sinAz = std::sin(aer.azimuth_);
+    double sinEl, cosEl, sinAz, cosAz;
+    sincos(aer.elevation_, &sinEl, &cosEl);
+    sincos(aer.azimuth_,   &sinAz, &cosAz);
 
     enu.x() = aer.range_ * cosEl * sinAz;
     enu.y() = aer.range_ * cosEl * cosAz;

@@ -52,7 +52,7 @@
 // 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
 
 
-#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
+#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间(如果关闭，需要同步更改rules.lua里的qt.moc.flags)
 // #define AST_USE_CRT_SAFE                      // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
                                                  //（已废弃，这些函数不用共享文件，即同时打开相同文件，在一些情况下有问题）
 
@@ -392,6 +392,8 @@ class CartState;             ///< 直角坐标
 class ModOrbElem;            ///< 改进轨道根数
 class OrbElem;               ///< 经典轨道根数
 
+class GeodeticPoint;         ///< 大地坐标
+
 class State;
 class StateCartesian;
 class StateKeplerian;
@@ -416,6 +418,7 @@ class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴
 class Point;                 ///< 坐标点
 class CelestialBody;         ///< 天体
+class BodyShape;             ///< 天体形状
 using Body = CelestialBody;  
 
 class EventTime;             ///< 事件时间

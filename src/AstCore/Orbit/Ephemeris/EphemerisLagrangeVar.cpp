@@ -21,6 +21,7 @@
 #include "EphemerisLagrangeVar.hpp"
 #include "AstMath/LagrangeInterpolator.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstUtil/Math.hpp"
 
 AST_NAMESPACE_BEGIN
 

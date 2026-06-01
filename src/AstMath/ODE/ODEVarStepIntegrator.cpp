@@ -22,6 +22,7 @@
 #include "AstMath/ODEStateObserver.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Math.hpp"
 #include <cmath>
 #include <algorithm>
 
