@@ -181,9 +181,8 @@ var searchData=
   ['ordinarydifferentialequation_178',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]],
   ['ordinarydifferentialequation_2ecpp_179',['OrdinaryDifferentialEquation.cpp',['../OrdinaryDifferentialEquation_8cpp.html',1,'']]],
   ['ordinarydifferentialequation_2ehpp_180',['OrdinaryDifferentialEquation.hpp',['../OrdinaryDifferentialEquation_8hpp.html',1,'']]],
-  ['orientation_5f_181',['orientation_',['../classast_1_1CelestialBody.html#afd2f0a7013266186c41b6f8b0c8b6450',1,'ast::CelestialBody']]],
-  ['orientationtype_5f_182',['orientationType_',['../classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3',1,'ast::StateKeplerian']]],
-  ['origin_5f_183',['origin_',['../classast_1_1FrameAssembly.html#a153f06ae7eb2d61d664281e07050fa17',1,'ast::FrameAssembly::origin_'],['../classast_1_1FrameWithEpoch.html#a9a32767beac508031b47d6e53c027575',1,'ast::FrameWithEpoch::origin_']]],
-  ['osculatingelements_2ecpp_184',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
-  ['osculatingelements_2ehpp_185',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]]
+  ['orientationtype_5f_181',['orientationType_',['../classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3',1,'ast::StateKeplerian']]],
+  ['origin_5f_182',['origin_',['../classast_1_1FrameAssembly.html#a153f06ae7eb2d61d664281e07050fa17',1,'ast::FrameAssembly::origin_'],['../classast_1_1FrameWithEpoch.html#a9a32767beac508031b47d6e53c027575',1,'ast::FrameWithEpoch::origin_']]],
+  ['osculatingelements_2ecpp_183',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
+  ['osculatingelements_2ehpp_184',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]]
 ];

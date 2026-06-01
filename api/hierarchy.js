@@ -1201,6 +1201,7 @@ var hierarchy =
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
     [ "ast::TLE", "classast_1_1TLE.html", null ],
+    [ "ast::TrackingCoordinates", "classast_1_1TrackingCoordinates.html", null ],
     [ "ast::Transform", "classast_1_1Transform.html", [
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
     ] ],

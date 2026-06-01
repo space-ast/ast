@@ -102,7 +102,6 @@ $(function(){initNavTree('classast_1_1CelestialBody.html',''); initResizable(tru
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
-<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="#friends">友元</a> &#124;
 <a href="classast_1_1CelestialBody-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::CelestialBody类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__SolarSystem.html">太阳系</a></div></div></div>
@@ -286,6 +285,12 @@ const <a class="el" href="classast_1_1GravityField.html">GravityField</a> &amp;&
 <tr class="memitem:a87f25ac5cb7d38dba0be5352b2c176f3" id="r_a87f25ac5cb7d38dba0be5352b2c176f3"><td class="memItemLeft" align="right" valign="top"><a id="a87f25ac5cb7d38dba0be5352b2c176f3" name="a87f25ac5cb7d38dba0be5352b2c176f3"></a>
 <a class="el" href="classast_1_1SharedPtr.html">HFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><b>makeFrameICRF</b> () const</td></tr>
 <tr class="separator:a87f25ac5cb7d38dba0be5352b2c176f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e0c330c0ac37f67bdb901a1e52ebdb" id="r_a17e0c330c0ac37f67bdb901a1e52ebdb"><td class="memItemLeft" align="right" valign="top"><a id="a17e0c330c0ac37f67bdb901a1e52ebdb" name="a17e0c330c0ac37f67bdb901a1e52ebdb"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFrameInertial</b> () const</td></tr>
+<tr class="separator:a17e0c330c0ac37f67bdb901a1e52ebdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e3b3c10d621bb16624001599208522" id="r_ad9e3b3c10d621bb16624001599208522"><td class="memItemLeft" align="right" valign="top"><a id="ad9e3b3c10d621bb16624001599208522" name="ad9e3b3c10d621bb16624001599208522"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFrameFixed</b> () const</td></tr>
+<tr class="separator:ad9e3b3c10d621bb16624001599208522"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Point"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Point')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Point.html">ast::Point</a></td></tr>
 <tr class="memitem:a3b46eeef9261d63d8418c7c3d1784e74 inherit pub_methods_classast_1_1Point" id="r_a3b46eeef9261d63d8418c7c3d1784e74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74">toBody</a> () const</td></tr>
 <tr class="separator:a3b46eeef9261d63d8418c7c3d1784e74 inherit pub_methods_classast_1_1Point"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -450,57 +455,6 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadMeanEarthDefini
 <tr class="memitem:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object" id="r_ae68f77d7295e98d721fd27590cfba289"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
 <tr class="separator:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected 属性</h2></td></tr>
-<tr class="memitem:a9c2b986d61ad512ef507bec9ca9dcded" id="r_a9c2b986d61ad512ef507bec9ca9dcded"><td class="memItemLeft" align="right" valign="top"><a id="a9c2b986d61ad512ef507bec9ca9dcded" name="a9c2b986d61ad512ef507bec9ca9dcded"></a>
-<a class="el" href="classast_1_1WeakPtr.html">WeakPtr</a>&lt; <a class="el" href="classast_1_1SolarSystem.html">SolarSystem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>solarSystem_</b></td></tr>
-<tr class="separator:a9c2b986d61ad512ef507bec9ca9dcded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2d4ad177a330c15d89b602aa8aa9702" id="r_ac2d4ad177a330c15d89b602aa8aa9702"><td class="memItemLeft" align="right" valign="top"><a id="ac2d4ad177a330c15d89b602aa8aa9702" name="ac2d4ad177a330c15d89b602aa8aa9702"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>parent_</b></td></tr>
-<tr class="separator:ac2d4ad177a330c15d89b602aa8aa9702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f2f187b7604ce4ffd70561e61084bae" id="r_a9f2f187b7604ce4ffd70561e61084bae"><td class="memItemLeft" align="right" valign="top"><a id="a9f2f187b7604ce4ffd70561e61084bae" name="a9f2f187b7604ce4ffd70561e61084bae"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
-<tr class="separator:a9f2f187b7604ce4ffd70561e61084bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ae555744def2ce98844f1847a3d76da" id="r_a6ae555744def2ce98844f1847a3d76da"><td class="memItemLeft" align="right" valign="top"><a id="a6ae555744def2ce98844f1847a3d76da" name="a6ae555744def2ce98844f1847a3d76da"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>gm_</b> {0.0}</td></tr>
-<tr class="separator:a6ae555744def2ce98844f1847a3d76da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7315bf6731ca1a1af2cfa28dde3edbf" id="r_af7315bf6731ca1a1af2cfa28dde3edbf"><td class="memItemLeft" align="right" valign="top"><a id="af7315bf6731ca1a1af2cfa28dde3edbf" name="af7315bf6731ca1a1af2cfa28dde3edbf"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>systemGM_</b> {0.0}</td></tr>
-<tr class="separator:af7315bf6731ca1a1af2cfa28dde3edbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87d4a909c92bfadee894f42cd5175838" id="r_a87d4a909c92bfadee894f42cd5175838"><td class="memItemLeft" align="right" valign="top"><a id="a87d4a909c92bfadee894f42cd5175838" name="a87d4a909c92bfadee894f42cd5175838"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>radius_</b> {0.0}</td></tr>
-<tr class="separator:a87d4a909c92bfadee894f42cd5175838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89419dd08fc39451be2d87de4d4f26d4" id="r_a89419dd08fc39451be2d87de4d4f26d4"><td class="memItemLeft" align="right" valign="top"><a id="a89419dd08fc39451be2d87de4d4f26d4" name="a89419dd08fc39451be2d87de4d4f26d4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>jplSpiceId_</b> {-1}</td></tr>
-<tr class="separator:a89419dd08fc39451be2d87de4d4f26d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72449b5ffc3db85db7e75ab6cb804058" id="r_a72449b5ffc3db85db7e75ab6cb804058"><td class="memItemLeft" align="right" valign="top"><a id="a72449b5ffc3db85db7e75ab6cb804058" name="a72449b5ffc3db85db7e75ab6cb804058"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>jplIndex_</b> {-1}</td></tr>
-<tr class="separator:a72449b5ffc3db85db7e75ab6cb804058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0145f811890c19e2d95ed0782fc83f66" id="r_a0145f811890c19e2d95ed0782fc83f66"><td class="memItemLeft" align="right" valign="top"><a id="a0145f811890c19e2d95ed0782fc83f66" name="a0145f811890c19e2d95ed0782fc83f66"></a>
-<a class="el" href="classast_1_1GravityField.html">GravityField</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravityField_</b></td></tr>
-<tr class="separator:a0145f811890c19e2d95ed0782fc83f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10877d649f6c584321d901fdc38e26d8" id="r_a10877d649f6c584321d901fdc38e26d8"><td class="memItemLeft" align="right" valign="top"><a id="a10877d649f6c584321d901fdc38e26d8" name="a10877d649f6c584321d901fdc38e26d8"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shape_</b></td></tr>
-<tr class="separator:a10877d649f6c584321d901fdc38e26d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd2f0a7013266186c41b6f8b0c8b6450" id="r_afd2f0a7013266186c41b6f8b0c8b6450"><td class="memItemLeft" align="right" valign="top"><a id="afd2f0a7013266186c41b6f8b0c8b6450" name="afd2f0a7013266186c41b6f8b0c8b6450"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1BodyOrientation.html">BodyOrientation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>orientation_</b></td></tr>
-<tr class="separator:afd2f0a7013266186c41b6f8b0c8b6450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d23ee9de7b047c1bfeffd4f895e3a9" id="r_a00d23ee9de7b047c1bfeffd4f895e3a9"><td class="memItemLeft" align="right" valign="top"><a id="a00d23ee9de7b047c1bfeffd4f895e3a9" name="a00d23ee9de7b047c1bfeffd4f895e3a9"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1BodyEphemeris.html">BodyEphemeris</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ephemeris_</b></td></tr>
-<tr class="separator:a00d23ee9de7b047c1bfeffd4f895e3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa18f0b89f7fa2b1a50d417a589f42522" id="r_aa18f0b89f7fa2b1a50d417a589f42522"><td class="memItemLeft" align="right" valign="top"><a id="aa18f0b89f7fa2b1a50d417a589f42522" name="aa18f0b89f7fa2b1a50d417a589f42522"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1AxesBodyInertial.html">AxesBodyInertial</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>axesInertial_</b></td></tr>
-<tr class="separator:aa18f0b89f7fa2b1a50d417a589f42522"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a3257e3f2c62fd3ca75f6cdb5d812ff" id="r_a3a3257e3f2c62fd3ca75f6cdb5d812ff"><td class="memItemLeft" align="right" valign="top"><a id="a3a3257e3f2c62fd3ca75f6cdb5d812ff" name="a3a3257e3f2c62fd3ca75f6cdb5d812ff"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1AxesBodyFixed.html">AxesBodyFixed</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>axesFixed_</b></td></tr>
-<tr class="separator:a3a3257e3f2c62fd3ca75f6cdb5d812ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11879995b1f42dbcdff2f0c966b4ebd2" id="r_a11879995b1f42dbcdff2f0c966b4ebd2"><td class="memItemLeft" align="right" valign="top"><a id="a11879995b1f42dbcdff2f0c966b4ebd2" name="a11879995b1f42dbcdff2f0c966b4ebd2"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1AxesBodyMOD.html">AxesBodyMOD</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>axesMOD_</b></td></tr>
-<tr class="separator:a11879995b1f42dbcdff2f0c966b4ebd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3846f684b8934029ddd0c0c23f28e41f" id="r_a3846f684b8934029ddd0c0c23f28e41f"><td class="memItemLeft" align="right" valign="top"><a id="a3846f684b8934029ddd0c0c23f28e41f" name="a3846f684b8934029ddd0c0c23f28e41f"></a>
-<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1AxesBodyTOD.html">AxesBodyTOD</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>axesTOD_</b></td></tr>
-<tr class="separator:a3846f684b8934029ddd0c0c23f28e41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>

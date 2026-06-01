@@ -1,5 +1,16 @@
 var NAVTREEINDEX8 =
 {
+"PropertyPOD_8hpp.html":[4,0,0,20,7,0,21],
+"PropertyPOD_8hpp_source.html":[4,0,0,20,7,0,21],
+"PropertyQuantity_8cpp.html":[4,0,0,20,7,0,22],
+"PropertyQuantity_8hpp.html":[4,0,0,20,7,0,23],
+"PropertyQuantity_8hpp_source.html":[4,0,0,20,7,0,23],
+"PropertyString_8cpp.html":[4,0,0,20,7,0,24],
+"PropertyString_8hpp.html":[4,0,0,20,7,0,25],
+"PropertyString_8hpp_source.html":[4,0,0,20,7,0,25],
+"PropertyStruct_8cpp.html":[4,0,0,20,7,0,26],
+"PropertyStruct_8hpp.html":[4,0,0,20,7,0,27],
+"PropertyStruct_8hpp_source.html":[4,0,0,20,7,0,27],
 "PropertyVisitor_8cpp.html":[4,0,0,20,7,0,1,0],
 "PropertyVisitor_8hpp.html":[4,0,0,20,7,0,1,1],
 "PropertyVisitor_8hpp_source.html":[4,0,0,20,7,0,1,1],
@@ -238,16 +249,5 @@ var NAVTREEINDEX8 =
 "ScStateCalcAtmosTemperature_8cpp.html":[4,0,0,7,6,1,0,6,4],
 "ScStateCalcAtmosTemperature_8hpp.html":[4,0,0,7,6,1,0,6,5],
 "ScStateCalcAtmosTemperature_8hpp_source.html":[4,0,0,7,6,1,0,6,5],
-"ScStateCalcAzimuthRate_8cpp.html":[4,0,0,7,6,1,0,15,4],
-"ScStateCalcAzimuthRate_8hpp.html":[4,0,0,7,6,1,0,15,5],
-"ScStateCalcAzimuthRate_8hpp_source.html":[4,0,0,7,6,1,0,15,5],
-"ScStateCalcAzimuth_8cpp.html":[4,0,0,7,6,1,0,15,2],
-"ScStateCalcAzimuth_8hpp.html":[4,0,0,7,6,1,0,15,3],
-"ScStateCalcAzimuth_8hpp_source.html":[4,0,0,7,6,1,0,15,3],
-"ScStateCalcBDotRCalc_8cpp.html":[4,0,0,7,6,1,0,14,0],
-"ScStateCalcBDotRCalc_8hpp.html":[4,0,0,7,6,1,0,14,1],
-"ScStateCalcBDotRCalc_8hpp_source.html":[4,0,0,7,6,1,0,14,1],
-"ScStateCalcBDotTCalc_8cpp.html":[4,0,0,7,6,1,0,14,2],
-"ScStateCalcBDotTCalc_8hpp.html":[4,0,0,7,6,1,0,14,3],
-"ScStateCalcBDotTCalc_8hpp_source.html":[4,0,0,7,6,1,0,14,3]
+"ScStateCalcAzimuthRate_8cpp.html":[4,0,0,7,6,1,0,15,4]
 };

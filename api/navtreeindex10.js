@@ -1,5 +1,16 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcMagFieldDipoleL_8cpp.html":[4,0,0,7,6,1,0,15,82],
+"ScStateCalcMagFieldDipoleL_8hpp.html":[4,0,0,7,6,1,0,15,83],
+"ScStateCalcMagFieldDipoleL_8hpp_source.html":[4,0,0,7,6,1,0,15,83],
+"ScStateCalcMagneticFieldForce_8cpp.html":[4,0,0,7,6,1,0,15,84],
+"ScStateCalcMagneticFieldForce_8hpp.html":[4,0,0,7,6,1,0,15,85],
+"ScStateCalcMagneticFieldForce_8hpp_source.html":[4,0,0,7,6,1,0,15,85],
+"ScStateCalcMagneticFieldStrength_8cpp.html":[4,0,0,7,6,1,0,15,86],
+"ScStateCalcMagneticFieldStrength_8hpp.html":[4,0,0,7,6,1,0,15,87],
+"ScStateCalcMagneticFieldStrength_8hpp_source.html":[4,0,0,7,6,1,0,15,87],
+"ScStateCalcManeuverSpecificImpulse_8cpp.html":[4,0,0,7,6,1,0,15,88],
+"ScStateCalcManeuverSpecificImpulse_8hpp.html":[4,0,0,7,6,1,0,15,89],
 "ScStateCalcManeuverSpecificImpulse_8hpp_source.html":[4,0,0,7,6,1,0,15,89],
 "ScStateCalcManeuverTotalMassFlowRate_8cpp.html":[4,0,0,7,6,1,0,15,90],
 "ScStateCalcManeuverTotalMassFlowRate_8hpp.html":[4,0,0,7,6,1,0,15,91],
@@ -238,16 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcTimeDifference_8cpp.html":[4,0,0,7,6,1,0,15,206],
 "ScStateCalcTimeDifference_8hpp.html":[4,0,0,7,6,1,0,15,207],
 "ScStateCalcTimeDifference_8hpp_source.html":[4,0,0,7,6,1,0,15,207],
-"ScStateCalcTimePastAscNode_8cpp.html":[4,0,0,7,6,1,0,10,28],
-"ScStateCalcTimePastAscNode_8hpp.html":[4,0,0,7,6,1,0,10,29],
-"ScStateCalcTimePastAscNode_8hpp_source.html":[4,0,0,7,6,1,0,10,29],
-"ScStateCalcTimePastPeriapsis_8cpp.html":[4,0,0,7,6,1,0,10,30],
-"ScStateCalcTimePastPeriapsis_8hpp.html":[4,0,0,7,6,1,0,10,31],
-"ScStateCalcTimePastPeriapsis_8hpp_source.html":[4,0,0,7,6,1,0,10,31],
-"ScStateCalcTrueAnomaly_8cpp.html":[4,0,0,7,6,1,0,10,32],
-"ScStateCalcTrueAnomaly_8hpp.html":[4,0,0,7,6,1,0,10,33],
-"ScStateCalcTrueAnomaly_8hpp_source.html":[4,0,0,7,6,1,0,10,33],
-"ScStateCalcTrueLong_8cpp.html":[4,0,0,7,6,1,0,10,34],
-"ScStateCalcTrueLong_8hpp.html":[4,0,0,7,6,1,0,10,35],
-"ScStateCalcTrueLong_8hpp_source.html":[4,0,0,7,6,1,0,10,35]
+"ScStateCalcTimePastAscNode_8cpp.html":[4,0,0,7,6,1,0,10,28]
 };
