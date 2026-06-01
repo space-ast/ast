@@ -25,8 +25,8 @@ rule("ast")
             end
             target:add("ldflags", "-s ALLOW_MEMORY_GROWTH=1")
             target:add("shflags", "-s ALLOW_MEMORY_GROWTH=1")
-            target:add("ldflags", "-s INITIAL_MEMORY=33554432")  -- This option was formerly calledTOTAL_MEMORY
-            target:add("ldflags", "-s TOTAL_MEMORY=33554432")
+            target:add("ldflags", "-s INITIAL_MEMORY=33554432")  -- This option was formerly called TOTAL_MEMORY
+            target:add("ldflags", "-s TOTAL_MEMORY=33554432")    -- 为了兼容老版本的emscripten
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())
         if os.isdir(include_dir) then
@@ -37,7 +37,13 @@ rule("ast")
             target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
         end
     end)
-    
+    before_build(function (target)
+        if target:plat() == "wasm" then
+            if not os.exists("build/wasm/data") then
+                os.cp("data/*|Test|Dev|.git|Config|README.md|.gitignore|.gitattributes", "build/wasm/data/")
+            end
+        end
+    end)
     after_config(function (target)
         if target:plat() == "wasm" then
             if os.exists("build/wasm/data") then
@@ -45,11 +51,10 @@ rule("ast")
             end
         end
     end)
-
-    before_build(function (target)
+    before_clean(function (target)
         if target:plat() == "wasm" then
-            if not os.exists("build/wasm/data") then
-                os.cp("data/*|Test|Dev|.git|Config|README.md|.gitignore|.gitattributes", "build/wasm/data/")
+            if os.exists("build/wasm/data") then
+                os.rmdir("build/wasm/data")
             end
         end
     end)
