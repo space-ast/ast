@@ -21,7 +21,7 @@
 #include "ast/Point.hpp"
 #include "ast/AxesRoot.hpp"
 #include "ast/AxesICRF.hpp"
-#include "ast/AxesTransform.hpp"
+#include "ast/FrameTransform.hpp"
 #include "ast/RunTime.hpp"
 #include "ast/EarthFrame.hpp"
 #include "ast/CelestialBody.hpp"

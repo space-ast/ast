@@ -7,6 +7,6 @@
 #include "AstCore/PlanetFrame.hpp"
 #include "AstCore/EarthFrame.hpp"
 #include "AstCore/MoonFrame.hpp"
-#include "AstCore/InertialAxes.hpp"
+#include "AstCore/InertialFrame.hpp"
 #include "AstCore/BuiltinAxes.hpp"
 #include "AstCore/BuiltinFrame.hpp"

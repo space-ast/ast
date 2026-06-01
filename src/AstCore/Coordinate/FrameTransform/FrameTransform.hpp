@@ -1,5 +1,5 @@
 #pragma once
-#include "AstCore/InertialAxes.hpp"
+#include "AstCore/InertialFrame.hpp"
 #include "AstCore/LocalOrbitFrame.hpp"
 #include "AstCore/LocalHorizonalFrame.hpp"
 #include "AstCore/MoonFrame.hpp"
