@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SphereShape.hpp"
+#include "AstCore/LocalHorizonalFrame.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,12 +30,12 @@ SphereShape::SphereShape(double radius)
 
 void SphereShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
-
+    aBodyFixedToGeodetic(cartesian, detic, radius_);
 }
 
 void SphereShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
 {
-    
+    aGeodeticToBodyFixed(detic, cartesian, radius_);
 }
 
 

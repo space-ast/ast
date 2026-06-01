@@ -37,6 +37,54 @@ AST_CORE_CAPI void aGeodeticToNEDTransform(const GeodeticPoint& origin, Rotation
 /// @brief 大地坐标(天体固连系)转ENU坐标系的旋转变换
 AST_CORE_CAPI void aGeodeticToENUTransform(const GeodeticPoint& origin, Rotation& rot);
 
+
+/// @brief 大地坐标转天体固连系坐标
+/// @param[in] point 大地坐标
+/// @param[out] bodyFixed 输出的天体固连系坐标
+/// @param[in] radius 扁球体赤道半径
+/// @param[in] flatFact 扁率
+AST_CORE_API void aGeodeticToBodyFixed(const GeodeticPoint& point, Vector3d& bodyFixed, double radius, double flatFact);
+
+/// @brief 天体固连系坐标转大地坐标
+/// @param[in] bodyFixed 天体固连系坐标
+/// @param[out] point 输出的大地坐标
+/// @param[in] radius 扁球体赤道半径
+/// @param[in] flatFact 扁率
+AST_CORE_API void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, double radius, double flatFact);
+
+
+/// @brief 大地坐标转天体固连系坐标
+/// @param[in] point 大地坐标
+/// @param[out] bodyFixed 输出的天体固连系坐标
+/// @param[in] radius 圆球半径
+AST_CORE_API void aGeodeticToBodyFixed(const GeodeticPoint& point, Vector3d& bodyFixed, double radius);
+
+
+/// @brief 天体固连系坐标转大地坐标
+/// @param[in] bodyFixed 天体固连系坐标
+/// @param[out] point 输出的大地坐标
+/// @param[in] radius 圆球半径
+AST_CORE_API void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, double radius);
+
+
+/// @brief 大地坐标转天体固连系坐标
+/// @param[in] point 大地坐标
+/// @param[out] bodyFixed 输出的天体固连系坐标
+/// @param[in] xRadius 椭球体x轴半径
+/// @param[in] yRadius 椭球体y轴半径
+/// @param[in] zRadius 椭球体z轴半径
+AST_CORE_API void aGeodeticToBodyFixed(const GeodeticPoint& point, Vector3d& bodyFixed, double xRadius, double yRadius, double zRadius);
+
+
+/// @brief 天体固连系坐标转大地坐标
+/// @param[in] bodyFixed 天体固连系坐标
+/// @param[out] point 输出的大地坐标
+/// @param[in] xRadius 椭球体x轴半径
+/// @param[in] yRadius 椭球体y轴半径
+/// @param[in] zRadius 椭球体z轴半径
+AST_CORE_API void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, double xRadius, double yRadius, double zRadius);
+
+
 /// @brief 大地坐标转NED坐标
 /// @param point 大地坐标
 /// @param origin 局部NED系原点

@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "EllipsoidShape.hpp"
+#include "AstCore/LocalHorizonalFrame.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -33,12 +34,12 @@ EllipsoidShape::EllipsoidShape(double majorAxis, double middleAxis, double minor
 
 void EllipsoidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
-
+    aBodyFixedToGeodetic(cartesian, detic, majorAxis_, middleAxis_, minorAxis_);
 }
 
 void EllipsoidShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
 {
-    
+    aGeodeticToBodyFixed(detic, cartesian, majorAxis_, middleAxis_, minorAxis_);
 }
 
 

@@ -19,6 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SpheroidShape.hpp"
+#include "AstCore/GeodeticPoint.hpp"
+#include "AstCore/LocalHorizonalFrame.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -47,12 +50,12 @@ SpheroidShape::SpheroidShape(double majorAxis, double flatFactor)
 
 void SpheroidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
-
+    aBodyFixedToGeodetic(cartesian, detic, majorAxis_, flatfactor_);
 }
 
 void SpheroidShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
 {
-
+    aGeodeticToBodyFixed(detic, cartesian, majorAxis_, flatfactor_);
 }
 
 
