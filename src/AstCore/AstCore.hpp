@@ -1,4 +1,5 @@
 // AstCore 工程聚合头文件
+#include "AstCore/AER.hpp"
 #include "AstCore/Angle.hpp"
 #include "AstCore/AstCoreC.h"
 #include "AstCore/AstCoreGlobal.h"
@@ -481,6 +482,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/TimeScale.hpp"
 #include "AstCore/TimeSystem.hpp"
+#include "AstCore/TrackingCoordinates.hpp"
 #include "AstCore/TraitObject.hpp"
 #include "AstCore/TraitPosVel.hpp"
 #include "AstCore/TraitValue.hpp"

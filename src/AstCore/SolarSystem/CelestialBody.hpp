@@ -254,6 +254,13 @@ public:
 
     /// @brief 创建新的天体ICRF坐标系
     HFrame makeFrameICRF() const;
+public:
+    /// @brief 获取天体惯性坐标系
+    Frame* getFrameInertial() const;
+
+    /// @brief 获取天体固连坐标系
+    Frame* getFrameFixed() const;
+
 #endif
 protected:
 
@@ -286,7 +293,7 @@ protected:
     errc_t loadMeanEarthDefinition(BKVParser& parser);
 
     A_DISABLE_COPY(CelestialBody)
-protected:
+private:
     WeakPtr<SolarSystem>        solarSystem_;              ///< 太阳系指针
     SharedPtr<CelestialBody>    parent_;                   ///< 父天体
     std::string                 name_;                     ///< 天体名称
@@ -305,9 +312,8 @@ protected:
     SharedPtr<AxesBodyMOD>      axesMOD_;                  ///< 天体MOD轴
     SharedPtr<AxesBodyTOD>      axesTOD_;                  ///< 天体TOD轴
 
-    /*!
-    增加Frame类型成员变量会导致循环引用，导致内存泄漏
-    */
+    mutable WeakPtr<Frame>      frameInertial_;            ///< 天体惯性坐标系
+    mutable WeakPtr<Frame>      frameFixed_;               ///< 天体固连坐标系
 };
 
 

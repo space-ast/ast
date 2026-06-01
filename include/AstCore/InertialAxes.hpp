@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Coordinate/InertialAxes.hpp"
+#include "../../src/AstCore/Coordinate/Transform/InertialAxes.hpp"

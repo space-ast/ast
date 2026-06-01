@@ -310,6 +310,41 @@ HFrame CelestialBody::makeFrameICRF() const
     return makeFrame(aAxesICRF());
 }
 
+
+Frame *CelestialBody::getFrameInertial() const
+{
+    auto frame = frameInertial_.get();
+    if(frame)
+    {
+        return frame;
+    }
+    else
+    {
+        auto frame = makeFrameInertial();
+        frame->setName("Inertial");
+        frame->setParentScope(const_cast<CelestialBody*>(this));
+        frameInertial_ = frame;
+        return frame;
+    }
+}
+
+Frame *CelestialBody::getFrameFixed() const
+{
+    auto frame = frameFixed_.get();
+    if(frame)
+    {
+        return frame;
+    }
+    else
+    {
+        auto frame = makeFrameFixed();
+        frame->setName("Fixed");
+        frame->setParentScope(const_cast<CelestialBody*>(this));
+        frameFixed_ = frame;
+        return frame;
+    }
+}
+
 Axes *CelestialBody::getEpochAxesReference() const
 {
     if(this->isEarth()){
