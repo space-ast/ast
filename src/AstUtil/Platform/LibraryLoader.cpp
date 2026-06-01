@@ -19,6 +19,7 @@
  
  
 #include "LibraryLoader.hpp"
+#include "AstUtil/Logger.hpp"
 #include "AstUtil/Encode.hpp"
 #include <cstdio>
 #include <cstring>
@@ -33,6 +34,39 @@
  
 AST_NAMESPACE_BEGIN
 
+
+#ifdef A_WASM
+
+void* aLoadLibrary(const char*)
+{
+    aError("WASM not support load library");
+    return nullptr;
+}
+
+void* aGetProcAddress(void*, const char*)
+{
+    aError("WASM not support get procedure address");
+    return nullptr;
+}
+
+void* aResolveProcAddress(const char* , const char* )
+{
+    aError("WASM not support resolve procedure address");
+    return nullptr;
+}
+
+errc_t aFreeLibrary(void*)
+{
+    aError("WASM not support free library");
+    return eError;
+}
+
+const char* aGetLoadError()
+{
+    aError("WASM not support library loader");
+    return "WASM not support library loader";
+}
+#else
 
 void* _aLoadLibrary(const char* filepath)
 {
@@ -165,5 +199,7 @@ const char* aGetLoadError()
     return dlerror();
 #endif
 }
+
+#endif // A_WASM
 
 AST_NAMESPACE_END
