@@ -88,7 +88,7 @@ elseif is_plat("windows") then
 elseif is_plat("wasm") then         -- 编译为wasm
     -- for clang
     add_cxflags(
-        "-Wno-missing-braces"       -- 忽略警告：缺少大括号 
+        "-Wno-missing-braces"       -- 忽略警告：缺少大括号
     )
 end
 

@@ -1,9 +1,5 @@
 target("AppGUI")
-    if is_plat("wasm") then
-        add_rules("qt.widgetapp_static")
-    else
-        add_rules("qt.widgetapp")
-    end
+    add_rules("ast.qt.widgetapp")
     add_files("**.cpp")
     add_files("**.hpp")
     -- add_files("**.ui")

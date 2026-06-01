@@ -24,6 +24,7 @@
 #include <QIcon>
 #include <QCoreApplication>
 #include <QString>
+#include "AstCore/RunTime.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,7 +32,13 @@ class Object;
 
 inline QIcon loadIcon(const QString& name)
 {
-    QString path = QCoreApplication::applicationDirPath() + "/data/icons/" + name + ".svg";
+    #ifdef A_WASM
+    // wasm 不会存在data目录和exe目录分离的情况，所以直接使用相对路径
+    QString path = "data/icons/" + name + ".svg";
+    #else
+    // 其他平台需要通过aDataDir获取data目录路径，避免其他软件调用ast库时的路径错误
+    QString path = QString::fromStdString(aDataDir()) + "/icons/" + name + ".svg";
+    #endif
     return QIcon(path);
 }
 
