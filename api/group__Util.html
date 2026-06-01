@@ -412,6 +412,15 @@ template&lt;typename Scalar &gt; </td></tr>
 template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:gae607d540253979beacb45ea4a55c0bb1"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMin</b> (Scalar a, Scalar b)</td></tr>
 <tr class="separator:gae607d540253979beacb45ea4a55c0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282" id="r_ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga77fdcb17fe2f5bf4506f1f136b81f282">ast::clamp</a> (const T &amp;val, const T &amp;low, const T &amp;high)</td></tr>
+<tr class="separator:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69612c7878a622a17ab0f6af56aaab65" id="r_ga69612c7878a622a17ab0f6af56aaab65"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69612c7878a622a17ab0f6af56aaab65">ast::asinSafe</a> (double x)</td></tr>
+<tr class="separator:ga69612c7878a622a17ab0f6af56aaab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3daeb4f2ae541a38327773fb244197b" id="r_gaf3daeb4f2ae541a38327773fb244197b"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf3daeb4f2ae541a38327773fb244197b">ast::acosSafe</a> (double x)</td></tr>
+<tr class="separator:gaf3daeb4f2ae541a38327773fb244197b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga448817aeed1fc1c6155f4642d15b3637" id="r_ga448817aeed1fc1c6155f4642d15b3637"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga448817aeed1fc1c6155f4642d15b3637">ast::sqrtSafe</a> (double x)</td></tr>
+<tr class="separator:ga448817aeed1fc1c6155f4642d15b3637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae628da25178a68de57bdf3fdfd9e8dcb" id="r_gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a> (double angle, double start)</td></tr>
 <tr class="separator:gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaea03a932dcd544c97844e1f9eb451437" id="r_gaea03a932dcd544c97844e1f9eb451437"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a> (double angle, double center)</td></tr>
@@ -1259,6 +1268,32 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRev
 
 </div>
 </div>
+<a id="gaf3daeb4f2ae541a38327773fb244197b" name="gaf3daeb4f2ae541a38327773fb244197b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf3daeb4f2ae541a38327773fb244197b">&#9670;&#160;</a></span>acosSafe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE double ast::acosSafe </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>安全反余弦，参数自动箝位到 [-1, 1] </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>余弦值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>反余弦值（弧度） </dd></dl>
+
+</div>
+</div>
 <a id="gad98bdd67f1f6fb3c6f78889f92a20369" name="gad98bdd67f1f6fb3c6f78889f92a20369"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gad98bdd67f1f6fb3c6f78889f92a20369">&#9670;&#160;</a></span>aDataDir() <span class="overload">[1/2]</span></h2>
 
@@ -1667,6 +1702,32 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRev
 
 </div>
 </div>
+<a id="ga69612c7878a622a17ab0f6af56aaab65" name="ga69612c7878a622a17ab0f6af56aaab65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga69612c7878a622a17ab0f6af56aaab65">&#9670;&#160;</a></span>asinSafe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE double ast::asinSafe </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>安全反正弦，参数自动箝位到 [-1, 1] </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>正弦值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>反正弦值（弧度） </dd></dl>
+
+</div>
+</div>
 <a id="gaddc9ca4ebc4ce64ac86c0411f920a092" name="gaddc9ca4ebc4ce64ac86c0411f920a092"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaddc9ca4ebc4ce64ac86c0411f920a092">&#9670;&#160;</a></span>atan2d()</h2>
 
@@ -1721,6 +1782,45 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRev
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>角度(以度为单位) </dd></dl>
+
+</div>
+</div>
+<a id="ga77fdcb17fe2f5bf4506f1f136b81f282" name="ga77fdcb17fe2f5bf4506f1f136b81f282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77fdcb17fe2f5bf4506f1f136b81f282">&#9670;&#160;</a></span>clamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">A_CONSTEXPR_CXX14 const T &amp; ast::clamp </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>high</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对值进行范围限制 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>输入值 </td></tr>
+    <tr><td class="paramname">low</td><td>最小值 </td></tr>
+    <tr><td class="paramname">high</td><td>最大值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>限制后的值 </dd></dl>
 
 </div>
 </div>
@@ -2053,6 +2153,32 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRev
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>正弦值 </dd></dl>
+
+</div>
+</div>
+<a id="ga448817aeed1fc1c6155f4642d15b3637" name="ga448817aeed1fc1c6155f4642d15b3637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga448817aeed1fc1c6155f4642d15b3637">&#9670;&#160;</a></span>sqrtSafe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE double ast::sqrtSafe </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>安全平方根，参数自动箝位到 [0, +∞] </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>输入值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>平方根值 </dd></dl>
 
 </div>
 </div>

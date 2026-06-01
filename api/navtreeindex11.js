@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcTrueLong_8cpp.html":[4,0,0,7,6,1,0,10,34],
+"ScStateCalcTrueLong_8hpp.html":[4,0,0,7,6,1,0,10,35],
+"ScStateCalcTrueLong_8hpp_source.html":[4,0,0,7,6,1,0,10,35],
 "ScStateCalcUserValue_8cpp.html":[4,0,0,7,6,1,0,15,208],
 "ScStateCalcUserValue_8hpp.html":[4,0,0,7,6,1,0,15,209],
 "ScStateCalcUserValue_8hpp_source.html":[4,0,0,7,6,1,0,15,209],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "SpaceObject_8hpp.html":[4,0,0,17,3,57],
 "SpaceObject_8hpp.html#a0e9729fb90d67faafec2435a814d25ac":[4,0,0,17,3,57,3],
 "SpaceObject_8hpp.html#a42a38cf0aed9af584dd2b2dfb7b15711":[4,0,0,17,3,57,4],
-"SpaceObject_8hpp.html#a53b517690d4d043bf79a2fb35fd86c43":[4,0,0,17,3,57,2],
-"SpaceObject_8hpp.html#aca90054f47905f59270738482f4378a7":[4,0,0,17,3,57,1],
-"SpaceObject_8hpp_source.html":[4,0,0,17,3,57],
-"SpaceWeather_8cpp.html":[4,0,0,7,3,10]
+"SpaceObject_8hpp.html#a53b517690d4d043bf79a2fb35fd86c43":[4,0,0,17,3,57,2]
 };

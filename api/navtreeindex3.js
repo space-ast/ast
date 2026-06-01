@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"DetectorAltitude_8cpp.html":[4,0,0,7,7,0,3],
+"DetectorAltitude_8hpp.html":[4,0,0,7,7,0,4],
+"DetectorAltitude_8hpp_source.html":[4,0,0,7,7,0,4],
 "DetectorAlwaysTripped_8cpp.html":[4,0,0,7,7,0,5],
 "DetectorAlwaysTripped_8hpp.html":[4,0,0,7,7,0,6],
 "DetectorAlwaysTripped_8hpp_source.html":[4,0,0,7,7,0,6],
@@ -129,10 +132,9 @@ var NAVTREEINDEX3 =
 "EOP_8cpp.html":[4,0,0,7,3,2],
 "EOP_8hpp.html":[4,0,0,7,3,3],
 "EOP_8hpp_source.html":[4,0,0,7,3,3],
-"EarthAxes_8hpp_source.html":[4,0,0,7,2,10],
-"EarthFrame_8cpp.html":[4,0,0,7,2,11],
-"EarthFrame_8hpp.html":[4,0,0,7,2,12],
-"EarthFrame_8hpp_source.html":[4,0,0,7,2,12],
+"EarthFrame_8cpp.html":[4,0,0,7,2,2,0],
+"EarthFrame_8hpp.html":[4,0,0,7,2,2,1],
+"EarthFrame_8hpp_source.html":[4,0,0,7,2,2,1],
 "EarthOrientation_8cpp.html":[4,0,0,7,9,1,1],
 "EarthOrientation_8hpp.html":[4,0,0,7,9,1,2],
 "EarthOrientation_8hpp_source.html":[4,0,0,7,9,1,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "ExprMatch_8hpp_source.html":[4,0,0,16,2,23],
 "ExprRange_8cpp.html":[4,0,0,16,2,24],
 "ExprRange_8hpp.html":[4,0,0,16,2,25],
-"ExprRange_8hpp_source.html":[4,0,0,16,2,25],
-"ExprVector_8cpp.html":[4,0,0,16,2,26],
-"ExprVector_8hpp.html":[4,0,0,16,2,27]
+"ExprRange_8hpp_source.html":[4,0,0,16,2,25]
 };

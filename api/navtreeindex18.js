@@ -1,13 +1,5 @@
 var NAVTREEINDEX18 =
 {
-"classast_1_1ComObjectManager.html":[2,0,0,134],
-"classast_1_1ComObjectManager.html":[3,0,0,134],
-"classast_1_1CommSystem.html":[2,0,0,133],
-"classast_1_1CommSystem.html":[3,0,0,133],
-"classast_1_1Command.html":[2,0,0,126],
-"classast_1_1Command.html":[3,0,0,126],
-"classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53":[2,0,0,126,0],
-"classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53":[3,0,0,126,0],
 "classast_1_1CommandDispatcher.html":[2,0,0,127],
 "classast_1_1CommandDispatcher.html":[3,0,0,127],
 "classast_1_1CommandHandler.html":[2,0,0,128],
@@ -249,5 +241,13 @@ var NAVTREEINDEX18 =
 "classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,177,0],
 "classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,177,0],
 "classast_1_1DetectorTrueAnomaly.html":[2,0,0,178],
-"classast_1_1DetectorTrueAnomaly.html":[3,0,0,178]
+"classast_1_1DetectorTrueAnomaly.html":[3,0,0,178],
+"classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[2,0,0,178,0],
+"classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[3,0,0,178,0],
+"classast_1_1DetectorUserSelect.html":[2,0,0,179],
+"classast_1_1DetectorUserSelect.html":[3,0,0,179],
+"classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122":[2,0,0,179,1],
+"classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122":[3,0,0,179,1],
+"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[2,0,0,179,0],
+"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[3,0,0,179,0]
 };

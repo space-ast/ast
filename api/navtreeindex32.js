@@ -1,13 +1,5 @@
 var NAVTREEINDEX32 =
 {
-"classast_1_1ScStateCalcElevation.html":[2,0,0,563],
-"classast_1_1ScStateCalcElevation.html":[3,0,0,563],
-"classast_1_1ScStateCalcElevationRate.html":[2,0,0,564],
-"classast_1_1ScStateCalcElevationRate.html":[3,0,0,564],
-"classast_1_1ScStateCalcEpoch.html":[2,0,0,565],
-"classast_1_1ScStateCalcEpoch.html":[3,0,0,565],
-"classast_1_1ScStateCalcEquinoctialH.html":[2,0,0,566],
-"classast_1_1ScStateCalcEquinoctialH.html":[3,0,0,566],
 "classast_1_1ScStateCalcEquinoctialK.html":[2,0,0,567],
 "classast_1_1ScStateCalcEquinoctialK.html":[3,0,0,567],
 "classast_1_1ScStateCalcEquinoctialP.html":[2,0,0,568],
@@ -249,5 +241,13 @@ var NAVTREEINDEX32 =
 "classast_1_1ScStateCalcTrueAnomaly.html":[2,0,0,685],
 "classast_1_1ScStateCalcTrueAnomaly.html":[3,0,0,685],
 "classast_1_1ScStateCalcTrueLong.html":[2,0,0,686],
-"classast_1_1ScStateCalcTrueLong.html":[3,0,0,686]
+"classast_1_1ScStateCalcTrueLong.html":[3,0,0,686],
+"classast_1_1ScStateCalcUserValue.html":[2,0,0,688],
+"classast_1_1ScStateCalcUserValue.html":[3,0,0,688],
+"classast_1_1ScStateCalcVAz.html":[2,0,0,691],
+"classast_1_1ScStateCalcVAz.html":[3,0,0,691],
+"classast_1_1ScStateCalcVBScript.html":[2,0,0,692],
+"classast_1_1ScStateCalcVBScript.html":[3,0,0,692],
+"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[2,0,0,692,0],
+"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[3,0,0,692,0]
 };

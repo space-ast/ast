@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"BodyShape_8hpp.html":[4,0,0,7,5,2,0,1],
+"BodyShape_8hpp_source.html":[4,0,0,7,5,2,0,1],
+"Bracket_8cpp.html":[4,0,0,11,7,0],
+"Bracket_8hpp.html":[4,0,0,11,7,1],
+"Bracket_8hpp_source.html":[4,0,0,11,7,1],
 "Break_8cpp.html":[4,0,0,7,6,3,1],
 "Break_8hpp.html":[4,0,0,7,6,3,2],
 "Break_8hpp_source.html":[4,0,0,7,6,3,2],
@@ -23,9 +28,9 @@ var NAVTREEINDEX2 =
 "BuiltinFrame_8cpp.html":[4,0,0,7,2,1,0],
 "BuiltinFrame_8hpp.html":[4,0,0,7,2,1,1],
 "BuiltinFrame_8hpp_source.html":[4,0,0,7,2,1,1],
-"BuiltinPoint_8cpp.html":[4,0,0,7,2,3,0],
-"BuiltinPoint_8hpp.html":[4,0,0,7,2,3,1],
-"BuiltinPoint_8hpp_source.html":[4,0,0,7,2,3,1],
+"BuiltinPoint_8cpp.html":[4,0,0,7,2,4,0],
+"BuiltinPoint_8hpp.html":[4,0,0,7,2,4,1],
+"BuiltinPoint_8hpp_source.html":[4,0,0,7,2,4,1],
 "BurnCollocation_8cpp.html":[4,0,0,7,6,0,2],
 "BurnCollocation_8hpp.html":[4,0,0,7,6,0,3],
 "BurnCollocation_8hpp_source.html":[4,0,0,7,6,0,3],
@@ -192,9 +197,7 @@ var NAVTREEINDEX2 =
 "Continue_8cpp.html":[4,0,0,7,6,3,5],
 "Continue_8hpp.html":[4,0,0,7,6,3,6],
 "Continue_8hpp_source.html":[4,0,0,7,6,3,6],
-"CoordTransform_8cpp.html":[4,0,0,7,2,8],
-"CoordTransform_8hpp.html":[4,0,0,7,2,9],
-"CoordTransform_8hpp_source.html":[4,0,0,7,2,9],
+"Coordinate_8hpp_source.html":[4,0,0,7,2,6],
 "CorVector_8cpp.html":[4,0,0,20,1,1],
 "CorVector_8hpp.html":[4,0,0,20,1,2],
 "CorVector_8hpp_source.html":[4,0,0,20,1,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "DetectorAccess_8hpp.html":[4,0,0,7,7,0,1],
 "DetectorAccess_8hpp_source.html":[4,0,0,7,7,0,1],
 "DetectorAllHeaders_8hpp.html":[4,0,0,7,7,0,2],
-"DetectorAllHeaders_8hpp_source.html":[4,0,0,7,7,0,2],
-"DetectorAltitude_8cpp.html":[4,0,0,7,7,0,3],
-"DetectorAltitude_8hpp.html":[4,0,0,7,7,0,4],
-"DetectorAltitude_8hpp_source.html":[4,0,0,7,7,0,4]
+"DetectorAllHeaders_8hpp_source.html":[4,0,0,7,7,0,2]
 };

@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Coordinate/FrameTransform/LocalHorizonalFrame.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('LocalHorizonalFrame_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LocalHorizonalFrame.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="LocalHorizonalFrame_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/GeodeticPoint.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Vector.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a73770dc514a1654458eee93c45d31b7b">aGeodeticToNEDTransform</a>(<span class="keyword">const</span> GeodeticPoint&amp; origin, Rotation&amp; rot);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#ae37cf89ecf7a5a9f24db02a7bdd1ee5b">aGeodeticToENUTransform</a>(<span class="keyword">const</span> GeodeticPoint&amp; origin, Rotation&amp; rot);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">   44</a></span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">aGeodeticToNED</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; point, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; origin, Vector3d&amp; ned, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">   50</a></span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">aNEDToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; ned, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; origin, <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; point, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">   56</a></span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">aGeodeticToENU</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; point, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; origin, Vector3d&amp; enu, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">   62</a></span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">aENUToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; enu, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; origin, <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; point, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// ----------------------------------</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// MATLAB Navigation Toolbox 同名函数</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">// ----------------------------------</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>A_ALWAYS_INLINE Vector3d lla2ned(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; lla, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; lla0, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Vector3d ned;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">aGeodeticToNED</a>(lla, lla0, ned, bodyShape);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> ned;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>A_ALWAYS_INLINE GeodeticPoint ned2lla(<span class="keyword">const</span> Vector3d&amp; ned, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    GeodeticPoint target;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    aNEDToGeodetic(ned, lla0, target, bodyShape);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">return</span> target;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>A_ALWAYS_INLINE Vector3d lla2enu(<span class="keyword">const</span> GeodeticPoint&amp; lla, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    Vector3d enu;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">aGeodeticToENU</a>(lla, lla0, enu, bodyShape);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">return</span> enu;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>A_ALWAYS_INLINE GeodeticPoint enu2lla(<span class="keyword">const</span> Vector3d&amp; enu, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    GeodeticPoint target;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_function" href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">aENUToGeodetic</a>(enu, lla0, target, bodyShape);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> target;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1BodyShape_html"><div class="ttname"><a href="classast_1_1BodyShape.html">ast::BodyShape</a></div><div class="ttdoc">天体形状基类</div><div class="ttdef"><b>定义</b> BodyShape.hpp:30</div></div>
+<div class="ttc" id="aclassast_1_1GeodeticPoint_html"><div class="ttname"><a href="classast_1_1GeodeticPoint.html">ast::GeodeticPoint</a></div><div class="ttdoc">大地坐标</div><div class="ttdef"><b>定义</b> GeodeticPoint.hpp:33</div></div>
+<div class="ttc" id="anamespaceast_html_a2cc15d0cfbcbc7ad4df06f55a3bff420"><div class="ttname"><a href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">ast::aENUToGeodetic</a></div><div class="ttdeci">AST_CORE_CAPI void aENUToGeodetic(const Vector3d &amp;enu, const GeodeticPoint &amp;origin, GeodeticPoint &amp;point, BodyShape *bodyShape)</div><div class="ttdoc">ENU坐标转大地坐标</div></div>
+<div class="ttc" id="anamespaceast_html_a56c73b70648a6175357c784d78ee6d6d"><div class="ttname"><a href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">ast::aNEDToGeodetic</a></div><div class="ttdeci">AST_CORE_CAPI void aNEDToGeodetic(const Vector3d &amp;ned, const GeodeticPoint &amp;origin, GeodeticPoint &amp;point, BodyShape *bodyShape)</div><div class="ttdoc">NED坐标转大地坐标</div></div>
+<div class="ttc" id="anamespaceast_html_a5d28225a968904c76b5562e6b2a03769"><div class="ttname"><a href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">ast::aGeodeticToENU</a></div><div class="ttdeci">AST_CORE_CAPI void aGeodeticToENU(const GeodeticPoint &amp;point, const GeodeticPoint &amp;origin, Vector3d &amp;enu, BodyShape *bodyShape)</div><div class="ttdoc">大地坐标转ENU坐标</div></div>
+<div class="ttc" id="anamespaceast_html_a73770dc514a1654458eee93c45d31b7b"><div class="ttname"><a href="namespaceast.html#a73770dc514a1654458eee93c45d31b7b">ast::aGeodeticToNEDTransform</a></div><div class="ttdeci">void aGeodeticToNEDTransform(const GeodeticPoint &amp;origin, Rotation &amp;rot)</div><div class="ttdoc">大地坐标(天体固连系)转NED坐标系的旋转变换</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:32</div></div>
+<div class="ttc" id="anamespaceast_html_acfe800a6419d2add4a3fc87b0bfa3cd3"><div class="ttname"><a href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">ast::aGeodeticToNED</a></div><div class="ttdeci">AST_CORE_CAPI void aGeodeticToNED(const GeodeticPoint &amp;point, const GeodeticPoint &amp;origin, Vector3d &amp;ned, BodyShape *bodyShape)</div><div class="ttdoc">大地坐标转NED坐标</div></div>
+<div class="ttc" id="anamespaceast_html_ae37cf89ecf7a5a9f24db02a7bdd1ee5b"><div class="ttname"><a href="namespaceast.html#ae37cf89ecf7a5a9f24db02a7bdd1ee5b">ast::aGeodeticToENUTransform</a></div><div class="ttdeci">void aGeodeticToENUTransform(const GeodeticPoint &amp;origin, Rotation &amp;rot)</div><div class="ttdoc">大地坐标(天体固连系)转ENU坐标系的旋转变换</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:38</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_d4f37a8c842ac907ebbff47eaf6f4e6a.html">Coordinate</a></li><li class="navelem"><a class="el" href="dir_7ade0a3f20d7288f4b5c89eb41911658.html">FrameTransform</a></li><li class="navelem"><a class="el" href="LocalHorizonalFrame_8hpp.html">LocalHorizonalFrame.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

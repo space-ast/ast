@@ -109,6 +109,7 @@ $(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
 <code>#include &quot;AstUtil/MathDegree.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Constants.h&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 </div>
 <p><a href="Math_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -137,6 +138,15 @@ template&lt;typename Scalar &gt; </td></tr>
 template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:gae607d540253979beacb45ea4a55c0bb1"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMin</b> (Scalar a, Scalar b)</td></tr>
 <tr class="separator:gae607d540253979beacb45ea4a55c0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282" id="r_ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Util.html#ga77fdcb17fe2f5bf4506f1f136b81f282">ast::clamp</a> (const T &amp;val, const T &amp;low, const T &amp;high)</td></tr>
+<tr class="separator:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69612c7878a622a17ab0f6af56aaab65" id="r_ga69612c7878a622a17ab0f6af56aaab65"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga69612c7878a622a17ab0f6af56aaab65">ast::asinSafe</a> (double x)</td></tr>
+<tr class="separator:ga69612c7878a622a17ab0f6af56aaab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3daeb4f2ae541a38327773fb244197b" id="r_gaf3daeb4f2ae541a38327773fb244197b"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaf3daeb4f2ae541a38327773fb244197b">ast::acosSafe</a> (double x)</td></tr>
+<tr class="separator:gaf3daeb4f2ae541a38327773fb244197b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga448817aeed1fc1c6155f4642d15b3637" id="r_ga448817aeed1fc1c6155f4642d15b3637"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga448817aeed1fc1c6155f4642d15b3637">ast::sqrtSafe</a> (double x)</td></tr>
+<tr class="separator:ga448817aeed1fc1c6155f4642d15b3637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae628da25178a68de57bdf3fdfd9e8dcb" id="r_gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a> (double angle, double start)</td></tr>
 <tr class="separator:gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaea03a932dcd544c97844e1f9eb451437" id="r_gaea03a932dcd544c97844e1f9eb451437"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a> (double angle, double center)</td></tr>
