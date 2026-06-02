@@ -144,39 +144,47 @@ public: // 天体的形状、重力场、星历、姿态
 
     /// @brief 获取天体形状
     BodyShape* getShape() const { return shape_.get(); }
+    BodyShape* shape() const {return shape_.get(); }
 
     /// @brief 获取天体重力场
     const GravityField& getGravityField() const { return gravityField_; }
+    const GravityField& gravityField() const {return gravityField_; }
 
     /// @brief 获取天体星历
     BodyEphemeris* getEphemeris() const { return ephemeris_.get(); }
+    BodyEphemeris* ephemeris() const {return ephemeris_.get(); }
 
     /// @brief 获取天体姿态
     BodyOrientation* getOrientation() const { return orientation_.get(); }
-
+    BodyOrientation* orientation() const {return orientation_.get(); }
 public:
 
     /// @brief 获取天体中心
     Point* getPointCenter() const { return const_cast<CelestialBody*>(this); }
+    Point* pointCenter() const {return const_cast<CelestialBody*>(this); }
 
     /// @brief 获取天体惯性轴系
     Axes* getAxesInertial() const { return axesInertial_.get(); }
-
+    Axes* axesInertial() const {return axesInertial_.get(); }
+    
     /// @brief 获取天体固定轴系
     Axes* getAxesFixed() const { return axesFixed_.get(); }
-    
+    Axes* axesFixed() const {return axesFixed_.get(); }
+
     /// @brief 获取天体MOD轴系
     Axes* getAxesMOD() const { return axesMOD_.get(); }
-    
+    Axes* axesMOD() const {return axesMOD_.get(); }
+
     /// @brief 获取天体TOD轴系
     Axes* getAxesTOD() const { return axesTOD_.get(); }
+    Axes* axesTOD() const {return axesTOD_.get(); }
 
     /// @brief 获取天体轴系
     /// @param  name        - 轴系名称，例如Inertial、Fixed、MOD、TOD等
     /// @retval             - 轴系指针
     /// @note               - 如果轴系不存在，则返回nullptr
     Axes* getAxes(StringView name) const;
-
+    
 #ifndef SWIG // 还没解决好swig封装智能指针的问题，暂时屏蔽
 public:
     /// @brief 创建新的历元轴系
@@ -257,9 +265,11 @@ public:
 public:
     /// @brief 获取天体惯性坐标系
     Frame* getFrameInertial() const;
+    Frame* frameInertial() const {return getFrameInertial();}
 
     /// @brief 获取天体固连坐标系
     Frame* getFrameFixed() const;
+    Frame* frameFixed() const {return getFrameFixed();}
 
 #endif
 protected:

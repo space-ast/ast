@@ -1,9 +1,9 @@
 ///
-/// @file      SegmentCalculation.hpp
+/// @file      LandingSiteCalcSunElevation.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-04-19
+/// @date      2026-06-02
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,8 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/ObjectCalculation.hpp"
-#include "AstCore/Segment.hpp"
+#include "AstCore/LandingSiteCalculation.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,14 +30,17 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class AST_CORE_API SegmentCalculation: public ObjectCalculation
+/// @brief 计算着陆点太阳高度角
+class AST_CORE_API LandingSiteCalcSunElevation: public LandingSiteCalculation
 {
 public:
-    AST_OBJECT(SegmentCalculation)
-    Class* getExpectedType() const override {return Segment::StaticType();};
-    errc_t calculateNoCheckType(const Object* obj, double& result) override;
-    virtual errc_t calculate(const Segment& segment, double& result) = 0;
+    AST_OBJECT(LandingSiteCalcSunElevation)
+    errc_t calculate(const Segment& segment, double& result) override;
+    Dimension getDimension() const override{return EDimension::eAngle;}
+private:
+
 };
+
 
 /*! @} */
 

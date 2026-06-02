@@ -393,6 +393,8 @@ class ModOrbElem;            ///< 改进轨道根数
 class OrbElem;               ///< 经典轨道根数
 
 class GeodeticPoint;         ///< 大地坐标
+class TrackingCoordinates;   ///< 测量/跟踪坐标(AER)
+using AER = TrackingCoordinates;
 
 class State;
 class StateCartesian;

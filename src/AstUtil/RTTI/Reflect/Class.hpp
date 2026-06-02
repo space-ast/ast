@@ -57,6 +57,7 @@ public:
     /// @param obj 输入对象指针
     /// @return Object* 转换后的对象指针
     Object* cast(Object* obj) const;
+    const Object* cast(const Object* obj) const;
 
     /// @brief 检查类是否为虚类
     /// @return 是否为虚类

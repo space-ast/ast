@@ -1,9 +1,9 @@
 ///
-/// @file      SegmentCalculation.hpp
+/// @file      LandingSiteCalculation.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-04-19
+/// @date      2026-06-02
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -22,7 +22,8 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ObjectCalculation.hpp"
-#include "AstCore/Segment.hpp"
+#include "AstCore/SegmentCalculation.hpp"
+#include "AstCore/LandingSite.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,14 +32,16 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class AST_CORE_API SegmentCalculation: public ObjectCalculation
+
+/// @brief 着陆点计算量接口，定义计算与着陆点相关量的抽象接口
+class AST_CORE_API LandingSiteCalculation: public SegmentCalculation
 {
 public:
-    AST_OBJECT(SegmentCalculation)
-    Class* getExpectedType() const override {return Segment::StaticType();};
-    errc_t calculateNoCheckType(const Object* obj, double& result) override;
-    virtual errc_t calculate(const Segment& segment, double& result) = 0;
+    AST_OBJECT(LandingSiteCalculation)
+    Class* getExpectedType() const override {return LandingSite::StaticType();};
+    virtual errc_t calculate(const Segment& segment, double& result) override = 0;
 };
+
 
 /*! @} */
 

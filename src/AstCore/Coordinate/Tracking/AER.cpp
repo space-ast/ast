@@ -20,6 +20,8 @@
 
 #include "AER.hpp"
 #include "AstUtil/Math.hpp"
+#include "AstCore/GeodeticPoint.hpp"
+#include "AstCore/LocalHorizonalFrame.hpp"
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
@@ -92,7 +94,12 @@ void aAERToENU(const AER& aer, Vector3d& enu)
 }
 
 
-
+void aGeodeticToAER(const Vector3d& posInBodyFixed, const GeodeticPoint& origin, AER& aer, BodyShape* bodyShape)
+{
+    Vector3d ned;
+    aGeodeticToNED(posInBodyFixed, origin, ned, bodyShape);
+    aNEDToAER(ned, aer);
+}
 
 AST_NAMESPACE_END
 

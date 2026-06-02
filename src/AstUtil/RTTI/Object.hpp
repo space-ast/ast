@@ -24,6 +24,7 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/ReflectAPI.hpp"
+#include <type_traits>  // for std::decay, std::remove_pointer, std::remove_reference
 #include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
 #include <assert.h>     // for assert
@@ -446,13 +447,20 @@ public:
 };
 
 
-template<typename T>
-T aobject_cast(Object* obj)
+template<typename T, typename U>
+A_ALWAYS_INLINE T aobject_cast(U* obj)
 {
-    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
-    static_assert(has_own_getType<ObjectType>::value, "aobject_cast requires the type to has a AST_OBJECT macro");
+    // obj 可以是 Object* 或 const Object*
+    using ObjectType = typename std::decay<
+        typename std::remove_pointer<
+            typename std::remove_pointer<T>::type
+        >::type
+    >::type;
+    static_assert(has_own_getType<ObjectType>::value,
+                  "aobject_cast requires the type to has a AST_OBJECT macro");
     return static_cast<T>(ObjectType::StaticType()->cast(obj));
 }
+
 
 template<typename T>
 bool Object::isOfType() const

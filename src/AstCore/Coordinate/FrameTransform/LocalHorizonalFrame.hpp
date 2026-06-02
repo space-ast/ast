@@ -85,29 +85,41 @@ AST_CORE_API void aGeodeticToBodyFixed(const GeodeticPoint& point, Vector3d& bod
 AST_CORE_API void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, double xRadius, double yRadius, double zRadius);
 
 
+/// @brief 天体固连系坐标转NED坐标
+/// @param posInBodyFixed 天体固连系坐标
+/// @param origin 局部NED系原点
+/// @param ned 输出的NED坐标
+AST_CORE_API void aGeodeticToNED(const Vector3d& posInBodyFixed, const GeodeticPoint& origin, Vector3d& ned, BodyShape* bodyShape);
+
 /// @brief 大地坐标转NED坐标
 /// @param point 大地坐标
 /// @param origin 局部NED系原点
 /// @param ned 输出的NED坐标
-AST_CORE_CAPI void aGeodeticToNED(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& ned, BodyShape* bodyShape);
+AST_CORE_API void aGeodeticToNED(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& ned, BodyShape* bodyShape);
 
 /// @brief NED坐标转大地坐标
 /// @param ned NED坐标
 /// @param origin 局部NED系原点
 /// @param point 输出的大地坐标
-AST_CORE_CAPI void aNEDToGeodetic(const Vector3d& ned, const GeodeticPoint& origin, GeodeticPoint& point, BodyShape* bodyShape);
+AST_CORE_API void aNEDToGeodetic(const Vector3d& ned, const GeodeticPoint& origin, GeodeticPoint& point, BodyShape* bodyShape);
+
+/// @brief 天体固连系坐标转ENU坐标
+/// @param posInBodyFixed 天体固连系坐标
+/// @param origin 局部ENU系原点
+/// @param enu 输出的ENU坐标
+AST_CORE_API void aGeodeticToENU(const Vector3d& posInBodyFixed, const GeodeticPoint& origin, Vector3d& enu, BodyShape* bodyShape);
 
 /// @brief 大地坐标转ENU坐标
 /// @param point 大地坐标
 /// @param origin 局部ENU系原点
 /// @param enu 输出的ENU坐标
-AST_CORE_CAPI void aGeodeticToENU(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& enu, BodyShape* bodyShape);
+AST_CORE_API void aGeodeticToENU(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& enu, BodyShape* bodyShape);
 
 /// @brief ENU坐标转大地坐标
 /// @param enu ENU坐标
 /// @param origin 局部ENU系原点
 /// @param point 输出的大地坐标
-AST_CORE_CAPI void aENUToGeodetic(const Vector3d& enu, const GeodeticPoint& origin, GeodeticPoint& point, BodyShape* bodyShape);
+AST_CORE_API void aENUToGeodetic(const Vector3d& enu, const GeodeticPoint& origin, GeodeticPoint& point, BodyShape* bodyShape);
 
 
 // ----------------------------------

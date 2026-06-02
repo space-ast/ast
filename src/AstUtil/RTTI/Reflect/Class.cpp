@@ -40,6 +40,12 @@ Object* Class::cast(Object* obj) const
     return nullptr;
 }
 
+const Object* Class::cast(const Object* obj) const
+{
+    return this->cast(const_cast<Object*>(obj));
+}
+
+
 void Class::addToRegistry() const
 {
     aRegisterClass(const_cast<Class*>(this));

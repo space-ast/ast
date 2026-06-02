@@ -45,6 +45,13 @@ AST_CORE_CAPI void aENUToAER(const Vector3d& enu, AER& aer);
 AST_CORE_CAPI void aAERToENU(const AER& aer, Vector3d& enu);
 
 
+/// @brief 将天体固连系下的位置转换为局部球面坐标(AER)
+/// @param  posInBodyFixed - 天体固连系下的位置
+/// @param  origin         - 局部坐标系的原点
+/// @param  aer            - 在局部坐标系下的AER坐标
+/// @param  bodyShape      - 天体形状
+AST_CORE_CAPI void aGeodeticToAER(const Vector3d& posInBodyFixed, const GeodeticPoint& origin, AER& aer, BodyShape* bodyShape);
+
 // --------------------------------
 // MATLAB Mapping Toolbox 同名函数
 // ---------------------------------

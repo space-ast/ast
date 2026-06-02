@@ -230,6 +230,14 @@ inline BodyShape* checkBodyShape(BodyShape* bodyShape)
 	return bodyShape;
 }
 
+void aGeodeticToNED(const Vector3d& posInBodyFixed, const GeodeticPoint& origin, Vector3d& ned, BodyShape* bodyShape)
+{
+	bodyShape = checkBodyShape(bodyShape);
+	Vector3d relativePos = posInBodyFixed - bodyShape->transform(origin);
+	Rotation rot;
+	aGeodeticToNEDTransform(origin, rot);
+	ned = rot.transformVector(relativePos);
+}
 
 void aGeodeticToNED(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& ned, BodyShape* bodyShape)
 {
@@ -247,6 +255,15 @@ void aNEDToGeodetic(const Vector3d& ned, const GeodeticPoint& origin, GeodeticPo
 	aGeodeticToNEDTransform(origin, rot);
 	Vector3d relativePos = rot.transformVectorInv(ned);
 	point = bodyShape->transform(relativePos + bodyShape->transform(origin));
+}
+
+void aGeodeticToENU(const Vector3d& posInBodyFixed, const GeodeticPoint& origin, Vector3d& enu, BodyShape* bodyShape)
+{
+	bodyShape = checkBodyShape(bodyShape);
+	Vector3d relativePos = posInBodyFixed - bodyShape->transform(origin);
+	Rotation rot;
+	aGeodeticToENUTransform(origin, rot);
+	enu = rot.transformVector(relativePos);
 }
 
 void aGeodeticToENU(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& enu, BodyShape* bodyShape)
