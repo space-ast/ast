@@ -27,6 +27,10 @@ AST_NAMESPACE_BEGIN
 
 static double aAxisToFlatFactor(double majorAxis, double minorAxis)
 {
+    if(majorAxis < minorAxis)
+    {
+        aWarning("majorAxis is less than minorAxis");
+    }
     return (majorAxis - minorAxis) / majorAxis;
 }
 

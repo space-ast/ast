@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+#ifndef SWIG
 
 /// @brief 无操作形状，用于默认占位
 class NoopShape final : public BodyShape
@@ -40,6 +41,7 @@ public:
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
 };
 
+#endif
 
 /*! @} */
 
