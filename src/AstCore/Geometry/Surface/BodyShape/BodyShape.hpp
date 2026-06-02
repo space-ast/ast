@@ -30,16 +30,24 @@ AST_NAMESPACE_BEGIN
 class BodyShape : public ObjectNamed
 {
 public:
-    /// @brief 将笛卡尔坐标转换为大地坐标
+    /// @brief 将笛卡尔坐标（天体固连系）转换为大地坐标
     /// @param cartesian 笛卡尔坐标（天体固连系）
     /// @param detic 大地坐标
     virtual void transform(const Vector3d& cartesian, GeodeticPoint& detic) const = 0;
 
-    /// @brief 将大地坐标转换为笛卡尔坐标
+    /// @brief 将大地坐标转换为笛卡尔坐标（天体固连系）
     /// @param detic 大地坐标
     /// @param cartesian 笛卡尔坐标（天体固连系）
     virtual void transform(const GeodeticPoint& detic, Vector3d& cartesian) const = 0;
 };
+
+
+/// @brief 获取WGS84椭球体形状
+AST_CORE_CAPI BodyShape* aWGS84Spheroid();
+ 
+/// @brief 获取CGCS2000椭球体形状
+AST_CORE_CAPI BodyShape* aCGCS2000Spheroid();
+
 
 
 AST_NAMESPACE_END

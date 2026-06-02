@@ -71,7 +71,7 @@ constexpr double kGrav = 6.673e-11;				                                         
 constexpr double kEarthGrav = 3.986004418e14;		                                        ///< 地球引力常数 (WGS84) [m^3/s^2]
 constexpr double kEarthGrav_EGM2008 = 3.986004415e14;                                       ///< 地球引力常数 (EGM2008) [m^3/s^2]
 constexpr double kEarthRadius = 6378137.0;				                                    ///< 地球赤道半径 (WGS84)[m]
-constexpr double kEarthMinRadius = 6.35675231424E6;		                                    ///< 地球最小(南北极)半径 (WGS84)[m]
+constexpr double kEarthMinRadius = 6356752.31424;		                                    ///< 地球最小(南北极)半径 (WGS84)[m]
 constexpr double kEarthFlatFact = 3.35281066475E-3;		                                    ///< 地球扁率 (WGS84), f=1-b/a
 constexpr double kEarthSiderealDay  = 86164.09054;                                          ///< 地球平恒星日 [s]
 constexpr double kEarthSiderealYear = 365.25636;                                            ///< 地球平恒星年 [day]
@@ -82,6 +82,18 @@ constexpr double kEarthAngVel = 7.292115146706979e-5;		                         
 // @fixme 这里应该使用恒星日吧
 // constexpr double kEarthMeanMotion = 1.9910643985790994404796035026544e-7;	            ///< 地球公转平均角速度 (2pi/365.2420897/86400) rad/sec
 // constexpr double kEarthMeanMotion = kTwoPI / (kEarthSiderealYear * 86400);
+
+
+// WGS84相关常量
+constexpr double kEarthRadius_WGS84        = 6378137.0;
+constexpr double kEarthMinRadius_WGS84     = 6356752.31424;
+constexpr double kEarthFlatFact_WGS84      = 3.35281066475E-3; // (1/298.257223563)
+
+
+// CGCS2000相关常量
+constexpr double kEarthRadius_CGCS2000        = 6378137.0;
+constexpr double kEarthMinRadius_CGCS2000     = 6356752.31414;
+constexpr double kEarthFlatFact_CGCS2000      = 1/298.257222101;
 
 
 // 月球相关常量
