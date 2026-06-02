@@ -147,6 +147,14 @@ A_ALWAYS_INLINE double sqrtSafe(double x)
     return std::sqrt((std::max)(x, 0.0));
 }
 
+/// @brief 计算平方
+/// @param x 输入值
+template<typename Scalar>
+Scalar square(Scalar x)
+{
+    return x * x;
+}
+
 
 /// @brief 将角度量规范化到指定起始范围
 /// @param angle 输入角度（弧度）

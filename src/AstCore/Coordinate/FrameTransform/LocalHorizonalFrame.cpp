@@ -20,6 +20,7 @@
 
 #include "LocalHorizonalFrame.hpp"
 #include "AstCore/AER.hpp"
+#include "AstCore/BodyShape.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "AstMath/Rotation.hpp"
 #include "AstMath/AttitudeConvert.hpp"
@@ -53,7 +54,7 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 	lla.longitude() = atan2(cart[1], cart[0]); // longitude
 
 	// initial value
-	// ee = 1.0 - sqrtSafe(1.0 - flatFact);
+	// ee = 1.0 - square(1.0 - flatFact);
 	ee = flatFact * (2 - flatFact);
 	xy = hypot(cart[0], cart[1]);
 	H = cart.norm() -  radius * (1 - flatFact);
@@ -63,7 +64,7 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 	{
 		B = newB;
 		sinB = sin(B);
-		newN = radius / sqrt(1 - ee * sqrtSafe(sinB));
+		newN = radius / sqrt(1 - ee * sinB * sinB);
 		newB = atan((cart[2] + ee * newN * sinB) / xy);
 		if (++niter > 1000) {
 			aWarning("maximum number of iterations reached");
@@ -79,14 +80,18 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 
 void aGeodeticToBodyFixed(const GeodeticPoint& lla, Vector3d& cart, double radius, double flatFact)
 {
-	double slat = sin(lla.latitude());
-	//double ee = 1.0 - sqrtSafe(1.0 - flatFact);
-	double ee = flatFact * (2 - flatFact);
-	double N = radius / sqrt(1.0 - ee * sqrtSafe(slat));
-	double temp = (N + lla.altitude()) * cos(lla.latitude());
-	cart[0] = temp * cos(lla.longitude());
-	cart[1] = temp * sin(lla.longitude());
-	cart[2] = (N * (1.0 - ee) + lla.altitude()) * slat;
+	double slat, clat, slon, clon;
+	sincos(lla.latitude(), &slat, &clat);
+	sincos(lla.longitude(), &slon, &clon);
+
+	// ee = 1.0 - square(1.0 - flatFact);
+    double ee = flatFact * (2.0 - flatFact);          // e² = 2f - f²
+    double N = radius / sqrt(1.0 - ee * slat * slat); // 修正：sin²φ
+
+    double temp = (N + lla.altitude()) * clat;
+    cart[0] = temp * clon;
+    cart[1] = temp * slon;
+    cart[2] = (N * (1.0 - ee) + lla.altitude()) * slat;
 }
 
 
@@ -123,5 +128,55 @@ void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, doubl
 {
 	// todo
 }
+
+
+/// @brief 检查体形状是否为空，若为空则使用默认椭球体
+inline BodyShape* checkBodyShape(BodyShape* bodyShape)
+{
+	if(!bodyShape)
+	{
+		aWarning("bodyShape is not given, use WGS84 spheroid as default");
+		bodyShape = aWGS84Spheroid();
+	}
+	return bodyShape;
+}
+
+
+void aGeodeticToNED(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& ned, BodyShape* bodyShape)
+{
+	bodyShape = checkBodyShape(bodyShape);
+	Vector3d relativePos = bodyShape->transform(point) - bodyShape->transform(origin);
+	Rotation rot;
+	aGeodeticToNEDTransform(origin, rot);
+	ned = rot.transformVector(relativePos);
+}
+
+void aNEDToGeodetic(const Vector3d& ned, const GeodeticPoint& origin, GeodeticPoint& point, BodyShape* bodyShape)
+{
+	bodyShape = checkBodyShape(bodyShape);
+	Rotation rot;
+	aGeodeticToNEDTransform(origin, rot);
+	Vector3d relativePos = rot.transformVectorInv(ned);
+	point = bodyShape->transform(relativePos + bodyShape->transform(origin));
+}
+
+void aGeodeticToENU(const GeodeticPoint& point, const GeodeticPoint& origin, Vector3d& enu, BodyShape* bodyShape)
+{
+	bodyShape = checkBodyShape(bodyShape);
+	Vector3d relativePos = bodyShape->transform(point) - bodyShape->transform(origin);
+	Rotation rot;
+	aGeodeticToENUTransform(origin, rot);
+	enu = rot.transformVector(relativePos);
+}
+
+void aENUToGeodetic(const Vector3d& enu, const GeodeticPoint& origin, GeodeticPoint& point, BodyShape* bodyShape)
+{
+	bodyShape = checkBodyShape(bodyShape);
+	Rotation rot;
+	aGeodeticToENUTransform(origin, rot);
+	Vector3d relativePos = rot.transformVectorInv(enu);
+	point = bodyShape->transform(relativePos + bodyShape->transform(origin));
+}
+
 
 AST_NAMESPACE_END
