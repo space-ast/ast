@@ -86,7 +86,7 @@ void aGeodeticToBodyFixed(const GeodeticPoint& lla, Vector3d& cart, double radiu
 
 	// ee = 1.0 - square(1.0 - flatFact);
     double ee = flatFact * (2.0 - flatFact);          // e² = 2f - f²
-    double N = radius / sqrt(1.0 - ee * slat * slat); // 修正：sin²φ
+    double N = radius / sqrt(1.0 - ee * slat * slat); 
 
     double temp = (N + lla.altitude()) * clat;
     cart[0] = temp * clon;
@@ -121,12 +121,101 @@ void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, doubl
 
 void aGeodeticToBodyFixed(const GeodeticPoint& point, Vector3d& bodyFixed, double xRadius, double yRadius, double zRadius)
 {
-	// todo
+	double slat, clat, slon, clon;
+	sincos(point.latitude(), &slat, &clat);
+	sincos(point.longitude(), &slon, &clon);
+
+	// 由纬度 λ、经度 φ 算出表面法线的单位向量(nx, ny, nz) 
+	double nx = clat * clon;
+	double ny = clat * slon;
+	double nz = slat;
+
+	// 找椭球表面上的点 S
+	// 根据法线方向(nx, ny, nz) = (Sx/a², Sy/b², Sz/c²) 
+	// 和椭球方程 Sx²/a² + Sy²/b² + Sz²/c² = 1
+	// 得到 
+	//     Sx = a² * nx / d
+	//     Sy = b² * ny / d
+	//     Sz = c² * nz / d
+	// 其中 d = √(a²·nx² + b²·ny² + c²·nz²)
+	double xr2 = xRadius * xRadius;
+	double yr2 = yRadius * yRadius;
+	double zr2 = zRadius * zRadius;
+
+	double d = sqrt(xr2 * nx * nx + yr2 * ny * ny + zr2 * nz * nz);
+
+	// 最终结果 = 表面点 S + 高度 h 沿法线外推
+	double h = point.altitude();
+	bodyFixed[0] = (xr2 / d + h) * nx;
+	bodyFixed[1] = (yr2 / d + h) * ny;
+	bodyFixed[2] = (zr2 / d + h) * nz;
 }
 
 void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, double xRadius, double yRadius, double zRadius)
 {
-	// todo
+	const double EPS = 1.0e-14;
+
+	double xr2 = xRadius * xRadius;
+	double yr2 = yRadius * yRadius;
+	double zr2 = zRadius * zRadius;
+
+	// 初始猜测: 球形近似
+	double xy = hypot(bodyFixed[0], bodyFixed[1]);
+	double lat = atan2(bodyFixed[2], xy);
+	double lon = atan2(bodyFixed[1], bodyFixed[0]);
+
+	double h, d, slat, clat, slon, clon, nx, ny, nz;
+	double sx, sy, sz, newLat, newLon;
+
+	int niter = 0;
+	do
+	{
+		sincos(lat, &slat, &clat);
+		sincos(lon, &slon, &clon);
+
+		nx = clat * clon;
+		ny = clat * slon;
+		nz = slat;
+
+		d = sqrt(xr2 * nx * nx + yr2 * ny * ny + zr2 * nz * nz);
+
+		sx = xr2 * nx / d;
+		sy = yr2 * ny / d;
+		sz = zr2 * nz / d;
+
+		h = (bodyFixed[0] - sx) * nx + (bodyFixed[1] - sy) * ny + (bodyFixed[2] - sz) * nz;
+
+		double psx = bodyFixed[0] - h * nx;
+		double psy = bodyFixed[1] - h * ny;
+		double psz = bodyFixed[2] - h * nz;
+
+		double nnx = psx / xr2;
+		double nny = psy / yr2;
+		double nnz = psz / zr2;
+		double nn = sqrt(nnx * nnx + nny * nny + nnz * nnz);
+
+		newLat = asin(nnz / nn);
+		newLon = atan2(nny, nnx);
+
+		if (++niter > 1000)
+		{
+			aWarning("maximum number of iterations reached");
+			break;
+		}
+
+		double dlat = fabs(newLat - lat);
+		double dlon = fabs(newLon - lon);
+
+		lat = newLat;
+		lon = newLon;
+
+		if (dlat <= EPS && dlon <= EPS)
+			break;
+	} while (true);
+
+	point.latitude() = newLat;
+	point.longitude() = newLon;
+	point.altitude() = h;
 }
 
 
