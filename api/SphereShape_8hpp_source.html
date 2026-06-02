@@ -111,18 +111,28 @@ $(function(){initNavTree('SphereShape_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classast_1_1SphereShape.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1SphereShape.html">SphereShape</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classast_1_1SphereShape.html">   29</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1SphereShape.html">SphereShape</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1SphereShape.html#a4907ba5b1c7b3f627278aba33a08f311">   33</a></span>PROPERTIES:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    length_d radius_; </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
-</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1SphereShape.html">SphereShape</a>)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    AST_PROPERT(radius)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="classast_1_1SphereShape.html">SphereShape</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="classast_1_1SphereShape.html">SphereShape</a>(<span class="keywordtype">double</span> radius);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BodyShape.html#ad0d78f7ec43e0b5d3e790199fe52f117">transform</a>(<span class="keyword">const</span> Vector3d&amp; cartesian, <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; detic) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BodyShape.html#ad0d78f7ec43e0b5d3e790199fe52f117">transform</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a>&amp; detic, Vector3d&amp; cartesian) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1SphereShape.html#a4907ba5b1c7b3f627278aba33a08f311">   41</a></span>PROPERTIES:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    length_d radius_{}; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aBodyShape_8hpp_html"><div class="ttname"><a href="BodyShape_8hpp.html">BodyShape.hpp</a></div><div class="ttdoc">~</div></div>
-<div class="ttc" id="aclassast_1_1BodyShape_html"><div class="ttname"><a href="classast_1_1BodyShape.html">ast::BodyShape</a></div><div class="ttdoc">天体形状基类</div><div class="ttdef"><b>定义</b> BodyShape.hpp:30</div></div>
+<div class="ttc" id="aclassast_1_1BodyShape_html"><div class="ttname"><a href="classast_1_1BodyShape.html">ast::BodyShape</a></div><div class="ttdoc">天体形状基类</div><div class="ttdef"><b>定义</b> BodyShape.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1BodyShape_html_ad0d78f7ec43e0b5d3e790199fe52f117"><div class="ttname"><a href="classast_1_1BodyShape.html#ad0d78f7ec43e0b5d3e790199fe52f117">ast::BodyShape::transform</a></div><div class="ttdeci">virtual void transform(const Vector3d &amp;cartesian, GeodeticPoint &amp;detic) const =0</div><div class="ttdoc">将笛卡尔坐标（天体固连系）转换为大地坐标</div></div>
+<div class="ttc" id="aclassast_1_1GeodeticPoint_html"><div class="ttname"><a href="classast_1_1GeodeticPoint.html">ast::GeodeticPoint</a></div><div class="ttdoc">大地坐标</div><div class="ttdef"><b>定义</b> GeodeticPoint.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1SphereShape_html"><div class="ttname"><a href="classast_1_1SphereShape.html">ast::SphereShape</a></div><div class="ttdoc">球体形状</div><div class="ttdef"><b>定义</b> SphereShape.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -105,10 +105,13 @@ $(function(){initNavTree('LocalHorizonalFrame_8cpp.html',''); initResizable(true
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="LocalHorizonalFrame_8hpp_source.html">LocalHorizonalFrame.hpp</a>&quot;</code><br />
+<code>#include &quot;AstCore/AER.hpp&quot;</code><br />
+<code>#include &quot;AstCore/BodyShape.hpp&quot;</code><br />
 <code>#include &quot;AstMath/MathOperator.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Rotation.hpp&quot;</code><br />
 <code>#include &quot;AstMath/AttitudeConvert.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Math.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -124,6 +127,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGeodeticToNEDTr
 <tr class="memitem:ae37cf89ecf7a5a9f24db02a7bdd1ee5b" id="r_ae37cf89ecf7a5a9f24db02a7bdd1ee5b"><td class="memItemLeft" align="right" valign="top"><a id="ae37cf89ecf7a5a9f24db02a7bdd1ee5b" name="ae37cf89ecf7a5a9f24db02a7bdd1ee5b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGeodeticToENUTransform</b> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rot)</td></tr>
 <tr class="separator:ae37cf89ecf7a5a9f24db02a7bdd1ee5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce82f884b66909d057457414655b2e0" id="r_a8ce82f884b66909d057457414655b2e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a8ce82f884b66909d057457414655b2e0">ast::aBodyFixedToGeodetic</a> (const Vector3d &amp;bodyFixed, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, double radius, double flatFact)</td></tr>
+<tr class="separator:a8ce82f884b66909d057457414655b2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ff691a79a0dbb2a56c22c14f220f0e" id="r_a60ff691a79a0dbb2a56c22c14f220f0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a60ff691a79a0dbb2a56c22c14f220f0e">ast::aGeodeticToBodyFixed</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, Vector3d &amp;bodyFixed, double radius, double flatFact)</td></tr>
+<tr class="separator:a60ff691a79a0dbb2a56c22c14f220f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ad52ef016bbfea9b3b58f23993fa64" id="r_a99ad52ef016bbfea9b3b58f23993fa64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a99ad52ef016bbfea9b3b58f23993fa64">ast::aGeodeticToBodyFixed</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, Vector3d &amp;bodyFixed, double radius)</td></tr>
+<tr class="separator:a99ad52ef016bbfea9b3b58f23993fa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9ab68876744e149579c3feb94123348" id="r_ad9ab68876744e149579c3feb94123348"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad9ab68876744e149579c3feb94123348">ast::aBodyFixedToGeodetic</a> (const Vector3d &amp;bodyFixed, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, double radius)</td></tr>
+<tr class="separator:ad9ab68876744e149579c3feb94123348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac237e89fe6b85442a08fc47d06d11c4b" id="r_ac237e89fe6b85442a08fc47d06d11c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ac237e89fe6b85442a08fc47d06d11c4b">ast::aGeodeticToBodyFixed</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, Vector3d &amp;bodyFixed, double xRadius, double yRadius, double zRadius)</td></tr>
+<tr class="separator:ac237e89fe6b85442a08fc47d06d11c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d8d0022e16361b9438272f28170d5" id="r_a760d8d0022e16361b9438272f28170d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a760d8d0022e16361b9438272f28170d5">ast::aBodyFixedToGeodetic</a> (const Vector3d &amp;bodyFixed, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, double xRadius, double yRadius, double zRadius)</td></tr>
+<tr class="separator:a760d8d0022e16361b9438272f28170d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8216ef0371cf6f618586d90129d9794f" id="r_a8216ef0371cf6f618586d90129d9794f"><td class="memItemLeft" align="right" valign="top"><a id="a8216ef0371cf6f618586d90129d9794f" name="a8216ef0371cf6f618586d90129d9794f"></a>
+<a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::checkBodyShape</b> (<a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:a8216ef0371cf6f618586d90129d9794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe800a6419d2add4a3fc87b0bfa3cd3" id="r_acfe800a6419d2add4a3fc87b0bfa3cd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">ast::aGeodeticToNED</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, Vector3d &amp;ned, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:acfe800a6419d2add4a3fc87b0bfa3cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c73b70648a6175357c784d78ee6d6d" id="r_a56c73b70648a6175357c784d78ee6d6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">ast::aNEDToGeodetic</a> (const Vector3d &amp;ned, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:a56c73b70648a6175357c784d78ee6d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d28225a968904c76b5562e6b2a03769" id="r_a5d28225a968904c76b5562e6b2a03769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">ast::aGeodeticToENU</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, Vector3d &amp;enu, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:a5d28225a968904c76b5562e6b2a03769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc15d0cfbcbc7ad4df06f55a3bff420" id="r_a2cc15d0cfbcbc7ad4df06f55a3bff420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">ast::aENUToGeodetic</a> (const Vector3d &amp;enu, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:a2cc15d0cfbcbc7ad4df06f55a3bff420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>局部水平坐标转换实现 </p>

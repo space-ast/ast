@@ -434,11 +434,6 @@ var hierarchy =
     [ "ast::NutationSeries", "classast_1_1NutationSeries.html", null ],
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
-      [ "ast::BodyShape", "classast_1_1BodyShape.html", [
-        [ "ast::EllipsoidShape", "classast_1_1EllipsoidShape.html", null ],
-        [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
-        [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
-      ] ],
       [ "ast::Expr", "classast_1_1Expr.html", [
         [ "ast::ExprAttribute", "classast_1_1ExprAttribute.html", null ],
         [ "ast::ExprCalculationBase", "classast_1_1ExprCalculationBase.html", [
@@ -522,6 +517,12 @@ var hierarchy =
           [ "ast::MoonOrientation", "classast_1_1MoonOrientation.html", null ],
           [ "ast::NoopOrientation", "classast_1_1NoopOrientation.html", null ],
           [ "ast::RotationalData", "classast_1_1RotationalData.html", null ]
+        ] ],
+        [ "ast::BodyShape", "classast_1_1BodyShape.html", [
+          [ "ast::EllipsoidShape", "classast_1_1EllipsoidShape.html", null ],
+          [ "ast::NoopShape", "classast_1_1NoopShape.html", null ],
+          [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
+          [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
         ] ],
         [ "ast::Burn", "classast_1_1Burn.html", [
           [ "ast::BurnCollocation", "classast_1_1BurnCollocation.html", null ],

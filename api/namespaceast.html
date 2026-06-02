@@ -896,6 +896,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1NoopOrientation.html">NoopOrientation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1NoopShape.html">NoopShape</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1NoopStream.html">NoopStream</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1NutationCache.html">NutationCache</a></td></tr>
@@ -3369,13 +3371,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aGeodeticToNEDTransfo
 <tr class="memitem:ae37cf89ecf7a5a9f24db02a7bdd1ee5b" id="r_ae37cf89ecf7a5a9f24db02a7bdd1ee5b"><td class="memItemLeft" align="right" valign="top"><a id="ae37cf89ecf7a5a9f24db02a7bdd1ee5b" name="ae37cf89ecf7a5a9f24db02a7bdd1ee5b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>aGeodeticToENUTransform</b> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rot)</td></tr>
 <tr class="separator:ae37cf89ecf7a5a9f24db02a7bdd1ee5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfe800a6419d2add4a3fc87b0bfa3cd3" id="r_acfe800a6419d2add4a3fc87b0bfa3cd3"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe800a6419d2add4a3fc87b0bfa3cd3">aGeodeticToNED</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, Vector3d &amp;ned, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="memitem:a8ce82f884b66909d057457414655b2e0" id="r_a8ce82f884b66909d057457414655b2e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ce82f884b66909d057457414655b2e0">aBodyFixedToGeodetic</a> (const Vector3d &amp;bodyFixed, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, double radius, double flatFact)</td></tr>
+<tr class="separator:a8ce82f884b66909d057457414655b2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ff691a79a0dbb2a56c22c14f220f0e" id="r_a60ff691a79a0dbb2a56c22c14f220f0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60ff691a79a0dbb2a56c22c14f220f0e">aGeodeticToBodyFixed</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, Vector3d &amp;bodyFixed, double radius, double flatFact)</td></tr>
+<tr class="separator:a60ff691a79a0dbb2a56c22c14f220f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ad52ef016bbfea9b3b58f23993fa64" id="r_a99ad52ef016bbfea9b3b58f23993fa64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99ad52ef016bbfea9b3b58f23993fa64">aGeodeticToBodyFixed</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, Vector3d &amp;bodyFixed, double radius)</td></tr>
+<tr class="separator:a99ad52ef016bbfea9b3b58f23993fa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9ab68876744e149579c3feb94123348" id="r_ad9ab68876744e149579c3feb94123348"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9ab68876744e149579c3feb94123348">aBodyFixedToGeodetic</a> (const Vector3d &amp;bodyFixed, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, double radius)</td></tr>
+<tr class="separator:ad9ab68876744e149579c3feb94123348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac237e89fe6b85442a08fc47d06d11c4b" id="r_ac237e89fe6b85442a08fc47d06d11c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac237e89fe6b85442a08fc47d06d11c4b">aGeodeticToBodyFixed</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, Vector3d &amp;bodyFixed, double xRadius, double yRadius, double zRadius)</td></tr>
+<tr class="separator:ac237e89fe6b85442a08fc47d06d11c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d8d0022e16361b9438272f28170d5" id="r_a760d8d0022e16361b9438272f28170d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a760d8d0022e16361b9438272f28170d5">aBodyFixedToGeodetic</a> (const Vector3d &amp;bodyFixed, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, double xRadius, double yRadius, double zRadius)</td></tr>
+<tr class="separator:a760d8d0022e16361b9438272f28170d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8216ef0371cf6f618586d90129d9794f" id="r_a8216ef0371cf6f618586d90129d9794f"><td class="memItemLeft" align="right" valign="top"><a id="a8216ef0371cf6f618586d90129d9794f" name="a8216ef0371cf6f618586d90129d9794f"></a>
+<a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>checkBodyShape</b> (<a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:a8216ef0371cf6f618586d90129d9794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe800a6419d2add4a3fc87b0bfa3cd3" id="r_acfe800a6419d2add4a3fc87b0bfa3cd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe800a6419d2add4a3fc87b0bfa3cd3">aGeodeticToNED</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, Vector3d &amp;ned, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
 <tr class="separator:acfe800a6419d2add4a3fc87b0bfa3cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56c73b70648a6175357c784d78ee6d6d" id="r_a56c73b70648a6175357c784d78ee6d6d"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56c73b70648a6175357c784d78ee6d6d">aNEDToGeodetic</a> (const Vector3d &amp;ned, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="memitem:a56c73b70648a6175357c784d78ee6d6d" id="r_a56c73b70648a6175357c784d78ee6d6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56c73b70648a6175357c784d78ee6d6d">aNEDToGeodetic</a> (const Vector3d &amp;ned, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
 <tr class="separator:a56c73b70648a6175357c784d78ee6d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d28225a968904c76b5562e6b2a03769" id="r_a5d28225a968904c76b5562e6b2a03769"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d28225a968904c76b5562e6b2a03769">aGeodeticToENU</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, Vector3d &amp;enu, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="memitem:a5d28225a968904c76b5562e6b2a03769" id="r_a5d28225a968904c76b5562e6b2a03769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d28225a968904c76b5562e6b2a03769">aGeodeticToENU</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, Vector3d &amp;enu, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
 <tr class="separator:a5d28225a968904c76b5562e6b2a03769"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cc15d0cfbcbc7ad4df06f55a3bff420" id="r_a2cc15d0cfbcbc7ad4df06f55a3bff420"><td class="memItemLeft" align="right" valign="top">AST_CORE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cc15d0cfbcbc7ad4df06f55a3bff420">aENUToGeodetic</a> (const Vector3d &amp;enu, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="memitem:a2cc15d0cfbcbc7ad4df06f55a3bff420" id="r_a2cc15d0cfbcbc7ad4df06f55a3bff420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cc15d0cfbcbc7ad4df06f55a3bff420">aENUToGeodetic</a> (const Vector3d &amp;enu, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;origin, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;point, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
 <tr class="separator:a2cc15d0cfbcbc7ad4df06f55a3bff420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932b80fb49ed76b31a9a2c2aa6d74c89" id="r_a932b80fb49ed76b31a9a2c2aa6d74c89"><td class="memItemLeft" align="right" valign="top"><a id="a932b80fb49ed76b31a9a2c2aa6d74c89" name="a932b80fb49ed76b31a9a2c2aa6d74c89"></a>
 A_ALWAYS_INLINE Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>lla2ned</b> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;lla, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;lla0, <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
@@ -3803,6 +3820,12 @@ template&lt;typename GeometryType &gt; </td></tr>
 <tr class="separator:gade0110d2c04736f0da03998811b0709e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8df2c7bf8191ebe4fd5f05e4a36ef6a1" id="r_ga8df2c7bf8191ebe4fd5f05e4a36ef6a1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga8df2c7bf8191ebe4fd5f05e4a36ef6a1">aAxesTransform</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, <a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:ga8df2c7bf8191ebe4fd5f05e4a36ef6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460d5fbc23347034b732e4776d17252a" id="r_a460d5fbc23347034b732e4776d17252a"><td class="memItemLeft" align="right" valign="top"><a id="a460d5fbc23347034b732e4776d17252a" name="a460d5fbc23347034b732e4776d17252a"></a>
+<a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aWGS84Spheroid</b> ()</td></tr>
+<tr class="separator:a460d5fbc23347034b732e4776d17252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a597ca6c81051c2d6dc78d0bc37ad8dda" id="r_a597ca6c81051c2d6dc78d0bc37ad8dda"><td class="memItemLeft" align="right" valign="top"><a id="a597ca6c81051c2d6dc78d0bc37ad8dda" name="a597ca6c81051c2d6dc78d0bc37ad8dda"></a>
+<a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aCGCS2000Spheroid</b> ()</td></tr>
+<tr class="separator:a597ca6c81051c2d6dc78d0bc37ad8dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67f30cea55bfebe12f59a82fcaeb1f1a" id="r_a67f30cea55bfebe12f59a82fcaeb1f1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67f30cea55bfebe12f59a82fcaeb1f1a">aSurfaceCentricToDetic</a> (const <a class="el" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a> &amp;centric, double flatFact, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic)</td></tr>
 <tr class="separator:a67f30cea55bfebe12f59a82fcaeb1f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2716f3c71f6cd635ffaf3c4c76a2e667" id="r_a2716f3c71f6cd635ffaf3c4c76a2e667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2716f3c71f6cd635ffaf3c4c76a2e667">aSurfaceDeticToCentric</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic, double flatFact, <a class="el" href="classast_1_1GeocentricPoint.html">GeocentricPoint</a> &amp;centric)</td></tr>
@@ -6502,6 +6525,9 @@ template&lt;typename Scalar &gt; </td></tr>
 <tr class="separator:gaf3daeb4f2ae541a38327773fb244197b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga448817aeed1fc1c6155f4642d15b3637" id="r_ga448817aeed1fc1c6155f4642d15b3637"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga448817aeed1fc1c6155f4642d15b3637">sqrtSafe</a> (double x)</td></tr>
 <tr class="separator:ga448817aeed1fc1c6155f4642d15b3637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeda6489a58c6ade5f16fd219c121a570" id="r_gaeda6489a58c6ade5f16fd219c121a570"><td class="memTemplParams" colspan="2">template&lt;typename Scalar &gt; </td></tr>
+<tr class="memitem:gaeda6489a58c6ade5f16fd219c121a570"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Util.html#gaeda6489a58c6ade5f16fd219c121a570">square</a> (Scalar x)</td></tr>
+<tr class="separator:gaeda6489a58c6ade5f16fd219c121a570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae628da25178a68de57bdf3fdfd9e8dcb" id="r_gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a> (double angle, double start)</td></tr>
 <tr class="separator:gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaea03a932dcd544c97844e1f9eb451437" id="r_gaea03a932dcd544c97844e1f9eb451437"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">aNormalizeAngle</a> (double angle, double center)</td></tr>
@@ -6798,7 +6824,7 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthGra
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthRadius</b> = 6378137.0</td></tr>
 <tr class="separator:ga8097fe65924ebf1023138deae089104f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga04a8e4bb2908dc1333582498431a621e" id="r_ga04a8e4bb2908dc1333582498431a621e"><td class="memItemLeft" align="right" valign="top">
-constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthMinRadius</b> = 6.35675231424E6</td></tr>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthMinRadius</b> = 6356752.31424</td></tr>
 <tr class="separator:ga04a8e4bb2908dc1333582498431a621e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga545278c3fd822e6757b280c4f11dc5e9" id="r_ga545278c3fd822e6757b280c4f11dc5e9"><td class="memItemLeft" align="right" valign="top">
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthFlatFact</b> = 3.35281066475E-3</td></tr>
@@ -6812,6 +6838,24 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthSid
 <tr class="memitem:ga677f0df0f7a071bd501ecc95b116d6ae" id="r_ga677f0df0f7a071bd501ecc95b116d6ae"><td class="memItemLeft" align="right" valign="top">
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthAngVel</b> = 7.292115146706979e-5</td></tr>
 <tr class="separator:ga677f0df0f7a071bd501ecc95b116d6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf5fa02119f51ebc55cc164b326da207" id="r_gacf5fa02119f51ebc55cc164b326da207"><td class="memItemLeft" align="right" valign="top">
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthRadius_WGS84</b> = 6378137.0</td></tr>
+<tr class="separator:gacf5fa02119f51ebc55cc164b326da207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b06a18b2f5a45739be0cc207062f18f" id="r_ga6b06a18b2f5a45739be0cc207062f18f"><td class="memItemLeft" align="right" valign="top">
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthMinRadius_WGS84</b> = 6356752.31424</td></tr>
+<tr class="separator:ga6b06a18b2f5a45739be0cc207062f18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01a7414ac6b80895cde66016b0bac784" id="r_ga01a7414ac6b80895cde66016b0bac784"><td class="memItemLeft" align="right" valign="top">
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthFlatFact_WGS84</b> = 3.35281066475E-3</td></tr>
+<tr class="separator:ga01a7414ac6b80895cde66016b0bac784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab493343549421b94140c0c28b5c762b6" id="r_gab493343549421b94140c0c28b5c762b6"><td class="memItemLeft" align="right" valign="top">
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthRadius_CGCS2000</b> = 6378137.0</td></tr>
+<tr class="separator:gab493343549421b94140c0c28b5c762b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0eeb9bf282a5a08043b1f266b5826d30" id="r_ga0eeb9bf282a5a08043b1f266b5826d30"><td class="memItemLeft" align="right" valign="top">
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthMinRadius_CGCS2000</b> = 6356752.31414</td></tr>
+<tr class="separator:ga0eeb9bf282a5a08043b1f266b5826d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f992f987673417fe70ea094d2bd1545" id="r_ga7f992f987673417fe70ea094d2bd1545"><td class="memItemLeft" align="right" valign="top">
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kEarthFlatFact_CGCS2000</b> = 1/298.257222101</td></tr>
+<tr class="separator:ga7f992f987673417fe70ea094d2bd1545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga41255ef38b8253b08c439397df25521f" id="r_ga41255ef38b8253b08c439397df25521f"><td class="memItemLeft" align="right" valign="top">
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kMoonGrav</b> = 4.9028029535968e+12</td></tr>
 <tr class="separator:ga41255ef38b8253b08c439397df25521f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -8906,6 +8950,132 @@ template&lt;&gt; </div>
 
 </div>
 </div>
+<a id="ad9ab68876744e149579c3feb94123348" name="ad9ab68876744e149579c3feb94123348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ab68876744e149579c3feb94123348">&#9670;&#160;</a></span>aBodyFixedToGeodetic() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aBodyFixedToGeodetic </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>bodyFixed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>天体固连系坐标转大地坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bodyFixed</td><td>天体固连系坐标 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">point</td><td>输出的大地坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>圆球半径 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ce82f884b66909d057457414655b2e0" name="a8ce82f884b66909d057457414655b2e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce82f884b66909d057457414655b2e0">&#9670;&#160;</a></span>aBodyFixedToGeodetic() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aBodyFixedToGeodetic </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>bodyFixed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>flatFact</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>天体固连系坐标转大地坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bodyFixed</td><td>天体固连系坐标 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">point</td><td>输出的大地坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>扁球体赤道半径 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flatFact</td><td>扁率 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a760d8d0022e16361b9438272f28170d5" name="a760d8d0022e16361b9438272f28170d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760d8d0022e16361b9438272f28170d5">&#9670;&#160;</a></span>aBodyFixedToGeodetic() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aBodyFixedToGeodetic </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>bodyFixed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>xRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>yRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>zRadius</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>天体固连系坐标转大地坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bodyFixed</td><td>天体固连系坐标 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">point</td><td>输出的大地坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xRadius</td><td>椭球体x轴半径 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">yRadius</td><td>椭球体y轴半径 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">zRadius</td><td>椭球体z轴半径 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aaa48b499a9b2e5d0d612b032f1c06a1c" name="aaa48b499a9b2e5d0d612b032f1c06a1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa48b499a9b2e5d0d612b032f1c06a1c">&#9670;&#160;</a></span>aChat() <span class="overload">[1/2]</span></h2>
 
@@ -9670,6 +9840,132 @@ template&lt;&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>对应时间点的格林尼治视恒星时 GAST（弧度） </dd></dl>
+
+</div>
+</div>
+<a id="a99ad52ef016bbfea9b3b58f23993fa64" name="a99ad52ef016bbfea9b3b58f23993fa64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ad52ef016bbfea9b3b58f23993fa64">&#9670;&#160;</a></span>aGeodeticToBodyFixed() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aGeodeticToBodyFixed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>bodyFixed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>大地坐标转天体固连系坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>大地坐标 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bodyFixed</td><td>输出的天体固连系坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>圆球半径 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a60ff691a79a0dbb2a56c22c14f220f0e" name="a60ff691a79a0dbb2a56c22c14f220f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ff691a79a0dbb2a56c22c14f220f0e">&#9670;&#160;</a></span>aGeodeticToBodyFixed() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aGeodeticToBodyFixed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>bodyFixed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>flatFact</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>大地坐标转天体固连系坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>大地坐标 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bodyFixed</td><td>输出的天体固连系坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>扁球体赤道半径 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flatFact</td><td>扁率 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac237e89fe6b85442a08fc47d06d11c4b" name="ac237e89fe6b85442a08fc47d06d11c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac237e89fe6b85442a08fc47d06d11c4b">&#9670;&#160;</a></span>aGeodeticToBodyFixed() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API void ast::aGeodeticToBodyFixed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>bodyFixed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>xRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>yRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>zRadius</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>大地坐标转天体固连系坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>大地坐标 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bodyFixed</td><td>输出的天体固连系坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xRadius</td><td>椭球体x轴半径 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">yRadius</td><td>椭球体y轴半径 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">zRadius</td><td>椭球体z轴半径 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

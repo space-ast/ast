@@ -12,5 +12,6 @@ var Math_8hpp =
     [ "clamp", "Math_8hpp.html#ga77fdcb17fe2f5bf4506f1f136b81f282", null ],
     [ "sincos", "Math_8hpp.html#ga138fdd1a12245781f9122dfef37cabfc", null ],
     [ "sincos", "Math_8hpp.html#gafc70c145323140f0099c8226ab2161b5", null ],
-    [ "sqrtSafe", "Math_8hpp.html#ga448817aeed1fc1c6155f4642d15b3637", null ]
+    [ "sqrtSafe", "Math_8hpp.html#ga448817aeed1fc1c6155f4642d15b3637", null ],
+    [ "square", "Math_8hpp.html#gaeda6489a58c6ade5f16fd219c121a570", null ]
 ];

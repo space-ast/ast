@@ -229,6 +229,7 @@ var group__Util =
     [ "ast::sincos", "group__Util.html#gafc70c145323140f0099c8226ab2161b5", null ],
     [ "ast::sind", "group__Util.html#gaea030a8c994fded58797a7e7eefa3bfc", null ],
     [ "ast::sqrtSafe", "group__Util.html#ga448817aeed1fc1c6155f4642d15b3637", null ],
+    [ "ast::square", "group__Util.html#gaeda6489a58c6ade5f16fd219c121a570", null ],
     [ "ast::tand", "group__Util.html#gab01c93ce1b8246baa2288ed6ec0efd60", null ],
     [ "ast::kArcMinToRad", "group__Util.html#ga804f6d3f802ef012e8ace2bbe53b5a21", null ],
     [ "ast::kArcSecToRad", "group__Util.html#ga12a8a48682816085701653e55bc40a32", null ],
