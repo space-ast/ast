@@ -113,6 +113,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 <code>#include &quot;AstUtil/SharedPtr.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ScopedPtr.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ReflectAPI.hpp&quot;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
@@ -164,10 +165,10 @@ typedef <a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a>&
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c" id="r_ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplParams" colspan="2">
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aobject_cast</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
-<tr class="separator:ga1f003eeb39a52b854d4dc0579aa9c69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07f047f5acbdcf3b22d1d1c775fa3101" id="r_ga07f047f5acbdcf3b22d1d1c775fa3101"><td class="memTemplParams" colspan="2">
+template&lt;typename T , typename U &gt; </td></tr>
+<tr class="memitem:ga07f047f5acbdcf3b22d1d1c775fa3101"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aobject_cast</b> (U *obj)</td></tr>
+<tr class="separator:ga07f047f5acbdcf3b22d1d1c775fa3101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>

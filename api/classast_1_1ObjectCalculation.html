@@ -114,11 +114,11 @@ $(function(){initNavTree('classast_1_1ObjectCalculation.html',''); initResizable
  <div class="center">
   <img src="classast_1_1ObjectCalculation.png" usemap="#ast::ObjectCalculation_map" alt=""/>
   <map id="ast::ObjectCalculation_map" name="ast::ObjectCalculation_map">
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="304,56,598,80"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="304,0,598,24"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="608,56,902,80"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="608,0,902,24"/>
 <area href="classast_1_1ScStateCalculation.html" alt="ast::ScStateCalculation" shape="rect" coords="0,168,294,192"/>
-<area href="classast_1_1SegmentCalculation.html" alt="ast::SegmentCalculation" shape="rect" coords="304,168,598,192"/>
-<area href="classast_1_1StateCalculation.html" alt="ast::StateCalculation" shape="rect" coords="608,168,902,192"/>
+<area href="classast_1_1SegmentCalculation.html" alt="ast::SegmentCalculation" shape="rect" coords="608,168,902,192"/>
+<area href="classast_1_1StateCalculation.html" alt="ast::StateCalculation" shape="rect" coords="912,168,1206,192"/>
 <area href="classast_1_1ScStateCalc1PtAccess.html" alt="ast::ScStateCalc1PtAccess" shape="rect" coords="304,224,598,248"/>
 <area href="classast_1_1ScStateCalcAbsoluteValue.html" alt="ast::ScStateCalcAbsoluteValue" shape="rect" coords="304,280,598,304"/>
 <area href="classast_1_1ScStateCalcAltitude.html" alt="ast::ScStateCalcAltitude" shape="rect" coords="304,336,598,360"/>
@@ -312,6 +312,8 @@ $(function(){initNavTree('classast_1_1ObjectCalculation.html',''); initResizable
 <area href="classast_1_1ScStateCalcX.html" alt="ast::ScStateCalcX" shape="rect" coords="304,10864,598,10888"/>
 <area href="classast_1_1ScStateCalcY.html" alt="ast::ScStateCalcY" shape="rect" coords="304,10920,598,10944"/>
 <area href="classast_1_1ScStateCalcZ.html" alt="ast::ScStateCalcZ" shape="rect" coords="304,10976,598,11000"/>
+<area href="classast_1_1LandingSiteCalcSunAzimuth.html" alt="ast::LandingSiteCalcSunAzimuth" shape="rect" coords="912,224,1206,248"/>
+<area href="classast_1_1LandingSiteCalculation.html" title="着陆点计算量接口，定义计算与着陆点相关量的抽象接口" alt="ast::LandingSiteCalculation" shape="rect" coords="912,280,1206,304"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -321,6 +323,11 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ad107791b02e43d08c38898cb607b0f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb6093c59135e401b5f811d6ff938093" id="r_afb6093c59135e401b5f811d6ff938093"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb6093c59135e401b5f811d6ff938093">calculateNoCheckType</a> (const <a class="el" href="classast_1_1Object.html">Object</a> *obj, double &amp;result)=0</td></tr>
 <tr class="separator:afb6093c59135e401b5f811d6ff938093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c113c69a5fdb15ad872b2ea6af79247" id="r_a1c113c69a5fdb15ad872b2ea6af79247"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Dimension.html">Dimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c113c69a5fdb15ad872b2ea6af79247">getDimension</a> () const</td></tr>
+<tr class="separator:a1c113c69a5fdb15ad872b2ea6af79247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdbf7fe191805d6fcc295b734ce2902c" id="r_afdbf7fe191805d6fcc295b734ce2902c"><td class="memItemLeft" align="right" valign="top"><a id="afdbf7fe191805d6fcc295b734ce2902c" name="afdbf7fe191805d6fcc295b734ce2902c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAngle</b> () const</td></tr>
+<tr class="separator:afdbf7fe191805d6fcc295b734ce2902c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad9da9349a080520fd443b6d640d26d9" id="r_aad9da9349a080520fd443b6d640d26d9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad9da9349a080520fd443b6d640d26d9">calculate</a> (const <a class="el" href="classast_1_1Object.html">Object</a> *obj, double &amp;result)</td></tr>
 <tr class="separator:aad9da9349a080520fd443b6d640d26d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae42c0f7276fa085fa8fe2991ffaf1465" id="r_ae42c0f7276fa085fa8fe2991ffaf1465"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae42c0f7276fa085fa8fe2991ffaf1465">isExpectedType</a> (const <a class="el" href="classast_1_1Object.html">Object</a> *obj) const</td></tr>
@@ -537,6 +544,35 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a1c113c69a5fdb15ad872b2ea6af79247" name="a1c113c69a5fdb15ad872b2ea6af79247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c113c69a5fdb15ad872b2ea6af79247">&#9670;&#160;</a></span>getDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classast_1_1Dimension.html">Dimension</a> ast::ObjectCalculation::getDimension </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取计算结果的量纲 </p>
+
+<p>被 <a class="el" href="classast_1_1LandingSiteCalcSunAzimuth.html#a72aafbb3dc61dfd8c29ccdb833a51364">ast::LandingSiteCalcSunAzimuth</a>, <a class="el" href="classast_1_1LandingSiteCalcSunElevation.html#a83483fb2b7906a96ae70ce1066fc93a7">ast::LandingSiteCalcSunElevation</a>, <a class="el" href="classast_1_1ScStateCalcArgLat.html#a25c877a8f2b01086337d26a4189f7f95">ast::ScStateCalcArgLat</a> , 以及 <a class="el" href="classast_1_1ScStateCalcDifference.html#a0912c7e3b8b829a7284de82b70783457">ast::ScStateCalcDifference</a> 重载.</p>
+
+</div>
+</div>
 <a id="ad107791b02e43d08c38898cb607b0f19" name="ad107791b02e43d08c38898cb607b0f19"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad107791b02e43d08c38898cb607b0f19">&#9670;&#160;</a></span>getExpectedType()</h2>
 
@@ -563,7 +599,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <p>获取期望输入的对象类型 </p>
 <dl class="section return"><dt>返回</dt><dd>期望输入的对象类型 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1ScStateCalculation.html#addd3878f03764a0b0e43b50cf5bbd5c9">ast::ScStateCalculation</a>, <a class="el" href="classast_1_1SegmentCalculation.html#a65684ff1de70ecdc6f0bd872473d869f">ast::SegmentCalculation</a> , 以及 <a class="el" href="classast_1_1StateCalculation.html#a02a603be8c6722bf6467a7f251e4ae31">ast::StateCalculation</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1LandingSiteCalculation.html#a460417996ef7c2af72fbbd13d08e1274">ast::LandingSiteCalculation</a>, <a class="el" href="classast_1_1ScStateCalculation.html#addd3878f03764a0b0e43b50cf5bbd5c9">ast::ScStateCalculation</a>, <a class="el" href="classast_1_1SegmentCalculation.html#a65684ff1de70ecdc6f0bd872473d869f">ast::SegmentCalculation</a> , 以及 <a class="el" href="classast_1_1StateCalculation.html#a02a603be8c6722bf6467a7f251e4ae31">ast::StateCalculation</a> 内被实现.</p>
 
 </div>
 </div>

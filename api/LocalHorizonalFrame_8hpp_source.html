@@ -133,58 +133,62 @@ $(function(){initNavTree('LocalHorizonalFrame_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a8ce82f884b66909d057457414655b2e0">aBodyFixedToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; bodyFixed, GeodeticPoint&amp; point, <span class="keywordtype">double</span> xRadius, <span class="keywordtype">double</span> yRadius, <span class="keywordtype">double</span> zRadius);</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">aGeodeticToNED</a>(<span class="keyword">const</span> GeodeticPoint&amp; point, <span class="keyword">const</span> GeodeticPoint&amp; origin, Vector3d&amp; ned, BodyShape* bodyShape);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a72a28528fa7f6008a62df069411ede03">aGeodeticToNED</a>(<span class="keyword">const</span> Vector3d&amp; posInBodyFixed, <span class="keyword">const</span> GeodeticPoint&amp; origin, Vector3d&amp; ned, BodyShape* bodyShape);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">aNEDToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; ned, <span class="keyword">const</span> GeodeticPoint&amp; origin, GeodeticPoint&amp; point, BodyShape* bodyShape);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a72a28528fa7f6008a62df069411ede03">aGeodeticToNED</a>(<span class="keyword">const</span> GeodeticPoint&amp; point, <span class="keyword">const</span> GeodeticPoint&amp; origin, Vector3d&amp; ned, BodyShape* bodyShape);</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">aGeodeticToENU</a>(<span class="keyword">const</span> GeodeticPoint&amp; point, <span class="keyword">const</span> GeodeticPoint&amp; origin, Vector3d&amp; enu, BodyShape* bodyShape);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a97aa6b083ef3c87bcffb1cf6765a3042">aNEDToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; ned, <span class="keyword">const</span> GeodeticPoint&amp; origin, GeodeticPoint&amp; point, BodyShape* bodyShape);</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>AST_CORE_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">aENUToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; enu, <span class="keyword">const</span> GeodeticPoint&amp; origin, GeodeticPoint&amp; point, BodyShape* bodyShape);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#aff2288f2bae71a06b1f524e890dbd26a">aGeodeticToENU</a>(<span class="keyword">const</span> Vector3d&amp; posInBodyFixed, <span class="keyword">const</span> GeodeticPoint&amp; origin, Vector3d&amp; enu, BodyShape* bodyShape);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">// ----------------------------------</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">// MATLAB Navigation Toolbox 同名函数</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">// ----------------------------------</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#aff2288f2bae71a06b1f524e890dbd26a">aGeodeticToENU</a>(<span class="keyword">const</span> GeodeticPoint&amp; point, <span class="keyword">const</span> GeodeticPoint&amp; origin, Vector3d&amp; enu, BodyShape* bodyShape);</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>A_ALWAYS_INLINE Vector3d lla2ned(<span class="keyword">const</span> GeodeticPoint&amp; lla, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    Vector3d ned;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_function" href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">aGeodeticToNED</a>(lla, lla0, ned, bodyShape);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">return</span> ned;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>AST_CORE_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a3f5ba89cce85b1a42267d47f6c38d9db">aENUToGeodetic</a>(<span class="keyword">const</span> Vector3d&amp; enu, <span class="keyword">const</span> GeodeticPoint&amp; origin, GeodeticPoint&amp; point, BodyShape* bodyShape);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>A_ALWAYS_INLINE GeodeticPoint ned2lla(<span class="keyword">const</span> Vector3d&amp; ned, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>{</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    GeodeticPoint target;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">aNEDToGeodetic</a>(ned, lla0, target, bodyShape);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordflow">return</span> target;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>A_ALWAYS_INLINE Vector3d lla2enu(<span class="keyword">const</span> GeodeticPoint&amp; lla, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>{</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    Vector3d enu;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_function" href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">aGeodeticToENU</a>(lla, lla0, enu, bodyShape);</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">return</span> enu;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>A_ALWAYS_INLINE GeodeticPoint enu2lla(<span class="keyword">const</span> Vector3d&amp; enu, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    GeodeticPoint target;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_function" href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">aENUToGeodetic</a>(enu, lla0, target, bodyShape);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">return</span> target;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a2cc15d0cfbcbc7ad4df06f55a3bff420"><div class="ttname"><a href="namespaceast.html#a2cc15d0cfbcbc7ad4df06f55a3bff420">ast::aENUToGeodetic</a></div><div class="ttdeci">void aENUToGeodetic(const Vector3d &amp;enu, const GeodeticPoint &amp;origin, GeodeticPoint &amp;point, BodyShape *bodyShape)</div><div class="ttdoc">ENU坐标转大地坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:261</div></div>
-<div class="ttc" id="anamespaceast_html_a56c73b70648a6175357c784d78ee6d6d"><div class="ttname"><a href="namespaceast.html#a56c73b70648a6175357c784d78ee6d6d">ast::aNEDToGeodetic</a></div><div class="ttdeci">void aNEDToGeodetic(const Vector3d &amp;ned, const GeodeticPoint &amp;origin, GeodeticPoint &amp;point, BodyShape *bodyShape)</div><div class="ttdoc">NED坐标转大地坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:243</div></div>
-<div class="ttc" id="anamespaceast_html_a5d28225a968904c76b5562e6b2a03769"><div class="ttname"><a href="namespaceast.html#a5d28225a968904c76b5562e6b2a03769">ast::aGeodeticToENU</a></div><div class="ttdeci">void aGeodeticToENU(const GeodeticPoint &amp;point, const GeodeticPoint &amp;origin, Vector3d &amp;enu, BodyShape *bodyShape)</div><div class="ttdoc">大地坐标转ENU坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:252</div></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">// ----------------------------------</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">// MATLAB Navigation Toolbox 同名函数</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">// ----------------------------------</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>A_ALWAYS_INLINE Vector3d lla2ned(<span class="keyword">const</span> GeodeticPoint&amp; lla, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>{</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    Vector3d ned;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="namespaceast.html#a72a28528fa7f6008a62df069411ede03">aGeodeticToNED</a>(lla, lla0, ned, bodyShape);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">return</span> ned;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>A_ALWAYS_INLINE GeodeticPoint ned2lla(<span class="keyword">const</span> Vector3d&amp; ned, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    GeodeticPoint target;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="namespaceast.html#a97aa6b083ef3c87bcffb1cf6765a3042">aNEDToGeodetic</a>(ned, lla0, target, bodyShape);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">return</span> target;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>}</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>A_ALWAYS_INLINE Vector3d lla2enu(<span class="keyword">const</span> GeodeticPoint&amp; lla, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>{</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    Vector3d enu;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_function" href="namespaceast.html#aff2288f2bae71a06b1f524e890dbd26a">aGeodeticToENU</a>(lla, lla0, enu, bodyShape);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">return</span> enu;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>A_ALWAYS_INLINE GeodeticPoint enu2lla(<span class="keyword">const</span> Vector3d&amp; enu, <span class="keyword">const</span> GeodeticPoint&amp; lla0, BodyShape* bodyShape)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>{</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    GeodeticPoint target;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_function" href="namespaceast.html#a3f5ba89cce85b1a42267d47f6c38d9db">aENUToGeodetic</a>(enu, lla0, target, bodyShape);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">return</span> target;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="anamespaceast_html_a3f5ba89cce85b1a42267d47f6c38d9db"><div class="ttname"><a href="namespaceast.html#a3f5ba89cce85b1a42267d47f6c38d9db">ast::aENUToGeodetic</a></div><div class="ttdeci">void aENUToGeodetic(const Vector3d &amp;enu, const GeodeticPoint &amp;origin, GeodeticPoint &amp;point, BodyShape *bodyShape)</div><div class="ttdoc">ENU坐标转大地坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:278</div></div>
 <div class="ttc" id="anamespaceast_html_a60ff691a79a0dbb2a56c22c14f220f0e"><div class="ttname"><a href="namespaceast.html#a60ff691a79a0dbb2a56c22c14f220f0e">ast::aGeodeticToBodyFixed</a></div><div class="ttdeci">void aGeodeticToBodyFixed(const GeodeticPoint &amp;lla, Vector3d &amp;cart, double radius, double flatFact)</div><div class="ttdoc">大地坐标转天体固连系坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:81</div></div>
+<div class="ttc" id="anamespaceast_html_a72a28528fa7f6008a62df069411ede03"><div class="ttname"><a href="namespaceast.html#a72a28528fa7f6008a62df069411ede03">ast::aGeodeticToNED</a></div><div class="ttdeci">void aGeodeticToNED(const Vector3d &amp;posInBodyFixed, const GeodeticPoint &amp;origin, Vector3d &amp;ned, BodyShape *bodyShape)</div><div class="ttdoc">天体固连系坐标转NED坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:233</div></div>
 <div class="ttc" id="anamespaceast_html_a73770dc514a1654458eee93c45d31b7b"><div class="ttname"><a href="namespaceast.html#a73770dc514a1654458eee93c45d31b7b">ast::aGeodeticToNEDTransform</a></div><div class="ttdeci">void aGeodeticToNEDTransform(const GeodeticPoint &amp;origin, Rotation &amp;rot)</div><div class="ttdoc">大地坐标(天体固连系)转NED坐标系的旋转变换</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:35</div></div>
 <div class="ttc" id="anamespaceast_html_a8ce82f884b66909d057457414655b2e0"><div class="ttname"><a href="namespaceast.html#a8ce82f884b66909d057457414655b2e0">ast::aBodyFixedToGeodetic</a></div><div class="ttdeci">void aBodyFixedToGeodetic(const Vector3d &amp;cart, GeodeticPoint &amp;lla, double radius, double flatFact)</div><div class="ttdoc">天体固连系坐标转大地坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:48</div></div>
-<div class="ttc" id="anamespaceast_html_acfe800a6419d2add4a3fc87b0bfa3cd3"><div class="ttname"><a href="namespaceast.html#acfe800a6419d2add4a3fc87b0bfa3cd3">ast::aGeodeticToNED</a></div><div class="ttdeci">void aGeodeticToNED(const GeodeticPoint &amp;point, const GeodeticPoint &amp;origin, Vector3d &amp;ned, BodyShape *bodyShape)</div><div class="ttdoc">大地坐标转NED坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:234</div></div>
+<div class="ttc" id="anamespaceast_html_a97aa6b083ef3c87bcffb1cf6765a3042"><div class="ttname"><a href="namespaceast.html#a97aa6b083ef3c87bcffb1cf6765a3042">ast::aNEDToGeodetic</a></div><div class="ttdeci">void aNEDToGeodetic(const Vector3d &amp;ned, const GeodeticPoint &amp;origin, GeodeticPoint &amp;point, BodyShape *bodyShape)</div><div class="ttdoc">NED坐标转大地坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:251</div></div>
 <div class="ttc" id="anamespaceast_html_ae37cf89ecf7a5a9f24db02a7bdd1ee5b"><div class="ttname"><a href="namespaceast.html#ae37cf89ecf7a5a9f24db02a7bdd1ee5b">ast::aGeodeticToENUTransform</a></div><div class="ttdeci">void aGeodeticToENUTransform(const GeodeticPoint &amp;origin, Rotation &amp;rot)</div><div class="ttdoc">大地坐标(天体固连系)转ENU坐标系的旋转变换</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:41</div></div>
+<div class="ttc" id="anamespaceast_html_aff2288f2bae71a06b1f524e890dbd26a"><div class="ttname"><a href="namespaceast.html#aff2288f2bae71a06b1f524e890dbd26a">ast::aGeodeticToENU</a></div><div class="ttdeci">void aGeodeticToENU(const Vector3d &amp;posInBodyFixed, const GeodeticPoint &amp;origin, Vector3d &amp;enu, BodyShape *bodyShape)</div><div class="ttdoc">天体固连系坐标转ENU坐标</div><div class="ttdef"><b>定义</b> LocalHorizonalFrame.cpp:260</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

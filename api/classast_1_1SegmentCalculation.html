@@ -112,9 +112,12 @@ $(function(){initNavTree('classast_1_1SegmentCalculation.html',''); initResizabl
  <div class="center">
   <img src="classast_1_1SegmentCalculation.png" usemap="#ast::SegmentCalculation_map" alt=""/>
   <map id="ast::SegmentCalculation_map" name="ast::SegmentCalculation_map">
-<area href="classast_1_1ObjectCalculation.html" title="对象计算基类" alt="ast::ObjectCalculation" shape="rect" coords="0,112,145,136"/>
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,56,145,80"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,0,145,24"/>
+<area href="classast_1_1ObjectCalculation.html" title="对象计算基类" alt="ast::ObjectCalculation" shape="rect" coords="105,112,305,136"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="105,56,305,80"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="105,0,305,24"/>
+<area href="classast_1_1LandingSiteCalcSunAzimuth.html" alt="ast::LandingSiteCalcSunAzimuth" shape="rect" coords="0,224,200,248"/>
+<area href="classast_1_1LandingSiteCalculation.html" title="着陆点计算量接口，定义计算与着陆点相关量的抽象接口" alt="ast::LandingSiteCalculation" shape="rect" coords="210,224,410,248"/>
+<area href="classast_1_1LandingSiteCalcSunElevation.html" title="计算着陆点太阳高度角" alt="ast::LandingSiteCalcSunElevation" shape="rect" coords="210,280,410,304"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -128,6 +131,11 @@ Public 成员函数</h2></td></tr>
 virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>calculate</b> (const <a class="el" href="classast_1_1Segment.html">Segment</a> &amp;segment, double &amp;result)=0</td></tr>
 <tr class="separator:a0646ef848139459f5c2d623096a3fca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectCalculation"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectCalculation')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectCalculation.html">ast::ObjectCalculation</a></td></tr>
+<tr class="memitem:a1c113c69a5fdb15ad872b2ea6af79247 inherit pub_methods_classast_1_1ObjectCalculation" id="r_a1c113c69a5fdb15ad872b2ea6af79247"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Dimension.html">Dimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectCalculation.html#a1c113c69a5fdb15ad872b2ea6af79247">getDimension</a> () const</td></tr>
+<tr class="separator:a1c113c69a5fdb15ad872b2ea6af79247 inherit pub_methods_classast_1_1ObjectCalculation"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdbf7fe191805d6fcc295b734ce2902c inherit pub_methods_classast_1_1ObjectCalculation" id="r_afdbf7fe191805d6fcc295b734ce2902c"><td class="memItemLeft" align="right" valign="top">
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAngle</b> () const</td></tr>
+<tr class="separator:afdbf7fe191805d6fcc295b734ce2902c inherit pub_methods_classast_1_1ObjectCalculation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad9da9349a080520fd443b6d640d26d9 inherit pub_methods_classast_1_1ObjectCalculation" id="r_aad9da9349a080520fd443b6d640d26d9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectCalculation.html#aad9da9349a080520fd443b6d640d26d9">calculate</a> (const <a class="el" href="classast_1_1Object.html">Object</a> *obj, double &amp;result)</td></tr>
 <tr class="separator:aad9da9349a080520fd443b6d640d26d9 inherit pub_methods_classast_1_1ObjectCalculation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae42c0f7276fa085fa8fe2991ffaf1465 inherit pub_methods_classast_1_1ObjectCalculation" id="r_ae42c0f7276fa085fa8fe2991ffaf1465"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectCalculation.html#ae42c0f7276fa085fa8fe2991ffaf1465">isExpectedType</a> (const <a class="el" href="classast_1_1Object.html">Object</a> *obj) const</td></tr>

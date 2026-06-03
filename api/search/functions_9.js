@@ -29,7 +29,7 @@ var searchData=
   ['invert_26',['invert',['../classast_1_1Dimension.html#a3cf89e126a374b36dfd2969a0604f8b7',1,'ast::Dimension::invert()'],['../classast_1_1Quantity.html#accd68453f0bf216a913b04d0d38c4bb6',1,'ast::Quantity::invert()'],['../classast_1_1Unit.html#a8325fb31cd46c4356e094983e027c33a',1,'ast::Unit::invert()']]],
   ['is_5fborrowed_27',['is_borrowed',['../classast_1_1CorVector.html#a9d8cd60ac0f55e1c06b60a9691456aed',1,'ast::CorVector']]],
   ['is_5fowned_28',['is_owned',['../classast_1_1CorVector.html#aa9f4cf8a5557db2093e47a32c58fb667',1,'ast::CorVector']]],
-  ['isangle_29',['isAngle',['../classast_1_1EventDetector.html#a281b62793ed301061e760066093792b4',1,'ast::EventDetector']]],
+  ['isangle_29',['isAngle',['../classast_1_1EventDetector.html#a281b62793ed301061e760066093792b4',1,'ast::EventDetector::isAngle()'],['../classast_1_1ObjectCalculation.html#afdbf7fe191805d6fcc295b734ce2902c',1,'ast::ObjectCalculation::isAngle()']]],
   ['isarray_30',['isArray',['../classast_1_1JsonValue.html#ab13ad011202c14d910e02f4332a6b460',1,'ast::JsonValue']]],
   ['isattractiontype_31',['isAttractionType',['../classast_1_1BodyAttraction.html#ae71e7843f765000620fcc1c0155cb696',1,'ast::BodyAttraction']]],
   ['isatty_32',['isatty',['../namespaceast_1_1posix.html#affe4f5e5287aa523aeb4a51b828caac1',1,'ast::posix']]],

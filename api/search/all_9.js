@@ -119,7 +119,7 @@ var searchData=
   ['is_5fcallable_116',['is_callable',['../structast_1_1is__callable.html',1,'ast']]],
   ['is_5fowned_117',['is_owned',['../classast_1_1CorVector.html#aa9f4cf8a5557db2093e47a32c58fb667',1,'ast::CorVector']]],
   ['is_5fvector_5flike_118',['is_vector_like',['../structast_1_1math_1_1is__vector__like.html',1,'ast::math']]],
-  ['isangle_119',['isAngle',['../classast_1_1EventDetector.html#a281b62793ed301061e760066093792b4',1,'ast::EventDetector']]],
+  ['isangle_119',['isAngle',['../classast_1_1EventDetector.html#a281b62793ed301061e760066093792b4',1,'ast::EventDetector::isAngle()'],['../classast_1_1ObjectCalculation.html#afdbf7fe191805d6fcc295b734ce2902c',1,'ast::ObjectCalculation::isAngle()']]],
   ['isarray_120',['isArray',['../classast_1_1JsonValue.html#ab13ad011202c14d910e02f4332a6b460',1,'ast::JsonValue']]],
   ['isatellite_121',['ISatellite',['../interfaceISatellite.html',1,'']]],
   ['isatelliteimpl_122',['ISatelliteImpl',['../classast_1_1ISatelliteImpl.html',1,'ast']]],

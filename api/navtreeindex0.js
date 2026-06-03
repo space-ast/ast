@@ -2,13 +2,15 @@ var NAVTREEINDEX0 =
 {
 "AER_8cpp.html":[4,0,0,7,2,5,0],
 "AER_8cpp.html#a1a7cd02a557327e2d77342f2585a9117":[4,0,0,7,2,5,0,0],
-"AER_8cpp.html#a302ff6bc96aea0c8d3b96c32344b6737":[4,0,0,7,2,5,0,3],
+"AER_8cpp.html#a302ff6bc96aea0c8d3b96c32344b6737":[4,0,0,7,2,5,0,4],
 "AER_8cpp.html#a37a0cc7b0f260e6aab9a7efb8012fcce":[4,0,0,7,2,5,0,2],
+"AER_8cpp.html#a79dd2788c0e65518d23aa9e3d47d2df3":[4,0,0,7,2,5,0,3],
 "AER_8cpp.html#ac7b7ebb82e087561464721e1d6bcc503":[4,0,0,7,2,5,0,1],
 "AER_8hpp.html":[4,0,0,7,2,5,1],
 "AER_8hpp.html#a1a7cd02a557327e2d77342f2585a9117":[4,0,0,7,2,5,1,0],
-"AER_8hpp.html#a302ff6bc96aea0c8d3b96c32344b6737":[4,0,0,7,2,5,1,3],
+"AER_8hpp.html#a302ff6bc96aea0c8d3b96c32344b6737":[4,0,0,7,2,5,1,4],
 "AER_8hpp.html#a37a0cc7b0f260e6aab9a7efb8012fcce":[4,0,0,7,2,5,1,2],
+"AER_8hpp.html#a79dd2788c0e65518d23aa9e3d47d2df3":[4,0,0,7,2,5,1,3],
 "AER_8hpp.html#ac7b7ebb82e087561464721e1d6bcc503":[4,0,0,7,2,5,1,1],
 "AER_8hpp_source.html":[4,0,0,7,2,5,1],
 "ActiveScriptExecutor_8hpp_source.html":[4,0,0,16,3,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "AttitudeCoverage_8cpp.html":[4,0,0,17,3,10],
 "AttitudeCoverage_8hpp.html":[4,0,0,17,3,11],
 "AttitudeCoverage_8hpp_source.html":[4,0,0,17,3,11],
-"AttitudeECFVVLH_8hpp_source.html":[4,0,0,17,0,5],
-"AttitudeECFVelRadial_8hpp_source.html":[4,0,0,17,0,4],
-"AttitudeECIVVLH_8hpp_source.html":[4,0,0,17,0,6]
+"AttitudeECFVVLH_8hpp_source.html":[4,0,0,17,0,5]
 };

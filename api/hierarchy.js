@@ -537,6 +537,7 @@ var hierarchy =
             [ "ast::Return", "classast_1_1Return.html", null ],
             [ "ast::Segment", "classast_1_1Segment.html", [
               [ "ast::InitialState", "classast_1_1InitialState.html", null ],
+              [ "ast::LandingSite", "classast_1_1LandingSite.html", null ],
               [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
               [ "ast::Propagate", "classast_1_1Propagate.html", null ],
               [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
@@ -865,7 +866,12 @@ var hierarchy =
             [ "ast::ScStateCalcY", "classast_1_1ScStateCalcY.html", null ],
             [ "ast::ScStateCalcZ", "classast_1_1ScStateCalcZ.html", null ]
           ] ],
-          [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", null ],
+          [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", [
+            [ "ast::LandingSiteCalcSunAzimuth", "classast_1_1LandingSiteCalcSunAzimuth.html", null ],
+            [ "ast::LandingSiteCalculation", "classast_1_1LandingSiteCalculation.html", [
+              [ "ast::LandingSiteCalcSunElevation", "classast_1_1LandingSiteCalcSunElevation.html", null ]
+            ] ]
+          ] ],
           [ "ast::StateCalculation", "classast_1_1StateCalculation.html", null ]
         ] ],
         [ "ast::ObjectLinkTo", "classast_1_1ObjectLinkTo.html", null ],
