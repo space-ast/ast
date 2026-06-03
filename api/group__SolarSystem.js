@@ -22,7 +22,6 @@ var group__SolarSystem =
       [ "getJn", "classast_1_1CelestialBody.html#a1f7101ee589b855385bcfa3e074a07d8", null ],
       [ "getJplIndex", "classast_1_1CelestialBody.html#a08d858b6ef5a4022d61bac5a7d3db1be", null ],
       [ "getJplSpiceId", "classast_1_1CelestialBody.html#ad97ffad75d805afca9119ca411b94daa", null ],
-      [ "getName", "classast_1_1CelestialBody.html#aaf8e86ad6783f5af889fb098b73419f7", null ],
       [ "getOrientation", "classast_1_1CelestialBody.html#aac2be47141564e831fde370631d78f49", null ],
       [ "getParent", "classast_1_1CelestialBody.html#a48d73324d6882c5015aaec772fc6a5ba", null ],
       [ "getPointCenter", "classast_1_1CelestialBody.html#a7112d4e551afe8eb5f9c71dca33d8566", null ],
@@ -62,8 +61,7 @@ var group__SolarSystem =
       [ "makeFrameTOD", "classast_1_1CelestialBody.html#a1a14bc3007d6149bfdb723caae04c5d7", null ],
       [ "makeFrameTOE", "classast_1_1CelestialBody.html#a82a634abbda5bab8fdb3d6fd4864a93d", null ],
       [ "makeFrameTOE", "classast_1_1CelestialBody.html#a85f0090b4702bb649fe090eb10e59c36", null ],
-      [ "setGravityModel", "classast_1_1CelestialBody.html#acd1771311b5ced7a41d2d611f56863a9", null ],
-      [ "setName", "classast_1_1CelestialBody.html#a7bea1ddebeeededdfdf2d8e73b8df696", null ]
+      [ "setGravityModel", "classast_1_1CelestialBody.html#acd1771311b5ced7a41d2d611f56863a9", null ]
     ] ],
     [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
       [ "getFrame", "classast_1_1BodyEphemeris.html#aa09c59ec72c50e271aa5a56e6d594912", null ],

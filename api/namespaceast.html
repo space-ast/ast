@@ -2826,6 +2826,16 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="memitem:ga0f1610817c1f218b1c318bb6a05bfcf8" id="r_ga0f1610817c1f218b1c318bb6a05bfcf8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#gga0f1610817c1f218b1c318bb6a05bfcf8abb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1
  }</td></tr>
 <tr class="separator:ga0f1610817c1f218b1c318bb6a05bfcf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0969f4ec02ccfb10a27176152916d2c9" id="r_ga0969f4ec02ccfb10a27176152916d2c9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__RTTI.html#ga0969f4ec02ccfb10a27176152916d2c9">EObjectFlags</a> : uint32_t { <br />
+&#160;&#160;<a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9abe988781e4e1de1c6a36fb698afbbe1f">EObjectFlags::eNone</a> = 0
+, <a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9aafaeea00b3e1b1c667d8701a3ec8c634">EObjectFlags::eReadOnly</a> = 0x01
+, <a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9aed96669f6469cf83d6414456d2ed3292">EObjectFlags::eInActive</a> = 0x02
+, <a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9a58cea5d35c853c35d327b2b7057f499f">EObjectFlags::eComponent</a> = 0x04
+, <br />
+&#160;&#160;<a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9ada3eea7beddf56113887385eb9a5fb0c">EObjectFlags::eEntity</a> = 0x08
+<br />
+ }</td></tr>
+<tr class="separator:ga0969f4ec02ccfb10a27176152916d2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab1de86ab568b3c12ac0a28cb2d5dda9a" id="r_gab1de86ab568b3c12ac0a28cb2d5dda9a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a">EValueType</a> { <br />
 &#160;&#160;<a class="el" href="group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8">EValueType::eBool</a>
 , <a class="el" href="group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aab811883d0eea431e27438596857a9e86">EValueType::eInt</a>
@@ -6532,6 +6542,28 @@ template&lt;typename _Char &gt; </td></tr>
 <tr class="separator:gac54935ab9eb916aacfb54ccb56d74a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga34a9659895a0a3e8e4d41e257d884145" id="r_ga34a9659895a0a3e8e4d41e257d884145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga34a9659895a0a3e8e4d41e257d884145">aDebugBreak</a> ()</td></tr>
 <tr class="separator:ga34a9659895a0a3e8e4d41e257d884145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86405285408752e77e2cb335447b62dd" id="r_a86405285408752e77e2cb335447b62dd"><td class="memItemLeft" align="right" valign="top"><a id="a86405285408752e77e2cb335447b62dd" name="a86405285408752e77e2cb335447b62dd"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>aTextDomain</b> (const char *domainname)</td></tr>
+<tr class="separator:a86405285408752e77e2cb335447b62dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc2e0c087bd6ae3cf615afa059367b2" id="r_a5cc2e0c087bd6ae3cf615afa059367b2"><td class="memItemLeft" align="right" valign="top"><a id="a5cc2e0c087bd6ae3cf615afa059367b2" name="a5cc2e0c087bd6ae3cf615afa059367b2"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>aGetText</b> (const char *msgid)</td></tr>
+<tr class="separator:a5cc2e0c087bd6ae3cf615afa059367b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c4143d9ee7321be569c6432da3d4f7" id="r_a85c4143d9ee7321be569c6432da3d4f7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85c4143d9ee7321be569c6432da3d4f7">aTranslate</a> (const char *msgctxt, const char *msgid)</td></tr>
+<tr class="separator:a85c4143d9ee7321be569c6432da3d4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bae6d23ca6463a9fa6039beda431c86" id="r_a6bae6d23ca6463a9fa6039beda431c86"><td class="memItemLeft" align="right" valign="top"><a id="a6bae6d23ca6463a9fa6039beda431c86" name="a6bae6d23ca6463a9fa6039beda431c86"></a>
+A_ALWAYS_INLINE const char *&#160;</td><td class="memItemRight" valign="bottom"><b>tr</b> (const char *msgid)</td></tr>
+<tr class="separator:a6bae6d23ca6463a9fa6039beda431c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae5bd19791a34354ad2ac76ee2442c1e" id="r_aae5bd19791a34354ad2ac76ee2442c1e"><td class="memItemLeft" align="right" valign="top"><a id="aae5bd19791a34354ad2ac76ee2442c1e" name="aae5bd19791a34354ad2ac76ee2442c1e"></a>
+A_ALWAYS_INLINE const char *&#160;</td><td class="memItemRight" valign="bottom"><b>gettext</b> (const char *msgid)</td></tr>
+<tr class="separator:aae5bd19791a34354ad2ac76ee2442c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af407a48157c90301da5c1fba06e921f7" id="r_af407a48157c90301da5c1fba06e921f7"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af407a48157c90301da5c1fba06e921f7">pgettext</a> (const char *msgctxt, const char *msgid)</td></tr>
+<tr class="separator:af407a48157c90301da5c1fba06e921f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c0e4baad32c4025992a3d36520badc" id="r_a59c0e4baad32c4025992a3d36520badc"><td class="memItemLeft" align="right" valign="top"><a id="a59c0e4baad32c4025992a3d36520badc" name="a59c0e4baad32c4025992a3d36520badc"></a>
+A_ALWAYS_INLINE const char *&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> (const char *msgid)</td></tr>
+<tr class="separator:a59c0e4baad32c4025992a3d36520badc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7579853017ccd2f8866a22afe168c05" id="r_ab7579853017ccd2f8866a22afe168c05"><td class="memItemLeft" align="right" valign="top"><a id="ab7579853017ccd2f8866a22afe168c05" name="ab7579853017ccd2f8866a22afe168c05"></a>
+A_ALWAYS_INLINE const char *&#160;</td><td class="memItemRight" valign="bottom"><b>textdomain</b> (const char *domainname)</td></tr>
+<tr class="separator:ab7579853017ccd2f8866a22afe168c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga164fcfc03102fdbb2630cab0e2ca3148" id="r_ga164fcfc03102fdbb2630cab0e2ca3148"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>aLogMessageV</b> (<a class="el" href="group__Util.html#ga5bbb8d8bdd9f8766a334821bfbf1d01f">ELogLevel</a> level, const <a class="el" href="classast_1_1MessageLogContext.html">MessageLogContext</a> &amp;context, const char *format, va_list ap)</td></tr>
 <tr class="separator:ga164fcfc03102fdbb2630cab0e2ca3148"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -6703,6 +6735,9 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>iii</b> = sizeof
 <tr class="memitem:ga06bf8c5e673937c839aa20add280c066" id="r_ga06bf8c5e673937c839aa20add280c066"><td class="memItemLeft" align="right" valign="top">
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kTimeDefaultFormatPrecision</b> = 3</td></tr>
 <tr class="separator:ga06bf8c5e673937c839aa20add280c066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61838f4b85edd7f6d63c7c7d73fa9e82" id="r_a61838f4b85edd7f6d63c7c7d73fa9e82"><td class="memItemLeft" align="right" valign="top"><a id="a61838f4b85edd7f6d63c7c7d73fa9e82" name="a61838f4b85edd7f6d63c7c7d73fa9e82"></a>
+A_THREAD_LOCAL std::string&#160;</td><td class="memItemRight" valign="bottom"><b>translateCache_</b></td></tr>
+<tr class="separator:a61838f4b85edd7f6d63c7c7d73fa9e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e27e0b55869d83265cd3c4d54037264" id="r_a3e27e0b55869d83265cd3c4d54037264"><td class="memItemLeft" align="right" valign="top"><a id="a3e27e0b55869d83265cd3c4d54037264" name="a3e27e0b55869d83265cd3c4d54037264"></a>
 constexpr const double&#160;</td><td class="memItemRight" valign="bottom"><b>kDefaultRelTol</b> = 1e-14</td></tr>
 <tr class="separator:a3e27e0b55869d83265cd3c4d54037264"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -15725,6 +15760,36 @@ template&lt;typename Func &gt; </div>
 
 </div>
 </div>
+<a id="a85c4143d9ee7321be569c6432da3d4f7" name="a85c4143d9ee7321be569c6432da3d4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c4143d9ee7321be569c6432da3d4f7">&#9670;&#160;</a></span>aTranslate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI const char * ast::aTranslate </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msgctxt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msgid</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取上下文翻译文本 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgctxt</td><td>上下文 </td></tr>
+    <tr><td class="paramname">msgid</td><td>消息ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ace3aa6084865f8847fcfa445dc0d2999" name="ace3aa6084865f8847fcfa445dc0d2999"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace3aa6084865f8847fcfa445dc0d2999">&#9670;&#160;</a></span>aUiExecWidget()</h2>
 
@@ -16273,6 +16338,38 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af407a48157c90301da5c1fba06e921f7" name="af407a48157c90301da5c1fba06e921f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af407a48157c90301da5c1fba06e921f7">&#9670;&#160;</a></span>pgettext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE const char * ast::pgettext </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msgctxt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msgid</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取上下文文本 The letter 'p' stands for 'particular' or 'special'. <br  />
+ </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgctxt</td><td>上下文 </td></tr>
+    <tr><td class="paramname">msgid</td><td>消息ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>上下文文本 </dd></dl>
 
 </div>
 </div>

@@ -6,6 +6,8 @@ var dir_1d596027c2fe9b93d9e6a4ea9df9dfd2 =
     [ "Constants.hpp", "Constants_8hpp.html", null ],
     [ "Debug.cpp", "Debug_8cpp.html", "Debug_8cpp" ],
     [ "Debug.hpp", "Debug_8hpp.html", "Debug_8hpp" ],
+    [ "I18n.cpp", "I18n_8cpp.html", "I18n_8cpp" ],
+    [ "I18n.hpp", "I18n_8hpp.html", "I18n_8hpp" ],
     [ "Literals.hpp", "Literals_8hpp.html", "Literals_8hpp" ],
     [ "LocalBuffer.hpp", "LocalBuffer_8hpp_source.html", null ],
     [ "LocaleGuard.hpp", "LocaleGuard_8hpp.html", "LocaleGuard_8hpp" ],

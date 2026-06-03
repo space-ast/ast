@@ -114,26 +114,27 @@ $(function(){initNavTree('GUIInterfaceImpl_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1GUIInterfaceImpl.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1GUIInterfaceImpl.html">GUIInterfaceImpl</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1GUIInterface.html">GUIInterface</a></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classast_1_1GUIInterfaceImpl.html">GUIInterfaceImpl</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classast_1_1GUIInterfaceImpl.html">GUIInterfaceImpl</a>();</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classast_1_1GUIInterfaceImpl.html">~GUIInterfaceImpl</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1GUIInterfaceImpl.html">GUIInterfaceImpl</a>* Instance();</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    errc_t editObject(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* selectObject(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> typeName) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* translate(<span class="keyword">const</span> <span class="keywordtype">char</span>* msgctxt, <span class="keyword">const</span> <span class="keywordtype">char</span>* msgid) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_GUI_CAPI <a class="code hl_class" href="classast_1_1GUIInterface.html">GUIInterface</a>* <a class="code hl_function" href="namespaceast.html#abc8a549bd0034f7f766a488af1a51f11">aGUIInterfaceImpl</a>();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_GUI_CAPI <a class="code hl_class" href="classast_1_1GUIInterface.html">GUIInterface</a>* <a class="code hl_function" href="namespaceast.html#abc8a549bd0034f7f766a488af1a51f11">aGUIInterfaceImpl</a>();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1GUIInterfaceImpl_html"><div class="ttname"><a href="classast_1_1GUIInterfaceImpl.html">ast::GUIInterfaceImpl</a></div><div class="ttdoc">GUI接口实现类</div><div class="ttdef"><b>定义</b> GUIInterfaceImpl.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1GUIInterface_html"><div class="ttname"><a href="classast_1_1GUIInterface.html">ast::GUIInterface</a></div><div class="ttdoc">GUI接口</div><div class="ttdef"><b>定义</b> GUIInterface.hpp:35</div></div>
-<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:87</div></div>
+<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:99</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="anamespaceast_html_abc8a549bd0034f7f766a488af1a51f11"><div class="ttname"><a href="namespaceast.html#abc8a549bd0034f7f766a488af1a51f11">ast::aGUIInterfaceImpl</a></div><div class="ttdeci">GUIInterface * aGUIInterfaceImpl()</div><div class="ttdoc">获取GUI接口实现类实例</div><div class="ttdef"><b>定义</b> GUIInterfaceImpl.cpp:91</div></div>
+<div class="ttc" id="anamespaceast_html_abc8a549bd0034f7f766a488af1a51f11"><div class="ttname"><a href="namespaceast.html#abc8a549bd0034f7f766a488af1a51f11">ast::aGUIInterfaceImpl</a></div><div class="ttdeci">GUIInterface * aGUIInterfaceImpl()</div><div class="ttdoc">获取GUI接口实现类实例</div><div class="ttdef"><b>定义</b> GUIInterfaceImpl.cpp:116</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

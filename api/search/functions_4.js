@@ -38,11 +38,12 @@ var searchData=
   ['dimension_35',['dimension',['../classast_1_1UiQuantity.html#a02fa65f2780e7e7252c0cd7341f70b86',1,'ast::UiQuantity::dimension()'],['../classast_1_1Quantity.html#ae00bb0f24f989e8e4d519d5a252fc150',1,'ast::Quantity::dimension()'],['../classast_1_1Unit.html#a737479417a4c6db862752355e6334984',1,'ast::Unit::dimension()']]],
   ['dirpath_36',['dirpath',['../classast_1_1StartupConfig.html#a350152e9287cc3d9d21a46f1eeeca4da',1,'ast::StartupConfig']]],
   ['discrete_37',['discrete',['../classast_1_1TimeInterval.html#a25199f4d9dc4a4f6a0d2aa4c4da17dd5',1,'ast::TimeInterval::discrete(const TimePoint &amp;epoch, double step, std::vector&lt; double &gt; &amp;times) const'],['../classast_1_1TimeInterval.html#ab4e87be3e6cc73a9607e1328e7f667d6',1,'ast::TimeInterval::discrete(double step, std::vector&lt; TimePoint &gt; &amp;times) const'],['../group__Time.html#gabe360a12179445a578f36cbb87b55aee',1,'ast::TimeInterval::discrete(double step) const'],['../group__Time.html#gabf30f22652768af0923dcc7729e84cb5',1,'ast::TimeInterval::discrete(const TimePoint &amp;epoch, double step) const']]],
-  ['divide_38',['divide',['../classast_1_1Unit.html#a40d890822f24e239617f9aba3a87cf42',1,'ast::Unit']]],
-  ['dot_39',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
-  ['doublevalue_40',['doubleValue',['../classast_1_1JsonDomSax.html#aef9d686e4b1bf6d382046c70bcd0583a',1,'ast::JsonDomSax::doubleValue()'],['../classast_1_1JsonSax.html#a02b5e3a87b2b47eb108e53155f56c965',1,'ast::JsonSax::doubleValue()']]],
-  ['dpr_41',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
-  ['drag_42',['drag',['../classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa',1,'ast::HPOPForceModel']]],
-  ['duration_43',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
-  ['durationfrom_44',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
+  ['displayname_38',['displayName',['../classast_1_1Object.html#a6ec5c1d0b95276034ead107916464adb',1,'ast::Object']]],
+  ['divide_39',['divide',['../classast_1_1Unit.html#a40d890822f24e239617f9aba3a87cf42',1,'ast::Unit']]],
+  ['dot_40',['dot',['../namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e',1,'ast::math']]],
+  ['doublevalue_41',['doubleValue',['../classast_1_1JsonDomSax.html#aef9d686e4b1bf6d382046c70bcd0583a',1,'ast::JsonDomSax::doubleValue()'],['../classast_1_1JsonSax.html#a02b5e3a87b2b47eb108e53155f56c965',1,'ast::JsonSax::doubleValue()']]],
+  ['dpr_42',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
+  ['drag_43',['drag',['../classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa',1,'ast::HPOPForceModel']]],
+  ['duration_44',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
+  ['durationfrom_45',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
 ];

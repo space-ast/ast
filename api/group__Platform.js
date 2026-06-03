@@ -5,7 +5,8 @@ var group__Platform =
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "~GUIInterface", "classast_1_1GUIInterface.html#a21fd42ca1ddf0dc1eb5e83df4c338f36", null ],
       [ "editObject", "classast_1_1GUIInterface.html#a8ca5ae91cab9b454468b07637075b9b3", null ],
-      [ "selectObject", "classast_1_1GUIInterface.html#aa6d548a96175ce5ca651534192a4cae1", null ]
+      [ "selectObject", "classast_1_1GUIInterface.html#aa6d548a96175ce5ca651534192a4cae1", null ],
+      [ "translate", "classast_1_1GUIInterface.html#a01d72be6741e72d335819ac57631739b", null ]
     ] ],
     [ "ast::EEndian", "group__Platform.html#gae5cf4de7adb0a012861b982458f81526", [
       [ "ast::eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],

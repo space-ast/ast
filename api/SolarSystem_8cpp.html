@@ -119,8 +119,8 @@ $(function(){initNavTree('SolarSystem_8cpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 宏定义</h2></td></tr>
-<tr class="memitem:ad33ef7a26c7c5011194942a8e7b1566b" id="r_ad33ef7a26c7c5011194942a8e7b1566b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad33ef7a26c7c5011194942a8e7b1566b">_AST_REG_BODY</a>(NAME)</td></tr>
-<tr class="separator:ad33ef7a26c7c5011194942a8e7b1566b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97d67113f77884214468de72eace0bd" id="r_ac97d67113f77884214468de72eace0bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac97d67113f77884214468de72eace0bd">_AST_REG_BODY</a>(PARENT,  NAME)</td></tr>
+<tr class="separator:ac97d67113f77884214468de72eace0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -133,8 +133,8 @@ $(function(){initNavTree('SolarSystem_8cpp.html',''); initResizable(true); });
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 <p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
 </div><h2 class="groupheader">宏定义说明</h2>
-<a id="ad33ef7a26c7c5011194942a8e7b1566b" name="ad33ef7a26c7c5011194942a8e7b1566b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad33ef7a26c7c5011194942a8e7b1566b">&#9670;&#160;</a></span>_AST_REG_BODY</h2>
+<a id="ac97d67113f77884214468de72eace0bd" name="ac97d67113f77884214468de72eace0bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac97d67113f77884214468de72eace0bd">&#9670;&#160;</a></span>_AST_REG_BODY</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,14 +142,19 @@ $(function(){initNavTree('SolarSystem_8cpp.html',''); initResizable(true); });
         <tr>
           <td class="memname">#define _AST_REG_BODY</td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>NAME</em></span></td><td>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>PARENT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>NAME</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">    { \</div>
-<div class="line">        <span class="keyword">auto</span> NAME = <span class="keyword">new</span> CelestialBody(<span class="keyword">this</span>); \</div>
-<div class="line">        NAME-&gt;name_ = #NAME; \</div>
+<div class="line">        <span class="keyword">auto</span> NAME = <span class="keyword">new</span> CelestialBody(PARENT); \</div>
+<div class="line">        NAME-&gt;setReadOnly(<span class="keyword">true</span>);\</div>
+<div class="line">        NAME-&gt;setName(#NAME); \</div>
 <div class="line">        NAME-&gt;jplSpiceId_ = ESpiceId::e##NAME; \</div>
 <div class="line">        bodies_.push_back(NAME); \</div>
 <div class="line">    }</div>

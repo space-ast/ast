@@ -8,6 +8,7 @@ var classast_1_1Object =
     [ "decRefNoDelete", "classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c", null ],
     [ "decWeakRef", "classast_1_1Object.html#a892866e72d85db8cc1431fb0dff1d871", null ],
     [ "destruct", "classast_1_1Object.html#ac7badb24d788afd6fa3e0bc4ef91569e", null ],
+    [ "displayName", "classast_1_1Object.html#a6ec5c1d0b95276034ead107916464adb", null ],
     [ "getAttrBool", "classast_1_1Object.html#a83991aa13c3c8eaf8d878c3e37ac4281", null ],
     [ "getAttrBool", "classast_1_1Object.html#a798f984235c3fa36ea82198b109f5ea3", null ],
     [ "getAttrDouble", "classast_1_1Object.html#abf605796ba25d785d4d63055fdf14836", null ],

@@ -128,6 +128,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~GUIInterface</b> 
 <tr class="separator:a8ca5ae91cab9b454468b07637075b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6d548a96175ce5ca651534192a4cae1" id="r_aa6d548a96175ce5ca651534192a4cae1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6d548a96175ce5ca651534192a4cae1">selectObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName)</td></tr>
 <tr class="separator:aa6d548a96175ce5ca651534192a4cae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01d72be6741e72d335819ac57631739b" id="r_a01d72be6741e72d335819ac57631739b"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01d72be6741e72d335819ac57631739b">translate</a> (const char *msgctxt, const char *msgid)</td></tr>
+<tr class="separator:a01d72be6741e72d335819ac57631739b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -300,6 +302,47 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~GUIInterface</b> 
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a01d72be6741e72d335819ac57631739b" name="a01d72be6741e72d335819ac57631739b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01d72be6741e72d335819ac57631739b">&#9670;&#160;</a></span>translate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * ast::GUIInterface::translate </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msgctxt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msgid</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>翻译文本 </p>
+<p>~ </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgctxt</td><td>上下文 </td></tr>
+    <tr><td class="paramname">msgid</td><td>消息ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>const char* 翻译后的文本 </dd></dl>
+
+<p>被 <a class="el" href="classast_1_1GUIInterfaceImpl.html#a83881d2765347efab4bad1b44982467b">ast::GUIInterfaceImpl</a> 重载.</p>
 
 </div>
 </div>

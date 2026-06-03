@@ -28,6 +28,7 @@ var group__RTTI =
       [ "decRefNoDelete", "classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c", null ],
       [ "decWeakRef", "classast_1_1Object.html#a892866e72d85db8cc1431fb0dff1d871", null ],
       [ "destruct", "classast_1_1Object.html#ac7badb24d788afd6fa3e0bc4ef91569e", null ],
+      [ "displayName", "classast_1_1Object.html#a6ec5c1d0b95276034ead107916464adb", null ],
       [ "getAttrBool", "classast_1_1Object.html#a83991aa13c3c8eaf8d878c3e37ac4281", null ],
       [ "getAttrBool", "classast_1_1Object.html#a798f984235c3fa36ea82198b109f5ea3", null ],
       [ "getAttrDouble", "classast_1_1Object.html#abf605796ba25d785d4d63055fdf14836", null ],
@@ -244,6 +245,13 @@ var group__RTTI =
     [ "ast::FPropertyGet", "group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee", null ],
     [ "ast::FPropertySet", "group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42", [
       [ "ast::INVALID_ID", "group__RTTI.html#gga0f1610817c1f218b1c318bb6a05bfcf8abb2ccfb13bbc2fc2827f77f2a3556ea2", null ]
+    ] ],
+    [ "ast::EObjectFlags", "group__RTTI.html#ga0969f4ec02ccfb10a27176152916d2c9", [
+      [ "ast::EObjectFlags::eNone", "group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9abe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "ast::EObjectFlags::eReadOnly", "group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9aafaeea00b3e1b1c667d8701a3ec8c634", null ],
+      [ "ast::EObjectFlags::eInActive", "group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9aed96669f6469cf83d6414456d2ed3292", null ],
+      [ "ast::EObjectFlags::eComponent", "group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9a58cea5d35c853c35d327b2b7057f499f", null ],
+      [ "ast::EObjectFlags::eEntity", "group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9ada3eea7beddf56113887385eb9a5fb0c", null ]
     ] ],
     [ "ast::EValueType", "group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a", [
       [ "ast::EValueType::eBool", "group__RTTI.html#ggab1de86ab568b3c12ac0a28cb2d5dda9aaa72ae44cce754ef20278e5367b74afb8", null ],
