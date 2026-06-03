@@ -30,6 +30,7 @@
 #include "AstCore/DragForce.hpp"
 #include "AstCore/SolarRadiationPressure.hpp"
 #include "AstCore/ThirdBodyForce.hpp"
+#include "AstCore/MainSequence.hpp"
 #include "AstSim/MotionTwoBody.hpp"
 
 #include "AstGUI/UiStateCartesian.hpp"
@@ -40,6 +41,7 @@
 #include "AstGUI/UiGravityForce.hpp"
 #include "AstGUI/UiDragForce.hpp"
 #include "AstGUI/UiSolarRadiationPressure.hpp"
+#include "AstGUI/UiMainSequence.hpp"
 #include "AstGUI/UiThirdBodyForce.hpp"
 #include "AstGUI/AstGUIAPI.hpp"
 
@@ -64,6 +66,7 @@ ObjectEditRegistry::ObjectEditRegistry(bool shouldRegistEditWidget)
         registerEditWidget(DragForce::StaticType(), [](Object *object) -> QWidget* { return new UiDragForce(object); });
         registerEditWidget(SolarRadiationPressure::StaticType(), [](Object *object) -> QWidget* { return new UiSolarRadiationPressure(object); });
         registerEditWidget(ThirdBodyForce::StaticType(), [](Object *object) -> QWidget* { return new UiThirdBodyForce(object); });
+        registerEditWidget(MainSequence::StaticType(), [](Object *object) -> QWidget* { return new UiMainSequence(object); });
     }
 }
 

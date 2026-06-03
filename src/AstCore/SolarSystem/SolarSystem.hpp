@@ -53,7 +53,11 @@ class SolarSystem;
 class AST_CORE_API SolarSystem: public ObjectNamed
 {
 public:
+    AST_OBJECT(SolarSystem)
+	
 	SolarSystem() = default;
+	SolarSystem(StringView name) 
+		: ObjectNamed(name) {}
 	~SolarSystem() = default;
 
 	/// @brief 初始化太阳系

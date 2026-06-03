@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstGUI/UiObject.hpp"
 #include <QWidget>
 #include <QToolBar>
 #include <QAction>
@@ -37,11 +38,12 @@ class UiMissionTree;
 class UiSegmentEditor;
 
 /// @brief 任务序列编辑主面板（QWidget），由调用方嵌入容器
-class AST_GUI_API UiMainSequence : public QWidget
+class AST_GUI_API UiMainSequence : public UiObject
 {
     Q_OBJECT
 public:
     explicit UiMainSequence(QWidget* parent = nullptr);
+    explicit UiMainSequence(Object* sequence, QWidget* parent = nullptr);
     ~UiMainSequence() override;
 
     /// @brief 设置外部 MainSequence（裸指针，不持有所有权）
@@ -61,6 +63,7 @@ private slots:
     void onAddManeuver();
     void onAddSequence();
     void onAddTargeterSequence();
+    void onAddLandingSite();
     void onDeleteSegment();
     void onOpenFile();
     void onSaveFile();
@@ -88,9 +91,6 @@ private:
     UiSegmentEditor* segmentEditor_ = nullptr;
     QPlainTextEdit*  outputView_ = nullptr;
 
-    // 数据
-    MainSequence* sequence_ = nullptr;
-    bool ownsSequence_ = false;
 };
 
 AST_NAMESPACE_END

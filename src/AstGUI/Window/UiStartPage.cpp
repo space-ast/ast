@@ -300,7 +300,7 @@ QWidget* UiStartPage::createCard(const QString& id, const QString& iconName, QSt
 
     QIcon icon;
     if (!iconName.isEmpty())
-        icon = loadIcon(iconName);
+        icon = aUiLoadIcon(iconName);
     if (icon.isNull())
         icon = style()->standardIcon(fallbackIcon);
     button->setIcon(icon);
@@ -324,7 +324,7 @@ QToolButton* UiStartPage::createSidebarButton(const QString& text, const QString
 
     QIcon icon;
     if (!iconName.isEmpty())
-        icon = loadIcon(iconName);
+        icon = aUiLoadIcon(iconName);
     if (icon.isNull())
         icon = style()->standardIcon(fallbackIcon);
     button->setIcon(icon);

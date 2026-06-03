@@ -166,7 +166,7 @@ QToolButton* UiMainWindow::createRibbonButton(const QString& text, const QString
 
     QIcon icon;
     if (!iconName.isEmpty())
-        icon = loadIcon(iconName);
+        icon = aUiLoadIcon(iconName);
     if (icon.isNull())
         icon = style()->standardIcon(stdIcon);
     btn->setIcon(icon);

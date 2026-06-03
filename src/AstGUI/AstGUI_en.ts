@@ -24,7 +24,7 @@
         <translation>Browse object attributes and calculations</translation>
     </message>
     <message>
-        <source>&lt;无名称&gt;</source>
+        <source>未命名&lt;%1&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -775,6 +775,14 @@ Error code: %2</translation>
     <message>
         <source>任务序列</source>
         <translation>Mission Sequence</translation>
+    </message>
+    <message>
+        <source>着陆点 (LandingSite)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加: 着陆点段</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

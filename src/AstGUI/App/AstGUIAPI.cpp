@@ -42,9 +42,12 @@ static bool s_initAppAttributes = aInitAppAttributes();
 errc_t aGUIInit()
 {
     errc_t rc = 0;
-    int argc = 0;
-    char *argv[] = { nullptr };
-    rc = aQAppInit(argc, argv);
+    if(!qApp)
+    {
+        int argc = 0;
+        char *argv[] = { nullptr };
+        rc = aQAppInit(argc, argv);
+    }
     return rc;
 }
 

@@ -20,7 +20,11 @@
 
 #include "AppMain.hpp"
 #include "AstGUI/UiAnalyzerMainWindow.hpp"
+#include "AstGUI/UiBasicAnalyzer.hpp"
 #include "AstGUI/AstGUIAPI.hpp"
+#include "AstAnalyzer/BasicAnalyzer.hpp"
+#include "AstCore/MainSequence.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -29,7 +33,13 @@ int main(int argc, char *argv[])
 
     aQAppInit(argc, argv);
 
+    // 初始化预定义的任务序列和分析器对象，并将它们关联起来。
+    auto* basicAnalyzer = new BasicAnalyzer();
+    auto* mainSequence = aNewObject<MainSequence>(basicAnalyzer);
+    basicAnalyzer->setRelatedCommand(mainSequence);
+
     auto* mainWindow = new UiAnalyzerMainWindow();
+    mainWindow->basicAnalyzerEditor()->setBasicAnalyzer(basicAnalyzer);
     mainWindow->setWindowTitle("AstAnalyzer");
     mainWindow->showMaximized();
 

@@ -183,7 +183,7 @@ errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
 
                 if(shape)
                 {
-                    shape->setName(data.shapeName_);
+                    shape->setName(data.shapeName_.empty()? data.shape_ : data.shapeName_);
                     shape->setParentScope(this);
                     this->shape_ = shape;
                 }

@@ -27,6 +27,7 @@
 #include "AstCore/Propagate.hpp"
 #include "AstCore/Maneuver.hpp"
 #include "AstCore/TargeterSequence.hpp"
+#include "AstCore/LandingSite.hpp"
 #include "AstLoader/MissionCommandLoader.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include <QSplitter>
@@ -38,18 +39,19 @@
 AST_NAMESPACE_BEGIN
 
 UiMainSequence::UiMainSequence(QWidget* parent)
-    : QWidget(parent)
+    : UiMainSequence(nullptr, parent)
+{
+}
+
+UiMainSequence::UiMainSequence(Object* sequence, QWidget* parent)
+    : UiObject(sequence, parent)
 {
     setupUi();
     setupToolBar();
     setupConnections();
 }
 
-UiMainSequence::~UiMainSequence()
-{
-    if (ownsSequence_)
-        delete sequence_;
-}
+UiMainSequence::~UiMainSequence() = default;
 
 // ============================================================================
 // 界面搭建
@@ -104,6 +106,8 @@ void UiMainSequence::setupToolBar()
     addMenu_->addAction(missionIcon("Maneuver"),           tr("机动 (Maneuver)"),         this, &UiMainSequence::onAddManeuver);
     addMenu_->addAction(missionIcon("Sequence"),           tr("序列 (Sequence)"),         this, &UiMainSequence::onAddSequence);
     addMenu_->addAction(missionIcon("TargeterSequence"),   tr("打靶序列 (TargeterSeq)"),  this, &UiMainSequence::onAddTargeterSequence);
+    addMenu_->addSeparator();
+    addMenu_->addAction(missionIcon("LandingSite"),        tr("着陆点 (LandingSite)"),     this, &UiMainSequence::onAddLandingSite);
 
     auto* addButton = new QAction(tr("+ 添加"), this);
     addButton->setMenu(addMenu_);
@@ -156,10 +160,7 @@ void UiMainSequence::setupConnections()
 
 void UiMainSequence::setSequence(MainSequence* sequence)
 {
-    if (ownsSequence_ && sequence_)
-        delete sequence_;
-    sequence_ = sequence;
-    ownsSequence_ = false;
+    setObject(sequence);
     missionTree_->setSequence(sequence);
     if (sequence)
         appendOutput(tr("已加载任务序列"));
@@ -167,7 +168,7 @@ void UiMainSequence::setSequence(MainSequence* sequence)
 
 MainSequence* UiMainSequence::sequence() const
 {
-    return sequence_;
+    return aobject_cast<MainSequence*>(getObject());
 }
 
 // ============================================================================
@@ -191,12 +192,15 @@ static HMissionCommand createSegment(const QString& typeName)
         return HMissionCommand(aNewObject<Sequence>());
     if (typeName == "TargeterSequence")
         return HMissionCommand(aNewObject<TargeterSequence>());
+    if (typeName == "LandingSite")
+        return HMissionCommand(aNewObject<LandingSite>());
     return nullptr;
 }
 
 void UiMainSequence::onAddInitialState()
 {
-    if (!sequence_)
+    auto sequence = this->sequence();
+    if (!sequence)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -209,19 +213,20 @@ void UiMainSequence::onAddInitialState()
     cmd->setName("Initial State");
 
     // 添加到根序列的第一个位置
-    auto cmds = sequence_->getCommands();
+    auto cmds = sequence->getCommands();
     cmds.insert(cmds.begin(), cmd);
-    sequence_->setCommands(std::move(cmds));
+    sequence->setCommands(std::move(cmds));
 
     // 刷新树
-    missionTree_->setSequence(sequence_);
+    missionTree_->setSequence(sequence);
 
     appendOutput(tr("添加: 初始状态段"));
 }
 
 void UiMainSequence::onAddPropagate()
 {
-    if (!sequence_)
+    auto sequence = this->sequence();
+    if (!sequence)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -233,17 +238,18 @@ void UiMainSequence::onAddPropagate()
 
     cmd->setName("Propagate");
 
-    auto cmds = sequence_->getCommands();
+    auto cmds = sequence->getCommands();
     cmds.push_back(cmd);
-    sequence_->setCommands(std::move(cmds));
+    sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence_);
+    missionTree_->setSequence(sequence);
     appendOutput(tr("添加: 轨道预报段"));
 }
 
 void UiMainSequence::onAddManeuver()
 {
-    if (!sequence_)
+    auto sequence = this->sequence();   
+    if (!sequence)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -255,17 +261,18 @@ void UiMainSequence::onAddManeuver()
 
     cmd->setName("Maneuver");
 
-    auto cmds = sequence_->getCommands();
+    auto cmds = sequence->getCommands();
     cmds.push_back(cmd);
-    sequence_->setCommands(std::move(cmds));
+    sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence_);
+    missionTree_->setSequence(sequence);
     appendOutput(tr("添加: 机动段"));
 }
 
 void UiMainSequence::onAddSequence()
 {
-    if (!sequence_)
+    auto sequence = this->sequence();
+    if (!sequence)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -277,17 +284,18 @@ void UiMainSequence::onAddSequence()
 
     cmd->setName("Sequence");
 
-    auto cmds = sequence_->getCommands();
+    auto cmds = sequence->getCommands();
     cmds.push_back(cmd);
-    sequence_->setCommands(std::move(cmds));
+    sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence_);
+    missionTree_->setSequence(sequence);
     appendOutput(tr("添加: 子序列段"));
 }
 
 void UiMainSequence::onAddTargeterSequence()
 {
-    if (!sequence_)
+    auto sequence = this->sequence();
+    if (!sequence)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -299,12 +307,35 @@ void UiMainSequence::onAddTargeterSequence()
 
     cmd->setName("TargeterSequence");
 
-    auto cmds = sequence_->getCommands();
+    auto cmds = sequence->getCommands();
     cmds.push_back(cmd);
-    sequence_->setCommands(std::move(cmds));
+    sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence_);
+    missionTree_->setSequence(sequence);
     appendOutput(tr("添加: 打靶序列段"));
+}
+
+void UiMainSequence::onAddLandingSite()
+{
+    auto sequence = this->sequence();
+    if (!sequence)
+    {
+        QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
+        return;
+    }
+
+    auto cmd = createSegment("LandingSite");
+    if (!cmd)
+        return;
+
+    cmd->setName("LandingSite");
+
+    auto cmds = sequence->getCommands();
+    cmds.push_back(cmd);
+    sequence->setCommands(std::move(cmds));
+
+    missionTree_->setSequence(sequence);
+    appendOutput(tr("添加: 着陆点段"));
 }
 
 void UiMainSequence::onDeleteSegment()
@@ -346,20 +377,19 @@ void UiMainSequence::onOpenFile()
         return;
     }
 
-    // 若尚无 MainSequence，自动创建
-    if (!sequence_)
+    auto sequence = this->sequence();
+    if (!sequence)
     {
-        sequence_ = new MainSequence();
-        ownsSequence_ = true;
+        return;
     }
 
     // 将加载的数据拷贝到 MainSequence
-    sequence_->setCommands(loadedSeq->getCommands());
-    sequence_->setRepeatCount(loadedSeq->repeatCount());
-    sequence_->setName(loadedSeq->getName());
+    sequence->setCommands(loadedSeq->getCommands());
+    sequence->setRepeatCount(loadedSeq->repeatCount());
+    sequence->setName(loadedSeq->getName());
 
     // 刷新树
-    missionTree_->setSequence(sequence_);
+    missionTree_->setSequence(sequence);
 
     appendOutput(tr("已加载: %1 (%2 个命令)")
                  .arg(filePath)
@@ -368,7 +398,8 @@ void UiMainSequence::onOpenFile()
 
 void UiMainSequence::onSaveFile()
 {
-    if (!sequence_)
+    auto sequence = this->sequence();
+    if (!sequence)
     {
         QMessageBox::warning(this, tr("提示"), tr("没有内容可保存。"));
         return;

@@ -172,7 +172,7 @@ void SolarSystem::init()
     // init spice bodies
     #define _AST_REG_BODY(NAME) \
     { \
-        auto NAME = new CelestialBody(); \
+        auto NAME = new CelestialBody(this); \
         NAME->name_ = #NAME; \
         NAME->jplSpiceId_ = ESpiceId::e##NAME; \
         bodies_.push_back(NAME); \

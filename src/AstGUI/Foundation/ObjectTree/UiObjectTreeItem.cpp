@@ -32,7 +32,7 @@ UiObjectTreeItem::UiObjectTreeItem(Object* obj)
     : UiObjectTreeItem()
 {
     object_ = obj;
-    configure(obj, QObject::tr("<无名称>"));
+    configure(obj);
 }
 
 void UiObjectTreeItem::buildChildren()
@@ -72,7 +72,7 @@ UiObjectTreeItem* UiObjectTreeItem::clone() const
     return new UiObjectTreeItem(*this);
 }
 
-void UiObjectTreeItem::configure(Object* obj, const QString& emptyNameText)
+void UiObjectTreeItem::configure(Object* obj)
 {
     object_ = obj;
     std::string name;
@@ -82,7 +82,7 @@ void UiObjectTreeItem::configure(Object* obj, const QString& emptyNameText)
         name = obj->getName();
         typeName = obj->typeName();
     }
-    setText(0, name.empty() ? emptyNameText : QString::fromStdString(name));
+    setText(0, name.empty() ? QObject::tr("未命名<%1>").arg(QString::fromStdString(typeName)) : QString::fromStdString(name));
     setToolTip(0, QString::fromStdString(typeName));
     setIcon(0, objectIcon(obj));
 }
