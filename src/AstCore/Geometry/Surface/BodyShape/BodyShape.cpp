@@ -27,6 +27,12 @@
 
 AST_NAMESPACE_BEGIN
 
+BodyShape::BodyShape()
+{
+    // 默认为组件对象
+    this->setIsComponent(true);
+}
+
 BodyShape* aWGS84Spheroid()
 {
     static SharedPtr<BodyShape> bodyShape = SpheroidShape::NewFromMajorAxisFlatFactor(kEarthRadius_WGS84, kEarthFlatFact_WGS84);

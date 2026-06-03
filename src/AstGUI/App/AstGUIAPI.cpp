@@ -26,6 +26,8 @@
 #include <QApplication>
 #include <QFontDatabase>
 #include <QStyleFactory>
+#include <QTranslator>
+#include <QDir>
 #include <QDebug>
 
 AST_NAMESPACE_BEGIN
@@ -56,29 +58,41 @@ errc_t aQAppInit(int argc, char *argv[])
 {
     if (aCanDisplayGUI()) {
         QApplication* app = new QApplication(argc, argv);
-        // 加载自带的中文字体（桌面平台作为备选，WASM 平台必需）
-        #ifdef A_WASM
-        // wasm 不会存在data目录和exe目录分离的情况，所以直接使用相对路径
-        QString fontPath = QStringLiteral("data/fonts/NotoSansSC-Regular.ttf");
-        #else
-        // 其他平台需要通过aDataDir获取data目录路径，避免其他软件调用ast库时的路径错误
-        QString fontPath = QString::fromStdString(aDataDir()) + "/fonts/NotoSansSC-Regular.ttf";
-        #endif
-        int fontId = QFontDatabase::addApplicationFont(fontPath);
-        if (fontId != -1) {
-            QStringList families = QFontDatabase::applicationFontFamilies(fontId);
-            if (!families.isEmpty()) {
-                QApplication::setFont(QFont(families.first()));
-            }
-        }
-        else
         {
-            qDebug() << "Failed to load font from path:" << fontPath;
+            // 加载自带的中文字体（桌面平台作为备选，WASM 平台必需）
+            #ifdef A_WASM
+            // wasm 不会存在data目录和exe目录分离的情况，所以直接使用相对路径
+            QString fontPath = QStringLiteral("data/fonts/NotoSansSC-Regular.ttf");
+            #else
+            // 其他平台需要通过aDataDir获取data目录路径，避免其他软件调用ast库时的路径错误
+            QString fontPath = QString::fromStdString(aDataDir()) + "/fonts/NotoSansSC-Regular.ttf";
+            #endif
+            int fontId = QFontDatabase::addApplicationFont(fontPath);
+            if (fontId != -1) {
+                QStringList families = QFontDatabase::applicationFontFamilies(fontId);
+                if (!families.isEmpty()) {
+                    QApplication::setFont(QFont(families.first()));
+                }
+            }
+            else
+            {
+                qDebug() << "Failed to load font from path:" << fontPath;
+            }
         }
         (void)app;
     }else{
         QCoreApplication* app = new QCoreApplication(argc, argv);
         (void)app;
+    }
+    // 加载翻译文件
+    {
+        auto translator = new QTranslator(qApp);
+        QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
+        if (!translator->load(qmPath)) {
+            qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
+            translator->load(qmPath);
+        }
+        qApp->installTranslator(translator);
     }
     return 0;
 }

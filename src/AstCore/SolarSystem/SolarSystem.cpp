@@ -38,7 +38,8 @@ void SolarSystem::init()
     bodies_.reserve(200);
     if(!solarSystemBarycenter_){
         solarSystemBarycenter_ = new CelestialBody(this);
-        solarSystemBarycenter_->name_ = "SolarSystemBarycenter";
+        solarSystemBarycenter_->setReadOnly(true);
+        solarSystemBarycenter_->setName("SolarSystemBarycenter");
         solarSystemBarycenter_->jplIndex_ = JplDe::eSSBarycenter;
         solarSystemBarycenter_->jplSpiceId_ = ESpiceId::eSolarSystemBarycenter;
         bodies_.push_back(solarSystemBarycenter_);
@@ -48,7 +49,8 @@ void SolarSystem::init()
     }
     if(!earthMoonBarycenter_){
         earthMoonBarycenter_ = new CelestialBody(this);
-        earthMoonBarycenter_->name_ = "EarthMoonBarycenter";
+        earthMoonBarycenter_->setReadOnly(true);
+        earthMoonBarycenter_->setName("EarthMoonBarycenter");
         earthMoonBarycenter_->jplIndex_ = JplDe::eEMBarycenter;
         earthMoonBarycenter_->jplSpiceId_ = ESpiceId::eEarthBarycenter;
         bodies_.push_back(earthMoonBarycenter_);
@@ -58,7 +60,8 @@ void SolarSystem::init()
     }
     if(!mercury_){
         mercury_ = new CelestialBody(this);
-        mercury_->name_ = "Mercury";
+        mercury_->setReadOnly(true);
+        mercury_->setName("Mercury");
         mercury_->jplIndex_ = JplDe::eMercury;
         mercury_->jplSpiceId_ = ESpiceId::eMercury;
         mercury_->gm_ = kMercuryGrav;
@@ -68,7 +71,8 @@ void SolarSystem::init()
     }
     if(!venus_){
         venus_ = new CelestialBody(this);
-        venus_->name_ = "Venus";
+        venus_->setReadOnly(true);
+        venus_->setName("Venus");
         venus_->jplIndex_ = JplDe::eVenus;
         venus_->jplSpiceId_ = ESpiceId::eVenus;
         venus_->gm_ = kVenusGrav;
@@ -78,7 +82,8 @@ void SolarSystem::init()
     }
     if(!earth_){
         earth_ = new CelestialBody(this);
-        earth_->name_ = "Earth";
+        earth_->setReadOnly(true);
+        earth_->setName("Earth");
         earth_->jplIndex_ = JplDe::eEarth;
         earth_->jplSpiceId_ = ESpiceId::eEarth;
         earth_->orientation_ = new EarthOrientation();
@@ -90,7 +95,8 @@ void SolarSystem::init()
     if(!mars_)
     {
         mars_ = new CelestialBody(this);
-        mars_->name_ = "Mars";
+        mars_->setReadOnly(true);
+        mars_->setName("Mars");
         mars_->jplIndex_ = JplDe::eMars;
         mars_->jplSpiceId_ = ESpiceId::eMars;
         mars_->gm_ = kMarsGrav;
@@ -100,7 +106,8 @@ void SolarSystem::init()
     }
     if(!jupiter_){
         jupiter_ = new CelestialBody(this);
-        jupiter_->name_ = "Jupiter";
+        jupiter_->setReadOnly(true);
+        jupiter_->setName("Jupiter");
         jupiter_->jplIndex_ = JplDe::eJupiter;
         jupiter_->jplSpiceId_ = ESpiceId::eJupiter;
         jupiter_->gm_ = kJupiterGrav;
@@ -110,7 +117,8 @@ void SolarSystem::init()
     }
     if(!saturn_){
         saturn_ = new CelestialBody(this);
-        saturn_->name_ = "Saturn";
+        saturn_->setReadOnly(true);
+        saturn_->setName("Saturn");
         saturn_->jplIndex_ = JplDe::eSaturn;
         saturn_->jplSpiceId_ = ESpiceId::eSaturn;
         saturn_->gm_ = kSaturnGrav;
@@ -120,7 +128,8 @@ void SolarSystem::init()
     }
     if(!uranus_){
         uranus_ = new CelestialBody(this);
-        uranus_->name_ = "Uranus";
+        uranus_->setReadOnly(true);
+        uranus_->setName("Uranus");
         uranus_->jplIndex_ = JplDe::eUranus;
         uranus_->jplSpiceId_ = ESpiceId::eUranus;
         uranus_->gm_ = kUranusGrav;
@@ -130,7 +139,8 @@ void SolarSystem::init()
     }
     if(!neptune_){
         neptune_ = new CelestialBody(this);
-        neptune_->name_ = "Neptune";
+        neptune_->setReadOnly(true);
+        neptune_->setName("Neptune");
         neptune_->jplIndex_ = JplDe::eNeptune;
         neptune_->jplSpiceId_ = ESpiceId::eNeptune;
         neptune_->gm_ = kNeptuneGrav;
@@ -140,7 +150,8 @@ void SolarSystem::init()
     }
     if(!pluto_){
         pluto_ = new CelestialBody(this);
-        pluto_->name_ = "Pluto";
+        pluto_->setReadOnly(true);
+        pluto_->setName("Pluto");
         pluto_->jplIndex_ = JplDe::ePluto;
         pluto_->jplSpiceId_ = ESpiceId::ePluto;
         pluto_->gm_ = kPlutoGrav;
@@ -149,8 +160,9 @@ void SolarSystem::init()
         nameMap_["Pluto"] = pluto_;
     }
     if(!moon_){
-        moon_ = new CelestialBody(this);
-        moon_->name_ = "Moon";
+        moon_ = new CelestialBody(earth_);
+        moon_->setReadOnly(true);
+        moon_->setName("Moon");
         moon_->jplIndex_ = JplDe::eMoon;
         moon_->jplSpiceId_ = ESpiceId::eMoon;
         moon_->gm_ = kMoonGrav;
@@ -160,7 +172,8 @@ void SolarSystem::init()
     }
     if(!sun_){
         sun_ = new CelestialBody(this);
-        sun_->name_ = "Sun";
+        sun_->setReadOnly(true);
+        sun_->setName("Sun");
         sun_->jplIndex_ = JplDe::eSun;
         sun_->jplSpiceId_ = ESpiceId::eSun;
         sun_->gm_ = kSunGrav;
@@ -170,101 +183,102 @@ void SolarSystem::init()
     }
 
     // init spice bodies
-    #define _AST_REG_BODY(NAME) \
+    #define _AST_REG_BODY(PARENT, NAME) \
     { \
-        auto NAME = new CelestialBody(this); \
-        NAME->name_ = #NAME; \
+        auto NAME = new CelestialBody(PARENT); \
+        NAME->setReadOnly(true);\
+        NAME->setName(#NAME); \
         NAME->jplSpiceId_ = ESpiceId::e##NAME; \
         bodies_.push_back(NAME); \
     }
 
     // 火星卫星
-    _AST_REG_BODY(Phobos)
-    _AST_REG_BODY(Deimos)
+    _AST_REG_BODY(mars_, Phobos)
+    _AST_REG_BODY(mars_, Deimos)
     
     // 木星卫星
-    _AST_REG_BODY(Io)
-    _AST_REG_BODY(Europa)
-    _AST_REG_BODY(Ganymede)
-    _AST_REG_BODY(Callisto)
-    _AST_REG_BODY(Amalthea)
-    _AST_REG_BODY(Himalia)
-    _AST_REG_BODY(Elara)
-    _AST_REG_BODY(Pasiphae)
-    _AST_REG_BODY(Sinope)
-    _AST_REG_BODY(Lysithea)
-    _AST_REG_BODY(Carme)
-    _AST_REG_BODY(Ananke)
-    _AST_REG_BODY(Leda)
-    _AST_REG_BODY(Thebe)
-    _AST_REG_BODY(Adrastea)
-    _AST_REG_BODY(Metis)
+    _AST_REG_BODY(jupiter_, Io)
+    _AST_REG_BODY(jupiter_, Europa)
+    _AST_REG_BODY(jupiter_, Ganymede)
+    _AST_REG_BODY(jupiter_, Callisto)
+    _AST_REG_BODY(jupiter_, Amalthea)
+    _AST_REG_BODY(jupiter_, Himalia)
+    _AST_REG_BODY(jupiter_, Elara)
+    _AST_REG_BODY(jupiter_, Pasiphae)
+    _AST_REG_BODY(jupiter_, Sinope)
+    _AST_REG_BODY(jupiter_, Lysithea)
+    _AST_REG_BODY(jupiter_, Carme)
+    _AST_REG_BODY(jupiter_, Ananke)
+    _AST_REG_BODY(jupiter_, Leda)
+    _AST_REG_BODY(jupiter_, Thebe)
+    _AST_REG_BODY(jupiter_, Adrastea)
+    _AST_REG_BODY(jupiter_, Metis)
     
     // 土星卫星
-    _AST_REG_BODY(Mimas)
-    _AST_REG_BODY(Enceladus)
-    _AST_REG_BODY(Tethys)
-    _AST_REG_BODY(Dione)
-    _AST_REG_BODY(Rhea)
-    _AST_REG_BODY(Titan)
-    _AST_REG_BODY(Hyperion)
-    _AST_REG_BODY(Iapetus)
-    _AST_REG_BODY(Phoebe)
-    _AST_REG_BODY(Janus)
-    _AST_REG_BODY(Epimetheus)
-    _AST_REG_BODY(Helene)
-    _AST_REG_BODY(Telesto)
-    _AST_REG_BODY(Calypso)
-    _AST_REG_BODY(Atlas)
-    _AST_REG_BODY(Prometheus)
-    _AST_REG_BODY(Pandora)
-    _AST_REG_BODY(Pan)
-    _AST_REG_BODY(Methone)
-    _AST_REG_BODY(Pallene)
-    _AST_REG_BODY(Polydeuces)
-    _AST_REG_BODY(Daphnis)
-    _AST_REG_BODY(Anthe)
-    _AST_REG_BODY(Aegaeon)
+    _AST_REG_BODY(saturn_, Mimas)
+    _AST_REG_BODY(saturn_, Enceladus)
+    _AST_REG_BODY(saturn_, Tethys)
+    _AST_REG_BODY(saturn_, Dione)
+    _AST_REG_BODY(saturn_, Rhea)
+    _AST_REG_BODY(saturn_, Titan)
+    _AST_REG_BODY(saturn_, Hyperion)
+    _AST_REG_BODY(saturn_, Iapetus)
+    _AST_REG_BODY(saturn_, Phoebe)
+    _AST_REG_BODY(saturn_, Janus)
+    _AST_REG_BODY(saturn_, Epimetheus)
+    _AST_REG_BODY(saturn_, Helene)
+    _AST_REG_BODY(saturn_, Telesto)
+    _AST_REG_BODY(saturn_, Calypso)
+    _AST_REG_BODY(saturn_, Atlas)
+    _AST_REG_BODY(saturn_, Prometheus)
+    _AST_REG_BODY(saturn_, Pandora)
+    _AST_REG_BODY(saturn_, Pan)
+    _AST_REG_BODY(saturn_, Methone)
+    _AST_REG_BODY(saturn_, Pallene)
+    _AST_REG_BODY(saturn_, Polydeuces)
+    _AST_REG_BODY(saturn_, Daphnis)
+    _AST_REG_BODY(saturn_, Anthe)
+    _AST_REG_BODY(saturn_, Aegaeon)
     
     // 天王星卫星
-    _AST_REG_BODY(Ariel)
-    _AST_REG_BODY(Umbriel)
-    _AST_REG_BODY(Titania)
-    _AST_REG_BODY(Oberon)
-    _AST_REG_BODY(Miranda)
-    _AST_REG_BODY(Cordelia)
-    _AST_REG_BODY(Ophelia)
-    _AST_REG_BODY(Bianca)
-    _AST_REG_BODY(Cressida)
-    _AST_REG_BODY(Desdemona)
-    _AST_REG_BODY(Juliet)
-    _AST_REG_BODY(Portia)
-    _AST_REG_BODY(Rosalind)
-    _AST_REG_BODY(Belinda)
-    _AST_REG_BODY(Puck)
+    _AST_REG_BODY(uranus_, Ariel)
+    _AST_REG_BODY(uranus_, Umbriel)
+    _AST_REG_BODY(uranus_, Titania)
+    _AST_REG_BODY(uranus_, Oberon)
+    _AST_REG_BODY(uranus_, Miranda)
+    _AST_REG_BODY(uranus_, Cordelia)
+    _AST_REG_BODY(uranus_, Ophelia)
+    _AST_REG_BODY(uranus_, Bianca)
+    _AST_REG_BODY(uranus_, Cressida)
+    _AST_REG_BODY(uranus_, Desdemona)
+    _AST_REG_BODY(uranus_, Juliet)
+    _AST_REG_BODY(uranus_, Portia)
+    _AST_REG_BODY(uranus_, Rosalind)
+    _AST_REG_BODY(uranus_, Belinda)
+    _AST_REG_BODY(uranus_, Puck)
     
     // 海王星卫星
-    _AST_REG_BODY(Triton)
-    _AST_REG_BODY(Nereid)
-    _AST_REG_BODY(Naiad)
-    _AST_REG_BODY(Thalassa)
-    _AST_REG_BODY(Despina)
-    _AST_REG_BODY(Galatea)
-    _AST_REG_BODY(Larissa)
-    _AST_REG_BODY(Proteus)
+    _AST_REG_BODY(neptune_, Triton)
+    _AST_REG_BODY(neptune_, Nereid)
+    _AST_REG_BODY(neptune_, Naiad)
+    _AST_REG_BODY(neptune_, Thalassa)
+    _AST_REG_BODY(neptune_, Despina)
+    _AST_REG_BODY(neptune_, Galatea)
+    _AST_REG_BODY(neptune_, Larissa)
+    _AST_REG_BODY(neptune_, Proteus)
     
     // 冥王星卫星
-    _AST_REG_BODY(Charon)
+    _AST_REG_BODY(pluto_, Charon)
     
     // 其他重要天体
-    _AST_REG_BODY(MercuryBarycenter)
-    _AST_REG_BODY(VenusBarycenter)
-    _AST_REG_BODY(MarsBarycenter)
-    _AST_REG_BODY(JupiterBarycenter)
-    _AST_REG_BODY(SaturnBarycenter)
-    _AST_REG_BODY(UranusBarycenter)
-    _AST_REG_BODY(NeptuneBarycenter)
-    _AST_REG_BODY(PlutoBarycenter)
+    _AST_REG_BODY(this, MercuryBarycenter)
+    _AST_REG_BODY(this, VenusBarycenter)
+    _AST_REG_BODY(this, MarsBarycenter)
+    _AST_REG_BODY(this, JupiterBarycenter)
+    _AST_REG_BODY(this, SaturnBarycenter)
+    _AST_REG_BODY(this, UranusBarycenter)
+    _AST_REG_BODY(this, NeptuneBarycenter)
+    _AST_REG_BODY(this, PlutoBarycenter)
     
 }
 
@@ -279,7 +293,7 @@ CelestialBody *SolarSystem::getBody(StringView name) const
         return it->second;
     }else{
         for(auto& it : bodies_){
-            if(name == it->name_){
+            if(name == it->name()){
                 nameMap_[nameStr] = it;
                 return it;
             }
@@ -328,7 +342,8 @@ CelestialBody *SolarSystem::addBody(StringView name)
 {
     if (getBody(name))
         return nullptr;
-    CelestialBody *body = new CelestialBody(name, this);
+    CelestialBody *body = new CelestialBody(this);
+    body->setName(name);
     bodies_.push_back(body);
     nameMap_[std::string(name)] = body;
     return body;
@@ -336,11 +351,11 @@ CelestialBody *SolarSystem::addBody(StringView name)
 
 CelestialBody *SolarSystem::addBody(HCelestialBody body)
 {
-    if (getBody(body->name_))
+    if (getBody(body->name()))
         return nullptr;
     bodies_.push_back(body);
     body->solarSystem_ = this;
-    nameMap_[body->name_] = body;
+    nameMap_[body->name()] = body;
     return body;
 }
 
@@ -349,7 +364,8 @@ CelestialBody *SolarSystem::getOrAddBody(StringView name)
     CelestialBody *body = getBody(name);
     if (!body)
     {
-        body = new CelestialBody(name, this);
+        body = new CelestialBody(this);
+        body->setName(name);
         bodies_.push_back(body);
         nameMap_[std::string(name)] = body;    
     }

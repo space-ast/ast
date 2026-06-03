@@ -37,6 +37,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/RTTIAPI.hpp"
+#include "AstUtil/I18n.hpp"         // for N_
 
 
 AST_NAMESPACE_BEGIN
@@ -44,27 +45,113 @@ AST_NAMESPACE_BEGIN
 
 CelestialBody* CelestialBody::Resolve(StringView value)
 {
+    (void)N_("SolarSystemBarycenter");
+    (void)N_("EarthMoonBarycenter");
+    (void)N_("Mercury");
+    (void)N_("Venus");
+    (void)N_("Earth");
+    (void)N_("Mars");
+    (void)N_("Jupiter");
+    (void)N_("Saturn");
+    (void)N_("Uranus");
+    (void)N_("Neptune");
+    (void)N_("Pluto");
+    (void)N_("Moon");
+    (void)N_("Sun");
+
+    // 火星卫星
+    (void)N_("Phobos");
+    (void)N_("Deimos");
+
+    // 木星卫星
+    (void)N_("Io");
+    (void)N_("Europa");
+    (void)N_("Ganymede");
+    (void)N_("Callisto");
+    (void)N_("Amalthea");
+    (void)N_("Himalia");
+    (void)N_("Elara");
+    (void)N_("Pasiphae");
+    (void)N_("Sinope");
+    (void)N_("Lysithea");
+    (void)N_("Carme");
+    (void)N_("Ananke");
+    (void)N_("Leda");
+    (void)N_("Thebe");
+    (void)N_("Adrastea");
+    (void)N_("Metis");
+
+    // 土星卫星
+    (void)N_("Mimas");
+    (void)N_("Enceladus");
+    (void)N_("Tethys");
+    (void)N_("Dione");
+    (void)N_("Rhea");
+    (void)N_("Titan");
+    (void)N_("Hyperion");
+    (void)N_("Iapetus");
+    (void)N_("Phoebe");
+    (void)N_("Janus");
+    (void)N_("Epimetheus");
+    (void)N_("Helene");
+    (void)N_("Telesto");
+    (void)N_("Calypso");
+    (void)N_("Atlas");
+    (void)N_("Prometheus");
+    (void)N_("Pandora");
+    (void)N_("Pan");
+    (void)N_("Methone");
+    (void)N_("Pallene");
+    (void)N_("Polydeuces");
+    (void)N_("Daphnis");
+    (void)N_("Anthe");
+    (void)N_("Aegaeon");
+
+    // 天王星卫星
+    (void)N_("Ariel");
+    (void)N_("Umbriel");
+    (void)N_("Titania");
+    (void)N_("Oberon");
+    (void)N_("Miranda");
+    (void)N_("Cordelia");
+    (void)N_("Ophelia");
+    (void)N_("Bianca");
+    (void)N_("Cressida");
+    (void)N_("Desdemona");
+    (void)N_("Juliet");
+    (void)N_("Portia");
+    (void)N_("Rosalind");
+    (void)N_("Belinda");
+    (void)N_("Puck");
+
+    // 海王星卫星
+    (void)N_("Triton");
+    (void)N_("Nereid");
+    (void)N_("Naiad");
+    (void)N_("Thalassa");
+    (void)N_("Despina");
+    (void)N_("Galatea");
+    (void)N_("Larissa");
+    (void)N_("Proteus");
+
+    // 冥王星卫星
+    (void)N_("Charon");
+
+    // 行星质心
+    (void)N_("MercuryBarycenter");
+    (void)N_("VenusBarycenter");
+    (void)N_("MarsBarycenter");
+    (void)N_("JupiterBarycenter");
+    (void)N_("SaturnBarycenter");
+    (void)N_("UranusBarycenter");
+    (void)N_("NeptuneBarycenter");
+    (void)N_("PlutoBarycenter");
+
     return aResolveBody(value);
 }
 
 CelestialBody::CelestialBody()
-    : CelestialBody(StringView{})
 {
-    
-}
-
-CelestialBody::CelestialBody(SolarSystem *solarSystem)
-    : CelestialBody(StringView{}, solarSystem)
-{
-}
-
-CelestialBody::CelestialBody(StringView name, SolarSystem *solarSystem)
-    : solarSystem_(solarSystem)
-    , name_{name}
-{
-    if (solarSystem)
-        setParentScope(solarSystem);
-
     shape_        = new NoopShape();
     orientation_  = new NoopOrientation();
     ephemeris_    = new BodyEphemerisDE(this);
@@ -73,6 +160,22 @@ CelestialBody::CelestialBody(StringView name, SolarSystem *solarSystem)
     axesMOD_      = AxesBodyMOD::New(this);
     axesTOD_      = AxesBodyTOD::New(this);
 }
+
+CelestialBody::CelestialBody(SolarSystem *solarSystem)
+    : CelestialBody()
+{
+    solarSystem_ = solarSystem;
+    this->setParentScope(solarSystem);
+}
+
+CelestialBody::CelestialBody(CelestialBody *parentBody)
+    : CelestialBody()
+{
+    parent_ = parentBody;
+    this->setParentScope(parentBody);
+}
+
+
 
 CelestialBody::~CelestialBody()
 {
@@ -89,7 +192,7 @@ void CelestialBody::setJplIndex(int index)
 std::string CelestialBody::getDirpath() const
 {
     if(auto ss = solarSystem_.get()){
-        return fs::path(ss->getDirpath()) / name_;
+        return fs::path(ss->getDirpath()) / name();
     }
     return std::string();
 }
@@ -110,7 +213,7 @@ errc_t CelestialBody::setGravityModel(StringView model)
             filepath = ss->getDirpath();
         else
             filepath = SolarSystem::defaultSolarSystemDir();
-        filepath = filepath / this->name_ / std::string(model);
+        filepath = filepath / this->name() / std::string(model);
         rc = this->loadGravityModel(filepath.string());
         if(rc){
             aError("failed to load gravity model '%.*s'", (int)model.size(), model.data());

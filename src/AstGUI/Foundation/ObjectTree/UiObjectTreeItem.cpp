@@ -75,14 +75,14 @@ UiObjectTreeItem* UiObjectTreeItem::clone() const
 void UiObjectTreeItem::configure(Object* obj)
 {
     object_ = obj;
-    std::string name;
+    std::string displayName;
     std::string typeName;
     if (obj)
     {
-        name = obj->getName();
+        displayName = obj->displayName();
         typeName = obj->typeName();
     }
-    setText(0, name.empty() ? QObject::tr("未命名<%1>").arg(QString::fromStdString(typeName)) : QString::fromStdString(name));
+    setText(0, displayName.empty() ? QObject::tr("未命名<%1>").arg(QString::fromStdString(typeName)) : QString::fromStdString(displayName));
     setToolTip(0, QString::fromStdString(typeName));
     setIcon(0, objectIcon(obj));
 }

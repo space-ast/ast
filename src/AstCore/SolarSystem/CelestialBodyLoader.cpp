@@ -57,7 +57,7 @@ errc_t CelestialBody::load(StringView filepath)
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "Name")){
-                name_ = item.value().toString();
+                this->setName(item.value().toString());
             }
             else if(aEqualsIgnoreCase(item.key(), "ReadOnly"))
             {
@@ -236,7 +236,7 @@ errc_t CelestialBody::loadEphemerisData(BKVParser & parser)
                     std::string spkDir = aGetConfigValue("SPK_DIR").toString();
                     if(spkDir.empty())
                         spkDir = aGetDefaultSPKDir();
-                    std::string spkFile = spkDir + "/" + aAsciiStrToLower(name_) + ".bsp";
+                    std::string spkFile = spkDir + "/" + aAsciiStrToLower(name()) + ".bsp";
                     if(fs::is_regular_file(spkFile)){
                         errc_t rc = ephemerisSPK->openSPKFile(spkFile);
                         if(rc){

@@ -39,6 +39,7 @@
 #include "AstUtil/GUI.hpp"
 #include "AstUtil/GUIInterface.hpp"
 #include "AstUtil/GenericValue.hpp"
+#include "AstUtil/I18n.hpp"
 #include "AstUtil/IArchive.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Identifier.hpp"

@@ -1,9 +1,9 @@
 ///
-/// @file      GUIInterfaceImpl.hpp
-/// @brief     
-/// @details   
+/// @file      I18n.cpp
+/// @brief     Internationalization and Localization API
+/// @details   国际化和本地化接口实现
 /// @author    axel
-/// @date      2026-04-02
+/// @date      2026-06-03
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,38 +18,26 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
+#include "I18n.hpp"
 #include "AstUtil/GUIInterface.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/*!
-    @addtogroup 
-    @{
-*/
-
-/// @brief GUI接口实现类
-class GUIInterfaceImpl : public GUIInterface
+const char* aTextDomain(const char *domainname)
 {
-public:
-    GUIInterfaceImpl();
-    ~GUIInterfaceImpl() override = default;
-    static GUIInterfaceImpl* Instance();
+    // @todo 实现文本域设置
+    return domainname;
+}
 
-    errc_t editObject(Object* object) override;
-    Object* selectObject(StringView typeName) override;
-    const char* translate(const char* msgctxt, const char* msgid) override;
-};
+const char* aGetText(const char* msgid)
+{
+    // @todo 实现翻译文本获取
+    return msgid;
+}
 
-
-/// @brief 获取GUI接口实现类实例
-/// @return GUI接口实现类实例
-AST_GUI_CAPI GUIInterface* aGUIInterfaceImpl();
-
-
-
-/*! @} */
+const char* aTranslate(const char* msgctxt, const char* msgid)
+{
+    return GUIInterface::CurrentInstance()->translate(msgctxt, msgid);
+}
 
 AST_NAMESPACE_END

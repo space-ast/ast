@@ -56,14 +56,9 @@ public:
     
     CelestialBody();
     CelestialBody(SolarSystem* solarSystem);
-    CelestialBody(StringView name, SolarSystem* solarSystem = nullptr);
+    CelestialBody(CelestialBody* parentBody);
     ~CelestialBody();
 
-    /// @brief 获取天体名称
-    const std::string& getName() const override { return name_; }
-    const std::string& name() const { return name_; }
-    void setName(StringView name) override { name_ = std::string(name); }
-    
     /// @brief 获取JPL SPICE ID
     int getJplSpiceId() const { return jplSpiceId_; }
     void setJplSpiceId(int id) { jplSpiceId_ = id; }
@@ -306,7 +301,6 @@ protected:
 private:
     WeakPtr<SolarSystem>        solarSystem_;              ///< 太阳系指针
     SharedPtr<CelestialBody>    parent_;                   ///< 父天体
-    std::string                 name_;                     ///< 天体名称
     double                      gm_{0.0};                  ///< 引力常数
     double                      systemGM_{0.0};            ///< 系统引力常数
     double                      radius_{0.0};              ///< 天体半径

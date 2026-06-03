@@ -89,3 +89,80 @@ rule("ast.qt.widgetapp")
         end
     end)
 rule_end()
+
+
+rule("ast.qt.ts")
+    add_deps("qt.env")
+    set_extensions(".ts")
+
+    on_config(function (target)
+        import("lib.detect.find_file")
+        import("core.base.json")
+
+        -- get source file
+        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "QT_TR_NOOP+=N_,tr+=_"}
+        local sourcefile_ts
+        local source_files = {}
+        for _, sourcebatch in pairs(target:sourcebatches()) do
+            if sourcebatch.rulename == "ast.qt.ts" then
+                sourcefile_ts = sourcebatch.sourcefiles
+            else
+                if sourcebatch.sourcefiles then
+                    for _, sourcefile in ipairs(sourcebatch.sourcefiles) do
+                        table.insert(source_files, sourcefile)
+                    end
+                end
+            end
+        end
+        if sourcefile_ts and #source_files > 0 then
+            -- save source files
+            source_files = table.unique(source_files)
+            local json_data = {
+                projectFile = "",
+                sources = source_files
+            }
+
+            local json_path = path.join(target:autogendir(), "rules", "qt", "ts", "sources.json")
+            json.savefile(json_path, json_data)
+
+            table.join2(lupdate_argv, {"-project", path(json_path)})
+
+            -- get lupdate and lrelease
+            local qt = assert(target:data("qt"), "qt not found!")
+
+            local search_dirs = {}
+            if qt.bindir_host then table.insert(search_dirs, qt.bindir_host) end
+            if qt.bindir then table.insert(search_dirs, qt.bindir) end
+            if qt.libexecdir_host then table.insert(search_dirs, qt.libexecdir_host) end
+            if qt.libexecdir then table.insert(search_dirs, qt.libexecdir) end
+
+            local lupdate = find_file(is_host("windows") and "lupdate.exe" or "lupdate", search_dirs)
+            assert(os.isexec(lupdate), "lupdate not found!")
+
+            local lrelease = find_file(is_host("windows") and "lrelease.exe" or "lrelease", search_dirs)
+            assert(os.isexec(lrelease), "lrelease not found!")
+
+            local outputdir = target:targetdir()
+            local fileconfig = target:fileconfig(sourcefile_ts)
+            if fileconfig and fileconfig.prefixdir then
+                if path.is_absolute(fileconfig.prefixdir) then
+                    outputdir = fileconfig.prefixdir
+                else
+                    outputdir = path.join(target:targetdir(), fileconfig.prefixdir)
+                end
+            end
+            for _, tsfile in ipairs(sourcefile_ts) do
+                local tsargv = {}
+                table.join2(tsargv, lupdate_argv)
+                table.join2(tsargv, {"-ts", path(tsfile)})
+                os.vrunv(lupdate, tsargv)
+                local outfile = path.join(outputdir, path.basename(tsfile) .. ".qm")
+                os.mkdir(outputdir)
+                os.vrunv(lrelease, {path(tsfile), "-qm", path(outfile)})
+            end
+            -- save lrelease
+            target:data_set("qt.ts.lrelease", lrelease)
+        end
+    end)
+
+rule_end()
