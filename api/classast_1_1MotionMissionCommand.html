@@ -281,13 +281,13 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>任务命令运动模型，定义并协调一系列轨道机动任务（类似 STK Astrogator 中的任务控制序列MCS） </p>
-<p>该类封装了一个完整的轨道机动任务序列，通过 <a class="el" href="classast_1_1MissionModerator.html" title="任务序列协调器">MissionModerator</a> 协调各任务的执行顺序与参数。 每个子任务（如推力弧段、滑行段、初始段等）均包含独立的配置，并按顺序依次执行。 主要功能包括：</p><ul>
+<p>该类封装了一个完整的轨道机动任务序列，通过 MissionModerator 协调各任务的执行顺序与参数。 每个子任务（如推力弧段、滑行段、初始段等）均包含独立的配置，并按顺序依次执行。 主要功能包括：</p><ul>
 <li>获取底层任务序列<code>mainSequence()</code>，支持对任务列表进行动态增删改查；</li>
 <li>生成星历（Ephemeris）对象：makeEphemerisSpec() 生成详细规格星历，makeEphemerisSimple() 生成简化星历；</li>
 <li>支持访问者模式（accept()），便于对任务序列进行遍历、校验或导出操作。</li>
 </ul>
 <p>该类设计参考了 STK 的 Astrogator 模块，可用于建模轨道转移、位置保持、交会对接等复杂机动序列。 </p><dl class="section note"><dt>注解</dt><dd>具体任务类型由 <a class="el" href="classast_1_1Sequence.html" title="任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行">Sequence</a> 中存储的任务对象决定，用户需确保任务参数有效且执行顺序合理。 </dd></dl>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1MotionProfile.html" title="运动定义接口">MotionProfile</a>, <a class="el" href="classast_1_1MissionModerator.html" title="任务序列协调器">MissionModerator</a>, <a class="el" href="classast_1_1Sequence.html" title="任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行">Sequence</a>, <a class="el" href="classast_1_1Ephemeris.html" title="星历接口">Ephemeris</a> </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1MotionProfile.html" title="运动定义接口">MotionProfile</a>, MissionModerator, <a class="el" href="classast_1_1Sequence.html" title="任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行">Sequence</a>, <a class="el" href="classast_1_1Ephemeris.html" title="星历接口">Ephemeris</a> </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a72a49009370bf35fd68503ce547a3015" name="a72a49009370bf35fd68503ce547a3015"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72a49009370bf35fd68503ce547a3015">&#9670;&#160;</a></span>accept()</h2>

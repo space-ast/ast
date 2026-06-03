@@ -1,5 +1,10 @@
 var NAVTREEINDEX8 =
 {
+"PointSSBarycenter_8hpp_source.html":[4,0,0,7,2,4,10],
+"Point_8cpp.html":[4,0,0,7,5,0,6],
+"Point_8hpp.html":[4,0,0,7,5,0,7],
+"Point_8hpp_source.html":[4,0,0,7,5,0,7],
+"PointingDirection_8cpp.html":[4,0,0,2,0,14],
 "PointingDirection_8hpp.html":[4,0,0,2,0,15],
 "PointingDirection_8hpp_source.html":[4,0,0,2,0,15],
 "Polynomial_8cpp.html":[4,0,0,20,10,13],
@@ -12,9 +17,9 @@ var NAVTREEINDEX8 =
 "Posix_8cpp.html":[4,0,0,20,5,21],
 "Posix_8hpp_source.html":[4,0,0,20,5,22],
 "PropagateLoader_8hpp_source.html":[4,0,0,10,0,2,9],
-"Propagate_8cpp.html":[4,0,0,7,6,3,23],
-"Propagate_8hpp.html":[4,0,0,7,6,3,24],
-"Propagate_8hpp_source.html":[4,0,0,7,6,3,24],
+"Propagate_8cpp.html":[4,0,0,7,6,3,22],
+"Propagate_8hpp.html":[4,0,0,7,6,3,23],
+"Propagate_8hpp_source.html":[4,0,0,7,6,3,23],
 "PropagatorLoader_8cpp.html":[4,0,0,10,0,3,0],
 "PropagatorLoader_8cpp.html#a02cedf7698e0967b59c75d19bae3cbcc":[4,0,0,10,0,3,0,0],
 "PropagatorLoader_8cpp.html#af9277420775c8409f3e05adbbc9630b4":[4,0,0,10,0,3,0,1],
@@ -162,9 +167,9 @@ var NAVTREEINDEX8 =
 "ReturnLoader_8cpp.html":[4,0,0,10,0,2,12],
 "ReturnLoader_8hpp.html":[4,0,0,10,0,2,13],
 "ReturnLoader_8hpp_source.html":[4,0,0,10,0,2,13],
-"Return_8cpp.html":[4,0,0,7,6,3,25],
-"Return_8hpp.html":[4,0,0,7,6,3,26],
-"Return_8hpp_source.html":[4,0,0,7,6,3,26],
+"Return_8cpp.html":[4,0,0,7,6,3,24],
+"Return_8hpp.html":[4,0,0,7,6,3,25],
+"Return_8hpp_source.html":[4,0,0,7,6,3,25],
 "RidderSolver_8cpp.html":[4,0,0,11,4,0,5],
 "RidderSolver_8hpp.html":[4,0,0,11,4,0,6],
 "RidderSolver_8hpp_source.html":[4,0,0,11,4,0,6],
@@ -244,10 +249,5 @@ var NAVTREEINDEX8 =
 "STKEphemerisFileParser_8hpp.html#add40f0b982539d1547eb983876a69b2b":[4,0,0,7,3,1,3,2],
 "STKEphemerisFileParser_8hpp_source.html":[4,0,0,7,3,1,3],
 "SaVOImpl_8hpp.html":[4,0,0,6,18],
-"SaVOImpl_8hpp_source.html":[4,0,0,6,18],
-"SaVO_8hpp.html":[4,0,0,6,17],
-"SaVO_8hpp_source.html":[4,0,0,6,17],
-"SatelliteImpl_8hpp.html":[4,0,0,6,16],
-"SatelliteImpl_8hpp_source.html":[4,0,0,6,16],
-"Satellite_8cpp.html":[4,0,0,17,3,46]
+"SaVOImpl_8hpp_source.html":[4,0,0,6,18]
 };

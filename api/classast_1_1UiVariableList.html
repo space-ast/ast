@@ -130,19 +130,52 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a0c49cce00b519c5b323e36ecab04ea13" id="r_a0c49cce00b519c5b323e36ecab04ea13"><td class="memItemLeft" align="right" valign="top"><a id="a0c49cce00b519c5b323e36ecab04ea13" name="a0c49cce00b519c5b323e36ecab04ea13"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>UiVariableList</b> (QWidget *parent=nullptr)</td></tr>
 <tr class="separator:a0c49cce00b519c5b323e36ecab04ea13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a148a966f40d4756945dce1b367f9af23" id="r_a148a966f40d4756945dce1b367f9af23"><td class="memItemLeft" align="right" valign="top"><a id="a148a966f40d4756945dce1b367f9af23" name="a148a966f40d4756945dce1b367f9af23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVariableList</b> (<a class="el" href="classast_1_1VariableList.html">VariableList</a> *variableList)</td></tr>
-<tr class="separator:a148a966f40d4756945dce1b367f9af23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ef148fbabc2e10533c30ac0da5a674" id="r_a57ef148fbabc2e10533c30ac0da5a674"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57ef148fbabc2e10533c30ac0da5a674">setVariableList</a> (<a class="el" href="classast_1_1VariableList.html">VariableList</a> *variableList, <a class="el" href="classast_1_1Object.html">Object</a> *owner)</td></tr>
+<tr class="separator:a57ef148fbabc2e10533c30ac0da5a674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a225818cae18fe15b6106089fb68c3449" id="r_a225818cae18fe15b6106089fb68c3449"><td class="memItemLeft" align="right" valign="top"><a id="a225818cae18fe15b6106089fb68c3449" name="a225818cae18fe15b6106089fb68c3449"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>refreshUi</b> ()</td></tr>
 <tr class="separator:a225818cae18fe15b6106089fb68c3449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac39e002ad37c2c99282d67d5d3bd4067" id="r_ac39e002ad37c2c99282d67d5d3bd4067"><td class="memItemLeft" align="right" valign="top"><a id="ac39e002ad37c2c99282d67d5d3bd4067" name="ac39e002ad37c2c99282d67d5d3bd4067"></a>
 <a class="el" href="classast_1_1Variable.html">Variable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>selectedVariable</b> () const</td></tr>
 <tr class="separator:ac39e002ad37c2c99282d67d5d3bd4067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b2adb94245c9f311901cf3a4a2374b" id="r_a65b2adb94245c9f311901cf3a4a2374b"><td class="memItemLeft" align="right" valign="top"><a id="a65b2adb94245c9f311901cf3a4a2374b" name="a65b2adb94245c9f311901cf3a4a2374b"></a>
+<a class="el" href="classast_1_1VariableList.html">VariableList</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>variableList</b> () const</td></tr>
+<tr class="separator:a65b2adb94245c9f311901cf3a4a2374b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>变量列表编辑控件，以表格形式管理脚本变量的增删改 </p>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a57ef148fbabc2e10533c30ac0da5a674" name="a57ef148fbabc2e10533c30ac0da5a674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ef148fbabc2e10533c30ac0da5a674">&#9670;&#160;</a></span>setVariableList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiVariableList::setVariableList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1VariableList.html">VariableList</a> *</td>          <td class="paramname"><span class="paramname"><em>variableList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置要编辑的变量列表（裸指针，不持有所有权） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableList</td><td>要编辑的变量列表，被owner对象持有 </td></tr>
+    <tr><td class="paramname">owner</td><td>所有者对象，用于判断变量列表的生命周期是否结束 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstGUI/Mission/<a class="el" href="UiVariableList_8hpp_source.html">UiVariableList.hpp</a></li>
 <li>src/AstGUI/Mission/<a class="el" href="UiVariableList_8cpp.html">UiVariableList.cpp</a></li>
 </ul>

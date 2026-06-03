@@ -148,7 +148,7 @@ $(function(){initNavTree('SolarSystem_8cpp.html',''); initResizable(true); });
       </table>
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">    { \</div>
-<div class="line">        <span class="keyword">auto</span> NAME = <span class="keyword">new</span> CelestialBody(); \</div>
+<div class="line">        <span class="keyword">auto</span> NAME = <span class="keyword">new</span> CelestialBody(<span class="keyword">this</span>); \</div>
 <div class="line">        NAME-&gt;name_ = #NAME; \</div>
 <div class="line">        NAME-&gt;jplSpiceId_ = ESpiceId::e##NAME; \</div>
 <div class="line">        bodies_.push_back(NAME); \</div>

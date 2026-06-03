@@ -117,21 +117,22 @@ $(function(){initNavTree('UiObject_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Q_OBJECT</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiObject.html">UiObject</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classast_1_1UiObject.html">~UiObject</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1UiObject.html#ae430f98166d10569d209e8649c8dc32f">   45</a></span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* <a class="code hl_function" href="classast_1_1UiObject.html#ae430f98166d10569d209e8649c8dc32f">getObject</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> object_.get();}</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> setObject(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Object&gt;</a> object_;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classast_1_1UiObject.html">UiObject</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1UiObject.html">~UiObject</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1UiObject.html#ae430f98166d10569d209e8649c8dc32f">   46</a></span>    <a class="code hl_class" href="classast_1_1Object.html">Object</a>* <a class="code hl_function" href="classast_1_1UiObject.html#ae430f98166d10569d209e8649c8dc32f">getObject</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> object_.get();}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> setObject(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Object&gt;</a> object_;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:87</div></div>
 <div class="ttc" id="aclassast_1_1UiObject_html"><div class="ttname"><a href="classast_1_1UiObject.html">ast::UiObject</a></div><div class="ttdoc">与对象关联的 QWidget</div><div class="ttdef"><b>定义</b> UiObject.hpp:36</div></div>
-<div class="ttc" id="aclassast_1_1UiObject_html_ae430f98166d10569d209e8649c8dc32f"><div class="ttname"><a href="classast_1_1UiObject.html#ae430f98166d10569d209e8649c8dc32f">ast::UiObject::getObject</a></div><div class="ttdeci">Object * getObject() const</div><div class="ttdoc">获取关联的对象</div><div class="ttdef"><b>定义</b> UiObject.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1UiObject_html_ae430f98166d10569d209e8649c8dc32f"><div class="ttname"><a href="classast_1_1UiObject.html#ae430f98166d10569d209e8649c8dc32f">ast::UiObject::getObject</a></div><div class="ttdeci">Object * getObject() const</div><div class="ttdoc">获取关联的对象</div><div class="ttdef"><b>定义</b> UiObject.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1WeakPtr_html"><div class="ttname"><a href="classast_1_1WeakPtr.html">ast::WeakPtr</a></div><div class="ttdoc">弱引用指针</div><div class="ttdef"><b>定义</b> WeakPtr.hpp:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

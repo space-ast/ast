@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"NLPSnoptSolver_8hpp_source.html":[4,0,0,14,15],
+"NLPSolver_8cpp.html":[4,0,0,14,16],
+"NLPSolver_8hpp.html":[4,0,0,14,17],
+"NLPSolver_8hpp_source.html":[4,0,0,14,17],
 "NetworkCookieJar_8cpp.html":[4,0,0,20,3,4],
 "NetworkCookieJar_8hpp.html":[4,0,0,20,3,5],
 "NetworkCookieJar_8hpp_source.html":[4,0,0,20,3,5],
@@ -96,8 +100,9 @@ var NAVTREEINDEX7 =
 "ObjectEditRegistry_8hpp.html#a5ee505f80941487945b0ff8c1b668f46":[4,0,0,9,5,3,1],
 "ObjectEditRegistry_8hpp.html#ad085c071a789a488cd5e583b8124b34c":[4,0,0,9,5,3,2],
 "ObjectEditRegistry_8hpp_source.html":[4,0,0,9,5,3],
-"ObjectIcons_8hpp.html":[4,0,0,9,4,1],
-"ObjectIcons_8hpp_source.html":[4,0,0,9,4,1],
+"ObjectIcons_8cpp.html":[4,0,0,9,4,1],
+"ObjectIcons_8hpp.html":[4,0,0,9,4,2],
+"ObjectIcons_8hpp_source.html":[4,0,0,9,4,2],
 "ObjectImpl_8hpp.html":[4,0,0,6,13],
 "ObjectImpl_8hpp_source.html":[4,0,0,6,13],
 "ObjectLinkTo_8cpp.html":[4,0,0,20,7,10],
@@ -244,10 +249,5 @@ var NAVTREEINDEX7 =
 "PointRoot_8hpp.html":[4,0,0,7,2,4,8],
 "PointRoot_8hpp_source.html":[4,0,0,7,2,4,8],
 "PointSSBarycenter_8cpp.html":[4,0,0,7,2,4,9],
-"PointSSBarycenter_8hpp.html":[4,0,0,7,2,4,10],
-"PointSSBarycenter_8hpp_source.html":[4,0,0,7,2,4,10],
-"Point_8cpp.html":[4,0,0,7,5,0,6],
-"Point_8hpp.html":[4,0,0,7,5,0,7],
-"Point_8hpp_source.html":[4,0,0,7,5,0,7],
-"PointingDirection_8cpp.html":[4,0,0,2,0,14]
+"PointSSBarycenter_8hpp.html":[4,0,0,7,2,4,10]
 };

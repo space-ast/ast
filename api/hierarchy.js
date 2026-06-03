@@ -401,7 +401,6 @@ var hierarchy =
     ] ],
     [ "metsel_1_", "structmetsel__1__.html", null ],
     [ "ast::MissionCommandVisitor", "classast_1_1MissionCommandVisitor.html", null ],
-    [ "ast::MissionModerator", "classast_1_1MissionModerator.html", null ],
     [ "ast::MockUninitializedPointer", "classast_1_1MockUninitializedPointer.html", null ],
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", null ],
     [ "ast::ModOrbElem", "classast_1_1ModOrbElem.html", null ],
@@ -532,6 +531,7 @@ var hierarchy =
         [ "ast::Chain", "classast_1_1Chain.html", null ],
         [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
         [ "ast::Command", "classast_1_1Command.html", [
+          [ "ast::BasicAnalyzer", "classast_1_1BasicAnalyzer.html", null ],
           [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
             [ "ast::End", "classast_1_1End.html", null ],
             [ "ast::Return", "classast_1_1Return.html", null ],
@@ -542,6 +542,7 @@ var hierarchy =
               [ "ast::Propagate", "classast_1_1Propagate.html", null ],
               [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
               [ "ast::Sequence", "classast_1_1Sequence.html", [
+                [ "ast::MainSequence", "classast_1_1MainSequence.html", null ],
                 [ "ast::TargeterSequence", "classast_1_1TargeterSequence.html", null ]
               ] ]
             ] ],
@@ -1013,6 +1014,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "QMainWindow", null, [
+      [ "ast::UiAnalyzerMainWindow", "classast_1_1UiAnalyzerMainWindow.html", null ],
       [ "ast::UiMainWindow", "classast_1_1UiMainWindow.html", null ]
     ] ],
     [ "QObject", null, [
@@ -1036,9 +1038,9 @@ var hierarchy =
     [ "ast::Quaternion", "classast_1_1Quaternion.html", null ],
     [ "QWidget", null, [
       [ "ast::UiAnalyzerVariableList", "classast_1_1UiAnalyzerVariableList.html", null ],
+      [ "ast::UiBasicAnalyzer", "classast_1_1UiBasicAnalyzer.html", null ],
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
-      [ "ast::UiMissionPanel", "classast_1_1UiMissionPanel.html", null ],
       [ "ast::UiODEIntegratorEditor", "classast_1_1UiODEIntegratorEditor.html", null ],
       [ "ast::UiObject", "classast_1_1UiObject.html", [
         [ "ast::UiBodyEphemerisDE", "classast_1_1UiBodyEphemerisDE.html", null ],
@@ -1052,6 +1054,7 @@ var hierarchy =
         [ "ast::UiGravityForce", "classast_1_1UiGravityForce.html", null ],
         [ "ast::UiHPOPForceModel", "classast_1_1UiHPOPForceModel.html", null ],
         [ "ast::UiInitialState", "classast_1_1UiInitialState.html", null ],
+        [ "ast::UiMainSequence", "classast_1_1UiMainSequence.html", null ],
         [ "ast::UiManeuver", "classast_1_1UiManeuver.html", null ],
         [ "ast::UiMotionProfile", "classast_1_1UiMotionProfile.html", [
           [ "ast::UiMotionTwoBody", "classast_1_1UiMotionTwoBody.html", null ]
@@ -1142,6 +1145,7 @@ var hierarchy =
     [ "ast::SharedPtr< ast::Expr >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::FieldOfView >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Frame >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::MainSequence >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Object >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Point >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::ScriptingToolProfile >", "classast_1_1SharedPtr.html", null ],

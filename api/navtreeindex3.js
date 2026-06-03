@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"DateTime_8hpp_source.html":[4,0,0,7,10,4],
+"Date_8cpp.html":[4,0,0,7,10,1],
+"Date_8hpp.html":[4,0,0,7,10,2],
 "Date_8hpp_source.html":[4,0,0,7,10,2],
 "Debris_8hpp.html":[4,0,0,22,1,0],
 "Debris_8hpp_source.html":[4,0,0,22,1,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "ExprCatHorizontal_8cpp.html":[4,0,0,16,2,9],
 "ExprCatHorizontal_8hpp_source.html":[4,0,0,16,2,10],
 "ExprCatVertical_8cpp.html":[4,0,0,16,2,11],
-"ExprCatVertical_8hpp.html":[4,0,0,16,2,12],
-"ExprCatVertical_8hpp_source.html":[4,0,0,16,2,12],
-"ExprCondition_8cpp.html":[4,0,0,16,2,13],
-"ExprCondition_8hpp.html":[4,0,0,16,2,14]
+"ExprCatVertical_8hpp.html":[4,0,0,16,2,12]
 };
