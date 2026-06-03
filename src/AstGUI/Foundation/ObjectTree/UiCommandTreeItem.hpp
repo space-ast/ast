@@ -20,18 +20,33 @@
 #pragma once
 
 #include "UiObjectTreeItem.hpp"
+#include "AstCore/Segment.hpp"
 
 AST_NAMESPACE_BEGIN
 
+class Segment;
+class Command;
+
 /// @brief Segment 对象树项
-class AST_GUI_API UiSegmentTreeItem : public UiObjectTreeItem
+class AST_GUI_API UiCommandTreeItem : public UiObjectTreeItem
 {
 public:
     using UiObjectTreeItem::UiObjectTreeItem;
 
-    UiSegmentTreeItem* clone() const override;
+    UiCommandTreeItem* clone() const override;
 
-    QList<UiObjectTreeItem*> createChildItems() const override;
+    QList<UiObjectTreeItem*> createChildItems(const TreeBuildOptions& options = {}) const override;
+
+    /// @brief 获取 Segment 对象
+    Segment* segment() const { return getObject<Segment*>(); }
+
+    Command* command() const { return getObject<Command*>(); }
+
+    /// @brief 从父序列移除 Command 对象
+    errc_t removeCommand();
+
+    /// @brief 从父序列移除 Command 对象并删除树项
+    void removeCommandAndDeleteItem();
 };
 
 AST_NAMESPACE_END

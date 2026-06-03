@@ -74,9 +74,9 @@ void UiVariableList::setupUi()
     buttonLayout_ = new QHBoxLayout;
     buttonLayout_->setContentsMargins(0, 0, 0, 0);
 
-    addButton_ = new QPushButton(("+"), this);
+    addButton_ = new QPushButton(tr("+添加变量"), this);
     addButton_->setToolTip(tr("添加新变量"));
-    removeButton_ = new QPushButton(("-"), this);
+    removeButton_ = new QPushButton(tr("-删除变量"), this);
     removeButton_->setToolTip(tr("删除选中变量"));
     removeButton_->setEnabled(false);
 

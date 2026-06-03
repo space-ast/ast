@@ -48,6 +48,7 @@ public:
 public:
     errc_t execute() override;
 
+public: // 管理子命令 
     /// @brief 设置子命令序列
     void setCommands(const std::vector<HMissionCommand>& commands);
 
@@ -57,10 +58,16 @@ public:
     /// @brief 添加子命令
     void addCommand(MissionCommand* command);
 
-    const std::vector<HMissionCommand>& getCommands() const{return commands_;}
+    /// @brief 插入子命令
+    /// @param index 插入位置
+    /// @param command 子命令
+    void insertCommand(int index, MissionCommand* command);
 
-    ScriptingToolProfile* scriptingTool() const{return scriptingTool_.get();}
-    void setScriptingTool(ScriptingToolProfile* tool){scriptingTool_ = tool;}
+    /// @brief 移除子命令
+    errc_t removeCommand(MissionCommand* command);
+
+
+    const std::vector<HMissionCommand>& getCommands() const{return commands_;}
 
     /// @brief 根据路径获取子段，例如"a.b.c"
     /// @param path 路径
@@ -74,6 +81,10 @@ public:
     Segment* getSegmentByName(StringView name);
     MissionCommand* getCommandByName(StringView name);
 
+public: // 脚本工具
+    ScriptingToolProfile* scriptingTool() const{return scriptingTool_.get();}
+    void setScriptingTool(ScriptingToolProfile* tool){scriptingTool_ = tool;}
+public:
     /// @brief 获取重复次数
     /// @return int 重复次数
     int repeatCount() const{return repeatCount_;}

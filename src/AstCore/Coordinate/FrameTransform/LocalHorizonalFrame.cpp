@@ -72,6 +72,7 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 		}
 	} while (fabs(newB - B) > EPS);
 
+	// @todo 极点附近：cos(lat) → 0，xy/cos(lat) 数值不稳定
 	lla.latitude() = newB;
 	lla.altitude() = xy / cos(newB) - newN;
 }

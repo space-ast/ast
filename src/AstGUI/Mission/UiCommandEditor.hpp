@@ -1,5 +1,5 @@
 ///
-/// @file      UiSegmentEditor.hpp
+/// @file      UiCommandEditor.hpp
 /// @brief     段属性编辑器，根据选中段类型切换子编辑器
 /// @details   基于 QStackedWidget，注册各类 Segment 对应的编辑页面
 /// @author    axel
@@ -21,12 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/MissionCommand.hpp"
 #include <QStackedWidget>
 #include <unordered_map>
 
 AST_NAMESPACE_BEGIN
 
-class MissionCommand;
 class Class;
 class UiInitialState;
 class UiPropagate;
@@ -34,13 +34,13 @@ class UiManeuver;
 class UiSequence;
 class UiTargeterSequence;
 
-/// @brief 段属性编辑器，根据 RTTI 类型自动切换编辑页面
-class AST_GUI_API UiSegmentEditor : public QStackedWidget
+/// @brief 命令属性编辑器，根据 RTTI 类型自动切换编辑页面
+class AST_GUI_API UiCommandEditor : public QStackedWidget
 {
     Q_OBJECT
 public:
-    explicit UiSegmentEditor(QWidget* parent = nullptr);
-    ~UiSegmentEditor() override;
+    explicit UiCommandEditor(QWidget* parent = nullptr);
+    ~UiCommandEditor() override;
 
     /// @brief 编辑指定命令 — 根据 RTTI 类型切换编辑器
     void editCommand(MissionCommand* cmd);

@@ -35,20 +35,20 @@ UiObjectTreeItem::UiObjectTreeItem(Object* obj)
     configure(obj);
 }
 
-void UiObjectTreeItem::buildChildren()
+void UiObjectTreeItem::buildChildren(const TreeBuildOptions& options)
 {
     // 清除已有的子节点
     while (childCount() > 0)
         delete takeChild(0);
-    for (auto* childItem : createChildItems())
+    for (auto* childItem : createChildItems(options))
     {
         addChild(childItem);
         // 递归构建子节点
-        childItem->buildChildren();
+        childItem->buildChildren(options);
     }
 }
 
-QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems() const
+QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems(const TreeBuildOptions& options) const
 {
     auto* obj = object_.get();
     if (!obj)
@@ -57,12 +57,16 @@ QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems() const
     auto* node = ObjectManager::CurrentInstance().getObjectNode(obj);
     if (!node)
         return {};
-    
+
     QList<UiObjectTreeItem*> items;
     for (auto* childNode : node->getChildren())
     {
         if (auto* childObj = childNode->getObject())
+        {
+            if (!options.showComponents && childObj->isComponent())
+                continue;
             items.append(new UiObjectTreeItem(childObj));
+        }
     }
     return items;
 }

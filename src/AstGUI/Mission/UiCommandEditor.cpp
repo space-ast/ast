@@ -1,5 +1,5 @@
 ///
-/// @file      UiSegmentEditor.cpp
+/// @file      UiCommandEditor.cpp
 /// @brief     段属性编辑器实现
 /// @details   ~
 /// @author    axel
@@ -18,7 +18,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "UiSegmentEditor.hpp"
+#include "UiCommandEditor.hpp"
 #include "UiInitialState.hpp"
 #include "UiPropagate.hpp"
 #include "UiManeuver.hpp"
@@ -35,15 +35,15 @@
 
 AST_NAMESPACE_BEGIN
 
-UiSegmentEditor::UiSegmentEditor(QWidget* parent)
+UiCommandEditor::UiCommandEditor(QWidget* parent)
     : QStackedWidget(parent)
 {
     registerEditors();
 }
 
-UiSegmentEditor::~UiSegmentEditor() = default;
+UiCommandEditor::~UiCommandEditor() = default;
 
-void UiSegmentEditor::registerEditors()
+void UiCommandEditor::registerEditors()
 {
     setupUi();
 
@@ -64,7 +64,7 @@ void UiSegmentEditor::registerEditors()
     targetSeqIdx_ = addWidget(targetSeqPage_);
 }
 
-void UiSegmentEditor::setupUi()
+void UiCommandEditor::setupUi()
 {
     // 初始占位页面
     auto* placeholder = new QWidget(this);
@@ -77,7 +77,7 @@ void UiSegmentEditor::setupUi()
     setCurrentIndex(0);
 }
 
-void UiSegmentEditor::editCommand(MissionCommand* cmd)
+void UiCommandEditor::editCommand(MissionCommand* cmd)
 {
     if (!cmd)
     {
@@ -118,7 +118,7 @@ void UiSegmentEditor::editCommand(MissionCommand* cmd)
         setCurrentIndex(targetIdx);
 }
 
-void UiSegmentEditor::clear()
+void UiCommandEditor::clear()
 {
     setCurrentIndex(0);
 }

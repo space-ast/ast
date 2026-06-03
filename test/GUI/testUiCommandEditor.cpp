@@ -1,6 +1,6 @@
 ///
-/// @file      testUiSegmentEditor.cpp
-/// @brief     测试 UiSegmentEditor — RTTI 类型切换、编辑页面匹配
+/// @file      testUiCommandEditor.cpp
+/// @brief     测试 UiCommandEditor — RTTI 类型切换、编辑页面匹配
 /// @author    axel
 /// @date      2026-05-17
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -17,7 +17,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ast/UiSegmentEditor.hpp"
+#include "ast/UiCommandEditor.hpp"
 #include "ast/InitialState.hpp"
 #include "ast/Propagate.hpp"
 #include "ast/Maneuver.hpp"
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     QApplication app(argc, argv);
 
     // ---- 占位页索引为 0 ----
-    UiSegmentEditor editor;
+    UiCommandEditor editor;
 
     int placeholderIdx = 0;
     CHECK(editor.currentIndex() == placeholderIdx,

@@ -28,15 +28,14 @@
 #include "TargeterSequenceLoader.hpp"
 #include "ReturnLoader.hpp"
 #include "AstUtil/SharedPtr.hpp"
+#include "AstCore/MissionCommand.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
-
-class MissionCommand;
 
 /// @brief 从值加载任务命令
 /// @param value 值

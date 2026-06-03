@@ -34,6 +34,8 @@ AST_GUI_API QIcon aUiLoadIcon(const QString& name);
 
 AST_GUI_API QIcon aUiObjectIcon(const Object* obj);
 
+AST_GUI_API QIcon aUiClassIcon(const QString& className);
+
 A_ALWAYS_INLINE QIcon objectIcon(const Object* obj)
 {
     return aUiObjectIcon(obj);

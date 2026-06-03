@@ -43,10 +43,17 @@ QIcon aUiObjectIcon(const Object* obj)
 {
     if (obj)
     {
-        QIcon icon = aUiLoadIcon(QString::fromStdString(obj->typeName()));
-        if(!icon.isNull())
-            return icon;
+        return aUiClassIcon(QString::fromStdString(obj->typeName()));
     }
+    return aUiLoadIcon(QStringLiteral("Object"));
+}
+
+
+QIcon aUiClassIcon(const QString& className)
+{
+    QIcon icon = aUiLoadIcon(className);
+    if(!icon.isNull())
+        return icon;
     return aUiLoadIcon(QStringLiteral("Object"));
 }
 

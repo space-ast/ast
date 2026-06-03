@@ -20,8 +20,8 @@
 
 #include "UiMainSequence.hpp"
 #include "MissionIcons.hpp"
-#include "UiMissionTree.hpp"
-#include "UiSegmentEditor.hpp"
+#include "AstGUI/UiCommandTree.hpp"
+#include "UiCommandEditor.hpp"
 #include "AstCore/MainSequence.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/Propagate.hpp"
@@ -67,13 +67,13 @@ void UiMainSequence::setupUi()
     // 主分割器
     mainSplitter_ = new QSplitter(Qt::Horizontal, this);
 
-    missionTree_ = new UiMissionTree(this);
-    missionTree_->setMinimumWidth(320);
-    mainSplitter_->addWidget(missionTree_);
+    commandTree_ = new UiCommandTree(this);
+    commandTree_->setMinimumWidth(320);
+    mainSplitter_->addWidget(commandTree_);
 
-    segmentEditor_ = new UiSegmentEditor(this);
-    segmentEditor_->setMinimumWidth(420);
-    mainSplitter_->addWidget(segmentEditor_);
+    commandEditor_ = new UiCommandEditor(this);
+    commandEditor_->setMinimumWidth(420);
+    mainSplitter_->addWidget(commandEditor_);
 
     mainSplitter_->setSizes({360, 800});
 
@@ -134,11 +134,11 @@ void UiMainSequence::setupToolBar()
 void UiMainSequence::setupConnections()
 {
     // 树选中 → 编辑器切换
-    connect(missionTree_, &UiMissionTree::segmentSelected,
-            this, &UiMainSequence::onSegmentSelected);
+    connect(commandTree_, &UiCommandTree::commandSelected,
+            this, &UiMainSequence::onCommandSelected);
 
     // 树结构变化
-    connect(missionTree_, &UiMissionTree::treeModified,
+    connect(commandTree_, &UiCommandTree::treeModified,
             this, [this]() { appendOutput(tr("任务序列已更新")); });
 
     // 工具栏动作
@@ -161,7 +161,7 @@ void UiMainSequence::setupConnections()
 void UiMainSequence::setSequence(MainSequence* sequence)
 {
     setObject(sequence);
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
     if (sequence)
         appendOutput(tr("已加载任务序列"));
 }
@@ -175,9 +175,9 @@ MainSequence* UiMainSequence::sequence() const
 // 段操作
 // ============================================================================
 
-void UiMainSequence::onSegmentSelected(MissionCommand* cmd)
+void UiMainSequence::onCommandSelected(Command* cmd)
 {
-    segmentEditor_->editCommand(cmd);
+    commandEditor_->editCommand(cmd);
 }
 
 static HMissionCommand createSegment(const QString& typeName)
@@ -218,7 +218,7 @@ void UiMainSequence::onAddInitialState()
     sequence->setCommands(std::move(cmds));
 
     // 刷新树
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
 
     appendOutput(tr("添加: 初始状态段"));
 }
@@ -242,7 +242,7 @@ void UiMainSequence::onAddPropagate()
     cmds.push_back(cmd);
     sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
     appendOutput(tr("添加: 轨道预报段"));
 }
 
@@ -265,7 +265,7 @@ void UiMainSequence::onAddManeuver()
     cmds.push_back(cmd);
     sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
     appendOutput(tr("添加: 机动段"));
 }
 
@@ -288,7 +288,7 @@ void UiMainSequence::onAddSequence()
     cmds.push_back(cmd);
     sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
     appendOutput(tr("添加: 子序列段"));
 }
 
@@ -311,7 +311,7 @@ void UiMainSequence::onAddTargeterSequence()
     cmds.push_back(cmd);
     sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
     appendOutput(tr("添加: 打靶序列段"));
 }
 
@@ -334,13 +334,13 @@ void UiMainSequence::onAddLandingSite()
     cmds.push_back(cmd);
     sequence->setCommands(std::move(cmds));
 
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
     appendOutput(tr("添加: 着陆点段"));
 }
 
 void UiMainSequence::onDeleteSegment()
 {
-    missionTree_->removeSelectedCommand();
+    commandTree_->removeSelectedCommand();
 }
 
 // ============================================================================
@@ -389,7 +389,7 @@ void UiMainSequence::onOpenFile()
     sequence->setName(loadedSeq->getName());
 
     // 刷新树
-    missionTree_->setSequence(sequence);
+    commandTree_->setSequence(sequence);
 
     appendOutput(tr("已加载: %1 (%2 个命令)")
                  .arg(filePath)

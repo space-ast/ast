@@ -60,14 +60,33 @@ void UiObjectTree::setRootItem(UiObjectTreeItem* item)
     rootItem_ = item;
 }
 
+void UiObjectTree::setRootObject(Object* object)
+{
+    if (object)
+        setRootItem(new UiObjectTreeItem(object));
+    else
+        setRootItem(nullptr);
+}
+
+
 UiObjectTreeItem* UiObjectTree::rootItem() const
 {
     return rootItem_;
 }
 
+Object* UiObjectTree::rootObject() const
+{
+    return rootItem_ ? rootItem_->object() : nullptr;
+}
+
 void UiObjectTree::setRootVisible(bool visible)
 {
     rootVisible_ = visible;
+}
+
+void UiObjectTree::setShowComponents(bool show)
+{
+    buildOptions_.showComponents = show;
 }
 
 bool UiObjectTree::isRootVisible() const
@@ -94,14 +113,14 @@ void UiObjectTree::refresh()
         {
             auto* item = rootItem_->clone();
             invisibleRootItem()->addChild(item);
-            item->buildChildren();
+            item->buildChildren(buildOptions_);
         }
         else
         {
-            for (auto* child : rootItem_->createChildItems())
+            for (auto* child : rootItem_->createChildItems(buildOptions_))
             {
                 invisibleRootItem()->addChild(child);
-                child->buildChildren();
+                child->buildChildren(buildOptions_);
             }
         }
     }
@@ -116,7 +135,7 @@ void UiObjectTree::refresh()
                 continue;
             auto* item = new UiObjectTreeItem(obj);
             invisibleRootItem()->addChild(item);
-            item->buildChildren();
+            item->buildChildren(buildOptions_);
         }
     }
 

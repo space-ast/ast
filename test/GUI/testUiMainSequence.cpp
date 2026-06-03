@@ -144,7 +144,7 @@ int main(int argc, char* argv[])
         // (UI 面板的 Open 按钮也可通过菜单使用)
     }
 
-    mainWindow.show();
+    mainWindow.showMaximized();
 
     return app.exec();
 }

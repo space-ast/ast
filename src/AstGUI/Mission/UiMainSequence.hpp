@@ -33,9 +33,9 @@ class QPlainTextEdit;
 AST_NAMESPACE_BEGIN
 
 class MainSequence;
-class MissionCommand;
-class UiMissionTree;
-class UiSegmentEditor;
+class Command;
+class UiCommandTree;
+class UiCommandEditor;
 
 /// @brief 任务序列编辑主面板（QWidget），由调用方嵌入容器
 class AST_GUI_API UiMainSequence : public UiObject
@@ -57,7 +57,7 @@ signals:
     void stopped();
 
 private slots:
-    void onSegmentSelected(MissionCommand* cmd);
+    void onCommandSelected(Command* cmd);
     void onAddInitialState();
     void onAddPropagate();
     void onAddManeuver();
@@ -87,8 +87,8 @@ private:
 
     // 子组件
     QSplitter*       mainSplitter_ = nullptr;
-    UiMissionTree*   missionTree_ = nullptr;
-    UiSegmentEditor* segmentEditor_ = nullptr;
+    UiCommandTree*   commandTree_ = nullptr;
+    UiCommandEditor* commandEditor_ = nullptr;
     QPlainTextEdit*  outputView_ = nullptr;
 
 };

@@ -272,6 +272,40 @@
     </message>
 </context>
 <context>
+    <name>UiCommandEditor</name>
+    <message>
+        <source>在任务树中选择一个段以编辑其属性</source>
+        <translation>Select a segment in the mission tree to edit its properties</translation>
+    </message>
+</context>
+<context>
+    <name>UiCommandTree</name>
+    <message>
+        <source>添加初始状态</source>
+        <translation type="unfinished">Add Initial State</translation>
+    </message>
+    <message>
+        <source>添加预报段</source>
+        <translation type="unfinished">Add Propagate Segment</translation>
+    </message>
+    <message>
+        <source>添加机动段</source>
+        <translation type="unfinished">Add Maneuver Segment</translation>
+    </message>
+    <message>
+        <source>添加序列段</source>
+        <translation type="unfinished">Add Sequence Segment</translation>
+    </message>
+    <message>
+        <source>添加瞄准序列段</source>
+        <translation type="unfinished">Add Targeter Sequence Segment</translation>
+    </message>
+    <message>
+        <source>删除</source>
+        <translation type="unfinished">Delete</translation>
+    </message>
+</context>
+<context>
     <name>UiDouble</name>
     <message>
         <source>请输入正确的浮点数</source>
@@ -1267,13 +1301,6 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
-    <name>UiSegmentEditor</name>
-    <message>
-        <source>在任务树中选择一个段以编辑其属性</source>
-        <translation>Select a segment in the mission tree to edit its properties</translation>
-    </message>
-</context>
-<context>
     <name>UiSelectFrame</name>
     <message>
         <source>天体</source>
@@ -1773,6 +1800,14 @@ Error code: %2</translation>
     <message>
         <source>新建变量</source>
         <translation>New Variable</translation>
+    </message>
+    <message>
+        <source>+添加变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-删除变量</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

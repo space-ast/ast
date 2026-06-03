@@ -275,6 +275,9 @@ public: // 对象ID
     /// @return Object* 父作用域指针
     Object* getParentScope() const;
 
+    template<typename T>
+    T getParent() const;
+
     /// @brief 判断对象是否为指定类型的实例
     /// @param type 类型元信息
     /// @return bool 是否为指定类型的实例
@@ -498,6 +501,13 @@ bool Object::isOfType() const
     static_assert(has_own_getType<ObjectType>::value, "isOfType requires the type to has a AST_OBJECT macro");
     return isOfType(ObjectType::StaticType());
 }
+
+template<typename T>
+T Object::getParent() const
+{
+    return aobject_cast<T>(getParentScope());
+}
+
 
 /*! @} */
 

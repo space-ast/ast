@@ -45,13 +45,14 @@ errc_t aBodyAERInTopocentric(const TimePoint& time, Body* body, Body* referenceB
     auto shape = referenceBody->getShape();    AST_CHECK_NULLPTR(shape);
 
     // 计算天体在参考天体固连系下的位置
-    Vector3d bodyInReferenceBodyFixed;
+    Vector3d bodyInReferenceBodyFixed{};
     errc_t rc = aBodyInBodyFixed(time, body, referenceBody, bodyInReferenceBodyFixed);
-    
+    if (rc) return rc;
+
     // 计算天体相对于参考点的AER
     aGeodeticToAER(bodyInReferenceBodyFixed, observerPosition, aer, shape);
 
-    return rc;
+    return eNoError;
 }
 
 
