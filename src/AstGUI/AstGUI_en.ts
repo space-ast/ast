@@ -29,6 +29,37 @@
     </message>
 </context>
 <context>
+    <name>UiAnalyzerMainWindow</name>
+    <message>
+        <source>参数研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>地毯图研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>区间分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>优化打靶</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>不确定性分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>类型管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>对象管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UiAnalyzerPanel</name>
     <message>
         <source>分析器</source>
@@ -64,6 +95,29 @@
     <message>
         <source>+ 添加变量</source>
         <translation>+ Add Variable</translation>
+    </message>
+</context>
+<context>
+    <name>UiBasicAnalyzer</name>
+    <message>
+        <source>输入变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>未关联执行命令</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>执行命令</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -563,6 +617,167 @@
     </message>
 </context>
 <context>
+    <name>UiMainSequence</name>
+    <message>
+        <source>输出信息...</source>
+        <translation>Output messages...</translation>
+    </message>
+    <message>
+        <source>打开</source>
+        <translation>Open</translation>
+    </message>
+    <message>
+        <source>打开 .MCSSegment 文件</source>
+        <translation>Open .MCSSegment File</translation>
+    </message>
+    <message>
+        <source>保存</source>
+        <translation>Save</translation>
+    </message>
+    <message>
+        <source>保存任务序列</source>
+        <translation>Save Mission Sequence</translation>
+    </message>
+    <message>
+        <source>添加段</source>
+        <translation>Add Segment</translation>
+    </message>
+    <message>
+        <source>初始状态 (InitialState)</source>
+        <translation>Initial State</translation>
+    </message>
+    <message>
+        <source>轨道预报 (Propagate)</source>
+        <translation>Propagate</translation>
+    </message>
+    <message>
+        <source>机动 (Maneuver)</source>
+        <translation>Maneuver</translation>
+    </message>
+    <message>
+        <source>序列 (Sequence)</source>
+        <translation>Sequence</translation>
+    </message>
+    <message>
+        <source>打靶序列 (TargeterSeq)</source>
+        <translation>Targeter Sequence</translation>
+    </message>
+    <message>
+        <source>+ 添加</source>
+        <translation>+ Add</translation>
+    </message>
+    <message>
+        <source>删除</source>
+        <translation>Delete</translation>
+    </message>
+    <message>
+        <source>删除选中的段</source>
+        <translation>Delete Selected Segment</translation>
+    </message>
+    <message>
+        <source>▶ 运行</source>
+        <translation>▶ Run</translation>
+    </message>
+    <message>
+        <source>执行任务序列</source>
+        <translation>Execute Mission Sequence</translation>
+    </message>
+    <message>
+        <source>■ 停止</source>
+        <translation>■ Stop</translation>
+    </message>
+    <message>
+        <source>停止执行</source>
+        <translation>Stop Execution</translation>
+    </message>
+    <message>
+        <source>任务序列已更新</source>
+        <translation>Mission sequence updated</translation>
+    </message>
+    <message>
+        <source>已加载任务序列</source>
+        <translation>Mission sequence loaded</translation>
+    </message>
+    <message>
+        <source>提示</source>
+        <translation>Notice</translation>
+    </message>
+    <message>
+        <source>请先创建或加载任务序列。</source>
+        <translation>Please create or load a mission sequence first.</translation>
+    </message>
+    <message>
+        <source>添加: 初始状态段</source>
+        <translation>Added: Initial State segment</translation>
+    </message>
+    <message>
+        <source>添加: 轨道预报段</source>
+        <translation>Added: Propagate segment</translation>
+    </message>
+    <message>
+        <source>添加: 机动段</source>
+        <translation>Added: Maneuver segment</translation>
+    </message>
+    <message>
+        <source>添加: 子序列段</source>
+        <translation>Added: Sub-sequence segment</translation>
+    </message>
+    <message>
+        <source>添加: 打靶序列段</source>
+        <translation>Added: Targeter sequence segment</translation>
+    </message>
+    <message>
+        <source>打开任务序列文件</source>
+        <translation>Open Mission Sequence File</translation>
+    </message>
+    <message>
+        <source>MCSSegment 文件 (*.MCSSegment);;所有文件 (*.*)</source>
+        <translation>MCSSegment File (*.MCSSegment);;All Files (*.*)</translation>
+    </message>
+    <message>
+        <source>加载失败</source>
+        <translation>Load Failed</translation>
+    </message>
+    <message>
+        <source>无法加载文件: %1
+错误码: %2</source>
+        <translation>Failed to load file: %1
+Error code: %2</translation>
+    </message>
+    <message>
+        <source>文件不包含有效的任务序列段。</source>
+        <translation>File does not contain a valid mission sequence segment.</translation>
+    </message>
+    <message>
+        <source>已加载: %1 (%2 个命令)</source>
+        <translation>Loaded: %1 (%2 commands)</translation>
+    </message>
+    <message>
+        <source>没有内容可保存。</source>
+        <translation>No content to save.</translation>
+    </message>
+    <message>
+        <source>保存任务序列文件</source>
+        <translation>Save Mission Sequence File</translation>
+    </message>
+    <message>
+        <source>保存功能尚未实现: %1</source>
+        <translation>Save not yet implemented: %1</translation>
+    </message>
+    <message>
+        <source>开始执行任务序列...</source>
+        <translation>Starting mission sequence execution...</translation>
+    </message>
+    <message>
+        <source>任务序列已停止</source>
+        <translation>Mission sequence stopped</translation>
+    </message>
+    <message>
+        <source>任务序列</source>
+        <translation>Mission Sequence</translation>
+    </message>
+</context>
+<context>
     <name>UiMainWindow</name>
     <message>
         <source>跳到起点</source>
@@ -815,167 +1030,6 @@
     <message>
         <source>航天仿真</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UiMissionPanel</name>
-    <message>
-        <source>输出信息...</source>
-        <translation>Output messages...</translation>
-    </message>
-    <message>
-        <source>打开</source>
-        <translation>Open</translation>
-    </message>
-    <message>
-        <source>打开 .MCSSegment 文件</source>
-        <translation>Open .MCSSegment File</translation>
-    </message>
-    <message>
-        <source>保存</source>
-        <translation>Save</translation>
-    </message>
-    <message>
-        <source>保存任务序列</source>
-        <translation>Save Mission Sequence</translation>
-    </message>
-    <message>
-        <source>添加段</source>
-        <translation>Add Segment</translation>
-    </message>
-    <message>
-        <source>初始状态 (InitialState)</source>
-        <translation>Initial State</translation>
-    </message>
-    <message>
-        <source>轨道预报 (Propagate)</source>
-        <translation>Propagate</translation>
-    </message>
-    <message>
-        <source>机动 (Maneuver)</source>
-        <translation>Maneuver</translation>
-    </message>
-    <message>
-        <source>序列 (Sequence)</source>
-        <translation>Sequence</translation>
-    </message>
-    <message>
-        <source>打靶序列 (TargeterSeq)</source>
-        <translation>Targeter Sequence</translation>
-    </message>
-    <message>
-        <source>+ 添加</source>
-        <translation>+ Add</translation>
-    </message>
-    <message>
-        <source>删除</source>
-        <translation>Delete</translation>
-    </message>
-    <message>
-        <source>删除选中的段</source>
-        <translation>Delete Selected Segment</translation>
-    </message>
-    <message>
-        <source>▶ 运行</source>
-        <translation>▶ Run</translation>
-    </message>
-    <message>
-        <source>执行任务序列</source>
-        <translation>Execute Mission Sequence</translation>
-    </message>
-    <message>
-        <source>■ 停止</source>
-        <translation>■ Stop</translation>
-    </message>
-    <message>
-        <source>停止执行</source>
-        <translation>Stop Execution</translation>
-    </message>
-    <message>
-        <source>任务序列已更新</source>
-        <translation>Mission sequence updated</translation>
-    </message>
-    <message>
-        <source>已加载任务序列</source>
-        <translation>Mission sequence loaded</translation>
-    </message>
-    <message>
-        <source>提示</source>
-        <translation>Notice</translation>
-    </message>
-    <message>
-        <source>请先创建或加载任务序列。</source>
-        <translation>Please create or load a mission sequence first.</translation>
-    </message>
-    <message>
-        <source>添加: 初始状态段</source>
-        <translation>Added: Initial State segment</translation>
-    </message>
-    <message>
-        <source>添加: 轨道预报段</source>
-        <translation>Added: Propagate segment</translation>
-    </message>
-    <message>
-        <source>添加: 机动段</source>
-        <translation>Added: Maneuver segment</translation>
-    </message>
-    <message>
-        <source>添加: 子序列段</source>
-        <translation>Added: Sub-sequence segment</translation>
-    </message>
-    <message>
-        <source>添加: 打靶序列段</source>
-        <translation>Added: Targeter sequence segment</translation>
-    </message>
-    <message>
-        <source>打开任务序列文件</source>
-        <translation>Open Mission Sequence File</translation>
-    </message>
-    <message>
-        <source>MCSSegment 文件 (*.MCSSegment);;所有文件 (*.*)</source>
-        <translation>MCSSegment File (*.MCSSegment);;All Files (*.*)</translation>
-    </message>
-    <message>
-        <source>加载失败</source>
-        <translation>Load Failed</translation>
-    </message>
-    <message>
-        <source>无法加载文件: %1
-错误码: %2</source>
-        <translation>Failed to load file: %1
-Error code: %2</translation>
-    </message>
-    <message>
-        <source>文件不包含有效的任务序列段。</source>
-        <translation>File does not contain a valid mission sequence segment.</translation>
-    </message>
-    <message>
-        <source>已加载: %1 (%2 个命令)</source>
-        <translation>Loaded: %1 (%2 commands)</translation>
-    </message>
-    <message>
-        <source>没有内容可保存。</source>
-        <translation>No content to save.</translation>
-    </message>
-    <message>
-        <source>保存任务序列文件</source>
-        <translation>Save Mission Sequence File</translation>
-    </message>
-    <message>
-        <source>保存功能尚未实现: %1</source>
-        <translation>Save not yet implemented: %1</translation>
-    </message>
-    <message>
-        <source>开始执行任务序列...</source>
-        <translation>Starting mission sequence execution...</translation>
-    </message>
-    <message>
-        <source>任务序列已停止</source>
-        <translation>Mission sequence stopped</translation>
-    </message>
-    <message>
-        <source>任务序列</source>
-        <translation>Mission Sequence</translation>
     </message>
 </context>
 <context>

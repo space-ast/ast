@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstSim/MotionProfile.hpp"
-#include "AstCore/MissionModerator.hpp"
+#include "AstCore/MainSequence.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -50,15 +50,15 @@ public:
     AST_OBJECT(MotionMissionCommand)
     static MotionMissionCommand* New();
 
-    MotionMissionCommand() = default;
+    MotionMissionCommand();
     ~MotionMissionCommand() = default;
 
-    Sequence& getSequence() { return mission_.getSequence(); }
+    Sequence& getSequence() { return *mainSequence_; }
     errc_t makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const override;
     errc_t makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const override;
     void accept(MotionProfileVisitor& visitor) override;
 private:
-    MissionModerator mission_;      ///< 任务序列协调器
+    SharedPtr<MainSequence> mainSequence_;      ///< 任务序列协调器
 };
 
 /*! @} */

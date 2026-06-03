@@ -69,6 +69,8 @@ inline QIcon objectIcon(const Object* obj)
         return loadIcon(QStringLiteral("Maneuver"));
     if (name.contains(QStringLiteral("Sequence")))
         return loadIcon(QStringLiteral("Sequence"));
+    if (name.contains(QStringLiteral("LandingSite")))
+        return loadIcon(QStringLiteral("LandingSite"));
     if (name.contains(QStringLiteral("Segment")))
         return loadIcon(QStringLiteral("Segment"));
     if (name.contains(QStringLiteral("Targeter")))

@@ -430,6 +430,7 @@ class Identifier;           ///< 标识符
 class Value;                ///< 值
 class Expr;                 ///< 表达式
 class Variable;             ///< 变量
+class Interpreter;          ///< 解释器
 
 class BKVParser;            ///< BKV解析器
 class JsonValue;            ///< JSON值

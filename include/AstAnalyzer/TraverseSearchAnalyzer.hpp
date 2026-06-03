@@ -1,1 +1,1 @@
-#include "../../src/AstAnalyzer/TraverseSearchAnalyzer.hpp"
+#include "../../src/AstAnalyzer/Search/TraverseSearchAnalyzer.hpp"

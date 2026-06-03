@@ -95,22 +95,24 @@ void UiVariableList::setupUi()
             this, &UiVariableList::onRemoveVariable);
 }
 
-void UiVariableList::setVariableList(VariableList* variableList)
+void UiVariableList::setVariableList(VariableList* variableList, Object* owner)
 {
     variableList_ = variableList;
+    owner_ = owner;
     refreshUi();
 }
 
 void UiVariableList::refreshUi()
 {
     tableWidget_->setRowCount(0);
-    if (!variableList_) return;
+    auto variableList = this->variableList();
+    if (!variableList) return;
 
-    size_t n = variableList_->size();
+    size_t n = variableList->size();
     tableWidget_->setRowCount(static_cast<int>(n));
     for (size_t i = 0; i < n; ++i)
     {
-        Variable* var = variableList_->at(i);
+        Variable* var = variableList->at(i);
         if (!var) continue;
         auto* nameItem = new QTableWidgetItem(QString::fromStdString(var->name()));
         nameItem->setData(Qt::UserRole, static_cast<qlonglong>(i));
@@ -126,11 +128,20 @@ void UiVariableList::refreshUi()
 Variable* UiVariableList::selectedVariable() const
 {
     int row = tableWidget_->currentRow();
-    if (row < 0 || !variableList_) return nullptr;
+    auto variableList = this->variableList();
+    if (row < 0 || !variableList) return nullptr;
 
     size_t index = static_cast<size_t>(row);
-    if (index < variableList_->size())
-        return variableList_->at(index);
+    if (index < variableList->size())
+        return variableList->at(index);
+    return nullptr;
+}
+
+VariableList* UiVariableList::variableList() const
+{
+    // 通过variableList_的owner_判断对象是否有效，避免悬空指针
+    if(!owner_.expired())
+        return variableList_;
     return nullptr;
 }
 
@@ -170,27 +181,29 @@ void UiVariableList::onAddVariable()
     var->setExpr(exprEdit->text().trimmed().toStdString());
     var->setDesc(descEdit->text().trimmed().toStdString());
 
-    if (!variableList_)
+    auto variableList = this->variableList();
+    if (!variableList)
     {
         delete var;
         return;
     }
 
-    variableList_->append(var);
+    variableList->append(var);
     refreshUi();
-    tableWidget_->selectRow(static_cast<int>(variableList_->size()) - 1);
+    tableWidget_->selectRow(static_cast<int>(variableList->size()) - 1);
     emit variableListChanged();
 }
 
 void UiVariableList::onRemoveVariable()
 {
     int row = tableWidget_->currentRow();
-    if (row < 0 || !variableList_) return;
+    auto variableList = this->variableList();
+    if (row < 0 || !variableList) return;
 
     size_t index = static_cast<size_t>(row);
-    if (index >= variableList_->size()) return;
+    if (index >= variableList->size()) return;
 
-    Variable* var = variableList_->at(index);
+    Variable* var = variableList->at(index);
     int ret = QMessageBox::question(
         this, tr("删除变量"),
         tr("确认删除变量 \"%1\" 吗？").arg(QString::fromStdString(var->name())),
@@ -198,17 +211,18 @@ void UiVariableList::onRemoveVariable()
 
     if (ret != QMessageBox::Yes) return;
 
-    variableList_->erase(index);
+    variableList->erase(index);
     refreshUi();
     emit variableListChanged();
 }
 
 void UiVariableList::onCellDoubleClicked(int row, int /*column*/)
 {
-    if (!variableList_ || row < 0 || static_cast<size_t>(row) >= variableList_->size())
+    auto variableList = this->variableList();
+    if (!variableList || row < 0 || static_cast<size_t>(row) >= variableList->size())
         return;
 
-    Variable* var = variableList_->at(static_cast<size_t>(row));
+    Variable* var = variableList->at(static_cast<size_t>(row));
 
     QDialog dlg(this);
     dlg.setWindowTitle(tr("编辑变量"));

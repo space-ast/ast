@@ -1,5 +1,5 @@
 ///
-/// @file      UiMissionPanel.cpp
+/// @file      UiMainSequence.cpp
 /// @brief     任务序列编辑主面板实现
 /// @details   ~
 /// @author    axel
@@ -10,20 +10,19 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "UiMissionPanel.hpp"
+#include "UiMainSequence.hpp"
 #include "MissionIcons.hpp"
 #include "UiMissionTree.hpp"
 #include "UiSegmentEditor.hpp"
-#include "AstCore/MissionModerator.hpp"
-#include "AstCore/Sequence.hpp"
+#include "AstCore/MainSequence.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/Propagate.hpp"
 #include "AstCore/Maneuver.hpp"
@@ -38,7 +37,7 @@
 
 AST_NAMESPACE_BEGIN
 
-UiMissionPanel::UiMissionPanel(QWidget* parent)
+UiMainSequence::UiMainSequence(QWidget* parent)
     : QWidget(parent)
 {
     setupUi();
@@ -46,17 +45,17 @@ UiMissionPanel::UiMissionPanel(QWidget* parent)
     setupConnections();
 }
 
-UiMissionPanel::~UiMissionPanel()
+UiMainSequence::~UiMainSequence()
 {
-    if (ownsModerator_)
-        delete moderator_;
+    if (ownsSequence_)
+        delete sequence_;
 }
 
 // ============================================================================
 // 界面搭建
 // ============================================================================
 
-void UiMissionPanel::setupUi()
+void UiMainSequence::setupUi()
 {
     auto* rootLayout = new QVBoxLayout(this);
 
@@ -86,7 +85,7 @@ void UiMissionPanel::setupUi()
     rootLayout->addWidget(outputView_);
 }
 
-void UiMissionPanel::setupToolBar()
+void UiMainSequence::setupToolBar()
 {
     toolBar_ = new QToolBar(tr("任务序列"),  this);
 
@@ -100,11 +99,11 @@ void UiMissionPanel::setupToolBar()
 
     // 添加段菜单
     addMenu_ = new QMenu(tr("添加段"), this);
-    addMenu_->addAction(missionIcon("InitialState"),       tr("初始状态 (InitialState)"),  this, &UiMissionPanel::onAddInitialState);
-    addMenu_->addAction(missionIcon("Propagate"),          tr("轨道预报 (Propagate)"),    this, &UiMissionPanel::onAddPropagate);
-    addMenu_->addAction(missionIcon("Maneuver"),           tr("机动 (Maneuver)"),         this, &UiMissionPanel::onAddManeuver);
-    addMenu_->addAction(missionIcon("Sequence"),           tr("序列 (Sequence)"),         this, &UiMissionPanel::onAddSequence);
-    addMenu_->addAction(missionIcon("TargeterSequence"),   tr("打靶序列 (TargeterSeq)"),  this, &UiMissionPanel::onAddTargeterSequence);
+    addMenu_->addAction(missionIcon("InitialState"),       tr("初始状态 (InitialState)"),  this, &UiMainSequence::onAddInitialState);
+    addMenu_->addAction(missionIcon("Propagate"),          tr("轨道预报 (Propagate)"),    this, &UiMainSequence::onAddPropagate);
+    addMenu_->addAction(missionIcon("Maneuver"),           tr("机动 (Maneuver)"),         this, &UiMainSequence::onAddManeuver);
+    addMenu_->addAction(missionIcon("Sequence"),           tr("序列 (Sequence)"),         this, &UiMainSequence::onAddSequence);
+    addMenu_->addAction(missionIcon("TargeterSequence"),   tr("打靶序列 (TargeterSeq)"),  this, &UiMainSequence::onAddTargeterSequence);
 
     auto* addButton = new QAction(tr("+ 添加"), this);
     addButton->setMenu(addMenu_);
@@ -128,11 +127,11 @@ void UiMissionPanel::setupToolBar()
         rootLayout->insertWidget(0, toolBar_);
 }
 
-void UiMissionPanel::setupConnections()
+void UiMainSequence::setupConnections()
 {
     // 树选中 → 编辑器切换
     connect(missionTree_, &UiMissionTree::segmentSelected,
-            this, &UiMissionPanel::onSegmentSelected);
+            this, &UiMainSequence::onSegmentSelected);
 
     // 树结构变化
     connect(missionTree_, &UiMissionTree::treeModified,
@@ -140,42 +139,42 @@ void UiMissionPanel::setupConnections()
 
     // 工具栏动作
     connect(deleteAction_, &QAction::triggered,
-            this, &UiMissionPanel::onDeleteSegment);
+            this, &UiMainSequence::onDeleteSegment);
     connect(openAction_, &QAction::triggered,
-            this, &UiMissionPanel::onOpenFile);
+            this, &UiMainSequence::onOpenFile);
     connect(saveAction_, &QAction::triggered,
-            this, &UiMissionPanel::onSaveFile);
+            this, &UiMainSequence::onSaveFile);
     connect(runAction_, &QAction::triggered,
-            this, &UiMissionPanel::onRun);
+            this, &UiMainSequence::onRun);
     connect(stopAction_, &QAction::triggered,
-            this, &UiMissionPanel::onStop);
+            this, &UiMainSequence::onStop);
 }
 
 // ============================================================================
 // 公共接口
 // ============================================================================
 
-void UiMissionPanel::setModerator(MissionModerator* moderator)
+void UiMainSequence::setSequence(MainSequence* sequence)
 {
-    if (ownsModerator_ && moderator_)
-        delete moderator_;
-    moderator_ = moderator;
-    ownsModerator_ = false;
-    missionTree_->setModerator(moderator);
-    if (moderator)
+    if (ownsSequence_ && sequence_)
+        delete sequence_;
+    sequence_ = sequence;
+    ownsSequence_ = false;
+    missionTree_->setSequence(sequence);
+    if (sequence)
         appendOutput(tr("已加载任务序列"));
 }
 
-MissionModerator* UiMissionPanel::moderator() const
+MainSequence* UiMainSequence::sequence() const
 {
-    return moderator_;
+    return sequence_;
 }
 
 // ============================================================================
 // 段操作
 // ============================================================================
 
-void UiMissionPanel::onSegmentSelected(MissionCommand* cmd)
+void UiMainSequence::onSegmentSelected(MissionCommand* cmd)
 {
     segmentEditor_->editCommand(cmd);
 }
@@ -195,9 +194,9 @@ static HMissionCommand createSegment(const QString& typeName)
     return nullptr;
 }
 
-void UiMissionPanel::onAddInitialState()
+void UiMainSequence::onAddInitialState()
 {
-    if (!moderator_)
+    if (!sequence_)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -210,20 +209,19 @@ void UiMissionPanel::onAddInitialState()
     cmd->setName("Initial State");
 
     // 添加到根序列的第一个位置
-    auto& rootSeq = moderator_->getSequence();
-    auto cmds = rootSeq.getCommands();
+    auto cmds = sequence_->getCommands();
     cmds.insert(cmds.begin(), cmd);
-    rootSeq.setCommands(std::move(cmds));
+    sequence_->setCommands(std::move(cmds));
 
     // 刷新树
-    missionTree_->setModerator(moderator_);
+    missionTree_->setSequence(sequence_);
 
     appendOutput(tr("添加: 初始状态段"));
 }
 
-void UiMissionPanel::onAddPropagate()
+void UiMainSequence::onAddPropagate()
 {
-    if (!moderator_)
+    if (!sequence_)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -235,18 +233,17 @@ void UiMissionPanel::onAddPropagate()
 
     cmd->setName("Propagate");
 
-    auto& rootSeq = moderator_->getSequence();
-    auto cmds = rootSeq.getCommands();
+    auto cmds = sequence_->getCommands();
     cmds.push_back(cmd);
-    rootSeq.setCommands(std::move(cmds));
+    sequence_->setCommands(std::move(cmds));
 
-    missionTree_->setModerator(moderator_);
+    missionTree_->setSequence(sequence_);
     appendOutput(tr("添加: 轨道预报段"));
 }
 
-void UiMissionPanel::onAddManeuver()
+void UiMainSequence::onAddManeuver()
 {
-    if (!moderator_)
+    if (!sequence_)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -258,18 +255,17 @@ void UiMissionPanel::onAddManeuver()
 
     cmd->setName("Maneuver");
 
-    auto& rootSeq = moderator_->getSequence();
-    auto cmds = rootSeq.getCommands();
+    auto cmds = sequence_->getCommands();
     cmds.push_back(cmd);
-    rootSeq.setCommands(std::move(cmds));
+    sequence_->setCommands(std::move(cmds));
 
-    missionTree_->setModerator(moderator_);
+    missionTree_->setSequence(sequence_);
     appendOutput(tr("添加: 机动段"));
 }
 
-void UiMissionPanel::onAddSequence()
+void UiMainSequence::onAddSequence()
 {
-    if (!moderator_)
+    if (!sequence_)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -281,18 +277,17 @@ void UiMissionPanel::onAddSequence()
 
     cmd->setName("Sequence");
 
-    auto& rootSeq = moderator_->getSequence();
-    auto cmds = rootSeq.getCommands();
+    auto cmds = sequence_->getCommands();
     cmds.push_back(cmd);
-    rootSeq.setCommands(std::move(cmds));
+    sequence_->setCommands(std::move(cmds));
 
-    missionTree_->setModerator(moderator_);
+    missionTree_->setSequence(sequence_);
     appendOutput(tr("添加: 子序列段"));
 }
 
-void UiMissionPanel::onAddTargeterSequence()
+void UiMainSequence::onAddTargeterSequence()
 {
-    if (!moderator_)
+    if (!sequence_)
     {
         QMessageBox::warning(this, tr("提示"), tr("请先创建或加载任务序列。"));
         return;
@@ -304,16 +299,15 @@ void UiMissionPanel::onAddTargeterSequence()
 
     cmd->setName("TargeterSequence");
 
-    auto& rootSeq = moderator_->getSequence();
-    auto cmds = rootSeq.getCommands();
+    auto cmds = sequence_->getCommands();
     cmds.push_back(cmd);
-    rootSeq.setCommands(std::move(cmds));
+    sequence_->setCommands(std::move(cmds));
 
-    missionTree_->setModerator(moderator_);
+    missionTree_->setSequence(sequence_);
     appendOutput(tr("添加: 打靶序列段"));
 }
 
-void UiMissionPanel::onDeleteSegment()
+void UiMainSequence::onDeleteSegment()
 {
     missionTree_->removeSelectedCommand();
 }
@@ -322,7 +316,7 @@ void UiMissionPanel::onDeleteSegment()
 // 文件操作
 // ============================================================================
 
-void UiMissionPanel::onOpenFile()
+void UiMainSequence::onOpenFile()
 {
     QString filePath = QFileDialog::getOpenFileName(
         this,
@@ -352,30 +346,29 @@ void UiMissionPanel::onOpenFile()
         return;
     }
 
-    // 若尚无 moderator，自动创建
-    if (!moderator_)
+    // 若尚无 MainSequence，自动创建
+    if (!sequence_)
     {
-        moderator_ = new MissionModerator();
-        ownsModerator_ = true;
+        sequence_ = new MainSequence();
+        ownsSequence_ = true;
     }
 
-    // 将加载的数据拷贝到 moderator 的根序列
-    auto& rootSeq = moderator_->getSequence();
-    rootSeq.setCommands(loadedSeq->getCommands());
-    rootSeq.setRepeatCount(loadedSeq->repeatCount());
-    rootSeq.setName(loadedSeq->getName());
+    // 将加载的数据拷贝到 MainSequence
+    sequence_->setCommands(loadedSeq->getCommands());
+    sequence_->setRepeatCount(loadedSeq->repeatCount());
+    sequence_->setName(loadedSeq->getName());
 
     // 刷新树
-    missionTree_->setModerator(moderator_);
+    missionTree_->setSequence(sequence_);
 
     appendOutput(tr("已加载: %1 (%2 个命令)")
                  .arg(filePath)
                  .arg(loadedSeq->getCommands().size()));
 }
 
-void UiMissionPanel::onSaveFile()
+void UiMainSequence::onSaveFile()
 {
-    if (!moderator_)
+    if (!sequence_)
     {
         QMessageBox::warning(this, tr("提示"), tr("没有内容可保存。"));
         return;
@@ -397,7 +390,7 @@ void UiMissionPanel::onSaveFile()
 // 运行控制
 // ============================================================================
 
-void UiMissionPanel::onRun()
+void UiMainSequence::onRun()
 {
     runAction_->setEnabled(false);
     stopAction_->setEnabled(true);
@@ -406,7 +399,7 @@ void UiMissionPanel::onRun()
     emit runRequested();
 }
 
-void UiMissionPanel::onStop()
+void UiMainSequence::onStop()
 {
     runAction_->setEnabled(true);
     stopAction_->setEnabled(false);
@@ -415,7 +408,7 @@ void UiMissionPanel::onStop()
     emit stopped();
 }
 
-void UiMissionPanel::appendOutput(const QString& text)
+void UiMainSequence::appendOutput(const QString& text)
 {
     outputView_->appendPlainText(text);
 }

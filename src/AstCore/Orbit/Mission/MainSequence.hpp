@@ -1,5 +1,5 @@
 ///
-/// @file      MissionModerator.hpp
+/// @file      MainSequence.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -32,16 +32,13 @@ AST_NAMESPACE_BEGIN
 
 
 
-/// @brief 任务序列协调器
-/// @details 任务序列协调器负责协调任务序列的执行，确保任务按顺序执行
-class MissionModerator
+class AST_CORE_API MainSequence : public Sequence
 {
 public:
-    MissionModerator() = default;
-    ~MissionModerator() = default;
-    Sequence& getSequence() { return sequence_; }
-private:
-    Sequence sequence_; ///< 任务序列
+    AST_OBJECT(MainSequence)
+
+    MainSequence() = default;
+    ~MainSequence() = default;
 };
 
 /*! @} */

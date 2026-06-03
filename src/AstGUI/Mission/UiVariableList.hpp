@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/VariableList.hpp"
+#include "AstCore/Object.hpp"
 #include <QWidget>
 #include <QTableWidget>
 #include <QPushButton>
@@ -38,13 +39,17 @@ public:
     explicit UiVariableList(QWidget* parent = nullptr);
 
     /// @brief 设置要编辑的变量列表（裸指针，不持有所有权）
-    void setVariableList(VariableList* variableList);
+    /// @param variableList 要编辑的变量列表，被owner对象持有
+    /// @param owner 所有者对象，用于判断变量列表的生命周期是否结束
+    void setVariableList(VariableList* variableList, Object* owner);
 
     /// @brief 刷新表格显示
     void refreshUi();
 
     /// @brief 获取当前选中的变量
     Variable* selectedVariable() const;
+
+    VariableList* variableList() const;
 
 signals:
     /// @brief 选中变量变化
@@ -68,6 +73,7 @@ private:
     QPushButton*   addButton_;
     QPushButton*   removeButton_;
     VariableList*  variableList_ = nullptr;
+    WeakPtr<Object> owner_;
 };
 
 AST_NAMESPACE_END

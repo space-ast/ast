@@ -1,5 +1,5 @@
 ///
-/// @file      UiMissionPanel.hpp
+/// @file      UiMainSequence.hpp
 /// @brief     任务序列编辑主面板
 /// @details   组装任务树、段编辑器、工具栏和输出区域
 /// @author    axel
@@ -10,9 +10,9 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
@@ -31,24 +31,24 @@ class QPlainTextEdit;
 
 AST_NAMESPACE_BEGIN
 
-class MissionModerator;
+class MainSequence;
 class MissionCommand;
 class UiMissionTree;
 class UiSegmentEditor;
 
 /// @brief 任务序列编辑主面板（QWidget），由调用方嵌入容器
-class AST_GUI_API UiMissionPanel : public QWidget
+class AST_GUI_API UiMainSequence : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UiMissionPanel(QWidget* parent = nullptr);
-    ~UiMissionPanel() override;
+    explicit UiMainSequence(QWidget* parent = nullptr);
+    ~UiMainSequence() override;
 
-    /// @brief 设置外部 MissionModerator（裸指针，不持有所有权）
-    void setModerator(MissionModerator* moderator);
+    /// @brief 设置外部 MainSequence（裸指针，不持有所有权）
+    void setSequence(MainSequence* sequence);
 
-    /// @brief 获取当前 Moderator
-    MissionModerator* moderator() const;
+    /// @brief 获取当前 MainSequence
+    MainSequence* sequence() const;
 
 signals:
     void runRequested();
@@ -89,8 +89,8 @@ private:
     QPlainTextEdit*  outputView_ = nullptr;
 
     // 数据
-    MissionModerator* moderator_ = nullptr;
-    bool ownsModerator_ = false;
+    MainSequence* sequence_ = nullptr;
+    bool ownsSequence_ = false;
 };
 
 AST_NAMESPACE_END
