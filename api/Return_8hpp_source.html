@@ -111,7 +111,7 @@ $(function(){initNavTree('Return_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1Return.html">   36</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1Return.html">Return</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1MissionCommand.html">MissionCommand</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1Return.html">   36</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1Return.html">Return</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Command.html">MissionCommand</a></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1Return.html">Return</a>)</div>
@@ -119,7 +119,7 @@ $(function(){initNavTree('Return_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1Return.html">Return</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Return.html">~Return</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    errc_t <a class="code hl_function" href="classast_1_1MissionCommand.html#aa96a5129b1fa20cc2552489a6abb215b">execute</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    errc_t <a class="code hl_function" href="classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53">execute</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>PROPERTIES:</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> enabled()<span class="keyword"> const </span>{<span class="keywordflow">return</span> enabled_;}</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> setEnabled(<span class="keywordtype">bool</span> enabled){enabled_ = enabled;}</div>
@@ -131,8 +131,8 @@ $(function(){initNavTree('Return_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aMissionCommand_8hpp_html"><div class="ttname"><a href="MissionCommand_8hpp.html">MissionCommand.hpp</a></div></div>
-<div class="ttc" id="aclassast_1_1MissionCommand_html"><div class="ttname"><a href="classast_1_1MissionCommand.html">ast::MissionCommand</a></div><div class="ttdoc">任务命令（虚基类），用于定义任务序列中的任务命令，例如初始状态、轨道机动、轨道预报等</div><div class="ttdef"><b>定义</b> MissionCommand.hpp:44</div></div>
-<div class="ttc" id="aclassast_1_1MissionCommand_html_aa96a5129b1fa20cc2552489a6abb215b"><div class="ttname"><a href="classast_1_1MissionCommand.html#aa96a5129b1fa20cc2552489a6abb215b">ast::MissionCommand::execute</a></div><div class="ttdeci">virtual errc_t execute() override=0</div><div class="ttdoc">执行任务</div></div>
+<div class="ttc" id="aclassast_1_1Command_html"><div class="ttname"><a href="classast_1_1Command.html">ast::Command</a></div><div class="ttdoc">命令（虚基类），用于定义任务序列中的命令，例如初始状态、轨道机动、轨道预报等</div><div class="ttdef"><b>定义</b> Command.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1Command_html_aa7faa5dbf1a26345c3aad5efebe84b53"><div class="ttname"><a href="classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53">ast::Command::execute</a></div><div class="ttdeci">virtual errc_t execute()=0</div><div class="ttdoc">执行命令</div></div>
 <div class="ttc" id="aclassast_1_1Return_html"><div class="ttname"><a href="classast_1_1Return.html">ast::Return</a></div><div class="ttdoc">返回段，用于停止当前任务序列Sequence的执行，并返回到上一级的Sequence</div><div class="ttdef"><b>定义</b> Return.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"Platform_8hpp_source.html":[4,0,0,20,5,20],
 "Plot_8hpp_source.html":[4,0,0,15,2],
 "PointBodyCenter_8cpp.html":[4,0,0,7,2,4,2],
 "PointBodyCenter_8hpp.html":[4,0,0,7,2,4,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "SOFA_8hpp.html#af57cd650f14fa0b1587bf66c47bf65db":[4,0,0,7,2,3,10,14],
 "SOFA_8hpp_source.html":[4,0,0,7,2,3,10],
 "SPKParser_8cpp.html":[4,0,0,20,4,3,5],
-"SPKParser_8hpp_source.html":[4,0,0,20,4,3,6],
-"STKEphemerisFileParser_8cpp.html":[4,0,0,7,3,1,2]
+"SPKParser_8hpp_source.html":[4,0,0,20,4,3,6]
 };

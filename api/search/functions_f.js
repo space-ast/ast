@@ -1,7 +1,7 @@
 var searchData=
 [
   ['object_0',['Object',['../classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578',1,'ast::Object::Object()'],['../classast_1_1Expr.html#abbd67af553bb0841192dfacd0f0e9578',1,'ast::Expr::Object()']]],
-  ['object_1',['object',['../classast_1_1UiObjectTreeItem.html#ae36af9de2204eb4aba83035cc9854bd0',1,'ast::UiObjectTreeItem::object()'],['../classast_1_1ObjectLinker.html#a936980d554de32fef103f53f7b9c2df0',1,'ast::ObjectLinker::object()']]],
+  ['object_1',['object',['../classast_1_1UiAttributeTree.html#a4a11e75c8b14576fefa0d489ab0ee106',1,'ast::UiAttributeTree::object()'],['../classast_1_1UiObjectTreeItem.html#ae36af9de2204eb4aba83035cc9854bd0',1,'ast::UiObjectTreeItem::object()'],['../classast_1_1ObjectLinker.html#a936980d554de32fef103f53f7b9c2df0',1,'ast::ObjectLinker::object()']]],
   ['objectinfo_2',['objectInfo',['../classast_1_1WasmRuntimeProtocol.html#a82f5d23db42e3b6975a10e3f7a229a81',1,'ast::WasmRuntimeProtocol']]],
   ['objectnamed_3',['ObjectNamed',['../classast_1_1ObjectNamed.html#a8f3686db877d835e7261614d560086d3',1,'ast::ObjectNamed::ObjectNamed()=default'],['../classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188',1,'ast::ObjectNamed::ObjectNamed(StringView name)'],['../classast_1_1ObjectCalculation.html#a8f3686db877d835e7261614d560086d3',1,'ast::ObjectCalculation::ObjectNamed()=default'],['../classast_1_1ObjectCalculation.html#ad4baf0cd548ba50a3a7446899ff4a188',1,'ast::ObjectCalculation::ObjectNamed(StringView name)']]],
   ['objectselected_4',['objectSelected',['../classast_1_1UiObjectTree.html#a0b59c1bbb96f59c56fc932401cc367e0',1,'ast::UiObjectTree']]],

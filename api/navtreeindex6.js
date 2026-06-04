@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"Literals_8hpp.html#a7c87971e8a5754ffcd5d546409239471":[4,0,0,20,10,8,41],
 "Literals_8hpp.html#a7f7ebf6cfb2c6e2412922aff609db4c3":[4,0,0,20,10,8,32],
 "Literals_8hpp.html#a7fbcde8f3335907138d94841e8b70033":[4,0,0,20,10,8,0],
 "Literals_8hpp.html#a81cb94048046825d60afdb8cc0fe1e21":[4,0,0,20,10,8,24],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "NLESolver_8cpp.html":[4,0,0,14,7],
 "NLESolver_8hpp.html":[4,0,0,14,8],
 "NLESolver_8hpp_source.html":[4,0,0,14,8],
-"NLE_8hpp.html":[4,0,0,11,4,1],
-"NLE_8hpp_source.html":[4,0,0,11,4,1]
+"NLE_8hpp.html":[4,0,0,11,4,1]
 };

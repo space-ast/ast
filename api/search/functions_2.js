@@ -17,6 +17,6 @@ var searchData=
   ['brenth_14',['brenth',['../group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa',1,'ast']]],
   ['brentq_15',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
   ['build_16',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
-  ['buildchildren_17',['buildChildren',['../classast_1_1UiObjectTreeItem.html#a7eab9f7d316efca776e5948dd53e8637',1,'ast::UiObjectTreeItem']]],
+  ['buildchildren_17',['buildChildren',['../classast_1_1UiAttributeTreeItem.html#a2d3760c73c881c0ed96322eaf73b6c87',1,'ast::UiAttributeTreeItem::buildChildren()'],['../classast_1_1UiObjectTreeItem.html#a761cfdd57ef7baf2c6e421880fe97053',1,'ast::UiObjectTreeItem::buildChildren()']]],
   ['buildtarget_18',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
 ];

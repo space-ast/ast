@@ -3,7 +3,7 @@ var searchData=
   ['oarchive_0',['OArchive',['../classast_1_1OArchive.html',1,'ast']]],
   ['oarchive_2ehpp_1',['OArchive.hpp',['../OArchive_8hpp.html',1,'']]],
   ['object_2',['Object',['../classast_1_1Object.html',1,'ast::Object'],['../classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578',1,'ast::Object::Object()'],['../classast_1_1Expr.html#abbd67af553bb0841192dfacd0f0e9578',1,'ast::Expr::Object()']]],
-  ['object_3',['object',['../classast_1_1UiObjectTreeItem.html#ae36af9de2204eb4aba83035cc9854bd0',1,'ast::UiObjectTreeItem::object()'],['../classast_1_1ObjectLinker.html#a936980d554de32fef103f53f7b9c2df0',1,'ast::ObjectLinker::object()']]],
+  ['object_3',['object',['../classast_1_1UiAttributeTree.html#a4a11e75c8b14576fefa0d489ab0ee106',1,'ast::UiAttributeTree::object()'],['../classast_1_1UiObjectTreeItem.html#ae36af9de2204eb4aba83035cc9854bd0',1,'ast::UiObjectTreeItem::object()'],['../classast_1_1ObjectLinker.html#a936980d554de32fef103f53f7b9c2df0',1,'ast::ObjectLinker::object()']]],
   ['object_2ecpp_4',['Object.cpp',['../Object_8cpp.html',1,'']]],
   ['object_2ehpp_5',['Object.hpp',['../AstUtil_2RTTI_2Object_8hpp.html',1,'']]],
   ['object_5f_6',['object_',['../classast_1_1JsonValue.html#a6a69f55ba0cd74b7d331cda6d145e1f9',1,'ast::JsonValue']]],

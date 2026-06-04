@@ -22,7 +22,8 @@ var Dimension_8hpp =
       [ "ePressure", "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14afe48561b7a9cb9855071ac51274b0d54", null ],
       [ "eEnergy", "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14adc95d025d73029632ddd00f692c86d96", null ],
       [ "ePower", "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3", null ],
-      [ "eFrequency", "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8", null ]
+      [ "eFrequency", "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8", null ],
+      [ "eDensity", "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14af3063e954e1dbd4152e54d7a5ba962d1", null ]
     ] ],
     [ "aDimIsBase", "Dimension_8hpp.html#a43e28a808d32e53cc4d7b0649aea9bd8", null ],
     [ "aDimIsDerived", "Dimension_8hpp.html#ab37fa7007b27d9cfaff76f2dc926414e", null ],

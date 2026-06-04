@@ -30,7 +30,6 @@ var group__SolarSystem =
       [ "getPosVel", "classast_1_1CelestialBody.html#ab40e9e5ed9b196d22471d3923b91d577", null ],
       [ "getPosVelICRF", "classast_1_1CelestialBody.html#afc58e4321b52ad7be3c25450a0f3f3f4", null ],
       [ "getRadius", "classast_1_1CelestialBody.html#a9a88a639e22509c81821b0e0c134f767", null ],
-      [ "getShape", "classast_1_1CelestialBody.html#ad78e77152871aa00c82ea4880b578390", null ],
       [ "getSolarSystem", "classast_1_1CelestialBody.html#a668d0987523588a036c046fd22f39d55", null ],
       [ "getSystemGM", "classast_1_1CelestialBody.html#a9234119f1b8c604e8c2a0531e6ebc55b", null ],
       [ "isEarth", "classast_1_1CelestialBody.html#aa929791242e4840e147e5c7d6c8a96cf", null ],

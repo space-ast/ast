@@ -101,6 +101,7 @@ $(function(){initNavTree('classast_1_1UiObjectTree.html',''); initResizable(true
   <div class="summary">
 <a href="#signals">信号</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1UiObjectTree-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::UiObjectTree类 参考</div></div>
 </div><!--header-->
@@ -113,8 +114,11 @@ $(function(){initNavTree('classast_1_1UiObjectTree.html',''); initResizable(true
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
-  <img src="classast_1_1UiObjectTree.png" alt=""/>
- </div></div>
+  <img src="classast_1_1UiObjectTree.png" usemap="#ast::UiObjectTree_map" alt=""/>
+  <map id="ast::UiObjectTree_map" name="ast::UiObjectTree_map">
+<area href="classast_1_1UiCommandTree.html" title="任务段树控件，继承 UiObjectTree，支持拖拽排序、右键菜单、序列同步" alt="ast::UiCommandTree" shape="rect" coords="0,112,126,136"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
 信号</h2></td></tr>
@@ -135,15 +139,33 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:acb6843e188fe2c7c01020f25a9d888ef" id="r_acb6843e188fe2c7c01020f25a9d888ef"><td class="memItemLeft" align="right" valign="top"><a id="acb6843e188fe2c7c01020f25a9d888ef" name="acb6843e188fe2c7c01020f25a9d888ef"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRootItem</b> (<a class="el" href="classast_1_1UiObjectTreeItem.html">UiObjectTreeItem</a> *item)</td></tr>
 <tr class="separator:acb6843e188fe2c7c01020f25a9d888ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf221e9b4712e5f5cf70dbbf102bbf24" id="r_abf221e9b4712e5f5cf70dbbf102bbf24"><td class="memItemLeft" align="right" valign="top"><a id="abf221e9b4712e5f5cf70dbbf102bbf24" name="abf221e9b4712e5f5cf70dbbf102bbf24"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRootObject</b> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:abf221e9b4712e5f5cf70dbbf102bbf24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe43cb6161117c8617ff9fbc57f6d5d2" id="r_abe43cb6161117c8617ff9fbc57f6d5d2"><td class="memItemLeft" align="right" valign="top"><a id="abe43cb6161117c8617ff9fbc57f6d5d2" name="abe43cb6161117c8617ff9fbc57f6d5d2"></a>
 <a class="el" href="classast_1_1UiObjectTreeItem.html">UiObjectTreeItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>rootItem</b> () const</td></tr>
 <tr class="separator:abe43cb6161117c8617ff9fbc57f6d5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bda99077d74663d84f7082e17615760" id="r_a6bda99077d74663d84f7082e17615760"><td class="memItemLeft" align="right" valign="top"><a id="a6bda99077d74663d84f7082e17615760" name="a6bda99077d74663d84f7082e17615760"></a>
+<a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>rootObject</b> () const</td></tr>
+<tr class="separator:a6bda99077d74663d84f7082e17615760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60eda236b7c090b64b3cab1051c60288" id="r_a60eda236b7c090b64b3cab1051c60288"><td class="memItemLeft" align="right" valign="top"><a id="a60eda236b7c090b64b3cab1051c60288" name="a60eda236b7c090b64b3cab1051c60288"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRootVisible</b> (bool visible)</td></tr>
 <tr class="separator:a60eda236b7c090b64b3cab1051c60288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff968e4b278261f81946ad285d08f176" id="r_aff968e4b278261f81946ad285d08f176"><td class="memItemLeft" align="right" valign="top"><a id="aff968e4b278261f81946ad285d08f176" name="aff968e4b278261f81946ad285d08f176"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRootVisible</b> () const</td></tr>
 <tr class="separator:aff968e4b278261f81946ad285d08f176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04db6b63ba6e91750283deea893cb307" id="r_a04db6b63ba6e91750283deea893cb307"><td class="memItemLeft" align="right" valign="top"><a id="a04db6b63ba6e91750283deea893cb307" name="a04db6b63ba6e91750283deea893cb307"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setShowComponents</b> (bool show)</td></tr>
+<tr class="separator:a04db6b63ba6e91750283deea893cb307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a13afc934e4f05756bd48fe1e486f19" id="r_a9a13afc934e4f05756bd48fe1e486f19"><td class="memItemLeft" align="right" valign="top"><a id="a9a13afc934e4f05756bd48fe1e486f19" name="a9a13afc934e4f05756bd48fe1e486f19"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShowComponents</b> () const</td></tr>
+<tr class="separator:a9a13afc934e4f05756bd48fe1e486f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a687e1ee80e56dad27cfde70b33b7f2fd" id="r_a687e1ee80e56dad27cfde70b33b7f2fd"><td class="memItemLeft" align="right" valign="top"><a id="a687e1ee80e56dad27cfde70b33b7f2fd" name="a687e1ee80e56dad27cfde70b33b7f2fd"></a>
+<a class="el" href="structast_1_1TreeBuildOptions.html">TreeBuildOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buildOptions_</b></td></tr>
+<tr class="separator:a687e1ee80e56dad27cfde70b33b7f2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>通用对象树控件，支持显示全部对象或以指定节点为根的子树 </p>

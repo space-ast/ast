@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"NLE_8hpp_source.html":[4,0,0,11,4,1],
 "NLPIpoptSolver_8cpp.html":[4,0,0,14,9],
 "NLPIpoptSolver_8hpp.html":[4,0,0,14,10],
 "NLPIpoptSolver_8hpp_source.html":[4,0,0,14,10],
@@ -114,9 +115,9 @@ var NAVTREEINDEX7 =
 "ObjectEditRegistry_8hpp.html#a5ee505f80941487945b0ff8c1b668f46":[4,0,0,9,5,3,1],
 "ObjectEditRegistry_8hpp.html#ad085c071a789a488cd5e583b8124b34c":[4,0,0,9,5,3,2],
 "ObjectEditRegistry_8hpp_source.html":[4,0,0,9,5,3],
-"ObjectIcons_8cpp.html":[4,0,0,9,4,1],
-"ObjectIcons_8hpp.html":[4,0,0,9,4,2],
-"ObjectIcons_8hpp_source.html":[4,0,0,9,4,2],
+"ObjectIcons_8cpp.html":[4,0,0,9,4,2],
+"ObjectIcons_8hpp.html":[4,0,0,9,4,3],
+"ObjectIcons_8hpp_source.html":[4,0,0,9,4,3],
 "ObjectImpl_8hpp.html":[4,0,0,6,13],
 "ObjectImpl_8hpp_source.html":[4,0,0,6,13],
 "ObjectLinkTo_8cpp.html":[4,0,0,20,7,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "Planet_8hpp.html":[4,0,0,17,3,41],
 "Planet_8hpp_source.html":[4,0,0,17,3,41],
 "Platform_8cpp.html":[4,0,0,20,5,19],
-"Platform_8hpp.html":[4,0,0,20,5,20],
-"Platform_8hpp_source.html":[4,0,0,20,5,20]
+"Platform_8hpp.html":[4,0,0,20,5,20]
 };

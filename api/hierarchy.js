@@ -532,22 +532,20 @@ var hierarchy =
         [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
         [ "ast::Command", "classast_1_1Command.html", [
           [ "ast::BasicAnalyzer", "classast_1_1BasicAnalyzer.html", null ],
-          [ "ast::MissionCommand", "classast_1_1MissionCommand.html", [
-            [ "ast::End", "classast_1_1End.html", null ],
-            [ "ast::Return", "classast_1_1Return.html", null ],
-            [ "ast::Segment", "classast_1_1Segment.html", [
-              [ "ast::InitialState", "classast_1_1InitialState.html", null ],
-              [ "ast::LandingSite", "classast_1_1LandingSite.html", null ],
-              [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
-              [ "ast::Propagate", "classast_1_1Propagate.html", null ],
-              [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
-              [ "ast::Sequence", "classast_1_1Sequence.html", [
-                [ "ast::MainSequence", "classast_1_1MainSequence.html", null ],
-                [ "ast::TargeterSequence", "classast_1_1TargeterSequence.html", null ]
-              ] ]
-            ] ],
-            [ "ast::Stop", "classast_1_1Stop.html", null ]
+          [ "ast::End", "classast_1_1End.html", null ],
+          [ "ast::Return", "classast_1_1Return.html", null ],
+          [ "ast::Segment", "classast_1_1Segment.html", [
+            [ "ast::InitialState", "classast_1_1InitialState.html", null ],
+            [ "ast::LandingSite", "classast_1_1LandingSite.html", null ],
+            [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
+            [ "ast::Propagate", "classast_1_1Propagate.html", null ],
+            [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
+            [ "ast::Sequence", "classast_1_1Sequence.html", [
+              [ "ast::MainSequence", "classast_1_1MainSequence.html", null ],
+              [ "ast::TargeterSequence", "classast_1_1TargeterSequence.html", null ]
+            ] ]
           ] ],
+          [ "ast::Stop", "classast_1_1Stop.html", null ],
           [ "ast::TargeterProfile", "classast_1_1TargeterProfile.html", [
             [ "ast::DifferentialCorrectorProfile", "classast_1_1DifferentialCorrectorProfile.html", null ],
             [ "ast::ScriptingToolProfile", "classast_1_1ScriptingToolProfile.html", null ]
@@ -1021,17 +1019,21 @@ var hierarchy =
       [ "ast::CloseEventDetecter", "classast_1_1CloseEventDetecter.html", null ]
     ] ],
     [ "QStackedWidget", null, [
-      [ "ast::UiEventDetectorEditor", "classast_1_1UiEventDetectorEditor.html", null ],
-      [ "ast::UiSegmentEditor", "classast_1_1UiSegmentEditor.html", null ]
+      [ "ast::UiCommandEditor", "classast_1_1UiCommandEditor.html", null ],
+      [ "ast::UiEventDetectorEditor", "classast_1_1UiEventDetectorEditor.html", null ]
     ] ],
     [ "QTreeWidget", null, [
+      [ "ast::UiAttributeTree", "classast_1_1UiAttributeTree.html", null ],
       [ "ast::UiMissionTree", "classast_1_1UiMissionTree.html", null ],
-      [ "ast::UiObjectTree", "classast_1_1UiObjectTree.html", null ]
+      [ "ast::UiObjectTree", "classast_1_1UiObjectTree.html", [
+        [ "ast::UiCommandTree", "classast_1_1UiCommandTree.html", null ]
+      ] ]
     ] ],
     [ "QTreeWidgetItem", null, [
       [ "ast::MissionTreeItem", "classast_1_1MissionTreeItem.html", null ],
+      [ "ast::UiAttributeTreeItem", "classast_1_1UiAttributeTreeItem.html", null ],
       [ "ast::UiObjectTreeItem", "classast_1_1UiObjectTreeItem.html", [
-        [ "ast::UiSegmentTreeItem", "classast_1_1UiSegmentTreeItem.html", null ]
+        [ "ast::UiCommandTreeItem", "classast_1_1UiCommandTreeItem.html", null ]
       ] ]
     ] ],
     [ "ast::Quantity", "classast_1_1Quantity.html", null ],
@@ -1156,7 +1158,6 @@ var hierarchy =
     [ "ast::SharedPtr< Axes >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Frame >", "classast_1_1SharedPtr.html", null ],
-    [ "ast::SharedPtr< MissionCommand >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< State >", "classast_1_1SharedPtr.html", null ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
     [ "ast::SimEngine", "classast_1_1SimEngine.html", null ],
@@ -1216,6 +1217,7 @@ var hierarchy =
     [ "ast::Transform", "classast_1_1Transform.html", [
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
     ] ],
+    [ "ast::TreeBuildOptions", "structast_1_1TreeBuildOptions.html", null ],
     [ "ast::TwoLineElement", "classast_1_1TwoLineElement.html", null ],
     [ "ast::detail::type_from_tag< TypeCode >", "structast_1_1detail_1_1type__from__tag.html", null ],
     [ "ast::detail::type_from_tag< type_bool >", "structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html", null ],
@@ -1265,6 +1267,7 @@ var hierarchy =
     [ "ast::WeakPtr< ast::Expr >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Frame >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::HPOP >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::MainSequence >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::MotionProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::ObjectCalculation >", "classast_1_1WeakPtr.html", null ],

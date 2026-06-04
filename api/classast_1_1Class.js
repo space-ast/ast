@@ -3,6 +3,7 @@ var classast_1_1Class =
     [ "Class", "classast_1_1Class.html#a2c5dca1364c3582b2c26ba40502c5356", null ],
     [ "addToRegistry", "classast_1_1Class.html#a8341b220558cbac691cb6cb8ce10d52a", null ],
     [ "cast", "classast_1_1Class.html#aa76e811c66d6af0e5d0fade9bf762ee3", null ],
+    [ "getAllProperties", "classast_1_1Class.html#a935808c7b1adbf8969e38123f0833751", null ],
     [ "getDefaultObject", "classast_1_1Class.html#ae6ea2fa70abfee13febffeee9402ffbb", null ],
     [ "getParent", "classast_1_1Class.html#a276024d991282a8c3dd99c0b97f63df8", null ],
     [ "isVirtual", "classast_1_1Class.html#ac0e6308a1e4b07142f98c125dbcbe39f", null ],

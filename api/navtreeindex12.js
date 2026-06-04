@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"ShooterResultLoader_8hpp.html":[4,0,0,10,0,2,0,6],
 "ShooterResultLoader_8hpp.html#a3dae0a593bef87c78127adf939670753":[4,0,0,10,0,2,0,6,0],
 "ShooterResultLoader_8hpp_source.html":[4,0,0,10,0,2,0,6],
 "ShooterResult_8cpp.html":[4,0,0,7,6,3,0,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "TargeterGraph_8hpp.html":[4,0,0,7,6,3,0,10],
 "TargeterGraph_8hpp_source.html":[4,0,0,7,6,3,0,10],
 "TargeterProfileLoader_8cpp.html":[4,0,0,10,0,2,0,7],
-"TargeterProfileLoader_8cpp.html#a3ac1c5e75fc911681156cb8c35d81b45":[4,0,0,10,0,2,0,7,0],
-"TargeterProfileLoader_8hpp.html":[4,0,0,10,0,2,0,8]
+"TargeterProfileLoader_8cpp.html#a3ac1c5e75fc911681156cb8c35d81b45":[4,0,0,10,0,2,0,7,0]
 };

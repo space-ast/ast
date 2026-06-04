@@ -182,6 +182,8 @@ template&lt;typename T &gt; </td></tr>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5a42265121e72cbac9b05f59f7105cd0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>setResolve</b> ()</td></tr>
 <tr class="separator:a5a42265121e72cbac9b05f59f7105cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a935808c7b1adbf8969e38123f0833751" id="r_a935808c7b1adbf8969e38123f0833751"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a935808c7b1adbf8969e38123f0833751">getAllProperties</a> (std::vector&lt; <a class="el" href="classast_1_1Property.html">Property</a> * &gt; &amp;out, bool overwriteSameName=false) const</td></tr>
+<tr class="separator:a935808c7b1adbf8969e38123f0833751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21cff54d492470856f1ecce2465d67cb" id="r_a21cff54d492470856f1ecce2465d67cb"><td class="memItemLeft" align="right" valign="top"><a id="a21cff54d492470856f1ecce2465d67cb" name="a21cff54d492470856f1ecce2465d67cb"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Struct</b> ()</td></tr>
 <tr class="separator:a21cff54d492470856f1ecce2465d67cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -271,6 +273,10 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ty
 <tr class="separator:aa1dc2f5c87a654f28c43a1d038928cc3 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0d02bedcd1d0659d69b9fb9127fbf9a inherit pub_methods_classast_1_1Object" id="r_af0d02bedcd1d0659d69b9fb9127fbf9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#af0d02bedcd1d0659d69b9fb9127fbf9a">getParentScope</a> () const</td></tr>
 <tr class="separator:af0d02bedcd1d0659d69b9fb9127fbf9a inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b0e9b91d602a5fb29b0e40f5cd86667 inherit pub_methods_classast_1_1Object" id="r_ga6b0e9b91d602a5fb29b0e40f5cd86667"><td class="memTemplParams" colspan="2">
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga6b0e9b91d602a5fb29b0e40f5cd86667 inherit pub_methods_classast_1_1Object"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getParent</b> () const</td></tr>
+<tr class="separator:ga6b0e9b91d602a5fb29b0e40f5cd86667 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a556816669dc1c7bdd0b609af9b51c765 inherit pub_methods_classast_1_1Object" id="r_a556816669dc1c7bdd0b609af9b51c765"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a556816669dc1c7bdd0b609af9b51c765">isOfType</a> (const <a class="el" href="classast_1_1Class.html">Class</a> *<a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">type</a>) const</td></tr>
 <tr class="separator:a556816669dc1c7bdd0b609af9b51c765 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3001b127c00fd68e312f7143ddb8a197 inherit pub_methods_classast_1_1Object" id="r_a3001b127c00fd68e312f7143ddb8a197"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197">isOfType</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName) const</td></tr>
@@ -444,6 +450,36 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Object* 转换后的对象指针 </dd></dl>
+
+</div>
+</div>
+<a id="a935808c7b1adbf8969e38123f0833751" name="a935808c7b1adbf8969e38123f0833751"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935808c7b1adbf8969e38123f0833751">&#9670;&#160;</a></span>getAllProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Class::getAllProperties </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classast_1_1Property.html">Property</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>overwriteSameName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取所有属性（含继承链） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>输出属性指针向量 </td></tr>
+    <tr><td class="paramname">overwriteSameName</td><td>是否覆盖父类的同名属性 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

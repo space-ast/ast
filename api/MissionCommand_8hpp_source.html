@@ -112,43 +112,12 @@ $(function(){initNavTree('MissionCommand_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>MissionCommand;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">using </span>PMissianCommand = MissionCommand*;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">using </span>HMissionCommand = SharedPtr&lt;MissionCommand&gt;;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">using </span>MissionCommand = Command;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">using </span>HMissionCommand = HCommand;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html">   43</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1MissionCommand.html">MissionCommand</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Command.html">Command</a></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1MissionCommand.html">MissionCommand</a>)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2">   49</a></span>    enum <a class="code hl_enumeration" href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2">EControlCommand</a></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2a0d5656caecf1f5d17e878cc94071a118">   51</a></span>        eReturn = -999,         </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2aec73157ad9f56753910a525891b7bdb8">   52</a></span>        eStop = -1999,          </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2aaeec7fed703c3c188cb95be578a39d32">   53</a></span>        eBreak = -2999,         </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2ade6f758238a48365b4c8ee81fb70b1cb">   54</a></span>        eContinue = -3999,      </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    };</div>
-</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1MissionCommand.html">MissionCommand</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1MissionCommand.html">~MissionCommand</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1MissionCommand.html#aa96a5129b1fa20cc2552489a6abb215b">   61</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1MissionCommand.html#aa96a5129b1fa20cc2552489a6abb215b">execute</a>() <span class="keyword">override</span>= 0;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
-</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aCommand_8hpp_html"><div class="ttname"><a href="Command_8hpp.html">Command.hpp</a></div></div>
-<div class="ttc" id="aclassast_1_1Command_html"><div class="ttname"><a href="classast_1_1Command.html">ast::Command</a></div><div class="ttdef"><b>定义</b> Command.hpp:34</div></div>
-<div class="ttc" id="aclassast_1_1MissionCommand_html"><div class="ttname"><a href="classast_1_1MissionCommand.html">ast::MissionCommand</a></div><div class="ttdoc">任务命令（虚基类），用于定义任务序列中的任务命令，例如初始状态、轨道机动、轨道预报等</div><div class="ttdef"><b>定义</b> MissionCommand.hpp:44</div></div>
-<div class="ttc" id="aclassast_1_1MissionCommand_html_a0d4b1dc468ae788d49fbc417c0a735a2"><div class="ttname"><a href="classast_1_1MissionCommand.html#a0d4b1dc468ae788d49fbc417c0a735a2">ast::MissionCommand::EControlCommand</a></div><div class="ttdeci">EControlCommand</div><div class="ttdoc">控制命令</div><div class="ttdef"><b>定义</b> MissionCommand.hpp:50</div></div>
-<div class="ttc" id="aclassast_1_1MissionCommand_html_aa96a5129b1fa20cc2552489a6abb215b"><div class="ttname"><a href="classast_1_1MissionCommand.html#aa96a5129b1fa20cc2552489a6abb215b">ast::MissionCommand::execute</a></div><div class="ttdeci">virtual errc_t execute() override=0</div><div class="ttdoc">执行任务</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
