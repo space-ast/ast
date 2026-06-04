@@ -140,8 +140,9 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a7ef002de0ea5ff35b9837426a94d11a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913b88ed7be4b5016cb722035a804ba5" id="r_a913b88ed7be4b5016cb722035a804ba5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a913b88ed7be4b5016cb722035a804ba5">eval</a> () const =0</td></tr>
 <tr class="separator:a913b88ed7be4b5016cb722035a804ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f28079bdd2f51261961eb52c246096" id="r_a79f28079bdd2f51261961eb52c246096"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79f28079bdd2f51261961eb52c246096">exec</a> () const</td></tr>
-<tr class="separator:a79f28079bdd2f51261961eb52c246096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6176283782a4063d2970ab205cd06f60" id="r_a6176283782a4063d2970ab205cd06f60"><td class="memItemLeft" align="right" valign="top"><a id="a6176283782a4063d2970ab205cd06f60" name="a6176283782a4063d2970ab205cd06f60"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>expand</b> () const</td></tr>
+<tr class="separator:a6176283782a4063d2970ab205cd06f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85450ce6cabc0714e99c9690900f7fd0" id="r_a85450ce6cabc0714e99c9690900f7fd0"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85450ce6cabc0714e99c9690900f7fd0">setValue</a> (<a class="el" href="classast_1_1Value.html">Value</a> *val)</td></tr>
 <tr class="separator:a85450ce6cabc0714e99c9690900f7fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3348b92819eed530c27c3b1b89725a30" id="r_a3348b92819eed530c27c3b1b89725a30"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3348b92819eed530c27c3b1b89725a30">setValueDouble</a> (double val)</td></tr>
@@ -386,36 +387,6 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <dl class="section return"><dt>返回</dt><dd>Value* 求值结果 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1ExprAttribute.html#a28d186c0882dbae9aea7627f4e9c4aee">ast::ExprAttribute</a>, <a class="el" href="classast_1_1ExprBlock.html#aaccf32946b028858a40167fde22343c6">ast::ExprBlock</a>, <a class="el" href="classast_1_1ExprCalculation.html#a09755893a3430773e9ec1598e29fff15">ast::ExprCalculation</a>, <a class="el" href="classast_1_1ExprCall.html#a510df23ddec91adf82773f38a98fb1ef">ast::ExprCall</a>, <a class="el" href="classast_1_1ExprCatHorizontal.html#ae97140cab5360c9646ea3523eb8cd5ae">ast::ExprCatHorizontal</a>, <a class="el" href="classast_1_1ExprCatVertical.html#a97af4f5d3b0bccb29d6e9c78e63c0408">ast::ExprCatVertical</a>, <a class="el" href="classast_1_1ExprCondition.html#a9b61f9c76c1a396907152c94f614d302">ast::ExprCondition</a>, <a class="el" href="classast_1_1ExprCurrentScStateCalculation.html#aa00a2023a065658b530298fb3bef38ec">ast::ExprCurrentScStateCalculation</a>, <a class="el" href="classast_1_1ExprForRange.html#aeff7b3dcd5ec7bb84b048edab83da5f1">ast::ExprForRange</a>, <a class="el" href="classast_1_1ExprIf.html#a84a29fc5218fc4840479f47c63c44414">ast::ExprIf</a>, <a class="el" href="classast_1_1ExprMacroExpand.html#ad2c43dabde977652946506f1bf13ee59">ast::ExprMacroExpand</a>, <a class="el" href="classast_1_1ExprRange.html#a6a478efdf9c0460b9ecfd76c78404bc2">ast::ExprRange</a>, <a class="el" href="classast_1_1ExprVector.html#a588f28c3d2bc600f74dc2fde9e5ea326">ast::ExprVector</a>, <a class="el" href="classast_1_1ExprWhile.html#a1ba6d39af982a5304381807ba89a7f29">ast::ExprWhile</a>, <a class="el" href="classast_1_1OpAssign.html#a7bb1baf0a68eba32b9a68b7ce98c95de">ast::OpAssign</a>, <a class="el" href="classast_1_1OpBin.html#a4bc8a7c0f6a6975926dd2de13ead7225">ast::OpBin</a>, <a class="el" href="classast_1_1OpUnary.html#a78b470ea308588a6d8fc37ed3e284aee">ast::OpUnary</a>, <a class="el" href="classast_1_1Symbol.html#a6925f2cca65e27e9b2713cb10171944b">ast::Symbol</a>, <a class="el" href="classast_1_1Value.html#a067ed61fc393200a3e24689c41b4faa9">ast::Value</a> , 以及 <a class="el" href="classast_1_1Variable.html#afac6cb1f63d69e3b16d3a6574663b75f">ast::Variable</a> 内被实现.</p>
-
-</div>
-</div>
-<a id="a79f28079bdd2f51261961eb52c246096" name="a79f28079bdd2f51261961eb52c246096"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79f28079bdd2f51261961eb52c246096">&#9670;&#160;</a></span>exec()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classast_1_1Expr.html">Expr</a> * ast::Expr::exec </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>预执行/宏展开/编译期求值 </p>
-<p>这个方法可能用于脚本的解析期 </p><dl class="section return"><dt>返回</dt><dd>Expr* 预执行/宏展开/编译期求值结果 </dd></dl>
-
-<p>被 <a class="el" href="classast_1_1Symbol.html#a69ab28992cbd8f4383f17e9ebaee8309">ast::Symbol</a> 重载.</p>
 
 </div>
 </div>

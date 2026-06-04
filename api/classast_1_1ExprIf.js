@@ -1,5 +1,6 @@
 var classast_1_1ExprIf =
 [
+    [ "ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", "structast_1_1ExprIf_1_1ConditionBranch" ],
     [ "ExprIf", "classast_1_1ExprIf.html#a48f8217e1b153d77fcc0b08391c6e45f", null ],
     [ "~ExprIf", "classast_1_1ExprIf.html#a66a5d167a3af7e7b85e26f27927614b2", null ],
     [ "addElseif", "classast_1_1ExprIf.html#adc7a0e7c8d9fba7c7bf1f40c6ea4fa48", null ],

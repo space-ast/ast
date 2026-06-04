@@ -156,7 +156,7 @@ var searchData=
   ['twolineelement_153',['TwoLineElement',['../classast_1_1TwoLineElement.html',1,'ast']]],
   ['type_154',['type',['../structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9',1,'ast::WasmObjectInfo::type'],['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()'],['../classast_1_1JsonValue.html#a6c065b53b1e58b18b122a5bd3dd65bf9',1,'ast::JsonValue::type()'],['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()']]],
   ['type_2ehpp_155',['Type.hpp',['../Type_8hpp.html',1,'']]],
-  ['type_5f_156',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../classast_1_1OpUnary.html#a0c8074072a0bfe6faf3894f1838a1320',1,'ast::OpUnary::type_']]],
+  ['type_5f_156',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort']]],
   ['type_5ffrom_5ftag_157',['type_from_tag',['../structast_1_1detail_1_1type__from__tag.html',1,'ast::detail']]],
   ['type_5ffrom_5ftag_3c_20type_5fbool_20_3e_158',['type_from_tag&lt; type_bool &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html',1,'ast::detail']]],
   ['type_5ffrom_5ftag_3c_20type_5fdouble_20_3e_159',['type_from_tag&lt; type_double &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html',1,'ast::detail']]],

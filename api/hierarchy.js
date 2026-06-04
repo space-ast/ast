@@ -125,6 +125,7 @@ var hierarchy =
     [ "ast::CommandTrieNodeWrap< Tag, N >", "classast_1_1CommandTrieNodeWrap.html", null ],
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
+    [ "ast::ExprIf::ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", null ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", null ],
     [ "AstCOMLib::CSatellite", "classAstCOMLib_1_1CSatellite.html", null ],
     [ "AstCOMLib::CSaVO", "classAstCOMLib_1_1CSaVO.html", null ],
@@ -163,7 +164,9 @@ var hierarchy =
     ] ],
     [ "ast::EquinElem", "classast_1_1EquinElem.html", null ],
     [ "ast::Euler", "classast_1_1Euler.html", null ],
-    [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", null ],
+    [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", [
+      [ "ast::ExprExpandVisitor", "classast_1_1ExprExpandVisitor.html", null ]
+    ] ],
     [ "ast::Field", "classast_1_1Field.html", [
       [ "ast::Property", "classast_1_1Property.html", [
         [ "ast::PropertyBool", "classast_1_1PropertyBool.html", null ],

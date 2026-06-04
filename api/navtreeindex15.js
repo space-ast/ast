@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"XMLNode_8hpp.html#a2e508696256a2c3780c71d54a51d5672af02c492dd5e173576ebbc1bf8b373101":[4,0,0,20,4,4,6,1,4],
+"XMLNode_8hpp_source.html":[4,0,0,20,4,4,6],
+"XMLParser_8hpp.html":[4,0,0,20,4,4,7],
 "XMLParser_8hpp_source.html":[4,0,0,20,4,4,7],
 "XMLSax_8cpp.html":[4,0,0,20,4,4,8],
 "XMLSax_8hpp.html":[4,0,0,20,4,4,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "classast_1_1BaseOrbitDesigner.html":[0,1,4,1],
 "classast_1_1BaseOrbitDesigner.html#a12873c1bbc41bbbc56bf664c57a66146":[0,1,4,1,2],
 "classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794":[0,1,4,1,4],
-"classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf":[0,1,4,1,1],
-"classast_1_1BaseOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,1,4,1,8],
-"classast_1_1BaseOrbitDesigner.html#aa6eb23d52e485bc09b913d5aae1a59dc":[0,1,4,1,5],
-"classast_1_1BaseOrbitDesigner.html#aa710d2d3dc564020791e348b760ec02c":[0,1,4,1,0]
+"classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf":[0,1,4,1,1]
 };

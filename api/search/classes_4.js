@@ -33,13 +33,14 @@ var searchData=
   ['exprcondition_30',['ExprCondition',['../classast_1_1ExprCondition.html',1,'ast']]],
   ['exprcontainer_31',['ExprContainer',['../classast_1_1ExprContainer.html',1,'ast']]],
   ['exprcurrentscstatecalculation_32',['ExprCurrentScStateCalculation',['../classast_1_1ExprCurrentScStateCalculation.html',1,'ast']]],
-  ['exprforrange_33',['ExprForRange',['../classast_1_1ExprForRange.html',1,'ast']]],
-  ['exprif_34',['ExprIf',['../classast_1_1ExprIf.html',1,'ast']]],
-  ['exprloop_35',['ExprLoop',['../classast_1_1ExprLoop.html',1,'ast']]],
-  ['exprmacroexpand_36',['ExprMacroExpand',['../classast_1_1ExprMacroExpand.html',1,'ast']]],
-  ['exprmatch_37',['ExprMatch',['../classast_1_1ExprMatch.html',1,'ast']]],
-  ['exprrange_38',['ExprRange',['../classast_1_1ExprRange.html',1,'ast']]],
-  ['exprvector_39',['ExprVector',['../classast_1_1ExprVector.html',1,'ast']]],
-  ['exprvisitor_40',['ExprVisitor',['../classast_1_1ExprVisitor.html',1,'ast']]],
-  ['exprwhile_41',['ExprWhile',['../classast_1_1ExprWhile.html',1,'ast']]]
+  ['exprexpandvisitor_33',['ExprExpandVisitor',['../classast_1_1ExprExpandVisitor.html',1,'ast']]],
+  ['exprforrange_34',['ExprForRange',['../classast_1_1ExprForRange.html',1,'ast']]],
+  ['exprif_35',['ExprIf',['../classast_1_1ExprIf.html',1,'ast']]],
+  ['exprloop_36',['ExprLoop',['../classast_1_1ExprLoop.html',1,'ast']]],
+  ['exprmacroexpand_37',['ExprMacroExpand',['../classast_1_1ExprMacroExpand.html',1,'ast']]],
+  ['exprmatch_38',['ExprMatch',['../classast_1_1ExprMatch.html',1,'ast']]],
+  ['exprrange_39',['ExprRange',['../classast_1_1ExprRange.html',1,'ast']]],
+  ['exprvector_40',['ExprVector',['../classast_1_1ExprVector.html',1,'ast']]],
+  ['exprvisitor_41',['ExprVisitor',['../classast_1_1ExprVisitor.html',1,'ast']]],
+  ['exprwhile_42',['ExprWhile',['../classast_1_1ExprWhile.html',1,'ast']]]
 ];

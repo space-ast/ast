@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcSTMVelXVelZ_8cpp.html":[4,0,0,7,6,1,0,3,4],
+"ScStateCalcSTMVelXVelZ_8hpp.html":[4,0,0,7,6,1,0,3,5],
+"ScStateCalcSTMVelXVelZ_8hpp_source.html":[4,0,0,7,6,1,0,3,5],
 "ScStateCalcSTMVelYVelX_8cpp.html":[4,0,0,7,6,1,0,3,6],
 "ScStateCalcSTMVelYVelX_8hpp.html":[4,0,0,7,6,1,0,3,7],
 "ScStateCalcSTMVelYVelX_8hpp_source.html":[4,0,0,7,6,1,0,3,7],
@@ -148,9 +151,9 @@ var NAVTREEINDEX11 =
 "ScenarioLoader_8hpp.html#aabf10cccc0ba9df8ea34b1ed571777d6":[4,0,0,10,3,49,0],
 "ScenarioLoader_8hpp_source.html":[4,0,0,10,3,49],
 "Scenario_8cpp.html":[4,0,0,17,3,48],
-"ScriptAPI_8cpp.html":[4,0,0,16,0,3],
-"ScriptAPI_8hpp.html":[4,0,0,16,0,4],
-"ScriptAPI_8hpp_source.html":[4,0,0,16,0,4],
+"ScriptAPI_8cpp.html":[4,0,0,16,0,5],
+"ScriptAPI_8hpp.html":[4,0,0,16,0,6],
+"ScriptAPI_8hpp_source.html":[4,0,0,16,0,6],
 "ScriptContext_8cpp.html":[4,0,0,16,5,5],
 "ScriptContext_8cpp.html#ae925f90bea37fb658e31bad362e5e55d":[4,0,0,16,5,5,14],
 "ScriptContext_8hpp.html":[4,0,0,16,5,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ShooterControlLoader_8cpp.html#ab8a53fda984b695b0ae3a73f868b339d":[4,0,0,10,0,2,0,3,0],
 "ShooterControlLoader_8hpp.html":[4,0,0,10,0,2,0,4],
 "ShooterControlLoader_8hpp.html#ab8a53fda984b695b0ae3a73f868b339d":[4,0,0,10,0,2,0,4,0],
-"ShooterControlLoader_8hpp_source.html":[4,0,0,10,0,2,0,4],
-"ShooterControl_8cpp.html":[4,0,0,7,6,3,0,5],
-"ShooterControl_8hpp.html":[4,0,0,7,6,3,0,6],
-"ShooterControl_8hpp_source.html":[4,0,0,7,6,3,0,6]
+"ShooterControlLoader_8hpp_source.html":[4,0,0,10,0,2,0,4]
 };

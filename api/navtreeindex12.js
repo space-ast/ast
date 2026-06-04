@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ShooterControl_8cpp.html":[4,0,0,7,6,3,0,5],
+"ShooterControl_8hpp.html":[4,0,0,7,6,3,0,6],
+"ShooterControl_8hpp_source.html":[4,0,0,7,6,3,0,6],
 "ShooterResultLoader_8cpp.html":[4,0,0,10,0,2,0,5],
 "ShooterResultLoader_8cpp.html#a3dae0a593bef87c78127adf939670753":[4,0,0,10,0,2,0,5,0],
 "ShooterResultLoader_8hpp.html":[4,0,0,10,0,2,0,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "TargetLoader_8hpp_source.html":[4,0,0,10,3,55],
 "Target_8cpp.html":[4,0,0,17,3,62],
 "Target_8hpp.html":[4,0,0,17,3,63],
-"Target_8hpp_source.html":[4,0,0,17,3,63],
-"TargeterGraph_8cpp.html":[4,0,0,7,6,3,0,9],
-"TargeterGraph_8hpp.html":[4,0,0,7,6,3,0,10],
-"TargeterGraph_8hpp_source.html":[4,0,0,7,6,3,0,10]
+"Target_8hpp_source.html":[4,0,0,17,3,63]
 };

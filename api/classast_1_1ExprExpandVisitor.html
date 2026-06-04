@@ -1,0 +1,1024 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ExprExpandVisitor类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1ExprExpandVisitor.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1ExprExpandVisitor-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::ExprExpandVisitor类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::ExprExpandVisitor 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1ExprExpandVisitor.png" usemap="#ast::ExprExpandVisitor_map" alt=""/>
+  <map id="ast::ExprExpandVisitor_map" name="ast::ExprExpandVisitor_map">
+<area href="classast_1_1ExprVisitor.html" title="表达式访问器" alt="ast::ExprVisitor" shape="rect" coords="0,0,138,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a107522eee79f8b0b3dbb34c17303c1e2" id="r_a107522eee79f8b0b3dbb34c17303c1e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a107522eee79f8b0b3dbb34c17303c1e2">visit</a> (<a class="el" href="classast_1_1Symbol.html">Symbol</a> &amp;symbol) override</td></tr>
+<tr class="separator:a107522eee79f8b0b3dbb34c17303c1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3dc3746d961c22a0da62325062c071" id="r_a5b3dc3746d961c22a0da62325062c071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b3dc3746d961c22a0da62325062c071">visit</a> (<a class="el" href="classast_1_1Variable.html">Variable</a> &amp;var) override</td></tr>
+<tr class="separator:a5b3dc3746d961c22a0da62325062c071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c31e8b417f0de49a766302eb5ae5f7" id="r_a08c31e8b417f0de49a766302eb5ae5f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08c31e8b417f0de49a766302eb5ae5f7">visit</a> (<a class="el" href="classast_1_1ValNull.html">ValNull</a> &amp;val) override</td></tr>
+<tr class="separator:a08c31e8b417f0de49a766302eb5ae5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5addd748436196b5961e018a75f74e" id="r_a6c5addd748436196b5961e018a75f74e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c5addd748436196b5961e018a75f74e">visit</a> (<a class="el" href="classast_1_1ValInt.html">ValInt</a> &amp;val) override</td></tr>
+<tr class="separator:a6c5addd748436196b5961e018a75f74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ff3fb366bfec11b2fa0f8940d453db" id="r_af2ff3fb366bfec11b2fa0f8940d453db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ff3fb366bfec11b2fa0f8940d453db">visit</a> (<a class="el" href="classast_1_1ValDouble.html">ValDouble</a> &amp;val) override</td></tr>
+<tr class="separator:af2ff3fb366bfec11b2fa0f8940d453db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4850151d7a3c39945f82b0042adfb79e" id="r_a4850151d7a3c39945f82b0042adfb79e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4850151d7a3c39945f82b0042adfb79e">visit</a> (<a class="el" href="classast_1_1ValString.html">ValString</a> &amp;val) override</td></tr>
+<tr class="separator:a4850151d7a3c39945f82b0042adfb79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c71420d02c960b2f45a1aeec58ec732" id="r_a7c71420d02c960b2f45a1aeec58ec732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c71420d02c960b2f45a1aeec58ec732">visit</a> (<a class="el" href="classast_1_1ValBool.html">ValBool</a> &amp;val) override</td></tr>
+<tr class="separator:a7c71420d02c960b2f45a1aeec58ec732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a587725bac86399952d4a75bf7225dae2" id="r_a587725bac86399952d4a75bf7225dae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a587725bac86399952d4a75bf7225dae2">visit</a> (<a class="el" href="classast_1_1ValQuantity.html">ValQuantity</a> &amp;val) override</td></tr>
+<tr class="separator:a587725bac86399952d4a75bf7225dae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc3c2a51707cc388d6458639067c2f34" id="r_adc3c2a51707cc388d6458639067c2f34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc3c2a51707cc388d6458639067c2f34">visit</a> (<a class="el" href="classast_1_1ValRange.html">ValRange</a> &amp;val) override</td></tr>
+<tr class="separator:adc3c2a51707cc388d6458639067c2f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abddb3af2a032998ef8050a023160d21c" id="r_abddb3af2a032998ef8050a023160d21c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abddb3af2a032998ef8050a023160d21c">visit</a> (<a class="el" href="classast_1_1ValDict.html">ValDict</a> &amp;val) override</td></tr>
+<tr class="separator:abddb3af2a032998ef8050a023160d21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be1c3d2e23b2f79f7ffdc364748ad80" id="r_a9be1c3d2e23b2f79f7ffdc364748ad80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9be1c3d2e23b2f79f7ffdc364748ad80">visit</a> (<a class="el" href="classast_1_1ValNamedVector.html">ValNamedVector</a> &amp;val) override</td></tr>
+<tr class="separator:a9be1c3d2e23b2f79f7ffdc364748ad80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6699c902b2f76d9c1ba73d5de3eddad9" id="r_a6699c902b2f76d9c1ba73d5de3eddad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6699c902b2f76d9c1ba73d5de3eddad9">visit</a> (<a class="el" href="classast_1_1OpAssign.html">OpAssign</a> &amp;op) override</td></tr>
+<tr class="separator:a6699c902b2f76d9c1ba73d5de3eddad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1e93329222f585c71bb47ba52485ff7" id="r_af1e93329222f585c71bb47ba52485ff7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e93329222f585c71bb47ba52485ff7">visit</a> (<a class="el" href="classast_1_1OpBin.html">OpBin</a> &amp;op) override</td></tr>
+<tr class="separator:af1e93329222f585c71bb47ba52485ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c50e0bf96293213c90c5e411e26c57a" id="r_a0c50e0bf96293213c90c5e411e26c57a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c50e0bf96293213c90c5e411e26c57a">visit</a> (<a class="el" href="classast_1_1OpUnary.html">OpUnary</a> &amp;op) override</td></tr>
+<tr class="separator:a0c50e0bf96293213c90c5e411e26c57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf61a901d0fb1c0831f5f7cbcfda4a3a" id="r_aaf61a901d0fb1c0831f5f7cbcfda4a3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf61a901d0fb1c0831f5f7cbcfda4a3a">visit</a> (<a class="el" href="classast_1_1Function.html">Function</a> &amp;func) override</td></tr>
+<tr class="separator:aaf61a901d0fb1c0831f5f7cbcfda4a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2898b3cdadaec99c5457798b43a56b85" id="r_a2898b3cdadaec99c5457798b43a56b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2898b3cdadaec99c5457798b43a56b85">visit</a> (<a class="el" href="classast_1_1Macro.html">Macro</a> &amp;macro) override</td></tr>
+<tr class="separator:a2898b3cdadaec99c5457798b43a56b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b3d72f1689a9389b8f7c2b7feaaff3f" id="r_a8b3d72f1689a9389b8f7c2b7feaaff3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b3d72f1689a9389b8f7c2b7feaaff3f">visit</a> (<a class="el" href="classast_1_1ExprBlock.html">ExprBlock</a> &amp;block) override</td></tr>
+<tr class="separator:a8b3d72f1689a9389b8f7c2b7feaaff3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0da1aeca086183684dd7a905cce41d" id="r_a2c0da1aeca086183684dd7a905cce41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c0da1aeca086183684dd7a905cce41d">visit</a> (<a class="el" href="classast_1_1ExprCondition.html">ExprCondition</a> &amp;expr) override</td></tr>
+<tr class="separator:a2c0da1aeca086183684dd7a905cce41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3912beedde1d2d81c1203e739553fa23" id="r_a3912beedde1d2d81c1203e739553fa23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3912beedde1d2d81c1203e739553fa23">visit</a> (<a class="el" href="classast_1_1ExprIf.html">ExprIf</a> &amp;expr) override</td></tr>
+<tr class="separator:a3912beedde1d2d81c1203e739553fa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc612feaef18e8260742de8f1d1e9af" id="r_abbc612feaef18e8260742de8f1d1e9af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbc612feaef18e8260742de8f1d1e9af">visit</a> (<a class="el" href="classast_1_1ExprWhile.html">ExprWhile</a> &amp;expr) override</td></tr>
+<tr class="separator:abbc612feaef18e8260742de8f1d1e9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129b93e26785e0ac61cdb46c5736bf60" id="r_a129b93e26785e0ac61cdb46c5736bf60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a129b93e26785e0ac61cdb46c5736bf60">visit</a> (<a class="el" href="classast_1_1ExprForRange.html">ExprForRange</a> &amp;expr) override</td></tr>
+<tr class="separator:a129b93e26785e0ac61cdb46c5736bf60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a3113a031e079583a583fc3472d76a" id="r_a15a3113a031e079583a583fc3472d76a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15a3113a031e079583a583fc3472d76a">visit</a> (<a class="el" href="classast_1_1ExprRange.html">ExprRange</a> &amp;expr) override</td></tr>
+<tr class="separator:a15a3113a031e079583a583fc3472d76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e6296ccd6ee86ce28bd88cef73fdfd6" id="r_a7e6296ccd6ee86ce28bd88cef73fdfd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e6296ccd6ee86ce28bd88cef73fdfd6">visit</a> (<a class="el" href="classast_1_1ExprVector.html">ExprVector</a> &amp;expr) override</td></tr>
+<tr class="separator:a7e6296ccd6ee86ce28bd88cef73fdfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe3041b89ae84d0c980639c7c6e1e0cb" id="r_afe3041b89ae84d0c980639c7c6e1e0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe3041b89ae84d0c980639c7c6e1e0cb">visit</a> (<a class="el" href="classast_1_1ExprCatHorizontal.html">ExprCatHorizontal</a> &amp;expr) override</td></tr>
+<tr class="separator:afe3041b89ae84d0c980639c7c6e1e0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2571af76a427bcd340fbe6d75ea8faad" id="r_a2571af76a427bcd340fbe6d75ea8faad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2571af76a427bcd340fbe6d75ea8faad">visit</a> (<a class="el" href="classast_1_1ExprCatVertical.html">ExprCatVertical</a> &amp;expr) override</td></tr>
+<tr class="separator:a2571af76a427bcd340fbe6d75ea8faad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd39475d903faecda200d7906724989" id="r_a1fd39475d903faecda200d7906724989"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fd39475d903faecda200d7906724989">visit</a> (<a class="el" href="classast_1_1ExprCall.html">ExprCall</a> &amp;expr) override</td></tr>
+<tr class="separator:a1fd39475d903faecda200d7906724989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeef8e4c951949752d709f0228b3ace8" id="r_abeef8e4c951949752d709f0228b3ace8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeef8e4c951949752d709f0228b3ace8">visit</a> (<a class="el" href="classast_1_1ExprMacroExpand.html">ExprMacroExpand</a> &amp;expr) override</td></tr>
+<tr class="separator:abeef8e4c951949752d709f0228b3ace8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89bdbd90627899bf590736c3b7eaa644" id="r_a89bdbd90627899bf590736c3b7eaa644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89bdbd90627899bf590736c3b7eaa644">visit</a> (<a class="el" href="classast_1_1ExprAttribute.html">ExprAttribute</a> &amp;expr) override</td></tr>
+<tr class="separator:a89bdbd90627899bf590736c3b7eaa644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3087c4cd7613774d7728dcc7471607d6" id="r_a3087c4cd7613774d7728dcc7471607d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3087c4cd7613774d7728dcc7471607d6">visit</a> (<a class="el" href="classast_1_1ExprCalculation.html">ExprCalculation</a> &amp;expr) override</td></tr>
+<tr class="separator:a3087c4cd7613774d7728dcc7471607d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f089e4075d03414ab7c0572508668c4" id="r_a2f089e4075d03414ab7c0572508668c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f089e4075d03414ab7c0572508668c4">visit</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> &amp;expr) override</td></tr>
+<tr class="separator:a2f089e4075d03414ab7c0572508668c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c955562289af433f24795238e39d892" id="r_a7c955562289af433f24795238e39d892"><td class="memItemLeft" align="right" valign="top"><a id="a7c955562289af433f24795238e39d892" name="a7c955562289af433f24795238e39d892"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visitValue</b> (<a class="el" href="classast_1_1Value.html">Value</a> &amp;value)</td></tr>
+<tr class="separator:a7c955562289af433f24795238e39d892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c4dbfb76e33e3c2646c9eed5095be0" id="r_a73c4dbfb76e33e3c2646c9eed5095be0"><td class="memItemLeft" align="right" valign="top"><a id="a73c4dbfb76e33e3c2646c9eed5095be0" name="a73c4dbfb76e33e3c2646c9eed5095be0"></a>
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>takeResult</b> ()</td></tr>
+<tr class="separator:a73c4dbfb76e33e3c2646c9eed5095be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04a26b21d652bc1ede34eb29fb803cd0" id="r_a04a26b21d652bc1ede34eb29fb803cd0"><td class="memItemLeft" align="right" valign="top"><a id="a04a26b21d652bc1ede34eb29fb803cd0" name="a04a26b21d652bc1ede34eb29fb803cd0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setResult</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> *result)</td></tr>
+<tr class="separator:a04a26b21d652bc1ede34eb29fb803cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ExprVisitor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ExprVisitor')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a></td></tr>
+<tr class="memitem:a6803170e1104320af6589df8474a3a40 inherit pub_methods_classast_1_1ExprVisitor" id="r_a6803170e1104320af6589df8474a3a40"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visitExpr</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> &amp;expr)</td></tr>
+<tr class="separator:a6803170e1104320af6589df8474a3a40 inherit pub_methods_classast_1_1ExprVisitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_methods_classast_1_1ExprVisitor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1ExprVisitor')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a></td></tr>
+</table>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a2f089e4075d03414ab7c0572508668c4" name="a2f089e4075d03414ab7c0572508668c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f089e4075d03414ab7c0572508668c4">&#9670;&#160;</a></span>visit() <span class="overload">[1/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Expr.html">Expr</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a89bdbd90627899bf590736c3b7eaa644" name="a89bdbd90627899bf590736c3b7eaa644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89bdbd90627899bf590736c3b7eaa644">&#9670;&#160;</a></span>visit() <span class="overload">[2/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprAttribute.html">ExprAttribute</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a8b3d72f1689a9389b8f7c2b7feaaff3f" name="a8b3d72f1689a9389b8f7c2b7feaaff3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b3d72f1689a9389b8f7c2b7feaaff3f">&#9670;&#160;</a></span>visit() <span class="overload">[3/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprBlock.html">ExprBlock</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>block</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a3087c4cd7613774d7728dcc7471607d6" name="a3087c4cd7613774d7728dcc7471607d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3087c4cd7613774d7728dcc7471607d6">&#9670;&#160;</a></span>visit() <span class="overload">[4/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprCalculation.html">ExprCalculation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a1fd39475d903faecda200d7906724989" name="a1fd39475d903faecda200d7906724989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd39475d903faecda200d7906724989">&#9670;&#160;</a></span>visit() <span class="overload">[5/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprCall.html">ExprCall</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="afe3041b89ae84d0c980639c7c6e1e0cb" name="afe3041b89ae84d0c980639c7c6e1e0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe3041b89ae84d0c980639c7c6e1e0cb">&#9670;&#160;</a></span>visit() <span class="overload">[6/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprCatHorizontal.html">ExprCatHorizontal</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a2571af76a427bcd340fbe6d75ea8faad" name="a2571af76a427bcd340fbe6d75ea8faad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2571af76a427bcd340fbe6d75ea8faad">&#9670;&#160;</a></span>visit() <span class="overload">[7/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprCatVertical.html">ExprCatVertical</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a2c0da1aeca086183684dd7a905cce41d" name="a2c0da1aeca086183684dd7a905cce41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0da1aeca086183684dd7a905cce41d">&#9670;&#160;</a></span>visit() <span class="overload">[8/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprCondition.html">ExprCondition</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a129b93e26785e0ac61cdb46c5736bf60" name="a129b93e26785e0ac61cdb46c5736bf60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129b93e26785e0ac61cdb46c5736bf60">&#9670;&#160;</a></span>visit() <span class="overload">[9/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprForRange.html">ExprForRange</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a3912beedde1d2d81c1203e739553fa23" name="a3912beedde1d2d81c1203e739553fa23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3912beedde1d2d81c1203e739553fa23">&#9670;&#160;</a></span>visit() <span class="overload">[10/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprIf.html">ExprIf</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="abeef8e4c951949752d709f0228b3ace8" name="abeef8e4c951949752d709f0228b3ace8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeef8e4c951949752d709f0228b3ace8">&#9670;&#160;</a></span>visit() <span class="overload">[11/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprMacroExpand.html">ExprMacroExpand</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a15a3113a031e079583a583fc3472d76a" name="a15a3113a031e079583a583fc3472d76a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a3113a031e079583a583fc3472d76a">&#9670;&#160;</a></span>visit() <span class="overload">[12/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprRange.html">ExprRange</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a7e6296ccd6ee86ce28bd88cef73fdfd6" name="a7e6296ccd6ee86ce28bd88cef73fdfd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e6296ccd6ee86ce28bd88cef73fdfd6">&#9670;&#160;</a></span>visit() <span class="overload">[13/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprVector.html">ExprVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="abbc612feaef18e8260742de8f1d1e9af" name="abbc612feaef18e8260742de8f1d1e9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc612feaef18e8260742de8f1d1e9af">&#9670;&#160;</a></span>visit() <span class="overload">[14/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ExprWhile.html">ExprWhile</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="aaf61a901d0fb1c0831f5f7cbcfda4a3a" name="aaf61a901d0fb1c0831f5f7cbcfda4a3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf61a901d0fb1c0831f5f7cbcfda4a3a">&#9670;&#160;</a></span>visit() <span class="overload">[15/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Function.html">Function</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a2898b3cdadaec99c5457798b43a56b85" name="a2898b3cdadaec99c5457798b43a56b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2898b3cdadaec99c5457798b43a56b85">&#9670;&#160;</a></span>visit() <span class="overload">[16/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Macro.html">Macro</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>macro</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a6699c902b2f76d9c1ba73d5de3eddad9" name="a6699c902b2f76d9c1ba73d5de3eddad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6699c902b2f76d9c1ba73d5de3eddad9">&#9670;&#160;</a></span>visit() <span class="overload">[17/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1OpAssign.html">OpAssign</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="af1e93329222f585c71bb47ba52485ff7" name="af1e93329222f585c71bb47ba52485ff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e93329222f585c71bb47ba52485ff7">&#9670;&#160;</a></span>visit() <span class="overload">[18/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1OpBin.html">OpBin</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a0c50e0bf96293213c90c5e411e26c57a" name="a0c50e0bf96293213c90c5e411e26c57a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c50e0bf96293213c90c5e411e26c57a">&#9670;&#160;</a></span>visit() <span class="overload">[19/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1OpUnary.html">OpUnary</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a107522eee79f8b0b3dbb34c17303c1e2" name="a107522eee79f8b0b3dbb34c17303c1e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a107522eee79f8b0b3dbb34c17303c1e2">&#9670;&#160;</a></span>visit() <span class="overload">[20/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Symbol.html">Symbol</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>symbol</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a7c71420d02c960b2f45a1aeec58ec732" name="a7c71420d02c960b2f45a1aeec58ec732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c71420d02c960b2f45a1aeec58ec732">&#9670;&#160;</a></span>visit() <span class="overload">[21/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValBool.html">ValBool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="abddb3af2a032998ef8050a023160d21c" name="abddb3af2a032998ef8050a023160d21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abddb3af2a032998ef8050a023160d21c">&#9670;&#160;</a></span>visit() <span class="overload">[22/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValDict.html">ValDict</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="af2ff3fb366bfec11b2fa0f8940d453db" name="af2ff3fb366bfec11b2fa0f8940d453db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ff3fb366bfec11b2fa0f8940d453db">&#9670;&#160;</a></span>visit() <span class="overload">[23/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValDouble.html">ValDouble</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a6c5addd748436196b5961e018a75f74e" name="a6c5addd748436196b5961e018a75f74e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5addd748436196b5961e018a75f74e">&#9670;&#160;</a></span>visit() <span class="overload">[24/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValInt.html">ValInt</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a9be1c3d2e23b2f79f7ffdc364748ad80" name="a9be1c3d2e23b2f79f7ffdc364748ad80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be1c3d2e23b2f79f7ffdc364748ad80">&#9670;&#160;</a></span>visit() <span class="overload">[25/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValNamedVector.html">ValNamedVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a08c31e8b417f0de49a766302eb5ae5f7" name="a08c31e8b417f0de49a766302eb5ae5f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c31e8b417f0de49a766302eb5ae5f7">&#9670;&#160;</a></span>visit() <span class="overload">[26/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValNull.html">ValNull</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a587725bac86399952d4a75bf7225dae2" name="a587725bac86399952d4a75bf7225dae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a587725bac86399952d4a75bf7225dae2">&#9670;&#160;</a></span>visit() <span class="overload">[27/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValQuantity.html">ValQuantity</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="adc3c2a51707cc388d6458639067c2f34" name="adc3c2a51707cc388d6458639067c2f34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3c2a51707cc388d6458639067c2f34">&#9670;&#160;</a></span>visit() <span class="overload">[28/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValRange.html">ValRange</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a4850151d7a3c39945f82b0042adfb79e" name="a4850151d7a3c39945f82b0042adfb79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4850151d7a3c39945f82b0042adfb79e">&#9670;&#160;</a></span>visit() <span class="overload">[29/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValString.html">ValString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a5b3dc3746d961c22a0da62325062c071" name="a5b3dc3746d961c22a0da62325062c071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3dc3746d961c22a0da62325062c071">&#9670;&#160;</a></span>visit() <span class="overload">[30/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ExprExpandVisitor::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Variable.html">Variable</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>var</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>实现了 <a class="el" href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstScript/Basic/<a class="el" href="ExprExpandVisitor_8hpp_source.html">ExprExpandVisitor.hpp</a></li>
+<li>src/AstScript/Basic/<a class="el" href="ExprExpandVisitor_8cpp.html">ExprExpandVisitor.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1ExprExpandVisitor.html">ExprExpandVisitor</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

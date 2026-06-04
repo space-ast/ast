@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"SOFA_8hpp.html#af01f70ad0322291b74d4cbfc99cccd2a":[4,0,0,7,2,3,10,9],
+"SOFA_8hpp.html#af57cd650f14fa0b1587bf66c47bf65db":[4,0,0,7,2,3,10,14],
+"SOFA_8hpp_source.html":[4,0,0,7,2,3,10],
 "SPKParser_8cpp.html":[4,0,0,20,4,3,5],
 "SPKParser_8hpp_source.html":[4,0,0,20,4,3,6],
 "STKEphemerisFileParser_8cpp.html":[4,0,0,7,3,1,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "ScStateCalcHeightAboveTerrain_8hpp.html":[4,0,0,7,6,1,0,15,51],
 "ScStateCalcHeightAboveTerrain_8hpp_source.html":[4,0,0,7,6,1,0,15,51],
 "ScStateCalcImpactFlux_8cpp.html":[4,0,0,7,6,1,0,15,52],
-"ScStateCalcImpactFlux_8hpp.html":[4,0,0,7,6,1,0,15,53],
-"ScStateCalcImpactFlux_8hpp_source.html":[4,0,0,7,6,1,0,15,53],
-"ScStateCalcImpactMassFlux_8cpp.html":[4,0,0,7,6,1,0,15,54],
-"ScStateCalcImpactMassFlux_8hpp.html":[4,0,0,7,6,1,0,15,55]
+"ScStateCalcImpactFlux_8hpp.html":[4,0,0,7,6,1,0,15,53]
 };

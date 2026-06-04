@@ -100,18 +100,27 @@ $(function(){initNavTree('classast_1_1ExprVisitor.html',''); initResizable(true)
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="classast_1_1ExprVisitor-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::ExprVisitor类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ExprVisitor_8hpp_source.html">ExprVisitor.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::ExprVisitor 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1ExprVisitor.png" usemap="#ast::ExprVisitor_map" alt=""/>
+  <map id="ast::ExprVisitor_map" name="ast::ExprVisitor_map">
+<area href="classast_1_1ExprExpandVisitor.html" alt="ast::ExprExpandVisitor" shape="rect" coords="0,56,138,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ad699e4413ee4c0677247c187d45d9a3a" id="r_ad699e4413ee4c0677247c187d45d9a3a"><td class="memItemLeft" align="right" valign="top"><a id="ad699e4413ee4c0677247c187d45d9a3a" name="ad699e4413ee4c0677247c187d45d9a3a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> &amp;expr)</td></tr>
-<tr class="separator:ad699e4413ee4c0677247c187d45d9a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff073232d6e693cecdaaa9a3916e7e9" id="r_a4ff073232d6e693cecdaaa9a3916e7e9"><td class="memItemLeft" align="right" valign="top"><a id="a4ff073232d6e693cecdaaa9a3916e7e9" name="a4ff073232d6e693cecdaaa9a3916e7e9"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Symbol.html">Symbol</a> &amp;symbol)=0</td></tr>
 <tr class="separator:a4ff073232d6e693cecdaaa9a3916e7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,9 +148,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a
 <tr class="memitem:ab5a781bc114bb221654831baa15763ad" id="r_ab5a781bc114bb221654831baa15763ad"><td class="memItemLeft" align="right" valign="top"><a id="ab5a781bc114bb221654831baa15763ad" name="ab5a781bc114bb221654831baa15763ad"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValRange.html">ValRange</a> &amp;val)=0</td></tr>
 <tr class="separator:ab5a781bc114bb221654831baa15763ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69e5983435de2eb13f30d63d38d9e49d" id="r_a69e5983435de2eb13f30d63d38d9e49d"><td class="memItemLeft" align="right" valign="top"><a id="a69e5983435de2eb13f30d63d38d9e49d" name="a69e5983435de2eb13f30d63d38d9e49d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (ValMap &amp;val)=0</td></tr>
-<tr class="separator:a69e5983435de2eb13f30d63d38d9e49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f33fb2b1ea31a627d6c56dc1412d3b" id="r_a98f33fb2b1ea31a627d6c56dc1412d3b"><td class="memItemLeft" align="right" valign="top"><a id="a98f33fb2b1ea31a627d6c56dc1412d3b" name="a98f33fb2b1ea31a627d6c56dc1412d3b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValDict.html">ValDict</a> &amp;val)=0</td></tr>
+<tr class="separator:a98f33fb2b1ea31a627d6c56dc1412d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8ff237965ef3453ac62f8999d6287b" id="r_a5d8ff237965ef3453ac62f8999d6287b"><td class="memItemLeft" align="right" valign="top"><a id="a5d8ff237965ef3453ac62f8999d6287b" name="a5d8ff237965ef3453ac62f8999d6287b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ValNamedVector.html">ValNamedVector</a> &amp;val)=0</td></tr>
+<tr class="separator:a5d8ff237965ef3453ac62f8999d6287b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4760012c8848be3e3094af725e3f7250" id="r_a4760012c8848be3e3094af725e3f7250"><td class="memItemLeft" align="right" valign="top"><a id="a4760012c8848be3e3094af725e3f7250" name="a4760012c8848be3e3094af725e3f7250"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1OpAssign.html">OpAssign</a> &amp;op)=0</td></tr>
 <tr class="separator:a4760012c8848be3e3094af725e3f7250"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,6 +208,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a
 <tr class="memitem:aedfe3e1587d70d830ba15335f28705bf" id="r_aedfe3e1587d70d830ba15335f28705bf"><td class="memItemLeft" align="right" valign="top"><a id="aedfe3e1587d70d830ba15335f28705bf" name="aedfe3e1587d70d830ba15335f28705bf"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1ExprCalculation.html">ExprCalculation</a> &amp;expr)=0</td></tr>
 <tr class="separator:aedfe3e1587d70d830ba15335f28705bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6803170e1104320af6589df8474a3a40" id="r_a6803170e1104320af6589df8474a3a40"><td class="memItemLeft" align="right" valign="top"><a id="a6803170e1104320af6589df8474a3a40" name="a6803170e1104320af6589df8474a3a40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visitExpr</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> &amp;expr)</td></tr>
+<tr class="separator:a6803170e1104320af6589df8474a3a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a4f715056711e3318289dfce1a051295e" id="r_a4f715056711e3318289dfce1a051295e"><td class="memItemLeft" align="right" valign="top"><a id="a4f715056711e3318289dfce1a051295e" name="a4f715056711e3318289dfce1a051295e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1Expr.html">Expr</a> &amp;expr)=0</td></tr>
+<tr class="separator:a4f715056711e3318289dfce1a051295e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>表达式访问器 </p>

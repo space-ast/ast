@@ -130,6 +130,12 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a78b470ea308588a6d8fc37ed3e284aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4af93084f46cdc96602fd06279db4d3a" id="r_a4af93084f46cdc96602fd06279db4d3a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4af93084f46cdc96602fd06279db4d3a">getExpression</a> (<a class="el" href="classast_1_1Object.html">Object</a> *context=nullptr) const override</td></tr>
 <tr class="separator:a4af93084f46cdc96602fd06279db4d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502ecb082fc650d95ab9f0e260e232b0" id="r_a502ecb082fc650d95ab9f0e260e232b0"><td class="memItemLeft" align="right" valign="top"><a id="a502ecb082fc650d95ab9f0e260e232b0" name="a502ecb082fc650d95ab9f0e260e232b0"></a>
+<a class="el" href="group__Script.html#ga737f9c579e31cebe46bb5406d9a08cd4">EOpUnaryType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>op</b> () const</td></tr>
+<tr class="separator:a502ecb082fc650d95ab9f0e260e232b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ffb8adb527212d83ecb5dd6f479211a" id="r_a0ffb8adb527212d83ecb5dd6f479211a"><td class="memItemLeft" align="right" valign="top"><a id="a0ffb8adb527212d83ecb5dd6f479211a" name="a0ffb8adb527212d83ecb5dd6f479211a"></a>
+<a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Expr.html">Expr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>expr</b> () const</td></tr>
+<tr class="separator:a0ffb8adb527212d83ecb5dd6f479211a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Op"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Op')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Op.html">ast::Op</a></td></tr>
 <tr class="memitem:a44d887ed8bd5677d71b584339067f223 inherit pub_methods_classast_1_1Op" id="r_a44d887ed8bd5677d71b584339067f223"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Op.html#a44d887ed8bd5677d71b584339067f223">setValue</a> (<a class="el" href="classast_1_1Value.html">Value</a> *val) override</td></tr>
 <tr class="separator:a44d887ed8bd5677d71b584339067f223 inherit pub_methods_classast_1_1Op"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,8 +144,9 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:aaa77763d4fa220e0929e3727db60ab1b inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef002de0ea5ff35b9837426a94d11a2 inherit pub_methods_classast_1_1Expr" id="r_a7ef002de0ea5ff35b9837426a94d11a2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">accept</a> (<a class="el" href="classast_1_1ExprVisitor.html">ExprVisitor</a> &amp;visitor)=0</td></tr>
 <tr class="separator:a7ef002de0ea5ff35b9837426a94d11a2 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f28079bdd2f51261961eb52c246096 inherit pub_methods_classast_1_1Expr" id="r_a79f28079bdd2f51261961eb52c246096"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a79f28079bdd2f51261961eb52c246096">exec</a> () const</td></tr>
-<tr class="separator:a79f28079bdd2f51261961eb52c246096 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6176283782a4063d2970ab205cd06f60 inherit pub_methods_classast_1_1Expr" id="r_a6176283782a4063d2970ab205cd06f60"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>expand</b> () const</td></tr>
+<tr class="separator:a6176283782a4063d2970ab205cd06f60 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3348b92819eed530c27c3b1b89725a30 inherit pub_methods_classast_1_1Expr" id="r_a3348b92819eed530c27c3b1b89725a30"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a3348b92819eed530c27c3b1b89725a30">setValueDouble</a> (double val)</td></tr>
 <tr class="separator:a3348b92819eed530c27c3b1b89725a30 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b561fecb35ac85ae15267fe3b6db182 inherit pub_methods_classast_1_1Expr" id="r_a6b561fecb35ac85ae15267fe3b6db182"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a6b561fecb35ac85ae15267fe3b6db182">getValueDouble</a> (double &amp;val) const</td></tr>
@@ -299,15 +306,6 @@ Protected 属性</h2></td></tr>
 <tr class="memitem:adb8d60139a47699215f9219ba4b83532" id="r_adb8d60139a47699215f9219ba4b83532"><td class="memItemLeft" align="right" valign="top"><a id="adb8d60139a47699215f9219ba4b83532" name="adb8d60139a47699215f9219ba4b83532"></a>
 <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Expr.html">Expr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>expr_</b></td></tr>
 <tr class="separator:adb8d60139a47699215f9219ba4b83532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb7db8f24f36c8ab0855fceba528353f" id="r_adb7db8f24f36c8ab0855fceba528353f"><td class="memItemLeft" align="right" valign="top"><a id="adb7db8f24f36c8ab0855fceba528353f" name="adb7db8f24f36c8ab0855fceba528353f"></a>
-std::atomic&lt; <a class="el" href="group__Script.html#gacc5dc8960c6ca177acf0d937517f9a0e">OpUnaryFunc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>func_</b> {nullptr}</td></tr>
-<tr class="separator:adb7db8f24f36c8ab0855fceba528353f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c8074072a0bfe6faf3894f1838a1320" id="r_a0c8074072a0bfe6faf3894f1838a1320"><td class="memItemLeft" align="right" valign="top"><a id="a0c8074072a0bfe6faf3894f1838a1320" name="a0c8074072a0bfe6faf3894f1838a1320"></a>
-std::atomic&lt; <a class="el" href="classast_1_1Class.html">Class</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b> {nullptr}</td></tr>
-<tr class="separator:a0c8074072a0bfe6faf3894f1838a1320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab47c0593951e58a10723c2678ac87f65" id="r_ab47c0593951e58a10723c2678ac87f65"><td class="memItemLeft" align="right" valign="top"><a id="ab47c0593951e58a10723c2678ac87f65" name="ab47c0593951e58a10723c2678ac87f65"></a>
-std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>cache_mutex_</b></td></tr>
-<tr class="separator:ab47c0593951e58a10723c2678ac87f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>

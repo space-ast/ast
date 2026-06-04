@@ -272,6 +272,7 @@ var annotated_dup =
       [ "ExprCondition", "classast_1_1ExprCondition.html", "classast_1_1ExprCondition" ],
       [ "ExprContainer", "classast_1_1ExprContainer.html", "classast_1_1ExprContainer" ],
       [ "ExprCurrentScStateCalculation", "classast_1_1ExprCurrentScStateCalculation.html", "classast_1_1ExprCurrentScStateCalculation" ],
+      [ "ExprExpandVisitor", "classast_1_1ExprExpandVisitor.html", null ],
       [ "ExprForRange", "classast_1_1ExprForRange.html", "classast_1_1ExprForRange" ],
       [ "ExprIf", "classast_1_1ExprIf.html", "classast_1_1ExprIf" ],
       [ "ExprLoop", "classast_1_1ExprLoop.html", null ],

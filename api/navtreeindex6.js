@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"Literals_8hpp.html#a5ac22631ed69516e83cbe15f8e160959":[4,0,0,20,10,8,27],
+"Literals_8hpp.html#a637f6d2bc263cb33e423f4a2a15df982":[4,0,0,20,10,8,47],
+"Literals_8hpp.html#a681d0c30317193d2cc3fc33eb5a1c85d":[4,0,0,20,10,8,28],
 "Literals_8hpp.html#a6f45c99c232047cd88b0a8f9ca892387":[4,0,0,20,10,8,35],
 "Literals_8hpp.html#a78095a424fd22108911a0d85ae56d13f":[4,0,0,20,10,8,12],
 "Literals_8hpp.html#a7c87971e8a5754ffcd5d546409239471":[4,0,0,20,10,8,41],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "Mover_8hpp.html":[4,0,0,17,3,35],
 "Mover_8hpp_source.html":[4,0,0,17,3,35],
 "NLEMinpackSolver_8cpp.html":[4,0,0,14,5],
-"NLEMinpackSolver_8hpp.html":[4,0,0,14,6],
-"NLEMinpackSolver_8hpp_source.html":[4,0,0,14,6],
-"NLESolver_8cpp.html":[4,0,0,14,7],
-"NLESolver_8hpp.html":[4,0,0,14,8]
+"NLEMinpackSolver_8hpp.html":[4,0,0,14,6]
 };

@@ -5,7 +5,6 @@ var group__Script =
     [ "ast::Expr", "classast_1_1Expr.html", [
       [ "accept", "classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2", null ],
       [ "eval", "classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5", null ],
-      [ "exec", "classast_1_1Expr.html#a79f28079bdd2f51261961eb52c246096", null ],
       [ "getExpression", "classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a", null ],
       [ "getValueDouble", "classast_1_1Expr.html#a6b561fecb35ac85ae15267fe3b6db182", null ],
       [ "Object", "classast_1_1Expr.html#abbd67af553bb0841192dfacd0f0e9578", null ],
@@ -47,6 +46,10 @@ var group__Script =
       [ "elems_", "classast_1_1ExprContainer.html#aa75aa4460115d0197563ab85a73466b6", null ]
     ] ],
     [ "ast::ExprIf", "classast_1_1ExprIf.html", [
+      [ "ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", [
+        [ "block", "structast_1_1ExprIf_1_1ConditionBranch.html#a55ab8704a7d70be2ee498e964dc4cbfc", null ],
+        [ "condition", "structast_1_1ExprIf_1_1ConditionBranch.html#a2e688d1d2233c93832d42924dfe39532", null ]
+      ] ],
       [ "ExprIf", "classast_1_1ExprIf.html#a48f8217e1b153d77fcc0b08391c6e45f", null ],
       [ "~ExprIf", "classast_1_1ExprIf.html#a66a5d167a3af7e7b85e26f27927614b2", null ],
       [ "addElseif", "classast_1_1ExprIf.html#adc7a0e7c8d9fba7c7bf1f40c6ea4fa48", null ],
@@ -59,6 +62,8 @@ var group__Script =
     [ "ast::ExprWhile", "classast_1_1ExprWhile.html", [
       [ "ExprWhile", "classast_1_1ExprWhile.html#a660cc55f8066498d43ede38b5c64507c", null ],
       [ "ExprWhile", "classast_1_1ExprWhile.html#a8617ef1a15a15deb4e06c70a118e42fb", null ],
+      [ "body", "classast_1_1ExprWhile.html#ae1c21638380597cef3fc559b2720403d", null ],
+      [ "condition", "classast_1_1ExprWhile.html#a46eb9e89e9fe5e01ce6e022edccba27f", null ],
       [ "eval", "classast_1_1ExprWhile.html#a1ba6d39af982a5304381807ba89a7f29", null ],
       [ "getExpression", "classast_1_1ExprWhile.html#a737b1aec74b4a21175e67b2a407dd42c", null ],
       [ "setValue", "classast_1_1ExprWhile.html#a339f858cc7c279cd6ae0094747d47e78", null ],
@@ -68,9 +73,12 @@ var group__Script =
     [ "ast::ExprForRange", "classast_1_1ExprForRange.html", [
       [ "ExprForRange", "classast_1_1ExprForRange.html#a40cfd6d44bd6b852f489b9a1e24247e4", null ],
       [ "ExprForRange", "classast_1_1ExprForRange.html#ad8703f52fd845351e5775d9be23b5841", null ],
+      [ "body", "classast_1_1ExprForRange.html#a54640c299c1660c0e96b1c1e833a35cd", null ],
       [ "eval", "classast_1_1ExprForRange.html#aeff7b3dcd5ec7bb84b048edab83da5f1", null ],
       [ "getExpression", "classast_1_1ExprForRange.html#a70267f7d845429c52a51713de9e323b9", null ],
+      [ "range", "classast_1_1ExprForRange.html#abd539332f3c12ceb32b7dfb06aece25f", null ],
       [ "setValue", "classast_1_1ExprForRange.html#ab0d16d0fbf9a61a49dd919aa9af7b35b", null ],
+      [ "variable", "classast_1_1ExprForRange.html#a05fdb97ee70cd18ffa759d3399a8ea75", null ],
       [ "body_", "classast_1_1ExprForRange.html#ae284dbe229037f1e9fe679dbdb9a8f0f", null ],
       [ "range_", "classast_1_1ExprForRange.html#ac6c4d2ea9bc8fdef4802bc36111b4716", null ],
       [ "variable_", "classast_1_1ExprForRange.html#a479f4e5ebc35c9bd08d1748e208b8c71", null ]
@@ -142,22 +150,15 @@ var group__Script =
     [ "ast::OpBin", "classast_1_1OpBin.html", [
       [ "eval", "classast_1_1OpBin.html#a4bc8a7c0f6a6975926dd2de13ead7225", null ],
       [ "getExpression", "classast_1_1OpBin.html#a2d493d11bfae71a7f84c674c8a0fd179", null ],
-      [ "cache_mutex_", "classast_1_1OpBin.html#a69400818c30284c8ea4c779d14f81f0f", null ],
-      [ "func_", "classast_1_1OpBin.html#a095ff73c0517e1c317c5058276414366", null ],
       [ "left_", "classast_1_1OpBin.html#a4ed838ac0573e863c92016aeded453ae", null ],
-      [ "leftType_", "classast_1_1OpBin.html#a544abb1ca7a89759b4a8bab6cd3cb9a1", null ],
       [ "op_", "classast_1_1OpBin.html#a1e6d308935c8fda87e19f6a62c79d55f", null ],
-      [ "right_", "classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4", null ],
-      [ "rightType_", "classast_1_1OpBin.html#a38a796a1aa2aac65fdc4a48dfb70bc05", null ]
+      [ "right_", "classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4", null ]
     ] ],
     [ "ast::OpUnary", "classast_1_1OpUnary.html", [
       [ "eval", "classast_1_1OpUnary.html#a78b470ea308588a6d8fc37ed3e284aee", null ],
       [ "getExpression", "classast_1_1OpUnary.html#a4af93084f46cdc96602fd06279db4d3a", null ],
-      [ "cache_mutex_", "classast_1_1OpUnary.html#ab47c0593951e58a10723c2678ac87f65", null ],
       [ "expr_", "classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532", null ],
-      [ "func_", "classast_1_1OpUnary.html#adb7db8f24f36c8ab0855fceba528353f", null ],
-      [ "op_", "classast_1_1OpUnary.html#a1d4fdd8d9853792fa82ed936f4d7d582", null ],
-      [ "type_", "classast_1_1OpUnary.html#a0c8074072a0bfe6faf3894f1838a1320", null ]
+      [ "op_", "classast_1_1OpUnary.html#a1d4fdd8d9853792fa82ed936f4d7d582", null ]
     ] ],
     [ "ast::Lexer", "classast_1_1Lexer.html", [
       [ "ETokenType", "classast_1_1Lexer.html#ab1519087cd861bd99b3eac612c96a567", [
@@ -301,7 +302,6 @@ var group__Script =
     [ "ast::ValVector< T >", "classast_1_1ValVector.html", null ],
     [ "ast::Symbol", "classast_1_1Symbol.html", [
       [ "eval", "classast_1_1Symbol.html#a6925f2cca65e27e9b2713cb10171944b", null ],
-      [ "exec", "classast_1_1Symbol.html#a69ab28992cbd8f4383f17e9ebaee8309", null ],
       [ "getExpression", "classast_1_1Symbol.html#aee687959532b79499827dafe9053b147", null ],
       [ "setValue", "classast_1_1Symbol.html#aa9c8cd47d2d36925a9511e8f871ebeb3", null ]
     ] ],
@@ -396,7 +396,8 @@ var group__Script =
     [ "ast::aDoOpUnary", "group__Script.html#gab7e01854fa89a4c791ef2c484456dabf", null ],
     [ "ast::aEval", "group__Script.html#gab42f85d7f686fd2bbad62d5b6822ae71", null ],
     [ "ast::aEvalExpr", "group__Script.html#gac9d41ab879b941bfa59ad019006bcd68", null ],
-    [ "ast::aExec", "group__Script.html#gaa9bda6906c41388b8eb4cb2d7ab6bf6d", null ],
+    [ "ast::aExpand", "group__Script.html#ga03794ce6d5ffb84236e9211dc6bb93e6", null ],
+    [ "ast::aExpandExpr", "group__Script.html#gab7021297be49b05f26eba2e4f04b7927", null ],
     [ "ast::aFormatExpr", "group__Script.html#ga6f5a26b872af56f51ef85ad14212b403", null ],
     [ "ast::aGetIterateFunc", "group__Script.html#gad05e74e139af3f4062abad46a8347fec", null ],
     [ "ast::aGetOpUnaryFunc", "group__Script.html#gad03b47ed257c6676b82be3bd91bcebe2", null ],

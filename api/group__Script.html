@@ -347,8 +347,10 @@ typedef <a class="el" href="classast_1_1Value.html">Value</a> *(*&#160;</td><td 
 <tr class="separator:gabd53b801eb96bf7a645dfee7a8e43252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga86f4499fefac867091417d8a75fa54c3" id="r_ga86f4499fefac867091417d8a75fa54c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga86f4499fefac867091417d8a75fa54c3">ast::aParseExpr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
 <tr class="separator:ga86f4499fefac867091417d8a75fa54c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa9bda6906c41388b8eb4cb2d7ab6bf6d" id="r_gaa9bda6906c41388b8eb4cb2d7ab6bf6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa9bda6906c41388b8eb4cb2d7ab6bf6d">ast::aExec</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
-<tr class="separator:gaa9bda6906c41388b8eb4cb2d7ab6bf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7021297be49b05f26eba2e4f04b7927" id="r_gab7021297be49b05f26eba2e4f04b7927"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab7021297be49b05f26eba2e4f04b7927">ast::aExpandExpr</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
+<tr class="separator:gab7021297be49b05f26eba2e4f04b7927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03794ce6d5ffb84236e9211dc6bb93e6" id="r_ga03794ce6d5ffb84236e9211dc6bb93e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga03794ce6d5ffb84236e9211dc6bb93e6">ast::aExpand</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
+<tr class="separator:ga03794ce6d5ffb84236e9211dc6bb93e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab42f85d7f686fd2bbad62d5b6822ae71" id="r_gab42f85d7f686fd2bbad62d5b6822ae71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab42f85d7f686fd2bbad62d5b6822ae71">ast::aEval</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
 <tr class="separator:gab42f85d7f686fd2bbad62d5b6822ae71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac9d41ab879b941bfa59ad019006bcd68" id="r_gac9d41ab879b941bfa59ad019006bcd68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac9d41ab879b941bfa59ad019006bcd68">ast::aEvalExpr</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
@@ -820,14 +822,14 @@ template&lt;typename T &gt; </td></tr>
 
 </div>
 </div>
-<a id="gaa9bda6906c41388b8eb4cb2d7ab6bf6d" name="gaa9bda6906c41388b8eb4cb2d7ab6bf6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa9bda6906c41388b8eb4cb2d7ab6bf6d">&#9670;&#160;</a></span>aExec()</h2>
+<a id="ga03794ce6d5ffb84236e9211dc6bb93e6" name="ga03794ce6d5ffb84236e9211dc6bb93e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga03794ce6d5ffb84236e9211dc6bb93e6">&#9670;&#160;</a></span>aExpand()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_SCRIPT_CAPI <a class="el" href="classast_1_1Expr.html">Expr</a> * ast::aExec </td>
+          <td class="memname">AST_SCRIPT_CAPI <a class="el" href="classast_1_1Expr.html">Expr</a> * ast::aExpand </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>script</em></span></td><td>)</td>
           <td></td>
@@ -835,7 +837,7 @@ template&lt;typename T &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>对脚本表达式进行预执行/宏展开/编译期求值 </p>
+<p>解析脚本表达式，并进行编译、展开、变量地址链接等，将符号、变量、函数等替换为实际值 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">script</td><td>脚本文本 </td></tr>
@@ -843,6 +845,32 @@ template&lt;typename T &gt; </td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>表达式对象 </dd></dl>
+
+</div>
+</div>
+<a id="gab7021297be49b05f26eba2e4f04b7927" name="gab7021297be49b05f26eba2e4f04b7927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab7021297be49b05f26eba2e4f04b7927">&#9670;&#160;</a></span>aExpandExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SCRIPT_CAPI <a class="el" href="classast_1_1Expr.html">Expr</a> * ast::aExpandExpr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Expr.html">Expr</a> *</td>          <td class="paramname"><span class="paramname"><em>expr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>展开表达式，进行编译、展开、变量地址链接等，将符号、变量、函数等替换为实际值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>表达式对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>展开后的表达式对象 </dd></dl>
 
 </div>
 </div>
@@ -1324,7 +1352,7 @@ template&lt;typename T &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>解析脚本表达式 </p>
+<p>解析脚本表达式，返回抽象语法树，未进行编译、展开、变量地址链接等 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">script</td><td>脚本文本 </td></tr>
