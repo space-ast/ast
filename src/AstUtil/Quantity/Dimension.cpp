@@ -100,6 +100,7 @@ std::string aDimName(EDimension dimension)
     case EDimension::eEnergy: return "Energy";
     case EDimension::ePower: return "Power";
     case EDimension::eFrequency: return "Frequency";
+    case EDimension::eDensity: return "Density";
     }
     return aDimSymbol(dimension);
 }

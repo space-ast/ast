@@ -82,7 +82,7 @@ void Class::getAllProperties(std::vector<Property*>& out, bool overwriteSameName
         for(auto* prop : properties_)
         {
             // 查找是否有同名属性（来自父类）
-            auto it = std::find_if(out.begin(), out.end(), [&](auto* p) { return p->name() == prop->name(); });
+            auto it = std::find_if(out.begin(), out.end(), [&](Property* p) { return p->name() == prop->name(); });
             if(it == out.end())
                 out.push_back(prop);
             else

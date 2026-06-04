@@ -24,17 +24,17 @@
 AST_NAMESPACE_BEGIN
 
 
-Interpreter* aNewInterpreter()
+
+Interpreter::Interpreter()
+    : symbolScope_(new SymbolScope())
 {
-    return new Interpreter();
 }
 
-
-void aDelInterpreter(Interpreter* interpreter)
+Interpreter::Interpreter(ISymbolScope* symbolScope)
+    : symbolScope_(symbolScope)
 {
-    delete interpreter;
+    
 }
-
 
 Interpreter::~Interpreter()
 {
@@ -46,6 +46,23 @@ void Interpreter::interpret(StringView code)
     InterpreterContext _(this);     ///< 解释器上下文守卫
     SharedPtr<Value> value = aEval(code);
 }
+
+Interpreter* aNewInterpreter()
+{
+    return new Interpreter();
+}
+
+
+Interpreter* aNewInterpreter(ISymbolScope* symbolScope)
+{
+    return new Interpreter(symbolScope);
+}
+
+void aDelInterpreter(Interpreter* interpreter)
+{
+    delete interpreter;
+}
+
 
 AST_NAMESPACE_END
 

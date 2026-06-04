@@ -23,6 +23,9 @@
 #include "AstGlobal.h"
 #include "AstCore/Command.hpp"
 #include "AstCore/VariableList.hpp"
+#include "AstScript/Interpreter.hpp"
+#include <memory>
+
 
 AST_NAMESPACE_BEGIN
 
@@ -53,11 +56,11 @@ public:
     /// @brief 设置关联的执行命令
     void setRelatedCommand(Command* command) { relatedCommand_ = command; }
 private:
-    VariableList inputs_;                       ///< 输入变量列表
-    VariableList outputs_;                      ///< 输出变量列表
-    mutable WeakPtr<Command> relatedCommand_;   ///< 所关联的执行命令
+    VariableList inputs_;                               ///< 输入变量列表
+    VariableList outputs_;                              ///< 输出变量列表
+    mutable WeakPtr<Command> relatedCommand_;           ///< 所关联的执行命令
 private:
-    mutable Interpreter* interpreter_{nullptr}; ///< 解释器
+    mutable std::unique_ptr<Interpreter> interpreter_;  ///< 解释器
 };
 
 
