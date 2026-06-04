@@ -53,7 +53,7 @@ class WeakPtr;
 template<typename ObjectPtrType, typename PropertyType>
 class AttributeBasic;
 
-typedef AttributeBasic<WeakPtr<Object>, Property> Attribute;
+typedef AttributeBasic<Object, Property> Attribute;
 
 // AST 对象运行时元信息
 #define AST_OBJECT(TYPE) \

@@ -352,4 +352,11 @@
         <translation>冥王星系质心</translation>
     </message>
 </context>
+<context>
+    <name>SolarSystem</name>
+    <message>
+        <source>SolarSystem</source>
+        <translation>太阳系</translation>
+    </message>
+</context>
 </TS>

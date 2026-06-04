@@ -23,11 +23,13 @@
 #include "AstGlobal.h"
 #include "AstCore/VariableList.hpp"
 #include "AstCore/Object.hpp"
+#include "AstScript/Expr.hpp"
 #include <QWidget>
 #include <QTableWidget>
-#include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QEvent>
+#include <QToolButton>
 
 AST_NAMESPACE_BEGIN
 
@@ -51,27 +53,40 @@ public:
 
     VariableList* variableList() const;
 
+    /// @brief 从表达式新建变量并追加到列表末尾
+    /// @param expr 要添加的表达式
+    void addExpression(Expr* expr);
+
 signals:
     /// @brief 选中变量变化
     void variableSelected(Variable* variable);
 
-    /// @brief 变量列表已修改（增/删/编辑）
+    /// @brief 变量列表已修改（增/删/编辑/拖拽排序）
     void variableListChanged();
+
+    /// @brief 用户选中了变量（用于通知外部联动控件）
+    void variableFocused();
 
 private slots:
     void onSelectionChanged();
     void onAddVariable();
     void onRemoveVariable();
     void onCellDoubleClicked(int row, int column);
+    void onCellChanged(int row, int column);
+    void onRefresh();
 
 private:
     void setupUi();
+    void openExpressionEditor(int row);
+    bool eventFilter(QObject* obj, QEvent* event) override;
+    void syncOrderFromTable();
 
     QVBoxLayout*   mainLayout_;
     QTableWidget*  tableWidget_;
     QHBoxLayout*   buttonLayout_;
-    QPushButton*   addButton_;
-    QPushButton*   removeButton_;
+    QToolButton*   addButton_;
+    QToolButton*   removeButton_;
+    QToolButton*   refreshButton_;
     VariableList*  variableList_ = nullptr;
     WeakPtr<Object> owner_;
 };

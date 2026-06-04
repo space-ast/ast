@@ -135,11 +135,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>未关联执行命令</source>
+        <source>未关联任务模型</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>执行命令</source>
+        <source>任务模型</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -532,10 +532,6 @@
     <message>
         <source>选择对象计算量</source>
         <translation>Select object calculation</translation>
-    </message>
-    <message>
-        <source>选择表达式</source>
-        <translation>Select Expression</translation>
     </message>
 </context>
 <context>
@@ -1817,19 +1813,19 @@ Error code: %2</translation>
         <translation>Remove variable &quot;%1&quot;?</translation>
     </message>
     <message>
-        <source>编辑变量</source>
-        <translation>Edit Variable</translation>
-    </message>
-    <message>
         <source>新建变量</source>
         <translation>New Variable</translation>
     </message>
     <message>
-        <source>+添加变量</source>
+        <source>编辑表达式 — %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>-删除变量</source>
+        <source>当前: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>刷新变量列表</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

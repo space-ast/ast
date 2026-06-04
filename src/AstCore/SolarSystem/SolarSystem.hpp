@@ -60,8 +60,8 @@ public:
 		: ObjectNamed(name) {}
 	~SolarSystem() = default;
 
-	/// @brief 初始化太阳系
-	void init();
+	/// @brief 初始化太阳系为预定义值
+	void initPredefined();
 
 	/// @brief 加载指定目录下的太阳系天体数据
 	/// @warning 该方法会覆盖已加载的天体数据

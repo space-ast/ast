@@ -352,4 +352,11 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>SolarSystem</name>
+    <message>
+        <source>SolarSystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

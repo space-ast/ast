@@ -31,6 +31,7 @@ class QLabel;
 AST_NAMESPACE_BEGIN
 
 class BasicAnalyzer;
+class UiExpressionBrowser;
 class UiVariableList;
 
 /// @brief BasicAnalyzer 编辑界面
@@ -53,14 +54,16 @@ private:
     void setupUi();
     void rebuildCommandEditor();
 
-    BasicAnalyzer* analyzer_ = nullptr;
+    BasicAnalyzer*       analyzer_ = nullptr;
 
-    QTabWidget*    tabWidget_;
-    QSplitter*     splitter_;
-    UiVariableList* inputsEditor_;
-    UiVariableList* outputsEditor_;
-    QStackedWidget* commandStack_;
-    QLabel*         placeholderLabel_;
+    QSplitter*           varSplitter_;
+    UiExpressionBrowser* expressionBrowser_;
+    QTabWidget*          tabWidget_;
+    QSplitter*           splitter_;
+    UiVariableList*      inputsEditor_;
+    UiVariableList*      outputsEditor_;
+    QStackedWidget*      commandStack_;
+    QLabel*              placeholderLabel_;
 };
 
 AST_NAMESPACE_END

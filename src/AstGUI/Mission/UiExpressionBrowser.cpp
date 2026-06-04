@@ -51,7 +51,7 @@ enum {
 } // anonymous namespace
 
 UiExpressionBrowser::UiExpressionBrowser(QWidget* parent)
-    : QDialog(parent)
+    : QWidget(parent)
 {
     setupUi();
     objectTree_->refresh();
@@ -69,20 +69,35 @@ Expr* UiExpressionBrowser::GetExpression(QWidget* parent)
         return nullptr;
     }
 
-    UiExpressionBrowser dlg(parent);
+    QDialog dlg(parent);
+    dlg.setWindowTitle(QObject::tr("选择表达式"));
+    dlg.resize(850, 720);
+
+    auto* layout = new QVBoxLayout(&dlg);
+    layout->setContentsMargins(8, 8, 8, 8);
+
+    auto* browser = new UiExpressionBrowser(&dlg);
+    layout->addWidget(browser);
+
+    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Cancel, &dlg);
+    layout->addWidget(buttons);
+
+    QObject::connect(buttons, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+    QObject::connect(browser, &UiExpressionBrowser::propertyExpressionSelected,
+                     &dlg, &QDialog::accept);
+    QObject::connect(browser, &UiExpressionBrowser::calculationExpressionSelected,
+                     &dlg, &QDialog::accept);
+
     if (dlg.exec() != QDialog::Accepted)
         return nullptr;
 
-    return dlg.selectedExpr_.get();
+    return browser->selectedExpr_.take();
 }
 
 void UiExpressionBrowser::setupUi()
 {
-    setWindowTitle(tr("选择表达式"));
-    resize(850, 720);
-
     auto* rootLayout = new QVBoxLayout(this);
-    rootLayout->setContentsMargins(8, 8, 8, 8);
+    rootLayout->setContentsMargins(0, 0, 0, 0);
 
     auto* splitter = new QSplitter(Qt::Horizontal, this);
 
@@ -99,7 +114,9 @@ void UiExpressionBrowser::setupUi()
     auto* expressionLayout = new QVBoxLayout(expressionPanel);
     expressionLayout->setContentsMargins(0, 0, 0, 0);
 
-    auto* propertyGroup = new QGroupBox(tr("对象属性"), expressionPanel);
+    auto* expSplitter = new QSplitter(Qt::Vertical, expressionPanel);
+
+    auto* propertyGroup = new QGroupBox(tr("对象属性"), expSplitter);
     auto* propertyLayout = new QHBoxLayout(propertyGroup);
     propertyTree_ = new UiAttributeTree(propertyGroup);
     propertySelectButton_ = new QPushButton(("→"), propertyGroup);
@@ -108,9 +125,8 @@ void UiExpressionBrowser::setupUi()
     propertySelectButton_->setToolTip(tr("选择对象属性"));
     propertyLayout->addWidget(propertyTree_);
     propertyLayout->addWidget(propertySelectButton_);
-    expressionLayout->addWidget(propertyGroup, 1);
 
-    auto* calculationGroup = new QGroupBox(tr("对象计算量"), expressionPanel);
+    auto* calculationGroup = new QGroupBox(tr("对象计算量"), expSplitter);
     auto* calculationLayout = new QHBoxLayout(calculationGroup);
     calculationTree_ = new QTreeWidget(calculationGroup);
     calculationTree_->setHeaderHidden(true);
@@ -123,15 +139,16 @@ void UiExpressionBrowser::setupUi()
     calculationSelectButton_->setToolTip(tr("选择对象计算量"));
     calculationLayout->addWidget(calculationTree_);
     calculationLayout->addWidget(calculationSelectButton_);
-    expressionLayout->addWidget(calculationGroup, 1);
+
+    expSplitter->addWidget(propertyGroup);
+    expSplitter->addWidget(calculationGroup);
+    expSplitter->setSizes({300, 300});
+
+    expressionLayout->addWidget(expSplitter);
 
     splitter->addWidget(expressionPanel);
     splitter->setSizes({260, 560});
     rootLayout->addWidget(splitter);
-
-    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
-    connect(buttons, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    rootLayout->addWidget(buttons);
 
     connect(objectTree_, &UiObjectTree::objectSelected,
             this, &UiExpressionBrowser::onObjectSelected);
@@ -168,7 +185,7 @@ void UiExpressionBrowser::onPropertyAccepted()
         return;
 
     selectedExpr_ = ExprAttribute::New(item->attribute());
-    accept();
+    emit propertyExpressionSelected(selectedExpr_.get());
 }
 
 void UiExpressionBrowser::onCalculationSelectionChanged()
@@ -191,7 +208,7 @@ void UiExpressionBrowser::onCalculationAccepted()
         return;
 
     selectedExpr_ = ExprCalculation::New(obj, calc);
-    accept();
+    emit calculationExpressionSelected(selectedExpr_.get());
 }
 
 void UiExpressionBrowser::onItemDoubleClicked(QTreeWidgetItem* item, int)

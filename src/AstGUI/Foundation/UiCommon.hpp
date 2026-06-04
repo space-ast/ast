@@ -35,7 +35,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 获取对象的显示名称
 AST_GUI_API QString aUiObjectDisplayName(Object* obj);
 
-AST_GUI_API QIcon aUiLoadIcon(const QString& name);
+AST_GUI_API QIcon aUiIcon(const QString& name);
 
 AST_GUI_API QIcon aUiObjectIcon(const Object* obj);
 

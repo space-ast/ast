@@ -1,7 +1,8 @@
 ///
 /// @file      UiExpressionBrowser.hpp
-/// @brief     Expr 表达式选择对话框
-/// @details   用于选择对象属性表达式和对象计算量表达式
+/// @brief     Expr 表达式选择控件
+/// @details   用于选择对象属性表达式和对象计算量表达式，
+///            可作为嵌入式控件使用，也可通过 GetExpression() 以对话框形式弹出
 /// @author    axel
 /// @date      2026-05-25
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -25,8 +26,7 @@
 #include "AstUtil/Object.hpp"
 #include "AstUtil/Attribute.hpp"
 #include "AstUtil/SharedPtr.hpp"
-#include <QDialog>
-#include <QString>
+#include <QWidget>
 
 class QTreeWidget;
 class QTreeWidgetItem;
@@ -37,14 +37,24 @@ AST_NAMESPACE_BEGIN
 class UiObjectTree;
 class UiAttributeTree;
 
-class AST_GUI_API UiExpressionBrowser : public QDialog
+class AST_GUI_API UiExpressionBrowser : public QWidget
 {
     Q_OBJECT
 public:
     explicit UiExpressionBrowser(QWidget* parent = nullptr);
 
+    /// @brief 获取选中的表达式，无选中时返回 nullptr
     Expr* selectedExpression() const { return selectedExpr_.get(); }
+
+    /// @brief 以模态对话框形式弹出，返回用户选择的表达式（所有权转移给调用方）
     static Expr* GetExpression(QWidget* parent = nullptr);
+
+signals:
+    /// @brief 用户选择了对象属性表达式
+    void propertyExpressionSelected(Expr* expr);
+
+    /// @brief 用户选择了对象计算量表达式
+    void calculationExpressionSelected(Expr* expr);
 
 private slots:
     void onObjectSelected(Object* object);

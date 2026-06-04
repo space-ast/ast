@@ -21,13 +21,15 @@
 #include "UiBasicAnalyzer.hpp"
 #include "AstAnalyzer/BasicAnalyzer.hpp"
 #include "AstGUI/ObjectEditRegistry.hpp"
+#include "AstGUI/UiExpressionBrowser.hpp"
 #include "AstGUI/UiVariableList.hpp"
 
-#include <QVBoxLayout>
-#include <QTabWidget>
+#include <QGroupBox>
+#include <QLabel>
 #include <QSplitter>
 #include <QStackedWidget>
-#include <QLabel>
+#include <QTabWidget>
+#include <QVBoxLayout>
 
 AST_NAMESPACE_BEGIN
 
@@ -44,46 +46,62 @@ void UiBasicAnalyzer::setupUi()
 
     tabWidget_ = new QTabWidget(this);
 
-    // --- Tab 0: 变量 ---
-    auto* varTab = new QWidget(this);
+    // ============================================================
+    // Tab 0: 变量
+    // ============================================================
+    auto* varTab = new QWidget(tabWidget_);
     auto* varLayout = new QVBoxLayout(varTab);
     varLayout->setContentsMargins(0, 0, 0, 0);
 
-    splitter_ = new QSplitter(Qt::Vertical, varTab);
+    // 水平分割器：左侧表达式浏览器，右侧输入/输出变量
+    varSplitter_ = new QSplitter(Qt::Horizontal, varTab);
+    varSplitter_->setChildrenCollapsible(true);
+
+    expressionBrowser_ = new UiExpressionBrowser(varSplitter_);
+
+    splitter_ = new QSplitter(Qt::Vertical, varSplitter_);
     splitter_->setChildrenCollapsible(true);
 
     // 输入变量区域
-    auto* inputsWidget = new QWidget(splitter_);
-    auto* inputsLayout = new QVBoxLayout(inputsWidget);
-    inputsLayout->setContentsMargins(0, 0, 0, 0);
-    auto* inputsLabel = new QLabel(tr("输入变量"), inputsWidget);
-    inputsEditor_ = new UiVariableList(inputsWidget);
-    inputsLayout->addWidget(inputsLabel);
+    auto* inputsGroup = new QGroupBox(tr("输入变量"), splitter_);
+    auto* inputsLayout = new QVBoxLayout(inputsGroup);
+    inputsLayout->setContentsMargins(4, 4, 4, 4);
+    inputsEditor_ = new UiVariableList(inputsGroup);
     inputsLayout->addWidget(inputsEditor_);
 
     // 输出变量区域
-    auto* outputsWidget = new QWidget(splitter_);
-    auto* outputsLayout = new QVBoxLayout(outputsWidget);
-    outputsLayout->setContentsMargins(0, 0, 0, 0);
-    auto* outputsLabel = new QLabel(tr("输出变量"), outputsWidget);
-    outputsEditor_ = new UiVariableList(outputsWidget);
-    outputsLayout->addWidget(outputsLabel);
+    auto* outputsGroup = new QGroupBox(tr("输出变量"), splitter_);
+    auto* outputsLayout = new QVBoxLayout(outputsGroup);
+    outputsLayout->setContentsMargins(4, 4, 4, 4);
+    outputsEditor_ = new UiVariableList(outputsGroup);
     outputsLayout->addWidget(outputsEditor_);
 
-    varLayout->addWidget(splitter_);
+    varSplitter_->addWidget(expressionBrowser_);
+    varSplitter_->addWidget(splitter_);
+    varSplitter_->setSizes({400, 400});
+
+    varLayout->addWidget(varSplitter_);
     tabWidget_->addTab(varTab, tr("变量"));
 
-    // --- Tab 1: 执行命令 ---
-    auto* cmdTab = new QWidget(this);
+    // 连线：对象属性 → 输入变量，对象计算量 → 输出变量
+    connect(expressionBrowser_, &UiExpressionBrowser::propertyExpressionSelected,
+            inputsEditor_, &UiVariableList::addExpression);
+    connect(expressionBrowser_, &UiExpressionBrowser::calculationExpressionSelected,
+            outputsEditor_, &UiVariableList::addExpression);
+
+    // ============================================================
+    // Tab 1: 任务模型
+    // ============================================================
+    auto* cmdTab = new QWidget(tabWidget_);
     auto* cmdLayout = new QVBoxLayout(cmdTab);
     cmdLayout->setContentsMargins(0, 0, 0, 0);
 
     commandStack_ = new QStackedWidget(cmdTab);
-    placeholderLabel_ = new QLabel(tr("未关联执行命令"), commandStack_);
+    placeholderLabel_ = new QLabel(tr("未关联任务模型"), commandStack_);
     placeholderLabel_->setAlignment(Qt::AlignCenter);
     commandStack_->addWidget(placeholderLabel_); // index 0
     cmdLayout->addWidget(commandStack_);
-    tabWidget_->addTab(cmdTab, tr("执行命令"));
+    tabWidget_->addTab(cmdTab, tr("任务模型"));
 
     mainLayout->addWidget(tabWidget_);
 }

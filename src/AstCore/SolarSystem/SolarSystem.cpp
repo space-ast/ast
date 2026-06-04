@@ -24,16 +24,19 @@
 #include "AstCore/CelestialBodyLoader.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Constants.hpp"
+#include "AstUtil/I18n.hpp"
 #include <iostream>
 
 
 AST_NAMESPACE_BEGIN
 
-void SolarSystem::init()
+void SolarSystem::initPredefined()
 {
+    (void)N_("SolarSystem");
     if(isInit_)
         return;
     isInit_ = true;
+    this->setReadOnly(true);
 
     bodies_.reserve(200);
     if(!solarSystemBarycenter_){

@@ -45,7 +45,7 @@ QString iconPath(const QString& name)
     #endif
 }
 
-QIcon aUiLoadIcon(const QString& name)
+QIcon aUiIcon(const QString& name)
 {
     return QIcon(iconPath(name));
 }
@@ -56,16 +56,16 @@ QIcon aUiObjectIcon(const Object* obj)
     {
         return aUiClassIcon(QString::fromStdString(obj->typeName()));
     }
-    return aUiLoadIcon(QStringLiteral("Object"));
+    return aUiIcon(QStringLiteral("Object"));
 }
 
 
 QIcon aUiClassIcon(const QString& className)
 {
-    QIcon icon = aUiLoadIcon(className);
+    QIcon icon = aUiIcon(className);
     if(!icon.isNull())
         return icon;
-    return aUiLoadIcon(QStringLiteral("Object"));
+    return aUiIcon(QStringLiteral("Object"));
 }
 
 
