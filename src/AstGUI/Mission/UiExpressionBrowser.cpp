@@ -19,11 +19,13 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiExpressionBrowser.hpp"
+#include "AstGUI/UiAttributeTree.hpp"
+#include "AstGUI/UiAttributeTreeItem.hpp"
 #include "AstGUI/UiObjectTree.hpp"
+#include "AstScript/ExprAttribute.hpp"
+#include "AstScript/ExprCalculation.hpp"
 #include "AstUtil/ObjectCalculation.hpp"
 #include "AstUtil/ObjectManager.hpp"
-#include "AstUtil/Property.hpp"
-#include "AstUtil/Struct.hpp"
 
 #include <QAbstractItemView>
 #include <QDialogButtonBox>
@@ -41,14 +43,10 @@ AST_NAMESPACE_BEGIN
 
 namespace {
 
-enum { ExpressionRole = Qt::UserRole + 1 };
-
-QString objectExpressionPrefix(Object* object)
-{
-    if (!object)
-        return {};
-    return QString::fromStdString(object->getName());
-}
+enum { 
+    ObjectRole = Qt::UserRole + 1, 
+    CalcRole
+};
 
 } // anonymous namespace
 
@@ -59,21 +57,23 @@ UiExpressionBrowser::UiExpressionBrowser(QWidget* parent)
     objectTree_->refresh();
     if (objectTree_->topLevelItemCount() > 0)
         objectTree_->setCurrentItem(objectTree_->topLevelItem(0));
+    // @todo 选中当前对象
 }
 
-QString UiExpressionBrowser::getExpression(QWidget* parent)
+Expr* UiExpressionBrowser::GetExpression(QWidget* parent)
 {
     if (ObjectManager::CurrentInstance().getAllObjects().empty())
     {
         QMessageBox::information(parent, QObject::tr("选择表达式"),
                                  QObject::tr("暂无对象"));
-        return {};
+        return nullptr;
     }
 
     UiExpressionBrowser dlg(parent);
     if (dlg.exec() != QDialog::Accepted)
-        return {};
-    return dlg.selectedExpression();
+        return nullptr;
+
+    return dlg.selectedExpr_.get();
 }
 
 void UiExpressionBrowser::setupUi()
@@ -101,11 +101,7 @@ void UiExpressionBrowser::setupUi()
 
     auto* propertyGroup = new QGroupBox(tr("对象属性"), expressionPanel);
     auto* propertyLayout = new QHBoxLayout(propertyGroup);
-    propertyTree_ = new QTreeWidget(propertyGroup);
-    propertyTree_->setHeaderHidden(true);
-    propertyTree_->setSelectionMode(QAbstractItemView::SingleSelection);
-    propertyTree_->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    propertyTree_->header()->setStretchLastSection(true);
+    propertyTree_ = new UiAttributeTree(propertyGroup);
     propertySelectButton_ = new QPushButton(("→"), propertyGroup);
     propertySelectButton_->setEnabled(false);
     propertySelectButton_->setFixedWidth(34);
@@ -139,8 +135,8 @@ void UiExpressionBrowser::setupUi()
 
     connect(objectTree_, &UiObjectTree::objectSelected,
             this, &UiExpressionBrowser::onObjectSelected);
-    connect(propertyTree_, &QTreeWidget::itemSelectionChanged,
-            this, &UiExpressionBrowser::onPropertySelectionChanged);
+    connect(propertyTree_, &UiAttributeTree::attributeSelected,
+            this, &UiExpressionBrowser::onPropertySelected);
     connect(calculationTree_, &QTreeWidget::itemSelectionChanged,
             this, &UiExpressionBrowser::onCalculationSelectionChanged);
     connect(propertySelectButton_, &QPushButton::clicked,
@@ -156,62 +152,57 @@ void UiExpressionBrowser::setupUi()
 void UiExpressionBrowser::onObjectSelected(Object* object)
 {
     currentObject_ = object;
-    refreshPropertyTree();
+    propertyTree_->setObject(object);
     refreshCalculationTree();
 }
 
-void UiExpressionBrowser::onPropertySelectionChanged()
+void UiExpressionBrowser::onPropertySelected(const Attribute& attr)
 {
-    auto* item = propertyTree_->currentItem();
-    propertySelectButton_->setEnabled(item && !item->data(0, ExpressionRole).toString().isEmpty());
-}
-
-void UiExpressionBrowser::onCalculationSelectionChanged()
-{
-    auto* item = calculationTree_->currentItem();
-    calculationSelectButton_->setEnabled(item && !item->data(0, ExpressionRole).toString().isEmpty());
+    propertySelectButton_->setEnabled(attr.isValid());
 }
 
 void UiExpressionBrowser::onPropertyAccepted()
 {
-    acceptExpression(propertyTree_->currentItem());
+    auto* item = static_cast<UiAttributeTreeItem*>(propertyTree_->currentItem());
+    if (!item || !item->attribute().isValid())
+        return;
+
+    selectedExpr_ = ExprAttribute::New(item->attribute());
+    accept();
+}
+
+void UiExpressionBrowser::onCalculationSelectionChanged()
+{
+    calculationSelectButton_->setEnabled(calculationTree_->currentItem() != nullptr);
 }
 
 void UiExpressionBrowser::onCalculationAccepted()
 {
-    acceptExpression(calculationTree_->currentItem());
+    auto* item = calculationTree_->currentItem();
+    if (!item)
+        return;
+
+    auto* obj = reinterpret_cast<Object*>(
+        item->data(0, ObjectRole).value<quintptr>());
+    auto* calc = reinterpret_cast<ObjectCalculation*>(
+        item->data(0, CalcRole).value<quintptr>());
+
+    if (!obj || !calc)
+        return;
+
+    selectedExpr_ = ExprCalculation::New(obj, calc);
+    accept();
 }
 
 void UiExpressionBrowser::onItemDoubleClicked(QTreeWidgetItem* item, int)
 {
-    acceptExpression(item);
-}
-
-void UiExpressionBrowser::refreshPropertyTree()
-{
-    propertyTree_->clear();
-    propertySelectButton_->setEnabled(false);
-
-    auto prefix = objectExpressionPrefix(currentObject_.get());
-    if (prefix.isEmpty())
+    if (!item)
         return;
 
-    Class* cls = currentObject_->getType();
-    if (!cls)
-        return;
-
-    const Struct::PropertyList& props = cls->getProperties();
-    for (size_t i = 0; i < props.size(); ++i)
-    {
-        Property* prop = props[i];
-        if (!prop)
-            continue;
-        auto name = QString::fromStdString(prop->name());
-        addExpressionItem(propertyTree_, name, prefix + "." + name);
-    }
-
-    if (propertyTree_->topLevelItemCount() > 0)
-        propertyTree_->setCurrentItem(propertyTree_->topLevelItem(0));
+    if (item->treeWidget() == propertyTree_)
+        onPropertyAccepted();
+    else if (item->treeWidget() == calculationTree_)
+        onCalculationAccepted();
 }
 
 void UiExpressionBrowser::refreshCalculationTree()
@@ -219,8 +210,7 @@ void UiExpressionBrowser::refreshCalculationTree()
     calculationTree_->clear();
     calculationSelectButton_->setEnabled(false);
 
-    auto prefix = objectExpressionPrefix(currentObject_.get());
-    if (prefix.isEmpty())
+    if (!currentObject_)
         return;
 
     auto allObjects = ObjectManager::CurrentInstance().getAllObjects();
@@ -233,33 +223,16 @@ void UiExpressionBrowser::refreshCalculationTree()
         auto name = QString::fromStdString(calc->getName());
         if (name.isEmpty())
             continue;
-        addExpressionItem(calculationTree_, name, prefix + "." + name + "()");
+
+        auto* item = new QTreeWidgetItem;
+        item->setText(0, name);
+        item->setData(0, ObjectRole, QVariant::fromValue(reinterpret_cast<quintptr>(object)));
+        item->setData(0, CalcRole, QVariant::fromValue(reinterpret_cast<quintptr>(calc)));
+        calculationTree_->addTopLevelItem(item);
     }
 
     if (calculationTree_->topLevelItemCount() > 0)
         calculationTree_->setCurrentItem(calculationTree_->topLevelItem(0));
-}
-
-void UiExpressionBrowser::acceptExpression(QTreeWidgetItem* item)
-{
-    if (!item)
-        return;
-
-    auto expression = item->data(0, ExpressionRole).toString();
-    if (expression.isEmpty())
-        return;
-
-    selectedExpression_ = expression;
-    accept();
-}
-
-QTreeWidgetItem* UiExpressionBrowser::addExpressionItem(QTreeWidget* tree, const QString& name, const QString& expression)
-{
-    auto* item = new QTreeWidgetItem;
-    item->setText(0, name);
-    item->setData(0, ExpressionRole, expression);
-    tree->addTopLevelItem(item);
-    return item;
 }
 
 AST_NAMESPACE_END

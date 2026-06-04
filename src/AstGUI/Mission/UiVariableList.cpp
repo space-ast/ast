@@ -39,9 +39,11 @@ QLineEdit* addExpressionRow(QFormLayout* form, QDialog* parent, const QString& i
     form->addRow(QObject::tr("表达式"), row);
 
     QObject::connect(browseBtn, &QPushButton::clicked, [edit, parent]() {
-        QString expr = UiExpressionBrowser::getExpression(parent);
-        if (!expr.isEmpty())
-            edit->setText(expr);
+        SharedPtr<Expr> expr = UiExpressionBrowser::GetExpression(parent);
+        if (expr)
+        {
+                
+        }
     });
 
     return edit;

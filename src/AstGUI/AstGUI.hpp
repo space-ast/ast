@@ -22,6 +22,8 @@
 #include "AstGUI/UiCommandEditor.hpp"
 #include "AstGUI/UiCommandTree.hpp"
 #include "AstGUI/UiCommandTreeItem.hpp"
+#include "AstGUI/UiCommon.hpp"
+#include "AstGUI/UiComponentTree.hpp"
 #include "AstGUI/UiDouble.hpp"
 #include "AstGUI/UiDragForce.hpp"
 #include "AstGUI/UiEventDetector.hpp"

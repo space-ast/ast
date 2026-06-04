@@ -66,14 +66,14 @@ PROPERTIES:
     
     /// @brief 获取质量
     /// @return 质量
-    double getMass() const{return fuelMass_ + dryMass_;}
-    double getFuelMass() const{return fuelMass_;}
-    double getDryMass() const{return dryMass_;}
+    mass_d getMass() const{return fuelMass_ + dryMass_;}
+    mass_d getFuelMass() const{return fuelMass_;}
+    mass_d getDryMass() const{return dryMass_;}
 
     /// @brief 设置质量
     /// @param mass 质量
-    void setFuelMass(double fuelMass){fuelMass_ = fuelMass;}
-    void setDryMass(double dryMass){dryMass_ = dryMass;}
+    void setFuelMass(mass_d fuelMass){fuelMass_ = fuelMass;}
+    void setDryMass(mass_d dryMass){dryMass_ = dryMass;}
 
     double getCd() const{return cd_;}
     void setCd(double cd){cd_ = cd;}
@@ -81,11 +81,11 @@ PROPERTIES:
     double getCr() const{return cr_;}
     void setCr(double cr){cr_ = cr;}
     
-    double getDragArea() const{return dragArea_;}
-    void setDragArea(double dragArea){dragArea_ = dragArea;}
+    area_d getDragArea() const{return dragArea_;}
+    void setDragArea(area_d dragArea){dragArea_ = dragArea;}
 
-    double getSRPArea() const{return srpArea_;}
-    void setSRPArea(double srpArea){srpArea_ = srpArea;}
+    area_d getSRPArea() const{return srpArea_;}
+    void setSRPArea(area_d srpArea){srpArea_ = srpArea;}
 
     double getK1() const{return k1_;}
     void setK1(double k1){k1_ = k1;}
@@ -93,21 +93,21 @@ PROPERTIES:
     double getK2() const{return k2_;}
     void setK2(double k2){k2_ = k2;}
 
-    double getFuelDensity() const{return fuelDensity_;}
-    void setFuelDensity(double fuelDensity){fuelDensity_ = fuelDensity;}
+    density_d getFuelDensity() const{return fuelDensity_;}
+    void setFuelDensity(density_d fuelDensity){fuelDensity_ = fuelDensity;}
 
-    double getRadPressureArea() const{return radPressureArea_;}
-    void setRadPressureArea(double radPressureArea){radPressureArea_ = radPressureArea;}
+    area_d getRadPressureArea() const{return radPressureArea_;}
+    void setRadPressureArea(area_d radPressureArea){radPressureArea_ = radPressureArea;}
 
     double getRadPressureCoeff() const{return radPressureCoeff_;}
     void setRadPressureCoeff(double radPressureCoeff){radPressureCoeff_ = radPressureCoeff;}
 
 
-    double getTankPressure() const{return tankPressure_;}
-    void setTankPressure(double tankPressure){tankPressure_ = tankPressure;}
+    pressure_d getTankPressure() const{return tankPressure_;}
+    void setTankPressure(pressure_d tankPressure){tankPressure_ = tankPressure;}
 
-    double getTankTemperature() const{return tankTemperature_;}
-    void setTankTemperature(double tankTemperature){tankTemperature_ = tankTemperature;}
+    temperature_d getTankTemperature() const{return tankTemperature_;}
+    void setTankTemperature(temperature_d tankTemperature){tankTemperature_ = tankTemperature;}
 
 
     /// @brief 获取轨道状态

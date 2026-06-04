@@ -21,7 +21,10 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstScript/Expr.hpp"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/Attribute.hpp"
+#include "AstUtil/SharedPtr.hpp"
 #include <QDialog>
 #include <QString>
 
@@ -32,6 +35,7 @@ class QPushButton;
 AST_NAMESPACE_BEGIN
 
 class UiObjectTree;
+class UiAttributeTree;
 
 class AST_GUI_API UiExpressionBrowser : public QDialog
 {
@@ -39,12 +43,12 @@ class AST_GUI_API UiExpressionBrowser : public QDialog
 public:
     explicit UiExpressionBrowser(QWidget* parent = nullptr);
 
-    QString selectedExpression() const { return selectedExpression_; }
-    static QString getExpression(QWidget* parent = nullptr);
+    Expr* selectedExpression() const { return selectedExpr_.get(); }
+    static Expr* GetExpression(QWidget* parent = nullptr);
 
 private slots:
     void onObjectSelected(Object* object);
-    void onPropertySelectionChanged();
+    void onPropertySelected(const Attribute& attr);
     void onCalculationSelectionChanged();
     void onPropertyAccepted();
     void onCalculationAccepted();
@@ -52,18 +56,15 @@ private slots:
 
 private:
     void setupUi();
-    void refreshPropertyTree();
     void refreshCalculationTree();
-    void acceptExpression(QTreeWidgetItem* item);
-    QTreeWidgetItem* addExpressionItem(QTreeWidget* tree, const QString& name, const QString& expression);
 
-    UiObjectTree* objectTree_ = nullptr;
-    QTreeWidget* propertyTree_ = nullptr;
-    QTreeWidget* calculationTree_ = nullptr;
-    QPushButton* propertySelectButton_ = nullptr;
-    QPushButton* calculationSelectButton_ = nullptr;
-    WeakPtr<Object> currentObject_ = nullptr;
-    QString selectedExpression_;
+    UiObjectTree*    objectTree_ = nullptr;
+    UiAttributeTree* propertyTree_ = nullptr;
+    QTreeWidget*     calculationTree_ = nullptr;
+    QPushButton*     propertySelectButton_ = nullptr;
+    QPushButton*     calculationSelectButton_ = nullptr;
+    WeakPtr<Object>  currentObject_ = nullptr;
+    SharedPtr<Expr>  selectedExpr_;
 };
 
 AST_NAMESPACE_END

@@ -50,19 +50,19 @@ errc_t PropertyQuantity::accept(PropertyVisitor &visitor, const void *container)
 
 errc_t PropertyQuantity::getValueString(const void *container, std::string &value)
 {
-    // 通过量纲获取国际制单位
-    Unit* siUnit = aUnitGetSI(dimension_);
-    if(siUnit)
+    // 通过量纲获取默认单位
+    Unit* defaultUnit = aUnitGetDefault(dimension_);
+    if(defaultUnit)
     {
         double d = 0;
         errc_t rc = PropertyDouble::getValueDouble(container, d);
-        Quantity quantity(d, *siUnit);
+        Quantity quantity(defaultUnit->fromSI(d), *defaultUnit);
         value = quantity.toString();
         return rc;
     }
     else
     {
-        aWarning("failed to get si unit for dimension %s", dimension_.name().c_str());
+        aWarning("failed to get default unit for dimension %s", dimension_.name().c_str());
         return PropertyDouble::getValueString(container, value);
     }
 }

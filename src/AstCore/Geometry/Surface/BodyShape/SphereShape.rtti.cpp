@@ -18,6 +18,7 @@ void SphereShape::ClassInit(Class* cls)
     cls->setParent<BodyShape>();
     cls->setConstructor<SphereShape>();
 
+    cls->addProperty("radius", aNewPropertyQuantityMem<SphereShape, &SphereShape::radius_>(Dimension::Length()));
 }
 
 AST_NAMESPACE_END

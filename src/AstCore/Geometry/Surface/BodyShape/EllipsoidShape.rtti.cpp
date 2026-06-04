@@ -18,6 +18,9 @@ void EllipsoidShape::ClassInit(Class* cls)
     cls->setParent<BodyShape>();
     cls->setConstructor<EllipsoidShape>();
 
+    cls->addProperty("majorAxis", aNewPropertyQuantityMem<EllipsoidShape, &EllipsoidShape::majorAxis_>(Dimension::Length()));
+    cls->addProperty("middleAxis", aNewPropertyQuantityMem<EllipsoidShape, &EllipsoidShape::middleAxis_>(Dimension::Length()));
+    cls->addProperty("minorAxis", aNewPropertyQuantityMem<EllipsoidShape, &EllipsoidShape::minorAxis_>(Dimension::Length()));
 }
 
 AST_NAMESPACE_END

@@ -19,43 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ObjectIcons.hpp"
-#include "AstUtil/Object.hpp"
 
 AST_NAMESPACE_BEGIN
-
-QString iconPath(const QString& name)
-{
-    #ifdef A_WASM
-    // wasm 不会存在data目录和exe目录分离的情况，所以直接使用相对路径
-    return "data/icons/" + name + ".svg";
-    #else
-    // 其他平台需要通过aDataDir获取data目录路径，避免其他软件调用ast库时的路径错误
-    return QString::fromStdString(aDataDir()) + "/icons/" + name + ".svg";
-    #endif
-}
-
-QIcon aUiLoadIcon(const QString& name)
-{
-    return QIcon(iconPath(name));
-}
-
-QIcon aUiObjectIcon(const Object* obj)
-{
-    if (obj)
-    {
-        return aUiClassIcon(QString::fromStdString(obj->typeName()));
-    }
-    return aUiLoadIcon(QStringLiteral("Object"));
-}
-
-
-QIcon aUiClassIcon(const QString& className)
-{
-    QIcon icon = aUiLoadIcon(className);
-    if(!icon.isNull())
-        return icon;
-    return aUiLoadIcon(QStringLiteral("Object"));
-}
 
 
 AST_NAMESPACE_END

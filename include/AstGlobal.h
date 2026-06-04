@@ -344,7 +344,8 @@ typedef enum EError
  * 通过这些标注，反射工具(例如libclang)可以识别这些类型，提取其属性元信息，然后生成相应代码，例如动态反射、序列化
  * 使用 `_d` 后缀，表示 dimension 和 double，避免了使用 `_t` 后缀与标准库 `time_t` 的冲突
  */ 
-typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, power_d, angle_d, angvel_d; 
+typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, 
+    power_d, angle_d, angvel_d, temperature_d, density_d, pressure_d; 
 
 
 typedef int errc_t;           ///< 错误码类型(error code type)

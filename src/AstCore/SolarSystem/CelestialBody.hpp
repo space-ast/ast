@@ -52,6 +52,9 @@ class AST_CORE_API CelestialBody : public Point
 {
 public:
     AST_OBJECT(CelestialBody)
+    AST_PROPERT(Shape)
+    AST_PROPERT(Ephemeris)
+    AST_PROPERT(Orientation)
     static CelestialBody* Resolve(StringView value);
     
     CelestialBody();
@@ -135,15 +138,11 @@ public: // 从Point继承重写的函数
     errc_t getPos(const TimePoint& tp, Vector3d& pos) const final;
     errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const final;
 
-public: // 天体的形状、重力场、星历、姿态
+PROPERTIES: // 天体的形状、重力场、星历、姿态
 
     /// @brief 获取天体形状
     BodyShape* getShape() const { return shape_.get(); }
     BodyShape* shape() const {return shape_.get(); }
-
-    /// @brief 获取天体重力场
-    const GravityField& getGravityField() const { return gravityField_; }
-    const GravityField& gravityField() const {return gravityField_; }
 
     /// @brief 获取天体星历
     BodyEphemeris* getEphemeris() const { return ephemeris_.get(); }
@@ -152,6 +151,11 @@ public: // 天体的形状、重力场、星历、姿态
     /// @brief 获取天体姿态
     BodyOrientation* getOrientation() const { return orientation_.get(); }
     BodyOrientation* orientation() const {return orientation_.get(); }
+public:
+    /// @brief 获取天体重力场
+    const GravityField& getGravityField() const { return gravityField_; }
+    const GravityField& gravityField() const {return gravityField_; }
+
 public:
 
     /// @brief 获取天体中心

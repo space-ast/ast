@@ -19,6 +19,7 @@
 
 #include "UiObjectTreeItem.hpp"
 #include "AstGUI/ObjectIcons.hpp"
+#include "AstGUI/UiCommon.hpp"
 #include "AstUtil/ObjectManager.hpp"
 #include "AstUtil/ObjectNode.hpp"
 
@@ -79,14 +80,12 @@ UiObjectTreeItem* UiObjectTreeItem::clone() const
 void UiObjectTreeItem::configure(Object* obj)
 {
     object_ = obj;
-    std::string displayName;
     std::string typeName;
     if (obj)
     {
-        displayName = obj->displayName();
         typeName = obj->typeName();
     }
-    setText(0, displayName.empty() ? QObject::tr("未命名<%1>").arg(QString::fromStdString(typeName)) : QString::fromStdString(displayName));
+    setText(0, aUiObjectDisplayName(obj));
     setToolTip(0, QString::fromStdString(typeName));
     setIcon(0, objectIcon(obj));
 }

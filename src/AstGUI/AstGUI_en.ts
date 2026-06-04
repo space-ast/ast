@@ -27,6 +27,18 @@
         <source>未命名&lt;%1&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>(无效属性)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>类型: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;空&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiAnalyzerMainWindow</name>
@@ -95,6 +107,17 @@
     <message>
         <source>+ 添加变量</source>
         <translation>+ Add Variable</translation>
+    </message>
+</context>
+<context>
+    <name>UiAttributeTree</name>
+    <message>
+        <source>属性</source>
+        <translation type="unfinished">Properties</translation>
+    </message>
+    <message>
+        <source>值</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

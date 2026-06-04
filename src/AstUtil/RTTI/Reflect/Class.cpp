@@ -73,6 +73,28 @@ Object *Class::getDefaultObject() const
     return defaultObject_.get();
 }
 
+void Class::getAllProperties(std::vector<Property*>& out, bool overwriteSameName) const
+{
+    if(parent_)
+        parent_->getAllProperties(out, overwriteSameName);
+    if(overwriteSameName)
+    {
+        for(auto* prop : properties_)
+        {
+            // 查找是否有同名属性（来自父类）
+            auto it = std::find_if(out.begin(), out.end(), [&](auto* p) { return p->name() == prop->name(); });
+            if(it == out.end())
+                out.push_back(prop);
+            else
+                *it = prop;
+        }
+    }
+    else
+    {
+        out.insert(out.end(), properties_.begin(), properties_.end());
+    }
+}
+
 AST_NAMESPACE_END
 
 

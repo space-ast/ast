@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API MoonOrientation : public BodyOrientation
 {
 public:
+    AST_OBJECT(MoonOrientation)
     MoonOrientation() = default;
     ~MoonOrientation() override = default;
     void getICRFToFixedTransform(const TimePoint& tp, Rotation &rotation) const override;

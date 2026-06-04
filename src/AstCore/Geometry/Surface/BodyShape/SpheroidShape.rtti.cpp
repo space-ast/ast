@@ -18,6 +18,7 @@ void SpheroidShape::ClassInit(Class* cls)
     cls->setParent<BodyShape>();
     cls->setConstructor<SpheroidShape>();
 
+    cls->addProperty("majorAxis", aNewPropertyQuantityMem<SpheroidShape, &SpheroidShape::majorAxis_>(Dimension::Length()));
     cls->addProperty("flatfactor", aNewPropertyDoubleMem<SpheroidShape, &SpheroidShape::flatfactor_>());
 }
 

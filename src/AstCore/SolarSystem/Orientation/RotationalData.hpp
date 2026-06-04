@@ -40,6 +40,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API RotationalData final: public BodyOrientation
 {
 public:
+    AST_OBJECT(RotationalData)
     RotationalData() = default;
     ~RotationalData() = default;
     errc_t load(StringView filepath);
