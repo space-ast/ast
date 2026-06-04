@@ -1,5 +1,7 @@
 var NAVTREEINDEX31 =
 {
+"classast_1_1PropertyStruct.html#af5db65a2fa782372f103981a19641039":[0,5,4,18,0],
+"classast_1_1PropertyTimePoint.html":[0,5,4,0],
 "classast_1_1PropertyTimePoint.html#a0156d068ea4addb3a437b95d370162dd":[0,5,4,0,7],
 "classast_1_1PropertyTimePoint.html#a314d029f7ea9d238de2cb7604d309d25":[0,5,4,0,1],
 "classast_1_1PropertyTimePoint.html#a51343cb6e7a320dd762dad0f0c365567":[0,5,4,0,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX31 =
 "classast_1_1RotationalData.html#a2d08f17696c20b3267953e9c60514979":[0,1,6,9,12],
 "classast_1_1RotationalData.html#a342f66f4e5a4bcdeed3d9df2114dd311":[0,1,6,9,2],
 "classast_1_1RotationalData.html#a4add2cb3f94273a4a9fcdd5f0fd6f7b8":[0,1,6,9,0],
-"classast_1_1RotationalData.html#a652e889362570b8d3622b9ee033dcaf9":[0,1,6,9,11],
-"classast_1_1RotationalData.html#a751b9b138b1e4b2e2131ea7a5671cf81":[0,1,6,9,10],
-"classast_1_1RotationalData.html#a8f3a713383752955b620a7e8246d9f25":[0,1,6,9,1]
+"classast_1_1RotationalData.html#a652e889362570b8d3622b9ee033dcaf9":[0,1,6,9,11]
 };

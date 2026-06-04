@@ -5,6 +5,7 @@ var classast_1_1Variable =
     [ "getExpression", "classast_1_1Variable.html#ae475c52c0cc50180629330be52727999", null ],
     [ "getInnerExpression", "classast_1_1Variable.html#a8400b3f1497384dc6331010d219fcb37", null ],
     [ "getName", "classast_1_1Variable.html#a9cd1cb9775f359f4479e3186f4a0636b", null ],
+    [ "isBind", "classast_1_1Variable.html#ae431e1bf9a0bbbe624f58e5ae400d84b", null ],
     [ "setBindExpr", "classast_1_1Variable.html#aaed54e38f8cbee0c27d6bdbb9aff2a75", null ],
     [ "setExpr", "classast_1_1Variable.html#ac448448ba0d1cc14fc06831d68d8bca9", null ],
     [ "setExpr", "classast_1_1Variable.html#a76375874f36626332d4ab147909e9f39", null ],

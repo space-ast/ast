@@ -1768,6 +1768,7 @@ var namespaceast =
     [ "aEulerToQuat", "group__Attitude.html#ga92b541cf12999d1f4d2c8f0e2bdc8067", null ],
     [ "aEval", "group__Script.html#gab42f85d7f686fd2bbad62d5b6822ae71", null ],
     [ "aEvalExpr", "group__Script.html#gac9d41ab879b941bfa59ad019006bcd68", null ],
+    [ "aExec", "group__Script.html#gaa9bda6906c41388b8eb4cb2d7ab6bf6d", null ],
     [ "aExecuteCommand", "namespaceast.html#a7526e8a8739b9c370c24b9fc4c614bb8", null ],
     [ "aExecuteCommand", "namespaceast.html#a8a42111e3aaf39be5f1bda3a3ffa444f", null ],
     [ "aExeDir", "group__Platform.html#ga524821ccab59a9b4bc923f26dd3d3660", null ],

@@ -1266,6 +1266,7 @@ var hierarchy =
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::AttitudeProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Axes >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::BasicAnalyzer >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::CelestialBody >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Command >", "classast_1_1WeakPtr.html", null ],

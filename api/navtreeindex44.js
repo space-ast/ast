@@ -1,5 +1,17 @@
 var NAVTREEINDEX44 =
 {
+"group__Spice.html#ga03c40552799c64c5894b07ed280c2bc0":[0,4,14],
+"group__Spice.html#ga0be90b1e3a056875b9818c355406be70":[0,4,16],
+"group__Spice.html#ga12f41a902b92a5041319c0929ea394b8":[0,4,5],
+"group__Spice.html#ga186312adcab3a6cc586e7affaa431d69":[0,4,22],
+"group__Spice.html#ga1c965afa318862a1d267f929c0803a38":[0,4,9],
+"group__Spice.html#ga25c738419df2fd10336f9551c6c5c8a8":[0,4,10],
+"group__Spice.html#ga3245987ee7f10c497082ce21a60c4857":[0,4,3],
+"group__Spice.html#ga3da269f265fc042307707d13ce7be0a2":[0,4,27],
+"group__Spice.html#ga4f205815708e303f060b016040e999fd":[0,4,30],
+"group__Spice.html#ga5e731824b990e410fb69e97f5f05c283":[0,4,12],
+"group__Spice.html#ga627c43ef632cc13d3e38a11ff1c80254":[0,4,25],
+"group__Spice.html#ga681668a99acdec72888a3ee355098016":[0,4,19],
 "group__Spice.html#ga69e7485a9fbd13916ae87dbf0ba84562":[0,4,13],
 "group__Spice.html#ga70544ad5025e6d1ee6668980a7ec6230":[0,4,7],
 "group__Spice.html#ga7106a408072e99f310464bc658ebe97b":[0,4,17],
@@ -237,17 +249,5 @@ var NAVTREEINDEX44 =
 "group__Util.html#ga75786b46ce252581da311ea10ff4b4de":[0,5,88],
 "group__Util.html#ga7785d6a64232e34651ecaec0cde69a8f":[0,5,121],
 "group__Util.html#ga77fdcb17fe2f5bf4506f1f136b81f282":[0,5,41],
-"group__Util.html#ga7b6eb7fa357350369f89241923950cfa":[0,5,103],
-"group__Util.html#ga7e00280abead50a84a7936020a69becf":[0,5,105],
-"group__Util.html#ga7f91f9bb3dc51eb0cfd91dd198b34442":[0,5,70],
-"group__Util.html#ga804f6d3f802ef012e8ace2bbe53b5a21":[0,5,55],
-"group__Util.html#ga8097fe65924ebf1023138deae089104f":[0,5,72],
-"group__Util.html#ga80bae9c095d582a2ffbc02799cddd479":[0,5,80],
-"group__Util.html#ga81933df01c4a0ba8fb026b7930d784d9":[0,5,74],
-"group__Util.html#ga820cdafe9d38c66c5c0736d429aafabd":[0,5,46],
-"group__Util.html#ga87fa556b51c766a874cf0fc0c5e44aa3":[0,5,75],
-"group__Util.html#ga8831f3e788e7c120569b0c8f00004ebf":[0,5,28],
-"group__Util.html#ga8b6e0d3d48e47d41c7e99985516db647":[0,5,78],
-"group__Util.html#ga8bb207af54387944b2970f3ecf2d807b":[0,5,152],
-"group__Util.html#ga8c5a3bfe9a81264c8a6adcc2414e656c":[0,5,114]
+"group__Util.html#ga7b6eb7fa357350369f89241923950cfa":[0,5,103]
 };

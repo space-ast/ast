@@ -1,5 +1,7 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1LaunchVehicle.html":[2,0,0,328],
+"classast_1_1LaunchVehicle.html":[3,0,0,328],
 "classast_1_1LeapSecond.html":[0,1,1,5],
 "classast_1_1LeapSecond.html#a030750dddb4439f74d77bb92a6b03fb8":[0,1,1,5,8],
 "classast_1_1LeapSecond.html#a0869c7b20b055c0c48c151a9eca4df2a":[0,1,1,5,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1MotionBallistic.html#adad179d613a867b36f24546555390568":[3,0,0,356,3],
 "classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350":[2,0,0,356,0],
 "classast_1_1MotionBallistic.html#af24c507519b810053ada3810dbe68350":[3,0,0,356,0],
-"classast_1_1MotionBallistic.html#af37804949f155745bba2ca9f5df5cd7b":[2,0,0,356,7],
-"classast_1_1MotionBallistic.html#af37804949f155745bba2ca9f5df5cd7b":[3,0,0,356,7],
-"classast_1_1MotionExternalEphemeris.html":[2,0,0,357]
+"classast_1_1MotionBallistic.html#af37804949f155745bba2ca9f5df5cd7b":[2,0,0,356,7]
 };

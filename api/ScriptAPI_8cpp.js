@@ -5,6 +5,7 @@ var ScriptAPI_8cpp =
     [ "aDoOpUnary", "ScriptAPI_8cpp.html#gab7e01854fa89a4c791ef2c484456dabf", null ],
     [ "aEval", "ScriptAPI_8cpp.html#gab42f85d7f686fd2bbad62d5b6822ae71", null ],
     [ "aEvalExpr", "ScriptAPI_8cpp.html#gac9d41ab879b941bfa59ad019006bcd68", null ],
+    [ "aExec", "ScriptAPI_8cpp.html#gaa9bda6906c41388b8eb4cb2d7ab6bf6d", null ],
     [ "aFormatExpr", "ScriptAPI_8cpp.html#ga6f5a26b872af56f51ef85ad14212b403", null ],
     [ "aGetIterateFunc", "ScriptAPI_8cpp.html#gad05e74e139af3f4062abad46a8347fec", null ],
     [ "aGetOpUnaryFunc", "ScriptAPI_8cpp.html#gad03b47ed257c6676b82be3bd91bcebe2", null ],

@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"classast_1_1RotationalData.html#a751b9b138b1e4b2e2131ea7a5671cf81":[0,1,6,9,10],
+"classast_1_1RotationalData.html#a8f3a713383752955b620a7e8246d9f25":[0,1,6,9,1],
 "classast_1_1RotationalData.html#a9fd1934f4a84de53f775eff4bea83133":[0,1,6,9,7],
 "classast_1_1RotationalData.html#aa3f2af2ba353bfcf94cb2fe3d2832f82":[0,1,6,9,4],
 "classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f":[0,1,6,9,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "classast_1_1ScStateCalcMaximumValue.html":[3,0,0,613],
 "classast_1_1ScStateCalcMeanAnomaly.html":[2,0,0,616],
 "classast_1_1ScStateCalcMeanAnomaly.html":[3,0,0,616],
-"classast_1_1ScStateCalcMeanEarthLon.html":[2,0,0,617],
-"classast_1_1ScStateCalcMeanEarthLon.html":[3,0,0,617],
-"classast_1_1ScStateCalcMeanEclipticLon.html":[2,0,0,618]
+"classast_1_1ScStateCalcMeanEarthLon.html":[2,0,0,617]
 };

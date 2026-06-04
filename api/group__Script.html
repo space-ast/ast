@@ -347,6 +347,8 @@ typedef <a class="el" href="classast_1_1Value.html">Value</a> *(*&#160;</td><td 
 <tr class="separator:gabd53b801eb96bf7a645dfee7a8e43252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga86f4499fefac867091417d8a75fa54c3" id="r_ga86f4499fefac867091417d8a75fa54c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga86f4499fefac867091417d8a75fa54c3">ast::aParseExpr</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
 <tr class="separator:ga86f4499fefac867091417d8a75fa54c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9bda6906c41388b8eb4cb2d7ab6bf6d" id="r_gaa9bda6906c41388b8eb4cb2d7ab6bf6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa9bda6906c41388b8eb4cb2d7ab6bf6d">ast::aExec</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
+<tr class="separator:gaa9bda6906c41388b8eb4cb2d7ab6bf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab42f85d7f686fd2bbad62d5b6822ae71" id="r_gab42f85d7f686fd2bbad62d5b6822ae71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab42f85d7f686fd2bbad62d5b6822ae71">ast::aEval</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> script)</td></tr>
 <tr class="separator:gab42f85d7f686fd2bbad62d5b6822ae71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac9d41ab879b941bfa59ad019006bcd68" id="r_gac9d41ab879b941bfa59ad019006bcd68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac9d41ab879b941bfa59ad019006bcd68">ast::aEvalExpr</a> (<a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
@@ -779,7 +781,7 @@ template&lt;typename T &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>执行脚本表达式 </p>
+<p>对脚本表达式求值 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">script</td><td>脚本文本 </td></tr>
@@ -787,7 +789,7 @@ template&lt;typename T &gt; </td></tr>
   </dd>
 </dl>
 <dl class="section warning"><dt>警告</dt><dd>返回的 <code>Value*</code> 指针由调用者拥有，需要管理其生命周期 </dd></dl>
-<dl class="section return"><dt>返回</dt><dd>表达式执行结果 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>表达式求值结果 </dd></dl>
 
 </div>
 </div>
@@ -806,7 +808,7 @@ template&lt;typename T &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>执行表达式 </p>
+<p>对表达式求值 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">expr</td><td>表达式对象 </td></tr>
@@ -814,7 +816,33 @@ template&lt;typename T &gt; </td></tr>
   </dd>
 </dl>
 <dl class="section warning"><dt>警告</dt><dd>返回的 <code>Value*</code> 指针由调用者拥有，需要管理其生命周期 </dd></dl>
-<dl class="section return"><dt>返回</dt><dd>表达式执行结果 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>表达式求值结果 </dd></dl>
+
+</div>
+</div>
+<a id="gaa9bda6906c41388b8eb4cb2d7ab6bf6d" name="gaa9bda6906c41388b8eb4cb2d7ab6bf6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa9bda6906c41388b8eb4cb2d7ab6bf6d">&#9670;&#160;</a></span>aExec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SCRIPT_CAPI <a class="el" href="classast_1_1Expr.html">Expr</a> * ast::aExec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>script</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对脚本表达式进行预执行/宏展开/编译期求值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">script</td><td>脚本文本 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>表达式对象 </dd></dl>
 
 </div>
 </div>
