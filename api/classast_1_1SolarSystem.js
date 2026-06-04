@@ -20,7 +20,7 @@ var classast_1_1SolarSystem =
     [ "getSun", "classast_1_1SolarSystem.html#af6350a447e1fbe7fcc6def88f9f965a9", null ],
     [ "getUranus", "classast_1_1SolarSystem.html#af41e3aea49eec17b6722c835fa2f2f33", null ],
     [ "getVenus", "classast_1_1SolarSystem.html#a796578409b03498296d2cd06aa8adedc", null ],
-    [ "init", "classast_1_1SolarSystem.html#adf0f60d31d769b957dbe1a193df19eca", null ],
+    [ "initPredefined", "classast_1_1SolarSystem.html#ab6d175c897cb435a9429eee76aee9ffe", null ],
     [ "load", "classast_1_1SolarSystem.html#ab1fe753d2995894793fe57707c2f942e", null ],
     [ "loadDefault", "classast_1_1SolarSystem.html#a12b141fb28691a7bf2e0a4f0718c94ed", null ],
     [ "loadPCK", "classast_1_1SolarSystem.html#a98a773e8b420329fb012b595527f4694", null ],

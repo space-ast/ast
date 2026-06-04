@@ -108,6 +108,17 @@ $(function(){initNavTree('classast_1_1SymbolScope.html',''); initResizable(true)
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="SymbolScope_8hpp_source.html">SymbolScope.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::SymbolScope 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1SymbolScope.png" usemap="#ast::SymbolScope_map" alt=""/>
+  <map id="ast::SymbolScope_map" name="ast::SymbolScope_map">
+<area href="classast_1_1ISymbolScope.html" alt="ast::ISymbolScope" shape="rect" coords="0,0,114,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public 类型</h2></td></tr>
@@ -128,16 +139,16 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a7f5833fd92c32ceda4367e1114d8f8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dc569a8b55eb4c73f0bbb7dec314a51" id="r_a5dc569a8b55eb4c73f0bbb7dec314a51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dc569a8b55eb4c73f0bbb7dec314a51">SymbolScope</a> (<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *<a class="el" href="#a39e16d6b36f9bb4bed98b06c559e11b1">parent</a>)</td></tr>
 <tr class="separator:a5dc569a8b55eb4c73f0bbb7dec314a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f46c7942f316e9411feb9e1413d956" id="r_aa0f46c7942f316e9411feb9e1413d956"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0f46c7942f316e9411feb9e1413d956">addSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
-<tr class="separator:aa0f46c7942f316e9411feb9e1413d956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee0137a89799ae22ed76d2bf7e5d8993" id="r_aee0137a89799ae22ed76d2bf7e5d8993"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee0137a89799ae22ed76d2bf7e5d8993">addSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr) override</td></tr>
+<tr class="separator:aee0137a89799ae22ed76d2bf7e5d8993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9445e6ce2085b62e5a75fac32b615f0" id="r_af9445e6ce2085b62e5a75fac32b615f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9445e6ce2085b62e5a75fac32b615f0">findSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool searchParent=true) const override</td></tr>
+<tr class="separator:af9445e6ce2085b62e5a75fac32b615f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10dc89e1d4f1b1105c5c770b40a9ad02" id="r_a10dc89e1d4f1b1105c5c770b40a9ad02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10dc89e1d4f1b1105c5c770b40a9ad02">resolveSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) override</td></tr>
+<tr class="separator:a10dc89e1d4f1b1105c5c770b40a9ad02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94673f3b516b5af9dec3c97d24e7f474" id="r_a94673f3b516b5af9dec3c97d24e7f474"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94673f3b516b5af9dec3c97d24e7f474">setSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr)</td></tr>
 <tr class="separator:a94673f3b516b5af9dec3c97d24e7f474"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abba343d08da6f64c56978b4be89d1c4c" id="r_abba343d08da6f64c56978b4be89d1c4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba343d08da6f64c56978b4be89d1c4c">findSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool searchParent=true) const</td></tr>
-<tr class="separator:abba343d08da6f64c56978b4be89d1c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e138777d10e10510eccd3f3dc6424a" id="r_a73e138777d10e10510eccd3f3dc6424a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Expr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73e138777d10e10510eccd3f3dc6424a">resolveSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="separator:a73e138777d10e10510eccd3f3dc6424a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6ea36911efe9da67ddde29274f86aef" id="r_ab6ea36911efe9da67ddde29274f86aef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6ea36911efe9da67ddde29274f86aef">removeSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="separator:ab6ea36911efe9da67ddde29274f86aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c44acdd97f1b87003944c97693f66a8" id="r_a5c44acdd97f1b87003944c97693f66a8"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c44acdd97f1b87003944c97693f66a8">removeSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:a5c44acdd97f1b87003944c97693f66a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d9d72d99a3ec8ada91b8fcece99590" id="r_a87d9d72d99a3ec8ada91b8fcece99590"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87d9d72d99a3ec8ada91b8fcece99590">hasSymbol</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool searchParent=true) const</td></tr>
 <tr class="separator:a87d9d72d99a3ec8ada91b8fcece99590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bf19d25e15952b5107ef39a1090113f" id="r_a1bf19d25e15952b5107ef39a1090113f"><td class="memItemLeft" align="right" valign="top">SymbolList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bf19d25e15952b5107ef39a1090113f">getSymbols</a> () const</td></tr>
@@ -146,6 +157,7 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a39e16d6b36f9bb4bed98b06c559e11b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2502fb53c3b6c287634b48cbff274030" id="r_a2502fb53c3b6c287634b48cbff274030"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2502fb53c3b6c287634b48cbff274030">setParent</a> (<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *<a class="el" href="#a39e16d6b36f9bb4bed98b06c559e11b1">parent</a>)</td></tr>
 <tr class="separator:a2502fb53c3b6c287634b48cbff274030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ISymbolScope"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ISymbolScope')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ISymbolScope.html">ast::ISymbolScope</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
@@ -195,14 +207,17 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="aa0f46c7942f316e9411feb9e1413d956" name="aa0f46c7942f316e9411feb9e1413d956"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0f46c7942f316e9411feb9e1413d956">&#9670;&#160;</a></span>addSymbol()</h2>
+<a id="aee0137a89799ae22ed76d2bf7e5d8993" name="aee0137a89799ae22ed76d2bf7e5d8993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee0137a89799ae22ed76d2bf7e5d8993">&#9670;&#160;</a></span>addSymbol()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ast::SymbolScope::addSymbol </td>
+          <td class="memname">errc_t ast::SymbolScope::addSymbol </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
@@ -212,6 +227,11 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
           <td class="paramtype"><a class="el" href="classast_1_1Expr.html">Expr</a> *</td>          <td class="paramname"><span class="paramname"><em>expr</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>添加符号到符号作用域 </p>
@@ -222,15 +242,20 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>是否添加成功（如果符号已存在则返回false） </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1ISymbolScope.html#add5994f23da4074e552d3cfc1465a636">ast::ISymbolScope</a>.</p>
 
 </div>
 </div>
-<a id="abba343d08da6f64c56978b4be89d1c4c" name="abba343d08da6f64c56978b4be89d1c4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abba343d08da6f64c56978b4be89d1c4c">&#9670;&#160;</a></span>findSymbol()</h2>
+<a id="af9445e6ce2085b62e5a75fac32b615f0" name="af9445e6ce2085b62e5a75fac32b615f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9445e6ce2085b62e5a75fac32b615f0">&#9670;&#160;</a></span>findSymbol()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::SymbolScope::findSymbol </td>
@@ -243,6 +268,11 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>searchParent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;) const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>查找符号作用域中的符号 </p>
@@ -254,6 +284,8 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>符号对应的表达式，如果不存在则返回nullptr </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1ISymbolScope.html#a6e4223a0bec63a612d3a86de62dff871">ast::ISymbolScope</a>.</p>
 
 </div>
 </div>
@@ -328,14 +360,14 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
 
 </div>
 </div>
-<a id="ab6ea36911efe9da67ddde29274f86aef" name="ab6ea36911efe9da67ddde29274f86aef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6ea36911efe9da67ddde29274f86aef">&#9670;&#160;</a></span>removeSymbol()</h2>
+<a id="a5c44acdd97f1b87003944c97693f66a8" name="a5c44acdd97f1b87003944c97693f66a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c44acdd97f1b87003944c97693f66a8">&#9670;&#160;</a></span>removeSymbol()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ast::SymbolScope::removeSymbol </td>
+          <td class="memname">errc_t ast::SymbolScope::removeSymbol </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
@@ -354,11 +386,14 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
 
 </div>
 </div>
-<a id="a73e138777d10e10510eccd3f3dc6424a" name="a73e138777d10e10510eccd3f3dc6424a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73e138777d10e10510eccd3f3dc6424a">&#9670;&#160;</a></span>resolveSymbol()</h2>
+<a id="a10dc89e1d4f1b1105c5c770b40a9ad02" name="a10dc89e1d4f1b1105c5c770b40a9ad02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10dc89e1d4f1b1105c5c770b40a9ad02">&#9670;&#160;</a></span>resolveSymbol()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classast_1_1Expr.html">Expr</a> * ast::SymbolScope::resolveSymbol </td>
@@ -367,6 +402,11 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>解析符号作用域中的符号，如果不存在则创建一个新的变量 </p>
@@ -377,6 +417,8 @@ SymbolMap&#160;</td><td class="memItemRight" valign="bottom"><b>symbols_</b></td
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>符号对应的表达式指针 </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1ISymbolScope.html#acb1d9f187e98690fbae48f3be5ccef08">ast::ISymbolScope</a>.</p>
 
 </div>
 </div>

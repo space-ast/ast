@@ -10,7 +10,7 @@ var dir_71985df19590ad31a175886a7620fbe9 =
     [ "StackFrame.cpp", "StackFrame_8cpp.html", null ],
     [ "StackFrame.hpp", "StackFrame_8hpp.html", null ],
     [ "SymbolScope.cpp", "SymbolScope_8cpp.html", null ],
-    [ "SymbolScope.hpp", "SymbolScope_8hpp.html", null ],
+    [ "SymbolScope.hpp", "SymbolScope_8hpp.html", "SymbolScope_8hpp" ],
     [ "SymbolTable.cpp", "SymbolTable_8cpp.html", null ],
     [ "SymbolTable.hpp", "SymbolTable_8hpp.html", null ]
 ];

@@ -18,8 +18,8 @@ var hierarchy =
     [ "ast::detail::arg_pair< Pos, T >", "structast_1_1detail_1_1arg__pair.html", null ],
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
-    [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
-    [ "ast::AttributeBasic< WeakPtr< Object >, Property >", "classast_1_1AttributeBasic.html", null ],
+    [ "ast::AttributeBasic< ObjectType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
+    [ "ast::AttributeBasic< Object, Property >", "classast_1_1AttributeBasic.html", null ],
     [ "AVector3d", "structAVector3d.html", null ],
     [ "matplot::backend::backend_interface", null, [
       [ "ast::QwtBackend", "classast_1_1QwtBackend.html", null ]
@@ -339,6 +339,9 @@ var hierarchy =
     ] ],
     [ "ast::is_callable< F, Args >", "structast_1_1is__callable.html", null ],
     [ "ast::math::is_vector_like< T >", "structast_1_1math_1_1is__vector__like.html", null ],
+    [ "ast::ISymbolScope", "classast_1_1ISymbolScope.html", [
+      [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ]
+    ] ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ],
     [ "ast::TimeInterval::DiscreteEpochSecondRange::iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange::iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ],
@@ -935,6 +938,9 @@ var hierarchy =
         [ "ast::Class", "classast_1_1Class.html", null ]
       ] ]
     ] ],
+    [ "ast::object_ptr_holder< ObjectType >", "structast_1_1object__ptr__holder.html", null ],
+    [ "ast::object_ptr_holder< Object >", "structast_1_1object__ptr__holder_3_01Object_01_4.html", null ],
+    [ "ast::object_ptr_holder< object_type >", "structast_1_1object__ptr__holder.html", null ],
     [ "ast::ObjectEditRegistry", "classast_1_1ObjectEditRegistry.html", null ],
     [ "ast::ObjectLinker", "classast_1_1ObjectLinker.html", [
       [ "ast::ObjectLinkerGeneric< Func >", "classast_1_1ObjectLinkerGeneric.html", null ]
@@ -997,7 +1003,6 @@ var hierarchy =
     [ "ast::PropertyVisitor", "classast_1_1PropertyVisitor.html", null ],
     [ "ast::PythonAPI", "classast_1_1PythonAPI.html", null ],
     [ "QDialog", null, [
-      [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
       [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
     ] ],
     [ "QDockWidget", null, [
@@ -1042,6 +1047,7 @@ var hierarchy =
       [ "ast::UiAnalyzerVariableList", "classast_1_1UiAnalyzerVariableList.html", null ],
       [ "ast::UiBasicAnalyzer", "classast_1_1UiBasicAnalyzer.html", null ],
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
+      [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
       [ "ast::UiODEIntegratorEditor", "classast_1_1UiODEIntegratorEditor.html", null ],
       [ "ast::UiObject", "classast_1_1UiObject.html", [
@@ -1201,7 +1207,6 @@ var hierarchy =
     [ "Qwt3D::SurfacePlot", null, [
       [ "ast::ColoredSurfacePlot", "classast_1_1ColoredSurfacePlot.html", null ]
     ] ],
-    [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ],
     [ "ast::SymbolTable", "classast_1_1SymbolTable.html", null ],
     [ "std::system_error", null, [
       [ "ast::fs_simple::filesystem_error", "classast_1_1fs__simple_1_1filesystem__error.html", null ]
@@ -1277,7 +1282,6 @@ var hierarchy =
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpacecraftState >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpaceObject >", "classast_1_1WeakPtr.html", null ],
-    [ "ast::WeakPtr< Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],
     [ "ast::XMLNode", "classast_1_1XMLNode.html", null ],

@@ -1,5 +1,9 @@
 var NAVTREEINDEX16 =
 {
+"classast_1_1BaseOrbitDesigner.html#ab82f58afe9a01ffe9b46e1cf55d685bb":[0,1,4,1,10],
+"classast_1_1BaseOrbitDesigner.html#ad2b6be4ce44a90fc430fa82f2f184895":[0,1,4,1,7],
+"classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9":[0,1,4,1,9],
+"classast_1_1BaseOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,1,6],
 "classast_1_1BaseOrbitDesigner.html#af176d9785645bd34d983c3c5fb60ce5f":[0,1,4,1,3],
 "classast_1_1BaseParser.html":[0,5,1,0],
 "classast_1_1BaseParser.html#a0ffc6e1ebca53ddfe3f0b78dd6dd8307":[0,5,1,0,14],
@@ -245,9 +249,5 @@ var NAVTREEINDEX16 =
 "classast_1_1BlockTwoBody.html":[2,0,0,77],
 "classast_1_1BlockTwoBody.html":[3,0,0,77],
 "classast_1_1BlockTwoBody.html#a44460956126aa6a618f0988572b37ff7":[2,0,0,77,0],
-"classast_1_1BlockTwoBody.html#a44460956126aa6a618f0988572b37ff7":[3,0,0,77,0],
-"classast_1_1BlockUnaryMinus.html":[2,0,0,78],
-"classast_1_1BlockUnaryMinus.html":[3,0,0,78],
-"classast_1_1BlockUnaryMinus.html#a0e3a1e39fe0575e8f00ebec1d4f42a63":[2,0,0,78,0],
-"classast_1_1BlockUnaryMinus.html#a0e3a1e39fe0575e8f00ebec1d4f42a63":[3,0,0,78,0]
+"classast_1_1BlockTwoBody.html#a44460956126aa6a618f0988572b37ff7":[3,0,0,77,0]
 };

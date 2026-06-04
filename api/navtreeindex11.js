@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcSTMVelYVelX_8cpp.html":[4,0,0,7,6,1,0,3,6],
+"ScStateCalcSTMVelYVelX_8hpp.html":[4,0,0,7,6,1,0,3,7],
 "ScStateCalcSTMVelYVelX_8hpp_source.html":[4,0,0,7,6,1,0,3,7],
 "ScStateCalcSTMVelYVelY_8cpp.html":[4,0,0,7,6,1,0,3,8],
 "ScStateCalcSTMVelYVelY_8hpp.html":[4,0,0,7,6,1,0,3,9],
@@ -150,7 +152,7 @@ var NAVTREEINDEX11 =
 "ScriptAPI_8hpp.html":[4,0,0,16,0,4],
 "ScriptAPI_8hpp_source.html":[4,0,0,16,0,4],
 "ScriptContext_8cpp.html":[4,0,0,16,5,5],
-"ScriptContext_8cpp.html#ae925f90bea37fb658e31bad362e5e55d":[4,0,0,16,5,5,13],
+"ScriptContext_8cpp.html#ae925f90bea37fb658e31bad362e5e55d":[4,0,0,16,5,5,14],
 "ScriptContext_8hpp.html":[4,0,0,16,5,6],
 "ScriptContext_8hpp_source.html":[4,0,0,16,5,6],
 "ScriptExecutor_8cpp.html":[4,0,0,16,3,0,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "ShooterControlLoader_8hpp_source.html":[4,0,0,10,0,2,0,4],
 "ShooterControl_8cpp.html":[4,0,0,7,6,3,0,5],
 "ShooterControl_8hpp.html":[4,0,0,7,6,3,0,6],
-"ShooterControl_8hpp_source.html":[4,0,0,7,6,3,0,6],
-"ShooterResultLoader_8cpp.html":[4,0,0,10,0,2,0,5],
-"ShooterResultLoader_8cpp.html#a3dae0a593bef87c78127adf939670753":[4,0,0,10,0,2,0,5,0]
+"ShooterControl_8hpp_source.html":[4,0,0,7,6,3,0,6]
 };

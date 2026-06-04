@@ -17,7 +17,10 @@ var group__RTTI =
     ] ],
     [ "ast::ClonePtr< T >", "classast_1_1ClonePtr.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
-    [ "ast::AttributeBasic< ObjectPtrType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
+    [ "ast::AttributeBasic< ObjectType, PropertyType >", "classast_1_1AttributeBasic.html", [
+      [ "object", "classast_1_1AttributeBasic.html#a60806045117ed7b2c0f01ffd7db5f74d", null ],
+      [ "property", "classast_1_1AttributeBasic.html#a9d5c09a4dd620ab0c9ae659c9f6eeb87", null ]
+    ] ],
     [ "ast::initial_strong_ref_t", "structast_1_1initial__strong__ref__t.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
       [ "Object", "classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578", null ],

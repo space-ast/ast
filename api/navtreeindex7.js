@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"NLESolver_8hpp_source.html":[4,0,0,14,8],
+"NLE_8hpp.html":[4,0,0,11,4,1],
 "NLE_8hpp_source.html":[4,0,0,11,4,1],
 "NLPIpoptSolver_8cpp.html":[4,0,0,14,9],
 "NLPIpoptSolver_8hpp.html":[4,0,0,14,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "PlanetPoint_8hpp_source.html":[4,0,0,7,2,2,13],
 "Planet_8cpp.html":[4,0,0,17,3,40],
 "Planet_8hpp.html":[4,0,0,17,3,41],
-"Planet_8hpp_source.html":[4,0,0,17,3,41],
-"Platform_8cpp.html":[4,0,0,20,5,19],
-"Platform_8hpp.html":[4,0,0,20,5,20]
+"Planet_8hpp_source.html":[4,0,0,17,3,41]
 };

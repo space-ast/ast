@@ -110,8 +110,10 @@ $(function(){initNavTree('classast_1_1Interpreter.html',''); initResizable(true)
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a0772639e1ca5d4dfca4c39ffd38bbb2b" id="r_a0772639e1ca5d4dfca4c39ffd38bbb2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0772639e1ca5d4dfca4c39ffd38bbb2b">currentScope</a> ()</td></tr>
-<tr class="separator:a0772639e1ca5d4dfca4c39ffd38bbb2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a98a6cfa3693c1ea74178fa410599c" id="r_a57a98a6cfa3693c1ea74178fa410599c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57a98a6cfa3693c1ea74178fa410599c">Interpreter</a> (<a class="el" href="classast_1_1ISymbolScope.html">ISymbolScope</a> *symbolScope)</td></tr>
+<tr class="separator:a57a98a6cfa3693c1ea74178fa410599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a396704237e843e0b09de937b34931b" id="r_a7a396704237e843e0b09de937b34931b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ISymbolScope.html">ISymbolScope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a396704237e843e0b09de937b34931b">currentScope</a> ()</td></tr>
+<tr class="separator:a7a396704237e843e0b09de937b34931b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31544cc4e59d5e420a2d61dd86ab3cd9" id="r_a31544cc4e59d5e420a2d61dd86ab3cd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31544cc4e59d5e420a2d61dd86ab3cd9">interpret</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> code)</td></tr>
 <tr class="separator:a31544cc4e59d5e420a2d61dd86ab3cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfd249ae449283f68748420fd27544e" id="r_a7cfd249ae449283f68748420fd27544e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cfd249ae449283f68748420fd27544e">errString</a> () const</td></tr>
@@ -123,9 +125,9 @@ Public 成员函数</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
-<tr class="memitem:aa106735b22fc35d4d07fee94caa42989" id="r_aa106735b22fc35d4d07fee94caa42989"><td class="memItemLeft" align="right" valign="top"><a id="aa106735b22fc35d4d07fee94caa42989" name="aa106735b22fc35d4d07fee94caa42989"></a>
-<a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a>&#160;</td><td class="memItemRight" valign="bottom"><b>symbolScope_</b></td></tr>
-<tr class="separator:aa106735b22fc35d4d07fee94caa42989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179503b57785a8c989968fd439935e5c" id="r_a179503b57785a8c989968fd439935e5c"><td class="memItemLeft" align="right" valign="top"><a id="a179503b57785a8c989968fd439935e5c" name="a179503b57785a8c989968fd439935e5c"></a>
+std::unique_ptr&lt; <a class="el" href="classast_1_1ISymbolScope.html">ISymbolScope</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>symbolScope_</b></td></tr>
+<tr class="separator:a179503b57785a8c989968fd439935e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d7a5b673c762bf5dc91fd1b79005167" id="r_a5d7a5b673c762bf5dc91fd1b79005167"><td class="memItemLeft" align="right" valign="top"><a id="a5d7a5b673c762bf5dc91fd1b79005167" name="a5d7a5b673c762bf5dc91fd1b79005167"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>errString_</b></td></tr>
 <tr class="separator:a5d7a5b673c762bf5dc91fd1b79005167"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +135,34 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>errString_</b>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>解释器 </p>
 <p>解释器用于解释执行脚本中的代码。 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a57a98a6cfa3693c1ea74178fa410599c" name="a57a98a6cfa3693c1ea74178fa410599c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a98a6cfa3693c1ea74178fa410599c">&#9670;&#160;</a></span>Interpreter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::Interpreter::Interpreter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ISymbolScope.html">ISymbolScope</a> *</td>          <td class="paramname"><span class="paramname"><em>symbolScope</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>构造函数，指定外部符号作用域 </p>
+<dl class="section warning"><dt>警告</dt><dd>该构造函数会获得symbolScope所有权，调用者无需释放symbolScope， 传入栈对象或共享对象将导致未定义行为 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">symbolScope</td><td>符号作用域指针（所有权转移） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
 <a id="a145d9bc69a2f6b41de63774075cb0d15" name="a145d9bc69a2f6b41de63774075cb0d15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a145d9bc69a2f6b41de63774075cb0d15">&#9670;&#160;</a></span>clearErrString()</h2>
 
@@ -162,8 +191,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>errString_</b>
 
 </div>
 </div>
-<a id="a0772639e1ca5d4dfca4c39ffd38bbb2b" name="a0772639e1ca5d4dfca4c39ffd38bbb2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0772639e1ca5d4dfca4c39ffd38bbb2b">&#9670;&#160;</a></span>currentScope()</h2>
+<a id="a7a396704237e843e0b09de937b34931b" name="a7a396704237e843e0b09de937b34931b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a396704237e843e0b09de937b34931b">&#9670;&#160;</a></span>currentScope()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +201,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>errString_</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classast_1_1SymbolScope.html">SymbolScope</a> * ast::Interpreter::currentScope </td>
+          <td class="memname"><a class="el" href="classast_1_1ISymbolScope.html">ISymbolScope</a> * ast::Interpreter::currentScope </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: ast::AttributeBasic&lt; ObjectPtrType, PropertyType &gt; 模板类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::AttributeBasic&lt; ObjectType, PropertyType &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,119 +99,138 @@ $(function(){initNavTree('classast_1_1AttributeBasic.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1AttributeBasic-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::AttributeBasic&lt; ObjectPtrType, PropertyType &gt; 模板类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__RTTI.html">运行时类型信息</a></div></div></div>
+  <div class="headertitle"><div class="title">ast::AttributeBasic&lt; ObjectType, PropertyType &gt; 模板类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__RTTI.html">运行时类型信息</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="Attribute_8hpp_source.html">Attribute.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a80e86c0149646cfdc554492585c904a0" id="r_a80e86c0149646cfdc554492585c904a0"><td class="memItemLeft" align="right" valign="top"><a id="a80e86c0149646cfdc554492585c904a0" name="a80e86c0149646cfdc554492585c904a0"></a>
+typedef ObjectType&#160;</td><td class="memItemRight" valign="bottom"><b>object_type</b></td></tr>
+<tr class="separator:a80e86c0149646cfdc554492585c904a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3930c2687372b3949b801db15511915b" id="r_a3930c2687372b3949b801db15511915b"><td class="memItemLeft" align="right" valign="top"><a id="a3930c2687372b3949b801db15511915b" name="a3930c2687372b3949b801db15511915b"></a>
+typedef PropertyType&#160;</td><td class="memItemRight" valign="bottom"><b>property_type</b></td></tr>
+<tr class="separator:a3930c2687372b3949b801db15511915b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2969563e4c7e847b0444a2b7b6fe16" id="r_a5f2969563e4c7e847b0444a2b7b6fe16"><td class="memItemLeft" align="right" valign="top"><a id="a5f2969563e4c7e847b0444a2b7b6fe16" name="a5f2969563e4c7e847b0444a2b7b6fe16"></a>
+typedef <a class="el" href="structast_1_1object__ptr__holder.html">object_ptr_holder</a>&lt; object_type &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>object_ptr_holder_type</b></td></tr>
+<tr class="separator:a5f2969563e4c7e847b0444a2b7b6fe16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a3113dfa35403695fca6348a3e47d51bc" id="r_a3113dfa35403695fca6348a3e47d51bc"><td class="memItemLeft" align="right" valign="top"><a id="a3113dfa35403695fca6348a3e47d51bc" name="a3113dfa35403695fca6348a3e47d51bc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AttributeBasic</b> (ObjectPtrType object, PropertyType *property)</td></tr>
-<tr class="separator:a3113dfa35403695fca6348a3e47d51bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f621bdafd686c7ab68b30bacae7256" id="r_ac4f621bdafd686c7ab68b30bacae7256"><td class="memItemLeft" align="right" valign="top"><a id="ac4f621bdafd686c7ab68b30bacae7256" name="ac4f621bdafd686c7ab68b30bacae7256"></a>
+<tr class="memitem:a37101dbc2190e1a86ff02a711f78e0dc" id="r_a37101dbc2190e1a86ff02a711f78e0dc"><td class="memItemLeft" align="right" valign="top"><a id="a37101dbc2190e1a86ff02a711f78e0dc" name="a37101dbc2190e1a86ff02a711f78e0dc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AttributeBasic</b> (ObjectType *<a class="el" href="#a60806045117ed7b2c0f01ffd7db5f74d">object</a>, PropertyType *<a class="el" href="#a9d5c09a4dd620ab0c9ae659c9f6eeb87">property</a>)</td></tr>
+<tr class="separator:a37101dbc2190e1a86ff02a711f78e0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af56141817875c3772e5f034a4e981f87" id="r_af56141817875c3772e5f034a4e981f87"><td class="memItemLeft" align="right" valign="top"><a id="af56141817875c3772e5f034a4e981f87" name="af56141817875c3772e5f034a4e981f87"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValid</b> () const</td></tr>
-<tr class="separator:ac4f621bdafd686c7ab68b30bacae7256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fd6a525a60ecb4b3d1aea75c55cd3d0" id="r_a8fd6a525a60ecb4b3d1aea75c55cd3d0"><td class="memItemLeft" align="right" valign="top"><a id="a8fd6a525a60ecb4b3d1aea75c55cd3d0" name="a8fd6a525a60ecb4b3d1aea75c55cd3d0"></a>
+<tr class="separator:af56141817875c3772e5f034a4e981f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60806045117ed7b2c0f01ffd7db5f74d" id="r_a60806045117ed7b2c0f01ffd7db5f74d"><td class="memItemLeft" align="right" valign="top"><a id="a60806045117ed7b2c0f01ffd7db5f74d" name="a60806045117ed7b2c0f01ffd7db5f74d"></a>
+object_type *&#160;</td><td class="memItemRight" valign="bottom"><b>object</b> () const</td></tr>
+<tr class="separator:a60806045117ed7b2c0f01ffd7db5f74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5c09a4dd620ab0c9ae659c9f6eeb87" id="r_a9d5c09a4dd620ab0c9ae659c9f6eeb87"><td class="memItemLeft" align="right" valign="top"><a id="a9d5c09a4dd620ab0c9ae659c9f6eeb87" name="a9d5c09a4dd620ab0c9ae659c9f6eeb87"></a>
+property_type *&#160;</td><td class="memItemRight" valign="bottom"><b>property</b> () const</td></tr>
+<tr class="separator:a9d5c09a4dd620ab0c9ae659c9f6eeb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce7abe3b06166374ff47896e1a158c2" id="r_a6ce7abe3b06166374ff47896e1a158c2"><td class="memItemLeft" align="right" valign="top"><a id="a6ce7abe3b06166374ff47896e1a158c2" name="a6ce7abe3b06166374ff47896e1a158c2"></a>
 <a class="el" href="group__RTTI.html#gab1de86ab568b3c12ac0a28cb2d5dda9a">EValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getValueType</b> () const</td></tr>
-<tr class="separator:a8fd6a525a60ecb4b3d1aea75c55cd3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ce48d8aed35a925e7c662046616484d" id="r_a2ce48d8aed35a925e7c662046616484d"><td class="memItemLeft" align="right" valign="top"><a id="a2ce48d8aed35a925e7c662046616484d" name="a2ce48d8aed35a925e7c662046616484d"></a>
+<tr class="separator:a6ce7abe3b06166374ff47896e1a158c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b02af469127cf394a922e2fb4fc97a" id="r_aa9b02af469127cf394a922e2fb4fc97a"><td class="memItemLeft" align="right" valign="top"><a id="aa9b02af469127cf394a922e2fb4fc97a" name="aa9b02af469127cf394a922e2fb4fc97a"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getValueDouble</b> (double &amp;value) const</td></tr>
-<tr class="separator:a2ce48d8aed35a925e7c662046616484d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae7026cc5d90fe51d6aca3f357008730" id="r_aae7026cc5d90fe51d6aca3f357008730"><td class="memItemLeft" align="right" valign="top"><a id="aae7026cc5d90fe51d6aca3f357008730" name="aae7026cc5d90fe51d6aca3f357008730"></a>
+<tr class="separator:aa9b02af469127cf394a922e2fb4fc97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99f3ff7760a971fcd8c92ae8cbf6380e" id="r_a99f3ff7760a971fcd8c92ae8cbf6380e"><td class="memItemLeft" align="right" valign="top"><a id="a99f3ff7760a971fcd8c92ae8cbf6380e" name="a99f3ff7760a971fcd8c92ae8cbf6380e"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setValueDouble</b> (double value)</td></tr>
-<tr class="separator:aae7026cc5d90fe51d6aca3f357008730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c573f6b8de8aa066a3410955d5ad715" id="r_a4c573f6b8de8aa066a3410955d5ad715"><td class="memItemLeft" align="right" valign="top"><a id="a4c573f6b8de8aa066a3410955d5ad715" name="a4c573f6b8de8aa066a3410955d5ad715"></a>
+<tr class="separator:a99f3ff7760a971fcd8c92ae8cbf6380e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e9c7dd228a19a768e420876c9914e1c" id="r_a3e9c7dd228a19a768e420876c9914e1c"><td class="memItemLeft" align="right" valign="top"><a id="a3e9c7dd228a19a768e420876c9914e1c" name="a3e9c7dd228a19a768e420876c9914e1c"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getValueInt</b> (int &amp;value) const</td></tr>
-<tr class="separator:a4c573f6b8de8aa066a3410955d5ad715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4790289f6759b6d2277318b117c65348" id="r_a4790289f6759b6d2277318b117c65348"><td class="memItemLeft" align="right" valign="top"><a id="a4790289f6759b6d2277318b117c65348" name="a4790289f6759b6d2277318b117c65348"></a>
+<tr class="separator:a3e9c7dd228a19a768e420876c9914e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7292a8ebd536c3b17d1f680b6276f7fc" id="r_a7292a8ebd536c3b17d1f680b6276f7fc"><td class="memItemLeft" align="right" valign="top"><a id="a7292a8ebd536c3b17d1f680b6276f7fc" name="a7292a8ebd536c3b17d1f680b6276f7fc"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setValueInt</b> (int value)</td></tr>
-<tr class="separator:a4790289f6759b6d2277318b117c65348"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a280da4f2e4110b5b5a50713e9ff1c214" id="r_a280da4f2e4110b5b5a50713e9ff1c214"><td class="memItemLeft" align="right" valign="top"><a id="a280da4f2e4110b5b5a50713e9ff1c214" name="a280da4f2e4110b5b5a50713e9ff1c214"></a>
+<tr class="separator:a7292a8ebd536c3b17d1f680b6276f7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64d4b9d2da63f3acdb564b5f504976fd" id="r_a64d4b9d2da63f3acdb564b5f504976fd"><td class="memItemLeft" align="right" valign="top"><a id="a64d4b9d2da63f3acdb564b5f504976fd" name="a64d4b9d2da63f3acdb564b5f504976fd"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getValueBool</b> (bool &amp;value) const</td></tr>
-<tr class="separator:a280da4f2e4110b5b5a50713e9ff1c214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5518fa953c1be3285f7c3e92461092" id="r_a3b5518fa953c1be3285f7c3e92461092"><td class="memItemLeft" align="right" valign="top"><a id="a3b5518fa953c1be3285f7c3e92461092" name="a3b5518fa953c1be3285f7c3e92461092"></a>
+<tr class="separator:a64d4b9d2da63f3acdb564b5f504976fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12aa9da239ed6eaaf7665cafcca82c7" id="r_ae12aa9da239ed6eaaf7665cafcca82c7"><td class="memItemLeft" align="right" valign="top"><a id="ae12aa9da239ed6eaaf7665cafcca82c7" name="ae12aa9da239ed6eaaf7665cafcca82c7"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setValueBool</b> (bool value)</td></tr>
-<tr class="separator:a3b5518fa953c1be3285f7c3e92461092"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686d08fa4fae4791e9ecd5e19e0351b3" id="r_a686d08fa4fae4791e9ecd5e19e0351b3"><td class="memItemLeft" align="right" valign="top"><a id="a686d08fa4fae4791e9ecd5e19e0351b3" name="a686d08fa4fae4791e9ecd5e19e0351b3"></a>
+<tr class="separator:ae12aa9da239ed6eaaf7665cafcca82c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e476c8f25223b36f5da34a8a3b7ec5b" id="r_a1e476c8f25223b36f5da34a8a3b7ec5b"><td class="memItemLeft" align="right" valign="top"><a id="a1e476c8f25223b36f5da34a8a3b7ec5b" name="a1e476c8f25223b36f5da34a8a3b7ec5b"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getValueString</b> (std::string &amp;value) const</td></tr>
-<tr class="separator:a686d08fa4fae4791e9ecd5e19e0351b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a072e06e2dcd32a4da5acf392905f9f5c" id="r_a072e06e2dcd32a4da5acf392905f9f5c"><td class="memItemLeft" align="right" valign="top"><a id="a072e06e2dcd32a4da5acf392905f9f5c" name="a072e06e2dcd32a4da5acf392905f9f5c"></a>
+<tr class="separator:a1e476c8f25223b36f5da34a8a3b7ec5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9255d73019f4b1341cff7436a46c5e92" id="r_a9255d73019f4b1341cff7436a46c5e92"><td class="memItemLeft" align="right" valign="top"><a id="a9255d73019f4b1341cff7436a46c5e92" name="a9255d73019f4b1341cff7436a46c5e92"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setValueString</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
-<tr class="separator:a072e06e2dcd32a4da5acf392905f9f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad43bdd52d74c25fb058c0db2457e675a" id="r_ad43bdd52d74c25fb058c0db2457e675a"><td class="memItemLeft" align="right" valign="top"><a id="ad43bdd52d74c25fb058c0db2457e675a" name="ad43bdd52d74c25fb058c0db2457e675a"></a>
+<tr class="separator:a9255d73019f4b1341cff7436a46c5e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b2d761797d1203a4afa7c9327609f5" id="r_a57b2d761797d1203a4afa7c9327609f5"><td class="memItemLeft" align="right" valign="top"><a id="a57b2d761797d1203a4afa7c9327609f5" name="a57b2d761797d1203a4afa7c9327609f5"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getValueObject</b> (<a class="el" href="classast_1_1Object.html">Object</a> *&amp;value) const</td></tr>
-<tr class="separator:ad43bdd52d74c25fb058c0db2457e675a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4157c42fa52b8fc7eca9e2073a7dbee2" id="r_a4157c42fa52b8fc7eca9e2073a7dbee2"><td class="memItemLeft" align="right" valign="top"><a id="a4157c42fa52b8fc7eca9e2073a7dbee2" name="a4157c42fa52b8fc7eca9e2073a7dbee2"></a>
+<tr class="separator:a57b2d761797d1203a4afa7c9327609f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c2d8cd521d1622eba6e8f4fab429d2" id="r_a88c2d8cd521d1622eba6e8f4fab429d2"><td class="memItemLeft" align="right" valign="top"><a id="a88c2d8cd521d1622eba6e8f4fab429d2" name="a88c2d8cd521d1622eba6e8f4fab429d2"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setValueObject</b> (<a class="el" href="classast_1_1Object.html">Object</a> *value)</td></tr>
-<tr class="separator:a4157c42fa52b8fc7eca9e2073a7dbee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f9a7293e589d5378ac715db13f0ebca" id="r_a8f9a7293e589d5378ac715db13f0ebca"><td class="memItemLeft" align="right" valign="top"><a id="a8f9a7293e589d5378ac715db13f0ebca" name="a8f9a7293e589d5378ac715db13f0ebca"></a>
+<tr class="separator:a88c2d8cd521d1622eba6e8f4fab429d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea2fa07844607dc3638c83e05dca926" id="r_a0ea2fa07844607dc3638c83e05dca926"><td class="memItemLeft" align="right" valign="top"><a id="a0ea2fa07844607dc3638c83e05dca926" name="a0ea2fa07844607dc3638c83e05dca926"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getValueDouble</b> () const</td></tr>
-<tr class="separator:a8f9a7293e589d5378ac715db13f0ebca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af84f7416b7f60cf3fef4c1cb05049f82" id="r_af84f7416b7f60cf3fef4c1cb05049f82"><td class="memItemLeft" align="right" valign="top"><a id="af84f7416b7f60cf3fef4c1cb05049f82" name="af84f7416b7f60cf3fef4c1cb05049f82"></a>
+<tr class="separator:a0ea2fa07844607dc3638c83e05dca926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af868ff94a25d1ec91fc4ad056f14a7b8" id="r_af868ff94a25d1ec91fc4ad056f14a7b8"><td class="memItemLeft" align="right" valign="top"><a id="af868ff94a25d1ec91fc4ad056f14a7b8" name="af868ff94a25d1ec91fc4ad056f14a7b8"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getValueInt</b> () const</td></tr>
-<tr class="separator:af84f7416b7f60cf3fef4c1cb05049f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97f0ea5b4cfb40e0df3d27aac205fa2d" id="r_a97f0ea5b4cfb40e0df3d27aac205fa2d"><td class="memItemLeft" align="right" valign="top"><a id="a97f0ea5b4cfb40e0df3d27aac205fa2d" name="a97f0ea5b4cfb40e0df3d27aac205fa2d"></a>
+<tr class="separator:af868ff94a25d1ec91fc4ad056f14a7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9667922c1c090b4a1a48a6dc17c6481d" id="r_a9667922c1c090b4a1a48a6dc17c6481d"><td class="memItemLeft" align="right" valign="top"><a id="a9667922c1c090b4a1a48a6dc17c6481d" name="a9667922c1c090b4a1a48a6dc17c6481d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getValueBool</b> () const</td></tr>
-<tr class="separator:a97f0ea5b4cfb40e0df3d27aac205fa2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4036db5b3596b432b3b54b62e6da34e7" id="r_a4036db5b3596b432b3b54b62e6da34e7"><td class="memItemLeft" align="right" valign="top"><a id="a4036db5b3596b432b3b54b62e6da34e7" name="a4036db5b3596b432b3b54b62e6da34e7"></a>
+<tr class="separator:a9667922c1c090b4a1a48a6dc17c6481d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1df3dfee0a02d01cdb841f5f1ba8bb2" id="r_af1df3dfee0a02d01cdb841f5f1ba8bb2"><td class="memItemLeft" align="right" valign="top"><a id="af1df3dfee0a02d01cdb841f5f1ba8bb2" name="af1df3dfee0a02d01cdb841f5f1ba8bb2"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getValueString</b> () const</td></tr>
-<tr class="separator:a4036db5b3596b432b3b54b62e6da34e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a7f237c54380eb8ca14a29c9c0b6c8" id="r_ad2a7f237c54380eb8ca14a29c9c0b6c8"><td class="memItemLeft" align="right" valign="top"><a id="ad2a7f237c54380eb8ca14a29c9c0b6c8" name="ad2a7f237c54380eb8ca14a29c9c0b6c8"></a>
+<tr class="separator:af1df3dfee0a02d01cdb841f5f1ba8bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a539a232aad69d8a08deb6822c494ad" id="r_a1a539a232aad69d8a08deb6822c494ad"><td class="memItemLeft" align="right" valign="top"><a id="a1a539a232aad69d8a08deb6822c494ad" name="a1a539a232aad69d8a08deb6822c494ad"></a>
 <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getValueObject</b> () const</td></tr>
-<tr class="separator:ad2a7f237c54380eb8ca14a29c9c0b6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52e98e1e26fe6225bb7da4f480d906f6" id="r_a52e98e1e26fe6225bb7da4f480d906f6"><td class="memItemLeft" align="right" valign="top"><a id="a52e98e1e26fe6225bb7da4f480d906f6" name="a52e98e1e26fe6225bb7da4f480d906f6"></a>
+<tr class="separator:a1a539a232aad69d8a08deb6822c494ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5882fc313b90dd60dfbb6d22b697d4c6" id="r_a5882fc313b90dd60dfbb6d22b697d4c6"><td class="memItemLeft" align="right" valign="top"><a id="a5882fc313b90dd60dfbb6d22b697d4c6" name="a5882fc313b90dd60dfbb6d22b697d4c6"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator double</b> () const</td></tr>
-<tr class="separator:a52e98e1e26fe6225bb7da4f480d906f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac45818ef958f3611bf1b8b4b3e6bea42" id="r_ac45818ef958f3611bf1b8b4b3e6bea42"><td class="memItemLeft" align="right" valign="top"><a id="ac45818ef958f3611bf1b8b4b3e6bea42" name="ac45818ef958f3611bf1b8b4b3e6bea42"></a>
+<tr class="separator:a5882fc313b90dd60dfbb6d22b697d4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40af614b9a7972d60bc22d2c013dafe8" id="r_a40af614b9a7972d60bc22d2c013dafe8"><td class="memItemLeft" align="right" valign="top"><a id="a40af614b9a7972d60bc22d2c013dafe8" name="a40af614b9a7972d60bc22d2c013dafe8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator int</b> () const</td></tr>
-<tr class="separator:ac45818ef958f3611bf1b8b4b3e6bea42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade894e1d5587494fbe9d04d39b774b7e" id="r_ade894e1d5587494fbe9d04d39b774b7e"><td class="memItemLeft" align="right" valign="top"><a id="ade894e1d5587494fbe9d04d39b774b7e" name="ade894e1d5587494fbe9d04d39b774b7e"></a>
+<tr class="separator:a40af614b9a7972d60bc22d2c013dafe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08b1ec8ca7223f8e1d1c993a580038d" id="r_ad08b1ec8ca7223f8e1d1c993a580038d"><td class="memItemLeft" align="right" valign="top"><a id="ad08b1ec8ca7223f8e1d1c993a580038d" name="ad08b1ec8ca7223f8e1d1c993a580038d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
-<tr class="separator:ade894e1d5587494fbe9d04d39b774b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5171ff5cfd3056dd6352162333e1389" id="r_ab5171ff5cfd3056dd6352162333e1389"><td class="memItemLeft" align="right" valign="top"><a id="ab5171ff5cfd3056dd6352162333e1389" name="ab5171ff5cfd3056dd6352162333e1389"></a>
+<tr class="separator:ad08b1ec8ca7223f8e1d1c993a580038d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44824648e1b8cdfb3ef1ac31ca0beb64" id="r_a44824648e1b8cdfb3ef1ac31ca0beb64"><td class="memItemLeft" align="right" valign="top"><a id="a44824648e1b8cdfb3ef1ac31ca0beb64" name="a44824648e1b8cdfb3ef1ac31ca0beb64"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator std::string</b> () const</td></tr>
-<tr class="separator:ab5171ff5cfd3056dd6352162333e1389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade09cfec648ee702cefada27afaeae00" id="r_ade09cfec648ee702cefada27afaeae00"><td class="memItemLeft" align="right" valign="top"><a id="ade09cfec648ee702cefada27afaeae00" name="ade09cfec648ee702cefada27afaeae00"></a>
+<tr class="separator:a44824648e1b8cdfb3ef1ac31ca0beb64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98a958c64b397009bc3f2dc79816a12d" id="r_a98a958c64b397009bc3f2dc79816a12d"><td class="memItemLeft" align="right" valign="top"><a id="a98a958c64b397009bc3f2dc79816a12d" name="a98a958c64b397009bc3f2dc79816a12d"></a>
 <a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (double value)</td></tr>
-<tr class="separator:ade09cfec648ee702cefada27afaeae00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5b8d421e4e8e3bb0bfbf8eb0da64dd8" id="r_ad5b8d421e4e8e3bb0bfbf8eb0da64dd8"><td class="memItemLeft" align="right" valign="top"><a id="ad5b8d421e4e8e3bb0bfbf8eb0da64dd8" name="ad5b8d421e4e8e3bb0bfbf8eb0da64dd8"></a>
+<tr class="separator:a98a958c64b397009bc3f2dc79816a12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbcd8aca3c01c530aa9c142338379cb0" id="r_abbcd8aca3c01c530aa9c142338379cb0"><td class="memItemLeft" align="right" valign="top"><a id="abbcd8aca3c01c530aa9c142338379cb0" name="abbcd8aca3c01c530aa9c142338379cb0"></a>
 <a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (int value)</td></tr>
-<tr class="separator:ad5b8d421e4e8e3bb0bfbf8eb0da64dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32775bebbb174f23ee994c851828753c" id="r_a32775bebbb174f23ee994c851828753c"><td class="memTemplParams" colspan="2"><a id="a32775bebbb174f23ee994c851828753c" name="a32775bebbb174f23ee994c851828753c"></a>
+<tr class="separator:abbcd8aca3c01c530aa9c142338379cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b3fd17671ee0218ae830f5232a33c4" id="r_a25b3fd17671ee0218ae830f5232a33c4"><td class="memTemplParams" colspan="2"><a id="a25b3fd17671ee0218ae830f5232a33c4" name="a25b3fd17671ee0218ae830f5232a33c4"></a>
 template&lt;typename T , typename  = typename std::enable_if&lt;std::is_same&lt;T, bool&gt;::value&gt;::type&gt; </td></tr>
-<tr class="memitem:a32775bebbb174f23ee994c851828753c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (T value)</td></tr>
-<tr class="separator:a32775bebbb174f23ee994c851828753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad63b2c947edf3a1327b78d054b6bb439" id="r_ad63b2c947edf3a1327b78d054b6bb439"><td class="memItemLeft" align="right" valign="top"><a id="ad63b2c947edf3a1327b78d054b6bb439" name="ad63b2c947edf3a1327b78d054b6bb439"></a>
+<tr class="memitem:a25b3fd17671ee0218ae830f5232a33c4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (T value)</td></tr>
+<tr class="separator:a25b3fd17671ee0218ae830f5232a33c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9367da29b1ac3b7a373d1c8b41927e4" id="r_aa9367da29b1ac3b7a373d1c8b41927e4"><td class="memItemLeft" align="right" valign="top"><a id="aa9367da29b1ac3b7a373d1c8b41927e4" name="aa9367da29b1ac3b7a373d1c8b41927e4"></a>
 <a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
-<tr class="separator:ad63b2c947edf3a1327b78d054b6bb439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aa9367da29b1ac3b7a373d1c8b41927e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:acb04b1f297ad24c8e7770b1958f77d0a" id="r_acb04b1f297ad24c8e7770b1958f77d0a"><td class="memItemLeft" align="right" valign="top"><a id="acb04b1f297ad24c8e7770b1958f77d0a" name="acb04b1f297ad24c8e7770b1958f77d0a"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><b>getObject</b> () const</td></tr>
-<tr class="separator:acb04b1f297ad24c8e7770b1958f77d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f8b656793c86e73a30182819801298e" id="r_a5f8b656793c86e73a30182819801298e"><td class="memItemLeft" align="right" valign="top"><a id="a5f8b656793c86e73a30182819801298e" name="a5f8b656793c86e73a30182819801298e"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><b>getObject</b> () const</td></tr>
-<tr class="separator:a5f8b656793c86e73a30182819801298e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec0f1056b7dab3eb830ea308ab8a736" id="r_a5ec0f1056b7dab3eb830ea308ab8a736"><td class="memItemLeft" align="right" valign="top"><a id="a5ec0f1056b7dab3eb830ea308ab8a736" name="a5ec0f1056b7dab3eb830ea308ab8a736"></a>
+object_type *&#160;</td><td class="memItemRight" valign="bottom"><b>getObject</b> () const</td></tr>
+<tr class="separator:a5ec0f1056b7dab3eb830ea308ab8a736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90659f63bf8976beede55812c24385ef" id="r_a90659f63bf8976beede55812c24385ef"><td class="memItemLeft" align="right" valign="top"><a id="a90659f63bf8976beede55812c24385ef" name="a90659f63bf8976beede55812c24385ef"></a>
+<a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a>&lt; <a class="el" href="classast_1_1Object.html">Object</a>, <a class="el" href="classast_1_1Property.html">Property</a> &gt;::object_type *&#160;</td><td class="memItemRight" valign="bottom"><b>getObject</b> () const</td></tr>
+<tr class="separator:a90659f63bf8976beede55812c24385ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
-<tr class="memitem:a663225969f2aa2e227df68bc8fe2ea85" id="r_a663225969f2aa2e227df68bc8fe2ea85"><td class="memItemLeft" align="right" valign="top"><a id="a663225969f2aa2e227df68bc8fe2ea85" name="a663225969f2aa2e227df68bc8fe2ea85"></a>
-ObjectPtrType&#160;</td><td class="memItemRight" valign="bottom"><b>object_</b> {}</td></tr>
-<tr class="separator:a663225969f2aa2e227df68bc8fe2ea85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c492462a20cd8e8a20406526eea166" id="r_a52c492462a20cd8e8a20406526eea166"><td class="memItemLeft" align="right" valign="top"><a id="a52c492462a20cd8e8a20406526eea166" name="a52c492462a20cd8e8a20406526eea166"></a>
-PropertyType *&#160;</td><td class="memItemRight" valign="bottom"><b>property_</b> {nullptr}</td></tr>
-<tr class="separator:a52c492462a20cd8e8a20406526eea166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c366a136313db4bcd46097b01bce0c" id="r_a84c366a136313db4bcd46097b01bce0c"><td class="memItemLeft" align="right" valign="top"><a id="a84c366a136313db4bcd46097b01bce0c" name="a84c366a136313db4bcd46097b01bce0c"></a>
+object_ptr_holder_type&#160;</td><td class="memItemRight" valign="bottom"><b>object_</b> {}</td></tr>
+<tr class="separator:a84c366a136313db4bcd46097b01bce0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fee3ebf7492413c4f5267aaceb3db2" id="r_a49fee3ebf7492413c4f5267aaceb3db2"><td class="memItemLeft" align="right" valign="top"><a id="a49fee3ebf7492413c4f5267aaceb3db2" name="a49fee3ebf7492413c4f5267aaceb3db2"></a>
+property_type *&#160;</td><td class="memItemRight" valign="bottom"><b>property_</b> {nullptr}</td></tr>
+<tr class="separator:a49fee3ebf7492413c4f5267aaceb3db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename ObjectPtrType = WeakPtr&lt;Object&gt;, typename PropertyType = Property&gt;<br />
-class ast::AttributeBasic&lt; ObjectPtrType, PropertyType &gt;</div><p>对象的特定属性 </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename ObjectType = Object, typename PropertyType = Property&gt;<br />
+class ast::AttributeBasic&lt; ObjectType, PropertyType &gt;</div><p>对象的特定属性 </p>
 </div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/RTTI/<a class="el" href="AstUtil_2RTTI_2Object_8hpp_source.html">Object.hpp</a></li>
 <li>src/AstUtil/RTTI/Reflect/Attribute/<a class="el" href="Attribute_8hpp_source.html">Attribute.hpp</a></li>

@@ -16,7 +16,7 @@ var searchData=
   ['findobject_13',['findObject',['../classast_1_1ObjectManager.html#a04b9eec147e40651aac05197373c22f5',1,'ast::ObjectManager']]],
   ['findobjects_14',['findObjects',['../classast_1_1ObjectManager.html#a06561ebb55881244999719c546321f19',1,'ast::ObjectManager']]],
   ['findspkdescriptor_15',['findSpkDescriptor',['../classast_1_1SPKParser.html#a89ecfa6f51cfe1f354537bc844f89fd2',1,'ast::SPKParser']]],
-  ['findsymbol_16',['findSymbol',['../classast_1_1SymbolScope.html#abba343d08da6f64c56978b4be89d1c4c',1,'ast::SymbolScope']]],
+  ['findsymbol_16',['findSymbol',['../classast_1_1ISymbolScope.html#a6e4223a0bec63a612d3a86de62dff871',1,'ast::ISymbolScope::findSymbol()'],['../classast_1_1SymbolScope.html#af9445e6ce2085b62e5a75fac32b615f0',1,'ast::SymbolScope::findSymbol()']]],
   ['foot_17',['Foot',['../classast_1_1Unit.html#a9da85aada6c5612e28ebffa9e252ffb2',1,'ast::Unit']]],
   ['force_18',['Force',['../classast_1_1Dimension.html#abe2a4eb74abdca2fe6d33ab57a998f76',1,'ast::Dimension']]],
   ['forcemodel_19',['forceModel',['../classast_1_1HPOP.html#a8a0c1e935bdbdbf0ef6af854118d3f11',1,'ast::HPOP::forceModel()'],['../classast_1_1HPOPEquation.html#a3781b50840cde28f0f2d5133cc099b37',1,'ast::HPOPEquation::forceModel()']]],
