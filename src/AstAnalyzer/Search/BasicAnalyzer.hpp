@@ -40,6 +40,8 @@ class AST_ANALYZER_API BasicAnalyzer : public Command
 public:
     AST_OBJECT(BasicAnalyzer)
 public:
+    BasicAnalyzer();
+
     errc_t execute() override;
     
     /// @brief 获取输入变量列表
@@ -55,6 +57,9 @@ public:
 
     /// @brief 设置关联的执行命令
     void setRelatedCommand(Command* command) { relatedCommand_ = command; }
+
+    /// @brief 获取脚本解释器
+    Interpreter* interpreter() const {return interpreter_.get();}
 private:
     VariableList inputs_;                               ///< 输入变量列表
     VariableList outputs_;                              ///< 输出变量列表
@@ -62,7 +67,6 @@ private:
 private:
     mutable std::unique_ptr<Interpreter> interpreter_;  ///< 解释器
 };
-
 
 
 

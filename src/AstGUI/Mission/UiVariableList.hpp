@@ -45,17 +45,33 @@ public:
     /// @param owner 所有者对象，用于判断变量列表的生命周期是否结束
     void setVariableList(VariableList* variableList, Object* owner);
 
+    /// @brief 设置脚本解释器
+    /// @param interpreter 脚本解释器，被owner对象持有
+    /// @param owner 所有者对象，用于判断解释器的生命周期是否结束
+    void setInterpreter(Interpreter* interpreter, Object* owner);
+
     /// @brief 刷新表格显示
     void refreshUi();
 
     /// @brief 获取当前选中的变量
     Variable* selectedVariable() const;
 
+    /// @brief 获取当前编辑的变量列表
     VariableList* variableList() const;
 
-    /// @brief 从表达式新建变量并追加到列表末尾
+    /// @brief 获取当前关联的脚本解释器
+    Interpreter* interpreter() const;
+
+    /// @brief 输入表达式，新建变量并追加到列表末尾
     /// @param expr 要添加的表达式
-    void addExpression(Expr* expr);
+    void addExpression(Expr* expr, bool bind);
+
+    /// @brief 输入表达式，新建与表达式双向绑定的变量并追加到列表末尾
+    /// @param expr 要添加的表达式
+    void addBindExpression(Expr* expr){return addExpression(expr, true);}
+
+
+    void addExpression(Expr* expr){return addExpression(expr, false);}
 
 signals:
     /// @brief 选中变量变化
@@ -71,24 +87,25 @@ private slots:
     void onSelectionChanged();
     void onAddVariable();
     void onRemoveVariable();
-    void onCellDoubleClicked(int row, int column);
     void onCellChanged(int row, int column);
     void onRefresh();
 
 private:
     void setupUi();
-    void openExpressionEditor(int row);
     bool eventFilter(QObject* obj, QEvent* event) override;
     void syncOrderFromTable();
 
-    QVBoxLayout*   mainLayout_;
-    QTableWidget*  tableWidget_;
-    QHBoxLayout*   buttonLayout_;
-    QToolButton*   addButton_;
-    QToolButton*   removeButton_;
-    QToolButton*   refreshButton_;
-    VariableList*  variableList_ = nullptr;
-    WeakPtr<Object> owner_;
+    QVBoxLayout*    mainLayout_;
+    QTableWidget*   tableWidget_;
+    QHBoxLayout*    buttonLayout_;
+    QToolButton*    addButton_;
+    QToolButton*    removeButton_;
+    QToolButton*    refreshButton_;
+private:
+    VariableList*   variableList_ = nullptr;
+    WeakPtr<Object> variableListOwner_;
+    Interpreter*    interpreter_ = nullptr;
+    WeakPtr<Object> interpreterOwner_;
 };
 
 AST_NAMESPACE_END

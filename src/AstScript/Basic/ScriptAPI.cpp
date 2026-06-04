@@ -121,14 +121,27 @@ Expr *aParseExpr(StringView script)
     return Parser::parseExpr(script);
 }
 
-Value *aEval(StringView script)
+Expr *aExec(StringView script)
 {
-    SharedPtr<Expr> expr = Parser::parseExpr(script);
+    SharedPtr<Expr> expr = aParseExpr(script);
     if(!expr.get()){
         return nullptr;
     }
-    expr = expr->eval();
-    return (Value*)expr.take();
+    expr = expr->exec();
+    return expr.take();
+}
+
+Value *aEval(StringView script)
+{
+    SharedPtr<Value> value;
+    {
+        SharedPtr<Expr> expr = aParseExpr(script);
+        if(!expr.get()){
+            return nullptr;
+        }
+        value = expr->eval();
+    }
+    return value.take();
 }
 
 Value *aEvalExpr(Expr *expr)

@@ -19,8 +19,67 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "BasicAnalyzer.hpp"
+#include "AstScript/SymbolScope.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
+
+
+namespace
+{
+    class BasicAnalyzerSymbolScope : public ISymbolScope
+    {
+    public:
+        BasicAnalyzerSymbolScope(BasicAnalyzer* analyzer)
+            : analyzer_(analyzer)
+        {}
+        errc_t addSymbol(StringView name, Expr* expr) override
+        {
+            aError("addSymbol not implemented");
+            return eErrorNotImplemented;
+        }
+        Expr* findSymbol(StringView name, bool searchParent = true) const override
+        {
+            auto analyzer = analyzer_.get();
+            if(!analyzer)
+            {
+                aError("analyzer is null");
+                return nullptr;
+            }
+            // 1. 从inputs_查找符号
+            for(const auto& input : analyzer->inputs())
+            {
+                auto var = input.get();
+                if(var && name == var->name())
+                {
+                    return var;
+                }
+            }
+            // 2. 从outputs_查找符号
+            for(const auto& output : analyzer->outputs())
+            {
+                auto var = output.get();
+                if(var && name == var->name())
+                {
+                    return var;
+                }
+            }
+            return nullptr;
+        }
+        Expr* resolveSymbol(StringView name) override
+        {
+            return findSymbol(name);
+        }
+    private:
+        WeakPtr<BasicAnalyzer> analyzer_;
+    };
+}
+
+BasicAnalyzer::BasicAnalyzer()
+    : interpreter_(aNewInterpreter(new BasicAnalyzerSymbolScope(this)))
+{
+    
+}
 
 errc_t BasicAnalyzer::execute()
 {

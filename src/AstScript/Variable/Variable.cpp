@@ -116,9 +116,7 @@ errc_t Variable::setExpr(bool value)
 
 errc_t Variable::bind(Expr *expr)
 {
-    expr_ = expr;
-    bind_ = true;
-    return eNoError;
+    return setBindExpr(expr);
 }
 
 std::string Variable::value() const

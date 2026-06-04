@@ -146,7 +146,7 @@ errc_t Sequence::removeCommand(MissionCommand* command)
 {
     if (!command)
         return eErrorNullInput;
-    for (int i=0;i<commands_.size();i++)
+    for (size_t i=0; i<commands_.size(); i++)
     {
         auto& commandPtr = commands_[i];
         if(auto cmd = commandPtr.get())

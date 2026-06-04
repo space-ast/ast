@@ -51,9 +51,9 @@ public:
     /// @return Value* 求值结果
     virtual Value* eval() const = 0;
 
-    /// @brief 执行
+    /// @brief 预执行/宏展开/编译期求值
     /// @details 这个方法可能用于脚本的解析期
-    /// @return Expr* 执行结果
+    /// @return Expr* 预执行/宏展开/编译期求值结果
     virtual Expr* exec() const {return const_cast<Expr*>(this);};
     
     /// @brief 设置表达式的值

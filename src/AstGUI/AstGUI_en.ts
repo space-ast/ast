@@ -8,20 +8,12 @@
         <translation>Select Coordinate System</translation>
     </message>
     <message>
-        <source>表达式</source>
-        <translation>Expression</translation>
-    </message>
-    <message>
         <source>选择表达式</source>
         <translation>Select Expression</translation>
     </message>
     <message>
         <source>暂无对象</source>
         <translation>No objects available</translation>
-    </message>
-    <message>
-        <source>浏览对象属性和计算量</source>
-        <translation>Browse object attributes and calculations</translation>
     </message>
     <message>
         <source>未命名&lt;%1&gt;</source>
@@ -1813,19 +1805,31 @@ Error code: %2</translation>
         <translation>Remove variable &quot;%1&quot;?</translation>
     </message>
     <message>
-        <source>新建变量</source>
-        <translation>New Variable</translation>
-    </message>
-    <message>
-        <source>编辑表达式 — %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>当前: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>刷新变量列表</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>表达式错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量 &quot;%1&quot; 的表达式错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>表达式解析失败</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>值错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量 &quot;%1&quot; 的值错误</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

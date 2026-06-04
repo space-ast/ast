@@ -85,9 +85,9 @@ void UiBasicAnalyzer::setupUi()
 
     // 连线：对象属性 → 输入变量，对象计算量 → 输出变量
     connect(expressionBrowser_, &UiExpressionBrowser::propertyExpressionSelected,
-            inputsEditor_, &UiVariableList::addExpression);
+            inputsEditor_, &UiVariableList::addBindExpression);
     connect(expressionBrowser_, &UiExpressionBrowser::calculationExpressionSelected,
-            outputsEditor_, &UiVariableList::addExpression);
+            outputsEditor_, static_cast<void(UiVariableList::*)(Expr*)>(&UiVariableList::addExpression));
 
     // ============================================================
     // Tab 1: 任务模型
@@ -108,15 +108,18 @@ void UiBasicAnalyzer::setupUi()
 
 void UiBasicAnalyzer::setBasicAnalyzer(BasicAnalyzer* analyzer)
 {
-    if (analyzer_ == analyzer)
+    if (basicAnalyzer() == analyzer)
         return;
 
     analyzer_ = analyzer;
 
-    if (analyzer_)
+    auto* a = basicAnalyzer();
+    if (a)
     {
-        inputsEditor_->setVariableList(&analyzer_->inputs(), analyzer_);
-        outputsEditor_->setVariableList(&analyzer_->outputs(), analyzer_);
+        inputsEditor_->setVariableList(&a->inputs(), a);
+        inputsEditor_->setInterpreter(a->interpreter(), a);
+        outputsEditor_->setVariableList(&a->outputs(), a);
+        outputsEditor_->setInterpreter(a->interpreter(), a);
         rebuildCommandEditor();
     }
     else
@@ -129,7 +132,8 @@ void UiBasicAnalyzer::setBasicAnalyzer(BasicAnalyzer* analyzer)
 
 void UiBasicAnalyzer::refreshUi()
 {
-    if (analyzer_)
+    auto* a = basicAnalyzer();
+    if (a)
     {
         inputsEditor_->refreshUi();
         outputsEditor_->refreshUi();
@@ -146,13 +150,14 @@ void UiBasicAnalyzer::rebuildCommandEditor()
         delete w;
     }
 
-    if (!analyzer_)
+    auto* a = basicAnalyzer();
+    if (!a)
     {
         commandStack_->setCurrentIndex(0);
         return;
     }
 
-    auto* cmd = analyzer_->relatedCommand();
+    auto* cmd = a->relatedCommand();
     if (!cmd)
     {
         commandStack_->setCurrentIndex(0);

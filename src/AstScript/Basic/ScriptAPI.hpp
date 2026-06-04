@@ -215,17 +215,22 @@ AST_SCRIPT_CAPI Value* aValueNull();
 /// @return 解析得到的表达式对象
 AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
 
+/// @brief 对脚本表达式进行预执行/宏展开/编译期求值
+/// @param script 脚本文本
+/// @return 表达式对象
+AST_SCRIPT_CAPI Expr* aExec(StringView script);
 
-/// @brief 执行脚本表达式
+
+/// @brief 对脚本表达式求值
 /// @param script 脚本文本
 /// @warning 返回的 `Value*` 指针由调用者拥有，需要管理其生命周期
-/// @return 表达式执行结果
+/// @return 表达式求值结果
 AST_SCRIPT_CAPI Value* aEval(StringView script);
 
-/// @brief 执行表达式
+/// @brief 对表达式求值
 /// @param expr 表达式对象
 /// @warning 返回的 `Value*` 指针由调用者拥有，需要管理其生命周期
-/// @return 表达式执行结果
+/// @return 表达式求值结果
 AST_SCRIPT_CAPI Value* aEvalExpr(Expr* expr);
 
 

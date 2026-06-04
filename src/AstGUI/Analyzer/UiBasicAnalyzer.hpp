@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstAnalyzer/BasicAnalyzer.hpp"
 #include <QWidget>
 
 class QTabWidget;
@@ -45,7 +46,7 @@ public:
     void setBasicAnalyzer(BasicAnalyzer* analyzer);
 
     /// @brief 获取当前绑定的 BasicAnalyzer
-    BasicAnalyzer* basicAnalyzer() const { return analyzer_; }
+    BasicAnalyzer* basicAnalyzer() const { return analyzer_.get(); }
 
     /// @brief 刷新界面
     void refreshUi();
@@ -54,7 +55,7 @@ private:
     void setupUi();
     void rebuildCommandEditor();
 
-    BasicAnalyzer*       analyzer_ = nullptr;
+    WeakPtr<BasicAnalyzer> analyzer_;
 
     QSplitter*           varSplitter_;
     UiExpressionBrowser* expressionBrowser_;

@@ -23,57 +23,18 @@
 #include "MissionIcons.hpp"
 #include "AstGUI/UiCommon.hpp"
 #include "AstScript/Variable.hpp"
+#include "AstScript/Interpreter.hpp"
+#include "AstScript/ScriptContext.hpp"
+#include "AstScript/Value.hpp"
 
-#include <QDialog>
 #include <QStyle>
 #include <QToolButton>
-#include <QDialogButtonBox>
-#include <QFormLayout>
 #include <QHeaderView>
-#include <QLabel>
-#include <QLineEdit>
 #include <QMessageBox>
-#include <QSplitter>
-#include <QDrag>
-#include <QMimeData>
 
 AST_NAMESPACE_BEGIN
 
-enum { COL_NAME = 0, COL_EXPR = 1, COL_DESC = 2 };
-
-namespace {
-
-/// @brief 在 form 中添加带浏览按钮的表达式输入行
-/// @param form 表单布局
-/// @param parent 父对话框
-/// @param initialText 初始文本
-/// @param outExpr [out] 用户浏览选择的表达式（若未浏览则为空）
-/// @return QLineEdit* 文本编辑框
-QLineEdit* addExpressionRow(QFormLayout* form, QDialog* parent,
-                             const QString& initialText, SharedPtr<Expr>& outExpr)
-{
-    auto* row = new QHBoxLayout;
-    auto* edit = new QLineEdit(initialText, parent);
-    auto* browseBtn = new QPushButton("...", parent);
-    browseBtn->setToolTip(QObject::tr("浏览对象属性和计算量"));
-    browseBtn->setFixedWidth(30);
-    row->addWidget(edit);
-    row->addWidget(browseBtn);
-    form->addRow(QObject::tr("表达式"), row);
-
-    QObject::connect(browseBtn, &QPushButton::clicked, [edit, parent, &outExpr]() {
-        SharedPtr<Expr> expr = UiExpressionBrowser::GetExpression(parent);
-        if (expr)
-        {
-            outExpr = expr;
-            edit->setText(QString::fromStdString(expr->getExpression()));
-        }
-    });
-
-    return edit;
-}
-
-} // anonymous namespace
+enum { COL_NAME = 0, COL_EXPR = 1, COL_VALUE = 2, COL_DESC = 3 };
 
 UiVariableList::UiVariableList(QWidget* parent)
     : QWidget(parent)
@@ -86,8 +47,8 @@ void UiVariableList::setupUi()
     mainLayout_ = new QVBoxLayout(this);
     mainLayout_->setContentsMargins(0, 0, 0, 0);
 
-    tableWidget_ = new QTableWidget(0, 3, this);
-    tableWidget_->setHorizontalHeaderLabels({tr("名称"), tr("表达式"), tr("描述")});
+    tableWidget_ = new QTableWidget(0, 4, this);
+    tableWidget_->setHorizontalHeaderLabels({tr("名称"), tr("表达式"), tr("值"), tr("描述")});
     tableWidget_->setSelectionBehavior(QAbstractItemView::SelectRows);
     tableWidget_->setSelectionMode(QAbstractItemView::SingleSelection);
 
@@ -136,8 +97,6 @@ void UiVariableList::setupUi()
 
     connect(tableWidget_, &QTableWidget::itemSelectionChanged,
             this, &UiVariableList::onSelectionChanged);
-    connect(tableWidget_, &QTableWidget::cellDoubleClicked,
-            this, &UiVariableList::onCellDoubleClicked);
     connect(tableWidget_, &QTableWidget::cellChanged,
             this, &UiVariableList::onCellChanged);
     connect(addButton_, &QToolButton::clicked,
@@ -151,9 +110,16 @@ void UiVariableList::setupUi()
 void UiVariableList::setVariableList(VariableList* variableList, Object* owner)
 {
     variableList_ = variableList;
-    owner_ = owner;
+    variableListOwner_ = owner;
     refreshUi();
 }
+
+void UiVariableList::setInterpreter(Interpreter* interpreter, Object* owner)
+{
+    interpreter_ = interpreter;
+    interpreterOwner_ = owner;
+}
+
 
 void UiVariableList::refreshUi()
 {
@@ -181,16 +147,42 @@ void UiVariableList::refreshUi()
         nameItem->setFlags(nameItem->flags() | Qt::ItemIsEditable);
         tableWidget_->setItem(static_cast<int>(i), COL_NAME, nameItem);
 
-        // 表达式列：显示表达式字符串，不可内联编辑（双击弹窗）
-        std::string exprStr = var->getInnerExpression();
-        auto* exprItem = new QTableWidgetItem(QString::fromStdString(exprStr));
-        exprItem->setFlags(exprItem->flags() & ~Qt::ItemIsEditable);
+        // 表达式列
+        auto* exprItem = new QTableWidgetItem(QString::fromStdString(var->getInnerExpression()));
+        exprItem->setFlags(exprItem->flags() | Qt::ItemIsEditable);
         tableWidget_->setItem(static_cast<int>(i), COL_EXPR, exprItem);
+
+        // 值列：bind 变量可编辑并写回，否则只读
+        auto* valItem = new QTableWidgetItem();
+        if (var->isBind())
+            valItem->setFlags(valItem->flags() | Qt::ItemIsEditable);
+        else
+            valItem->setFlags(valItem->flags() & ~Qt::ItemIsEditable);
+        SharedPtr<Value> val = var->eval();
+        if (val)
+            valItem->setText(QString::fromStdString(val->toString()));
+        else
+            valItem->setText(QStringLiteral("-"));
+        tableWidget_->setItem(static_cast<int>(i), COL_VALUE, valItem);
 
         // 描述列：可内联编辑
         auto* descItem = new QTableWidgetItem(QString::fromStdString(var->desc()));
         descItem->setFlags(descItem->flags() | Qt::ItemIsEditable);
         tableWidget_->setItem(static_cast<int>(i), COL_DESC, descItem);
+    }
+
+    // 底部空行：用于快速新建变量
+    int newRow = static_cast<int>(n);
+    tableWidget_->setRowCount(newRow + 1);
+    for (int col = 0; col < 4; ++col)
+    {
+        auto* item = new QTableWidgetItem();
+        item->setData(Qt::UserRole, static_cast<qlonglong>(-1));
+        if (col == COL_VALUE)
+            item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+        else
+            item->setFlags(item->flags() | Qt::ItemIsEditable);
+        tableWidget_->setItem(newRow, col, item);
     }
 
     tableWidget_->blockSignals(false);
@@ -210,13 +202,19 @@ Variable* UiVariableList::selectedVariable() const
 
 VariableList* UiVariableList::variableList() const
 {
-    // 通过 owner_ 的 WeakPtr 判断对象是否有效，避免悬空指针
-    if (!owner_.expired())
+    // 通过 variableListOwner_ 的 WeakPtr 判断对象是否有效，避免悬空指针
+    if (!variableListOwner_.expired())
         return variableList_;
     return nullptr;
 }
 
-void UiVariableList::addExpression(Expr* expr)
+Interpreter* UiVariableList::interpreter() const
+{
+    return interpreter_;
+}
+
+
+void UiVariableList::addExpression(Expr* expr, bool bind)
 {
     auto variableList = this->variableList();
     if (!variableList || !expr)
@@ -228,7 +226,10 @@ void UiVariableList::addExpression(Expr* expr)
 
     auto* var = Variable::New();
     var->setName(varName);
-    var->setExpr(expr);
+    if(bind)
+        var->setBindExpr(expr);
+    else
+        var->setExpr(expr);
     var->setDesc(exprStr);
 
     variableList->append(var);
@@ -253,47 +254,18 @@ void UiVariableList::onRefresh()
 
 void UiVariableList::onAddVariable()
 {
-    QDialog dlg(this);
-    dlg.setWindowTitle(tr("新建变量"));
-
-    auto* form = new QFormLayout(&dlg);
-    auto* nameEdit = new QLineEdit(("var"), &dlg);
-    form->addRow(tr("名称"), nameEdit);
-
-    SharedPtr<Expr> browsedExpr;
-    auto* exprEdit = addExpressionRow(form, &dlg, ("0"), browsedExpr);
-
-    auto* descEdit = new QLineEdit(&dlg);
-    form->addRow(tr("描述"), descEdit);
-
-    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
-    connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
-    connect(buttons, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
-    form->addRow(buttons);
-
-    if (dlg.exec() != QDialog::Accepted) return;
-
-    QString name = nameEdit->text().trimmed();
-    if (name.isEmpty()) return;
-
-    auto* var = Variable::New();
-    var->setName(name.toStdString());
-    if (browsedExpr)
-        var->setExpr(browsedExpr.get());
-    else
-        var->setExpr(exprEdit->text().trimmed().toStdString());
-    var->setDesc(descEdit->text().trimmed().toStdString());
-
     auto variableList = this->variableList();
     if (!variableList)
-    {
-        delete var;
         return;
-    }
+
+    auto* var = Variable::New();
+    var->setName("var_" + std::to_string(variableList->size() + 1));
 
     variableList->append(var);
     refreshUi();
     tableWidget_->selectRow(static_cast<int>(variableList->size()) - 1);
+    // 自动进入名称编辑
+    tableWidget_->editItem(tableWidget_->item(static_cast<int>(variableList->size()) - 1, COL_NAME));
     emit variableListChanged();
 }
 
@@ -319,18 +291,44 @@ void UiVariableList::onRemoveVariable()
     emit variableListChanged();
 }
 
-void UiVariableList::onCellDoubleClicked(int row, int column)
-{
-    // 仅表达式列需要弹窗编辑；名称和描述由内联编辑处理
-    if (column == COL_EXPR)
-        openExpressionEditor(row);
-}
-
 void UiVariableList::onCellChanged(int row, int col)
 {
     auto variableList = this->variableList();
-    if (!variableList || row < 0 || static_cast<size_t>(row) >= variableList->size())
+    if (!variableList || row < 0)
         return;
+
+    // 底部空行：编辑后自动新建变量
+    if (static_cast<size_t>(row) >= variableList->size())
+    {
+        auto* item = tableWidget_->item(row, col);
+        if (!item) return;
+        QString text = item->text().trimmed();
+        if (text.isEmpty()) return;
+
+        auto* var = Variable::New();
+        switch (col)
+        {
+        case COL_NAME: var->setName(text.toStdString()); break;
+        case COL_EXPR: {
+            auto* interp = interpreter();
+            InterpreterContext ctx(interp);
+            Expr* expr = aExec(text.toStdString());
+            if (expr)
+                var->setExpr(expr);
+            else {
+                delete var;
+                QMessageBox::warning(this, tr("表达式错误"), tr("表达式解析失败"));
+                return;
+            }
+            break;
+        }
+        case COL_DESC: var->setDesc(text.toStdString()); break;
+        }
+        variableList->append(var);
+        refreshUi();
+        emit variableListChanged();
+        return;
+    }
 
     Variable* var = variableList->at(static_cast<size_t>(row));
     auto* item = tableWidget_->item(row, col);
@@ -346,6 +344,42 @@ void UiVariableList::onCellChanged(int row, int col)
     case COL_NAME:
         var->setName(text.toStdString());
         break;
+    case COL_EXPR:
+    {
+        auto* interp = interpreter();
+        InterpreterContext ctx(interp);
+        Expr* expr = aExec(text.toStdString());
+        if(expr)
+        {
+            var->setExpr(expr);
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("表达式错误"), tr("变量 \"%1\" 的表达式错误").arg(QString::fromStdString(var->name())));
+            return;
+        }
+        break;
+    }
+    case COL_VALUE:
+    {
+        auto* interp = interpreter();
+        InterpreterContext ctx(interp);
+        SharedPtr<Value> val = aEval(text.toStdString());
+        if(val)
+        {
+            errc_t rc = var->setValue(val->toString());
+            if(rc != eNoError)
+            {
+                qWarning("Variable::setValue failed: %d", rc);
+            }
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("值错误"), tr("变量 \"%1\" 的值错误").arg(QString::fromStdString(var->name())));
+            return;
+        }
+        break;
+    }
     case COL_DESC:
         var->setDesc(text.toStdString());
         break;
@@ -353,47 +387,6 @@ void UiVariableList::onCellChanged(int row, int col)
         return;
     }
 
-    emit variableListChanged();
-}
-
-void UiVariableList::openExpressionEditor(int row)
-{
-    auto variableList = this->variableList();
-    if (!variableList || row < 0 || static_cast<size_t>(row) >= variableList->size())
-        return;
-
-    Variable* var = variableList->at(static_cast<size_t>(row));
-
-    QDialog dlg(this);
-    dlg.setWindowTitle(tr("编辑表达式 — %1").arg(QString::fromStdString(var->name())));
-
-    auto* layout = new QVBoxLayout(&dlg);
-
-    // 当前表达式显示
-    auto* currentLabel = new QLabel(
-        tr("当前: %1").arg(QString::fromStdString(var->getInnerExpression())), &dlg);
-    currentLabel->setWordWrap(true);
-    layout->addWidget(currentLabel);
-
-    auto* form = new QFormLayout;
-    SharedPtr<Expr> browsedExpr;
-    auto* exprEdit = addExpressionRow(form, &dlg,
-        QString::fromStdString(var->getInnerExpression()), browsedExpr);
-    layout->addLayout(form);
-
-    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
-    connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
-    connect(buttons, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
-    layout->addWidget(buttons);
-
-    if (dlg.exec() != QDialog::Accepted) return;
-
-    if (browsedExpr)
-        var->setExpr(browsedExpr.get());
-    else
-        var->setExpr(exprEdit->text().trimmed().toStdString());
-
-    refreshUi();
     emit variableListChanged();
 }
 
