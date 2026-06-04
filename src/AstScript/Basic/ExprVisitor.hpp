@@ -34,7 +34,8 @@ class ValDouble;
 class ValString; 
 class ValQuantity; 
 class ValRange;
-class ValMap;
+class ValDict;
+class ValNamedVector;
 class OpAssign; 
 class OpBin; 
 class OpUnary; 
@@ -61,7 +62,7 @@ class ExprCalculation;
 class ExprVisitor{
 public:
     virtual ~ExprVisitor() = default;
-    virtual void visit(Expr& expr){};
+
     virtual void visit(Symbol& symbol) = 0;
     
     virtual void visit(Variable& var) = 0;
@@ -72,7 +73,8 @@ public:
     virtual void visit(ValBool& val) = 0;
     virtual void visit(ValQuantity& val) = 0;
     virtual void visit(ValRange& val) = 0;
-    virtual void visit(ValMap& val) = 0;
+    virtual void visit(ValDict& val) = 0;
+    virtual void visit(ValNamedVector& val) = 0;
     
     virtual void visit(OpAssign& op) = 0;
     virtual void visit(OpBin& op) = 0;
@@ -94,6 +96,10 @@ public:
     virtual void visit(ExprMacroExpand& expr) = 0;
     virtual void visit(ExprAttribute& expr) = 0;
     virtual void visit(ExprCalculation& expr) = 0;
+protected:
+    virtual void visit(Expr& expr) = 0;
+public:
+    void visitExpr(Expr& expr){visit(expr);}
 };
 
 AST_NAMESPACE_END

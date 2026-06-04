@@ -43,6 +43,9 @@ public:
     {};
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
+    EOpAssignType op() const {return op_;}
+    Expr* left() const {return left_.get();}
+    Expr* right() const {return right_.get();}
 protected:
     EOpAssignType op_;
     SharedPtr<Expr> left_;

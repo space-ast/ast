@@ -35,6 +35,11 @@ class AST_SCRIPT_API ExprIf: public Expr
 {
 public:
     AST_EXPR(ExprIf)
+    struct ConditionBranch {
+        SharedPtr<Expr> condition;  ///< elseif条件表达式
+        SharedPtr<Expr> block;      ///< elseif代码块
+    };
+    using ConditionBranchVector = std::vector<ConditionBranch>;
 
     /// @brief 构造函数
     ExprIf();
@@ -67,11 +72,9 @@ public:
     /// @param block 代码块
     void setElse(Expr* block);
     
+    const ConditionBranchVector& conditionBranches() const { return conditionBranches_; }
+    Expr* elseBlock() const { return elseBlock_.get(); }
 private:
-    struct ConditionBranch {
-        SharedPtr<Expr> condition;  ///< elseif条件表达式
-        SharedPtr<Expr> block;      ///< elseif代码块
-    };
     std::vector<ConditionBranch> conditionBranches_;  ///< elseif分支列表
     SharedPtr<Expr> elseBlock_;                       ///< else分支代码块（可选）
 };

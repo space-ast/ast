@@ -23,8 +23,8 @@
 #include "AstGlobal.h"
 #include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/Command.hpp"
-#include "AnalyzerVariable.hpp"
-#include "AnalyzerConstraint.hpp"
+#include "AstAnalyzer/AnalyzerVariable.hpp"
+#include "AstAnalyzer/AnalyzerConstraint.hpp"
 
 AST_NAMESPACE_BEGIN
 

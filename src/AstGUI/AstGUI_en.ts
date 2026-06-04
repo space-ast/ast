@@ -1832,5 +1832,9 @@ Error code: %2</translation>
         <source>变量 &quot;%1&quot; 的值错误</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>变量 &quot;%1&quot; 已被引用，不能删除</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

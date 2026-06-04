@@ -279,6 +279,12 @@ void UiVariableList::onRemoveVariable()
     if (index >= variableList->size()) return;
 
     Variable* var = variableList->at(index);
+    if(!var) return;
+    if(var->refCount() > 1)
+    {
+        QMessageBox::warning(this, tr("删除变量"), tr("变量 \"%1\" 已被引用，不能删除").arg(QString::fromStdString(var->name())));
+        return;
+    }
     int ret = QMessageBox::question(
         this, tr("删除变量"),
         tr("确认删除变量 \"%1\" 吗？").arg(QString::fromStdString(var->name())),
@@ -312,7 +318,7 @@ void UiVariableList::onCellChanged(int row, int col)
         case COL_EXPR: {
             auto* interp = interpreter();
             InterpreterContext ctx(interp);
-            Expr* expr = aExec(text.toStdString());
+            Expr* expr = aExpand(text.toStdString());
             if (expr)
                 var->setExpr(expr);
             else {
@@ -348,7 +354,7 @@ void UiVariableList::onCellChanged(int row, int col)
     {
         auto* interp = interpreter();
         InterpreterContext ctx(interp);
-        Expr* expr = aExec(text.toStdString());
+        Expr* expr = aExpand(text.toStdString());
         if(expr)
         {
             var->setExpr(expr);

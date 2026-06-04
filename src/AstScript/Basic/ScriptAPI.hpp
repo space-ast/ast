@@ -210,15 +210,22 @@ AST_SCRIPT_CAPI Value* aNewValueQuantity(const Quantity& value);
 /// @brief 获取空值对象
 AST_SCRIPT_CAPI Value* aValueNull();
 
-/// @brief 解析脚本表达式
+/// @brief 解析脚本表达式，返回抽象语法树，未进行编译、展开、变量地址链接等
 /// @param script 脚本文本
 /// @return 解析得到的表达式对象
 AST_SCRIPT_CAPI Expr* aParseExpr(StringView script);
 
-/// @brief 对脚本表达式进行预执行/宏展开/编译期求值
+
+/// @brief 展开表达式，进行编译、展开、变量地址链接等，将符号、变量、函数等替换为实际值
+/// @param expr 表达式对象
+/// @return 展开后的表达式对象
+AST_SCRIPT_CAPI Expr* aExpandExpr(Expr* expr);
+
+
+/// @brief 解析脚本表达式，并进行编译、展开、变量地址链接等，将符号、变量、函数等替换为实际值
 /// @param script 脚本文本
 /// @return 表达式对象
-AST_SCRIPT_CAPI Expr* aExec(StringView script);
+AST_SCRIPT_CAPI Expr* aExpand(StringView script);
 
 
 /// @brief 对脚本表达式求值

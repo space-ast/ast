@@ -21,6 +21,7 @@
 #include "ScriptAPI.hpp"
 #include "AstScript/AllHeaders.hpp"
 #include "AstScript/IteratePredefined.hpp"
+#include "AstScript/ExprExpandVisitor.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Quantity.hpp"
 
@@ -121,13 +122,23 @@ Expr *aParseExpr(StringView script)
     return Parser::parseExpr(script);
 }
 
-Expr *aExec(StringView script)
+Expr* aExpandExpr(Expr* expr)
 {
-    SharedPtr<Expr> expr = aParseExpr(script);
-    if(!expr.get()){
+    if(!expr){
         return nullptr;
     }
-    expr = expr->exec();
+    ExprExpandVisitor visitor;
+    expr->accept(visitor);
+    return visitor.takeResult();
+}
+
+Expr *aExpand(StringView script)
+{
+    SharedPtr<Expr> expr = aParseExpr(script);
+    if(!expr){
+        return nullptr;
+    }
+    expr = aExpandExpr(expr);
     return expr.take();
 }
 
@@ -310,10 +321,19 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eDelayAssign:
     {
-        SharedPtr<Expr> leftExpr = left->exec();
-        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
+        SharedPtr<Expr> leftExpr = left;
+        Variable* var = aobject_cast<Variable*>(leftExpr.get());
+        if(var){
             var->setExpr(right);
         }else{
+            Symbol* sym = aobject_cast<Symbol*>(leftExpr.get());
+            if(sym){
+                var = aobject_cast<Variable*>(sym->resolve());
+            }
+            if(var)
+            {
+                var->setExpr(right);
+            }
             aError("Left is not a variable");
             return nullptr;
         }
@@ -321,10 +341,19 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eBindAssign:
     {
-        SharedPtr<Expr> leftExpr = left->exec();
-        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
+        SharedPtr<Expr> leftExpr = left;
+        Variable* var = aobject_cast<Variable*>(leftExpr.get());
+        if(var){
             var->bind(right);
         }else{
+            Symbol* sym = aobject_cast<Symbol*>(leftExpr.get());
+            if(sym){
+                var = aobject_cast<Variable*>(sym->resolve());
+            }
+            if(var)
+            {
+                var->bind(right);
+            }
             aError("Left is not a variable");
             return nullptr;
         }

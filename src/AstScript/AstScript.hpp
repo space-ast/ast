@@ -15,6 +15,7 @@
 #include "AstScript/ExprCatVertical.hpp"
 #include "AstScript/ExprCondition.hpp"
 #include "AstScript/ExprContainer.hpp"
+#include "AstScript/ExprExpandVisitor.hpp"
 #include "AstScript/ExprIf.hpp"
 #include "AstScript/ExprLoop.hpp"
 #include "AstScript/ExprMacroExpand.hpp"

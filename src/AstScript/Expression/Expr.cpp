@@ -20,8 +20,14 @@
 
 #include "Expr.hpp"
 #include "AstScript/Value.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
+
+Expr* Expr::expand() const
+{
+    return aExpandExpr(const_cast<Expr*>(this));
+}
 
 errc_t Expr::setValueDouble(double val) 
 {

@@ -346,6 +346,7 @@
 %include "../AstUtil/RTTI/RTTIAPI.hpp"
 %include "../AstUtil/RTTI/Reflect/Struct.hpp"
 %include "../AstUtil/Serde/Serializer.hpp"
+%include "../AstScript/Basic/ExprExpandVisitor.hpp"
 %include "../AstScript/Expression/ExprAttribute.hpp"
 %include "../AstScript/Expression/ExprCall.hpp"
 %include "../AstScript/Expression/ExprCondition.hpp"
