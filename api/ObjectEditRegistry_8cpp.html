@@ -106,28 +106,52 @@ $(function(){initNavTree('ObjectEditRegistry_8cpp.html',''); initResizable(true)
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ObjectEditRegistry_8hpp_source.html">ObjectEditRegistry.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/Object.hpp&quot;</code><br />
-<code>#include &quot;AstCore/StateCartesian.hpp&quot;</code><br />
-<code>#include &quot;AstCore/StateKeplerian.hpp&quot;</code><br />
 <code>#include &quot;AstCore/BodyEphemerisDE.hpp&quot;</code><br />
 <code>#include &quot;AstCore/BodyEphemerisSPK.hpp&quot;</code><br />
-<code>#include &quot;AstCore/GravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/BurnImpulsive.hpp&quot;</code><br />
+<code>#include &quot;AstCore/CelestialBody.hpp&quot;</code><br />
 <code>#include &quot;AstCore/DragForce.hpp&quot;</code><br />
-<code>#include &quot;AstCore/SolarRadiationPressure.hpp&quot;</code><br />
-<code>#include &quot;AstCore/ThirdBodyForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/EventDetector.hpp&quot;</code><br />
+<code>#include &quot;AstCore/GravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstCore/HPOPForceModel.hpp&quot;</code><br />
+<code>#include &quot;AstCore/InitialState.hpp&quot;</code><br />
 <code>#include &quot;AstCore/MainSequence.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Maneuver.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Propagate.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Sequence.hpp&quot;</code><br />
+<code>#include &quot;AstCore/SolarRadiationPressure.hpp&quot;</code><br />
+<code>#include &quot;AstCore/SpacecraftState.hpp&quot;</code><br />
+<code>#include &quot;AstCore/StateCartesian.hpp&quot;</code><br />
+<code>#include &quot;AstCore/StateKeplerian.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TargeterSequence.hpp&quot;</code><br />
+<code>#include &quot;AstCore/ThirdBodyForce.hpp&quot;</code><br />
+<code>#include &quot;AstMath/ODEVarStepIntegrator.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionTwoBody.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiStateCartesian.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiStateKeplerian.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiMotionTwoBody.hpp&quot;</code><br />
+<code>#include &quot;AstAnalyzer/StudyWorkbench.hpp&quot;</code><br />
+<code>#include &quot;AstAnalyzer/SweepStudy.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiAttributeTree.hpp&quot;</code><br />
 <code>#include &quot;AstGUI/UiBodyEphemerisDE.hpp&quot;</code><br />
 <code>#include &quot;AstGUI/UiBodyEphemerisSPK.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiGravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiBurnImpulsive.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiCelestialBody.hpp&quot;</code><br />
 <code>#include &quot;AstGUI/UiDragForce.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiSolarRadiationPressure.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiEventDetector.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiGravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiHPOPForceModel.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiInitialState.hpp&quot;</code><br />
 <code>#include &quot;AstGUI/UiMainSequence.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiThirdBodyForce.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiManeuver.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiMotionTwoBody.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiODEVarStepIntegrator.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiPropagate.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiSequence.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiSolarRadiationPressure.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiSpacecraftParams.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiStateCartesian.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiStateKeplerian.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiStudyWorkbench.hpp&quot;</code><br />
 <code>#include &quot;AstGUI/UiSweepStudy.hpp&quot;</code><br />
-<code>#include &quot;AstAnalyzer/SweepStudy.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiThirdBodyForce.hpp&quot;</code><br />
 <code>#include &quot;AstGUI/AstGUIAPI.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -137,6 +161,10 @@ $(function(){initNavTree('ObjectEditRegistry_8cpp.html',''); initResizable(true)
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ad41cb456fac7c58b643f0b51afc619a9" id="r_ad41cb456fac7c58b643f0b51afc619a9"><td class="memTemplParams" colspan="2"><a id="ad41cb456fac7c58b643f0b51afc619a9" name="ad41cb456fac7c58b643f0b51afc619a9"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad41cb456fac7c58b643f0b51afc619a9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aUiRegisterEditWidget</b> (<a class="el" href="classast_1_1ObjectEditRegistry.html">ObjectEditRegistry</a> *registry, FNewEditWidget newEditWidget)</td></tr>
+<tr class="separator:ad41cb456fac7c58b643f0b51afc619a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad085c071a789a488cd5e583b8124b34c" id="r_ad085c071a789a488cd5e583b8124b34c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad085c071a789a488cd5e583b8124b34c">ast::aUiRegisterEditWidget</a> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, FNewEditWidget newEditWidget)</td></tr>
 <tr class="separator:ad085c071a789a488cd5e583b8124b34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ee505f80941487945b0ff8c1b668f46" id="r_a5ee505f80941487945b0ff8c1b668f46"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5ee505f80941487945b0ff8c1b668f46">ast::aUiNewEditWidget</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
