@@ -47,6 +47,8 @@ enum class EEphemerisSource
 class AST_CORE_API ThirdBodyForce: public ForceModel
 {
 public:
+    AST_OBJECT(ThirdBodyForce)
+    
     ThirdBodyForce() = default;
 
     ThirdBodyForce(CelestialBody* body)

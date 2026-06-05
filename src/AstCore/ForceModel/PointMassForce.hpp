@@ -34,6 +34,8 @@ AST_NAMESPACE_BEGIN
 class PointMassForce: public BodyAttraction
 {
 public:
+    AST_OBJECT(PointMassForce)
+    
     EBodyAttractionType getBodyAttractionType() const override{return EBodyAttractionType::ePointMass;}
     BodyAttraction* clone() const override{return new PointMassForce(*this);}
 public:

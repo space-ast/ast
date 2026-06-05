@@ -48,6 +48,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API HPOPForceModel: public ObjectNamed
 {
 public:
+    AST_OBJECT(HPOPForceModel)
     HPOPForceModel();
     ~HPOPForceModel();
 

@@ -34,6 +34,7 @@ AST_NAMESPACE_BEGIN
 class RelativityCorrection: public ForceModel
 {
 public:
+    AST_OBJECT(RelativityCorrection)
     
 };
 
