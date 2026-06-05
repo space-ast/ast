@@ -11,13 +11,14 @@ var searchData=
   ['quaternion_8',['Quaternion',['../classast_1_1Quaternion.html',1,'ast']]],
   ['quaternion_2ecpp_9',['Quaternion.cpp',['../Quaternion_8cpp.html',1,'']]],
   ['quaternion_2ehpp_10',['Quaternion.hpp',['../AstMath_2Attitude_2Quaternion_8hpp.html',1,'']]],
-  ['qwtbackend_11',['QwtBackend',['../classast_1_1QwtBackend.html',1,'ast']]],
-  ['qwtbackend_2ecpp_12',['QwtBackend.cpp',['../QwtBackend_8cpp.html',1,'']]],
-  ['qwtbackend_2ehpp_13',['QwtBackend.hpp',['../QwtBackend_8hpp.html',1,'']]],
-  ['qwtplotvisitor_14',['QwtPlotVisitor',['../classast_1_1QwtPlotVisitor.html',1,'ast']]],
-  ['qwtplotvisitor_2ecpp_15',['QwtPlotVisitor.cpp',['../QwtPlotVisitor_8cpp.html',1,'']]],
-  ['qwtplotvisitor_2ehpp_16',['QwtPlotVisitor.hpp',['../QwtPlotVisitor_8hpp.html',1,'']]],
-  ['qx_17',['qx',['../classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770',1,'ast::Quaternion::qx() const'],['../classast_1_1Quaternion.html#a4610df7892c4a844901a28a72b7c782b',1,'ast::Quaternion::qx()']]],
-  ['qy_18',['qy',['../classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b',1,'ast::Quaternion::qy() const'],['../classast_1_1Quaternion.html#a47524a1bc4cf57c3d54d0c296f97723b',1,'ast::Quaternion::qy()']]],
-  ['qz_19',['qz',['../classast_1_1Quaternion.html#a47c7dcdee58301b110cc8019390553fc',1,'ast::Quaternion::qz() const'],['../classast_1_1Quaternion.html#a11df4a94ed81c80b6e4c95ca6821bf52',1,'ast::Quaternion::qz()']]]
+  ['quicktypeentry_11',['QuickTypeEntry',['../structast_1_1QuickTypeEntry.html',1,'ast']]],
+  ['qwtbackend_12',['QwtBackend',['../classast_1_1QwtBackend.html',1,'ast']]],
+  ['qwtbackend_2ecpp_13',['QwtBackend.cpp',['../QwtBackend_8cpp.html',1,'']]],
+  ['qwtbackend_2ehpp_14',['QwtBackend.hpp',['../QwtBackend_8hpp.html',1,'']]],
+  ['qwtplotvisitor_15',['QwtPlotVisitor',['../classast_1_1QwtPlotVisitor.html',1,'ast']]],
+  ['qwtplotvisitor_2ecpp_16',['QwtPlotVisitor.cpp',['../QwtPlotVisitor_8cpp.html',1,'']]],
+  ['qwtplotvisitor_2ehpp_17',['QwtPlotVisitor.hpp',['../QwtPlotVisitor_8hpp.html',1,'']]],
+  ['qx_18',['qx',['../classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770',1,'ast::Quaternion::qx() const'],['../classast_1_1Quaternion.html#a4610df7892c4a844901a28a72b7c782b',1,'ast::Quaternion::qx()']]],
+  ['qy_19',['qy',['../classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b',1,'ast::Quaternion::qy() const'],['../classast_1_1Quaternion.html#a47524a1bc4cf57c3d54d0c296f97723b',1,'ast::Quaternion::qy()']]],
+  ['qz_20',['qz',['../classast_1_1Quaternion.html#a47c7dcdee58301b110cc8019390553fc',1,'ast::Quaternion::qz() const'],['../classast_1_1Quaternion.html#a11df4a94ed81c80b6e4c95ca6821bf52',1,'ast::Quaternion::qz()']]]
 ];

@@ -1007,6 +1007,7 @@ var hierarchy =
     [ "ast::PythonAPI", "classast_1_1PythonAPI.html", null ],
     [ "QDialog", null, [
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],
+      [ "ast::UiNewObjectQuickDialog", "classast_1_1UiNewObjectQuickDialog.html", null ],
       [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
     ] ],
     [ "QDockWidget", null, [
@@ -1047,6 +1048,7 @@ var hierarchy =
     ] ],
     [ "ast::Quantity", "classast_1_1Quantity.html", null ],
     [ "ast::Quaternion", "classast_1_1Quaternion.html", null ],
+    [ "ast::QuickTypeEntry", "structast_1_1QuickTypeEntry.html", null ],
     [ "QWidget", null, [
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
       [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],

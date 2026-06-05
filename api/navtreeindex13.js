@@ -237,6 +237,9 @@ var NAVTREEINDEX13 =
 "UiNewObjectDialog_8cpp.html":[4,0,0,9,13,2],
 "UiNewObjectDialog_8hpp.html":[4,0,0,9,13,3],
 "UiNewObjectDialog_8hpp_source.html":[4,0,0,9,13,3],
+"UiNewObjectQuickDialog_8cpp.html":[4,0,0,9,13,4],
+"UiNewObjectQuickDialog_8hpp.html":[4,0,0,9,13,5],
+"UiNewObjectQuickDialog_8hpp_source.html":[4,0,0,9,13,5],
 "UiODEIntegratorEditor_8cpp.html":[4,0,0,9,6,1],
 "UiODEIntegratorEditor_8hpp.html":[4,0,0,9,6,2],
 "UiODEIntegratorEditor_8hpp_source.html":[4,0,0,9,6,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "UiObjectTreeItem_8cpp.html":[4,0,0,9,4,1,6],
 "UiObjectTreeItem_8hpp.html":[4,0,0,9,4,1,7],
 "UiObjectTreeItem_8hpp_source.html":[4,0,0,9,4,1,7],
-"UiObjectTree_8cpp.html":[4,0,0,9,4,1,4],
-"UiObjectTree_8hpp.html":[4,0,0,9,4,1,5],
-"UiObjectTree_8hpp_source.html":[4,0,0,9,4,1,5],
-"UiObject_8cpp.html":[4,0,0,9,4,15]
+"UiObjectTree_8cpp.html":[4,0,0,9,4,1,4]
 };

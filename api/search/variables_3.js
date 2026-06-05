@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cartstate_5f_0',['cartState_',['../classast_1_1MotionHPOPSax.html#ae64b20510804e025d1528dc683611964',1,'ast::MotionHPOPSax']]],
-  ['category_1',['category',['../classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398',1,'ast::MessageLogContext']]],
+  ['category_1',['category',['../structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec',1,'ast::QuickTypeEntry::category'],['../classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398',1,'ast::MessageLogContext::category']]],
   ['celestialbody_5f_2',['celestialBody_',['../classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9',1,'ast::BaseOrbitDesigner']]],
   ['centralbody_5f_3',['centralBody_',['../classast_1_1GravityFieldHead.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityFieldHead::centralBody_'],['../classast_1_1GravityField.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityField::centralBody_']]],
   ['children_4',['children',['../structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a',1,'ast::WasmObjectInfo']]],
