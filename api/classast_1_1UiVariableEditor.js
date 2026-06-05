@@ -1,5 +1,5 @@
 var classast_1_1UiVariableEditor =
 [
-    [ "applyToVariable", "classast_1_1UiVariableEditor.html#aa04448a4dbf7335b12d7c52bdf56e237", null ],
-    [ "loadVariable", "classast_1_1UiVariableEditor.html#a2890d85e7c6d728a55682645d982ab08", null ]
+    [ "applyToVariable", "classast_1_1UiVariableEditor.html#af06359e97dda676f608fcc309c42a3de", null ],
+    [ "loadVariable", "classast_1_1UiVariableEditor.html#a4d74293ec9e48e14a38f725bbee25595", null ]
 ];

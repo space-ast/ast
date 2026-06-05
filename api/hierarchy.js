@@ -498,8 +498,6 @@ var hierarchy =
       [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
         [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
         [ "ast::AgScriptingToolCalcObjWrap", "classast_1_1AgScriptingToolCalcObjWrap.html", null ],
-        [ "ast::AnalyzerConstraint", "classast_1_1AnalyzerConstraint.html", null ],
-        [ "ast::AnalyzerVariable", "classast_1_1AnalyzerVariable.html", null ],
         [ "ast::Antenna", "classast_1_1Antenna.html", null ],
         [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
         [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
@@ -537,7 +535,6 @@ var hierarchy =
         [ "ast::Chain", "classast_1_1Chain.html", null ],
         [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
         [ "ast::Command", "classast_1_1Command.html", [
-          [ "ast::BasicAnalyzer", "classast_1_1BasicAnalyzer.html", null ],
           [ "ast::End", "classast_1_1End.html", null ],
           [ "ast::Return", "classast_1_1Return.html", null ],
           [ "ast::Segment", "classast_1_1Segment.html", [
@@ -552,11 +549,12 @@ var hierarchy =
             ] ]
           ] ],
           [ "ast::Stop", "classast_1_1Stop.html", null ],
+          [ "ast::StudyWorkbench", "classast_1_1StudyWorkbench.html", null ],
+          [ "ast::SweepStudy", "classast_1_1SweepStudy.html", null ],
           [ "ast::TargeterProfile", "classast_1_1TargeterProfile.html", [
             [ "ast::DifferentialCorrectorProfile", "classast_1_1DifferentialCorrectorProfile.html", null ],
             [ "ast::ScriptingToolProfile", "classast_1_1ScriptingToolProfile.html", null ]
-          ] ],
-          [ "ast::TraverseSearchAnalyzer", "classast_1_1TraverseSearchAnalyzer.html", null ]
+          ] ]
         ] ],
         [ "ast::Constellation", "classast_1_1Constellation.html", null ],
         [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
@@ -930,6 +928,8 @@ var hierarchy =
           [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
           [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
         ] ],
+        [ "ast::StudyConstraint", "classast_1_1StudyConstraint.html", null ],
+        [ "ast::StudyVariable", "classast_1_1StudyVariable.html", null ],
         [ "ast::TargeterGraph", "classast_1_1TargeterGraph.html", null ],
         [ "ast::TargeterGraphControlOptions", "classast_1_1TargeterGraphControlOptions.html", null ],
         [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
@@ -1047,8 +1047,6 @@ var hierarchy =
     [ "ast::Quantity", "classast_1_1Quantity.html", null ],
     [ "ast::Quaternion", "classast_1_1Quaternion.html", null ],
     [ "QWidget", null, [
-      [ "ast::UiAnalyzerVariableList", "classast_1_1UiAnalyzerVariableList.html", null ],
-      [ "ast::UiBasicAnalyzer", "classast_1_1UiBasicAnalyzer.html", null ],
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
       [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
@@ -1085,12 +1083,15 @@ var hierarchy =
         [ "ast::UiThirdBodyForceList", "classast_1_1UiThirdBodyForceList.html", null ]
       ] ],
       [ "ast::UiPropertyEditor", "classast_1_1UiPropertyEditor.html", null ],
-      [ "ast::UiResponseEditor", "classast_1_1UiResponseEditor.html", null ],
-      [ "ast::UiResponseList", "classast_1_1UiResponseList.html", null ],
       [ "ast::UiResultView", "classast_1_1UiResultView.html", null ],
       [ "ast::UiSelectFrame", "classast_1_1UiSelectFrame.html", null ],
       [ "ast::UiStartPage", "classast_1_1UiStartPage.html", null ],
       [ "ast::UiStateEditor", "classast_1_1UiStateEditor.html", null ],
+      [ "ast::UiStudyConstraintEditor", "classast_1_1UiStudyConstraintEditor.html", null ],
+      [ "ast::UiStudyConstraintList", "classast_1_1UiStudyConstraintList.html", null ],
+      [ "ast::UiStudyVariableList", "classast_1_1UiStudyVariableList.html", null ],
+      [ "ast::UiStudyWorkbench", "classast_1_1UiStudyWorkbench.html", null ],
+      [ "ast::UiSweepStudy", "classast_1_1UiSweepStudy.html", null ],
       [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", null ],
       [ "ast::UiVariableEditor", "classast_1_1UiVariableEditor.html", null ],
       [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],
@@ -1269,7 +1270,6 @@ var hierarchy =
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::AttitudeProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Axes >", "classast_1_1WeakPtr.html", null ],
-    [ "ast::WeakPtr< ast::BasicAnalyzer >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::CelestialBody >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Command >", "classast_1_1WeakPtr.html", null ],
@@ -1286,6 +1286,8 @@ var hierarchy =
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpacecraftState >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpaceObject >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::StudyWorkbench >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::SweepStudy >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],
     [ "ast::XMLNode", "classast_1_1XMLNode.html", null ],

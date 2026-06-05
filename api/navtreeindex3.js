@@ -1,14 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"DateTime_8hpp_source.html":[4,0,0,7,10,4],
-"Date_8cpp.html":[4,0,0,7,10,1],
-"Date_8hpp.html":[4,0,0,7,10,2],
-"Date_8hpp_source.html":[4,0,0,7,10,2],
-"Debris_8hpp.html":[4,0,0,22,1,0],
-"Debris_8hpp_source.html":[4,0,0,22,1,0],
-"Debug_8cpp.html":[4,0,0,20,10,4],
-"Debug_8hpp.html":[4,0,0,20,10,5],
-"Debug_8hpp_source.html":[4,0,0,20,10,5],
 "Debugger_8cpp.html":[4,0,0,16,1,2],
 "Debugger_8hpp.html":[4,0,0,16,1,3],
 "Debugger_8hpp_source.html":[4,0,0,16,1,3],
@@ -249,5 +240,14 @@ var NAVTREEINDEX3 =
 "ExprCall_8hpp_source.html":[4,0,0,16,2,8],
 "ExprCatHorizontal_8cpp.html":[4,0,0,16,2,9],
 "ExprCatHorizontal_8hpp_source.html":[4,0,0,16,2,10],
-"ExprCatVertical_8cpp.html":[4,0,0,16,2,11]
+"ExprCatVertical_8cpp.html":[4,0,0,16,2,11],
+"ExprCatVertical_8hpp.html":[4,0,0,16,2,12],
+"ExprCatVertical_8hpp_source.html":[4,0,0,16,2,12],
+"ExprCondition_8cpp.html":[4,0,0,16,2,13],
+"ExprCondition_8hpp.html":[4,0,0,16,2,14],
+"ExprCondition_8hpp_source.html":[4,0,0,16,2,14],
+"ExprContainer_8hpp.html":[4,0,0,16,2,15],
+"ExprContainer_8hpp_source.html":[4,0,0,16,2,15],
+"ExprExpandVisitor_8cpp.html":[4,0,0,16,0,2],
+"ExprExpandVisitor_8hpp.html":[4,0,0,16,0,3]
 };

@@ -189,5 +189,5 @@ var searchData=
   ['origin_5f_186',['origin_',['../classast_1_1FrameAssembly.html#a153f06ae7eb2d61d664281e07050fa17',1,'ast::FrameAssembly::origin_'],['../classast_1_1FrameWithEpoch.html#a9a32767beac508031b47d6e53c027575',1,'ast::FrameWithEpoch::origin_']]],
   ['osculatingelements_2ecpp_187',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
   ['osculatingelements_2ehpp_188',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]],
-  ['outputs_189',['outputs',['../classast_1_1BasicAnalyzer.html#acf147a9539d1dddfbdbb2b5e1d718324',1,'ast::BasicAnalyzer']]]
+  ['outputs_189',['outputs',['../classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c',1,'ast::StudyWorkbench']]]
 ];

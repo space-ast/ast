@@ -106,8 +106,8 @@ $(function(){initNavTree('UiAnalyzerPanel_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstAnalyzer/AnalyzerVariable.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstAnalyzer/AnalyzerConstraint.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstAnalyzer/StudyVariable.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstAnalyzer/StudyConstraint.hpp&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;QDockWidget&gt;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;QToolBar&gt;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
@@ -116,12 +116,12 @@ $(function(){initNavTree('UiAnalyzerPanel_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>UiAnalyzerVariableList;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>UiResponseList;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>UiStudyVariableList;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>UiStudyConstraintList;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>UiPropertyEditor;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>UiResultView;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">class </span>Command;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>TraverseSearchAnalyzer;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>SweepStudy;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1UiAnalyzerPanel.html">   42</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1UiAnalyzerPanel.html">UiAnalyzerPanel</a> : <span class="keyword">public</span> QDockWidget</div>
@@ -133,7 +133,7 @@ $(function(){initNavTree('UiAnalyzerPanel_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> setSimulationCommand(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1TraverseSearchAnalyzer.html">TraverseSearchAnalyzer</a>* analyzer() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1SweepStudy.html">SweepStudy</a>* analyzer() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>signals:</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> analysisStarted();</div>
@@ -146,8 +146,8 @@ $(function(){initNavTree('UiAnalyzerPanel_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> onStopClicked();</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> onAddVariable();</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> onAddResponse();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> onVariableSelected(<a class="code hl_class" href="classast_1_1AnalyzerVariable.html">AnalyzerVariable</a>* variable);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> onResponseSelected(<a class="code hl_class" href="classast_1_1AnalyzerConstraint.html">AnalyzerConstraint</a>* response);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> onVariableSelected(<a class="code hl_class" href="classast_1_1StudyVariable.html">StudyVariable</a>* variable);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> onResponseSelected(<a class="code hl_class" href="classast_1_1StudyConstraint.html">StudyConstraint</a>* response);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> onRunResult(<span class="keywordtype">int</span> runIndex, <span class="keyword">const</span> std::vector&lt;double&gt;&amp; varValues, <span class="keyword">const</span> std::vector&lt;double&gt;&amp; respValues);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> onProgress(<span class="keywordtype">int</span> current, <span class="keywordtype">int</span> total);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
@@ -163,26 +163,26 @@ $(function(){initNavTree('UiAnalyzerPanel_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    QSplitter*         leftSplitter_;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    QSplitter*         mainSplitter_;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_class" href="classast_1_1UiAnalyzerVariableList.html">UiAnalyzerVariableList</a>*    variableList_;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classast_1_1UiResponseList.html">UiResponseList</a>*    responseList_;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_class" href="classast_1_1UiStudyVariableList.html">UiStudyVariableList</a>*    variableList_;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classast_1_1UiStudyConstraintList.html">UiStudyConstraintList</a>*    responseList_;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classast_1_1UiPropertyEditor.html">UiPropertyEditor</a>*  propertyEditor_;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_class" href="classast_1_1UiResultView.html">UiResultView</a>*      resultView_;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="classast_1_1TraverseSearchAnalyzer.html">TraverseSearchAnalyzer</a>* analyzer_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="classast_1_1SweepStudy.html">SweepStudy</a>* analyzer_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span> running_ = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
 </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1AnalyzerConstraint_html"><div class="ttname"><a href="classast_1_1AnalyzerConstraint.html">ast::AnalyzerConstraint</a></div><div class="ttdef"><b>定义</b> AnalyzerConstraint.hpp:35</div></div>
-<div class="ttc" id="aclassast_1_1AnalyzerVariable_html"><div class="ttname"><a href="classast_1_1AnalyzerVariable.html">ast::AnalyzerVariable</a></div><div class="ttdef"><b>定义</b> AnalyzerVariable.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1Command_html"><div class="ttname"><a href="classast_1_1Command.html">ast::Command</a></div><div class="ttdoc">命令（虚基类），用于定义任务序列中的命令，例如初始状态、轨道机动、轨道预报等</div><div class="ttdef"><b>定义</b> Command.hpp:42</div></div>
-<div class="ttc" id="aclassast_1_1TraverseSearchAnalyzer_html"><div class="ttname"><a href="classast_1_1TraverseSearchAnalyzer.html">ast::TraverseSearchAnalyzer</a></div><div class="ttdef"><b>定义</b> TraverseSearchAnalyzer.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1StudyConstraint_html"><div class="ttname"><a href="classast_1_1StudyConstraint.html">ast::StudyConstraint</a></div><div class="ttdef"><b>定义</b> StudyConstraint.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1StudyVariable_html"><div class="ttname"><a href="classast_1_1StudyVariable.html">ast::StudyVariable</a></div><div class="ttdef"><b>定义</b> StudyVariable.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1SweepStudy_html"><div class="ttname"><a href="classast_1_1SweepStudy.html">ast::SweepStudy</a></div><div class="ttdoc">遍历搜索分析器，对变量进行嵌套循环遍历并执行仿真命令</div><div class="ttdef"><b>定义</b> SweepStudy.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1UiAnalyzerPanel_html"><div class="ttname"><a href="classast_1_1UiAnalyzerPanel.html">ast::UiAnalyzerPanel</a></div><div class="ttdoc">Analyzer 主面板，作为 QDockWidget 嵌入主窗口</div><div class="ttdef"><b>定义</b> UiAnalyzerPanel.hpp:43</div></div>
-<div class="ttc" id="aclassast_1_1UiAnalyzerVariableList_html"><div class="ttname"><a href="classast_1_1UiAnalyzerVariableList.html">ast::UiAnalyzerVariableList</a></div><div class="ttdoc">变量列表面板，显示所有扫参变量，支持添加和选中编辑</div><div class="ttdef"><b>定义</b> UiAnalyzerVariableList.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1UiPropertyEditor_html"><div class="ttname"><a href="classast_1_1UiPropertyEditor.html">ast::UiPropertyEditor</a></div><div class="ttdoc">属性编辑面板，根据选中的对象类型切换编辑页</div><div class="ttdef"><b>定义</b> UiPropertyEditor.hpp:83</div></div>
-<div class="ttc" id="aclassast_1_1UiResponseList_html"><div class="ttname"><a href="classast_1_1UiResponseList.html">ast::UiResponseList</a></div><div class="ttdoc">响应列表面板，显示所有响应/约束，支持添加和选中编辑</div><div class="ttdef"><b>定义</b> UiResponseList.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1UiResultView_html"><div class="ttname"><a href="classast_1_1UiResultView.html">ast::UiResultView</a></div><div class="ttdoc">结果表格与进度条组件</div><div class="ttdef"><b>定义</b> UiResultView.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1UiStudyConstraintList_html"><div class="ttname"><a href="classast_1_1UiStudyConstraintList.html">ast::UiStudyConstraintList</a></div><div class="ttdoc">响应列表面板，显示所有响应/约束，支持添加和选中编辑</div><div class="ttdef"><b>定义</b> UiStudyConstraintList.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1UiStudyVariableList_html"><div class="ttname"><a href="classast_1_1UiStudyVariableList.html">ast::UiStudyVariableList</a></div><div class="ttdoc">变量列表面板，显示所有扫参变量，支持添加和选中编辑</div><div class="ttdef"><b>定义</b> UiStudyVariableList.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

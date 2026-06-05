@@ -1,14 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"NLEMinpackSolver_8hpp_source.html":[4,0,0,14,6],
-"NLESolver_8cpp.html":[4,0,0,14,7],
-"NLESolver_8hpp.html":[4,0,0,14,8],
-"NLESolver_8hpp_source.html":[4,0,0,14,8],
-"NLE_8hpp.html":[4,0,0,11,4,1],
-"NLE_8hpp_source.html":[4,0,0,11,4,1],
-"NLPIpoptSolver_8cpp.html":[4,0,0,14,9],
-"NLPIpoptSolver_8hpp.html":[4,0,0,14,10],
-"NLPIpoptSolver_8hpp_source.html":[4,0,0,14,10],
 "NLPProblemWrap_8hpp.html":[4,0,0,14,13],
 "NLPProblemWrap_8hpp_source.html":[4,0,0,14,13],
 "NLPProblem_8cpp.html":[4,0,0,14,11],
@@ -249,5 +240,14 @@ var NAVTREEINDEX7 =
 "PlanetLoader_8hpp_source.html":[4,0,0,10,3,43],
 "PlanetPoint_8cpp.html":[4,0,0,7,2,2,12],
 "PlanetPoint_8hpp.html":[4,0,0,7,2,2,13],
-"PlanetPoint_8hpp_source.html":[4,0,0,7,2,2,13]
+"PlanetPoint_8hpp_source.html":[4,0,0,7,2,2,13],
+"Planet_8cpp.html":[4,0,0,17,3,40],
+"Planet_8hpp.html":[4,0,0,17,3,41],
+"Planet_8hpp_source.html":[4,0,0,17,3,41],
+"Platform_8cpp.html":[4,0,0,20,5,19],
+"Platform_8hpp.html":[4,0,0,20,5,20],
+"Platform_8hpp_source.html":[4,0,0,20,5,20],
+"Plot_8hpp_source.html":[4,0,0,15,2],
+"PointBodyCenter_8cpp.html":[4,0,0,7,2,4,2],
+"PointBodyCenter_8hpp.html":[4,0,0,7,2,4,3]
 };
