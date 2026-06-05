@@ -32,9 +32,9 @@ class QLabel;
 class QDockWidget;
 class QTabWidget;
 
-class UiObjectTree;
-
 AST_NAMESPACE_BEGIN
+
+class UiObjectTree;
 
 class UiMainWindow : public QMainWindow
 {
@@ -64,6 +64,7 @@ private:
 
     // Object dock
     QDockWidget* objectDock_ = nullptr;
+    UiObjectTree* objectTree_ = nullptr;
 
     // Status bar
     QLabel* statusReadyLabel_ = nullptr;

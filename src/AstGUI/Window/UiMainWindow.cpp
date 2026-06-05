@@ -19,8 +19,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiMainWindow.hpp"
+#include "UiNewObjectDialog.hpp"
 #include "AstGUI/MissionIcons.hpp"
 #include "AstGUI/UiObjectTree.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 
 #include <QApplication>
 #include <QDockWidget>
@@ -28,6 +30,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QStackedWidget>
 #include <QStatusBar>
 #include <QTabBar>
@@ -142,6 +145,35 @@ QWidget* UiMainWindow::createRibbonPage(int index)
     switch (index)
     {
     case 0: // 建模
+        {
+            auto* newBtn = createRibbonButton(tr("新建"), missionIcon("New"), page);
+            connect(newBtn, &QToolButton::clicked, this, [this]() {
+                UiNewObjectDialog dlg(this);
+                if (dlg.exec() != QDialog::Accepted)
+                    return;
+
+                QString typeName = dlg.selectedTypeName();
+                QString objName = dlg.objectName();
+                if (typeName.isEmpty())
+                    return;
+
+                // 创建对象并添加到对象管理器
+                Object* obj = aNewObject(StringView(typeName.toStdString()));
+                if (!obj)
+                {
+                    QMessageBox::warning(this, tr("创建失败"),
+                                         tr("无法创建类型为 \"%1\" 的对象。").arg(typeName));
+                    return;
+                }
+
+                obj->setName(StringView(objName.toStdString()));
+                aAddObject(obj);
+                objectTree_->refresh();
+                statusReadyLabel_->setText(tr("已创建: %1").arg(QString::fromStdString(obj->displayName())));
+            });
+            layout->addWidget(newBtn);
+            addRibbonSeparator(layout);
+        }
         layout->addWidget(createRibbonButton(tr("类型管理"), missionIcon("TypeManagement"), page));
         layout->addWidget(createRibbonButton(tr("对象管理"), missionIcon("ObjectManagement"), page));
         layout->addWidget(createRibbonButton(tr("组件管理"), missionIcon("ComponentManagement"), page));
@@ -171,9 +203,9 @@ void UiMainWindow::setupObjectDock()
     objectDock_->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     objectDock_->setMinimumWidth(190);
 
-    auto* objectTree = new UiObjectTree(objectDock_);
-    objectTree->refresh();
-    objectDock_->setWidget(objectTree);
+    objectTree_ = new UiObjectTree(objectDock_);
+    objectTree_->refresh();
+    objectDock_->setWidget(objectTree_);
 
     addDockWidget(Qt::LeftDockWidgetArea, objectDock_);
 }

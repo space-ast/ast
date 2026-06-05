@@ -850,6 +850,22 @@ Error code: %2</translation>
         <source>不确定性分析</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>新建</source>
+        <translation type="unfinished">New</translation>
+    </message>
+    <message>
+        <source>创建失败</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>无法创建类型为 &quot;%1&quot; 的对象。</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>已创建: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiMissionTree</name>
@@ -903,6 +919,41 @@ Error code: %2</translation>
     <message>
         <source>开普勒根数</source>
         <translation>Keplerian Elements</translation>
+    </message>
+</context>
+<context>
+    <name>UiNewObjectDialog</name>
+    <message>
+        <source>新建对象</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>创建</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>类型: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>搜索类型名或描述...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>描述: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>父类: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>（无描述）</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
