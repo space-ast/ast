@@ -21,22 +21,20 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <QIcon>
 #include <QMainWindow>
 #include <QStyle>
 
 class QTabBar;
 class QStackedWidget;
 class QToolButton;
-class QFrame;
-class QSlider;
 class QLabel;
 class QDockWidget;
 class QTabWidget;
-class QTreeWidget;
-
-AST_NAMESPACE_BEGIN
 
 class UiObjectTree;
+
+AST_NAMESPACE_BEGIN
 
 class UiMainWindow : public QMainWindow
 {
@@ -48,46 +46,27 @@ public:
 
 private:
     void setupUi();
-    void applyTheme(const QString& name);
 
     QWidget* setupRibbon();
     QWidget* createRibbonPage(int index);
-    QToolButton* createRibbonButton(const QString& text, const QString& iconName,
-                                     QStyle::StandardPixmap stdIcon, QWidget* parent);
+    QToolButton* createRibbonButton(const QString& text, const QIcon& icon,
+                                     QWidget* parent);
 
-    void setupCentralCanvas();
     void setupObjectDock();
-    void setupTimeDock();
     void setupStatusBar();
 
     // Ribbon
     QTabBar* ribbonTabBar_ = nullptr;
     QStackedWidget* ribbonStack_ = nullptr;
 
+    // Central tabs
+    QTabWidget* centralTabs_ = nullptr;
+
     // Object dock
     QDockWidget* objectDock_ = nullptr;
-    UiObjectTree* objectTree_ = nullptr;
-    QTreeWidget* groupTree_ = nullptr;
-
-    // Central
-    QFrame* canvasFrame_ = nullptr;
-
-    // Time dock
-    QDockWidget* timeDock_ = nullptr;
-    QSlider* timeSlider_ = nullptr;
-    QLabel* startEpochLabel_ = nullptr;
-    QLabel* currentEpochLabel_ = nullptr;
-    QLabel* endEpochLabel_ = nullptr;
 
     // Status bar
     QLabel* statusReadyLabel_ = nullptr;
-    QLabel* statusSceneLabel_ = nullptr;
-    QLabel* statusObjectLabel_ = nullptr;
-    QLabel* statusCoordLabel_ = nullptr;
-    QLabel* statusUnitLabel_ = nullptr;
-    QLabel* statusTimeLabel_ = nullptr;
-
-    QString currentTheme_;
 };
 
 AST_NAMESPACE_END

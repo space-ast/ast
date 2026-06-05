@@ -807,255 +807,47 @@ Error code: %2</translation>
 <context>
     <name>UiMainWindow</name>
     <message>
-        <source>跳到起点</source>
-        <translation>Skip to Start</translation>
-    </message>
-    <message>
-        <source>后退</source>
-        <translation>Step Back</translation>
-    </message>
-    <message>
-        <source>播放</source>
-        <translation>Play</translation>
-    </message>
-    <message>
-        <source>前进</source>
-        <translation>Step Forward</translation>
-    </message>
-    <message>
-        <source>跳到终点</source>
-        <translation>Skip to End</translation>
-    </message>
-    <message>
-        <source>当前历元: 2026-01-01 00:00:00.000 UTCG</source>
-        <translation>Current Epoch: 2026-01-01 00:00:00.000 UTCG</translation>
-    </message>
-    <message>
-        <source>步长: 60 s</source>
-        <translation>Step: 60 s</translation>
-    </message>
-    <message>
-        <source>新建</source>
-        <translation>New</translation>
-    </message>
-    <message>
-        <source>打开</source>
-        <translation>Open</translation>
-    </message>
-    <message>
-        <source>保存</source>
-        <translation>Save</translation>
-    </message>
-    <message>
-        <source>撤销</source>
-        <translation>Undo</translation>
-    </message>
-    <message>
-        <source>重做</source>
-        <translation>Redo</translation>
-    </message>
-    <message>
-        <source>剪切</source>
-        <translation>Cut</translation>
-    </message>
-    <message>
-        <source>复制</source>
-        <translation>Copy</translation>
-    </message>
-    <message>
-        <source>粘贴</source>
-        <translation>Paste</translation>
-    </message>
-    <message>
-        <source>删除</source>
-        <translation>Delete</translation>
-    </message>
-    <message>
-        <source>三维视图</source>
-        <translation>3D View</translation>
-    </message>
-    <message>
-        <source>二维视图</source>
-        <translation>2D View</translation>
-    </message>
-    <message>
-        <source>缩放</source>
-        <translation>Zoom</translation>
-    </message>
-    <message>
-        <source>适应窗口</source>
-        <translation>Fit to Window</translation>
-    </message>
-    <message>
-        <source>航天器</source>
-        <translation>Spacecraft</translation>
-    </message>
-    <message>
-        <source>轨道</source>
-        <translation>Orbit</translation>
-    </message>
-    <message>
-        <source>机动</source>
-        <translation>Maneuver</translation>
-    </message>
-    <message>
-        <source>序列</source>
-        <translation>Sequence</translation>
-    </message>
-    <message>
-        <source>导出</source>
-        <translation>Export</translation>
-    </message>
-    <message>
-        <source>传播</source>
-        <translation>Propagate</translation>
-    </message>
-    <message>
-        <source>分析</source>
-        <translation>Analysis</translation>
-    </message>
-    <message>
-        <source>设置</source>
-        <translation>Settings</translation>
-    </message>
-    <message>
-        <source>脚本</source>
-        <translation>Script</translation>
-    </message>
-    <message>
-        <source>帮助</source>
-        <translation>Help</translation>
-    </message>
-    <message>
-        <source>关于</source>
-        <translation>About</translation>
-    </message>
-    <message>
-        <source>刷新</source>
-        <translation>Refresh</translation>
-    </message>
-    <message>
-        <source>属性</source>
-        <translation>Properties</translation>
-    </message>
-    <message>
-        <source>时间视图</source>
-        <translation>Time View</translation>
-    </message>
-    <message>
-        <source>开始历元: 2026-01-01 00:00:00.000 UTCG</source>
-        <translation>Start Epoch: 2026-01-01 00:00:00.000 UTCG</translation>
-    </message>
-    <message>
-        <source>结束历元: 2026-01-02 00:00:00.000 UTCG</source>
-        <translation>End Epoch: 2026-01-02 00:00:00.000 UTCG</translation>
-    </message>
-    <message>
         <source>就绪</source>
         <translation>Ready</translation>
     </message>
     <message>
-        <source>场景: 未加载</source>
-        <translation>Scenario: Not Loaded</translation>
-    </message>
-    <message>
-        <source>对象: 0</source>
-        <translation>Objects: 0</translation>
-    </message>
-    <message>
-        <source>坐标系: J2000</source>
-        <translation>Frame: J2000</translation>
-    </message>
-    <message>
-        <source>单位: km/s</source>
-        <translation>Unit: km/s</translation>
-    </message>
-    <message>
-        <source>时间: UTCG</source>
-        <translation>Time: UTCG</translation>
-    </message>
-    <message>
-        <source>新建任务功能尚未连接</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开任务功能尚未连接</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开示例：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>已选择：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>新建模型</source>
-        <translation>New Model</translation>
-    </message>
-    <message>
-        <source>导入</source>
-        <translation>Import</translation>
-    </message>
-    <message>
-        <source>库浏览器</source>
-        <translation>Library Browser</translation>
-    </message>
-    <message>
-        <source>图标</source>
-        <translation>Icon</translation>
-    </message>
-    <message>
-        <source>图形</source>
-        <translation>Graphics</translation>
-    </message>
-    <message>
-        <source>文本</source>
-        <translation>Text</translation>
-    </message>
-    <message>
-        <source>检查</source>
-        <translation>Check</translation>
-    </message>
-    <message>
-        <source>翻译</source>
-        <translation>Translate</translation>
-    </message>
-    <message>
-        <source>仿真</source>
-        <translation>Simulate</translation>
-    </message>
-    <message>
-        <source>开始</source>
-        <translation>Start</translation>
-    </message>
-    <message>
-        <source>暂停</source>
-        <translation>Pause</translation>
-    </message>
-    <message>
-        <source>停止</source>
-        <translation>Stop</translation>
-    </message>
-    <message>
-        <source>仿真设置</source>
-        <translation>Simulation Settings</translation>
-    </message>
-    <message>
-        <source>生成代码</source>
-        <translation>Generate Code</translation>
-    </message>
-    <message>
-        <source>构建</source>
-        <translation>Build</translation>
-    </message>
-    <message>
-        <source>用户模型</source>
-        <translation>User Models</translation>
-    </message>
-    <message>
         <source>航天仿真</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>对象</source>
+        <translation type="unfinished">Objects</translation>
+    </message>
+    <message>
+        <source>类型管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>对象管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>组件管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>参数研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>地毯图研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>区间分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>优化打靶</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>不确定性分析</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

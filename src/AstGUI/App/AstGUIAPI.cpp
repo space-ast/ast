@@ -28,6 +28,7 @@
 #include <QStyleFactory>
 #include <QTranslator>
 #include <QDir>
+#include <QFile>
 #include <QDebug>
 
 AST_NAMESPACE_BEGIN
@@ -93,6 +94,16 @@ errc_t aQAppInit(int argc, char *argv[])
             translator->load(qmPath);
         }
         qApp->installTranslator(translator);
+    }
+    // 加载默认主题样式
+    {
+        QString qssPath = QCoreApplication::applicationDirPath() + "/data/style/default.qss";
+        QFile file(qssPath);
+        if (file.open(QFile::ReadOnly | QFile::Text))
+        {
+            qApp->setStyleSheet(QString::fromUtf8(file.readAll()));
+            file.close();
+        }
     }
     return 0;
 }
