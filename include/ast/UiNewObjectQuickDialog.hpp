@@ -1,0 +1,1 @@
+#include "AstGUI/UiNewObjectQuickDialog.hpp"

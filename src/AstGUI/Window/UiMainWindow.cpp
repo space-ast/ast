@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiMainWindow.hpp"
-#include "UiNewObjectDialog.hpp"
+#include "UiNewObjectQuickDialog.hpp"
 #include "AstGUI/MissionIcons.hpp"
 #include "AstGUI/ObjectEditRegistry.hpp"
 #include "AstGUI/UiCommon.hpp"
@@ -159,28 +159,11 @@ QWidget* UiMainWindow::createRibbonPage(int index)
         {
             auto* newBtn = createRibbonButton(tr("新建"), missionIcon("New"), page);
             connect(newBtn, &QToolButton::clicked, this, [this]() {
-                UiNewObjectDialog dlg(this);
+                UiNewObjectQuickDialog dlg(this);
                 if (dlg.exec() != QDialog::Accepted)
                     return;
-
-                QString typeName = dlg.selectedTypeName();
-                QString objName = dlg.objectName();
-                if (typeName.isEmpty())
-                    return;
-
-                // 创建对象并添加到对象管理器
-                Object* obj = aNewObject(StringView(typeName.toStdString()));
-                if (!obj)
-                {
-                    QMessageBox::warning(this, tr("创建失败"),
-                                         tr("无法创建类型为 \"%1\" 的对象。").arg(typeName));
-                    return;
-                }
-
-                obj->setName(StringView(objName.toStdString()));
-                aAddObject(obj);
                 objectTree_->refresh();
-                statusReadyLabel_->setText(tr("已创建: %1").arg(QString::fromStdString(obj->displayName())));
+                statusReadyLabel_->setText(tr("已创建: %1").arg(dlg.createdObjectName()));
             });
             layout->addWidget(newBtn);
             addRibbonSeparator(layout);

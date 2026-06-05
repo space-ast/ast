@@ -855,14 +855,6 @@ Error code: %2</translation>
         <translation type="unfinished">New</translation>
     </message>
     <message>
-        <source>创建失败</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>无法创建类型为 &quot;%1&quot; 的对象。</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>已创建: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -953,6 +945,61 @@ Error code: %2</translation>
     </message>
     <message>
         <source>（无描述）</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiNewObjectQuickDialog</name>
+    <message>
+        <source>新建对象</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>高级 &gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开完整类型列表</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>自动生成唯一名称</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>创建</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>创建失败</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>无法创建类型为 &quot;%1&quot; 的对象。</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称不能为空</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>请输入对象名称。</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>选择父对象...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>选择父对象</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
