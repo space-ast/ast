@@ -31,6 +31,8 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+#ifndef SWIG
+
 class ExprExpandVisitor final: public ExprVisitor
 {
 public:
@@ -75,6 +77,7 @@ private:
     SharedPtr<Expr> result_;
 };
 
+#endif
 
 /*! @} */
 
