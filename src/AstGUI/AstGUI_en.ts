@@ -62,6 +62,10 @@
         <source>对象管理</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>组件管理</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiAnalyzerPanel</name>

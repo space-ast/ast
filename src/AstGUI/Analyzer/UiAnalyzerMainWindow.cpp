@@ -154,7 +154,8 @@ QWidget* UiAnalyzerMainWindow::createRibbonPage(int index)
 
     case 1: // 建模
         layout->addWidget(createRibbonButton(tr("类型管理"), missionIcon("TypeManagement"), page));
-        layout->addWidget(createRibbonButton(tr("对象管理"), QStyle::SP_FileDialogDetailedView, page));
+        layout->addWidget(createRibbonButton(tr("对象管理"), missionIcon("ObjectManagement"), page));
+        layout->addWidget(createRibbonButton(tr("组件管理"), missionIcon("ComponentManagement"), page));
         break;
     }
 
