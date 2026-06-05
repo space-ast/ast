@@ -21,6 +21,8 @@
 #include "UiMainWindow.hpp"
 #include "UiNewObjectDialog.hpp"
 #include "AstGUI/MissionIcons.hpp"
+#include "AstGUI/ObjectEditRegistry.hpp"
+#include "AstGUI/UiCommon.hpp"
 #include "AstGUI/UiObjectTree.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 
@@ -69,6 +71,15 @@ void UiMainWindow::setupUi()
     centralTabs_->setTabsClosable(true);
     centralTabs_->setMovable(true);
     setCentralWidget(centralTabs_);
+
+    // 关闭标签页时删除对应的编辑控件
+    connect(centralTabs_, &QTabWidget::tabCloseRequested,
+            this, [this](int index)
+    {
+        QWidget* w = centralTabs_->widget(index);
+        centralTabs_->removeTab(index);
+        delete w;
+    });
 
     // 左侧 Dock
     setupObjectDock();
@@ -206,6 +217,30 @@ void UiMainWindow::setupObjectDock()
     objectTree_ = new UiObjectTree(objectDock_);
     objectTree_->refresh();
     objectDock_->setWidget(objectTree_);
+
+    // 双击对象树节点时，在中央标签页中打开对应的编辑控件
+    connect(objectTree_, &UiObjectTree::objectDoubleClicked,
+            this, [this](Object* obj)
+    {
+        // 检查是否已经为该对象打开了编辑标签页
+        for (int i = 0; i < centralTabs_->count(); ++i)
+        {
+            if (centralTabs_->tabToolTip(i) == QString::fromStdString(obj->typeName())
+                && centralTabs_->tabText(i) == aUiObjectDisplayName(obj))
+            {
+                centralTabs_->setCurrentIndex(i);
+                return;
+            }
+        }
+
+        QWidget* editWidget = ObjectEditRegistry::Instance().newEditWidget(obj);
+        if (!editWidget)
+            return;
+        int idx = centralTabs_->addTab(editWidget, objectIcon(obj),
+                                       aUiObjectDisplayName(obj));
+        centralTabs_->setTabToolTip(idx, QString::fromStdString(obj->typeName()));
+        centralTabs_->setCurrentIndex(idx);
+    });
 
     addDockWidget(Qt::LeftDockWidgetArea, objectDock_);
 }

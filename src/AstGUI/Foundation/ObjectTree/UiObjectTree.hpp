@@ -71,6 +71,9 @@ signals:
     /// @brief 当用户在树中选中对象时发出，参数仅在槽函数执行期间有效
     void objectSelected(Object* object);
 
+    /// @brief 当用户双击树中对象时发出，参数仅在槽函数执行期间有效
+    void objectDoubleClicked(Object* object);
+
 protected:
     TreeBuildOptions buildOptions_; ///< 对象树构建选项
 
