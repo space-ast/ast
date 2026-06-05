@@ -10,8 +10,8 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiPropertyEditor.hpp"
-#include "AstAnalyzer/AnalyzerVariable.hpp"
-#include "AstAnalyzer/AnalyzerConstraint.hpp"
+#include "AstAnalyzer/StudyVariable.hpp"
+#include "AstAnalyzer/StudyConstraint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -52,7 +52,7 @@ void UiVariableEditor::setupUi()
     layout_->addRow(tr("表达式"), exprEdit_);
 }
 
-void UiVariableEditor::loadVariable(AnalyzerVariable* variable)
+void UiVariableEditor::loadVariable(StudyVariable* variable)
 {
     if (!variable) return;
     nameEdit_->setText(QString::fromStdString(variable->getName()));
@@ -65,7 +65,7 @@ void UiVariableEditor::loadVariable(AnalyzerVariable* variable)
         exprEdit_->clear();
 }
 
-void UiVariableEditor::applyToVariable(AnalyzerVariable* variable)
+void UiVariableEditor::applyToVariable(StudyVariable* variable)
 {
     if (!variable) return;
     variable->setName(nameEdit_->text().toStdString());
@@ -76,16 +76,16 @@ void UiVariableEditor::applyToVariable(AnalyzerVariable* variable)
 }
 
 // ============================================================================
-// UiResponseEditor
+// UiStudyConstraintEditor
 // ============================================================================
 
-UiResponseEditor::UiResponseEditor(QWidget* parent)
+UiStudyConstraintEditor::UiStudyConstraintEditor(QWidget* parent)
     : QWidget(parent)
 {
     setupUi();
 }
 
-void UiResponseEditor::setupUi()
+void UiStudyConstraintEditor::setupUi()
 {
     layout_ = new QFormLayout(this);
 
@@ -97,15 +97,15 @@ void UiResponseEditor::setupUi()
     layout_->addRow(tr("表达式"), exprEdit_);
 }
 
-void UiResponseEditor::loadResponse(AnalyzerConstraint* response)
+void UiStudyConstraintEditor::loadResponse(StudyConstraint* response)
 {
     if (!response) return;
     nameEdit_->setText(QString::fromStdString(response->getName()));
     exprEdit_->clear();
-    // TODO: response->expr() not yet implemented on AnalyzerConstraint
+    // TODO: response->expr() not yet implemented on StudyConstraint
 }
 
-void UiResponseEditor::applyToResponse(AnalyzerConstraint* response)
+void UiStudyConstraintEditor::applyToResponse(StudyConstraint* response)
 {
     if (!response) return;
     response->setName(nameEdit_->text().toStdString());
@@ -125,7 +125,7 @@ UiPropertyEditor::UiPropertyEditor(QWidget* parent)
     stack_ = new QStackedWidget(this);
 
     variableEditor_ = new UiVariableEditor(this);
-    responseEditor_ = new UiResponseEditor(this);
+    responseEditor_ = new UiStudyConstraintEditor(this);
 
     stack_->addWidget(variableEditor_);   // index 0
     stack_->addWidget(responseEditor_);   // index 1
@@ -137,7 +137,7 @@ UiPropertyEditor::UiPropertyEditor(QWidget* parent)
     layout->addWidget(stack_);
 }
 
-void UiPropertyEditor::editVariable(AnalyzerVariable* variable)
+void UiPropertyEditor::editVariable(StudyVariable* variable)
 {
     applyCurrent();
     currentVariable_ = variable;
@@ -146,7 +146,7 @@ void UiPropertyEditor::editVariable(AnalyzerVariable* variable)
     stack_->setCurrentIndex(0);
 }
 
-void UiPropertyEditor::editResponse(AnalyzerConstraint* response)
+void UiPropertyEditor::editResponse(StudyConstraint* response)
 {
     applyCurrent();
     currentVariable_ = nullptr;

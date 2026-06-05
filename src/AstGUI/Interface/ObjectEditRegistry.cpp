@@ -43,6 +43,8 @@
 #include "AstGUI/UiSolarRadiationPressure.hpp"
 #include "AstGUI/UiMainSequence.hpp"
 #include "AstGUI/UiThirdBodyForce.hpp"
+#include "AstGUI/UiSweepStudy.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 #include "AstGUI/AstGUIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -67,6 +69,11 @@ ObjectEditRegistry::ObjectEditRegistry(bool shouldRegistEditWidget)
         registerEditWidget(SolarRadiationPressure::StaticType(), [](Object *object) -> QWidget* { return new UiSolarRadiationPressure(object); });
         registerEditWidget(ThirdBodyForce::StaticType(), [](Object *object) -> QWidget* { return new UiThirdBodyForce(object); });
         registerEditWidget(MainSequence::StaticType(), [](Object *object) -> QWidget* { return new UiMainSequence(object); });
+        registerEditWidget(SweepStudy::StaticType(), [](Object *object) -> QWidget* {
+            auto* editor = new UiSweepStudy();
+            editor->setAnalyzer(static_cast<SweepStudy*>(object));
+            return editor;
+        });
     }
 }
 

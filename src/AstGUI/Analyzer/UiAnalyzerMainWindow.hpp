@@ -1,7 +1,7 @@
 ///
 /// @file      UiAnalyzerMainWindow.hpp
 /// @brief     Analyzer 模块主窗口（Ribbon 风格菜单）
-/// @details   顶部 Ribbon 菜单 + 中央 UiBasicAnalyzer 编辑区 + 底部状态栏
+/// @details   顶部 Ribbon 菜单 + 中央 UiStudyWorkbench 编辑区 + 底部状态栏
 /// @author    axel
 /// @date      2026-06-03
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <QIcon>
 #include <QMainWindow>
 #include <QStyle>
 
@@ -30,7 +31,10 @@ class QToolButton;
 
 AST_NAMESPACE_BEGIN
 
-class UiBasicAnalyzer;
+class UiStudyWorkbench;
+class UiSweepStudy;
+class StudyWorkbench;
+class SweepStudy;
 
 /// @brief Analyzer 模块主窗口，使用 Ribbon 风格菜单
 class AST_GUI_API UiAnalyzerMainWindow : public QMainWindow
@@ -40,8 +44,17 @@ public:
     explicit UiAnalyzerMainWindow(QWidget* parent = nullptr);
     ~UiAnalyzerMainWindow() override;
 
-    /// @brief 获取内部 UiBasicAnalyzer 编辑器
-    UiBasicAnalyzer* basicAnalyzerEditor() const { return editor_; }
+    /// @brief 获取内部 UiStudyWorkbench 编辑器
+    UiStudyWorkbench* studyWorkbenchEditor() const { return basicEditor_; }
+
+    /// @brief 获取内部 UiSweepStudy 编辑器
+    UiSweepStudy* sweepStudyEditor() const { return traverseEditor_; }
+
+    /// @brief 设置要编辑的 StudyWorkbench
+    void setStudyWorkbench(StudyWorkbench* analyzer);
+
+    /// @brief 设置要编辑的 SweepStudy
+    void setSweepStudy(SweepStudy* analyzer);
 
 private:
     void setupUi();
@@ -50,13 +63,17 @@ private:
     QWidget* createRibbonPage(int index);
     QToolButton* createRibbonButton(const QString& text, QStyle::StandardPixmap icon,
                                      QWidget* parent);
+    QToolButton* createRibbonButton(const QString& text, const QIcon& icon,
+                                     QWidget* parent);
 
     // Ribbon
-    QTabBar*       ribbonTabBar_ = nullptr;
+    QTabBar*        ribbonTabBar_ = nullptr;
     QStackedWidget* ribbonStack_ = nullptr;
 
     // 中央编辑器
-    UiBasicAnalyzer* editor_ = nullptr;
+    QStackedWidget*        editorStack_ = nullptr;
+    UiStudyWorkbench*       basicEditor_ = nullptr;
+    UiSweepStudy* traverseEditor_ = nullptr;
 };
 
 AST_NAMESPACE_END

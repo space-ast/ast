@@ -21,8 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstAnalyzer/AnalyzerVariable.hpp"
-#include "AstAnalyzer/AnalyzerConstraint.hpp"
+#include "AstAnalyzer/StudyVariable.hpp"
+#include "AstAnalyzer/StudyConstraint.hpp"
 #include <QDockWidget>
 #include <QToolBar>
 #include <vector>
@@ -31,12 +31,12 @@ class QSplitter;
 
 AST_NAMESPACE_BEGIN
 
-class UiAnalyzerVariableList;
-class UiResponseList;
+class UiStudyVariableList;
+class UiStudyConstraintList;
 class UiPropertyEditor;
 class UiResultView;
 class Command;
-class TraverseSearchAnalyzer;
+class SweepStudy;
 
 /// @brief Analyzer 主面板，作为 QDockWidget 嵌入主窗口
 class AST_GUI_API UiAnalyzerPanel : public QDockWidget
@@ -50,7 +50,7 @@ public:
     void setSimulationCommand(Command* command);
 
     /// @brief 获取分析器实例
-    TraverseSearchAnalyzer* analyzer() const;
+    SweepStudy* analyzer() const;
 
 signals:
     void analysisStarted();
@@ -63,8 +63,8 @@ private slots:
     void onStopClicked();
     void onAddVariable();
     void onAddResponse();
-    void onVariableSelected(AnalyzerVariable* variable);
-    void onResponseSelected(AnalyzerConstraint* response);
+    void onVariableSelected(StudyVariable* variable);
+    void onResponseSelected(StudyConstraint* response);
     void onRunResult(int runIndex, const std::vector<double>& varValues, const std::vector<double>& respValues);
     void onProgress(int current, int total);
 
@@ -80,12 +80,12 @@ private:
     QSplitter*         leftSplitter_;
     QSplitter*         mainSplitter_;
 
-    UiAnalyzerVariableList*    variableList_;
-    UiResponseList*    responseList_;
+    UiStudyVariableList*    variableList_;
+    UiStudyConstraintList*    responseList_;
     UiPropertyEditor*  propertyEditor_;
     UiResultView*      resultView_;
 
-    TraverseSearchAnalyzer* analyzer_ = nullptr;
+    SweepStudy* analyzer_ = nullptr;
     bool running_ = false;
 };
 

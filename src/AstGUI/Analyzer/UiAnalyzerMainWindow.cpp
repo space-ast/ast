@@ -1,7 +1,7 @@
 ///
 /// @file      UiAnalyzerMainWindow.cpp
 /// @brief     Analyzer 模块主窗口实现
-/// @details   顶部 Ribbon 菜单 + 中央 UiBasicAnalyzer 编辑区 + 底部状态栏
+/// @details   顶部 Ribbon 菜单 + 中央 UiStudyWorkbench 编辑区 + 底部状态栏
 /// @author    axel
 /// @date      2026-06-03
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -19,7 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiAnalyzerMainWindow.hpp"
-#include "AstGUI/UiBasicAnalyzer.hpp"
+#include "AstAnalyzer/StudyWorkbench.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
+#include "AstGUI/UiStudyWorkbench.hpp"
+#include "AstGUI/UiSweepStudy.hpp"
+#include "AstGUI/MissionIcons.hpp"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -45,9 +49,17 @@ void UiAnalyzerMainWindow::setupUi()
     QWidget* ribbon = setupRibbon();
     setMenuWidget(ribbon);
 
-    // 中央编辑区域
-    editor_ = new UiBasicAnalyzer(this);
-    setCentralWidget(editor_);
+    // 中央编辑区域（堆栈式，可切换 StudyWorkbench / SweepStudy）
+    editorStack_ = new QStackedWidget(this);
+
+    basicEditor_ = new UiStudyWorkbench(editorStack_);
+    editorStack_->addWidget(basicEditor_); // index 0
+
+    traverseEditor_ = new UiSweepStudy(editorStack_);
+    editorStack_->addWidget(traverseEditor_); // index 1
+
+    editorStack_->setCurrentIndex(0);
+    setCentralWidget(editorStack_);
 
     // 状态栏（空白占位）
     statusBar();
@@ -103,6 +115,18 @@ QToolButton* UiAnalyzerMainWindow::createRibbonButton(const QString& text,
     return btn;
 }
 
+QToolButton* UiAnalyzerMainWindow::createRibbonButton(const QString& text,
+    const QIcon& icon, QWidget* parent)
+{
+    auto* btn = new QToolButton(parent);
+    btn->setText(text);
+    btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    btn->setIconSize(QSize(24, 24));
+    btn->setMinimumWidth(56);
+    btn->setIcon(icon);
+    return btn;
+}
+
 static void addRibbonSeparator(QHBoxLayout* layout)
 {
     auto* sep = new QFrame();
@@ -121,21 +145,37 @@ QWidget* UiAnalyzerMainWindow::createRibbonPage(int index)
     switch (index)
     {
     case 0: // 分析
-        layout->addWidget(createRibbonButton(tr("参数研究"), QStyle::SP_FileDialogDetailedView, page));
-        layout->addWidget(createRibbonButton(tr("地毯图研究"), QStyle::SP_FileDialogDetailedView, page));
-        layout->addWidget(createRibbonButton(tr("区间分析"), QStyle::SP_FileDialogDetailedView, page));
-        layout->addWidget(createRibbonButton(tr("优化打靶"), QStyle::SP_FileDialogDetailedView, page));
-        layout->addWidget(createRibbonButton(tr("不确定性分析"), QStyle::SP_FileDialogDetailedView, page));
+        layout->addWidget(createRibbonButton(tr("参数研究"), missionIcon("ParameterStudy"), page));
+        layout->addWidget(createRibbonButton(tr("地毯图研究"), missionIcon("CarpetPlot"), page));
+        layout->addWidget(createRibbonButton(tr("区间分析"), missionIcon("IntervalAnalysis"), page));
+        layout->addWidget(createRibbonButton(tr("优化打靶"), missionIcon("OptimalTargeting"), page));
+        layout->addWidget(createRibbonButton(tr("不确定性分析"), missionIcon("UncertaintyAnalysis"), page));
         break;
 
     case 1: // 建模
-        layout->addWidget(createRibbonButton(tr("类型管理"), QStyle::SP_FileDialogDetailedView, page));
+        layout->addWidget(createRibbonButton(tr("类型管理"), missionIcon("TypeManagement"), page));
         layout->addWidget(createRibbonButton(tr("对象管理"), QStyle::SP_FileDialogDetailedView, page));
         break;
     }
 
     layout->addStretch();
     return page;
+}
+
+// ============================================================================
+// 公共接口
+// ============================================================================
+
+void UiAnalyzerMainWindow::setStudyWorkbench(StudyWorkbench* analyzer)
+{
+    basicEditor_->setStudyWorkbench(analyzer);
+    editorStack_->setCurrentIndex(0);
+}
+
+void UiAnalyzerMainWindow::setSweepStudy(SweepStudy* analyzer)
+{
+    traverseEditor_->setAnalyzer(analyzer);
+    editorStack_->setCurrentIndex(1);
 }
 
 AST_NAMESPACE_END

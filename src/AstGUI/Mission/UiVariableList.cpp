@@ -84,7 +84,7 @@ void UiVariableList::setupUi()
     removeButton_->setEnabled(false);
 
     refreshButton_ = new QToolButton(this);
-    refreshButton_->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
+    refreshButton_->setIcon(aUiIcon("Refresh"));
     refreshButton_->setToolTip(tr("刷新变量列表"));
     refreshButton_->setAutoRaise(true);
 

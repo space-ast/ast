@@ -95,13 +95,6 @@
     </message>
 </context>
 <context>
-    <name>UiAnalyzerVariableList</name>
-    <message>
-        <source>+ 添加变量</source>
-        <translation>+ Add Variable</translation>
-    </message>
-</context>
-<context>
     <name>UiAttributeTree</name>
     <message>
         <source>属性</source>
@@ -109,29 +102,6 @@
     </message>
     <message>
         <source>值</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UiBasicAnalyzer</name>
-    <message>
-        <source>输入变量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输出变量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>变量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>未关联任务模型</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>任务模型</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1279,24 +1249,6 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
-    <name>UiResponseEditor</name>
-    <message>
-        <source>名称</source>
-        <translation>Name</translation>
-    </message>
-    <message>
-        <source>表达式</source>
-        <translation>Expression</translation>
-    </message>
-</context>
-<context>
-    <name>UiResponseList</name>
-    <message>
-        <source>+ 添加响应</source>
-        <translation>+ Add Response</translation>
-    </message>
-</context>
-<context>
     <name>UiResultView</name>
     <message>
         <source>运行 %1 / %2</source>
@@ -1681,6 +1633,81 @@ Error code: %2</translation>
     <message>
         <source>过升交点后时间</source>
         <translation>Time Past Ascending Node</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyConstraintEditor</name>
+    <message>
+        <source>名称</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>表达式</source>
+        <translation>Expression</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyConstraintList</name>
+    <message>
+        <source>+ 添加响应</source>
+        <translation>+ Add Response</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyVariableList</name>
+    <message>
+        <source>+ 添加变量</source>
+        <translation>+ Add Variable</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyWorkbench</name>
+    <message>
+        <source>输入变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>未关联任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiSweepStudy</name>
+    <message>
+        <source>扫描变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>约束条件</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>未关联任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>任务模型</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
