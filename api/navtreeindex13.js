@@ -234,6 +234,9 @@ var NAVTREEINDEX13 =
 "UiMotionTwoBody_8cpp.html":[4,0,0,9,8,4],
 "UiMotionTwoBody_8hpp.html":[4,0,0,9,8,5],
 "UiMotionTwoBody_8hpp_source.html":[4,0,0,9,8,5],
+"UiNewObjectDialog_8cpp.html":[4,0,0,9,13,2],
+"UiNewObjectDialog_8hpp.html":[4,0,0,9,13,3],
+"UiNewObjectDialog_8hpp_source.html":[4,0,0,9,13,3],
 "UiODEIntegratorEditor_8cpp.html":[4,0,0,9,6,1],
 "UiODEIntegratorEditor_8hpp.html":[4,0,0,9,6,2],
 "UiODEIntegratorEditor_8hpp_source.html":[4,0,0,9,6,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "UiObjectTree_8cpp.html":[4,0,0,9,4,1,4],
 "UiObjectTree_8hpp.html":[4,0,0,9,4,1,5],
 "UiObjectTree_8hpp_source.html":[4,0,0,9,4,1,5],
-"UiObject_8cpp.html":[4,0,0,9,4,15],
-"UiObject_8hpp.html":[4,0,0,9,4,16],
-"UiObject_8hpp_source.html":[4,0,0,9,4,16],
-"UiOperator_8cpp.html":[4,0,0,20,5,29]
+"UiObject_8cpp.html":[4,0,0,9,4,15]
 };

@@ -3,6 +3,7 @@ var classast_1_1UiObjectTree =
     [ "UiObjectTree", "classast_1_1UiObjectTree.html#afc9584bce1619e300f8f1b5ccc26e386", null ],
     [ "isRootVisible", "classast_1_1UiObjectTree.html#aff968e4b278261f81946ad285d08f176", null ],
     [ "isShowComponents", "classast_1_1UiObjectTree.html#a9a13afc934e4f05756bd48fe1e486f19", null ],
+    [ "objectDoubleClicked", "classast_1_1UiObjectTree.html#abfdc051f29041dc2477b75cb0bd695f6", null ],
     [ "objectSelected", "classast_1_1UiObjectTree.html#a0b59c1bbb96f59c56fc932401cc367e0", null ],
     [ "refresh", "classast_1_1UiObjectTree.html#aef0feafe47a5fcddd9961857420e5479", null ],
     [ "rootItem", "classast_1_1UiObjectTree.html#abe43cb6161117c8617ff9fbc57f6d5d2", null ],

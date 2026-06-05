@@ -900,6 +900,7 @@ var namespaceast =
     [ "UiMissionTree", "classast_1_1UiMissionTree.html", "classast_1_1UiMissionTree" ],
     [ "UiMotionProfile", "classast_1_1UiMotionProfile.html", "classast_1_1UiMotionProfile" ],
     [ "UiMotionTwoBody", "classast_1_1UiMotionTwoBody.html", null ],
+    [ "UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", "classast_1_1UiNewObjectDialog" ],
     [ "UiObject", "classast_1_1UiObject.html", "classast_1_1UiObject" ],
     [ "UiObjectTree", "classast_1_1UiObjectTree.html", "classast_1_1UiObjectTree" ],
     [ "UiObjectTreeItem", "classast_1_1UiObjectTreeItem.html", "classast_1_1UiObjectTreeItem" ],
