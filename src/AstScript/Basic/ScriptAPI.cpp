@@ -305,6 +305,31 @@ static void assignop_split(EOpAssignType op, EOpBinType& opbin)
     }
 }
 
+/// @brief 尝试将左值解析为变量并执行赋值/绑定操作
+/// @return true 表示成功找到变量并执行操作，false 表示左值不是变量
+static bool tryAssignToVar(Expr* left, Expr* right, bool useBind)
+{
+    // 外部已检查空指针，无需重复检查
+    // if(!left || !right){
+    //     return false;
+    // }
+    Variable* var = aobject_cast<Variable*>(left);
+    if (!var) {
+        Symbol* sym = aobject_cast<Symbol*>(left);
+        if (sym) {
+            var = aobject_cast<Variable*>(sym->resolve());
+        }
+    }
+    if (var) {
+        if (useBind)
+            var->bind(right);
+        else
+            var->setExpr(right);
+        return true;
+    }
+    return false;
+}
+
 Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
 {
     if(!left || !right){
@@ -321,19 +346,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eDelayAssign:
     {
-        SharedPtr<Expr> leftExpr = left;
-        Variable* var = aobject_cast<Variable*>(leftExpr.get());
-        if(var){
-            var->setExpr(right);
-        }else{
-            Symbol* sym = aobject_cast<Symbol*>(leftExpr.get());
-            if(sym){
-                var = aobject_cast<Variable*>(sym->resolve());
-            }
-            if(var)
-            {
-                var->setExpr(right);
-            }
+        if (!tryAssignToVar(left, right, false)) {
             aError("Left is not a variable");
             return nullptr;
         }
@@ -341,19 +354,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eBindAssign:
     {
-        SharedPtr<Expr> leftExpr = left;
-        Variable* var = aobject_cast<Variable*>(leftExpr.get());
-        if(var){
-            var->bind(right);
-        }else{
-            Symbol* sym = aobject_cast<Symbol*>(leftExpr.get());
-            if(sym){
-                var = aobject_cast<Variable*>(sym->resolve());
-            }
-            if(var)
-            {
-                var->bind(right);
-            }
+        if (!tryAssignToVar(left, right, true)) {
             aError("Left is not a variable");
             return nullptr;
         }

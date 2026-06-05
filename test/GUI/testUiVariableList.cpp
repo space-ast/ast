@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
     listLayout->addWidget(listLabel);
 
     auto* uiVarList = new UiVariableList(central);
-    uiVarList->setVariableList(variableList.get());
+    uiVarList->setVariableList(variableList.get(), satCart);
     listLayout->addWidget(uiVarList);
 
     rootLayout->addLayout(listLayout, 1);

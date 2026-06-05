@@ -68,11 +68,10 @@ public:
     void visit(ExprCalculation& expr) override;
     void visit(Expr& expr) override;
 public:
-    void visitValue(Value& value);
-public:
     Expr* takeResult()  {return result_.take();}
     void setResult(Expr* result) {result_ = result;}
 private:
+    void visitValue(Value& value);
     SharedPtr<Expr> result_;
 };
 
