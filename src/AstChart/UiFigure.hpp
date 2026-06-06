@@ -26,13 +26,18 @@
 #include <QMap>
 #include <QList>
 #include <QPointer>
+#include <QScopedPointer>
 
 class QwtFigure;
 class QwtPlot;
 class QwtPlotPanner;
 class QwtPlotCanvasZoomer;
+class QwtPlotSeriesDataPicker;
+class QwtPlotSeriesDataPickerGroup;
 class QToolBar;
+class QToolButton;
 class QActionGroup;
+class QMenu;
 
 namespace matplot
 {
@@ -67,8 +72,14 @@ public:
     /// @brief 重新记录当前轴范围作为"原始状态"（新增子图后调用）
     void refreshOriginalLimits();
 
+    /// @brief 从 matplot 数据模型同步工具栏按钮状态（图例/网格/色条）
+    void syncToolbarState();
+
     /// @brief 重新绘制所有子图
     void replotAll();
+
+    /// @brief 重建当前激活的导航交互器（数据拾取/平移/放大），用于 redraw 后恢复
+    void restoreNavigationState();
 
 public slots:
     /// @brief 保存图片（弹出文件对话框）
@@ -95,11 +106,17 @@ public slots:
     /// @brief 切换 3D 色条可见性
     void toggleColorbar(bool on);
 
+private slots:
+    /// @brief 数据拾取 Action 的 toggled 统一处理（Y值/临近点）
+    void onPickActionToggled(bool on);
+
 private:
     void setupUi();
     void createActions();
     void clearPanners();
     void clearZoomers();
+    void clearDataPickers();
+    void createDataPickers();
     QIcon loadIcon(const QString& name) const;
     QList<QwtPlot*> allPlots() const;
 
@@ -110,10 +127,20 @@ private:
     QwtFigure*                           qwtfigure_ = nullptr;
     matplot::figure_type*                pltfigure_ = nullptr;
     QToolBar*                            toolBar_ = nullptr;
-    QActionGroup*                        navigationGroup_ = nullptr;
-    QMap<QwtPlot*, AxisLimits>           originalLimits_;
-    QList<QPointer<QwtPlotPanner>>       panners_;
-    QList<QPointer<QwtPlotCanvasZoomer>> zoomers_;
+    QAction*                             panAction_ = nullptr;
+    QAction*                             zoomInAction_ = nullptr;
+    QAction*                                legendAction_ = nullptr;
+    QAction*                                gridAction_ = nullptr;
+    QAction*                                colorbarAction_ = nullptr;
+    QAction*                                pickYAction_ = nullptr;
+    QAction*                                pickNearestAction_ = nullptr;
+    QMenu*                                  dataPickMenu_ = nullptr;
+    QToolButton*                            dataPickBtn_ = nullptr;
+    QMap<QwtPlot*, AxisLimits>              originalLimits_;
+    QList<QPointer<QwtPlotPanner>>          panners_;
+    QList<QPointer<QwtPlotCanvasZoomer>>    zoomers_;
+    QList<QPointer<QwtPlotSeriesDataPicker>> dataPickers_;
+    QScopedPointer<QwtPlotSeriesDataPickerGroup> dataPickerGroup_;
 };
 
 AST_NAMESPACE_END

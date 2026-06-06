@@ -50,22 +50,55 @@
 #include <QMainWindow>
 #include <QDebug>
 
-#include <map>
 #include <string>
 
 AST_NAMESPACE_BEGIN
 
 class UiFigure;
 struct QwtBackend::Impl {
-    std::map<matplot::figure_type*, UiFigure*> figures;
-    unsigned int width_{QwtBackend::kDefaultWidth};
-    unsigned int height_{QwtBackend::kDefaultHeight};
-    unsigned int pos_x_{QwtBackend::kDefaultPosX};
-    unsigned int pos_y_{QwtBackend::kDefaultPosY};
-    std::string output_file_;
-    std::string output_format_;
+public:
+    static constexpr unsigned int kDefaultWidth = 560;
+    static constexpr unsigned int kDefaultHeight = 420;
+    static constexpr unsigned int kDefaultPosX = 680;
+    static constexpr unsigned int kDefaultPosY = 558;
+public:
+    matplot::figure_type* pltfigure_{nullptr};
+    QPointer<UiFigure> uifigure_;
+    unsigned int width_ {kDefaultWidth};
+    unsigned int height_{kDefaultHeight};
+    unsigned int pos_x_ {kDefaultPosX};
+    unsigned int pos_y_ {kDefaultPosY};
     std::string window_title_;
+public:
+    UiFigure* getUiFigure();
+    UiFigure* getUiFigure(matplot::figure_type* f);
+    void renderFigure(matplot::figure_type* f, UiFigure* fig);
 };
+
+UiFigure* QwtBackend::Impl::getUiFigure() {
+    if (!uifigure_.isNull()) {
+        return uifigure_;
+    }
+    if(pltfigure_)
+    {
+        auto* uifigure = new UiFigure(pltfigure_);
+        uifigure->setFigureSize(static_cast<int>(this->width_),
+                                static_cast<int>(this->height_));
+        if (!this->window_title_.empty()) {
+            uifigure->setWindowTitle(QString::fromStdString(this->window_title_));
+        }
+        this->uifigure_ = uifigure;
+    }
+    return uifigure_;
+}
+
+
+UiFigure* QwtBackend::Impl::getUiFigure(matplot::figure_type* f) {
+    pltfigure_ = f;
+    return getUiFigure();
+}
+
+
 
 QwtBackend::QwtBackend() : impl_(new Impl()) {
     if (!qApp) {
@@ -79,37 +112,67 @@ QwtBackend::QwtBackend() : impl_(new Impl()) {
 }
 
 QwtBackend::~QwtBackend() {
-    for (auto& kv : impl_->figures) {
-        delete kv.second;  // 未被 QMainWindow 接管的 figure 手动清理
+    if(impl_->uifigure_) {
+        impl_->uifigure_->deleteLater();
     }
-    impl_->figures.clear();
 }
 
 bool QwtBackend::consumes_gnuplot_commands() { return false; }
 
-bool QwtBackend::is_interactive() { return impl_->output_file_.empty(); }
+bool QwtBackend::is_interactive() { return true; }
 
-const std::string& QwtBackend::output() { return impl_->output_file_; }
+static std::string empty_string{};
 
-const std::string& QwtBackend::output_format() { return impl_->output_format_; }
+const std::string& QwtBackend::output() { return empty_string; }
 
-bool QwtBackend::output(const std::string& filename) {
-    impl_->output_file_ = filename;
-    if (!filename.empty()) {
-        auto dot = filename.find_last_of('.');
-        if (dot != std::string::npos) {
-            impl_->output_format_ = filename.substr(dot + 1);
-        } else {
-            impl_->output_format_ = "png";
-        }
+const std::string& QwtBackend::output_format() { return empty_string; }
+
+bool QwtBackend::output(const std::string& filename) 
+{
+    auto iter = filename.find_last_of('.');
+    if(iter == std::string::npos) {
+        return false;
     }
-    return true;
+    std::string format = filename.substr(iter + 1);
+    std::transform(format.begin(), format.end(), format.begin(), ::toupper);
+    if (format == "PNG" || format == "JPG" || format == "BMP" || format == "SVG" || format == "PDF") {
+        return output(filename, format);
+    }
+    else {
+        return output(filename, "PNG");
+    }
 }
 
-bool QwtBackend::output(const std::string& filename, const std::string& format) {
-    impl_->output_file_ = filename;
-    impl_->output_format_ = format;
-    return true;
+bool QwtBackend::output(const std::string& filename, const std::string& outputformat) {
+    UiFigure* uifigure = impl_->getUiFigure();
+    if(!uifigure || filename.empty()) {
+        return false;
+    }
+    QwtFigure* qwtfigure = uifigure->qwtfigure();
+    if(!qwtfigure) {
+        return false;
+    }
+    std::string format = outputformat;
+    std::transform(format.begin(), format.end(), format.begin(), ::toupper);
+    if (format == "PNG" || format == "JPG" || format == "BMP") {
+        QPixmap pixmap = qwtfigure->saveFig();
+        return pixmap.save(QString::fromStdString(filename), format.c_str());
+    } 
+    else 
+    {
+        auto plots = qwtfigure->allAxes();
+        if (plots.size() == 1) {
+            QwtPlotRenderer renderer;
+            renderer.renderDocument(plots.first(),
+                QString::fromStdString(filename),
+                format.c_str(),
+                QSizeF(impl_->width_ * 25.4 / 96.0, impl_->height_ * 25.4 / 96.0));  // px→mm @96DPI
+            return true;
+        } else {
+            QPixmap pixmap = qwtfigure->saveFig();
+            return pixmap.save(QString::fromStdString(filename), format.c_str());
+        }
+    }
 }
 
 unsigned int QwtBackend::width() { return impl_->width_; }
@@ -133,9 +196,9 @@ std::string QwtBackend::window_title() {
 bool QwtBackend::new_frame() { return true; }
 
 bool QwtBackend::render_data() {
-    // for (auto& kv : impl_->figures) {
-    //     kv.second->replotAll();
-    // }
+    if (auto* uifigure = impl_->getUiFigure()) {
+        uifigure->replotAll();
+    }
     return true;
 }
 
@@ -144,7 +207,7 @@ bool QwtBackend::should_close() { return false; }
 bool QwtBackend::supports_fonts() { return true; }
 
 void QwtBackend::show(matplot::figure_type* f) {
-    auto* uifigure = get_or_create_figure(f);
+    UiFigure* uifigure = impl_->getUiFigure(f);
 
     // 包在 QMainWindow 中，QOpenGLWidget (surface) 需要 QMainWindow 祖先
     QMainWindow* mw = new QMainWindow();
@@ -153,7 +216,7 @@ void QwtBackend::show(matplot::figure_type* f) {
     //mw->resize(uifigure->sizeHint());
     mw->move(uifigure->pos());
 
-    render_figure(f, uifigure);              // 创建所有子部件
+    impl_->renderFigure(f, uifigure);              // 创建所有子部件
 
     mw->show();
     mw->raise();
@@ -163,60 +226,24 @@ void QwtBackend::show(matplot::figure_type* f) {
     QEventLoop loop;
     QObject::connect(mw, &QObject::destroyed, &loop, &QEventLoop::quit);
     loop.exec();
-    impl_->figures.erase(f);
 }
 
 void QwtBackend::draw(matplot::figure_type* f) {
-    UiFigure* uifigure = get_or_create_figure(f);
-    render_figure(f, uifigure);
-    auto qwtfigure = uifigure->qwtfigure();
-
-    if (!impl_->output_file_.empty()) {
-        QString path = QString::fromStdString(impl_->output_file_);
-        QString format = QString::fromStdString(impl_->output_format_);
-        if (format == "png" || format == "jpg" || format == "bmp") {
-            QPixmap pixmap = qwtfigure->saveFig();
-            pixmap.save(path, format.toUpper().toUtf8().constData());
-        } else {
-            auto plots = qwtfigure->allAxes();
-            if (plots.size() == 1) {
-                QwtPlotRenderer renderer;
-                renderer.renderDocument(plots.first(),
-                    QString::fromStdString(impl_->output_file_),
-                    QString::fromStdString(impl_->output_format_),
-                    QSizeF(impl_->width_ / 96.0, impl_->height_ / 96.0));
-            } else if (plots.size() > 1) {
-                QPixmap pixmap = qwtfigure->saveFig();
-                pixmap.save(path, "PNG");
-            }
-        }
-    }
+    UiFigure* uifigure = impl_->getUiFigure(f);
+    impl_->renderFigure(f, uifigure);
 }
 
-UiFigure* QwtBackend::get_or_create_figure(matplot::figure_type* f) {
-    auto it = impl_->figures.find(f);
-    if (it != impl_->figures.end()) {
-        return it->second;
-    }
-    auto* uifigure = new UiFigure(f);
-    uifigure->setFigureSize(static_cast<int>(impl_->width_),
-                          static_cast<int>(impl_->height_));
-    if (!impl_->window_title_.empty()) {
-        uifigure->setWindowTitle(QString::fromStdString(impl_->window_title_));
-    }
-    impl_->figures[f] = uifigure;
-    return uifigure;
-}
 
-void QwtBackend::render_figure(matplot::figure_type* f, UiFigure* uifigure) {
+
+void QwtBackend::Impl::renderFigure(matplot::figure_type* f, UiFigure* uifigure) {
     auto qwtfigure = uifigure->qwtfigure();
 
     qwtfigure->clear();
 
     qwtfigure->setFaceColor(toQColor(f->color()));
 
-    if (!impl_->window_title_.empty()) {
-        qwtfigure->setWindowTitle(QString::fromStdString(impl_->window_title_));
+    if (!this->window_title_.empty()) {
+        qwtfigure->setWindowTitle(QString::fromStdString(this->window_title_));
     }
 
     // 绘图字体
@@ -334,8 +361,8 @@ void QwtBackend::render_figure(matplot::figure_type* f, UiFigure* uifigure) {
             if (axes->x_axis().visible() && plot->axisScaleDraw(QwtPlot::xBottom)) {
                 bottomDeco = plot->axisScaleDraw(QwtPlot::xBottom)->extent(axisFont);
             }
-            double figW = static_cast<double>(impl_->width_);
-            double figH = static_cast<double>(impl_->height_);
+            double figW = static_cast<double>(this->width_);
+            double figH = static_cast<double>(this->height_);
             qwtfigure->addAxes(plot,
                 pos[0] - leftDeco / figW,
                 qwtTop - topDeco / figH,
@@ -406,6 +433,12 @@ void QwtBackend::render_figure(matplot::figure_type* f, UiFigure* uifigure) {
 
     // 刷新原始轴范围记录：clear+重建后旧 QwtPlot 指针已失效，需重新采集
     uifigure->refreshOriginalLimits();
+
+    // 同步工具栏按钮状态与 matplot 数据模型（图例/网格/色条初始可见性）
+    uifigure->syncToolbarState();
+
+    // 恢复导航状态（数据拾取/平移/放大模式在 clear+重建后需重新安装交互器）
+    uifigure->restoreNavigationState();
 }
 
 void aUseQwtBackend() {

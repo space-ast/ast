@@ -426,7 +426,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>PNG (*.png);;PDF (*.pdf);;JPG (*.jpg);;BMP (*.bmp)</source>
+        <source>拾取模式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y值拾取</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y值拾取：显示当前X位置所有曲线的Y值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>临近拾取</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>临近点拾取：显示距离鼠标最近的数据点</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PNG (*.png);;JPG (*.jpg);;BMP (*.bmp);;SVG (*.svg);;PDF (*.pdf)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

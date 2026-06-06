@@ -33,13 +33,8 @@ class UiFigure;
 
 class AST_CHART_API QwtBackend : public matplot::backend::backend_interface {
 public:
-    static constexpr unsigned int kDefaultWidth = 560;
-    static constexpr unsigned int kDefaultHeight = 420;
-    static constexpr unsigned int kDefaultPosX = 680;
-    static constexpr unsigned int kDefaultPosY = 558;
-
     QwtBackend();
-    virtual ~QwtBackend();
+    virtual ~QwtBackend() override;
 
     bool consumes_gnuplot_commands() override;
     bool is_interactive() override;
@@ -70,11 +65,7 @@ public:
     bool supports_fonts() override;
 
     void draw(matplot::figure_type* f) override;
-
 private:
-    UiFigure* get_or_create_figure(matplot::figure_type* f);
-    void render_figure(matplot::figure_type* f, UiFigure* fig);
-
     struct Impl;
     std::unique_ptr<Impl> impl_;
 };
