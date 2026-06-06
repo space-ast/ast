@@ -439,6 +439,9 @@ void QwtBackend::Impl::renderFigure(matplot::figure_type* f, UiFigure* uifigure)
 
     // 恢复导航状态（数据拾取/平移/放大模式在 clear+重建后需重新安装交互器）
     uifigure->restoreNavigationState();
+
+    // 恢复编辑模式（overlay + element picker）
+    uifigure->restoreEditModeIfNeeded();
 }
 
 void aUseQwtBackend() {

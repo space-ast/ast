@@ -38,6 +38,7 @@ class QToolBar;
 class QToolButton;
 class QActionGroup;
 class QMenu;
+class QwtFigureWidgetOverlay;
 
 namespace matplot
 {
@@ -81,6 +82,9 @@ public:
     /// @brief 重建当前激活的导航交互器（数据拾取/平移/放大），用于 redraw 后恢复
     void restoreNavigationState();
 
+    /// @brief 重建编辑模式（overlay + picker），renderFigure 后调用
+    void restoreEditModeIfNeeded();
+
 public slots:
     /// @brief 保存图片（弹出文件对话框）
     void saveFigure();
@@ -106,7 +110,12 @@ public slots:
     /// @brief 切换 3D 色条可见性
     void toggleColorbar(bool on);
 
+    /// @brief 启用/禁用编辑模式
+    void setEditMode(bool on);
+
 private slots:
+    /// @brief overlay 拖拽边角后应用新位置
+    void onOverlayGeometryChanged(QWidget* w, QRectF oldNorm, QRectF newNorm);
     /// @brief 数据拾取 Action 的 toggled 统一处理（Y值/临近点）
     void onPickActionToggled(bool on);
 
@@ -117,6 +126,8 @@ private:
     void clearZoomers();
     void clearDataPickers();
     void createDataPickers();
+    void createOverlay();
+    void clearOverlay();
     QIcon loadIcon(const QString& name) const;
     QList<QwtPlot*> allPlots() const;
 
@@ -141,6 +152,10 @@ private:
     QList<QPointer<QwtPlotCanvasZoomer>>    zoomers_;
     QList<QPointer<QwtPlotSeriesDataPicker>> dataPickers_;
     QScopedPointer<QwtPlotSeriesDataPickerGroup> dataPickerGroup_;
+
+    // 编辑模式
+    QAction*                                editModeAction_ = nullptr;
+    QScopedPointer<QwtFigureWidgetOverlay>  overlay_;
 };
 
 AST_NAMESPACE_END

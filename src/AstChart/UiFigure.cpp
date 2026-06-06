@@ -20,6 +20,7 @@
 
 #include "UiFigure.hpp"
 #include "ColoredSurfacePlot.hpp"
+#include "EditFigureOverlay.hpp"
 
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
@@ -36,6 +37,7 @@
 #include <QIcon>
 
 #include <qwt_figure.h>
+#include <qwt_figure_widget_overlay.h>
 #include <qwt_plot.h>
 #include <qwt_plot_panner.h>
 #include <qwt_plot_canvas_zoomer.h>
@@ -82,6 +84,7 @@ UiFigure::~UiFigure()
     clearPanners();
     clearZoomers();
     clearDataPickers();
+    clearOverlay();
 }
 
 void UiFigure::setFigureSize(int w, int h)
@@ -195,6 +198,14 @@ void UiFigure::createActions()
             }
         });
     }
+
+    // ---- 编辑模式 ----
+    editModeAction_ = toolBar_->addAction(loadIcon("Edit"), tr("编辑"));
+    editModeAction_->setObjectName(QStringLiteral("action_edit"));
+    editModeAction_->setCheckable(true);
+    editModeAction_->setToolTip(tr("编辑模式：选中子图调整大小、编辑绘图元素属性"));
+    navActions.append(editModeAction_);
+    connect(editModeAction_, &QAction::toggled, this, &UiFigure::setEditMode);
 
     toolBar_->addSeparator();
 
@@ -346,6 +357,9 @@ void UiFigure::resetView()
     if (pickNearestAction_) { pickNearestAction_->blockSignals(true);
                               pickNearestAction_->setChecked(false);
                               pickNearestAction_->blockSignals(false); }
+    if (editModeAction_)    { editModeAction_->blockSignals(true);
+                              editModeAction_->setChecked(false);
+                              editModeAction_->blockSignals(false); }
 
     qwtfigure_->replotAll();
 }
@@ -591,6 +605,59 @@ void UiFigure::restoreNavigationState()
             zoomer->setZoomBase();
             zoomers_.append(zoomer);
         }
+    }
+}
+
+// ---- Edit Mode ----
+
+void UiFigure::onOverlayGeometryChanged(QWidget* w, QRectF /*oldNorm*/, QRectF newNorm)
+{
+    if (qwtfigure_ && w)
+        qwtfigure_->setWidgetNormPos(w, newNorm);
+}
+
+void UiFigure::setEditMode(bool on)
+{
+    if (on) {
+        clearPanners();
+        clearZoomers();
+        clearDataPickers();
+        createOverlay();
+    } else {
+        clearOverlay();
+    }
+}
+
+void UiFigure::createOverlay()
+{
+    if (!qwtfigure_) return;
+    clearOverlay();
+
+    overlay_.reset(new EditFigureOverlay(qwtfigure_));
+    overlay_->setBuiltInFunctionsEnable(QwtFigureWidgetOverlay::FunSelectCurrentPlot, true);
+    overlay_->setBuiltInFunctionsEnable(QwtFigureWidgetOverlay::FunResizePlot, true);
+    overlay_->setBorderPen(QPen(QColor(0, 120, 215), 2));
+    overlay_->setControlPointBrush(QBrush(QColor(0, 120, 215)));
+    overlay_->setControlPointSize(QSize(10, 10));
+    overlay_->show();
+
+    // 拖拽边角后实际应用新位置/大小
+    connect(overlay_.get(), &QwtFigureWidgetOverlay::widgetNormGeometryChanged,
+            this, &UiFigure::onOverlayGeometryChanged);
+}
+
+void UiFigure::clearOverlay()
+{
+    if (overlay_) {
+        overlay_->hide();
+        overlay_.reset();
+    }
+}
+
+void UiFigure::restoreEditModeIfNeeded()
+{
+    if (editModeAction_ && editModeAction_->isChecked()) {
+        createOverlay();
     }
 }
 

@@ -2,6 +2,89 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
+    <name>AxesPropertyPage</name>
+    <message>
+        <source>位置 (归一化)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>标题</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>字体</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>字号</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X 轴可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y 轴可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X 标签</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y 标签</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X 范围</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y 范围</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>外观</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示网格</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示边框</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>背景色</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CelestialBody</name>
     <message>
         <source>Earth</source>
@@ -353,9 +436,162 @@
     </message>
 </context>
 <context>
+    <name>EditFigureDialog</name>
+    <message>
+        <source>图形属性编辑器</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>元素</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>请从左侧列表选择要编辑的元素</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>应用</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>确定</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Figure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>坐标轴 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>元素 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LinePropertyPage</name>
+    <message>
+        <source>基本</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示名称</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>线条</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>实线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>虚线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>点线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>点划线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>无线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>线型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>线宽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>标记</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>无</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>大小</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>填充色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SolarSystem</name>
     <message>
         <source>SolarSystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SurfacePropertyPage</name>
+    <message>
+        <source>基本</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>曲面可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示名称</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>外观</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>光照</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>透明度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>边缘颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>边缘线宽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>色条</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示色条</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -447,6 +683,14 @@
     </message>
     <message>
         <source>PNG (*.png);;JPG (*.jpg);;BMP (*.bmp);;SVG (*.svg);;PDF (*.pdf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>编辑</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>编辑模式：选中子图调整大小、编辑绘图元素属性</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
