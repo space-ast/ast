@@ -693,5 +693,13 @@
         <source>编辑模式：选中子图调整大小、编辑绘图元素属性</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>属性</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开属性检查器：查看和编辑坐标轴及绘图元素属性</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

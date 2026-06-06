@@ -21,6 +21,7 @@
 #include "UiFigure.hpp"
 #include "ColoredSurfacePlot.hpp"
 #include "EditFigureOverlay.hpp"
+#include "EditFigureDialog.hpp"
 
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
@@ -207,6 +208,12 @@ void UiFigure::createActions()
     navActions.append(editModeAction_);
     connect(editModeAction_, &QAction::toggled, this, &UiFigure::setEditMode);
 
+    // ---- 属性检查器 ----
+    propertiesAction_ = toolBar_->addAction(loadIcon("Properties"), tr("属性"));
+    propertiesAction_->setObjectName(QStringLiteral("action_properties"));
+    propertiesAction_->setToolTip(tr("打开属性检查器：查看和编辑坐标轴及绘图元素属性"));
+    connect(propertiesAction_, &QAction::triggered, this, &UiFigure::openPropertyInspector);
+
     toolBar_->addSeparator();
 
     // ---- 图例 ----
@@ -238,7 +245,7 @@ QIcon UiFigure::loadIcon(const QString& name) const
     return QIcon(path);
 }
 
-QList<QwtPlot*> UiFigure::allPlots() const
+QList<QwtPlot*> UiFigure::allAxes() const
 {
     if (!qwtfigure_)
         return {};
@@ -248,7 +255,7 @@ QList<QwtPlot*> UiFigure::allPlots() const
 void UiFigure::refreshOriginalLimits()
 {
     originalLimits_.clear();
-    for (auto* plot : allPlots()) {
+    for (auto* plot : allAxes()) {
         const auto& xDiv = plot->axisScaleDiv(QwtPlot::xBottom);
         const auto& yDiv = plot->axisScaleDiv(QwtPlot::yLeft);
         AxisLimits limits;
@@ -331,9 +338,11 @@ void UiFigure::resetView()
     if (!qwtfigure_)
         return;
 
-    // 恢复原始轴范围
-    for (auto it = originalLimits_.begin(); it != originalLimits_.end(); ++it) {
-        auto* plot = it.key();
+    for(auto* plot : allAxes())
+    {
+        auto it = originalLimits_.find(plot);
+        if(it == originalLimits_.end())
+            continue;
         const auto& limits = it.value();
         plot->setAxisScale(QwtPlot::xBottom, limits.xMin, limits.xMax);
         plot->setAxisScale(QwtPlot::yLeft, limits.yMin, limits.yMax);
@@ -372,7 +381,7 @@ void UiFigure::setPanMode(bool on)
     if (on) {
         clearZoomers();
         clearDataPickers();
-        for (auto* plot : allPlots()) {
+        for (auto* plot : allAxes()) {
             auto* panner = new QwtPlotPanner(plot->canvas());
             panners_.append(panner);
         }
@@ -389,7 +398,7 @@ void UiFigure::setZoomInMode(bool on)
     if (on) {
         clearPanners();
         clearDataPickers();
-        for (auto* plot : allPlots()) {
+        for (auto* plot : allAxes()) {
             auto* zoomer = new QwtPlotCanvasZoomer(plot->canvas());
             zoomer->setZoomBase();
             zoomers_.append(zoomer);
@@ -404,7 +413,7 @@ void UiFigure::zoomOut()
     if (!qwtfigure_)
         return;
 
-    for (auto* plot : allPlots()) {
+    for (auto* plot : allAxes()) {
         const auto& xDiv = plot->axisScaleDiv(QwtPlot::xBottom);
         const auto& yDiv = plot->axisScaleDiv(QwtPlot::yLeft);
 
@@ -448,7 +457,7 @@ void UiFigure::toggleLegend(bool on)
     else if (auto* qwtfigure = qwtfigure_)
     {
         // 2D 图例
-        for (auto* plot : allPlots()) {
+        for (auto* plot : allAxes()) {
             for (auto* item : plot->itemList()) {
                 if (auto* legendItem = dynamic_cast<QwtPlotLegendItem*>(item)) {
                     legendItem->setVisible(on);
@@ -479,7 +488,7 @@ void UiFigure::toggleGrid(bool on)
     }
     else if(auto qwtfigure = qwtfigure_)
     {
-        for (auto* plot : allPlots()) {
+        for (auto* plot : allAxes()) {
             for (auto* item : plot->itemList()) {
                 if (auto* grid = dynamic_cast<QwtPlotGrid*>(item)) {
                     grid->setVisible(on);
@@ -565,7 +574,7 @@ void UiFigure::createDataPickers()
 
     dataPickerGroup_.reset(new QwtPlotSeriesDataPickerGroup(this));
 
-    for (auto* plot : allPlots()) {
+    for (auto* plot : allAxes()) {
         auto* picker = new QwtPlotSeriesDataPicker(plot->canvas());
         picker->setPickMode(mode);
         picker->setInterpolationMode(QwtPlotSeriesDataPicker::LinearInterpolation);
@@ -594,13 +603,13 @@ void UiFigure::restoreNavigationState()
         createDataPickers();
     }
     if (panAction_ && panAction_->isChecked()) {
-        for (auto* plot : allPlots()) {
+        for (auto* plot : allAxes()) {
             auto* panner = new QwtPlotPanner(plot->canvas());
             panners_.append(panner);
         }
     }
     if (zoomInAction_ && zoomInAction_->isChecked()) {
-        for (auto* plot : allPlots()) {
+        for (auto* plot : allAxes()) {
             auto* zoomer = new QwtPlotCanvasZoomer(plot->canvas());
             zoomer->setZoomBase();
             zoomers_.append(zoomer);
@@ -659,6 +668,21 @@ void UiFigure::restoreEditModeIfNeeded()
     if (editModeAction_ && editModeAction_->isChecked()) {
         createOverlay();
     }
+}
+
+void UiFigure::openPropertyInspector()
+{
+    if (!pltfigure_)
+        return;
+
+    // 复用已有对话框（如果还存在），否则新建
+    if (!propertiesDialog_) {
+        propertiesDialog_ = new EditFigureDialog(pltfigure_, this);
+        propertiesDialog_->setAttribute(Qt::WA_DeleteOnClose);
+    }
+    propertiesDialog_->show();
+    propertiesDialog_->raise();
+    propertiesDialog_->activateWindow();
 }
 
 AST_NAMESPACE_END

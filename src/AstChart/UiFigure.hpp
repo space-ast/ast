@@ -39,6 +39,7 @@ class QToolButton;
 class QActionGroup;
 class QMenu;
 class QwtFigureWidgetOverlay;
+class EditFigureDialog;
 
 namespace matplot
 {
@@ -113,6 +114,9 @@ public slots:
     /// @brief 启用/禁用编辑模式
     void setEditMode(bool on);
 
+    /// @brief 打开属性检查器对话框
+    void openPropertyInspector();
+
 private slots:
     /// @brief overlay 拖拽边角后应用新位置
     void onOverlayGeometryChanged(QWidget* w, QRectF oldNorm, QRectF newNorm);
@@ -129,7 +133,7 @@ private:
     void createOverlay();
     void clearOverlay();
     QIcon loadIcon(const QString& name) const;
-    QList<QwtPlot*> allPlots() const;
+    QList<QwtPlot*> allAxes() const;
 
     struct AxisLimits {
         double xMin = 0, xMax = 0, yMin = 0, yMax = 0;
@@ -156,6 +160,10 @@ private:
     // 编辑模式
     QAction*                                editModeAction_ = nullptr;
     QScopedPointer<QwtFigureWidgetOverlay>  overlay_;
+
+    // 属性检查器
+    QAction*                                propertiesAction_ = nullptr;
+    QPointer<EditFigureDialog>              propertiesDialog_;
 };
 
 AST_NAMESPACE_END
