@@ -99,38 +99,64 @@ $(function(){initNavTree('structast_1_1QwtBackend_1_1Impl.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
 <a href="structast_1_1QwtBackend_1_1Impl-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::QwtBackend::Impl结构体 参考</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:afd030b9a62b2c28176b609d0ee2dede4" id="r_afd030b9a62b2c28176b609d0ee2dede4"><td class="memItemLeft" align="right" valign="top"><a id="afd030b9a62b2c28176b609d0ee2dede4" name="afd030b9a62b2c28176b609d0ee2dede4"></a>
+<a class="el" href="classast_1_1UiFigure.html">UiFigure</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getUiFigure</b> ()</td></tr>
+<tr class="separator:afd030b9a62b2c28176b609d0ee2dede4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affcf78262ec0fc493be6ddbe87bdd5fd" id="r_affcf78262ec0fc493be6ddbe87bdd5fd"><td class="memItemLeft" align="right" valign="top"><a id="affcf78262ec0fc493be6ddbe87bdd5fd" name="affcf78262ec0fc493be6ddbe87bdd5fd"></a>
+<a class="el" href="classast_1_1UiFigure.html">UiFigure</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getUiFigure</b> (matplot::figure_type *f)</td></tr>
+<tr class="separator:affcf78262ec0fc493be6ddbe87bdd5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f4675eccc9bc2c79057e9912b9335d" id="r_af3f4675eccc9bc2c79057e9912b9335d"><td class="memItemLeft" align="right" valign="top"><a id="af3f4675eccc9bc2c79057e9912b9335d" name="af3f4675eccc9bc2c79057e9912b9335d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>renderFigure</b> (matplot::figure_type *f, <a class="el" href="classast_1_1UiFigure.html">UiFigure</a> *fig)</td></tr>
+<tr class="separator:af3f4675eccc9bc2c79057e9912b9335d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:a8d8430561dbd2e58fa61194033ae08cd" id="r_a8d8430561dbd2e58fa61194033ae08cd"><td class="memItemLeft" align="right" valign="top"><a id="a8d8430561dbd2e58fa61194033ae08cd" name="a8d8430561dbd2e58fa61194033ae08cd"></a>
-std::map&lt; matplot::figure_type *, <a class="el" href="classast_1_1UiFigure.html">UiFigure</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>figures</b></td></tr>
-<tr class="separator:a8d8430561dbd2e58fa61194033ae08cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b4baa6ce6bbddfb109d500ce034f46" id="r_a27b4baa6ce6bbddfb109d500ce034f46"><td class="memItemLeft" align="right" valign="top"><a id="a27b4baa6ce6bbddfb109d500ce034f46" name="a27b4baa6ce6bbddfb109d500ce034f46"></a>
+matplot::figure_type *&#160;</td><td class="memItemRight" valign="bottom"><b>pltfigure_</b> {nullptr}</td></tr>
+<tr class="separator:a27b4baa6ce6bbddfb109d500ce034f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33e3fcd1896fe275974d4a4e241363c" id="r_af33e3fcd1896fe275974d4a4e241363c"><td class="memItemLeft" align="right" valign="top"><a id="af33e3fcd1896fe275974d4a4e241363c" name="af33e3fcd1896fe275974d4a4e241363c"></a>
+QPointer&lt; <a class="el" href="classast_1_1UiFigure.html">UiFigure</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>uifigure_</b></td></tr>
+<tr class="separator:af33e3fcd1896fe275974d4a4e241363c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6f56c53e289f80ddc819518b6f7d8f6" id="r_ad6f56c53e289f80ddc819518b6f7d8f6"><td class="memItemLeft" align="right" valign="top"><a id="ad6f56c53e289f80ddc819518b6f7d8f6" name="ad6f56c53e289f80ddc819518b6f7d8f6"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>width_</b> {QwtBackend::kDefaultWidth}</td></tr>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>width_</b> {kDefaultWidth}</td></tr>
 <tr class="separator:ad6f56c53e289f80ddc819518b6f7d8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa1fcc4658670d7abe061a53bc8e3ed5" id="r_afa1fcc4658670d7abe061a53bc8e3ed5"><td class="memItemLeft" align="right" valign="top"><a id="afa1fcc4658670d7abe061a53bc8e3ed5" name="afa1fcc4658670d7abe061a53bc8e3ed5"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>height_</b> {QwtBackend::kDefaultHeight}</td></tr>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>height_</b> {kDefaultHeight}</td></tr>
 <tr class="separator:afa1fcc4658670d7abe061a53bc8e3ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a019cd50c2a05178a0ed72d9c1fb2c548" id="r_a019cd50c2a05178a0ed72d9c1fb2c548"><td class="memItemLeft" align="right" valign="top"><a id="a019cd50c2a05178a0ed72d9c1fb2c548" name="a019cd50c2a05178a0ed72d9c1fb2c548"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>pos_x_</b> {QwtBackend::kDefaultPosX}</td></tr>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>pos_x_</b> {kDefaultPosX}</td></tr>
 <tr class="separator:a019cd50c2a05178a0ed72d9c1fb2c548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22d11e049483e4dd8c1dc89fb94888e8" id="r_a22d11e049483e4dd8c1dc89fb94888e8"><td class="memItemLeft" align="right" valign="top"><a id="a22d11e049483e4dd8c1dc89fb94888e8" name="a22d11e049483e4dd8c1dc89fb94888e8"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>pos_y_</b> {QwtBackend::kDefaultPosY}</td></tr>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>pos_y_</b> {kDefaultPosY}</td></tr>
 <tr class="separator:a22d11e049483e4dd8c1dc89fb94888e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cc1c355f134ac42a2ddd0644f5a886c" id="r_a4cc1c355f134ac42a2ddd0644f5a886c"><td class="memItemLeft" align="right" valign="top"><a id="a4cc1c355f134ac42a2ddd0644f5a886c" name="a4cc1c355f134ac42a2ddd0644f5a886c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>output_file_</b></td></tr>
-<tr class="separator:a4cc1c355f134ac42a2ddd0644f5a886c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7c6a8e3bb8bcb5f30d391f4e3633847" id="r_aa7c6a8e3bb8bcb5f30d391f4e3633847"><td class="memItemLeft" align="right" valign="top"><a id="aa7c6a8e3bb8bcb5f30d391f4e3633847" name="aa7c6a8e3bb8bcb5f30d391f4e3633847"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>output_format_</b></td></tr>
-<tr class="separator:aa7c6a8e3bb8bcb5f30d391f4e3633847"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a73d3eccae51ff4035dc15fbabd0ef" id="r_a25a73d3eccae51ff4035dc15fbabd0ef"><td class="memItemLeft" align="right" valign="top"><a id="a25a73d3eccae51ff4035dc15fbabd0ef" name="a25a73d3eccae51ff4035dc15fbabd0ef"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>window_title_</b></td></tr>
 <tr class="separator:a25a73d3eccae51ff4035dc15fbabd0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a10f4468a18d31a19ab05e990384bc61d" id="r_a10f4468a18d31a19ab05e990384bc61d"><td class="memItemLeft" align="right" valign="top"><a id="a10f4468a18d31a19ab05e990384bc61d" name="a10f4468a18d31a19ab05e990384bc61d"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kDefaultWidth</b> = 560</td></tr>
+<tr class="separator:a10f4468a18d31a19ab05e990384bc61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e74df2bc9bf2ebc9d025d38bd71941" id="r_a00e74df2bc9bf2ebc9d025d38bd71941"><td class="memItemLeft" align="right" valign="top"><a id="a00e74df2bc9bf2ebc9d025d38bd71941" name="a00e74df2bc9bf2ebc9d025d38bd71941"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kDefaultHeight</b> = 420</td></tr>
+<tr class="separator:a00e74df2bc9bf2ebc9d025d38bd71941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf0cc4d54e554b3e54653e694bda5ee3" id="r_abf0cc4d54e554b3e54653e694bda5ee3"><td class="memItemLeft" align="right" valign="top"><a id="abf0cc4d54e554b3e54653e694bda5ee3" name="abf0cc4d54e554b3e54653e694bda5ee3"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kDefaultPosX</b> = 680</td></tr>
+<tr class="separator:abf0cc4d54e554b3e54653e694bda5ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e60d9a9520cfddabd35127b19c6ba7" id="r_a11e60d9a9520cfddabd35127b19c6ba7"><td class="memItemLeft" align="right" valign="top"><a id="a11e60d9a9520cfddabd35127b19c6ba7" name="a11e60d9a9520cfddabd35127b19c6ba7"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kDefaultPosY</b> = 558</td></tr>
+<tr class="separator:a11e60d9a9520cfddabd35127b19c6ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>该结构体的文档由以下文件生成:<ul>
 <li>src/AstChart/<a class="el" href="QwtBackend_8cpp.html">QwtBackend.cpp</a></li>

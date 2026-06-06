@@ -1,5 +1,15 @@
 var NAVTREEINDEX12 =
 {
+"ShooterControlLoader_8hpp_source.html":[4,0,0,10,0,2,0,4],
+"ShooterControl_8cpp.html":[4,0,0,7,6,3,0,5],
+"ShooterControl_8hpp.html":[4,0,0,7,6,3,0,6],
+"ShooterControl_8hpp_source.html":[4,0,0,7,6,3,0,6],
+"ShooterResultLoader_8cpp.html":[4,0,0,10,0,2,0,5],
+"ShooterResultLoader_8cpp.html#a3dae0a593bef87c78127adf939670753":[4,0,0,10,0,2,0,5,0],
+"ShooterResultLoader_8hpp.html":[4,0,0,10,0,2,0,6],
+"ShooterResultLoader_8hpp.html#a3dae0a593bef87c78127adf939670753":[4,0,0,10,0,2,0,6,0],
+"ShooterResultLoader_8hpp_source.html":[4,0,0,10,0,2,0,6],
+"ShooterResult_8cpp.html":[4,0,0,7,6,3,0,7],
 "ShooterResult_8hpp.html":[4,0,0,7,6,3,0,8],
 "ShooterResult_8hpp_source.html":[4,0,0,7,6,3,0,8],
 "SimAPI_8cpp.html":[4,0,0,17,6],
@@ -239,15 +249,5 @@ var NAVTREEINDEX12 =
 "SymbolTable_8cpp.html":[4,0,0,16,5,11],
 "SymbolTable_8hpp.html":[4,0,0,16,5,12],
 "SymbolTable_8hpp_source.html":[4,0,0,16,5,12],
-"Symbol_8cpp.html":[4,0,0,16,10,0],
-"Symbol_8hpp.html":[4,0,0,16,10,1],
-"Symbol_8hpp_source.html":[4,0,0,16,10,1],
-"TangentPoint_8cpp.html":[4,0,0,2,0,24],
-"TangentPoint_8hpp.html":[4,0,0,2,0,25],
-"TangentPoint_8hpp_source.html":[4,0,0,2,0,25],
-"TargetLoader_8cpp.html":[4,0,0,10,3,54],
-"TargetLoader_8cpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,10,3,54,0],
-"TargetLoader_8hpp.html":[4,0,0,10,3,55],
-"TargetLoader_8hpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,10,3,55,0],
-"TargetLoader_8hpp_source.html":[4,0,0,10,3,55]
+"Symbol_8cpp.html":[4,0,0,16,10,0]
 };

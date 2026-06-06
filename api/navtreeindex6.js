@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"Literals_8hpp.html#a681d0c30317193d2cc3fc33eb5a1c85d":[4,0,0,20,10,8,28],
+"Literals_8hpp.html#a6f45c99c232047cd88b0a8f9ca892387":[4,0,0,20,10,8,35],
+"Literals_8hpp.html#a78095a424fd22108911a0d85ae56d13f":[4,0,0,20,10,8,12],
+"Literals_8hpp.html#a7c87971e8a5754ffcd5d546409239471":[4,0,0,20,10,8,41],
+"Literals_8hpp.html#a7f7ebf6cfb2c6e2412922aff609db4c3":[4,0,0,20,10,8,32],
+"Literals_8hpp.html#a7fbcde8f3335907138d94841e8b70033":[4,0,0,20,10,8,0],
+"Literals_8hpp.html#a81cb94048046825d60afdb8cc0fe1e21":[4,0,0,20,10,8,24],
 "Literals_8hpp.html#a8b98d7304ed77345300ccca583830d2b":[4,0,0,20,10,8,38],
 "Literals_8hpp.html#a99ae4a1fbe45e0e0573447f6ee940360":[4,0,0,20,10,8,26],
 "Literals_8hpp.html#a9f03b2451f56628810eba0ecc1dea484":[4,0,0,20,10,8,17],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "NLEMinpackSolver_8cpp.html":[4,0,0,14,5],
 "NLEMinpackSolver_8hpp.html":[4,0,0,14,6],
 "NLEMinpackSolver_8hpp_source.html":[4,0,0,14,6],
-"NLESolver_8cpp.html":[4,0,0,14,7],
-"NLESolver_8hpp.html":[4,0,0,14,8],
-"NLESolver_8hpp_source.html":[4,0,0,14,8],
-"NLE_8hpp.html":[4,0,0,11,4,1],
-"NLE_8hpp_source.html":[4,0,0,11,4,1],
-"NLPIpoptSolver_8cpp.html":[4,0,0,14,9],
-"NLPIpoptSolver_8hpp.html":[4,0,0,14,10],
-"NLPIpoptSolver_8hpp_source.html":[4,0,0,14,10]
+"NLESolver_8cpp.html":[4,0,0,14,7]
 };

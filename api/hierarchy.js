@@ -1007,6 +1007,7 @@ var hierarchy =
     [ "ast::PropertyVisitor", "classast_1_1PropertyVisitor.html", null ],
     [ "ast::PythonAPI", "classast_1_1PythonAPI.html", null ],
     [ "QDialog", null, [
+      [ "ast::EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],
       [ "ast::UiNewObjectQuickDialog", "classast_1_1UiNewObjectQuickDialog.html", null ],
       [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
@@ -1028,6 +1029,9 @@ var hierarchy =
     ] ],
     [ "QObject", null, [
       [ "ast::CloseEventDetecter", "classast_1_1CloseEventDetecter.html", null ]
+    ] ],
+    [ "QPushButton", null, [
+      [ "ast::ColorButton", "classast_1_1ColorButton.html", null ]
     ] ],
     [ "QStackedWidget", null, [
       [ "ast::UiCommandEditor", "classast_1_1UiCommandEditor.html", null ],
@@ -1051,6 +1055,9 @@ var hierarchy =
     [ "ast::Quaternion", "classast_1_1Quaternion.html", null ],
     [ "ast::QuickTypeEntry", "structast_1_1QuickTypeEntry.html", null ],
     [ "QWidget", null, [
+      [ "ast::AxesPropertyPage", "classast_1_1AxesPropertyPage.html", null ],
+      [ "ast::LinePropertyPage", "classast_1_1LinePropertyPage.html", null ],
+      [ "ast::SurfacePropertyPage", "classast_1_1SurfacePropertyPage.html", null ],
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
       [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
       [ "ast::UiFigure", "classast_1_1UiFigure.html", null ],
@@ -1101,6 +1108,9 @@ var hierarchy =
       [ "ast::UiVariableEditor", "classast_1_1UiVariableEditor.html", null ],
       [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],
       [ "ast::UiWidget", "classast_1_1UiWidget.html", null ]
+    ] ],
+    [ "QwtFigureWidgetOverlay", null, [
+      [ "ast::EditFigureOverlay", "classast_1_1EditFigureOverlay.html", null ]
     ] ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]

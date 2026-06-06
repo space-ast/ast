@@ -39,5 +39,6 @@ var searchData=
   ['axesfrozenateventtime_36',['AxesFrozenAtEventTime',['../classast_1_1AxesFrozenAtEventTime.html',1,'ast']]],
   ['axesicrf_37',['AxesICRF',['../classast_1_1AxesICRF.html',1,'ast']]],
   ['axeslinkto_38',['AxesLinkTo',['../classast_1_1AxesLinkTo.html',1,'ast']]],
-  ['axesroot_39',['AxesRoot',['../classast_1_1AxesRoot.html',1,'ast']]]
+  ['axespropertypage_39',['AxesPropertyPage',['../classast_1_1AxesPropertyPage.html',1,'ast']]],
+  ['axesroot_40',['AxesRoot',['../classast_1_1AxesRoot.html',1,'ast']]]
 ];

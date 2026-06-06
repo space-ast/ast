@@ -150,6 +150,13 @@ var NAVTREEINDEX3 =
 "EarthOrientation_8cpp.html":[4,0,0,7,9,1,1],
 "EarthOrientation_8hpp.html":[4,0,0,7,9,1,2],
 "EarthOrientation_8hpp_source.html":[4,0,0,7,9,1,2],
+"EditFigureDialog_8cpp.html":[4,0,0,3,5],
+"EditFigureDialog_8hpp.html":[4,0,0,3,6],
+"EditFigureDialog_8hpp_source.html":[4,0,0,3,6],
+"EditFigureOverlay_8cpp.html":[4,0,0,3,7],
+"EditFigureOverlay_8cpp.html#a139cf95da066e73a56b9d9a399ea6a10":[4,0,0,3,7,0],
+"EditFigureOverlay_8hpp.html":[4,0,0,3,8],
+"EditFigureOverlay_8hpp_source.html":[4,0,0,3,8],
 "EllipsoidShape_8cpp.html":[4,0,0,7,5,2,0,2],
 "EllipsoidShape_8hpp.html":[4,0,0,7,5,2,0,3],
 "EllipsoidShape_8hpp_source.html":[4,0,0,7,5,2,0,3],
@@ -242,12 +249,5 @@ var NAVTREEINDEX3 =
 "ExprCatHorizontal_8hpp_source.html":[4,0,0,16,2,10],
 "ExprCatVertical_8cpp.html":[4,0,0,16,2,11],
 "ExprCatVertical_8hpp.html":[4,0,0,16,2,12],
-"ExprCatVertical_8hpp_source.html":[4,0,0,16,2,12],
-"ExprCondition_8cpp.html":[4,0,0,16,2,13],
-"ExprCondition_8hpp.html":[4,0,0,16,2,14],
-"ExprCondition_8hpp_source.html":[4,0,0,16,2,14],
-"ExprContainer_8hpp.html":[4,0,0,16,2,15],
-"ExprContainer_8hpp_source.html":[4,0,0,16,2,15],
-"ExprExpandVisitor_8cpp.html":[4,0,0,16,0,2],
-"ExprExpandVisitor_8hpp.html":[4,0,0,16,0,3]
+"ExprCatVertical_8hpp_source.html":[4,0,0,16,2,12]
 };
