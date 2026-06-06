@@ -359,4 +359,75 @@
         <translation>太阳系</translation>
     </message>
 </context>
+<context>
+    <name>UiFigure</name>
+    <message>
+        <source>保存</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>保存图片</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>平移</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>平移视图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>放大</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>框选放大</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>缩小</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>缩小视图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>重置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>恢复原始视图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>图例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示/隐藏图例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>网格</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示/隐藏网格</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>色条</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>显示/隐藏色条</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PNG (*.png);;PDF (*.pdf);;JPG (*.jpg);;BMP (*.bmp)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

@@ -127,14 +127,6 @@ QToolButton* UiAnalyzerMainWindow::createRibbonButton(const QString& text,
     return btn;
 }
 
-static void addRibbonSeparator(QHBoxLayout* layout)
-{
-    auto* sep = new QFrame();
-    sep->setFrameShape(QFrame::VLine);
-    sep->setFrameShadow(QFrame::Sunken);
-    layout->addWidget(sep);
-}
-
 QWidget* UiAnalyzerMainWindow::createRibbonPage(int index)
 {
     auto* page = new QWidget();

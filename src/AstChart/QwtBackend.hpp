@@ -29,6 +29,8 @@ class QwtFigure;
 
 AST_NAMESPACE_BEGIN
 
+class UiFigure;
+
 class AST_CHART_API QwtBackend : public matplot::backend::backend_interface {
 public:
     static constexpr unsigned int kDefaultWidth = 560;
@@ -70,8 +72,8 @@ public:
     void draw(matplot::figure_type* f) override;
 
 private:
-    QwtFigure* get_or_create_figure(matplot::figure_type* f);
-    void render_figure(matplot::figure_type* f, QwtFigure* fig);
+    UiFigure* get_or_create_figure(matplot::figure_type* f);
+    void render_figure(matplot::figure_type* f, UiFigure* fig);
 
     struct Impl;
     std::unique_ptr<Impl> impl_;

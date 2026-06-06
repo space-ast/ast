@@ -35,7 +35,8 @@ AST_NAMESPACE_BEGIN
 
 bool aInitAppAttributes()
 {
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // 启用高DPI缩放
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);    // 启用高分辨率位图支持
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
     return true;
 }

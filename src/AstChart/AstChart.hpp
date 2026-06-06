@@ -3,3 +3,4 @@
 #include "AstChart/ColoredSurfacePlot.hpp"
 #include "AstChart/QwtBackend.hpp"
 #include "AstChart/QwtPlotVisitor.hpp"
+#include "AstChart/UiFigure.hpp"

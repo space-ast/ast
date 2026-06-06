@@ -23,6 +23,7 @@
 #include "QwtBackend.hpp"
 #include "QwtPlotVisitor.hpp"
 #include "ColoredSurfacePlot.hpp"
+#include "UiFigure.hpp"
 
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
@@ -47,14 +48,16 @@
 #include <QFont>
 #include <QLayout>
 #include <QMainWindow>
+#include <QDebug>
 
 #include <map>
 #include <string>
 
 AST_NAMESPACE_BEGIN
 
+class UiFigure;
 struct QwtBackend::Impl {
-    std::map<matplot::figure_type*, QwtFigure*> figures;
+    std::map<matplot::figure_type*, UiFigure*> figures;
     unsigned int width_{QwtBackend::kDefaultWidth};
     unsigned int height_{QwtBackend::kDefaultHeight};
     unsigned int pos_x_{QwtBackend::kDefaultPosX};
@@ -67,6 +70,7 @@ struct QwtBackend::Impl {
 QwtBackend::QwtBackend() : impl_(new Impl()) {
     if (!qApp) {
         QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // 启用高DPI缩放
+        QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);    // 启用高分辨率位图支持
         QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
         static int argc = 0;
         static char* argv[] = {nullptr};
@@ -129,9 +133,9 @@ std::string QwtBackend::window_title() {
 bool QwtBackend::new_frame() { return true; }
 
 bool QwtBackend::render_data() {
-    for (auto& kv : impl_->figures) {
-        kv.second->replotAll();
-    }
+    // for (auto& kv : impl_->figures) {
+    //     kv.second->replotAll();
+    // }
     return true;
 }
 
@@ -140,20 +144,20 @@ bool QwtBackend::should_close() { return false; }
 bool QwtBackend::supports_fonts() { return true; }
 
 void QwtBackend::show(matplot::figure_type* f) {
-    auto* fig = get_or_create_figure(f);
+    auto* uifigure = get_or_create_figure(f);
 
     // 包在 QMainWindow 中，QOpenGLWidget (surface) 需要 QMainWindow 祖先
     QMainWindow* mw = new QMainWindow();
-    fig->setParent(mw);
-    mw->setCentralWidget(fig);
-    mw->resize(fig->size());
-    mw->move(fig->pos());
+    uifigure->setParent(mw);
+    mw->setCentralWidget(uifigure);
+    //mw->resize(uifigure->sizeHint());
+    mw->move(uifigure->pos());
 
-    render_figure(f, fig);              // 创建所有子部件
+    render_figure(f, uifigure);              // 创建所有子部件
 
     mw->show();
     mw->raise();
-    mw->setWindowTitle(fig->windowTitle());
+    mw->setWindowTitle(uifigure->windowTitle());
     mw->setAttribute(Qt::WA_DeleteOnClose);
 
     QEventLoop loop;
@@ -163,17 +167,18 @@ void QwtBackend::show(matplot::figure_type* f) {
 }
 
 void QwtBackend::draw(matplot::figure_type* f) {
-    QwtFigure* fig = get_or_create_figure(f);
-    render_figure(f, fig);
+    UiFigure* uifigure = get_or_create_figure(f);
+    render_figure(f, uifigure);
+    auto qwtfigure = uifigure->qwtfigure();
 
     if (!impl_->output_file_.empty()) {
         QString path = QString::fromStdString(impl_->output_file_);
         QString format = QString::fromStdString(impl_->output_format_);
         if (format == "png" || format == "jpg" || format == "bmp") {
-            QPixmap pixmap = fig->saveFig();
+            QPixmap pixmap = qwtfigure->saveFig();
             pixmap.save(path, format.toUpper().toUtf8().constData());
         } else {
-            auto plots = fig->allAxes();
+            auto plots = qwtfigure->allAxes();
             if (plots.size() == 1) {
                 QwtPlotRenderer renderer;
                 renderer.renderDocument(plots.first(),
@@ -181,34 +186,37 @@ void QwtBackend::draw(matplot::figure_type* f) {
                     QString::fromStdString(impl_->output_format_),
                     QSizeF(impl_->width_ / 96.0, impl_->height_ / 96.0));
             } else if (plots.size() > 1) {
-                QPixmap pixmap = fig->saveFig();
+                QPixmap pixmap = qwtfigure->saveFig();
                 pixmap.save(path, "PNG");
             }
         }
     }
 }
 
-QwtFigure* QwtBackend::get_or_create_figure(matplot::figure_type* f) {
+UiFigure* QwtBackend::get_or_create_figure(matplot::figure_type* f) {
     auto it = impl_->figures.find(f);
     if (it != impl_->figures.end()) {
         return it->second;
     }
-    auto* fig = new QwtFigure();
-    fig->resize(static_cast<int>(impl_->width_), static_cast<int>(impl_->height_));
+    auto* uifigure = new UiFigure(f);
+    uifigure->setFigureSize(static_cast<int>(impl_->width_),
+                          static_cast<int>(impl_->height_));
     if (!impl_->window_title_.empty()) {
-        fig->setWindowTitle(QString::fromStdString(impl_->window_title_));
+        uifigure->setWindowTitle(QString::fromStdString(impl_->window_title_));
     }
-    impl_->figures[f] = fig;
-    return fig;
+    impl_->figures[f] = uifigure;
+    return uifigure;
 }
 
-void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
-    fig->clear();
+void QwtBackend::render_figure(matplot::figure_type* f, UiFigure* uifigure) {
+    auto qwtfigure = uifigure->qwtfigure();
 
-    fig->setFaceColor(toQColor(f->color()));
+    qwtfigure->clear();
+
+    qwtfigure->setFaceColor(toQColor(f->color()));
 
     if (!impl_->window_title_.empty()) {
-        fig->setWindowTitle(QString::fromStdString(impl_->window_title_));
+        qwtfigure->setWindowTitle(QString::fromStdString(impl_->window_title_));
     }
 
     // 绘图字体
@@ -229,21 +237,21 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
 
         if (hasSurface) {
             // [重要]: 必须让 QMainWindow 显示，否则 OpenGLWidget 无法创建 GL 上下文
-            if (auto mw = qobject_cast<QMainWindow*>(fig->window())) {
+            if (auto mw = qobject_cast<QMainWindow*>(qwtfigure->window())) {
                 mw->show();
             }
             if(!f->custom_color())
             {
-                fig->setFaceColor(Qt::white);
+                qwtfigure->setFaceColor(Qt::white);
             }
-            auto* surface3d = new ColoredSurfacePlot(fig);
+            auto* surface3d = new ColoredSurfacePlot(qwtfigure);
             surface3d->setRotation(axes->elevation(), 0, -axes->azimuth());  // 视角
             surface3d->setTitle(QString::fromStdString(axes->title()));
             // surface3d->setBackgroundColor(Qwt3D::RGBA(axes->color()[1], axes->color()[2], axes->color()[3], 1 - axes->color()[0]));
             // QOpenGLWidget 需要非零尺寸才能创建 GL 上下文
             // surface3d->resize(static_cast<int>(impl_->width_ * pos[2]),
             //                   static_cast<int>(impl_->height_ * pos[3]));
-            fig->addWidget(surface3d, pos[0], qwtTop, pos[2], pos[3]);
+            qwtfigure->addWidget(surface3d, pos[0], qwtTop, pos[2], pos[3]);
             // fig->addWidget(surface3d, 0., 0., 1., 1.);
             surface3d->show();
             QwtPlotVisitor visitor(surface3d);
@@ -256,7 +264,7 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
                 surface3d->showColorLegend(true);
             }
         } else {
-            auto* plot = new QwtPlot(fig);
+            auto* plot = new QwtPlot(qwtfigure);
 
             auto xlim = axes->xlim();
             auto ylim = axes->ylim();
@@ -328,12 +336,14 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
             }
             double figW = static_cast<double>(impl_->width_);
             double figH = static_cast<double>(impl_->height_);
-            fig->addAxes(plot,
+            qwtfigure->addAxes(plot,
                 pos[0] - leftDeco / figW,
                 qwtTop - topDeco / figH,
                 pos[2] + (leftDeco + rightDeco) / figW,
                 pos[3] + (topDeco + bottomDeco) / figH
             );
+            // 必须手动 show 才能在已显示的窗口中显示新增的子控件
+            plot->show();
             auto legend = axes->legend();
             bool showLegend = legend && legend->visible();
             // 显示图例
@@ -385,6 +395,17 @@ void QwtBackend::render_figure(matplot::figure_type* f, QwtFigure* fig) {
             
         }
     }
+
+    // 强制刷新布局并显示：已显示的 figure 在 clear+重建后，新添加的子控件默认隐藏，
+    // 必须手动 show + updateGeometry + replotAll
+    // for (auto* plot : qwtfigure->allAxes()) {
+    //     plot->setVisible(true);
+    // }
+    // qwtfigure->updateGeometry();
+    // uifigure->replotAll();
+
+    // 刷新原始轴范围记录：clear+重建后旧 QwtPlot 指针已失效，需重新采集
+    uifigure->refreshOriginalLimits();
 }
 
 void aUseQwtBackend() {
