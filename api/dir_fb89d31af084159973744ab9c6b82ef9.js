@@ -8,5 +8,7 @@ var dir_fb89d31af084159973744ab9c6b82ef9 =
     [ "QwtBackend.cpp", "QwtBackend_8cpp.html", "QwtBackend_8cpp" ],
     [ "QwtBackend.hpp", "QwtBackend_8hpp.html", "QwtBackend_8hpp" ],
     [ "QwtPlotVisitor.cpp", "QwtPlotVisitor_8cpp.html", "QwtPlotVisitor_8cpp" ],
-    [ "QwtPlotVisitor.hpp", "QwtPlotVisitor_8hpp.html", "QwtPlotVisitor_8hpp" ]
+    [ "QwtPlotVisitor.hpp", "QwtPlotVisitor_8hpp.html", "QwtPlotVisitor_8hpp" ],
+    [ "UiFigure.cpp", "UiFigure_8cpp.html", "UiFigure_8cpp" ],
+    [ "UiFigure.hpp", "UiFigure_8hpp.html", "UiFigure_8hpp" ]
 ];

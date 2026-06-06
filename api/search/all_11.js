@@ -15,10 +15,11 @@ var searchData=
   ['qwtbackend_12',['QwtBackend',['../classast_1_1QwtBackend.html',1,'ast']]],
   ['qwtbackend_2ecpp_13',['QwtBackend.cpp',['../QwtBackend_8cpp.html',1,'']]],
   ['qwtbackend_2ehpp_14',['QwtBackend.hpp',['../QwtBackend_8hpp.html',1,'']]],
-  ['qwtplotvisitor_15',['QwtPlotVisitor',['../classast_1_1QwtPlotVisitor.html',1,'ast']]],
-  ['qwtplotvisitor_2ecpp_16',['QwtPlotVisitor.cpp',['../QwtPlotVisitor_8cpp.html',1,'']]],
-  ['qwtplotvisitor_2ehpp_17',['QwtPlotVisitor.hpp',['../QwtPlotVisitor_8hpp.html',1,'']]],
-  ['qx_18',['qx',['../classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770',1,'ast::Quaternion::qx() const'],['../classast_1_1Quaternion.html#a4610df7892c4a844901a28a72b7c782b',1,'ast::Quaternion::qx()']]],
-  ['qy_19',['qy',['../classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b',1,'ast::Quaternion::qy() const'],['../classast_1_1Quaternion.html#a47524a1bc4cf57c3d54d0c296f97723b',1,'ast::Quaternion::qy()']]],
-  ['qz_20',['qz',['../classast_1_1Quaternion.html#a47c7dcdee58301b110cc8019390553fc',1,'ast::Quaternion::qz() const'],['../classast_1_1Quaternion.html#a11df4a94ed81c80b6e4c95ca6821bf52',1,'ast::Quaternion::qz()']]]
+  ['qwtfigure_15',['qwtfigure',['../classast_1_1UiFigure.html#a84d472f144a6d712eea791a3a32684cd',1,'ast::UiFigure']]],
+  ['qwtplotvisitor_16',['QwtPlotVisitor',['../classast_1_1QwtPlotVisitor.html',1,'ast']]],
+  ['qwtplotvisitor_2ecpp_17',['QwtPlotVisitor.cpp',['../QwtPlotVisitor_8cpp.html',1,'']]],
+  ['qwtplotvisitor_2ehpp_18',['QwtPlotVisitor.hpp',['../QwtPlotVisitor_8hpp.html',1,'']]],
+  ['qx_19',['qx',['../classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770',1,'ast::Quaternion::qx() const'],['../classast_1_1Quaternion.html#a4610df7892c4a844901a28a72b7c782b',1,'ast::Quaternion::qx()']]],
+  ['qy_20',['qy',['../classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b',1,'ast::Quaternion::qy() const'],['../classast_1_1Quaternion.html#a47524a1bc4cf57c3d54d0c296f97723b',1,'ast::Quaternion::qy()']]],
+  ['qz_21',['qz',['../classast_1_1Quaternion.html#a47c7dcdee58301b110cc8019390553fc',1,'ast::Quaternion::qz() const'],['../classast_1_1Quaternion.html#a11df4a94ed81c80b6e4c95ca6821bf52',1,'ast::Quaternion::qz()']]]
 ];

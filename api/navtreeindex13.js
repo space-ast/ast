@@ -198,6 +198,9 @@ var NAVTREEINDEX13 =
 "UiExpressionBrowser_8cpp.html":[4,0,0,9,7,3],
 "UiExpressionBrowser_8hpp.html":[4,0,0,9,7,4],
 "UiExpressionBrowser_8hpp_source.html":[4,0,0,9,7,4],
+"UiFigure_8cpp.html":[4,0,0,3,9],
+"UiFigure_8hpp.html":[4,0,0,3,10],
+"UiFigure_8hpp_source.html":[4,0,0,3,10],
 "UiFilePath_8cpp.html":[4,0,0,9,4,11],
 "UiFilePath_8hpp.html":[4,0,0,9,4,12],
 "UiFilePath_8hpp_source.html":[4,0,0,9,4,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "UiODEIntegrator_8hpp_source.html":[4,0,0,9,6,0],
 "UiODEVarStepIntegrator_8hpp.html":[4,0,0,9,6,3],
 "UiODEVarStepIntegrator_8hpp_source.html":[4,0,0,9,6,3],
-"UiObjectTreeItem_8cpp.html":[4,0,0,9,4,1,6],
-"UiObjectTreeItem_8hpp.html":[4,0,0,9,4,1,7],
-"UiObjectTreeItem_8hpp_source.html":[4,0,0,9,4,1,7],
-"UiObjectTree_8cpp.html":[4,0,0,9,4,1,4]
+"UiObjectTreeItem_8cpp.html":[4,0,0,9,4,1,6]
 };

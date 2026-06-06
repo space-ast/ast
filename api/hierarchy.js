@@ -184,6 +184,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
+    [ "ast::figure_silencer", "classast_1_1figure__silencer.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
@@ -1052,6 +1053,7 @@ var hierarchy =
     [ "QWidget", null, [
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
       [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
+      [ "ast::UiFigure", "classast_1_1UiFigure.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
       [ "ast::UiODEIntegratorEditor", "classast_1_1UiODEIntegratorEditor.html", null ],
       [ "ast::UiObject", "classast_1_1UiObject.html", [
