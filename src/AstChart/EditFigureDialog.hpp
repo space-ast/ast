@@ -13,6 +13,7 @@
 #include <QStackedWidget>
 #include <QPushButton>
 #include <QDialogButtonBox>
+#include <QIcon>
 
 namespace matplot {
     class figure_type;
@@ -40,6 +41,7 @@ private slots:
 private:
     void setupUi();
     void buildTree();
+    QIcon loadIcon(const QString& name) const;
 
     enum NodeType { TypeFigure, TypeAxes, TypePlotItem };
 

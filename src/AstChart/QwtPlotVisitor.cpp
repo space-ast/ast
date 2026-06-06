@@ -38,6 +38,7 @@
 
 #include <QPen>
 #include <QColor>
+#include <QDebug>
 
 #include <qwt3d_surfaceplot.h>
 #include <qwt3d_color.h>
@@ -170,6 +171,7 @@ void QwtPlotVisitor::visit(matplot::line& l) {
         symbol->setSize(QSize(sz, sz));
         if (l.marker_face()) {
             auto faceColor = toQColor(l.marker_face_color());
+            // qDebug() << "faceColor:" << faceColor;
             symbol->setBrush(QBrush(faceColor));
         }
         curve->setSymbol(symbol);
@@ -179,6 +181,7 @@ void QwtPlotVisitor::visit(matplot::line& l) {
     curve->setLegendAttribute(QwtPlotCurve::LegendShowSymbol, true);
     // setLegendIconSize要放在setLegendAttribute后面和setSymbol后面，避免legend大小被重置
     curve->setLegendIconSize(QSize(40, 8));
+    curve->setVisible(l.visible());
     curve->attach(plot_);
 }
 

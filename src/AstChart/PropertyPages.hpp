@@ -49,16 +49,16 @@ public:
 
 private:
     void setupUi();
-    QDoubleSpinBox* posLeft_, *posTop_, *posW_, *posH_;
+    QDoubleSpinBox* posLeft_, *posBottom_, *posW_, *posH_;
     QLineEdit* titleEdit_;
     QComboBox* fontCombo_;
     QDoubleSpinBox* fontSize_;
+    QDoubleSpinBox* titleFontSizeMultiplier_;
     ColorButton* titleColorBtn_, *bgColorBtn_;
     QLineEdit* xLabelEdit_, *yLabelEdit_;
     QDoubleSpinBox* xMin_, *xMax_, *yMin_, *yMax_;
     QCheckBox* xVisible_, *yVisible_;
     QCheckBox* gridVisible_;
-    QCheckBox* boxVisible_;
 };
 
 /// @brief 折线/散点属性编辑页

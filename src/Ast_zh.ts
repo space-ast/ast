@@ -12,10 +12,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Top</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Width</source>
         <translation type="unfinished"></translation>
     </message>
@@ -40,34 +36,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>坐标轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X 轴可见</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y 轴可见</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X 标签</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y 标签</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X 范围</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y 范围</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>外观</source>
         <translation type="unfinished"></translation>
     </message>
@@ -76,11 +44,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>显示边框</source>
+        <source>背景色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>背景色</source>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>文本</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>字体缩放</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X 轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>标签</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>最小值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>最大值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y 轴</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

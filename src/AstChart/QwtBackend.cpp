@@ -342,6 +342,9 @@ void QwtBackend::Impl::renderFigure(matplot::figure_type* f, UiFigure* uifigure)
             // 坐标轴可见性
             plot->setAxisVisible(QwtPlot::xBottom, axes->x_axis().visible());
             plot->setAxisVisible(QwtPlot::yLeft, axes->y_axis().visible());
+            plot->setAxisVisible(QwtPlot::xTop, axes->x2_axis().visible());
+            plot->setAxisVisible(QwtPlot::yRight, axes->y2_axis().visible());
+
 
             // 网格
             if (axes->grid()) {

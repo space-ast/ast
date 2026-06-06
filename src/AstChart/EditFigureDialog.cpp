@@ -17,6 +17,7 @@
 #include <QSplitter>
 #include <QLabel>
 #include <QHeaderView>
+#include <QCoreApplication>
 #include <QDebug>
 
 AST_NAMESPACE_BEGIN
@@ -43,8 +44,8 @@ void EditFigureDialog::setupUi()
     auto* splitter = new QSplitter(Qt::Horizontal, this);
     tree_ = new QTreeWidget(this);
     tree_->setHeaderLabel(tr("元素"));
-    tree_->setMinimumWidth(200);
-    tree_->setMaximumWidth(300);
+    tree_->setMinimumWidth(140);
+    tree_->setMaximumWidth(200);
 
     stack_ = new QStackedWidget(this);
     axesPage_ = new AxesPropertyPage(this);
@@ -88,9 +89,15 @@ void EditFigureDialog::buildTree()
 
     auto* rootItem = new QTreeWidgetItem(tree_);
     rootItem->setText(0, tr("Figure"));
+    rootItem->setIcon(0, loadIcon("ChartFigure"));
     auto* rootData = new NodeData{TypeFigure};
     rootItem->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(rootData)));
     rootItem->setExpanded(true);
+
+    QIcon axesIcon = loadIcon("Axes");
+    QIcon lineIcon = loadIcon("ChartLine");
+    QIcon surfaceIcon = loadIcon("ChartSurface");
+    QIcon elementIcon = loadIcon("ChartElement");
 
     auto& axesChildren = figure_->children();
     for (size_t i = 0; i < axesChildren.size(); ++i) {
@@ -100,6 +107,7 @@ void EditFigureDialog::buildTree()
         if (title.isEmpty())
             title = tr("坐标轴 %1").arg(static_cast<int>(i + 1));
         axesItem->setText(0, title);
+        axesItem->setIcon(0, axesIcon);
         auto* axesData = new NodeData{TypeAxes, static_cast<int>(i)};
         axesItem->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(axesData)));
         axesItem->setExpanded(true);
@@ -112,6 +120,13 @@ void EditFigureDialog::buildTree()
             if (name.isEmpty())
                 name = tr("元素 %1").arg(static_cast<int>(j + 1));
             itemNode->setText(0, name);
+            // 根据对象类型设置图标
+            if (dynamic_cast<matplot::line*>(obj.get()))
+                itemNode->setIcon(0, lineIcon);
+            else if (dynamic_cast<matplot::surface*>(obj.get()))
+                itemNode->setIcon(0, surfaceIcon);
+            else
+                itemNode->setIcon(0, elementIcon);
             auto* itemData = new NodeData{TypePlotItem, static_cast<int>(i), static_cast<int>(j)};
             itemNode->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(itemData)));
         }
@@ -235,6 +250,13 @@ void EditFigureDialog::onApply()
 
     // 触发重绘
     figure_->draw();
+}
+
+QIcon EditFigureDialog::loadIcon(const QString& name) const
+{
+    QString path = QCoreApplication::applicationDirPath()
+                   + "/data/icons/" + name + ".svg";
+    return QIcon(path);
 }
 
 AST_NAMESPACE_END
