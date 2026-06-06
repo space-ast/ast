@@ -60,6 +60,10 @@ public:
     /// @brief 获取创建成功后的对象显示名称（用于状态栏提示）
     QString createdObjectName() const;
 
+signals:
+    /// @brief 对象创建成功后发出，外部可据此刷新对象树
+    void objectCreated();
+
 private:
     void setupUi();
     void buildTypeGrid();
@@ -67,6 +71,7 @@ private:
     void onChooseParent();
     void onAdvanced();
     void onCreate();
+    bool tryCreate();
     QString generateUniqueName(const QString& typeName) const;
 
     /// @brief 弹出父对象选择对话框，返回选中的对象，取消则返回 nullptr

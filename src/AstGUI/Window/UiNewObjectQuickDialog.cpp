@@ -39,6 +39,8 @@
 #include <QTreeWidgetItem>
 #include <QVBoxLayout>
 
+#include <unordered_set>
+
 AST_NAMESPACE_BEGIN
 
 // ============================================================================
@@ -220,6 +222,38 @@ void UiNewObjectQuickDialog::buildTypeGrid()
         int idx = current->data(Qt::UserRole).value<int>();
         onTypeCardClicked(idx);
     });
+
+    // 双击：创建对象但保持对话框打开，以便连续创建
+    connect(typeTable_, &QTableWidget::cellDoubleClicked,
+            this, [this](int /*row*/, int /*col*/)
+    {
+        auto types = quickTypes();
+        if (selectedEntry_ < 0 || selectedEntry_ >= (int)types.size())
+            return;
+
+        const auto& entry = types[selectedEntry_];
+        if (entry.parentType)
+        {
+            Object* parent = showParentDialog(entry.parentType);
+            if (!parent)
+                return;
+            selectedParent_ = parent;
+            parentBtn_->setText(aUiObjectDisplayName(parent));
+        }
+
+        if (tryCreate())
+        {
+            // 刷新名称以供下次创建，保持选中状态
+            QString typeName = QString::fromStdString(entry.typeName);
+            nameEdit_->setText(generateUniqueName(typeName));
+            if (entry.parentType)
+            {
+                selectedParent_ = nullptr;
+                parentBtn_->setText(tr("选择父对象..."));
+                createBtn_->setEnabled(false);
+            }
+        }
+    });
 }
 
 // ============================================================================
@@ -372,11 +406,11 @@ void UiNewObjectQuickDialog::onAdvanced()
     accept();
 }
 
-void UiNewObjectQuickDialog::onCreate()
+bool UiNewObjectQuickDialog::tryCreate()
 {
     auto types = quickTypes();
     if (selectedEntry_ < 0 || selectedEntry_ >= (int)types.size())
-        return;
+        return false;
 
     const auto& entry = types[selectedEntry_];
     QString typeName = QString::fromStdString(entry.typeName);
@@ -384,7 +418,7 @@ void UiNewObjectQuickDialog::onCreate()
     if (objName.isEmpty())
     {
         QMessageBox::warning(this, tr("名称不能为空"), tr("请输入对象名称。"));
-        return;
+        return false;
     }
 
     Object* parentScope = nullptr;
@@ -396,13 +430,20 @@ void UiNewObjectQuickDialog::onCreate()
     {
         QMessageBox::warning(this, tr("创建失败"),
                              tr("无法创建类型为 \"%1\" 的对象。").arg(typeName));
-        return;
+        return false;
     }
 
     obj->setName(StringView(objName.toStdString()));
     aAddObject(obj);
     createdObjectName_ = QString::fromStdString(obj->displayName());
-    accept();
+    emit objectCreated();
+    return true;
+}
+
+void UiNewObjectQuickDialog::onCreate()
+{
+    if (tryCreate())
+        accept();
 }
 
 // ============================================================================

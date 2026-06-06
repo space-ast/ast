@@ -160,6 +160,8 @@ QWidget* UiMainWindow::createRibbonPage(int index)
             auto* newBtn = createRibbonButton(tr("新建"), missionIcon("New"), page);
             connect(newBtn, &QToolButton::clicked, this, [this]() {
                 UiNewObjectQuickDialog dlg(this);
+                connect(&dlg, &UiNewObjectQuickDialog::objectCreated,
+                        this, [this]() { objectTree_->refresh(); });
                 if (dlg.exec() != QDialog::Accepted)
                     return;
                 objectTree_->refresh();
