@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
+    [ "ast::AggRenderer", "classast_1_1AggRenderer.html", null ],
     [ "alist", "structalist.html", null ],
     [ "allocator_type", null, [
       [ "ast::CorVector< T >::CorVectorAllocator", "structast_1_1CorVector_1_1CorVectorAllocator.html", null ]
@@ -52,6 +53,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::BKVTree", "classast_1_1BKVTree.html", null ],
+    [ "ast::BmpFileHeader", "structast_1_1BmpFileHeader.html", null ],
+    [ "ast::BmpInfoHeader", "structast_1_1BmpInfoHeader.html", null ],
     [ "ast::Bracket", "classast_1_1Bracket.html", null ],
     [ "ast::Breakpoint", "classast_1_1Breakpoint.html", null ],
     [ "ast::BuildTarget", "classast_1_1BuildTarget.html", null ],
@@ -155,6 +158,16 @@ var hierarchy =
     [ "ast::TimeInterval::DiscreteEpochSecondRange", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
+    [ "EmbeddedQueue< QueueSize >", "classEmbeddedQueue.html", null ],
+    [ "EmbeddedQueue< 3 >", "classEmbeddedQueue.html", [
+      [ "PathClipper< VertexSource >", "classPathClipper.html", null ]
+    ] ],
+    [ "EmbeddedQueue< 4 >", "classEmbeddedQueue.html", [
+      [ "PathNanRemover< VertexSource >", "classPathNanRemover.html", null ]
+    ] ],
+    [ "EmbeddedQueue< 9 >", "classEmbeddedQueue.html", [
+      [ "PathSimplifier< VertexSource >", "classPathSimplifier.html", null ]
+    ] ],
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
     [ "ast::LeapSecond::Entry", "structast_1_1LeapSecond_1_1Entry.html", null ],
     [ "ast::SpaceWeather::Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
@@ -346,6 +359,7 @@ var hierarchy =
     [ "ast::ISymbolScope", "classast_1_1ISymbolScope.html", [
       [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ]
     ] ],
+    [ "EmbeddedQueue< QueueSize >::item", "structEmbeddedQueue_1_1item.html", null ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ],
     [ "ast::TimeInterval::DiscreteEpochSecondRange::iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange::iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ],
@@ -382,6 +396,7 @@ var hierarchy =
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],
+    [ "ast::LineStyle", "structast_1_1LineStyle.html", null ],
     [ "ast::LLMClient", "classast_1_1LLMClient.html", [
       [ "ast::Anthropic", "classast_1_1Anthropic.html", null ],
       [ "ast::OpenAI", "classast_1_1OpenAI.html", null ]
@@ -986,6 +1001,7 @@ var hierarchy =
     [ "parm6_2_", "structparm6__2__.html", null ],
     [ "ast::Parser", "classast_1_1Parser.html", null ],
     [ "ast::fs_simple::path", "classast_1_1fs__simple_1_1path.html", null ],
+    [ "PathSnapper< VertexSource >", "classPathSnapper.html", null ],
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", null ],
     [ "ast::PoleMotionSXY", "structast_1_1PoleMotionSXY.html", null ],
     [ "ast::Polynomial", "classast_1_1Polynomial.html", null ],
@@ -1112,6 +1128,7 @@ var hierarchy =
     [ "QwtFigureWidgetOverlay", null, [
       [ "ast::EditFigureOverlay", "classast_1_1EditFigureOverlay.html", null ]
     ] ],
+    [ "RandomNumberGenerator", "classRandomNumberGenerator.html", null ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],
@@ -1188,6 +1205,7 @@ var hierarchy =
     [ "ast::SimEngine", "classast_1_1SimEngine.html", null ],
     [ "ast::SimTime", "classast_1_1SimTime.html", null ],
     [ "ast::SinCos", "classast_1_1SinCos.html", null ],
+    [ "Sketch< VertexSource >", "classSketch.html", null ],
     [ "ast::SkipBracket", "structast_1_1SkipBracket.html", null ],
     [ "ast::strings_internal::SkipEmpty", "structast_1_1strings__internal_1_1SkipEmpty.html", null ],
     [ "ast::strings_internal::SkipWhitespace", "structast_1_1strings__internal_1_1SkipWhitespace.html", null ],

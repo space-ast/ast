@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"Debris_8hpp.html":[4,0,0,22,1,0],
+"Debris_8hpp_source.html":[4,0,0,22,1,0],
+"Debug_8cpp.html":[4,0,0,20,10,4],
+"Debug_8hpp.html":[4,0,0,20,10,5],
+"Debug_8hpp_source.html":[4,0,0,20,10,5],
 "Debugger_8cpp.html":[4,0,0,16,1,2],
 "Debugger_8hpp.html":[4,0,0,16,1,3],
 "Debugger_8hpp_source.html":[4,0,0,16,1,3],
@@ -150,13 +155,13 @@ var NAVTREEINDEX3 =
 "EarthOrientation_8cpp.html":[4,0,0,7,9,1,1],
 "EarthOrientation_8hpp.html":[4,0,0,7,9,1,2],
 "EarthOrientation_8hpp_source.html":[4,0,0,7,9,1,2],
-"EditFigureDialog_8cpp.html":[4,0,0,3,5],
-"EditFigureDialog_8hpp.html":[4,0,0,3,6],
-"EditFigureDialog_8hpp_source.html":[4,0,0,3,6],
-"EditFigureOverlay_8cpp.html":[4,0,0,3,7],
-"EditFigureOverlay_8cpp.html#a139cf95da066e73a56b9d9a399ea6a10":[4,0,0,3,7,0],
-"EditFigureOverlay_8hpp.html":[4,0,0,3,8],
-"EditFigureOverlay_8hpp_source.html":[4,0,0,3,8],
+"EditFigureDialog_8cpp.html":[4,0,0,3,0,4],
+"EditFigureDialog_8hpp.html":[4,0,0,3,0,5],
+"EditFigureDialog_8hpp_source.html":[4,0,0,3,0,5],
+"EditFigureOverlay_8cpp.html":[4,0,0,3,0,6],
+"EditFigureOverlay_8cpp.html#a139cf95da066e73a56b9d9a399ea6a10":[4,0,0,3,0,6,0],
+"EditFigureOverlay_8hpp.html":[4,0,0,3,0,7],
+"EditFigureOverlay_8hpp_source.html":[4,0,0,3,0,7],
 "EllipsoidShape_8cpp.html":[4,0,0,7,5,2,0,2],
 "EllipsoidShape_8hpp.html":[4,0,0,7,5,2,0,3],
 "EllipsoidShape_8hpp_source.html":[4,0,0,7,5,2,0,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX3 =
 "ExprCalculation_8cpp.html":[4,0,0,16,2,6],
 "ExprCalculation_8hpp.html":[4,0,0,16,2,7],
 "ExprCalculation_8hpp_source.html":[4,0,0,16,2,7],
-"ExprCall_8hpp_source.html":[4,0,0,16,2,8],
-"ExprCatHorizontal_8cpp.html":[4,0,0,16,2,9],
-"ExprCatHorizontal_8hpp_source.html":[4,0,0,16,2,10],
-"ExprCatVertical_8cpp.html":[4,0,0,16,2,11],
-"ExprCatVertical_8hpp.html":[4,0,0,16,2,12],
-"ExprCatVertical_8hpp_source.html":[4,0,0,16,2,12]
+"ExprCall_8hpp_source.html":[4,0,0,16,2,8]
 };

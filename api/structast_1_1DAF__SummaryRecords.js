@@ -5,5 +5,5 @@ var structast_1_1DAF__SummaryRecords =
     [ "next", "structast_1_1DAF__SummaryRecords.html#ae4f807c4ab2a4b8c0e2cbe121f6b580d", null ],
     [ "nsum", "structast_1_1DAF__SummaryRecords.html#a66059789fd3533535103bad8379ef41d", null ],
     [ "prev", "structast_1_1DAF__SummaryRecords.html#a871379b7c3dd3b1b37a043f028fad978", null ],
-    [ "summaries", "structast_1_1DAF__SummaryRecords.html#af6e62c2f04ef020976a6a5a6610c2ab4", null ]
+    [ "summaries", "structast_1_1DAF__SummaryRecords.html#a9635ebac313154149f5c63f884a33972", null ]
 ];

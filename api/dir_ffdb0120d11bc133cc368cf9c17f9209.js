@@ -1,0 +1,19 @@
+var dir_ffdb0120d11bc133cc368cf9c17f9209 =
+[
+    [ "ColoredSurfaceEnrichment.cpp", "ColoredSurfaceEnrichment_8cpp.html", null ],
+    [ "ColoredSurfaceEnrichment.hpp", "ColoredSurfaceEnrichment_8hpp_source.html", null ],
+    [ "ColoredSurfacePlot.cpp", "ColoredSurfacePlot_8cpp.html", null ],
+    [ "ColoredSurfacePlot.hpp", "ColoredSurfacePlot_8hpp.html", "ColoredSurfacePlot_8hpp" ],
+    [ "EditFigureDialog.cpp", "EditFigureDialog_8cpp.html", null ],
+    [ "EditFigureDialog.hpp", "EditFigureDialog_8hpp.html", "EditFigureDialog_8hpp" ],
+    [ "EditFigureOverlay.cpp", "EditFigureOverlay_8cpp.html", "EditFigureOverlay_8cpp" ],
+    [ "EditFigureOverlay.hpp", "EditFigureOverlay_8hpp.html", "EditFigureOverlay_8hpp" ],
+    [ "PropertyPages.cpp", "PropertyPages_8cpp.html", null ],
+    [ "PropertyPages.hpp", "PropertyPages_8hpp.html", "PropertyPages_8hpp" ],
+    [ "QwtBackend.cpp", "QwtBackend_8cpp.html", "QwtBackend_8cpp" ],
+    [ "QwtBackend.hpp", "QwtBackend_8hpp.html", "QwtBackend_8hpp" ],
+    [ "QwtPlotVisitor.cpp", "QwtPlotVisitor_8cpp.html", "QwtPlotVisitor_8cpp" ],
+    [ "QwtPlotVisitor.hpp", "QwtPlotVisitor_8hpp.html", "QwtPlotVisitor_8hpp" ],
+    [ "UiFigure.cpp", "UiFigure_8cpp.html", "UiFigure_8cpp" ],
+    [ "UiFigure.hpp", "UiFigure_8hpp.html", "UiFigure_8hpp" ]
+];

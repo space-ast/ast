@@ -45,6 +45,11 @@ var searchData=
   ['doublevalue_42',['doubleValue',['../classast_1_1JsonDomSax.html#aef9d686e4b1bf6d382046c70bcd0583a',1,'ast::JsonDomSax::doubleValue()'],['../classast_1_1JsonSax.html#a02b5e3a87b2b47eb108e53155f56c965',1,'ast::JsonSax::doubleValue()']]],
   ['dpr_43',['dpr',['../group__Spice.html#gae84bbf14131d083d3886978ca516e180',1,'ast']]],
   ['drag_44',['drag',['../classast_1_1HPOPForceModel.html#acc9dc09f7a4db49bd2749f55f901a9aa',1,'ast::HPOPForceModel']]],
-  ['duration_45',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
-  ['durationfrom_46',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
+  ['draw_5ffilled_5frect_45',['draw_filled_rect',['../classast_1_1AggRenderer.html#a3c5651cd75788da7f75fd4a35679a1ff',1,'ast::AggRenderer']]],
+  ['draw_5fline_46',['draw_line',['../classast_1_1AggRenderer.html#af54a7154f58fdac867cd82ab99f133e2',1,'ast::AggRenderer']]],
+  ['draw_5fmarker_47',['draw_marker',['../classast_1_1AggRenderer.html#a4309c98ac8659e1007fbed63ae123d26',1,'ast::AggRenderer']]],
+  ['draw_5fpath_48',['draw_path',['../classast_1_1AggRenderer.html#a02110090d31fb72317be22537b522ff8',1,'ast::AggRenderer']]],
+  ['draw_5ftext_49',['draw_text',['../classast_1_1AggRenderer.html#a1e427bbe92f19a97aa1b29e3580317ba',1,'ast::AggRenderer']]],
+  ['duration_50',['duration',['../classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f',1,'ast::TimeInterval']]],
+  ['durationfrom_51',['durationFrom',['../classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590',1,'ast::TimePoint']]]
 ];
