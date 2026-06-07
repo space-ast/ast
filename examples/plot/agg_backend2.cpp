@@ -24,9 +24,11 @@ int main()
     auto fig = matplot::figure(true);
 
     auto l = matplot::plot(x, y, "-o");
+    l->display_name("sin(x)");
     l->marker_size(6.0f);
     l->marker_face(true);
 
+    matplot::legend();
     matplot::grid(matplot::on);
     matplot::xlabel("x");
     matplot::ylabel("sin(x)");

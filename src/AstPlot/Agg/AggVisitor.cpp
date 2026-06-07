@@ -407,6 +407,112 @@ void AggVisitor::drawAxes() {
                 10.0, label_color, 90.0);
         }
     }
+
+    // ---- 5. 图例 ----
+    auto leg = axes_->legend();
+    if (leg && leg->visible() && !leg->strings().empty()) {
+        double leg_font = leg->font_size();  // pt
+        double line_len = 30.0;              // 图例线段长度 (px)
+        double gap = 6.0;                    // 线段与文字间距
+        double item_h = leg_font + 6.0;      // 每项高度
+        double pad = 8.0;                    // 内边距
+
+        // 计算图例框尺寸
+        auto& strs = leg->strings();
+        double max_tw = 0;
+        for (auto& s : strs) {
+            double tw = s.size() * leg_font * 0.6;
+            if (tw > max_tw) max_tw = tw;
+        }
+        double box_w = line_len + gap + max_tw + pad * 2;
+        double box_h = item_h * strs.size() + pad * 2;
+
+        // 位置: 右上角 (inside)
+        double leg_x = ax_px_right - box_w - 5.0;
+        double leg_y = ax_px_top + 5.0;
+
+        // 背景 (半透明白色)
+        renderer_.draw_filled_rect(leg_x, leg_y, leg_x + box_w, leg_y + box_h,
+                                    agg::rgba(1.0, 1.0, 1.0, 0.85), agg::trans_affine());
+
+        // 边框
+        if (leg->box()) {
+            LineStyle boxStyle;
+            boxStyle.linewidth = 0.5f;
+            boxStyle.color = agg::rgba(0.5, 0.5, 0.5, 1.0);
+            double b[4][2] = {
+                {leg_x, leg_y}, {leg_x+box_w, leg_y},
+                {leg_x+box_w, leg_y+box_h}, {leg_x, leg_y+box_h}
+            };
+            for (int i = 0; i < 4; ++i) {
+                double xs[2] = {b[i][0], b[(i+1)%4][0]};
+                double ys[2] = {b[i][1], b[(i+1)%4][1]};
+                renderer_.draw_line(xs, ys, 2, boxStyle, agg::trans_affine());
+            }
+        }
+
+        // 逐项绘制
+        auto tc = leg->text_color();
+        agg::rgba txt_color(tc[1], tc[2], tc[3], 1.0 - tc[0]);
+
+        for (size_t i = 0; i < axes_->children().size(); ++i) {
+            auto child = axes_->children()[i];
+            auto lptr = std::dynamic_pointer_cast<matplot::line>(child);
+            
+            if(!lptr) continue;
+            LineStyle ls = from_line(*lptr);
+
+            double iy = leg_y + pad + item_h * i + leg_font * 0.8;
+            // 线段样本
+            double lx = leg_x + pad;
+            double mid_x = lx + line_len * 0.5;
+            double xs[2] = {lx, lx + line_len};
+            double ys[2] = {iy, iy};
+            renderer_.draw_line(xs, ys, 2, ls, agg::trans_affine());
+
+            // 标记样本
+            if (lptr) {
+                int shape = -1;
+                auto ms = lptr->marker_style();
+                switch (ms) {
+                case matplot::line_spec::marker_style::circle:  shape=0; break;
+                case matplot::line_spec::marker_style::square:  shape=1; break;
+                case matplot::line_spec::marker_style::diamond: shape=2; break;
+                case matplot::line_spec::marker_style::upward_pointing_triangle: shape=3; break;
+                case matplot::line_spec::marker_style::downward_pointing_triangle: shape=4; break;
+                case matplot::line_spec::marker_style::plus_sign: shape=5; break;
+                case matplot::line_spec::marker_style::cross: shape=6; break;
+                case matplot::line_spec::marker_style::asterisk: shape=7; break;
+                case matplot::line_spec::marker_style::point: shape=8; break;
+                default: break;
+                }
+                if (shape < 0) shape = 0;  // fallback: circle
+                auto mc  = lptr->marker_color();
+                auto mfc = lptr->marker_face_color();
+                double msz = lptr->marker_size();
+                double mew = lptr->line_width() * 0.5f; // marker edge width
+
+                agg::rgba edge_c(mc[1], mc[2], mc[3], 1.0 - mc[0]);
+                agg::rgba face_c = lptr->marker_face()
+                    ? agg::rgba(mfc[1], mfc[2], mfc[3], 1.0 - mfc[0])
+                    : agg::rgba(0,0,0,0);
+                renderer_.draw_marker(shape, mid_x, iy, lptr->marker_size() * 0.7,
+                                      edge_c, face_c, mew);
+            }
+
+            std::string name = lptr->display_name();
+            if(name.empty())
+            {
+                if(strs.size() > i) name = strs[i];
+                if(name.empty()) name = "data" + std::to_string(i + 1);
+            }
+
+            // 文字
+            renderer_.draw_text(name.c_str(),
+                lx + line_len + gap, iy + leg_font * 0.35,
+                leg_font, txt_color);
+        }
+    }
 }
 
 // ========================================================================
