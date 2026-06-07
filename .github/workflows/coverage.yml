@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: ${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v1
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v1
 
       # Cache build directory
       - name: 配置编译缓存
@@ -37,9 +37,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: build
-          key: ${{ runner.os }}-${{ matrix.arch }}-build-${{ github.sha }}
+          key: coverage-${{ runner.os }}-${{ matrix.arch }}-build-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.arch }}-build-
+            coverage-${{ runner.os }}-${{ matrix.arch }}-build-
 
       - name: 设置xmake相关目录
         run: |
