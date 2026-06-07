@@ -1,5 +1,6 @@
 #pragma once
 
+#include "AstGlobal.h"
 #include "agg/agg_basics.h"
 #include "agg/agg_rendering_buffer.h"
 #include "agg/agg_rasterizer_scanline_aa.h"
@@ -13,8 +14,12 @@
 #include "agg/agg_conv_dash.h"
 #include "agg/agg_trans_affine.h"
 #include "agg/agg_color_rgba.h"
+#include "agg/agg_gsv_text.h"
 
 #include "LineStyle.hpp"
+
+
+AST_NAMESPACE_BEGIN
 
 /// Agg 核心渲染器 — 仿 matplotlib RendererAgg
 class AggRenderer {
@@ -44,6 +49,19 @@ public:
     void draw_path(agg::path_storage& path, const LineStyle& style,
                    const agg::trans_affine& trans, bool hasFace = false);
 
+    /// 绘制填充矩形 (无描边) — 用于 axes 背景
+    void draw_filled_rect(double x1, double y1, double x2, double y2,
+                          const agg::rgba& fill_color,
+                          const agg::trans_affine& trans);
+
+    /// 绘制文字 (使用 gsv_text 矢量字体)
+    /// @param text  文本字符串
+    /// @param x, y  像素坐标 (Y-down, 已翻转后的坐标)
+    /// @param size_pt 字号 (points)
+    /// @param color 颜色
+    void draw_text(const char* text, double x, double y, double size_pt,
+                   const agg::rgba& color);
+
     /// 获取像素缓冲区
     const unsigned char* buffer() const { return pixBuffer_; }
 
@@ -64,3 +82,7 @@ private:
     rasterizer_type ras_;
     scanline_type sl_;
 };
+
+
+AST_NAMESPACE_END
+

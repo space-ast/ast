@@ -6,6 +6,9 @@
 
 #include "AggRenderer.hpp"
 
+AST_NAMESPACE_BEGIN
+
+
 /// matplot::visitor 实现 — 将 matplot++ 对象转为 Agg 渲染调用
 class AggVisitor : public matplot::visitor {
 public:
@@ -13,6 +16,9 @@ public:
 
     /// 设置当前 axes (切换子图时调用)
     void set_axes(const matplot::axes_type& ax);
+
+    /// 绘制坐标轴元素 (背景、spines)
+    void draw_axes();
 
     // ---- visit 重载 ----
     void visit(matplot::line& l) override;
@@ -43,5 +49,7 @@ private:
     const matplot::axes_type* axes_ = nullptr;
     double fig_w_, fig_h_;
 };
+
+AST_NAMESPACE_END
 
 #endif  // AST_WITH_AGG && AST_WITH_MATPLOT

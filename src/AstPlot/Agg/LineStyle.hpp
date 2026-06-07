@@ -5,6 +5,10 @@
 #include "agg/agg_math_stroke.h"
 #include "path_converters.h"  // e_snap_mode
 
+
+AST_NAMESPACE_BEGIN
+
+
 /// 线型样式 — 默认值匹配 matplotlib rcParams
 struct LineStyle {
     double linewidth = 1.5;          // pt
@@ -28,8 +32,5 @@ struct LineStyle {
     double linewidth_px(double dpi) const { return linewidth * dpi / 72.0; }
 };
 
-/// 从 matplot::line 构造 LineStyle
-/// 需要在 cpp 中实现（依赖 matplot 头文件）
-struct matplot_line_bridge {
-    static LineStyle from_line(const class matplot::line& l);
-};
+
+AST_NAMESPACE_END

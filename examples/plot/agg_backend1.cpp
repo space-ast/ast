@@ -61,8 +61,8 @@ int main() {
     matplot::legend("on");
 
     // ---- 渲染 ----
-    fig->backend()->output("agg_backend1.bmp", "bmp");
     fig->show();
+    fig->save("agg_backend1.bmp", "bmp");
 
     printf("Done! Check agg_backend1.bmp\n");
     return 0;

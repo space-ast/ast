@@ -36,8 +36,6 @@ struct AggBackend::Impl {
     unsigned int pos_x_ = 100;
     unsigned int pos_y_ = 100;
 
-    std::string output_filename_;
-    std::string output_format_ = "bmp";
     std::string window_title_ = "Figure";
 
     std::unique_ptr<AggRenderer> renderer_;
@@ -55,23 +53,31 @@ bool AggBackend::consumes_gnuplot_commands() { return false; }
 bool AggBackend::is_interactive()           { return false; }
 
 // ---- 输出控制 ----
+static std::string empty_filename = "";
 
-const std::string& AggBackend::output()        { return impl_->output_filename_; }
-const std::string& AggBackend::output_format()  { return impl_->output_format_; }
+const std::string& AggBackend::output()        { return empty_filename; }
+const std::string& AggBackend::output_format()  { return empty_filename; }
 
 bool AggBackend::output(const std::string& filename) {
-    impl_->output_filename_ = filename;
     // 从扩展名推断格式
     auto dot = filename.rfind('.');
+    std::string format;
     if (dot != std::string::npos)
-        impl_->output_format_ = filename.substr(dot + 1);
-    return true;
+        format = filename.substr(dot + 1);
+    return output(filename, format);
 }
 
-bool AggBackend::output(const std::string& filename, const std::string& format) {
-    impl_->output_filename_ = filename;
-    impl_->output_format_ = format;
-    return true;
+bool AggBackend::output(const std::string& filename, const std::string& format) 
+{
+    // 输出到文件
+    if (!filename.empty()) {
+        if (format == "bmp") {
+            impl_->renderer_->save_bmp(filename.c_str());
+            return true;
+        }
+        // TODO: 支持其他格式 (PNG 等)
+    }
+    return false;
 }
 
 // ---- 尺寸 ----
@@ -114,7 +120,7 @@ void AggBackend::draw(matplot::figure_type* f) {
 
     // 背景色
     auto bg = f->color();
-    impl_->renderer_->clear(agg::rgba(bg[1], bg[2], bg[3], 1.0));
+    impl_->renderer_->clear(agg::rgba(bg[1], bg[2], bg[3], 1.0 - bg[0]));
 
     // 遍历所有 axes
     AggVisitor visitor(*impl_->renderer_, (double)w, (double)h);
@@ -122,18 +128,13 @@ void AggBackend::draw(matplot::figure_type* f) {
     for (auto& ax : f->children()) {
         visitor.set_axes(*ax);
 
+        // 先画坐标轴 (背景 + spines)
+        visitor.draw_axes();
+
+        // 再画数据
         for (auto& obj : ax->children()) {
             obj->accept(visitor);
         }
-    }
-
-    // 输出到文件
-    if (!impl_->output_filename_.empty()) {
-        std::string fmt = impl_->output_format_;
-        if (fmt == "bmp") {
-            impl_->renderer_->save_bmp(impl_->output_filename_.c_str());
-        }
-        // TODO: 支持其他格式 (PNG 等)
     }
 }
 

@@ -8,6 +8,9 @@
 
 #include "path_converters.h"
 
+AST_NAMESPACE_BEGIN
+
+
 // ========================================================================
 // BMP 输出 — 标准 bottom-up 32-bit BMP
 // ========================================================================
@@ -158,6 +161,57 @@ void AggRenderer::draw_path(agg::path_storage& path, const LineStyle& style,
 }
 
 // ========================================================================
+// draw_filled_rect — 填充矩形 (无描边), 用于 axes 背景
+// ========================================================================
+void AggRenderer::draw_filled_rect(double x1, double y1, double x2, double y2,
+                                    const agg::rgba& fill_color,
+                                    const agg::trans_affine& trans)
+{
+    agg::path_storage rect;
+    rect.move_to(x1, y1);
+    rect.line_to(x2, y1);
+    rect.line_to(x2, y2);
+    rect.line_to(x1, y2);
+    rect.close_polygon();
+
+    // 变换
+    agg::trans_affine mut_trans = trans;
+    typedef agg::conv_transform<agg::path_storage, agg::trans_affine> CT;
+    CT tpath(rect, mut_trans);
+
+    ras_.reset();
+    ras_.clip_box(0, 0, width_, height_);
+    ras_.gamma(agg::gamma_none());
+    ras_.add_path(tpath);
+
+    renAA_.color(fill_color);
+    agg::render_scanlines(ras_, sl_, renAA_);
+}
+
+// ========================================================================
+// draw_text — 用 gsv_text 渲染矢量文字
+// ========================================================================
+void AggRenderer::draw_text(const char* text, double x, double y,
+                             double size_pt, const agg::rgba& color)
+{
+    agg::gsv_text txt;
+    txt.size(size_pt);
+    txt.flip(true);                // BMP bottom-up → 文字需要 flip
+    txt.start_point(x, y);
+    txt.text(text);
+
+    agg::conv_stroke<agg::gsv_text> stroke(txt);
+    stroke.width(size_pt / 10.0);  // 笔画宽度 ≈ 字号的 1/10
+    stroke.line_cap(agg::round_cap);
+    stroke.line_join(agg::round_join);
+
+    ras_.reset();
+    ras_.add_path(stroke);
+    renAA_.color(color);
+    agg::render_scanlines(ras_, sl_, renAA_);
+}
+
+// ========================================================================
 // BMP 输出
 // ========================================================================
 void AggRenderer::save_bmp(const char* filename) const {
@@ -195,3 +249,7 @@ void AggRenderer::save_bmp(const char* filename) const {
     fclose(fp);
     printf("BMP saved: %s (%ux%u)\n", filename, width_, height_);
 }
+
+
+AST_NAMESPACE_END
+
