@@ -12,7 +12,7 @@ static bool RelativityCorrection_ClassInited = (RelativityCorrection::ClassInit(
 void RelativityCorrection::ClassInit(Class* cls)
 {
 
-    cls->setName("RelativityCorrection");
+    cls->setName(N_("RelativityCorrection"));
     cls->setDesc(u8R"(相对论修正模型)");
     cls->addToRegistry();
     cls->setParent<ForceModel>();

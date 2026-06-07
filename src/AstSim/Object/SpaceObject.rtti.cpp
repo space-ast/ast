@@ -12,7 +12,7 @@ static bool SpaceObject_ClassInited = (SpaceObject::ClassInit(&SpaceObject::stat
 void SpaceObject::ClassInit(Class* cls)
 {
 
-    cls->setName("SpaceObject");
+    cls->setName(N_("SpaceObject"));
     cls->addToRegistry();
     cls->setParent<Mover>();
     cls->setConstructor<SpaceObject>();

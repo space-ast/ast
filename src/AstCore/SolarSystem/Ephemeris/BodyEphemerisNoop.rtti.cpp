@@ -12,7 +12,7 @@ static bool BodyEphemerisNoop_ClassInited = (BodyEphemerisNoop::ClassInit(&BodyE
 void BodyEphemerisNoop::ClassInit(Class* cls)
 {
 
-    cls->setName("BodyEphemerisNoop");
+    cls->setName(N_("BodyEphemerisNoop"));
     cls->addToRegistry();
     cls->setParent<BodyEphemeris>();
     cls->setConstructor<BodyEphemerisNoop>();

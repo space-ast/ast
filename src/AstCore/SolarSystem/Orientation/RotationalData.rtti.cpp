@@ -12,7 +12,7 @@ static bool RotationalData_ClassInited = (RotationalData::ClassInit(&RotationalD
 void RotationalData::ClassInit(Class* cls)
 {
 
-    cls->setName("RotationalData");
+    cls->setName(N_("RotationalData"));
     cls->setDesc(u8R"(行星旋转数据)");
     cls->addToRegistry();
     cls->setParent<BodyOrientation>();

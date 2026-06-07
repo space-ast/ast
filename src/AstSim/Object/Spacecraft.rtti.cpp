@@ -12,7 +12,7 @@ static bool Spacecraft_ClassInited = (Spacecraft::ClassInit(&Spacecraft::staticT
 void Spacecraft::ClassInit(Class* cls)
 {
 
-    cls->setName("Spacecraft");
+    cls->setName(N_("Spacecraft"));
     cls->setDesc(u8R"(航天器对象)");
     cls->addToRegistry();
     cls->setParent<SpaceObject>();

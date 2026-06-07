@@ -12,7 +12,7 @@ static bool Scenario_ClassInited = (Scenario::ClassInit(&Scenario::staticType), 
 void Scenario::ClassInit(Class* cls)
 {
 
-    cls->setName("Scenario");
+    cls->setName(N_("Scenario"));
     cls->setDesc(u8R"(场景类)");
     cls->addToRegistry();
     cls->setParent<Object>();

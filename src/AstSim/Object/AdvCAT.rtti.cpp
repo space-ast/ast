@@ -12,7 +12,7 @@ static bool AdvCAT_ClassInited = (AdvCAT::ClassInit(&AdvCAT::staticType), true);
 void AdvCAT::ClassInit(Class* cls)
 {
 
-    cls->setName("AdvCAT");
+    cls->setName(N_("AdvCAT"));
     cls->setDesc(u8R"(高级接近分析工具)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

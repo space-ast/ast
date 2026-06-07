@@ -12,7 +12,8 @@ static bool SegmentGraph_ClassInited = (SegmentGraph::ClassInit(&SegmentGraph::s
 void SegmentGraph::ClassInit(Class* cls)
 {
 
-    cls->setName("SegmentGraph");
+    cls->setName(N_("SegmentGraph"));
+    cls->setDesc(u8R"(轨道段框图，用类似simulink的框图描述复杂、多航天的航天任务中的轨道任务段)");
     cls->addToRegistry();
     cls->setParent<Segment>();
     cls->setConstructor<SegmentGraph>();

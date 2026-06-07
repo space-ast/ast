@@ -12,7 +12,7 @@ static bool LandingSiteCalcSunAzimuth_ClassInited = (LandingSiteCalcSunAzimuth::
 void LandingSiteCalcSunAzimuth::ClassInit(Class* cls)
 {
 
-    cls->setName("LandingSiteCalcSunAzimuth");
+    cls->setName(N_("LandingSiteCalcSunAzimuth"));
     cls->addToRegistry();
     cls->setParent<SegmentCalculation>();
     cls->setConstructor<LandingSiteCalcSunAzimuth>();

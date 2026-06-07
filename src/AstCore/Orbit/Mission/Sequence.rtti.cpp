@@ -12,7 +12,7 @@ static bool Sequence_ClassInited = (Sequence::ClassInit(&Sequence::staticType), 
 void Sequence::ClassInit(Class* cls)
 {
 
-    cls->setName("Sequence");
+    cls->setName(N_("Sequence"));
     cls->setDesc(u8R"(任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行)");
     cls->addToRegistry();
     cls->setParent<Segment>();

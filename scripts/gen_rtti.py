@@ -238,7 +238,7 @@ class BaseHeaderAnalyzer:
         lines.append("{")
         
         lines.append("")  # 空行
-        lines.append(f"    cls->setName(\"{class_info.name}\");")
+        lines.append(f"    cls->setName(N_(\"{class_info.name}\"));")
         if class_info.desc:
             lines.append(f'    cls->setDesc(u8R"({class_info.desc})");')
         lines.append(f"    cls->addToRegistry();")

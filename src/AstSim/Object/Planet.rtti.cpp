@@ -12,7 +12,7 @@ static bool Planet_ClassInited = (Planet::ClassInit(&Planet::staticType), true);
 void Planet::ClassInit(Class* cls)
 {
 
-    cls->setName("Planet");
+    cls->setName(N_("Planet"));
     cls->setDesc(u8R"(行星对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

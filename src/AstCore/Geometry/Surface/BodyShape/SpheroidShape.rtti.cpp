@@ -12,7 +12,7 @@ static bool SpheroidShape_ClassInited = (SpheroidShape::ClassInit(&SpheroidShape
 void SpheroidShape::ClassInit(Class* cls)
 {
 
-    cls->setName("SpheroidShape");
+    cls->setName(N_("SpheroidShape"));
     cls->setDesc(u8R"(旋转椭球体/扁球体)");
     cls->addToRegistry();
     cls->setParent<BodyShape>();

@@ -12,7 +12,7 @@ static bool Target_ClassInited = (Target::ClassInit(&Target::staticType), true);
 void Target::ClassInit(Class* cls)
 {
 
-    cls->setName("Target");
+    cls->setName(N_("Target"));
     cls->setDesc(u8R"(目标对象)");
     cls->addToRegistry();
     cls->setParent<Facility>();

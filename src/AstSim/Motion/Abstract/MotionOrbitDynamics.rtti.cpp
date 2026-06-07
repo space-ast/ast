@@ -12,7 +12,7 @@ static bool MotionOrbitDynamics_ClassInited = (MotionOrbitDynamics::ClassInit(&M
 void MotionOrbitDynamics::ClassInit(Class* cls)
 {
 
-    cls->setName("MotionOrbitDynamics");
+    cls->setName(N_("MotionOrbitDynamics"));
     cls->setDesc(u8R"(轨道动力学基础运动模型数据结构)");
     cls->addToRegistry();
     cls->setParent<MotionWithIntervalStep>();

@@ -12,7 +12,7 @@ static bool ThirdBodyForce_ClassInited = (ThirdBodyForce::ClassInit(&ThirdBodyFo
 void ThirdBodyForce::ClassInit(Class* cls)
 {
 
-    cls->setName("ThirdBodyForce");
+    cls->setName(N_("ThirdBodyForce"));
     cls->setDesc(u8R"(三体引力模型)");
     cls->addToRegistry();
     cls->setParent<ForceModel>();

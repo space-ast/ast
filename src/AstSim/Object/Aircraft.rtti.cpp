@@ -12,7 +12,7 @@ static bool Aircraft_ClassInited = (Aircraft::ClassInit(&Aircraft::staticType), 
 void Aircraft::ClassInit(Class* cls)
 {
 
-    cls->setName("Aircraft");
+    cls->setName(N_("Aircraft"));
     cls->setDesc(u8R"(航空器对象)");
     cls->addToRegistry();
     cls->setParent<Mover>();

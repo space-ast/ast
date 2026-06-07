@@ -12,7 +12,7 @@ static bool Place_ClassInited = (Place::ClassInit(&Place::staticType), true);
 void Place::ClassInit(Class* cls)
 {
 
-    cls->setName("Place");
+    cls->setName(N_("Place"));
     cls->setDesc(u8R"(地点对象)");
     cls->addToRegistry();
     cls->setParent<Facility>();

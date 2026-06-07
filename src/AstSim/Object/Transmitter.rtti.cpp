@@ -12,7 +12,7 @@ static bool Transmitter_ClassInited = (Transmitter::ClassInit(&Transmitter::stat
 void Transmitter::ClassInit(Class* cls)
 {
 
-    cls->setName("Transmitter");
+    cls->setName(N_("Transmitter"));
     cls->setDesc(u8R"(发射机对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

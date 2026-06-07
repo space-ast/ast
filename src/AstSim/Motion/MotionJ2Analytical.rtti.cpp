@@ -12,7 +12,7 @@ static bool MotionJ2Analytical_ClassInited = (MotionJ2Analytical::ClassInit(&Mot
 void MotionJ2Analytical::ClassInit(Class* cls)
 {
 
-    cls->setName("MotionJ2Analytical");
+    cls->setName(N_("MotionJ2Analytical"));
     cls->setDesc(u8R"(J2解析轨道动力学)");
     cls->addToRegistry();
     cls->setParent<MotionOrbitDynamics>();

@@ -12,7 +12,7 @@ static bool ScStateCalcEccentricity_ClassInited = (ScStateCalcEccentricity::Clas
 void ScStateCalcEccentricity::ClassInit(Class* cls)
 {
 
-    cls->setName("ScStateCalcEccentricity");
+    cls->setName(N_("ScStateCalcEccentricity"));
     cls->addToRegistry();
     cls->setParent<ScStateCalcBodyRelated>();
     cls->setConstructor<ScStateCalcEccentricity>();

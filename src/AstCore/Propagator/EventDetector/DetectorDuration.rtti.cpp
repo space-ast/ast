@@ -12,7 +12,7 @@ static bool DetectorDuration_ClassInited = (DetectorDuration::ClassInit(&Detecto
 void DetectorDuration::ClassInit(Class* cls)
 {
 
-    cls->setName("DetectorDuration");
+    cls->setName(N_("DetectorDuration"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorDuration>();

@@ -12,7 +12,7 @@ static bool Receiver_ClassInited = (Receiver::ClassInit(&Receiver::staticType), 
 void Receiver::ClassInit(Class* cls)
 {
 
-    cls->setName("Receiver");
+    cls->setName(N_("Receiver"));
     cls->setDesc(u8R"(接收器对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

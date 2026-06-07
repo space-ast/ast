@@ -12,7 +12,7 @@ static bool Stop_ClassInited = (Stop::ClassInit(&Stop::staticType), true);
 void Stop::ClassInit(Class* cls)
 {
 
-    cls->setName("Stop");
+    cls->setName(N_("Stop"));
     cls->setDesc(u8R"(停止段，用于停止任务序列的执行)");
     cls->addToRegistry();
     cls->setParent<MissionCommand>();

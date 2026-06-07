@@ -12,7 +12,7 @@ static bool StateKeplerian_ClassInited = (StateKeplerian::ClassInit(&StateKepler
 void StateKeplerian::ClassInit(Class* cls)
 {
 
-    cls->setName("StateKeplerian");
+    cls->setName(N_("StateKeplerian"));
     cls->setDesc(u8R"(开普勒轨道根数状态)");
     cls->addToRegistry();
     cls->setParent<State>();

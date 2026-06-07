@@ -12,7 +12,7 @@ static bool MainSequence_ClassInited = (MainSequence::ClassInit(&MainSequence::s
 void MainSequence::ClassInit(Class* cls)
 {
 
-    cls->setName("MainSequence");
+    cls->setName(N_("MainSequence"));
     cls->addToRegistry();
     cls->setParent<Sequence>();
     cls->setConstructor<MainSequence>();

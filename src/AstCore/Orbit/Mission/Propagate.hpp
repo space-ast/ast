@@ -39,6 +39,11 @@ class AST_CORE_API Propagate: public Segment
 {
 public:
     AST_OBJECT(Propagate)
+    AST_PROPERT(minPropTime)
+    AST_PROPERT(maxPropTime)
+    AST_PROPERT(useMaxPropTime)
+    AST_PROPERT(useMaxPropTimeWarn)
+    AST_PROPERT(overrideMaxPropTime)
     Propagate();
     ~Propagate() = default;
 public:

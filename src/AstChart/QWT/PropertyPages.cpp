@@ -66,10 +66,10 @@ void AxesPropertyPage::setupUi()
     posBottom_  = new QDoubleSpinBox(this); posBottom_ ->setRange(0, 1); posBottom_ ->setDecimals(3); posBottom_ ->setSingleStep(0.01);
     posW_    = new QDoubleSpinBox(this); posW_   ->setRange(0, 1); posW_   ->setDecimals(3); posW_   ->setSingleStep(0.01);
     posH_    = new QDoubleSpinBox(this); posH_   ->setRange(0, 1); posH_   ->setDecimals(3); posH_   ->setSingleStep(0.01);
-    posLayout->addRow(tr("Left"), posLeft_);
-    posLayout->addRow(tr("Bottom"),  posBottom_);
-    posLayout->addRow(tr("Width"), posW_);
-    posLayout->addRow(tr("Height"),posH_);
+    posLayout->addRow(tr("左"), posLeft_);
+    posLayout->addRow(tr("底"),  posBottom_);
+    posLayout->addRow(tr("宽度"), posW_);
+    posLayout->addRow(tr("高度"),posH_);
     mainLayout->addWidget(posGroup);
 
     // 标题

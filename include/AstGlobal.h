@@ -120,6 +120,11 @@
 #   define aText(x) (u8 ## x)
 #endif
 
+// 用于标记翻译字符串
+#ifndef N_
+    #define N_(String) String
+#endif
+
 #if defined(AST_BUILD_LIB) && defined(_MSC_VER)
 // 编译时指定代码内的字符串使用utf-8编码
 #   pragma execution_character_set("utf-8")

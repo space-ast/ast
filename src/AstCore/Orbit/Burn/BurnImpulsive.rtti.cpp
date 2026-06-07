@@ -12,7 +12,7 @@ static bool BurnImpulsive_ClassInited = (BurnImpulsive::ClassInit(&BurnImpulsive
 void BurnImpulsive::ClassInit(Class* cls)
 {
 
-    cls->setName("BurnImpulsive");
+    cls->setName(N_("BurnImpulsive"));
     cls->setDesc(u8R"(脉冲点火)");
     cls->addToRegistry();
     cls->setParent<Burn>();

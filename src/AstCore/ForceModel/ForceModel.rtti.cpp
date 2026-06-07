@@ -12,7 +12,7 @@ static bool ForceModel_ClassInited = (ForceModel::ClassInit(&ForceModel::staticT
 void ForceModel::ClassInit(Class* cls)
 {
 
-    cls->setName("ForceModel");
+    cls->setName(N_("ForceModel"));
     cls->setDesc(u8R"(力模型)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

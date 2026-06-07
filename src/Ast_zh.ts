@@ -2,86 +2,122 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
-    <name>AxesPropertyPage</name>
+    <name>AdvCAT</name>
     <message>
-        <source>位置 (归一化)</source>
-        <translation type="unfinished"></translation>
+        <source>AdvCAT</source>
+        <translation>高级接近分析</translation>
     </message>
+</context>
+<context>
+    <name>Aircraft</name>
     <message>
-        <source>Left</source>
-        <translation type="unfinished"></translation>
+        <source>Aircraft</source>
+        <translation>航空器</translation>
     </message>
+</context>
+<context>
+    <name>Antenna</name>
     <message>
-        <source>Width</source>
-        <translation type="unfinished"></translation>
+        <source>Antenna</source>
+        <translation>天线</translation>
     </message>
+</context>
+<context>
+    <name>AreaTarget</name>
     <message>
-        <source>Height</source>
-        <translation type="unfinished"></translation>
+        <source>AreaTarget</source>
+        <translation>区域目标</translation>
     </message>
+</context>
+<context>
+    <name>Asteroid</name>
     <message>
-        <source>标题</source>
-        <translation type="unfinished"></translation>
+        <source>Asteroid</source>
+        <translation>小行星</translation>
     </message>
+</context>
+<context>
+    <name>AttitudeCoverage</name>
     <message>
-        <source>字体</source>
-        <translation type="unfinished"></translation>
+        <source>AttitudeCoverage</source>
+        <translation>姿态覆盖</translation>
     </message>
+</context>
+<context>
+    <name>AttitudeFigureOfMerit</name>
     <message>
-        <source>字号</source>
-        <translation type="unfinished"></translation>
+        <source>AttitudeFigureOfMerit</source>
+        <translation>姿态品质因数</translation>
     </message>
+</context>
+<context>
+    <name>Axes</name>
     <message>
-        <source>颜色</source>
-        <translation type="unfinished"></translation>
+        <source>Axes</source>
+        <translation>坐标轴</translation>
     </message>
+</context>
+<context>
+    <name>AxesLinkTo</name>
     <message>
-        <source>外观</source>
-        <translation type="unfinished"></translation>
+        <source>AxesLinkTo</source>
+        <translation>关联坐标轴</translation>
     </message>
+</context>
+<context>
+    <name>BodyAttraction</name>
     <message>
-        <source>显示网格</source>
-        <translation type="unfinished"></translation>
+        <source>BodyAttraction</source>
+        <translation>天体引力</translation>
     </message>
+</context>
+<context>
+    <name>BodyEphemerisDE</name>
     <message>
-        <source>背景色</source>
-        <translation type="unfinished"></translation>
+        <source>BodyEphemerisDE</source>
+        <translation>天体星历(DE)</translation>
     </message>
+</context>
+<context>
+    <name>BodyEphemerisNoop</name>
     <message>
-        <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <source>BodyEphemerisNoop</source>
+        <translation>天体星历(空)</translation>
     </message>
+</context>
+<context>
+    <name>BodyEphemerisSPK</name>
     <message>
-        <source>文本</source>
-        <translation type="unfinished"></translation>
+        <source>BodyEphemerisSPK</source>
+        <translation>天体星历(SPK)</translation>
     </message>
+</context>
+<context>
+    <name>BodyOrientation</name>
     <message>
-        <source>字体缩放</source>
-        <translation type="unfinished"></translation>
+        <source>BodyOrientation</source>
+        <translation>天体指向</translation>
     </message>
+</context>
+<context>
+    <name>BodyShape</name>
     <message>
-        <source>X 轴</source>
-        <translation type="unfinished"></translation>
+        <source>BodyShape</source>
+        <translation>天体形状</translation>
     </message>
+</context>
+<context>
+    <name>Burn</name>
     <message>
-        <source>可见</source>
-        <translation type="unfinished"></translation>
+        <source>Burn</source>
+        <translation>推力</translation>
     </message>
+</context>
+<context>
+    <name>BurnImpulsive</name>
     <message>
-        <source>标签</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>最小值</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>最大值</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y 轴</source>
-        <translation type="unfinished"></translation>
+        <source>BurnImpulsive</source>
+        <translation>脉冲推力</translation>
     </message>
 </context>
 <context>
@@ -434,115 +470,660 @@
         <source>PlutoBarycenter</source>
         <translation>冥王星系质心</translation>
     </message>
-</context>
-<context>
-    <name>EditFigureDialog</name>
     <message>
-        <source>图形属性编辑器</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>元素</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>请从左侧列表选择要编辑的元素</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>应用</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>确定</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>取消</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Figure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>坐标轴 %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>元素 %1</source>
-        <translation type="unfinished"></translation>
+        <source>CelestialBody</source>
+        <translation>天体</translation>
     </message>
 </context>
 <context>
-    <name>LinePropertyPage</name>
+    <name>Chain</name>
     <message>
-        <source>基本</source>
-        <translation type="unfinished"></translation>
+        <source>Chain</source>
+        <translation>链</translation>
     </message>
+</context>
+<context>
+    <name>CommSystem</name>
     <message>
-        <source>显示名称</source>
-        <translation type="unfinished"></translation>
+        <source>CommSystem</source>
+        <translation>通信系统</translation>
     </message>
+</context>
+<context>
+    <name>Command</name>
     <message>
-        <source>线条</source>
-        <translation type="unfinished"></translation>
+        <source>Command</source>
+        <translation>命令</translation>
     </message>
+</context>
+<context>
+    <name>Constellation</name>
     <message>
-        <source>实线</source>
-        <translation type="unfinished"></translation>
+        <source>Constellation</source>
+        <translation>星座</translation>
     </message>
+</context>
+<context>
+    <name>CoverageDefinition</name>
     <message>
-        <source>虚线</source>
-        <translation type="unfinished"></translation>
+        <source>CoverageDefinition</source>
+        <translation>覆盖定义</translation>
     </message>
+</context>
+<context>
+    <name>DetectorAccess</name>
     <message>
-        <source>点线</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorAccess</source>
+        <translation>访问检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorAltitude</name>
     <message>
-        <source>点划线</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorAltitude</source>
+        <translation>高度检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorAlwaysTripped</name>
     <message>
-        <source>无线</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorAlwaysTripped</source>
+        <translation>常通检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorApoapsis</name>
     <message>
-        <source>颜色</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorApoapsis</source>
+        <translation>远心点检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorAscendingNode</name>
     <message>
-        <source>线型</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorAscendingNode</source>
+        <translation>升交点检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorBodyRelated</name>
     <message>
-        <source>线宽</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorBodyRelated</source>
+        <translation>天体相关检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorCartesian</name>
     <message>
-        <source>标记</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorCartesian</source>
+        <translation>笛卡尔坐标检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorDeltaV</name>
     <message>
-        <source>无</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorDeltaV</source>
+        <translation>速度增量检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorDescendingNode</name>
     <message>
-        <source>样式</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorDescendingNode</source>
+        <translation>降交点检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorDuration</name>
     <message>
-        <source>大小</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorDuration</source>
+        <translation>持续时间检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorEpoch</name>
     <message>
-        <source>填充色</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorEpoch</source>
+        <translation>历元检测器</translation>
     </message>
+</context>
+<context>
+    <name>DetectorFrameRelated</name>
     <message>
-        <source>可见</source>
-        <translation type="unfinished"></translation>
+        <source>DetectorFrameRelated</source>
+        <translation>坐标系相关检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorLighting</name>
+    <message>
+        <source>DetectorLighting</source>
+        <translation>光照检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorMeanAnomaly</name>
+    <message>
+        <source>DetectorMeanAnomaly</source>
+        <translation>平近点角检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorPeriapsis</name>
+    <message>
+        <source>DetectorPeriapsis</source>
+        <translation>近心点检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorPointRelated</name>
+    <message>
+        <source>DetectorPointRelated</source>
+        <translation>点相关检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorRMagnitude</name>
+    <message>
+        <source>DetectorRMagnitude</source>
+        <translation>相对距离检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorTrueAnomaly</name>
+    <message>
+        <source>DetectorTrueAnomaly</source>
+        <translation>真近点角检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorUserSelect</name>
+    <message>
+        <source>DetectorUserSelect</source>
+        <translation>用户选择检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorXYPlaneCross</name>
+    <message>
+        <source>DetectorXYPlaneCross</source>
+        <translation>XY平面穿越检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorYZPlaneCross</name>
+    <message>
+        <source>DetectorYZPlaneCross</source>
+        <translation>YZ平面穿越检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DetectorZXPlaneCross</name>
+    <message>
+        <source>DetectorZXPlaneCross</source>
+        <translation>ZX平面穿越检测器</translation>
+    </message>
+</context>
+<context>
+    <name>DifferentialCorrectorProfile</name>
+    <message>
+        <source>DifferentialCorrectorProfile</source>
+        <translation>微分修正配置</translation>
+    </message>
+</context>
+<context>
+    <name>DragForce</name>
+    <message>
+        <source>DragForce</source>
+        <translation>大气阻力</translation>
+    </message>
+</context>
+<context>
+    <name>EarthOrientation</name>
+    <message>
+        <source>EarthOrientation</source>
+        <translation>地球指向参数</translation>
+    </message>
+</context>
+<context>
+    <name>EllipsoidShape</name>
+    <message>
+        <source>EllipsoidShape</source>
+        <translation>椭球形状</translation>
+    </message>
+</context>
+<context>
+    <name>End</name>
+    <message>
+        <source>End</source>
+        <translation>结束</translation>
+    </message>
+</context>
+<context>
+    <name>EventDetector</name>
+    <message>
+        <source>EventDetector</source>
+        <translation>事件检测器</translation>
+    </message>
+</context>
+<context>
+    <name>EventTime</name>
+    <message>
+        <source>EventTime</source>
+        <translation>事件时间</translation>
+    </message>
+</context>
+<context>
+    <name>EventTimeExplicit</name>
+    <message>
+        <source>EventTimeExplicit</source>
+        <translation>显式事件时间</translation>
+    </message>
+</context>
+<context>
+    <name>Facility</name>
+    <message>
+        <source>Facility</source>
+        <translation>设施</translation>
+    </message>
+</context>
+<context>
+    <name>FigureOfMerit</name>
+    <message>
+        <source>FigureOfMerit</source>
+        <translation>品质因数</translation>
+    </message>
+</context>
+<context>
+    <name>ForceModel</name>
+    <message>
+        <source>ForceModel</source>
+        <translation>力模型</translation>
+    </message>
+</context>
+<context>
+    <name>Frame</name>
+    <message>
+        <source>Frame</source>
+        <translation>坐标系</translation>
+    </message>
+</context>
+<context>
+    <name>FrameAssembly</name>
+    <message>
+        <source>FrameAssembly</source>
+        <translation>组合坐标系</translation>
+    </message>
+</context>
+<context>
+    <name>GravityForce</name>
+    <message>
+        <source>GravityForce</source>
+        <translation>地球重力</translation>
+    </message>
+</context>
+<context>
+    <name>GroundVehicle</name>
+    <message>
+        <source>GroundVehicle</source>
+        <translation>地面车辆</translation>
+    </message>
+</context>
+<context>
+    <name>HPOP</name>
+    <message>
+        <source>HPOP</source>
+        <translation>高精度轨道预报器</translation>
+    </message>
+</context>
+<context>
+    <name>HPOPForceModel</name>
+    <message>
+        <source>HPOPForceModel</source>
+        <translation>HPOP力模型</translation>
+    </message>
+</context>
+<context>
+    <name>InitialState</name>
+    <message>
+        <source>InitialState</source>
+        <translation>初始状态</translation>
+    </message>
+</context>
+<context>
+    <name>LandingSite</name>
+    <message>
+        <source>LandingSite</source>
+        <translation>着陆点</translation>
+    </message>
+</context>
+<context>
+    <name>LandingSiteCalcSunAzimuth</name>
+    <message>
+        <source>LandingSiteCalcSunAzimuth</source>
+        <translation>着陆点太阳方位角计算</translation>
+    </message>
+</context>
+<context>
+    <name>LandingSiteCalcSunElevation</name>
+    <message>
+        <source>LandingSiteCalcSunElevation</source>
+        <translation>着陆点太阳高度角计算</translation>
+    </message>
+</context>
+<context>
+    <name>LandingSiteCalculation</name>
+    <message>
+        <source>LandingSiteCalculation</source>
+        <translation>着陆点计算</translation>
+    </message>
+</context>
+<context>
+    <name>LaunchVehicle</name>
+    <message>
+        <source>LaunchVehicle</source>
+        <translation>运载火箭</translation>
+    </message>
+</context>
+<context>
+    <name>LineTarget</name>
+    <message>
+        <source>LineTarget</source>
+        <translation>线目标</translation>
+    </message>
+</context>
+<context>
+    <name>MTO</name>
+    <message>
+        <source>MTO</source>
+        <translation>多轨迹目标</translation>
+    </message>
+</context>
+<context>
+    <name>MainSequence</name>
+    <message>
+        <source>MainSequence</source>
+        <translation>主序列</translation>
+    </message>
+</context>
+<context>
+    <name>Maneuver</name>
+    <message>
+        <source>Maneuver</source>
+        <translation>机动</translation>
+    </message>
+</context>
+<context>
+    <name>Missile</name>
+    <message>
+        <source>Missile</source>
+        <translation>导弹</translation>
+    </message>
+</context>
+<context>
+    <name>MoonOrientation</name>
+    <message>
+        <source>MoonOrientation</source>
+        <translation>月球指向</translation>
+    </message>
+</context>
+<context>
+    <name>MotionBallistic</name>
+    <message>
+        <source>MotionBallistic</source>
+        <translation>弹道运动</translation>
+    </message>
+</context>
+<context>
+    <name>MotionJ2Analytical</name>
+    <message>
+        <source>MotionJ2Analytical</source>
+        <translation>J2解析运动</translation>
+    </message>
+</context>
+<context>
+    <name>MotionJ4Analytical</name>
+    <message>
+        <source>MotionJ4Analytical</source>
+        <translation>J4解析运动</translation>
+    </message>
+</context>
+<context>
+    <name>MotionMissionCommand</name>
+    <message>
+        <source>MotionMissionCommand</source>
+        <translation>任务指令运动</translation>
+    </message>
+</context>
+<context>
+    <name>MotionOrbitDynamics</name>
+    <message>
+        <source>MotionOrbitDynamics</source>
+        <translation>轨道动力学运动</translation>
+    </message>
+</context>
+<context>
+    <name>MotionProfile</name>
+    <message>
+        <source>MotionProfile</source>
+        <translation>运动配置</translation>
+    </message>
+</context>
+<context>
+    <name>MotionSimpleAscent</name>
+    <message>
+        <source>MotionSimpleAscent</source>
+        <translation>简单上升运动</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTwoBody</name>
+    <message>
+        <source>MotionTwoBody</source>
+        <translation>二体运动</translation>
+    </message>
+</context>
+<context>
+    <name>Mover</name>
+    <message>
+        <source>Mover</source>
+        <translation>运动体</translation>
+    </message>
+</context>
+<context>
+    <name>Place</name>
+    <message>
+        <source>Place</source>
+        <translation>地点</translation>
+    </message>
+</context>
+<context>
+    <name>Planet</name>
+    <message>
+        <source>Planet</source>
+        <translation>行星</translation>
+    </message>
+</context>
+<context>
+    <name>Point</name>
+    <message>
+        <source>Point</source>
+        <translation>点</translation>
+    </message>
+</context>
+<context>
+    <name>PointMassForce</name>
+    <message>
+        <source>PointMassForce</source>
+        <translation>质点引力</translation>
+    </message>
+</context>
+<context>
+    <name>Propagate</name>
+    <message>
+        <source>Propagate</source>
+        <translation>轨道预报</translation>
+    </message>
+</context>
+<context>
+    <name>Radar</name>
+    <message>
+        <source>Radar</source>
+        <translation>雷达</translation>
+    </message>
+</context>
+<context>
+    <name>Receiver</name>
+    <message>
+        <source>Receiver</source>
+        <translation>接收器</translation>
+    </message>
+</context>
+<context>
+    <name>RelativityCorrection</name>
+    <message>
+        <source>RelativityCorrection</source>
+        <translation>相对论修正</translation>
+    </message>
+</context>
+<context>
+    <name>Return</name>
+    <message>
+        <source>Return</source>
+        <translation>返回</translation>
+    </message>
+</context>
+<context>
+    <name>RotationalData</name>
+    <message>
+        <source>RotationalData</source>
+        <translation>旋转数据</translation>
+    </message>
+</context>
+<context>
+    <name>Satellite</name>
+    <message>
+        <source>Satellite</source>
+        <translation>卫星</translation>
+    </message>
+</context>
+<context>
+    <name>ScStateCalcBodyRelated</name>
+    <message>
+        <source>ScStateCalcBodyRelated</source>
+        <translation>航天器状态天体相关计算</translation>
+    </message>
+</context>
+<context>
+    <name>ScStateCalcDifference</name>
+    <message>
+        <source>ScStateCalcDifference</source>
+        <translation>航天器状态差计算</translation>
+    </message>
+</context>
+<context>
+    <name>ScStateCalcEccentricity</name>
+    <message>
+        <source>ScStateCalcEccentricity</source>
+        <translation>航天器状态偏心率计算</translation>
+    </message>
+</context>
+<context>
+    <name>ScStateCalcFrameRelated</name>
+    <message>
+        <source>ScStateCalcFrameRelated</source>
+        <translation>航天器状态坐标系相关计算</translation>
+    </message>
+</context>
+<context>
+    <name>ScStateCalcPointRelated</name>
+    <message>
+        <source>ScStateCalcPointRelated</source>
+        <translation>航天器状态点相关计算</translation>
+    </message>
+</context>
+<context>
+    <name>ScStateCalculation</name>
+    <message>
+        <source>ScStateCalculation</source>
+        <translation>航天器状态计算</translation>
+    </message>
+</context>
+<context>
+    <name>Scenario</name>
+    <message>
+        <source>Scenario</source>
+        <translation>场景</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptingToolProfile</name>
+    <message>
+        <source>ScriptingToolProfile</source>
+        <translation>脚本工具配置</translation>
+    </message>
+</context>
+<context>
+    <name>Segment</name>
+    <message>
+        <source>Segment</source>
+        <translation>段</translation>
+    </message>
+</context>
+<context>
+    <name>SegmentCalculation</name>
+    <message>
+        <source>SegmentCalculation</source>
+        <translation>段计算</translation>
+    </message>
+</context>
+<context>
+    <name>SegmentGraph</name>
+    <message>
+        <source>SegmentGraph</source>
+        <translation>段图</translation>
+    </message>
+</context>
+<context>
+    <name>Sensor</name>
+    <message>
+        <source>Sensor</source>
+        <translation>传感器</translation>
+    </message>
+</context>
+<context>
+    <name>Sequence</name>
+    <message>
+        <source>Sequence</source>
+        <translation>任务序列</translation>
+    </message>
+</context>
+<context>
+    <name>Ship</name>
+    <message>
+        <source>Ship</source>
+        <translation>舰船</translation>
+    </message>
+</context>
+<context>
+    <name>ShooterControl</name>
+    <message>
+        <source>ShooterControl</source>
+        <translation>打靶控制量</translation>
+    </message>
+</context>
+<context>
+    <name>ShooterResult</name>
+    <message>
+        <source>ShooterResult</source>
+        <translation>打靶结果</translation>
+    </message>
+</context>
+<context>
+    <name>SolarRadiationPressure</name>
+    <message>
+        <source>SolarRadiationPressure</source>
+        <translation>太阳光压</translation>
     </message>
 </context>
 <context>
@@ -553,153 +1134,122 @@
     </message>
 </context>
 <context>
-    <name>SurfacePropertyPage</name>
+    <name>SpaceObject</name>
     <message>
-        <source>基本</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>曲面可见</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示名称</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>外观</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>光照</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>透明度</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>边缘颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>边缘线宽</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>色条</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示色条</source>
-        <translation type="unfinished"></translation>
+        <source>SpaceObject</source>
+        <translation>空间物体</translation>
     </message>
 </context>
 <context>
-    <name>UiFigure</name>
+    <name>Spacecraft</name>
     <message>
-        <source>保存</source>
-        <translation type="unfinished"></translation>
+        <source>Spacecraft</source>
+        <translation>航天器</translation>
     </message>
+</context>
+<context>
+    <name>SpacecraftState</name>
     <message>
-        <source>保存图片</source>
-        <translation type="unfinished"></translation>
+        <source>SpacecraftState</source>
+        <translation>航天器状态</translation>
     </message>
+</context>
+<context>
+    <name>SphereShape</name>
     <message>
-        <source>平移</source>
-        <translation type="unfinished"></translation>
+        <source>SphereShape</source>
+        <translation>球形状</translation>
     </message>
+</context>
+<context>
+    <name>SpheroidShape</name>
     <message>
-        <source>平移视图</source>
-        <translation type="unfinished"></translation>
+        <source>SpheroidShape</source>
+        <translation>旋转椭球形状</translation>
     </message>
+</context>
+<context>
+    <name>Star</name>
     <message>
-        <source>放大</source>
-        <translation type="unfinished"></translation>
+        <source>Star</source>
+        <translation>恒星</translation>
     </message>
+</context>
+<context>
+    <name>State</name>
     <message>
-        <source>框选放大</source>
-        <translation type="unfinished"></translation>
+        <source>State</source>
+        <translation>状态</translation>
     </message>
+</context>
+<context>
+    <name>StateCartesian</name>
     <message>
-        <source>缩小</source>
-        <translation type="unfinished"></translation>
+        <source>StateCartesian</source>
+        <translation>笛卡尔状态</translation>
     </message>
+</context>
+<context>
+    <name>StateKeplerian</name>
     <message>
-        <source>缩小视图</source>
-        <translation type="unfinished"></translation>
+        <source>StateKeplerian</source>
+        <translation>开普勒状态</translation>
     </message>
+</context>
+<context>
+    <name>Stop</name>
     <message>
-        <source>重置</source>
-        <translation type="unfinished"></translation>
+        <source>Stop</source>
+        <translation>停止</translation>
     </message>
+</context>
+<context>
+    <name>Submarine</name>
     <message>
-        <source>恢复原始视图</source>
-        <translation type="unfinished"></translation>
+        <source>Submarine</source>
+        <translation>潜艇</translation>
     </message>
+</context>
+<context>
+    <name>Target</name>
     <message>
-        <source>图例</source>
-        <translation type="unfinished"></translation>
+        <source>Target</source>
+        <translation>目标</translation>
     </message>
+</context>
+<context>
+    <name>TargeterProfile</name>
     <message>
-        <source>显示/隐藏图例</source>
-        <translation type="unfinished"></translation>
+        <source>TargeterProfile</source>
+        <translation>打靶配置</translation>
     </message>
+</context>
+<context>
+    <name>TargeterSequence</name>
     <message>
-        <source>网格</source>
-        <translation type="unfinished"></translation>
+        <source>TargeterSequence</source>
+        <translation>打靶序列</translation>
     </message>
+</context>
+<context>
+    <name>ThirdBodyForce</name>
     <message>
-        <source>显示/隐藏网格</source>
-        <translation type="unfinished"></translation>
+        <source>ThirdBodyForce</source>
+        <translation>三体引力</translation>
     </message>
+</context>
+<context>
+    <name>Transmitter</name>
     <message>
-        <source>色条</source>
-        <translation type="unfinished"></translation>
+        <source>Transmitter</source>
+        <translation>发射机</translation>
     </message>
+</context>
+<context>
+    <name>Volumetric</name>
     <message>
-        <source>显示/隐藏色条</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>拾取模式</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y值拾取</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y值拾取：显示当前X位置所有曲线的Y值</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>临近拾取</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>临近点拾取：显示距离鼠标最近的数据点</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PNG (*.png);;JPG (*.jpg);;BMP (*.bmp);;SVG (*.svg);;PDF (*.pdf)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>编辑</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>编辑模式：选中子图调整大小、编辑绘图元素属性</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>属性</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开属性检查器：查看和编辑坐标轴及绘图元素属性</source>
-        <translation type="unfinished"></translation>
+        <source>Volumetric</source>
+        <translation>体积对象</translation>
     </message>
 </context>
 </TS>

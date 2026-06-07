@@ -12,7 +12,7 @@ static bool EventTime_ClassInited = (EventTime::ClassInit(&EventTime::staticType
 void EventTime::ClassInit(Class* cls)
 {
 
-    cls->setName("EventTime");
+    cls->setName(N_("EventTime"));
     cls->setDesc(u8R"(事件时间)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

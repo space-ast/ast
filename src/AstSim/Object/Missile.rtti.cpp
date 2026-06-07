@@ -12,7 +12,7 @@ static bool Missile_ClassInited = (Missile::ClassInit(&Missile::staticType), tru
 void Missile::ClassInit(Class* cls)
 {
 
-    cls->setName("Missile");
+    cls->setName(N_("Missile"));
     cls->setDesc(u8R"(导弹对象)");
     cls->addToRegistry();
     cls->setParent<Mover>();

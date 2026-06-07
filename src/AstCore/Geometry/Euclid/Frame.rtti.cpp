@@ -12,7 +12,7 @@ static bool Frame_ClassInited = (Frame::ClassInit(&Frame::staticType), true);
 void Frame::ClassInit(Class* cls)
 {
 
-    cls->setName("Frame");
+    cls->setName(N_("Frame"));
     cls->setDesc(u8R"(坐标系类)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

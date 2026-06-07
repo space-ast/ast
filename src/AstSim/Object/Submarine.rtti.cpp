@@ -12,7 +12,7 @@ static bool Submarine_ClassInited = (Submarine::ClassInit(&Submarine::staticType
 void Submarine::ClassInit(Class* cls)
 {
 
-    cls->setName("Submarine");
+    cls->setName(N_("Submarine"));
     cls->setDesc(u8R"(潜艇对象)");
     cls->addToRegistry();
     cls->setParent<Mover>();

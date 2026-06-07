@@ -12,7 +12,7 @@ static bool Sensor_ClassInited = (Sensor::ClassInit(&Sensor::staticType), true);
 void Sensor::ClassInit(Class* cls)
 {
 
-    cls->setName("Sensor");
+    cls->setName(N_("Sensor"));
     cls->setDesc(u8R"(传感器对象)");
     cls->addToRegistry();
     cls->setParent<Point>();

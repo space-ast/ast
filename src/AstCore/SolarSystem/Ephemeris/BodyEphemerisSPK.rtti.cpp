@@ -12,7 +12,7 @@ static bool BodyEphemerisSPK_ClassInited = (BodyEphemerisSPK::ClassInit(&BodyEph
 void BodyEphemerisSPK::ClassInit(Class* cls)
 {
 
-    cls->setName("BodyEphemerisSPK");
+    cls->setName(N_("BodyEphemerisSPK"));
     cls->addToRegistry();
     cls->setParent<BodyEphemeris>();
     cls->setConstructor<BodyEphemerisSPK>();

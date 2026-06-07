@@ -12,7 +12,7 @@ static bool PointMassForce_ClassInited = (PointMassForce::ClassInit(&PointMassFo
 void PointMassForce::ClassInit(Class* cls)
 {
 
-    cls->setName("PointMassForce");
+    cls->setName(N_("PointMassForce"));
     cls->setDesc(u8R"(点质量引力模型/)");
     cls->addToRegistry();
     cls->setParent<BodyAttraction>();

@@ -12,7 +12,7 @@ static bool Mover_ClassInited = (Mover::ClassInit(&Mover::staticType), true);
 void Mover::ClassInit(Class* cls)
 {
 
-    cls->setName("Mover");
+    cls->setName(N_("Mover"));
     cls->setDesc(u8R"(运动对象)");
     cls->addToRegistry();
     cls->setParent<Point>();

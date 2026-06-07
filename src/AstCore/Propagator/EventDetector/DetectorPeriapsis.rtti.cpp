@@ -12,7 +12,7 @@ static bool DetectorPeriapsis_ClassInited = (DetectorPeriapsis::ClassInit(&Detec
 void DetectorPeriapsis::ClassInit(Class* cls)
 {
 
-    cls->setName("DetectorPeriapsis");
+    cls->setName(N_("DetectorPeriapsis"));
     cls->addToRegistry();
     cls->setParent<DetectorBodyRelated>();
     cls->setConstructor<DetectorPeriapsis>();

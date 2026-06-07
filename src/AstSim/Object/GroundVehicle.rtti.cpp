@@ -12,7 +12,7 @@ static bool GroundVehicle_ClassInited = (GroundVehicle::ClassInit(&GroundVehicle
 void GroundVehicle::ClassInit(Class* cls)
 {
 
-    cls->setName("GroundVehicle");
+    cls->setName(N_("GroundVehicle"));
     cls->setDesc(u8R"(地面车辆对象)");
     cls->addToRegistry();
     cls->setParent<Mover>();

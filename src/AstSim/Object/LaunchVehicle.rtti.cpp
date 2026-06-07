@@ -12,7 +12,7 @@ static bool LaunchVehicle_ClassInited = (LaunchVehicle::ClassInit(&LaunchVehicle
 void LaunchVehicle::ClassInit(Class* cls)
 {
 
-    cls->setName("LaunchVehicle");
+    cls->setName(N_("LaunchVehicle"));
     cls->setDesc(u8R"(运载火箭对象)");
     cls->addToRegistry();
     cls->setParent<Spacecraft>();

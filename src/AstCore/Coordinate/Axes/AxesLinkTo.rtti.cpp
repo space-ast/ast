@@ -12,7 +12,7 @@ static bool AxesLinkTo_ClassInited = (AxesLinkTo::ClassInit(&AxesLinkTo::staticT
 void AxesLinkTo::ClassInit(Class* cls)
 {
 
-    cls->setName("AxesLinkTo");
+    cls->setName(N_("AxesLinkTo"));
     cls->addToRegistry();
     cls->setParent<Axes>();
     cls->setConstructor<AxesLinkTo>();

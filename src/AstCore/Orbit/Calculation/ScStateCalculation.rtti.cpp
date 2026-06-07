@@ -1,4 +1,4 @@
-#include "AstCore/ScStateCalculation.hpp"
+#include "ScStateCalculation.hpp"
 
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
@@ -12,7 +12,7 @@ static bool ScStateCalculation_ClassInited = (ScStateCalculation::ClassInit(&ScS
 void ScStateCalculation::ClassInit(Class* cls)
 {
 
-    cls->setName("ScStateCalculation");
+    cls->setName(N_("ScStateCalculation"));
     cls->addToRegistry();
     cls->setParent<ObjectCalculation>();
     cls->setConstructor<ScStateCalculation>();

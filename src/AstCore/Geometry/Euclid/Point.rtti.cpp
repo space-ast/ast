@@ -12,7 +12,7 @@ static bool Point_ClassInited = (Point::ClassInit(&Point::staticType), true);
 void Point::ClassInit(Class* cls)
 {
 
-    cls->setName("Point");
+    cls->setName(N_("Point"));
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();
     cls->setConstructor<Point>();

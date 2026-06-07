@@ -12,7 +12,7 @@ static bool CommSystem_ClassInited = (CommSystem::ClassInit(&CommSystem::staticT
 void CommSystem::ClassInit(Class* cls)
 {
 
-    cls->setName("CommSystem");
+    cls->setName(N_("CommSystem"));
     cls->setDesc(u8R"(通信系统对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();
