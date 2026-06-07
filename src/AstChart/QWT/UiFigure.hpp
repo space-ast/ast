@@ -22,6 +22,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "EditFigureDialog.hpp"
 #include <QWidget>
 #include <QMap>
 #include <QList>
@@ -39,7 +40,6 @@ class QToolButton;
 class QActionGroup;
 class QMenu;
 class QwtFigureWidgetOverlay;
-class EditFigureDialog;
 
 namespace matplot
 {

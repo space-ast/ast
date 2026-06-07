@@ -677,7 +677,7 @@ void UiFigure::openPropertyInspector()
 
     // 复用已有对话框（如果还存在），否则新建
     if (!propertiesDialog_) {
-        propertiesDialog_ = QPointer<EditFigureDialog>(new EditFigureDialog(pltfigure_, this));
+        propertiesDialog_ = new EditFigureDialog(pltfigure_, this);
         propertiesDialog_->setAttribute(Qt::WA_DeleteOnClose);
     }
     propertiesDialog_->show();
