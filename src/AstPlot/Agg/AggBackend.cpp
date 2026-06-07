@@ -126,10 +126,10 @@ void AggBackend::draw(matplot::figure_type* f) {
     AggVisitor visitor(*impl_->renderer_, (double)w, (double)h);
 
     for (auto& ax : f->children()) {
-        visitor.set_axes(*ax);
+        visitor.setAxes(*ax);
 
         // 先画坐标轴 (背景 + spines)
-        visitor.draw_axes();
+        visitor.drawAxes();
 
         // 再画数据
         for (auto& obj : ax->children()) {

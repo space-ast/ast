@@ -11,16 +11,82 @@
 #include "AggRenderer.hpp"
 #include "LineStyle.hpp"
 
+#include "AstUtil/Logger.hpp"
+
+
+#define AST_DEBUG_AGG_VISITOR
 
 AST_NAMESPACE_BEGIN
 
 
-AggVisitor::AggVisitor(AggRenderer& renderer, double fig_w, double fig_h)
-    : renderer_(renderer), fig_w_(fig_w), fig_h_(fig_h) {}
 
-void AggVisitor::set_axes(const matplot::axes_type& ax) {
-    axes_ = &ax;
+static void compute_limits(const matplot::axes_type& axes,
+                           double& xmin, double& xmax,
+                           double& ymin, double& ymax)
+{
+    // ---- X 轴 ----
+    if (axes.x_axis().limits_mode_auto()) {
+        bool first = true;
+        for (auto& obj : axes.children()) {
+            double oxmin = obj->xmin(), oxmax = obj->xmax();
+            if (!std::isfinite(oxmin) || !std::isfinite(oxmax)) continue;
+            if (oxmin == oxmax) { oxmin -= 1.0; oxmax += 1.0; }
+            if (first) { xmin = oxmin; xmax = oxmax; first = false; }
+            else {
+                if (oxmin < xmin) xmin = oxmin;
+                if (oxmax > xmax) xmax = oxmax;
+            }
+        }
+        if (!first) {
+            double xm = (xmax - xmin) * 0.05; if (xm <= 0) xm = 1.0;
+            xmin -= xm; xmax += xm;
+        }
+    } else {
+        auto xlim = axes.x_axis().limits();
+        xmin = xlim[0]; xmax = xlim[1];
+    }
+
+    // ---- Y 轴 ----
+    if (axes.y_axis().limits_mode_auto()) {
+        bool first = true;
+        for (auto& obj : axes.children()) {
+            double oymin = obj->ymin(), oymax = obj->ymax();
+            if (!std::isfinite(oymin) || !std::isfinite(oymax)) continue;
+            if (oymin == oymax) { oymin -= 1.0; oymax += 1.0; }
+            if (first) { ymin = oymin; ymax = oymax; first = false; }
+            else {
+                if (oymin < ymin) ymin = oymin;
+                if (oymax > ymax) ymax = oymax;
+            }
+        }
+        if (!first) {
+            double ym = (ymax - ymin) * 0.05; if (ym <= 0) ym = 1.0;
+            ymin -= ym; ymax += ym;
+        }
+    } else {
+        auto ylim = axes.y_axis().limits();
+        ymin = ylim[0]; ymax = ylim[1];
+    }
 }
+
+
+
+AggVisitor::AggVisitor(AggRenderer& renderer, double fig_w, double fig_h)
+    : renderer_(renderer)
+    , fig_w_(fig_w)
+    , fig_h_(fig_h) 
+{
+}
+
+
+void AggVisitor::setAxes(const matplot::axes_type& axes)
+{
+    axes_ = &axes;
+    compute_limits(axes, xmin_, xmax_, ymin_, ymax_);
+    trans_ = makeTransform(xmin_, xmax_, ymin_, ymax_);
+}
+
+
 
 // ========================================================================
 // 自动刻度生成 (当 matplot 未提供合理刻度时使用)
@@ -40,7 +106,7 @@ static std::vector<double> auto_ticks(double lo, double hi) {
     else                      step = 10.0 * power;
 
     double start = std::ceil(lo / step) * step;
-    for (double v = start; v <= hi + step * 0.5; v += step)
+    for (double v = start; v <= hi; v += step)
         result.push_back(v);
     return result;
 }
@@ -93,16 +159,11 @@ static LineStyle from_line(const matplot::line& l) {
 // ========================================================================
 // 坐标变换: data → figure pixels (Y-up)
 // ========================================================================
-agg::trans_affine AggVisitor::make_transform() const {
+agg::trans_affine AggVisitor::makeTransform(double xmin, double xmax,
+                                              double ymin, double ymax) const {
     if (!axes_) return agg::trans_affine();
 
-    std::array<double, 2> xlim = axes_->x_axis().limits();
-    std::array<double, 2> ylim = axes_->y_axis().limits();
-    auto pos = axes_->position();  // {left, bottom, width, height} in [0,1]
-
-    double xmin = xlim[0], xmax = xlim[1];
-    double ymin = ylim[0], ymax = ylim[1];
-
+    auto pos = axes_->position();
     double ax_x = pos[0] * fig_w_;
     double ax_y = pos[1] * fig_h_;
     double ax_w = pos[2] * fig_w_;
@@ -121,18 +182,22 @@ agg::trans_affine AggVisitor::make_transform() const {
     return agg::trans_affine(sx, 0.0, 0.0, sy, tx, ty);
 }
 
+
 // ========================================================================
 // draw_axes — 绘制坐标轴背景 + spines
 // ========================================================================
-void AggVisitor::draw_axes() {
+void AggVisitor::drawAxes() {
     if (!axes_) return;
 
-    auto xlim = axes_->x_axis().limits();
-    auto ylim = axes_->y_axis().limits();
     auto pos  = axes_->position();  // {left, bottom, width, height} in [0,1]
 
-    double xmin = xlim[0], xmax = xlim[1];
-    double ymin = ylim[0], ymax = ylim[1];
+    double xmin = xmin_, xmax = xmax_, ymin = ymin_, ymax = ymax_;
+
+    #ifdef AST_DEBUG_AGG_VISITOR
+    printf("[DEBUG] auto_x=%d auto_y=%d  xlim=[%.2f, %.2f] ylim=[%.2f, %.2f] pos=[%.2f,%.2f,%.2f,%.2f]\n",
+           axes_->x_axis().limits_mode_auto(), axes_->y_axis().limits_mode_auto(),
+           xmin, xmax, ymin, ymax, pos[0], pos[1], pos[2], pos[3]);
+    #endif
 
     double ax_x  = pos[0] * fig_w_;
     double ax_y  = pos[1] * fig_h_;
@@ -140,13 +205,13 @@ void AggVisitor::draw_axes() {
     double ax_h  = pos[3] * fig_h_;
 
     // ---- 全图变换 (data → figure pixels, Y-up → Y-down) ----
-    auto trans = make_transform();
+    auto trans = getTransform();
     trans *= agg::trans_affine_scaling(1.0, -1.0);
     trans *= agg::trans_affine_translation(0.0, (double)fig_h_);
 
     // ---- 1. 背景填充 (白色, 覆盖整个 axes 区域) ----
     auto bg = axes_->color();
-    agg::rgba bg_color(bg[1], bg[2], bg[3], 1.0);
+    agg::rgba bg_color(bg[1], bg[2], bg[3], 1.0 - bg[0]);
     renderer_.draw_filled_rect(xmin, ymin, xmax, ymax, bg_color, trans);
 
     // ---- 2. 四边 spines (黑色, 0.8pt, square_cap) ----
@@ -194,14 +259,13 @@ void AggVisitor::draw_axes() {
     tickStyle.simplify = false;
 
     // ---- 标签定位参数 ----
-    double label_pad_px = 8.0;               // 标签与刻度间距 (pixels)
-    // spine bottom 在 AGG 像素坐标中的 Y
-    double spine_x_dummy = xmin, axes_pixel_bottom = ymin;
-    trans.transform(&spine_x_dummy, &axes_pixel_bottom);
+    double label_pad_px = 8.0;
+    double axes_pixel_bottom = ymin;  // spine bottom 在 AGG 像素坐标中的 Y
+    { double dummy = xmin; trans.transform(&dummy, &axes_pixel_bottom); }
 
     auto xticks = auto_ticks(xmin, xmax);
     for (auto tx : xticks) {
-        drawLine(tx, ymin, tx, ymin - tick_dy, tickStyle);
+        drawLine(tx, ymin, tx, ymin + tick_dy, tickStyle);
 
         double tick_px = tx, dummy_y = ymin;
         trans.transform(&tick_px, &dummy_y);
@@ -210,43 +274,32 @@ void AggVisitor::draw_axes() {
         int len = snprintf(buf, sizeof(buf), "%g", tx);
         double text_w = len * 9.0 * 0.55;
 
-        // 锚点: 刻度 X, spine_bottom + tick + pad
-        double anchor_x = tick_px;
-        double anchor_y = axes_pixel_bottom + tick_len_px + label_pad_px;
-        // halign=center → start_point 左移半个文字宽度
-        double label_x = anchor_x - text_w * 0.5;
-        // valign=top → 基线在锚点下方 (文字上缘 = 锚点)
-        double label_y = anchor_y + 10.0;
+        // 文字居中, 在 spine 下方 label_pad_px 处
+        double label_x = tick_px - text_w * 0.5;
+        double label_y = axes_pixel_bottom + label_pad_px + 10.0;
 
         renderer_.draw_text(buf, label_x, label_y, 9.0,
                             agg::rgba(0.0, 0.0, 0.0, 1.0));
     }
 
-    // Y 轴刻度 + 标签
-    // matplotlib: halign=right, valign=center_baseline
-    // 锚点 = left_spine 像素位置 - pad_px (不经过数据变换, 直接用 axes 像素位置)
-    // gsv_text: flip(true) 使文字向下延伸, start_point 是基线+左端
-    // halign=right → start_point.x = 锚点.x - text_w (文字右端对齐锚点)
-    double axes_pixel_left = ax_x;  // pos[0] * fig_w, 在 AGG 坐标中同值
+    // Y 轴刻度 + 标签 (靠右对齐, 在绘图区左侧)
+    double axes_pixel_left = ax_x;
 
     auto yticks = auto_ticks(ymin, ymax);
     for (auto ty : yticks) {
-        drawLine(xmin, ty, xmin - tick_dx, ty, tickStyle);
+        drawLine(xmin, ty, xmin + tick_dx, ty, tickStyle);
 
-        // tick 在像素坐标中的 Y
-        double tick_px_dummy = xmin, tick_py = ty;
-        trans.transform(&tick_px_dummy, &tick_py);
+        double dummy_x = xmin, tick_py = ty;
+        trans.transform(&dummy_x, &tick_py);
 
         char buf[32];
         int len = snprintf(buf, sizeof(buf), "%g", ty);
         double text_w = len * 9.0 * 0.55;
-        double text_h = 9.0 * 0.8;  // 估算文字高度 (px)
+        double text_h = 9.0 * 0.8;
 
-        // 锚点: axes 左边缘 - tick 长度 - 间距
-        double anchor_x = axes_pixel_left - tick_len_px - label_pad_px;
-        // 文字右端对齐锚点 → start_point 在锚点左边 text_w
-        double label_x = anchor_x - text_w;
-        // 文字垂直居中于刻度位置
+        // 文字右端 = Y 轴左侧 label_pad_px 处
+        double right_edge = axes_pixel_left - label_pad_px - 10;
+        double label_x = right_edge - text_w;
         double label_y = tick_py + text_h * 0.35;
 
         renderer_.draw_text(buf, label_x, label_y, 9.0,
@@ -279,7 +332,7 @@ void AggVisitor::visit(matplot::line& l) {
     LineStyle style = from_line(l);
 
     // 坐标变换
-    auto trans = make_transform();
+    auto trans = getTransform();
 
     // Y-up → Y-down (matplotlib 做法)
     trans *= agg::trans_affine_scaling(1.0, -1.0);

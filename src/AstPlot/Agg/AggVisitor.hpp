@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_MATPLOT) && defined(AST_WITH_AGG)
 
 #include <matplot/util/visitor.h>
 
@@ -14,11 +14,10 @@ class AggVisitor : public matplot::visitor {
 public:
     AggVisitor(AggRenderer& renderer, double fig_w, double fig_h);
 
-    /// 设置当前 axes (切换子图时调用)
-    void set_axes(const matplot::axes_type& ax);
+    void setAxes(const matplot::axes_type& axes);
 
     /// 绘制坐标轴元素 (背景、spines)
-    void draw_axes();
+    void drawAxes();
 
     // ---- visit 重载 ----
     void visit(matplot::line& l) override;
@@ -43,11 +42,15 @@ public:
 
 private:
     /// 构建 data → pixel (Y-up) 变换矩阵
-    agg::trans_affine make_transform() const;
+    agg::trans_affine makeTransform(double xmin, double xmax, double ymin, double ymax) const;
+    const agg::trans_affine& getTransform() const{return trans_;}
 
     AggRenderer& renderer_;
-    const matplot::axes_type* axes_ = nullptr;
     double fig_w_, fig_h_;
+
+    const matplot::axes_type* axes_{nullptr};
+    double xmin_{0.0}, xmax_{1.0}, ymin_{0.0}, ymax_{1.0};
+    agg::trans_affine trans_;
 };
 
 AST_NAMESPACE_END
