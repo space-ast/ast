@@ -1,0 +1,35 @@
+#pragma once
+
+#include <vector>
+#include "agg/agg_color_rgba.h"
+#include "agg/agg_math_stroke.h"
+#include "path_converters.h"  // e_snap_mode
+
+/// 线型样式 — 默认值匹配 matplotlib rcParams
+struct LineStyle {
+    double linewidth = 1.5;          // pt
+    agg::rgba color{0.122, 0.467, 0.706, 1.0};  // C0 blue
+    agg::line_cap_e cap = agg::square_cap;       // "projecting"
+    agg::line_join_e join = agg::round_join;
+    bool antialiased = true;
+    e_snap_mode snap = SNAP_AUTO;
+
+    double  dash_offset = 0.0;
+    std::vector<double> dash_pattern;   // 空 = 实线, 单位 pt (已按 lw 缩放)
+
+    bool simplify = true;
+    double simplify_threshold = 0.111111; // M_SQRT2/9 ≈ matplot default
+
+    double sketch_scale = 0.0;
+    double sketch_length = 0.0;
+    double sketch_randomness = 0.0;
+
+    bool is_dashed() const { return !dash_pattern.empty(); }
+    double linewidth_px(double dpi) const { return linewidth * dpi / 72.0; }
+};
+
+/// 从 matplot::line 构造 LineStyle
+/// 需要在 cpp 中实现（依赖 matplot 头文件）
+struct matplot_line_bridge {
+    static LineStyle from_line(const class matplot::line& l);
+};

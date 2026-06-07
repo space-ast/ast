@@ -1,6 +1,6 @@
 set_group("examples")
 set_default(false)
-add_deps("AstUtil", "AstCore", "AstMath", "AstSim", "AstTest", "AstSPICE")
+add_deps("AstUtil", "AstCore", "AstMath", "AstSim", "AstTest", "AstSPICE", "AstPlot")
 set_warnings("more")
 
 -- 添加 `examples` 和 `docs` 下面的所有cpp文件作为示例
