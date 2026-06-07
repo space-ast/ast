@@ -1,1 +1,1 @@
-#include "../../src/AstChart/QwtPlotVisitor.hpp"
+#include "../../src/AstChart/QWT/QwtPlotVisitor.hpp"

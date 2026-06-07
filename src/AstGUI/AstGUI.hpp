@@ -44,6 +44,8 @@
 #include "AstGUI/UiMotionProfile.hpp"
 #include "AstGUI/UiMotionSPICE.hpp"
 #include "AstGUI/UiMotionTwoBody.hpp"
+#include "AstGUI/UiNewObjectDialog.hpp"
+#include "AstGUI/UiNewObjectQuickDialog.hpp"
 #include "AstGUI/UiODEIntegrator.hpp"
 #include "AstGUI/UiODEIntegratorEditor.hpp"
 #include "AstGUI/UiODEVarStepIntegrator.hpp"

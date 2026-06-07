@@ -1,1 +1,1 @@
-#include "../../src/AstChart/UiFigure.hpp"
+#include "../../src/AstChart/QWT/UiFigure.hpp"
