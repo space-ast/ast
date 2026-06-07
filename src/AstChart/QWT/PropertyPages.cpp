@@ -234,7 +234,7 @@ void LinePropertyPage::setupUi()
     auto* lineLayout = new QFormLayout(lineGroup);
     lineColorBtn_ = new ColorButton(this);
     lineStyleCombo_ = new QComboBox(this);
-    using line_style = enum class matplot::line_spec::line_style;
+    using line_style = decltype(matplot::line_spec::line_style::solid_line);
     lineStyleCombo_->addItem(tr("实线"),   static_cast<int>(line_style::solid_line));    // solid_line
     lineStyleCombo_->addItem(tr("虚线"),   static_cast<int>(line_style::dashed_line));   // dashed_line
     lineStyleCombo_->addItem(tr("点线"),   static_cast<int>(line_style::dotted_line));   // dotted_line
@@ -249,7 +249,7 @@ void LinePropertyPage::setupUi()
     auto* markerGroup = new QGroupBox(tr("标记"), this);
     auto* markerLayout = new QFormLayout(markerGroup);
     markerCombo_ = new QComboBox(this);
-    using marker_style = enum class matplot::line_spec::marker_style;
+    using marker_style = decltype(matplot::line_spec::marker_style::none);
     markerCombo_->addItem(tr("无"), static_cast<int>(marker_style::none));
     markerCombo_->addItem("o",     static_cast<int>(marker_style::circle));
     markerCombo_->addItem("+",     static_cast<int>(marker_style::plus_sign));
@@ -271,7 +271,7 @@ void LinePropertyPage::setupUi()
     mainLayout->addStretch();
 }
 
-void LinePropertyPage::load(matplot::line* line, int /*index*/)
+void LinePropertyPage::load(class matplot::line* line, int /*index*/)
 {
     if (!line) return;
 
@@ -302,7 +302,7 @@ void LinePropertyPage::load(matplot::line* line, int /*index*/)
     visibleCheck_->setChecked(line->visible());
 }
 
-void LinePropertyPage::apply(matplot::line* line)
+void LinePropertyPage::apply(class matplot::line* line)
 {
     if (!line) return;
 

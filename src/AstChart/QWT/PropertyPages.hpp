@@ -66,8 +66,8 @@ class LinePropertyPage : public QWidget {
     Q_OBJECT
 public:
     explicit LinePropertyPage(QWidget* parent = nullptr);
-    void load(matplot::line* line, int index);
-    void apply(matplot::line* line);
+    void load(class matplot::line* line, int index);
+    void apply(class matplot::line* line);
 
 private:
     void setupUi();
