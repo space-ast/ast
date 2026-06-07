@@ -43,7 +43,7 @@ struct AggBackend::Impl {
 };
 
 AggBackend::AggBackend()
-    : impl_(std::make_unique<Impl>()) {}
+    : impl_(new Impl()) {}
 
 AggBackend::~AggBackend() = default;
 
@@ -116,7 +116,7 @@ void AggBackend::draw(matplot::figure_type* f) {
     unsigned int h = f->height() > 0 ? f->height() : impl_->height_;
 
     // 创建渲染器
-    impl_->renderer_ = std::make_unique<AggRenderer>(w, h);
+    impl_->renderer_.reset(new AggRenderer(w, h));
 
     // 背景色
     auto bg = f->color();

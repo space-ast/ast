@@ -46,6 +46,11 @@ private:
     enum NodeType { TypeFigure, TypeAxes, TypePlotItem };
 
     struct NodeData {
+        NodeData() = default;
+        NodeData(NodeType type, int axesIndex = -1, int itemIndex = -1)
+            : type(type), axesIndex(axesIndex), itemIndex(itemIndex) {}
+        ~NodeData() = default;
+
         NodeType type = TypeFigure;
         int axesIndex = -1;
         int itemIndex = -1;

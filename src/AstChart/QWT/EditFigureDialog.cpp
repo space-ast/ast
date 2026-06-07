@@ -90,7 +90,7 @@ void EditFigureDialog::buildTree()
     auto* rootItem = new QTreeWidgetItem(tree_);
     rootItem->setText(0, tr("Figure"));
     rootItem->setIcon(0, loadIcon("ChartFigure"));
-    auto* rootData = new NodeData{TypeFigure};
+    auto* rootData = new NodeData(TypeFigure);
     rootItem->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(rootData)));
     rootItem->setExpanded(true);
 
@@ -108,7 +108,7 @@ void EditFigureDialog::buildTree()
             title = tr("坐标轴 %1").arg(static_cast<int>(i + 1));
         axesItem->setText(0, title);
         axesItem->setIcon(0, axesIcon);
-        auto* axesData = new NodeData{TypeAxes, static_cast<int>(i)};
+        auto* axesData = new NodeData(TypeAxes, static_cast<int>(i));
         axesItem->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(axesData)));
         axesItem->setExpanded(true);
 
@@ -127,7 +127,7 @@ void EditFigureDialog::buildTree()
                 itemNode->setIcon(0, surfaceIcon);
             else
                 itemNode->setIcon(0, elementIcon);
-            auto* itemData = new NodeData{TypePlotItem, static_cast<int>(i), static_cast<int>(j)};
+            auto* itemData = new NodeData(TypePlotItem, static_cast<int>(i), static_cast<int>(j));
             itemNode->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(itemData)));
         }
     }
