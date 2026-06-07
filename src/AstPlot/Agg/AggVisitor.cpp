@@ -18,6 +18,33 @@
 
 AST_NAMESPACE_BEGIN
 
+// ---- 工具函数 ----
+static inline agg::rgba to_agg_color(const matplot::color_array& c) {
+    return agg::rgba(c[1], c[2], c[3], 1.0 - c[0]);
+}
+
+static int marker_shape(enum matplot::line_spec::marker_style ms) {
+    switch (ms) {
+    case matplot::line_spec::marker_style::circle:                   return 0;
+    case matplot::line_spec::marker_style::square:                   return 1;
+    case matplot::line_spec::marker_style::diamond:                  return 2;
+    case matplot::line_spec::marker_style::upward_pointing_triangle:  return 3;
+    case matplot::line_spec::marker_style::downward_pointing_triangle:return 4;
+    case matplot::line_spec::marker_style::plus_sign:                 return 5;
+    case matplot::line_spec::marker_style::cross:                     return 6;
+    case matplot::line_spec::marker_style::asterisk:                  return 7;
+    case matplot::line_spec::marker_style::point:                     return 8;
+    default: return -1;
+    }
+}
+
+static agg::trans_affine apply_y_flip(const agg::trans_affine& t, double fig_h) {
+    agg::trans_affine r = t;
+    r *= agg::trans_affine_scaling(1.0, -1.0);
+    r *= agg::trans_affine_translation(0.0, fig_h);
+    return r;
+}
+
 
 
 static void compute_limits(const matplot::axes_type& axes,
@@ -119,8 +146,7 @@ static LineStyle from_line(const matplot::line& l) {
     s.linewidth = l.line_width();
     if (s.linewidth <= 0.0f) s.linewidth = 1.5f;
 
-    auto c = l.color();
-    s.color = agg::rgba(c[1], c[2], c[3], 1.0 - c[0]);
+    s.color = to_agg_color(l.color());
 
     auto ls = l.line_spec().line_style();
     switch (ls) {
@@ -205,16 +231,17 @@ void AggVisitor::drawAxes() {
     double ax_h  = pos[3] * fig_h_;
 
     // ---- 全图变换 (data → figure pixels, Y-up → Y-down) ----
-    auto trans = getTransform();
-    trans *= agg::trans_affine_scaling(1.0, -1.0);
-    trans *= agg::trans_affine_translation(0.0, (double)fig_h_);
+    auto trans = apply_y_flip(getTransform(), fig_h_);
 
     // ---- 1. 背景填充 (白色, 覆盖整个 axes 区域) ----
     auto bg = axes_->color();
-    agg::rgba bg_color(bg[1], bg[2], bg[3], 1.0 - bg[0]);
+    agg::rgba bg_color = to_agg_color(bg);
     renderer_.draw_filled_rect(xmin, ymin, xmax, ymax, bg_color, trans);
 
     // ---- 2. 网格线 (在 spines 之前, 匹配 matplotlib zorder) ----
+    auto xticks = auto_ticks(xmin, xmax);
+    auto yticks = auto_ticks(ymin, ymax);
+
     if (axes_->x_grid() || axes_->y_grid()) {
         LineStyle gridStyle;
         gridStyle.linewidth = 0.5f;
@@ -224,13 +251,10 @@ void AggVisitor::drawAxes() {
                gc[1], gc[2], gc[3], (1.0 - gc[0]));
         printf("[DEBUG] grid_alpha=%.2f\n", axes_->grid_alpha());
         #endif
-        gridStyle.color = agg::rgba(gc[1], gc[2], gc[3], (1.0 - gc[0]));
+        gridStyle.color = to_agg_color(gc);
         gridStyle.cap = agg::butt_cap;
         gridStyle.antialiased = true;
         gridStyle.simplify = false;
-
-        auto xticks = auto_ticks(xmin, xmax);
-        auto yticks = auto_ticks(ymin, ymax);
 
         if (axes_->x_grid()) {
             for (auto tx : xticks) {
@@ -276,11 +300,9 @@ void AggVisitor::drawAxes() {
     double dy = ymax - ymin; if (dy <= 0.0) dy = 1.0;
     double sx = ax_w / dx;  // data → pixels scale X
     double sy = ax_h / dy;  // data → pixels scale Y
-    double dpi = 96.0;
-
     // 刻度参数 (匹配 matplotlib 默认)
     double tick_len_pt = 3.5;                         // 刻度线长 (points)
-    double tick_len_px = tick_len_pt * dpi / 72.0;    // → pixels
+    double tick_len_px = tick_len_pt * renderer_.dpi() / 72.0;    // → pixels
     double tick_dx = (sx > 0) ? tick_len_px / sx : 0;  // → data coords X
     double tick_dy = (sy > 0) ? tick_len_px / sy : 0;  // → data coords Y
 
@@ -295,7 +317,6 @@ void AggVisitor::drawAxes() {
     double axes_pixel_bottom = ymin;  // spine bottom 在 AGG 像素坐标中的 Y
     { double dummy = xmin; trans.transform(&dummy, &axes_pixel_bottom); }
 
-    auto xticks = auto_ticks(xmin, xmax);
     for (auto tx : xticks) {
         drawLine(tx, ymin, tx, ymin + tick_dy, tickStyle);
 
@@ -317,7 +338,6 @@ void AggVisitor::drawAxes() {
     // Y 轴刻度 + 标签 (靠右对齐, 在绘图区左侧)
     double axes_pixel_left = ax_x;
 
-    auto yticks = auto_ticks(ymin, ymax);
     for (auto ty : yticks) {
         drawLine(xmin, ty, xmin + tick_dx, ty, tickStyle);
 
@@ -453,7 +473,7 @@ void AggVisitor::drawAxes() {
 
         // 逐项绘制
         auto tc = leg->text_color();
-        agg::rgba txt_color(tc[1], tc[2], tc[3], 1.0 - tc[0]);
+        agg::rgba txt_color = to_agg_color(tc);
 
         for (size_t i = 0; i < axes_->children().size(); ++i) {
             auto child = axes_->children()[i];
@@ -472,30 +492,16 @@ void AggVisitor::drawAxes() {
 
             // 标记样本
             if (lptr) {
-                int shape = -1;
-                auto ms = lptr->marker_style();
-                switch (ms) {
-                case matplot::line_spec::marker_style::circle:  shape=0; break;
-                case matplot::line_spec::marker_style::square:  shape=1; break;
-                case matplot::line_spec::marker_style::diamond: shape=2; break;
-                case matplot::line_spec::marker_style::upward_pointing_triangle: shape=3; break;
-                case matplot::line_spec::marker_style::downward_pointing_triangle: shape=4; break;
-                case matplot::line_spec::marker_style::plus_sign: shape=5; break;
-                case matplot::line_spec::marker_style::cross: shape=6; break;
-                case matplot::line_spec::marker_style::asterisk: shape=7; break;
-                case matplot::line_spec::marker_style::point: shape=8; break;
-                default: break;
-                }
+                int shape = marker_shape(lptr->marker_style());
                 if (shape < 0) shape = 0;  // fallback: circle
                 auto mc  = lptr->marker_color();
                 auto mfc = lptr->marker_face_color();
                 double msz = lptr->marker_size();
                 double mew = lptr->line_width() * 0.5f; // marker edge width
 
-                agg::rgba edge_c(mc[1], mc[2], mc[3], 1.0 - mc[0]);
+                agg::rgba edge_c = to_agg_color(mc);
                 agg::rgba face_c = lptr->marker_face()
-                    ? agg::rgba(mfc[1], mfc[2], mfc[3], 1.0 - mfc[0])
-                    : agg::rgba(0,0,0,0);
+                    ? to_agg_color(mfc) : agg::rgba(0,0,0,0);
                 renderer_.draw_marker(shape, mid_x, iy, lptr->marker_size() * 0.7,
                                       edge_c, face_c, mew);
             }
@@ -539,12 +545,8 @@ void AggVisitor::visit(matplot::line& l) {
     // 构建 LineStyle
     LineStyle style = from_line(l);
 
-    // 坐标变换
-    auto trans = getTransform();
-
-    // Y-up → Y-down (matplotlib 做法)
-    trans *= agg::trans_affine_scaling(1.0, -1.0);
-    trans *= agg::trans_affine_translation(0.0, (double)fig_h_);
+    // 坐标变换 + Y-flip
+    auto trans = apply_y_flip(getTransform(), fig_h_);
 
     renderer_.draw_line(px, y.data(), y.size(), style, trans);
 
@@ -552,19 +554,7 @@ void AggVisitor::visit(matplot::line& l) {
     auto ms = l.marker_style();
     if (ms != matplot::line_spec::marker_style::none && l.marker_size() > 0) {
         // 映射 matplot marker_style → shape id
-        int shape = -1;
-        switch (ms) {
-        case matplot::line_spec::marker_style::circle:                   shape = 0; break;
-        case matplot::line_spec::marker_style::square:                   shape = 1; break;
-        case matplot::line_spec::marker_style::diamond:                  shape = 2; break;
-        case matplot::line_spec::marker_style::upward_pointing_triangle:  shape = 3; break;
-        case matplot::line_spec::marker_style::downward_pointing_triangle:shape = 4; break;
-        case matplot::line_spec::marker_style::plus_sign:                 shape = 5; break;
-        case matplot::line_spec::marker_style::cross:                     shape = 6; break;
-        case matplot::line_spec::marker_style::asterisk:                  shape = 7; break;
-        case matplot::line_spec::marker_style::point:                     shape = 8; break;
-        default: break;
-        }
+        int shape = marker_shape(ms);
 
         if (shape >= 0) {
             auto mc  = l.marker_color();
@@ -572,10 +562,9 @@ void AggVisitor::visit(matplot::line& l) {
             double msz = l.marker_size();
             double mew = l.line_width() * 0.5f; // marker edge width
 
-            agg::rgba edge_c(mc[1], mc[2], mc[3], 1.0 - mc[0]);
+            agg::rgba edge_c = to_agg_color(mc);
             agg::rgba face_c = l.marker_face()
-                ? agg::rgba(mfc[1], mfc[2], mfc[3], 1.0 - mfc[0])
-                : agg::rgba(0,0,0,0);
+                ? to_agg_color(mfc) : agg::rgba(0,0,0,0);
 
             size_t n = y.size();
             for (size_t i = 0; i < n; ++i) {

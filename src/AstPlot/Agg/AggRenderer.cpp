@@ -195,18 +195,22 @@ void AggRenderer::draw_text(const char* text, double x, double y,
                              double size_pt, const agg::rgba& color,
                              double angle_deg)
 {
+    double size_px = size_pt * dpi_ / 72.0;
+
     agg::gsv_text txt;
-    txt.size(size_pt);
+    txt.size(size_px);
     txt.flip(true);                // BMP bottom-up → 文字需要 flip
     txt.start_point(x, y);
     txt.text(text);
 
     agg::conv_stroke<agg::gsv_text> stroke(txt);
-    stroke.width(size_pt / 10.0);
+    stroke.width(size_px / 10.0);
     stroke.line_cap(agg::round_cap);
     stroke.line_join(agg::round_join);
 
     ras_.reset();
+    ras_.clip_box(0, 0, width_, height_);
+    ras_.gamma(agg::gamma_none());
     if (angle_deg != 0.0) {
         double rad = angle_deg * agg::pi / 180.0;
         agg::trans_affine mtx;
