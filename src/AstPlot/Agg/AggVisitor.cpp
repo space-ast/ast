@@ -214,7 +214,39 @@ void AggVisitor::drawAxes() {
     agg::rgba bg_color(bg[1], bg[2], bg[3], 1.0 - bg[0]);
     renderer_.draw_filled_rect(xmin, ymin, xmax, ymax, bg_color, trans);
 
-    // ---- 2. 四边 spines (黑色, 0.8pt, square_cap) ----
+    // ---- 2. 网格线 (在 spines 之前, 匹配 matplotlib zorder) ----
+    if (axes_->x_grid() || axes_->y_grid()) {
+        LineStyle gridStyle;
+        gridStyle.linewidth = 0.5f;
+        auto gc = axes_->grid_color();
+        #ifdef AST_DEBUG_AGG_VISITOR
+        printf("[DEBUG] grid_color=[%.2f,%.2f,%.2f,%.2f]\n",
+               gc[1], gc[2], gc[3], (1.0 - gc[0]));
+        printf("[DEBUG] grid_alpha=%.2f\n", axes_->grid_alpha());
+        #endif
+        gridStyle.color = agg::rgba(gc[1], gc[2], gc[3], (1.0 - gc[0]));
+        gridStyle.cap = agg::butt_cap;
+        gridStyle.antialiased = true;
+        gridStyle.simplify = false;
+
+        auto xticks = auto_ticks(xmin, xmax);
+        auto yticks = auto_ticks(ymin, ymax);
+
+        if (axes_->x_grid()) {
+            for (auto tx : xticks) {
+                double gx[2] = {tx, tx}, gy[2] = {ymin, ymax};
+                renderer_.draw_line(gx, gy, 2, gridStyle, trans);
+            }
+        }
+        if (axes_->y_grid()) {
+            for (auto ty : yticks) {
+                double gx[2] = {xmin, xmax}, gy[2] = {ty, ty};
+                renderer_.draw_line(gx, gy, 2, gridStyle, trans);
+            }
+        }
+    }
+
+    // ---- 3. 四边 spines (黑色, 0.8pt, square_cap) ----
     LineStyle spineStyle;
     spineStyle.linewidth = 0.8f;
     spineStyle.color = agg::rgba(0.0, 0.0, 0.0, 1.0);
@@ -305,6 +337,76 @@ void AggVisitor::drawAxes() {
         renderer_.draw_text(buf, label_x, label_y, 9.0,
                             agg::rgba(0.0, 0.0, 0.0, 1.0));
     }
+
+    // ---- 4. 标题、轴标签 ----
+    #ifdef AST_DEBUG_AGG_VISITOR
+    printf("[DEBUG] title='%s' xlabel='%s' ylabel='%s'\n",
+           axes_->title().c_str(), axes_->xlabel().c_str(), axes_->ylabel().c_str());
+    #endif
+    agg::rgba label_color(0.0, 0.0, 0.0, 1.0);
+
+    // 计算 axes 在像素空间的四边
+    double ax_px_left = ax_x;
+    double ax_px_right = ax_x + ax_w;
+    //{ double d = xmin; trans.transform(&d, &axes_pixel_bottom); }
+    double ax_px_top = ymax;
+    { double d = xmin; trans.transform(&d, &ax_px_top); }
+
+    double axes_center_x = (ax_px_left + ax_px_right) * 0.5;
+    double axes_center_y = (ax_px_top + axes_pixel_bottom) * 0.5;
+
+    #ifdef AST_DEBUG_AGG_VISITOR
+
+    printf("[DEBUG] axes_center_x=%.2f axes_center_y=%.2f\n", axes_center_x, axes_center_y);
+    printf("ax_px_top=%.2f\n", ax_px_top);
+    printf("ax_px_left=%.2f\n", ax_px_left);
+    printf("ax_px_right=%.2f\n", ax_px_right);
+    printf("axes_pixel_bottom=%.2f\n", axes_pixel_bottom);
+    #endif
+
+
+
+    // Title — 顶部居中
+    {
+        auto title = axes_->title();
+        if (!title.empty()) {
+            double title_y = ax_px_top - label_pad_px;
+            int len = (int)title.size();
+            double tw = len * 9.0 * 0.55;
+            renderer_.draw_text(title.c_str(),
+                axes_center_x - tw * 0.5, title_y,
+                10.0, label_color);
+        }
+    }
+
+    // X label — 底部居中
+    {
+        auto xl = axes_->xlabel();
+        if (!xl.empty()) {
+            double xl_y = axes_pixel_bottom + label_pad_px + 30.0;
+            int len = (int)xl.size();
+            double tw = len * 10.0 * 0.6;
+            renderer_.draw_text(xl.c_str(),
+                axes_center_x - tw * 0.5, xl_y,
+                10.0, label_color);
+        }
+    }
+
+    // Y label — 左侧居中, 逆时针旋转90°
+    {
+        auto yl = axes_->ylabel();
+        if (!yl.empty()) {
+            int len = (int)yl.size();
+            double tw = len * 10.0 * 0.6;    // 原始文字宽度
+            double th = 10.0;                 // 文字高度 ≈ 字号
+            // 旋转后: baseline 向上, X方向宽=th, Y方向高=tw
+            double yl_x = ax_px_left - label_pad_px - th - 30.0;
+            double yl_y = axes_center_y + tw * 0.5;
+            renderer_.draw_text(yl.c_str(),
+                yl_x, yl_y,
+                10.0, label_color, 90.0);
+        }
+    }
 }
 
 // ========================================================================
@@ -339,6 +441,44 @@ void AggVisitor::visit(matplot::line& l) {
     trans *= agg::trans_affine_translation(0.0, (double)fig_h_);
 
     renderer_.draw_line(px, y.data(), y.size(), style, trans);
+
+    // ---- 绘制标记 ----
+    auto ms = l.marker_style();
+    if (ms != matplot::line_spec::marker_style::none && l.marker_size() > 0) {
+        // 映射 matplot marker_style → shape id
+        int shape = -1;
+        switch (ms) {
+        case matplot::line_spec::marker_style::circle:                   shape = 0; break;
+        case matplot::line_spec::marker_style::square:                   shape = 1; break;
+        case matplot::line_spec::marker_style::diamond:                  shape = 2; break;
+        case matplot::line_spec::marker_style::upward_pointing_triangle:  shape = 3; break;
+        case matplot::line_spec::marker_style::downward_pointing_triangle:shape = 4; break;
+        case matplot::line_spec::marker_style::plus_sign:                 shape = 5; break;
+        case matplot::line_spec::marker_style::cross:                     shape = 6; break;
+        case matplot::line_spec::marker_style::asterisk:                  shape = 7; break;
+        case matplot::line_spec::marker_style::point:                     shape = 8; break;
+        default: break;
+        }
+
+        if (shape >= 0) {
+            auto mc  = l.marker_color();
+            auto mfc = l.marker_face_color();
+            double msz = l.marker_size();
+            double mew = l.line_width() * 0.5f; // marker edge width
+
+            agg::rgba edge_c(mc[1], mc[2], mc[3], 1.0 - mc[0]);
+            agg::rgba face_c = l.marker_face()
+                ? agg::rgba(mfc[1], mfc[2], mfc[3], 1.0 - mfc[0])
+                : agg::rgba(0,0,0,0);
+
+            size_t n = y.size();
+            for (size_t i = 0; i < n; ++i) {
+                double px_d = px[i], py_d = y[i];
+                trans.transform(&px_d, &py_d);
+                renderer_.draw_marker(shape, px_d, py_d, msz, edge_c, face_c, mew);
+            }
+        }
+    }
 }
 
 

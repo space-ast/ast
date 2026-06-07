@@ -24,8 +24,8 @@ AST_NAMESPACE_BEGIN
 /// Agg 核心渲染器 — 仿 matplotlib RendererAgg
 class AggRenderer {
 public:
-    // 像素格式: 预乘 Alpha RGBA
-    typedef agg::pixfmt_rgba32_pre pixfmt_type;
+    // 像素格式: 普通 RGBA (非预乘)
+    typedef agg::pixfmt_rgba32 pixfmt_type;
     typedef agg::renderer_base<pixfmt_type> renderer_base_type;
     typedef agg::renderer_scanline_aa_solid<renderer_base_type> renderer_aa_type;
     typedef agg::rasterizer_scanline_aa<> rasterizer_type;
@@ -60,7 +60,17 @@ public:
     /// @param size_pt 字号 (points)
     /// @param color 颜色
     void draw_text(const char* text, double x, double y, double size_pt,
-                   const agg::rgba& color);
+                   const agg::rgba& color, double angle_deg = 0.0);
+
+    /// 绘制标记 (circle, square, diamond, triangle, plus, cross, asterisk, point)
+    /// @param shape 形状: 0=circle, 1=square, 2=diamond, 3=up_tri, 4=down_tri, 5=plus, 6=cross, 7=asterisk, 8=point
+    /// @param cx, cy  像素坐标 (Y-down)
+    /// @param size_pt  标记大小 (points)
+    /// @param edge_color, fill_color  描边/填充颜色
+    /// @param linewidth  描边线宽 (points), 0 表示不描边
+    void draw_marker(int shape, double cx, double cy, double size_pt,
+                     const agg::rgba& edge_color, const agg::rgba& fill_color,
+                     double linewidth);
 
     /// 获取像素缓冲区
     const unsigned char* buffer() const { return pixBuffer_; }

@@ -14,18 +14,20 @@ int main()
     matplot::register_backend("agg", create_agg_backend);
     matplot::change_default_backend("agg");
 
-    // 生成数据
-    const int n = 200;
+    const int n = 50;
     std::vector<double> x(n), y(n);
     for (int i = 0; i < n; ++i) {
         x[i] = i * (2.0 * M_PI) / (n - 1);
         y[i] = std::sin(x[i]);
     }
 
-    // quiet_mode=true: 只在 show() 时 draw 一次
     auto fig = matplot::figure(true);
 
-    matplot::plot(x, y);
+    auto l = matplot::plot(x, y, "-o");
+    l->marker_size(6.0f);
+    l->marker_face(true);
+
+    matplot::grid(matplot::on);
     matplot::xlabel("x");
     matplot::ylabel("sin(x)");
     matplot::title("Plot of the Sine Function");

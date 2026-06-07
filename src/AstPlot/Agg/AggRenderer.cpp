@@ -192,7 +192,8 @@ void AggRenderer::draw_filled_rect(double x1, double y1, double x2, double y2,
 // draw_text — 用 gsv_text 渲染矢量文字
 // ========================================================================
 void AggRenderer::draw_text(const char* text, double x, double y,
-                             double size_pt, const agg::rgba& color)
+                             double size_pt, const agg::rgba& color,
+                             double angle_deg)
 {
     agg::gsv_text txt;
     txt.size(size_pt);
@@ -201,14 +202,135 @@ void AggRenderer::draw_text(const char* text, double x, double y,
     txt.text(text);
 
     agg::conv_stroke<agg::gsv_text> stroke(txt);
-    stroke.width(size_pt / 10.0);  // 笔画宽度 ≈ 字号的 1/10
+    stroke.width(size_pt / 10.0);
     stroke.line_cap(agg::round_cap);
     stroke.line_join(agg::round_join);
 
     ras_.reset();
-    ras_.add_path(stroke);
+    if (angle_deg != 0.0) {
+        double rad = angle_deg * agg::pi / 180.0;
+        agg::trans_affine mtx;
+        mtx *= agg::trans_affine_translation(-x, -y);
+        mtx *= agg::trans_affine_rotation(-rad);      // agg 顺时针旋转, 用负号=逆时针
+        mtx *= agg::trans_affine_translation(x, y);
+        agg::conv_transform<agg::conv_stroke<agg::gsv_text>> rot(stroke, mtx);
+        ras_.add_path(rot);
+    } else {
+        ras_.add_path(stroke);
+    }
     renAA_.color(color);
     agg::render_scanlines(ras_, sl_, renAA_);
+}
+
+// ========================================================================
+// draw_marker — 绘制标记形状 (像素坐标, Y-down)
+// ========================================================================
+void AggRenderer::draw_marker(int shape, double cx, double cy, double size_pt,
+                               const agg::rgba& edge_color, const agg::rgba& fill_color,
+                               double linewidth)
+{
+    double size_px = size_pt * dpi_ / 72.0;
+    double half = size_px * 0.5;
+
+    agg::path_storage marker;
+    int n = 0;
+    double xs[16], ys[16];
+
+    auto setPt = [&](int i, double x, double y) { xs[i] = x; ys[i] = y; };
+
+    switch (shape) {
+    case 0: // circle — 用 16 边形近似
+        n = 16;
+        for (int i = 0; i < n; ++i) {
+            double a = 2.0 * agg::pi * i / n;
+            setPt(i, cx + half * std::cos(a), cy + half * std::sin(a));
+        }
+        break;
+    case 1: // square
+        n = 4;
+        setPt(0, cx - half, cy - half);
+        setPt(1, cx + half, cy - half);
+        setPt(2, cx + half, cy + half);
+        setPt(3, cx - half, cy + half);
+        break;
+    case 2: // diamond
+        n = 4;
+        setPt(0, cx,        cy - half);
+        setPt(1, cx + half, cy);
+        setPt(2, cx,        cy + half);
+        setPt(3, cx - half, cy);
+        break;
+    case 3: // up_triangle
+        n = 3;
+        setPt(0, cx,        cy - half);
+        setPt(1, cx + half, cy + half);
+        setPt(2, cx - half, cy + half);
+        break;
+    case 4: // down_triangle
+        n = 3;
+        setPt(0, cx,        cy + half);
+        setPt(1, cx - half, cy - half);
+        setPt(2, cx + half, cy - half);
+        break;
+    case 5: // plus — 两条线
+        n = 4;
+        setPt(0, cx,        cy - half);
+        setPt(1, cx,        cy + half);
+        setPt(2, cx - half, cy);
+        setPt(3, cx + half, cy);
+        break;
+    case 6: // cross (×)
+        n = 4;
+        setPt(0, cx - half, cy - half);
+        setPt(1, cx + half, cy + half);
+        setPt(2, cx + half, cy - half);
+        setPt(3, cx - half, cy + half);
+        break;
+    case 7: // asterisk (*) — 3 条线 60° 间隔
+        n = 6;
+        for (int i = 0; i < 3; ++i) {
+            double a = agg::pi / 2.0 + agg::pi * i / 3.0;
+            setPt(i*2,   cx + half * std::cos(a),     cy + half * std::sin(a));
+            setPt(i*2+1, cx + half * std::cos(a+agg::pi), cy + half * std::sin(a+agg::pi));
+        }
+        break;
+    case 8: // point — 小圆点
+        n = 8;
+        for (int i = 0; i < n; ++i) {
+            double a = 2.0 * agg::pi * i / n;
+            setPt(i, cx + half * std::cos(a), cy + half * std::sin(a));
+        }
+        break;
+    default: return;
+    }
+
+    // 构建路径
+    marker.move_to(xs[0], ys[0]);
+    for (int i = 1; i < n; ++i) marker.line_to(xs[i], ys[i]);
+    marker.close_polygon();
+
+    ras_.reset();
+    ras_.clip_box(0, 0, width_, height_);
+    ras_.gamma(agg::gamma_none());
+
+    // 填充
+    if (fill_color.a > 0) {
+        ras_.add_path(marker);
+        renAA_.color(fill_color);
+        agg::render_scanlines(ras_, sl_, renAA_);
+    }
+
+    // 描边
+    if (linewidth > 0 && edge_color.a > 0) {
+        double lw_px = linewidth * dpi_ / 72.0;
+        agg::conv_stroke<agg::path_storage> stroke(marker);
+        stroke.width(lw_px);
+        stroke.line_cap(agg::round_cap);
+        stroke.line_join(agg::round_join);
+        ras_.add_path(stroke);
+        renAA_.color(edge_color);
+        agg::render_scanlines(ras_, sl_, renAA_);
+    }
 }
 
 // ========================================================================
