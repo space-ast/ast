@@ -424,14 +424,14 @@ $(function(){initNavTree('path__converters_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <a class="code hl_class" href="classPathSimplifier.html">PathSimplifier</a>(VertexSource &amp;source, <span class="keywordtype">bool</span> do_simplify, <span class="keywordtype">double</span> simplify_threshold)</div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        : m_source(&amp;source), m_simplify(do_simplify),</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>          m_simplify_threshold(simplify_threshold * simplify_threshold),</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>          m_moveto(<span class="keyword">true</span>), m_after_moveto(<span class="keyword">false</span>), m_clipped(<span class="keyword">false</span>),</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>          m_has_init(<span class="keyword">false</span>), m_initX(0), m_initY(0),</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>          m_moveto(<span class="keyword">true</span>), m_after_moveto(<span class="keyword">false</span>), m_clipped(<span class="keyword">false</span>),</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>          m_has_init(<span class="keyword">false</span>), m_simplify_threshold(simplify_threshold * simplify_threshold),</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>          m_initX(0), m_initY(0),</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>          m_lastx(0), m_lasty(0), m_origdx(0), m_origdy(0), m_origdNorm2(0),</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>          m_dnorm2ForwardMax(0), m_dnorm2BackwardMax(0),</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>          m_lastForwardMax(<span class="keyword">false</span>), m_lastBackwardMax(<span class="keyword">false</span>),</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>          m_nextX(0), m_nextY(0), m_nextBackwardX(0), m_nextBackwardY(0),</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>          m_currVecStartX(0), m_currVecStartY(0) {}</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>          m_nextX(0), m_nextY(0), m_nextBackwardX(0), m_nextBackwardY(0),</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>          m_currVecStartX(0), m_currVecStartY(0),</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>          m_lastForwardMax(<span class="keyword">false</span>), m_lastBackwardMax(<span class="keyword">false</span>) {}</div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> rewind(<span class="keywordtype">unsigned</span> path_id) { queue_clear(); m_moveto = <span class="keyword">true</span>; m_source-&gt;rewind(path_id); }</div>
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
@@ -543,7 +543,7 @@ $(function(){initNavTree('path__converters_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <a class="code hl_class" href="classSketch.html">Sketch</a>(VertexSource &amp;source, <span class="keywordtype">double</span> scale, <span class="keywordtype">double</span> length, <span class="keywordtype">double</span> randomness)</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        : m_source(&amp;source), m_scale(scale), m_length(length), m_randomness(randomness),</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>          m_segmented(source), m_last_x(0), m_last_y(0), m_has_last(<span class="keyword">false</span>), m_p(0), m_rand(0)</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>          m_segmented(source), m_last_x(0), m_last_y(0), m_p(0), m_has_last(<span class="keyword">false</span>), m_rand(0)</div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    {</div>
 <div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>        rewind(0);</div>
 <div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> d_M_PI = 3.14159265358979323846;</div>
