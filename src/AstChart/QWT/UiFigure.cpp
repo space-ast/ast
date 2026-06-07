@@ -443,7 +443,7 @@ void UiFigure::toggleLegend(bool on)
             } else {
                 auto children = ax->children();
                 std::vector<std::string> names;
-                for (int i = 0; i < children.size(); i++) {
+                for (size_t i = 0; i < children.size(); i++) {
                     if (!children[i]->display_name().empty())
                         names.push_back(children[i]->display_name());
                     else
@@ -454,7 +454,7 @@ void UiFigure::toggleLegend(bool on)
         }
         pltfigure->draw();
     }
-    else if (auto* qwtfigure = qwtfigure_)
+    else if (qwtfigure_)
     {
         // 2D 图例
         for (auto* plot : allAxes()) {
@@ -486,7 +486,7 @@ void UiFigure::toggleGrid(bool on)
         }
         pltfigure->draw();
     }
-    else if(auto qwtfigure = qwtfigure_)
+    else if(qwtfigure_)
     {
         for (auto* plot : allAxes()) {
             for (auto* item : plot->itemList()) {
@@ -677,7 +677,7 @@ void UiFigure::openPropertyInspector()
 
     // 复用已有对话框（如果还存在），否则新建
     if (!propertiesDialog_) {
-        propertiesDialog_ = new EditFigureDialog(pltfigure_, this);
+        propertiesDialog_ = QPointer<EditFigureDialog>(new EditFigureDialog(pltfigure_, this));
         propertiesDialog_->setAttribute(Qt::WA_DeleteOnClose);
     }
     propertiesDialog_->show();
