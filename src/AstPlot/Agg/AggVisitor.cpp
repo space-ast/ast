@@ -226,7 +226,7 @@ void AggVisitor::drawAxes() {
     #endif
 
     double ax_x  = pos[0] * fig_w_;
-    double ax_y  = pos[1] * fig_h_;
+    //double ax_y  = pos[1] * fig_h_;
     double ax_w  = pos[2] * fig_w_;
     double ax_h  = pos[3] * fig_h_;
 
@@ -496,13 +496,13 @@ void AggVisitor::drawAxes() {
                 if (shape < 0) shape = 0;  // fallback: circle
                 auto mc  = lptr->marker_color();
                 auto mfc = lptr->marker_face_color();
-                double msz = lptr->marker_size();
+                double msz = lptr->marker_size() * 0.7;
                 double mew = lptr->line_width() * 0.5f; // marker edge width
 
                 agg::rgba edge_c = to_agg_color(mc);
                 agg::rgba face_c = lptr->marker_face()
                     ? to_agg_color(mfc) : agg::rgba(0,0,0,0);
-                renderer_.draw_marker(shape, mid_x, iy, lptr->marker_size() * 0.7,
+                renderer_.draw_marker(shape, mid_x, iy, msz,
                                       edge_c, face_c, mew);
             }
 

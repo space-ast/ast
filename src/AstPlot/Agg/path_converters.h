@@ -308,14 +308,14 @@ class PathSimplifier : protected EmbeddedQueue<9> {
 public:
     PathSimplifier(VertexSource &source, bool do_simplify, double simplify_threshold)
         : m_source(&source), m_simplify(do_simplify),
-          m_simplify_threshold(simplify_threshold * simplify_threshold),
           m_moveto(true), m_after_moveto(false), m_clipped(false),
-          m_has_init(false), m_initX(0), m_initY(0),
+          m_has_init(false), m_simplify_threshold(simplify_threshold * simplify_threshold),
+          m_initX(0), m_initY(0),
           m_lastx(0), m_lasty(0), m_origdx(0), m_origdy(0), m_origdNorm2(0),
           m_dnorm2ForwardMax(0), m_dnorm2BackwardMax(0),
-          m_lastForwardMax(false), m_lastBackwardMax(false),
           m_nextX(0), m_nextY(0), m_nextBackwardX(0), m_nextBackwardY(0),
-          m_currVecStartX(0), m_currVecStartY(0) {}
+          m_currVecStartX(0), m_currVecStartY(0),
+          m_lastForwardMax(false), m_lastBackwardMax(false) {}
 
     inline void rewind(unsigned path_id) { queue_clear(); m_moveto = true; m_source->rewind(path_id); }
 
@@ -425,7 +425,7 @@ class Sketch {
 public:
     Sketch(VertexSource &source, double scale, double length, double randomness)
         : m_source(&source), m_scale(scale), m_length(length), m_randomness(randomness),
-          m_segmented(source), m_last_x(0), m_last_y(0), m_has_last(false), m_p(0), m_rand(0)
+          m_segmented(source), m_last_x(0), m_last_y(0), m_p(0), m_has_last(false), m_rand(0)
     {
         rewind(0);
         const double d_M_PI = 3.14159265358979323846;

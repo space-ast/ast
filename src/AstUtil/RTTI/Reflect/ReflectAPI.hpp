@@ -495,7 +495,12 @@ A_ALWAYS_INLINE Property* aNewPropertyString()    { return aNewPropertyStringMem
 
 template<typename T, double T::*Member>
 A_ALWAYS_INLINE Property* aNewPropertyQuantityMem(Dimension dim) {
-    return aNewPropertyQuantity<T, Member>(dim);
+    using Builder = detail::PropertyBuilder<T, double, detail::MemberPtrTag>;
+    return _aNewPropertyQuantity(
+        Builder::template makeGetter<Member>(),
+        Builder::template makeSetter<Member>(),
+        dim
+    );
 }
 
 // ---- 只读 getter 旧接口 ----
