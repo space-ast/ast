@@ -117,6 +117,7 @@ add_requires("benchmark", {optional = true})                                    
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
 add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})              -- 可选的Qt5库，包含基础、窗口部件和GUI模块
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
+add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
