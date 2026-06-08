@@ -90,8 +90,9 @@ void EditFigureDialog::buildTree()
     auto* rootItem = new QTreeWidgetItem(tree_);
     rootItem->setText(0, tr("Figure"));
     rootItem->setIcon(0, loadIcon("ChartFigure"));
-    auto* rootData = new NodeData(TypeFigure);
-    rootItem->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(rootData)));
+    rootItem->setData(0, DataRole::TypeRole, TypeFigure);
+    rootItem->setData(0, DataRole::AxesIndexRole, -1);
+    rootItem->setData(0, DataRole::ItemIndexRole, -1);
     rootItem->setExpanded(true);
 
     QIcon axesIcon = loadIcon("Axes");
@@ -108,8 +109,9 @@ void EditFigureDialog::buildTree()
             title = tr("坐标轴 %1").arg(static_cast<int>(i + 1));
         axesItem->setText(0, title);
         axesItem->setIcon(0, axesIcon);
-        auto* axesData = new NodeData(TypeAxes, static_cast<int>(i));
-        axesItem->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(axesData)));
+        axesItem->setData(0, DataRole::TypeRole, TypeAxes);
+        axesItem->setData(0, DataRole::AxesIndexRole, static_cast<int>(i));
+        axesItem->setData(0, DataRole::ItemIndexRole, -1);
         axesItem->setExpanded(true);
 
         auto& items = axes->children();
@@ -127,8 +129,9 @@ void EditFigureDialog::buildTree()
                 itemNode->setIcon(0, surfaceIcon);
             else
                 itemNode->setIcon(0, elementIcon);
-            auto* itemData = new NodeData(TypePlotItem, static_cast<int>(i), static_cast<int>(j));
-            itemNode->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(itemData)));
+            itemNode->setData(0, DataRole::TypeRole, TypePlotItem);
+            itemNode->setData(0, DataRole::AxesIndexRole, static_cast<int>(i));
+            itemNode->setData(0, DataRole::ItemIndexRole, static_cast<int>(j));
         }
     }
 }
@@ -142,8 +145,8 @@ void EditFigureDialog::selectPlotItem(int axesIndex, int itemIndex)
         auto* figItem = tree_->topLevelItem(i);
         for (int ai = 0; ai < figItem->childCount(); ++ai) {
             auto* axesItem = figItem->child(ai);
-            auto* ad = static_cast<NodeData*>(axesItem->data(0, Qt::UserRole).value<void*>());
-            if (!ad || ad->axesIndex != axesIndex) continue;
+            int adAxesIndex = axesItem->data(0, DataRole::AxesIndexRole).toInt();
+            if (adAxesIndex != axesIndex) continue;
 
             if (itemIndex < 0) {
                 tree_->setCurrentItem(axesItem);
@@ -152,8 +155,8 @@ void EditFigureDialog::selectPlotItem(int axesIndex, int itemIndex)
 
             for (int ii = 0; ii < axesItem->childCount(); ++ii) {
                 auto* itemNode = axesItem->child(ii);
-                auto* id = static_cast<NodeData*>(itemNode->data(0, Qt::UserRole).value<void*>());
-                if (id && id->itemIndex == itemIndex) {
+                int idItemIndex = itemNode->data(0, DataRole::ItemIndexRole).toInt();
+                if (idItemIndex == itemIndex) {
                     tree_->setCurrentItem(itemNode);
                     return;
                 }
@@ -170,36 +173,39 @@ void EditFigureDialog::onTreeSelectionChanged()
         return;
     }
 
-    auto* nd = static_cast<NodeData*>(item->data(0, Qt::UserRole).value<void*>());
-    if (!nd || !figure_) {
+    int ndType = item->data(0, DataRole::TypeRole).toInt();
+    int ndAxesIndex = item->data(0, DataRole::AxesIndexRole).toInt();
+    int ndItemIndex = item->data(0, DataRole::ItemIndexRole).toInt();
+
+    if (!figure_) {
         stack_->setCurrentIndex(0);
         return;
     }
 
-    switch (nd->type) {
+    switch (static_cast<NodeType>(ndType)) {
     case TypeFigure:
         stack_->setCurrentIndex(0);
         break;
     case TypeAxes: {
         auto& axesChildren = figure_->children();
-        if (nd->axesIndex >= 0 && nd->axesIndex < static_cast<int>(axesChildren.size())) {
-            axesPage_->load(axesChildren[nd->axesIndex].get(), nd->axesIndex);
+        if (ndAxesIndex >= 0 && ndAxesIndex < static_cast<int>(axesChildren.size())) {
+            axesPage_->load(axesChildren[ndAxesIndex].get(), ndAxesIndex);
             stack_->setCurrentIndex(1);
         }
         break;
     }
     case TypePlotItem: {
         auto& axesChildren = figure_->children();
-        if (nd->axesIndex >= 0 && nd->axesIndex < static_cast<int>(axesChildren.size())) {
-            auto& axes = axesChildren[nd->axesIndex];
+        if (ndAxesIndex >= 0 && ndAxesIndex < static_cast<int>(axesChildren.size())) {
+            auto& axes = axesChildren[ndAxesIndex];
             auto& items = axes->children();
-            if (nd->itemIndex >= 0 && nd->itemIndex < static_cast<int>(items.size())) {
-                auto& obj = items[nd->itemIndex];
+            if (ndItemIndex >= 0 && ndItemIndex < static_cast<int>(items.size())) {
+                auto& obj = items[ndItemIndex];
                 if (auto* line = dynamic_cast<matplot::line*>(obj.get())) {
-                    linePage_->load(line, nd->itemIndex);
+                    linePage_->load(line, ndItemIndex);
                     stack_->setCurrentIndex(2);
                 } else if (auto* surf = dynamic_cast<matplot::surface*>(obj.get())) {
-                    surfacePage_->load(surf, nd->itemIndex);
+                    surfacePage_->load(surf, ndItemIndex);
                     stack_->setCurrentIndex(3);
                 } else {
                     stack_->setCurrentIndex(0);
@@ -218,24 +224,25 @@ void EditFigureDialog::onApply()
     auto* item = tree_->currentItem();
     if (!item) return;
 
-    auto* nd = static_cast<NodeData*>(item->data(0, Qt::UserRole).value<void*>());
-    if (!nd) return;
+    int ndType = item->data(0, DataRole::TypeRole).toInt();
+    int ndAxesIndex = item->data(0, DataRole::AxesIndexRole).toInt();
+    int ndItemIndex = item->data(0, DataRole::ItemIndexRole).toInt();
 
     auto& axesChildren = figure_->children();
 
-    switch (nd->type) {
+    switch (static_cast<NodeType>(ndType)) {
     case TypeAxes: {
-        if (nd->axesIndex >= 0 && nd->axesIndex < static_cast<int>(axesChildren.size())) {
-            axesPage_->apply(axesChildren[nd->axesIndex].get());
+        if (ndAxesIndex >= 0 && ndAxesIndex < static_cast<int>(axesChildren.size())) {
+            axesPage_->apply(axesChildren[ndAxesIndex].get());
         }
         break;
     }
     case TypePlotItem: {
-        if (nd->axesIndex >= 0 && nd->axesIndex < static_cast<int>(axesChildren.size())) {
-            auto& axes = axesChildren[nd->axesIndex];
+        if (ndAxesIndex >= 0 && ndAxesIndex < static_cast<int>(axesChildren.size())) {
+            auto& axes = axesChildren[ndAxesIndex];
             auto& items = axes->children();
-            if (nd->itemIndex >= 0 && nd->itemIndex < static_cast<int>(items.size())) {
-                auto& obj = items[nd->itemIndex];
+            if (ndItemIndex >= 0 && ndItemIndex < static_cast<int>(items.size())) {
+                auto& obj = items[ndItemIndex];
                 if (auto* line = dynamic_cast<matplot::line*>(obj.get()))
                     linePage_->apply(line);
                 else if (auto* surf = dynamic_cast<matplot::surface*>(obj.get()))

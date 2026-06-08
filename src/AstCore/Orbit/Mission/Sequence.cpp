@@ -125,9 +125,10 @@ void Sequence::addCommand(MissionCommand* command)
 {
     if (!command)
         return;
+    HMissionCommand keepAlive(command);
     command->removeFromParentSequence();
     command->setParentScope(this);
-    commands_.push_back(HMissionCommand(command));
+    commands_.push_back(keepAlive);
     linkCommands();
 }
 
@@ -135,9 +136,10 @@ void Sequence::insertCommand(int index, MissionCommand* command)
 {
     if (!command)
         return;
+    HMissionCommand keepAlive(command);
     command->removeFromParentSequence();
     command->setParentScope(this);
-    commands_.insert(commands_.begin() + index, HMissionCommand(command));
+    commands_.insert(commands_.begin() + index, keepAlive);
     linkCommands();
 }
 

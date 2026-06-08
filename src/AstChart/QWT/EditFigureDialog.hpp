@@ -44,17 +44,7 @@ private:
     QIcon loadIcon(const QString& name) const;
 
     enum NodeType { TypeFigure, TypeAxes, TypePlotItem };
-
-    struct NodeData {
-        NodeData() = default;
-        NodeData(NodeType type, int axesIndex = -1, int itemIndex = -1)
-            : type(type), axesIndex(axesIndex), itemIndex(itemIndex) {}
-        ~NodeData() = default;
-
-        NodeType type = TypeFigure;
-        int axesIndex = -1;
-        int itemIndex = -1;
-    };
+    enum DataRole { TypeRole = Qt::UserRole, AxesIndexRole = Qt::UserRole + 1, ItemIndexRole = Qt::UserRole + 2 };
 
     matplot::figure_type* figure_;
     QTreeWidget* tree_;

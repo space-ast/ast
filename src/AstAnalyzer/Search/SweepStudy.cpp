@@ -111,7 +111,7 @@ int SweepStudy::totalRuns() const
     if (variables_.empty())
         return 0;
 
-    int total = 1;
+    int64_t total = 1;
     for (const auto& var : variables_)
     {
         if (!var)
@@ -121,12 +121,20 @@ int SweepStudy::totalRuns() const
         double step = var->stepSize();
         if (step == 0.0)
             continue;
-        int count = static_cast<int>((end - start) / step) + 1;
+        int64_t count = static_cast<int64_t>((end - start) / step) + 1;
         if (count < 1)
             count = 1;
+        if (count > 1000000) {
+            aWarning("SweepStudy: variable count too large, limiting to 1000000");
+            count = 1000000;
+        }
         total *= count;
+        if (total > INT_MAX) {
+            aError("SweepStudy: total runs overflow INT_MAX");
+            return INT_MAX;
+        }
     }
-    return total;
+    return static_cast<int>(total);
 }
 
 void SweepStudy::generateValueLists()

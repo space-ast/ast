@@ -57,6 +57,18 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 	// ee = 1.0 - square(1.0 - flatFact);
 	ee = flatFact * (2 - flatFact);
 	xy = hypot(cart[0], cart[1]);
+
+#if 0
+	// 特判极点附近，避免除以 0 导致 NaN
+	if (xy < 1.0e-10)
+	{
+		lla.latitude() = (cart[2] >= 0.0) ? kHalfPI : -kHalfPI;
+		lla.altitude() = std::abs(cart[2]) - radius * (1.0 - flatFact);
+		lla.longitude() = 0.0;
+		return;
+	}
+#endif
+
 	H = cart.norm() -  radius * (1 - flatFact);
 	newB = atan(cart[2] / (xy * (1 - ee * radius / (radius + H))));
 	int niter = 0;

@@ -38,7 +38,7 @@ void aNEDToAER(const Vector3d& ned, AER& aer)
     if (r > 0.0)
     {
         aer.azimuth_ = std::atan2(e, n);
-        aer.elevation_ = std::asin(-d / r);  // |d| <= |r| 一定成立
+        aer.elevation_ = std::asin(-d / r);  // |d| <= |r| 一定成立，所以-d / r 一定在 [-1, 1] 内
     }
     else
     {
@@ -72,7 +72,7 @@ void aENUToAER(const Vector3d& enu, AER& aer)
     if (r > 0.0)
     {
         aer.azimuth_ = std::atan2(e, n);
-        aer.elevation_ = std::asin(u / r);  // |u| <= |r| 一定成立
+        aer.elevation_ = std::asin(u / r);  // |u| <= |r| 一定成立，所以 u / r 一定在 [-1, 1] 内
     }
     else
     {

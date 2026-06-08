@@ -39,6 +39,7 @@ rule("ast")
     end)
     before_build(function (target)
         if target:plat() == "wasm" then
+            -- 在after_config里会删除原来的data目录
             if not os.exists("build/wasm/data") then
                 os.cp("data/*|Test|Dev|.git|Config|README.md|.gitignore|.gitattributes", "build/wasm/data/")
             end

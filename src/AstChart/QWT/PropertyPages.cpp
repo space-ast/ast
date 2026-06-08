@@ -234,6 +234,7 @@ void LinePropertyPage::setupUi()
     auto* lineLayout = new QFormLayout(lineGroup);
     lineColorBtn_ = new ColorButton(this);
     lineStyleCombo_ = new QComboBox(this);
+    // matplot::line_spec::line_style 存在同名函数，无法直接写 using line_style = matplot::line_spec::line_style;
     using line_style = decltype(matplot::line_spec::line_style::solid_line);
     lineStyleCombo_->addItem(tr("实线"),   static_cast<int>(line_style::solid_line));    // solid_line
     lineStyleCombo_->addItem(tr("虚线"),   static_cast<int>(line_style::dashed_line));   // dashed_line
@@ -249,6 +250,7 @@ void LinePropertyPage::setupUi()
     auto* markerGroup = new QGroupBox(tr("标记"), this);
     auto* markerLayout = new QFormLayout(markerGroup);
     markerCombo_ = new QComboBox(this);
+    // matplot::line_spec::marker_style 存在同名函数，无法直接写 using marker_style = matplot::line_spec::marker_style;
     using marker_style = decltype(matplot::line_spec::marker_style::none);
     markerCombo_->addItem(tr("无"), static_cast<int>(marker_style::none));
     markerCombo_->addItem("o",     static_cast<int>(marker_style::circle));

@@ -116,13 +116,18 @@ errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "GravityModel")){
                 std::string model = item.value().toString();
+                // 防止路径遍历攻击
+                // 这里需要进行这样的判断吗？
+                if (
+                    (!model.empty() && (model[0] == '/' || model[0] == '\\'))
+                    || model.find("..") != std::string::npos
+                    || model.find(':') != std::string::npos
+                )
+                {
+                    aError("Path traversal detected or absolute path not allowed in gravity model: %s", model.c_str());
+                    return eErrorInvalidParam;
+                }
                 fs::path filepath = parser.getFilePath();
-                /*!
-                @bug
-                如果model 被恶意写成 ../../../../etc/passwd，
-                拼接后就成了 /home/user/project/configs/../../../../etc/passwd，
-                经过路径解析后可能指向 /etc/passwd，从而读取系统关键文件。
-                */
                 filepath = filepath.parent_path() / model;
                 errc_t rc = this->loadGravityModel(filepath.string());
                 if(rc) return rc;
