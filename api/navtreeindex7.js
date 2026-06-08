@@ -1,7 +1,10 @@
 var NAVTREEINDEX7 =
 {
-"Mover_8hpp.html":[4,0,0,17,3,35],
-"Mover_8hpp_source.html":[4,0,0,17,3,35],
+"MoverLoader_8hpp.html#af2007e77252d8608e7402a6287cbf235":[4,0,0,10,3,35,0],
+"MoverLoader_8hpp_source.html":[4,0,0,10,3,35],
+"Mover_8cpp.html":[4,0,0,17,3,36],
+"Mover_8hpp.html":[4,0,0,17,3,37],
+"Mover_8hpp_source.html":[4,0,0,17,3,37],
 "NLEMinpackSolver_8cpp.html":[4,0,0,14,5],
 "NLEMinpackSolver_8hpp.html":[4,0,0,14,6],
 "NLEMinpackSolver_8hpp_source.html":[4,0,0,14,6],
@@ -199,6 +202,7 @@ var NAVTREEINDEX7 =
 "OpenAI_8cpp.html":[4,0,0,0,3,6],
 "OpenAI_8hpp.html":[4,0,0,0,3,7],
 "OpenAI_8hpp_source.html":[4,0,0,0,3,7],
+"OptimizationStudy_8hpp_source.html":[4,0,0,1,1,0],
 "OrbitDesign_8cpp.html":[4,0,0,7,6,4,10],
 "OrbitDesign_8hpp.html":[4,0,0,7,6,4,11],
 "OrbitDesign_8hpp_source.html":[4,0,0,7,6,4,11],
@@ -239,15 +243,11 @@ var NAVTREEINDEX7 =
 "PlaceLoader_8hpp.html":[4,0,0,10,3,41],
 "PlaceLoader_8hpp.html#ab129892740b74f8927dabb799528b0ad":[4,0,0,10,3,41,0],
 "PlaceLoader_8hpp_source.html":[4,0,0,10,3,41],
-"Place_8cpp.html":[4,0,0,17,3,38],
-"Place_8hpp.html":[4,0,0,17,3,39],
-"Place_8hpp_source.html":[4,0,0,17,3,39],
+"Place_8cpp.html":[4,0,0,17,3,40],
+"Place_8hpp.html":[4,0,0,17,3,41],
+"Place_8hpp_source.html":[4,0,0,17,3,41],
 "Plane_8hpp_source.html":[4,0,0,7,5,0,5],
 "PlanetFrame_8cpp.html":[4,0,0,7,2,2,10],
 "PlanetFrame_8hpp.html":[4,0,0,7,2,2,11],
-"PlanetFrame_8hpp_source.html":[4,0,0,7,2,2,11],
-"PlanetLoader_8cpp.html":[4,0,0,10,3,42],
-"PlanetLoader_8cpp.html#ab2d3bfbd7ab13231459bfe6b1431e56a":[4,0,0,10,3,42,0],
-"PlanetLoader_8hpp.html":[4,0,0,10,3,43],
-"PlanetLoader_8hpp.html#ab2d3bfbd7ab13231459bfe6b1431e56a":[4,0,0,10,3,43,0]
+"PlanetFrame_8hpp_source.html":[4,0,0,7,2,2,11]
 };

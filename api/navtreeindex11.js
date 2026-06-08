@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcSEETSAAFlux_8hpp.html":[4,0,0,7,6,1,0,15,177],
+"ScStateCalcSEETSAAFlux_8hpp_source.html":[4,0,0,7,6,1,0,15,177],
+"ScStateCalcSRPArea_8cpp.html":[4,0,0,7,6,1,0,15,196],
+"ScStateCalcSRPArea_8hpp.html":[4,0,0,7,6,1,0,15,197],
 "ScStateCalcSRPArea_8hpp_source.html":[4,0,0,7,6,1,0,15,197],
 "ScStateCalcSTMVelXVelX_8cpp.html":[4,0,0,7,6,1,0,3,0],
 "ScStateCalcSTMVelXVelX_8hpp.html":[4,0,0,7,6,1,0,3,1],
@@ -157,7 +161,7 @@ var NAVTREEINDEX11 =
 "ScenarioLoader_8hpp.html":[4,0,0,10,3,49],
 "ScenarioLoader_8hpp.html#aabf10cccc0ba9df8ea34b1ed571777d6":[4,0,0,10,3,49,0],
 "ScenarioLoader_8hpp_source.html":[4,0,0,10,3,49],
-"Scenario_8cpp.html":[4,0,0,17,3,48],
+"Scenario_8cpp.html":[4,0,0,17,3,50],
 "ScriptAPI_8cpp.html":[4,0,0,16,0,5],
 "ScriptAPI_8hpp.html":[4,0,0,16,0,6],
 "ScriptAPI_8hpp_source.html":[4,0,0,16,0,6],
@@ -218,9 +222,9 @@ var NAVTREEINDEX11 =
 "SensorLoader_8hpp.html":[4,0,0,10,3,51],
 "SensorLoader_8hpp.html#a10226e550709cf50ceb9d80d29297654":[4,0,0,10,3,51,0],
 "SensorLoader_8hpp_source.html":[4,0,0,10,3,51],
-"Sensor_8cpp.html":[4,0,0,17,3,50],
-"Sensor_8hpp.html":[4,0,0,17,3,51],
-"Sensor_8hpp_source.html":[4,0,0,17,3,51],
+"Sensor_8cpp.html":[4,0,0,17,3,52],
+"Sensor_8hpp.html":[4,0,0,17,3,53],
+"Sensor_8hpp_source.html":[4,0,0,17,3,53],
 "SequenceLoader_8cpp.html":[4,0,0,10,0,2,16],
 "SequenceLoader_8cpp.html#a08f918c7ddde0137d2cd2baa655814e1":[4,0,0,10,0,2,16,0],
 "SequenceLoader_8cpp.html#ab48efe26930d2a372c98541f967a6540":[4,0,0,10,0,2,16,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6":[4,0,0,20,8,14,1],
 "Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a0d58232a9f7accac3393a7553c31083c":[4,0,0,20,8,14,1,2],
 "Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a396fd0c3b77fbe85c1bd262ef45153d4":[4,0,0,20,8,14,1,4],
-"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a4d8376840c388f8fac5b6ca6ddca20ec":[4,0,0,20,8,14,1,1],
-"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6ab35c8b56ebeeb5ba38c4738b255e5045":[4,0,0,20,8,14,1,3],
-"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6afc1562897d7a104314be6e7d2cdc8696":[4,0,0,20,8,14,1,0],
-"Serializer_8hpp_source.html":[4,0,0,20,8,14],
-"Ship_8cpp.html":[4,0,0,17,3,52]
+"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a4d8376840c388f8fac5b6ca6ddca20ec":[4,0,0,20,8,14,1,1]
 };

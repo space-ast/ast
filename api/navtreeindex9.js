@@ -1,5 +1,9 @@
 var NAVTREEINDEX9 =
 {
+"SOFA_8hpp.html#a1e4e4bde6b31bfda0a8a71ac89612611":[4,0,0,7,2,3,10,8],
+"SOFA_8hpp.html#a3225043e53c75ba439d6530732c65b78":[4,0,0,7,2,3,10,13],
+"SOFA_8hpp.html#a6e7666ed99afcec7d6c4bc36e89190c9":[4,0,0,7,2,3,10,2],
+"SOFA_8hpp.html#a7d564ce583d0c3862921ecceecf6935c":[4,0,0,7,2,3,10,7],
 "SOFA_8hpp.html#a914b7293a4d365eac439568ee4b12a46":[4,0,0,7,2,3,10,12],
 "SOFA_8hpp.html#a964414a5f16ed2a874e02aa19af1129e":[4,0,0,7,2,3,10,11],
 "SOFA_8hpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,7,2,3,10,1],
@@ -31,7 +35,7 @@ var NAVTREEINDEX9 =
 "SaVO_8hpp_source.html":[4,0,0,6,17],
 "SatelliteImpl_8hpp.html":[4,0,0,6,16],
 "SatelliteImpl_8hpp_source.html":[4,0,0,6,16],
-"Satellite_8cpp.html":[4,0,0,17,3,46],
+"Satellite_8cpp.html":[4,0,0,17,3,48],
 "ScStateCalc1PtAccess_8cpp.html":[4,0,0,7,6,1,0,1,0],
 "ScStateCalc1PtAccess_8hpp.html":[4,0,0,7,6,1,0,1,1],
 "ScStateCalc1PtAccess_8hpp_source.html":[4,0,0,7,6,1,0,1,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX9 =
 "ScStateCalcFlightPathAngle_8hpp_source.html":[4,0,0,7,6,1,0,15,43],
 "ScStateCalcFrameRelated_8cpp.html":[4,0,0,7,6,1,0,0,2],
 "ScStateCalcFrameRelated_8hpp.html":[4,0,0,7,6,1,0,0,3],
-"ScStateCalcFrameRelated_8hpp_source.html":[4,0,0,7,6,1,0,0,3],
-"ScStateCalcFuelMass_8cpp.html":[4,0,0,7,6,1,0,15,46],
-"ScStateCalcFuelMass_8hpp.html":[4,0,0,7,6,1,0,15,47],
-"ScStateCalcFuelMass_8hpp_source.html":[4,0,0,7,6,1,0,15,47],
-"ScStateCalcGravCoeff_8cpp.html":[4,0,0,7,6,1,0,15,48]
+"ScStateCalcFrameRelated_8hpp_source.html":[4,0,0,7,6,1,0,0,3]
 };

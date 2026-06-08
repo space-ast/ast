@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcFuelMass_8cpp.html":[4,0,0,7,6,1,0,15,46],
+"ScStateCalcFuelMass_8hpp.html":[4,0,0,7,6,1,0,15,47],
+"ScStateCalcFuelMass_8hpp_source.html":[4,0,0,7,6,1,0,15,47],
+"ScStateCalcGravCoeff_8cpp.html":[4,0,0,7,6,1,0,15,48],
 "ScStateCalcGravCoeff_8hpp.html":[4,0,0,7,6,1,0,15,49],
 "ScStateCalcGravCoeff_8hpp_source.html":[4,0,0,7,6,1,0,15,49],
 "ScStateCalcHeightAboveTerrain_8cpp.html":[4,0,0,7,6,1,0,15,50],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcSEETMagFieldFieldLineSepAngle_8cpp.html":[4,0,0,7,6,1,0,15,174],
 "ScStateCalcSEETMagFieldFieldLineSepAngle_8hpp.html":[4,0,0,7,6,1,0,15,175],
 "ScStateCalcSEETMagFieldFieldLineSepAngle_8hpp_source.html":[4,0,0,7,6,1,0,15,175],
-"ScStateCalcSEETSAAFlux_8cpp.html":[4,0,0,7,6,1,0,15,176],
-"ScStateCalcSEETSAAFlux_8hpp.html":[4,0,0,7,6,1,0,15,177],
-"ScStateCalcSEETSAAFlux_8hpp_source.html":[4,0,0,7,6,1,0,15,177],
-"ScStateCalcSRPArea_8cpp.html":[4,0,0,7,6,1,0,15,196],
-"ScStateCalcSRPArea_8hpp.html":[4,0,0,7,6,1,0,15,197]
+"ScStateCalcSEETSAAFlux_8cpp.html":[4,0,0,7,6,1,0,15,176]
 };

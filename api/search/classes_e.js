@@ -39,11 +39,12 @@ var searchData=
   ['opbinkeyhash_36',['OpBinKeyHash',['../structast_1_1OpBinRegistry_1_1OpBinKeyHash.html',1,'ast::OpBinRegistry']]],
   ['opbinregistry_37',['OpBinRegistry',['../classast_1_1OpBinRegistry.html',1,'ast']]],
   ['openai_38',['OpenAI',['../classast_1_1OpenAI.html',1,'ast']]],
-  ['opunary_39',['OpUnary',['../classast_1_1OpUnary.html',1,'ast']]],
-  ['opunarykeyhash_40',['OpUnaryKeyHash',['../structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html',1,'ast::OpUnaryRegister']]],
-  ['opunaryregister_41',['OpUnaryRegister',['../classast_1_1OpUnaryRegister.html',1,'ast']]],
-  ['orbelem_42',['OrbElem',['../classast_1_1OrbElem.html',1,'ast']]],
-  ['orderedmap_43',['OrderedMap',['../classast_1_1OrderedMap.html',1,'ast']]],
-  ['orderedmap_3c_20std_3a_3astring_2c_20sharedptr_3c_20value_20_3e_20_3e_44',['OrderedMap&lt; std::string, SharedPtr&lt; Value &gt; &gt;',['../classast_1_1OrderedMap.html',1,'ast']]],
-  ['ordinarydifferentialequation_45',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]]
+  ['optimizationstudy_39',['OptimizationStudy',['../classast_1_1OptimizationStudy.html',1,'ast']]],
+  ['opunary_40',['OpUnary',['../classast_1_1OpUnary.html',1,'ast']]],
+  ['opunarykeyhash_41',['OpUnaryKeyHash',['../structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html',1,'ast::OpUnaryRegister']]],
+  ['opunaryregister_42',['OpUnaryRegister',['../classast_1_1OpUnaryRegister.html',1,'ast']]],
+  ['orbelem_43',['OrbElem',['../classast_1_1OrbElem.html',1,'ast']]],
+  ['orderedmap_44',['OrderedMap',['../classast_1_1OrderedMap.html',1,'ast']]],
+  ['orderedmap_3c_20std_3a_3astring_2c_20sharedptr_3c_20value_20_3e_20_3e_45',['OrderedMap&lt; std::string, SharedPtr&lt; Value &gt; &gt;',['../classast_1_1OrderedMap.html',1,'ast']]],
+  ['ordinarydifferentialequation_46',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]]
 ];

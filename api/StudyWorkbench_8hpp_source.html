@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstAnalyzer/Search/StudyWorkbench.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstAnalyzer/Workbench/StudyWorkbench.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,49 +114,49 @@ $(function(){initNavTree('StudyWorkbench_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html">   38</a></span><span class="keyword">class </span>AST_ANALYZER_API <a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Command.html">Command</a></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    errc_t <a class="code hl_function" href="classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53">execute</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#ab306c67932bdd902847517b8f38b1fd4">   48</a></span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; <a class="code hl_function" href="classast_1_1StudyWorkbench.html#ab306c67932bdd902847517b8f38b1fd4">inputs</a>(){<span class="keywordflow">return</span> inputs_;}</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; inputs()<span class="keyword"> const </span>{<span class="keywordflow">return</span> inputs_;}</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c">   52</a></span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; <a class="code hl_function" href="classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c">outputs</a>(){<span class="keywordflow">return</span> outputs_;}</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; outputs()<span class="keyword"> const </span>{<span class="keywordflow">return</span> outputs_;}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d">   56</a></span>    <a class="code hl_class" href="classast_1_1Command.html">Command</a>* <a class="code hl_function" href="classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d">relatedCommand</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> relatedCommand_.get();}</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#a6c77062233dccc239019cea980ab2c40">   59</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StudyWorkbench.html#a6c77062233dccc239019cea980ab2c40">setRelatedCommand</a>(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command) { relatedCommand_ = command; }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#ad074a17694b45188f867f34b4feedae5">   62</a></span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* <a class="code hl_function" href="classast_1_1StudyWorkbench.html#ad074a17694b45188f867f34b4feedae5">interpreter</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> interpreter_.get();}</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a> inputs_;                               </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a> outputs_;                              </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Command&gt;</a> relatedCommand_;           </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">mutable</span> std::unique_ptr&lt;Interpreter&gt; interpreter_;  </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html">   39</a></span><span class="keyword">class </span>AST_ANALYZER_API <a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Command.html">Command</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    errc_t <a class="code hl_function" href="classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53">execute</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#ab306c67932bdd902847517b8f38b1fd4">   49</a></span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; <a class="code hl_function" href="classast_1_1StudyWorkbench.html#ab306c67932bdd902847517b8f38b1fd4">inputs</a>(){<span class="keywordflow">return</span> inputs_;}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; inputs()<span class="keyword"> const </span>{<span class="keywordflow">return</span> inputs_;}</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c">   53</a></span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; <a class="code hl_function" href="classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c">outputs</a>(){<span class="keywordflow">return</span> outputs_;}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>&amp; outputs()<span class="keyword"> const </span>{<span class="keywordflow">return</span> outputs_;}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d">   57</a></span>    <a class="code hl_class" href="classast_1_1Command.html">Command</a>* <a class="code hl_function" href="classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d">relatedCommand</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> relatedCommand_.get();}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#a6c77062233dccc239019cea980ab2c40">   60</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StudyWorkbench.html#a6c77062233dccc239019cea980ab2c40">setRelatedCommand</a>(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command) { relatedCommand_ = command; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1StudyWorkbench.html#ad074a17694b45188f867f34b4feedae5">   63</a></span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* <a class="code hl_function" href="classast_1_1StudyWorkbench.html#ad074a17694b45188f867f34b4feedae5">interpreter</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> interpreter_.get();}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a> inputs_;                               </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a> outputs_;                              </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Command&gt;</a> relatedCommand_;           </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">mutable</span> std::unique_ptr&lt;Interpreter&gt; interpreter_;  </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="ttc" id="aclassast_1_1Command_html"><div class="ttname"><a href="classast_1_1Command.html">ast::Command</a></div><div class="ttdoc">命令（虚基类），用于定义任务序列中的命令，例如初始状态、轨道机动、轨道预报等</div><div class="ttdef"><b>定义</b> Command.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1Command_html_aa7faa5dbf1a26345c3aad5efebe84b53"><div class="ttname"><a href="classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53">ast::Command::execute</a></div><div class="ttdeci">virtual errc_t execute()=0</div><div class="ttdoc">执行命令</div></div>
 <div class="ttc" id="aclassast_1_1Interpreter_html"><div class="ttname"><a href="classast_1_1Interpreter.html">ast::Interpreter</a></div><div class="ttdoc">解释器</div><div class="ttdef"><b>定义</b> Interpreter.hpp:40</div></div>
-<div class="ttc" id="aclassast_1_1StudyWorkbench_html"><div class="ttname"><a href="classast_1_1StudyWorkbench.html">ast::StudyWorkbench</a></div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:39</div></div>
-<div class="ttc" id="aclassast_1_1StudyWorkbench_html_a06015f820e8432cd2b149892e29da28d"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d">ast::StudyWorkbench::relatedCommand</a></div><div class="ttdeci">Command * relatedCommand() const</div><div class="ttdoc">获取关联的执行命令</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:56</div></div>
-<div class="ttc" id="aclassast_1_1StudyWorkbench_html_a6c77062233dccc239019cea980ab2c40"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#a6c77062233dccc239019cea980ab2c40">ast::StudyWorkbench::setRelatedCommand</a></div><div class="ttdeci">void setRelatedCommand(Command *command)</div><div class="ttdoc">设置关联的执行命令</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:59</div></div>
-<div class="ttc" id="aclassast_1_1StudyWorkbench_html_a9855573951947ff4af5cefdebaf8371c"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c">ast::StudyWorkbench::outputs</a></div><div class="ttdeci">VariableList &amp; outputs()</div><div class="ttdoc">获取输出变量列表</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:52</div></div>
-<div class="ttc" id="aclassast_1_1StudyWorkbench_html_ab306c67932bdd902847517b8f38b1fd4"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#ab306c67932bdd902847517b8f38b1fd4">ast::StudyWorkbench::inputs</a></div><div class="ttdeci">VariableList &amp; inputs()</div><div class="ttdoc">获取输入变量列表</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:48</div></div>
-<div class="ttc" id="aclassast_1_1StudyWorkbench_html_ad074a17694b45188f867f34b4feedae5"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#ad074a17694b45188f867f34b4feedae5">ast::StudyWorkbench::interpreter</a></div><div class="ttdeci">Interpreter * interpreter() const</div><div class="ttdoc">获取脚本解释器</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1StudyWorkbench_html"><div class="ttname"><a href="classast_1_1StudyWorkbench.html">ast::StudyWorkbench</a></div><div class="ttdoc">研究工作台，用于参数扫描研究、优化研究、不确定性分析、区间分析等分析</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1StudyWorkbench_html_a06015f820e8432cd2b149892e29da28d"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d">ast::StudyWorkbench::relatedCommand</a></div><div class="ttdeci">Command * relatedCommand() const</div><div class="ttdoc">获取关联的执行命令</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1StudyWorkbench_html_a6c77062233dccc239019cea980ab2c40"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#a6c77062233dccc239019cea980ab2c40">ast::StudyWorkbench::setRelatedCommand</a></div><div class="ttdeci">void setRelatedCommand(Command *command)</div><div class="ttdoc">设置关联的执行命令</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1StudyWorkbench_html_a9855573951947ff4af5cefdebaf8371c"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c">ast::StudyWorkbench::outputs</a></div><div class="ttdeci">VariableList &amp; outputs()</div><div class="ttdoc">获取输出变量列表</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1StudyWorkbench_html_ab306c67932bdd902847517b8f38b1fd4"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#ab306c67932bdd902847517b8f38b1fd4">ast::StudyWorkbench::inputs</a></div><div class="ttdeci">VariableList &amp; inputs()</div><div class="ttdoc">获取输入变量列表</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:49</div></div>
+<div class="ttc" id="aclassast_1_1StudyWorkbench_html_ad074a17694b45188f867f34b4feedae5"><div class="ttname"><a href="classast_1_1StudyWorkbench.html#ad074a17694b45188f867f34b4feedae5">ast::StudyWorkbench::interpreter</a></div><div class="ttdeci">Interpreter * interpreter() const</div><div class="ttdoc">获取脚本解释器</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:63</div></div>
 <div class="ttc" id="aclassast_1_1VariableList_html"><div class="ttname"><a href="classast_1_1VariableList.html">ast::VariableList</a></div><div class="ttdoc">变量列表</div><div class="ttdef"><b>定义</b> VariableList.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1WeakPtr_html"><div class="ttname"><a href="classast_1_1WeakPtr.html">ast::WeakPtr</a></div><div class="ttdoc">弱引用指针</div><div class="ttdef"><b>定义</b> WeakPtr.hpp:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -164,7 +164,7 @@ $(function(){initNavTree('StudyWorkbench_8hpp_source.html',''); initResizable(tr
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6a05e9eed7cfb547ebac25672047bb5a.html">AstAnalyzer</a></li><li class="navelem"><a class="el" href="dir_0085ef306dceb5bae4ca452b8d2614d5.html">Search</a></li><li class="navelem"><a class="el" href="StudyWorkbench_8hpp.html">StudyWorkbench.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6a05e9eed7cfb547ebac25672047bb5a.html">AstAnalyzer</a></li><li class="navelem"><a class="el" href="dir_58fc3ca531da50408d47b94e43e3a9cb.html">Workbench</a></li><li class="navelem"><a class="el" href="StudyWorkbench_8hpp.html">StudyWorkbench.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

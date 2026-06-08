@@ -1,10 +1,5 @@
 var NAVTREEINDEX17 =
 {
-"classast_1_1BlockSwitch.html#a372bad8d6828a10d1cbd5f5f454ef385":[2,0,0,71,1],
-"classast_1_1BlockSwitch.html#a372bad8d6828a10d1cbd5f5f454ef385":[3,0,0,71,1],
-"classast_1_1BlockSwitch.html#a63a91f715cca289941c12613a3d5a4d1":[2,0,0,71,0],
-"classast_1_1BlockSwitch.html#a63a91f715cca289941c12613a3d5a4d1":[3,0,0,71,0],
-"classast_1_1BlockSwitch.html#a7c65e0c84e245a9d7c910a46b194a795":[2,0,0,71,2],
 "classast_1_1BlockSwitch.html#a7c65e0c84e245a9d7c910a46b194a795":[3,0,0,71,2],
 "classast_1_1BlockSystem.html":[2,0,0,72],
 "classast_1_1BlockSystem.html":[3,0,0,72],
@@ -249,5 +244,10 @@ var NAVTREEINDEX17 =
 "classast_1_1CelestialBody.html#a668d0987523588a036c046fd22f39d55":[0,1,6,0,29],
 "classast_1_1CelestialBody.html#a685dabfa9855ac71a90a697214254e34":[0,1,6,0,3],
 "classast_1_1CelestialBody.html#a6d858725fb55ca60b8a72a972ae44a0a":[0,1,6,0,46],
-"classast_1_1CelestialBody.html#a7112d4e551afe8eb5f9c71dca33d8566":[0,1,6,0,23]
+"classast_1_1CelestialBody.html#a7112d4e551afe8eb5f9c71dca33d8566":[0,1,6,0,23],
+"classast_1_1CelestialBody.html#a729ed0351ad2106a6ba2920285d326f8":[0,1,6,0,1],
+"classast_1_1CelestialBody.html#a82a634abbda5bab8fdb3d6fd4864a93d":[0,1,6,0,57],
+"classast_1_1CelestialBody.html#a85f0090b4702bb649fe090eb10e59c36":[0,1,6,0,58],
+"classast_1_1CelestialBody.html#a87f25ac5cb7d38dba0be5352b2c176f3":[0,1,6,0,50],
+"classast_1_1CelestialBody.html#a893e27f747b61b94dc90eb0c4d7b12d8":[0,1,6,0,32]
 };

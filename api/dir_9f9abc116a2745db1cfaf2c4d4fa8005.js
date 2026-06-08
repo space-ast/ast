@@ -2,8 +2,6 @@ var dir_9f9abc116a2745db1cfaf2c4d4fa8005 =
 [
     [ "UiAnalyzerMainWindow.cpp", "UiAnalyzerMainWindow_8cpp.html", null ],
     [ "UiAnalyzerMainWindow.hpp", "UiAnalyzerMainWindow_8hpp.html", "UiAnalyzerMainWindow_8hpp" ],
-    [ "UiAnalyzerPanel.cpp", "UiAnalyzerPanel_8cpp.html", null ],
-    [ "UiAnalyzerPanel.hpp", "UiAnalyzerPanel_8hpp.html", "UiAnalyzerPanel_8hpp" ],
     [ "UiPropertyEditor.cpp", "UiPropertyEditor_8cpp.html", null ],
     [ "UiPropertyEditor.hpp", "UiPropertyEditor_8hpp.html", "UiPropertyEditor_8hpp" ],
     [ "UiResultView.cpp", "UiResultView_8cpp.html", null ],

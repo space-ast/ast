@@ -67,5 +67,5 @@ var searchData=
   ['opunary_5fget_5ffuncptr_64',['opunary_get_funcptr',['../namespaceast.html#af2690a2337d317a94c1b8e2a73438f3f',1,'ast']]],
   ['opunary_5fregister_5ffunc_65',['opunary_register_func',['../namespaceast.html#a125a6a178f1e60bafd6b8db57c6ef50e',1,'ast']]],
   ['opunary_5fregister_5ffuncptr_66',['opunary_register_funcptr',['../namespaceast.html#ab8215bee1f7972135050c701e7536848',1,'ast']]],
-  ['outputs_67',['outputs',['../classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c',1,'ast::StudyWorkbench']]]
+  ['outputs_67',['outputs',['../classast_1_1SweepStudy.html#ab4c887e3b749aa8e68fe03f7d696be40',1,'ast::SweepStudy::outputs()'],['../classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c',1,'ast::StudyWorkbench::outputs()']]]
 ];
