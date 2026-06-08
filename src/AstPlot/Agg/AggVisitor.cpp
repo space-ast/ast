@@ -491,20 +491,18 @@ void AggVisitor::drawAxes() {
             renderer_.draw_line(xs, ys, 2, ls, agg::trans_affine());
 
             // 标记样本
-            if (lptr) {
-                int shape = marker_shape(lptr->marker_style());
-                if (shape < 0) shape = 0;  // fallback: circle
-                auto mc  = lptr->marker_color();
-                auto mfc = lptr->marker_face_color();
-                double msz = lptr->marker_size() * 0.7;
-                double mew = lptr->line_width() * 0.5f; // marker edge width
+            int shape = marker_shape(lptr->marker_style());
+            if (shape < 0) shape = 0;  // fallback: circle
+            auto mc  = lptr->marker_color();
+            auto mfc = lptr->marker_face_color();
+            double msz = lptr->marker_size() * 0.7;
+            double mew = lptr->line_width() * 0.5f; // marker edge width
 
-                agg::rgba edge_c = to_agg_color(mc);
-                agg::rgba face_c = lptr->marker_face()
-                    ? to_agg_color(mfc) : agg::rgba(0,0,0,0);
-                renderer_.draw_marker(shape, mid_x, iy, msz,
-                                      edge_c, face_c, mew);
-            }
+            agg::rgba edge_c = to_agg_color(mc);
+            agg::rgba face_c = lptr->marker_face()
+                ? to_agg_color(mfc) : agg::rgba(0,0,0,0);
+            renderer_.draw_marker(shape, mid_x, iy, msz,
+                                  edge_c, face_c, mew);
 
             std::string name = lptr->display_name();
             if(name.empty())

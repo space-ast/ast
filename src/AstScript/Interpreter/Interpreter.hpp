@@ -45,7 +45,7 @@ public:
     /// @warning 该构造函数会获得symbolScope所有权，调用者无需释放symbolScope，
     ///          传入栈对象或共享对象将导致未定义行为
     /// @param symbolScope 符号作用域指针（所有权转移）
-    Interpreter(ISymbolScope* symbolScope);
+    explicit Interpreter(ISymbolScope* symbolScope);
     ~Interpreter();
 
     /// @brief 获取当前作用域

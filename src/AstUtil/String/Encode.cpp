@@ -81,7 +81,7 @@ class LocaleHolder
 {
 public:
     LocaleHolder() = default;
-    LocaleHolder(_locale_t locale)
+    explicit LocaleHolder(_locale_t locale)
         : locale_(locale)
     {
     }

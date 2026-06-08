@@ -106,7 +106,7 @@ void UiCommandTree::dropEvent(QDropEvent* event)
     QTreeWidget::dropEvent(event);
 
     // 4. 移动后：draggedItem 已在新位置
-    if (draggedItem && draggedItem->parent())
+    if (draggedItem->parent())
     {
         int newIndex = draggedItem->parent()->indexOfChild(draggedItem);
         auto* parentSeqItem = dynamic_cast<UiCommandTreeItem*>(draggedItem->parent());
