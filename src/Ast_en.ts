@@ -491,10 +491,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>MainSequence</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Maneuver</source>
         <translation type="unfinished"></translation>
     </message>
@@ -868,6 +864,46 @@
     </message>
     <message>
         <source>Volumetric</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroundStation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FeasibleRegionVariable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FeasibleRegionConstraint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FeasibleRegionStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OptimizationStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SweepVariable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SweepOutput</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SweepStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UncertaintyStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>StudyWorkbench</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

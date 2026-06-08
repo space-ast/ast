@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstAnalyzer/StudyConstraint.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 #include <QWidget>
 #include <QListWidget>
 #include <QPushButton>
@@ -38,14 +38,14 @@ public:
     explicit UiStudyConstraintList(QWidget* parent = nullptr);
 
     /// @brief 用响应列表刷新显示
-    void setResponses(const std::vector<SharedPtr<StudyConstraint>>& responses);
+    void setResponses(const std::vector<SharedPtr<SweepOutput>>& responses);
 
     /// @brief 获取当前选中的响应
-    StudyConstraint* selectedResponse() const;
+    SweepOutput* selectedResponse() const;
 
 signals:
     /// @brief 选中响应变化
-    void responseSelected(StudyConstraint* response);
+    void responseSelected(SweepOutput* response);
 
     /// @brief 请求添加新响应
     void addResponseRequested();
@@ -59,7 +59,7 @@ private:
     QVBoxLayout*  layout_;
     QListWidget*  listWidget_;
     QPushButton*  addButton_;
-    std::vector<SharedPtr<StudyConstraint>> responses_;
+    std::vector<SharedPtr<SweepOutput>> responses_;
 };
 
 AST_NAMESPACE_END

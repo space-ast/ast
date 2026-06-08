@@ -10,7 +10,7 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiStudyVariableList.hpp"
-#include "AstAnalyzer/StudyVariable.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -38,11 +38,11 @@ void UiStudyVariableList::setupUi()
             this, &UiStudyVariableList::addVariableRequested);
 }
 
-void UiStudyVariableList::setVariables(const std::vector<SharedPtr<StudyVariable>>& variables)
+void UiStudyVariableList::setVariables(const std::vector<SharedPtr<SweepVariable>>& variables)
 {
     variables_ = variables;
     listWidget_->clear();
-    for (auto& var : variables)
+    for (auto& var : variables_)
     {
         QString text = QString("%1  [%2 : %3 : %4]")
             .arg(QString::fromStdString(var->getName()))
@@ -54,7 +54,7 @@ void UiStudyVariableList::setVariables(const std::vector<SharedPtr<StudyVariable
     }
 }
 
-StudyVariable* UiStudyVariableList::selectedVariable() const
+SweepVariable* UiStudyVariableList::selectedVariable() const
 {
     auto item = listWidget_->currentItem();
     if (!item) return nullptr;

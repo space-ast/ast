@@ -37,7 +37,7 @@ EXCLUDE_DIRS = ['data', 'docs', '.git', 'build', '.xmake', ".trae", ".vscode", "
                 "node_modules"]
 
 # 空行替换内容（可配置）
-EMPTY_LINE_REPLACEMENT = '// 请不要修改此文件(do not modify this file)'  # 默认替换为空字符串，即删除空行
+EMPTY_LINE_REPLACEMENT = '// 警告：请不要修改此文件，所进行的修改都会被覆盖。为避免丢失，不要修改此文件的代码。'  # 默认替换为空字符串，即删除空行
 
 # 合并模块源文件
 def merge_module_sources():

@@ -53,15 +53,16 @@ std::vector<QuickTypeEntry> UiNewObjectQuickDialog::quickTypes()
     return {
         // 实体对象
         { "Spacecraft",      u8"实体对象",   nullptr },
-        { "Facility",        u8"实体对象",   nullptr },
+        { "GroundStation",   u8"实体对象",   nullptr },
         { "CelestialBody",   u8"实体对象",   nullptr },
         { "Sensor",          u8"实体对象",   "Point" },
 
-        { "MainSequence",    u8"分析工具",   nullptr },
+        { "Sequence",        u8"任务序列",   nullptr },
 
         // 分析
-        { "SweepStudy",      u8"分析工具",   "StudyWorkbench" },
-        { "StudyWorkbench",  u8"分析工具",   nullptr },
+        { "StudyWorkbench",      u8"分析工具",   nullptr },
+        { "SweepStudy",          u8"分析工具",   "StudyWorkbench" },
+        { "FeasibleRegionStudy", u8"分析工具",   "StudyWorkbench" },
     };
 }
 
@@ -286,8 +287,9 @@ void UiNewObjectQuickDialog::onTypeCardClicked(int entryIndex)
 
     const auto& entry = types[entryIndex];
 
-    // 自动生成名称
-    QString typeName = QString::fromStdString(entry.typeName);
+    // 自动生成名称（使用类型的翻译显示名）
+    auto cls = aGetClass(entry.typeName);
+    QString typeName = QString::fromStdString(cls ? cls->displayName() : entry.typeName);
     nameEdit_->setText(generateUniqueName(typeName));
 
     // 父对象选择
@@ -298,7 +300,6 @@ void UiNewObjectQuickDialog::onTypeCardClicked(int entryIndex)
     createBtn_->setEnabled(!nameEdit_->text().isEmpty() && !needsParent);
 
     // 类型描述
-    auto cls = aGetClass(entry.typeName);
     if (cls && !cls->desc().empty())
         typeDescLabel_->setText(QString::fromStdString(cls->desc()));
     else

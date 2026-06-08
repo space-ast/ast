@@ -10,8 +10,6 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiPropertyEditor.hpp"
-#include "AstAnalyzer/StudyVariable.hpp"
-#include "AstAnalyzer/StudyConstraint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -52,7 +50,7 @@ void UiVariableEditor::setupUi()
     layout_->addRow(tr("表达式"), exprEdit_);
 }
 
-void UiVariableEditor::loadVariable(StudyVariable* variable)
+void UiVariableEditor::loadVariable(SweepVariable* variable)
 {
     if (!variable) return;
     nameEdit_->setText(QString::fromStdString(variable->getName()));
@@ -65,7 +63,7 @@ void UiVariableEditor::loadVariable(StudyVariable* variable)
         exprEdit_->clear();
 }
 
-void UiVariableEditor::applyToVariable(StudyVariable* variable)
+void UiVariableEditor::applyToVariable(SweepVariable* variable)
 {
     if (!variable) return;
     variable->setName(nameEdit_->text().toStdString());
@@ -97,7 +95,7 @@ void UiStudyConstraintEditor::setupUi()
     layout_->addRow(tr("表达式"), exprEdit_);
 }
 
-void UiStudyConstraintEditor::loadResponse(StudyConstraint* response)
+void UiStudyConstraintEditor::loadResponse(SweepOutput* response)
 {
     if (!response) return;
     nameEdit_->setText(QString::fromStdString(response->getName()));
@@ -105,7 +103,7 @@ void UiStudyConstraintEditor::loadResponse(StudyConstraint* response)
     // TODO: response->expr() not yet implemented on StudyConstraint
 }
 
-void UiStudyConstraintEditor::applyToResponse(StudyConstraint* response)
+void UiStudyConstraintEditor::applyToResponse(SweepOutput* response)
 {
     if (!response) return;
     response->setName(nameEdit_->text().toStdString());
@@ -137,7 +135,7 @@ UiPropertyEditor::UiPropertyEditor(QWidget* parent)
     layout->addWidget(stack_);
 }
 
-void UiPropertyEditor::editVariable(StudyVariable* variable)
+void UiPropertyEditor::editVariable(SweepVariable* variable)
 {
     applyCurrent();
     currentVariable_ = variable;
@@ -146,7 +144,7 @@ void UiPropertyEditor::editVariable(StudyVariable* variable)
     stack_->setCurrentIndex(0);
 }
 
-void UiPropertyEditor::editResponse(StudyConstraint* response)
+void UiPropertyEditor::editResponse(SweepOutput* response)
 {
     applyCurrent();
     currentVariable_ = nullptr;

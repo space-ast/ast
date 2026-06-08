@@ -1,9 +1,9 @@
 ///
-/// @file      MainSequence.hpp
+/// @file      UncertaintyStudy.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-04-15
+/// @date      2026-06-08
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/Sequence.hpp"
+#include "AstCore/Command.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,7 +31,12 @@ AST_NAMESPACE_BEGIN
 */
 
 
-using MainSequence = Sequence;
+class UncertaintyStudy: public Command
+{
+public:
+    AST_OBJECT(UncertaintyStudy)
+};
+
 
 /*! @} */
 

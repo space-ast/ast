@@ -25,7 +25,6 @@
 
 AST_NAMESPACE_BEGIN
 
-class MainSequence;
 class Segment;
 
 /// @brief 任务段树控件，继承 UiObjectTree，支持拖拽排序、右键菜单、序列同步
@@ -57,7 +56,7 @@ protected:
     void contextMenuEvent(QContextMenuEvent* event) override;
 
 private:
-    WeakPtr<MainSequence> sequence_ = nullptr;
+    WeakPtr<Sequence> sequence_ = nullptr;
 };
 
 AST_NAMESPACE_END

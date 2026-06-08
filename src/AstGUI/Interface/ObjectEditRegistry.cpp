@@ -59,7 +59,7 @@
 #include "AstGUI/UiGravityForce.hpp"
 #include "AstGUI/UiHPOPForceModel.hpp"
 #include "AstGUI/UiInitialState.hpp"
-#include "AstGUI/UiMainSequence.hpp"
+#include "AstGUI/UiSequenceWorkbench.hpp"
 #include "AstGUI/UiManeuver.hpp"
 #include "AstGUI/UiMotionTwoBody.hpp"
 #include "AstGUI/UiODEVarStepIntegrator.hpp"
@@ -121,10 +121,20 @@ ObjectEditRegistry::ObjectEditRegistry(bool shouldRegistEditWidget)
         aUiRegisterEditWidget<HPOPForceModel>(this, [](Object *object) -> QWidget* { return new UiHPOPForceModel(object); });
 
         // 任务序列
-        aUiRegisterEditWidget<MainSequence>(this, [](Object *object) -> QWidget* { return new UiMainSequence(object); });
+        aUiRegisterEditWidget<Sequence>(this, [](Object *object) -> QWidget* {
+            if(object)
+            {
+                auto parent = aobject_cast<Sequence*>(object->getParentScope());
+                // 父对象不是任务序列，说明是主任务序列，则采用任务序列工作台编辑器
+                if(!parent)
+                {
+                    return new UiSequenceWorkbench(object);
+                }
+            } 
+            return new UiSequence(object); 
+        });
         aUiRegisterEditWidget<Propagate>(this, [](Object *object) -> QWidget* { return new UiPropagate(object); });
         aUiRegisterEditWidget<Maneuver>(this, [](Object *object) -> QWidget* { return new UiManeuver(object); });
-        aUiRegisterEditWidget<Sequence>(this, [](Object *object) -> QWidget* { return new UiSequence(object); });
         aUiRegisterEditWidget<TargeterSequence>(this, [](Object *object) -> QWidget* { return new UiTargeterSequence(object); });
         aUiRegisterEditWidget<InitialState>(this, [](Object *object) -> QWidget* { return new UiInitialState(object); });
 

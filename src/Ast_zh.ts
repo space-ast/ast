@@ -491,10 +491,6 @@
         <translation>着陆点</translation>
     </message>
     <message>
-        <source>MainSequence</source>
-        <translation>主序列</translation>
-    </message>
-    <message>
         <source>Maneuver</source>
         <translation>机动</translation>
     </message>
@@ -869,6 +865,46 @@
     <message>
         <source>Volumetric</source>
         <translation>体积对象</translation>
+    </message>
+    <message>
+        <source>GroundStation</source>
+        <translation>地面站</translation>
+    </message>
+    <message>
+        <source>FeasibleRegionVariable</source>
+        <translation>可行域变量</translation>
+    </message>
+    <message>
+        <source>FeasibleRegionConstraint</source>
+        <translation>可行域约束</translation>
+    </message>
+    <message>
+        <source>FeasibleRegionStudy</source>
+        <translation>可行域分析</translation>
+    </message>
+    <message>
+        <source>OptimizationStudy</source>
+        <translation>优化分析</translation>
+    </message>
+    <message>
+        <source>SweepVariable</source>
+        <translation>扫描变量</translation>
+    </message>
+    <message>
+        <source>SweepOutput</source>
+        <translation>扫描输出</translation>
+    </message>
+    <message>
+        <source>SweepStudy</source>
+        <translation>参数扫描分析</translation>
+    </message>
+    <message>
+        <source>UncertaintyStudy</source>
+        <translation>不确定性分析</translation>
+    </message>
+    <message>
+        <source>StudyWorkbench</source>
+        <translation>分析工作台</translation>
     </message>
 </context>
 <context>

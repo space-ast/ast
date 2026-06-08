@@ -1,1 +1,1 @@
-#include "../../src/AstAnalyzer/Search/StudyWorkbench.hpp"
+#include "../../src/AstAnalyzer/Workbench/StudyWorkbench.hpp"

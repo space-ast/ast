@@ -20,8 +20,6 @@
 
 #include "UiSweepStudy.hpp"
 #include "AstAnalyzer/SweepStudy.hpp"
-#include "AstAnalyzer/StudyVariable.hpp"
-#include "AstAnalyzer/StudyConstraint.hpp"
 #include "AstGUI/ObjectEditRegistry.hpp"
 #include "AstGUI/UiStudyVariableList.hpp"
 #include "AstGUI/UiStudyConstraintList.hpp"
@@ -86,7 +84,7 @@ void UiSweepStudy::setupUi()
         auto* a = analyzer();
         if (!a)
             return;
-        auto* variable = aNewObject<StudyVariable>();
+        auto* variable = aNewObject<SweepVariable>();
         variable->setName(u8"变量");
         a->addVariable(variable);
         refreshUi();
@@ -129,9 +127,9 @@ void UiSweepStudy::setupUi()
         auto* a = analyzer();
         if (!a)
             return;
-        auto* constraint = aNewObject<StudyConstraint>();
+        auto* constraint = aNewObject<SweepOutput>();
         constraint->setName(u8"约束");
-        a->addConstraint(constraint);
+        a->addOutput(constraint);
         refreshUi();
         constraintPropertyEditor_->editResponse(constraint);
     });
@@ -163,7 +161,7 @@ void UiSweepStudy::setAnalyzer(SweepStudy* a)
     if (a)
     {
         varList_->setVariables(a->variables());
-        responseList_->setResponses(a->constraints());
+        responseList_->setResponses(a->outputs());
         rebuildCommandEditor();
     }
     else
@@ -184,7 +182,7 @@ void UiSweepStudy::refreshUi()
         auto* selResp = responseList_->selectedResponse();
 
         varList_->setVariables(a->variables());
-        responseList_->setResponses(a->constraints());
+        responseList_->setResponses(a->outputs());
 
         // 恢复选中
         if (selVar)

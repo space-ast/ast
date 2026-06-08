@@ -36,7 +36,7 @@
 #include "AstGUI/UiHPOPForceModel.hpp"
 #include "AstGUI/UiInitialState.hpp"
 #include "AstGUI/UiInteger.hpp"
-#include "AstGUI/UiMainSequence.hpp"
+#include "AstGUI/UiSequenceWorkbench.hpp"
 #include "AstGUI/UiMainWindow.hpp"
 #include "AstGUI/UiManeuver.hpp"
 #include "AstGUI/UiMissionTree.hpp"

@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstAnalyzer/StudyVariable.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 #include <QWidget>
 #include <QListWidget>
 #include <QPushButton>
@@ -40,14 +40,14 @@ public:
     explicit UiStudyVariableList(QWidget* parent = nullptr);
 
     /// @brief 用变量列表刷新显示
-    void setVariables(const std::vector<SharedPtr<StudyVariable>>& variables);
+    void setVariables(const std::vector<SharedPtr<SweepVariable>>& variables);
 
     /// @brief 获取当前选中的变量
-    StudyVariable* selectedVariable() const;
+    SweepVariable* selectedVariable() const;
 
 signals:
     /// @brief 选中变量变化
-    void variableSelected(StudyVariable* variable);
+    void variableSelected(SweepVariable* variable);
 
     /// @brief 请求添加新变量
     void addVariableRequested();
@@ -61,7 +61,7 @@ private:
     QVBoxLayout*  layout_;
     QListWidget*  listWidget_;
     QPushButton*  addButton_;
-    std::vector<SharedPtr<StudyVariable>> variables_;
+    std::vector<SharedPtr<SweepVariable>> variables_;
 };
 
 AST_NAMESPACE_END

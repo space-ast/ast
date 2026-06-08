@@ -603,6 +603,7 @@
 %include "../AstSim/Motion/MotionSPICE.hpp"
 %include "../AstCore/Data/Context/DataContext.hpp"
 %include "../AstCore/SolarSystem/SolarSystemLoader.hpp"
+%include "../AstSim/Object/GroundStation.hpp"
 %include "../AstSim/Object/Place.hpp"
 %include "../AstSim/Object/Target.hpp"
 %include "../AstSim/Motion/MotionJ2Analytical.hpp"
