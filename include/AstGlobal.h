@@ -52,7 +52,7 @@
 // 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
 
 
-#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
+#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间(如果关闭，需要同步更改rules.lua里的qt.moc.flags)
 // #define AST_USE_CRT_SAFE                      // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
                                                  //（已废弃，这些函数不用共享文件，即同时打开相同文件，在一些情况下有问题）
 
@@ -191,6 +191,14 @@
 #    define AST_MOCK_API A_DECL_IMPORT
 #endif
 #define AST_MOCK_CAPI A_DECL_EXTERN_C AST_MOCK_API
+
+// ast项目绘图模块导出声明
+#ifdef AST_BUILD_LIB_PLOT
+#    define AST_PLOT_API A_DECL_EXPORT
+#else
+#    define AST_PLOT_API A_DECL_IMPORT
+#endif
+#define AST_PLOT_CAPI A_DECL_EXTERN_C AST_PLOT_API
 
 // ast项目GUI模块导出声明
 #ifdef AST_BUILD_LIB_GUI
@@ -344,7 +352,8 @@ typedef enum EError
  * 通过这些标注，反射工具(例如libclang)可以识别这些类型，提取其属性元信息，然后生成相应代码，例如动态反射、序列化
  * 使用 `_d` 后缀，表示 dimension 和 double，避免了使用 `_t` 后缀与标准库 `time_t` 的冲突
  */ 
-typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, power_d, angle_d, angvel_d; 
+typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, 
+    power_d, angle_d, angvel_d, temperature_d, density_d, pressure_d; 
 
 
 typedef int errc_t;           ///< 错误码类型(error code type)
@@ -392,6 +401,10 @@ class CartState;             ///< 直角坐标
 class ModOrbElem;            ///< 改进轨道根数
 class OrbElem;               ///< 经典轨道根数
 
+class GeodeticPoint;         ///< 大地坐标
+class TrackingCoordinates;   ///< 测量/跟踪坐标(AER)
+using AER = TrackingCoordinates;
+
 class State;
 class StateCartesian;
 class StateKeplerian;
@@ -416,6 +429,7 @@ class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴
 class Point;                 ///< 坐标点
 class CelestialBody;         ///< 天体
+class BodyShape;             ///< 天体形状
 using Body = CelestialBody;  
 
 class EventTime;             ///< 事件时间
@@ -425,6 +439,7 @@ class Identifier;           ///< 标识符
 class Value;                ///< 值
 class Expr;                 ///< 表达式
 class Variable;             ///< 变量
+class Interpreter;          ///< 解释器
 
 class BKVParser;            ///< BKV解析器
 class JsonValue;            ///< JSON值

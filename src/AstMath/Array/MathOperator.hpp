@@ -594,22 +594,6 @@ VectorN<_Scalar, J> operator*(
 
 
 
-template<typename T>
-A_CONSTEXPR_CXX14 const T& clamp(const T& val, const T& low, const T& high)
-{
-    #ifdef A_CXX14
-    assert(low <= high && "low must be less than or equal to high");
-    if(val < low){
-        return low;
-    }
-    if(val > high){
-        return high;
-    }
-    return val;
-    #else
-    return (val < low) ? low : ((val > high) ? high : val);
-    #endif
-}
 
 /*! @} */
 

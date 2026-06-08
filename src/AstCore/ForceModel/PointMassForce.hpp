@@ -31,9 +31,11 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 点质量引力模型/
-class PointMassForce: public BodyAttraction
+class AST_CORE_API PointMassForce: public BodyAttraction
 {
 public:
+    AST_OBJECT(PointMassForce)
+    
     EBodyAttractionType getBodyAttractionType() const override{return EBodyAttractionType::ePointMass;}
     BodyAttraction* clone() const override{return new PointMassForce(*this);}
 public:

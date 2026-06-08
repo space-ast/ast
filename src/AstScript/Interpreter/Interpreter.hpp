@@ -25,10 +25,12 @@
 #include "SymbolScope.hpp"
 #include "CallStack.hpp"
 #include "ScriptContext.hpp"
+#include <memory>
 #include <string>
 
 AST_NAMESPACE_BEGIN
 
+class ISymbolScope;
 
 /// @brief 解释器
 /// @details
@@ -37,14 +39,20 @@ AST_NAMESPACE_BEGIN
 class AST_SCRIPT_API Interpreter
 {
 public:
-    Interpreter() = default;
+    Interpreter();
+
+    /// @brief 构造函数，指定外部符号作用域
+    /// @warning 该构造函数会获得symbolScope所有权，调用者无需释放symbolScope，
+    ///          传入栈对象或共享对象将导致未定义行为
+    /// @param symbolScope 符号作用域指针（所有权转移）
+    explicit Interpreter(ISymbolScope* symbolScope);
     ~Interpreter();
 
     /// @brief 获取当前作用域
     /// @details
     /// 当前作用域是解释器当前正在执行的代码所在的作用域。
     /// @return 当前作用域
-    SymbolScope* currentScope() { return &symbolScope_; }
+    ISymbolScope* currentScope() { return symbolScope_.get(); }
     
     /// @brief 解释执行代码
     /// @details
@@ -74,14 +82,19 @@ public:
     void clearErrString() { errString_.clear(); }
 
 protected:
-    SymbolScope symbolScope_;       ///< 当前作用域
-    std::string errString_;        ///< 错误字符串
+    std::unique_ptr<ISymbolScope> symbolScope_;       ///< 当前作用域
+    std::string errString_;                           ///< 错误字符串
 };
 
 
 /// @brief 创建新的解释器，用于解释执行脚本中的代码。
-/// @return 解释器指针
-AST_SCRIPT_CAPI Interpreter* aNewInterpreter();
+AST_SCRIPT_API Interpreter* aNewInterpreter();
+
+/// @brief 创建新的解释器，用于解释执行脚本中的代码
+/// @warning 该函数会获得symbolScope所有权，调用者无需释放symbolScope
+/// @param symbolScope 符号作用域
+AST_SCRIPT_API Interpreter* aNewInterpreter(ISymbolScope* symbolScope);
+
 
 /// @brief 删除解释器，释放其占用的资源。
 /// @param interpreter 解释器指针
@@ -89,9 +102,7 @@ AST_SCRIPT_API void aDelInterpreter(Interpreter* interpreter);
 
 
 /// @brief 解释器上下文守卫
-/// @details
-/// 解释器上下文守卫用于在解释器执行代码时，自动设置和移除当前解释器。
-/// @todo 暂时不支持子解释器，只能区分全局解释器和当前解释器。
+/// @details 解释器上下文守卫用于在某个作用域内解释器执行代码时，自动切换到当前解释器。
 class InterpreterContext {
 public:
     explicit InterpreterContext(Interpreter& interpreter)
@@ -99,16 +110,17 @@ public:
     {
     }
     explicit InterpreterContext(Interpreter* interpreter)
-        : interpreter_(interpreter)
     {
-        aScript_SetInterpreter(interpreter);
+        oldInterpreter_ = aScript_SwapInterpreter(interpreter);
     }
     ~InterpreterContext()
     {
-        aScript_RemoveInterpreter(interpreter_);
+        aScript_SetInterpreter(oldInterpreter_);
     }
 private:
-    Interpreter* interpreter_;
+    Interpreter* oldInterpreter_ = nullptr;
+
+    A_DISABLE_COPY(InterpreterContext);
 };
 
 

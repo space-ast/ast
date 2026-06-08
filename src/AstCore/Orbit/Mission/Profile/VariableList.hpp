@@ -34,7 +34,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 变量列表
 /// @details 用于存储脚本中的变量
-class AST_CORE_API VariableList
+class VariableList
 {
 public:
     using ListType = std::vector<SharedPtr<Variable>>;
@@ -47,6 +47,7 @@ public:
     void clear() { variables_.clear(); }
     void append(Variable* var) { variables_.push_back(var); }
     void erase(size_t index) { variables_.erase(variables_.begin() + index); }
+    void move(size_t from, size_t to);
     size_t size() const { return variables_.size(); }
 
     Variable* at(size_t index) { return variables_.at(index).get(); }
@@ -64,6 +65,15 @@ private:
 };
 
 
+inline void VariableList::move(size_t from, size_t to)
+{
+    if (from >= variables_.size() || to >= variables_.size() || from == to)
+        return;
+    SharedPtr<Variable> var = variables_[from];
+    variables_.erase(variables_.begin() + from);
+    size_t insertPos = (to > from) ? to - 1 : to;
+    variables_.insert(variables_.begin() + insertPos, var);
+}
 
 /*! @} */
 

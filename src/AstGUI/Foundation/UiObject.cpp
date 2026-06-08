@@ -27,6 +27,12 @@ UiObject::UiObject(QWidget *parent)
 {
 }
 
+UiObject::UiObject(Object* object, QWidget *parent)
+    : QWidget(parent)
+    , object_(object)
+{
+}
+
 void UiObject::setObject(Object *object)
 {
     object_ = object;

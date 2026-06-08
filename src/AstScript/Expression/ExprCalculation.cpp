@@ -68,7 +68,11 @@ errc_t ExprCalculation::getValueDouble(double& val) const
 
 std::string ExprCalculation::getExpression(Object * context) const
 {
-    aWarning("not implemented");
+    // @todo 需要处理名称为空的情况
+    auto* obj = object();
+    auto* calc = calculation();
+    if (obj && calc)
+        return obj->getName() + "." + calc->getName();
     return {};
 }
 

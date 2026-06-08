@@ -36,7 +36,7 @@ class UiStateKeplerian;
 
 /// @brief 状态编辑器容器 — RTTI 类型分发 + 信号转发
 ///
-/// 与 UiSegmentEditor 模式一致：
+/// 与 UiCommandEditor 模式一致：
 ///   1. setState(State*) 按 RTTI 切换 Cartesian/Keplerian 页面
 ///   2. 子编辑器变更信号统一通过 stateChanged(State*) 向外转发
 class AST_GUI_API UiStateEditor : public QWidget

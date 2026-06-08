@@ -42,6 +42,7 @@ enum class ESolidTideType{
 class AST_CORE_API GravityForce : public BodyAttraction
 {
 public:
+    AST_OBJECT(GravityForce)
     GravityForce() = default;
     ~GravityForce() = default;
     EBodyAttractionType getBodyAttractionType() const override{return EBodyAttractionType::eGravity;}

@@ -8,10 +8,6 @@
         <translation>Select Coordinate System</translation>
     </message>
     <message>
-        <source>表达式</source>
-        <translation>Expression</translation>
-    </message>
-    <message>
         <source>选择表达式</source>
         <translation>Select Expression</translation>
     </message>
@@ -20,11 +16,54 @@
         <translation>No objects available</translation>
     </message>
     <message>
-        <source>浏览对象属性和计算量</source>
-        <translation>Browse object attributes and calculations</translation>
+        <source>未命名&lt;%1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;无名称&gt;</source>
+        <source>(无效属性)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>类型: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;空&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiAnalyzerMainWindow</name>
+    <message>
+        <source>参数研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>地毯图研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>区间分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>优化打靶</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>不确定性分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>类型管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>对象管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>组件管理</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -60,10 +99,14 @@
     </message>
 </context>
 <context>
-    <name>UiAnalyzerVariableList</name>
+    <name>UiAttributeTree</name>
     <message>
-        <source>+ 添加变量</source>
-        <translation>+ Add Variable</translation>
+        <source>属性</source>
+        <translation type="unfinished">Properties</translation>
+    </message>
+    <message>
+        <source>值</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -215,6 +258,40 @@
     <message>
         <source>SPICE 编号</source>
         <translation>SPICE ID</translation>
+    </message>
+</context>
+<context>
+    <name>UiCommandEditor</name>
+    <message>
+        <source>在任务树中选择一个段以编辑其属性</source>
+        <translation>Select a segment in the mission tree to edit its properties</translation>
+    </message>
+</context>
+<context>
+    <name>UiCommandTree</name>
+    <message>
+        <source>添加初始状态</source>
+        <translation type="unfinished">Add Initial State</translation>
+    </message>
+    <message>
+        <source>添加预报段</source>
+        <translation type="unfinished">Add Propagate Segment</translation>
+    </message>
+    <message>
+        <source>添加机动段</source>
+        <translation type="unfinished">Add Maneuver Segment</translation>
+    </message>
+    <message>
+        <source>添加序列段</source>
+        <translation type="unfinished">Add Sequence Segment</translation>
+    </message>
+    <message>
+        <source>添加瞄准序列段</source>
+        <translation type="unfinished">Add Targeter Sequence Segment</translation>
+    </message>
+    <message>
+        <source>删除</source>
+        <translation type="unfinished">Delete</translation>
     </message>
 </context>
 <context>
@@ -422,10 +499,6 @@
         <source>选择对象计算量</source>
         <translation>Select object calculation</translation>
     </message>
-    <message>
-        <source>选择表达式</source>
-        <translation>Select Expression</translation>
-    </message>
 </context>
 <context>
     <name>UiFilePath</name>
@@ -563,262 +636,7 @@
     </message>
 </context>
 <context>
-    <name>UiMainWindow</name>
-    <message>
-        <source>跳到起点</source>
-        <translation>Skip to Start</translation>
-    </message>
-    <message>
-        <source>后退</source>
-        <translation>Step Back</translation>
-    </message>
-    <message>
-        <source>播放</source>
-        <translation>Play</translation>
-    </message>
-    <message>
-        <source>前进</source>
-        <translation>Step Forward</translation>
-    </message>
-    <message>
-        <source>跳到终点</source>
-        <translation>Skip to End</translation>
-    </message>
-    <message>
-        <source>当前历元: 2026-01-01 00:00:00.000 UTCG</source>
-        <translation>Current Epoch: 2026-01-01 00:00:00.000 UTCG</translation>
-    </message>
-    <message>
-        <source>步长: 60 s</source>
-        <translation>Step: 60 s</translation>
-    </message>
-    <message>
-        <source>新建</source>
-        <translation>New</translation>
-    </message>
-    <message>
-        <source>打开</source>
-        <translation>Open</translation>
-    </message>
-    <message>
-        <source>保存</source>
-        <translation>Save</translation>
-    </message>
-    <message>
-        <source>撤销</source>
-        <translation>Undo</translation>
-    </message>
-    <message>
-        <source>重做</source>
-        <translation>Redo</translation>
-    </message>
-    <message>
-        <source>剪切</source>
-        <translation>Cut</translation>
-    </message>
-    <message>
-        <source>复制</source>
-        <translation>Copy</translation>
-    </message>
-    <message>
-        <source>粘贴</source>
-        <translation>Paste</translation>
-    </message>
-    <message>
-        <source>删除</source>
-        <translation>Delete</translation>
-    </message>
-    <message>
-        <source>三维视图</source>
-        <translation>3D View</translation>
-    </message>
-    <message>
-        <source>二维视图</source>
-        <translation>2D View</translation>
-    </message>
-    <message>
-        <source>缩放</source>
-        <translation>Zoom</translation>
-    </message>
-    <message>
-        <source>适应窗口</source>
-        <translation>Fit to Window</translation>
-    </message>
-    <message>
-        <source>航天器</source>
-        <translation>Spacecraft</translation>
-    </message>
-    <message>
-        <source>轨道</source>
-        <translation>Orbit</translation>
-    </message>
-    <message>
-        <source>机动</source>
-        <translation>Maneuver</translation>
-    </message>
-    <message>
-        <source>序列</source>
-        <translation>Sequence</translation>
-    </message>
-    <message>
-        <source>导出</source>
-        <translation>Export</translation>
-    </message>
-    <message>
-        <source>传播</source>
-        <translation>Propagate</translation>
-    </message>
-    <message>
-        <source>分析</source>
-        <translation>Analysis</translation>
-    </message>
-    <message>
-        <source>设置</source>
-        <translation>Settings</translation>
-    </message>
-    <message>
-        <source>脚本</source>
-        <translation>Script</translation>
-    </message>
-    <message>
-        <source>帮助</source>
-        <translation>Help</translation>
-    </message>
-    <message>
-        <source>关于</source>
-        <translation>About</translation>
-    </message>
-    <message>
-        <source>刷新</source>
-        <translation>Refresh</translation>
-    </message>
-    <message>
-        <source>属性</source>
-        <translation>Properties</translation>
-    </message>
-    <message>
-        <source>时间视图</source>
-        <translation>Time View</translation>
-    </message>
-    <message>
-        <source>开始历元: 2026-01-01 00:00:00.000 UTCG</source>
-        <translation>Start Epoch: 2026-01-01 00:00:00.000 UTCG</translation>
-    </message>
-    <message>
-        <source>结束历元: 2026-01-02 00:00:00.000 UTCG</source>
-        <translation>End Epoch: 2026-01-02 00:00:00.000 UTCG</translation>
-    </message>
-    <message>
-        <source>就绪</source>
-        <translation>Ready</translation>
-    </message>
-    <message>
-        <source>场景: 未加载</source>
-        <translation>Scenario: Not Loaded</translation>
-    </message>
-    <message>
-        <source>对象: 0</source>
-        <translation>Objects: 0</translation>
-    </message>
-    <message>
-        <source>坐标系: J2000</source>
-        <translation>Frame: J2000</translation>
-    </message>
-    <message>
-        <source>单位: km/s</source>
-        <translation>Unit: km/s</translation>
-    </message>
-    <message>
-        <source>时间: UTCG</source>
-        <translation>Time: UTCG</translation>
-    </message>
-    <message>
-        <source>新建任务功能尚未连接</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开任务功能尚未连接</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开示例：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>已选择：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>新建模型</source>
-        <translation>New Model</translation>
-    </message>
-    <message>
-        <source>导入</source>
-        <translation>Import</translation>
-    </message>
-    <message>
-        <source>库浏览器</source>
-        <translation>Library Browser</translation>
-    </message>
-    <message>
-        <source>图标</source>
-        <translation>Icon</translation>
-    </message>
-    <message>
-        <source>图形</source>
-        <translation>Graphics</translation>
-    </message>
-    <message>
-        <source>文本</source>
-        <translation>Text</translation>
-    </message>
-    <message>
-        <source>检查</source>
-        <translation>Check</translation>
-    </message>
-    <message>
-        <source>翻译</source>
-        <translation>Translate</translation>
-    </message>
-    <message>
-        <source>仿真</source>
-        <translation>Simulate</translation>
-    </message>
-    <message>
-        <source>开始</source>
-        <translation>Start</translation>
-    </message>
-    <message>
-        <source>暂停</source>
-        <translation>Pause</translation>
-    </message>
-    <message>
-        <source>停止</source>
-        <translation>Stop</translation>
-    </message>
-    <message>
-        <source>仿真设置</source>
-        <translation>Simulation Settings</translation>
-    </message>
-    <message>
-        <source>生成代码</source>
-        <translation>Generate Code</translation>
-    </message>
-    <message>
-        <source>构建</source>
-        <translation>Build</translation>
-    </message>
-    <message>
-        <source>用户模型</source>
-        <translation>User Models</translation>
-    </message>
-    <message>
-        <source>航天仿真</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UiMissionPanel</name>
+    <name>UiMainSequence</name>
     <message>
         <source>输出信息...</source>
         <translation>Output messages...</translation>
@@ -977,6 +795,69 @@ Error code: %2</translation>
         <source>任务序列</source>
         <translation>Mission Sequence</translation>
     </message>
+    <message>
+        <source>着陆点 (LandingSite)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加: 着陆点段</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiMainWindow</name>
+    <message>
+        <source>就绪</source>
+        <translation>Ready</translation>
+    </message>
+    <message>
+        <source>航天仿真</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>对象</source>
+        <translation type="unfinished">Objects</translation>
+    </message>
+    <message>
+        <source>类型管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>对象管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>组件管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>参数研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>地毯图研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>区间分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>优化打靶</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>不确定性分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>新建</source>
+        <translation type="unfinished">New</translation>
+    </message>
+    <message>
+        <source>已创建: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiMissionTree</name>
@@ -1030,6 +911,96 @@ Error code: %2</translation>
     <message>
         <source>开普勒根数</source>
         <translation>Keplerian Elements</translation>
+    </message>
+</context>
+<context>
+    <name>UiNewObjectDialog</name>
+    <message>
+        <source>新建对象</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>创建</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>类型: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>搜索类型名或描述...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>描述: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>父类: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>（无描述）</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiNewObjectQuickDialog</name>
+    <message>
+        <source>新建对象</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>高级 &gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开完整类型列表</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>自动生成唯一名称</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>创建</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>创建失败</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>无法创建类型为 &quot;%1&quot; 的对象。</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称不能为空</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>请输入对象名称。</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>选择父对象...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>选择父对象</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1172,24 +1143,6 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
-    <name>UiResponseEditor</name>
-    <message>
-        <source>名称</source>
-        <translation>Name</translation>
-    </message>
-    <message>
-        <source>表达式</source>
-        <translation>Expression</translation>
-    </message>
-</context>
-<context>
-    <name>UiResponseList</name>
-    <message>
-        <source>+ 添加响应</source>
-        <translation>+ Add Response</translation>
-    </message>
-</context>
-<context>
     <name>UiResultView</name>
     <message>
         <source>运行 %1 / %2</source>
@@ -1202,13 +1155,6 @@ Error code: %2</translation>
     <message>
         <source>运行时间: %1 min</source>
         <translation>Elapsed: %1 min</translation>
-    </message>
-</context>
-<context>
-    <name>UiSegmentEditor</name>
-    <message>
-        <source>在任务树中选择一个段以编辑其属性</source>
-        <translation>Select a segment in the mission tree to edit its properties</translation>
     </message>
 </context>
 <context>
@@ -1584,6 +1530,81 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
+    <name>UiStudyConstraintEditor</name>
+    <message>
+        <source>名称</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>表达式</source>
+        <translation>Expression</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyConstraintList</name>
+    <message>
+        <source>+ 添加响应</source>
+        <translation>+ Add Response</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyVariableList</name>
+    <message>
+        <source>+ 添加变量</source>
+        <translation>+ Add Variable</translation>
+    </message>
+</context>
+<context>
+    <name>UiStudyWorkbench</name>
+    <message>
+        <source>输入变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>未关联任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiSweepStudy</name>
+    <message>
+        <source>扫描变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>约束条件</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>未关联任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UiTargeterSequence</name>
     <message>
         <source>重复次数</source>
@@ -1705,12 +1726,36 @@ Error code: %2</translation>
         <translation>Remove variable &quot;%1&quot;?</translation>
     </message>
     <message>
-        <source>编辑变量</source>
-        <translation>Edit Variable</translation>
+        <source>刷新变量列表</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>新建变量</source>
-        <translation>New Variable</translation>
+        <source>表达式错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量 &quot;%1&quot; 的表达式错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>表达式解析失败</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>值错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量 &quot;%1&quot; 的值错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量 &quot;%1&quot; 已被引用，不能删除</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

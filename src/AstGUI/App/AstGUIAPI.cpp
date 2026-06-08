@@ -26,13 +26,17 @@
 #include <QApplication>
 #include <QFontDatabase>
 #include <QStyleFactory>
+#include <QTranslator>
+#include <QDir>
+#include <QFile>
 #include <QDebug>
 
 AST_NAMESPACE_BEGIN
 
 bool aInitAppAttributes()
 {
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // 启用高DPI缩放
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);    // 启用高分辨率位图支持
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
     return true;
 }
@@ -42,9 +46,12 @@ static bool s_initAppAttributes = aInitAppAttributes();
 errc_t aGUIInit()
 {
     errc_t rc = 0;
-    int argc = 0;
-    char *argv[] = { nullptr };
-    rc = aQAppInit(argc, argv);
+    if(!qApp)
+    {
+        int argc = 0;
+        char *argv[] = { nullptr };
+        rc = aQAppInit(argc, argv);
+    }
     return rc;
 }
 
@@ -53,29 +60,51 @@ errc_t aQAppInit(int argc, char *argv[])
 {
     if (aCanDisplayGUI()) {
         QApplication* app = new QApplication(argc, argv);
-        // 加载自带的中文字体（桌面平台作为备选，WASM 平台必需）
-        #ifdef A_WASM
-        // wasm 不会存在data目录和exe目录分离的情况，所以直接使用相对路径
-        QString fontPath = QStringLiteral("data/fonts/NotoSansSC-Regular.ttf");
-        #else
-        // 其他平台需要通过aDataDir获取data目录路径，避免其他软件调用ast库时的路径错误
-        QString fontPath = QString::fromStdString(aDataDir()) + "/fonts/NotoSansSC-Regular.ttf";
-        #endif
-        int fontId = QFontDatabase::addApplicationFont(fontPath);
-        if (fontId != -1) {
-            QStringList families = QFontDatabase::applicationFontFamilies(fontId);
-            if (!families.isEmpty()) {
-                QApplication::setFont(QFont(families.first()));
-            }
-        }
-        else
         {
-            qDebug() << "Failed to load font from path:" << fontPath;
+            // 加载自带的中文字体（桌面平台作为备选，WASM 平台必需）
+            #ifdef A_WASM
+            // wasm 不会存在data目录和exe目录分离的情况，所以直接使用相对路径
+            QString fontPath = QStringLiteral("data/fonts/NotoSansSC-Regular.ttf");
+            #else
+            // 其他平台需要通过aDataDir获取data目录路径，避免其他软件调用ast库时的路径错误
+            QString fontPath = QString::fromStdString(aDataDir()) + "/fonts/NotoSansSC-Regular.ttf";
+            #endif
+            int fontId = QFontDatabase::addApplicationFont(fontPath);
+            if (fontId != -1) {
+                QStringList families = QFontDatabase::applicationFontFamilies(fontId);
+                if (!families.isEmpty()) {
+                    QApplication::setFont(QFont(families.first()));
+                }
+            }
+            else
+            {
+                qDebug() << "Failed to load font from path:" << fontPath;
+            }
         }
         (void)app;
     }else{
         QCoreApplication* app = new QCoreApplication(argc, argv);
         (void)app;
+    }
+    // 加载翻译文件
+    {
+        auto translator = new QTranslator(qApp);
+        QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
+        if (!translator->load(qmPath)) {
+            qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
+            translator->load(qmPath);
+        }
+        qApp->installTranslator(translator);
+    }
+    // 加载默认主题样式
+    {
+        QString qssPath = QCoreApplication::applicationDirPath() + "/data/style/default.qss";
+        QFile file(qssPath);
+        if (file.open(QFile::ReadOnly | QFile::Text))
+        {
+            qApp->setStyleSheet(QString::fromUtf8(file.readAll()));
+            file.close();
+        }
     }
     return 0;
 }

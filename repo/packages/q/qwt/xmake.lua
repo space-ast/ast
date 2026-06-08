@@ -15,6 +15,12 @@ package("qwt")
     add_deps("qt5base")
     add_includedirs("include/qwt", "include/qwt/plot", "include/qwt/plot3d", "include/qwt/classincludes")
 
+    on_load(function (package)
+        if package:config("shared") then
+            package:add("defines", "QWT_DLL")
+        end
+    end)
+
     on_install(function (package)
         package:addenv("PATH", "bin")
         local configs = {}

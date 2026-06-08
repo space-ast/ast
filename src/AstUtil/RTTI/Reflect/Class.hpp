@@ -57,6 +57,7 @@ public:
     /// @param obj 输入对象指针
     /// @return Object* 转换后的对象指针
     Object* cast(Object* obj) const;
+    const Object* cast(const Object* obj) const;
 
     /// @brief 检查类是否为虚类
     /// @return 是否为虚类
@@ -131,7 +132,11 @@ public:
         static_assert(std::is_same<decltype(&T::Resolve), FResolveClsSpec>::value, "T must have Resolve method with signature T* (StringView value)");
         setResolve(reinterpret_cast<FResolve>(&T::Resolve));
     }
-    
+public:
+    /// @brief 获取所有属性（含继承链）
+    /// @param out 输出属性指针向量
+    /// @param overwriteSameName 是否覆盖父类的同名属性
+    void getAllProperties(std::vector<Property*>& out, bool overwriteSameName = false) const;
 protected:
     Class* parent_{nullptr};                       ///< 父类
     FConstructor constructor_{nullptr};            ///< 构造函数

@@ -19,9 +19,19 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Command.hpp"
+#include "AstCore/Sequence.hpp"
 
 AST_NAMESPACE_BEGIN
 
+errc_t Command::removeFromParentSequence()
+{
+    auto parentSequence = getParent<Sequence*>();
+    if(parentSequence)
+    {
+        return parentSequence->removeCommand(this);
+    }
+    return eErrorNullPtr;
+}
 
 
 AST_NAMESPACE_END

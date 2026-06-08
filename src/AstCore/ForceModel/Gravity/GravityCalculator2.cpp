@@ -53,7 +53,7 @@ static void convertSphericalToCartesianGradient(
     // 计算球坐标
     // const double r = position.norm();
     // const double theta = std::atan2(position.y(), position.x());
-    // const double phi = acos(position.z() / r);
+    // const double phi = acosSafe(position.z() / r);
 
     const double rho2 = x * x + y * y;
     const double rho = std::sqrt(rho2);

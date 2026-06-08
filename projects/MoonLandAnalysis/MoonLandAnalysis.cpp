@@ -20,7 +20,7 @@
 
 #include "MoonLandAnalysis.hpp"
 #include "AstCore/HPOP.hpp"
-#include "AstAnalyzer/TraverseSearchAnalyzer.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 #include "AstCore/Command.hpp"
 #include "AstUtil/Literals.hpp"
 

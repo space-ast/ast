@@ -113,6 +113,9 @@ public:
     /// @return 错误码
     errc_t bind(Expr* expr);
 
+    /// @brief 是否与表达式双向绑定
+    /// @return 是否与表达式双向绑定
+    bool isBind() const { return bind_; }
     
     /// @brief 获取变量的表达式
     /// @param context 上下文对象

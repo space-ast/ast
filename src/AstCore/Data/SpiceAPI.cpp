@@ -122,8 +122,9 @@ struct SingletonGuard {
         singletonDestroyed = false;
     }
     ~SingletonGuard() {
-        singletonDestroyed = true;
         reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+        // 注意要在析构后再将标志位设置为 true，顺序不能弄反，否则会导致在没有析构时就再次构造单例，产生未定义行为
+        singletonDestroyed = true;
     }
 };
 }
@@ -140,8 +141,9 @@ SpiceAPI* SpiceAPI::Instance()
         atexit([]() {
             if(!singletonDestroyed)
             {
-                singletonDestroyed = true;
                 reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+                // 注意要在析构后再将标志位设置为 true，顺序不能弄反，否则会导致在没有析构时就再次构造单例，产生未定义行为
+                singletonDestroyed = true;
             }
         });
     }

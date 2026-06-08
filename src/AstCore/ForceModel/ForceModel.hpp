@@ -53,6 +53,8 @@ enum class EGMSource
 class AST_CORE_API ForceModel: public ObjectNamed
 {
 public:
+    AST_OBJECT(ForceModel)
+
     ForceModel() = default;
     virtual ~ForceModel() = default;
 

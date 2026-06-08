@@ -82,4 +82,11 @@ TEST(GUI, NoopMethods)
 }
 
 
-GTEST_MAIN()
+//GTEST_MAIN()
+int main(int argc, char **argv) {
+    if(aIsCI())
+        return 0;
+    printf("Running main() from %s\n", __FILE__); 
+    testing::InitGoogleTest(&argc, argv); 
+    return RUN_ALL_TESTS(); 
+}

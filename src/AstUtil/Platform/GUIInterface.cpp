@@ -71,5 +71,12 @@ Object *GUIInterface::selectObject(StringView typeName)
     return nullptr;
 }
 
+const char* GUIInterface::translate(const char* msgctxt, const char* msgid)
+{
+    return msgid;
+}
+
+
+
 AST_NAMESPACE_END
 

@@ -41,9 +41,12 @@ public:
     virtual ~OpUnary() = default;
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
+    EOpUnaryType op() const {return op_;}
+    SharedPtr<Expr> expr() const {return expr_;}
 protected:
-    EOpUnaryType   op_;                                    ///< 运算符
-    SharedPtr<Expr>         expr_;                                  ///< 操作数
+    EOpUnaryType   op_;                                   ///< 运算符
+    SharedPtr<Expr>         expr_;                        ///< 操作数
+private:
     mutable std::atomic<OpUnaryFunc> func_{nullptr};      ///< 运算符函数指针
     mutable std::atomic<Class*>  type_{nullptr};          ///< 运算数类型
     mutable std::mutex cache_mutex_;                      ///< 用于保护缓存成员的互斥锁

@@ -37,7 +37,8 @@ int main(int argc, char* argv[])
     layout->addLayout(buttonLayout);
     
     // 创建天体
-    CelestialBody* body = new CelestialBody("Earth");
+    auto* body = new CelestialBody();
+    body->setName("Earth");
     body->setJplSpiceId(399);
     uiCelestialBody->setCelestialBody(body);
     

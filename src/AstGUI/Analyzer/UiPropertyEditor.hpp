@@ -21,8 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstAnalyzer/AnalyzerVariable.hpp"
-#include "AstAnalyzer/AnalyzerConstraint.hpp"
+#include "AstAnalyzer/StudyVariable.hpp"
+#include "AstAnalyzer/StudyConstraint.hpp"
 #include <QWidget>
 #include <QStackedWidget>
 #include <QLineEdit>
@@ -41,10 +41,10 @@ public:
     explicit UiVariableEditor(QWidget* parent = nullptr);
 
     /// @brief 加载变量属性到编辑器
-    void loadVariable(AnalyzerVariable* variable);
+    void loadVariable(StudyVariable* variable);
 
     /// @brief 将编辑器的值写回变量
-    void applyToVariable(AnalyzerVariable* variable);
+    void applyToVariable(StudyVariable* variable);
 
 private:
     void setupUi();
@@ -58,17 +58,17 @@ private:
 };
 
 /// @brief 响应属性编辑器
-class AST_GUI_API UiResponseEditor : public QWidget
+class AST_GUI_API UiStudyConstraintEditor : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UiResponseEditor(QWidget* parent = nullptr);
+    explicit UiStudyConstraintEditor(QWidget* parent = nullptr);
 
     /// @brief 加载响应属性到编辑器
-    void loadResponse(AnalyzerConstraint* response);
+    void loadResponse(StudyConstraint* response);
 
     /// @brief 将编辑器的值写回响应
-    void applyToResponse(AnalyzerConstraint* response);
+    void applyToResponse(StudyConstraint* response);
 
 private:
     void setupUi();
@@ -86,10 +86,10 @@ public:
     explicit UiPropertyEditor(QWidget* parent = nullptr);
 
     /// @brief 切换到变量编辑模式
-    void editVariable(AnalyzerVariable* variable);
+    void editVariable(StudyVariable* variable);
 
     /// @brief 切换到响应编辑模式
-    void editResponse(AnalyzerConstraint* response);
+    void editResponse(StudyConstraint* response);
 
     /// @brief 清除当前编辑
     void clear();
@@ -100,10 +100,10 @@ public:
 private:
     QStackedWidget*  stack_;
     UiVariableEditor* variableEditor_;
-    UiResponseEditor* responseEditor_;
+    UiStudyConstraintEditor* responseEditor_;
 
-    AnalyzerVariable*   currentVariable_ = nullptr;
-    AnalyzerConstraint* currentResponse_ = nullptr;
+    StudyVariable*   currentVariable_ = nullptr;
+    StudyConstraint* currentResponse_ = nullptr;
 };
 
 AST_NAMESPACE_END

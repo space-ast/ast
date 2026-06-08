@@ -63,6 +63,13 @@ public:
     /// @param typeName 对象类型名
     /// @return Object* 选择的对象指针
     virtual Object* selectObject(StringView typeName);
+
+    /// @brief 翻译文本
+    /// @details ~
+    /// @param msgctxt 上下文
+    /// @param msgid 消息ID
+    /// @return const char* 翻译后的文本
+    virtual const char* translate(const char* msgctxt, const char* msgid);
 };
 
 

@@ -29,8 +29,19 @@ jobs:
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: ${{ matrix.os }}-${{ matrix.arch }}-coverage-v1
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v1
 
+      # Cache build directory
+      - name: 配置编译缓存
+        if: github.event.action != 'published' && github.ref != 'refs/heads/master'
+        uses: actions/cache@v4
+        with:
+          path: |
+            build
+            .xmake
+          key: coverage-${{ runner.os }}-${{ matrix.arch }}-build-${{ github.sha }}
+          restore-keys: |
+            coverage-${{ runner.os }}-${{ matrix.arch }}-build-
 
       - name: 设置xmake相关目录
         run: |
@@ -62,6 +73,7 @@ jobs:
           xmake cpdata
           xmake r testSpiceZpr
           xmake r testState
+          xmake r testGUI
           xmake test
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       

@@ -25,15 +25,30 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 旋转椭球体形状
+/// @brief 旋转椭球体/扁球体
 /// @details 有两个轴长度相同，且与旋转轴垂直。
-class SpheroidShape : public BodyShape
+class AST_CORE_API SpheroidShape final : public BodyShape
 {
 public:
+    AST_OBJECT(SpheroidShape)
+    AST_PROPERT(majorAxis)
+    AST_PROPERT(flatfactor)
+    static SpheroidShape* NewFromMajorAxisFlatFactor(double majorAxis, double flatFactor);
+    static SpheroidShape* NewFromMajorMinorAxis(double majorAxis, double minorAxis);
     
+    SpheroidShape() = default;
+    SpheroidShape(double majorAxis, double flatFactor);
+    using BodyShape::transform;
+
+    void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
+
+    void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
+public:
+    length_d majorAxis() const { return majorAxis_; }
+    double flatfactor() const { return flatfactor_; }
 PROPERTIES:
-    length_d    majorAxis_;  ///< 长轴长度
-    double      flatfactor_; ///< 扁率因子
+    length_d    majorAxis_{};  ///< 长轴长度
+    double      flatfactor_{}; ///< 扁率因子
 };
 
 AST_NAMESPACE_END

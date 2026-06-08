@@ -10,9 +10,9 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
@@ -20,13 +20,12 @@
 
 #include "UiMissionTree.hpp"
 #include "MissionIcons.hpp"
-#include "AstCore/Sequence.hpp"
+#include "AstCore/MainSequence.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/Maneuver.hpp"
 #include "AstCore/Propagate.hpp"
 #include "AstCore/Segment.hpp"
 #include "AstCore/TargeterSequence.hpp"
-#include "AstCore/MissionModerator.hpp"
 #include <QDropEvent>
 #include <QMenu>
 #include <QAction>
@@ -43,7 +42,7 @@ public:
     /// @brief 子 Segment 的 SharedPtr (来自父 Sequence::commands_)
     HMissionCommand command;
 
-    /// @brief 根 Sequence 的裸指针 (MissionModerator 持有，不能 SharedPtr)
+    /// @brief 根 Sequence 的裸指针 (MainSequence 持有，不能 SharedPtr)
     MissionCommand* rootPtr = nullptr;
 
     explicit MissionTreeItem() : QTreeWidgetItem(QTreeWidgetItem::UserType) {}
@@ -87,31 +86,29 @@ UiMissionTree::UiMissionTree(QWidget* parent)
 // 公共接口
 // ============================================================================
 
-void UiMissionTree::setModerator(MissionModerator* moderator)
+void UiMissionTree::setSequence(MainSequence* sequence)
 {
-    moderator_ = moderator;
+    sequence_ = sequence;
     clear();
 
-    if (!moderator)
+    if (!sequence)
         return;
 
-    auto& seq = moderator->getSequence();
-
-    // 根 Sequence 由 MissionModerator 持有，树节点存裸指针
+    // MainSequence 自身就是根 Sequence，树节点存裸指针
     auto* rootItem = new MissionTreeItem();
-    rootItem->rootPtr = &seq;
-    updateItemDisplay(rootItem, &seq);
+    rootItem->rootPtr = sequence;
+    updateItemDisplay(rootItem, sequence);
     invisibleRootItem()->addChild(rootItem);
 
     // 递归构建子节点 (子节点的 SharedPtr 由 Sequence::commands_ 持有，树节点复制一份)
-    for (auto& childCmd : seq.getCommands())
+    for (auto& childCmd : sequence->getCommands())
     {
         buildTreeItem(childCmd, rootItem);
     }
 
     expandItem(rootItem);
 
-    emit segmentSelected(&seq);
+    emit segmentSelected(sequence);
 }
 
 MissionCommand* UiMissionTree::selectedCommand() const
@@ -180,7 +177,7 @@ void UiMissionTree::contextMenuEvent(QContextMenuEvent* event)
     if (!chosen)
         return;
 
-    // TODO: 通过发射信号让 UiMissionPanel 处理段创建
+    // TODO: 通过发射信号让 UiMainSequence 处理段创建
     // 当前仅处理删除
     if (chosen == delAction && delAction->isEnabled())
     {

@@ -21,9 +21,40 @@
 #include "UiObjectTreeItem.hpp"
 #include "AstUtil/ObjectManager.hpp"
 #include <QStyleFactory>
+#include <set>
 #include <unordered_map>
 
 AST_NAMESPACE_BEGIN
+
+namespace {
+
+/// 递归收集已折叠节点的对象指针
+void saveCollapsedState(QTreeWidgetItem* item, std::set<Object*>& collapsed)
+{
+    auto* treeItem = static_cast<UiObjectTreeItem*>(item);
+    if (auto* obj = treeItem->object())
+    {
+        if (!item->isExpanded())
+            collapsed.insert(obj);
+    }
+    for (int i = 0; i < item->childCount(); ++i)
+        saveCollapsedState(item->child(i), collapsed);
+}
+
+/// 递归恢复节点的折叠状态
+void restoreCollapsedState(QTreeWidgetItem* item, const std::set<Object*>& collapsed)
+{
+    auto* treeItem = static_cast<UiObjectTreeItem*>(item);
+    if (auto* obj = treeItem->object())
+    {
+        if (collapsed.count(obj))
+            item->setExpanded(false);
+    }
+    for (int i = 0; i < item->childCount(); ++i)
+        restoreCollapsedState(item->child(i), collapsed);
+}
+
+} // namespace
 
 UiObjectTree::UiObjectTree(QWidget* parent)
     : QTreeWidget(parent)
@@ -39,6 +70,15 @@ UiObjectTree::UiObjectTree(QWidget* parent)
             : nullptr;
         emit objectSelected(obj);
     });
+
+    // 双击对象树节点时发出信号，由外部决定如何打开编辑界面
+    connect(this, &QTreeWidget::itemDoubleClicked,
+            this, [this](QTreeWidgetItem* item, int)
+    {
+        if (auto* obj = static_cast<UiObjectTreeItem*>(item)->object())
+            emit objectDoubleClicked(obj);
+    });
+
     // 显示节点间连线虚线和伸缩 +- 号
     this->setStyle(QStyleFactory::create("windows"));
 }
@@ -60,14 +100,33 @@ void UiObjectTree::setRootItem(UiObjectTreeItem* item)
     rootItem_ = item;
 }
 
+void UiObjectTree::setRootObject(Object* object)
+{
+    if (object)
+        setRootItem(new UiObjectTreeItem(object));
+    else
+        setRootItem(nullptr);
+}
+
+
 UiObjectTreeItem* UiObjectTree::rootItem() const
 {
     return rootItem_;
 }
 
+Object* UiObjectTree::rootObject() const
+{
+    return rootItem_ ? rootItem_->object() : nullptr;
+}
+
 void UiObjectTree::setRootVisible(bool visible)
 {
     rootVisible_ = visible;
+}
+
+void UiObjectTree::setShowComponents(bool show)
+{
+    buildOptions_.showComponents = show;
 }
 
 bool UiObjectTree::isRootVisible() const
@@ -78,6 +137,11 @@ bool UiObjectTree::isRootVisible() const
 /// 有根节点时从该节点出发递归构建子树，否则展示 ObjectManager 中全部对象
 void UiObjectTree::refresh()
 {
+    // 保存当前折叠状态，以便刷新后恢复
+    std::set<Object*> collapsedObjects;
+    for (int i = 0; i < invisibleRootItem()->childCount(); ++i)
+        saveCollapsedState(invisibleRootItem()->child(i), collapsedObjects);
+
     clear();
 
     if (rootItem_)
@@ -94,14 +158,14 @@ void UiObjectTree::refresh()
         {
             auto* item = rootItem_->clone();
             invisibleRootItem()->addChild(item);
-            item->buildChildren();
+            item->buildChildren(buildOptions_);
         }
         else
         {
-            for (auto* child : rootItem_->createChildItems())
+            for (auto* child : rootItem_->createChildItems(buildOptions_))
             {
                 invisibleRootItem()->addChild(child);
-                child->buildChildren();
+                child->buildChildren(buildOptions_);
             }
         }
     }
@@ -116,11 +180,15 @@ void UiObjectTree::refresh()
                 continue;
             auto* item = new UiObjectTreeItem(obj);
             invisibleRootItem()->addChild(item);
-            item->buildChildren();
+            item->buildChildren(buildOptions_);
         }
     }
 
     expandAll();
+
+    // 恢复之前被用户折叠的节点
+    for (int i = 0; i < invisibleRootItem()->childCount(); ++i)
+        restoreCollapsedState(invisibleRootItem()->child(i), collapsedObjects);
 }
 
 Object* UiObjectTree::selectedObject() const

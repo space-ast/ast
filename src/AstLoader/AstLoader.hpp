@@ -16,6 +16,7 @@
 #include "AstLoader/FacilityLoader.hpp"
 #include "AstLoader/FigureOfMeritLoader.hpp"
 #include "AstLoader/ForceModelLoader.hpp"
+#include "AstLoader/GMATScriptParser.hpp"
 #include "AstLoader/InitialStateLoader.hpp"
 #include "AstLoader/LineTargetLoader.hpp"
 #include "AstLoader/MTOLoader.hpp"

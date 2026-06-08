@@ -121,6 +121,7 @@ add_requires("opengl", {optional = true})                                       
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
+add_requires("agg", {optional = true, configs = {shared = true}})               -- 可选的agg库，用于绘图
 add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
 add_requires("qwt", {optional = true, 
     configs = {shared = true, debug = is_mode("debug")}})                       -- 可选的Qwtplot库，用于Qt绘图，共享库版本
@@ -169,6 +170,11 @@ else
     add_defines("AST_NO_CSPICE")
 end
 
+
+if has_package("agg") then
+    add_defines("AST_WITH_AGG")
+    add_packages("agg")
+end
 
 -- 添加matplot++库依赖（可选）
 if has_package("matplotplusplus") then

@@ -53,7 +53,7 @@ errc_t aLoadEventDetector(const Value& value, DetectorUserSelect& detector)
         Object* scope = &detector;
         SharedPtr<ObjectCalculation> result;
         aLoadResult(calcObject, result, scope);
-        detector.setCalculation(aobject_cast<ScStateCalculation*>(result));
+        detector.setCalculation(aobject_cast<ScStateCalculation*>(result.get()));
     }
     return 0;
 }

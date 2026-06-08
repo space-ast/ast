@@ -26,12 +26,20 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 球体形状
-class SphereShape : public BodyShape
+class AST_CORE_API SphereShape final: public BodyShape
 {
 public:
-  
+    AST_OBJECT(SphereShape)
+    AST_PROPERT(radius)
+    SphereShape() = default;
+    SphereShape(double radius);
+
+    void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
+
+    void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
+
 PROPERTIES:
-    length_d radius_; ///< 半径长度
+    length_d radius_{}; ///< 半径长度
 };
 
 AST_NAMESPACE_END

@@ -350,3 +350,15 @@
     Class(const Class&) = delete; \
     Class& operator=(const Class&) = delete;
     
+
+/// 为枚举类型定义位操作符
+#define A_ENUM_CLASS_FLAGS(Enum) \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator|=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs | (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator&=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs & (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator^=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs ^ (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator| (Enum  Lhs, Enum Rhs) { return (Enum)((__underlying_type(Enum))Lhs | (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator& (Enum  Lhs, Enum Rhs) { return (Enum)((__underlying_type(Enum))Lhs & (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator^ (Enum  Lhs, Enum Rhs) { return (Enum)((__underlying_type(Enum))Lhs ^ (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 bool  operator! (Enum  E)             { return !(__underlying_type(Enum))E; } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator~ (Enum  E)             { return (Enum)~(__underlying_type(Enum))E; }
+    

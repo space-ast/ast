@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "BuiltinAxes.hpp"
-#include "AstCore/FrameTransform.hpp"
+#include "AstCore/Coordinate.hpp"
 #include "AstCore/BuiltinAxesRegistry.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstMath/Rotation.hpp"

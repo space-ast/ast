@@ -19,6 +19,7 @@
 
 #include "UiObjectTreeItem.hpp"
 #include "AstGUI/ObjectIcons.hpp"
+#include "AstGUI/UiCommon.hpp"
 #include "AstUtil/ObjectManager.hpp"
 #include "AstUtil/ObjectNode.hpp"
 
@@ -32,23 +33,23 @@ UiObjectTreeItem::UiObjectTreeItem(Object* obj)
     : UiObjectTreeItem()
 {
     object_ = obj;
-    configure(obj, QObject::tr("<无名称>"));
+    configure(obj);
 }
 
-void UiObjectTreeItem::buildChildren()
+void UiObjectTreeItem::buildChildren(const TreeBuildOptions& options)
 {
     // 清除已有的子节点
     while (childCount() > 0)
         delete takeChild(0);
-    for (auto* childItem : createChildItems())
+    for (auto* childItem : createChildItems(options))
     {
         addChild(childItem);
         // 递归构建子节点
-        childItem->buildChildren();
+        childItem->buildChildren(options);
     }
 }
 
-QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems() const
+QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems(const TreeBuildOptions& options) const
 {
     auto* obj = object_.get();
     if (!obj)
@@ -57,12 +58,16 @@ QList<UiObjectTreeItem*> UiObjectTreeItem::createChildItems() const
     auto* node = ObjectManager::CurrentInstance().getObjectNode(obj);
     if (!node)
         return {};
-    
+
     QList<UiObjectTreeItem*> items;
     for (auto* childNode : node->getChildren())
     {
         if (auto* childObj = childNode->getObject())
+        {
+            if (!options.showComponents && childObj->isComponent())
+                continue;
             items.append(new UiObjectTreeItem(childObj));
+        }
     }
     return items;
 }
@@ -72,17 +77,15 @@ UiObjectTreeItem* UiObjectTreeItem::clone() const
     return new UiObjectTreeItem(*this);
 }
 
-void UiObjectTreeItem::configure(Object* obj, const QString& emptyNameText)
+void UiObjectTreeItem::configure(Object* obj)
 {
     object_ = obj;
-    std::string name;
     std::string typeName;
     if (obj)
     {
-        name = obj->getName();
         typeName = obj->typeName();
     }
-    setText(0, name.empty() ? emptyNameText : QString::fromStdString(name));
+    setText(0, aUiObjectDisplayName(obj));
     setToolTip(0, QString::fromStdString(typeName));
     setIcon(0, objectIcon(obj));
 }

@@ -65,7 +65,7 @@ ExprCurrentScStateCalculation::ExprCurrentScStateCalculation(ScStateCalculation*
 
 void ExprCurrentScStateCalculation::accept(ExprVisitor& visitor)
 {
-    visitor.visit(*this);
+    visitor.visitExpr(*this);
 }
 
 Value* ExprCurrentScStateCalculation::eval() const

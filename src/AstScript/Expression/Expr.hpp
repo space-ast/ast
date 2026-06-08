@@ -51,11 +51,8 @@ public:
     /// @return Value* 求值结果
     virtual Value* eval() const = 0;
 
-    /// @brief 执行
-    /// @details 这个方法可能用于脚本的解析期
-    /// @return Expr* 执行结果
-    virtual Expr* exec() const {return const_cast<Expr*>(this);};
-    
+    Expr* expand() const;
+
     /// @brief 设置表达式的值
     virtual errc_t setValue(Value* val) {return eErrorReadonly;};
 

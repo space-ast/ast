@@ -19,6 +19,9 @@ void CelestialBody::ClassInit(Class* cls)
     cls->setConstructor<CelestialBody>();
     cls->setResolve<CelestialBody>();
 
+    cls->addProperty("Shape", aNewPropertyObject<CelestialBody, BodyShape, &CelestialBody::shape>());
+    cls->addProperty("Ephemeris", aNewPropertyObject<CelestialBody, BodyEphemeris, &CelestialBody::ephemeris>());
+    cls->addProperty("Orientation", aNewPropertyObject<CelestialBody, BodyOrientation, &CelestialBody::orientation>());
 }
 
 AST_NAMESPACE_END

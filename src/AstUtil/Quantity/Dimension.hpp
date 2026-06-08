@@ -284,7 +284,8 @@ namespace dimensions
     constexpr dimension_t kPressure           = dim_divide(kForce, kArea);  
     constexpr dimension_t kEnergy             = dim_product(kForce, kLength);       
     constexpr dimension_t kPower              = dim_divide(kEnergy, kTime);       
-    constexpr dimension_t kFrequency          = dim_divide(kUnit, kTime);         
+    constexpr dimension_t kFrequency          = dim_divide(kUnit, kTime);
+    constexpr dimension_t kDensity            = dim_divide(kMass, kVolume);
 };
 
 /// @brief 量纲枚举类
@@ -319,6 +320,7 @@ typedef enum class EDimension : dimension_t
     eEnergy             = dimensions::kEnergy,               ///< 能量   M·L^2·T^-2
     ePower              = dimensions::kPower,                ///< 功率   M·L^2·T^-3
     eFrequency          = dimensions::kFrequency,            ///< 频率   T^-1
+    eDensity            = dimensions::kDensity,              ///< 密度   M·L^-3
 
 } AEDimension;
 
@@ -400,6 +402,8 @@ public:
     static constexpr Dimension Frequency() noexcept { return Dimension(EDimension::eFrequency); }
     /// @brief 获取力量纲
     static constexpr Dimension Force() noexcept{ return Dimension(EDimension::eForce); }
+    /// @brief 获取密度量纲
+    static constexpr Dimension Density() noexcept{ return Dimension(EDimension::eDensity); }
 public:
     /// @brief 获取量纲的名称
     std::string name() const { return aDimName(value()); }

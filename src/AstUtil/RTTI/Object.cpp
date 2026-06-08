@@ -28,6 +28,7 @@
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ObjectLinker.hpp"
+#include "AstUtil/I18n.hpp"            
 
 AST_NAMESPACE_BEGIN
  
@@ -67,6 +68,13 @@ std::string Object::getRepresentation() const
 const std::string &Object::getName() const
 {
     return empty;
+}
+
+std::string Object::displayName() const
+{
+    if(readOnly())
+        return tr(getName().c_str());
+    return getName();
 }
 
 errc_t Object::showEditDialog()
@@ -257,6 +265,45 @@ bool Object::isOfType(StringView typeName) const
         t = t->getParent();
     }
     return false;
+}
+
+
+void Object::setReadOnly(bool readOnly)
+{
+    if(readOnly)
+        flags_ |= EObjectFlags::eReadOnly;
+    else
+        flags_ &= ~EObjectFlags::eReadOnly;
+}
+
+void Object::setActive(bool active)
+{
+    if(active)
+        flags_ &= ~EObjectFlags::eInActive;
+    else
+        flags_ |= EObjectFlags::eInActive;
+}
+
+void Object::setIsComponent(bool isComponent)
+{
+    if(isComponent)
+        flags_ |= EObjectFlags::eComponent;
+    else
+        flags_ &= ~EObjectFlags::eComponent;
+}
+
+void Object::setIsEntity(bool isEntity)
+{
+    if(isEntity)
+        flags_ |= EObjectFlags::eEntity;
+    else
+        flags_ &= ~EObjectFlags::eEntity;
+}
+
+
+const char* Object::tr(const char* msg) const
+{
+    return aTranslate(getType()->name().c_str(), msg);
 }
 
 Object::~Object()

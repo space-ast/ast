@@ -65,9 +65,10 @@ enum class EGeoMagFluxUpdateRate
 };
 
 /// @brief 大气阻力模型
-class DragForce : public ForceModel
+class AST_CORE_API DragForce : public ForceModel
 {
 public:
+    AST_OBJECT(DragForce)
     DragForce() = default;
     ~DragForce() = default;
 

@@ -10,13 +10,13 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiAnalyzerPanel.hpp"
-#include "UiAnalyzerVariableList.hpp"
-#include "UiResponseList.hpp"
+#include "UiStudyVariableList.hpp"
+#include "UiStudyConstraintList.hpp"
 #include "UiPropertyEditor.hpp"
 #include "UiResultView.hpp"
-#include "AstAnalyzer/TraverseSearchAnalyzer.hpp"
-#include "AstAnalyzer/AnalyzerVariable.hpp"
-#include "AstAnalyzer/AnalyzerConstraint.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
+#include "AstAnalyzer/StudyVariable.hpp"
+#include "AstAnalyzer/StudyConstraint.hpp"
 #include "AstCore/Command.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 
@@ -53,10 +53,10 @@ void UiAnalyzerPanel::setupUi()
     // 左侧垂直分割器: 变量列表 + 响应列表
     leftSplitter_ = new QSplitter(Qt::Vertical, this);
 
-    variableList_ = new UiAnalyzerVariableList(this);
+    variableList_ = new UiStudyVariableList(this);
     leftSplitter_->addWidget(variableList_);
 
-    responseList_ = new UiResponseList(this);
+    responseList_ = new UiStudyConstraintList(this);
     leftSplitter_->addWidget(responseList_);
 
     leftSplitter_->setStretchFactor(0, 1);
@@ -101,14 +101,14 @@ void UiAnalyzerPanel::setupConnections()
     connect(stopAction_, &QAction::triggered,
             this, &UiAnalyzerPanel::onStopClicked);
 
-    connect(variableList_, &UiAnalyzerVariableList::variableSelected,
+    connect(variableList_, &UiStudyVariableList::variableSelected,
             this, &UiAnalyzerPanel::onVariableSelected);
-    connect(variableList_, &UiAnalyzerVariableList::addVariableRequested,
+    connect(variableList_, &UiStudyVariableList::addVariableRequested,
             this, &UiAnalyzerPanel::onAddVariable);
 
-    connect(responseList_, &UiResponseList::responseSelected,
+    connect(responseList_, &UiStudyConstraintList::responseSelected,
             this, &UiAnalyzerPanel::onResponseSelected);
-    connect(responseList_, &UiResponseList::addResponseRequested,
+    connect(responseList_, &UiStudyConstraintList::addResponseRequested,
             this, &UiAnalyzerPanel::onAddResponse);
 
     connect(this, &UiAnalyzerPanel::runCompleted,
@@ -125,12 +125,12 @@ void UiAnalyzerPanel::setSimulationCommand(Command* command)
 {
     if (!analyzer_)
     {
-        analyzer_ = aNewObject<TraverseSearchAnalyzer>();
+        analyzer_ = aNewObject<SweepStudy>();
     }
     // TODO: analyzer_->setSimulationCommand(command);
 }
 
-TraverseSearchAnalyzer* UiAnalyzerPanel::analyzer() const
+SweepStudy* UiAnalyzerPanel::analyzer() const
 {
     return analyzer_;
 }
@@ -195,9 +195,9 @@ void UiAnalyzerPanel::onStopClicked()
 void UiAnalyzerPanel::onAddVariable()
 {
     if (!analyzer_)
-        analyzer_ = aNewObject<TraverseSearchAnalyzer>();
+        analyzer_ = aNewObject<SweepStudy>();
 
-    auto* variable = aNewObject<AnalyzerVariable>();
+    auto* variable = aNewObject<StudyVariable>();
     variable->setName("Variable");
     // TODO: analyzer_->addVariable(variable);
 
@@ -209,9 +209,9 @@ void UiAnalyzerPanel::onAddVariable()
 void UiAnalyzerPanel::onAddResponse()
 {
     if (!analyzer_)
-        analyzer_ = aNewObject<TraverseSearchAnalyzer>();
+        analyzer_ = aNewObject<SweepStudy>();
 
-    auto* response = aNewObject<AnalyzerConstraint>();
+    auto* response = aNewObject<StudyConstraint>();
     response->setName("Response");
     // TODO: analyzer_->addConstraint(response);
 
@@ -220,7 +220,7 @@ void UiAnalyzerPanel::onAddResponse()
     propertyEditor_->editResponse(response);
 }
 
-void UiAnalyzerPanel::onVariableSelected(AnalyzerVariable* variable)
+void UiAnalyzerPanel::onVariableSelected(StudyVariable* variable)
 {
     if (variable)
         propertyEditor_->editVariable(variable);
@@ -228,7 +228,7 @@ void UiAnalyzerPanel::onVariableSelected(AnalyzerVariable* variable)
         propertyEditor_->clear();
 }
 
-void UiAnalyzerPanel::onResponseSelected(AnalyzerConstraint* response)
+void UiAnalyzerPanel::onResponseSelected(StudyConstraint* response)
 {
     if (response)
         propertyEditor_->editResponse(response);

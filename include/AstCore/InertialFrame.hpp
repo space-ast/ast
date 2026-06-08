@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Coordinate/InertialFrame.hpp"
+#include "../../src/AstCore/Coordinate/FrameTransform/InertialFrame.hpp"

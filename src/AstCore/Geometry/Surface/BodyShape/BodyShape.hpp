@@ -22,15 +22,58 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
+#include "AstCore/GeodeticPoint.hpp"
+#include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /// @brief 天体形状基类
-class BodyShape : public Object
+class AST_CORE_API BodyShape : public ObjectNamed
 {
 public:
+    AST_OBJECT(BodyShape)
 
+    BodyShape();
+
+    /// @brief 将笛卡尔坐标（天体固连系）转换为大地坐标
+    /// @param cartesian 笛卡尔坐标（天体固连系）
+    /// @param detic 大地坐标
+    virtual void transform(const Vector3d& cartesian, GeodeticPoint& detic) const = 0;
+
+    /// @brief 将大地坐标转换为笛卡尔坐标（天体固连系）
+    /// @param detic 大地坐标
+    /// @param cartesian 笛卡尔坐标（天体固连系）
+    virtual void transform(const GeodeticPoint& detic, Vector3d& cartesian) const = 0;
+
+    /// @brief 将笛卡尔坐标（天体固连系）转换为大地坐标
+    /// @param cartesian 笛卡尔坐标（天体固连系）
+    /// @return 大地坐标
+    A_ALWAYS_INLINE GeodeticPoint transform(const Vector3d& cartesian) const
+    {
+        GeodeticPoint detic;
+        this->transform(cartesian, detic);
+        return detic;
+    }
+
+    /// @brief 将大地坐标转换为笛卡尔坐标（天体固连系）
+    /// @param detic 大地坐标
+    /// @return 笛卡尔坐标（天体固连系）
+    A_ALWAYS_INLINE Vector3d transform(const GeodeticPoint& point) const
+    {
+        Vector3d cartesian;
+        this->transform(point, cartesian);
+        return cartesian;
+    }
 };
+
+
+/// @brief 获取WGS84椭球体形状
+AST_CORE_CAPI BodyShape* aWGS84Spheroid();
+ 
+/// @brief 获取CGCS2000椭球体形状
+AST_CORE_CAPI BodyShape* aCGCS2000Spheroid();
+
 
 
 AST_NAMESPACE_END

@@ -34,12 +34,13 @@ AST_NAMESPACE_BEGIN
 class GUIInterfaceImpl : public GUIInterface
 {
 public:
-    GUIInterfaceImpl() = default;
+    GUIInterfaceImpl();
     ~GUIInterfaceImpl() override = default;
     static GUIInterfaceImpl* Instance();
 
     errc_t editObject(Object* object) override;
     Object* selectObject(StringView typeName) override;
+    const char* translate(const char* msgctxt, const char* msgid) override;
 };
 
 

@@ -24,6 +24,7 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/ReflectAPI.hpp"
+#include <type_traits>  // for std::decay, std::remove_pointer, std::remove_reference
 #include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
 #include <assert.h>     // for assert
@@ -52,7 +53,7 @@ class WeakPtr;
 template<typename ObjectPtrType, typename PropertyType>
 class AttributeBasic;
 
-typedef AttributeBasic<WeakPtr<Object>, Property> Attribute;
+typedef AttributeBasic<Object, Property> Attribute;
 
 // AST 对象运行时元信息
 #define AST_OBJECT(TYPE) \
@@ -79,6 +80,18 @@ enum {
 struct initial_strong_ref_t {};                      ///< 初始化强引用计数的标记
 constexpr initial_strong_ref_t initial_strong_ref{}; ///< 初始化强引用计数的标记值
 
+/// @brief 对象标志位
+enum class EObjectFlags: uint32_t
+{
+    eNone = 0,              ///< 无标志位
+    eReadOnly = 0x01,       ///< 只读
+    eInActive = 0x02,       ///< 不活跃
+    eComponent = 0x04,      ///< 组件对象(和eEntity互斥)
+    eEntity = 0x08,         ///< 实体对象(和eComponent互斥)
+};
+
+
+A_ENUM_CLASS_FLAGS(EObjectFlags)
 
 /// @brief 对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能
 /// @details 参考了Qt的QObject类、UE的UObject类、以及Python的PyObject等类的设计和实现
@@ -131,6 +144,9 @@ public:
 
     /// @brief 获取对象的名称
     const std::string& name() const {return this->getName();}
+
+    /// @brief 获取对象的显示名称
+    std::string displayName() const;
 public: // 编辑属性
     
     /// @brief 显示编辑对话框，用于编辑对象的属性
@@ -259,6 +275,9 @@ public: // 对象ID
     /// @return Object* 父作用域指针
     Object* getParentScope() const;
 
+    template<typename T>
+    T getParent() const;
+
     /// @brief 判断对象是否为指定类型的实例
     /// @param type 类型元信息
     /// @return bool 是否为指定类型的实例
@@ -366,7 +385,21 @@ public: // 延迟链接
     /// @warning 必须include ObjectLinker.hpp
     /// @see ObjectLinker.hpp
     void resolveLinks();
+public:  // 对象标志位
+    bool readOnly() const {return !!(flags_ & EObjectFlags::eReadOnly);}
+    void setReadOnly(bool readOnly);
 
+    bool active() const {return !(flags_ & EObjectFlags::eInActive);}
+    void setActive(bool active);
+    
+    bool isComponent() const {return !!(flags_ & EObjectFlags::eComponent);}
+    void setIsComponent(bool isComponent);
+
+    bool isEntity() const {return !!(flags_ & EObjectFlags::eEntity);}
+    void setIsEntity(bool isEntity);
+    
+public: // 国际化
+    const char* tr(const char* msg) const;
 protected:
     friend class ObjectManager;
     virtual ~Object();
@@ -419,7 +452,7 @@ private:
     std::atomic<uint32_t>    refcnt_{0};                                ///< 强引用计数，给SharedPtr使用（是否考虑废弃共享引用计数，全面采用父子对象进行内存管理？）
     std::atomic<uint32_t>    weakrefcnt_{1};                            ///< 弱引用计数，给WeakPtr使用
     uint32_t                 index_{static_cast<uint32_t>(INVALID_ID)}; ///< 对象索引，用于唯一标识对象
-    // uint32_t                 flags_{0};                                 ///< 对象标志位，用于存储对象的额外信息
+    EObjectFlags             flags_{};                                  ///< 对象标志位，用于存储对象的额外信息
 };
 
 // 定义：检测 T 是否拥有 “Class* (T::*)() const” 签名的成员函数 getType
@@ -446,13 +479,20 @@ public:
 };
 
 
-template<typename T>
-T aobject_cast(Object* obj)
+template<typename T, typename U>
+A_ALWAYS_INLINE T aobject_cast(U* obj)
 {
-    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
-    static_assert(has_own_getType<ObjectType>::value, "aobject_cast requires the type to has a AST_OBJECT macro");
+    // obj 可以是 Object* 或 const Object*
+    using ObjectType = typename std::decay<
+        typename std::remove_pointer<
+            typename std::remove_pointer<T>::type
+        >::type
+    >::type;
+    static_assert(has_own_getType<ObjectType>::value,
+                  "aobject_cast requires the type to has a AST_OBJECT macro");
     return static_cast<T>(ObjectType::StaticType()->cast(obj));
 }
+
 
 template<typename T>
 bool Object::isOfType() const
@@ -461,6 +501,13 @@ bool Object::isOfType() const
     static_assert(has_own_getType<ObjectType>::value, "isOfType requires the type to has a AST_OBJECT macro");
     return isOfType(ObjectType::StaticType());
 }
+
+template<typename T>
+T Object::getParent() const
+{
+    return aobject_cast<T>(getParentScope());
+}
+
 
 /*! @} */
 
