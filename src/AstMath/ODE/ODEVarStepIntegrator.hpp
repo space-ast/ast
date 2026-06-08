@@ -95,8 +95,8 @@ public:
     bool getUseMaxStep() const{return useMaxStep_;};
 
     /// @brief 设置是否使用固定步长
-    // void setUseFixedStep(bool useFixedStep){useFixedStep_ = useFixedStep;};
-    // bool getUseFixedStep() const{return useFixedStep_;};
+    void setUseFixedStep(bool useFixedStep){useFixedStep_ = useFixedStep;};
+    bool getUseFixedStep() const{return useFixedStep_;};
 
     /// @brief 设置初始步长
     void setInitialStepSize(double initialStepSize){setStepSize(initialStepSize);};
@@ -118,7 +118,7 @@ protected:
 PROPERTIES:
     bool useMinStep_;           ///< 是否使用最小步长
     bool useMaxStep_;           ///< 是否使用最大步长
-    // bool useFixedStepSize_;     ///< 是否使用固定步长
+    bool useFixedStep_;         ///< 是否使用固定步长
     bool warnOnMinStep_;        ///< 是否警告最小步长
     int  maxStepAttempts_;      ///< 自适应步长尝试次数
     double minStepSize_;        ///< 最小步长

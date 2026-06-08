@@ -12,7 +12,7 @@ static bool LandingSiteCalcSunElevation_ClassInited = (LandingSiteCalcSunElevati
 void LandingSiteCalcSunElevation::ClassInit(Class* cls)
 {
 
-    cls->setName("LandingSiteCalcSunElevation");
+    cls->setName(NC_("Class", "LandingSiteCalcSunElevation"));
     cls->setDesc(u8R"(计算着陆点太阳高度角)");
     cls->addToRegistry();
     cls->setParent<LandingSiteCalculation>();

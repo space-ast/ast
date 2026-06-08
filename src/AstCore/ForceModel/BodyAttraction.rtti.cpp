@@ -12,7 +12,7 @@ static bool BodyAttraction_ClassInited = (BodyAttraction::ClassInit(&BodyAttract
 void BodyAttraction::ClassInit(Class* cls)
 {
 
-    cls->setName("BodyAttraction");
+    cls->setName(NC_("Class", "BodyAttraction"));
     cls->setDesc(u8R"(天体引力模型)");
     cls->addToRegistry();
     cls->setParent<ForceModel>();

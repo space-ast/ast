@@ -12,7 +12,7 @@ end
 
 target("AstConfig")
     set_kind("phony")
-    add_files("**.cpp|AstGUI/**")
+    add_files("**.cpp|AstGUI/**|AstChart/**")
     add_rules("ast.qt.ts")
     add_files("*.ts")
     add_rules("c++.unity_build", {batchsize=0})

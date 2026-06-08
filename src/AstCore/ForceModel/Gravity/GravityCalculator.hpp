@@ -35,8 +35,12 @@ class GravityCalculator1;
 class GravityCalculator2;
 class GravityCalculator3;
 
-//#define _AST_ENABLE_GRAVITY_CALCULATOR_1
-using GravityCalculatorDefault = GravityCalculator3;
+#ifdef _AST_USE_GRAVITY_CALCULATOR_1
+    #define _AST_ENABLE_GRAVITY_CALCULATOR_1
+    using GravityCalculatorDefault = GravityCalculator1;
+#else
+    using GravityCalculatorDefault = GravityCalculator3;
+#endif
 
 /// @brief 重力加速度计算类
 class AST_CORE_API GravityCalculator
@@ -105,6 +109,7 @@ protected:
 class AST_CORE_API GravityCalculator1: public GravityCalculator
 {
 public:
+    GravityCalculator1();
     GravityCalculator1(const GravityField &gravityField, int degree, int order);
     ~GravityCalculator1();
 

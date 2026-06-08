@@ -12,7 +12,7 @@ static bool SegmentCalculation_ClassInited = (SegmentCalculation::ClassInit(&Seg
 void SegmentCalculation::ClassInit(Class* cls)
 {
 
-    cls->setName("SegmentCalculation");
+    cls->setName(NC_("Class", "SegmentCalculation"));
     cls->addToRegistry();
     cls->setParent<ObjectCalculation>();
     cls->setConstructor<SegmentCalculation>();

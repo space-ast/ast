@@ -12,7 +12,8 @@ static bool Command_ClassInited = (Command::ClassInit(&Command::staticType), tru
 void Command::ClassInit(Class* cls)
 {
 
-    cls->setName("Command");
+    cls->setName(NC_("Class", "Command"));
+    cls->setDesc(u8R"(命令（虚基类），用于定义任务序列中的命令，例如初始状态、轨道机动、轨道预报等)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();
     cls->setConstructor<Command>();

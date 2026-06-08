@@ -12,7 +12,7 @@ static bool DetectorFrameRelated_ClassInited = (DetectorFrameRelated::ClassInit(
 void DetectorFrameRelated::ClassInit(Class* cls)
 {
 
-    cls->setName("DetectorFrameRelated");
+    cls->setName(NC_("Class", "DetectorFrameRelated"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorFrameRelated>();

@@ -204,8 +204,9 @@ void UiNewObjectQuickDialog::buildTypeGrid()
         }
 
         // 类型条目（图标 + 名称）
-        QString typeName = QString::fromStdString(entry.typeName);
-        auto* item = new QTableWidgetItem(aUiClassIcon(typeName), typeName);
+        auto cls = aGetClass(entry.typeName);
+        QString typeName = QString::fromStdString(cls?cls->displayName():entry.typeName);
+        auto* item = new QTableWidgetItem(aUiClassIcon(entry.typeName), typeName);
         item->setData(Qt::UserRole, QVariant::fromValue<int>((int)i));
         item->setToolTip(typeName);
         typeTable_->setItem(row, col, item);
@@ -352,31 +353,40 @@ void UiNewObjectQuickDialog::populateParentTree(
     auto& mgr = ObjectManager::CurrentInstance();
     auto* node = mgr.getObjectNode(obj);
 
-    auto* item = new QTreeWidgetItem();
-    item->setText(0, aUiObjectDisplayName(obj));
-    item->setIcon(0, aUiClassIcon(QString::fromStdString(obj->typeName())));
-    item->setData(0, Qt::UserRole,
-                  QVariant::fromValue<quintptr>(reinterpret_cast<quintptr>(obj)));
-
-    if (!matches)
+    if (matches)
     {
-        // 不匹配的对象不可选择，灰显仅作导航
-        item->setFlags(item->flags() & ~Qt::ItemIsSelectable);
-        item->setForeground(0, QColor(150, 150, 150));
-    }
+        // 匹配的对象：创建可选择节点
+        auto* item = new QTreeWidgetItem();
+        item->setText(0, aUiObjectDisplayName(obj));
+        item->setIcon(0, aUiClassIcon(QString::fromStdString(obj->typeName())));
+        item->setData(0, Qt::UserRole,
+                      QVariant::fromValue<quintptr>(reinterpret_cast<quintptr>(obj)));
 
-    if (parentItem)
-        parentItem->addChild(item);
-    else
-        tree->addTopLevelItem(item);
+        if (parentItem)
+            parentItem->addChild(item);
+        else
+            tree->addTopLevelItem(item);
 
-    // 递归处理子节点（始终遍历，以便找到嵌套的匹配项）
-    if (node)
-    {
-        for (auto* childNode : node->getChildren())
+        // 递归处理子节点
+        if (node)
         {
-            if (auto* childObj = childNode->getObject())
-                populateParentTree(tree, item, childObj, parentType);
+            for (auto* childNode : node->getChildren())
+            {
+                if (auto* childObj = childNode->getObject())
+                    populateParentTree(tree, item, childObj, parentType);
+            }
+        }
+    }
+    else
+    {
+        // 不匹配的对象直接隐藏，但继续递归子节点以查找嵌套的匹配项
+        if (node)
+        {
+            for (auto* childNode : node->getChildren())
+            {
+                if (auto* childObj = childNode->getObject())
+                    populateParentTree(tree, parentItem, childObj, parentType);
+            }
         }
     }
 }

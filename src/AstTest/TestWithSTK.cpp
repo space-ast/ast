@@ -23,9 +23,11 @@
 #include "AstSim/Mover.hpp"
 #include "AstLoader/MoverLoader.hpp"
 #include "AstUtil/IO.hpp"
+#include "AstUtil/ColoredPrint.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstMath/UnarySolver.hpp"  // for aIsClose
 #include "AstMath/Vector.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
@@ -87,62 +89,98 @@ errc_t aTestWithEmptyEphemeris(Mover& mover)
     return 0;
 }
 
-errc_t aTestFromSTKFile(StringView filepath)
+class RunningStatus
 {
-    ast_printf("loading %.*s\n", (int)filepath.size(), filepath.data());
+public:
+    template<typename ...Args>
+    void success(Args&& ...args)
+    {
+        cprintf(colors::green, args...);
+        printf("\n");
+    }
+    template<typename ...Args>
+    void failed(Args&& ...args)
+    {
+        cprintf(colors::red, args...);
+        printf("\n");
+    }
+    template<typename ...Args>
+    void info(Args&& ...args)
+    {
+        ast_printf(args...);
+        printf("\n");
+    }
+    void keyValue(const char* key, const char* value)
+    {
+        printf("%s: ", key);
+        cprintf(colors::green, "%s\n", value);
+    }
+    void check(errc_t rc)
+    {
+        if(rc)
+            failed("failed");
+        else
+            success("success");
+    }
+#ifdef assert
+#   undef assert
+#endif
+    void assert(errc_t rc)
+    {
+        if(rc) throw std::runtime_error("test failed");
+        check(rc);
+    }
+};
+
+
+
+errc_t aTestFromSTKFile_ThrowException(StringView filepath)
+{
+    RunningStatus status;
+
+    status.info("loading file '%s' ... ", filepath.data());
     Mover mover;
     errc_t rc = aLoadMover(filepath, mover);
-    if(rc != eNoError)
-    {
-        ast_printf("failed to load %.*s\n", (int)filepath.size(), filepath.data());
-        return rc;
-    }
-    ast_printf("loaded %.*s\n", (int)filepath.size(), filepath.data());
-    ast_printf("mover name: %s\n", mover.getName().c_str());
+    status.assert(rc);
 
-    ast_printf("start testing ephemeris\n");
+    status.keyValue("mover name", mover.getName().c_str());
+
+    status.info("testing ephemeris...");
 
     auto ephem_readed = mover.getEphemeris();
     if(ephem_readed == nullptr)
     {
-        ast_printf("ephemeris is null\n");
+        status.failed("ephemeris is null");
         return aTestWithEmptyEphemeris(mover);
     }
+
     auto motion = mover.getMotionProfile();
     if(motion == nullptr)
     {
-        ast_printf("motion profile is null\n");
+        status.failed("motion profile is null");
         return eErrorParse;
     }
+   
+    status.keyValue("motion type", motion->typeName().c_str());
     
     TimeInterval interval{};
     rc = ephem_readed->getInterval(interval);
     if(rc != eNoError)
     {
-        ast_printf("failed to get interval\n");
+        status.failed("failed to get interval");
         return rc;
     }
-    ast_printf("interval: %s\n", interval.toString().c_str());
+    status.keyValue("interval", interval.toString().c_str());
     
-    ast_printf("test specific generated ephemeris...\n");
+    status.info("generating specific ephemeris...");
     ScopedPtr<Ephemeris> ephem_spec_generated;
     rc = motion->makeEphemerisSpec(ephem_spec_generated);
-    if(rc != eNoError)
-    {
-        ast_printf("failed to make specific ephemeris\n");
-        return rc;
-    }
-    ast_printf("specific generated ephemeris generated\n");
+    status.assert(rc);
 
-    ast_printf("test simple ephemeris...\n");
+    status.info("generating simple ephemeris...");
     ScopedPtr<Ephemeris> ephem_simple_generated;
     rc = motion->makeEphemerisSimple(ephem_simple_generated);
-    if(rc != eNoError)
-    {
-        ast_printf("failed to make simple ephemeris\n");
-        return rc;
-    }
-    ast_printf("simple ephemeris generated\n");
+    status.assert(rc);
 
     std::vector<TimePoint> timePointsToCheck;
     {
@@ -165,71 +203,83 @@ errc_t aTestFromSTKFile(StringView filepath)
     }
     auto ephem_frame = ephem_readed->getFrame();
     for(auto& tp: timePointsToCheck){
-        ast_printf("\n------------------------------------\n");
-        printf("checking for timepoint %s\n", tp.toString().c_str());
+        status.info("checking for timepoint %s ...", tp.toString().c_str());
         Vector3d pos, vel;
         Vector3d posExpected, velExpected;
         rc = ephem_spec_generated->getPosVelIn(ephem_frame, tp, pos, vel);
         if(rc != eNoError)
         {
-            ast_printf("failed to get pos vel from specific generated ephemeris\n");
+            status.failed("failed to get pos vel from specific generated ephemeris");
             return rc;
         }
         rc = ephem_readed->getPosVel(tp, posExpected, velExpected);
         if(rc != eNoError)
         {
-            ast_printf("failed to get pos vel from readed ephemeris\n");
+            status.failed("failed to get pos vel from readed ephemeris");
             return rc;
         }
-        ast_printf("pos: %.15g, %.15g, %.15g\n", pos[0], pos[1], pos[2]);
-        ast_printf("vel: %.15g, %.15g, %.15g\n", vel[0], vel[1], vel[2]);
-        ast_printf("posExpected: %.15g, %.15g, %.15g\n", posExpected[0], posExpected[1], posExpected[2]);
-        ast_printf("velExpected: %.15g, %.15g, %.15g\n", velExpected[0], velExpected[1], velExpected[2]);
+        status.info("pos        : %.15g, %.15g, %.15g", pos[0], pos[1], pos[2]);
+        status.info("posExpected: %.15g, %.15g, %.15g", posExpected[0], posExpected[1], posExpected[2]);
+        status.info("vel        : %.15g, %.15g, %.15g", vel[0], vel[1], vel[2]);
+        status.info("velExpected: %.15g, %.15g, %.15g", velExpected[0], velExpected[1], velExpected[2]);
         for(int i = 0; i < 3; ++i)
         {
             if(!aIsClose(pos[i], posExpected[i], reltol_pos, abstol_pos))
             {
-                ast_printf("pos %d not close\n", i);
+                status.failed("pos[%d] not close", i);
                 return eErrorInvalidParam;
             }
             if(!aIsClose(vel[i], velExpected[i], reltol_vel, abstol_vel))
             {
-                ast_printf("vel %d not close\n", i);
+                status.failed("vel[%d] not close", i);
                 return eErrorInvalidParam;
             }
         }
-        ast_printf("specific generated ephemeris test passed\n");
+        status.success("specific generated ephemeris test passed for timepoint %s", tp.toString().c_str());
 
 
         rc = ephem_simple_generated->getPosVelIn(ephem_frame, tp, pos, vel);
         if(rc != eNoError)
         {
-            ast_printf("failed to get pos vel from simple ephemeris\n");
+            status.failed("failed to get pos vel from simple ephemeris");
             return rc;
         }
-        ast_printf("pos: %.15g, %.15g, %.15g\n", pos[0], pos[1], pos[2]);
-        ast_printf("vel: %.15g, %.15g, %.15g\n", vel[0], vel[1], vel[2]);
+        ast_printf("pos        : %.15g, %.15g, %.15g\n", pos[0], pos[1], pos[2]);
         ast_printf("posExpected: %.15g, %.15g, %.15g\n", posExpected[0], posExpected[1], posExpected[2]);
+        ast_printf("vel        : %.15g, %.15g, %.15g\n", vel[0], vel[1], vel[2]);
         ast_printf("velExpected: %.15g, %.15g, %.15g\n", velExpected[0], velExpected[1], velExpected[2]);
         for(int i = 0; i < 3; ++i)
         {
             if(!aIsClose(pos[i], posExpected[i], reltol_pos, abstol_pos))
             {
-                ast_printf("pos %d not close\n", i);
+                status.failed("pos[%d] not close", i);
                 return eErrorInvalidParam;
             }
             if(!aIsClose(vel[i], velExpected[i], reltol_vel, abstol_vel))
             {
-                ast_printf("vel %d not close\n", i);
+                status.failed("vel[%d] not close", i);
                 return eErrorInvalidParam;
             }
         }
-        ast_printf("simple ephemeris test passed\n");
+        status.success("simple ephemeris test passed for timepoint %s", tp.toString().c_str());
     }
 
-    ast_printf("all tests passed\n");
+    status.success("all tests passed");
     return 0;
 }
+
+errc_t aTestFromSTKFile(StringView filepath)
+{
+    try{
+        return aTestFromSTKFile_ThrowException(filepath);
+    }catch(const std::exception& e){
+        ast_printf("test failed: %s\n", e.what());
+        return -1;
+    }catch(...){
+        return -1;
+    }
+}
+
 
 
 AST_NAMESPACE_END

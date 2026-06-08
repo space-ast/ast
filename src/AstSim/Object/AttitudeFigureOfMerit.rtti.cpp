@@ -12,7 +12,7 @@ static bool AttitudeFigureOfMerit_ClassInited = (AttitudeFigureOfMerit::ClassIni
 void AttitudeFigureOfMerit::ClassInit(Class* cls)
 {
 
-    cls->setName("AttitudeFigureOfMerit");
+    cls->setName(NC_("Class", "AttitudeFigureOfMerit"));
     cls->setDesc(u8R"(姿态覆盖性能指标)");
     cls->addToRegistry();
     cls->setParent<FigureOfMerit>();

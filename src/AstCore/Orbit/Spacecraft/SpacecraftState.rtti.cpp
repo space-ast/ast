@@ -12,7 +12,7 @@ static bool SpacecraftState_ClassInited = (SpacecraftState::ClassInit(&Spacecraf
 void SpacecraftState::ClassInit(Class* cls)
 {
 
-    cls->setName("SpacecraftState");
+    cls->setName(NC_("Class", "SpacecraftState"));
     cls->setDesc(u8R"(航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

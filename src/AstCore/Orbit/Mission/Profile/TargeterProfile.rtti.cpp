@@ -12,10 +12,10 @@ static bool TargeterProfile_ClassInited = (TargeterProfile::ClassInit(&TargeterP
 void TargeterProfile::ClassInit(Class* cls)
 {
 
-    cls->setName("TargeterProfile");
+    cls->setName(NC_("Class", "TargeterProfile"));
     cls->setDesc(u8R"(目标器配置文件基类)");
     cls->addToRegistry();
-    cls->setParent<ObjectNamed>();
+    cls->setParent<Command>();
     cls->setConstructor<TargeterProfile>();
 
 }

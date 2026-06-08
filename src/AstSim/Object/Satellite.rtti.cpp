@@ -12,7 +12,7 @@ static bool Satellite_ClassInited = (Satellite::ClassInit(&Satellite::staticType
 void Satellite::ClassInit(Class* cls)
 {
 
-    cls->setName("Satellite");
+    cls->setName(NC_("Class", "Satellite"));
     cls->setDesc(u8R"(卫星对象)");
     cls->addToRegistry();
     cls->setParent<Spacecraft>();

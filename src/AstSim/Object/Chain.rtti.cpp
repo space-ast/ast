@@ -12,7 +12,7 @@ static bool Chain_ClassInited = (Chain::ClassInit(&Chain::staticType), true);
 void Chain::ClassInit(Class* cls)
 {
 
-    cls->setName("Chain");
+    cls->setName(NC_("Class", "Chain"));
     cls->setDesc(u8R"(链对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

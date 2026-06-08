@@ -12,7 +12,7 @@ static bool SphereShape_ClassInited = (SphereShape::ClassInit(&SphereShape::stat
 void SphereShape::ClassInit(Class* cls)
 {
 
-    cls->setName("SphereShape");
+    cls->setName(NC_("Class", "SphereShape"));
     cls->setDesc(u8R"(球体形状)");
     cls->addToRegistry();
     cls->setParent<BodyShape>();
