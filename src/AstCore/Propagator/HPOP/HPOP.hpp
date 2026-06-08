@@ -79,9 +79,9 @@ public:
     errc_t initialize();
 protected:
     HPOPEquation* equation();
-protected:
+private:
     ScopedPtr<HPOPEquation> equation_;              ///< 高精度轨道预报方程
-    mutable ScopedPtr<ODEIntegrator> integrator_;   ///< 高精度轨道预报积分器
+    mutable SharedPtr<ODEIntegrator> integrator_;   ///< 高精度轨道预报积分器
 };
 
 

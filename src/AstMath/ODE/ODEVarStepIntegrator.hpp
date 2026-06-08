@@ -57,7 +57,7 @@ public:
     errc_t integrate(ODE& ode, double* y, double& t, double tf) final;
 
     /// @see ODEIntegrator
-    errc_t integrateStep(ODE& ode, double* y, double& t, double tf) final;
+    errc_t integrateOneStep(ODE& ode, double* y, double& t, double tf) final;
 
     /// @brief 设置最大绝对误差
     void setMaxAbsErr(double maxAbsErr){maxAbsErr_ = maxAbsErr;};

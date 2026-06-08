@@ -31,6 +31,9 @@ PMotionHPOP MotionHPOP::New()
     return new MotionHPOP();
 }
 
+MotionHPOP::MotionHPOP() = default;
+MotionHPOP::~MotionHPOP() = default;
+
 errc_t MotionHPOP::makeEphemerisSpec(ScopedPtr<Ephemeris> &eph) const
 {
     return makeEphemerisSimple(eph);
@@ -54,6 +57,7 @@ errc_t MotionHPOP::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
     
     HPOP hpop;
     hpop.setForceModel(this->forceModel_);
+    hpop.setIntegrator(integrator_);
     auto integrator = hpop.getIntegrator();  AST_CHECK_NULLPTR(integrator);
     rc = hpop.setPropagationFrame(propFrame); AST_CHECK_ERRCODE(rc, "failed to set propagation frame");
 
@@ -88,8 +92,23 @@ errc_t MotionHPOP::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
     ephemLag->setFrame(propFrame);
     eph = ephemLag;
 
+    // 清除状态观察者
+    integrator->clearStateObservers();
+    
     return rc;
 }
+
+void MotionHPOP::setIntegrator(ODEIntegrator* integrator)
+{
+    integrator_ = integrator;
+}
+
+ODEIntegrator* MotionHPOP::getIntegrator() const
+{
+    return integrator_.get();
+}
+
+
 
 void MotionHPOP::accept(MotionProfileVisitor& visitor)
 {
