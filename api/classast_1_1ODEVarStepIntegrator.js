@@ -16,6 +16,7 @@ var classast_1_1ODEVarStepIntegrator =
     [ "setMinStepSize", "classast_1_1ODEVarStepIntegrator.html#a0f26fd532ad36bcc91130f8ce765b071", null ],
     [ "setSafetyCoeffHigh", "classast_1_1ODEVarStepIntegrator.html#a1db062ce381d067a5d957b60dd6ecc6f", null ],
     [ "setSafetyCoeffLow", "classast_1_1ODEVarStepIntegrator.html#a699b5d067df927d46795a21fc1ac9c7d", null ],
+    [ "setUseFixedStep", "classast_1_1ODEVarStepIntegrator.html#a6b8bddb1dd20818eab21478af1c65a5f", null ],
     [ "setUseMaxStep", "classast_1_1ODEVarStepIntegrator.html#a4d498fc2a6b27f39224c5090e515857d", null ],
     [ "setUseMinStep", "classast_1_1ODEVarStepIntegrator.html#a128eb6c95f284c2aa75f981fd9e2b6af", null ],
     [ "__pad0__", "classast_1_1ODEVarStepIntegrator.html#a00acf3ca891d6cc915d0cfa0410a0c3f", null ],
@@ -30,6 +31,7 @@ var classast_1_1ODEVarStepIntegrator =
     [ "minStepSize_", "classast_1_1ODEVarStepIntegrator.html#a599f680453a22221fb533f997e1cb346", null ],
     [ "safetyCoeffHigh_", "classast_1_1ODEVarStepIntegrator.html#a2923b0f733135d45345653da5859abe3", null ],
     [ "safetyCoeffLow_", "classast_1_1ODEVarStepIntegrator.html#a4f6669a9c1cfa0ead47edaaedb82c981", null ],
+    [ "useFixedStep_", "classast_1_1ODEVarStepIntegrator.html#ac813852b4e90427c126d341c125b7815", null ],
     [ "useMaxStep_", "classast_1_1ODEVarStepIntegrator.html#a983c1d21674546e6014aab6d017a3b35", null ],
     [ "warnOnMinStep_", "classast_1_1ODEVarStepIntegrator.html#aa1899524d64b8ce8a49bb5ff73145e6e", null ]
 ];

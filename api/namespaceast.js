@@ -564,6 +564,7 @@ var namespaceast =
     [ "RotationalData", "classast_1_1RotationalData.html", "classast_1_1RotationalData" ],
     [ "RotationElement", "classast_1_1RotationElement.html", "classast_1_1RotationElement" ],
     [ "RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
+    [ "RunningStatus", "classast_1_1RunningStatus.html", null ],
     [ "Satellite", "classast_1_1Satellite.html", null ],
     [ "Scanner", "classast_1_1Scanner.html", "classast_1_1Scanner" ],
     [ "Scenario", "classast_1_1Scenario.html", "classast_1_1Scenario" ],

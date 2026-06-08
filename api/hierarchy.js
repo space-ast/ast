@@ -1134,6 +1134,7 @@ var hierarchy =
     ] ],
     [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
     [ "ast::RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
+    [ "ast::RunningStatus", "classast_1_1RunningStatus.html", null ],
     [ "ast::Scanner", "classast_1_1Scanner.html", [
       [ "ast::FileScanner", "classast_1_1FileScanner.html", null ],
       [ "ast::StreamScanner", "classast_1_1StreamScanner.html", null ],

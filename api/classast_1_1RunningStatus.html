@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::RunningStatus类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1RunningStatus.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1RunningStatus-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::RunningStatus类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a549d6ba6f7fee3a8f06158111c1ae652" id="r_a549d6ba6f7fee3a8f06158111c1ae652"><td class="memTemplParams" colspan="2"><a id="a549d6ba6f7fee3a8f06158111c1ae652" name="a549d6ba6f7fee3a8f06158111c1ae652"></a>
+template&lt;typename ... Args&gt; </td></tr>
+<tr class="memitem:a549d6ba6f7fee3a8f06158111c1ae652"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>success</b> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a549d6ba6f7fee3a8f06158111c1ae652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712e8dcd737a9ac626a62cf80b1bb3a5" id="r_a712e8dcd737a9ac626a62cf80b1bb3a5"><td class="memTemplParams" colspan="2"><a id="a712e8dcd737a9ac626a62cf80b1bb3a5" name="a712e8dcd737a9ac626a62cf80b1bb3a5"></a>
+template&lt;typename ... Args&gt; </td></tr>
+<tr class="memitem:a712e8dcd737a9ac626a62cf80b1bb3a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>failed</b> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a712e8dcd737a9ac626a62cf80b1bb3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1685ff7ecbe550af694e873a2085fcc6" id="r_a1685ff7ecbe550af694e873a2085fcc6"><td class="memTemplParams" colspan="2"><a id="a1685ff7ecbe550af694e873a2085fcc6" name="a1685ff7ecbe550af694e873a2085fcc6"></a>
+template&lt;typename ... Args&gt; </td></tr>
+<tr class="memitem:a1685ff7ecbe550af694e873a2085fcc6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>info</b> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a1685ff7ecbe550af694e873a2085fcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e97f3309fbd3c6b57a1cb579aabed6a" id="r_a2e97f3309fbd3c6b57a1cb579aabed6a"><td class="memItemLeft" align="right" valign="top"><a id="a2e97f3309fbd3c6b57a1cb579aabed6a" name="a2e97f3309fbd3c6b57a1cb579aabed6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>keyValue</b> (const char *key, const char *value)</td></tr>
+<tr class="separator:a2e97f3309fbd3c6b57a1cb579aabed6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b226e513157faece1cae2bfc3acd8db" id="r_a0b226e513157faece1cae2bfc3acd8db"><td class="memItemLeft" align="right" valign="top"><a id="a0b226e513157faece1cae2bfc3acd8db" name="a0b226e513157faece1cae2bfc3acd8db"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> (errc_t rc)</td></tr>
+<tr class="separator:a0b226e513157faece1cae2bfc3acd8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee53c64fadc7154e5241d12b0f9cdf4" id="r_aeee53c64fadc7154e5241d12b0f9cdf4"><td class="memItemLeft" align="right" valign="top"><a id="aeee53c64fadc7154e5241d12b0f9cdf4" name="aeee53c64fadc7154e5241d12b0f9cdf4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>assert</b> (errc_t rc)</td></tr>
+<tr class="separator:aeee53c64fadc7154e5241d12b0f9cdf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstTest/<a class="el" href="TestWithSTK_8cpp.html">TestWithSTK.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1RunningStatus.html">RunningStatus</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

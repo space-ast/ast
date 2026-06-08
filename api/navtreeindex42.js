@@ -1,5 +1,9 @@
 var NAVTREEINDEX42 =
 {
+"group__Attitude.html#ga92b541cf12999d1f4d2c8f0e2bdc8067":[0,2,1,6],
+"group__Attitude.html#gaa01df3e782b81bb065d882b415bcf828":[0,2,1,7],
+"group__Attitude.html#gad654a224cee5d31ca96d2b13c9a95af8":[0,2,1,10],
+"group__Attitude.html#gadb0ca50d83436dbb9bb8ecc1e30420cf":[0,2,1,4],
 "group__Attitude.html#gadda4b4aa71248f9668c1437010f2a540":[0,2,1,9],
 "group__Attitude.html#gaf8884f3b155e95ce4bac9fe5b88b8549":[0,2,1,8],
 "group__Chat.html":[0,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX42 =
 "group__Orbit.html#ga0f0ec2f583262f345db0cc8acb78bba0":[0,1,4,83],
 "group__Orbit.html#ga11752b446df691765af05f73d9f9bc2d":[0,1,4,128],
 "group__Orbit.html#ga13e8d943259e37ea2bb242996131ccb5":[0,1,4,108],
-"group__Orbit.html#ga1578a167e5a79872305f2f9232adbb44":[0,1,4,88],
-"group__Orbit.html#ga1707d82dac8948c01fbbc385fb1171d7":[0,1,4,86],
-"group__Orbit.html#ga1948a247be5e7b5bde7e50354b9fd8f2":[0,1,4,62],
-"group__Orbit.html#ga1b8d884f822ae2d04391dd803f944925":[0,1,4,102],
-"group__Orbit.html#ga1e3824f93dcc2dde4fb3b03c60f9e6a4":[0,1,4,71]
+"group__Orbit.html#ga1578a167e5a79872305f2f9232adbb44":[0,1,4,88]
 };
