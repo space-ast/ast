@@ -12,7 +12,7 @@ static bool ScStateCalcFrameRelated_ClassInited = (ScStateCalcFrameRelated::Clas
 void ScStateCalcFrameRelated::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ScStateCalcFrameRelated"));
+    cls->setName(NC_("Class", "ScStateCalcFrameRelated"));
     cls->addToRegistry();
     cls->setParent<ScStateCalculation>();
     cls->setConstructor<ScStateCalcFrameRelated>();

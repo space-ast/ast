@@ -12,7 +12,7 @@ static bool State_ClassInited = (State::ClassInit(&State::staticType), true);
 void State::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("State"));
+    cls->setName(NC_("Class", "State"));
     cls->setDesc(u8R"(航天器状态)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

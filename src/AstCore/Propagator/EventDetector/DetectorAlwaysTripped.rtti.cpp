@@ -12,7 +12,7 @@ static bool DetectorAlwaysTripped_ClassInited = (DetectorAlwaysTripped::ClassIni
 void DetectorAlwaysTripped::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorAlwaysTripped"));
+    cls->setName(NC_("Class", "DetectorAlwaysTripped"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorAlwaysTripped>();

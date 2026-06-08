@@ -12,7 +12,7 @@ static bool ScStateCalcDifference_ClassInited = (ScStateCalcDifference::ClassIni
 void ScStateCalcDifference::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ScStateCalcDifference"));
+    cls->setName(NC_("Class", "ScStateCalcDifference"));
     cls->addToRegistry();
     cls->setParent<ScStateCalculation>();
     cls->setConstructor<ScStateCalcDifference>();

@@ -39,7 +39,9 @@ class AST_UTIL_API Struct: public Object
 public:
     Struct()
         : Object(initial_strong_ref)
-    {}
+    {
+        this->setReadOnly(true);
+    }
 
     ~Struct() override;
 

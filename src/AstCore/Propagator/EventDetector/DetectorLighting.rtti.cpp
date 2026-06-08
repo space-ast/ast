@@ -12,7 +12,7 @@ static bool DetectorLighting_ClassInited = (DetectorLighting::ClassInit(&Detecto
 void DetectorLighting::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorLighting"));
+    cls->setName(NC_("Class", "DetectorLighting"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorLighting>();

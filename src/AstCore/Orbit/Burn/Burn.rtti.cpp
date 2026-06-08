@@ -12,7 +12,7 @@ static bool Burn_ClassInited = (Burn::ClassInit(&Burn::staticType), true);
 void Burn::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("Burn"));
+    cls->setName(NC_("Class", "Burn"));
     cls->setDesc(u8R"(发动机点火)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

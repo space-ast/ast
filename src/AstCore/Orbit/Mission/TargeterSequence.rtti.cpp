@@ -12,7 +12,7 @@ static bool TargeterSequence_ClassInited = (TargeterSequence::ClassInit(&Targete
 void TargeterSequence::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("TargeterSequence"));
+    cls->setName(NC_("Class", "TargeterSequence"));
     cls->setDesc(u8R"(目标序列段，用于建模并求解轨迹规划问题，可以定义多个控制变量、约束条件、目标函数等，调用求解器求解满足约束和最优的轨迹)");
     cls->addToRegistry();
     cls->setParent<Sequence>();

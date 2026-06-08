@@ -12,7 +12,7 @@ static bool SolarSystem_ClassInited = (SolarSystem::ClassInit(&SolarSystem::stat
 void SolarSystem::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("SolarSystem"));
+    cls->setName(NC_("Class", "SolarSystem"));
     cls->setDesc(u8R"(太阳系)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

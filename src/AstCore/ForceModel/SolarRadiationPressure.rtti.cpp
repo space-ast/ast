@@ -12,7 +12,7 @@ static bool SolarRadiationPressure_ClassInited = (SolarRadiationPressure::ClassI
 void SolarRadiationPressure::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("SolarRadiationPressure"));
+    cls->setName(NC_("Class", "SolarRadiationPressure"));
     cls->setDesc(u8R"(太阳辐射压力)");
     cls->addToRegistry();
     cls->setParent<ForceModel>();

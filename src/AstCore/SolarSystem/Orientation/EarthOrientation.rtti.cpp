@@ -12,7 +12,7 @@ static bool EarthOrientation_ClassInited = (EarthOrientation::ClassInit(&EarthOr
 void EarthOrientation::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("EarthOrientation"));
+    cls->setName(NC_("Class", "EarthOrientation"));
     cls->setDesc(u8R"(地球旋转类)");
     cls->addToRegistry();
     cls->setParent<BodyOrientation>();

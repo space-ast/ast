@@ -12,7 +12,7 @@ static bool EventTimeExplicit_ClassInited = (EventTimeExplicit::ClassInit(&Event
 void EventTimeExplicit::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("EventTimeExplicit"));
+    cls->setName(NC_("Class", "EventTimeExplicit"));
     cls->setDesc(u8R"(显式事件时间)");
     cls->addToRegistry();
     cls->setParent<EventTime>();

@@ -12,7 +12,7 @@ static bool DetectorRMagnitude_ClassInited = (DetectorRMagnitude::ClassInit(&Det
 void DetectorRMagnitude::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorRMagnitude"));
+    cls->setName(NC_("Class", "DetectorRMagnitude"));
     cls->addToRegistry();
     cls->setParent<DetectorPointRelated>();
     cls->setConstructor<DetectorRMagnitude>();

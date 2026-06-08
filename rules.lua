@@ -100,7 +100,7 @@ rule("ast.qt.ts")
         import("core.base.json")
 
         -- get source file
-        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "QT_TR_NOOP+=N_,tr+=_"}
+        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "tr+=_,QT_TR_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_"}
         local sourcefile_ts
         local source_files = {}
         for _, sourcebatch in pairs(target:sourcebatches()) do

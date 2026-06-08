@@ -12,7 +12,7 @@ static bool StateCartesian_ClassInited = (StateCartesian::ClassInit(&StateCartes
 void StateCartesian::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("StateCartesian"));
+    cls->setName(NC_("Class", "StateCartesian"));
     cls->setDesc(u8R"(笛卡尔状态(直角坐标))");
     cls->addToRegistry();
     cls->setParent<State>();

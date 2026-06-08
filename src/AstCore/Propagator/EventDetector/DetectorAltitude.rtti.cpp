@@ -12,7 +12,7 @@ static bool DetectorAltitude_ClassInited = (DetectorAltitude::ClassInit(&Detecto
 void DetectorAltitude::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorAltitude"));
+    cls->setName(NC_("Class", "DetectorAltitude"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorAltitude>();

@@ -12,7 +12,7 @@ static bool ShooterResult_ClassInited = (ShooterResult::ClassInit(&ShooterResult
 void ShooterResult::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ShooterResult"));
+    cls->setName(NC_("Class", "ShooterResult"));
     cls->setDesc(u8R"(结果变量，用于定义微分修正中的结果变量)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

@@ -12,7 +12,7 @@ static bool LandingSiteCalculation_ClassInited = (LandingSiteCalculation::ClassI
 void LandingSiteCalculation::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("LandingSiteCalculation"));
+    cls->setName(NC_("Class", "LandingSiteCalculation"));
     cls->setDesc(u8R"(着陆点计算量接口，定义计算与着陆点相关量的抽象接口)");
     cls->addToRegistry();
     cls->setParent<SegmentCalculation>();

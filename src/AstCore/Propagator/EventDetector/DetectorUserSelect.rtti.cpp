@@ -12,7 +12,7 @@ static bool DetectorUserSelect_ClassInited = (DetectorUserSelect::ClassInit(&Det
 void DetectorUserSelect::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorUserSelect"));
+    cls->setName(NC_("Class", "DetectorUserSelect"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorUserSelect>();

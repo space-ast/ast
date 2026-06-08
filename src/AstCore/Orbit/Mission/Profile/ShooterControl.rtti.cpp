@@ -12,7 +12,7 @@ static bool ShooterControl_ClassInited = (ShooterControl::ClassInit(&ShooterCont
 void ShooterControl::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ShooterControl"));
+    cls->setName(NC_("Class", "ShooterControl"));
     cls->setDesc(u8R"(控制变量，用于定义微分修正中的控制变量)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

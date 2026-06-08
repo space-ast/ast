@@ -12,7 +12,7 @@ static bool LandingSite_ClassInited = (LandingSite::ClassInit(&LandingSite::stat
 void LandingSite::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("LandingSite"));
+    cls->setName(NC_("Class", "LandingSite"));
     cls->addToRegistry();
     cls->setParent<Segment>();
     cls->setConstructor<LandingSite>();

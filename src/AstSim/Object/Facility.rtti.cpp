@@ -12,7 +12,7 @@ static bool Facility_ClassInited = (Facility::ClassInit(&Facility::staticType), 
 void Facility::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("Facility"));
+    cls->setName(NC_("Class", "Facility"));
     cls->setDesc(u8R"(设施对象)");
     cls->addToRegistry();
     cls->setParent<Point>();

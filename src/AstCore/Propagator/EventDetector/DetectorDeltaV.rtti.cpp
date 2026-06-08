@@ -12,7 +12,7 @@ static bool DetectorDeltaV_ClassInited = (DetectorDeltaV::ClassInit(&DetectorDel
 void DetectorDeltaV::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorDeltaV"));
+    cls->setName(NC_("Class", "DetectorDeltaV"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorDeltaV>();

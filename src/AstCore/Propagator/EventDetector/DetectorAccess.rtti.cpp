@@ -12,7 +12,7 @@ static bool DetectorAccess_ClassInited = (DetectorAccess::ClassInit(&DetectorAcc
 void DetectorAccess::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorAccess"));
+    cls->setName(NC_("Class", "DetectorAccess"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorAccess>();

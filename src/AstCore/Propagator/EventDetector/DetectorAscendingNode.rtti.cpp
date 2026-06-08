@@ -12,7 +12,7 @@ static bool DetectorAscendingNode_ClassInited = (DetectorAscendingNode::ClassIni
 void DetectorAscendingNode::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorAscendingNode"));
+    cls->setName(NC_("Class", "DetectorAscendingNode"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorAscendingNode>();

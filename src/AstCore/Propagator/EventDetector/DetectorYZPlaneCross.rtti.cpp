@@ -12,7 +12,7 @@ static bool DetectorYZPlaneCross_ClassInited = (DetectorYZPlaneCross::ClassInit(
 void DetectorYZPlaneCross::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorYZPlaneCross"));
+    cls->setName(NC_("Class", "DetectorYZPlaneCross"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorYZPlaneCross>();

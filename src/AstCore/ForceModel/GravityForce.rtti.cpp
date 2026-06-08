@@ -12,7 +12,7 @@ static bool GravityForce_ClassInited = (GravityForce::ClassInit(&GravityForce::s
 void GravityForce::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("GravityForce"));
+    cls->setName(NC_("Class", "GravityForce"));
     cls->addToRegistry();
     cls->setParent<BodyAttraction>();
     cls->setConstructor<GravityForce>();

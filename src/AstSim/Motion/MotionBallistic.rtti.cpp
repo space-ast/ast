@@ -12,7 +12,7 @@ static bool MotionBallistic_ClassInited = (MotionBallistic::ClassInit(&MotionBal
 void MotionBallistic::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("MotionBallistic"));
+    cls->setName(NC_("Class", "MotionBallistic"));
     cls->setDesc(u8R"(弹道运动模型，用于模拟弹道导弹运动)");
     cls->addToRegistry();
     cls->setParent<MotionProfile>();

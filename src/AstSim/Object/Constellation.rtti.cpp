@@ -12,7 +12,7 @@ static bool Constellation_ClassInited = (Constellation::ClassInit(&Constellation
 void Constellation::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("Constellation"));
+    cls->setName(NC_("Class", "Constellation"));
     cls->setDesc(u8R"(星座对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

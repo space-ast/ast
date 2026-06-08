@@ -12,7 +12,7 @@ static bool DetectorCartesian_ClassInited = (DetectorCartesian::ClassInit(&Detec
 void DetectorCartesian::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorCartesian"));
+    cls->setName(NC_("Class", "DetectorCartesian"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorCartesian>();

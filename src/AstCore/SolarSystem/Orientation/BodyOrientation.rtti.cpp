@@ -12,7 +12,7 @@ static bool BodyOrientation_ClassInited = (BodyOrientation::ClassInit(&BodyOrien
 void BodyOrientation::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("BodyOrientation"));
+    cls->setName(NC_("Class", "BodyOrientation"));
     cls->setDesc(u8R"(天体姿态/指向)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

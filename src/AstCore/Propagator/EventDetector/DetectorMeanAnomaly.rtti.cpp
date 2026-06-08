@@ -12,7 +12,7 @@ static bool DetectorMeanAnomaly_ClassInited = (DetectorMeanAnomaly::ClassInit(&D
 void DetectorMeanAnomaly::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorMeanAnomaly"));
+    cls->setName(NC_("Class", "DetectorMeanAnomaly"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorMeanAnomaly>();

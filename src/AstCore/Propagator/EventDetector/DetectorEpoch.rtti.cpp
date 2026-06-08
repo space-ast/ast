@@ -12,7 +12,7 @@ static bool DetectorEpoch_ClassInited = (DetectorEpoch::ClassInit(&DetectorEpoch
 void DetectorEpoch::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorEpoch"));
+    cls->setName(NC_("Class", "DetectorEpoch"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorEpoch>();

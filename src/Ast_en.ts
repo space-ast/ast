@@ -2,125 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
-    <name>AdvCAT</name>
-    <message>
-        <source>AdvCAT</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Aircraft</name>
-    <message>
-        <source>Aircraft</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Antenna</name>
-    <message>
-        <source>Antenna</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AreaTarget</name>
-    <message>
-        <source>AreaTarget</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Asteroid</name>
-    <message>
-        <source>Asteroid</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AttitudeCoverage</name>
-    <message>
-        <source>AttitudeCoverage</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AttitudeFigureOfMerit</name>
-    <message>
-        <source>AttitudeFigureOfMerit</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Axes</name>
-    <message>
-        <source>Axes</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AxesLinkTo</name>
-    <message>
-        <source>AxesLinkTo</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BodyAttraction</name>
-    <message>
-        <source>BodyAttraction</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BodyEphemerisDE</name>
-    <message>
-        <source>BodyEphemerisDE</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BodyEphemerisNoop</name>
-    <message>
-        <source>BodyEphemerisNoop</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BodyEphemerisSPK</name>
-    <message>
-        <source>BodyEphemerisSPK</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BodyOrientation</name>
-    <message>
-        <source>BodyOrientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BodyShape</name>
-    <message>
-        <source>BodyShape</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Burn</name>
-    <message>
-        <source>Burn</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BurnImpulsive</name>
-    <message>
-        <source>BurnImpulsive</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>CelestialBody</name>
     <message>
         <source>Earth</source>
@@ -470,659 +351,523 @@
         <source>PlutoBarycenter</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>CelestialBody</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
-    <name>Chain</name>
+    <name>Class</name>
     <message>
-        <source>Chain</source>
+        <source>AxesLinkTo</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>CommSystem</name>
-    <message>
-        <source>CommSystem</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Command</name>
-    <message>
-        <source>Command</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Constellation</name>
-    <message>
-        <source>Constellation</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>CoverageDefinition</name>
-    <message>
-        <source>CoverageDefinition</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorAccess</name>
-    <message>
-        <source>DetectorAccess</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorAltitude</name>
-    <message>
-        <source>DetectorAltitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorAlwaysTripped</name>
-    <message>
-        <source>DetectorAlwaysTripped</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorApoapsis</name>
-    <message>
-        <source>DetectorApoapsis</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorAscendingNode</name>
-    <message>
-        <source>DetectorAscendingNode</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorBodyRelated</name>
-    <message>
-        <source>DetectorBodyRelated</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorCartesian</name>
-    <message>
-        <source>DetectorCartesian</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorDeltaV</name>
-    <message>
-        <source>DetectorDeltaV</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorDescendingNode</name>
-    <message>
-        <source>DetectorDescendingNode</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorDuration</name>
-    <message>
-        <source>DetectorDuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorEpoch</name>
-    <message>
-        <source>DetectorEpoch</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorFrameRelated</name>
-    <message>
-        <source>DetectorFrameRelated</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorLighting</name>
-    <message>
-        <source>DetectorLighting</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorMeanAnomaly</name>
-    <message>
-        <source>DetectorMeanAnomaly</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorPeriapsis</name>
-    <message>
-        <source>DetectorPeriapsis</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorPointRelated</name>
-    <message>
-        <source>DetectorPointRelated</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorRMagnitude</name>
-    <message>
-        <source>DetectorRMagnitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorTrueAnomaly</name>
-    <message>
-        <source>DetectorTrueAnomaly</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorUserSelect</name>
-    <message>
-        <source>DetectorUserSelect</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorXYPlaneCross</name>
-    <message>
-        <source>DetectorXYPlaneCross</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorYZPlaneCross</name>
-    <message>
-        <source>DetectorYZPlaneCross</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DetectorZXPlaneCross</name>
-    <message>
-        <source>DetectorZXPlaneCross</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DifferentialCorrectorProfile</name>
-    <message>
-        <source>DifferentialCorrectorProfile</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DragForce</name>
-    <message>
-        <source>DragForce</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EarthOrientation</name>
-    <message>
-        <source>EarthOrientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EllipsoidShape</name>
-    <message>
-        <source>EllipsoidShape</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>End</name>
-    <message>
-        <source>End</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EventDetector</name>
-    <message>
-        <source>EventDetector</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EventTime</name>
-    <message>
-        <source>EventTime</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EventTimeExplicit</name>
-    <message>
-        <source>EventTimeExplicit</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Facility</name>
-    <message>
-        <source>Facility</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FigureOfMerit</name>
-    <message>
-        <source>FigureOfMerit</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ForceModel</name>
-    <message>
-        <source>ForceModel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Frame</name>
-    <message>
-        <source>Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FrameAssembly</name>
     <message>
         <source>FrameAssembly</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>GravityForce</name>
+    <message>
+        <source>BodyAttraction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DragForce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ForceModel</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>GravityForce</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>GroundVehicle</name>
-    <message>
-        <source>GroundVehicle</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HPOP</name>
-    <message>
-        <source>HPOP</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HPOPForceModel</name>
     <message>
         <source>HPOPForceModel</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>InitialState</name>
-    <message>
-        <source>InitialState</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LandingSite</name>
-    <message>
-        <source>LandingSite</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LandingSiteCalcSunAzimuth</name>
-    <message>
-        <source>LandingSiteCalcSunAzimuth</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LandingSiteCalcSunElevation</name>
-    <message>
-        <source>LandingSiteCalcSunElevation</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LandingSiteCalculation</name>
-    <message>
-        <source>LandingSiteCalculation</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LaunchVehicle</name>
-    <message>
-        <source>LaunchVehicle</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LineTarget</name>
-    <message>
-        <source>LineTarget</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MTO</name>
-    <message>
-        <source>MTO</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MainSequence</name>
-    <message>
-        <source>MainSequence</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Maneuver</name>
-    <message>
-        <source>Maneuver</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Missile</name>
-    <message>
-        <source>Missile</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MoonOrientation</name>
-    <message>
-        <source>MoonOrientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionBallistic</name>
-    <message>
-        <source>MotionBallistic</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionJ2Analytical</name>
-    <message>
-        <source>MotionJ2Analytical</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionJ4Analytical</name>
-    <message>
-        <source>MotionJ4Analytical</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionMissionCommand</name>
-    <message>
-        <source>MotionMissionCommand</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionOrbitDynamics</name>
-    <message>
-        <source>MotionOrbitDynamics</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionProfile</name>
-    <message>
-        <source>MotionProfile</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionSimpleAscent</name>
-    <message>
-        <source>MotionSimpleAscent</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MotionTwoBody</name>
-    <message>
-        <source>MotionTwoBody</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Mover</name>
-    <message>
-        <source>Mover</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Place</name>
-    <message>
-        <source>Place</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Planet</name>
-    <message>
-        <source>Planet</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Point</name>
-    <message>
-        <source>Point</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PointMassForce</name>
     <message>
         <source>PointMassForce</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Propagate</name>
-    <message>
-        <source>Propagate</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Radar</name>
-    <message>
-        <source>Radar</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Receiver</name>
-    <message>
-        <source>Receiver</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>RelativityCorrection</name>
     <message>
         <source>RelativityCorrection</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Return</name>
     <message>
-        <source>Return</source>
+        <source>SolarRadiationPressure</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>RotationalData</name>
     <message>
-        <source>RotationalData</source>
+        <source>ThirdBodyForce</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Satellite</name>
     <message>
-        <source>Satellite</source>
+        <source>Axes</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ScStateCalcBodyRelated</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyShape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EllipsoidShape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SphereShape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SpheroidShape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BurnImpulsive</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>ScStateCalcBodyRelated</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ScStateCalcDifference</name>
-    <message>
-        <source>ScStateCalcDifference</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ScStateCalcEccentricity</name>
-    <message>
-        <source>ScStateCalcEccentricity</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ScStateCalcFrameRelated</name>
     <message>
         <source>ScStateCalcFrameRelated</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ScStateCalcPointRelated</name>
+    <message>
+        <source>ScStateCalcEccentricity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScStateCalcDifference</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>ScStateCalcPointRelated</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ScStateCalculation</name>
     <message>
         <source>ScStateCalculation</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Scenario</name>
     <message>
-        <source>Scenario</source>
+        <source>LandingSiteCalcSunAzimuth</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ScriptingToolProfile</name>
     <message>
-        <source>ScriptingToolProfile</source>
+        <source>LandingSiteCalcSunElevation</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Segment</name>
     <message>
-        <source>Segment</source>
+        <source>LandingSiteCalculation</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SegmentCalculation</name>
     <message>
         <source>SegmentCalculation</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SegmentGraph</name>
     <message>
-        <source>SegmentGraph</source>
+        <source>Command</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Sensor</name>
     <message>
-        <source>Sensor</source>
+        <source>End</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Sequence</name>
     <message>
-        <source>Sequence</source>
+        <source>InitialState</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Ship</name>
     <message>
-        <source>Ship</source>
+        <source>LandingSite</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ShooterControl</name>
+    <message>
+        <source>MainSequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maneuver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DifferentialCorrectorProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScriptingToolProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>ShooterControl</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ShooterResult</name>
     <message>
         <source>ShooterResult</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SolarRadiationPressure</name>
     <message>
-        <source>SolarRadiationPressure</source>
+        <source>TargeterProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Propagate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SegmentGraph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TargeterSequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SpacecraftState</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>StateCartesian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>StateKeplerian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAccess</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAltitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAlwaysTripped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorApoapsis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAscendingNode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorBodyRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorCartesian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorDeltaV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorDescendingNode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorDuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorEpoch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorFrameRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorLighting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorMeanAnomaly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorPeriapsis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorPointRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorRMagnitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorTrueAnomaly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorUserSelect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorXYPlaneCross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorYZPlaneCross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorZXPlaneCross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EventDetector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HPOP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CelestialBody</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyEphemerisDE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyEphemerisNoop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyEphemerisSPK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyOrientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EarthOrientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MoonOrientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RotationalData</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SolarSystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EventTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EventTimeExplicit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionOrbitDynamics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionBallistic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionJ2Analytical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionJ4Analytical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionMissionCommand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionSimpleAscent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionTwoBody</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdvCAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aircraft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Antenna</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AreaTarget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Asteroid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AttitudeCoverage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AttitudeFigureOfMerit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CommSystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constellation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CoverageDefinition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Facility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FigureOfMerit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroundVehicle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LaunchVehicle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LineTarget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Missile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MTO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Planet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Satellite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scenario</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ship</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spacecraft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SpaceObject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Submarine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Target</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transmitter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volumetric</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1130,125 +875,6 @@
     <name>SolarSystem</name>
     <message>
         <source>SolarSystem</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SpaceObject</name>
-    <message>
-        <source>SpaceObject</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Spacecraft</name>
-    <message>
-        <source>Spacecraft</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SpacecraftState</name>
-    <message>
-        <source>SpacecraftState</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SphereShape</name>
-    <message>
-        <source>SphereShape</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SpheroidShape</name>
-    <message>
-        <source>SpheroidShape</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Star</name>
-    <message>
-        <source>Star</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>State</name>
-    <message>
-        <source>State</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>StateCartesian</name>
-    <message>
-        <source>StateCartesian</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>StateKeplerian</name>
-    <message>
-        <source>StateKeplerian</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Stop</name>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Submarine</name>
-    <message>
-        <source>Submarine</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Target</name>
-    <message>
-        <source>Target</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TargeterProfile</name>
-    <message>
-        <source>TargeterProfile</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TargeterSequence</name>
-    <message>
-        <source>TargeterSequence</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ThirdBodyForce</name>
-    <message>
-        <source>ThirdBodyForce</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Transmitter</name>
-    <message>
-        <source>Transmitter</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Volumetric</name>
-    <message>
-        <source>Volumetric</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

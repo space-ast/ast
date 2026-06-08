@@ -12,7 +12,7 @@ static bool Propagate_ClassInited = (Propagate::ClassInit(&Propagate::staticType
 void Propagate::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("Propagate"));
+    cls->setName(NC_("Class", "Propagate"));
     cls->setDesc(u8R"(预报段，用于建模任务序列(MissionCommand)中的轨道预报)");
     cls->addToRegistry();
     cls->setParent<Segment>();

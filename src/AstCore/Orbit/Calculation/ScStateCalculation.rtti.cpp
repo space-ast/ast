@@ -12,7 +12,7 @@ static bool ScStateCalculation_ClassInited = (ScStateCalculation::ClassInit(&ScS
 void ScStateCalculation::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ScStateCalculation"));
+    cls->setName(NC_("Class", "ScStateCalculation"));
     cls->addToRegistry();
     cls->setParent<ObjectCalculation>();
     cls->setConstructor<ScStateCalculation>();

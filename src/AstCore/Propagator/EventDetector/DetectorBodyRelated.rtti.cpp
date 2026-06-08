@@ -12,7 +12,7 @@ static bool DetectorBodyRelated_ClassInited = (DetectorBodyRelated::ClassInit(&D
 void DetectorBodyRelated::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorBodyRelated"));
+    cls->setName(NC_("Class", "DetectorBodyRelated"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorBodyRelated>();

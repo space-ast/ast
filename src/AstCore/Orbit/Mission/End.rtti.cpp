@@ -12,7 +12,7 @@ static bool End_ClassInited = (End::ClassInit(&End::staticType), true);
 void End::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("End"));
+    cls->setName(NC_("Class", "End"));
     cls->setDesc(u8R"(结束段，仅用于标识任务序列Sequence的结束)");
     cls->addToRegistry();
     cls->setParent<MissionCommand>();

@@ -204,8 +204,9 @@ void UiNewObjectQuickDialog::buildTypeGrid()
         }
 
         // 类型条目（图标 + 名称）
-        QString typeName = QString::fromStdString(entry.typeName);
-        auto* item = new QTableWidgetItem(aUiClassIcon(typeName), typeName);
+        auto cls = aGetClass(entry.typeName);
+        QString typeName = QString::fromStdString(cls?cls->displayName():entry.typeName);
+        auto* item = new QTableWidgetItem(aUiClassIcon(entry.typeName), typeName);
         item->setData(Qt::UserRole, QVariant::fromValue<int>((int)i));
         item->setToolTip(typeName);
         typeTable_->setItem(row, col, item);

@@ -12,7 +12,7 @@ static bool HPOPForceModel_ClassInited = (HPOPForceModel::ClassInit(&HPOPForceMo
 void HPOPForceModel::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("HPOPForceModel"));
+    cls->setName(NC_("Class", "HPOPForceModel"));
     cls->setDesc(u8R"(高精度轨道预报力模型)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

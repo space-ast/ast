@@ -12,7 +12,7 @@ static bool DifferentialCorrectorProfile_ClassInited = (DifferentialCorrectorPro
 void DifferentialCorrectorProfile::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DifferentialCorrectorProfile"));
+    cls->setName(NC_("Class", "DifferentialCorrectorProfile"));
     cls->setDesc(u8R"(微分修正器配置，用于求解非线性方程，可以用于修正轨道参数以满足约束条件要求)");
     cls->addToRegistry();
     cls->setParent<TargeterProfile>();

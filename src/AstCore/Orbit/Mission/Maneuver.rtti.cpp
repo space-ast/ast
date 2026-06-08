@@ -12,7 +12,7 @@ static bool Maneuver_ClassInited = (Maneuver::ClassInit(&Maneuver::staticType), 
 void Maneuver::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("Maneuver"));
+    cls->setName(NC_("Class", "Maneuver"));
     cls->setDesc(u8R"(机动轨道段，用于建模任务序列(MissionCommand)中的机动任务)");
     cls->addToRegistry();
     cls->setParent<Segment>();

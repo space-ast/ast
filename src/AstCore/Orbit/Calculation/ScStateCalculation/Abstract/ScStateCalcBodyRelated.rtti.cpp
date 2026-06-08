@@ -12,7 +12,7 @@ static bool ScStateCalcBodyRelated_ClassInited = (ScStateCalcBodyRelated::ClassI
 void ScStateCalcBodyRelated::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ScStateCalcBodyRelated"));
+    cls->setName(NC_("Class", "ScStateCalcBodyRelated"));
     cls->addToRegistry();
     cls->setParent<ScStateCalculation>();
     cls->setConstructor<ScStateCalcBodyRelated>();

@@ -12,7 +12,7 @@ static bool MoonOrientation_ClassInited = (MoonOrientation::ClassInit(&MoonOrien
 void MoonOrientation::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("MoonOrientation"));
+    cls->setName(NC_("Class", "MoonOrientation"));
     cls->addToRegistry();
     cls->setParent<BodyOrientation>();
     cls->setConstructor<MoonOrientation>();

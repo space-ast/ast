@@ -12,7 +12,7 @@ static bool DetectorTrueAnomaly_ClassInited = (DetectorTrueAnomaly::ClassInit(&D
 void DetectorTrueAnomaly::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("DetectorTrueAnomaly"));
+    cls->setName(NC_("Class", "DetectorTrueAnomaly"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorTrueAnomaly>();

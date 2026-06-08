@@ -12,7 +12,7 @@ static bool AttitudeCoverage_ClassInited = (AttitudeCoverage::ClassInit(&Attitud
 void AttitudeCoverage::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("AttitudeCoverage"));
+    cls->setName(NC_("Class", "AttitudeCoverage"));
     cls->setDesc(u8R"(姿态覆盖工具)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

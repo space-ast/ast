@@ -12,7 +12,7 @@ static bool CelestialBody_ClassInited = (CelestialBody::ClassInit(&CelestialBody
 void CelestialBody::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("CelestialBody"));
+    cls->setName(NC_("Class", "CelestialBody"));
     cls->setDesc(u8R"(天体)");
     cls->addToRegistry();
     cls->setParent<Point>();

@@ -12,7 +12,7 @@ static bool Radar_ClassInited = (Radar::ClassInit(&Radar::staticType), true);
 void Radar::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("Radar"));
+    cls->setName(NC_("Class", "Radar"));
     cls->setDesc(u8R"(雷达对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

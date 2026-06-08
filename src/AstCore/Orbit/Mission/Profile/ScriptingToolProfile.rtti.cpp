@@ -12,7 +12,7 @@ static bool ScriptingToolProfile_ClassInited = (ScriptingToolProfile::ClassInit(
 void ScriptingToolProfile::ClassInit(Class* cls)
 {
 
-    cls->setName(N_("ScriptingToolProfile"));
+    cls->setName(NC_("Class", "ScriptingToolProfile"));
     cls->setDesc(u8R"(脚本工具配置)");
     cls->addToRegistry();
     cls->setParent<TargeterProfile>();
