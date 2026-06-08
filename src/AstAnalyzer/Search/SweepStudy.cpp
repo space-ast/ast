@@ -25,6 +25,7 @@
 #include "AstScript/Interpreter.hpp"
 #include "AstScript/SymbolScope.hpp"
 #include "AstUtil/Logger.hpp"
+#include <climits>      // for INT_MAX
 
 AST_NAMESPACE_BEGIN
 

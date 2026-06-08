@@ -41,7 +41,9 @@ jobs:
         if: github.event.action != 'published' && github.ref != 'refs/heads/master'
         uses: actions/cache@v4
         with:
-          path: build
+          path: |
+            build
+            .xmake
           key: build-${{ runner.os }}-${{ matrix.arch }}-build-${{ github.sha }}
           restore-keys: |
             build-${{ runner.os }}-${{ matrix.arch }}-build-

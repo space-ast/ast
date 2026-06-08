@@ -32,6 +32,8 @@ public:
     typedef agg::scanline_p8 scanline_type;
 
     AggRenderer(unsigned int width, unsigned int height, double dpi = 96.0);
+    AggRenderer(const AggRenderer&) = delete;
+    AggRenderer& operator=(const AggRenderer&) = delete;
     ~AggRenderer();
 
     unsigned int width()  const { return width_; }
@@ -79,7 +81,7 @@ public:
     void save_bmp(const char* filename) const;
 
 private:
-    A_DISABLE_COPY(AggRenderer)
+
     void draw_stroke_impl(/* 处理后的 path pipeline */);
 
     unsigned int width_, height_;
