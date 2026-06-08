@@ -136,7 +136,7 @@ var searchData=
   ['setinnerconeangle_133',['setInnerConeAngle',['../classast_1_1FOVConical.html#ae9eccc707446cafe06fa4be5e0a2ad09',1,'ast::FOVConical']]],
   ['setint_134',['setInt',['../classast_1_1JsonValue.html#ac0bd041027d8f76b83438fe1229e0543',1,'ast::JsonValue']]],
   ['setintdata_135',['setIntData',['../classast_1_1KernelPool.html#adbf466d51dece62be2d971faf1edcb04',1,'ast::KernelPool']]],
-  ['setintegrator_136',['setIntegrator',['../classast_1_1HPOP.html#a441808f323a236e9916f7f0e7f774750',1,'ast::HPOP']]],
+  ['setintegrator_136',['setIntegrator',['../classast_1_1HPOP.html#a441808f323a236e9916f7f0e7f774750',1,'ast::HPOP::setIntegrator()'],['../classast_1_1MotionHPOP.html#aa21c1a29ed47105d1b8356447201cdbe',1,'ast::MotionHPOP::setIntegrator()']]],
   ['setinterporder_137',['setInterpOrder',['../classast_1_1IAUXYSPrecomputed.html#a1d813a113419c39fd2c60c09078f9afd',1,'ast::IAUXYSPrecomputed']]],
   ['setinterpreter_138',['setInterpreter',['../classast_1_1UiVariableList.html#a11baa0a8b22a4aa6008948ca4808e9f4',1,'ast::UiVariableList']]],
   ['setinterval_139',['setInterval',['../classast_1_1MotionWithIntervalStep.html#a54d947990af3dfe574c8ecf306c395f3',1,'ast::MotionWithIntervalStep::setInterval(EventInterval *interval)'],['../classast_1_1MotionWithIntervalStep.html#aac0a73eb60fdb474b73f5971ddcc887f',1,'ast::MotionWithIntervalStep::setInterval(const TimeInterval &amp;interval)'],['../classast_1_1Scenario.html#ae96bedabe669da52615e76ee03810246',1,'ast::Scenario::setInterval(EventInterval *interval)'],['../classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4',1,'ast::Scenario::setInterval(const TimeInterval &amp;interval)']]],

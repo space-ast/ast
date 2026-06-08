@@ -60,13 +60,13 @@ var group__ODE =
       [ "integrate", "classast_1_1ODEFixedStepIntegrator.html#a23df14bc3f593622cbc78d41f8419a07", null ],
       [ "integrate", "classast_1_1ODEFixedStepIntegrator.html#a6f34712e4a7e5463361e812e940a3de3", null ],
       [ "integrate", "classast_1_1ODEFixedStepIntegrator.html#a899b0320bc80568d1591b23e7635e643", null ],
-      [ "integrateStep", "classast_1_1ODEFixedStepIntegrator.html#a4e960749b170b2b022fbf35463f880c9", null ],
+      [ "integrateOneStep", "classast_1_1ODEFixedStepIntegrator.html#a12b1606ea78a6927c77890d51ba5930b", null ],
       [ "setStepSize", "classast_1_1ODEFixedStepIntegrator.html#a91b19f7fc8680f3047f892affc932dd0", null ]
     ] ],
     [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
       [ "initialize", "classast_1_1IODEIntegrator.html#aa778531d90dc51c2e11d1c7ed0f6b759", null ],
       [ "integrate", "classast_1_1IODEIntegrator.html#a8e10779b9b7f657535a8e345be798cb2", null ],
-      [ "integrateStep", "classast_1_1IODEIntegrator.html#a671bd7e164262f9f4923d7e1d5563114", null ],
+      [ "integrateOneStep", "classast_1_1IODEIntegrator.html#a8471db5c98e9fb2b060b57de99c44338", null ],
       [ "singleStep", "classast_1_1IODEIntegrator.html#a13492e744f630de69e788687296ea294", null ]
     ] ],
     [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
@@ -75,11 +75,13 @@ var group__ODE =
       [ "addStateObserver", "classast_1_1ODEIntegrator.html#a76e2241263234469fb05f690488dc513", null ],
       [ "addStateObserver", "classast_1_1ODEIntegrator.html#abef67d9cce067b12e355543b5ac80af9", null ],
       [ "clearEventDetectors", "classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04", null ],
+      [ "clearStateObservers", "classast_1_1ODEIntegrator.html#aa8d8a8b8fb36e19c8a2e9897c4b8780d", null ],
       [ "getODE", "classast_1_1ODEIntegrator.html#acb65449f9e34544859243e08b5b7e72d", null ],
       [ "initialize", "classast_1_1ODEIntegrator.html#a153a13cb83f14b0981b0d220f64e561c", null ],
       [ "integrate", "classast_1_1ODEIntegrator.html#a23df14bc3f593622cbc78d41f8419a07", null ],
       [ "integrate", "classast_1_1ODEIntegrator.html#a8e10779b9b7f657535a8e345be798cb2", null ],
       [ "integrate", "classast_1_1ODEIntegrator.html#a899b0320bc80568d1591b23e7635e643", null ],
+      [ "integrateFixedStep", "classast_1_1ODEIntegrator.html#af56b408af48d3206270ed1176ea9dc8b", null ],
       [ "removeEventDetector", "classast_1_1ODEIntegrator.html#a478f0a75349ed585fa0b7133c549b7ea", null ],
       [ "removeStateObserver", "classast_1_1ODEIntegrator.html#a6c80b043ed73939fd9ba49b6638abb9e", null ],
       [ "stateAtStepEnd", "classast_1_1ODEIntegrator.html#abad815ab9442888f31b66d5c0618c8fd", null ],
@@ -108,7 +110,7 @@ var group__ODE =
       [ "integrate", "classast_1_1ODEVarStepIntegrator.html#a23df14bc3f593622cbc78d41f8419a07", null ],
       [ "integrate", "classast_1_1ODEVarStepIntegrator.html#af81d969b798d5aa36fece70af71bbf82", null ],
       [ "integrate", "classast_1_1ODEVarStepIntegrator.html#a899b0320bc80568d1591b23e7635e643", null ],
-      [ "integrateStep", "classast_1_1ODEVarStepIntegrator.html#ae7242bf227c01c3b3999d39d5348137f", null ],
+      [ "integrateOneStep", "classast_1_1ODEVarStepIntegrator.html#a4cb85dd1170a253e808f6de335e5f5ed", null ],
       [ "isErrorMeet", "classast_1_1ODEVarStepIntegrator.html#a26f0bbf5378edb1c29bec3bf662ed3b1", null ],
       [ "setInitialStepSize", "classast_1_1ODEVarStepIntegrator.html#ae1f1d5067be5feaaa7054313a53376b6", null ],
       [ "setMaxAbsErr", "classast_1_1ODEVarStepIntegrator.html#a111fc039918aa8b5cae9063078d68a2e", null ],

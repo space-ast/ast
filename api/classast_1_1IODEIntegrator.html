@@ -135,8 +135,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:aa778531d90dc51c2e11d1c7ed0f6b759"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e10779b9b7f657535a8e345be798cb2" id="r_a8e10779b9b7f657535a8e345be798cb2"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e10779b9b7f657535a8e345be798cb2">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
 <tr class="separator:a8e10779b9b7f657535a8e345be798cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a671bd7e164262f9f4923d7e1d5563114" id="r_a671bd7e164262f9f4923d7e1d5563114"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a671bd7e164262f9f4923d7e1d5563114">integrateStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
-<tr class="separator:a671bd7e164262f9f4923d7e1d5563114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8471db5c98e9fb2b060b57de99c44338" id="r_a8471db5c98e9fb2b060b57de99c44338"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8471db5c98e9fb2b060b57de99c44338">integrateOneStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf)=0</td></tr>
+<tr class="separator:a8471db5c98e9fb2b060b57de99c44338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13492e744f630de69e788687296ea294" id="r_a13492e744f630de69e788687296ea294"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13492e744f630de69e788687296ea294">singleStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double t0, double step)=0</td></tr>
 <tr class="separator:a13492e744f630de69e788687296ea294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
@@ -379,8 +379,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 </div><div class="memdoc">
 
-<p>积分ODE </p>
-<p>积分ODE，将积分结果存储在y中 </p><dl class="params"><dt>参数</dt><dd>
+<p>从当前时间t开始积分到最终时间tf，直到事件检测器触发事件或者积分到最终时间tf，并将积分结果存储在y中 </p>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
@@ -394,8 +394,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
-<a id="a671bd7e164262f9f4923d7e1d5563114" name="a671bd7e164262f9f4923d7e1d5563114"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a671bd7e164262f9f4923d7e1d5563114">&#9670;&#160;</a></span>integrateStep()</h2>
+<a id="a8471db5c98e9fb2b060b57de99c44338" name="a8471db5c98e9fb2b060b57de99c44338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8471db5c98e9fb2b060b57de99c44338">&#9670;&#160;</a></span>integrateOneStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +404,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual errc_t ast::IODEIntegrator::integrateStep </td>
+          <td class="memname">virtual errc_t ast::IODEIntegrator::integrateOneStep </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
         </tr>
@@ -431,8 +431,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 </div><div class="memdoc">
 
-<p>积分ODE一步 </p>
-<p>积分ODE一步，将积分结果存储在y中 如果是变步长积分器，步长会根据误差自动调整 如果是定步长积分器，步长会固定为初始步长 </p><dl class="params"><dt>参数</dt><dd>
+<p>从当前时间t朝着最终时间tf方向积分一步，并将积分结果存储在y中 如果当前时间t已经到达最终时间tf，则直接返回 如果是变步长积分器，步长会根据误差自动调整 如果是定步长积分器，步长会固定为初始步长 </p>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
@@ -442,7 +442,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   </dd>
 </dl>
 
-<p>在 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a4e960749b170b2b022fbf35463f880c9">ast::ODEFixedStepIntegrator</a> , 以及 <a class="el" href="classast_1_1ODEVarStepIntegrator.html#ae7242bf227c01c3b3999d39d5348137f">ast::ODEVarStepIntegrator</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a12b1606ea78a6927c77890d51ba5930b">ast::ODEFixedStepIntegrator</a> , 以及 <a class="el" href="classast_1_1ODEVarStepIntegrator.html#a4cb85dd1170a253e808f6de335e5f5ed">ast::ODEVarStepIntegrator</a> 内被实现.</p>
 
 </div>
 </div>
@@ -483,8 +483,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </table>
 </div><div class="memdoc">
 
-<p>执行一步积分 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>执行一步积分（执行单次步进） </p>
+<p>这个函数是积分器最底层的实现，一般是采用多步法对ODE进行单次步进 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>

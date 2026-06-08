@@ -140,6 +140,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (<a class=
 <tr class="separator:a652e889362570b8d3622b9ee033dcaf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d08f17696c20b3267953e9c60514979" id="r_a2d08f17696c20b3267953e9c60514979"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d08f17696c20b3267953e9c60514979">getTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rot) const override</td></tr>
 <tr class="separator:a2d08f17696c20b3267953e9c60514979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c581f8e28227d791ca1ffd2fcde4b5b" id="r_a6c581f8e28227d791ca1ffd2fcde4b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c581f8e28227d791ca1ffd2fcde4b5b">getInertialToFixedTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rot) const</td></tr>
+<tr class="separator:a6c581f8e28227d791ca1ffd2fcde4b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af604f05383e45174d48a8a0349eed22e" id="r_af604f05383e45174d48a8a0349eed22e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af604f05383e45174d48a8a0349eed22e">getICRFToMODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rot) const</td></tr>
 <tr class="separator:af604f05383e45174d48a8a0349eed22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7a7c59053b64a5402cb277548c01693" id="r_ae7a7c59053b64a5402cb277548c01693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7a7c59053b64a5402cb277548c01693">getICRFToTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rot) const</td></tr>
@@ -628,6 +630,36 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </div><div class="memdoc">
 
 <p>获取ICRF到TOD系的旋转 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rot</td><td>旋转 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6c581f8e28227d791ca1ffd2fcde4b5b" name="a6c581f8e28227d791ca1ffd2fcde4b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c581f8e28227d791ca1ffd2fcde4b5b">&#9670;&#160;</a></span>getInertialToFixedTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::RotationalData::getInertialToFixedTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rot</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取天体惯性系到天体固连系的旋转 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>

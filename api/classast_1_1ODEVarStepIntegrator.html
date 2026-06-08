@@ -132,8 +132,8 @@ $(function(){initNavTree('classast_1_1ODEVarStepIntegrator.html',''); initResiza
 Public 成员函数</h2></td></tr>
 <tr class="memitem:af81d969b798d5aa36fece70af71bbf82" id="r_af81d969b798d5aa36fece70af71bbf82"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af81d969b798d5aa36fece70af71bbf82">integrate</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf) final</td></tr>
 <tr class="separator:af81d969b798d5aa36fece70af71bbf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7242bf227c01c3b3999d39d5348137f" id="r_ae7242bf227c01c3b3999d39d5348137f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7242bf227c01c3b3999d39d5348137f">integrateStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf) final</td></tr>
-<tr class="separator:ae7242bf227c01c3b3999d39d5348137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb85dd1170a253e808f6de335e5f5ed" id="r_a4cb85dd1170a253e808f6de335e5f5ed"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cb85dd1170a253e808f6de335e5f5ed">integrateOneStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double *y, double &amp;t, double tf) final</td></tr>
+<tr class="separator:a4cb85dd1170a253e808f6de335e5f5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a111fc039918aa8b5cae9063078d68a2e" id="r_a111fc039918aa8b5cae9063078d68a2e"><td class="memItemLeft" align="right" valign="top"><a id="a111fc039918aa8b5cae9063078d68a2e" name="a111fc039918aa8b5cae9063078d68a2e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxAbsErr</b> (double maxAbsErr)</td></tr>
 <tr class="separator:a111fc039918aa8b5cae9063078d68a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,6 +246,8 @@ const <a class="el" href="classast_1_1ODEFixedStepIntegrator_1_1Workspace.html">
 <tr class="separator:a478f0a75349ed585fa0b7133c549b7ea inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae72c0c1835275c3ec91d3ec917ff4a04 inherit pub_methods_classast_1_1ODEIntegrator" id="r_ae72c0c1835275c3ec91d3ec917ff4a04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04">clearEventDetectors</a> ()</td></tr>
 <tr class="separator:ae72c0c1835275c3ec91d3ec917ff4a04 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8d8a8b8fb36e19c8a2e9897c4b8780d inherit pub_methods_classast_1_1ODEIntegrator" id="r_aa8d8a8b8fb36e19c8a2e9897c4b8780d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#aa8d8a8b8fb36e19c8a2e9897c4b8780d">clearStateObservers</a> ()</td></tr>
+<tr class="separator:aa8d8a8b8fb36e19c8a2e9897c4b8780d inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abef67d9cce067b12e355543b5ac80af9 inherit pub_methods_classast_1_1ODEIntegrator" id="r_abef67d9cce067b12e355543b5ac80af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#abef67d9cce067b12e355543b5ac80af9">addStateObserver</a> (<a class="el" href="classast_1_1ODEStateObserver.html">ODEStateObserver</a> *observer)</td></tr>
 <tr class="separator:abef67d9cce067b12e355543b5ac80af9 inherit pub_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76e2241263234469fb05f690488dc513 inherit pub_methods_classast_1_1ODEIntegrator" id="r_a76e2241263234469fb05f690488dc513"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
@@ -418,6 +420,11 @@ Protected 成员函数</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>resetWorkspace</b> (int dimension, int stage)</td></tr>
 <tr class="separator:a0e499827786678b73c5aa49769dd2648 inherit pro_methods_classast_1_1ODEFixedStepIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classast_1_1ODEIntegrator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1ODEIntegrator')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1ODEIntegrator.html">ast::ODEIntegrator</a></td></tr>
+<tr class="memitem:a70264962229b9d7be599c2cf858678c8 inherit pro_methods_classast_1_1ODEIntegrator" id="r_a70264962229b9d7be599c2cf858678c8"><td class="memItemLeft" align="right" valign="top">
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>integrateOneFixedStep</b> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double absStepSize, double *y, double &amp;t, double tf)</td></tr>
+<tr class="separator:a70264962229b9d7be599c2cf858678c8 inherit pro_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af56b408af48d3206270ed1176ea9dc8b inherit pro_methods_classast_1_1ODEIntegrator" id="r_af56b408af48d3206270ed1176ea9dc8b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ODEIntegrator.html#af56b408af48d3206270ed1176ea9dc8b">integrateFixedStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double absStepSize, double *y, double &amp;t, double tf, int *pNumSteps=nullptr)</td></tr>
+<tr class="separator:af56b408af48d3206270ed1176ea9dc8b inherit pro_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a546271b4d98afc0c995a64813716df67 inherit pro_methods_classast_1_1ODEIntegrator" id="r_a546271b4d98afc0c995a64813716df67"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initWorkStateObserver</b> ()</td></tr>
 <tr class="separator:a546271b4d98afc0c995a64813716df67 inherit pro_methods_classast_1_1ODEIntegrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -685,8 +692,8 @@ template&lt;typename Func &gt; </div>
 
 </div>
 </div>
-<a id="ae7242bf227c01c3b3999d39d5348137f" name="ae7242bf227c01c3b3999d39d5348137f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7242bf227c01c3b3999d39d5348137f">&#9670;&#160;</a></span>integrateStep()</h2>
+<a id="a4cb85dd1170a253e808f6de335e5f5ed" name="a4cb85dd1170a253e808f6de335e5f5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb85dd1170a253e808f6de335e5f5ed">&#9670;&#160;</a></span>integrateOneStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -695,7 +702,7 @@ template&lt;typename Func &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">errc_t ast::ODEVarStepIntegrator::integrateStep </td>
+          <td class="memname">errc_t ast::ODEVarStepIntegrator::integrateOneStep </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
         </tr>
@@ -723,7 +730,7 @@ template&lt;typename Func &gt; </div>
 </div><div class="memdoc">
 <dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1ODEIntegrator.html" title="ODE 积分器">ODEIntegrator</a> </dd></dl>
 
-<p>重载 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a4e960749b170b2b022fbf35463f880c9">ast::ODEFixedStepIntegrator</a> .</p>
+<p>重载 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a12b1606ea78a6927c77890d51ba5930b">ast::ODEFixedStepIntegrator</a> .</p>
 
 </div>
 </div>

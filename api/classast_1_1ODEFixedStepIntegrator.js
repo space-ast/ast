@@ -7,6 +7,6 @@ var classast_1_1ODEFixedStepIntegrator =
     [ "integrate", "classast_1_1ODEFixedStepIntegrator.html#a23df14bc3f593622cbc78d41f8419a07", null ],
     [ "integrate", "classast_1_1ODEFixedStepIntegrator.html#a6f34712e4a7e5463361e812e940a3de3", null ],
     [ "integrate", "classast_1_1ODEFixedStepIntegrator.html#a899b0320bc80568d1591b23e7635e643", null ],
-    [ "integrateStep", "classast_1_1ODEFixedStepIntegrator.html#a4e960749b170b2b022fbf35463f880c9", null ],
+    [ "integrateOneStep", "classast_1_1ODEFixedStepIntegrator.html#a12b1606ea78a6927c77890d51ba5930b", null ],
     [ "setStepSize", "classast_1_1ODEFixedStepIntegrator.html#a91b19f7fc8680f3047f892affc932dd0", null ]
 ];
