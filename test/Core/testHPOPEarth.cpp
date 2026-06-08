@@ -25,6 +25,7 @@
 #include "ast/Test.hpp"
 #include "ast/Vector.hpp"
 #include "ast/Environment.hpp"
+#include "ast/ODEVarStepIntegrator.hpp"
 
 AST_USING_NAMESPACE
 
@@ -266,5 +267,55 @@ TEST_F(HPOPTest, MoonReturn)
     EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
 }
+
+
+TEST_F(HPOPTest, With_Sun_Moon_ThirdBody)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    ThirdBodyForce thirdBodyForce;
+    thirdBodyForce.setAttractionType(EBodyAttractionType::ePointMass);
+    thirdBodyForce.pointMass().gmSource_ = EGMSource::eBodyGravity;
+
+    thirdBodyForce.setBody(aGetSun());
+    forceModel.addThirdBody(thirdBodyForce);
+
+    thirdBodyForce.setBody(aGetMoon());
+    forceModel.addThirdBody(thirdBodyForce);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 7, 9, 0, 0, 0);
+    Vector3d pos{6.8440021143593639e+06, 6.8440021143593476e+05, -8.0763129517436028e-10};
+    Vector3d vel{ -6.6493233842545351e+02, 6.6493233842545542e+03, 3.6463909105223511e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+    Vector3d posExpect{ -5.5995469216931257e+06, -3.0816759444764131e+06, 2.5246500543340887e+06};
+    Vector3d velExpect{ 4.2866120729498525e+03, -5.8469115306180220e+03, 2.3388688727148760e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 2e-4);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+}
+
 GTEST_MAIN();
 

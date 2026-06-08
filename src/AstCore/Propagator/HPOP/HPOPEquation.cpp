@@ -98,6 +98,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
         // 添加重力场函数块
         if(auto gravityPtr = bodyAttraction.asGravityForce()){
             auto& gravity = *gravityPtr;
+            // 如果重力场的阶数为0，说明是二体引力，直接添加二体引力函数块即可
             if(0 == gravity.maxDegree_){
                 GravityFieldHead gfHead;
                 errc_t err = gfHead.load(gravity.model_, body->getDirpath());
@@ -125,24 +126,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
         // 添加二体引力函数块
         else if(auto pointMassPtr = bodyAttraction.asPointMassForce())
         {
-            auto& pointMass = *pointMassPtr;
-            double gm{};
-            if(pointMass.gmSource_ == EGMSource::eSpecifiedValue)
-            {
-                gm = pointMass.specifiedGM_;
-            }
-            else if(pointMass.gmSource_ == EGMSource::eBodyGravity)
-            {
-                gm = body->getGM();
-            }
-            else if(pointMass.gmSource_ == EGMSource::eJplDE)
-            {
-                aWarning("unsupported feature: JPL DE gravity gm source, use body gm instead.");
-                gm = body->getGM();
-            }else{
-                aError("unsupported gm source type: %d, use body gm instead.", pointMass.gmSource_);
-                gm = body->getGM();
-            }
+            double gm = pointMassPtr->getGM(body);
             this->addBlock(new BlockTwoBody(gm));
         }
         else
@@ -154,10 +138,23 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
         aWarning("the propagation frame's center is not a celestial body, no gravity force will be added.");
     }
 
+    // 添加三体引力函数块
+    {
+        auto& thirdBodies = forceModel.getThirdBodies();
+        for(auto& thirdBody: thirdBodies)
+        {
+            auto body = thirdBody.body();
+            double gm = thirdBody.pointMass().getGM(body);
+            derivativeBlock = new BlockThirdBody(propFrame_, body, gm);
+            this->addBlock(derivativeBlock);
+        }
+    }
+
+    // [月球特定的逻辑，待废弃] 
     // 添加月球引力函数块
     if(forceModel.useMoonGravity())
     {
-        derivativeBlock = new BlockThirdBody(forceModel.moonGravity());
+        derivativeBlock = new BlockThirdBody(propFrame_, aGetMoon(), forceModel.moonGravity());
         this->addBlock(derivativeBlock);
     }
     return eNoError;

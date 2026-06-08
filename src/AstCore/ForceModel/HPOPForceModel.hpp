@@ -123,7 +123,7 @@ private:
 
     bool useMoonGravity_{false};
     double moonGravity_{kMoonGrav};
-public:
+public: // [月球特定的接口，待废弃]
     bool useMoonGravity() const{return useMoonGravity_;}
     void useMoonGravity(bool useMoonGravity){useMoonGravity_ = useMoonGravity;}
     double moonGravity() const{return moonGravity_;}

@@ -203,7 +203,7 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
     }
     auto ephem_frame = ephem_readed->getFrame();
     for(auto& tp: timePointsToCheck){
-        status.info("checking for timepoint %s ...", tp.toString().c_str());
+        status.keyValue("checking for timepoint", tp.toString().c_str());
         Vector3d pos, vel;
         Vector3d posExpected, velExpected;
         rc = ephem_spec_generated->getPosVelIn(ephem_frame, tp, pos, vel);
@@ -218,6 +218,7 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
             status.failed("failed to get pos vel from readed ephemeris");
             return rc;
         }
+        status.keyValue("ephemeris type", ephem_readed->typeName().c_str());
         status.info("pos        : %.15g, %.15g, %.15g", pos[0], pos[1], pos[2]);
         status.info("posExpected: %.15g, %.15g, %.15g", posExpected[0], posExpected[1], posExpected[2]);
         status.info("vel        : %.15g, %.15g, %.15g", vel[0], vel[1], vel[2]);
@@ -226,16 +227,15 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
         {
             if(!aIsClose(pos[i], posExpected[i], reltol_pos, abstol_pos))
             {
-                status.failed("pos[%d] not close", i);
-                return eErrorInvalidParam;
+                double diff = pos[i] - posExpected[i];
+                status.failed("pos[%d] - posExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
             if(!aIsClose(vel[i], velExpected[i], reltol_vel, abstol_vel))
             {
-                status.failed("vel[%d] not close", i);
-                return eErrorInvalidParam;
+                double diff = vel[i] - velExpected[i];
+                status.failed("vel[%d] - velExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
         }
-        status.success("specific generated ephemeris test passed for timepoint %s", tp.toString().c_str());
 
 
         rc = ephem_simple_generated->getPosVelIn(ephem_frame, tp, pos, vel);
@@ -244,27 +244,27 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
             status.failed("failed to get pos vel from simple ephemeris");
             return rc;
         }
-        ast_printf("pos        : %.15g, %.15g, %.15g\n", pos[0], pos[1], pos[2]);
-        ast_printf("posExpected: %.15g, %.15g, %.15g\n", posExpected[0], posExpected[1], posExpected[2]);
-        ast_printf("vel        : %.15g, %.15g, %.15g\n", vel[0], vel[1], vel[2]);
-        ast_printf("velExpected: %.15g, %.15g, %.15g\n", velExpected[0], velExpected[1], velExpected[2]);
+        status.keyValue("ephemeris type", ephem_simple_generated->typeName().c_str());
+        status.info("pos        : %.15g, %.15g, %.15g", pos[0], pos[1], pos[2]);
+        status.info("posExpected: %.15g, %.15g, %.15g", posExpected[0], posExpected[1], posExpected[2]);
+        status.info("vel        : %.15g, %.15g, %.15g", vel[0], vel[1], vel[2]);
+        status.info("velExpected: %.15g, %.15g, %.15g", velExpected[0], velExpected[1], velExpected[2]);
         for(int i = 0; i < 3; ++i)
         {
             if(!aIsClose(pos[i], posExpected[i], reltol_pos, abstol_pos))
             {
-                status.failed("pos[%d] not close", i);
-                return eErrorInvalidParam;
+                double diff = pos[i] - posExpected[i];
+                status.failed("pos[%d] - posExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
             if(!aIsClose(vel[i], velExpected[i], reltol_vel, abstol_vel))
             {
-                status.failed("vel[%d] not close", i);
-                return eErrorInvalidParam;
+                double diff = vel[i] - velExpected[i];
+                status.failed("vel[%d] - velExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
         }
-        status.success("simple ephemeris test passed for timepoint %s", tp.toString().c_str());
     }
 
-    status.success("all tests passed");
+    status.success("end of test");
     return 0;
 }
 
