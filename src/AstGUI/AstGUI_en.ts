@@ -995,11 +995,15 @@ Error code: %2</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>选择父对象...</source>
+        <source>选择父对象</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>选择父对象</source>
+        <source>父对象:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>点击选择父对象...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

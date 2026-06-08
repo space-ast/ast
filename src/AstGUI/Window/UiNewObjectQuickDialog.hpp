@@ -27,6 +27,7 @@
 #include <QString>
 #include <vector>
 
+class QEvent;
 class QLabel;
 class QLineEdit;
 class QPushButton;
@@ -72,6 +73,7 @@ private:
     void onAdvanced();
     void onCreate();
     bool tryCreate();
+    bool eventFilter(QObject* obj, QEvent* event) override;
     QString generateUniqueName(const QString& typeName) const;
 
     /// @brief 弹出父对象选择对话框，返回选中的对象，取消则返回 nullptr
@@ -85,9 +87,11 @@ private:
 
     // 类型表格
     QTableWidget* typeTable_ = nullptr;
+    QLabel*       typeDescLabel_ = nullptr;
 
     // 父对象选择
-    QPushButton* parentBtn_ = nullptr;
+    QWidget*    parentRow_ = nullptr;
+    QLineEdit*  parentEdit_ = nullptr;
 
     // 名称 / 按钮
     QLineEdit*   nameEdit_ = nullptr;

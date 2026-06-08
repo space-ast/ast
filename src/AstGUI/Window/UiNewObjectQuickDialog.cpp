@@ -28,6 +28,7 @@
 #include "AstUtil/StringView.hpp"
 
 #include <QDialogButtonBox>
+#include <QEvent>
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QLabel>
@@ -114,19 +115,32 @@ void UiNewObjectQuickDialog::setupUi()
 
     root->addWidget(typeTable_, 1);
 
-    // ---- 底部：名称 ----
-    auto* nameLayout = new QHBoxLayout();
-    nameLayout->addWidget(new QLabel(tr("名称:"), this));
+    // ---- 类型描述 ----
+    typeDescLabel_ = new QLabel(this);
+    typeDescLabel_->setWordWrap(true);
+    typeDescLabel_->setStyleSheet("color: #666; padding: 4px 8px;");
+    root->addWidget(typeDescLabel_);
+
+    // ---- 底部：名称 + 父对象（同一行） ----
+    auto* infoLayout = new QHBoxLayout();
+    infoLayout->addWidget(new QLabel(tr("名称:"), this));
     nameEdit_ = new QLineEdit(this);
     nameEdit_->setPlaceholderText(tr("自动生成唯一名称"));
-    nameLayout->addWidget(nameEdit_, 1);
-    root->addLayout(nameLayout);
+    infoLayout->addWidget(nameEdit_, 1);
 
-    // ---- 底部：父对象选择按钮（初始隐藏） ----
-    parentBtn_ = new QPushButton(tr("选择父对象..."), this);
-    parentBtn_->setVisible(false);
-    connect(parentBtn_, &QPushButton::clicked, this, &UiNewObjectQuickDialog::onChooseParent);
-    root->addWidget(parentBtn_);
+    parentRow_ = new QWidget(this);
+    parentRow_->setVisible(false);
+    auto* parentLayout = new QHBoxLayout(parentRow_);
+    parentLayout->setContentsMargins(0, 0, 0, 0);
+    parentLayout->addWidget(new QLabel(tr("父对象:"), parentRow_));
+    parentEdit_ = new QLineEdit(parentRow_);
+    parentEdit_->setReadOnly(true);
+    parentEdit_->setPlaceholderText(tr("点击选择父对象..."));
+    parentEdit_->installEventFilter(this);
+    parentLayout->addWidget(parentEdit_, 1);
+    infoLayout->addWidget(parentRow_);
+
+    root->addLayout(infoLayout);
 
     // ---- 底部：按钮 ----
     auto* btnBar = new QHBoxLayout();
@@ -239,7 +253,7 @@ void UiNewObjectQuickDialog::buildTypeGrid()
             if (!parent)
                 return;
             selectedParent_ = parent;
-            parentBtn_->setText(aUiObjectDisplayName(parent));
+            parentEdit_->setText(aUiObjectDisplayName(parent));
         }
 
         if (tryCreate())
@@ -250,7 +264,7 @@ void UiNewObjectQuickDialog::buildTypeGrid()
             if (entry.parentType)
             {
                 selectedParent_ = nullptr;
-                parentBtn_->setText(tr("选择父对象..."));
+                parentEdit_->clear();
                 createBtn_->setEnabled(false);
             }
         }
@@ -276,12 +290,19 @@ void UiNewObjectQuickDialog::onTypeCardClicked(int entryIndex)
     QString typeName = QString::fromStdString(entry.typeName);
     nameEdit_->setText(generateUniqueName(typeName));
 
-    // 父对象选择按钮
+    // 父对象选择
     bool needsParent = (entry.parentType != nullptr);
-    parentBtn_->setVisible(needsParent);
+    parentRow_->setVisible(needsParent);
     if (needsParent)
-        parentBtn_->setText(tr("选择父对象..."));
+        parentEdit_->clear();
     createBtn_->setEnabled(!nameEdit_->text().isEmpty() && !needsParent);
+
+    // 类型描述
+    auto cls = aGetClass(entry.typeName);
+    if (cls && !cls->desc().empty())
+        typeDescLabel_->setText(QString::fromStdString(cls->desc()));
+    else
+        typeDescLabel_->clear();
 }
 
 void UiNewObjectQuickDialog::onChooseParent()
@@ -295,7 +316,7 @@ void UiNewObjectQuickDialog::onChooseParent()
     if (parent)
     {
         selectedParent_ = parent;
-        parentBtn_->setText(aUiObjectDisplayName(parent));
+        parentEdit_->setText(aUiObjectDisplayName(parent));
         createBtn_->setEnabled(!nameEdit_->text().isEmpty());
     }
 }
@@ -329,6 +350,12 @@ Object* UiNewObjectQuickDialog::showParentDialog(const char* parentType)
     {
         btnBox->button(QDialogButtonBox::Ok)->setEnabled(
             current && (current->flags() & Qt::ItemIsSelectable));
+    });
+    connect(tree, &QTreeWidget::itemDoubleClicked,
+            this, [dlg](QTreeWidgetItem* item, int)
+    {
+        if (item && (item->flags() & Qt::ItemIsSelectable))
+            dlg->accept();
     });
     connect(btnBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept);
     connect(btnBox, &QDialogButtonBox::rejected, dlg, &QDialog::reject);
@@ -459,6 +486,16 @@ void UiNewObjectQuickDialog::onCreate()
 // ============================================================================
 // 工具函数
 // ============================================================================
+
+bool UiNewObjectQuickDialog::eventFilter(QObject* obj, QEvent* event)
+{
+    if (obj == parentEdit_ && event->type() == QEvent::MouseButtonPress)
+    {
+        onChooseParent();
+        return true;
+    }
+    return QDialog::eventFilter(obj, event);
+}
 
 QString UiNewObjectQuickDialog::createdObjectName() const
 {
