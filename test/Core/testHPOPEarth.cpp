@@ -44,6 +44,11 @@ class HPOPTest : public ::testing::Test
     }
 };
 
+/// @brief 测试方程初始化与维度
+/// @details
+/// 验证 HPOPEquation 的 setForceModel() 和 initialize() 流程：
+///   - 设置 WGS84 重力模型后初始化，状态量维度应为 6（3位置 + 3速度）
+///   - 启用月球引力后重新初始化，维度保持 6 不变（摄动力不增加状态量个数）
 TEST_F(HPOPTest, HPOPEquation)
 {
     HPOPEquation equation;
@@ -65,6 +70,13 @@ TEST_F(HPOPTest, HPOPEquation)
     EXPECT_EQ(ndim, 6);
 }
 
+/// @brief 测试纯二体引力预报
+/// @details
+/// 使用 JGM3 重力场 degree=0（仅使用 GM，退化为点质量二体问题），
+/// 预报 24 小时。初始状态为近圆 LEO 轨道（高度约 300 km）。
+///
+/// 力模型：仅地球中心引力（点质量），无 J2、三体、阻力等摄动。
+/// 期望值来自解析二体预报的参考结果。
 TEST_F(HPOPTest, TwoBody)
 {
     HPOPForceModel forcemodel;
@@ -91,6 +103,12 @@ TEST_F(HPOPTest, TwoBody)
     EXPECT_NEAR(vel[2],  3089.418191229, 1e-7);
 }
 
+/// @brief 测试 J2 摄动（重力场 degree=2, order=0）
+/// @details
+/// 在二体引力基础上叠加 J2 带谐项（地球扁率）摄动。
+/// J2 是地球非球形引力的主导项，引起升交点赤经和近地点幅角的长期进动。
+///
+/// 力模型：JGM3(2,0)，24 小时预报。
 TEST_F(HPOPTest, OnlyGravity_2_0)
 {
     HPOPForceModel forcemodel;
@@ -118,6 +136,11 @@ TEST_F(HPOPTest, OnlyGravity_2_0)
     EXPECT_NEAR(vel[2], 3599.248709178, 1e-7);
 }
 
+/// @brief 测试高阶重力场（70×50）短期预报
+/// @details
+/// 使用 JGM3 重力场 70 阶 50 次球谐展开，24 小时预报。
+///
+/// 注意：order=50 < degree=70，只使用了田谐项的子集，
 TEST_F(HPOPTest, OnlyGravity_70_50)
 {
     HPOPForceModel forcemodel;
@@ -144,6 +167,11 @@ TEST_F(HPOPTest, OnlyGravity_70_50)
     EXPECT_NEAR(vel[2],  3599.3483256, 1e-5);
 }
 
+/// @brief 测试中阶重力场（20×20）30天长期预报
+/// @details
+/// 使用 JGM3 重力场 20×20 球谐展开，30 天预报。
+///
+/// 验证预报器在长期积分中的数值稳定性。
 TEST_F(HPOPTest, OnlyGravity_20_20)
 {
     // if(!aIsCI()){
@@ -179,6 +207,11 @@ TEST_F(HPOPTest, OnlyGravity_20_20)
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
 }
 
+/// @brief 测试地月二体 + 月球三体引力摄动
+/// @details
+/// 地球和月球均视为点质量，航天器在地月系统中运动。
+///
+/// 力模型：地球点质量引力 + 月球第三体摄动（使用三体公式：直接项 − 间接项）。
 TEST_F(HPOPTest, MoonThirdBody)
 {
     HPOPForceModel forcemodel;
@@ -208,6 +241,11 @@ TEST_F(HPOPTest, MoonThirdBody)
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-8);
 }
 
+/// @brief 测试月球自由返回轨道
+/// @details
+/// 自由返回轨道是一种绕月后自动返回地球的轨道，无需中途机动，
+///
+/// 力模型：地球点质量 + 月球点质量三体摄动，JPL DE 星历。
 TEST_F(HPOPTest, MoonFreeReturn)
 {
     HPOPForceModel forcemodel;
@@ -238,6 +276,11 @@ TEST_F(HPOPTest, MoonFreeReturn)
 }
 
 
+/// @brief 测试月球返回轨道
+/// @details
+/// 从月球附近出发返回地球的轨道弧段，约 3.1 天。
+///
+/// 力模型：地球点质量 + 月球点质量三体摄动。
 TEST_F(HPOPTest, MoonReturn)
 {
     // aInitialize();
@@ -270,6 +313,12 @@ TEST_F(HPOPTest, MoonReturn)
 }
 
 
+/// @brief 测试完整摄动力模型：重力场 + 太阳 + 月球三体引力
+/// @details
+/// 综合测试地球非球形引力（EGM2008 21×21）、太阳第三体摄动和月球第三体摄动。
+///
+/// 初始条件为近圆 LEO 轨道（半径 ≈ 6900 km）。
+/// 力模型：EGM2008(21,21) + 太阳点质量三体 + 月球点质量三体。
 TEST_F(HPOPTest, With_Sun_Moon_ThirdBody)
 {
     HPOPForceModel forceModel;
@@ -319,6 +368,13 @@ TEST_F(HPOPTest, With_Sun_Moon_ThirdBody)
 }
 
 
+/// @brief 测试大气阻力摄动（近似海拔模式）
+/// @details
+/// 在 EGM2008(21,21) 重力场基础上叠加 NRLMSISE-2000 大气阻力模型。
+/// 使用近似海拔（useApproxAltForDrag=true）
+///
+/// 航天器参数：质量 1000 kg，阻力面积 20 m²，阻力系数 2.2。
+/// 空间天气参数：F10.7=150（日均值与平均值相同），Kp=3（中等地磁活动）。
 TEST_F(HPOPTest, Drag_ApproximateAltitude)
 {
     HPOPForceModel forceModel;
@@ -371,6 +427,61 @@ TEST_F(HPOPTest, Drag_ApproximateAltitude)
     EXPECT_NEAR(vel[1],  velExpect[1], 1e-3);
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-3);
 }
+
+/// @brief 测试太阳辐射压力（无阴影模型，真太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：不检测阴影，并使用几何太阳位置（不考虑光行差）。
+TEST_F(HPOPTest, SRP_NoShadow_TrueSun)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eNone;
+    forceModel.srp().sunPosition_ = ESunPosition::eTrue;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
+    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+    Vector3d posExpect{ 6.2333481674869442e+06, 4.2166379211770219e+05, 2.8615712739877473e+06};
+    Vector3d velExpect{ -1.2876976995850798e+03, 7.3033485417655947e+03, 1.7416876627816571e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-8);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-8);
+}
+
 
 GTEST_MAIN();
 

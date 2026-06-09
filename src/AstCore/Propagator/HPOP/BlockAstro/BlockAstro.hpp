@@ -25,18 +25,29 @@
 
 AST_NAMESPACE_BEGIN
 
-constexpr const char* kIdentifierPos = "Pos";
-constexpr const char* kIdentifierVel = "Vel";
-constexpr const char* kIdentifierMass = "Mass";
-constexpr const char* kIdentifierAcc = "Acc";
-constexpr const char* kIdentifierAccTwoBody = "AccTwoBody";
-constexpr const char* kIdentifierAccThirdBody = "AccThirdBody";
-constexpr const char* kIdentifierAccGravity = "AccGravity";
-constexpr const char* kIdentifierAccGravityPert = "AccGravityPert";
-constexpr const char* kIdentifierAccRelativity = "AccRelativity";
-constexpr const char* kIdentifierAccDrag = "AccDrag";
-constexpr const char* kIdentifierAccSRP = "AccSRP";
+/// @name 信号标识符常量
+/// @brief 用于函数块之间端口自动连接的信号名称标识符
+/// @details
+/// 每个常量对应一个信号通道，BlockDynamicSystem 通过匹配输入/输出端口的标识符名称，
+/// 自动建立函数块之间的信号连接。新增力模型时，需在此定义其加速度信号的标识符。
+/// @{
 
+constexpr const char* kIdentifierPos = "Pos";                       ///< 位置信号（预报坐标系下，3维向量）
+constexpr const char* kIdentifierVel = "Vel";                       ///< 速度信号（预报坐标系下，3维向量）
+constexpr const char* kIdentifierMass = "Mass";                     ///< 质量信号（标量）
+
+constexpr const char* kIdentifierAcc = "Acc";                       ///< 总加速度信号（3维向量）
+constexpr const char* kIdentifierAccTwoBody = "AccTwoBody";         ///< 二体引力加速度（3维向量）
+constexpr const char* kIdentifierAccThirdBody = "AccThirdBody";     ///< 三体引力加速度（3维向量）
+constexpr const char* kIdentifierAccGravity = "AccGravity";         ///< 重力场加速度（3维向量）
+constexpr const char* kIdentifierAccGravityPert = "AccGravityPert"; ///< 重力场摄动加速度（3维向量）
+constexpr const char* kIdentifierAccRelativity = "AccRelativity";   ///< 相对论修正加速度（3维向量）
+constexpr const char* kIdentifierAccDrag = "AccDrag";               ///< 大气阻力加速度（3维向量）
+constexpr const char* kIdentifierAccSRP = "AccSRP";                 ///< 太阳辐射压力加速度（3维向量）
+
+/// @}
+
+/// @brief 天体力学函数块类型别名（待细化）
 using BlockAstro = FuncBlock; // @todo;
 
 

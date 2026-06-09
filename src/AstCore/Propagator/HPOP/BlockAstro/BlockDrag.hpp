@@ -27,7 +27,32 @@
 
 AST_NAMESPACE_BEGIN
 
-
+/// @brief 大气阻力函数块
+/// @details
+/// 计算大气阻力加速度，用于低轨道航天器的大气阻力摄动建模。
+///
+/// 方程：
+///   a_drag = -½ · Cd · (A/m) · ρ · |v_rel| · v_rel
+///
+/// 其中：
+///   Cd    = 阻力系数（dragCoefficient_）
+///   A     = 阻力参考面积（dragArea_）
+///   m     = 航天器质量（来自 Mass 输入端口）
+///   ρ     = 大气密度（由大气模型根据位置计算）
+///   v_rel = 航天器相对于大气的速度（已减去大气旋转速度）
+///
+/// 输入端口：
+///   - "Pos"：位置向量（3维，预报坐标系下）
+///   - "Vel"：速度向量（3维，预报坐标系下）
+///   - "Mass"：航天器质量（标量）
+///
+/// 输出端口：
+///   - "AccDrag"：大气阻力加速度（3维）
+///
+/// 导数端口：
+///   - "Vel"：速度导数（3维），累加阻力加速度
+///
+/// @note atmosphere_ 的所有权由本块管理，析构时自动释放
 class AST_CORE_API BlockDrag: public BlockDerivative
 {
 public:

@@ -20,9 +20,10 @@
 
 #include "HPOPEquation.hpp"
 #include "HPOP.hpp"                         // for HPOPForceModel
-#include "AstUtil/Logger.hpp"       
+#include "AstUtil/Logger.hpp"
 #include "AstCore/Simulation.hpp"           // for blocks
-#include "AstCore/BuiltinFrame.hpp"         // 
+#include "AstCore/BuiltinFrame.hpp"         //
+#include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun()
 #include "AstCore/NRLMSIS00.hpp"
 #include "AstWeather/GeomagneticIndex.hpp"  // for aKpToAp, aApToKp
 
@@ -140,11 +141,14 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         aWarning("the propagation frame's center is not a celestial body, no gravity force will be added.");
     }
 
+    BlockMass* blockMass = nullptr;  // 质量函数块指针，用于标识是否添加了质量函数块
+
     // 添加大气阻力函数块
     if(forceModel.useDrag())
     {
         // 添加质量函数块
-        this->addBlock(new BlockMass(spacecraftParam.mass()));
+        blockMass = new BlockMass(spacecraftParam.mass());
+        this->addBlock(blockMass);
 
         double kp = forceModel.drag().kp_;
         double ap = aKpToAp(kp);
@@ -152,6 +156,20 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         atmosphere->setUseApproximateAltitude(forceModel.drag().useApproxAltForDrag_);
         // atmosphere 的所有权转移给 blockDrag
         derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame_);
+        this->addBlock(derivativeBlock);
+    }
+
+    // 添加太阳辐射压力函数块
+    if(forceModel.useSRP())
+    {
+        // 如果前面没有添加质量函数块（如未使用阻力模型），则需要在此添加
+        if(!blockMass)
+        {
+            blockMass = new BlockMass(spacecraftParam.mass());
+            this->addBlock(blockMass);
+        }
+        // @todo 这里还需要计算太阳是否被遮挡
+        derivativeBlock = new BlockSRP(aGetSun(), spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame_);
         this->addBlock(derivativeBlock);
     }
 

@@ -288,7 +288,7 @@ errc_t SpiceAPI::spkuef(int handle)
     functype spkuef_c = reinterpret_cast<functype>(functions_[ispkuef]);
     if(!spkuef_c)
     {
-        aError(kSpiceUnloadError);
+        // aError(kSpiceUnloadError);
         return eErrorNullPtr;
     }
     if(handle >= (spiceproto::SpiceInt)spk_handles_.size() || handle < 0)
