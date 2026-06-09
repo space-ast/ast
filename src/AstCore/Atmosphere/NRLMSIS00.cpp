@@ -32,13 +32,13 @@ NRLMSIS00::NRLMSIS00(Frame* ecf, BodyShape* bodyShape, double f107Daily, double 
     , F107Average_{f107Average}
     , ap_{ap}
 {
-    new (&storage_) class nrlmsise();
+    new (&storage_) NRLMSISE();
+    static_assert(sizeof(storage_) == sizeof(NRLMSISE), "storage_ size must be same as NRLMSISE");
 }
 
 NRLMSIS00::~NRLMSIS00()
 {
-    static_assert(sizeof(storage_) == sizeof(class nrlmsise), "storage_ size must be same as nrlmsise");
-    this->nrlmsise().~nrlmsise();
+    this->nrlmsise().~NRLMSISE();
 }
 
 

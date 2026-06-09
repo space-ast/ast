@@ -169,7 +169,7 @@
 #define NRLMSISE00_CONST  const
 namespace ast
 {
-	class AST_WEATHER_API nrlmsise
+	class AST_WEATHER_API NRLMSISE
 	{
 
 	public:

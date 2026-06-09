@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class nrlmsise;
+class NRLMSISE;
 
 /// @brief NRLMSIS00大气模型
 class AST_CORE_API NRLMSIS00 final: public Atmosphere
@@ -45,7 +45,7 @@ public:
     Frame* getFrame() const override{return earthFixedFrame_;}
 
 private:
-    nrlmsise& nrlmsise() const {return *reinterpret_cast<class nrlmsise*>(&storage_);}
+    NRLMSISE& nrlmsise() const {return *reinterpret_cast<NRLMSISE*>(&storage_);}
 private:
     mutable std::aligned_storage<624>::type storage_;
 private:
