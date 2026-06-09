@@ -352,155 +352,156 @@ $(function(){initNavTree('DateTime_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>    <span class="keywordtype">double</span>&amp; second() {<span class="keywordflow">return</span> time_.second();}</div>
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>    <span class="keywordtype">int</span> dayOfYear()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date_.dayOfYear();}</div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>    <span class="keywordtype">int</span> dayOfWeek()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date_.dayOfWeek();}</div>
-<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    <span class="keywordtype">void</span> setYear(<span class="keywordtype">int</span> year) {date_.setYear(year);}</div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>    <span class="keywordtype">void</span> setMonth(<span class="keywordtype">int</span> month) {date_.setMonth(month);}</div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    <span class="keywordtype">void</span> setDay(<span class="keywordtype">int</span> day) {date_.setDay(day);}</div>
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    <span class="keywordtype">void</span> setHour(<span class="keywordtype">int</span> hour) {time_.setHour(hour);}</div>
-<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>    <span class="keywordtype">void</span> setMinute(<span class="keywordtype">int</span> minute) {time_.setMinute(minute);}</div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keywordtype">void</span> setSecond(<span class="keywordtype">double</span> second) {time_.setSecond(second);}</div>
-<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c">normalize</a>(){</div>
-<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>        <a class="code hl_function" href="group__Time.html#gafea754e812ce5a268a4b22384cd92015">aDateTimeNormalize</a>(*<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>    }</div>
-<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>    <span class="keywordtype">void</span> normalizeUTC(){</div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>        <a class="code hl_function" href="group__Time.html#ga1599d89861ee681fb99ca5a68626edd1">aDateTimeNormalizeUTC</a>(*<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>    }</div>
-<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>    <span class="keywordtype">void</span> normalizeLocal(<span class="keywordtype">int</span> timezone){</div>
-<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>        <a class="code hl_function" href="group__Time.html#gad34b3522fd948faeb364b48f67a937aa">aDateTimeNormalizeLocal</a>(*<span class="keyword">this</span>, timezone);</div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>    }</div>
-<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>    <span class="keywordtype">void</span> normalizeBJT(){</div>
-<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>        <a class="code hl_function" href="group__Time.html#gaeb6283f05e9e4625b3358a1b1dd39c3a">aDateTimeNormalizeBJT</a>(*<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>    }</div>
-<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>    DateTime <a class="code hl_function" href="namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf">normalized</a>()<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        dttm.normalize();</div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>        <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    }</div>
-<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>    DateTime normalizedUTC()<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>        dttm.normalizeUTC();</div>
-<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>        <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>    }</div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>    DateTime normalizedLocal(<span class="keywordtype">int</span> timezone)<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>        dttm.normalizeLocal(timezone);</div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>        <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    }</div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>    DateTime normalizedBJT()<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        dttm.normalizeBJT();</div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>        <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    }</div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>    std::string toString(<span class="keywordtype">int</span> precision = 3)<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        std::string str;</div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        <a class="code hl_function" href="group__Time.html#gab7db7de4fca8cb68dc397f8ed006bcad">aDateTimeFormatDefault</a>(*<span class="keyword">this</span>, str, precision);</div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        <span class="keywordflow">return</span> str;</div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    }</div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>    <span class="keywordtype">void</span> addYears(<span class="keywordtype">int</span> years){</div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        <a class="code hl_function" href="group__Time.html#ga255a86c279bc64ad8e8a3191782e03c0">aDateTimeAddYears</a>(*<span class="keyword">this</span>, years);</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>    }</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    <span class="keywordtype">void</span> addMonths(<span class="keywordtype">int</span> months){</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        <a class="code hl_function" href="group__Time.html#gab5ec36298b2b3670b0925965d65e2fe0">aDateTimeAddMonths</a>(*<span class="keyword">this</span>, months);</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    }</div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>    <span class="keywordtype">void</span> addDays(<span class="keywordtype">int</span> days){</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>        <a class="code hl_function" href="group__Time.html#ga98ce15d5391facdf68ea00672773bb06">aDateTimeAddDays</a>(*<span class="keyword">this</span>, days);</div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>    }</div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>    <span class="keywordtype">void</span> addDaysUTC(<span class="keywordtype">int</span> days){</div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>        <a class="code hl_function" href="group__Time.html#gab52e8b01ffb5e3d3350e1a6f219491fc">aDateTimeAddDaysUTC</a>(*<span class="keyword">this</span>, days);</div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>    }</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>    <span class="keywordtype">void</span> addDaysLocal(<span class="keywordtype">int</span> days, <span class="keywordtype">int</span> timezone){</div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>        <a class="code hl_function" href="group__Time.html#ga66eba41bc3327585b471f9eb5e9f1ac9">aDateTimeAddDaysLocal</a>(*<span class="keyword">this</span>, days, timezone);</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>    }</div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>    <span class="keywordtype">void</span> addDaysBJT(<span class="keywordtype">int</span> days){</div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>        <a class="code hl_function" href="group__Time.html#ga1cdf52f9c9c9f5ba1254f53e16a27520">aDateTimeAddDaysBJT</a>(*<span class="keyword">this</span>, days);</div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>    }</div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>    <span class="keywordtype">void</span> addHours(<span class="keywordtype">int</span> hours){</div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>        <a class="code hl_function" href="group__Time.html#ga2ad3998750a660fa5c924e334c51d664">aDateTimeAddHours</a>(*<span class="keyword">this</span>, hours);</div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>    }</div>
-<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>    <span class="keywordtype">void</span> addHoursUTC(<span class="keywordtype">int</span> hours){</div>
-<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>        <a class="code hl_function" href="group__Time.html#ga90a82d01a8d17997dc6bcc404bc3e067">aDateTimeAddHoursUTC</a>(*<span class="keyword">this</span>, hours);</div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>    }</div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>    <span class="keywordtype">void</span> addHoursLocal(<span class="keywordtype">int</span> hours, <span class="keywordtype">int</span> timezone){</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>        <a class="code hl_function" href="group__Time.html#ga4049d8059f1bc16ea954d4af0c396af1">aDateTimeAddHoursLocal</a>(*<span class="keyword">this</span>, hours, timezone);</div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>    }</div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>    <span class="keywordtype">void</span> addHoursBJT(<span class="keywordtype">int</span> hours){</div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>        <a class="code hl_function" href="group__Time.html#ga6e5ec22d4319d22ec720377ca527a0d6">aDateTimeAddHoursBJT</a>(*<span class="keyword">this</span>, hours);</div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>    }</div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>    <span class="keywordtype">void</span> addMinutes(<span class="keywordtype">int</span> minutes){</div>
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>        <a class="code hl_function" href="group__Time.html#gaa06bd0d62f451e07021cfaf6a0d5598a">aDateTimeAddMinutes</a>(*<span class="keyword">this</span>, minutes);</div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>    }</div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>    <span class="keywordtype">void</span> addMinutesUTC(<span class="keywordtype">int</span> minutes){</div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>        <a class="code hl_function" href="group__Time.html#gabbfa83d08d81f5bfce075b1fbeb40692">aDateTimeAddMinutesUTC</a>(*<span class="keyword">this</span>, minutes);</div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>    }</div>
-<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>    <span class="keywordtype">void</span> addMinutesLocal(<span class="keywordtype">int</span> minutes, <span class="keywordtype">int</span> timezone){</div>
-<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>        <a class="code hl_function" href="group__Time.html#ga4d50838bad9e23889999bbff2a92ff33">aDateTimeAddMinutesLocal</a>(*<span class="keyword">this</span>, minutes, timezone);</div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>    }</div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>    <span class="keywordtype">void</span> addMinutesBJT(<span class="keywordtype">int</span> minutes){</div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>        <a class="code hl_function" href="group__Time.html#ga0a2de3553404eac4acb6d6a5ad152dd9">aDateTimeAddMinutesBJT</a>(*<span class="keyword">this</span>, minutes);</div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>    }</div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>    <span class="keywordtype">void</span> addSeconds(<span class="keywordtype">double</span> seconds){</div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>        <a class="code hl_function" href="group__Time.html#gae9ff416812e7b4a1b3a8be589b87b6a3">aDateTimeAddSeconds</a>(*<span class="keyword">this</span>, seconds);</div>
-<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>    }</div>
-<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>    <span class="keywordtype">void</span> addSecondsUTC(<span class="keywordtype">double</span> seconds){</div>
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>        <a class="code hl_function" href="group__Time.html#gad9c1a1b8c0f4198a3752a73e71e3c739">aDateTimeAddSecondsUTC</a>(*<span class="keyword">this</span>, seconds);</div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>    }</div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>    <span class="keywordtype">void</span> addSecondsLocal(<span class="keywordtype">double</span> seconds, <span class="keywordtype">int</span> timezone){</div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>        <a class="code hl_function" href="group__Time.html#ga7c0e5f342bf645b7e27b0892a053fa6c">aDateTimeAddSecondsLocal</a>(*<span class="keyword">this</span>, seconds, timezone);</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    }</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    <span class="keywordtype">void</span> addSecondsBJT(<span class="keywordtype">double</span> seconds){</div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>        <a class="code hl_function" href="group__Time.html#ga19f017a5a5f1e4bf970e515b3f3e1e7d">aDateTimeAddSecondsBJT</a>(*<span class="keyword">this</span>, seconds);</div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>    }</div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>    DateTime&amp; operator += (<span class="keywordtype">double</span> sec)</div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    {</div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>        this-&gt;second() += <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;  <span class="comment">// 适用于任何时间尺度，包括考虑闰秒的和不考虑闰秒的</span></div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    }</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>    DateTime&amp; operator -= (<span class="keywordtype">double</span> sec)</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>    {</div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>        this-&gt;second() -= <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;  <span class="comment">// 适用于任何时间尺度，包括考虑闰秒的和不考虑闰秒的</span></div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>    }</div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    DateTime operator + (<span class="keywordtype">double</span> sec)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>        <span class="keyword">auto</span> dttm = DateTime{ *<span class="keyword">this</span> };</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>        dttm += <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;</div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>    }</div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>    DateTime operator -(<span class="keywordtype">double</span> sec)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>        <span class="keyword">auto</span> dttm = DateTime{ *<span class="keyword">this</span> };</div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>        dttm -= <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;</div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>        <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>    }</div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>    </div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno"><a class="line" href="classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4">  622</a></span>    <a class="code hl_class" href="classast_1_1Date.html">Date</a> <a class="code hl_variable" href="classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4">date_</a>;     </div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa">  623</a></span>    <a class="code hl_class" href="classast_1_1Time.html">Time</a> <a class="code hl_variable" href="classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa">time_</a>;     </div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>};</div>
+<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    <span class="keywordtype">double</span> secOfDay()<span class="keyword"> const </span>{<span class="keywordflow">return</span> time_.totalSecond();}</div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>    <span class="keywordtype">void</span> setYear(<span class="keywordtype">int</span> year) {date_.setYear(year);}</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    <span class="keywordtype">void</span> setMonth(<span class="keywordtype">int</span> month) {date_.setMonth(month);}</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    <span class="keywordtype">void</span> setDay(<span class="keywordtype">int</span> day) {date_.setDay(day);}</div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>    <span class="keywordtype">void</span> setHour(<span class="keywordtype">int</span> hour) {time_.setHour(hour);}</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keywordtype">void</span> setMinute(<span class="keywordtype">int</span> minute) {time_.setMinute(minute);}</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    <span class="keywordtype">void</span> setSecond(<span class="keywordtype">double</span> second) {time_.setSecond(second);}</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c">normalize</a>(){</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>        <a class="code hl_function" href="group__Time.html#gafea754e812ce5a268a4b22384cd92015">aDateTimeNormalize</a>(*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>    }</div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>    <span class="keywordtype">void</span> normalizeUTC(){</div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>        <a class="code hl_function" href="group__Time.html#ga1599d89861ee681fb99ca5a68626edd1">aDateTimeNormalizeUTC</a>(*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>    }</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    <span class="keywordtype">void</span> normalizeLocal(<span class="keywordtype">int</span> timezone){</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        <a class="code hl_function" href="group__Time.html#gad34b3522fd948faeb364b48f67a937aa">aDateTimeNormalizeLocal</a>(*<span class="keyword">this</span>, timezone);</div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>    }</div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>    <span class="keywordtype">void</span> normalizeBJT(){</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>        <a class="code hl_function" href="group__Time.html#gaeb6283f05e9e4625b3358a1b1dd39c3a">aDateTimeNormalizeBJT</a>(*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>    }</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>    DateTime <a class="code hl_function" href="namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf">normalized</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>        dttm.normalize();</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>        <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>    }</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>    DateTime normalizedUTC()<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>        dttm.normalizeUTC();</div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>        <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>    }</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    DateTime normalizedLocal(<span class="keywordtype">int</span> timezone)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>        dttm.normalizeLocal(timezone);</div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>        <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>    }</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>    DateTime normalizedBJT()<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        DateTime dttm = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>        dttm.normalizeBJT();</div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>        <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>    }</div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>    std::string toString(<span class="keywordtype">int</span> precision = 3)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        std::string str;</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        <a class="code hl_function" href="group__Time.html#gab7db7de4fca8cb68dc397f8ed006bcad">aDateTimeFormatDefault</a>(*<span class="keyword">this</span>, str, precision);</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        <span class="keywordflow">return</span> str;</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>    }</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>    <span class="keywordtype">void</span> addYears(<span class="keywordtype">int</span> years){</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        <a class="code hl_function" href="group__Time.html#ga255a86c279bc64ad8e8a3191782e03c0">aDateTimeAddYears</a>(*<span class="keyword">this</span>, years);</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    }</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>    <span class="keywordtype">void</span> addMonths(<span class="keywordtype">int</span> months){</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        <a class="code hl_function" href="group__Time.html#gab5ec36298b2b3670b0925965d65e2fe0">aDateTimeAddMonths</a>(*<span class="keyword">this</span>, months);</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>    }</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>    <span class="keywordtype">void</span> addDays(<span class="keywordtype">int</span> days){</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        <a class="code hl_function" href="group__Time.html#ga98ce15d5391facdf68ea00672773bb06">aDateTimeAddDays</a>(*<span class="keyword">this</span>, days);</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>    }</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>    <span class="keywordtype">void</span> addDaysUTC(<span class="keywordtype">int</span> days){</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>        <a class="code hl_function" href="group__Time.html#gab52e8b01ffb5e3d3350e1a6f219491fc">aDateTimeAddDaysUTC</a>(*<span class="keyword">this</span>, days);</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>    }</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>    <span class="keywordtype">void</span> addDaysLocal(<span class="keywordtype">int</span> days, <span class="keywordtype">int</span> timezone){</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        <a class="code hl_function" href="group__Time.html#ga66eba41bc3327585b471f9eb5e9f1ac9">aDateTimeAddDaysLocal</a>(*<span class="keyword">this</span>, days, timezone);</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>    }</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>    <span class="keywordtype">void</span> addDaysBJT(<span class="keywordtype">int</span> days){</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>        <a class="code hl_function" href="group__Time.html#ga1cdf52f9c9c9f5ba1254f53e16a27520">aDateTimeAddDaysBJT</a>(*<span class="keyword">this</span>, days);</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>    }</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>    <span class="keywordtype">void</span> addHours(<span class="keywordtype">int</span> hours){</div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>        <a class="code hl_function" href="group__Time.html#ga2ad3998750a660fa5c924e334c51d664">aDateTimeAddHours</a>(*<span class="keyword">this</span>, hours);</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>    }</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>    <span class="keywordtype">void</span> addHoursUTC(<span class="keywordtype">int</span> hours){</div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>        <a class="code hl_function" href="group__Time.html#ga90a82d01a8d17997dc6bcc404bc3e067">aDateTimeAddHoursUTC</a>(*<span class="keyword">this</span>, hours);</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>    }</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    <span class="keywordtype">void</span> addHoursLocal(<span class="keywordtype">int</span> hours, <span class="keywordtype">int</span> timezone){</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>        <a class="code hl_function" href="group__Time.html#ga4049d8059f1bc16ea954d4af0c396af1">aDateTimeAddHoursLocal</a>(*<span class="keyword">this</span>, hours, timezone);</div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>    }</div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>    <span class="keywordtype">void</span> addHoursBJT(<span class="keywordtype">int</span> hours){</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>        <a class="code hl_function" href="group__Time.html#ga6e5ec22d4319d22ec720377ca527a0d6">aDateTimeAddHoursBJT</a>(*<span class="keyword">this</span>, hours);</div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>    }</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>    <span class="keywordtype">void</span> addMinutes(<span class="keywordtype">int</span> minutes){</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>        <a class="code hl_function" href="group__Time.html#gaa06bd0d62f451e07021cfaf6a0d5598a">aDateTimeAddMinutes</a>(*<span class="keyword">this</span>, minutes);</div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>    }</div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>    <span class="keywordtype">void</span> addMinutesUTC(<span class="keywordtype">int</span> minutes){</div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>        <a class="code hl_function" href="group__Time.html#gabbfa83d08d81f5bfce075b1fbeb40692">aDateTimeAddMinutesUTC</a>(*<span class="keyword">this</span>, minutes);</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>    }</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>    <span class="keywordtype">void</span> addMinutesLocal(<span class="keywordtype">int</span> minutes, <span class="keywordtype">int</span> timezone){</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>        <a class="code hl_function" href="group__Time.html#ga4d50838bad9e23889999bbff2a92ff33">aDateTimeAddMinutesLocal</a>(*<span class="keyword">this</span>, minutes, timezone);</div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>    }</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    <span class="keywordtype">void</span> addMinutesBJT(<span class="keywordtype">int</span> minutes){</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>        <a class="code hl_function" href="group__Time.html#ga0a2de3553404eac4acb6d6a5ad152dd9">aDateTimeAddMinutesBJT</a>(*<span class="keyword">this</span>, minutes);</div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>    }</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>    <span class="keywordtype">void</span> addSeconds(<span class="keywordtype">double</span> seconds){</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>        <a class="code hl_function" href="group__Time.html#gae9ff416812e7b4a1b3a8be589b87b6a3">aDateTimeAddSeconds</a>(*<span class="keyword">this</span>, seconds);</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>    }</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>    <span class="keywordtype">void</span> addSecondsUTC(<span class="keywordtype">double</span> seconds){</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>        <a class="code hl_function" href="group__Time.html#gad9c1a1b8c0f4198a3752a73e71e3c739">aDateTimeAddSecondsUTC</a>(*<span class="keyword">this</span>, seconds);</div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>    }</div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>    <span class="keywordtype">void</span> addSecondsLocal(<span class="keywordtype">double</span> seconds, <span class="keywordtype">int</span> timezone){</div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>        <a class="code hl_function" href="group__Time.html#ga7c0e5f342bf645b7e27b0892a053fa6c">aDateTimeAddSecondsLocal</a>(*<span class="keyword">this</span>, seconds, timezone);</div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    }</div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>    <span class="keywordtype">void</span> addSecondsBJT(<span class="keywordtype">double</span> seconds){</div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>        <a class="code hl_function" href="group__Time.html#ga19f017a5a5f1e4bf970e515b3f3e1e7d">aDateTimeAddSecondsBJT</a>(*<span class="keyword">this</span>, seconds);</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>    }</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    DateTime&amp; operator += (<span class="keywordtype">double</span> sec)</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>    {</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>        this-&gt;second() += <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;  <span class="comment">// 适用于任何时间尺度，包括考虑闰秒的和不考虑闰秒的</span></div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>    }</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>    DateTime&amp; operator -= (<span class="keywordtype">double</span> sec)</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    {</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>        this-&gt;second() -= <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;  <span class="comment">// 适用于任何时间尺度，包括考虑闰秒的和不考虑闰秒的</span></div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    }</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>    DateTime operator + (<span class="keywordtype">double</span> sec)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>        <span class="keyword">auto</span> dttm = DateTime{ *<span class="keyword">this</span> };</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        dttm += <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>        <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>    }</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>    DateTime operator -(<span class="keywordtype">double</span> sec)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>        <span class="keyword">auto</span> dttm = DateTime{ *<span class="keyword">this</span> };</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>        dttm -= <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a>;</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>        <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>    }</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>    </div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4">  623</a></span>    <a class="code hl_class" href="classast_1_1Date.html">Date</a> <a class="code hl_variable" href="classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4">date_</a>;     </div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno"><a class="line" href="classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa">  624</a></span>    <a class="code hl_class" href="classast_1_1Time.html">Time</a> <a class="code hl_variable" href="classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa">time_</a>;     </div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>};</div>
 </div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span> </div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>A_ALWAYS_INLINE</div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span><a class="code hl_class" href="classast_1_1DateTime.html">DateTime</a> <a class="code hl_function" href="group__Time.html#gada7d9b9c29320a4f6f423f4950768515">aCurrentDateTimeLocal</a>()</div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>{</div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>    <a class="code hl_class" href="classast_1_1DateTime.html">DateTime</a> dttm;</div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>    <a class="code hl_function" href="group__Time.html#gada7d9b9c29320a4f6f423f4950768515">aCurrentDateTimeLocal</a>(dttm);</div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>    <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>}</div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span> </div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>A_ALWAYS_INLINE</div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>DateTime aCurrentDateTimeUTC()</div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>{</div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>    DateTime dttm;</div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>    aCurrentDateTimeUTC(dttm);</div>
-<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>    <span class="keywordflow">return</span> dttm;</div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>}</div>
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span> </div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span> </div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>A_ALWAYS_INLINE</div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span><a class="code hl_class" href="classast_1_1DateTime.html">DateTime</a> <a class="code hl_function" href="group__Time.html#gada7d9b9c29320a4f6f423f4950768515">aCurrentDateTimeLocal</a>()</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>{</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>    <a class="code hl_class" href="classast_1_1DateTime.html">DateTime</a> dttm;</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>    <a class="code hl_function" href="group__Time.html#gada7d9b9c29320a4f6f423f4950768515">aCurrentDateTimeLocal</a>(dttm);</div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>    <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>}</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>A_ALWAYS_INLINE</div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>DateTime aCurrentDateTimeUTC()</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>{</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>    DateTime dttm;</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>    aCurrentDateTimeUTC(dttm);</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>    <span class="keywordflow">return</span> dttm;</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>}</div>
 <div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span> </div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span> </div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span> </div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span> </div>
 <div class="ttc" id="aDate_8hpp_html"><div class="ttname"><a href="Date_8hpp.html">Date.hpp</a></div></div>
 <div class="ttc" id="aTime_8hpp_html"><div class="ttname"><a href="Time_8hpp.html">Time.hpp</a></div></div>
 <div class="ttc" id="aUnit_8cpp_html_a2d6fb503bf6082f07cb7c76eb28dd653"><div class="ttname"><a href="Unit_8cpp.html#a2d6fb503bf6082f07cb7c76eb28dd653">ast::units::minute</a></div><div class="ttdeci">Unit minute</div><div class="ttdoc">分钟，不要命名为min，容易与std::min冲突</div><div class="ttdef"><b>定义</b> Unit.cpp:437</div></div>
@@ -511,8 +512,8 @@ $(function(){initNavTree('DateTime_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="aclassast_1_1DateTime_html_a0620234be0ebb6a017a017b0c37be6dd"><div class="ttname"><a href="classast_1_1DateTime.html#a0620234be0ebb6a017a017b0c37be6dd">ast::DateTime::FromJulianDate</a></div><div class="ttdeci">static A_ALWAYS_INLINE DateTime FromJulianDate(const JulianDate &amp;jd)</div><div class="ttdoc">从儒略日数创建日期时间对象</div><div class="ttdef"><b>定义</b> DateTime.hpp:436</div></div>
 <div class="ttc" id="aclassast_1_1DateTime_html_a45e0d6969fd6ad4975586c68d55dd1af"><div class="ttname"><a href="classast_1_1DateTime.html#a45e0d6969fd6ad4975586c68d55dd1af">ast::DateTime::Parse</a></div><div class="ttdeci">static DateTime Parse(StringView str)</div><div class="ttdoc">从字符串解析日期时间（任意格式）</div><div class="ttdef"><b>定义</b> DateTime.hpp:472</div></div>
 <div class="ttc" id="aclassast_1_1DateTime_html_a4dfd1e72a1730a4456aa76542b9de867"><div class="ttname"><a href="classast_1_1DateTime.html#a4dfd1e72a1730a4456aa76542b9de867">ast::DateTime::ETimeZone</a></div><div class="ttdeci">ETimeZone</div><div class="ttdef"><b>定义</b> DateTime.hpp:421</div></div>
-<div class="ttc" id="aclassast_1_1DateTime_html_a7c792b9c3d749fac2111c7d5ef8f5ad4"><div class="ttname"><a href="classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4">ast::DateTime::date_</a></div><div class="ttdeci">Date date_</div><div class="ttdoc">日期</div><div class="ttdef"><b>定义</b> DateTime.hpp:622</div></div>
-<div class="ttc" id="aclassast_1_1DateTime_html_abddc2f3424d39275a932cb2edf1d2ffa"><div class="ttname"><a href="classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa">ast::DateTime::time_</a></div><div class="ttdeci">Time time_</div><div class="ttdoc">时间</div><div class="ttdef"><b>定义</b> DateTime.hpp:623</div></div>
+<div class="ttc" id="aclassast_1_1DateTime_html_a7c792b9c3d749fac2111c7d5ef8f5ad4"><div class="ttname"><a href="classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4">ast::DateTime::date_</a></div><div class="ttdeci">Date date_</div><div class="ttdoc">日期</div><div class="ttdef"><b>定义</b> DateTime.hpp:623</div></div>
+<div class="ttc" id="aclassast_1_1DateTime_html_abddc2f3424d39275a932cb2edf1d2ffa"><div class="ttname"><a href="classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa">ast::DateTime::time_</a></div><div class="ttdeci">Time time_</div><div class="ttdoc">时间</div><div class="ttdef"><b>定义</b> DateTime.hpp:624</div></div>
 <div class="ttc" id="aclassast_1_1Date_html"><div class="ttname"><a href="classast_1_1Date.html">ast::Date</a></div><div class="ttdoc">日期</div><div class="ttdef"><b>定义</b> Date.hpp:120</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html"><div class="ttname"><a href="classast_1_1JulianDate.html">ast::JulianDate</a></div><div class="ttdoc">儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:82</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>

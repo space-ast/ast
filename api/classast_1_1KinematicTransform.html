@@ -176,6 +176,10 @@ Vector3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTranslat
 <tr class="separator:a77d5a4b452dffae56714c5aad0a354e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d8c5f5d309b3814955ef1a3b788af25" id="r_a0d8c5f5d309b3814955ef1a3b788af25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d8c5f5d309b3814955ef1a3b788af25">setTranslation</a> (const Vector3d &amp;translation)</td></tr>
 <tr class="separator:a0d8c5f5d309b3814955ef1a3b788af25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3471567e000ca0608bd4db29f82478f8" id="r_a3471567e000ca0608bd4db29f82478f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3471567e000ca0608bd4db29f82478f8">transformPosition</a> (const Vector3d &amp;position, Vector3d &amp;positionOut) const</td></tr>
+<tr class="separator:a3471567e000ca0608bd4db29f82478f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd337e12691586e6ebf73c8a78bd183d" id="r_acd337e12691586e6ebf73c8a78bd183d"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd337e12691586e6ebf73c8a78bd183d">transformPosition</a> (const Vector3d &amp;position) const</td></tr>
+<tr class="separator:acd337e12691586e6ebf73c8a78bd183d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -739,6 +743,63 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setIdentity</b> ()</t
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="acd337e12691586e6ebf73c8a78bd183d" name="acd337e12691586e6ebf73c8a78bd183d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd337e12691586e6ebf73c8a78bd183d">&#9670;&#160;</a></span>transformPosition() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE Vector3d ast::Transform::transformPosition </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的位置 </dd></dl>
+
+</div>
+</div>
+<a id="a3471567e000ca0608bd4db29f82478f8" name="a3471567e000ca0608bd4db29f82478f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3471567e000ca0608bd4db29f82478f8">&#9670;&#160;</a></span>transformPosition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::Transform::transformPosition </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>positionOut</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转换位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>位置 </td></tr>
+    <tr><td class="paramname">positionOut</td><td>转换后的位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>先进行坐标系平移，再进行坐标系旋转。</p>
 
 </div>
 </div>

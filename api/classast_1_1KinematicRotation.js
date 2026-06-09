@@ -18,6 +18,8 @@ var classast_1_1KinematicRotation =
     [ "transformCartState", "classast_1_1KinematicRotation.html#a3beb4321f1643ac94191d8c1d98e5d13", null ],
     [ "transformVector", "classast_1_1KinematicRotation.html#a3d78420da24d3cc9fce0a5904b3fee34", null ],
     [ "transformVector", "classast_1_1KinematicRotation.html#a088bae2548fbc4d1153ceac5dd26882e", null ],
+    [ "transformVectorInv", "classast_1_1KinematicRotation.html#a4e3e8c0cb9f92338f1b6ded0211e9d70", null ],
+    [ "transformVectorInv", "classast_1_1KinematicRotation.html#a0e2af3e0f26250f08eaf54655f6a57d1", null ],
     [ "transformVectorVelocity", "classast_1_1KinematicRotation.html#a950848ca0984c4b5cfacf3614999a584", null ],
     [ "transformVectorVelocityInv", "classast_1_1KinematicRotation.html#a710d49d2e5b51f6433181ecd97a7187a", null ],
     [ "angvel_", "classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523", null ]

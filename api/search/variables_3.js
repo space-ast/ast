@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['cartstate_5f_0',['cartState_',['../classast_1_1MotionHPOPSax.html#ae64b20510804e025d1528dc683611964',1,'ast::MotionHPOPSax']]],
-  ['category_1',['category',['../structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec',1,'ast::QuickTypeEntry::category'],['../classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398',1,'ast::MessageLogContext::category']]],
+  ['category_0',['category',['../structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec',1,'ast::QuickTypeEntry::category'],['../classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398',1,'ast::MessageLogContext::category']]],
+  ['cd_5f_1',['cd_',['../classast_1_1SpacecraftParam.html#a497ef8404807e23da561c6e51ab93207',1,'ast::SpacecraftParam']]],
   ['celestialbody_5f_2',['celestialBody_',['../classast_1_1BaseOrbitDesigner.html#ad9ee006e9c77fe678a84287ed695ccf9',1,'ast::BaseOrbitDesigner']]],
   ['centralbody_5f_3',['centralBody_',['../classast_1_1GravityFieldHead.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityFieldHead::centralBody_'],['../classast_1_1GravityField.html#a9e998f6f3f44aa07d9b360217ea72aea',1,'ast::GravityField::centralBody_']]],
   ['children_4',['children',['../structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a',1,'ast::WasmObjectInfo']]],
@@ -16,5 +16,6 @@ var searchData=
   ['condition_5f_13',['condition_',['../classast_1_1ExprWhile.html#a5c48c4981cbd947c9a549db236bb02f3',1,'ast::ExprWhile']]],
   ['constructor_5f_14',['constructor_',['../classast_1_1Class.html#a46ecef03de9c1200a1e8d1a4225a1de6',1,'ast::Class']]],
   ['conversionfactor_5f_15',['conversionFactor_',['../classast_1_1UnitConverter.html#a5c84584ded9cb366c3003f7665cdedbf',1,'ast::UnitConverter']]],
-  ['coscoeff_5f_16',['cosCoeff_',['../classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7',1,'ast::GravityField']]]
+  ['coscoeff_5f_16',['cosCoeff_',['../classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7',1,'ast::GravityField']]],
+  ['cr_5f_17',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam']]]
 ];

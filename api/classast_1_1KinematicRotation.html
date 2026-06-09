@@ -163,12 +163,16 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:ab89e45c984fec5ea9fdfce9c8a52dcae" id="r_ab89e45c984fec5ea9fdfce9c8a52dcae"><td class="memItemLeft" align="right" valign="top"><a id="ab89e45c984fec5ea9fdfce9c8a52dcae" name="ab89e45c984fec5ea9fdfce9c8a52dcae"></a>
 <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMatrix</b> ()</td></tr>
 <tr class="separator:ab89e45c984fec5ea9fdfce9c8a52dcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7b4d0505a9ed34e081b9ea256d5663" id="r_a7f7b4d0505a9ed34e081b9ea256d5663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f7b4d0505a9ed34e081b9ea256d5663">getQuaternion</a> () const</td></tr>
+<tr class="separator:a7f7b4d0505a9ed34e081b9ea256d5663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a088bae2548fbc4d1153ceac5dd26882e" id="r_a088bae2548fbc4d1153ceac5dd26882e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a088bae2548fbc4d1153ceac5dd26882e">transformVector</a> (const Vector3d &amp;vector, Vector3d &amp;vectorOut) const</td></tr>
 <tr class="separator:a088bae2548fbc4d1153ceac5dd26882e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d78420da24d3cc9fce0a5904b3fee34" id="r_a3d78420da24d3cc9fce0a5904b3fee34"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d78420da24d3cc9fce0a5904b3fee34">transformVector</a> (const Vector3d &amp;vector) const</td></tr>
 <tr class="separator:a3d78420da24d3cc9fce0a5904b3fee34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f7b4d0505a9ed34e081b9ea256d5663" id="r_a7f7b4d0505a9ed34e081b9ea256d5663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f7b4d0505a9ed34e081b9ea256d5663">getQuaternion</a> () const</td></tr>
-<tr class="separator:a7f7b4d0505a9ed34e081b9ea256d5663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e2af3e0f26250f08eaf54655f6a57d1" id="r_a0e2af3e0f26250f08eaf54655f6a57d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e2af3e0f26250f08eaf54655f6a57d1">transformVectorInv</a> (const Vector3d &amp;vector, Vector3d &amp;vectorOut) const</td></tr>
+<tr class="separator:a0e2af3e0f26250f08eaf54655f6a57d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e3e8c0cb9f92338f1b6ded0211e9d70" id="r_a4e3e8c0cb9f92338f1b6ded0211e9d70"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e3e8c0cb9f92338f1b6ded0211e9d70">transformVectorInv</a> (const Vector3d &amp;vector) const</td></tr>
+<tr class="separator:a4e3e8c0cb9f92338f1b6ded0211e9d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -717,6 +721,63 @@ static <a class="el" href="classast_1_1Rotation.html">Rotation</a>&#160;</td><td
 </div><div class="memdoc">
 
 <p>变换向量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>向量 </td></tr>
+    <tr><td class="paramname">vectorOut</td><td>变换后的向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e3e8c0cb9f92338f1b6ded0211e9d70" name="a4e3e8c0cb9f92338f1b6ded0211e9d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e3e8c0cb9f92338f1b6ded0211e9d70">&#9670;&#160;</a></span>transformVectorInv() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE Vector3d ast::Rotation::transformVectorInv </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vector</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>变换向量（逆变换） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>变换后的向量 </dd></dl>
+
+</div>
+</div>
+<a id="a0e2af3e0f26250f08eaf54655f6a57d1" name="a0e2af3e0f26250f08eaf54655f6a57d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e2af3e0f26250f08eaf54655f6a57d1">&#9670;&#160;</a></span>transformVectorInv() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE void ast::Rotation::transformVectorInv </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vectorOut</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>变换向量（逆变换） </p>
+<dl class="section warning"><dt>警告</dt><dd>注意：这里是逆变换，等价于 <code><a class="el" href="#ae2dc55434a6448e1af8948da2d4449df" title="获取逆旋转">inverse()</a>.transformVector(...)</code>; </dd></dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">vector</td><td>向量 </td></tr>

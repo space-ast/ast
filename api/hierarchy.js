@@ -19,6 +19,9 @@ var hierarchy =
     [ "ast::detail::arg_pair< Pos, T >", "structast_1_1detail_1_1arg__pair.html", null ],
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
+    [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
+      [ "ast::NRLMSIS00", "classast_1_1NRLMSIS00.html", null ]
+    ] ],
     [ "ast::AttributeBasic< ObjectType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "ast::AttributeBasic< Object, Property >", "classast_1_1AttributeBasic.html", null ],
     [ "AVector3d", "structAVector3d.html", null ],
@@ -112,7 +115,6 @@ var hierarchy =
     [ "ast::ClassRegistry", "classast_1_1ClassRegistry.html", null ],
     [ "AstCOMLib::CLinkToObject", "classAstCOMLib_1_1CLinkToObject.html", null ],
     [ "cllist", "structcllist.html", null ],
-    [ "ast::CNRLMSISE00", "classast_1_1CNRLMSISE00.html", null ],
     [ "AstCOMLib::CObject", "classAstCOMLib_1_1CObject.html", null ],
     [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
@@ -204,7 +206,9 @@ var hierarchy =
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],
       [ "ast::BlockDeadZone", "classast_1_1BlockDeadZone.html", null ],
       [ "ast::BlockDerivative", "classast_1_1BlockDerivative.html", [
+        [ "ast::BlockDrag", "classast_1_1BlockDrag.html", null ],
         [ "ast::BlockGravity", "classast_1_1BlockGravity.html", null ],
+        [ "ast::BlockMass", "classast_1_1BlockMass.html", null ],
         [ "ast::BlockMotion", "classast_1_1BlockMotion.html", null ],
         [ "ast::BlockThirdBody", "classast_1_1BlockThirdBody.html", null ],
         [ "ast::BlockTransform", "classast_1_1BlockTransform.html", null ],
@@ -448,6 +452,7 @@ var hierarchy =
     [ "ast::NLPVectorBounds", "structast_1_1NLPVectorBounds.html", null ],
     [ "ast::CommandTrie::Node", "classast_1_1CommandTrie_1_1Node.html", null ],
     [ "ast::NoopStream", "classast_1_1NoopStream.html", null ],
+    [ "ast::nrlmsise", "classast_1_1nrlmsise.html", null ],
     [ "nrlmsise_flags", "structnrlmsise__flags.html", null ],
     [ "nrlmsise_input", "structnrlmsise__input.html", null ],
     [ "nrlmsise_output", "structnrlmsise__output.html", null ],
@@ -1213,6 +1218,9 @@ var hierarchy =
     [ "ast::SnoptCAPI", "structast_1_1SnoptCAPI.html", null ],
     [ "ast::SolverStats", "structast_1_1SolverStats.html", null ],
     [ "ast::fs_simple::space_info", "structast_1_1fs__simple_1_1space__info.html", null ],
+    [ "ast::SpacecraftParam", "classast_1_1SpacecraftParam.html", [
+      [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ]
+    ] ],
     [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", null ],
     [ "ast::Span< T, Extent >", "classast_1_1Span.html", null ],
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
