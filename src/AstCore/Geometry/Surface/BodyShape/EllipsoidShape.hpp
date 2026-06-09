@@ -36,6 +36,8 @@ public:
     EllipsoidShape() = default;
     EllipsoidShape(double majorAxis, double middleAxis, double minorAxis);
 
+    double majorAxis() const override{return majorAxis_;}
+
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;

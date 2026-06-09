@@ -19,11 +19,12 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "HPOPEquation.hpp"
-#include "HPOP.hpp"                 // for HPOPForceModel
-#include "AstUtil/Logger.hpp"
-#include "AstCore/Simulation.hpp"   // for blocks
-#include "AstCore/BuiltinFrame.hpp" // 
+#include "HPOP.hpp"                         // for HPOPForceModel
+#include "AstUtil/Logger.hpp"       
+#include "AstCore/Simulation.hpp"           // for blocks
+#include "AstCore/BuiltinFrame.hpp"         // 
 #include "AstCore/NRLMSIS00.hpp"
+#include "AstWeather/GeomagneticIndex.hpp"  // for aKpToAp, aApToKp
 
 AST_NAMESPACE_BEGIN
 
@@ -147,7 +148,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
 
         double kp = forceModel.drag().kp_;
         double ap = aKpToAp(kp);
-        Atmosphere* atmosphere = new NRLMSIS00(body->getFrameFixed(), body->getShape(), forceModel.drag().f10p7Daily_, forceModel.drag().f10p7Average_, ap);
+        NRLMSIS00* atmosphere = new NRLMSIS00(body->getFrameFixed(), body->getShape(), forceModel.drag().f10p7Daily_, forceModel.drag().f10p7Average_, ap);
+        atmosphere->setUseApproximateAltitude(forceModel.drag().useApproxAltForDrag_);
         // atmosphere 的所有权转移给 blockDrag
         derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame_);
         this->addBlock(derivativeBlock);

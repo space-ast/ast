@@ -44,6 +44,12 @@ public:
 
     Frame* getFrame() const override{return earthFixedFrame_;}
 
+    /// @brief 是否使用近似高度计算
+    bool useApproximateAltitude() const {return useApproximateAltitude_;}
+
+    /// @brief 设置是否使用近似高度计算
+    void setUseApproximateAltitude(bool useApproximateAltitude) {useApproximateAltitude_ = useApproximateAltitude;}
+
 private:
     NRLMSISE& nrlmsise() const {return *reinterpret_cast<NRLMSISE*>(&storage_);}
 private:
@@ -54,6 +60,7 @@ private:
     double F107Daily_{0.0};
     double F107Average_{0.0};
     double ap_{0.0};
+    bool useApproximateAltitude_{false};
 };
 
 

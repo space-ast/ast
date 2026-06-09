@@ -129,7 +129,7 @@ errc_t BlockDrag::run(const SimTime& simTime)
         // -1/2·Cd·S/m·rpo·v^2
         *accDrag_ = -dragCoefficient_ * dragArea_ * density * relVelocity.norm() / (*mass_ * 2)  * relVelocity;
     }
-#ifdef _AST_DEBUG_DRAG
+#if defined(_AST_DEBUG_DRAG)
     double mag = accDrag_->norm();
     A_UNUSED(mag);
 #endif

@@ -36,6 +36,8 @@ public:
 
     BodyShape();
 
+    virtual double majorAxis() const = 0;
+
     /// @brief 将笛卡尔坐标（天体固连系）转换为大地坐标
     /// @param cartesian 笛卡尔坐标（天体固连系）
     /// @param detic 大地坐标

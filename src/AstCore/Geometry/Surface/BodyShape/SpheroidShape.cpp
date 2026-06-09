@@ -46,7 +46,7 @@ SpheroidShape* SpheroidShape::NewFromMajorMinorAxis(double majorAxis, double min
 
 SpheroidShape::SpheroidShape(double majorAxis, double flatFactor)
     : majorAxis_(majorAxis)
-    , flatfactor_(flatFactor)
+    , flatFactor_(flatFactor)
 {
 
 }
@@ -54,12 +54,12 @@ SpheroidShape::SpheroidShape(double majorAxis, double flatFactor)
 
 void SpheroidShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
-    aBodyFixedToGeodetic(cartesian, detic, majorAxis_, flatfactor_);
+    aBodyFixedToGeodetic(cartesian, detic, majorAxis_, flatFactor_);
 }
 
 void SpheroidShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
 {
-    aGeodeticToBodyFixed(detic, cartesian, majorAxis_, flatfactor_);
+    aGeodeticToBodyFixed(detic, cartesian, majorAxis_, flatFactor_);
 }
 
 

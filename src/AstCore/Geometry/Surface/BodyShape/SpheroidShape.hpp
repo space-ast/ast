@@ -39,16 +39,17 @@ public:
     SpheroidShape() = default;
     SpheroidShape(double majorAxis, double flatFactor);
     using BodyShape::transform;
+    
+    double majorAxis() const override{return majorAxis_;}
 
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
 public:
-    length_d majorAxis() const { return majorAxis_; }
-    double flatfactor() const { return flatfactor_; }
+    double flatFactor() const { return flatFactor_; }
 PROPERTIES:
     length_d    majorAxis_{};  ///< 长轴长度
-    double      flatfactor_{}; ///< 扁率因子
+    double      flatFactor_{}; ///< 扁率因子
 };
 
 AST_NAMESPACE_END

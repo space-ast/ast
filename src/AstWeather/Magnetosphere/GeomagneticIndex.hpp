@@ -1,9 +1,9 @@
 ///
-/// @file      NoopShape.hpp
+/// @file      GeomagneticIndex.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-06-01
+/// @date      2026-06-09
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,7 +21,6 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "BodyShape.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -30,20 +29,13 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-#ifndef SWIG
 
-/// @brief 无操作形状，用于默认占位
-class NoopShape final : public BodyShape
-{
-public:
-    double majorAxis() const override{return 0;}
+/// @brief 地磁指数Kp转换为Ap
+AST_WEATHER_CAPI double aKpToAp(double kp);
 
-    void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
+/// @brief 地磁指数Ap转换为Kp
+AST_WEATHER_CAPI double aApToKp(double ap);
 
-    void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
-};
-
-#endif
 
 /*! @} */
 

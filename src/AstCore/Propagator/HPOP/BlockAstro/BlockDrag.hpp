@@ -47,10 +47,10 @@ private:
     double doubleBuffer_{};                          ///< 浮点数缓冲区
     Vector3d vectorBuffer_{};                        ///< 向量缓冲区
 private:
-    Frame* propagationFrame_{};                      ///< 预报坐标系
     Atmosphere* atmosphere_{};                       ///< 大气模型
     double dragCoefficient_{};                       ///< 阻力系数
     double dragArea_{};                              ///< 阻力面积
+    Frame* propagationFrame_{};                      ///< 预报坐标系
 };
 
 

@@ -242,14 +242,16 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
                 double diff = pos[i] - posExpected[i];
                 status.failed("pos[%d] - posExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
+
+        }
+        for(int i = 0; i < 3; ++i)
+        {
             if(!aIsClose(vel[i], velExpected[i], reltol_vel, abstol_vel))
             {
                 double diff = vel[i] - velExpected[i];
                 status.failed("vel[%d] - velExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
         }
-
-
         rc = ephem_simple_generated->getPosVelIn(ephem_frame, tp, pos, vel);
         if(rc != eNoError)
         {
@@ -268,6 +270,9 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
                 double diff = pos[i] - posExpected[i];
                 status.failed("pos[%d] - posExpected[%d]: %19.15g, at timepoint %s", i, i, diff, tp.toString().c_str());
             }
+        }
+        for(int i = 0; i < 3; ++i)
+        {
             if(!aIsClose(vel[i], velExpected[i], reltol_vel, abstol_vel))
             {
                 double diff = vel[i] - velExpected[i];

@@ -34,6 +34,8 @@ public:
     SphereShape() = default;
     SphereShape(double radius);
 
+    double majorAxis() const override{return radius_;}
+    
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;

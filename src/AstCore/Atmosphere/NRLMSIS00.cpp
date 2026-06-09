@@ -20,6 +20,7 @@
 
 #include "NRLMSIS00.hpp"
 #include "AstCore/BodyShape.hpp"
+#include "AstCore/SpheroidShape.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstWeather/nrlmsise-00.hpp"
 
@@ -66,11 +67,44 @@ double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed
         aTimePointToUTC(tp, dateTime);
         auto dayOfYear = dateTime.dayOfYear();
         auto secOfDay = dateTime.secOfDay();
-        GeodeticPoint geodeticPoint;
-        bodyShape_->transform(posInBodyFixed, geodeticPoint);
-        double lat = geodeticPoint.latitude();
-        double lon = geodeticPoint.longitude();
-        double alt = geodeticPoint.altitude();
+		double lat, lon, alt;
+
+		// 伪循环确保使用保底算法，如果其他算法计算完成则直接跳出伪循环
+		do
+		{
+			if(A_UNLIKELY(useApproximateAltitude_))
+			{
+				// 参考 #hpop/approximateAltitudeComputation.htm
+
+				if(auto spheroidShape = aobject_cast<SpheroidShape*>(bodyShape_))
+				{
+					double flatFactor = spheroidShape->flatFactor();
+					double majorAxis = spheroidShape->majorAxis();
+					double xy = hypot(posInBodyFixed.x(), posInBodyFixed.y());
+					double latsph = atan(posInBodyFixed.z() / xy);   // 球形下的纬度
+					double r = hypot(xy, posInBodyFixed.z());
+					alt = r - majorAxis * (1 - flatFactor) / sqrt(1 - (2 * flatFactor - flatFactor * flatFactor) * square(cos(latsph)));
+
+					// @todo 这里要考虑怎么高效计算地大地纬度，例如不经过迭代计算
+					GeodeticPoint geodeticPoint;
+					bodyShape_->transform(posInBodyFixed, geodeticPoint);
+					lat = geodeticPoint.latitude();
+					lon = geodeticPoint.longitude();
+					break;
+				}
+			}
+
+			{
+				GeodeticPoint geodeticPoint;
+				bodyShape_->transform(posInBodyFixed, geodeticPoint);
+				lat = geodeticPoint.latitude();
+				lon = geodeticPoint.longitude();
+				alt = geodeticPoint.altitude();
+				break;
+			}
+		} while(false);
+
+
 
 		nrlmsise_input  input;
 		input.year = 2000; 

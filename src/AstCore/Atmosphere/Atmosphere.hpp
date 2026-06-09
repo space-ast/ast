@@ -30,9 +30,6 @@ AST_NAMESPACE_BEGIN
 */
 
 
-double aKpToAp(double kp);
-
-double aApToKp(double ap);
 
 
 /// @brief 大气模型基类
