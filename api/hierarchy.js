@@ -452,7 +452,7 @@ var hierarchy =
     [ "ast::NLPVectorBounds", "structast_1_1NLPVectorBounds.html", null ],
     [ "ast::CommandTrie::Node", "classast_1_1CommandTrie_1_1Node.html", null ],
     [ "ast::NoopStream", "classast_1_1NoopStream.html", null ],
-    [ "ast::nrlmsise", "classast_1_1nrlmsise.html", null ],
+    [ "ast::NRLMSISE", "classast_1_1NRLMSISE.html", null ],
     [ "nrlmsise_flags", "structnrlmsise__flags.html", null ],
     [ "nrlmsise_input", "structnrlmsise__input.html", null ],
     [ "nrlmsise_output", "structnrlmsise__output.html", null ],

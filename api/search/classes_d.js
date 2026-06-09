@@ -22,7 +22,7 @@ var searchData=
   ['noopshape_19',['NoopShape',['../classast_1_1NoopShape.html',1,'ast']]],
   ['noopstream_20',['NoopStream',['../classast_1_1NoopStream.html',1,'ast']]],
   ['nrlmsis00_21',['NRLMSIS00',['../classast_1_1NRLMSIS00.html',1,'ast']]],
-  ['nrlmsise_22',['nrlmsise',['../classast_1_1nrlmsise.html',1,'ast']]],
+  ['nrlmsise_22',['NRLMSISE',['../classast_1_1NRLMSISE.html',1,'ast']]],
   ['nrlmsise_5fflags_23',['nrlmsise_flags',['../structnrlmsise__flags.html',1,'']]],
   ['nrlmsise_5finput_24',['nrlmsise_input',['../structnrlmsise__input.html',1,'']]],
   ['nrlmsise_5foutput_25',['nrlmsise_output',['../structnrlmsise__output.html',1,'']]],

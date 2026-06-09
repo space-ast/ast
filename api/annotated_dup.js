@@ -463,7 +463,7 @@ var annotated_dup =
       [ "NoopShape", "classast_1_1NoopShape.html", "classast_1_1NoopShape" ],
       [ "NoopStream", "classast_1_1NoopStream.html", null ],
       [ "NRLMSIS00", "classast_1_1NRLMSIS00.html", "classast_1_1NRLMSIS00" ],
-      [ "nrlmsise", "classast_1_1nrlmsise.html", null ],
+      [ "NRLMSISE", "classast_1_1NRLMSISE.html", null ],
       [ "NutationCache", "structast_1_1NutationCache.html", null ],
       [ "NutationSeries", "classast_1_1NutationSeries.html", "classast_1_1NutationSeries" ],
       [ "NutationTerm", "classast_1_1NutationTerm.html", null ],

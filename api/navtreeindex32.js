@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"classast_1_1QwtBackend.html":[3,0,0,493],
+"classast_1_1QwtPlotVisitor.html":[2,0,0,494],
 "classast_1_1QwtPlotVisitor.html":[3,0,0,494],
 "classast_1_1RK4.html":[0,2,4,0],
 "classast_1_1RK4.html#a7408a1d1172f6b4dc25330199af2b0f2":[0,2,4,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "classast_1_1ScStateCalcDifference.html#a2a1a1cb55701d96a0fa4a5d3f11b0567":[3,0,0,578,0],
 "classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[2,0,0,578,4],
 "classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[3,0,0,578,4],
-"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[2,0,0,578,3],
-"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[3,0,0,578,3],
-"classast_1_1ScStateCalcDifference.html#affdef9a61c4cbfe493b09ef42a50ee54":[2,0,0,578,1]
+"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[2,0,0,578,3]
 };

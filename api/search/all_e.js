@@ -83,7 +83,7 @@ var searchData=
   ['nrlmsis00_80',['NRLMSIS00',['../classast_1_1NRLMSIS00.html',1,'ast']]],
   ['nrlmsis00_2ecpp_81',['NRLMSIS00.cpp',['../NRLMSIS00_8cpp.html',1,'']]],
   ['nrlmsis00_2ehpp_82',['NRLMSIS00.hpp',['../NRLMSIS00_8hpp.html',1,'']]],
-  ['nrlmsise_83',['nrlmsise',['../classast_1_1nrlmsise.html',1,'ast']]],
+  ['nrlmsise_83',['NRLMSISE',['../classast_1_1NRLMSISE.html',1,'ast']]],
   ['nrlmsise_5fflags_84',['nrlmsise_flags',['../structnrlmsise__flags.html',1,'']]],
   ['nrlmsise_5finput_85',['nrlmsise_input',['../structnrlmsise__input.html',1,'']]],
   ['nrlmsise_5foutput_86',['nrlmsise_output',['../structnrlmsise__output.html',1,'']]],
