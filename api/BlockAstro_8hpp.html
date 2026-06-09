@@ -100,8 +100,7 @@ $(function(){initNavTree('BlockAstro_8hpp.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#namespaces">命名空间</a> &#124;
-<a href="#typedef-members">类型定义</a> &#124;
-<a href="#var-members">变量</a>  </div>
+<a href="#typedef-members">类型定义</a>  </div>
   <div class="headertitle"><div class="title">BlockAstro.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
@@ -123,6 +122,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::BlockAstro</b> 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">信号标识符常量</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>用于函数块之间端口自动连接的信号名称标识符</p>
+<p>每个常量对应一个信号通道，BlockDynamicSystem 通过匹配输入/输出端口的标识符名称， 自动建立函数块之间的信号连接。新增力模型时，需在此定义其加速度信号的标识符。 </p>
+</div></td></tr>
 <tr class="memitem:ada215baa026cee87f784445ce0d59b87" id="r_ada215baa026cee87f784445ce0d59b87"><td class="memItemLeft" align="right" valign="top"><a id="ada215baa026cee87f784445ce0d59b87" name="ada215baa026cee87f784445ce0d59b87"></a>
 constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kIdentifierPos</b> = &quot;Pos&quot;</td></tr>
 <tr class="separator:ada215baa026cee87f784445ce0d59b87"><td class="memSeparator" colspan="2">&#160;</td></tr>

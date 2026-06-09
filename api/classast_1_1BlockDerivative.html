@@ -115,14 +115,15 @@ $(function(){initNavTree('classast_1_1BlockDerivative.html',''); initResizable(t
  <div class="center">
   <img src="classast_1_1BlockDerivative.png" usemap="#ast::BlockDerivative_map" alt=""/>
   <map id="ast::BlockDerivative_map" name="ast::BlockDerivative_map">
-<area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="399,0,522,24"/>
-<area href="classast_1_1BlockDrag.html" alt="ast::BlockDrag" shape="rect" coords="0,112,123,136"/>
-<area href="classast_1_1BlockGravity.html" title="重力场函数块" alt="ast::BlockGravity" shape="rect" coords="133,112,256,136"/>
-<area href="classast_1_1BlockMass.html" title="质量块，用于提供固定的质量值" alt="ast::BlockMass" shape="rect" coords="266,112,389,136"/>
-<area href="classast_1_1BlockMotion.html" title="运动学块" alt="ast::BlockMotion" shape="rect" coords="399,112,522,136"/>
-<area href="classast_1_1BlockThirdBody.html" title="三体引力函数块" alt="ast::BlockThirdBody" shape="rect" coords="532,112,655,136"/>
-<area href="classast_1_1BlockTransform.html" title="坐标系转换计算块" alt="ast::BlockTransform" shape="rect" coords="665,112,788,136"/>
-<area href="classast_1_1BlockTwoBody.html" title="二体运动函数块" alt="ast::BlockTwoBody" shape="rect" coords="798,112,921,136"/>
+<area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,123,24"/>
+<area href="classast_1_1BlockDrag.html" title="大气阻力函数块" alt="ast::BlockDrag" shape="rect" coords="133,112,256,136"/>
+<area href="classast_1_1BlockGravity.html" title="重力场函数块" alt="ast::BlockGravity" shape="rect" coords="133,168,256,192"/>
+<area href="classast_1_1BlockMass.html" title="质量函数块" alt="ast::BlockMass" shape="rect" coords="133,224,256,248"/>
+<area href="classast_1_1BlockMotion.html" title="运动学函数块" alt="ast::BlockMotion" shape="rect" coords="133,280,256,304"/>
+<area href="classast_1_1BlockSRP.html" title="太阳辐射压力函数块" alt="ast::BlockSRP" shape="rect" coords="133,336,256,360"/>
+<area href="classast_1_1BlockThirdBody.html" title="三体引力函数块" alt="ast::BlockThirdBody" shape="rect" coords="133,392,256,416"/>
+<area href="classast_1_1BlockTransform.html" title="坐标系转换函数块（待实现）" alt="ast::BlockTransform" shape="rect" coords="133,448,256,472"/>
+<area href="classast_1_1BlockTwoBody.html" title="二体引力函数块" alt="ast::BlockTwoBody" shape="rect" coords="133,504,256,528"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -202,7 +203,15 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>导数函数块 </p>
-<p>导数函数块是一个特殊的函数块，在普通函数块的基础上，添加了导数端口 导数端口用于与动力学系统自动建立连接关系(详细实现机制见BlockDynamicSystem) </p>
+<p>导数函数块在普通函数块的基础上增加了导数端口（derivative ports）。 导数端口用于与动力学系统自动建立连接关系(详细实现机制见BlockDynamicSystem)</p>
+<p>继承关系： <a class="el" href="classast_1_1FuncBlock.html" title="函数块/功能块">FuncBlock</a> → <a class="el" href="classast_1_1BlockDerivative.html" title="导数函数块">BlockDerivative</a> → 各具体力模型块（BlockTwoBody、BlockDrag 等）</p>
+<p>工作流程：</p><ol type="1">
+<li>每个导数块通过 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528" title="计算函数块">run()</a> 计算其贡献的加速度</li>
+<li>加速度通过输出端口（outputPorts_）发布</li>
+<li>同时累加到导数端口（derivativePorts_）对应的速度导数上</li>
+<li><a class="el" href="classast_1_1BlockDynamicSystem.html" title="动力学系统">BlockDynamicSystem</a> 自动收集所有导数端口的信号，构建常微分方程组</li>
+</ol>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1BlockDynamicSystem.html" title="动力学系统">BlockDynamicSystem</a> </dd></dl>
 </div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Propagator/HPOP/BlockAstro/<a class="el" href="BlockDerivative_8hpp_source.html">BlockDerivative.hpp</a></li>
 </ul>

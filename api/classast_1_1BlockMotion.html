@@ -206,8 +206,16 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="separator:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>运动学块 </p>
-<p>求解位置的导数 </p>
+<div class="textblock"><p>运动学函数块 </p>
+<p>实现最基本的运动学关系：位置导数等于速度。</p>
+<p>方程： dr/dt = v</p>
+<p>输入端口：</p><ul>
+<li>"Vel"：速度向量（3维）</li>
+</ul>
+<p>导数端口：</p><ul>
+<li>"Pos"：位置导数（3维），直接赋值为当前速度</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd>当前使用直接赋值（=）而非累加（+=），假设只有此块贡献位置导数 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="aa0ccd0340d39c9848f7b9688eca09617" name="aa0ccd0340d39c9848f7b9688eca09617"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0ccd0340d39c9848f7b9688eca09617">&#9670;&#160;</a></span>run()</h2>

@@ -180,7 +180,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:a736a59e290771484a7797f55c7586ad8" id="r_a736a59e290771484a7797f55c7586ad8"><td class="memItemLeft" align="right" valign="top"><a id="a736a59e290771484a7797f55c7586ad8" name="a736a59e290771484a7797f55c7586ad8"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>massPtr_</b> {&amp;mass_}</td></tr>
+double *&#160;</td><td class="memItemRight" valign="bottom"><b>massPtr_</b> {&amp;<a class="el" href="#a99bcb412afa5f92bbb2019286913816b">mass_</a>}</td></tr>
 <tr class="separator:a736a59e290771484a7797f55c7586ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99bcb412afa5f92bbb2019286913816b" id="r_a99bcb412afa5f92bbb2019286913816b"><td class="memItemLeft" align="right" valign="top"><a id="a99bcb412afa5f92bbb2019286913816b" name="a99bcb412afa5f92bbb2019286913816b"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>mass_</b> {}</td></tr>
@@ -206,7 +206,13 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="separator:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>质量块，用于提供固定的质量值 </p>
+<div class="textblock"><p>质量函数块 </p>
+<p>提供固定的航天器质量值，通过输出端口供其他力模型块（BlockDrag、BlockSRP）使用。</p>
+<p>当前为恒定质量模型，未来可扩展为变质量模型（考虑燃料消耗）。</p>
+<p>输出端口：</p><ul>
+<li>"Mass"：航天器质量（标量）</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd><a class="el" href="#a3d0fa388f57e23efa2175cec1a23c7ca" title="计算函数块">run()</a> 为空操作，质量值在构造时固定 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a3d0fa388f57e23efa2175cec1a23c7ca" name="a3d0fa388f57e23efa2175cec1a23c7ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d0fa388f57e23efa2175cec1a23c7ca">&#9670;&#160;</a></span>run()</h2>

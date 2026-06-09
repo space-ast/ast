@@ -200,6 +200,23 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>重力场函数块 </p>
+<p>使用球谐展开模型计算非球形天体的重力加速度。</p>
+<p>工作流程：</p><ol type="1">
+<li>将预报坐标系下的位置旋转变换到重力场固连坐标系</li>
+<li>调用 <a class="el" href="classast_1_1GravityCalculator.html" title="重力加速度计算类">GravityCalculator</a> 计算固连系下的重力加速度</li>
+<li>将加速度逆变换回报坐标系</li>
+<li>累加到速度导数上</li>
+</ol>
+<p>输入端口：</p><ul>
+<li>"Pos"：位置向量（3维，预报坐标系下）</li>
+</ul>
+<p>输出端口：</p><ul>
+<li>"AccGravity"：重力加速度（3维，预报坐标系下）</li>
+</ul>
+<p>导数端口：</p><ul>
+<li>"Vel"：速度导数（3维），累加重力加速度</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd>当 degree=0 时退化为二体引力，此时应使用 <a class="el" href="classast_1_1BlockTwoBody.html" title="二体引力函数块">BlockTwoBody</a> 以提高效率 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a921513f986371f869b59b734ba5cfff2" name="a921513f986371f869b59b734ba5cfff2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a921513f986371f869b59b734ba5cfff2">&#9670;&#160;</a></span>run()</h2>

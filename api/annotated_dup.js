@@ -124,6 +124,7 @@ var annotated_dup =
       [ "BlockSaturation", "classast_1_1BlockSaturation.html", "classast_1_1BlockSaturation" ],
       [ "BlockSign", "classast_1_1BlockSign.html", "classast_1_1BlockSign" ],
       [ "BlockSin", "classast_1_1BlockSin.html", "classast_1_1BlockSin" ],
+      [ "BlockSRP", "classast_1_1BlockSRP.html", "classast_1_1BlockSRP" ],
       [ "BlockSubtract", "classast_1_1BlockSubtract.html", "classast_1_1BlockSubtract" ],
       [ "BlockSum", "classast_1_1BlockSum.html", "classast_1_1BlockSum" ],
       [ "BlockSwitch", "classast_1_1BlockSwitch.html", "classast_1_1BlockSwitch" ],

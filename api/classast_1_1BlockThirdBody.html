@@ -213,7 +213,18 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>三体引力函数块 </p>
-<p>~ </p>
+<p>计算第三天体的点质量引力摄动加速度（直接引力与间接引力之差）。</p>
+<p>方程： a = GM₃ · [ (r₃ - r) / |r₃ - r|³ - r₃ / |r₃|³ ]</p>
+<p>其中： GM₃ = 第三天体引力常数 r = 航天器相对于中心天体的位置 r₃ = 第三天体相对于中心天体的位置 第一项为直接引力（第三天体对航天器），第二项为间接引力（第三天体对中心天体）</p>
+<p>输入端口：</p><ul>
+<li>"Pos"：位置向量（3维，预报坐标系下，以中心天体为参考）</li>
+</ul>
+<p>输出端口：</p><ul>
+<li>"AccThirdBody"：三体引力加速度（3维）</li>
+</ul>
+<p>导数端口：</p><ul>
+<li>"Vel"：速度导数（3维），累加三体引力加速度 </li>
+</ul>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a976aba51cc05cd119e5e81c58a26c3ca" name="a976aba51cc05cd119e5e81c58a26c3ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a976aba51cc05cd119e5e81c58a26c3ca">&#9670;&#160;</a></span>run()</h2>

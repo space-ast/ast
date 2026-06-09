@@ -255,7 +255,24 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>动力学系统 </p>
 <p>动力学系统是一个包含普通函数块和导数函数块的子系统 每个导数块负责计算动力学系统的一个或多个状态变量的导数。 每个函数块通过输入输出端口进行信号连接，组合形成复杂的动力学系统。</p>
-<p>动力学系统将根据端口名称自动建立起函数块间的信号连接关系 并构建状态量和导数量到函数块信号的映射关系 最终得到一个常微分方程组，用于数值积分求解 </p>
+<p>动力学系统将根据端口名称自动建立起函数块间的信号连接关系 并构建状态量和导数量到函数块信号的映射关系 最终得到一个常微分方程组，用于数值积分求解</p>
+<p>动力学系统是 <a class="el" href="classast_1_1HPOP.html" title="高精度轨道预报器">HPOP</a> 的核心执行引擎，管理一组函数块并自动将其组装为常微分方程组。</p>
+<p>初始化过程（initialize）：</p><ol type="1">
+<li><a class="el" href="#ad361d3f61414d1b7f6ff9dba31ee6651" title="根据函数块的依赖关系，对子系统块中的函数块进行排序">sortBlocks()</a> — 按依赖关系对函数块进行拓扑排序，确保被依赖的块先执行</li>
+<li><a class="el" href="#a11e43ebd2b5146aa59ffc70a3d81967a" title="创建状态量映射表">createStateMap()</a> — 扫描所有块的输出/导数端口，构建状态量映射表，分配连续内存</li>
+<li><a class="el" href="#a8b3d105586f012b38b057a91ae2760f5" title="根据函数块的信号名称，自动连接子系统块中的信号">connectSignalsByNames()</a> — 按端口名称自动连接信号，建立块间的数据流</li>
+</ol>
+<p>执行过程（run → evaluate）：</p><ol type="1">
+<li>将外部状态向量 y 写入各块的状态信号指针</li>
+<li>清零导数缓冲区</li>
+<li>按序执行所有函数块的 <a class="el" href="classast_1_1BlockSystem.html#a22638623cc156afc6da579be545feeb9" title="计算函数块">run()</a></li>
+<li>从导数信号指针收集各块的导数贡献，输出 dy/dt</li>
+</ol>
+<p>状态量与导数量的对应关系由端口名称决定：</p><ul>
+<li>输出端口名为 "Pos" 的块提供位置状态量</li>
+<li>导数端口名为 "Pos" 的块贡献位置导数</li>
+<li>导数端口名为 "Vel" 的块贡献速度导数（即加速度） </li>
+</ul>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="ada2d83decd71230ac355d86600a5333d" name="ada2d83decd71230ac355d86600a5333d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada2d83decd71230ac355d86600a5333d">&#9670;&#160;</a></span>addBlock() <span class="overload">[1/2]</span></h2>

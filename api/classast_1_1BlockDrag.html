@@ -104,6 +104,8 @@ $(function(){initNavTree('classast_1_1BlockDrag.html',''); initResizable(true); 
   <div class="headertitle"><div class="title">ast::BlockDrag类 参考</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BlockDrag_8hpp_source.html">BlockDrag.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::BlockDrag 继承关系图:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -193,7 +195,24 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outputPorts_</b></td></tr>
 <tr class="separator:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">成员函数说明</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>大气阻力函数块 </p>
+<p>计算大气阻力加速度，用于低轨道航天器的大气阻力摄动建模。</p>
+<p>方程： a_drag = -½ · Cd · (A/m) · ρ · |v_rel| · v_rel</p>
+<p>其中： Cd = 阻力系数（dragCoefficient_） A = 阻力参考面积（dragArea_） m = 航天器质量（来自 Mass 输入端口） ρ = 大气密度（由大气模型根据位置计算） v_rel = 航天器相对于大气的速度（已减去大气旋转速度）</p>
+<p>输入端口：</p><ul>
+<li>"Pos"：位置向量（3维，预报坐标系下）</li>
+<li>"Vel"：速度向量（3维，预报坐标系下）</li>
+<li>"Mass"：航天器质量（标量）</li>
+</ul>
+<p>输出端口：</p><ul>
+<li>"AccDrag"：大气阻力加速度（3维）</li>
+</ul>
+<p>导数端口：</p><ul>
+<li>"Vel"：速度导数（3维），累加阻力加速度</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd>atmosphere_ 的所有权由本块管理，析构时自动释放 </dd></dl>
+</div><h2 class="groupheader">成员函数说明</h2>
 <a id="abef2a9d029b709de76c7e23d15e0d8a1" name="abef2a9d029b709de76c7e23d15e0d8a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abef2a9d029b709de76c7e23d15e0d8a1">&#9670;&#160;</a></span>run()</h2>
 

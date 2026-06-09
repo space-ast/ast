@@ -1,7 +1,7 @@
 var dir_9dab22312cd66344d65619a2229a5619 =
 [
     [ "BlockAstro.cpp", "BlockAstro_8cpp.html", null ],
-    [ "BlockAstro.hpp", "BlockAstro_8hpp.html", null ],
+    [ "BlockAstro.hpp", "BlockAstro_8hpp.html", "BlockAstro_8hpp" ],
     [ "BlockDerivative.cpp", "BlockDerivative_8cpp.html", null ],
     [ "BlockDerivative.hpp", "BlockDerivative_8hpp.html", "BlockDerivative_8hpp" ],
     [ "BlockDrag.cpp", "BlockDrag_8cpp.html", null ],
@@ -16,8 +16,8 @@ var dir_9dab22312cd66344d65619a2229a5619 =
     [ "BlockMotion.hpp", "BlockMotion_8hpp.html", "BlockMotion_8hpp" ],
     [ "BlockRelativity.cpp", "BlockRelativity_8cpp.html", null ],
     [ "BlockRelativity.hpp", "BlockRelativity_8hpp.html", null ],
-    [ "BlockSRP.cpp", "BlockSRP_8cpp.html", null ],
-    [ "BlockSRP.hpp", "BlockSRP_8hpp.html", null ],
+    [ "BlockSRP.cpp", "BlockSRP_8cpp.html", "BlockSRP_8cpp" ],
+    [ "BlockSRP.hpp", "BlockSRP_8hpp.html", "BlockSRP_8hpp" ],
     [ "BlockThirdBody.cpp", "BlockThirdBody_8cpp.html", null ],
     [ "BlockThirdBody.hpp", "BlockThirdBody_8hpp.html", "BlockThirdBody_8hpp" ],
     [ "BlockTransform.cpp", "BlockTransform_8cpp.html", null ],

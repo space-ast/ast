@@ -196,8 +196,20 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="separator:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>二体运动函数块 </p>
-<p>~ </p>
+<div class="textblock"><p>二体引力函数块 </p>
+<p>计算中心天体的点质量引力加速度（牛顿万有引力）。</p>
+<p>方程： a = -GM / r³ · r</p>
+<p>其中： GM = 中心天体引力常数（twoBodyGM_） r = 航天器位置向量（以中心天体为参考）</p>
+<p>输入端口：</p><ul>
+<li>"Pos"：位置向量（3维，预报坐标系下）</li>
+</ul>
+<p>输出端口：</p><ul>
+<li>"AccTwoBody"：二体引力加速度（3维）</li>
+</ul>
+<p>导数端口：</p><ul>
+<li>"Vel"：速度导数（3维），累加二体引力加速度</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd>当重力场阶数为 0 时，BlockGravity 退化为本块 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a44460956126aa6a618f0988572b37ff7" name="a44460956126aa6a618f0988572b37ff7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44460956126aa6a618f0988572b37ff7">&#9670;&#160;</a></span>run()</h2>
