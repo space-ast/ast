@@ -1,5 +1,13 @@
 var NAVTREEINDEX13 =
 {
+"SubObserverPoint_8hpp.html":[4,0,0,2,0,19],
+"SubObserverPoint_8hpp_source.html":[4,0,0,2,0,19],
+"SubSolarPoint_8cpp.html":[4,0,0,2,0,20],
+"SubSolarPoint_8hpp.html":[4,0,0,2,0,21],
+"SubSolarPoint_8hpp_source.html":[4,0,0,2,0,21],
+"Submarine_8cpp.html":[4,0,0,17,3,62],
+"Submarine_8hpp.html":[4,0,0,17,3,63],
+"Submarine_8hpp_source.html":[4,0,0,17,3,63],
 "SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,7,7,4,21],
 "SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,7,7,4,22],
 "SunSynchronousOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,22],
@@ -241,13 +249,5 @@ var NAVTREEINDEX13 =
 "UiInteger_8hpp.html":[4,0,0,9,4,14],
 "UiInteger_8hpp_source.html":[4,0,0,9,4,14],
 "UiMainWindow_8cpp.html":[4,0,0,9,13,0],
-"UiMainWindow_8hpp.html":[4,0,0,9,13,1],
-"UiMainWindow_8hpp_source.html":[4,0,0,9,13,1],
-"UiManeuver_8cpp.html":[4,0,0,9,7,7],
-"UiManeuver_8hpp.html":[4,0,0,9,7,8],
-"UiManeuver_8hpp_source.html":[4,0,0,9,7,8],
-"UiMotionHPOP_8hpp_source.html":[4,0,0,9,8,0],
-"UiMotionProfile_8cpp.html":[4,0,0,9,8,1],
-"UiMotionProfile_8hpp.html":[4,0,0,9,8,2],
-"UiMotionProfile_8hpp_source.html":[4,0,0,9,8,2]
+"UiMainWindow_8hpp.html":[4,0,0,9,13,1]
 };

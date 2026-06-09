@@ -1,5 +1,17 @@
 var NAVTREEINDEX34 =
 {
+"classast_1_1ScStateCalcSemiMajorAxis.html":[3,0,0,685],
+"classast_1_1ScStateCalcSequenceDeltaV.html":[2,0,0,686],
+"classast_1_1ScStateCalcSequenceDeltaV.html":[3,0,0,686],
+"classast_1_1ScStateCalcSequenceDeltaVSquared.html":[2,0,0,687],
+"classast_1_1ScStateCalcSequenceDeltaVSquared.html":[3,0,0,687],
+"classast_1_1ScStateCalcSignedEccentricity.html":[2,0,0,688],
+"classast_1_1ScStateCalcSignedEccentricity.html":[3,0,0,688],
+"classast_1_1ScStateCalcSolarPhaseAngle.html":[2,0,0,689],
+"classast_1_1ScStateCalcSolarPhaseAngle.html":[3,0,0,689],
+"classast_1_1ScStateCalcSolarPressure.html":[2,0,0,690],
+"classast_1_1ScStateCalcSolarPressure.html":[3,0,0,690],
+"classast_1_1ScStateCalcSolarRadiationForce.html":[2,0,0,691],
 "classast_1_1ScStateCalcSolarRadiationForce.html":[3,0,0,691],
 "classast_1_1ScStateCalcSpacecraftMass.html":[2,0,0,692],
 "classast_1_1ScStateCalcSpacecraftMass.html":[3,0,0,692],
@@ -237,17 +249,5 @@ var NAVTREEINDEX34 =
 "classast_1_1SimTime.html":[3,0,0,747],
 "classast_1_1SimTime.html#a1606ab32bdba67f8c78d16906fb5fbe4":[2,0,0,747,2],
 "classast_1_1SimTime.html#a1606ab32bdba67f8c78d16906fb5fbe4":[3,0,0,747,2],
-"classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081":[2,0,0,747,4],
-"classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081":[3,0,0,747,4],
-"classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931":[2,0,0,747,5],
-"classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931":[3,0,0,747,5],
-"classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88":[2,0,0,747,0],
-"classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88":[3,0,0,747,0],
-"classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a":[2,0,0,747,3],
-"classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a":[3,0,0,747,3],
-"classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6":[2,0,0,747,1],
-"classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6":[3,0,0,747,1],
-"classast_1_1SimpleOrbitDesigner.html":[0,1,4,6],
-"classast_1_1SimpleOrbitDesigner.html#a1e242ff61d0648c4c5dbfed919f9af2d":[0,1,4,6,16],
-"classast_1_1SimpleOrbitDesigner.html#a28f85999f3c9876c409334ee731c90ba":[0,1,4,6,1]
+"classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081":[2,0,0,747,4]
 };

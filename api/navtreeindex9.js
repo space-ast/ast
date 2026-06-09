@@ -1,5 +1,13 @@
 var NAVTREEINDEX9 =
 {
+"SOFA_8cpp.html":[4,0,0,7,3,3,9],
+"SOFA_8cpp.html#a1a15ff0a546fe42e25b499c9df6f59a7":[4,0,0,7,3,3,9,6],
+"SOFA_8cpp.html#a63ce81e5e98b83011c987b0de9ffed83":[4,0,0,7,3,3,9,7],
+"SOFA_8cpp.html#a7d564ce583d0c3862921ecceecf6935c":[4,0,0,7,3,3,9,8],
+"SOFA_8cpp.html#a914b7293a4d365eac439568ee4b12a46":[4,0,0,7,3,3,9,11],
+"SOFA_8cpp.html#a964414a5f16ed2a874e02aa19af1129e":[4,0,0,7,3,3,9,10],
+"SOFA_8cpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,7,3,3,9,2],
+"SOFA_8cpp.html#ac67e70e7a0b4e22fbf6b82741c20e724":[4,0,0,7,3,3,9,13],
 "SOFA_8cpp.html#aca6a3cf571f946372790a9c912a9cc94":[4,0,0,7,3,3,9,3],
 "SOFA_8cpp.html#ad4d33fedb094a2588449938697651f14":[4,0,0,7,3,3,9,1],
 "SOFA_8cpp.html#add4db3984e4ac425671893e9151d776c":[4,0,0,7,3,3,9,4],
@@ -241,13 +249,5 @@ var NAVTREEINDEX9 =
 "ScStateCalcEquinoctialH_8cpp.html":[4,0,0,7,7,1,0,7,0],
 "ScStateCalcEquinoctialH_8hpp.html":[4,0,0,7,7,1,0,7,1],
 "ScStateCalcEquinoctialH_8hpp_source.html":[4,0,0,7,7,1,0,7,1],
-"ScStateCalcEquinoctialK_8cpp.html":[4,0,0,7,7,1,0,7,2],
-"ScStateCalcEquinoctialK_8hpp.html":[4,0,0,7,7,1,0,7,3],
-"ScStateCalcEquinoctialK_8hpp_source.html":[4,0,0,7,7,1,0,7,3],
-"ScStateCalcEquinoctialP_8cpp.html":[4,0,0,7,7,1,0,7,4],
-"ScStateCalcEquinoctialP_8hpp.html":[4,0,0,7,7,1,0,7,5],
-"ScStateCalcEquinoctialP_8hpp_source.html":[4,0,0,7,7,1,0,7,5],
-"ScStateCalcEquinoctialQ_8cpp.html":[4,0,0,7,7,1,0,7,6],
-"ScStateCalcEquinoctialQ_8hpp.html":[4,0,0,7,7,1,0,7,7],
-"ScStateCalcEquinoctialQ_8hpp_source.html":[4,0,0,7,7,1,0,7,7]
+"ScStateCalcEquinoctialK_8cpp.html":[4,0,0,7,7,1,0,7,2]
 };

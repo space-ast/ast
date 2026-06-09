@@ -1,5 +1,17 @@
 var NAVTREEINDEX32 =
 {
+"classast_1_1Quaternion.html#a8450b588cce120ed57b4734788bf3c72":[0,2,1,2,12],
+"classast_1_1Quaternion.html#a9412afb4b27191e26df13b5df394cd38":[0,2,1,2,20],
+"classast_1_1Quaternion.html#a94fc9b6597063a4062b04be18996de12":[0,2,1,2,2],
+"classast_1_1Quaternion.html#a97a170f1b3324d7d6e78dc06f971985c":[0,2,1,2,27],
+"classast_1_1Quaternion.html#aa2d23169dc9e5573eda946013489819f":[0,2,1,2,28],
+"classast_1_1Quaternion.html#aa7cbd868ff6e832612a85b2027659041":[0,2,1,2,7],
+"classast_1_1Quaternion.html#ab18b74959f0806ebb092f6e493f38893":[0,2,1,2,26],
+"classast_1_1Quaternion.html#abf34f1d3eadf0c11d520bfebd571a2d2":[0,2,1,2,24],
+"classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b":[0,2,1,2,16],
+"classast_1_1Quaternion.html#ad48ef6b1866ee2392c26556fa66f2770":[0,2,1,2,14],
+"classast_1_1Quaternion.html#affd2c78251b00a2662ceb6045f6fcc81":[0,2,1,2,4],
+"classast_1_1QwtBackend.html":[2,0,0,493],
 "classast_1_1QwtBackend.html":[3,0,0,493],
 "classast_1_1QwtPlotVisitor.html":[2,0,0,494],
 "classast_1_1QwtPlotVisitor.html":[3,0,0,494],
@@ -237,17 +249,5 @@ var NAVTREEINDEX32 =
 "classast_1_1ScStateCalcDeltaV.html":[3,0,0,574],
 "classast_1_1ScStateCalcDeltaVSquared.html":[2,0,0,575],
 "classast_1_1ScStateCalcDeltaVSquared.html":[3,0,0,575],
-"classast_1_1ScStateCalcDensity.html":[2,0,0,576],
-"classast_1_1ScStateCalcDensity.html":[3,0,0,576],
-"classast_1_1ScStateCalcDiffAcrossSegmentOtherSat.html":[2,0,0,577],
-"classast_1_1ScStateCalcDiffAcrossSegmentOtherSat.html":[3,0,0,577],
-"classast_1_1ScStateCalcDifference.html":[2,0,0,578],
-"classast_1_1ScStateCalcDifference.html":[3,0,0,578],
-"classast_1_1ScStateCalcDifference.html#a0912c7e3b8b829a7284de82b70783457":[2,0,0,578,2],
-"classast_1_1ScStateCalcDifference.html#a0912c7e3b8b829a7284de82b70783457":[3,0,0,578,2],
-"classast_1_1ScStateCalcDifference.html#a2a1a1cb55701d96a0fa4a5d3f11b0567":[2,0,0,578,0],
-"classast_1_1ScStateCalcDifference.html#a2a1a1cb55701d96a0fa4a5d3f11b0567":[3,0,0,578,0],
-"classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[2,0,0,578,4],
-"classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[3,0,0,578,4],
-"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[2,0,0,578,3]
+"classast_1_1ScStateCalcDensity.html":[2,0,0,576]
 };

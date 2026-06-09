@@ -52,7 +52,7 @@ var searchData=
   ['findobjects_49',['findObjects',['../classast_1_1ObjectManager.html#a06561ebb55881244999719c546321f19',1,'ast::ObjectManager']]],
   ['findspkdescriptor_50',['findSpkDescriptor',['../classast_1_1SPKParser.html#a89ecfa6f51cfe1f354537bc844f89fd2',1,'ast::SPKParser']]],
   ['findsymbol_51',['findSymbol',['../classast_1_1ISymbolScope.html#a6e4223a0bec63a612d3a86de62dff871',1,'ast::ISymbolScope::findSymbol()'],['../classast_1_1SymbolScope.html#af9445e6ce2085b62e5a75fac32b615f0',1,'ast::SymbolScope::findSymbol()']]],
-  ['flatfactor_5f_52',['flatfactor_',['../classast_1_1SpheroidShape.html#a7aea6a0c4df65e69c1867bb80901a313',1,'ast::SpheroidShape']]],
+  ['flatfactor_5f_52',['flatFactor_',['../classast_1_1SpheroidShape.html#ab6f4ed930e79cbac6d2237acd4866468',1,'ast::SpheroidShape']]],
   ['fluxapfile_5f_53',['fluxApFile_',['../classast_1_1DragForce.html#a397fcd45c4ec9d06d72fadec245abef5',1,'ast::DragForce']]],
   ['foot_54',['Foot',['../classast_1_1Unit.html#a9da85aada6c5612e28ebffa9e252ffb2',1,'ast::Unit']]],
   ['force_55',['Force',['../classast_1_1Dimension.html#abe2a4eb74abdca2fe6d33ab57a998f76',1,'ast::Dimension']]],

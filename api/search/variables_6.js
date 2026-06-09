@@ -7,7 +7,7 @@ var searchData=
   ['file_4',['file',['../classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4',1,'ast::MessageLogContext']]],
   ['filerecord_5f_5',['fileRecord_',['../classast_1_1DAFParser.html#a87fd4ea05a9476c83b9a424203c3b1a9',1,'ast::DAFParser']]],
   ['files_5f_6',['files_',['../classast_1_1BuildTarget.html#ac1ba3d19586ed089c6bdffb08c9281dc',1,'ast::BuildTarget']]],
-  ['flatfactor_5f_7',['flatfactor_',['../classast_1_1SpheroidShape.html#a7aea6a0c4df65e69c1867bb80901a313',1,'ast::SpheroidShape']]],
+  ['flatfactor_5f_7',['flatFactor_',['../classast_1_1SpheroidShape.html#ab6f4ed930e79cbac6d2237acd4866468',1,'ast::SpheroidShape']]],
   ['fluxapfile_5f_8',['fluxApFile_',['../classast_1_1DragForce.html#a397fcd45c4ec9d06d72fadec245abef5',1,'ast::DragForce']]],
   ['frame_5f_9',['frame_',['../classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302',1,'ast::EphemerisLagrangeVar::frame_'],['../classast_1_1State.html#afd76bc624bd9bfdcd1d21937afeff909',1,'ast::State::frame_']]],
   ['free_10',['free',['../structast_1_1DAF__FileRecord.html#a2374ff9dcca78746eb384c4775ec8251',1,'ast::DAF_FileRecord']]],
