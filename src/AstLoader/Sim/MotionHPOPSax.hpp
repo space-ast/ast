@@ -41,11 +41,16 @@ public:
     errc_t keyValue(StringView key, const ValueView& value) override;
     errc_t getMotion(ScopedPtr<MotionProfile>& motion) override;public:
 public:
-    
 protected:
-    CartState cartState_{};            ///< 直角坐标
-    HPOPForceModel forceModel_{};      ///< 力模型
-    double massAtEpoch_{0.0};          ///< 初始质量
+    double getMass() const {return spacecraftParam_.mass_;}
+private:
+    CartState cartState_{};                ///< 直角坐标
+    HPOPForceModel forceModel_{};          ///< 力模型
+    struct {
+        double mass_{1000};
+        double dragCoefficient_{0.0};
+        double areaMassRatio_{0.0};
+    } spacecraftParam_;
     struct {
         std::string method_;               ///< 积分器方法 (IntegMethod)
         std::string stepControlMethod_;    ///< 步长控制方法 (StepControlMethod)

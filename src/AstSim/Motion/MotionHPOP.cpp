@@ -57,6 +57,7 @@ errc_t MotionHPOP::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
     
     HPOP hpop;
     hpop.setForceModel(this->forceModel_);
+    hpop.setSpacecraftParam(this->spacecraftParam_);
     hpop.setIntegrator(integrator_);
     auto integrator = hpop.getIntegrator();  AST_CHECK_NULLPTR(integrator);
     rc = hpop.setPropagationFrame(propFrame); AST_CHECK_ERRCODE(rc, "failed to set propagation frame");

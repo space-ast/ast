@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstSim/MotionOrbitDynamics.hpp"
 #include "AstCore/HPOPForceModel.hpp"
+#include "AstCore/SpacecraftParam.hpp"
 #include "AstMath/ODEIntegrator.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -57,6 +58,12 @@ public:
     /// @return 力模型
     const HPOPForceModel& getForceModel() const{return forceModel_;}
 
+    /// @brief 设置航天器参数
+    void setSpacecraftParam(const SpacecraftParam& spacecraftParam){spacecraftParam_= spacecraftParam;}
+
+    /// @brief 获取航天器参数
+    const SpacecraftParam& getSpacecraftParam() const{return spacecraftParam_;}
+
     /// @brief 设置积分器
     /// @param integrator 积分器
     void setIntegrator(ODEIntegrator* integrator);
@@ -66,6 +73,7 @@ public:
     ODEIntegrator* getIntegrator() const;
 private:
     HPOPForceModel forceModel_;             ///< 力模型
+    SpacecraftParam spacecraftParam_;       ///< 航天器参数
     SharedPtr<ODEIntegrator> integrator_;   ///< 积分器
 };
 

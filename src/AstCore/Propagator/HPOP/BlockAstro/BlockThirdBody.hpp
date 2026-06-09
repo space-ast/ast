@@ -33,7 +33,7 @@ class AST_CORE_API BlockThirdBody : public BlockDerivative
 {
 public:
     BlockThirdBody();
-    explicit BlockThirdBody(Frame* propagationFrame, CelestialBody* thirdBody, double thirdBodyGM);
+    explicit BlockThirdBody(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame);
 
     errc_t run(const SimTime& simTime) override;
 protected:
@@ -42,9 +42,9 @@ protected:
     Vector3d* velocityDerivative_{&vectorBuffer};   ///< 速度导数
     Vector3d vectorBuffer{};                        ///< 向量缓冲区
 private:
-    Frame* propagationFrame_{};                     ///< 预报系
     CelestialBody* thirdBody_{};                    ///< 三体
     double   thirdBodyGM_;                          ///< 三体引力常量
+    Frame* propagationFrame_{};                     ///< 预报系
 };  
 
 AST_NAMESPACE_END

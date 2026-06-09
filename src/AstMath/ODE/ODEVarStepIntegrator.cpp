@@ -32,7 +32,7 @@ using namespace math;
 ODEVarStepIntegrator::ODEVarStepIntegrator()
     : useMinStep_{false}
     , useMaxStep_{false}
-    // , useFixedStepSize_{false}
+    , useFixedStep_{false}
     , warnOnMinStep_{true}
     , maxStepAttempts_{50}
     , minStepSize_{1}

@@ -21,9 +21,37 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/BlockDerivative.hpp"
+#include "AstCore/Atmosphere.hpp"
+#include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
+
+class AST_CORE_API BlockDrag: public BlockDerivative
+{
+public:
+    BlockDrag();
+    BlockDrag(Atmosphere* atmosphere, double dragCoefficient, double dragArea, Frame* propagationFrame);
+
+    ~BlockDrag() override;
+
+    errc_t run(const SimTime& simTime) final;
+
+private:
+    Vector3d* posPropagation_{};                     ///< 位置（以主要天体为参考）
+    Vector3d* accDrag_{&vectorBuffer_};              ///< 阻力加速度
+    Vector3d* velocityDerivative_{&vectorBuffer_};   ///< 速度导数
+    Vector3d* velocity_{&vectorBuffer_};             ///< 速度
+    double* mass_{&doubleBuffer_};                   ///< 质量
+    double doubleBuffer_{};                          ///< 浮点数缓冲区
+    Vector3d vectorBuffer_{};                        ///< 向量缓冲区
+private:
+    Frame* propagationFrame_{};                      ///< 预报坐标系
+    Atmosphere* atmosphere_{};                       ///< 大气模型
+    double dragCoefficient_{};                       ///< 阻力系数
+    double dragArea_{};                              ///< 阻力面积
+};
 
 
 AST_NAMESPACE_END

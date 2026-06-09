@@ -58,6 +58,9 @@ errc_t Propagate::execute()
         if(eventDetector->active())
             propagator->getIntegrator()->addEventDetector(eventDetector->newODEEventDetector());
     }
+    // 设置航天器参数
+    propagator->setSpacecraftParam(inputState->spacecraftParam());
+    // 进行轨道预报
     CartState outputCartState = inputCartState;
     rc = propagator->propagate(startTime, endTime, outputCartState.pos(), outputCartState.vel()); AST_CHECK_ERRCODE(rc, "Failed to propagate");
     // 输出结果

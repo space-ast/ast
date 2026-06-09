@@ -32,8 +32,9 @@ class KinematicRotation: protected Rotation
 {
 public:
     using Rotation::getMatrix;
-    using Rotation::transformVector;
     using Rotation::getQuaternion;
+    using Rotation::transformVector;
+    using Rotation::transformVectorInv;
 
     /// @brief 获取单位运动学旋转
     static KinematicRotation Identity();

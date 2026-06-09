@@ -1,1 +1,0 @@
-#include "AstGUI/UiAnalyzerPanel.hpp"

@@ -22,7 +22,8 @@
 #include "HPOP.hpp"                 // for HPOPForceModel
 #include "AstUtil/Logger.hpp"
 #include "AstCore/Simulation.hpp"   // for blocks
-#include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/BuiltinFrame.hpp" // 
+#include "AstCore/NRLMSIS00.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -66,10 +67,10 @@ int HPOPEquation::getDimension() const
 /// @brief 初始化仿真引擎
 errc_t HPOPEquation::initialize()
 {
-    return this->initializeFromForceModel(this->forceModel_);
+    return this->initializeFromForceModel(this->forceModel_, this->spacecraftParam_);
 }
 
-errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
+errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
 {
     if(!this->propFrame_)
     {
@@ -138,6 +139,20 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
         aWarning("the propagation frame's center is not a celestial body, no gravity force will be added.");
     }
 
+    // 添加大气阻力函数块
+    if(forceModel.useDrag())
+    {
+        // 添加质量函数块
+        this->addBlock(new BlockMass(spacecraftParam.mass()));
+
+        double kp = forceModel.drag().kp_;
+        double ap = aKpToAp(kp);
+        Atmosphere* atmosphere = new NRLMSIS00(body->getFrameFixed(), body->getShape(), forceModel.drag().f10p7Daily_, forceModel.drag().f10p7Average_, ap);
+        // atmosphere 的所有权转移给 blockDrag
+        derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame_);
+        this->addBlock(derivativeBlock);
+    }
+
     // 添加三体引力函数块
     {
         auto& thirdBodies = forceModel.getThirdBodies();
@@ -145,7 +160,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
         {
             auto body = thirdBody.body();
             double gm = thirdBody.pointMass().getGM(body);
-            derivativeBlock = new BlockThirdBody(propFrame_, body, gm);
+            derivativeBlock = new BlockThirdBody(body, gm, propFrame_);
             this->addBlock(derivativeBlock);
         }
     }
@@ -154,7 +169,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel)
     // 添加月球引力函数块
     if(forceModel.useMoonGravity())
     {
-        derivativeBlock = new BlockThirdBody(propFrame_, aGetMoon(), forceModel.moonGravity());
+        derivativeBlock = new BlockThirdBody(aGetMoon(), forceModel.moonGravity(), propFrame_);
         this->addBlock(derivativeBlock);
     }
     return eNoError;
@@ -182,9 +197,9 @@ void HPOPEquation::reset()
 
 
 
-errc_t HPOPEquation::initializeFromForceModel(const HPOPForceModel &forceModel)
+errc_t HPOPEquation::initializeFromForceModel(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
 {
-    errc_t rc = this->initBlocks(forceModel);
+    errc_t rc = this->initBlocks(forceModel, spacecraftParam);
     if(rc) return rc;
     return dynamicSystem_.initialize();
 }
@@ -199,6 +214,11 @@ errc_t HPOPEquation::setForceModel(const HPOPForceModel &forceModel)
 {
     this->forceModel_ = forceModel;
     return eNoError;
+}
+
+void HPOPEquation::setSpacecraftParam(const SpacecraftParam &spacecraftParam)
+{
+    this->spacecraftParam_ = spacecraftParam;
 }
 
 errc_t HPOPEquation::setPropagationFrame(Frame *frame)

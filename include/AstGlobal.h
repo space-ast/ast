@@ -54,7 +54,7 @@
 
 #define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间(如果关闭，需要同步更改rules.lua里的qt.moc.flags)
 // #define AST_USE_CRT_SAFE                      // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
-                                                 //（已废弃，这些函数不用共享文件，即同时打开相同文件，在一些情况下有问题）
+                                                 //（已废弃，这些函数无法共享文件，即同时打开相同文件，在一些情况下有问题）
 
 // #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
 // #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
@@ -416,10 +416,12 @@ class GeodeticPoint;         ///< 大地坐标
 class TrackingCoordinates;   ///< 测量/跟踪坐标(AER)
 using AER = TrackingCoordinates;
 
-class State;
-class StateCartesian;
-class StateKeplerian;
-class SpacecraftState;
+class State;                 ///< 状态
+class StateCartesian;        ///< 直角坐标状态
+class StateKeplerian;        ///< 经典轨道状态
+class SpacecraftState;       ///< 航天器状态
+
+class SpacecraftParam;       ///< 航天器参数
 
 class Object;                ///< 对象
 class Class;                 ///< 类

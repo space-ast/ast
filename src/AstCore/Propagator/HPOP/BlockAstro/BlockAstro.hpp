@@ -27,6 +27,7 @@ AST_NAMESPACE_BEGIN
 
 constexpr const char* kIdentifierPos = "Pos";
 constexpr const char* kIdentifierVel = "Vel";
+constexpr const char* kIdentifierMass = "Mass";
 constexpr const char* kIdentifierAcc = "Acc";
 constexpr const char* kIdentifierAccTwoBody = "AccTwoBody";
 constexpr const char* kIdentifierAccThirdBody = "AccThirdBody";

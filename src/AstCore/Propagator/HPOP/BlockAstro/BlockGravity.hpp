@@ -41,7 +41,7 @@ public:
     errc_t run(const SimTime& simTime) final;
 private:
     void init();
-protected:
+private:
     HAxes                    gravityAxes_;                              ///< 重力坐标系
     HAxes                    propagationAxes_;                          ///< 预报坐标系
     Vector3d*                posPtr_{&vectorBuffer_};                   ///< 位置(预报坐标系下)

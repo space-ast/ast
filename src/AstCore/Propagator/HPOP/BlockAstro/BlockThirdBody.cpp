@@ -33,20 +33,20 @@ AST_NAMESPACE_BEGIN
 using namespace math;
 
 BlockThirdBody::BlockThirdBody()
-    : BlockThirdBody{aFrameECI(), aGetMoon(), kMoonGrav}
+    : BlockThirdBody{aGetMoon(), kMoonGrav, aFrameECI()}
 {
 
 }
 
-BlockThirdBody::BlockThirdBody(Frame* propagationFrame, CelestialBody* thirdBody, double thirdBodyGM)
+BlockThirdBody::BlockThirdBody(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame)
     : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accThirdBody{&vectorBuffer}
     , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
-    , propagationFrame_{propagationFrame}   // 预报系
     , thirdBody_{thirdBody}       // 三体
     , thirdBodyGM_{thirdBodyGM}   // 三体引力常量
+    , propagationFrame_{propagationFrame}   // 预报系
 {
     assert(propagationFrame_ != nullptr);
     assert(thirdBody_ != nullptr);

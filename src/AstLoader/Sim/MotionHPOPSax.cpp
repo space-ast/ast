@@ -160,7 +160,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.gravity().minAmplitudeOceanTides_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "MassAtEpoch")){
-        massAtEpoch_ = value.toDouble();
+        spacecraftParam_.mass_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "UseDrag")){
         forceModel_.useDrag(value.toBool());
@@ -205,10 +205,10 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.drag().geoMagFluxInterpSubSamplingRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCoefficient")){
-        // forceModel_.drag().dragCoefficient_ = value.toDouble();
+        spacecraftParam_.dragCoefficient_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "AreaMassRatio")){
-        // forceModel_.drag().areaMassRatio_ = value.toDouble();
+        spacecraftParam_.areaMassRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCorrectionType")){
         // @todo 处理DragCorrectionType
@@ -238,8 +238,8 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.useSRP(value.toBool());
     }
     else if(aEqualsIgnoreCase(key, "SolarPressureModel")){
-        if(massAtEpoch_ <= 0.0) massAtEpoch_ = 1;
-        errc_t rc = _aLoadSolarPressureModel(parser_, massAtEpoch_, forceModel_.srp());
+        double mass = this->getMass();
+        errc_t rc = _aLoadSolarPressureModel(parser_, mass, forceModel_.srp());
         A_UNUSED(rc);
     }
     else if(aEqualsIgnoreCase(key, "SunPosition")){
@@ -434,6 +434,16 @@ errc_t MotionHPOPSax::getMotion(ScopedPtr<MotionProfile> &motion)
 
     // 这里可以安全地设置为空指针
     motionHPOP->setIntegrator(integrator);
+
+    // 设置航天器参数
+
+    SpacecraftParam scParam{};
+    double mass = spacecraftParam_.mass_;
+    scParam.setFuelMass(0);
+    scParam.setDryMass(mass);
+    scParam.setCd(spacecraftParam_.dragCoefficient_);
+    scParam.setDragArea(spacecraftParam_.areaMassRatio_ * mass);
+    motionHPOP->setSpacecraftParam(scParam);
     
     auto body = vehiclePathData_.centralBody_; AST_CHECK_NULLPTR(body);
     auto bodyInertial = body->makeFrameInertial();

@@ -57,6 +57,11 @@ public:
     /// @brief 获取力模型
     HPOPForceModel& forceModel();
 
+    void setSpacecraftParam(const SpacecraftParam& spacecraftParam);
+
+    /// @brief 获取航天器参数
+    const SpacecraftParam& spacecraftParam() const;
+
     /// @brief 设置预报坐标系
     errc_t setPropagationFrame(Frame* frame);
 
@@ -78,9 +83,9 @@ public:
     /// @brief 初始化
     errc_t initialize();
 protected:
-    HPOPEquation* equation();
+    HPOPEquation* equation() const;
 private:
-    ScopedPtr<HPOPEquation> equation_;              ///< 高精度轨道预报方程
+    mutable ScopedPtr<HPOPEquation> equation_;       ///< 高精度轨道预报方程
     mutable SharedPtr<ODEIntegrator> integrator_;   ///< 高精度轨道预报积分器
 };
 

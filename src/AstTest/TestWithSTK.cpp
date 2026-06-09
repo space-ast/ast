@@ -172,15 +172,27 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
     }
     status.keyValue("interval", interval.toString().c_str());
     
-    status.info("generating specific ephemeris...");
-    ScopedPtr<Ephemeris> ephem_spec_generated;
-    rc = motion->makeEphemerisSpec(ephem_spec_generated);
+    status.info("generating simple ephemeris...");
+    SharedPtr<Ephemeris> ephem_simple_generated;
+    ScopedPtr<Ephemeris> temp;
+    rc = motion->makeEphemerisSimple(temp);
+    ephem_simple_generated = temp.release();
     status.assert(rc);
 
-    status.info("generating simple ephemeris...");
-    ScopedPtr<Ephemeris> ephem_simple_generated;
-    rc = motion->makeEphemerisSimple(ephem_simple_generated);
-    status.assert(rc);
+    SharedPtr<Ephemeris> ephem_spec_generated;
+    if(motion->toHPOP())
+    {
+        ephem_spec_generated = ephem_simple_generated;
+    }
+    else
+    {
+        status.info("generating specific ephemeris...");
+        ScopedPtr<Ephemeris> temp;
+        rc = motion->makeEphemerisSpec(temp);
+        ephem_spec_generated = temp.release();
+        status.assert(rc);
+    }
+
 
     std::vector<TimePoint> timePointsToCheck;
     {
