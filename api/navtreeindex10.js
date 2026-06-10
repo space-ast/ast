@@ -1,5 +1,11 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcDeltaDec_8hpp.html":[4,0,0,7,7,1,0,15,23],
+"ScStateCalcDeltaDec_8hpp_source.html":[4,0,0,7,7,1,0,15,23],
+"ScStateCalcDeltaFromMaster_8cpp.html":[4,0,0,7,7,1,0,15,24],
+"ScStateCalcDeltaFromMaster_8hpp.html":[4,0,0,7,7,1,0,15,25],
+"ScStateCalcDeltaFromMaster_8hpp_source.html":[4,0,0,7,7,1,0,15,25],
+"ScStateCalcDeltaRA_8cpp.html":[4,0,0,7,7,1,0,15,26],
 "ScStateCalcDeltaRA_8hpp.html":[4,0,0,7,7,1,0,15,27],
 "ScStateCalcDeltaRA_8hpp_source.html":[4,0,0,7,7,1,0,15,27],
 "ScStateCalcDeltaVSquared_8cpp.html":[4,0,0,7,7,1,0,11,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcPointRelated_8hpp_source.html":[4,0,0,7,7,1,0,15,127],
 "ScStateCalcPosDiffMagOthSeg_8cpp.html":[4,0,0,7,7,1,0,15,128],
 "ScStateCalcPosDiffMagOthSeg_8hpp.html":[4,0,0,7,7,1,0,15,129],
-"ScStateCalcPosDiffMagOthSeg_8hpp_source.html":[4,0,0,7,7,1,0,15,129],
-"ScStateCalcPosVelDiffMagOthSeg_8cpp.html":[4,0,0,7,7,1,0,15,130],
-"ScStateCalcPosVelDiffMagOthSeg_8hpp.html":[4,0,0,7,7,1,0,15,131],
-"ScStateCalcPosVelDiffMagOthSeg_8hpp_source.html":[4,0,0,7,7,1,0,15,131],
-"ScStateCalcPower_8cpp.html":[4,0,0,7,7,1,0,15,132],
-"ScStateCalcPower_8hpp.html":[4,0,0,7,7,1,0,15,133],
-"ScStateCalcPower_8hpp_source.html":[4,0,0,7,7,1,0,15,133]
+"ScStateCalcPosDiffMagOthSeg_8hpp_source.html":[4,0,0,7,7,1,0,15,129]
 };

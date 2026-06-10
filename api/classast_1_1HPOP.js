@@ -1,5 +1,7 @@
 var classast_1_1HPOP =
 [
+    [ "addEventDetector", "classast_1_1HPOP.html#a17be20cd12190596f3802c3976dcadd8", null ],
+    [ "clearEventDetectors", "classast_1_1HPOP.html#a3209e7dfccd8904d4d2481150f625103", null ],
     [ "forceModel", "classast_1_1HPOP.html#a8a0c1e935bdbdbf0ef6af854118d3f11", null ],
     [ "getIntegrator", "classast_1_1HPOP.html#a6b39183be54694b152d01ee57170fa16", null ],
     [ "initialize", "classast_1_1HPOP.html#a97b91190d3858e3ad750e33992031180", null ],

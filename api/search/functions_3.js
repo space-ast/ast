@@ -33,7 +33,7 @@ var searchData=
   ['clearblocks_30',['clearBlocks',['../classast_1_1BlockDynamicSystem.html#a4b723a64263ed0b2687deaed472373c4',1,'ast::BlockDynamicSystem::clearBlocks()'],['../classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3',1,'ast::BlockSystem::clearBlocks()']]],
   ['clearchildren_31',['clearChildren',['../classast_1_1XMLNode.html#a7ee32ef1356a4fbdb60529ed2e90d8f3',1,'ast::XMLNode::clearChildren()'],['../classast_1_1ObjectNode.html#ab3634958598205345e55a28da21586d3',1,'ast::ObjectNode::clearChildren()']]],
   ['clearerrstring_32',['clearErrString',['../classast_1_1Interpreter.html#a145d9bc69a2f6b41de63774075cb0d15',1,'ast::Interpreter']]],
-  ['cleareventdetectors_33',['clearEventDetectors',['../classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04',1,'ast::ODEIntegrator']]],
+  ['cleareventdetectors_33',['clearEventDetectors',['../classast_1_1HPOP.html#a3209e7dfccd8904d4d2481150f625103',1,'ast::HPOP::clearEventDetectors()'],['../classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04',1,'ast::ODEIntegrator::clearEventDetectors()']]],
   ['clearresults_34',['clearResults',['../classast_1_1UiResultView.html#a06cfd661766d545b4cd2cdb37e7c7a98',1,'ast::UiResultView']]],
   ['clearstateobservers_35',['clearStateObservers',['../classast_1_1ODEIntegrator.html#aa8d8a8b8fb36e19c8a2e9897c4b8780d',1,'ast::ODEIntegrator']]],
   ['cleartools_36',['clearTools',['../classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590',1,'ast::ChatTools']]],

@@ -334,6 +334,29 @@ $(function(){initNavTree('_2github_2workspace_2src_2AstUtil_2Util_2Literals_8hpp
 <div class="line">        <span class="keywordflow">return</span> val * kPicoSecToSec;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// 质量单位 - 基于kg的单位制</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_kg(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_kg(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_g(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * 1e-3;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_g(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * 1e-3;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// 速度单位 - 基于m/s的单位制</span></div>
 <div class="line">    </div>
@@ -388,6 +411,19 @@ $(function(){initNavTree('_2github_2workspace_2src_2AstUtil_2Util_2Literals_8hpp
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">return</span> val * kDegToRad;</div>
 <div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 面积单位 - 基于m2的单位制</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_m2(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_m2(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">//----------------</span></div>
 <div class="line">    <span class="comment">// unit literals</span></div>

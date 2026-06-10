@@ -24,7 +24,7 @@ var searchData=
   ['date_2ecpp_21',['Date.cpp',['../Date_8cpp.html',1,'']]],
   ['date_2ehpp_22',['Date.hpp',['../Date_8hpp.html',1,'']]],
   ['date_5f_23',['date_',['../classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4',1,'ast::DateTime']]],
-  ['datetime_24',['DateTime',['../classast_1_1DateTime.html',1,'ast']]],
+  ['datetime_24',['DateTime',['../classast_1_1DateTime.html',1,'ast::DateTime'],['../classast_1_1Dimension.html#a888d13a20f595abd66674fb16ca077b0',1,'ast::Dimension::DateTime()']]],
   ['datetime_2ecpp_25',['DateTime.cpp',['../DateTime_8cpp.html',1,'']]],
   ['datetimeformat_2ecpp_26',['DateTimeFormat.cpp',['../DateTimeFormat_8cpp.html',1,'']]],
   ['datetimeparse_2ecpp_27',['DateTimeParse.cpp',['../DateTimeParse_8cpp.html',1,'']]],

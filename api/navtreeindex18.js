@@ -1,5 +1,11 @@
 var NAVTREEINDEX18 =
 {
+"classast_1_1Burn.html":[3,0,0,94],
+"classast_1_1BurnCollocation.html":[2,0,0,95],
+"classast_1_1BurnCollocation.html":[3,0,0,95],
+"classast_1_1BurnFinite.html":[2,0,0,96],
+"classast_1_1BurnFinite.html":[3,0,0,96],
+"classast_1_1BurnImpulsive.html":[2,0,0,97],
 "classast_1_1BurnImpulsive.html":[3,0,0,97],
 "classast_1_1ByCommaAndRepeatedWhitespace.html":[2,0,0,98],
 "classast_1_1ByCommaAndRepeatedWhitespace.html":[3,0,0,98],
@@ -243,11 +249,5 @@ var NAVTREEINDEX18 =
 "classast_1_1CommandResult.html":[2,0,0,133],
 "classast_1_1CommandResult.html":[3,0,0,133],
 "classast_1_1CommandTrie.html":[2,0,0,134],
-"classast_1_1CommandTrie.html":[3,0,0,134],
-"classast_1_1CommandTrieNodeWrap.html":[2,0,0,135],
-"classast_1_1CommandTrieNodeWrap.html":[3,0,0,135],
-"classast_1_1CommandTrie_1_1Node.html":[2,0,0,134,0],
-"classast_1_1CommandTrie_1_1Node.html":[3,0,0,134,0],
-"classast_1_1CommandTrie_1_1Node.html#a1cbaf63ae42f0d403734d15b24a69275":[2,0,0,134,0,1],
-"classast_1_1CommandTrie_1_1Node.html#a1cbaf63ae42f0d403734d15b24a69275":[3,0,0,134,0,1]
+"classast_1_1CommandTrie.html":[3,0,0,134]
 };
