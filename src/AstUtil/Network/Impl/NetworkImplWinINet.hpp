@@ -1,5 +1,5 @@
 ///
-/// @file      NetworkImplCurlCmd.hpp
+/// @file      NetworkImplWinINet.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -20,8 +20,7 @@
 
 #pragma once
 
-#include "AstGlobal.h"
-#include "AstUtil/NetworkInterface.hpp"
+#include "../NetworkInterface.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -30,26 +29,32 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// 网络接口实现，通过curl命令与网络进行交互
-/// @details 该实现使用curl命令行工具与网络进行交互，支持GET、POST、PUT、DELETE等HTTP方法
-/// @note 该实现需要已安装curl命令行工具，一般操作系统已默认安装
-/// @warning 注意不要通过该实现发送敏感数据，如密码、API密钥等
-/// 因为该实现使用了临时文件与curl命令行工具交互
-class NetworkImplCurlCmd : public NetworkInterface
+#ifndef SWIG
+
+/// 网络接口实现，通过WinINet API与网络进行交互
+/// @details   网络实现，使用 WinINet API 与网络进行交互。
+/// @warning   该实现仅在 Windows 平台上可用
+class NetworkImplWinINet : public NetworkInterface
 {
 public:
-    static NetworkImplCurlCmd* Instance();
+    static NetworkImplWinINet* Instance();
 
-    NetworkImplCurlCmd() = default;
+    NetworkImplWinINet();
     
-    virtual ~NetworkImplCurlCmd() = default;
-    
-    virtual errc_t request(const NetworkRequest& request, NetworkResponse& response) override;
+    virtual ~NetworkImplWinINet();
+
+    errc_t request(const NetworkRequest& request, NetworkResponse& response) override;
 
     /// @brief 检查是否支持该网络实现
     /// @return true 如果支持，false 否则
-    virtual bool isSupported() const override;
+    bool isSupported() const override;
+
+private:
+    class Impl;
+    Impl* impl_;
 };
+
+#endif
 
 
 /*! @} */

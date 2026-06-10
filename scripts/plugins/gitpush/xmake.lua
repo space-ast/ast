@@ -4,6 +4,6 @@ task("gitpush")
         description = "推送Git仓库"
     }
     on_run(function ()
-        os.exec("python " .. path.join(os.scriptdir(), "../git_push_retry.py"))
+        os.exec("python " .. path.join(os.projectdir(), "scripts/git_push_retry.py"))
     end)
 task_end()

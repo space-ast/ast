@@ -29,6 +29,8 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+#ifndef SWIG
+
 /// 网络接口实现，通过WinHTTP API与网络进行交互
 /// @details   网络实现，使用 WinHTTP API 与网络进行交互。
 /// @warning   该实现仅在 Windows 平台上可用
@@ -51,6 +53,8 @@ private:
     class Impl;
     Impl* impl_;
 };
+
+#endif
 
 
 /*! @} */

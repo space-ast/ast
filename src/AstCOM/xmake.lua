@@ -1,5 +1,5 @@
 includes("rules")
-add_rules("platform.windows.idl.patch")
+add_rules("platform.windows.idl.check")
 
 target("AstCOM")
     add_files("**.cpp")

@@ -1,6 +1,9 @@
 #pragma once
 
 #include "AstGlobal.h"
+
+#if defined(AST_WITH_AGG)
+
 #include "agg/agg_basics.h"
 #include "agg/agg_rendering_buffer.h"
 #include "agg/agg_rasterizer_scanline_aa.h"
@@ -99,3 +102,4 @@ private:
 
 AST_NAMESPACE_END
 
+#endif // AST_WITH_AGG && AST_WITH_MATPLOT

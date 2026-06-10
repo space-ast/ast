@@ -1,5 +1,7 @@
 #include "AggRenderer.hpp"
 
+#if defined(AST_WITH_AGG) 
+
 #include <cstdio>
 #include <cstring>
 #include <stdexcept>
@@ -379,3 +381,4 @@ void AggRenderer::save_bmp(const char* filename) const {
 
 AST_NAMESPACE_END
 
+#endif // AST_WITH_AGG && AST_WITH_MATPLOT

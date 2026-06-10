@@ -20,7 +20,7 @@
 
 #ifndef _WIN32
 // 非 Windows 平台：提供所有接口的空实现，避免链接错误
-#include "NetworkImplWinHTTP.hxx"
+#include "NetworkImplWinHTTP.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -59,7 +59,7 @@ AST_NAMESPACE_END
 
 #else  // ============ Windows 实现 ============
 
-#include "NetworkImplWinHTTP.hxx"
+#include "NetworkImplWinHTTP.hpp"
 #include "AstUtil/NetworkInterface.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Encode.hpp"

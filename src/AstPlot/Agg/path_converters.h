@@ -6,6 +6,8 @@
 #include <cstdint>
 #include <limits>
 
+#if defined(AST_WITH_AGG)
+
 #include "agg/agg_clip_liang_barsky.h"
 #include "agg/agg_conv_segmentator.h"
 
@@ -473,3 +475,6 @@ private:
     bool m_has_last;
     RandomNumberGenerator m_rand;
 };
+
+
+#endif // AST_WITH_AGG

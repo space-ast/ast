@@ -45,13 +45,15 @@ rule("ast")
             end
         end
     end)
-    after_config(function (target)
-        if target:plat() == "wasm" then
-            if os.exists("build/wasm/data") then
-                os.rmdir("build/wasm/data")
+    if after_config then
+        after_config(function (target)
+            if target:plat() == "wasm" then
+                if os.exists("build/wasm/data") then
+                    os.rmdir("build/wasm/data")
+                end
             end
-        end
-    end)
+        end)
+    end
     before_clean(function (target)
         if target:plat() == "wasm" then
             if os.exists("build/wasm/data") then
@@ -99,6 +101,7 @@ rule("ast.qt.ts")
     on_config(function (target)
         import("lib.detect.find_file")
         import("core.base.json")
+        import("core.base.semver")
 
         -- get source file
         local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "tr+=_,QT_TR_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_"}
@@ -130,6 +133,10 @@ rule("ast.qt.ts")
 
             -- get lupdate and lrelease
             local qt = assert(target:data("qt"), "qt not found!")
+            if semver.compare(qt.sdkver, "5.8.0") < 0 then
+                target:set("enabled", false)
+                return
+            end
 
             local search_dirs = {}
             if qt.bindir_host then table.insert(search_dirs, qt.bindir_host) end

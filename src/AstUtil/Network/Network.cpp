@@ -20,9 +20,9 @@
 
 #include "Network.hpp"
 #include "NetworkInterface.hpp"
-#include "Impl/NetworkImplWinHTTP.hxx"
-#include "Impl/NetworkImplWinINet.hxx"
-#include "Impl/NetworkImplCurlCmd.hxx"
+#include "AstUtil/NetworkImplWinHTTP.hpp"
+#include "AstUtil/NetworkImplWinINet.hpp"
+#include "AstUtil/NetworkImplCurlCmd.hpp"
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
