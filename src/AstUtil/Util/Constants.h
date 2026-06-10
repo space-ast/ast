@@ -233,7 +233,7 @@ constexpr double kRevolutionToRad = kTwoPI;                             ///< 周
 /// @brief 获取真空中的光速
 /// @details 这个函数接口是为了应对未来可能允许在软件运行时修改光速的情况
 /// @return 光速
-A_ALWAYS_INLINE double aLightSpeed() noexcept
+A_ALWAYS_INLINE constexpr double aLightSpeed() noexcept
 {
     return kLightSpeed;
 }

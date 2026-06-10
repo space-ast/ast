@@ -169,8 +169,9 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             this->addBlock(blockMass);
         }
         // @todo 这里还需要计算太阳是否被遮挡
-        derivativeBlock = new BlockSRP(aGetSun(), spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame_);
-        this->addBlock(derivativeBlock);
+        BlockSRP* blockSRP = new BlockSRP(aGetSun(), spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame_);
+        blockSRP->setSunPosition(forceModel.srp().sunPosition_);
+        this->addBlock(blockSRP);
     }
 
     // 添加三体引力函数块

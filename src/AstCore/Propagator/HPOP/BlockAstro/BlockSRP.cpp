@@ -21,7 +21,9 @@
 #include "BlockSRP.hpp"
 #include "AstCore/BlockAstro.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/BodyPosition.hpp"
 #include "AstCore/Frame.hpp"
+#include "AstCore/BuiltinFrame.hpp"
 #include "AstUtil/Identifier.hpp"
 #include "AstUtil/Constants.h"
 #include "AstMath/Vector.hpp"
@@ -62,7 +64,8 @@ BlockSRP::BlockSRP()
 
 BlockSRP::BlockSRP(CelestialBody* sun, double cr, double srpArea, Frame* propagationFrame)
     : BlockDerivative{}
-    , posPropagation_{&vectorBuffer_}
+    , position_{&vectorBuffer_}
+    , velocity_{&vectorBuffer_}
     , accSRP_{&vectorBuffer_}
     , velocityDerivative_{&vectorBuffer_}
     , vectorBuffer_{}
@@ -77,10 +80,17 @@ BlockSRP::BlockSRP(CelestialBody* sun, double cr, double srpArea, Frame* propaga
     static auto identifierMass = aIdentifier(kIdentifierMass);
 
     inputPorts_ = {
-        // 位置（预报坐标系下，以主要天体为参考）
+        // 位置（预报坐标系下）
         {
             identifierPos,
-            (signal_t*)&posPropagation_,
+            (signal_t*)&position_,
+            3,
+            DataPort::eDouble
+        },
+        // 速度（预报坐标系下）
+        {
+            identifierVel,
+            (signal_t*)&velocity_,
             3,
             DataPort::eDouble
         },
@@ -121,26 +131,43 @@ errc_t BlockSRP::run(const SimTime& simTime)
 
     auto& tp = simTime.timePoint();
 
-    // 获取太阳在预报坐标系下的位置
-    Vector3d sunPos;
-    errc_t err = sun_->getPosIn(propagationFrame_, tp, sunPos);
-    if (A_UNLIKELY(err != eNoError))
+
+    
+    Vector3d scToSun;  // 航天器指向太阳的向量
+
+    const EAberrationFlags aberrationFlags = EAberrationFlags::eCN_S;
+    
+    if(sunPosition_ == ESunPosition::eApparent)
     {
-        aError("failed to get sun position");
-        return err;
+        aApparentPositionInFrame(sun_, tp, propagationFrame_, *position_, *velocity_, aberrationFlags, scToSun, nullptr);
+    }
+    else if(sunPosition_ == ESunPosition::eApparentSunToTrueCB)
+    {
+        Vector3d sunPos;
+        aApparentPositionInFrame(sun_, tp, propagationFrame_, Vector3d::Zero(), Vector3d::Zero(), aberrationFlags, sunPos, nullptr);
+        scToSun = sunPos - *position_;
+    }
+    else // if(sunPosition_ == ESunPosition::eTrue)
+    {
+        Vector3d sunPos;
+        errc_t err = sun_->getPosIn(propagationFrame_, tp, sunPos);
+        scToSun = sunPos - *position_;
+        if (A_UNLIKELY(err != eNoError))
+        {
+            aError("failed to get sun position");
+            return err;
+        }
     }
 
-    // 太阳到航天器的向量
-    Vector3d sunToSc = *posPropagation_ - sunPos;
-    double rSqr = sunToSc.squaredNorm();
+    double rSqr = scToSun.squaredNorm();
     double r = std::sqrt(rSqr);
 
     // 太阳辐射压力加速度
     // a_srp = Cr * (A/m) * P_1AU * (AU/r)^2 * (sunToSc / r)
     //       = Cr * A/m * P_1AU * AU^2 / r^3 * sunToSc
     // 方向：远离太阳（从太阳指向航天器）
-    double factor = cr_ * srpArea_ / (*mass_) * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
-    *accSRP_ = factor * sunToSc;
+    double factor = -cr_ * srpArea_ / (*mass_) * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
+    *accSRP_ = factor * scToSun;
 
     // 添加到速度导数上
     *velocityDerivative_ += *accSRP_;

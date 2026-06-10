@@ -61,7 +61,7 @@ BlockDrag::BlockDrag(Atmosphere* atmosphere, double dragCoefficient, double drag
         // 位置
         {
             identifierPos,
-            (signal_t*)&posPropagation_,
+            (signal_t*)&position_,
             3,
             DataPort::eDouble
         },
@@ -107,34 +107,58 @@ BlockDrag::BlockDrag(Atmosphere* atmosphere, double dragCoefficient, double drag
 errc_t BlockDrag::run(const SimTime& simTime)
 {
     assert(atmosphere_);
-    Vector3d _;
-    Vector3d posInBodyFixed;
-    Vector3d atmosVelocity;     // 大气速度(预报坐标系下)
-    KinematicTransform transform; // 预报坐标系到大气模型参考坐标系的变换
     auto& tp = simTime.timePoint();
-    
-    Frame* atmosFrame = atmosphere_->getFrame();
-    propagationFrame_->getTransformTo(atmosFrame, tp, transform);
 
-    transform.transformPosition(*posPropagation_, posInBodyFixed);
-    transform.inverse().transformPositionVelocity(posInBodyFixed, Vector3d::Zero(), _, atmosVelocity);
-
-    // 计算大气密度
-    double density = atmosphere_->getDensity(tp, posInBodyFixed);
-
-    // 计算航天器相对于大气的速度
-    Vector3d relVelocity = *velocity_ - atmosVelocity;
+    Vector3d accDrag;
     {
+        Vector3d _;
+        Vector3d posInAtmosFrame;
+        Vector3d atmosVelocity;     // 大气速度(预报坐标系下)
+        KinematicTransform transform; // 预报坐标系到大气模型参考坐标系的变换
+        Frame* atmosFrame = atmosphere_->getFrame();
+        propagationFrame_->getTransformTo(atmosFrame, tp, transform);
+        transform.transformPosition(*position_, posInAtmosFrame);
+
+        // 计算大气密度
+        double density = atmosphere_->getDensity(tp, posInAtmosFrame);
+        transform.inverse().transformPositionVelocity(posInAtmosFrame, Vector3d::Zero(), _, atmosVelocity);
+
+        // 计算航天器相对于大气的速度
+        Vector3d relVelocity = *velocity_ - atmosVelocity;
         // 计算阻力加速度
         // -1/2·Cd·S/m·rpo·v^2
-        *accDrag_ = -dragCoefficient_ * dragArea_ * density * relVelocity.norm() / (*mass_ * 2)  * relVelocity;
+        accDrag = -dragCoefficient_ * dragArea_ * density * relVelocity.norm() / (*mass_ * 2)  * relVelocity;
     }
+
 #if defined(_AST_DEBUG_DRAG)
+    Vector3d accDrag2;
+    {
+        Vector3d posInAtmosFrame;
+        Vector3d velInAtmosFrame;
+        KinematicTransform transform; // 预报坐标系到大气模型参考坐标系的变换
+        Frame* atmosFrame = atmosphere_->getFrame();
+        propagationFrame_->getTransformTo(atmosFrame, tp, transform);
+
+        transform.getRotation().transformVector(*position_, posInAtmosFrame);
+        transform.getRotation().transformVector(*velocity_, velInAtmosFrame);
+        Vector3d anglvel{0, 0, kEarthAngVel};
+        velInAtmosFrame = velInAtmosFrame - anglvel.cross(posInAtmosFrame);
+        double density = atmosphere_->getDensity(tp, posInAtmosFrame);
+        // 计算航天器相对于大气的速度
+        Vector3d relVelocity = velInAtmosFrame;
+        // 计算阻力加速度
+        // -1/2·Cd·S/m·rpo·v^2
+        accDrag2 = -dragCoefficient_ * dragArea_ * density * relVelocity.norm() / (*mass_ * 2)  * relVelocity;
+        transform.getRotation().transformVectorInv(accDrag2, accDrag2);
+    }
+
     double mag = accDrag_->norm();
     A_UNUSED(mag);
 #endif
+    // 输出阻力加速度
+    *accDrag_ = accDrag;
     // 添加到速度导数上
-    *velocityDerivative_ += *accDrag_;
+    *velocityDerivative_ += accDrag;
     return eNoError;
 }
 

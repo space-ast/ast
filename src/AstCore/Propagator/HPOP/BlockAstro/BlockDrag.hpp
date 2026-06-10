@@ -64,10 +64,10 @@ public:
     errc_t run(const SimTime& simTime) final;
 
 private:
-    Vector3d* posPropagation_{};                     ///< 位置（以主要天体为参考）
+    Vector3d* position_{&vectorBuffer_};             ///< 位置（预报坐标系下）
+    Vector3d* velocity_{&vectorBuffer_};             ///< 速度（预报坐标系下）
     Vector3d* accDrag_{&vectorBuffer_};              ///< 阻力加速度
     Vector3d* velocityDerivative_{&vectorBuffer_};   ///< 速度导数
-    Vector3d* velocity_{&vectorBuffer_};             ///< 速度
     double* mass_{&doubleBuffer_};                   ///< 质量
     double doubleBuffer_{};                          ///< 浮点数缓冲区
     Vector3d vectorBuffer_{};                        ///< 向量缓冲区

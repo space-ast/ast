@@ -25,6 +25,7 @@
 
 AST_NAMESPACE_BEGIN
 
+class SimTime;
 
 /// @brief 导数函数块
 /// @details
