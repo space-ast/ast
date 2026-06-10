@@ -85,7 +85,7 @@ var searchData=
   ['vel_82',['vel',['../classast_1_1CartState.html#ac9374809c47a9d1f7f1851afff08de0d',1,'ast::CartState']]],
   ['vel_5f_83',['vel_',['../classast_1_1CartState.html#a5c6f073b9891a22a668a232a7168de81',1,'ast::CartState']]],
   ['velocities_5f_84',['velocities_',['../classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda',1,'ast::EphemerisLagrangeVar']]],
-  ['velocity_5f_85',['velocity_',['../classast_1_1BlockMotion.html#abcb7c9f57ac034d2c033b73975a7608c',1,'ast::BlockMotion']]],
+  ['velocity_5f_85',['velocity_',['../classast_1_1BlockMotion.html#abcb7c9f57ac034d2c033b73975a7608c',1,'ast::BlockMotion::velocity_'],['../classast_1_1BlockSRP.html#a507a747eb8ece1172bb0b6cbebaf30f4',1,'ast::BlockSRP::velocity_']]],
   ['velocityderivative_5f_86',['velocityDerivative_',['../classast_1_1BlockSRP.html#a57216cf2673cb6adfe492335a69236f4',1,'ast::BlockSRP::velocityDerivative_'],['../classast_1_1BlockThirdBody.html#a1281fee4e7baabe54cdb5093f4f41a4e',1,'ast::BlockThirdBody::velocityDerivative_']]],
   ['venus_5f_87',['venus_',['../classast_1_1SolarSystem.html#aba889e171b8c4b1f085d5f4223c0caf8',1,'ast::SolarSystem']]],
   ['vevosystemscollection_2ehpp_88',['VeVOSystemsCollection.hpp',['../VeVOSystemsCollection_8hpp.html',1,'']]],

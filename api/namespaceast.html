@@ -2578,6 +2578,21 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="memitem:a38492009e3b794d55c491c6ebebc7158" id="r_a38492009e3b794d55c491c6ebebc7158"><td class="memItemLeft" align="right" valign="top"><a id="a38492009e3b794d55c491c6ebebc7158" name="a38492009e3b794d55c491c6ebebc7158"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ER</b> { <b>eA</b>
  }</td></tr>
 <tr class="separator:a38492009e3b794d55c491c6ebebc7158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1175a89974b670e35e3dff97b7159af" id="r_ae1175a89974b670e35e3dff97b7159af"><td class="memItemLeft" align="right" valign="top"><a id="ae1175a89974b670e35e3dff97b7159af" name="ae1175a89974b670e35e3dff97b7159af"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> { <br />
+&#160;&#160;<b>eReception</b> = 1
+, <b>eTransmission</b> = 1&lt;&lt;1
+, <b>eStellarAberration</b> = 1&lt;&lt;2
+, <b>eNoStellarAberration</b> = 1&lt;&lt;3
+, <br />
+&#160;&#160;<b>eNone</b> = 0
+, <b>eCN</b> = eReception | eNoStellarAberration
+, <b>eCN_S</b> = eReception | eStellarAberration
+, <b>eXCN</b> = eTransmission | eNoStellarAberration
+, <br />
+&#160;&#160;<b>eXCN_S</b> = eTransmission | eStellarAberration
+<br />
+ }</td></tr>
+<tr class="separator:ae1175a89974b670e35e3dff97b7159af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8222cfd87a81c1bb00e762d67be68f1c" id="r_ga8222cfd87a81c1bb00e762d67be68f1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SolarSystem.html#ga8222cfd87a81c1bb00e762d67be68f1c">ESpiceId</a> { <br />
 &#160;&#160;<a class="el" href="group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca9e531996d499e7a8d75167d73dc15d6b">eSolarSystemBarycenter</a> = 0
 , <a class="el" href="group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1cab2f187de490efbfa0aab79672e74abe3">eMercuryBarycenter</a> = 1
@@ -4273,6 +4288,20 @@ template&lt;typename T , <a class="el" href="classast_1_1TimePoint.html">TimePoi
 <tr class="separator:ab047867e82d92423a87fcb65c57705e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65eae98f359fb6209679389fbe213756" id="r_a65eae98f359fb6209679389fbe213756"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65eae98f359fb6209679389fbe213756">aSunAERInTopocentric</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *referenceBody, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;observerPosition, <a class="el" href="#a09735572e8e387ce293cf7b0dfe64a38">AER</a> &amp;aer)</td></tr>
 <tr class="separator:a65eae98f359fb6209679389fbe213756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87a4581ad24da7833fdf057221d348e" id="r_ab87a4581ad24da7833fdf057221d348e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab87a4581ad24da7833fdf057221d348e">aVectorRotation</a> (const Vector3d &amp;v, const Vector3d &amp;axis, double theta, Vector3d &amp;r)</td></tr>
+<tr class="separator:ab87a4581ad24da7833fdf057221d348e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90fe96a630dced5a298e45716fc7efe" id="r_ac90fe96a630dced5a298e45716fc7efe"><td class="memItemLeft" align="right" valign="top"><a id="ac90fe96a630dced5a298e45716fc7efe" name="ac90fe96a630dced5a298e45716fc7efe"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aStellarAberrationForReception</b> (const Vector3d &amp;pobj, const Vector3d &amp;vobs, Vector3d &amp;appobj)</td></tr>
+<tr class="separator:ac90fe96a630dced5a298e45716fc7efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862eee493e505c6b8c743b558b251829" id="r_a862eee493e505c6b8c743b558b251829"><td class="memItemLeft" align="right" valign="top"><a id="a862eee493e505c6b8c743b558b251829" name="a862eee493e505c6b8c743b558b251829"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aStellarAberrationForTransmission</b> (const Vector3d &amp;pobj, const Vector3d &amp;vobs, Vector3d &amp;appobj)</td></tr>
+<tr class="separator:a862eee493e505c6b8c743b558b251829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2539d5c6b358cdb6eb785a07faa04cd2" id="r_a2539d5c6b358cdb6eb785a07faa04cd2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2539d5c6b358cdb6eb785a07faa04cd2">aStellarAberration</a> (const Vector3d &amp;relPosition, const Vector3d &amp;velObserver, <a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> aberrationFlags, Vector3d &amp;relPositionCorrected)</td></tr>
+<tr class="separator:a2539d5c6b358cdb6eb785a07faa04cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa580ab76cb5fc054aeac5e28bc80c29c" id="r_aa580ab76cb5fc054aeac5e28bc80c29c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa580ab76cb5fc054aeac5e28bc80c29c">aApparentPositionICRF</a> (<a class="el" href="classast_1_1Point.html">Point</a> *point, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, const Vector3d &amp;observerPosInSSBICRF, const Vector3d &amp;observerVelInSSBICRF, <a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> aberrationFlags, Vector3d &amp;apparentRelPosition, double *lightTime)</td></tr>
+<tr class="separator:aa580ab76cb5fc054aeac5e28bc80c29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa180f90d12f4e1da707a022fc998aa91" id="r_aa180f90d12f4e1da707a022fc998aa91"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa180f90d12f4e1da707a022fc998aa91">aApparentPositionInFrame</a> (<a class="el" href="classast_1_1Point.html">Point</a> *point, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Frame.html">Frame</a> *frame, const Vector3d &amp;observerPos, const Vector3d &amp;observerVel, <a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> aberrationFlags, Vector3d &amp;apparentRelPosition, double *lightTime)</td></tr>
+<tr class="separator:aa180f90d12f4e1da707a022fc998aa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c4db3a67bbd0771748a0b1a9a70a8d1" id="r_a5c4db3a67bbd0771748a0b1a9a70a8d1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c4db3a67bbd0771748a0b1a9a70a8d1">aLoadBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="group__SolarSystem.html#ga3b2fe87cceca735335ef7ade4e48add5">HCelestialBody</a> &amp;body)</td></tr>
 <tr class="separator:a5c4db3a67bbd0771748a0b1a9a70a8d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad088c8a2d3a1a68850d5b43e53be4a24" id="r_gad088c8a2d3a1a68850d5b43e53be4a24"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gad088c8a2d3a1a68850d5b43e53be4a24">aMoonFullName</a> (int month)</td></tr>
@@ -6642,8 +6671,8 @@ template&lt;typename _Char &gt; </td></tr>
 <tr class="separator:ga1504ced890d1ddf9c776dad4def524e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga924b82626c144275a12826e154af64c4" id="r_ga924b82626c144275a12826e154af64c4"><td class="memItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga924b82626c144275a12826e154af64c4">aColorToRGBA</a> (color_t color, uint8_t &amp;r, uint8_t &amp;<a class="el" href="Unit_8cpp.html#ae4556ebaa282d22cb28134feff39ae12">g</a>, uint8_t &amp;b, uint8_t &amp;a) noexcept</td></tr>
 <tr class="separator:ga924b82626c144275a12826e154af64c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac54935ab9eb916aacfb54ccb56d74a6f" id="r_gac54935ab9eb916aacfb54ccb56d74a6f"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gac54935ab9eb916aacfb54ccb56d74a6f">aLightSpeed</a> () noexcept</td></tr>
-<tr class="separator:gac54935ab9eb916aacfb54ccb56d74a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafcaa3f13e6acc2d3f23cb6af931e85fe" id="r_gafcaa3f13e6acc2d3f23cb6af931e85fe"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gafcaa3f13e6acc2d3f23cb6af931e85fe">aLightSpeed</a> () noexcept</td></tr>
+<tr class="separator:gafcaa3f13e6acc2d3f23cb6af931e85fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga34a9659895a0a3e8e4d41e257d884145" id="r_ga34a9659895a0a3e8e4d41e257d884145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga34a9659895a0a3e8e4d41e257d884145">aDebugBreak</a> ()</td></tr>
 <tr class="separator:ga34a9659895a0a3e8e4d41e257d884145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86405285408752e77e2cb335447b62dd" id="r_a86405285408752e77e2cb335447b62dd"><td class="memItemLeft" align="right" valign="top"><a id="a86405285408752e77e2cb335447b62dd" name="a86405285408752e77e2cb335447b62dd"></a>
@@ -9168,6 +9197,134 @@ template&lt;&gt; </div>
 
 <p>获取智能体系统提示 </p>
 <dl class="section return"><dt>返回</dt><dd>智能体系统提示 </dd></dl>
+
+</div>
+</div>
+<a id="aa580ab76cb5fc054aeac5e28bc80c29c" name="aa580ab76cb5fc054aeac5e28bc80c29c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa580ab76cb5fc054aeac5e28bc80c29c">&#9670;&#160;</a></span>aApparentPositionICRF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aApparentPositionICRF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Point.html">Point</a> *</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>observerPosInSSBICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>observerVelInSSBICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a></td>          <td class="paramname"><span class="paramname"><em>aberrationFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>apparentRelPosition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lightTime</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算目标点的相对于观察者的视位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>目标点 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>时间点 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">observerPosInSSBICRF</td><td>观察者在太阳系质心(SSBICRF)坐标系中的位置 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">observerVelInSSBICRF</td><td>观察者在太阳系质心的(SSBICRF)坐标系中的速度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">aberrationFlags</td><td>光行差和像差标志位，用于定义观察者是接收数据还是发送数据，以及是否考虑像差 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">apparentRelPosition</td><td>从观察者指向目标点的矢量（在ICRF系下表示） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lightTime</td><td>光传播时间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="aa180f90d12f4e1da707a022fc998aa91" name="aa180f90d12f4e1da707a022fc998aa91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa180f90d12f4e1da707a022fc998aa91">&#9670;&#160;</a></span>aApparentPositionInFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aApparentPositionInFrame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Point.html">Point</a> *</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Frame.html">Frame</a> *</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>observerPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>observerVel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a></td>          <td class="paramname"><span class="paramname"><em>aberrationFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>apparentRelPosition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lightTime</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算目标点的相对于观察者的视位置 </p>
+<p>函数内部会根据观察者相对于太阳系质心的运动速度进行像差修正 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>目标点 </td></tr>
+    <tr><td class="paramname">time</td><td>时间点 </td></tr>
+    <tr><td class="paramname">frame</td><td>观察者在的坐标系 </td></tr>
+    <tr><td class="paramname">observerPos</td><td>观察者在坐标系中的位置 </td></tr>
+    <tr><td class="paramname">observerVel</td><td>观察者在坐标系中的速度 </td></tr>
+    <tr><td class="paramname">aberrationFlags</td><td>光行差和像差标志位，用于定义观察者是接收数据还是发送数据，以及是否考虑像差 </td></tr>
+    <tr><td class="paramname">apparentRelPosition</td><td>从观察者指向目标点的矢量（在坐标系frame下表示） </td></tr>
+    <tr><td class="paramname">lightTime</td><td>光传播时间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>
@@ -15305,6 +15462,48 @@ template&lt;typename Func &gt; </div>
 
 </div>
 </div>
+<a id="a2539d5c6b358cdb6eb785a07faa04cd2" name="a2539d5c6b358cdb6eb785a07faa04cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2539d5c6b358cdb6eb785a07faa04cd2">&#9670;&#160;</a></span>aStellarAberration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aStellarAberration </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>relPosition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velObserver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a></td>          <td class="paramname"><span class="paramname"><em>aberrationFlags</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>relPositionCorrected</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>进行像差校正 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">relPosition</td><td>从观察者指向目标点的矢量（在ICRF系下表示） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">velObserver</td><td>观察者在ICRF系下的速度 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">relPositionCorrected</td><td>校正后的从观察者指向目标点的矢量（在ICRF系下表示） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a65eae98f359fb6209679389fbe213756" name="a65eae98f359fb6209679389fbe213756"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65eae98f359fb6209679389fbe213756">&#9670;&#160;</a></span>aSunAERInTopocentric()</h2>
 
@@ -16122,6 +16321,49 @@ template&lt;typename Func &gt; </div>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">不抛出异常</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab87a4581ad24da7833fdf057221d348e" name="ab87a4581ad24da7833fdf057221d348e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87a4581ad24da7833fdf057221d348e">&#9670;&#160;</a></span>aVectorRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aVectorRotation </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>theta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>绕指定轴旋转向量 </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">待办事项</a></b></dt><dd>移动到其他头文件中 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>输入向量 </td></tr>
+    <tr><td class="paramname">axis</td><td>旋转轴 </td></tr>
+    <tr><td class="paramname">theta</td><td>旋转角度 </td></tr>
+    <tr><td class="paramname">r</td><td>输出向量 </td></tr>
   </table>
   </dd>
 </dl>

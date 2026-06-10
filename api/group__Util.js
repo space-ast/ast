@@ -203,7 +203,7 @@ var group__Util =
     [ "ast::aDataDirGetDefault", "group__Util.html#gacd7295b95b999fc4c152788a9a40a6ca", null ],
     [ "ast::aDebugBreak", "group__Util.html#ga34a9659895a0a3e8e4d41e257d884145", null ],
     [ "ast::aFormatPolynomial", "group__Util.html#ga24462254330f46f79ee9866f1a04d85f", null ],
-    [ "ast::aLightSpeed", "group__Util.html#gac54935ab9eb916aacfb54ccb56d74a6f", null ],
+    [ "ast::aLightSpeed", "group__Util.html#gafcaa3f13e6acc2d3f23cb6af931e85fe", null ],
     [ "ast::aMax", "group__Util.html#ga8831f3e788e7c120569b0c8f00004ebf", null ],
     [ "ast::aMin", "group__Util.html#gae607d540253979beacb45ea4a55c0bb1", null ],
     [ "ast::aNormalizeAngle", "group__Util.html#gaea03a932dcd544c97844e1f9eb451437", null ],

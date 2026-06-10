@@ -5,6 +5,7 @@ var classast_1_1KinematicTransform =
     [ "composed", "classast_1_1KinematicTransform.html#a32ed8bf8d911f71d362f676e8b3754f9", null ],
     [ "getInverse", "classast_1_1KinematicTransform.html#ad445b78f3beca9ae92c6ff2a5d023d5c", null ],
     [ "getKinematicRotation", "classast_1_1KinematicTransform.html#af9462c2fa268378f8f643bdec32f0d59", null ],
+    [ "getRotation", "classast_1_1KinematicTransform.html#a3f752eca7fa58a1ea901488e708e9c5c", null ],
     [ "getRotationRate", "classast_1_1KinematicTransform.html#a1dae9ac00cacb78d965f2db97402e4af", null ],
     [ "getTransform", "classast_1_1KinematicTransform.html#aec7598fdb5e99991fd2d811a83f654cf", null ],
     [ "getTranslation", "classast_1_1KinematicTransform.html#ae9d9a42377f8d7c02088e8ba1e025f24", null ],

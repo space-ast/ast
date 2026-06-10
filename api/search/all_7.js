@@ -331,7 +331,7 @@ var searchData=
   ['getroot_328',['getRoot',['../classast_1_1XMLDocument.html#a9fccfc71aa2c596715553fb926b6f89c',1,'ast::XMLDocument']]],
   ['getrootnode_329',['getRootNode',['../classast_1_1GfxMain.html#aba123eb3843a5701d0139c5f3dac2aee',1,'ast::GfxMain']]],
   ['getrootobjects_330',['getRootObjects',['../classast_1_1ObjectManager.html#a3037fb43bb02c2fbfdbe976fef9d730a',1,'ast::ObjectManager']]],
-  ['getrotation_331',['getRotation',['../classast_1_1KinematicRotation.html#a82779c2bb75c29307caf234dd954649d',1,'ast::KinematicRotation::getRotation()'],['../classast_1_1Transform.html#a3f752eca7fa58a1ea901488e708e9c5c',1,'ast::Transform::getRotation()']]],
+  ['getrotation_331',['getRotation',['../classast_1_1KinematicRotation.html#a82779c2bb75c29307caf234dd954649d',1,'ast::KinematicRotation::getRotation()'],['../classast_1_1Transform.html#a3f752eca7fa58a1ea901488e708e9c5c',1,'ast::Transform::getRotation()'],['../classast_1_1KinematicTransform.html#a3f752eca7fa58a1ea901488e708e9c5c',1,'ast::KinematicTransform::getRotation()']]],
   ['getrotationrate_332',['getRotationRate',['../classast_1_1KinematicRotation.html#a5faeeda5e7a1db19b0b1cb74f9aea923',1,'ast::KinematicRotation::getRotationRate()'],['../classast_1_1KinematicTransform.html#a1dae9ac00cacb78d965f2db97402e4af',1,'ast::KinematicTransform::getRotationRate()']]],
   ['getrotationspeed_333',['getRotationSpeed',['../classast_1_1GfxCelestialBody.html#ac9b5a68069ef250ef882f746ea91197e',1,'ast::GfxCelestialBody']]],
   ['getsaturn_334',['getSaturn',['../classast_1_1SolarSystem.html#a53aa7479f71ef11c851e4bcc2f8c24f3',1,'ast::SolarSystem']]],

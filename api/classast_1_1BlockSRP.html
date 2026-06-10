@@ -122,11 +122,13 @@ $(function(){initNavTree('classast_1_1BlockSRP.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ab8683f5a9c29a08dd7f4ea3410943df2" id="r_ab8683f5a9c29a08dd7f4ea3410943df2"><td class="memItemLeft" align="right" valign="top"><a id="ab8683f5a9c29a08dd7f4ea3410943df2" name="ab8683f5a9c29a08dd7f4ea3410943df2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BlockSRP</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *sun, double cr, double srpArea, <a class="el" href="classast_1_1Frame.html">Frame</a> *propagationFrame)</td></tr>
+<tr class="memitem:ab8683f5a9c29a08dd7f4ea3410943df2" id="r_ab8683f5a9c29a08dd7f4ea3410943df2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8683f5a9c29a08dd7f4ea3410943df2">BlockSRP</a> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *sun, double cr, double srpArea, <a class="el" href="classast_1_1Frame.html">Frame</a> *propagationFrame)</td></tr>
 <tr class="separator:ab8683f5a9c29a08dd7f4ea3410943df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d4795d5e3a7337b341dc74e16366e0f" id="r_a8d4795d5e3a7337b341dc74e16366e0f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d4795d5e3a7337b341dc74e16366e0f">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) final</td></tr>
 <tr class="separator:a8d4795d5e3a7337b341dc74e16366e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11253c731d3a68802ef13080454a393" id="r_ac11253c731d3a68802ef13080454a393"><td class="memItemLeft" align="right" valign="top"><a id="ac11253c731d3a68802ef13080454a393" name="ac11253c731d3a68802ef13080454a393"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSunPosition</b> (<a class="el" href="group__ForceModel.html#ga2bf48439a4f7c7769a0f7e017ef7f055">ESunPosition</a> sunPosition)</td></tr>
+<tr class="separator:ac11253c731d3a68802ef13080454a393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1BlockDerivative"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1BlockDerivative')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></td></tr>
 <tr class="memitem:a21c5640833e91390ebd97839439fa500 inherit pub_methods_classast_1_1BlockDerivative" id="r_a21c5640833e91390ebd97839439fa500"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>~BlockDerivative</b> () override=default</td></tr>
@@ -179,9 +181,12 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
-<tr class="memitem:a2cc8e0e74939cf1b8c95fb460dbf39e3" id="r_a2cc8e0e74939cf1b8c95fb460dbf39e3"><td class="memItemLeft" align="right" valign="top"><a id="a2cc8e0e74939cf1b8c95fb460dbf39e3" name="a2cc8e0e74939cf1b8c95fb460dbf39e3"></a>
-Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>posPropagation_</b> {}</td></tr>
-<tr class="separator:a2cc8e0e74939cf1b8c95fb460dbf39e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087a7321e4b77cfe82ab453d884a0829" id="r_a087a7321e4b77cfe82ab453d884a0829"><td class="memItemLeft" align="right" valign="top"><a id="a087a7321e4b77cfe82ab453d884a0829" name="a087a7321e4b77cfe82ab453d884a0829"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b> {&amp;<a class="el" href="#af6958849646fef747e35200f9142a4e1">vectorBuffer_</a>}</td></tr>
+<tr class="separator:a087a7321e4b77cfe82ab453d884a0829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a507a747eb8ece1172bb0b6cbebaf30f4" id="r_a507a747eb8ece1172bb0b6cbebaf30f4"><td class="memItemLeft" align="right" valign="top"><a id="a507a747eb8ece1172bb0b6cbebaf30f4" name="a507a747eb8ece1172bb0b6cbebaf30f4"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>velocity_</b> {&amp;<a class="el" href="#af6958849646fef747e35200f9142a4e1">vectorBuffer_</a>}</td></tr>
+<tr class="separator:a507a747eb8ece1172bb0b6cbebaf30f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9e697295c87509f332182d44fb1e0a2" id="r_aa9e697295c87509f332182d44fb1e0a2"><td class="memItemLeft" align="right" valign="top"><a id="aa9e697295c87509f332182d44fb1e0a2" name="aa9e697295c87509f332182d44fb1e0a2"></a>
 Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>accSRP_</b> {&amp;<a class="el" href="#af6958849646fef747e35200f9142a4e1">vectorBuffer_</a>}</td></tr>
 <tr class="separator:aa9e697295c87509f332182d44fb1e0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +225,49 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>太阳辐射压力函数块 </p>
 <p>计算太阳辐射压力加速度，添加到速度导数上。 计算公式： a_srp = Cr * (A/m) * P_1AU * (AU/r)^2 * u_sun2sc 其中： Cr = 光压系数（辐射压力系数） A = SRP面积（航天器截面积） m = 航天器质量 P_1AU = 1AU处的太阳辐射压力（~4.56e-6 N/m^2） AU = 天文单位 r = 太阳到航天器的距离 u_sun2sc = 太阳指向航天器的单位方向向量 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="ab8683f5a9c29a08dd7f4ea3410943df2" name="ab8683f5a9c29a08dd7f4ea3410943df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8683f5a9c29a08dd7f4ea3410943df2">&#9670;&#160;</a></span>BlockSRP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::BlockSRP::BlockSRP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *</td>          <td class="paramname"><span class="paramname"><em>sun</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>srpArea</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Frame.html">Frame</a> *</td>          <td class="paramname"><span class="paramname"><em>propagationFrame</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sun</td><td>太阳 </td></tr>
+    <tr><td class="paramname">cr</td><td>光压系数 </td></tr>
+    <tr><td class="paramname">srpArea</td><td>SRP面积 </td></tr>
+    <tr><td class="paramname">propagationFrame</td><td>预报坐标系 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>构造函数这里只保留必需的参数，其他额外的配置参数通过set方法设置 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
 <a id="a8d4795d5e3a7337b341dc74e16366e0f" name="a8d4795d5e3a7337b341dc74e16366e0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d4795d5e3a7337b341dc74e16366e0f">&#9670;&#160;</a></span>run()</h2>
 

@@ -100,6 +100,7 @@ $(function(){initNavTree('BodyPosition_8hpp.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#namespaces">命名空间</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">BodyPosition.hpp 文件参考</div></div>
 </div><!--header-->
@@ -113,6 +114,24 @@ $(function(){initNavTree('BodyPosition_8hpp.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ae1175a89974b670e35e3dff97b7159af" id="r_ae1175a89974b670e35e3dff97b7159af"><td class="memItemLeft" align="right" valign="top"><a id="ae1175a89974b670e35e3dff97b7159af" name="ae1175a89974b670e35e3dff97b7159af"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae1175a89974b670e35e3dff97b7159af">ast::EAberrationFlags</a> { <br />
+&#160;&#160;<b>eReception</b> = 1
+, <b>eTransmission</b> = 1&lt;&lt;1
+, <b>eStellarAberration</b> = 1&lt;&lt;2
+, <b>eNoStellarAberration</b> = 1&lt;&lt;3
+, <br />
+&#160;&#160;<b>eNone</b> = 0
+, <b>eCN</b> = eReception | eNoStellarAberration
+, <b>eCN_S</b> = eReception | eStellarAberration
+, <b>eXCN</b> = eTransmission | eNoStellarAberration
+, <br />
+&#160;&#160;<b>eXCN_S</b> = eTransmission | eStellarAberration
+<br />
+ }</td></tr>
+<tr class="separator:ae1175a89974b670e35e3dff97b7159af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
 <tr class="memitem:aa6dccdd5708b2171da456994bc665eaa" id="r_aa6dccdd5708b2171da456994bc665eaa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa6dccdd5708b2171da456994bc665eaa">ast::aBodyInBodyInertial</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *body, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *referenceBody, Vector3d &amp;posInReferenceBodyInertial)</td></tr>
@@ -123,6 +142,14 @@ $(function(){initNavTree('BodyPosition_8hpp.html',''); initResizable(true); });
 <tr class="separator:ab047867e82d92423a87fcb65c57705e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65eae98f359fb6209679389fbe213756" id="r_a65eae98f359fb6209679389fbe213756"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a65eae98f359fb6209679389fbe213756">ast::aSunAERInTopocentric</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *referenceBody, const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;observerPosition, <a class="el" href="namespaceast.html#a09735572e8e387ce293cf7b0dfe64a38">AER</a> &amp;aer)</td></tr>
 <tr class="separator:a65eae98f359fb6209679389fbe213756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2539d5c6b358cdb6eb785a07faa04cd2" id="r_a2539d5c6b358cdb6eb785a07faa04cd2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a2539d5c6b358cdb6eb785a07faa04cd2">ast::aStellarAberration</a> (const Vector3d &amp;relPosition, const Vector3d &amp;velObserver, <a class="el" href="namespaceast.html#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> aberrationFlags, Vector3d &amp;relPositionCorrected)</td></tr>
+<tr class="separator:a2539d5c6b358cdb6eb785a07faa04cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa580ab76cb5fc054aeac5e28bc80c29c" id="r_aa580ab76cb5fc054aeac5e28bc80c29c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa580ab76cb5fc054aeac5e28bc80c29c">ast::aApparentPositionICRF</a> (<a class="el" href="classast_1_1Point.html">Point</a> *point, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, const Vector3d &amp;observerPosInSSBICRF, const Vector3d &amp;observerVelInSSBICRF, <a class="el" href="namespaceast.html#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> aberrationFlags, Vector3d &amp;apparentRelPosition, double *lightTime)</td></tr>
+<tr class="separator:aa580ab76cb5fc054aeac5e28bc80c29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa180f90d12f4e1da707a022fc998aa91" id="r_aa180f90d12f4e1da707a022fc998aa91"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa180f90d12f4e1da707a022fc998aa91">ast::aApparentPositionInFrame</a> (<a class="el" href="classast_1_1Point.html">Point</a> *point, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Frame.html">Frame</a> *frame, const Vector3d &amp;observerPos, const Vector3d &amp;observerVel, <a class="el" href="namespaceast.html#ae1175a89974b670e35e3dff97b7159af">EAberrationFlags</a> aberrationFlags, Vector3d &amp;apparentRelPosition, double *lightTime)</td></tr>
+<tr class="separator:aa180f90d12f4e1da707a022fc998aa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87a4581ad24da7833fdf057221d348e" id="r_ab87a4581ad24da7833fdf057221d348e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab87a4581ad24da7833fdf057221d348e">ast::aVectorRotation</a> (const Vector3d &amp;v, const Vector3d &amp;axis, double theta, Vector3d &amp;r)</td></tr>
+<tr class="separator:ab87a4581ad24da7833fdf057221d348e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
