@@ -122,8 +122,8 @@ $(function(){initNavTree('classast_1_1BlockSRP.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ab8683f5a9c29a08dd7f4ea3410943df2" id="r_ab8683f5a9c29a08dd7f4ea3410943df2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8683f5a9c29a08dd7f4ea3410943df2">BlockSRP</a> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *sun, double cr, double srpArea, <a class="el" href="classast_1_1Frame.html">Frame</a> *propagationFrame)</td></tr>
-<tr class="separator:ab8683f5a9c29a08dd7f4ea3410943df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb37565e90a6af19f77964e4278c9fde" id="r_acb37565e90a6af19f77964e4278c9fde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb37565e90a6af19f77964e4278c9fde">BlockSRP</a> (<a class="el" href="classast_1_1EclipseCalculator.html">EclipseCalculator</a> *eclipseCalculator, double cr, double srpArea, <a class="el" href="classast_1_1Frame.html">Frame</a> *propagationFrame)</td></tr>
+<tr class="separator:acb37565e90a6af19f77964e4278c9fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d4795d5e3a7337b341dc74e16366e0f" id="r_a8d4795d5e3a7337b341dc74e16366e0f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d4795d5e3a7337b341dc74e16366e0f">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) final</td></tr>
 <tr class="separator:a8d4795d5e3a7337b341dc74e16366e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac11253c731d3a68802ef13080454a393" id="r_ac11253c731d3a68802ef13080454a393"><td class="memItemLeft" align="right" valign="top"><a id="ac11253c731d3a68802ef13080454a393" name="ac11253c731d3a68802ef13080454a393"></a>
@@ -226,8 +226,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <div class="textblock"><p>太阳辐射压力函数块 </p>
 <p>计算太阳辐射压力加速度，添加到速度导数上。 计算公式： a_srp = Cr * (A/m) * P_1AU * (AU/r)^2 * u_sun2sc 其中： Cr = 光压系数（辐射压力系数） A = SRP面积（航天器截面积） m = 航天器质量 P_1AU = 1AU处的太阳辐射压力（~4.56e-6 N/m^2） AU = 天文单位 r = 太阳到航天器的距离 u_sun2sc = 太阳指向航天器的单位方向向量 </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="ab8683f5a9c29a08dd7f4ea3410943df2" name="ab8683f5a9c29a08dd7f4ea3410943df2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8683f5a9c29a08dd7f4ea3410943df2">&#9670;&#160;</a></span>BlockSRP()</h2>
+<a id="acb37565e90a6af19f77964e4278c9fde" name="acb37565e90a6af19f77964e4278c9fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb37565e90a6af19f77964e4278c9fde">&#9670;&#160;</a></span>BlockSRP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +235,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
         <tr>
           <td class="memname">ast::BlockSRP::BlockSRP </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *</td>          <td class="paramname"><span class="paramname"><em>sun</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classast_1_1EclipseCalculator.html">EclipseCalculator</a> *</td>          <td class="paramname"><span class="paramname"><em>eclipseCalculator</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -299,6 +299,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">待办事项</a></b></dt><dd>目前总是使用真太阳位置进行计算，是否需要考虑使用视太阳位置进行计算？ </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock</a>.</p>
 

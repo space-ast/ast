@@ -160,6 +160,11 @@ var hierarchy =
     [ "ast::TimeInterval::DiscreteEpochSecondRange", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
+    [ "ast::EclipseCalculator", "classast_1_1EclipseCalculator.html", [
+      [ "ast::ConeEclipseCalculator", "classast_1_1ConeEclipseCalculator.html", null ],
+      [ "ast::CylindricalEclipseCalculator", "classast_1_1CylindricalEclipseCalculator.html", null ],
+      [ "ast::NoneEclipseCalculator", "classast_1_1NoneEclipseCalculator.html", null ]
+    ] ],
     [ "EmbeddedQueue< QueueSize >", "classEmbeddedQueue.html", null ],
     [ "EmbeddedQueue< 3 >", "classEmbeddedQueue.html", [
       [ "PathClipper< VertexSource >", "classPathClipper.html", null ]

@@ -1,5 +1,6 @@
 var classast_1_1MotionHPOPSax =
 [
+    [ "begin", "classast_1_1MotionHPOPSax.html#aa80586316e29bee4f5cd9a35753af499", null ],
     [ "keyValue", "classast_1_1MotionHPOPSax.html#a9c68f88fb3f344f08a432038810666fd", null ],
     [ "altitudeCutOff_", "classast_1_1MotionHPOPSax.html#a88a3e59e803ac27f732ae8de42719433", null ],
     [ "errorTolerance_", "classast_1_1MotionHPOPSax.html#a779e4188e1adbf25fa2b09820a9a8810", null ],
