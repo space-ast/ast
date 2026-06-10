@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcDeltaRA_8hpp.html":[4,0,0,7,7,1,0,15,27],
+"ScStateCalcDeltaRA_8hpp_source.html":[4,0,0,7,7,1,0,15,27],
+"ScStateCalcDeltaVSquared_8cpp.html":[4,0,0,7,7,1,0,11,2],
 "ScStateCalcDeltaVSquared_8hpp.html":[4,0,0,7,7,1,0,11,3],
 "ScStateCalcDeltaVSquared_8hpp_source.html":[4,0,0,7,7,1,0,11,3],
 "ScStateCalcDeltaV_8cpp.html":[4,0,0,7,7,1,0,11,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcPosVelDiffMagOthSeg_8hpp_source.html":[4,0,0,7,7,1,0,15,131],
 "ScStateCalcPower_8cpp.html":[4,0,0,7,7,1,0,15,132],
 "ScStateCalcPower_8hpp.html":[4,0,0,7,7,1,0,15,133],
-"ScStateCalcPower_8hpp_source.html":[4,0,0,7,7,1,0,15,133],
-"ScStateCalcPressure_8cpp.html":[4,0,0,7,7,1,0,15,134],
-"ScStateCalcPressure_8hpp.html":[4,0,0,7,7,1,0,15,135],
-"ScStateCalcPressure_8hpp_source.html":[4,0,0,7,7,1,0,15,135]
+"ScStateCalcPower_8hpp_source.html":[4,0,0,7,7,1,0,15,133]
 };

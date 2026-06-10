@@ -105,10 +105,13 @@ var NAVTREEINDEX7 =
 "NetworkCookie_8hpp.html":[4,0,0,20,3,3],
 "NetworkCookie_8hpp_source.html":[4,0,0,20,3,3],
 "NetworkImplCurlCmd_8cpp.html":[4,0,0,20,3,0,0],
-"NetworkImplCurlCmd_8hxx_source.html":[4,0,0,20,3,0,1],
-"NetworkImplWinHTTP_8hxx_source.html":[4,0,0,20,3,0,2],
+"NetworkImplCurlCmd_8hpp.html":[4,0,0,20,3,0,1],
+"NetworkImplCurlCmd_8hpp_source.html":[4,0,0,20,3,0,1],
+"NetworkImplWinHTTP_8hpp.html":[4,0,0,20,3,0,2],
+"NetworkImplWinHTTP_8hpp_source.html":[4,0,0,20,3,0,2],
 "NetworkImplWinINet_8cpp.html":[4,0,0,20,3,0,3],
-"NetworkImplWinINet_8hxx_source.html":[4,0,0,20,3,0,4],
+"NetworkImplWinINet_8hpp.html":[4,0,0,20,3,0,4],
+"NetworkImplWinINet_8hpp_source.html":[4,0,0,20,3,0,4],
 "NetworkInterface_8cpp.html":[4,0,0,20,3,6],
 "NetworkInterface_8hpp.html":[4,0,0,20,3,7],
 "NetworkInterface_8hpp_source.html":[4,0,0,20,3,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "OpBinRegistry_8hpp.html":[4,0,0,16,7,0,6],
 "OpBinRegistry_8hpp_source.html":[4,0,0,16,7,0,6],
 "OpBin_8cpp.html":[4,0,0,16,7,5],
-"OpBin_8hpp.html":[4,0,0,16,7,6],
-"OpBin_8hpp_source.html":[4,0,0,16,7,6],
-"OpUnaryPredefined_8cpp.html":[4,0,0,16,7,0,7],
-"OpUnaryPredefined_8cpp.html#a125a6a178f1e60bafd6b8db57c6ef50e":[4,0,0,16,7,0,7,3]
+"OpBin_8hpp.html":[4,0,0,16,7,6]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"RepeatingSunSyncOrbitDesigner_8hpp.html":[4,0,0,7,7,4,16],
+"RepeatingSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,16],
+"Resolve_8cpp.html":[4,0,0,7,9,4],
 "Resolve_8cpp.html#a7aa7c9486109b1d453c71ce12a13ae1b":[4,0,0,7,9,4,2],
 "Resolve_8cpp.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0":[4,0,0,7,9,4,1],
 "Resolve_8cpp.html#ab5b2a3ed3b861d8097375453514a754e":[4,0,0,7,9,4,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "ScStateCalcDeltaFromMaster_8cpp.html":[4,0,0,7,7,1,0,15,24],
 "ScStateCalcDeltaFromMaster_8hpp.html":[4,0,0,7,7,1,0,15,25],
 "ScStateCalcDeltaFromMaster_8hpp_source.html":[4,0,0,7,7,1,0,15,25],
-"ScStateCalcDeltaRA_8cpp.html":[4,0,0,7,7,1,0,15,26],
-"ScStateCalcDeltaRA_8hpp.html":[4,0,0,7,7,1,0,15,27],
-"ScStateCalcDeltaRA_8hpp_source.html":[4,0,0,7,7,1,0,15,27],
-"ScStateCalcDeltaVSquared_8cpp.html":[4,0,0,7,7,1,0,11,2]
+"ScStateCalcDeltaRA_8cpp.html":[4,0,0,7,7,1,0,15,26]
 };

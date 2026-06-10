@@ -1,5 +1,8 @@
 var NAVTREEINDEX14 =
 {
+"UiCommandEditor_8hpp.html":[4,0,0,9,7,2],
+"UiCommandEditor_8hpp_source.html":[4,0,0,9,7,2],
+"UiCommandTreeItem_8cpp.html":[4,0,0,9,4,1,2],
 "UiCommandTreeItem_8hpp_source.html":[4,0,0,9,4,1,3],
 "UiCommandTree_8cpp.html":[4,0,0,9,4,1,0],
 "UiCommandTree_8hpp.html":[4,0,0,9,4,1,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX14 =
 "ValBool_8hpp.html":[4,0,0,16,9,3],
 "ValBool_8hpp_source.html":[4,0,0,16,9,3],
 "ValDict_8cpp.html":[4,0,0,16,9,4],
-"ValDict_8hpp_source.html":[4,0,0,16,9,5],
-"ValDouble_8cpp.html":[4,0,0,16,9,6],
-"ValDouble_8hpp.html":[4,0,0,16,9,7],
-"ValDouble_8hpp_source.html":[4,0,0,16,9,7]
+"ValDict_8hpp_source.html":[4,0,0,16,9,5]
 };
