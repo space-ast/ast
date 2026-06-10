@@ -41,8 +41,10 @@ BlockDrag::BlockDrag()
 BlockDrag::~BlockDrag()
 {
     if(atmosphere_)
+    {
         delete atmosphere_;
-    atmosphere_ = nullptr;
+        atmosphere_ = nullptr;
+    }
 }
 
 BlockDrag::BlockDrag(Atmosphere* atmosphere, double dragCoefficient, double dragArea, Frame* propagationFrame)

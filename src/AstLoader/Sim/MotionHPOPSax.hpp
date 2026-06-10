@@ -38,8 +38,9 @@ public:
     using MotionOrbitDynamicsSax::MotionOrbitDynamicsSax;
     ~MotionHPOPSax() override = default;
 public:
+    errc_t begin(StringView name) override;
     errc_t keyValue(StringView key, const ValueView& value) override;
-    errc_t getMotion(ScopedPtr<MotionProfile>& motion) override;public:
+    errc_t getMotion(ScopedPtr<MotionProfile>& motion) override;
 public:
 protected:
     double getMass() const {return spacecraftParam_.mass_;}

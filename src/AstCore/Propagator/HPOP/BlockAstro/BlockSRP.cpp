@@ -28,6 +28,7 @@
 #include "AstUtil/Constants.h"
 #include "AstMath/Vector.hpp"
 #include "AstMath/MathOperator.hpp"
+#include "AstCore/NoneEclipseCalculator.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -58,18 +59,18 @@ constexpr double kSolarPressureAt1AU = kSolarPressureAt1AU_FromLuminosity;
 
 
 BlockSRP::BlockSRP()
-    : BlockSRP(nullptr, 1.0, 20.0, nullptr)
+    : BlockSRP(nullptr, 0, 0, nullptr)
 {
 }
 
-BlockSRP::BlockSRP(CelestialBody* sun, double cr, double srpArea, Frame* propagationFrame)
+BlockSRP::BlockSRP(EclipseCalculator* eclipseCalculator, double cr, double srpArea, Frame* propagationFrame)
     : BlockDerivative{}
     , position_{&vectorBuffer_}
     , velocity_{&vectorBuffer_}
     , accSRP_{&vectorBuffer_}
     , velocityDerivative_{&vectorBuffer_}
     , vectorBuffer_{}
-    , sun_{sun}
+    , eclipseCalculator_{eclipseCalculator}
     , cr_{cr}
     , srpArea_{srpArea}
     , propagationFrame_{propagationFrame}
@@ -78,6 +79,9 @@ BlockSRP::BlockSRP(CelestialBody* sun, double cr, double srpArea, Frame* propaga
     static auto identifierAccSRP = aIdentifier(kIdentifierAccSRP);
     static auto identifierVel = aIdentifier(kIdentifierVel);
     static auto identifierMass = aIdentifier(kIdentifierMass);
+    
+    if(!eclipseCalculator_)
+        eclipseCalculator_ = new NoneEclipseCalculator(aGetSun());
 
     inputPorts_ = {
         // 位置（预报坐标系下）
@@ -124,39 +128,56 @@ BlockSRP::BlockSRP(CelestialBody* sun, double cr, double srpArea, Frame* propaga
     };
 }
 
+BlockSRP::~BlockSRP()
+{
+    if(eclipseCalculator_)
+    {
+        delete eclipseCalculator_;
+        eclipseCalculator_ = nullptr;
+    }    
+}
+
 errc_t BlockSRP::run(const SimTime& simTime)
 {
-    assert(sun_);
+    assert(eclipseCalculator_);
     assert(propagationFrame_);
 
     auto& tp = simTime.timePoint();
-
-
+    auto sun = eclipseCalculator_->lightSource();
+    assert(sun);
+    /// @todo 目前总是使用真太阳位置进行计算，是否需要考虑使用视太阳位置进行计算？
+    double lightingRatio = eclipseCalculator_->getLightingRatio(tp, *position_, propagationFrame_);
+    if(lightingRatio == 0)
+    {
+        *accSRP_ = Vector3d::Zero();
+        return eNoError;
+    }
     
     Vector3d scToSun;  // 航天器指向太阳的向量
 
     const EAberrationFlags aberrationFlags = EAberrationFlags::eCN_S;
-    
+    errc_t err;
     if(sunPosition_ == ESunPosition::eApparent)
     {
-        aApparentPositionInFrame(sun_, tp, propagationFrame_, *position_, *velocity_, aberrationFlags, scToSun, nullptr);
+        err = aApparentPositionInFrame(sun, tp, propagationFrame_, *position_, *velocity_, aberrationFlags, scToSun, nullptr);
     }
     else if(sunPosition_ == ESunPosition::eApparentSunToTrueCB)
     {
         Vector3d sunPos;
-        aApparentPositionInFrame(sun_, tp, propagationFrame_, Vector3d::Zero(), Vector3d::Zero(), aberrationFlags, sunPos, nullptr);
+        err = aApparentPositionInFrame(sun, tp, propagationFrame_, Vector3d::Zero(), Vector3d::Zero(), aberrationFlags, sunPos, nullptr);
         scToSun = sunPos - *position_;
     }
     else // if(sunPosition_ == ESunPosition::eTrue)
     {
         Vector3d sunPos;
-        errc_t err = sun_->getPosIn(propagationFrame_, tp, sunPos);
+        err = sun->getPosIn(propagationFrame_, tp, sunPos);
         scToSun = sunPos - *position_;
-        if (A_UNLIKELY(err != eNoError))
-        {
-            aError("failed to get sun position");
-            return err;
-        }
+    }
+    
+    if (A_UNLIKELY(err != eNoError))
+    {
+        aError("failed to calculate sun position");
+        return err;
     }
 
     double rSqr = scToSun.squaredNorm();
@@ -166,7 +187,7 @@ errc_t BlockSRP::run(const SimTime& simTime)
     // a_srp = Cr * (A/m) * P_1AU * (AU/r)^2 * (sunToSc / r)
     //       = Cr * A/m * P_1AU * AU^2 / r^3 * sunToSc
     // 方向：远离太阳（从太阳指向航天器）
-    double factor = -cr_ * srpArea_ / (*mass_) * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
+    double factor = - lightingRatio * cr_ * srpArea_  / (*mass_) * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
     *accSRP_ = factor * scToSun;
 
     // 添加到速度导数上

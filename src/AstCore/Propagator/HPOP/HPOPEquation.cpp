@@ -26,6 +26,9 @@
 #include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun()
 #include "AstCore/NRLMSIS00.hpp"
 #include "AstWeather/GeomagneticIndex.hpp"  // for aKpToAp, aApToKp
+#include "AstCore/NoneEclipseCalculator.hpp"
+#include "AstCore/ConeEclipseCalculator.hpp"
+#include "AstCore/CylindricalEclipseCalculator.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -78,7 +81,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     {
         if(auto cb = aGetEarth())
         {
-            this->propFrame_ = cb->makeFrameInertial();
+            this->propFrame_ = cb->getFrameInertial();
             aWarning("propagation frame is not set, using earth inertial frame as the default propagation frame.");
         }
         if(!this->propFrame_)
@@ -89,6 +92,9 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     auto& bodyAttraction = forceModel.bodyAttraction();
     auto propFrame = this->propFrame_; 
     auto body = propFrame->getBody();   // 尝试获取预报坐标系原点对应的天体
+    if(!body){
+        body = forceModel.centralBody();
+    }
 
     // 重置动力学系统
     this->reset();
@@ -163,15 +169,49 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     if(forceModel.useSRP())
     {
         // 如果前面没有添加质量函数块（如未使用阻力模型），则需要在此添加
-        if(!blockMass)
+        auto sun = aGetSun();
+        if(sun)
         {
-            blockMass = new BlockMass(spacecraftParam.mass());
-            this->addBlock(blockMass);
+            if(!blockMass)
+            {
+                blockMass = new BlockMass(spacecraftParam.mass());
+                this->addBlock(blockMass);
+            }
+            auto shadowModel = forceModel.srp().shadowModel_;
+            EclipseCalculator* eclipseCalculator;
+            if(shadowModel == EShadowModel::eDualCone)
+            {
+                eclipseCalculator = new ConeEclipseCalculator();
+            }
+            else if(shadowModel == EShadowModel::eCylindrical)
+            {
+                eclipseCalculator = new CylindricalEclipseCalculator();
+            }
+            else //if(shadowModel == EShadowModel::eNone)
+            {
+                eclipseCalculator = new NoneEclipseCalculator();
+            }
+
+            eclipseCalculator->setLightSource(sun);     // 设置光源体
+            if(forceModel.srp().eclipsingBodies_.empty())
+            {
+                if(body != sun && body != nullptr)
+                {
+                    eclipseCalculator->addOccultingBody(body);
+                }
+            }
+            else
+            {
+                eclipseCalculator->setOccultingBodies(forceModel.srp().eclipsingBodies_); // 设置遮挡体列表
+            }
+            BlockSRP* blockSRP = new BlockSRP(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame_);
+            blockSRP->setSunPosition(forceModel.srp().sunPosition_); // 设置太阳位置
+            this->addBlock(blockSRP);
         }
-        // @todo 这里还需要计算太阳是否被遮挡
-        BlockSRP* blockSRP = new BlockSRP(aGetSun(), spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame_);
-        blockSRP->setSunPosition(forceModel.srp().sunPosition_);
-        this->addBlock(blockSRP);
+        else
+        {
+            aWarning("there is no sun in the system, no solar radiation pressure force will be added.");
+        }
     }
 
     // 添加三体引力函数块
@@ -179,9 +219,9 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         auto& thirdBodies = forceModel.getThirdBodies();
         for(auto& thirdBody: thirdBodies)
         {
-            auto body = thirdBody.body();
-            double gm = thirdBody.pointMass().getGM(body);
-            derivativeBlock = new BlockThirdBody(body, gm, propFrame_);
+            auto body3rd = thirdBody.body();
+            double gm = thirdBody.pointMass().getGM(body3rd);
+            derivativeBlock = new BlockThirdBody(body3rd, gm, propFrame_);
             this->addBlock(derivativeBlock);
         }
     }

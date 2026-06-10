@@ -132,7 +132,8 @@
 
 
 #if defined(AST_BUILD_LIB) && defined(_MSC_VER)
-// 编译时指定代码内的字符串使用utf-8编码
+// 在编译ast库时指定代码内的字符串使用utf-8编码
+// 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
 #   pragma execution_character_set("utf-8")
 #endif
 

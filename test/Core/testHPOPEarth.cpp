@@ -44,6 +44,459 @@ class HPOPTest : public ::testing::Test
     }
 };
 
+
+/// @brief 测试太阳辐射压力（考虑圆柱阴影模型，真太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：检测阴影，并使用真太阳位置
+TEST_F(HPOPTest, SRP_WithCylindricalShadow_TrueSun)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eCylindrical;
+    forceModel.srp().sunPosition_ = ESunPosition::eTrue;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 13, 0, 0, 0);
+    Vector3d pos{6.9281370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.5063736481185788e+03, 3.9094236978331351e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+
+    Vector3d posExpect{  1.2117973367595519e+06, 5.8671057852713587e+06, 3.4797049140907731e+06 };
+    Vector3d velExpect{  -7.2773055453958086e+03, 1.9899676170590501e+03, -8.1031903062816559e+02};
+    EXPECT_NEAR(pos[0],  posExpect[0], 2e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 3e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 2e-3);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
+    EXPECT_NEAR(vel[1],  velExpect[1], 2e-5);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
+}
+
+
+/// @brief 测试太阳辐射压力（考虑圆锥阴影模型，真太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：检测阴影，并使用真太阳位置
+TEST_F(HPOPTest, SRP_WithConeShadow_TrueSun)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eDualCone;
+    forceModel.srp().sunPosition_ = ESunPosition::eTrue;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 13, 0, 0, 0);
+    Vector3d pos{6.9281370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.5063736481185788e+03, 3.9094236978331351e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+    Vector3d posExpect{  1.2117982390472749e+06, 5.8671055494347895e+06, 3.4797050199101889e+06};
+    Vector3d velExpect{  -7.2773053572113140e+03, 1.9899684932434402e+03, -8.1031850638668527e+02};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-6);
+    EXPECT_NEAR(vel[1],  velExpect[1], 2e-6);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
+}
+
+
+
+/// @brief 测试太阳辐射压力（考虑圆锥阴影模型，视太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：检测阴影，并使用视太阳位置（考虑光行差和像差）。
+TEST_F(HPOPTest, SRP_WithConeShadow_ApparentSunToBody)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eDualCone;
+    forceModel.srp().sunPosition_ = ESunPosition::eApparentSunToTrueCB;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 13, 0, 0, 0);
+    Vector3d pos{6.9281370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.5063736481185788e+03, 3.9094236978331351e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+    Vector3d posExpect{  1.2117982591632833e+06, 5.8671055414197138e+06, 3.4797050209281933e+06};
+    Vector3d velExpect{  -7.2773053560503795e+03, 1.9899685137763549e+03, -8.1031849486451665e+02};
+    EXPECT_NEAR(pos[0],  posExpect[0], 5e-1);
+    EXPECT_NEAR(pos[1],  posExpect[1], 3e-1);
+    EXPECT_NEAR(pos[2],  posExpect[2], 2e-1);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-4);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-3);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-3);
+}
+
+
+
+/// @brief 测试太阳辐射压力（无阴影模型，视太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：不检测阴影，并使用视太阳位置（考虑光行差和像差）。
+TEST_F(HPOPTest, SRP_NoShadow_ApparentSun)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eNone;
+    forceModel.srp().sunPosition_ = ESunPosition::eApparent;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 7, 17, 0, 0, 0);
+    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+
+    Vector3d posExpect{ -4.9951497747736117e+06, -3.5746254555597445e+06, 3.0854579753351789e+06};
+    Vector3d velExpect{   3.8356051445650824e+03, -6.4541844858277245e+03, -1.2740514873863249e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 2e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
+}
+
+/// @brief 测试太阳辐射压力（无阴影模型，视太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：不检测阴影，并使用视太阳位置（考虑光行差和像差）。
+TEST_F(HPOPTest, SRP_NoShadow_ApparentSunToBody)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eNone;
+    forceModel.srp().sunPosition_ = ESunPosition::eApparentSunToTrueCB;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 7, 17, 0, 0, 0);
+    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+    Vector3d posExpect{  -4.9951606036705822e+06, -3.5746072424644586e+06, 3.0854615806196616e+06 };
+    Vector3d velExpect{  3.8355878481494951e+03, -6.4541968622990571e+03, -1.2740407535364818e+03 };
+    EXPECT_NEAR(pos[0],  posExpect[0], 2e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 2e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 2e-3);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
+}
+
+
+/// @brief 测试太阳辐射压力（无阴影模型，真太阳位置）
+/// @details
+/// 在EGM2008 21×21基础上叠加太阳光压摄动。
+/// 使用最简单的 SRP 配置：不检测阴影，并使用几何太阳位置（不考虑光行差）。
+TEST_F(HPOPTest, SRP_NoShadow_TrueSun)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useSRP(true);
+    forceModel.srp().shadowModel_ = EShadowModel::eNone;
+    forceModel.srp().sunPosition_ = ESunPosition::eTrue;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setSrpArea(20);
+    scParam.setCr(1);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
+    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+    Vector3d posExpect{ 6.2333481674869442e+06, 4.2166379211770219e+05, 2.8615712739877473e+06};
+    Vector3d velExpect{ -1.2876976995850798e+03, 7.3033485417655947e+03, 1.7416876627816571e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-8);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-8);
+}
+
+
+/// @brief 测试大气阻力摄动（近似海拔模式）
+/// @details
+/// 在 EGM2008(21,21) 重力场基础上叠加 NRLMSISE-2000 大气阻力模型。
+/// 使用近似海拔（useApproxAltForDrag=true）
+///
+/// 航天器参数：质量 1000 kg，阻力面积 20 m²，阻力系数 2.2。
+/// 空间天气参数：F10.7=150（日均值与平均值相同），Kp=3（中等地磁活动）。
+TEST_F(HPOPTest, Drag_ApproximateAltitude)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useDrag(true);
+    forceModel.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
+    forceModel.drag().useApproxAltForDrag_ = true;
+    forceModel.drag().f10p7Average_ = 150;
+    forceModel.drag().f10p7Daily_ = 150;
+    forceModel.drag().kp_ = 3.0;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setDragArea(20);
+    scParam.setCd(2.2);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
+    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+    Vector3d posExpect{ 6.0718101518087089e+06, 1.1238242325263233e+06, 3.0126906601675297e+06};
+    Vector3d velExpect{ -2.0190679823240823e+03, 7.2126951799608260e+03, 1.3912689672060314e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-3);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-3);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-3);
+}
+
+
+
+/// @brief 测试完整摄动力模型：重力场 + 太阳 + 月球三体引力
+/// @details
+/// 综合测试地球非球形引力（EGM2008 21×21）、太阳第三体摄动和月球第三体摄动。
+///
+/// 初始条件为近圆 LEO 轨道（半径 ≈ 6900 km）。
+/// 力模型：EGM2008(21,21) + 太阳点质量三体 + 月球点质量三体。
+TEST_F(HPOPTest, With_Sun_Moon_ThirdBody)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    ThirdBodyForce thirdBodyForce;
+    thirdBodyForce.setAttractionType(EBodyAttractionType::ePointMass);
+    thirdBodyForce.pointMass().gmSource_ = EGMSource::eBodyGravity;
+
+    thirdBodyForce.setBody(aGetSun());
+    forceModel.addThirdBody(thirdBodyForce);
+
+    thirdBodyForce.setBody(aGetMoon());
+    forceModel.addThirdBody(thirdBodyForce);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 7, 9, 0, 0, 0);
+    Vector3d pos{6.8440021143593639e+06, 6.8440021143593476e+05, -8.0763129517436028e-10};
+    Vector3d vel{ -6.6493233842545351e+02, 6.6493233842545542e+03, 3.6463909105223511e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+    Vector3d posExpect{ -5.5995469216931257e+06, -3.0816759444764131e+06, 2.5246500543340887e+06};
+    Vector3d velExpect{ 4.2866120729498525e+03, -5.8469115306180220e+03, 2.3388688727148760e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 3e-4);
+    EXPECT_NEAR(pos[1],  posExpect[1], 3e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 2e-4);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-6);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
+}
+
+
+
+
 /// @brief 测试方程初始化与维度
 /// @details
 /// 验证 HPOPEquation 的 setForceModel() 和 initialize() 流程：
@@ -307,285 +760,6 @@ TEST_F(HPOPTest, MoonReturn)
     EXPECT_NEAR(pos[0],  posExpect[0], 2e-3);
     EXPECT_NEAR(pos[1],  posExpect[1], 1e-3);
     EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);
-}
-
-
-/// @brief 测试完整摄动力模型：重力场 + 太阳 + 月球三体引力
-/// @details
-/// 综合测试地球非球形引力（EGM2008 21×21）、太阳第三体摄动和月球第三体摄动。
-///
-/// 初始条件为近圆 LEO 轨道（半径 ≈ 6900 km）。
-/// 力模型：EGM2008(21,21) + 太阳点质量三体 + 月球点质量三体。
-TEST_F(HPOPTest, With_Sun_Moon_ThirdBody)
-{
-    HPOPForceModel forceModel;
-    forceModel.gravity().maxDegree_ = 21;
-    forceModel.gravity().maxOrder_ = 21;
-    forceModel.gravity().model_ = "EGM2008";
-    forceModel.gravity().useSecularVariations_ = false;
-    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
-
-    ThirdBodyForce thirdBodyForce;
-    thirdBodyForce.setAttractionType(EBodyAttractionType::ePointMass);
-    thirdBodyForce.pointMass().gmSource_ = EGMSource::eBodyGravity;
-
-    thirdBodyForce.setBody(aGetSun());
-    forceModel.addThirdBody(thirdBodyForce);
-
-    thirdBodyForce.setBody(aGetMoon());
-    forceModel.addThirdBody(thirdBodyForce);
-
-    HPOP propagator;
-    errc_t err = propagator.setForceModel(forceModel);
-    EXPECT_EQ(err, 0);
-    auto integrator = propagator.getIntegrator();
-    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
-    if(varStepIntegrator)
-    {
-        varStepIntegrator->setUseFixedStep(true);
-        varStepIntegrator->setStepSize(60);
-    }
-    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
-    auto end   = TimePoint::FromUTC(2026, 7, 9, 0, 0, 0);
-    Vector3d pos{6.8440021143593639e+06, 6.8440021143593476e+05, -8.0763129517436028e-10};
-    Vector3d vel{ -6.6493233842545351e+02, 6.6493233842545542e+03, 3.6463909105223511e+03};
-    err = propagator.propagate(start, end, pos, vel);
-    EXPECT_EQ(err, 0);
-    printf("end: %s\n", end.toString().c_str());
-    printf("pos: %s\n", pos.toString().c_str());
-    printf("vel: %s\n", vel.toString().c_str());
-    Vector3d posExpect{ -5.5995469216931257e+06, -3.0816759444764131e+06, 2.5246500543340887e+06};
-    Vector3d velExpect{ 4.2866120729498525e+03, -5.8469115306180220e+03, 2.3388688727148760e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 3e-4);
-    EXPECT_NEAR(pos[1],  posExpect[1], 3e-4);
-    EXPECT_NEAR(pos[2],  posExpect[2], 2e-4);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-6);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
-}
-
-
-/// @brief 测试大气阻力摄动（近似海拔模式）
-/// @details
-/// 在 EGM2008(21,21) 重力场基础上叠加 NRLMSISE-2000 大气阻力模型。
-/// 使用近似海拔（useApproxAltForDrag=true）
-///
-/// 航天器参数：质量 1000 kg，阻力面积 20 m²，阻力系数 2.2。
-/// 空间天气参数：F10.7=150（日均值与平均值相同），Kp=3（中等地磁活动）。
-TEST_F(HPOPTest, Drag_ApproximateAltitude)
-{
-    HPOPForceModel forceModel;
-    forceModel.gravity().maxDegree_ = 21;
-    forceModel.gravity().maxOrder_ = 21;
-    forceModel.gravity().model_ = "EGM2008";
-    forceModel.gravity().useSecularVariations_ = false;
-    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
-
-    forceModel.useDrag(true);
-    forceModel.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
-    forceModel.drag().useApproxAltForDrag_ = true;
-    forceModel.drag().f10p7Average_ = 150;
-    forceModel.drag().f10p7Daily_ = 150;
-    forceModel.drag().kp_ = 3.0;
-
-    SpacecraftParam scParam;
-    scParam.setDryMass(1000.0);
-    scParam.setFuelMass(0.0);
-    scParam.setDragArea(20);
-    scParam.setCd(2.2);
-
-    HPOP propagator;
-    errc_t err = propagator.setForceModel(forceModel);
-    propagator.setSpacecraftParam(scParam);
-    EXPECT_EQ(err, 0);
-    auto integrator = propagator.getIntegrator();
-    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
-    if(varStepIntegrator)
-    {
-        varStepIntegrator->setUseFixedStep(true);
-        varStepIntegrator->setStepSize(60);
-    }
-    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
-    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
-    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
-    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
-    err = propagator.propagate(start, end, pos, vel);
-    EXPECT_EQ(err, 0);
-    printf("end: %s\n", end.toString().c_str());
-    printf("pos: %s\n", pos.toString().c_str());
-    printf("vel: %s\n", vel.toString().c_str());
-
-    Vector3d posExpect{ 6.0718101518087089e+06, 1.1238242325263233e+06, 3.0126906601675297e+06};
-    Vector3d velExpect{ -2.0190679823240823e+03, 7.2126951799608260e+03, 1.3912689672060314e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 1);
-    EXPECT_NEAR(pos[1],  posExpect[1], 1);
-    EXPECT_NEAR(pos[2],  posExpect[2], 1);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-3);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-3);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-3);
-}
-
-/// @brief 测试太阳辐射压力（无阴影模型，真太阳位置）
-/// @details
-/// 在EGM2008 21×21基础上叠加太阳光压摄动。
-/// 使用最简单的 SRP 配置：不检测阴影，并使用几何太阳位置（不考虑光行差）。
-TEST_F(HPOPTest, SRP_NoShadow_TrueSun)
-{
-    HPOPForceModel forceModel;
-    forceModel.gravity().maxDegree_ = 21;
-    forceModel.gravity().maxOrder_ = 21;
-    forceModel.gravity().model_ = "EGM2008";
-    forceModel.gravity().useSecularVariations_ = false;
-    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
-
-    forceModel.useSRP(true);
-    forceModel.srp().shadowModel_ = EShadowModel::eNone;
-    forceModel.srp().sunPosition_ = ESunPosition::eTrue;
-
-    SpacecraftParam scParam;
-    scParam.setDryMass(1000.0);
-    scParam.setFuelMass(0.0);
-    scParam.setSrpArea(20);
-    scParam.setCr(1);
-
-    HPOP propagator;
-    errc_t err = propagator.setForceModel(forceModel);
-    propagator.setSpacecraftParam(scParam);
-    EXPECT_EQ(err, 0);
-    auto integrator = propagator.getIntegrator();
-    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
-    if(varStepIntegrator)
-    {
-        varStepIntegrator->setUseFixedStep(true);
-        varStepIntegrator->setStepSize(60);
-    }
-    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
-    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
-    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
-    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
-    err = propagator.propagate(start, end, pos, vel);
-    EXPECT_EQ(err, 0);
-    printf("end: %s\n", end.toString().c_str());
-    printf("pos: %s\n", pos.toString().c_str());
-    printf("vel: %s\n", vel.toString().c_str());
-
-    Vector3d posExpect{ 6.2333481674869442e+06, 4.2166379211770219e+05, 2.8615712739877473e+06};
-    Vector3d velExpect{ -1.2876976995850798e+03, 7.3033485417655947e+03, 1.7416876627816571e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
-    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
-    EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-8);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-8);
-}
-
-/// @brief 测试太阳辐射压力（无阴影模型，视太阳位置）
-/// @details
-/// 在EGM2008 21×21基础上叠加太阳光压摄动。
-/// 使用最简单的 SRP 配置：不检测阴影，并使用视太阳位置（考虑光行差和像差）。
-TEST_F(HPOPTest, SRP_NoShadow_ApparentSun)
-{
-    HPOPForceModel forceModel;
-    forceModel.gravity().maxDegree_ = 21;
-    forceModel.gravity().maxOrder_ = 21;
-    forceModel.gravity().model_ = "EGM2008";
-    forceModel.gravity().useSecularVariations_ = false;
-    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
-
-    forceModel.useSRP(true);
-    forceModel.srp().shadowModel_ = EShadowModel::eNone;
-    forceModel.srp().sunPosition_ = ESunPosition::eApparent;
-
-    SpacecraftParam scParam;
-    scParam.setDryMass(1000.0);
-    scParam.setFuelMass(0.0);
-    scParam.setSrpArea(20);
-    scParam.setCr(1);
-
-    HPOP propagator;
-    errc_t err = propagator.setForceModel(forceModel);
-    propagator.setSpacecraftParam(scParam);
-    EXPECT_EQ(err, 0);
-    auto integrator = propagator.getIntegrator();
-    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
-    if(varStepIntegrator)
-    {
-        varStepIntegrator->setUseFixedStep(true);
-        varStepIntegrator->setStepSize(60);
-    }
-    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
-    auto end   = TimePoint::FromUTC(2026, 7, 17, 0, 0, 0);
-    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
-    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
-    err = propagator.propagate(start, end, pos, vel);
-    EXPECT_EQ(err, 0);
-    printf("end: %s\n", end.toString().c_str());
-    printf("pos: %s\n", pos.toString().c_str());
-    printf("vel: %s\n", vel.toString().c_str());
-
-
-    Vector3d posExpect{ -4.9951497747736117e+06, -3.5746254555597445e+06, 3.0854579753351789e+06};
-    Vector3d velExpect{   3.8356051445650824e+03, -6.4541844858277245e+03, -1.2740514873863249e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 1e-3);
-    EXPECT_NEAR(pos[1],  posExpect[1], 2e-3);
-    EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
-}
-
-/// @brief 测试太阳辐射压力（无阴影模型，视太阳位置）
-/// @details
-/// 在EGM2008 21×21基础上叠加太阳光压摄动。
-/// 使用最简单的 SRP 配置：不检测阴影，并使用视太阳位置（考虑光行差和像差）。
-TEST_F(HPOPTest, SRP_NoShadow_ApparentSunToBody)
-{
-    HPOPForceModel forceModel;
-    forceModel.gravity().maxDegree_ = 21;
-    forceModel.gravity().maxOrder_ = 21;
-    forceModel.gravity().model_ = "EGM2008";
-    forceModel.gravity().useSecularVariations_ = false;
-    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
-
-    forceModel.useSRP(true);
-    forceModel.srp().shadowModel_ = EShadowModel::eNone;
-    forceModel.srp().sunPosition_ = ESunPosition::eApparentSunToTrueCB;
-
-    SpacecraftParam scParam;
-    scParam.setDryMass(1000.0);
-    scParam.setFuelMass(0.0);
-    scParam.setSrpArea(20);
-    scParam.setCr(1);
-
-    HPOP propagator;
-    errc_t err = propagator.setForceModel(forceModel);
-    propagator.setSpacecraftParam(scParam);
-    EXPECT_EQ(err, 0);
-    auto integrator = propagator.getIntegrator();
-    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
-    if(varStepIntegrator)
-    {
-        varStepIntegrator->setUseFixedStep(true);
-        varStepIntegrator->setStepSize(60);
-    }
-    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
-    auto end   = TimePoint::FromUTC(2026, 7, 17, 0, 0, 0);
-    Vector3d pos{6.8781370000000000e+06, 0.0, 0.0};
-    Vector3d vel{0.0000000000000000e+00, 6.6900903321018868e+03, 3.6324226769107227e+03};
-    err = propagator.propagate(start, end, pos, vel);
-    EXPECT_EQ(err, 0);
-    printf("end: %s\n", end.toString().c_str());
-    printf("pos: %s\n", pos.toString().c_str());
-    printf("vel: %s\n", vel.toString().c_str());
-
-    Vector3d posExpect{  -4.9951606036705822e+06, -3.5746072424644586e+06, 3.0854615806196616e+06 };
-    Vector3d velExpect{  3.8355878481494951e+03, -6.4541968622990571e+03, -1.2740407535364818e+03 };
-    EXPECT_NEAR(pos[0],  posExpect[0], 2e-3);
-    EXPECT_NEAR(pos[1],  posExpect[1], 2e-3);
-    EXPECT_NEAR(pos[2],  posExpect[2], 2e-3);
     EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
     EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-5);

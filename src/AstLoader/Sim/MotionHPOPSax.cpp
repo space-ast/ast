@@ -95,6 +95,35 @@ static EAtmDensityModel _aStringToAtmDensityModel(StringView value)
     return EAtmDensityModel::eNone;
 }
 
+errc_t MotionHPOPSax::begin(StringView name)
+{
+    if(aEqualsIgnoreCase(name, "EclipsingBodies"))
+    {
+        BKVItemView item;
+        BKVParser::EToken token;
+        forceModel_.srp().eclipsingBodies_.clear();
+        do{
+            token = parser_.getNext(item);
+            if(token == BKVParser::eKeyValue){
+                if(aEqualsIgnoreCase(item.key(), "Body")){
+                    StringView bodyName = item.value();
+                    auto body = aGetBody(bodyName);
+                    if(!body)
+                    {
+                        aWarning("failed to get body '%.*s'", bodyName.size(), bodyName.data());
+                        continue;
+                    }
+                    forceModel_.srp().eclipsingBodies_.push_back(body);
+                }
+            }
+        }while(token != BKVParser::eBlockEnd && token != BKVParser::eEOF);
+        return eNoError;
+    }
+    else{
+        return MotionOrbitDynamicsSax::begin(name);
+    }
+}
+
 errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
 {
     if(aEqualsIgnoreCase(key, "X")){
@@ -265,9 +294,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             // @todo 处理其他阴影模型
         }
     }
-    else if(aEqualsIgnoreCase(key, "EclipsingBodies")){
-        // @todo 处理EclipsingBodies
-    }
+    
     else if(aEqualsIgnoreCase(key, "AtmAltForEclipse")){
         forceModel_.srp().atmAltForEclipse_ = value.toDouble();
     }

@@ -24,6 +24,7 @@
 #include "AstCore/BlockDerivative.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstCore/ForceModel.hpp"       // for ESunPosition
+#include "AstCore/EclipseCalculator.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -54,9 +55,9 @@ public:
     /// @param srpArea SRP面积
     /// @param propagationFrame 预报坐标系
     /// @note 构造函数这里只保留必需的参数，其他额外的配置参数通过set方法设置
-    BlockSRP(CelestialBody* sun, double cr, double srpArea, Frame* propagationFrame);
+    BlockSRP(EclipseCalculator* eclipseCalculator, double cr, double srpArea, Frame* propagationFrame);
 
-    ~BlockSRP() override = default;
+    ~BlockSRP() override;
 
     errc_t run(const SimTime& simTime) final;
 public:
@@ -71,7 +72,7 @@ protected:
     Vector3d vectorBuffer_{};                       ///< 向量缓冲区
 
 private:
-    CelestialBody* sun_{};                          ///< 太阳
+    EclipseCalculator* eclipseCalculator_{};        ///< 阴影光照计算器
     double cr_{1.0};                                ///< 光压系数
     double srpArea_{20.0};                          ///< SRP面积 [m^2]
     Frame* propagationFrame_{};                     ///< 预报坐标系
