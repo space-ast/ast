@@ -263,6 +263,7 @@ var hierarchy =
       [ "ast::GravityField", "classast_1_1GravityField.html", null ]
     ] ],
     [ "ast::GravityFieldLoader", "classast_1_1GravityFieldLoader.html", null ],
+    [ "ast::GravityFieldSecularVariations", "classast_1_1GravityFieldSecularVariations.html", null ],
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "ast::GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", null ]
     ] ],
@@ -1296,6 +1297,7 @@ var hierarchy =
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
     [ "Vardesc", "structVardesc.html", null ],
     [ "ast::VariableList", "classast_1_1VariableList.html", null ],
+    [ "ast::GravityFieldSecularVariations::Variation", "structast_1_1GravityFieldSecularVariations_1_1Variation.html", null ],
     [ "std::vector", null, [
       [ "ast::CommandParams", "classast_1_1CommandParams.html", null ],
       [ "ast::CommandResult", "classast_1_1CommandResult.html", null ],

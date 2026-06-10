@@ -14,8 +14,9 @@ var searchData=
   ['unnormalize_11',['unnormalize',['../classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598',1,'ast::GravityField']]],
   ['unnormalized_12',['unnormalized',['../classast_1_1GravityField.html#ace10e8e9a61a6fea914b1130db459297',1,'ast::GravityField']]],
   ['update_13',['update',['../classast_1_1AstGfxAPI.html#afd49c639f629c3b985309f0bd2d62963',1,'ast::AstGfxAPI::update()'],['../classast_1_1GfxCelestialBody.html#a4a13e86d282d1805f2e66f1982400fc5',1,'ast::GfxCelestialBody::update()'],['../classast_1_1GfxSolarSystem.html#a657b97b3ca30eb37db1d3a1affe2c8e7',1,'ast::GfxSolarSystem::update()']]],
-  ['url_14',['url',['../classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe',1,'ast::NetworkRequest']]],
-  ['useapproximatealtitude_15',['useApproximateAltitude',['../classast_1_1NRLMSIS00.html#a7b889270f9e4410a4d7ac6891d1a76cb',1,'ast::NRLMSIS00']]],
-  ['user_16',['User',['../classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001',1,'ast::ChatMessage']]],
-  ['utc2et_17',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]]
+  ['updatevariations_14',['updateVariations',['../classast_1_1GravityCalculator.html#ab8660ebd38215545274e4412274970fd',1,'ast::GravityCalculator::updateVariations()'],['../classast_1_1GravityField.html#a314fc8aa383f24fbadb0c6e9acf97398',1,'ast::GravityField::updateVariations()']]],
+  ['url_15',['url',['../classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe',1,'ast::NetworkRequest']]],
+  ['useapproximatealtitude_16',['useApproximateAltitude',['../classast_1_1NRLMSIS00.html#a7b889270f9e4410a4d7ac6891d1a76cb',1,'ast::NRLMSIS00']]],
+  ['user_17',['User',['../classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001',1,'ast::ChatMessage']]],
+  ['utc2et_18',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]]
 ];

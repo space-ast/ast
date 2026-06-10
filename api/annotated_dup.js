@@ -333,6 +333,7 @@ var annotated_dup =
       [ "GravityField", "classast_1_1GravityField.html", "classast_1_1GravityField" ],
       [ "GravityFieldHead", "classast_1_1GravityFieldHead.html", "classast_1_1GravityFieldHead" ],
       [ "GravityFieldLoader", "classast_1_1GravityFieldLoader.html", "classast_1_1GravityFieldLoader" ],
+      [ "GravityFieldSecularVariations", "classast_1_1GravityFieldSecularVariations.html", "classast_1_1GravityFieldSecularVariations" ],
       [ "GravityForce", "classast_1_1GravityForce.html", "classast_1_1GravityForce" ],
       [ "GroundStation", "classast_1_1GroundStation.html", null ],
       [ "GroundVehicle", "classast_1_1GroundVehicle.html", null ],

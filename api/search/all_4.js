@@ -64,7 +64,7 @@ var searchData=
   ['deg_61',['deg',['../Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e',1,'ast::units']]],
   ['deg2rad_62',['deg2rad',['../group__Util.html#ga2829ae46176d2ae6b387706feba62fdb',1,'ast']]],
   ['degree_63',['Degree',['../classast_1_1Unit.html#ad43a168c36918753c0dadcdbbffc17da',1,'ast::Unit']]],
-  ['degree_5f_64',['degree_',['../classast_1_1GravityCalculator.html#a1e643a734d78d52fb3b50945ac6f67b5',1,'ast::GravityCalculator']]],
+  ['degree_5f_64',['degree_',['../classast_1_1GravityCalculator.html#a1e643a734d78d52fb3b50945ac6f67b5',1,'ast::GravityCalculator::degree_'],['../structast_1_1GravityFieldSecularVariations_1_1Variation.html#a593fca6f814e4975e25c80267eb1f23e',1,'ast::GravityFieldSecularVariations::Variation::degree_']]],
   ['dela2coe_65',['dela2coe',['../group__Orbit.html#gafe6b54a4d5692ebf58a8ad36a1f25002',1,'ast']]],
   ['delaunayelem_66',['DelaunayElem',['../classast_1_1DelaunayElem.html',1,'ast']]],
   ['delimiterconcept_67',['DelimiterConcept',['../structast_1_1strings__internal_1_1DelimiterConcept.html',1,'ast::strings_internal']]],

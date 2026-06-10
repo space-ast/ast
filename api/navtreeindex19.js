@@ -1,5 +1,7 @@
 var NAVTREEINDEX19 =
 {
+"classast_1_1Command.html#a574b28e0e23c97379feba85e2f89c92c":[2,0,0,132,1],
+"classast_1_1Command.html#a574b28e0e23c97379feba85e2f89c92c":[3,0,0,132,1],
 "classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53":[2,0,0,132,0],
 "classast_1_1Command.html#aa7faa5dbf1a26345c3aad5efebe84b53":[3,0,0,132,0],
 "classast_1_1CommandDispatcher.html":[2,0,0,133],
@@ -247,7 +249,5 @@ var NAVTREEINDEX19 =
 "classast_1_1DetectorPointRelated.html":[2,0,0,184],
 "classast_1_1DetectorPointRelated.html":[3,0,0,184],
 "classast_1_1DetectorRMagnitude.html":[2,0,0,185],
-"classast_1_1DetectorRMagnitude.html":[3,0,0,185],
-"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,185,0],
-"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,185,0]
+"classast_1_1DetectorRMagnitude.html":[3,0,0,185]
 };

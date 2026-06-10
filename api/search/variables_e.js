@@ -13,7 +13,7 @@ var searchData=
   ['nextindex_5f_10',['nextIndex_',['../classast_1_1ObjectManager.html#aed29f74969dbb4905f183df0a3b71b4a',1,'ast::ObjectManager']]],
   ['ni_11',['ni',['../structast_1_1DAF__FileRecord.html#a1587d1fac8eb89702e8e633c0892d7b0',1,'ast::DAF_FileRecord']]],
   ['none_12',['none',['../Unit_8cpp.html#a8c7d84c2b89aa838db8477fc949f8e08',1,'ast::units']]],
-  ['normalized_5f_13',['normalized_',['../classast_1_1GravityFieldHead.html#abf41169c929d25e079209590ebdf3f5a',1,'ast::GravityFieldHead::normalized_'],['../classast_1_1GravityField.html#abf41169c929d25e079209590ebdf3f5a',1,'ast::GravityField::normalized_']]],
+  ['normalized_5f_13',['normalized_',['../classast_1_1GravityFieldHead.html#abf41169c929d25e079209590ebdf3f5a',1,'ast::GravityFieldHead::normalized_'],['../classast_1_1GravityFieldSecularVariations.html#a9302dd2f5908f7547632647d982de442',1,'ast::GravityFieldSecularVariations::normalized_'],['../classast_1_1GravityField.html#abf41169c929d25e079209590ebdf3f5a',1,'ast::GravityField::normalized_']]],
   ['nsum_14',['nsum',['../structast_1_1DAF__SummaryRecords.html#a66059789fd3533535103bad8379ef41d',1,'ast::DAF_SummaryRecords::nsum'],['../structast_1_1DAF__SPKSummaryRecords.html#a680a017d720ab0a4337286e38a961e4d',1,'ast::DAF_SPKSummaryRecords::nsum']]],
   ['number_5f_15',['number_',['../classast_1_1JsonValue.html#a5cf79ddb3a4387187f4165f66467d5c0',1,'ast::JsonValue']]],
   ['numparams_5f_16',['numParams_',['../classast_1_1CommandTrie_1_1Node.html#a256686c094903e271579870b2d669356',1,'ast::CommandTrie::Node']]],

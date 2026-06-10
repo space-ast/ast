@@ -183,7 +183,7 @@ var searchData=
   ['orbitepoch_5f_180',['orbitEpoch_',['../classast_1_1BaseOrbitDesigner.html#ab82f58afe9a01ffe9b46e1cf55d685bb',1,'ast::BaseOrbitDesigner']]],
   ['orbitparam_2ecpp_181',['OrbitParam.cpp',['../OrbitParam_8cpp.html',1,'']]],
   ['orbitparam_2ehpp_182',['OrbitParam.hpp',['../OrbitParam_8hpp.html',1,'']]],
-  ['order_5f_183',['order_',['../classast_1_1GravityCalculator.html#a9212a7c9197e81fecdb52595c0cba4d5',1,'ast::GravityCalculator']]],
+  ['order_5f_183',['order_',['../classast_1_1GravityCalculator.html#a9212a7c9197e81fecdb52595c0cba4d5',1,'ast::GravityCalculator::order_'],['../structast_1_1GravityFieldSecularVariations_1_1Variation.html#a2359c57443b85610f66a6f2e8d224796',1,'ast::GravityFieldSecularVariations::Variation::order_']]],
   ['orderedmap_184',['OrderedMap',['../classast_1_1OrderedMap.html',1,'ast']]],
   ['orderedmap_2ecpp_185',['OrderedMap.cpp',['../OrderedMap_8cpp.html',1,'']]],
   ['orderedmap_2ehpp_186',['OrderedMap.hpp',['../OrderedMap_8hpp.html',1,'']]],
@@ -193,7 +193,8 @@ var searchData=
   ['ordinarydifferentialequation_2ehpp_190',['OrdinaryDifferentialEquation.hpp',['../OrdinaryDifferentialEquation_8hpp.html',1,'']]],
   ['orientationtype_5f_191',['orientationType_',['../classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3',1,'ast::StateKeplerian']]],
   ['origin_5f_192',['origin_',['../classast_1_1FrameAssembly.html#a153f06ae7eb2d61d664281e07050fa17',1,'ast::FrameAssembly::origin_'],['../classast_1_1FrameWithEpoch.html#a9a32767beac508031b47d6e53c027575',1,'ast::FrameWithEpoch::origin_']]],
-  ['osculatingelements_2ecpp_193',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
-  ['osculatingelements_2ehpp_194',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]],
-  ['outputs_195',['outputs',['../classast_1_1SweepStudy.html#ab4c887e3b749aa8e68fe03f7d696be40',1,'ast::SweepStudy::outputs()'],['../classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c',1,'ast::StudyWorkbench::outputs()']]]
+  ['originalcoefficient_5f_193',['originalCoefficient_',['../structast_1_1GravityFieldSecularVariations_1_1Variation.html#acc2ad798aaf626032e1b3af684d8c75d',1,'ast::GravityFieldSecularVariations::Variation']]],
+  ['osculatingelements_2ecpp_194',['OsculatingElements.cpp',['../OsculatingElements_8cpp.html',1,'']]],
+  ['osculatingelements_2ehpp_195',['OsculatingElements.hpp',['../OsculatingElements_8hpp.html',1,'']]],
+  ['outputs_196',['outputs',['../classast_1_1SweepStudy.html#ab4c887e3b749aa8e68fe03f7d696be40',1,'ast::SweepStudy::outputs()'],['../classast_1_1StudyWorkbench.html#a9855573951947ff4af5cefdebaf8371c',1,'ast::StudyWorkbench::outputs()']]]
 ];

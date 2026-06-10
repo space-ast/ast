@@ -1,5 +1,7 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4":[2,0,0,209,2],
+"classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4":[3,0,0,209,2],
 "classast_1_1EventDetector.html#a216414de99f2655e62234d6ad2660431":[2,0,0,209,4],
 "classast_1_1EventDetector.html#a216414de99f2655e62234d6ad2660431":[3,0,0,209,4],
 "classast_1_1EventDetector.html#a281b62793ed301061e760066093792b4":[2,0,0,209,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1FOVHalfPower.html#aef28c3d08b306d3630f589b2594e426f":[2,0,0,253,3],
 "classast_1_1FOVHalfPower.html#aef28c3d08b306d3630f589b2594e426f":[3,0,0,253,3],
 "classast_1_1FOVRectangular.html":[2,0,0,254],
-"classast_1_1FOVRectangular.html":[3,0,0,254],
-"classast_1_1FOVRectangular.html#a0b393213c8b8970a864ef71c6f497e87":[2,0,0,254,0],
-"classast_1_1FOVRectangular.html#a0b393213c8b8970a864ef71c6f497e87":[3,0,0,254,0]
+"classast_1_1FOVRectangular.html":[3,0,0,254]
 };

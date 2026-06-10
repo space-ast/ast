@@ -1,5 +1,7 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,185,0],
+"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,185,0],
 "classast_1_1DetectorTrueAnomaly.html":[2,0,0,186],
 "classast_1_1DetectorTrueAnomaly.html":[3,0,0,186],
 "classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[2,0,0,186,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1Euler.html#a90f20b7cd8b45ecc01be6a48e50f66f1":[0,2,1,1,4],
 "classast_1_1Euler.html#ae7bb353ac3be780d21601a33f1ef8ce9":[0,2,1,1,1],
 "classast_1_1EventDetector.html":[2,0,0,209],
-"classast_1_1EventDetector.html":[3,0,0,209],
-"classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4":[2,0,0,209,2],
-"classast_1_1EventDetector.html#a1fb0d5745861c1934f0e0df52f5a5ec4":[3,0,0,209,2]
+"classast_1_1EventDetector.html":[3,0,0,209]
 };

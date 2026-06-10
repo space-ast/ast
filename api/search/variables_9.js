@@ -29,6 +29,7 @@ var searchData=
   ['isintervalcached_5f_26',['isIntervalCached_',['../classast_1_1JplSpk.html#aa92e240fce8ac0389f0caa6f7acce87e',1,'ast::JplSpk']]],
   ['isloaded_5f_27',['isLoaded_',['../classast_1_1IAUXYS.html#ab8872368ab4a6040eded4117a44484fd',1,'ast::IAUXYS']]],
   ['issameendian_5f_28',['isSameEndian_',['../classast_1_1DAFParser.html#ab8039a409504d55b2be173ff7807d4a4',1,'ast::DAFParser']]],
-  ['isvalidfile_5f_29',['isValidFile_',['../classast_1_1DAFParser.html#a3ca018e7a7259e9a150e9685c4db706a',1,'ast::DAFParser']]],
-  ['ival_30',['ival',['../structast_1_1DAF__SummaryRecords.html#a130fc80796fa04596fa29feca5706f1c',1,'ast::DAF_SummaryRecords']]]
+  ['issin_5f_29',['isSin_',['../structast_1_1GravityFieldSecularVariations_1_1Variation.html#a3108c5f27de9b7f8fb736ea81534b2f0',1,'ast::GravityFieldSecularVariations::Variation']]],
+  ['isvalidfile_5f_30',['isValidFile_',['../classast_1_1DAFParser.html#a3ca018e7a7259e9a150e9685c4db706a',1,'ast::DAFParser']]],
+  ['ival_31',['ival',['../structast_1_1DAF__SummaryRecords.html#a130fc80796fa04596fa29feca5706f1c',1,'ast::DAF_SummaryRecords']]]
 ];
