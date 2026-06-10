@@ -95,6 +95,11 @@ public:
     EBodyAttractionType bodyAttractionType() const;
 
     /// @brief 添加三体引力模型
+    /// @param bodyName 天体名称
+    /// @return 三体引力模型
+    ThirdBodyForce* addThirdBody(StringView bodyName);
+
+    /// @brief 添加三体引力模型
     /// @param body 天体
     ThirdBodyForce* addThirdBody(Body* body);
 

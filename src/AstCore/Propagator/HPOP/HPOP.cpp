@@ -23,6 +23,7 @@
 #include "AstMath/ODE.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstCore/EventDetector.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -60,6 +61,12 @@ errc_t HPOP::setPropagationFrame(Frame *frame)
     return equation_->setPropagationFrame(frame);
 }
 
+void HPOP::setIntegrator(ODEIntegrator *integrator)
+{
+    if(integrator)
+        integrator_ = integrator;
+}
+
 ODEIntegrator *HPOP::getIntegrator() const
 {
     if(A_UNLIKELY(!integrator_)){
@@ -68,21 +75,6 @@ ODEIntegrator *HPOP::getIntegrator() const
     }
     return integrator_;
 }
-
-errc_t HPOP::initialize()
-{
-    if (!equation_){
-        equation_ = new HPOPEquation();
-    }
-    if (!integrator_){
-        integrator_ = new RKF78();
-    }
-    return equation_->initialize();
-    // err |= integrator_->initialize(equation_);
-}
-
-
-
 
 errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector3d &position, Vector3d &velocity)
 {
@@ -108,10 +100,28 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
 }
 
 
-void HPOP::setIntegrator(ODEIntegrator *integrator)
+errc_t HPOP::initialize()
 {
-    if(integrator)
-        integrator_ = integrator;
+    if (!equation_){
+        equation_ = new HPOPEquation();
+    }
+    if (!integrator_){
+        integrator_ = new RKF78();
+    }
+    return equation_->initialize();
+    // err |= integrator_->initialize(equation_);
+}
+
+
+void HPOP::addEventDetector(EventDetector* eventDetector)
+{
+    if(!eventDetector) return;
+    this->getIntegrator()->addEventDetector(eventDetector->newODEEventDetector());
+}
+
+void HPOP::clearEventDetectors()
+{
+    this->getIntegrator()->clearEventDetectors();
 }
 
 

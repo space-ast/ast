@@ -233,6 +233,13 @@ TimePoint TimePoint::FromUTC(const DateTime &dttmUTC)
     return TimePoint::FromTAI(jdTAI);
 }
 
+TimePoint TimePoint::FromBJT(const DateTime& dttmBJT)
+{
+    auto dttmUTC = dttmBJT;
+    dttmUTC.addHours(-8);
+    return TimePoint::FromUTC(dttmUTC);
+}
+
 TimePoint TimePoint::FromTAI(const DateTime& dttmTAI)
 {
     JulianDate jdTAI{};
@@ -291,5 +298,16 @@ TimePoint TimePoint::Parse(StringView str)
     }
     return time;
 }
+
+TimePoint TimePoint::ParseUTC(StringView str)
+{
+    return TimePoint::FromUTC(DateTime::Parse(str));
+}
+
+TimePoint TimePoint::ParseBJT(StringView str)
+{
+    return TimePoint::FromBJT(DateTime::Parse(str));
+}
+
 
 AST_NAMESPACE_END

@@ -449,6 +449,8 @@ using Body = CelestialBody;
 class EventTime;             ///< 事件时间
 class EventInterval;         ///< 事件时间段
 
+class EventDetector;         ///< 事件检测器
+
 class Identifier;           ///< 标识符
 class Value;                ///< 值
 class Expr;                 ///< 表达式

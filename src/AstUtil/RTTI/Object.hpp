@@ -508,6 +508,12 @@ T Object::getParent() const
     return aobject_cast<T>(getParentScope());
 }
 
+template<typename T>
+SharedPtr<T> aMakeShared()
+{
+    return new T();
+}
+
 
 /*! @} */
 

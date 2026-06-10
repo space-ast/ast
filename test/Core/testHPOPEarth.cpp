@@ -27,9 +27,16 @@
 #include "ast/Environment.hpp"
 #include "ast/ODEVarStepIntegrator.hpp"
 #include "ast/SpacecraftParam.hpp"
+#include "ast/Literals.hpp"
+#include "ast/DetectorPeriapsis.hpp"
+#include "ast/Resolve.hpp"
+#include "ast/OrbitElement.hpp"
+#include "ast/FrameTransform.hpp"
+#include "ast/Transform.hpp"
+#include "ast/KinematicTransform.hpp"
 
 AST_USING_NAMESPACE
-
+using namespace literals;
 class HPOPTest : public ::testing::Test
 {
     void SetUp() override
@@ -43,6 +50,75 @@ class HPOPTest : public ::testing::Test
         aUninitialize();
     }
 };
+
+
+/// @brief 测试地月转移，反向预报
+TEST_F(HPOPTest, Earth_Moon_Transfer_Backward_Propagation)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useDrag(true);
+    forceModel.drag().f10p7Average_ = 15.0;
+    forceModel.drag().f10p7Daily_ = 15.0;
+    forceModel.drag().kp_ = 3;
+
+    forceModel.useSRP(true);
+    forceModel.srp().sunPosition_ = ESunPosition::eTrue;
+    forceModel.srp().shadowModel_ = EShadowModel::eDualCone;
+
+    forceModel.addThirdBody("Moon");
+    forceModel.addThirdBody("Sun");
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(200_kg);
+    scParam.setFuelMass(26000_kg);
+    scParam.setCd(2.2);
+    scParam.setDragArea(50_m2);
+    scParam.setCr(1);
+    scParam.setSrpArea(50_m2);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+
+    auto start = "2029-10-01 00:00:00"_utc;
+    auto end = start - 10_day;
+
+    auto detector = aMakeShared<DetectorPeriapsis>();
+    detector->setBody("Earth");
+    propagator.addEventDetector(detector);
+
+    ModOrbElem modOrbElem{1937400, 1.264390077164752, 156.132018119242332_deg, 173.10502120709711_deg, 108.963351860038912_deg, 0};
+    double gmMoon = aGetMoon()->getGM();
+    CartState moonJ2000;
+    aModOrbElemToCart(modOrbElem, gmMoon, moonJ2000.pos(), moonJ2000.vel());
+    KinematicTransform transform;
+    aFrameTransform("Moon J2000"_frame, "Earth ICRF"_frame, start, transform);
+    CartState earthICRF;
+    transform.transformPositionVelocity(moonJ2000.pos(), moonJ2000.vel(), earthICRF.pos(), earthICRF.vel());
+    err = propagator.propagate(start, end, earthICRF.pos(), earthICRF.vel());
+
+    printf("start: %s\n", start.toString().c_str());
+    printf("end  : %s\n", end.toString().c_str());
+    printf("pos  : %s\n", earthICRF.pos().toString().c_str());
+    printf("vel  : %s\n", earthICRF.vel().toString().c_str());
+
+    Vector3d posExpected{1574552.8400255216, -5990072.842589266, -2403805.4378060703};
+    Vector3d velExpected{10249.204432921466, 1350.1713349226482, 3348.9770740081763};
+
+    EXPECT_NEAR(earthICRF.pos()[0], posExpected[0], 1);
+    EXPECT_NEAR(earthICRF.pos()[1], posExpected[1], 1);
+    EXPECT_NEAR(earthICRF.pos()[2], posExpected[2], 1);
+    EXPECT_NEAR(earthICRF.vel()[0], velExpected[0], 1e-3);
+    EXPECT_NEAR(earthICRF.vel()[1], velExpected[1], 1e-3);
+    EXPECT_NEAR(earthICRF.vel()[2], velExpected[2], 1e-3);
+
+}
 
 /// @brief 测试对重力场长期变化率的支持
 /// @details

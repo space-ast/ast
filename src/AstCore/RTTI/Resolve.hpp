@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/RTTIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -73,6 +74,34 @@ AST_CORE_API Axes* aResolveAxes(StringView name);
 /// @return 点指针
 /// @note 如果点不存在，返回 nullptr
 AST_CORE_API Point* aResolvePoint(StringView name);
+
+
+inline Point* operator ""_point(const char* str, size_t len)
+{
+    return aResolvePoint(StringView(str, len));
+}
+
+inline Body* operator ""_body(const char* str, size_t len)
+{
+    return aResolveBody(StringView(str, len));
+}
+
+
+inline Frame* operator ""_frame(const char* str, size_t len)
+{
+    return aResolveFrame(StringView(str, len));
+}
+
+inline Axes* operator ""_axes(const char* str, size_t len)
+{
+    return aResolveAxes(StringView(str, len));
+}
+
+inline Object* operator ""_object(const char* str, size_t len)
+{
+    return aResolveObject(StringView(str, len));
+}
+
 
 
 /*! @} */

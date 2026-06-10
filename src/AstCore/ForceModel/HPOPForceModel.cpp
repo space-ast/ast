@@ -47,6 +47,14 @@ PointMassForce& HPOPForceModel::pointMass()
     return static_cast<PointMassForce&>(*bodyAttraction_);
 }
 
+ThirdBodyForce *HPOPForceModel::addThirdBody(StringView bodyName)
+{
+    CelestialBody* body = aGetBody(bodyName);
+    if(body)
+        return addThirdBody(body);
+    return nullptr;
+}
+
 ThirdBodyForce *HPOPForceModel::addThirdBody(Body *body)
 {
     ThirdBodyForce thirdBody(body);

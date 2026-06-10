@@ -82,6 +82,13 @@ public:
 
     /// @brief 初始化
     errc_t initialize();
+
+    /// @brief 添加事件检测器
+    /// @param[in] eventDetector 事件检测器实例指针
+    void addEventDetector(EventDetector* eventDetector);
+
+    /// @brief 清除所有事件检测器
+    void clearEventDetectors();
 protected:
     HPOPEquation* equation() const;
 private:
