@@ -44,6 +44,50 @@ class HPOPTest : public ::testing::Test
     }
 };
 
+/// @brief 测试对重力场长期变化率的支持
+/// @details
+/// 在EGM2008 21×21基础上叠加长期变化率。
+TEST_F(HPOPTest, Gravity_SecularVariation)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = true;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 7, 23, 0, 0, 0);
+    Vector3d pos{6.9281370000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.5063736481185788e+03, 3.9094236978331351e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+
+
+    Vector3d posExpect{  -2.7860997530027227e+06, 5.8800552383734034e+06, 2.3653234244502061e+06 };
+    Vector3d velExpect{  -5.7912724289295857e+03, -3.9317279131837313e+03, 2.9464110271406303e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 2e-4);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 2e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+}
+
 
 /// @brief 测试太阳辐射压力（考虑圆柱阴影模型，真太阳位置）
 /// @details

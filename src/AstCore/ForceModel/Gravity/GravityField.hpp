@@ -23,7 +23,9 @@
 #include "AstGlobal.h"
 #include "AstMath/LowerMatrix.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstCore/TimePoint.hpp"
 #include <string>
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -56,12 +58,30 @@ protected:
     bool includesPermTide_{false};          ///< 是否包含潮汐
 };
 
+/// @brief 重力场长期变化
+class GravityFieldSecularVariations
+{
+public:
+    struct Variation
+    {
+        bool isSin_{false};                ///< 是否是正弦项
+        int degree_{0};                    ///< 阶数 n
+        int order_{0};                     ///< 次数 m
+        double linearRate_{0};             ///< 线性变化率[1/年]
+        double originalCoefficient_{0};    ///< 原始系数
+    };
+public:
+    bool normalized_{false};                 ///< 该系数是否是归一化系数
+    TimePoint referenceEpoch_{};             ///< 参考时间点
+    std::vector<Variation> variations_;      ///< 长期变化系数列表
+};
 
 /// @brief 重力场系数
 /// @details 包含重力场的头信息和系数矩阵，如Sn、Cn等。
 class AST_CORE_API GravityField: protected GravityFieldHead
 {
 public:
+    using SecularVariations = GravityFieldSecularVariations;
     GravityField();
     ~GravityField() = default;
 
@@ -169,16 +189,22 @@ public:
     /// @brief 获取反归一化后的重力场
     /// @return 反归一化后的重力场
     GravityField unnormalized() const;
+
+    /// @brief 更新重力场系数变化
+    /// @param epoch 时间点
+    void updateVariations(const TimePoint& epoch);
     
+    /// @brief 获取重力场长期变化
+    SecularVariations& secularVariations() { return secularVariations_; }
 public:
     double& snm(int n, int m);
     double& cnm(int n, int m);
     /// @brief 初始化系数矩阵
     void initCoeffMatrices();
 protected:
-    
-    LowerMatrixd sinCoeff_;         ///< Snm系数
-    LowerMatrixd cosCoeff_;         ///< Cnm系数    
+    LowerMatrixd sinCoeff_;                 ///< Snm系数
+    LowerMatrixd cosCoeff_;                 ///< Cnm系数
+    SecularVariations secularVariations_;   ///< 重力场长期变化
 };
 
 inline double &GravityField::snm(int n, int m)

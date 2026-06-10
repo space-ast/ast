@@ -128,8 +128,10 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 /// @todo 这里要根据重力场的配置来获取重力场坐标系
                 auto gravityAxes = body->getAxesFixed(); 
                 /// @todo 这里产生了一次重力场系数复制，有一定的优化空间
-                derivativeBlock = new BlockGravity(gravityField, gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
-                this->addBlock(derivativeBlock);
+                BlockGravity* blockGravity = new BlockGravity(gravityField, gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
+                // 设置是否考虑重力场系数变化
+                blockGravity->setConsiderVariations(gravity.useSecularVariations_);
+                this->addBlock(blockGravity);
             }
         }
         // 添加二体引力函数块

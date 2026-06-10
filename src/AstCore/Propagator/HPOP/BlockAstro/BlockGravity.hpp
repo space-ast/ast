@@ -58,6 +58,9 @@ public:
     BlockGravity(GravityField &&gravityField, int degree, int order, Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
 
     errc_t run(const SimTime& simTime) final;
+
+    /// @brief 设置是否考虑重力场系数变化
+    void setConsiderVariations(bool considerVariations){considerVariations_ = considerVariations;}
 private:
     void init();
 private:
@@ -68,6 +71,7 @@ private:
     Vector3d*                velocityDerivativePtr_{&vectorBuffer_};    ///< 速度导数(预报坐标系下)
     Vector3d                 vectorBuffer_{};                           ///< 向量缓冲区
     GravityCalculatorDefault gravityCalculator_;                        ///< 重力计算器
+    bool                     considerVariations_{false};                ///< 是否考虑重力场系数变化
 };
 
 
